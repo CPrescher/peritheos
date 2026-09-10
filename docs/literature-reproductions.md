@@ -2498,3 +2498,13 @@ Figure 10 RP01 vector markers recovers both published coefficients within their
 quoted errors, with a `parity` outcome, comparable refit standard errors, and
 explicit row-selection and objective sensitivities. The separate maximum-pressure checkpoint retains
 its printed-precision discrepancy.
+
+## Fei 2016 and its primary iron inputs
+
+The [Fei 2016 audit](literature-reproductions/fei-2016-iron.md) adds three
+published hcp-iron records and all 96 supplementary observations.
+The [five-paper audit](literature-reproductions/iron-fei-input-papers.md)
+adds 43 published records and 348 observations from Brown (2000), Dubrovinsky
+(2000), Yamazaki (2012), Sakai (2014), and Dewaele (2006), including an
+Fe0.9Ni0.1 material. Both audits distinguish numerical checks from complete
+coefficient parity and document the remaining source-data gaps.

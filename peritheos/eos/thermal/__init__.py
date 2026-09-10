@@ -2,6 +2,7 @@
 This module contains the thermal equations of state (EOS) implementations.
 """
 
+from .debye_quadratic import DebyeQuadraticThermalPressure
 from .dewaele import Dewaele2006
 from .dorogokupets_oganov import DorogokupetsOganov2007
 from .double_debye_helmholtz import (
@@ -37,6 +38,7 @@ __all__ = [
     "HollandPowell2011",
     "HollandPowellThermalPressure",
     "LinearThermalPressure",
+    "DebyeQuadraticThermalPressure",
     "LogVolumeThermalPressure",
     "MieGruneisenDebye",
     "AsymptoticPowerLawMieGruneisenDebyeExcess",

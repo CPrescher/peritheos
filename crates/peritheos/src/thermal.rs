@@ -203,6 +203,10 @@ where
 
     /// Construct a model with all conventions and an optional fitted
     /// high-temperature molar heat-capacity limit.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid reference, vibrational, or heat-capacity parameters.
     #[allow(clippy::too_many_arguments)]
     pub fn new_with_heat_capacity(
         rt_eos: R,
@@ -438,6 +442,67 @@ where
     }
 }
 
+/// MGD plus an empirical quadratic-temperature pressure contribution.
+///
+/// `Pth = P_MGD + A (V/V0)^m (T^2-Tr^2)`, with A in GPa/K^2.
+/// Volumes use J/bar/mol. This pressure-only model intentionally does not
+/// implement `CaloricEos`: an independently specified electronic Gruneisen
+/// coefficient need not define a thermodynamically consistent potential.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DebyeQuadraticThermalPressure<R> {
+    pub rt_eos: R,
+    pub debye: MieGruneisenDebye<R>,
+    pub a: f64,
+    pub m: f64,
+}
+
+impl<R: IsothermalEos + Copy> DebyeQuadraticThermalPressure<R> {
+    /// Construct the pressure surface using the integrated Debye temperature law.
+    ///
+    /// # Errors
+    /// Returns an error for invalid or nonfinite model parameters.
+    #[allow(clippy::too_many_arguments)]
+    pub fn new(
+        rt_eos: R,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        q: f64,
+        n: f64,
+        a: f64,
+        m: f64,
+    ) -> EosResult<Self> {
+        Ok(Self {
+            rt_eos,
+            debye: MieGruneisenDebye::new(rt_eos, tr, theta0, gamma0, q, n)?,
+            a: finite_parameter(a, "A")?,
+            m: finite_parameter(m, "m")?,
+        })
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for DebyeQuadraticThermalPressure<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.debye.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let pressure = self.debye.thermal_pressure(volume, temperature)?;
+        finite_result(
+            pressure
+                + self.a
+                    * (volume / self.rt_eos.reference_volume()).powf(self.m)
+                    * (temperature.powi(2) - self.debye.tr.powi(2)),
+        )
+    }
+}
+
 /// Volume-independent Holland--Powell Einstein thermal pressure.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HollandPowellThermalPressure<R> {
@@ -563,6 +628,20 @@ pub trait ReferenceStateEos: IsothermalEos + Copy {
     ///
     /// Returns an error when either reference value is invalid.
     fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self>;
+
+    /// Shift the reference pressure derivative when supported by this family.
+    ///
+    /// # Errors
+    /// Returns an error for families without a freely adjustable derivative.
+    fn with_pressure_derivative_shift(&self, shift: f64) -> EosResult<Self> {
+        if shift == 0.0 {
+            return Ok(*self);
+        }
+        Err(EosError::InvalidParameter {
+            name: "kprime_log_coefficient",
+            reason: "reference EOS does not support a pressure-derivative shift",
+        })
+    }
 }
 
 macro_rules! impl_two_parameter_reference_state {
@@ -588,6 +667,9 @@ macro_rules! impl_three_parameter_reference_state {
 
             fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
                 $constructor(volume, bulk_modulus, self.k0_prime)
+            }
+            fn with_pressure_derivative_shift(&self, shift: f64) -> EosResult<Self> {
+                $constructor(self.v0, self.k0, self.k0_prime + shift)
             }
         }
     };
@@ -870,6 +952,10 @@ pub struct ThermalReferenceState<R> {
     pub thermal_expansion_law: ThermalExpansionLaw,
     /// Reference-volume construction law.
     pub reference_volume_law: ReferenceVolumeLaw,
+    /// Optional coefficients of a reference-anchored cubic compressibility law.
+    pub compressibility_coefficients: Option<[f64; 3]>,
+    /// Coefficient of `(T-Tr) ln(T/Tr)` in the reference pressure derivative.
+    pub kprime_log_coefficient: f64,
 }
 
 impl<R: ReferenceStateEos> ThermalReferenceState<R> {
@@ -896,6 +982,8 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
             alpha1: finite_parameter(alpha1, "alpha1")?,
             thermal_expansion_law,
             reference_volume_law,
+            compressibility_coefficients: None,
+            kprime_log_coefficient: 0.0,
         };
         if model.thermal_expansion_law == ThermalExpansionLaw::Constant && model.alpha1 != 0.0 {
             return Err(EosError::InvalidParameter {
@@ -922,6 +1010,36 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
         Ok(model)
     }
 
+    /// Configure cubic compressibility and logarithmic pressure-derivative laws.
+    /// The polynomial is anchored to `1/K0` at `Tr`.
+    ///
+    /// # Errors
+    /// Rejects nonfinite coefficients, conflicting linear modulus slopes, or
+    /// pressure-derivative changes unsupported by the reference EOS.
+    pub fn with_temperature_laws(
+        mut self,
+        coefficients: Option<[f64; 3]>,
+        kprime_log_coefficient: f64,
+    ) -> EosResult<Self> {
+        if let Some(values) = coefficients {
+            for value in values {
+                finite_parameter(value, "compressibility coefficient")?;
+            }
+            if self.dk_dt != 0.0 {
+                return Err(EosError::InvalidParameter {
+                    name: "dK_dT",
+                    reason: "must be zero with cubic compressibility",
+                });
+            }
+        }
+        self.kprime_log_coefficient =
+            finite_parameter(kprime_log_coefficient, "kprime_log_coefficient")?;
+        self.rt_eos
+            .with_pressure_derivative_shift(kprime_log_coefficient)?;
+        self.compressibility_coefficients = coefficients;
+        Ok(self)
+    }
+
     fn state_eos(&self, temperature: f64) -> EosResult<R> {
         let temperature = positive_state(temperature, "temperature")?;
         let delta = temperature - self.tr;
@@ -945,7 +1063,14 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
                 self.rt_eos.reference_volume() * exponent.exp()
             }
         };
-        let bulk_modulus = self.rt_eos.reference_bulk_modulus() + self.dk_dt * delta;
+        let bulk_modulus = if let Some([b1, b2, b3]) = self.compressibility_coefficients {
+            1.0 / (1.0 / self.rt_eos.reference_bulk_modulus()
+                + b1 * delta
+                + b2 * (temperature.powi(2) - self.tr.powi(2))
+                + b3 * (temperature.powi(3) - self.tr.powi(3)))
+        } else {
+            self.rt_eos.reference_bulk_modulus() + self.dk_dt * delta
+        };
         if !reference_volume.is_finite() || reference_volume <= 0.0 {
             return Err(EosError::InvalidState {
                 name: "temperature",
@@ -959,7 +1084,10 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
             });
         }
         self.rt_eos
-            .with_reference_state(reference_volume, bulk_modulus)
+            .with_reference_state(reference_volume, bulk_modulus)?
+            .with_pressure_derivative_shift(
+                self.kprime_log_coefficient * delta * (temperature / self.tr).ln(),
+            )
     }
 }
 
@@ -1233,7 +1361,7 @@ impl<R: IsothermalEos> Dewaele2006<R> {
         n: f64,
     ) -> EosResult<Self> {
         let gamma0 = positive_parameter(gamma0, "gamma0")?;
-        let gamma_inf = positive_parameter(gamma_inf, "gamma_inf")?;
+        let gamma_inf = nonnegative_parameter(gamma_inf, "gamma_inf")?;
         if gamma_inf > gamma0 {
             return Err(EosError::InvalidParameter {
                 name: "gamma_inf",
@@ -1288,7 +1416,7 @@ impl<R: IsothermalEos> Dewaele2006<R> {
         )
     }
 
-    /// Reference-relative single-Debye pressure in GPa.
+    /// Reference-relative single-Debye pressure in `GPa`.
     ///
     /// # Errors
     ///
@@ -1322,7 +1450,7 @@ impl<R: IsothermalEos> Dewaele2006<R> {
         )
     }
 
-    /// Reference-relative intrinsic-anharmonic pressure in GPa.
+    /// Reference-relative intrinsic-anharmonic pressure in `GPa`.
     ///
     /// # Errors
     ///
@@ -1331,7 +1459,7 @@ impl<R: IsothermalEos> Dewaele2006<R> {
         self.quadratic_pressure_increment(volume, temperature, self.anharmonic_a, self.anharmonic_m)
     }
 
-    /// Reference-relative electronic pressure in GPa.
+    /// Reference-relative electronic pressure in `GPa`.
     ///
     /// # Errors
     ///

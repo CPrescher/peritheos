@@ -86,7 +86,7 @@
    ],
    "pressure_range_status": "reported_qualitatively",
    "temperature_ref": 300,
-   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -357,6 +357,133 @@
       "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"
      ],
      "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+    }
+   }
+  },
+  {
+   "identifier": "nacl_b2_sakai_2014_yokoo_pt_bm3",
+   "label": "Sakai et al. (2014), yokoo_pt_bm3",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 38.34,
+     "K0": 45.18,
+     "K0_prime": 4.22
+    }
+   },
+   "parameter_errors": {
+    "V0": 4.69,
+    "K0": 0.48,
+    "K0_prime": 0.02
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "validity": {
+    "pressure_gpa": [
+     30,
+     330
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A³ from g-G analysis, then fixed. The unusually large printed V0 uncertainty is retained verbatim. Exact new calibration pressure extrema and original paired NaCl/Pt rows are not given in this article; the validity envelope is approximate.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Section 2, journal p. 115: new P5 NaCl-B2 calibration",
+      "scope": "NaCl-B2 recalibrated against Yokoo et al. (2009) Pt."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 recalibrated against Yokoo et al. (2009) Pt."
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Section 2, journal p. 115: new P5 NaCl-B2 calibration: fixed/adopted",
+    "K0": "Section 2, journal p. 115: new P5 NaCl-B2 calibration: published fit",
+    "K0_prime": "Section 2, journal p. 115: new P5 NaCl-B2 calibration: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Section 2, journal p. 115: new P5 NaCl-B2 calibration"
+     ],
+     "finding": "New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A³ from g-G analysis, then fixed. The unusually large printed V0 uncertainty is retained verbatim. Exact new calibration pressure extrema and original paired NaCl/Pt rows are not given in this article; the validity envelope is approximate."
+    },
+    "primary_data_check": {
+     "status": "not_available",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [],
+     "source_locations": [
+      "Section 2, journal p. 115: new P5 NaCl-B2 calibration"
+     ],
+     "finding": "Original Sakai (2011a) paired NaCl/Pt calibration observations are not attached to this 2014 paper. Table 2 NaCl values are downstream measurements, not independent P5 calibration constraints."
     }
    }
   }

@@ -40,6 +40,7 @@ from peritheos.eos.rt import (
 )
 from peritheos.eos.thermal import (
     AsymptoticPowerLawMieGruneisenDebyeExcess,
+    DebyeQuadraticThermalPressure,
     Dewaele2006,
     DorogokupetsOganov2007,
     DoubleDebyeHelmholtz,
@@ -1260,6 +1261,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "DorogokupetsOganov2007": "dorogokupets_oganov_2007",
         "HollandPowellThermalPressure": "holland_powell_thermal_pressure",
         "LinearThermalPressure": "linear_thermal_pressure",
+        "DebyeQuadraticThermalPressure": "debye_quadratic_thermal_pressure",
         "LogVolumeThermalPressure": "log_volume_thermal_pressure",
         "SecondOrderTaylorThermalPressure": ("second_order_taylor_thermal_pressure"),
         "SoundVelocityDebyeHelmholtz": "sound_velocity_debye_helmholtz",
@@ -1304,6 +1306,7 @@ _MODEL_CLASSES = MappingProxyType(
             DorogokupetsOganov2007,
             HollandPowellThermalPressure,
             LinearThermalPressure,
+            DebyeQuadraticThermalPressure,
             LogVolumeThermalPressure,
             SecondOrderTaylorThermalPressure,
             SoundVelocityDebyeHelmholtz,
@@ -1343,6 +1346,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "dorogokupets_oganov_2007": "DorogokupetsOganov2007",
         "holland_powell_thermal_pressure": "HollandPowellThermalPressure",
         "linear_thermal_pressure": "LinearThermalPressure",
+        "debye_quadratic_thermal_pressure": "DebyeQuadraticThermalPressure",
         "log_volume_thermal_pressure": "LogVolumeThermalPressure",
         "second_order_taylor_thermal_pressure": ("SecondOrderTaylorThermalPressure"),
         "sound_velocity_debye_helmholtz": "SoundVelocityDebyeHelmholtz",
@@ -1363,6 +1367,7 @@ _EOSMAT_TYPES = MappingProxyType(
 
 _MOLAR_VOLUME_THERMAL_MODELS = frozenset(
     {
+        "debye_quadratic_thermal_pressure",
         "mie_gruneisen_debye",
         "sound_velocity_debye_helmholtz",
         "double_debye_helmholtz",
@@ -1430,6 +1435,7 @@ def _eosmat_component(eos: EquationOfState) -> dict[str, Any]:
             "thermal_pressure_reference",
             "thermal_expansion_law",
             "reference_volume_law",
+            "bulk_modulus_law",
         ):
             if name in configuration:
                 component[name] = configuration[name]
@@ -2088,6 +2094,7 @@ def _material_from_eosmat(
                     "thermal_pressure_reference",
                     "thermal_expansion_law",
                     "reference_volume_law",
+                    "bulk_modulus_law",
                 ):
                     if name in thermal_component:
                         configuration[name] = thermal_component[name]

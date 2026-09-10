@@ -2339,6 +2339,17 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    from scripts.reproduce_iron_source_papers import belongs
+    from scripts.reproduce_iron_source_papers import (
+        ledger_outcome as iron_source_outcome,
+    )
+
+    if belongs(record_id):
+        return iron_source_outcome(record)
+    if record_id.startswith("iron_fei_2016_"):
+        from scripts.reproduce_fei_2016_iron import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id == "rhenium_sakai_2018_yokoo_pt_vinet":
         from scripts.reproduce_sakai_2018_rhenium import ledger_outcome
 

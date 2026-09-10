@@ -1822,6 +1822,3506 @@
     ],
     "gas_constant_j_mol_k": 8.314
    }
+  },
+  {
+   "identifier": "iron_fei_2016_bm3",
+   "label": "Fei et al. (2016), preferred fixed-density 300 K BM3",
+   "record_kind": "published",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Murphy",
+     "Shibazaki",
+     "Shahar",
+     "Huang"
+    ],
+    "year": 2016,
+    "title": "Thermal equation of state of hcp-iron: Constraint on the density deficit of Earth's solid inner core",
+    "source": "Geophysical Research Letters",
+    "volume": "43",
+    "locator": "6837–6843",
+    "doi": "10.1002/2016GL069456"
+   },
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.427668953702995,
+     "K0": 172.7,
+     "K0_prime": 4.79
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 1.4,
+    "K0_prime": 0.05
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    18.72,
+    204.6
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     18.72,
+     204.6
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
+    ]
+   },
+   "fit_datasets": [
+    "iron_fei_2016_table_s1"
+   ],
+   "parameter_provenance": {
+    "V0": "Section 3.1, p. 6840: rho0=8.2695 g/cm^3; V0=2*M/(NA*rho0), M=55.845 g/mol. The structural reference cell is independent of this extrapolated EOS volume.",
+    "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
+    "K0_prime": "Section 3.1, p. 6840"
+   },
+   "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei et al."
+       ],
+       "year": 2007,
+       "doi": "10.1073/pnas.0609013104",
+       "source": "PNAS"
+      },
+      "source_location": "Section 3.1 and Table S1; Section 3.2 and SI introduction for Pt",
+      "scope": "S1: Ne and NaCl-B2. S2: Pt pressure from separately heated Fe/Pt patterns matched through Ne peaks."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "doi": "10.1029/2008JB005813",
+       "source": "Journal of Geophysical Research"
+      },
+      "source_location": "Section 3.1, p. 6838",
+      "scope": "S1 MgO pressure from its (200) peak only; exact Tange variant not specified."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "S1 preserves marker lattice readings. Exact variants of the referenced scales are not specified unambiguously. S2 omits the matched Pt lattice observations; source pressures are retained without re-reduction."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Published equations and coefficients checked against the Zotero version of record; independent equation reconstruction and supplementary-data residuals documented.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1002/2016GL069456",
+     "doi": "10.1002/2016GL069456",
+     "locations": [
+      "Section 3.1, equation (1), p. 6840",
+      "Section 3.2, equation (2), pp. 6840–6841",
+      "Official SI introduction and Tables S1–S2"
+     ],
+     "finding": "The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "iron_fei_2016_table_s1"
+     ],
+     "source_locations": [
+      "Table S1"
+     ],
+     "finding": "Complete new measurements bundled; full combined-fit input set not supplied. Diagnostic refits are partial validation, not reproduction of the published global regression."
+    },
+    "reported_inconsistencies": [
+     "Figure 1 caption groups MgO with Fei (2007), while the explicit methods use Tange (2009). Follow the methods.",
+     "S2 Pth is not exactly P minus the preferred printed 300 K BM3; preserve both source columns."
+    ]
+   }
+  },
+  {
+   "identifier": "iron_fei_2016_free_density_bm3",
+   "label": "Fei et al. (2016), free-density 300 K BM3 alternative",
+   "record_kind": "published",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Murphy",
+     "Shibazaki",
+     "Shahar",
+     "Huang"
+    ],
+    "year": 2016,
+    "title": "Thermal equation of state of hcp-iron: Constraint on the density deficit of Earth's solid inner core",
+    "source": "Geophysical Research Letters",
+    "volume": "43",
+    "locator": "6837–6843",
+    "doi": "10.1002/2016GL069456"
+   },
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.184350662980183,
+     "K0": 191.44,
+     "K0_prime": 4.52
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.06395096420872974,
+    "K0": 5.3,
+    "K0_prime": 0.08
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    18.72,
+    204.6
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     18.72,
+     204.6
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
+    ]
+   },
+   "fit_datasets": [
+    "iron_fei_2016_table_s1"
+   ],
+   "parameter_provenance": {
+    "V0": "Section 3.1, p. 6840: rho0=8.3602 g/cm^3; V0=2*M/(NA*rho0), M=55.845 g/mol. The structural reference cell is independent of this extrapolated EOS volume. Density error 0.0241 g/cm^3 propagated linearly: sigma_V0=V0*sigma_rho/rho.",
+    "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
+    "K0_prime": "Section 3.1, p. 6840"
+   },
+   "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei et al."
+       ],
+       "year": 2007,
+       "doi": "10.1073/pnas.0609013104",
+       "source": "PNAS"
+      },
+      "source_location": "Section 3.1 and Table S1; Section 3.2 and SI introduction for Pt",
+      "scope": "S1: Ne and NaCl-B2. S2: Pt pressure from separately heated Fe/Pt patterns matched through Ne peaks."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "doi": "10.1029/2008JB005813",
+       "source": "Journal of Geophysical Research"
+      },
+      "source_location": "Section 3.1, p. 6838",
+      "scope": "S1 MgO pressure from its (200) peak only; exact Tange variant not specified."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "S1 preserves marker lattice readings. Exact variants of the referenced scales are not specified unambiguously. S2 omits the matched Pt lattice observations; source pressures are retained without re-reduction."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Published equations and coefficients checked against the Zotero version of record; independent equation reconstruction and supplementary-data residuals documented.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1002/2016GL069456",
+     "doi": "10.1002/2016GL069456",
+     "locations": [
+      "Section 3.1, equation (1), p. 6840",
+      "Section 3.2, equation (2), pp. 6840–6841",
+      "Official SI introduction and Tables S1–S2"
+     ],
+     "finding": "The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "iron_fei_2016_table_s1"
+     ],
+     "source_locations": [
+      "Table S1"
+     ],
+     "finding": "Complete new measurements bundled; full combined-fit input set not supplied. Diagnostic refits are partial validation, not reproduction of the published global regression."
+    },
+    "reported_inconsistencies": [
+     "Figure 1 caption groups MgO with Fei (2007), while the explicit methods use Tange (2009). Follow the methods.",
+     "S2 Pth is not exactly P minus the preferred printed 300 K BM3; preserve both source columns."
+    ]
+   }
+  },
+  {
+   "identifier": "iron_fei_2016_bm3_debye_quadratic",
+   "label": "Fei et al. (2016), preferred BM3 + Debye and electronic/anharmonic thermal pressure",
+   "record_kind": "published",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Murphy",
+     "Shibazaki",
+     "Shahar",
+     "Huang"
+    ],
+    "year": 2016,
+    "title": "Thermal equation of state of hcp-iron: Constraint on the density deficit of Earth's solid inner core",
+    "source": "Geophysical Research Letters",
+    "volume": "43",
+    "locator": "6837–6843",
+    "doi": "10.1002/2016GL069456"
+   },
+   "equation_kind": "thermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.427668953702995,
+     "K0": 172.7,
+     "K0_prime": 4.79
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 1.4,
+    "K0_prime": 0.05
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    53.96,
+    99.69
+   ],
+   "experimental_temperature_range_k": [
+    1208,
+    1795
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     53.96,
+     99.69
+    ],
+    "temperature_k": [
+     1208,
+     1795
+    ],
+    "notes": [
+     "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
+    ]
+   },
+   "fit_datasets": [
+    "iron_fei_2016_table_s1",
+    "iron_fei_2016_table_s2"
+   ],
+   "parameter_provenance": {
+    "V0": "Section 3.1, p. 6840: rho0=8.2695 g/cm^3; V0=2*M/(NA*rho0), M=55.845 g/mol. The structural reference cell is independent of this extrapolated EOS volume.",
+    "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
+    "K0_prime": "Section 3.1, p. 6840",
+    "thermal.Tr": "Equation (2), lower integration limit 300 K",
+    "thermal.theta0": "p. 6841: 422 K adopted from Anderson et al. (2001)",
+    "thermal.gamma0": "p. 6841: 1.74 derived from Murphy et al. (2011a)",
+    "thermal.q": "p. 6841: 0.78 derived from Murphy et al. (2011a)",
+    "thermal.n": "One Fe atom per chemical formula. Exchange cell has Z=2.",
+    "thermal.A": "Equation (2), p. 6841: gamma_e=2 fixed; beta0=0.07 J/kg/K^2 fitted; A=gamma_e*beta0*rho0_SI/(2*1e9)=5.78865e-7 GPa/K^2.",
+    "thermal.m": "p. 6841: k=1.34 fitted; m=k-1=0.34 after dividing specific energy by specific volume."
+   },
+   "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved. Thermal pressure adds MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2). No thermal fit errors are reported. Independent gamma_e=2 and k=1.34 define an empirical pressure surface, not a thermodynamically consistent caloric potential. Do not infer caloric observables. Table S2 is only the static subset of the thermal fit.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei et al."
+       ],
+       "year": 2007,
+       "doi": "10.1073/pnas.0609013104",
+       "source": "PNAS"
+      },
+      "source_location": "Section 3.1 and Table S1; Section 3.2 and SI introduction for Pt",
+      "scope": "S1: Ne and NaCl-B2. S2: Pt pressure from separately heated Fe/Pt patterns matched through Ne peaks."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "doi": "10.1029/2008JB005813",
+       "source": "Journal of Geophysical Research"
+      },
+      "source_location": "Section 3.1, p. 6838",
+      "scope": "S1 MgO pressure from its (200) peak only; exact Tange variant not specified."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "S1 preserves marker lattice readings. Exact variants of the referenced scales are not specified unambiguously. S2 omits the matched Pt lattice observations; source pressures are retained without re-reduction."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Published equations and coefficients checked against the Zotero version of record; independent equation reconstruction and supplementary-data residuals documented.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1002/2016GL069456",
+     "doi": "10.1002/2016GL069456",
+     "locations": [
+      "Section 3.1, equation (1), p. 6840",
+      "Section 3.2, equation (2), pp. 6840–6841",
+      "Official SI introduction and Tables S1–S2"
+     ],
+     "finding": "The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "iron_fei_2016_table_s1",
+      "iron_fei_2016_table_s2"
+     ],
+     "source_locations": [
+      "Table S1",
+      "Table S2"
+     ],
+     "finding": "Complete new measurements bundled; full combined-fit input set not supplied. Diagnostic refits are partial validation, not reproduction of the published global regression."
+    },
+    "reported_inconsistencies": [
+     "Figure 1 caption groups MgO with Fei (2007), while the explicit methods use Tange (2009). Follow the methods.",
+     "S2 Pth is not exactly P minus the preferred printed 300 K BM3; preserve both source columns."
+    ]
+   },
+   "thermal": {
+    "type": "DebyeQuadraticThermalPressure",
+    "model": "debye_quadratic_thermal_pressure",
+    "parameters": {
+     "Tr": 300,
+     "theta0": 422,
+     "gamma0": 1.74,
+     "q": 0.78,
+     "n": 1,
+     "A": 5.788650000000002e-07,
+     "m": 0.34
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": null,
+     "q": null,
+     "n": null,
+     "A": null,
+     "m": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "q",
+     "n"
+    ]
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p1_bm3",
+   "label": "Sakai et al. (2014), p1_bm3",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.18,
+     "K0": 179.6,
+     "K0_prime": 4.91
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.2,
+    "K0": 2.2,
+    "K0_prime": 0.12
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    279.2
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     279.2
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p1_vinet",
+   "label": "Sakai et al. (2014), p1_vinet",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.18,
+     "K0": 174.7,
+     "K0_prime": 5.37
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.2,
+    "K0": 2.2,
+    "K0_prime": 0.12
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    279.2
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     279.2
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p1_v0_mao_bm3",
+   "label": "Sakai et al. (2014), p1_v0_mao_bm3",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.35,
+     "K0": 164.8,
+     "K0_prime": 5.18
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.2,
+    "K0_prime": 0.13
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    279.2
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     279.2
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p1_v0_mao_vinet",
+   "label": "Sakai et al. (2014), p1_v0_mao_vinet",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.35,
+     "K0": 160.1,
+     "K0_prime": 5.65
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.1,
+    "K0_prime": 0.12
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    279.2
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     279.2
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p1_v0_dewaele_bm3",
+   "label": "Sakai et al. (2014), p1_v0_dewaele_bm3",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.468,
+     "K0": 155.3,
+     "K0_prime": 5.37
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.2,
+    "K0_prime": 0.14
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    279.2
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     279.2
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p1_v0_dewaele_vinet",
+   "label": "Sakai et al. (2014), p1_v0_dewaele_vinet",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.468,
+     "K0": 150.8,
+     "K0_prime": 5.84
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.0,
+    "K0_prime": 0.12
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    279.2
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     279.2
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Matsui (2009) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Matsui (2009) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p2_bm3",
+   "label": "Sakai et al. (2014), p2_bm3",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.16,
+     "K0": 184.2,
+     "K0_prime": 4.78
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.19,
+    "K0": 2.2,
+    "K0_prime": 0.12
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    304.7
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     304.7
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations.",
+     "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Fei (2007) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Fei (2007) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p2_vinet",
+   "label": "Sakai et al. (2014), p2_vinet",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.16,
+     "K0": 179.2,
+     "K0_prime": 5.24
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.19,
+    "K0": 2.2,
+    "K0_prime": 0.12
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    304.7
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     304.7
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations.",
+     "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Fei (2007) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Fei (2007) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p3_bm3",
+   "label": "Sakai et al. (2014), p3_bm3",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.14,
+     "K0": 185.0,
+     "K0_prime": 4.94
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.19,
+    "K0": 2.3,
+    "K0_prime": 0.12
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    304.7
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     304.7
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations.",
+     "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p3_vinet",
+   "label": "Sakai et al. (2014), p3_vinet",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.14,
+     "K0": 180.0,
+     "K0_prime": 5.4
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.19,
+    "K0": 2.3,
+    "K0_prime": 0.13
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    304.7
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     304.7
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations.",
+     "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Dorogokupets and Oganov (2007) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p4_bm3",
+   "label": "Sakai et al. (2014), p4_bm3",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.07,
+     "K0": 195.1,
+     "K0_prime": 4.93
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.2,
+    "K0": 2.4,
+    "K0_prime": 0.12
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    299.0
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     299.0
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p4_vinet",
+   "label": "Sakai et al. (2014), p4_vinet",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.07,
+     "K0": 189.9,
+     "K0_prime": 5.39
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.2,
+    "K0": 2.4,
+    "K0_prime": 0.13
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    299.0
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     299.0
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Tange (2009) MgO, Dorfman (2012)"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p5_bm3",
+   "label": "Sakai et al. (2014), p5_bm3",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.1,
+     "K0": 196.0,
+     "K0_prime": 4.93
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.17,
+    "K0": 2.5,
+    "K0_prime": 0.13
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    304.7
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     304.7
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations.",
+     "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Yokoo (2009) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Yokoo (2009) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p5_vinet",
+   "label": "Sakai et al. (2014), p5_vinet",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.1,
+     "K0": 190.8,
+     "K0_prime": 5.39
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.17,
+    "K0": 2.4,
+    "K0_prime": 0.13
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    304.7
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     304.7
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations.",
+     "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Yokoo (2009) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Yokoo (2009) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p6_bm3",
+   "label": "Sakai et al. (2014), p6_bm3",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.21,
+     "K0": 171.7,
+     "K0_prime": 5.49
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.23,
+    "K0": 2.4,
+    "K0_prime": 0.15
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    304.7
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     304.7
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Holmes (1989) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Holmes (1989) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_sakai_2014_p6_vinet",
+   "label": "Sakai et al. (2014), p6_vinet",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.21,
+     "K0": 167.2,
+     "K0_prime": 5.93
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.23,
+    "K0": 2.2,
+    "K0_prime": 0.13
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    24.2,
+    304.7
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     24.2,
+     304.7
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Takahashi",
+        "Nishitani",
+        "Mashino",
+        "Ohtani",
+        "Hirao"
+       ],
+       "year": 2014,
+       "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+       "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+       "doi": "10.1016/j.pepi.2013.12.010"
+      },
+      "source_location": "Tables 1–4; Sections 2 and 3.3–3.4",
+      "scope": "NaCl-B2 calibrated to Holmes (1989) Pt"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. NaCl-B2 calibrated to Holmes (1989) Pt"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
+    "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
+    "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/j.pepi.2013.12.010",
+     "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+     "locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "sakai_2014_table2_pvt"
+     ],
+     "source_locations": [
+      "Tables 1–4; Sections 2 and 3.3–3.4"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_yamazaki_2012_bm3_thermal",
+   "label": "Yamazaki et al. (2012), bm3_thermal",
+   "reference": {
+    "authors": [
+     "Yamazaki",
+     "Ito",
+     "Yoshino",
+     "Yoneda",
+     "Guo",
+     "Zhang",
+     "Sun",
+     "Shimojuku",
+     "Tsujino",
+     "Kunimoto",
+     "Higo",
+     "Funakoshi"
+    ],
+    "year": 2012,
+    "title": "P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils",
+    "source": "Geophysical Research Letters 39, L20308",
+    "doi": "10.1029/2012GL053540"
+   },
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.15,
+     "K0": 202,
+     "K0_prime": 4.5
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.05,
+    "K0": 7,
+    "K0_prime": 0.2
+   },
+   "parameter_error_confidence": 0.682689492137,
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    19.8,
+    82.9
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    1900
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     19.8,
+     82.9
+    ],
+    "temperature_k": [
+     300,
+     1900
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Yamazaki",
+        "Ito",
+        "Yoshino",
+        "Yoneda",
+        "Guo",
+        "Zhang",
+        "Sun",
+        "Shimojuku",
+        "Tsujino",
+        "Kunimoto",
+        "Higo",
+        "Funakoshi"
+       ],
+       "year": 2012,
+       "title": "P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils",
+       "source": "Geophysical Research Letters 39, L20308",
+       "doi": "10.1029/2012GL053540"
+      },
+      "source_location": "Equations (1)–(4), Table 1, Table S1",
+      "scope": "Au, Tsuchiya (2003); original scale, not later Fei (2007) re-reduction."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. Au, Tsuchiya (2003); original scale, not later Fei (2007) re-reduction."
+    }
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Equations (1)–(4), Table 1, Table S1: published fit",
+     "K0": "Equations (1)–(4), Table 1, Table S1: published fit",
+     "K0_prime": "Equations (1)–(4), Table 1, Table S1: published fit"
+    },
+    "thermal_correction": {
+     "Tr": "Primary thermal equation and parameter table; fixed/adopted",
+     "theta0": "Primary thermal equation and parameter table; fitted",
+     "gamma0": "Primary thermal equation and parameter table; fitted",
+     "gamma_inf": "Primary thermal equation and parameter table; fixed/adopted",
+     "beta": "Primary thermal equation and parameter table; fitted",
+     "anharmonic_a": "Primary thermal equation and parameter table; fixed/adopted",
+     "anharmonic_m": "Primary thermal equation and parameter table; fixed/adopted",
+     "electronic_e": "Primary thermal equation and parameter table; fixed/adopted",
+     "electronic_g": "Primary thermal equation and parameter table; fixed/adopted",
+     "n": "Primary thermal equation and parameter table; fixed/adopted"
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1029/2012GL053540",
+     "access_url": "https://doi.org/10.1029/2012GL053540",
+     "locations": [
+      "Equations (1)–(4), Table 1, Table S1"
+     ],
+     "finding": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001)."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "iron_yamazaki_2012_table_s1"
+     ],
+     "source_locations": [
+      "Equations (1)–(4), Table 1, Table S1"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   },
+   "thermal": {
+    "type": "Dewaele2006",
+    "model": "dewaele_2006",
+    "parameters": {
+     "Tr": 300,
+     "theta0": 1173,
+     "gamma0": 3.2,
+     "gamma_inf": 0,
+     "beta": 0.8,
+     "anharmonic_a": 3.7e-05,
+     "anharmonic_m": 1.87,
+     "electronic_e": 0.000195,
+     "electronic_g": 1.339,
+     "n": 1
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": 62,
+     "gamma0": 0.2,
+     "gamma_inf": null,
+     "beta": 0.3,
+     "anharmonic_a": null,
+     "anharmonic_m": null,
+     "electronic_e": null,
+     "electronic_g": null,
+     "n": null
+    },
+    "parameter_error_confidence": 0.682689492137,
+    "fixed_parameters": [
+     "Tr",
+     "anharmonic_a",
+     "anharmonic_m",
+     "electronic_e",
+     "electronic_g",
+     "n",
+     "gamma_inf"
+    ]
+   }
+  },
+  {
+   "identifier": "iron_yamazaki_2012_vinet_thermal",
+   "label": "Yamazaki et al. (2012), vinet_thermal",
+   "reference": {
+    "authors": [
+     "Yamazaki",
+     "Ito",
+     "Yoshino",
+     "Yoneda",
+     "Guo",
+     "Zhang",
+     "Sun",
+     "Shimojuku",
+     "Tsujino",
+     "Kunimoto",
+     "Higo",
+     "Funakoshi"
+    ],
+    "year": 2012,
+    "title": "P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils",
+    "source": "Geophysical Research Letters 39, L20308",
+    "doi": "10.1029/2012GL053540"
+   },
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.17,
+     "K0": 196,
+     "K0_prime": 4.8
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.06,
+    "K0": 8,
+    "K0_prime": 0.2
+   },
+   "parameter_error_confidence": 0.682689492137,
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    19.8,
+    82.9
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    1900
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     19.8,
+     82.9
+    ],
+    "temperature_k": [
+     300,
+     1900
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Yamazaki",
+        "Ito",
+        "Yoshino",
+        "Yoneda",
+        "Guo",
+        "Zhang",
+        "Sun",
+        "Shimojuku",
+        "Tsujino",
+        "Kunimoto",
+        "Higo",
+        "Funakoshi"
+       ],
+       "year": 2012,
+       "title": "P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils",
+       "source": "Geophysical Research Letters 39, L20308",
+       "doi": "10.1029/2012GL053540"
+      },
+      "source_location": "Equations (1)–(4), Table 1, Table S1",
+      "scope": "Au, Tsuchiya (2003); original scale, not later Fei (2007) re-reduction."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. Au, Tsuchiya (2003); original scale, not later Fei (2007) re-reduction."
+    }
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Equations (1)–(4), Table 1, Table S1: published fit",
+     "K0": "Equations (1)–(4), Table 1, Table S1: published fit",
+     "K0_prime": "Equations (1)–(4), Table 1, Table S1: published fit"
+    },
+    "thermal_correction": {
+     "Tr": "Primary thermal equation and parameter table; fixed/adopted",
+     "theta0": "Primary thermal equation and parameter table; fitted",
+     "gamma0": "Primary thermal equation and parameter table; fitted",
+     "gamma_inf": "Primary thermal equation and parameter table; fixed/adopted",
+     "beta": "Primary thermal equation and parameter table; fitted",
+     "anharmonic_a": "Primary thermal equation and parameter table; fixed/adopted",
+     "anharmonic_m": "Primary thermal equation and parameter table; fixed/adopted",
+     "electronic_e": "Primary thermal equation and parameter table; fixed/adopted",
+     "electronic_g": "Primary thermal equation and parameter table; fixed/adopted",
+     "n": "Primary thermal equation and parameter table; fixed/adopted"
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1029/2012GL053540",
+     "access_url": "https://doi.org/10.1029/2012GL053540",
+     "locations": [
+      "Equations (1)–(4), Table 1, Table S1"
+     ],
+     "finding": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001)."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "iron_yamazaki_2012_table_s1"
+     ],
+     "source_locations": [
+      "Equations (1)–(4), Table 1, Table S1"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   },
+   "thermal": {
+    "type": "Dewaele2006",
+    "model": "dewaele_2006",
+    "parameters": {
+     "Tr": 300,
+     "theta0": 1168,
+     "gamma0": 3.2,
+     "gamma_inf": 0,
+     "beta": 0.8,
+     "anharmonic_a": 3.7e-05,
+     "anharmonic_m": 1.87,
+     "electronic_e": 0.000195,
+     "electronic_g": 1.339,
+     "n": 1
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": 61,
+     "gamma0": 0.2,
+     "gamma_inf": null,
+     "beta": 0.3,
+     "anharmonic_a": null,
+     "anharmonic_m": null,
+     "electronic_e": null,
+     "electronic_g": null,
+     "n": null
+    },
+    "parameter_error_confidence": 0.682689492137,
+    "fixed_parameters": [
+     "Tr",
+     "anharmonic_a",
+     "anharmonic_m",
+     "electronic_e",
+     "electronic_g",
+     "n",
+     "gamma_inf"
+    ]
+   }
+  },
+  {
+   "identifier": "iron_dubrovinsky_2000_bm3_thermal",
+   "label": "Dubrovinsky et al. (2000), bm3_thermal",
+   "reference": {
+    "authors": [
+     "Dubrovinsky",
+     "Saxena",
+     "Tutti",
+     "Rekhi",
+     "LeBehan"
+    ],
+    "year": 2000,
+    "title": "In Situ X-Ray Study of Thermal Expansion and Phase Transition of Iron at Multimegabar Pressure",
+    "source": "Physical Review Letters 84, 1720–1723",
+    "doi": "10.1103/PhysRevLett.84.1720"
+   },
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.35085584415998,
+     "K0": 155.55970381432394,
+     "K0_prime": 5.81
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.033210781343476936,
+    "K0": null,
+    "K0_prime": 0.06
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    18,
+    305
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    1700
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     18,
+     305
+    ],
+    "temperature_k": [
+     300,
+     1700
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "K0 derived exactly from 1/(b1+b2*300+b3*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dubrovinsky",
+        "Saxena",
+        "Tutti",
+        "Rekhi",
+        "LeBehan"
+       ],
+       "year": 2000,
+       "title": "In Situ X-Ray Study of Thermal Expansion and Phase Transition of Iron at Multimegabar Pressure",
+       "source": "Physical Review Letters 84, 1720–1723",
+       "doi": "10.1103/PhysRevLett.84.1720"
+      },
+      "source_location": "Equation (1), Table II",
+      "scope": "Pt, Holmes et al. (1989), with Nellis et al. (1988) also cited."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. Pt, Holmes et al. (1989), with Nellis et al. (1988) also cited."
+    }
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Equation (1), Table II: published fit",
+     "K0": "Equation (1), Table II: published fit",
+     "K0_prime": "Equation (1), Table II: published fit"
+    },
+    "thermal_correction": {
+     "Tr": "Primary thermal equation and parameter table; fixed/adopted",
+     "alpha0": "Primary thermal equation and parameter table; fitted",
+     "dK_dT": "Primary thermal equation and parameter table; fixed/adopted",
+     "beta1": "Primary thermal equation and parameter table; fitted",
+     "beta2": "Primary thermal equation and parameter table; fitted",
+     "beta3": "Primary thermal equation and parameter table; fixed/adopted"
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1103/PhysRevLett.84.1720",
+     "access_url": "https://doi.org/10.1103/PhysRevLett.84.1720",
+     "locations": [
+      "Equation (1), Table II"
+     ],
+     "finding": "K0 derived exactly from 1/(b1+b2*300+b3*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated."
+    },
+    "primary_data_check": {
+     "status": "not_available",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [],
+     "source_locations": [
+      "Equation (1), Table II"
+     ],
+     "finding": "The 188 input P-V-T points are not tabulated in the attached publication."
+    }
+   },
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "parameters": {
+     "Tr": 300,
+     "alpha0": 6.93e-05,
+     "dK_dT": 0,
+     "beta1": 1.38e-06,
+     "beta2": 4.6e-10,
+     "beta3": 0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 3.7e-06,
+     "dK_dT": null,
+     "beta1": 1.7e-08,
+     "beta2": 8e-12,
+     "beta3": null
+    },
+    "parameter_error_confidence": null,
+    "fixed_parameters": [
+     "Tr",
+     "dK_dT",
+     "beta3"
+    ],
+    "bulk_modulus_law": "reciprocal_cubic"
+   },
+   "source_compressibility_coefficients": {
+    "b1": 0.005973,
+    "b1_error": 4.6e-05,
+    "b2": 1.38e-06,
+    "b2_error": 1.7e-08,
+    "b3": 4.6e-10,
+    "b3_error": 8e-12,
+    "conditional_uncorrelated_K0_error_gpa": 1.120101835332648
+   }
+  },
+  {
+   "identifier": "iron_dewaele_2006_bm3",
+   "label": "Dewaele et al. (2006), bm3",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Occelli",
+     "Mezouar",
+     "Dorogokupets",
+     "Torrent"
+    ],
+    "year": 2006,
+    "title": "Quasihydrostatic Equation of State of Iron above 2 Mbar",
+    "source": "Physical Review Letters 97, 215504",
+    "doi": "10.1103/PhysRevLett.97.215504"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.468,
+     "K0": 165.0,
+     "K0_prime": 4.97
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.024,
+    "K0": null,
+    "K0_prime": 0.04
+   },
+   "parameter_error_confidence": 0.95,
+   "fixed_parameters": [
+    "K0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    17,
+    197
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     17,
+     197
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations."
+    ]
+   },
+   "notes": "Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Occelli",
+        "Mezouar",
+        "Dorogokupets",
+        "Torrent"
+       ],
+       "year": 2006,
+       "title": "Quasihydrostatic Equation of State of Iron above 2 Mbar",
+       "source": "Physical Review Letters 97, 215504",
+       "doi": "10.1103/PhysRevLett.97.215504"
+      },
+      "source_location": "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell",
+      "scope": "Ruby/W, Dorogokupets–Oganov (2006)."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Primary published pressures retained. Ruby/W, Dorogokupets–Oganov (2006)."
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell: published fit",
+    "K0": "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell: fixed/adopted",
+    "K0_prime": "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell: published fit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1103/PhysRevLett.97.215504",
+     "access_url": "https://doi.org/10.1103/PhysRevLett.97.215504",
+     "locations": [
+      "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell"
+     ],
+     "finding": "Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "iron_dewaele_2006_epaps_compression"
+     ],
+     "source_locations": [
+      "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   }
+  },
+  {
+   "identifier": "iron_brown_2000_linear_hugoniot",
+   "label": "Brown et al. (2000), nominal-iron steel linear Hugoniot, solid subset",
+   "reference": {
+    "authors": [
+     "Brown",
+     "Fritz",
+     "Hixson"
+    ],
+    "year": 2000,
+    "title": "Hugoniot data for iron",
+    "source": "Journal of Applied Physics 88, 5496–5498",
+    "doi": "10.1063/1.1319320"
+   },
+   "record_kind": "published",
+   "equation_kind": "hugoniot",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "LinearUsUpHugoniot",
+    "model": "linear_us_up_hugoniot",
+    "parameters": {
+     "V0": 23.62619215447732,
+     "rho0": 7.85,
+     "c0": 3.935,
+     "s": 1.578,
+     "P0": 0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "rho0": null,
+    "c0": null,
+    "s": null,
+    "P0": null
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0",
+    "rho0",
+    "P0"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    39.6,
+    191.8
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     39.6,
+     191.8
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Observation envelope; extensions to inner-core conditions are extrapolations.",
+     "Temperature bounds describe only the normalized initial state, not a constant-temperature shock path. The sample is steel, not pure Fe."
+    ]
+   },
+   "notes": "Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "audit_date": "2026-09-10",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Brown",
+        "Fritz",
+        "Hixson"
+       ],
+       "year": 2000,
+       "title": "Hugoniot data for iron",
+       "source": "Journal of Applied Physics 88, 5496–5498",
+       "doi": "10.1063/1.1319320"
+      },
+      "source_location": "Table III linear fit to all 37 Tables I–II points",
+      "scope": "Shock velocities and Rankine–Hugoniot relations; no static calibrant."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Primary published pressures retained. Shock velocities and Rankine–Hugoniot relations; no static calibrant."
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Table III linear fit to all 37 Tables I–II points: fixed/adopted",
+    "rho0": "Table III linear fit to all 37 Tables I–II points: fixed/adopted",
+    "c0": "Table III linear fit to all 37 Tables I–II points: published fit",
+    "s": "Table III linear fit to all 37 Tables I–II points: published fit",
+    "P0": "Table III linear fit to all 37 Tables I–II points: fixed/adopted"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.1319320",
+     "access_url": "https://doi.org/10.1063/1.1319320",
+     "locations": [
+      "Table III linear fit to all 37 Tables I–II points"
+     ],
+     "finding": "Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "iron_brown_2000_tables_i_ii"
+     ],
+     "source_locations": [
+      "Table III linear fit to all 37 Tables I–II points"
+     ],
+     "finding": "Primary observations bundled with errors and calibrant values where published."
+    }
+   },
+   "sample_composition": "Approximately 99% low-carbon steel; nominal Fe volume normalization. See source for impurity limits.",
+   "loading_path": "principal",
+   "branch_kind": "transformed",
+   "initial_state": {
+    "phase": "bcc",
+    "material_identifier": "fe",
+    "temperature_k": 300.0,
+    "temperature_basis": "Room-temperature normalization, not a reported shock temperature.",
+    "pressure_gpa": 0.0,
+    "density_g_cm3": 7.85
+   },
+   "branch_domain": {
+    "particle_velocity_km_s": [
+     0.948,
+     2.885
+    ],
+    "kind": "experimental_coverage",
+    "boundary_status": "inferred",
+    "notes": [
+     "Operational subset below 200 GPa used by Fei 2016; not a phase boundary."
+    ]
+   },
+   "source_fit_domain": {
+    "particle_velocity_km_s": [
+     0.948,
+     4.894
+    ],
+    "pressure_gpa": [
+     39.6,
+     442.1
+    ]
+   },
+   "source_quadratic_fit": {
+    "c0": 3.691,
+    "s": 1.788,
+    "q": -0.038,
+    "shock_velocity_rmse_km_s": 0.039
+   }
   }
  ],
  "format": "peritheos.material",
@@ -2387,7 +5887,8 @@
    "used_by_eos_records": [
     "iron_dewaele_2006_vinet_thermal",
     "iron_dewaele_2019_mao_vinet",
-    "iron_dewaele_2019_dor_vinet"
+    "iron_dewaele_2019_dor_vinet",
+    "iron_dewaele_2006_bm3"
    ],
    "provenance": {
     "type": "transcribed_from_supplementary_table",
@@ -2418,6 +5919,725 @@
      ]
     },
     "transcribed_on": "2026-09-07"
+   }
+  },
+  {
+   "identifier": "iron_fei_2016_table_s1",
+   "kind": "pressure_volume_lattice",
+   "description": "All 74 hcp-Fe observations in Table S1, preserving cached workbook values and missing errors.",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Murphy",
+     "Shibazaki",
+     "Shahar",
+     "Huang"
+    ],
+    "year": 2016,
+    "title": "Thermal equation of state of hcp-iron: Constraint on the density deficit of Earth's solid inner core",
+    "source": "Geophysical Research Letters",
+    "volume": "43",
+    "locator": "6837–6843",
+    "doi": "10.1002/2016GL069456"
+   },
+   "source_location": "Table S1, Sheet1, rows 3–76",
+   "source_url": "https://doi.org/10.1002/2016GL069456",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "sample_name",
+     "quantity": "sample_name",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_error_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_error_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "marker_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "marker_a_error_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "marker_a_angstrom"
+    },
+    {
+     "name": "pressure_standard",
+     "quantity": "pressure_standard",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iron-fei-2016-table-s1.csv",
+    "sha256": "f397c2232c60ea14d9f44cae286041546c92154b1353742d822265f0abf93a0f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_fei_2016_bm3",
+    "iron_fei_2016_free_density_bm3",
+    "iron_fei_2016_bm3_debye_quadratic"
+   ],
+   "notes": "300 K. All sample a/c errors and marker a/errors retained; 18 MgO marker errors are blank. No row-level pressure or volume errors reported. Confidence convention of lattice errors is unspecified.",
+   "provenance": {
+    "type": "transcribed_from_official_supplement",
+    "method": "Verbatim cached XLSX cell values extracted without recalculation. No pressure recalibration, row exclusions, or invented uncertainties.",
+    "source_workbook_name": "grl54635-sup-0002-2016gl069456-ts01.xlsx",
+    "source_workbook_sha256": "8a0d6659dee5d0413e872746e0a7d8fcb7ca1bb66de1ee92a0d82477ea5e2534",
+    "transcribed_on": "2026-09-10",
+    "quality_control": {
+     "rows": 74
+    }
+   }
+  },
+  {
+   "identifier": "iron_fei_2016_table_s2",
+   "kind": "pressure_volume_temperature",
+   "description": "All 22 hcp-Fe observations in Table S2, preserving cached workbook values and missing errors.",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Murphy",
+     "Shibazaki",
+     "Shahar",
+     "Huang"
+    ],
+    "year": 2016,
+    "title": "Thermal equation of state of hcp-iron: Constraint on the density deficit of Earth's solid inner core",
+    "source": "Geophysical Research Letters",
+    "volume": "43",
+    "locator": "6837–6843",
+    "doi": "10.1002/2016GL069456"
+   },
+   "source_location": "Table S2, Sheet1, rows 3–24",
+   "source_url": "https://doi.org/10.1002/2016GL069456",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "sample_name",
+     "quantity": "sample_name",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_error_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_error_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_error_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "thermal_pressure_gpa",
+     "quantity": "thermal_pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iron-fei-2016-table-s2.csv",
+    "sha256": "c7ca4e79d50dddf21c178b0a4a82b1d701f484868b5b0397924031bcc9b7a108",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_fei_2016_bm3_debye_quadratic"
+   ],
+   "notes": "Temperature is the average of upstream/downstream measurements; DT is the reported standard deviation. Lattice error confidence is unspecified. P and Pth are preserved separately: Pth differs from P minus the printed preferred BM3 curve by up to 2.066 GPa. Pt raw lattice readings are not supplied.",
+   "provenance": {
+    "type": "transcribed_from_official_supplement",
+    "method": "Verbatim cached XLSX cell values extracted without recalculation. No pressure recalibration, row exclusions, or invented uncertainties.",
+    "source_workbook_name": "grl54635-sup-0003-2016gl069456-ts02.xlsx",
+    "source_workbook_sha256": "a3995493f3f9bde0393f9c104d06bead019dcf33169e0cd4c5d2498431adf273",
+    "transcribed_on": "2026-09-10",
+    "quality_control": {
+     "rows": 22
+    }
+   }
+  },
+  {
+   "identifier": "sakai_2014_table2_pvt",
+   "kind": "experimental_measurements",
+   "description": "104 primary table rows. Both compositions, all published pressure columns and marker lattice values retained. Missing cells remain blank. Filter material and source pressure scale explicitly. No P2/P3/P5 pressures are tabulated.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Takahashi",
+     "Nishitani",
+     "Mashino",
+     "Ohtani",
+     "Hirao"
+    ],
+    "year": 2014,
+    "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+    "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+    "doi": "10.1016/j.pepi.2013.12.010"
+   },
+   "source_location": "Table 2, journal pp. 116–117",
+   "source_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "source_field",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "material",
+     "quantity": "source_field",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_page",
+     "quantity": "source_field",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_row",
+     "quantity": "source_field",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_p1_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_p1_gpa_error",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_p1_gpa"
+    },
+    {
+     "name": "pressure_p4_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_p4_gpa_error",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_p4_gpa"
+    },
+    {
+     "name": "pressure_p6_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_p6_gpa_error",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_p6_gpa"
+    },
+    {
+     "name": "pressure_p7_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_p7_gpa_error",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_p7_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k_error",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom_error",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_angstrom_error",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell_error",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "nacl_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_a_angstrom_error",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "nacl_a_angstrom"
+    },
+    {
+     "name": "nacl_volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "nacl_volume_a3_error",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "nacl_volume_a3"
+    },
+    {
+     "name": "mgo_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgo_a_angstrom_error",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "mgo_a_angstrom"
+    },
+    {
+     "name": "mgo_volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "mgo_volume_a3_error",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "mgo_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/sakai-2014-table2-pvt.csv",
+    "sha256": "f5962688f5536386780983568955e804c91970d2bcc032c2547d7e5e5ca14417",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_sakai_2014_p1_bm3",
+    "iron_sakai_2014_p1_vinet",
+    "iron_sakai_2014_p1_v0_mao_bm3",
+    "iron_sakai_2014_p1_v0_mao_vinet",
+    "iron_sakai_2014_p1_v0_dewaele_bm3",
+    "iron_sakai_2014_p1_v0_dewaele_vinet",
+    "iron_sakai_2014_p2_bm3",
+    "iron_sakai_2014_p2_vinet",
+    "iron_sakai_2014_p3_bm3",
+    "iron_sakai_2014_p3_vinet",
+    "iron_sakai_2014_p4_bm3",
+    "iron_sakai_2014_p4_vinet",
+    "iron_sakai_2014_p5_bm3",
+    "iron_sakai_2014_p5_vinet",
+    "iron_sakai_2014_p6_bm3",
+    "iron_sakai_2014_p6_vinet"
+   ],
+   "notes": "Both compositions, all published pressure columns and marker lattice values retained. Missing cells remain blank. Filter material and source pressure scale explicitly. No P2/P3/P5 pressures are tabulated.",
+   "license": "CC0-1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "license_scope": "Contributor-created factual transcription and arrangement only; excludes publisher PDF and all third-party rights.",
+   "provenance": {
+    "type": "primary_pdf_table_transcription",
+    "source_manifest": "datasets/iron-source-papers-zotero.json",
+    "transcribed_on": "2026-09-10",
+    "quality_control": {
+     "rows": 104
+    }
+   }
+  },
+  {
+   "identifier": "iron_yamazaki_2012_table_s1",
+   "kind": "experimental_measurements",
+   "description": "207 primary table rows. All runs and temperatures retained on original Tsuchiya (2003) Au scale.",
+   "reference": {
+    "authors": [
+     "Yamazaki",
+     "Ito",
+     "Yoshino",
+     "Yoneda",
+     "Guo",
+     "Zhang",
+     "Sun",
+     "Shimojuku",
+     "Tsujino",
+     "Kunimoto",
+     "Higo",
+     "Funakoshi"
+    ],
+    "year": 2012,
+    "title": "P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils",
+    "source": "Geophysical Research Letters 39, L20308",
+    "doi": "10.1029/2012GL053540"
+   },
+   "source_location": "Table S1",
+   "source_url": "https://doi.org/10.1029/2012GL053540",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "source_field",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_page",
+     "quantity": "source_field",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_row",
+     "quantity": "source_field",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "au_volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "au_volume_a3_error",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "au_volume_a3"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa_error",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom_error",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_angstrom_error",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell_error",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iron-yamazaki-2012-table-s1.csv",
+    "sha256": "68f4629aa2916521809918c46608753d3d150c47f43f6bccefe9f7c8c3faea93",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_yamazaki_2012_bm3_thermal",
+    "iron_yamazaki_2012_vinet_thermal"
+   ],
+   "notes": "All runs and temperatures retained on original Tsuchiya (2003) Au scale.",
+   "license": "CC0-1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "license_scope": "Contributor-created factual transcription and arrangement only; excludes publisher PDF and all third-party rights.",
+   "provenance": {
+    "type": "primary_pdf_table_transcription",
+    "source_manifest": "datasets/iron-source-papers-zotero.json",
+    "transcribed_on": "2026-09-10",
+    "quality_control": {
+     "rows": 207
+    }
+   }
+  },
+  {
+   "identifier": "iron_brown_2000_tables_i_ii",
+   "kind": "experimental_measurements",
+   "description": "37 primary table rows. Full 37-row shock dataset; 1-sigma errors. Temperature is absent, not inferred. Initial density 7.850 g/cm³.",
+   "reference": {
+    "authors": [
+     "Brown",
+     "Fritz",
+     "Hixson"
+    ],
+    "year": 2000,
+    "title": "Hugoniot data for iron",
+    "source": "Journal of Applied Physics 88, 5496–5498",
+    "doi": "10.1063/1.1319320"
+   },
+   "source_location": "Tables I and II, journal p. 5497",
+   "source_url": "https://doi.org/10.1063/1.1319320",
+   "columns": [
+    {
+     "name": "source_table",
+     "quantity": "source_field",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_row",
+     "quantity": "source_field",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "particle_velocity_km_s",
+     "quantity": "velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "particle_velocity_km_s_error",
+     "quantity": "velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "particle_velocity_km_s"
+    },
+    {
+     "name": "shock_velocity_km_s",
+     "quantity": "velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_km_s_error",
+     "quantity": "velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "shock_velocity_km_s"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa_error",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3_error",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "uncertainty",
+     "of": "density_g_cm3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iron-brown-2000-tables-i-ii.csv",
+    "sha256": "eba2314fe95cd36dc032e6d3a3b52418b18becb37e6752f92d33319768e9433e",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_brown_2000_linear_hugoniot"
+   ],
+   "notes": "Full 37-row shock dataset; 1-sigma errors. Temperature is absent, not inferred. Initial density 7.850 g/cm³.",
+   "license": "CC0-1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "license_scope": "Contributor-created factual transcription and arrangement only; excludes publisher PDF and all third-party rights.",
+   "provenance": {
+    "type": "primary_pdf_table_transcription",
+    "source_manifest": "datasets/iron-source-papers-zotero.json",
+    "transcribed_on": "2026-09-10",
+    "quality_control": {
+     "rows": 37
+    }
    }
   }
  ]

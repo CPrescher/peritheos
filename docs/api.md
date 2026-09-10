@@ -118,7 +118,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 286 bundled
+`list_material_documents()` returns the identifiers of all 288 bundled
 material cards, including source-only cards with no executable EOS.
 `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
@@ -565,3 +565,7 @@ from peritheos import get_eos_record
 cu = get_eos_record("copper_fratanduono_2020_vinet3_298k")
 pressure_gpa = cu.pressure(45.94823)  # 3.908992349216 GPa, conventional cell Å³
 ```
+
+`DebyeQuadraticThermalPressure(rt_eos, Tr, theta0, gamma0, q, n, A, m)`
+adds Debye pressure and a quadratic temperature correction; see the
+[equation reference](equation-reference.md#debye-plus-quadratic-thermal-pressure).

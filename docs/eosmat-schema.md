@@ -305,7 +305,7 @@ Thermal `type` and `model` must likewise match:
 | `LinearThermalPressure` | `linear_thermal_pressure` | `Tr`, `alpha_KT` |
 | `SecondOrderTaylorThermalPressure` | `second_order_taylor_thermal_pressure` | `Tr`, `eta0`, `c0`, `c1`, `c2`, `c3`, `c4`, `c5` |
 | `SoundVelocityDebyeHelmholtz` | `sound_velocity_debye_helmholtz` | `Tr`, `molar_mass_g_mol`, `n`, longitudinal/shear velocity intercepts and slopes |
-| `LogVolumeThermalPressure` | `log_volume_thermal_pressure` | `Tr`, `alpha_KT_ref`, `dK_dT_V` |
+| `LogVolumeThermalPressure` | `log_volume_thermal_pressure` | `Tr`, `alpha_KT_ref`, `dK_dT_V` || `DebyeQuadraticThermalPressure` | `debye_quadratic_thermal_pressure` | `Tr`, `theta0`, `gamma0`, `q`, `n`, `A` (GPa/K²), `m` |
 | `MieGruneisenDebye` | `mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `MieGruneisenEinstein` | `mie_gruneisen_einstein` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `AsymptoticPowerLawMieGruneisenDebye` | `asymptotic_power_law_mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` |
@@ -449,7 +449,7 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. All 821 bundled records are
+`peritheos/data/primary-source-audit.json`. All 892 bundled records are
 validated, with no deferred or pending record.
 
 ## Complete EOS-only example
@@ -578,3 +578,8 @@ polynomial coefficients in Fratanduono (2020) Supplemental Eq. (2), rather
 than translating them to an ordinary `Vinet` record. See the
 [298 K Cu audit](literature-reproductions/fratanduono-2020-cu.md) for the
 published density reference and explicit volume conversion.
+
+`AlphaKT` also supports `bulk_modulus_law="reciprocal_cubic"`, with
+`1/K0(T)=1/K0(Tr)+beta1*(T-Tr)+beta2*(T²-Tr²)+beta3*(T³-Tr³)`
+and `dK_dT=0`. Optional `kprime_log_coefficient` shifts K0′ by
+`a*(T-Tr)*ln(T/Tr)` for supported three-parameter reference EOS families.

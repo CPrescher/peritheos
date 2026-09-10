@@ -263,11 +263,21 @@ class ThermalReferenceStateEOS(ThermalEOS):
     equations (1)--(3) of Bezacier et al. (2014),
     doi:10.1063/1.4894421. The reference EOS must expose reconstructable
     ``V0`` and ``K0`` parameters.
+
+    ``bulk_modulus_law="reciprocal_cubic"`` instead uses
+    ``1/K0(T) = 1/K0(Tr) + beta1*(T-Tr) + beta2*(T**2-Tr**2)
+    + beta3*(T**3-Tr**3)`` and requires ``dK_dT=0``. The reference
+    pressure derivative can vary by ``kprime_log_coefficient*(T-Tr)*ln(T/Tr)``
+    for supported three-parameter reference families. These are the laws of
+    Hirose et al. (2008), Table 2, fit #2, with the intercept constrained by
+    the stated reference bulk modulus. They define a mechanical P-V-T
+    surface, not a caloric free-energy model.
     """
 
     _constructor_configuration_names = (
         "thermal_expansion_law",
         "reference_volume_law",
+        "bulk_modulus_law",
     )
 
     def __init__(
@@ -279,12 +289,41 @@ class ThermalReferenceStateEOS(ThermalEOS):
         alpha1: float = 0.0,
         thermal_expansion_law: str = "constant",
         reference_volume_law: str = "integrated_expansivity",
+        bulk_modulus_law: str = "linear_temperature",
+        beta1: float = 0.0,
+        beta2: float = 0.0,
+        beta3: float = 0.0,
+        kprime_log_coefficient: float = 0.0,
     ) -> None:
         super().__init__(rt_eos)
         self.Tr = validate_positive_scalar(Tr, "Tr")
         self.alpha0 = validate_finite_scalar(alpha0, "alpha0")
         self.dK_dT = validate_finite_scalar(dK_dT, "dK_dT")
         self.alpha1 = validate_finite_scalar(alpha1, "alpha1")
+        self.beta1 = validate_finite_scalar(beta1, "beta1")
+        self.beta2 = validate_finite_scalar(beta2, "beta2")
+        self.beta3 = validate_finite_scalar(beta3, "beta3")
+        self.kprime_log_coefficient = validate_finite_scalar(
+            kprime_log_coefficient, "kprime_log_coefficient"
+        )
+        if bulk_modulus_law not in {"linear_temperature", "reciprocal_cubic"}:
+            raise EosValidationError("Invalid bulk_modulus_law")
+        self.bulk_modulus_law = bulk_modulus_law
+        if bulk_modulus_law == "reciprocal_cubic" and self.dK_dT != 0.0:
+            raise EosValidationError("dK_dT must be zero with cubic compressibility")
+        if bulk_modulus_law == "linear_temperature" and any((beta1, beta2, beta3)):
+            raise EosValidationError("beta coefficients require reciprocal_cubic")
+        if self.kprime_log_coefficient and type(rt_eos).__name__ not in {
+            "BM3",
+            "Baonza",
+            "Murnaghan",
+            "Morse3",
+            "NaturalStrain3",
+            "SunMorse3",
+            "SunMorse4",
+            "Vinet",
+        }:
+            raise EosValidationError("Unsupported reference EOS for K0_prime shift")
         if thermal_expansion_law not in {
             "constant",
             "linear_temperature",
@@ -338,7 +377,19 @@ class ThermalReferenceStateEOS(ThermalEOS):
                 self.alpha1,
                 self.thermal_expansion_law,
                 self.reference_volume_law,
+                self.bulk_modulus_law,
+                self.beta1,
+                self.beta2,
+                self.beta3,
+                self.kprime_log_coefficient,
             )
+
+    def configuration_values(self) -> dict[str, str]:
+        """Preserve the established configuration for the default modulus law."""
+        values = super().configuration_values()
+        if self.bulk_modulus_law == "linear_temperature":
+            values.pop("bulk_modulus_law")
+        return values
 
     def _state_eos(self, temperature: float) -> EosBase:
         delta_temperature = temperature - self.Tr
@@ -358,14 +409,35 @@ class ThermalReferenceStateEOS(ThermalEOS):
                 exponent += 0.5 * self.alpha1 * delta_temperature**2
             with np.errstate(over="ignore", under="ignore"):
                 V0 = self.rt_eos.V0 * np.exp(exponent)
-        K0 = self.rt_eos.K0 + self.dK_dT * delta_temperature
+        if self.bulk_modulus_law == "reciprocal_cubic":
+            compressibility = (
+                1.0 / self.rt_eos.K0
+                + self.beta1 * delta_temperature
+                + self.beta2 * (temperature**2 - self.Tr**2)
+                + self.beta3 * (temperature**3 - self.Tr**3)
+            )
+            if not np.isfinite(compressibility) or compressibility <= 0.0:
+                raise EosValidationError(
+                    "Temperature produces non-positive compressibility"
+                )
+            K0 = 1.0 / compressibility
+        else:
+            K0 = self.rt_eos.K0 + self.dK_dT * delta_temperature
         if not np.isfinite(V0) or V0 <= 0.0:
             raise EosValidationError(
                 "Temperature produces a non-positive reference volume"
             )
         if not np.isfinite(K0) or K0 <= 0.0:
             raise EosValidationError("Temperature produces a non-positive bulk modulus")
-        return self.rt_eos.with_parameters(V0=float(V0), K0=float(K0))
+        parameters = {"V0": float(V0), "K0": float(K0)}
+        if self.kprime_log_coefficient:
+            parameters["K0_prime"] = (
+                self.rt_eos.K0_prime
+                + self.kprime_log_coefficient
+                * delta_temperature
+                * np.log(temperature / self.Tr)
+            )
+        return self.rt_eos.with_parameters(**parameters)
 
     def pressure(self, V: NumericType, T: NumericType) -> NumericType:
         if hasattr(self, "_native"):

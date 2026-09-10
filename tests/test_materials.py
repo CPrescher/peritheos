@@ -69,7 +69,7 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 844
+    assert len(records) == 892
     assert len(materials) == 287
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
@@ -216,13 +216,17 @@ def test_material_document_json_round_trip_reconstructs_catalog_material(materia
             else record.eos.configuration_values()
         )
         assert loaded_configuration == configuration
+        probe_volume = 0.9 * record.reference_volume
+        if isinstance(record, HugoniotRecord):
+            lower, upper = record.branch_domain.particle_velocity_km_s
+            probe_volume = record.eos.volume_from_particle_velocity((lower + upper) / 2)
         pressure = record.pressure(
-            0.9 * record.reference_volume,
+            probe_volume,
             record.reference_temperature,
             check_validity=False,
         )
         assert loaded_record.pressure(
-            0.9 * loaded_record.reference_volume,
+            probe_volume,
             loaded_record.reference_temperature,
             check_validity=False,
         ) == pytest.approx(pressure)

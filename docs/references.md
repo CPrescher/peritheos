@@ -464,3 +464,17 @@ publication when citing a model in scientific work.
   [Source audit and reproduction](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md):
   two thermal fits from Table 2, all 46 Table 1 observations, and explicit
   interpretations of the printing errors in Equations 3, 4, 6, and 7.
+
+- Fei, Y., Murphy, C., Shibazaki, Y., Shahar, A. & Huang, H. (2016).
+  Thermal equation of state of hcp-iron: Constraint on the density deficit of
+  Earth's solid inner core. *Geophysical Research Letters*, 43, 6837–6843.
+  [doi:10.1002/2016GL069456](https://doi.org/10.1002/2016GL069456).
+  Both Equation (1) BM3 fits, Equation (2)'s complete thermal pressure,
+  and all 96 observations in Tables S1–S2 are included.
+
+## Additional primary iron sources
+
+- Brown, Fritz, Hixson (2000). *Hugoniot data for iron*. Journal of Applied Physics 88, 5496–5498. [doi:10.1063/1.1319320](https://doi.org/10.1063/1.1319320). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
+- Dubrovinsky, Saxena, Tutti, Rekhi, LeBehan (2000). *In Situ X-Ray Study of Thermal Expansion and Phase Transition of Iron at Multimegabar Pressure*. Physical Review Letters 84, 1720–1723. [doi:10.1103/PhysRevLett.84.1720](https://doi.org/10.1103/PhysRevLett.84.1720). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
+- Yamazaki, Ito, Yoshino, Yoneda, Guo, Zhang, Sun, Shimojuku, Tsujino, Kunimoto, Higo, Funakoshi (2012). *P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils*. Geophysical Research Letters 39, L20308. [doi:10.1029/2012GL053540](https://doi.org/10.1029/2012GL053540). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
+- Sakai, Takahashi, Nishitani, Mashino, Ohtani, Hirao (2014). *Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar*. Physics of the Earth and Planetary Interiors 228, 114–126. [doi:10.1016/j.pepi.2013.12.010](https://doi.org/10.1016/j.pepi.2013.12.010). See the [source audit](literature-reproductions/iron-fei-input-papers.md).

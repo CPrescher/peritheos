@@ -1,0 +1,1734 @@
+{
+  "source_manifest": "peritheos/data/datasets/iron-source-papers-zotero.json",
+  "records": {
+    "iron_sakai_2014_p1_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 183.7430703138515,
+        "K0_prime": 4.8136997880750005
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 179.6,
+          "fitted": 183.7430703138515,
+          "published_error": 2.2,
+          "absolute_difference": 4.143070313851496,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.91,
+          "fitted": 4.8136997880750005,
+          "published_error": 0.12,
+          "absolute_difference": 0.0963002119249996,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 1.7307881094324227,
+      "refitted_pressure_rmse_gpa": 1.5711439530612383,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.289767880490365
+    },
+    "iron_sakai_2014_p1_vinet": {
+      "status": "similar",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 176.29992899255143,
+        "K0_prime": 5.367133648243373
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 174.7,
+          "fitted": 176.29992899255143,
+          "published_error": 2.2,
+          "absolute_difference": 1.5999289925514404,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.37,
+          "fitted": 5.367133648243373,
+          "published_error": 0.12,
+          "absolute_difference": 0.0028663517566274166,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 1.8007981676460239,
+      "refitted_pressure_rmse_gpa": 1.358138963628398,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.240624446470072
+    },
+    "iron_sakai_2014_p1_v0_mao_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 170.62875234628973,
+        "K0_prime": 4.993222409895087
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 164.8,
+          "fitted": 170.62875234628973,
+          "published_error": 2.2,
+          "absolute_difference": 5.828752346289718,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.18,
+          "fitted": 4.993222409895087,
+          "published_error": 0.13,
+          "absolute_difference": 0.18677759010491268,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 1.911797510138902,
+      "refitted_pressure_rmse_gpa": 1.6883813707746107,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.322993528838117
+    },
+    "iron_sakai_2014_p1_v0_mao_vinet": {
+      "status": "parity_not_achieved",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 163.40443698422803,
+        "K0_prime": 5.561500151346458
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 160.1,
+          "fitted": 163.40443698422803,
+          "published_error": 2.1,
+          "absolute_difference": 3.3044369842280332,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.65,
+          "fitted": 5.561500151346458,
+          "published_error": 0.12,
+          "absolute_difference": 0.08849984865354266,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 1.5444637280380096,
+      "refitted_pressure_rmse_gpa": 1.4170194246654098,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.27870113710875
+    },
+    "iron_sakai_2014_p1_v0_dewaele_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "V0": 22.551682860811145,
+        "K0_prime": 5.2436319663787385
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "V0",
+          "published": 22.468,
+          "fitted": 22.551682860811145,
+          "published_error": null,
+          "absolute_difference": 0.08368286081114462,
+          "within_reported_error": null
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.37,
+          "fitted": 5.2436319663787385,
+          "published_error": 0.14,
+          "absolute_difference": 0.1263680336212616,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "V0": [
+          20,
+          25
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.193247101360098,
+      "refitted_pressure_rmse_gpa": 1.8680023527394627,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.343434164963357
+    },
+    "iron_sakai_2014_p1_v0_dewaele_vinet": {
+      "status": "parity_not_achieved",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "V0": 22.523026081405707,
+        "K0_prime": 5.770688407870286
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "V0",
+          "published": 22.468,
+          "fitted": 22.523026081405707,
+          "published_error": null,
+          "absolute_difference": 0.05502608140570686,
+          "within_reported_error": null
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.84,
+          "fitted": 5.770688407870286,
+          "published_error": 0.12,
+          "absolute_difference": 0.06931159212971405,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "V0": [
+          20,
+          25
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 1.6698163274157354,
+      "refitted_pressure_rmse_gpa": 1.5325591600243258,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.305603203899185
+    },
+    "iron_sakai_2014_p2_bm3": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable."
+    },
+    "iron_sakai_2014_p2_vinet": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable."
+    },
+    "iron_sakai_2014_p3_bm3": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable."
+    },
+    "iron_sakai_2014_p3_vinet": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable."
+    },
+    "iron_sakai_2014_p4_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p4_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 198.5892355539972,
+        "K0_prime": 4.87872890169641
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 195.1,
+          "fitted": 198.5892355539972,
+          "published_error": 2.4,
+          "absolute_difference": 3.4892355539972186,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.93,
+          "fitted": 4.87872890169641,
+          "published_error": 0.12,
+          "absolute_difference": 0.05127109830359,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.121546909125323,
+      "refitted_pressure_rmse_gpa": 1.7603743392994244,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.482619338985872
+    },
+    "iron_sakai_2014_p4_vinet": {
+      "status": "similar",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p4_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 190.73051850431446,
+        "K0_prime": 5.427273335806416
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 189.9,
+          "fitted": 190.73051850431446,
+          "published_error": 2.4,
+          "absolute_difference": 0.8305185043144547,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.39,
+          "fitted": 5.427273335806416,
+          "published_error": 0.13,
+          "absolute_difference": 0.03727333580641634,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.284198696173876,
+      "refitted_pressure_rmse_gpa": 1.5287773767443562,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.445550375006208
+    },
+    "iron_sakai_2014_p5_bm3": {
+      "status": "similar",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p5_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 198.38428747634123,
+        "K0_prime": 4.9035472009677825
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 196.0,
+          "fitted": 198.38428747634123,
+          "published_error": 2.5,
+          "absolute_difference": 2.3842874763412283,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.93,
+          "fitted": 4.9035472009677825,
+          "published_error": 0.13,
+          "absolute_difference": 0.0264527990322172,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 1.8254949981537465,
+      "refitted_pressure_rmse_gpa": 1.493582371073135,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
+      "checkpoint_329gpa_300k_volume_a3": 13.514587517683868
+    },
+    "iron_sakai_2014_p5_vinet": {
+      "status": "similar",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p5_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 190.47003910439446,
+        "K0_prime": 5.454658336009669
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 190.8,
+          "fitted": 190.47003910439446,
+          "published_error": 2.4,
+          "absolute_difference": 0.3299608956055522,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.39,
+          "fitted": 5.454658336009669,
+          "published_error": 0.13,
+          "absolute_difference": 0.06465833600966953,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.067085332582555,
+      "refitted_pressure_rmse_gpa": 1.289893293024698,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
+      "checkpoint_329gpa_300k_volume_a3": 13.478349789258168
+    },
+    "iron_sakai_2014_p6_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p6_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 175.55058789267716,
+        "K0_prime": 5.402254168779792
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 171.7,
+          "fitted": 175.55058789267716,
+          "published_error": 2.4,
+          "absolute_difference": 3.8505878926771686,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.49,
+          "fitted": 5.402254168779792,
+          "published_error": 0.15,
+          "absolute_difference": 0.08774583122020818,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 1.9954203475455305,
+      "refitted_pressure_rmse_gpa": 1.6935672966558224,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.548581889097726
+    },
+    "iron_sakai_2014_p6_vinet": {
+      "status": "similar",
+      "observations": 27,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p6_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 168.72864642874438,
+        "K0_prime": 5.93273298928715
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 167.2,
+          "fitted": 168.72864642874438,
+          "published_error": 2.2,
+          "absolute_difference": 1.5286464287443948,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.93,
+          "fitted": 5.93273298928715,
+          "published_error": 0.13,
+          "absolute_difference": 0.002732989287149934,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.051779033190769,
+      "refitted_pressure_rmse_gpa": 1.4729392562563048,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.51919409077951
+    },
+    "iron_yamazaki_2012_bm3_thermal": {
+      "status": "parity_not_achieved",
+      "observations": 207,
+      "temperature_range_k": [
+        300.0,
+        1900.0
+      ],
+      "pressure_column": "pressure_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "V0": 22.262702726843035,
+        "K0": 188.53636992247536,
+        "K0_prime": 4.762525357038585,
+        "gamma0": 3.201215447243429,
+        "beta": 0.5411775000825946,
+        "theta0": 1192.271070046367
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "V0",
+          "published": 22.15,
+          "fitted": 22.262702726843035,
+          "published_error": 0.05,
+          "absolute_difference": 0.11270272684303606,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0",
+          "published": 202,
+          "fitted": 188.53636992247536,
+          "published_error": 7,
+          "absolute_difference": 13.463630077524641,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.5,
+          "fitted": 4.762525357038585,
+          "published_error": 0.2,
+          "absolute_difference": 0.2625253570385846,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "gamma0",
+          "published": 3.2,
+          "fitted": 3.201215447243429,
+          "published_error": 0.2,
+          "absolute_difference": 0.0012154472434287023,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "beta",
+          "published": 0.8,
+          "fitted": 0.5411775000825946,
+          "published_error": 0.3,
+          "absolute_difference": 0.25882249991740547,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "theta0",
+          "published": 1173,
+          "fitted": 1192.271070046367,
+          "published_error": 62,
+          "absolute_difference": 19.271070046366958,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "V0": [
+          20,
+          25
+        ],
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ],
+        "gamma0": [
+          0.1,
+          8
+        ],
+        "beta": [
+          0.01,
+          10
+        ],
+        "theta0": [
+          1,
+          4000
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 0.6607481174454006,
+      "refitted_pressure_rmse_gpa": 0.6219909101294726,
+      "solver_success": true,
+      "qualification": "All 207 primary rows on original Tsuchiya Au scale. Unweighted P residuals do not assert the unavailable original weighting.",
+      "checkpoint_330gpa_6000k_density_g_cm3": 13.096900586759125
+    },
+    "iron_yamazaki_2012_vinet_thermal": {
+      "status": "parity_not_achieved",
+      "observations": 207,
+      "temperature_range_k": [
+        300.0,
+        1900.0
+      ],
+      "pressure_column": "pressure_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "V0": 22.294840414369773,
+        "K0": 182.3016080828161,
+        "K0_prime": 5.156187606210009,
+        "gamma0": 3.214351673223089,
+        "beta": 0.5578584611036544,
+        "theta0": 1186.3796635597148
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "V0",
+          "published": 22.17,
+          "fitted": 22.294840414369773,
+          "published_error": 0.06,
+          "absolute_difference": 0.12484041436977122,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0",
+          "published": 196,
+          "fitted": 182.3016080828161,
+          "published_error": 8,
+          "absolute_difference": 13.698391917183898,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.8,
+          "fitted": 5.156187606210009,
+          "published_error": 0.2,
+          "absolute_difference": 0.35618760621000956,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "gamma0",
+          "published": 3.2,
+          "fitted": 3.214351673223089,
+          "published_error": 0.2,
+          "absolute_difference": 0.014351673223088834,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "beta",
+          "published": 0.8,
+          "fitted": 0.5578584611036544,
+          "published_error": 0.3,
+          "absolute_difference": 0.2421415388963456,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "theta0",
+          "published": 1168,
+          "fitted": 1186.3796635597148,
+          "published_error": 61,
+          "absolute_difference": 18.3796635597148,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "V0": [
+          20,
+          25
+        ],
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ],
+        "gamma0": [
+          0.1,
+          8
+        ],
+        "beta": [
+          0.01,
+          10
+        ],
+        "theta0": [
+          1,
+          4000
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 0.689629909873565,
+      "refitted_pressure_rmse_gpa": 0.6202628351531172,
+      "solver_success": true,
+      "qualification": "All 207 primary rows on original Tsuchiya Au scale. Unweighted P residuals do not assert the unavailable original weighting.",
+      "checkpoint_330gpa_6000k_density_g_cm3": 13.199530958380086
+    },
+    "iron_dubrovinsky_2000_bm3_thermal": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "No numeric primary P-V-T regression table is published.",
+      "checkpoint_bulk_modulus_211gpa_300k": 1111.443293396519,
+      "checkpoint_average_alpha_202gpa_5200k": 9.205212031444134e-06
+    },
+    "iron_dewaele_2006_bm3": {
+      "status": "similar",
+      "observations": 37,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "reported_pressure_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "V0": 22.46074432737452,
+        "K0_prime": 4.981797926203559
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "V0",
+          "published": 22.468,
+          "fitted": 22.46074432737452,
+          "published_error": 0.024,
+          "absolute_difference": 0.007255672625479548,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.97,
+          "fitted": 4.981797926203559,
+          "published_error": 0.04,
+          "absolute_difference": 0.011797926203559683,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "V0": [
+          20,
+          25
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 0.7294835765688166,
+      "refitted_pressure_rmse_gpa": 0.7261679624581039,
+      "solver_success": true,
+      "qualification": "37 helium hcp rows selected by the existing original-2006 flag; K0 fixed at 165 GPa. Original weighting is unavailable."
+    },
+    "iron_brown_2000_linear_hugoniot": {
+      "status": "parity",
+      "observations": 37,
+      "objective": "Unweighted vertical Us residuals; all 37 Table I–II points.",
+      "parameters": {
+        "c0": 3.935012740892783,
+        "s": 1.57824296271126
+      },
+      "linear_rmse_km_s": 0.06078458507838442,
+      "quadratic_parameters": {
+        "c0": 3.6907827966531572,
+        "s": 1.7882114491032108,
+        "q": -0.038397085792346054
+      },
+      "quadratic_rmse_km_s": 0.03884386576249153,
+      "qualification": "All fitted polynomial coefficients agree at printed precision. Linear RMS uses N=37 (60.8 m/s); using N-2 gives 62.5 m/s, near printed 62 m/s. No Hugoniot temperatures recovered."
+    },
+    "fe09ni01_hcp_sakai_2014_p1_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 200.0343783266108,
+        "K0_prime": 4.2243284230188465
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 195.3,
+          "fitted": 200.0343783266108,
+          "published_error": 1.6,
+          "absolute_difference": 4.734378326610795,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.37,
+          "fitted": 4.2243284230188465,
+          "published_error": 0.05,
+          "absolute_difference": 0.14567157698115363,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.210908056547755,
+      "refitted_pressure_rmse_gpa": 1.606401520793189,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.118277999810385
+    },
+    "fe09ni01_hcp_sakai_2014_p1_vinet": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 192.27435509720192,
+        "K0_prime": 4.706556611960647
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 189.6,
+          "fitted": 192.27435509720192,
+          "published_error": 1.7,
+          "absolute_difference": 2.674355097201925,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.81,
+          "fitted": 4.706556611960647,
+          "published_error": 0.06,
+          "absolute_difference": 0.10344338803935305,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 1.972609141767631,
+      "refitted_pressure_rmse_gpa": 1.7062383521313806,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.074155593226434
+    },
+    "fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 187.0329689879698,
+        "K0_prime": 4.353887510008359
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 179.8,
+          "fitted": 187.0329689879698,
+          "published_error": 1.6,
+          "absolute_difference": 7.232968987969798,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.59,
+          "fitted": 4.353887510008359,
+          "published_error": 0.05,
+          "absolute_difference": 0.23611248999164047,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.7538171899931974,
+      "refitted_pressure_rmse_gpa": 1.6199964199966193,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.154980493467907
+    },
+    "fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 178.82057566405422,
+        "K0_prime": 4.885879076106027
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 173.9,
+          "fitted": 178.82057566405422,
+          "published_error": 1.6,
+          "absolute_difference": 4.920575664054212,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.07,
+          "fitted": 4.885879076106027,
+          "published_error": 0.06,
+          "absolute_difference": 0.18412092389397294,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.2197830754151466,
+      "refitted_pressure_rmse_gpa": 1.653409509846668,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.104971870751886
+    },
+    "fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "V0": 22.59086269559718,
+        "K0_prime": 4.537970473756033
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "V0",
+          "published": 22.468,
+          "fitted": 22.59086269559718,
+          "published_error": null,
+          "absolute_difference": 0.12286269559718122,
+          "within_reported_error": null
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.73,
+          "fitted": 4.537970473756033,
+          "published_error": 0.06,
+          "absolute_difference": 0.1920295262439673,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "V0": [
+          20,
+          25
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 3.1922874500456198,
+      "refitted_pressure_rmse_gpa": 1.7349314547623915,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.177709515622784
+    },
+    "fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p1_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "V0": 22.5562203902947,
+        "K0_prime": 5.079133042342121
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "V0",
+          "published": 22.468,
+          "fitted": 22.5562203902947,
+          "published_error": null,
+          "absolute_difference": 0.08822039029470119,
+          "within_reported_error": null
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.23,
+          "fitted": 5.079133042342121,
+          "published_error": 0.06,
+          "absolute_difference": 0.15086695765787983,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "V0": [
+          20,
+          25
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.612050295823673,
+      "refitted_pressure_rmse_gpa": 1.66732485758244,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.12961964993015
+    },
+    "fe09ni01_hcp_sakai_2014_p2_bm3": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable."
+    },
+    "fe09ni01_hcp_sakai_2014_p2_vinet": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable."
+    },
+    "fe09ni01_hcp_sakai_2014_p3_bm3": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable."
+    },
+    "fe09ni01_hcp_sakai_2014_p3_vinet": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable."
+    },
+    "fe09ni01_hcp_sakai_2014_p4_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p4_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 218.4138156274682,
+        "K0_prime": 4.255462850825763
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 213.0,
+          "fitted": 218.4138156274682,
+          "published_error": 1.8,
+          "absolute_difference": 5.41381562746821,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.41,
+          "fitted": 4.255462850825763,
+          "published_error": 0.05,
+          "absolute_difference": 0.1545371491742369,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.3447890411123287,
+      "refitted_pressure_rmse_gpa": 1.667656628629867,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.341394053029363
+    },
+    "fe09ni01_hcp_sakai_2014_p4_vinet": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p4_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 210.03586660274584,
+        "K0_prime": 4.739384266532654
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 207.0,
+          "fitted": 210.03586660274584,
+          "published_error": 1.8,
+          "absolute_difference": 3.035866602745841,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.85,
+          "fitted": 4.739384266532654,
+          "published_error": 0.06,
+          "absolute_difference": 0.11061573346734566,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.117292921135934,
+      "refitted_pressure_rmse_gpa": 1.7788197892068633,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.30725800736045
+    },
+    "fe09ni01_hcp_sakai_2014_p5_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p5_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 214.9151214647974,
+        "K0_prime": 4.3135447483778515
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 211.5,
+          "fitted": 214.9151214647974,
+          "published_error": 1.8,
+          "absolute_difference": 3.4151214647974086,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.42,
+          "fitted": 4.3135447483778515,
+          "published_error": 0.05,
+          "absolute_difference": 0.10645525162214842,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.2515693718530896,
+      "refitted_pressure_rmse_gpa": 1.8347163432871763,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
+      "checkpoint_329gpa_300k_volume_a3": 13.363889066629667
+    },
+    "fe09ni01_hcp_sakai_2014_p5_vinet": {
+      "status": "similar",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p5_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 206.2987950920161,
+        "K0_prime": 4.816594627576633
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 205.4,
+          "fitted": 206.2987950920161,
+          "published_error": 1.9,
+          "absolute_difference": 0.898795092016087,
+          "within_reported_error": true
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.86,
+          "fitted": 4.816594627576633,
+          "published_error": 0.06,
+          "absolute_difference": 0.043405372423367616,
+          "within_reported_error": true
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.085638180438255,
+      "refitted_pressure_rmse_gpa": 1.9794522014797378,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
+      "checkpoint_329gpa_300k_volume_a3": 13.325864168819999
+    },
+    "fe09ni01_hcp_sakai_2014_p6_bm3": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p6_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 196.58930346809018,
+        "K0_prime": 4.638208630235569
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 191.2,
+          "fitted": 196.58930346809018,
+          "published_error": 1.8,
+          "absolute_difference": 5.389303468090191,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.82,
+          "fitted": 4.638208630235569,
+          "published_error": 0.06,
+          "absolute_difference": 0.1817913697644311,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.489597189653668,
+      "refitted_pressure_rmse_gpa": 1.7786202823007078,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.406293765807808
+    },
+    "fe09ni01_hcp_sakai_2014_p6_vinet": {
+      "status": "parity_not_achieved",
+      "observations": 45,
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_column": "pressure_p6_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "K0": 187.47744968957844,
+        "K0_prime": 5.211820018794027
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "K0",
+          "published": 185.1,
+          "fitted": 187.47744968957844,
+          "published_error": 1.7,
+          "absolute_difference": 2.377449689578441,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.31,
+          "fitted": 5.211820018794027,
+          "published_error": 0.06,
+          "absolute_difference": 0.09817998120597249,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "K0": [
+          30,
+          500
+        ],
+        "K0_prime": [
+          1,
+          10
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 2.200673940141978,
+      "refitted_pressure_rmse_gpa": 1.9135004369802666,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_300k_volume_a3": 13.370182069766281
+    },
+    "fe09ni01_hcp_sakai_2014_type1_thermal": {
+      "status": "parity_not_achieved",
+      "observations": 32,
+      "temperature_range_k": [
+        1510.0,
+        2300.0
+      ],
+      "pressure_column": "pressure_p7_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "gamma0": 5.218611619598649,
+        "theta0": 2214.815336047005
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "gamma0",
+          "published": 2.169,
+          "fitted": 5.218611619598649,
+          "published_error": 0.207,
+          "absolute_difference": 3.049611619598649,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "theta0",
+          "published": 1162,
+          "fitted": 2214.815336047005,
+          "published_error": 204,
+          "absolute_difference": 1052.815336047005,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "gamma0": [
+          0.1,
+          8
+        ],
+        "theta0": [
+          1,
+          4000
+        ]
+      },
+      "active_bounds": [],
+      "published_pressure_rmse_gpa": 7.135102114330177,
+      "refitted_pressure_rmse_gpa": 1.0512363614149685,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_5000k_volume_a3": 14.007345944038462
+    },
+    "fe09ni01_hcp_sakai_2014_type2_thermal": {
+      "status": "parity_not_achieved",
+      "observations": 32,
+      "temperature_range_k": [
+        1510.0,
+        2300.0
+      ],
+      "pressure_column": "pressure_p7_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "gamma0": 7.999999999999999,
+        "beta": 2.2108417548372907,
+        "theta0": 1636.9776211198046
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "gamma0",
+          "published": 2.609,
+          "fitted": 7.999999999999999,
+          "published_error": 0.35,
+          "absolute_difference": 5.390999999999999,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "beta",
+          "published": 1.309,
+          "fitted": 2.2108417548372907,
+          "published_error": 0.679,
+          "absolute_difference": 0.9018417548372908,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "theta0",
+          "published": 600,
+          "fitted": 1636.9776211198046,
+          "published_error": 474,
+          "absolute_difference": 1036.9776211198046,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "gamma0": [
+          0.1,
+          8
+        ],
+        "beta": [
+          0.01,
+          10
+        ],
+        "theta0": [
+          1,
+          4000
+        ]
+      },
+      "active_bounds": [
+        "gamma0"
+      ],
+      "published_pressure_rmse_gpa": 7.085117575780836,
+      "refitted_pressure_rmse_gpa": 1.0453242461778438,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_5000k_volume_a3": 13.86024752381148
+    },
+    "fe09ni01_hcp_sakai_2014_type4_1_thermal": {
+      "status": "parity_not_achieved",
+      "observations": 32,
+      "temperature_range_k": [
+        1510.0,
+        2300.0
+      ],
+      "pressure_column": "pressure_p7_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "gamma0": 7.999999999999996,
+        "gamma_inf": 2.194773957257107,
+        "theta0": 1664.4773035616872
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "gamma0",
+          "published": 2.882,
+          "fitted": 7.999999999999996,
+          "published_error": 0.394,
+          "absolute_difference": 5.117999999999995,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "gamma_inf",
+          "published": 1.087,
+          "fitted": 2.194773957257107,
+          "published_error": 0.487,
+          "absolute_difference": 1.107773957257107,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "theta0",
+          "published": 577,
+          "fitted": 1664.4773035616872,
+          "published_error": 471,
+          "absolute_difference": 1087.4773035616872,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "gamma0": [
+          0.1,
+          8
+        ],
+        "gamma_inf": [
+          0,
+          8
+        ],
+        "theta0": [
+          1,
+          4000
+        ]
+      },
+      "active_bounds": [
+        "gamma0"
+      ],
+      "published_pressure_rmse_gpa": 7.088296341328164,
+      "refitted_pressure_rmse_gpa": 1.047994946666771,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_5000k_volume_a3": 13.8776117411367
+    },
+    "fe09ni01_hcp_sakai_2014_type4_2_thermal": {
+      "status": "parity_not_achieved",
+      "observations": 32,
+      "temperature_range_k": [
+        1510.0,
+        2300.0
+      ],
+      "pressure_column": "pressure_p7_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "gamma0": 2.2626134930835686,
+        "gamma_inf": 8.521054711807216e-22
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "gamma0",
+          "published": 2.883,
+          "fitted": 2.2626134930835686,
+          "published_error": 0.374,
+          "absolute_difference": 0.6203865069164314,
+          "within_reported_error": false
+        },
+        {
+          "parameter": "gamma_inf",
+          "published": 0.968,
+          "fitted": 8.521054711807216e-22,
+          "published_error": 0.242,
+          "absolute_difference": 0.968,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "gamma0": [
+          0.1,
+          8
+        ],
+        "gamma_inf": [
+          0,
+          8
+        ]
+      },
+      "active_bounds": [
+        "gamma_inf"
+      ],
+      "published_pressure_rmse_gpa": 7.096364413848751,
+      "refitted_pressure_rmse_gpa": 2.2581979489171067,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_5000k_volume_a3": 13.860869513071389
+    },
+    "fe09ni01_hcp_sakai_2014_type4_3_thermal": {
+      "status": "parity_not_achieved",
+      "observations": 32,
+      "temperature_range_k": [
+        1510.0,
+        2300.0
+      ],
+      "pressure_column": "pressure_p7_gpa",
+      "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+      "parameters": {
+        "beta": 9.999999999999998
+      },
+      "parameter_comparisons": [
+        {
+          "parameter": "beta",
+          "published": 1.161,
+          "fitted": 9.999999999999998,
+          "published_error": 0.237,
+          "absolute_difference": 8.838999999999999,
+          "within_reported_error": false
+        }
+      ],
+      "parameter_bounds": {
+        "beta": [
+          0.01,
+          10
+        ]
+      },
+      "active_bounds": [
+        "beta"
+      ],
+      "published_pressure_rmse_gpa": 7.214289792430111,
+      "refitted_pressure_rmse_gpa": 4.6165012578403015,
+      "solver_success": true,
+      "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+      "checkpoint_329gpa_5000k_volume_a3": 13.940175045525585
+    },
+    "nacl_b2_sakai_2014_yokoo_pt_bm3": {
+      "status": "not_refittable",
+      "observations": 0,
+      "qualification": "Original Sakai (2011a) paired NaCl/Pt calibration rows are unavailable in the attached 2014 paper."
+    }
+  }
+}

@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+- Added Fei et al. (2016): three published hcp-iron EOS records and all 96
+  supplementary observations, with a Debye plus quadratic thermal-pressure
+  model in Python and Rust and explicit limits on global-fit reproduction.
+- Added 43 published records and 348 observations from Brown (2000),
+  Dubrovinsky (2000), Yamazaki (2012), Sakai (2014), and Dewaele (2006),
+  including Fe0.9Ni0.1, source provenance, and record-specific refit audits.
+  Added reciprocal reference-compressibility support and the exact
+  zero-asymptotic-Gruneisen limit required by these thermal equations.
+
 - Recovered all 58 Sakai (2018) Figure 10 vector markers and independently
   refitted the 26 RP01 Yokoo-Pt points. Both rhenium Vinet coefficients agree
   within the quoted errors; the result is `parity`, with comparable refit

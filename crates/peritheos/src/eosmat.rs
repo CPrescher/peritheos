@@ -22,12 +22,12 @@ use crate::isothermal::{
     NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use crate::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, Dewaele2006, DorogokupetsOganov2007,
-    DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz, DoubleDebyeLogMomentHelmholtz,
-    HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
-    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
-    ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
-    ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeQuadraticThermalPressure, DebyeTemperatureLaw,
+    Dewaele2006, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
+    DoubleDebyeLogMomentHelmholtz, HollandPowellThermalPressure, LinearThermalPressure,
+    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
+    ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters,
+    ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -259,6 +259,38 @@ impl IsothermalEos for IsothermalModel {
 }
 
 impl ReferenceStateEos for IsothermalModel {
+    fn with_pressure_derivative_shift(&self, shift: f64) -> EosResult<Self> {
+        if shift == 0.0 {
+            return Ok(*self);
+        }
+        match self {
+            Self::BM3(model) => model.with_pressure_derivative_shift(shift).map(Self::BM3),
+            Self::Baonza(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::Baonza),
+            Self::Murnaghan(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::Murnaghan),
+            Self::Morse3(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::Morse3),
+            Self::NaturalStrain3(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::NaturalStrain3),
+            Self::SunMorse3(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::SunMorse3),
+            Self::SunMorse4(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::SunMorse4),
+            Self::Vinet(model) => model.with_pressure_derivative_shift(shift).map(Self::Vinet),
+            _ => Err(EosError::InvalidParameter {
+                name: "kprime_log_coefficient",
+                reason: "reference EOS does not support a pressure-derivative shift",
+            }),
+        }
+    }
+
     fn reference_bulk_modulus(&self) -> f64 {
         dispatch_isothermal!(self, model => model.reference_bulk_modulus())
     }
@@ -550,6 +582,8 @@ pub enum ThermalModel {
     /// Constant-slope thermal pressure.
     LinearThermalPressure(LinearThermalPressure<IsothermalModel>),
     /// Logarithmic-volume thermal pressure.
+    /// Debye plus empirical quadratic-temperature pressure.
+    DebyeQuadraticThermalPressure(DebyeQuadraticThermalPressure<IsothermalModel>),
     LogVolumeThermalPressure(LogVolumeThermalPressure<IsothermalModel>),
     /// Absolute bivariate second-order Taylor thermal pressure.
     SecondOrderTaylorThermalPressure(SecondOrderTaylorThermalPressure<IsothermalModel>),
@@ -576,6 +610,7 @@ macro_rules! dispatch_thermal {
             ThermalModel::Dewaele2006($model) => $expression,
             ThermalModel::DorogokupetsOganov2007($model) => $expression,
             ThermalModel::LinearThermalPressure($model) => $expression,
+            ThermalModel::DebyeQuadraticThermalPressure($model) => $expression,
             ThermalModel::LogVolumeThermalPressure($model) => $expression,
             ThermalModel::SecondOrderTaylorThermalPressure($model) => $expression,
             ThermalModel::MieGruneisenDebye($model) => $expression,
@@ -601,6 +636,7 @@ impl ThermalModel {
             Self::Dewaele2006(_) => "dewaele_2006",
             Self::DorogokupetsOganov2007(_) => "dorogokupets_oganov_2007",
             Self::LinearThermalPressure(_) => "linear_thermal_pressure",
+            Self::DebyeQuadraticThermalPressure(_) => "debye_quadratic_thermal_pressure",
             Self::LogVolumeThermalPressure(_) => "log_volume_thermal_pressure",
             Self::SecondOrderTaylorThermalPressure(_) => "second_order_taylor_thermal_pressure",
             Self::MieGruneisenDebye(_) => "mie_gruneisen_debye",
@@ -705,6 +741,9 @@ impl LoadedEos {
                 ThermalModel::Dewaele2006(value) => value.rt_eos.model_identifier(),
                 ThermalModel::DorogokupetsOganov2007(value) => value.rt_eos.model_identifier(),
                 ThermalModel::LinearThermalPressure(value) => value.rt_eos.model_identifier(),
+                ThermalModel::DebyeQuadraticThermalPressure(value) => {
+                    value.rt_eos.model_identifier()
+                }
                 ThermalModel::LogVolumeThermalPressure(value) => value.rt_eos.model_identifier(),
                 ThermalModel::SecondOrderTaylorThermalPressure(value) => {
                     value.rt_eos.model_identifier()
@@ -1207,6 +1246,7 @@ struct RawComponent {
     thermal_pressure_reference: Option<String>,
     thermal_expansion_law: Option<String>,
     reference_volume_law: Option<String>,
+    bulk_modulus_law: Option<String>,
     #[serde(default)]
     configuration: HashMap<String, Value>,
 }
@@ -2512,7 +2552,8 @@ fn nearly_equal(left: f64, right: f64) -> bool {
 fn is_molar_volume_model(model: &str) -> bool {
     matches!(
         model,
-        "mie_gruneisen_debye"
+        "debye_quadratic_thermal_pressure"
+            | "mie_gruneisen_debye"
             | "mie_gruneisen_einstein"
             | "asymptotic_power_law_mie_gruneisen_debye"
             | "double_debye_helmholtz"
@@ -2552,6 +2593,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "Dewaele2006" => "dewaele_2006",
             "DorogokupetsOganov2007" => "dorogokupets_oganov_2007",
             "LinearThermalPressure" => "linear_thermal_pressure",
+            "DebyeQuadraticThermalPressure" => "debye_quadratic_thermal_pressure",
             "LogVolumeThermalPressure" => "log_volume_thermal_pressure",
             "SecondOrderTaylorThermalPressure" => "second_order_taylor_thermal_pressure",
             "MieGruneisenDebye" => "mie_gruneisen_debye",
@@ -2700,6 +2742,7 @@ fn configuration<'a>(component: &'a RawComponent, name: &str) -> Option<&'a str>
         "thermal_pressure_reference" => component.thermal_pressure_reference.as_deref(),
         "thermal_expansion_law" => component.thermal_expansion_law.as_deref(),
         "reference_volume_law" => component.reference_volume_law.as_deref(),
+        "bulk_modulus_law" => component.bulk_modulus_law.as_deref(),
         _ => None,
     }
     .or_else(|| component.configuration.get(name).and_then(Value::as_str))
@@ -2834,6 +2877,20 @@ fn build_thermal(
             LinearThermalPressure::new(reference, p("Tr")?, p("alpha_KT")?)
                 .map(ThermalModel::LinearThermalPressure)
         }
+        "debye_quadratic_thermal_pressure" => {
+            check_type(component, "DebyeQuadraticThermalPressure")?;
+            DebyeQuadraticThermalPressure::new(
+                reference,
+                p("Tr")?,
+                p("theta0")?,
+                p("gamma0")?,
+                p("q")?,
+                p("n")?,
+                p("A")?,
+                p("m")?,
+            )
+            .map(ThermalModel::DebyeQuadraticThermalPressure)
+        }
         "log_volume_thermal_pressure" => {
             check_type(component, "LogVolumeThermalPressure")?;
             LogVolumeThermalPressure::new(reference, p("Tr")?, p("alpha_KT_ref")?, p("dK_dT_V")?)
@@ -2886,6 +2943,33 @@ fn build_thermal(
                 expansion_law,
                 volume_law,
             )
+            .and_then(|model| {
+                let beta = |name| {
+                    component
+                        .parameters
+                        .get(name)
+                        .copied()
+                        .flatten()
+                        .unwrap_or(0.0)
+                };
+                let coefficients = match configuration(component, "bulk_modulus_law")
+                    .unwrap_or("linear_temperature")
+                {
+                    "reciprocal_cubic" => Some([beta("beta1"), beta("beta2"), beta("beta3")]),
+                    "linear_temperature"
+                        if beta("beta1") == 0.0 && beta("beta2") == 0.0 && beta("beta3") == 0.0 =>
+                    {
+                        None
+                    }
+                    _ => {
+                        return Err(EosError::InvalidParameter {
+                            name: "bulk_modulus_law",
+                            reason: "invalid law or unused beta coefficients",
+                        })
+                    }
+                };
+                model.with_temperature_laws(coefficients, beta("kprime_log_coefficient"))
+            })
             .map(ThermalModel::ThermalReferenceState)
         }
         "mie_gruneisen_debye" => {

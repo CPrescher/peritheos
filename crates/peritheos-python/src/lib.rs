@@ -16,11 +16,12 @@ use peritheos::isothermal::{
     Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, Dewaele2006, DorogokupetsOganov2007,
-    DorogokupetsOganov2007Parameters, HollandPowellThermalPressure, LinearThermalPressure,
-    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
-    ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters,
-    ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeQuadraticThermalPressure, DebyeTemperatureLaw,
+    Dewaele2006, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
+    HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
+    ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
+    ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
 };
 use peritheos::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use pyo3::exceptions::PyRuntimeError;
@@ -136,6 +137,38 @@ impl IsothermalEos for RtModel {
 }
 
 impl ReferenceStateEos for RtModel {
+    fn with_pressure_derivative_shift(&self, shift: f64) -> EosResult<Self> {
+        if shift == 0.0 {
+            return Ok(*self);
+        }
+        match self {
+            Self::BM3(model) => model.with_pressure_derivative_shift(shift).map(Self::BM3),
+            Self::Baonza(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::Baonza),
+            Self::Murnaghan(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::Murnaghan),
+            Self::Morse3(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::Morse3),
+            Self::NaturalStrain3(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::NaturalStrain3),
+            Self::SunMorse3(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::SunMorse3),
+            Self::SunMorse4(model) => model
+                .with_pressure_derivative_shift(shift)
+                .map(Self::SunMorse4),
+            Self::Vinet(model) => model.with_pressure_derivative_shift(shift).map(Self::Vinet),
+            _ => Err(EosError::InvalidParameter {
+                name: "kprime_log_coefficient",
+                reason: "reference EOS does not support a pressure-derivative shift",
+            }),
+        }
+    }
+
     fn reference_bulk_modulus(&self) -> f64 {
         match self {
             Self::Baonza(model) => model.k0,
@@ -491,6 +524,7 @@ enum ThermalModel {
     Dewaele2006(Dewaele2006<RtModel>),
     DorogokupetsOganov2007(DorogokupetsOganov2007<RtModel>),
     LinearThermalPressure(LinearThermalPressure<RtModel>),
+    DebyeQuadraticThermalPressure(DebyeQuadraticThermalPressure<RtModel>),
     LogVolumeThermalPressure(LogVolumeThermalPressure<RtModel>),
     SecondOrderTaylorThermalPressure(SecondOrderTaylorThermalPressure<RtModel>),
     MieGruneisenDebye(MieGruneisenDebye<RtModel>),
@@ -508,6 +542,7 @@ impl ThermalModel {
             Self::Dewaele2006(_) => "Dewaele2006",
             Self::DorogokupetsOganov2007(_) => "DorogokupetsOganov2007",
             Self::LinearThermalPressure(_) => "LinearThermalPressure",
+            Self::DebyeQuadraticThermalPressure(_) => "DebyeQuadraticThermalPressure",
             Self::LogVolumeThermalPressure(_) => "LogVolumeThermalPressure",
             Self::SecondOrderTaylorThermalPressure(_) => "SecondOrderTaylorThermalPressure",
             Self::MieGruneisenDebye(_) => "MieGruneisenDebye",
@@ -531,6 +566,9 @@ impl ThermalModel {
                 evaluate_dorogokupets_quantity(&model, quantity, first, second)
             }
             Self::LinearThermalPressure(model) => {
+                evaluate_thermal_quantity(&model, quantity, first, second)
+            }
+            Self::DebyeQuadraticThermalPressure(model) => {
                 evaluate_thermal_quantity(&model, quantity, first, second)
             }
             Self::LogVolumeThermalPressure(model) => {
@@ -577,6 +615,9 @@ impl ThermalModel {
             Self::LinearThermalPressure(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
+            Self::DebyeQuadraticThermalPressure(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
             Self::LogVolumeThermalPressure(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
@@ -620,6 +661,26 @@ struct PyThermalEos {
 
 #[pymethods]
 impl PyThermalEos {
+    #[staticmethod]
+    #[allow(clippy::too_many_arguments)]
+    fn debye_quadratic_thermal_pressure(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        q: f64,
+        n: f64,
+        a: f64,
+        m: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::DebyeQuadraticThermalPressure(
+                DebyeQuadraticThermalPressure::new(rt_eos.model, tr, theta0, gamma0, q, n, a, m)
+                    .map_err(to_python_error)?,
+            ),
+        })
+    }
+
     #[staticmethod]
     #[pyo3(signature = (
         rt_eos, tr, theta0, gamma0, q, n,
@@ -810,7 +871,8 @@ impl PyThermalEos {
     #[pyo3(signature = (
         rt_eos, tr, alpha0, dk_dt, alpha1=0.0,
         thermal_expansion_law="constant",
-        reference_volume_law="integrated_expansivity"
+        reference_volume_law="integrated_expansivity", bulk_modulus_law="linear_temperature",
+        beta1=0.0, beta2=0.0, beta3=0.0, kprime_log_coefficient=0.0
     ))]
     #[allow(clippy::too_many_arguments)]
     fn thermal_reference_state(
@@ -821,7 +883,21 @@ impl PyThermalEos {
         alpha1: f64,
         thermal_expansion_law: &str,
         reference_volume_law: &str,
+        bulk_modulus_law: &str,
+        beta1: f64,
+        beta2: f64,
+        beta3: f64,
+        kprime_log_coefficient: f64,
     ) -> PyResult<Self> {
+        let coefficients = match bulk_modulus_law {
+            "linear_temperature" if beta1 == 0.0 && beta2 == 0.0 && beta3 == 0.0 => None,
+            "reciprocal_cubic" => Some([beta1, beta2, beta3]),
+            _ => {
+                return Err(python_validation_error(
+                    "invalid bulk_modulus_law or unused beta coefficients",
+                ))
+            }
+        };
         let expansion_law = match thermal_expansion_law {
             "constant" => ThermalExpansionLaw::Constant,
             "linear_temperature" => ThermalExpansionLaw::LinearTemperature,
@@ -853,6 +929,7 @@ impl PyThermalEos {
                     expansion_law,
                     volume_law,
                 )
+                .and_then(|model| model.with_temperature_laws(coefficients, kprime_log_coefficient))
                 .map_err(to_python_error)?,
             ),
         })

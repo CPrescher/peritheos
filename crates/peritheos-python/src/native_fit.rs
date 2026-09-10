@@ -10,13 +10,13 @@ use peritheos::isothermal::{
     NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, Dewaele2006, DorogokupetsOganov2007,
-    DorogokupetsOganov2007Parameters, HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
-    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
-    SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalModifiedTait,
-    ThermalReferenceState,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeQuadraticThermalPressure, Dewaele2006,
+    DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, HollandPowellThermalPressure,
+    LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
+    MultiOscillatorGruneisen, SecondOrderTaylorThermalPressure, SokolovaParameters,
+    ThermalModifiedTait, ThermalReferenceState,
 };
-use peritheos::{EosResult, ThermalEos};
+use peritheos::{EosError, EosResult, ThermalEos};
 use pyo3::prelude::*;
 
 use super::{
@@ -250,6 +250,7 @@ impl ThermalModel {
             Self::Dewaele2006(model) => model.pressure(volume, temperature),
             Self::DorogokupetsOganov2007(model) => model.pressure(volume, temperature),
             Self::LinearThermalPressure(model) => model.pressure(volume, temperature),
+            Self::DebyeQuadraticThermalPressure(model) => model.pressure(volume, temperature),
             Self::LogVolumeThermalPressure(model) => model.pressure(volume, temperature),
             Self::SecondOrderTaylorThermalPressure(model) => model.pressure(volume, temperature),
             Self::MieGruneisenDebye(model) => model.pressure(volume, temperature),
@@ -398,6 +399,25 @@ impl ThermalModel {
                         reference,
                         value(names, values, "Tr", model.tr),
                         value(names, values, "alpha_KT", model.alpha_kt),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::DebyeQuadraticThermalPressure(model) => {
+                ensure_names(names, &["Tr", "theta0", "gamma0", "q", "n", "A", "m"], true)?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::DebyeQuadraticThermalPressure(
+                    DebyeQuadraticThermalPressure::new(
+                        reference,
+                        value(names, values, "Tr", model.debye.tr),
+                        value(names, values, "theta0", model.debye.theta0),
+                        value(names, values, "gamma0", model.debye.gamma0),
+                        value(names, values, "q", model.debye.q),
+                        value(names, values, "n", model.debye.n),
+                        value(names, values, "A", model.a),
+                        value(names, values, "m", model.m),
                     )
                     .map_err(FitError::from)?,
                 )
@@ -555,7 +575,30 @@ impl ThermalModel {
                 )
             }
             Self::ThermalReferenceState(model) => {
-                ensure_names(names, &["Tr", "alpha0", "dK_dT", "alpha1"], true)?;
+                if model.compressibility_coefficients.is_none()
+                    && ["beta1", "beta2", "beta3"]
+                        .iter()
+                        .any(|name| value(names, values, name, 0.0) != 0.0)
+                {
+                    return Err(FitError::from(EosError::InvalidParameter {
+                        name: "beta coefficients",
+                        reason: "require reciprocal cubic compressibility",
+                    }));
+                }
+                ensure_names(
+                    names,
+                    &[
+                        "Tr",
+                        "alpha0",
+                        "dK_dT",
+                        "alpha1",
+                        "beta1",
+                        "beta2",
+                        "beta3",
+                        "kprime_log_coefficient",
+                    ],
+                    true,
+                )?;
                 let reference = model
                     .rt_eos
                     .with_parameters(&reference_names, &reference_values)?;
@@ -569,6 +612,23 @@ impl ThermalModel {
                         model.thermal_expansion_law,
                         model.reference_volume_law,
                     )
+                    .and_then(|updated| {
+                        updated.with_temperature_laws(
+                            model.compressibility_coefficients.map(|b| {
+                                [
+                                    value(names, values, "beta1", b[0]),
+                                    value(names, values, "beta2", b[1]),
+                                    value(names, values, "beta3", b[2]),
+                                ]
+                            }),
+                            value(
+                                names,
+                                values,
+                                "kprime_log_coefficient",
+                                model.kprime_log_coefficient,
+                            ),
+                        )
+                    })
                     .map_err(FitError::from)?,
                 )
             }

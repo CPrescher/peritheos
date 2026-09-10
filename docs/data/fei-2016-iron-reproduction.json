@@ -1,0 +1,36 @@
+{
+  "doi": "10.1002/2016GL069456",
+  "scope": "Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records.",
+  "reference_volume_a3": 22.427668953702995,
+  "static": {
+    "fixed_density": {
+      "observations": 74,
+      "parameters": {
+        "K0": 174.14507832097766,
+        "K0_prime": 4.7469559889012185
+      },
+      "published_rmse_gpa": 1.3768980313673265,
+      "refit_rmse_gpa": 1.3630485452322956
+    },
+    "free_density": {
+      "observations": 74,
+      "parameters": {
+        "V0": 22.051492830483177,
+        "K0": 205.86643517656785,
+        "K0_prime": 4.315699561906294
+      },
+      "published_rmse_gpa": 1.3526615046883579,
+      "refit_rmse_gpa": 1.2444640428651874
+    }
+  },
+  "thermal": {
+    "observations": 22,
+    "published_pth_rmse_gpa": 1.1375505860358888,
+    "published_total_pressure_rmse_gpa": 1.6093378571886443,
+    "s2_pth_vs_p_minus_bm3_max_abs_gpa": 2.06561887371347,
+    "partial_static_only_beta0_k_fixed": 0.11698109836176634,
+    "partial_refit_pth_rmse_gpa": 0.8510224117665652,
+    "first_row_predicted_pth_gpa": 6.562673047836684,
+    "last_row_predicted_pth_gpa": 11.478598810419165
+  }
+}

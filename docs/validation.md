@@ -13,7 +13,7 @@ including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 844 bundled records. Every record is
+The primary-source audit covers all 892 bundled records. Every record is
 `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -30,10 +30,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 846
+fit for every record with sufficient direct observations and documents all 892
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 191 parity matches and 91 additional numerically similar results. [38 direct refits](primary-eos-refits.md#parity-not-achieved) do not
+diagnostics. The current campaign finds 192 parity matches and 98 additional numerically similar results. [63 direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 512 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Two derived diamond records are exact source-equation

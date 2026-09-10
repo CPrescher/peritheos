@@ -92,9 +92,9 @@ def test_complete_material_library_is_bundled_and_valid():
     identifiers = list_material_documents()
     documents = [get_material_document(identifier) for identifier in identifiers]
 
-    assert len(identifiers) == 208
-    assert len(set(identifiers)) == 208
-    assert sum(len(document["eos_records"]) for document in documents) == 486
+    assert len(identifiers) == 288
+    assert len(set(identifiers)) == 288
+    assert sum(len(document["eos_records"]) for document in documents) == 892
     assert {
         document["identifier"] for document in documents if not document["eos_records"]
     } == {"coesite_v"}
@@ -122,10 +122,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 844
+    assert len({record["identifier"] for record in records}) == 892
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 844
+    assert statuses.count("primary_source_validated") == 892
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -227,6 +227,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-09-06",
         "2026-09-07",
         "2026-09-08",
+        "2026-09-10",
     }
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
@@ -303,12 +304,12 @@ def test_migrated_records_have_completed_primary_source_audit():
         - overnight_identifiers
         - delta_identifiers
     )
-    assert len(overnight_identifiers) == 171
+    assert len(overnight_identifiers) == 170
     assert len(delta_identifiers) == 50
     assert {audit_dates[identifier] for identifier in delta_identifiers} == {
         "2026-09-06"
     }
-    assert len(batch_identifiers) == 441
+    assert len(batch_identifiers) == 490
     assert {audit_dates[identifier] for identifier in batch_identifiers} == {
         "2026-09-01",
         "2026-09-03",
@@ -316,6 +317,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-09-06",
         "2026-09-07",
         "2026-09-08",
+        "2026-09-10",
     }
     assert native_identifiers == (
         legacy_native_identifiers
@@ -350,10 +352,10 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 844,
-        "primary_source_validated": 844,
+        "records": 892,
+        "primary_source_validated": 892,
     }
-    assert report["audit_date"] == "2026-09-08"
+    assert report["audit_date"] == "2026-09-10"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
 
@@ -826,7 +828,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 844
+    assert len(records) == 892
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -838,6 +840,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-06",
         "2026-09-07",
         "2026-09-08",
+        "2026-09-10",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")
@@ -896,7 +899,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 844
+    assert checked == 892
     assert failures == []
 
 
@@ -2692,7 +2695,7 @@ def test_normative_schema_is_bundled():
         "berman",
     ]
     assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 17
-    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 17
+    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 18
 
 
 def test_normative_schema_validates_every_bundled_document():
@@ -2912,9 +2915,9 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert manifest["source"]["version"] == "0.10.0"
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
-    assert manifest["materials"] == 287
-    assert manifest["eos_records"] == 844
-    assert manifest["scientific_validation"]["audit_date"] == "2026-09-08"
+    assert manifest["materials"] == 288
+    assert manifest["eos_records"] == 892
+    assert manifest["scientific_validation"]["audit_date"] == "2026-09-10"
 
 
 @pytest.mark.parametrize(

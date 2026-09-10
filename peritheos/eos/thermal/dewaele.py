@@ -27,7 +27,8 @@ class Dewaele2006(ThermalEOS):
     isotherm with a single-Debye quasiharmonic pressure and quadratic
     intrinsic-anharmonic and electronic contributions. The Gruneisen and
     Debye-temperature laws are the simplified Dorogokupets--Oganov form used
-    by the source.
+    by the source. ``gamma_inf=0`` is the exact power-law Gruneisen
+    limit used by Yamazaki et al. (2012); ``beta`` then equals their ``q``.
 
     Volume uses the Peritheos molar convention,
     ``J bar^-1 mol^-1 == cm^3 mol^-1 / 10``. The ``anharmonic_a`` and
@@ -56,7 +57,9 @@ class Dewaele2006(ThermalEOS):
         self.Tr = validate_positive_scalar(Tr, "Tr")
         self.theta0 = validate_positive_scalar(theta0, "theta0")
         self.gamma0 = validate_positive_scalar(gamma0, "gamma0")
-        self.gamma_inf = validate_positive_scalar(gamma_inf, "gamma_inf")
+        self.gamma_inf = validate_finite_scalar(gamma_inf, "gamma_inf")
+        if self.gamma_inf < 0:
+            raise EosValidationError("gamma_inf must not be negative")
         if self.gamma_inf > self.gamma0:
             raise EosValidationError("gamma_inf must not exceed gamma0")
         self.beta = validate_positive_scalar(beta, "beta")

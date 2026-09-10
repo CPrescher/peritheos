@@ -1142,3 +1142,16 @@ The second expression is $-V\,dP/dV$ and remains regular at $V=V_0$.
 The independent eta, beta, psi coefficients must not be collapsed into
 ordinary Vinet. The [Cu source audit](literature-reproductions/fratanduono-2020-cu.md)
 documents the density reference conversion and source limitations.
+
+## Debye plus quadratic thermal pressure
+
+`DebyeQuadraticThermalPressure` adds the integrated-law Mie–Grüneisen–Debye
+pressure relative to `Tr` and `A (V/V0)^m (T² − Tr²)`. `A` uses GPa/K²,
+`m` is dimensionless, and `Tr`, `theta0`, `gamma0`, `q`, `n` follow the Debye
+model. Internal volumes are molar J/bar/mol. Positive finite volumes,
+temperatures, `Tr`, `theta0`, and `n` are required; other coefficients must
+be finite. `A = 0` recovers MGD. The thermal increment vanishes at `Tr`.
+It is a pressure surface without caloric observables. The
+[Fei (2016) audit](literature-reproductions/fei-2016-iron.md) derives the
+mapping from the published mass-specific electronic/anharmonic term and
+explains the independent electronic Grüneisen convention.

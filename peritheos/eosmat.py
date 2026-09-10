@@ -56,6 +56,7 @@ _THERMAL_TYPES = {
     "DorogokupetsOganov2007",
     "HollandPowellThermalPressure",
     "LinearThermalPressure",
+    "DebyeQuadraticThermalPressure",
     "LogVolumeThermalPressure",
     "SecondOrderTaylorThermalPressure",
     "SoundVelocityDebyeHelmholtz",
@@ -96,6 +97,7 @@ _THERMAL_MODELS = {
     "DorogokupetsOganov2007": "dorogokupets_oganov_2007",
     "HollandPowellThermalPressure": "holland_powell_thermal_pressure",
     "LinearThermalPressure": "linear_thermal_pressure",
+    "DebyeQuadraticThermalPressure": "debye_quadratic_thermal_pressure",
     "LogVolumeThermalPressure": "log_volume_thermal_pressure",
     "SecondOrderTaylorThermalPressure": "second_order_taylor_thermal_pressure",
     "SoundVelocityDebyeHelmholtz": "sound_velocity_debye_helmholtz",
@@ -763,6 +765,15 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     f"{location}.thermal.thermal_pressure_reference requires "
                     "MieGruneisenDebye"
                 )
+            bulk_modulus_law = thermal.get(
+                "bulk_modulus_law",
+                thermal.get("configuration", {}).get("bulk_modulus_law"),
+            )
+            if bulk_modulus_law is not None and (
+                thermal_type != "AlphaKT"
+                or bulk_modulus_law not in ("linear_temperature", "reciprocal_cubic")
+            ):
+                raise EosmatError(f"{location}.thermal.bulk_modulus_law is invalid")
             thermal_expansion_law = thermal.get("thermal_expansion_law")
             reference_volume_law = thermal.get("reference_volume_law")
             if thermal_type == "AlphaKT":

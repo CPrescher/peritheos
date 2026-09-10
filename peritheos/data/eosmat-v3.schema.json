@@ -741,7 +741,8 @@
             "ThermalModifiedTait",
             "SoundVelocityDebyeHelmholtz",
             "Dewaele2006",
-            "HollandPowellThermalPressure"
+            "HollandPowellThermalPressure",
+            "DebyeQuadraticThermalPressure"
           ]
         },
         "model": {
@@ -761,7 +762,8 @@
             "thermal_modified_tait",
             "sound_velocity_debye_helmholtz",
             "dewaele_2006",
-            "holland_powell_thermal_pressure"
+            "holland_powell_thermal_pressure",
+            "debye_quadratic_thermal_pressure"
           ]
         },
         "debye_temperature_law": {
@@ -827,6 +829,14 @@
           "items": {
             "type": "string"
           }
+        },
+        "bulk_modulus_law": {
+          "enum": [
+            "linear_temperature",
+            "reciprocal_cubic"
+          ],
+          "default": "linear_temperature",
+          "description": "AlphaKT reference modulus: linear slope or reference-anchored reciprocal cubic with beta1, beta2, beta3 and dK_dT=0."
         }
       },
       "additionalProperties": true,
@@ -1000,6 +1010,16 @@
                 },
                 "model": {
                   "const": "holland_powell_thermal_pressure"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "DebyeQuadraticThermalPressure"
+                },
+                "model": {
+                  "const": "debye_quadratic_thermal_pressure"
                 }
               }
             }

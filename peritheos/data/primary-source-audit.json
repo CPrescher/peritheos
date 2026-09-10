@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-08",
+  "audit_date": "2026-09-10",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 846,
-    "primary_source_validated": 846
+    "records": 892,
+    "primary_source_validated": 892
   },
   "records": [
     {
@@ -4646,6 +4646,363 @@
       }
     },
     {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p1_bm3",
+      "label": "Sakai et al. (2014), p1_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p1_vinet",
+      "label": "Sakai et al. (2014), p1_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3",
+      "label": "Sakai et al. (2014), p1_v0_mao_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet",
+      "label": "Sakai et al. (2014), p1_v0_mao_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3",
+      "label": "Sakai et al. (2014), p1_v0_dewaele_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet",
+      "label": "Sakai et al. (2014), p1_v0_dewaele_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p2_bm3",
+      "label": "Sakai et al. (2014), p2_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p2_vinet",
+      "label": "Sakai et al. (2014), p2_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p3_bm3",
+      "label": "Sakai et al. (2014), p3_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p3_vinet",
+      "label": "Sakai et al. (2014), p3_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p4_bm3",
+      "label": "Sakai et al. (2014), p4_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p4_vinet",
+      "label": "Sakai et al. (2014), p4_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p5_bm3",
+      "label": "Sakai et al. (2014), p5_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p5_vinet",
+      "label": "Sakai et al. (2014), p5_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p6_bm3",
+      "label": "Sakai et al. (2014), p6_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_p6_vinet",
+      "label": "Sakai et al. (2014), p6_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_type1_thermal",
+      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 4, 6–8; Section 3.5"
+        ],
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_type2_thermal",
+      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 4, 6–8; Section 3.5"
+        ],
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_type4_1_thermal",
+      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_1 thermal EOS (P4 + P7)",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 4, 6–8; Section 3.5"
+        ],
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_type4_2_thermal",
+      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_2 thermal EOS (P4 + P7)",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 4, 6–8; Section 3.5"
+        ],
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "file": "fe09ni01_hcp.eosmat",
+      "record": "fe09ni01_hcp_sakai_2014_type4_3_thermal",
+      "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_3 thermal EOS (P4 + P7)",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 4, 6–8; Section 3.5"
+        ],
+        "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
+      }
+    },
+    {
       "material": "fe2o3",
       "file": "fe2o3.eosmat",
       "record": "fe2o3_schouwink_2011_bm2_1",
@@ -5936,6 +6293,420 @@
           "Figure 3 and core-temperature discussion"
         ],
         "finding": "Table III supplies the 300 K Vinet isotherm and its 95% fit errors. The thermal EOS is a simplified Dorogokupets-Oganov formalism with one Debye term plus quadratic anharmonic and electronic terms, all subtracted at 300 K."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_fei_2016_bm3",
+      "label": "Fei et al. (2016), preferred fixed-density 300 K BM3",
+      "doi": "10.1002/2016gl069456",
+      "status": "primary_source_validated",
+      "note": "Published equations and coefficients checked against the Zotero version of record; independent equation reconstruction and supplementary-data residuals documented.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1002/2016GL069456",
+        "doi": "10.1002/2016GL069456",
+        "locations": [
+          "Section 3.1, equation (1), p. 6840",
+          "Section 3.2, equation (2), pp. 6840–6841",
+          "Official SI introduction and Tables S1–S2"
+        ],
+        "finding": "The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_fei_2016_free_density_bm3",
+      "label": "Fei et al. (2016), free-density 300 K BM3 alternative",
+      "doi": "10.1002/2016gl069456",
+      "status": "primary_source_validated",
+      "note": "Published equations and coefficients checked against the Zotero version of record; independent equation reconstruction and supplementary-data residuals documented.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1002/2016GL069456",
+        "doi": "10.1002/2016GL069456",
+        "locations": [
+          "Section 3.1, equation (1), p. 6840",
+          "Section 3.2, equation (2), pp. 6840–6841",
+          "Official SI introduction and Tables S1–S2"
+        ],
+        "finding": "The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_fei_2016_bm3_debye_quadratic",
+      "label": "Fei et al. (2016), preferred BM3 + Debye and electronic/anharmonic thermal pressure",
+      "doi": "10.1002/2016gl069456",
+      "status": "primary_source_validated",
+      "note": "Published equations and coefficients checked against the Zotero version of record; independent equation reconstruction and supplementary-data residuals documented.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1002/2016GL069456",
+        "doi": "10.1002/2016GL069456",
+        "locations": [
+          "Section 3.1, equation (1), p. 6840",
+          "Section 3.2, equation (2), pp. 6840–6841",
+          "Official SI introduction and Tables S1–S2"
+        ],
+        "finding": "The two BM3 alternatives and complete empirical thermal-pressure surface are preserved. See docs/literature-reproductions/fei-2016-iron.md for equation mapping, numerical checks, and unavailable global-fit inputs."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p1_bm3",
+      "label": "Sakai et al. (2014), p1_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p1_vinet",
+      "label": "Sakai et al. (2014), p1_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p1_v0_mao_bm3",
+      "label": "Sakai et al. (2014), p1_v0_mao_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p1_v0_mao_vinet",
+      "label": "Sakai et al. (2014), p1_v0_mao_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p1_v0_dewaele_bm3",
+      "label": "Sakai et al. (2014), p1_v0_dewaele_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p1_v0_dewaele_vinet",
+      "label": "Sakai et al. (2014), p1_v0_dewaele_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p2_bm3",
+      "label": "Sakai et al. (2014), p2_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p2_vinet",
+      "label": "Sakai et al. (2014), p2_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p3_bm3",
+      "label": "Sakai et al. (2014), p3_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p3_vinet",
+      "label": "Sakai et al. (2014), p3_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p4_bm3",
+      "label": "Sakai et al. (2014), p4_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p4_vinet",
+      "label": "Sakai et al. (2014), p4_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p5_bm3",
+      "label": "Sakai et al. (2014), p5_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p5_vinet",
+      "label": "Sakai et al. (2014), p5_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p6_bm3",
+      "label": "Sakai et al. (2014), p6_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_sakai_2014_p6_vinet",
+      "label": "Sakai et al. (2014), p6_vinet",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Tables 1–4; Sections 2 and 3.3–3.4"
+        ],
+        "finding": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_yamazaki_2012_bm3_thermal",
+      "label": "Yamazaki et al. (2012), bm3_thermal",
+      "doi": "10.1029/2012gl053540",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1029/2012GL053540",
+        "access_url": "https://doi.org/10.1029/2012GL053540",
+        "locations": [
+          "Equations (1)–(4), Table 1, Table S1"
+        ],
+        "finding": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001)."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_yamazaki_2012_vinet_thermal",
+      "label": "Yamazaki et al. (2012), vinet_thermal",
+      "doi": "10.1029/2012gl053540",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1029/2012GL053540",
+        "access_url": "https://doi.org/10.1029/2012GL053540",
+        "locations": [
+          "Equations (1)–(4), Table 1, Table S1"
+        ],
+        "finding": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001)."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dubrovinsky_2000_bm3_thermal",
+      "label": "Dubrovinsky et al. (2000), bm3_thermal",
+      "doi": "10.1103/physrevlett.84.1720",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevLett.84.1720",
+        "access_url": "https://doi.org/10.1103/PhysRevLett.84.1720",
+        "locations": [
+          "Equation (1), Table II"
+        ],
+        "finding": "K0 derived exactly from 1/(b1+b2*300+b3*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2006_bm3",
+      "label": "Dewaele et al. (2006), bm3",
+      "doi": "10.1103/physrevlett.97.215504",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevLett.97.215504",
+        "access_url": "https://doi.org/10.1103/PhysRevLett.97.215504",
+        "locations": [
+          "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell"
+        ],
+        "finding": "Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_brown_2000_linear_hugoniot",
+      "label": "Brown et al. (2000), nominal-iron steel linear Hugoniot, solid subset",
+      "doi": "10.1063/1.1319320",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1063/1.1319320",
+        "access_url": "https://doi.org/10.1063/1.1319320",
+        "locations": [
+          "Table III linear fit to all 37 Tables I–II points"
+        ],
+        "finding": "Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS."
       }
     },
     {
@@ -11012,6 +11783,23 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2014_yokoo_pt_bm3",
+      "label": "Sakai et al. (2014), yokoo_pt_bm3",
+      "doi": "10.1016/j.pepi.2013.12.010",
+      "status": "primary_source_validated",
+      "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
+      "primary_source_check": {
+        "doi": "10.1016/j.pepi.2013.12.010",
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.12.010",
+        "locations": [
+          "Section 2, journal p. 115: new P5 NaCl-B2 calibration"
+        ],
+        "finding": "New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A³ from g-G analysis, then fixed. The unusually large printed V0 uncertainty is retained verbatim. Exact new calibration pressure extrema and original paired NaCl/Pt rows are not given in this article; the validity envelope is approximate."
       }
     },
     {

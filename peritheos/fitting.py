@@ -682,6 +682,7 @@ def _native_fitting_types() -> tuple[type[EosBase], ...]:
         Vinet,
     )
     from peritheos.eos.thermal import (
+        DebyeQuadraticThermalPressure,
         LinearThermalPressure,
         LogVolumeThermalPressure,
         MieGruneisenDebye,
@@ -710,6 +711,7 @@ def _native_fitting_types() -> tuple[type[EosBase], ...]:
         Vinet,
         Holzapfel,
         LinearThermalPressure,
+        DebyeQuadraticThermalPressure,
         LogVolumeThermalPressure,
         MieGruneisenDebye,
         MieGruneisenEinstein,

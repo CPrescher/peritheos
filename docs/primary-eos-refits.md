@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **846** EOS records. **191** achieve uncertainty parity, **91** are numerically similar, **11** have a coupled source reconstruction without an independent EOS refit, **[38](#parity-not-achieved)** do not achieve parity, **[2](#composite-reconstructions)** are exact source-equation reconstructions, **1** have bounded partial refits, **512** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **892** EOS records. **192** achieve uncertainty parity, **98** are numerically similar, **11** have a coupled source reconstruction without an independent EOS refit, **[63](#parity-not-achieved)** do not achieve parity, **[2](#composite-reconstructions)** are exact source-equation reconstructions, **1** have bounded partial refits, **525** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -895,6 +895,52 @@ use `--check` in continuous integration to detect stale generated files.
 | [`zr_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`zr_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`zr_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`fe09ni01_hcp_sakai_2014_p1_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 195.3 → 200.034; `K0_prime` 4.37 → 4.22433 | 2.21091/1.6064 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p1_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `V0` 22.468 → 22.5909; `K0_prime` 4.73 → 4.53797 | 3.19229/1.73493 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `V0` 22.468 → 22.5562; `K0_prime` 5.23 → 5.07913 | 2.61205/1.66732 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 179.8 → 187.033; `K0_prime` 4.59 → 4.35389 | 2.75382/1.62 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 173.9 → 178.821; `K0_prime` 5.07 → 4.88588 | 2.21978/1.65341 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_p1_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 189.6 → 192.274; `K0_prime` 4.81 → 4.70656 | 1.97261/1.70624 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p1_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_p2_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 0 | — | —/— | not_refittable — Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable. |
+| [`fe09ni01_hcp_sakai_2014_p2_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 0 | — | —/— | not_refittable — Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable. |
+| [`fe09ni01_hcp_sakai_2014_p3_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 0 | — | —/— | not_refittable — Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable. |
+| [`fe09ni01_hcp_sakai_2014_p3_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 0 | — | —/— | not_refittable — Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable. |
+| [`fe09ni01_hcp_sakai_2014_p4_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 213 → 218.414; `K0_prime` 4.41 → 4.25546 | 2.34479/1.66766 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p4_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_p4_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 207 → 210.036; `K0_prime` 4.85 → 4.73938 | 2.11729/1.77882 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p4_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_p5_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 211.5 → 214.915; `K0_prime` 4.42 → 4.31354 | 2.25157/1.83472 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p5_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures. |
+| [`fe09ni01_hcp_sakai_2014_p5_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 205.4 → 206.299; `K0_prime` 4.86 → 4.81659 | 2.08564/1.97945 | [similar](#investigation-fe09ni01_hcp_sakai_2014_p5_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures. |
+| [`fe09ni01_hcp_sakai_2014_p6_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 191.2 → 196.589; `K0_prime` 4.82 → 4.63821 | 2.4896/1.77862 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p6_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_p6_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 45 | `K0` 185.1 → 187.477; `K0_prime` 5.31 → 5.21182 | 2.20067/1.9135 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_p6_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_type1_thermal`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 32 | `gamma0` 2.169 → 5.21861; `theta0` 1162 → 2214.82 | 7.1351/1.05124 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_type1_thermal) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_type2_thermal`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 32 | `gamma0` 2.609 → 8; `beta` 1.309 → 2.21084; `theta0` 600 → 1636.98 | 7.08512/1.04532 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_type2_thermal) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_type4_1_thermal`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 32 | `gamma0` 2.882 → 8; `gamma_inf` 1.087 → 2.19477; `theta0` 577 → 1664.48 | 7.0883/1.04799 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_type4_1_thermal) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_type4_2_thermal`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 32 | `gamma0` 2.883 → 2.26261; `gamma_inf` 0.968 → 8.52105e-22 | 7.09636/2.2582 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_type4_2_thermal) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`fe09ni01_hcp_sakai_2014_type4_3_thermal`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 32 | `beta` 1.161 → 10 | 7.21429/4.6165 | [parity_not_achieved](#investigation-fe09ni01_hcp_sakai_2014_type4_3_thermal) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_brown_2000_linear_hugoniot`](https://doi.org/10.1063/1.1319320) | `iron_brown_2000_tables_i_ii` | 37 | `c0` 3.935 → 3.93501; `s` 1.578 → 1.57824 | —/0.0607846 km/s | parity — All fitted polynomial coefficients agree at printed precision. Linear RMS uses N=37 (60.8 m/s); using N-2 gives 62.5 m/s, near printed 62 m/s. No Hugoniot temperatures recovered. |
+| [`iron_dewaele_2006_bm3`](https://doi.org/10.1103/PhysRevLett.97.215504) | `iron_dewaele_2006_epaps_compression` | 37 | `V0` 22.468 → 22.4607; `K0_prime` 4.97 → 4.9818 | 0.729484/0.726168 | [similar](#investigation-iron_dewaele_2006_bm3) — 37 helium hcp rows selected by the existing original-2006 flag; K0 fixed at 165 GPa. Original weighting is unavailable. |
+| [`iron_dubrovinsky_2000_bm3_thermal`](https://doi.org/10.1103/PhysRevLett.84.1720) | `not_available` | — | — | —/— | not_refittable — The 188 input P-V-T points are not tabulated in the attached publication. |
+| [`iron_fei_2016_bm3`](https://doi.org/10.1002/2016GL069456) | `iron_fei_2016_table_s1` | — | — | —/— | not_refittable — Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md). |
+| [`iron_fei_2016_bm3_debye_quadratic`](https://doi.org/10.1002/2016GL069456) | `iron_fei_2016_table_s1, iron_fei_2016_table_s2` | — | — | —/— | not_refittable — Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md). |
+| [`iron_fei_2016_free_density_bm3`](https://doi.org/10.1002/2016GL069456) | `iron_fei_2016_table_s1` | — | — | —/— | not_refittable — Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md). |
+| [`iron_sakai_2014_p1_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 179.6 → 183.743; `K0_prime` 4.91 → 4.8137 | 1.73079/1.57114 | [parity_not_achieved](#investigation-iron_sakai_2014_p1_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_sakai_2014_p1_v0_dewaele_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `V0` 22.468 → 22.5517; `K0_prime` 5.37 → 5.24363 | 2.19325/1.868 | [parity_not_achieved](#investigation-iron_sakai_2014_p1_v0_dewaele_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_sakai_2014_p1_v0_dewaele_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `V0` 22.468 → 22.523; `K0_prime` 5.84 → 5.77069 | 1.66982/1.53256 | [parity_not_achieved](#investigation-iron_sakai_2014_p1_v0_dewaele_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_sakai_2014_p1_v0_mao_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 164.8 → 170.629; `K0_prime` 5.18 → 4.99322 | 1.9118/1.68838 | [parity_not_achieved](#investigation-iron_sakai_2014_p1_v0_mao_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_sakai_2014_p1_v0_mao_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 160.1 → 163.404; `K0_prime` 5.65 → 5.5615 | 1.54446/1.41702 | [parity_not_achieved](#investigation-iron_sakai_2014_p1_v0_mao_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_sakai_2014_p1_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 174.7 → 176.3; `K0_prime` 5.37 → 5.36713 | 1.8008/1.35814 | [similar](#investigation-iron_sakai_2014_p1_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_sakai_2014_p2_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 0 | — | —/— | not_refittable — Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable. |
+| [`iron_sakai_2014_p2_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 0 | — | —/— | not_refittable — Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable. |
+| [`iron_sakai_2014_p3_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 0 | — | —/— | not_refittable — Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable. |
+| [`iron_sakai_2014_p3_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 0 | — | —/— | not_refittable — Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable. |
+| [`iron_sakai_2014_p4_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 195.1 → 198.589; `K0_prime` 4.93 → 4.87873 | 2.12155/1.76037 | [parity_not_achieved](#investigation-iron_sakai_2014_p4_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_sakai_2014_p4_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 189.9 → 190.731; `K0_prime` 5.39 → 5.42727 | 2.2842/1.52878 | [similar](#investigation-iron_sakai_2014_p4_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_sakai_2014_p5_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 196 → 198.384; `K0_prime` 4.93 → 4.90355 | 1.82549/1.49358 | [similar](#investigation-iron_sakai_2014_p5_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures. |
+| [`iron_sakai_2014_p5_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 190.8 → 190.47; `K0_prime` 5.39 → 5.45466 | 2.06709/1.28989 | [similar](#investigation-iron_sakai_2014_p5_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures. |
+| [`iron_sakai_2014_p6_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 171.7 → 175.551; `K0_prime` 5.49 → 5.40225 | 1.99542/1.69357 | [parity_not_achieved](#investigation-iron_sakai_2014_p6_bm3) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_sakai_2014_p6_vinet`](https://doi.org/10.1016/j.pepi.2013.12.010) | `sakai_2014_table2_pvt` | 27 | `K0` 167.2 → 168.729; `K0_prime` 5.93 → 5.93273 | 2.05178/1.47294 | [similar](#investigation-iron_sakai_2014_p6_vinet) — Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. |
+| [`iron_yamazaki_2012_bm3_thermal`](https://doi.org/10.1029/2012GL053540) | `iron_yamazaki_2012_table_s1` | 207 | `V0` 22.15 → 22.2627; `K0` 202 → 188.536; `K0_prime` 4.5 → 4.76253; `gamma0` 3.2 → 3.20122; `beta` 0.8 → 0.541178; `theta0` 1173 → 1192.27 | 0.660748/0.621991 | [parity_not_achieved](#investigation-iron_yamazaki_2012_bm3_thermal) — All 207 primary rows on original Tsuchiya Au scale. Unweighted P residuals do not assert the unavailable original weighting. |
+| [`iron_yamazaki_2012_vinet_thermal`](https://doi.org/10.1029/2012GL053540) | `iron_yamazaki_2012_table_s1` | 207 | `V0` 22.17 → 22.2948; `K0` 196 → 182.302; `K0_prime` 4.8 → 5.15619; `gamma0` 3.2 → 3.21435; `beta` 0.8 → 0.557858; `theta0` 1168 → 1186.38 | 0.68963/0.620263 | [parity_not_achieved](#investigation-iron_yamazaki_2012_vinet_thermal) — All 207 primary rows on original Tsuchiya Au scale. Unweighted P residuals do not assert the unavailable original weighting. |
+| [`nacl_b2_sakai_2014_yokoo_pt_bm3`](https://doi.org/10.1016/j.pepi.2013.12.010) | `not_available` | — | — | —/— | not_refittable — Original Sakai (2011a) paired NaCl/Pt calibration observations are not attached to this 2014 paper. Table 2 NaCl values are downstream measurements, not independent P5 calibration constraints. |
 
 ## Composite reconstructions
 
@@ -971,6 +1017,31 @@ Exact source-equation reconstruction with no composite coefficient optimization:
 - [`sno2_cubic_27gpa_ono_2000_bm3_1`](#investigation-sno2_cubic_27gpa_ono_2000_bm3_1): outside similarity limits (K0 252 → 379.59; K0_prime 3.5 → 0)
 - [`sno2_pa_3_at_48gpa_ono_2000_bm3_1`](#investigation-sno2_pa_3_at_48gpa_ono_2000_bm3_1): outside similarity limits (K0 252 → 379.59; K0_prime 3.5 → 0)
 - [`wadsleyite_katsura_2009_bm3_1`](#investigation-wadsleyite_katsura_2009_bm3_1): outside similarity limits (gamma0 1.64 → 1.12567)
+- [`fe09ni01_hcp_sakai_2014_p1_bm3`](#investigation-fe09ni01_hcp_sakai_2014_p1_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3`](#investigation-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet`](#investigation-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3`](#investigation-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet`](#investigation-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_p1_vinet`](#investigation-fe09ni01_hcp_sakai_2014_p1_vinet): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_p4_bm3`](#investigation-fe09ni01_hcp_sakai_2014_p4_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_p4_vinet`](#investigation-fe09ni01_hcp_sakai_2014_p4_vinet): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_p5_bm3`](#investigation-fe09ni01_hcp_sakai_2014_p5_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
+- [`fe09ni01_hcp_sakai_2014_p6_bm3`](#investigation-fe09ni01_hcp_sakai_2014_p6_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_p6_vinet`](#investigation-fe09ni01_hcp_sakai_2014_p6_vinet): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_type1_thermal`](#investigation-fe09ni01_hcp_sakai_2014_type1_thermal): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_type2_thermal`](#investigation-fe09ni01_hcp_sakai_2014_type2_thermal): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_type4_1_thermal`](#investigation-fe09ni01_hcp_sakai_2014_type4_1_thermal): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_type4_2_thermal`](#investigation-fe09ni01_hcp_sakai_2014_type4_2_thermal): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`fe09ni01_hcp_sakai_2014_type4_3_thermal`](#investigation-fe09ni01_hcp_sakai_2014_type4_3_thermal): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`iron_sakai_2014_p1_bm3`](#investigation-iron_sakai_2014_p1_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`iron_sakai_2014_p1_v0_dewaele_bm3`](#investigation-iron_sakai_2014_p1_v0_dewaele_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`iron_sakai_2014_p1_v0_dewaele_vinet`](#investigation-iron_sakai_2014_p1_v0_dewaele_vinet): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`iron_sakai_2014_p1_v0_mao_bm3`](#investigation-iron_sakai_2014_p1_v0_mao_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`iron_sakai_2014_p1_v0_mao_vinet`](#investigation-iron_sakai_2014_p1_v0_mao_vinet): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`iron_sakai_2014_p4_bm3`](#investigation-iron_sakai_2014_p4_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`iron_sakai_2014_p6_bm3`](#investigation-iron_sakai_2014_p6_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+- [`iron_yamazaki_2012_bm3_thermal`](#investigation-iron_yamazaki_2012_bm3_thermal): All 207 primary rows on original Tsuchiya Au scale. Unweighted P residuals do not assert the unavailable original weighting.
+- [`iron_yamazaki_2012_vinet_thermal`](#investigation-iron_yamazaki_2012_vinet_thermal): All 207 primary rows on original Tsuchiya Au scale. Unweighted P residuals do not assert the unavailable original weighting.
 
 ## Corrections found during investigation
 
@@ -1045,7 +1116,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **129** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **161** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests or a dedicated partial-source reconstruction does
@@ -3758,6 +3829,655 @@ the missing source fit detail is recovered.
 - The observations are digitized from a plot. Marker resolution, overlap, axis calibration, and unavailable source regression weights limit the strength of any coefficient-level conclusion.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-fe09ni01_hcp_sakai_2014_p1_bm3"></a>
+
+### `fe09ni01_hcp_sakai_2014_p1_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 195.3 | 200.034 | 2.42% | — | no |
+| `K0_prime` | 4.37 | 4.22433 | 3.33% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-271.5 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.21091/1.6064 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3"></a>
+
+### `fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.468 | 22.5909 | 0.55% | — | no |
+| `K0_prime` | 4.73 | 4.53797 | 4.06% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-271.5 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 3.19229/1.73493 GPa; reduced chi-square: —; free parameters: `V0, K0_prime`; source-fixed parameters: `K0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet"></a>
+
+### `fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.468 | 22.5562 | 0.39% | — | no |
+| `K0_prime` | 5.23 | 5.07913 | 2.88% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-271.5 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.61205/1.66732 GPa; reduced chi-square: —; free parameters: `V0, K0_prime`; source-fixed parameters: `K0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3"></a>
+
+### `fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 179.8 | 187.033 | 4.02% | — | no |
+| `K0_prime` | 4.59 | 4.35389 | 5.14% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-271.5 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.75382/1.62 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet"></a>
+
+### `fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 173.9 | 178.821 | 2.83% | — | no |
+| `K0_prime` | 5.07 | 4.88588 | 3.63% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-271.5 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.21978/1.65341 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p1_vinet"></a>
+
+### `fe09ni01_hcp_sakai_2014_p1_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 189.6 | 192.274 | 1.41% | — | no |
+| `K0_prime` | 4.81 | 4.70656 | 2.15% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-271.5 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 1.97261/1.70624 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p4_bm3"></a>
+
+### `fe09ni01_hcp_sakai_2014_p4_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 213 | 218.414 | 2.54% | — | no |
+| `K0_prime` | 4.41 | 4.25546 | 3.50% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-290.7 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.34479/1.66766 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p4_vinet"></a>
+
+### `fe09ni01_hcp_sakai_2014_p4_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 207 | 210.036 | 1.47% | — | no |
+| `K0_prime` | 4.85 | 4.73938 | 2.28% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-290.7 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.11729/1.77882 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p5_bm3"></a>
+
+### `fe09ni01_hcp_sakai_2014_p5_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 211.5 | 214.915 | 1.61% | — | no |
+| `K0_prime` | 4.42 | 4.31354 | 2.41% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-295.8 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.25157/1.83472 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p5_vinet"></a>
+
+### `fe09ni01_hcp_sakai_2014_p5_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 205.4 | 206.299 | 0.44% | — | yes |
+| `K0_prime` | 4.86 | 4.81659 | 0.89% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-295.8 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.08564/1.97945 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p6_bm3"></a>
+
+### `fe09ni01_hcp_sakai_2014_p6_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 191.2 | 196.589 | 2.82% | — | no |
+| `K0_prime` | 4.82 | 4.63821 | 3.77% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-295.8 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.4896/1.77862 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_p6_vinet"></a>
+
+### `fe09ni01_hcp_sakai_2014_p6_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 45 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 185.1 | 187.477 | 1.28% | — | no |
+| `K0_prime` | 5.31 | 5.21182 | 1.85% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 27.1-295.8 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.20067/1.9135 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_type1_thermal"></a>
+
+### `fe09ni01_hcp_sakai_2014_type1_thermal`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 32 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `gamma0` | 2.169 | 5.21861 | 140.60% | — | no |
+| `theta0` | 1162 | 2214.82 | 90.60% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 92.7-148.9 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 7.1351/1.05124 GPa; reduced chi-square: —; free parameters: `gamma0, theta0`; source-fixed parameters: `V0, K0, K0_prime, Tr, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+
+**Assessment and likely origin.**
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_type2_thermal"></a>
+
+### `fe09ni01_hcp_sakai_2014_type2_thermal`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 32 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `gamma0` | 2.609 | 8 | 206.63% | — | no |
+| `beta` | 1.309 | 2.21084 | 68.90% | — | no |
+| `theta0` | 600 | 1636.98 | 172.83% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 92.7-148.9 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 7.08512/1.04532 GPa; reduced chi-square: —; free parameters: `gamma0, beta, theta0`; source-fixed parameters: `V0, K0, K0_prime, Tr, gamma_inf, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+
+**Assessment and likely origin.**
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_type4_1_thermal"></a>
+
+### `fe09ni01_hcp_sakai_2014_type4_1_thermal`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 32 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `gamma0` | 2.882 | 8 | 177.59% | — | no |
+| `gamma_inf` | 1.087 | 2.19477 | 101.91% | — | no |
+| `theta0` | 577 | 1664.48 | 188.47% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 92.7-148.9 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 7.0883/1.04799 GPa; reduced chi-square: —; free parameters: `gamma0, gamma_inf, theta0`; source-fixed parameters: `V0, K0, K0_prime, Tr, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+
+**Assessment and likely origin.**
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_type4_2_thermal"></a>
+
+### `fe09ni01_hcp_sakai_2014_type4_2_thermal`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 32 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `gamma0` | 2.883 | 2.26261 | 21.52% | — | no |
+| `gamma_inf` | 0.968 | 8.52105e-22 | 100.00% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 92.7-148.9 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 7.09636/2.2582 GPa; reduced chi-square: —; free parameters: `gamma0, gamma_inf`; source-fixed parameters: `V0, K0, K0_prime, Tr, theta0, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+
+**Assessment and likely origin.**
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-fe09ni01_hcp_sakai_2014_type4_3_thermal"></a>
+
+### `fe09ni01_hcp_sakai_2014_type4_3_thermal`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 32 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `beta` | 1.161 | 10 | 761.33% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 92.7-148.9 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 7.21429/4.6165 GPa; reduced chi-square: —; free parameters: `beta`; source-fixed parameters: `V0, K0, K0_prime, Tr, theta0, gamma0, gamma_inf, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_dewaele_2006_bm3"></a>
+
+### `iron_dewaele_2006_bm3`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `iron_dewaele_2006_epaps_compression` with 37 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.468 | 22.4607 | 0.03% | — | yes |
+| `K0_prime` | 4.97 | 4.9818 | 0.24% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 17-197 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 0.729484/0.726168 GPa; reduced chi-square: —; free parameters: `V0, K0_prime`; source-fixed parameters: `K0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-iron_sakai_2014_p1_bm3"></a>
+
+### `iron_sakai_2014_p1_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 179.6 | 183.743 | 2.31% | — | no |
+| `K0_prime` | 4.91 | 4.8137 | 1.96% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-279.2 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 1.73079/1.57114 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_sakai_2014_p1_v0_dewaele_bm3"></a>
+
+### `iron_sakai_2014_p1_v0_dewaele_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.468 | 22.5517 | 0.37% | — | no |
+| `K0_prime` | 5.37 | 5.24363 | 2.35% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-279.2 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.19325/1.868 GPa; reduced chi-square: —; free parameters: `V0, K0_prime`; source-fixed parameters: `K0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_sakai_2014_p1_v0_dewaele_vinet"></a>
+
+### `iron_sakai_2014_p1_v0_dewaele_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.468 | 22.523 | 0.24% | — | no |
+| `K0_prime` | 5.84 | 5.77069 | 1.19% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-279.2 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 1.66982/1.53256 GPa; reduced chi-square: —; free parameters: `V0, K0_prime`; source-fixed parameters: `K0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_sakai_2014_p1_v0_mao_bm3"></a>
+
+### `iron_sakai_2014_p1_v0_mao_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 164.8 | 170.629 | 3.54% | — | no |
+| `K0_prime` | 5.18 | 4.99322 | 3.61% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-279.2 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 1.9118/1.68838 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_sakai_2014_p1_v0_mao_vinet"></a>
+
+### `iron_sakai_2014_p1_v0_mao_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 160.1 | 163.404 | 2.06% | — | no |
+| `K0_prime` | 5.65 | 5.5615 | 1.57% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-279.2 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 1.54446/1.41702 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_sakai_2014_p1_vinet"></a>
+
+### `iron_sakai_2014_p1_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 174.7 | 176.3 | 0.92% | — | yes |
+| `K0_prime` | 5.37 | 5.36713 | 0.05% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-279.2 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 1.8008/1.35814 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-iron_sakai_2014_p4_bm3"></a>
+
+### `iron_sakai_2014_p4_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 195.1 | 198.589 | 1.79% | — | no |
+| `K0_prime` | 4.93 | 4.87873 | 1.04% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-299 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.12155/1.76037 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_sakai_2014_p4_vinet"></a>
+
+### `iron_sakai_2014_p4_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 189.9 | 190.731 | 0.44% | — | yes |
+| `K0_prime` | 5.39 | 5.42727 | 0.69% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-299 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.2842/1.52878 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-iron_sakai_2014_p5_bm3"></a>
+
+### `iron_sakai_2014_p5_bm3`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 196 | 198.384 | 1.22% | — | yes |
+| `K0_prime` | 4.93 | 4.90355 | 0.54% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-304.7 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 1.82549/1.49358 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-iron_sakai_2014_p5_vinet"></a>
+
+### `iron_sakai_2014_p5_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 190.8 | 190.47 | 0.17% | — | yes |
+| `K0_prime` | 5.39 | 5.45466 | 1.20% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-304.7 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.06709/1.28989 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-iron_sakai_2014_p6_bm3"></a>
+
+### `iron_sakai_2014_p6_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 171.7 | 175.551 | 2.24% | — | no |
+| `K0_prime` | 5.49 | 5.40225 | 1.60% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-304.7 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 1.99542/1.69357 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_sakai_2014_p6_vinet"></a>
+
+### `iron_sakai_2014_p6_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `sakai_2014_table2_pvt` with 27 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 167.2 | 168.729 | 0.91% | — | yes |
+| `K0_prime` | 5.93 | 5.93273 | 0.05% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 24.2-304.7 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 2.05178/1.47294 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-iron_yamazaki_2012_bm3_thermal"></a>
+
+### `iron_yamazaki_2012_bm3_thermal`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `iron_yamazaki_2012_table_s1` with 207 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.15 | 22.2627 | 0.51% | — | no |
+| `K0` | 202 | 188.536 | 6.67% | — | no |
+| `K0_prime` | 4.5 | 4.76253 | 5.83% | — | no |
+| `gamma0` | 3.2 | 3.20122 | 0.04% | — | yes |
+| `beta` | 0.8 | 0.541178 | 32.35% | — | yes |
+| `theta0` | 1173 | 1192.27 | 1.64% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 19.8-82.9 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 0.660748/0.621991 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime, gamma0, beta, theta0`; source-fixed parameters: `Tr, gamma_inf, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_yamazaki_2012_vinet_thermal"></a>
+
+### `iron_yamazaki_2012_vinet_thermal`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `iron_yamazaki_2012_table_s1` with 207 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.17 | 22.2948 | 0.56% | — | no |
+| `K0` | 196 | 182.302 | 6.99% | — | no |
+| `K0_prime` | 4.8 | 5.15619 | 7.42% | — | no |
+| `gamma0` | 3.2 | 3.21435 | 0.45% | — | yes |
+| `beta` | 0.8 | 0.557858 | 30.27% | — | yes |
+| `theta0` | 1168 | 1186.38 | 1.57% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 19.8-82.9 GPa; fit kind: `—`; objective: `Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.`; published/refit pressure RMSE: 0.68963/0.620263 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime, gamma0, beta, theta0`; source-fixed parameters: `Tr, gamma_inf, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n`.
+
+**Source/data scope.** Primary observations bundled with errors and calibrant values where published.
+
+**Registered source-fit note.** Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
 ## Direct refit unavailable
 
 - `ag_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
@@ -4272,6 +4992,19 @@ the missing source fit detail is recovered.
 - `zr_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `zr_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `zr_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
+- `fe09ni01_hcp_sakai_2014_p2_bm3`: Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+- `fe09ni01_hcp_sakai_2014_p2_vinet`: Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+- `fe09ni01_hcp_sakai_2014_p3_bm3`: Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+- `fe09ni01_hcp_sakai_2014_p3_vinet`: Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+- `iron_dubrovinsky_2000_bm3_thermal`: The 188 input P-V-T points are not tabulated in the attached publication.
+- `iron_fei_2016_bm3`: Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md).
+- `iron_fei_2016_bm3_debye_quadratic`: Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md).
+- `iron_fei_2016_free_density_bm3`: Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md).
+- `iron_sakai_2014_p2_bm3`: Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+- `iron_sakai_2014_p2_vinet`: Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+- `iron_sakai_2014_p3_bm3`: Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+- `iron_sakai_2014_p3_vinet`: Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+- `nacl_b2_sakai_2014_yokoo_pt_bm3`: Original Sakai (2011a) paired NaCl/Pt calibration observations are not attached to this 2014 paper. Table 2 NaCl values are downstream measurements, not independent P5 calibration constraints.
 
 The complete machine-readable diagnostics, including selected columns,
 fit objective, coefficient errors, relative differences, solver status,
