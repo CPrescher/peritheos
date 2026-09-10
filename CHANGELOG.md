@@ -172,6 +172,11 @@ All notable changes to Peritheos are documented here. The project follows
   and Table 1 transcription remain as nonproduction evidence. The executable
   third-order Eulerian density--Vp--Vs model and fitter remain available as a
   general API.
+- Reclassified the Li et al. (2006) MgO acoustic absolute-pressure BM3 from
+  directly unrefittable to a numerically similar source-data reproduction. The
+  primary ledger now fits the measured density and P/S velocities through the
+  published finite-strain and isothermal-conversion chain while explicitly
+  excluding the derived moduli and calculated pressures.
 - Linked 24 Dewaele (2019) metal records to their bundled source tables and
   dedicated two-ruby-scale refits. They are now classified as numerically
   similar within the source's printed 95% intervals instead of incorrectly

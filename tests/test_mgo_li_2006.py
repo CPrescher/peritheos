@@ -104,7 +104,13 @@ def test_li_2006_isothermal_conversion_reproduces_stored_parameters():
     assert "not a direct volumetric BM3 fit" in source["notes"]
     assert (
         source["scientific_validation"]["numerical_reproduction"]["refit_status"]
-        == "not_directly_refittable_as_pressure_volume"
+        == "direct_acoustic_coefficient_reproduction"
+    )
+    assert (
+        source["scientific_validation"]["numerical_reproduction"][
+            "pressure_volume_refit_status"
+        ]
+        == "not_directly_refittable"
     )
 
 
@@ -138,13 +144,17 @@ def test_li_2006_independent_acoustic_finite_strain_refit():
     s_velocity = np.array([float(row["s_wave_velocity_km_s"]) for row in fit_rows])
     density_0 = density[0]
     epsilon = (1.0 - (density / density_0) ** (2.0 / 3.0)) / 2.0
+    conversion = source["scientific_validation"]["isothermal_parameter_derivation"]
+    inputs = conversion["inputs"]
+    alpha_gamma_t = inputs["alpha_per_k"] * inputs["gamma0"] * inputs["temperature_k"]
 
     def predicted_velocities(parameters):
         k_0s, k_0s_prime, g_0, g_0_prime = parameters
+        k_0t = k_0s / (1.0 + alpha_gamma_t)
         l_1 = k_0s + 4.0 * g_0 / 3.0
-        l_2 = 5.0 * l_1 - 3.0 * k_0s * (k_0s_prime + 4.0 * g_0_prime / 3.0)
+        l_2 = 5.0 * l_1 - 3.0 * k_0t * (k_0s_prime + 4.0 * g_0_prime / 3.0)
         m_1 = g_0
-        m_2 = 5.0 * g_0 - 3.0 * k_0s * g_0_prime
+        m_2 = 5.0 * g_0 - 3.0 * k_0t * g_0_prime
         strain_factor = (1.0 - 2.0 * epsilon) ** 2.5
         return (
             np.sqrt(strain_factor * (l_1 + l_2 * epsilon) / density),
@@ -165,7 +175,7 @@ def test_li_2006_independent_acoustic_finite_strain_refit():
     )
     assert fit.success
     assert fit.x == pytest.approx(
-        [163.51148649, 4.15806624, 129.71748390, 2.39723610], abs=5.0e-7
+        [163.51148591, 4.21800240, 129.71748417, 2.43179077], abs=5.0e-7
     )
 
     published = source["scientific_validation"]["reported_parameterizations"][0]
@@ -177,9 +187,6 @@ def test_li_2006_independent_acoustic_finite_strain_refit():
     ):
         assert abs(actual - published[value_key]) < published[error_key]
 
-    conversion = source["scientific_validation"]["isothermal_parameter_derivation"]
-    inputs = conversion["inputs"]
-    alpha_gamma_t = inputs["alpha_per_k"] * inputs["gamma0"] * inputs["temperature_k"]
     refit_k_0t = fit.x[0] / (1.0 + alpha_gamma_t)
     refit_k_0t_prime = (
         fit.x[1]
@@ -189,10 +196,10 @@ def test_li_2006_independent_acoustic_finite_strain_refit():
         * inputs["dK0T_dT_gpa_per_k"]
         / refit_k_0t
     ) / (1.0 + alpha_gamma_t)
-    assert refit_k_0t == pytest.approx(161.18805735, abs=5.0e-7)
-    assert refit_k_0t_prime == pytest.approx(4.19656803, abs=5.0e-7)
+    assert refit_k_0t == pytest.approx(161.18805678, abs=5.0e-7)
+    assert refit_k_0t_prime == pytest.approx(4.25565253, abs=5.0e-7)
     assert abs(refit_k_0t - conversion["outputs"]["K0T_gpa"]) < 0.02
-    assert abs(refit_k_0t_prime - conversion["outputs"]["K0T_prime"]) < 0.05
+    assert abs(refit_k_0t_prime - conversion["outputs"]["K0T_prime"]) < 0.02
 
     predicted_p, predicted_s = predicted_velocities(fit.x)
     assert np.sqrt(np.mean((predicted_p[1:] - p_velocity[1:]) ** 2)) == pytest.approx(
@@ -201,6 +208,13 @@ def test_li_2006_independent_acoustic_finite_strain_refit():
     assert np.sqrt(np.mean((predicted_s[1:] - s_velocity[1:]) ** 2)) == pytest.approx(
         0.01473844, abs=1.0e-8
     )
+    assert source["scientific_validation"]["numerical_reproduction"][
+        "excluded_derived_observations"
+    ] == [
+        "adiabatic_bulk_modulus_gpa",
+        "shear_modulus_gpa",
+        "calculated_absolute_pressure_gpa",
+    ]
 
 
 def test_li_2006_table1_is_complete_verbatim_and_checksummed():

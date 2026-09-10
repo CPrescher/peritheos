@@ -117,6 +117,26 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in jadeite["parameters"]
     )
     assert "does not report its EOS residual definition" in jadeite["qualification"]
+    li = by_identifier["mgo_li_2006_bm3_absolute_acoustic"]
+    assert li["status"] == "similar"
+    assert li["fit_kind"] == "acoustic_finite_strain_then_isothermal_conversion"
+    assert li["observations"] == 11
+    assert li["columns"]["pressure"] is None
+    assert li["excluded_derived_columns"] == [
+        "adiabatic_bulk_modulus_gpa",
+        "shear_modulus_gpa",
+        "calculated_absolute_pressure_gpa",
+    ]
+    assert [item["refit"] for item in li["parameters"]] == pytest.approx(
+        [161.18805678, 4.25565253]
+    )
+    assert [item["refit"] for item in li["acoustic_parameters"]] == pytest.approx(
+        [163.51148591, 4.21800240, 129.71748417, 2.43179077]
+    )
+    assert all(item["within_published_1sigma"] for item in li["acoustic_parameters"])
+    assert li["rmse_p_wave_velocity_km_s"] == pytest.approx(0.02164856)
+    assert li["rmse_s_wave_velocity_km_s"] == pytest.approx(0.01473844)
+    assert "never used as observations" in li["qualification"]
     reynard_ruby = by_identifier["akimotoite_reynard_1996_bm3_ruby_2"]
     reynard_ice = by_identifier["akimotoite_reynard_1996_bm3_ice_vii_3"]
     assert reynard_ruby["status"] == reynard_ice["status"] == "parity"
