@@ -5,8 +5,9 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 287 bundled material documents and 844 EOS records pass the
-format-3 validator. The collection combines the reviewed Dioptas migration with
+separate. All 208 bundled material documents and 486 EOS records pass the
+format-3 validator; 207 documents construct executable materials and the
+source-only coesite-V card does not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks

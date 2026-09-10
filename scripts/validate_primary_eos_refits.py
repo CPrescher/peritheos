@@ -122,11 +122,6 @@ INDIRECT_DATA = {
         "source fit, so the table is a checkpoint resource and not an asserted exact "
         "regression input."
     ),
-    "coesite_v_bykova_2018_am05_static_bm3_refit": (
-        "Table 10 contains only one coesite-V pressure-volume anchor, which is "
-        "sufficient to verify the published-parameter reconstruction but not to "
-        "independently refit its three BM3 coefficients."
-    ),
     "mgo_b1_luo_2023_vinet_thermal_5": (
         "The five bundled Table I rows are only the new shock subset of a global "
         "quasi-Debye fit. The complete earlier-study observations, numerical "
@@ -259,6 +254,7 @@ SOURCE_PROTOCOL_UNWEIGHTED_RECORDS = {
 }
 
 COMBINED_FIT_DATASET_RECORDS = {
+    "coesite_i_iii_bykova_2018_300k_bm3",
     "cscl_campbell_1994_bm3_1",
     "neon_fcc_fei_2007_bm3_1",
     "neon_fcc_fei_2007_vinet_2",
@@ -272,6 +268,13 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "coesite_i_iii_bykova_2018_300k_bm3": "Conditional partial reproduction. The 24 exact bundled rows are the "
+        "complete numerical subset recovered from Bykova et al. Supplementary "
+        "Table 2 and the exact table in their cited Cernok et al. diffraction "
+        "work. Several current-study coesite-I points used by the source remain "
+        "plot-only, and the source does not report its objective or weights. The "
+        "unweighted pressure-residual diagnostic therefore tests the documented "
+        "phase selection without claiming recovery of the unavailable full fit.",
     "ca_perovskite_wang_weidner_1994_bm2": (
         "Complete plot-scope reproduction: Wang and Weidner state that the BM2 "
         "used only the four room-temperature Figure 3 points above 2.0 GPa and "
@@ -725,6 +728,8 @@ PRESSURE_COLUMNS = {
 }
 
 VOLUME_COLUMNS = {
+    "coesite_i_ii_cernok_2014_table1_pv": "volume_a3_z16_equivalent_cell",
+    "coesite_ii_iii_bykova_2018_table2_pv": "volume_a3_z16_equivalent_cell",
     "coesite_iv_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
     "coesite_v_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
     "alumina_dewaele_2013_table1_compression": "a_a",

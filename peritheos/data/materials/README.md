@@ -105,9 +105,10 @@ anharmonic-coefficient correction. Each `.eosmat` record stores these roles in
 `source_lineage`. Its identifier uses `_sokolova_2013` for the scientific fit
 year; the former workbook-year `_sokolova_2016` identifier is not retained.
 
-Only validated records are executable by default. Deferred records remain in
-the files so Dioptas and other consumers can preserve the catalog without
-silently converting inherited values into Peritheos-endorsed pressure scales.
+Only validated records are executable by default. Deferred evidence and
+source-only material cards remain in the files so Dioptas and other consumers
+can preserve the catalog without silently converting inherited values into
+Peritheos-endorsed pressure scales.
 
 The Fei et al. (2007) Au and Ne Debye-temperature laws are a documented
 exception to byte-for-byte preservation. They are corrected from generic

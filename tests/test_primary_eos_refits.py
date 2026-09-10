@@ -236,6 +236,17 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         "rt_eos.K0_prime": False,
         "alpha0": True,
     }
+    coesite = by_identifier["coesite_i_iii_bykova_2018_300k_bm3"]
+    assert coesite["status"] == "parity_not_achieved"
+    assert coesite["observations"] == 24
+    assert coesite["dataset_identifiers"] == [
+        "coesite_i_ii_cernok_2014_table1_pv",
+        "coesite_ii_iii_bykova_2018_table2_pv",
+    ]
+    assert [item["refit"] for item in coesite["parameters"]] == pytest.approx(
+        [542.2160125743, 126.3278193724, 1.6951441000]
+    )
+    assert "Conditional partial reproduction" in coesite["qualification"]
     fu_bm2 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"]
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"

@@ -30,6 +30,6 @@ def test_readme_catalog_count_matches_bundled_documents():
     )
 
     assert (
-        f"{len(peritheos.list_material_documents())}-material/{record_count}-record"
-        in readme
+        f"{len(peritheos.list_material_documents())}-material-document/"
+        f"{record_count}-record" in readme
     )

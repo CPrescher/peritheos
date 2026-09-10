@@ -69,7 +69,12 @@ def _catalog_index() -> _CatalogIndex:
     records: dict[str, EOSRecord] = {}
     material_by_record: dict[str, Material] = {}
     for document_identifier in list_material_documents():
-        material = Material.from_eosmat(get_material_document(document_identifier))
+        document = get_material_document(document_identifier)
+        # Source-only or structure-only cards remain available through the
+        # document API but cannot produce an executable Material.
+        if not document["eos_records"]:
+            continue
+        material = Material.from_eosmat(document)
         if material.identifier != document_identifier:
             raise MaterialError(
                 f"Bundled material file {document_identifier!r} contains identifier "

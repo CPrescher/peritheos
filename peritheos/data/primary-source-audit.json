@@ -2412,7 +2412,7 @@
           "Online Materials Figure S3",
           "Online Materials Table S3"
         ],
-        "finding": "The source publishes a complete CaSiO3 BM3-MGD coefficient set, but not its regression objective, weights, covariance, code, or row manifest. The official ZIP contains only the supplement PDF and CIF. A 174-observation candidate selection can be reconstructed from the 140 Sun rows matching the Figure S3 temperature legend and 34 cubic Gréaux rows; multiple explicit weightings do not recover Table S3."
+        "finding": "The source publishes a complete CaSiO3 BM3-MGD coefficient set, but not its regression objective, weights, covariance, code, or row manifest. The official ZIP contains only the supplement PDF and CIF. A 174-observation candidate selection can be reconstructed from the 140 Sun rows matching the Figure S3 temperature legend and 34 cubic Gr\u00e9aux rows; multiple explicit weightings do not recover Table S3."
       }
     },
     {
@@ -3772,25 +3772,6 @@
           "Supplementary Tables 10-11"
         ],
         "finding": "Independent calculated coesite-IV BM3; V0 reconstructed transparently because only K0 and K0' are printed."
-      }
-    },
-    {
-      "material": "coesite_v",
-      "file": "coesite_v.eosmat",
-      "record": "coesite_v_bykova_2018_am05_static_bm3_refit",
-      "label": "Bykova et al. (2018), coesite-V static AM05 BM3 reconstruction",
-      "doi": "10.1038/s41467-018-07265-z",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-      "primary_source_check": {
-        "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
-        "doi": "10.1038/s41467-018-07265-z",
-        "locations": [
-          "Methods: Ab initio calculations",
-          "Supplementary Figure 6",
-          "Supplementary Tables 10-11"
-        ],
-        "finding": "Independent calculated coesite-V BM3; V0 reconstructed transparently because only K0 and K0' are printed."
       }
     },
     {
@@ -5681,7 +5662,7 @@
       "material": "indium_nitride",
       "file": "indium_nitride.eosmat",
       "record": "indium_nitride_munoz_1993_murnaghan_1",
-      "label": "Muñoz and Kunc (1993), theoretical wurtzite Murnaghan",
+      "label": "Mu\u00f1oz and Kunc (1993), theoretical wurtzite Murnaghan",
       "doi": "10.1088/0953-8984/5/33/010",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

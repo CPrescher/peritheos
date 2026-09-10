@@ -6,7 +6,12 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from peritheos import Material, validate_eosmat_document
+from peritheos import (
+    Material,
+    get_material,
+    list_eos_record_documents,
+    validate_eosmat_document,
+)
 from peritheos.eosmat import load_eosmat
 from scripts.reproduce_tranche_b_mineral_eos import (
     BM2,
@@ -67,6 +72,8 @@ def _records() -> list[tuple[dict, Material]]:
     for filename in FILES:
         document = load_eosmat(MATERIALS / filename)
         validate_eosmat_document(document)
+        if not document["eos_records"]:
+            continue
         material = Material.from_eosmat(document)
         for record in document["eos_records"]:
             if record["reference"].get("doi", "").lower() in ACCEPTED_DOIS:
@@ -74,9 +81,9 @@ def _records() -> list[tuple[dict, Material]]:
     return found
 
 
-def test_twenty_five_primary_source_records_have_exact_parameters_or_reproduced_derivations():
+def test_twenty_four_primary_source_records_have_exact_parameters_or_reproduced_derivations():
     records = _records()
-    assert len(records) == 25
+    assert len(records) == 24
     observed = {
         r["identifier"]: tuple(r["eos"]["parameters"].values()) for r, _ in records
     }
@@ -122,7 +129,7 @@ def test_phase_h_primary_table_is_complete_unchanged_and_reproduced():
         "4ad82028fa5483acc94f7d1218f1b13176c25f178ebe3750cdfb11309a0ccaf4"
     )
     result = reproduce()
-    assert result["accepted_record_count"] == 25
+    assert result["accepted_record_count"] == 24
     assert result["phase_h_table1"]["observations"] == 12
     assert result["phase_h_table1"]["published_bm3_pressure_rmse_gpa"] == pytest.approx(
         0.5462582, abs=1e-6
@@ -134,11 +141,81 @@ def test_phase_h_primary_table_is_complete_unchanged_and_reproduced():
     assert result["bykova_2018_table10"]["coesite_iv"][
         "pressure_rmse_gpa"
     ] == pytest.approx(0.080812, abs=1e-6)
-    assert result["bykova_2018_table10"]["coesite_v"]["observations"] == 1
     assert (
-        result["bykova_2018_table10"]["coesite_v"]["max_abs_pressure_residual_gpa"]
+        result["bykova_2018_table10"]["coesite_v_held_candidate"]["observations"] == 1
+    )
+    assert (
+        result["bykova_2018_table10"]["coesite_v_held_candidate"][
+            "max_abs_pressure_residual_gpa"
+        ]
         < 1e-5
     )
+
+
+def test_bykova_combined_coesite_tables_and_v_held_candidate_are_preserved():
+    source_tables = {
+        "coesite-i-ii-cernok-2014-table1-pv.csv": (
+            9,
+            "733b94709bd150635b1fe5e7975a652055cc745e604dad723f2b06146b3ce575",
+        ),
+        "coesite-ii-iii-bykova-2018-table2-pv.csv": (
+            15,
+            "8aca860f04909fc827fc09ea6e24039d0364dcc21f3c774b07cb03cdcfe945e2",
+        ),
+    }
+    for filename, (row_count, digest) in source_tables.items():
+        path = ROOT / "peritheos" / "data" / "datasets" / filename
+        with path.open(newline="", encoding="utf-8") as stream:
+            assert len(list(csv.DictReader(stream))) == row_count
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
+
+    result = reproduce()
+    combined = result["bykova_2018_combined_coesite_i_ii_iii"]
+    assert combined["observations"] == 24
+    assert combined["phase_counts"] == {
+        "coesite-I": 7,
+        "coesite-II": 6,
+        "coesite-III": 11,
+    }
+    assert combined["pressure_range_gpa"] == [2.42, 36.9]
+    assert combined["published_bm3_pressure_rmse_gpa"] == pytest.approx(1.2698145841)
+    assert combined["partial_unweighted_refit"] == pytest.approx(
+        {
+            "V0": 542.2160125743,
+            "K0": 126.3278193724,
+            "K0_prime": 1.6951441000,
+            "pressure_rmse_gpa": 0.6967701889,
+            "max_abs_pressure_residual_gpa": 1.9967422491,
+        }
+    )
+
+    sensitivity = result["bykova_2018_coesite_v_rounding_sensitivity"]
+    assert sensitivity["anchor_pressure_interval_gpa"] == [56.5, 57.5]
+    assert sensitivity["v0_interval_a3"] == pytest.approx(
+        [426.7607834181, 428.0221644012]
+    )
+    assert sensitivity["maximum_abs_pressure_shift_26_64_gpa"] == pytest.approx(
+        0.5244076465
+    )
+
+    coesite_v = load_eosmat(MATERIALS / "coesite_v.eosmat")
+    assert coesite_v["eos_records"] == []
+    with pytest.raises(KeyError, match="Unknown material 'coesite_v'"):
+        get_material("coesite_v")
+    assert "coesite_v_bykova_2018_am05_static_bm3_refit" not in (
+        list_eos_record_documents()
+    )
+    candidate = coesite_v["source"]["held_eos_candidate"]
+    assert candidate["status"] == "held_non_executable"
+    assert candidate["missing_required_parameters"] == ["V0"]
+    assert candidate["published_parameters"] == {
+        "K0_gpa": 185.26,
+        "K0_prime": 3.1,
+    }
+    assert candidate["diagnostic_reconstruction"]["not_for_quantitative_use"]
+    resource = candidate["source_data"]["resource"]
+    source_path = ROOT / "peritheos" / "data" / resource["path"]
+    assert hashlib.sha256(source_path.read_bytes()).hexdigest() == resource["sha256"]
 
 
 def test_hold_papers_do_not_create_production_records():

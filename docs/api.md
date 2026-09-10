@@ -119,7 +119,8 @@ from peritheos import (
 ```
 
 `list_material_documents()` returns the identifiers of all 286 bundled
-materials. `get_material_document(identifier)` returns a defensive copy of one
+material cards, including source-only cards with no executable EOS.
+`get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
 records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
 `save_eosmat()` validates and preserves optional fields. `eosmat_schema()`

@@ -92,10 +92,12 @@ def test_complete_material_library_is_bundled_and_valid():
     identifiers = list_material_documents()
     documents = [get_material_document(identifier) for identifier in identifiers]
 
-    assert len(identifiers) == 287
-    assert len(set(identifiers)) == 287
-    assert sum(len(document["eos_records"]) for document in documents) == 844
-    assert all(document["eos_records"] for document in documents)
+    assert len(identifiers) == 208
+    assert len(set(identifiers)) == 208
+    assert sum(len(document["eos_records"]) for document in documents) == 486
+    assert {
+        document["identifier"] for document in documents if not document["eos_records"]
+    } == {"coesite_v"}
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
         document["format_version"] == EOSMAT_FORMAT_VERSION for document in documents
@@ -834,7 +836,6 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-05",
         "2026-09-06",
         "2026-09-07",
-        "2026-09-08",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")

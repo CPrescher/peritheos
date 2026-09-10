@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 from scipy.optimize import least_squares
 
-from peritheos import Material, _rust, get_material_document, list_material_documents
+from peritheos import _rust, list_materials
 from peritheos.eos.rt import (
     BM2,
     BM3,
@@ -379,14 +379,13 @@ def test_native_multi_oscillator_accepts_a_generic_reference_isotherm():
 
 
 def test_every_bundled_material_record_has_an_evaluation_backend():
-    for identifier in list_material_documents():
-        material = Material.from_eosmat(get_material_document(identifier))
+    for material in list_materials():
         for record in material.eos_records:
             if isinstance(record.eos, DoubleDebyeHelmholtz):
                 assert record.eos.pressure(record.eos.rt_eos.V0, 300.0) > 0.0
                 continue
             assert hasattr(record.eos, "_native"), (
-                identifier,
+                material.identifier,
                 record.identifier,
                 type(record.eos).__name__,
             )

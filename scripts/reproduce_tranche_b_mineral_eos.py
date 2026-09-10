@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Numerically audit the accepted tranche-B mineral EOS records."""
+"""Audit the accepted tranche-B EOS records and held coesite-V candidate."""
 
 from __future__ import annotations
 
@@ -8,6 +8,9 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.optimize import brentq, least_squares
+
+from peritheos.eos.rt import BM3 as BM3Model
 
 ROOT = Path(__file__).resolve().parents[1]
 PHASE_H_DATA = (
@@ -18,6 +21,12 @@ COESITE_IV_DATA = (
 )
 COESITE_V_DATA = (
     ROOT / "peritheos/data/datasets/coesite-v-bykova-2018-table10-calc-pv.csv"
+)
+COESITE_I_II_DATA = (
+    ROOT / "peritheos/data/datasets/coesite-i-ii-cernok-2014-table1-pv.csv"
+)
+COESITE_II_III_DATA = (
+    ROOT / "peritheos/data/datasets/coesite-ii-iii-bykova-2018-table2-pv.csv"
 )
 
 BM3 = {
@@ -32,8 +41,9 @@ BM3 = {
     "ca_perovskite_liu_2007_lda_static_bm3": (45.46, 240.0, 4.15),
     "coesite_i_iii_bykova_2018_300k_bm3": (547.20, 103.0, 3.02),
     "coesite_iv_bykova_2018_am05_static_bm3_refit": (438.6702, 168.52, 3.34),
-    "coesite_v_bykova_2018_am05_static_bm3_refit": (427.3921208, 185.26, 3.10),
 }
+
+COESITE_V_HELD_CANDIDATE = (427.3921208, 185.26, 3.10)
 
 BM2 = {
     "ca_perovskite_wang_weidner_1994_bm2": (45.83, 280.0),
@@ -122,9 +132,13 @@ def reproduce() -> dict[str, object]:
     )
     residual = phase_h_fit - pressure
     coesite_checks = {}
-    for name, path, record in (
-        ("coesite_iv", COESITE_IV_DATA, "coesite_iv_bykova_2018_am05_static_bm3_refit"),
-        ("coesite_v", COESITE_V_DATA, "coesite_v_bykova_2018_am05_static_bm3_refit"),
+    for name, path, parameters in (
+        (
+            "coesite_iv",
+            COESITE_IV_DATA,
+            BM3["coesite_iv_bykova_2018_am05_static_bm3_refit"],
+        ),
+        ("coesite_v_held_candidate", COESITE_V_DATA, COESITE_V_HELD_CANDIDATE),
     ):
         with path.open(newline="", encoding="utf-8") as stream:
             source_rows = list(csv.DictReader(stream))
@@ -132,12 +146,78 @@ def reproduce() -> dict[str, object]:
         source_volume = np.array(
             [float(row["volume_a3_conventional_cell"]) for row in source_rows]
         )
-        source_residual = bm3_pressure(source_volume, *BM3[record]) - source_pressure
+        source_residual = bm3_pressure(source_volume, *parameters) - source_pressure
         coesite_checks[name] = {
             "observations": len(source_rows),
             "pressure_rmse_gpa": float(np.sqrt(np.mean(source_residual**2))),
             "max_abs_pressure_residual_gpa": float(np.max(np.abs(source_residual))),
         }
+
+    combined_rows = []
+    for path in (COESITE_I_II_DATA, COESITE_II_III_DATA):
+        with path.open(newline="", encoding="utf-8") as stream:
+            combined_rows.extend(csv.DictReader(stream))
+    combined_pressure = np.array([float(row["pressure_gpa"]) for row in combined_rows])
+    combined_volume = np.array(
+        [float(row["volume_a3_z16_equivalent_cell"]) for row in combined_rows]
+    )
+    combined_published = bm3_pressure(
+        combined_volume, *BM3["coesite_i_iii_bykova_2018_300k_bm3"]
+    )
+    combined_fit = least_squares(
+        lambda parameters: (
+            bm3_pressure(combined_volume, *parameters) - combined_pressure
+        ),
+        x0=BM3["coesite_i_iii_bykova_2018_300k_bm3"],
+        bounds=((273.6, 10.3, -10.0), (820.8, 1030.0, 20.0)),
+        max_nfev=5000,
+    )
+    combined_refit_residual = (
+        bm3_pressure(combined_volume, *combined_fit.x) - combined_pressure
+    )
+
+    coesite_v_parameters = COESITE_V_HELD_CANDIDATE
+    coesite_v_anchor_volume = 342.5716
+
+    def v0_from_anchor_pressure(anchor_pressure: float) -> float:
+        return float(
+            brentq(
+                lambda v0: float(
+                    bm3_pressure(
+                        coesite_v_anchor_volume,
+                        v0,
+                        coesite_v_parameters[1],
+                        coesite_v_parameters[2],
+                    )
+                    - anchor_pressure
+                ),
+                400.0,
+                460.0,
+            )
+        )
+
+    v0_rounding_interval = np.array(
+        [v0_from_anchor_pressure(56.5), v0_from_anchor_pressure(57.5)]
+    )
+    central_model = BM3Model(
+        V0=coesite_v_parameters[0],
+        K0=coesite_v_parameters[1],
+        K0_prime=coesite_v_parameters[2],
+    )
+    pressure_grid = np.linspace(26.0, 64.0, 39)
+    volume_grid = np.asarray(central_model.volume(pressure_grid), dtype=float)
+    rounding_pressure_shifts = np.vstack(
+        [
+            bm3_pressure(
+                volume_grid,
+                v0,
+                coesite_v_parameters[1],
+                coesite_v_parameters[2],
+            )
+            - pressure_grid
+            for v0 in v0_rounding_interval
+        ]
+    )
     return {
         "accepted_record_count": len(BM3) + len(BM2) + len(VINET),
         "bm3_zero_pressure_max_abs_gpa": max(
@@ -179,6 +259,38 @@ def reproduce() -> dict[str, object]:
             ),
         },
         "bykova_2018_table10": coesite_checks,
+        "bykova_2018_combined_coesite_i_ii_iii": {
+            "observations": len(combined_rows),
+            "phase_counts": {
+                phase: sum(row["phase"] == phase for row in combined_rows)
+                for phase in ("coesite-I", "coesite-II", "coesite-III")
+            },
+            "pressure_range_gpa": [
+                float(np.min(combined_pressure)),
+                float(np.max(combined_pressure)),
+            ],
+            "published_bm3_pressure_rmse_gpa": float(
+                np.sqrt(np.mean((combined_published - combined_pressure) ** 2))
+            ),
+            "partial_unweighted_refit": {
+                "V0": float(combined_fit.x[0]),
+                "K0": float(combined_fit.x[1]),
+                "K0_prime": float(combined_fit.x[2]),
+                "pressure_rmse_gpa": float(
+                    np.sqrt(np.mean(combined_refit_residual**2))
+                ),
+                "max_abs_pressure_residual_gpa": float(
+                    np.max(np.abs(combined_refit_residual))
+                ),
+            },
+        },
+        "bykova_2018_coesite_v_rounding_sensitivity": {
+            "anchor_pressure_interval_gpa": [56.5, 57.5],
+            "v0_interval_a3": [float(value) for value in v0_rounding_interval],
+            "maximum_abs_pressure_shift_26_64_gpa": float(
+                np.max(np.abs(rounding_pressure_shifts))
+            ),
+        },
     }
 
 

@@ -132,8 +132,29 @@ All notable changes to Peritheos are documented here. The project follows
   thermal reconstruction is assumption-dependent; the original 298 K EOS remains
   not refittable with the available information.
 
+### Removed
+
+- Removed all 92 Delta-project benchmark records from the production material
+  catalog: 50 code-specific WIEN2k/FLEUR PBE curves and 42 heterogeneous
+  experimental-reference comparison curves. The associated benchmark-only
+  material cards, packaged datasets, import scripts, reproductions, and tests
+  were also removed.
+- Removed all 220 Sun et al. (2010) source-author universal-EOS benchmark
+  parameterizations and their 49 phase-unresolved material cards. The source
+  parameter table, Morse/Sun-Morse implementations, and equation tests remain
+  as non-catalog benchmark fixtures. The independently refitted, dataset-backed
+  AIP Handbook Cu isotherm remains on its own historical material card.
+- Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
+  octahedral-tilt branches that lacked diffraction-ready structures. The full
+  nine-structure BM3/BM4 coefficient table remains an audit fixture; production
+  retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
+  contains 208 material documents and 486 primary-source-validated EOS records.
+
 ### Changed
 
+- Retained coesite-V as a phase card but demoted its one-anchor reconstructed
+  BM3 curve to structured, non-executable provenance because the source omits
+  `V0` and does not deposit enough numerical states to test the curve.
 - Reconstructed the Mosenfelder et al. (2009) MgSiO3 post-perovskite
   shock-static inversion from 48 static P-V-T rows and six PPv shock states.
   `MieGruneisenDebye` now supports a BM3 reference isentrope and an optional
