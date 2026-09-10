@@ -178,6 +178,37 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         "cannot reconstruct the source energy-fit protocol"
         in phase_egg["qualification"]
     )
+    sun = by_identifier["fesio3_liquid_sun_2019_2500k_bm4_1"]
+    assert sun["status"] == "not_refittable"
+    assert sun["observations"] == 40
+    assert sun["dataset_identifiers"] == [
+        "fesio3_liquid_sun_2019_table1_pvt",
+        "fesio3_liquid_sun_2019_figures_s3_s4_digitized",
+    ]
+    assert sun["published_rmse_gpa"] == pytest.approx(0.6409268656)
+    assert sun["source_fit_diagnostics"][
+        "non_source_unweighted_40_state_thermal_reduction_sensitivity"
+    ]["k0_double_prime_lower_audit_bound_hit"]
+    assert (
+        sun["source_fit_diagnostics"][
+            "non_source_unweighted_40_state_thermal_reduction_sensitivity"
+        ]["jacobian_condition_number"]
+        > 1.0e7
+    )
+    assert "must not be reported as a refitted EOS" in sun["reason"]
+    assert "parameters" not in sun
+    assert (
+        "gamma(V)*Cv(V)"
+        in sun["source_fit_diagnostics"]["pvt_only_structural_nonidentifiability"]
+    )
+    constrained_sun = sun["source_fit_diagnostics"][
+        "non_source_k0_k0_prime_check_with_v0_and_k0_double_prime_fixed"
+    ]
+    assert constrained_sun["parameters"] == pytest.approx(
+        {"K0": 2.2405443, "K0_prime": 23.0040505}
+    )
+    assert constrained_sun["rmse_gpa"] == pytest.approx(0.59851832)
+    assert "not the source regression" in constrained_sun["purpose"]
     walker = by_identifier["kcl_walker_2002_bm3_2"]
     assert walker["status"] == "similar"
     assert walker["free_parameters"] == [

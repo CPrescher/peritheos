@@ -94,16 +94,37 @@ def test_sun_2019_fesio3_liquid_reference_and_table():
         "K0_prime": 22.913,
         "K0_double_prime": -175.628,
     }
+    assert source["fit_datasets"] == ["fesio3_liquid_sun_2019_table1_pvt"]
+    classification = source["numerical_reproduction"]["state_classification"]
+    assert classification["liquid_circle_states"] == 40
+    assert classification["nonliquid_square_states"] == 6
     volume_a3 = 40.72 * 1.0e24 / 6.02214076e23
     assert executable.pressure(volume_a3) == pytest.approx(1.084850164170989)
 
     path = DATA / "fesio3-liquid-sun-2019-table1-pvt.csv"
     assert hashlib.sha256(path.read_bytes()).hexdigest() == (
-        "855bb6ba0df0363f56ca17487cf57536251d98fe6537e30094025d60f0f9d91c"
+        "f0f4ce1eb820fdb91d2c988baeb367c25f808028b99ed7c0040ed1ce75b335f7"
     )
     with path.open(newline="", encoding="utf-8") as stream:
         rows = list(csv.DictReader(stream))
     assert len(rows) == 46
+    assert sum(row["phase_state"] == "liquid" for row in rows) == 40
+    assert all(
+        (row["phase_state"] == "liquid") == (row["used_in_published_eos_fit"] == "yes")
+        for row in rows
+    )
+    assert {
+        (float(row["volume_ratio_to_vx"]), int(row["temperature_k"]))
+        for row in rows
+        if row["phase_state"] == "nonliquid"
+    } == {
+        (0.4, 2500),
+        (0.4, 3000),
+        (0.4, 4000),
+        (0.5, 2500),
+        (0.5, 3000),
+        (0.6, 2500),
+    }
     checkpoint = next(
         row
         for row in rows
@@ -121,6 +142,21 @@ def test_source_exhaustion_reproduction_script():
     spec.loader.exec_module(module)
     result = module.reproduce()
     assert result["sun_table1_states"] == 46
+    assert result["sun_state_classification"] == {
+        "liquid_states_used_in_published_eos_fit": 40,
+        "nonliquid_states_excluded": 6,
+        "nonliquid_volume_ratio_temperature_pairs": [
+            [0.4, 2500],
+            [0.4, 3000],
+            [0.4, 4000],
+            [0.5, 2500],
+            [0.5, 3000],
+            [0.6, 2500],
+        ],
+    }
+    assert result["sun_published_rounded_model_liquid_state_rmse_gpa"] == (
+        pytest.approx(0.6409268656)
+    )
     assert (
         result["sun_2500k_table1_checkpoint"]["absolute_difference_gpa"]
         < result["sun_2500k_table1_checkpoint"]["published_pressure_standard_error_gpa"]

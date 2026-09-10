@@ -74,7 +74,9 @@
     "formula_units": 1.0,
     "molar_mass_g_mol": 131.928
    },
-   "fit_datasets": [],
+   "fit_datasets": [
+    "fesio3_liquid_sun_2019_table1_pvt"
+   ],
    "validity": {
     "pressure_gpa": [
      0.0,
@@ -86,7 +88,7 @@
     ],
     "notes": [
      "This executable record is only the T0=2500 K BM4 reference term of the paper's larger P-V-T liquid model.",
-     "The paper classifies individual simulations as liquid or nonliquid from mean-square displacement; Table 1 does not print those flags, so its complete mixed-state grid is not claimed as the exact fit dataset.",
+     "The paper classifies individual simulations from mean-square displacement. Figure 1 maps every Table 1 state to an unambiguous circle (liquid and used in the EOS fit) or square (nonliquid); the six square states are excluded by the bundled fit-selection flag.",
      "The numerical pressure envelope summarizes the reported FPMD grid and is not a phase-stability guarantee."
     ]
    },
@@ -116,7 +118,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Validated against the final open-access publication; LitCurate was used only as a discovery lead.",
-    "audit_date": "2026-09-06",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -133,20 +135,24 @@
      "locations": [
       "Computational methods, Section 2",
       "Table 1",
+      "Figure 1 and caption",
       "Equations (4)-(9), Section 3.1"
      ],
-     "finding": "The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa."
+     "finding": "The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. Figure 1 states that circles are the liquid states used in the EOS fit and squares are nonliquid; matching the exact Table 1 P-V-T coordinates to symbol shape gives 40 circles and six squares without digitizing coordinates. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa."
     },
     "primary_data_check": {
-     "status": "bundled_mixed_state_grid",
-     "audit_date": "2026-09-06",
+     "status": "bundled",
+     "audit_date": "2026-09-08",
      "dataset_identifiers": [
-      "fesio3_liquid_sun_2019_table1_pvt"
+      "fesio3_liquid_sun_2019_table1_pvt",
+      "fesio3_liquid_sun_2019_figures_s3_s4_digitized"
      ],
      "source_locations": [
-      "Table 1"
+      "Table 1",
+      "Figure 1 and caption",
+      "Supporting Figures S3-S4"
      ],
-     "finding": "All 46 printed P-V-T states and pressure standard errors are transcribed. Figure 1, rather than Table 1, distinguishes liquid states used in the fit from nonliquid simulations, so the bundled table is a source-data/checkpoint resource rather than an asserted exact regression input."
+     "finding": "All 46 printed P-V-T states and pressure standard errors are transcribed. Figure 1 symbol shapes supply an exact row classification at those already-tabulated coordinates: 40 circle states are liquid and used in the source EOS fit; six square states are nonliquid and excluded. The regression-line slopes in the original high-resolution raster TIFFs for supporting Figures S3-S4 are digitized at nine volumes, yielding the plotted Cv and gamma values with explicit digitization uncertainties."
     }
    },
    "numerical_reproduction": {
@@ -159,16 +165,45 @@
     "calculated_pressure_gpa": 1.0848501649,
     "absolute_difference_gpa": 0.0148501649,
     "tolerance_gpa": 0.12,
-    "tolerance_basis": "The printed one-standard-error uncertainty of the Table 1 pressure checkpoint."
+    "tolerance_basis": "The printed one-standard-error uncertainty of the Table 1 pressure checkpoint.",
+    "state_classification": {
+     "source_location": "Figure 1 and caption",
+     "method": "Match each exact Table 1 pressure-volume-temperature coordinate to the plotted marker shape; no coordinate is digitized or inferred from a subjective phase-boundary trace.",
+     "liquid_circle_states": 40,
+     "nonliquid_square_states": 6,
+     "nonliquid_volume_ratio_temperature_k": [
+      [0.4, 2500],
+      [0.4, 3000],
+      [0.4, 4000],
+      [0.5, 2500],
+      [0.5, 3000],
+      [0.6, 2500]
+     ]
+    },
+    "source_thermal_pressure_model": {
+     "equation": "Equations (4), (10)-(13): P(V,T)=P_T0(V)+gamma(V)*Cv(V)*(T-T0)/V.",
+     "units": "Cv in J/(mol K), V in cm^3/mol, and thermal pressure divided by 1000 to obtain GPa.",
+     "parameters": {
+      "T0_k": 2500.0,
+      "Vx_cm3_mol": 40.72,
+      "Cv_prime_j_mol_k": 204.347,
+      "A_cm3_j_mol2_k": -830.0,
+      "w_cm3_mol": 20.291,
+      "Vc_cm3_mol": 29.11,
+      "gamma_Vx": 0.311,
+      "gamma_prime": -0.933,
+      "gamma_double_prime": 1.144
+     }
+    }
    },
-   "notes": "The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm."
+   "notes": "The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm. The exact 40-state liquid selection is bundled. The paper derives Cv from energy-temperature slopes and gamma from pressure-energy slopes before fitting their volume functions; the supporting information supplies those observations only as raster plots, whose regression-line slopes are now digitized in a separate dataset. The digitization closely recovers the published Cv function but cannot recover the authors' unknown relative weighting for the gamma function. Consequently, subtracting either rounded published or digitized thermal coefficients from Table 1 and freely fitting four BM4 coefficients remains an ill-conditioned sensitivity experiment, not a reproduction of the source regression."
   }
  ],
  "datasets": [
   {
    "identifier": "fesio3_liquid_sun_2019_table1_pvt",
    "kind": "pressure_volume_temperature",
-   "description": "All 46 FeSiO3 simulation states printed in Sun et al. (2019), Table 1.",
+   "description": "All 46 FeSiO3 simulation states printed in Sun et al. (2019), Table 1, with the exact liquid/nonliquid and source-fit selection recovered from Figure 1 marker shapes.",
    "reference": {
     "authors": [
      "Sun",
@@ -182,7 +217,7 @@
     "locator": "3706-3716",
     "doi": "10.1029/2018GL081421"
    },
-   "source_location": "Table 1",
+   "source_location": "Table 1 numerical values; Figure 1 and caption state classification",
    "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018GL081421",
    "columns": [
     {
@@ -221,17 +256,128 @@
      "unit": "GPa",
      "role": "standard_error",
      "of": "pressure_gpa"
+    },
+    {
+     "name": "phase_state",
+     "quantity": "simulation_phase_state",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_published_eos_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
     }
    ],
    "resource": {
     "path": "datasets/fesio3-liquid-sun-2019-table1-pvt.csv",
-    "sha256": "855bb6ba0df0363f56ca17487cf57536251d98fe6537e30094025d60f0f9d91c",
+    "sha256": "f0f4ce1eb820fdb91d2c988baeb367c25f808028b99ed7c0040ed1ce75b335f7",
     "media_type": "text/csv"
    },
    "used_by_eos_records": [
     "fesio3_liquid_sun_2019_2500k_bm4_1"
    ],
-   "notes": "Vx=40.72 cm^3/mol is defined by the source. Formula-unit volumes are transparent conversions using the exact Avogadro constant. Table 1 omits the liquid/nonliquid classification shown graphically in Figure 1, so no phase-state flag is invented."
+   "notes": "Vx=40.72 cm^3/mol is defined by the source. Formula-unit volumes are transparent conversions using the exact Avogadro constant. Table 1 omits text flags, but Figure 1 plots these same discrete coordinates and its caption defines circles as liquid states used in the EOS fit and squares as nonliquid. The flags transcribe marker identity only; no coordinate digitization or subjective phase-boundary interpolation is used."
+  },
+  {
+   "identifier": "fesio3_liquid_sun_2019_figures_s3_s4_digitized",
+   "kind": "thermodynamic_derivative_digitization",
+   "description": "Regression-line slopes digitized from the original high-resolution raster TIFFs for Sun et al. (2019) supporting Figures S3 and S4, converted to Cv and gamma for the 32-formula-unit simulation cell.",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Zhou",
+     "Yin",
+     "Lu"
+    ],
+    "year": 2019,
+    "source": "Geophysical Research Letters",
+    "volume": "46",
+    "locator": "Supporting Figures S3-S4",
+    "doi": "10.1029/2018GL081421"
+   },
+   "source_location": "Supporting Information S1, Figures S3 and S4; original embedded files word/media/image9.tif and word/media/image10.tif",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2018GL081421&file=grl58804-sup-0001-2018GL081421-SI.docx",
+   "columns": [
+    {
+     "name": "volume_ratio_to_vx",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "energy_temperature_slope_ev_per_k_32_fu",
+     "quantity": "energy_temperature_derivative",
+     "unit": "eV/K per 32 formula units",
+     "role": "value"
+    },
+    {
+     "name": "energy_temperature_slope_digitization_uncertainty_ev_per_k_32_fu",
+     "quantity": "energy_temperature_derivative",
+     "unit": "eV/K per 32 formula units",
+     "role": "uncertainty",
+     "of": "energy_temperature_slope_ev_per_k_32_fu"
+    },
+    {
+     "name": "cv_j_mol_k",
+     "quantity": "isochoric_heat_capacity",
+     "unit": "J/(mol*K)",
+     "role": "value"
+    },
+    {
+     "name": "cv_digitization_uncertainty_j_mol_k",
+     "quantity": "isochoric_heat_capacity",
+     "unit": "J/(mol*K)",
+     "role": "uncertainty",
+     "of": "cv_j_mol_k"
+    },
+    {
+     "name": "pressure_energy_slope_gpa_per_ev_32_fu",
+     "quantity": "pressure_energy_derivative",
+     "unit": "GPa/eV per 32 formula units",
+     "role": "value"
+    },
+    {
+     "name": "pressure_energy_slope_digitization_uncertainty_gpa_per_ev_32_fu",
+     "quantity": "pressure_energy_derivative",
+     "unit": "GPa/eV per 32 formula units",
+     "role": "uncertainty",
+     "of": "pressure_energy_slope_gpa_per_ev_32_fu"
+    },
+    {
+     "name": "gamma",
+     "quantity": "gruneisen_parameter",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "gamma_digitization_uncertainty",
+     "quantity": "gruneisen_parameter",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "gamma"
+    }
+   ],
+   "resource": {
+    "path": "datasets/fesio3-liquid-sun-2019-figures-s3-s4-digitized.csv",
+    "sha256": "a59993ad87fa47f4ed2a9d5ddb75ce951e30e9b46805ec9de78e56663243cdc6",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "fesio3_liquid_sun_2019_2500k_bm4_1"
+   ],
+   "uncertainty": {
+    "kind": "digitization_only",
+    "coverage": "Approximate one-standard-deviation pixel and line-separation uncertainty; excludes the unpublished FPMD energy uncertainty and source-fit weighting."
+   },
+   "notes": "Axis calibration used labeled major ticks in the original 5972x4213 Figure S3 TIFF and 5850x4213 Figure S4 TIFF. Colored regression-line center pixels were fitted after excluding marker neighborhoods; Cv=(dE/dT)*96485.33212331/32 and gamma=V_cell*(dP/dE)/160.2176634 with 32 FeSiO3 formula units. The tabulated values reproduce the plotted line slopes, not hidden source observations."
   }
  ]
 }
