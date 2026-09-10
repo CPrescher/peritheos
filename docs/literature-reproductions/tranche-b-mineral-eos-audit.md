@@ -4,7 +4,7 @@ Audit date: 2026-09-08. This audit applies a source-owned-fit rule: a production
 
 ## Accepted production records
 
-Twenty-four defensible records were added from eleven papers. The analytical curves and held coesite-V diagnostic are reproduced by `scripts/reproduce_tranche_b_mineral_eos.py` and tested by `tests/test_tranche_b_mineral_eos.py`.
+Twenty-four defensible records are retained from ten papers. The analytical curves and held coesite-V diagnostic are reproduced by `scripts/reproduce_tranche_b_mineral_eos.py` and tested by `tests/test_tranche_b_mineral_eos.py`.
 
 | Primary source | Accepted records | Evidence |
 |---|---:|---|
@@ -13,7 +13,6 @@ Twenty-four defensible records were added from eleven papers. The analytical cur
 | Akber-Knutson, Bukowinski, and Matas (2002), doi:10.1029/2001GL013523 | 4 | Primary Tables 1–2: one stishovite and three CaSiO3 source-owned BM3 fits. |
 | Tsuchiya and Mookherjee (2015), doi:10.1038/srep15534 | 1 | Primary Results, Figure 2, Table 1, and Methods: ordered model-1 phase-H BM3. |
 | Sagatova et al. (2021), doi:10.1134/S0016702921080073 | 7 | Official full text, Methods and Table 2: seven source-owned room-temperature Vinet parameterizations. |
-| Schoelmerich et al. (2020), doi:10.1038/s41598-020-66340-y | 1 | Official full text: BM3 fit to shock states corrected at fixed volume to 300 K. |
 | Liu et al. (2011), doi:10.1088/1674-0068/24/06/703-710 | 1 | Primary Sections II–III and Table I: source-owned static PBE-GGA BM3. |
 | Ismailova et al. (2016), doi:10.1126/sciadv.1600427 | 1 | Primary article and supplement: one measured Fe-deficient bridgmanite BM2. |
 | Ricolleau et al. (2009), doi:10.1029/2008GL036759 | 4 | Official full text, Section 3 and Table 1: three independent thermal BM2 fits and one room-temperature low-spin branch. |
@@ -136,7 +135,7 @@ The English translation DOI is used as the canonical identifier. The official Ru
 
 | LitCurate candidate | Origin | Disposition | Reason / production mapping |
 |---|---|---|---|
-| litcurate_399b5f6c219e8346 | Source | Accept | Shock states thermally corrected to 300 K and fitted to BM3 → `stishovite_schoelmerich_2020_shock_300k_bm3`. |
+| litcurate_399b5f6c219e8346 | Source | Reject | The reported BM3 coefficients cannot be independently reproduced: corrected 300 K states are graphical and the complete correction and weighting protocol is absent. Primary Table 1 shock states remain as an audit fixture. |
 | litcurate_6afe201aeae497fc | Citation | Reject | Prior shock-compression comparison, not fit in this source and lacks V0. |
 | litcurate_71b55cdf996ff53b | Citation | Reject | Prior DAC comparison, not source-owned. |
 | litcurate_8fae504a33ad0c78 | Citation | Reject | Literature comparison, not source-owned. |

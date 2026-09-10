@@ -1,0 +1,106 @@
+{
+  "format": "peritheos.schoelmerich-2020-stishovite-audit",
+  "format_version": 1,
+  "audit_date": "2026-09-08",
+  "source": {
+    "doi": "10.1038/s41598-020-66340-y",
+    "article_url": "https://www.nature.com/articles/s41598-020-66340-y",
+    "supplement_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-020-66340-y/MediaObjects/41598_2020_66340_MOESM1_ESM.pdf",
+    "license": "CC BY 4.0",
+    "article_pdf_sha256": "b138b100e1d5fa79eb83bd3ba84fc87517fdd285e7aefc28b4f9fc6f60f8a836",
+    "supplement_pdf_sha256": "2b1b43493480e9a92aeaf25bd43738f73f796c971660ff304ac9de4f966800d3"
+  },
+  "reported_table": {
+    "dataset": "stishovite-schoelmerich-2020-table1-shock.csv",
+    "sha256": "72a73c8812b01c11ffb4dea7958459f8b4e782f5d7f83acf7793c3198be19726",
+    "rows": 6,
+    "finite_shock_rows": 5,
+    "row_origin_counts": {
+      "ambient_xrd": 1,
+      "visar_rankine_hugoniot_only": 1,
+      "xrd_refined_shock_state": 4
+    },
+    "rounded_us_up_ordinary_least_squares": {
+      "slope": 1.2008832728697714,
+      "intercept_km_s": 9.159694412589891
+    },
+    "supplement_unrounded_us_up_relation": {
+      "slope": 1.199576,
+      "intercept_km_s": 9.1667
+    },
+    "rankine_hugoniot_pressure_check": {
+      "rho0_g_cm3": 4.3,
+      "calculated_pressure_gpa": [
+        18.6921,
+        123.8314,
+        301.473,
+        316.89279999999997,
+        336.62549999999993
+      ],
+      "reported_minus_calculated_gpa": [
+        -0.6920999999999999,
+        -0.8314000000000021,
+        -0.4730000000000132,
+        0.10720000000003438,
+        -0.6254999999999313
+      ],
+      "max_abs_difference_gpa": 0.8314000000000021
+    },
+    "density_from_cell_volume_check": {
+      "calculated_density_g_cm3": [
+        4.504296558600733,
+        5.349606904718834,
+        6.274853381950077,
+        6.375090656422123,
+        6.4367850821294335
+      ],
+      "reported_minus_calculated_g_cm3": [
+        0.005703441399266929,
+        0.00039309528116593384,
+        0.025146618049922687,
+        0.02490934357787733,
+        0.0032149178705669357
+      ],
+      "max_abs_difference_g_cm3": 0.025146618049922687
+    },
+    "internal_energy_unit_audit": {
+      "printed_table_heading": "E-E0 (kJ/mol)",
+      "rankine_hugoniot_value_if_mj_kg": [
+        0.09745784561439683,
+        2.806998478591609,
+        11.111111111111112,
+        12.09484011627907,
+        12.982810920121336
+      ],
+      "rankine_hugoniot_value_if_kj_mol": [
+        5.855559738049805,
+        168.65288958921965,
+        667.588888888889,
+        726.6942787063953,
+        780.0462285136502
+      ],
+      "reported_value": [
+        0.1,
+        2.82,
+        11.28,
+        12.01,
+        13.01
+      ],
+      "rmse_treating_reported_values_as_mj_kg": 0.08559912416943327,
+      "rmse_treating_reported_values_as_kj_mol": 558.1027191215792,
+      "finding": "The printed kJ/mol heading is dimensionally inconsistent. The numerical entries reproduce the Rankine-Hugoniot energy in MJ/kg (equivalently kJ/g); the CSV preserves the literal reported values and labels the source unit defect in metadata."
+    }
+  },
+  "catalog_decision": {
+    "outcome": "direct_refit_unavailable",
+    "production_eos_record": false,
+    "published_parameters": {
+      "V0_a3": 46.5,
+      "K0_gpa": 307.0,
+      "K0_error_gpa": 4.0,
+      "K0_prime": 4.66,
+      "K0_prime_error": 0.15
+    },
+    "reason": "The five shock-corrected 300 K states are shown only graphically. The source also omits the exact correction inputs, corrected-state uncertainties and covariance, EosFit objective and weights, and an explicit LCLS-233 selection. Figure digitization cannot provide an independent reproduction of coefficients plotted in the same figure."
+  }
+}

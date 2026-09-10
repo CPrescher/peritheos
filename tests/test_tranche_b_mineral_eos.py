@@ -45,6 +45,7 @@ ACCEPTED_DOIS = AUDITED_DOIS - {
     "10.1029/94gl01592",
     "10.1103/physrevlett.89.255507",
     "10.1103/physrevb.59.r14141",
+    "10.1038/s41598-020-66340-y",
 }
 FILES = [
     "ca_perovskite.eosmat",

@@ -36,7 +36,6 @@ BM3 = {
     "ca_perovskite_akber_knutson_2002_vib_pm3m_300k_bm3": (44.75, 305.0, 3.5),
     "phase_h_tsuchiya_mookherjee_2015_gga_static_bm3": (58.9, 147.5, 4.9),
     "ca_perovskite_sherman_1993_basis_b_static_bm3": (44.96, 301.0, 4.0),
-    "stishovite_schoelmerich_2020_shock_300k_bm3": (46.5, 307.0, 4.66),
     "bridgmanite_liu_2011_gga_static_bm3": (162.88, 241.0, 4.0),
     "ca_perovskite_liu_2007_lda_static_bm3": (45.46, 240.0, 4.15),
     "coesite_i_iii_bykova_2018_300k_bm3": (547.20, 103.0, 3.02),

@@ -183,6 +183,18 @@ All notable changes to Peritheos are documented here. The project follows
   appearing as directly unrefittable. Be and hcp-Pb retain their documented
   source-data gaps.
 
+### Removed
+
+- Removed the Schoelmerich et al. (2020) shock-corrected stishovite BM3 record.
+  Its corrected 300 K fit states and complete correction/weighting protocol are
+  not published numerically, so digitizing the fitted figure is not independent
+  reproduction.
+
+### Changed
+
+- Preserved Schoelmerich et al. (2020) Table 1 as a CC BY 4.0 audit fixture and
+  documented its Hugoniot reductions and apparent internal-energy unit defect.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

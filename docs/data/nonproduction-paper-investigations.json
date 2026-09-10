@@ -347,7 +347,7 @@
       "reason": "All 6 LitCurate candidates are explicitly citation-reported or adopted inputs rather than a source-owned EOS fit under this DOI."
     },
     {
-      "citation": "Fundamental thermodynamic relations and silicate melting with implications for the constitution of D″ (1990)",
+      "citation": "Fundamental thermodynamic relations and silicate melting with implications for the constitution of D\u2033 (1990)",
       "doi": "10.1029/jb095ib12p19311",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -355,7 +355,7 @@
       "reason": "All 1 LitCurate candidate is explicitly citation-reported or adopted inputs rather than a source-owned EOS fit under this DOI."
     },
     {
-      "citation": "High pressure and high temperature in situ X‐ray observation of MgSiO3 Perovskite under lower mantle conditions (1993)",
+      "citation": "High pressure and high temperature in situ X\u2010ray observation of MgSiO3 Perovskite under lower mantle conditions (1993)",
       "doi": "10.1029/92gl02960",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -363,7 +363,7 @@
       "reason": "All 1 LitCurate candidate is explicitly citation-reported or adopted inputs rather than a source-owned EOS fit under this DOI."
     },
     {
-      "citation": "Refinement of enthalpy measurement of MgSiO3 perovskite and negative pressure‐temperature slopes for Perovskite‐forming reactions (1993)",
+      "citation": "Refinement of enthalpy measurement of MgSiO3 perovskite and negative pressure\u2010temperature slopes for Perovskite\u2010forming reactions (1993)",
       "doi": "10.1029/93gl01265",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -443,7 +443,7 @@
       "reason": "All 1 LitCurate candidate is explicitly citation-reported or adopted inputs rather than a source-owned EOS fit under this DOI."
     },
     {
-      "citation": "Pressure-Induced Magnetization in FeO: Evidence from Elasticity and Mössbauer Spectroscopy (2004)",
+      "citation": "Pressure-Induced Magnetization in FeO: Evidence from Elasticity and M\u00f6ssbauer Spectroscopy (2004)",
       "doi": "10.1103/physrevlett.93.215502",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -491,7 +491,7 @@
       "reason": "All 2 LitCurate candidates are explicitly citation-reported or adopted inputs rather than a source-owned EOS fit under this DOI."
     },
     {
-      "citation": "Spin crossover and Mott—Hubbard transition under high pressure and high temperature in the low mantle of the Earth (2015)",
+      "citation": "Spin crossover and Mott\u2014Hubbard transition under high pressure and high temperature in the low mantle of the Earth (2015)",
       "doi": "10.1088/1742-6596/653/1/012095",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -507,7 +507,7 @@
       "reason": "All 31 rows are a compilation of earlier MgO, FeO, and ferropericlase moduli across composition rather than source-owned complete EOS fits."
     },
     {
-      "citation": "A modified Anderson–Grüneisen model for the pressure dependence of thermal expansivity (2019)",
+      "citation": "A modified Anderson\u2013Gr\u00fcneisen model for the pressure dependence of thermal expansivity (2019)",
       "doi": "10.1139/cjp-2019-0326",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -515,7 +515,7 @@
       "reason": "All 1 LitCurate candidate is explicitly citation-reported or adopted inputs rather than a source-owned EOS fit under this DOI."
     },
     {
-      "citation": "The sound velocity of wüstite at high pressures: implications for low-velocity anomalies at the base of the lower mantle (2020)",
+      "citation": "The sound velocity of w\u00fcstite at high pressures: implications for low-velocity anomalies at the base of the lower mantle (2020)",
       "doi": "10.1186/s40645-020-00333-3",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -531,7 +531,7 @@
       "reason": "All 3 LitCurate candidates are explicitly citation-reported or adopted inputs rather than a source-owned EOS fit under this DOI."
     },
     {
-      "citation": "Comparative Analysis of Grüneisen Parameters for Selected Geophysical Minerals Using Advanced Equations of State (2024)",
+      "citation": "Comparative Analysis of Gr\u00fcneisen Parameters for Selected Geophysical Minerals Using Advanced Equations of State (2024)",
       "doi": "10.69626/sea.2024.0152",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -539,7 +539,7 @@
       "reason": "All three MgO rows compare alternative laws using the same incomplete adopted input triplet and omit V0; the paper supplies no new independently fitted EOS."
     },
     {
-      "citation": "The texture of the post-perovskite phase controls the characteristics of the D” seismic discontinuity (2025)",
+      "citation": "The texture of the post-perovskite phase controls the characteristics of the D\u201d seismic discontinuity (2025)",
       "doi": "10.1038/s43247-025-02383-1",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -547,7 +547,7 @@
       "reason": "All 2 LitCurate candidates are explicitly citation-reported or adopted inputs rather than a source-owned EOS fit under this DOI."
     },
     {
-      "citation": "Exploring the High-Pressure Equation of State in Earth’s Mantle with a Focus on the MgSiO3−MgO System (2025)",
+      "citation": "Exploring the High-Pressure Equation of State in Earth\u2019s Mantle with a Focus on the MgSiO3\u2212MgO System (2025)",
       "doi": "10.15407/mfint.47.06.0601",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-06",
@@ -793,6 +793,14 @@
       "investigation_date": "2026-09-06",
       "evidence": "literature-reproductions/mgsio3-source-exhaustion.md",
       "reason": "The source row re-fits earlier elastic data without a new pressure-volume dataset, exact Fe content, or reference volume; the other two rows are citations."
+    },
+    {
+      "citation": "Schoelmerich et al. (2020), shock-compressed stishovite",
+      "doi": "10.1038/s41598-020-66340-y",
+      "outcome": "direct_refit_unavailable",
+      "investigation_date": "2026-09-08",
+      "evidence": "literature-reproductions/schoelmerich-2020-stishovite.md",
+      "reason": "The source reports BM3 coefficients but shows the shock-corrected 300 K fit states only graphically and omits the complete thermal-reduction inputs, corrected-state uncertainties and covariance, EosFit objective and weights, and explicit LCLS-233 selection. Figure digitization would be circular evidence for reproducing coefficients plotted in the same figure, so no production EOS is retained."
     }
   ]
 }
