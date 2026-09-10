@@ -58,6 +58,8 @@ pub enum ThermalPressureReference {
     /// Subtract the Debye energy at the configured reference temperature.
     #[default]
     ReferenceTemperature,
+    /// Subtract Debye energy along `T_S(V) = Tr theta(V) / theta0`.
+    ReferenceIsentrope,
     /// Add the full positive-temperature Debye pressure to a 0 K cold curve.
     AbsoluteZero,
 }
@@ -78,6 +80,8 @@ pub struct MieGruneisen<R, const DEBYE: bool> {
     pub q: f64,
     /// Number of atoms in the formula unit.
     pub n: f64,
+    /// High-temperature molar heat-capacity limit in J mol^-1 K^-1.
+    pub cvmax: f64,
     /// Debye-temperature convention; Einstein models use the integrated law.
     pub debye_temperature_law: DebyeTemperatureLaw,
     /// Thermal-pressure baseline; Einstein models use the reference temperature.
@@ -100,6 +104,7 @@ fn new_mie_gruneisen<R, const DEBYE: bool>(
     n: f64,
     debye_temperature_law: DebyeTemperatureLaw,
     thermal_pressure_reference: ThermalPressureReference,
+    cvmax: Option<f64>,
 ) -> EosResult<MieGruneisen<R, DEBYE>> {
     Ok(MieGruneisen {
         rt_eos,
@@ -108,6 +113,10 @@ fn new_mie_gruneisen<R, const DEBYE: bool>(
         gamma0: finite_parameter(gamma0, "gamma0")?,
         q: finite_parameter(q, "q")?,
         n: positive_parameter(n, "n")?,
+        cvmax: match cvmax {
+            Some(value) => positive_parameter(value, "Cvmax")?,
+            None => 3.0 * positive_parameter(n, "n")? * GAS_CONSTANT,
+        },
         debye_temperature_law,
         thermal_pressure_reference,
     })
@@ -132,6 +141,7 @@ where
             n,
             DebyeTemperatureLaw::IntegratedGruneisen,
             ThermalPressureReference::ReferenceTemperature,
+            None,
         )
     }
 
@@ -158,6 +168,7 @@ where
             n,
             debye_temperature_law,
             ThermalPressureReference::ReferenceTemperature,
+            None,
         )
     }
 
@@ -186,6 +197,34 @@ where
             n,
             debye_temperature_law,
             thermal_pressure_reference,
+            None,
+        )
+    }
+
+    /// Construct a model with all conventions and an optional fitted
+    /// high-temperature molar heat-capacity limit.
+    #[allow(clippy::too_many_arguments)]
+    pub fn new_with_heat_capacity(
+        rt_eos: R,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        q: f64,
+        n: f64,
+        cvmax: Option<f64>,
+        debye_temperature_law: DebyeTemperatureLaw,
+        thermal_pressure_reference: ThermalPressureReference,
+    ) -> EosResult<Self> {
+        new_mie_gruneisen(
+            rt_eos,
+            tr,
+            theta0,
+            gamma0,
+            q,
+            n,
+            debye_temperature_law,
+            thermal_pressure_reference,
+            cvmax,
         )
     }
 }
@@ -209,6 +248,7 @@ where
             n,
             DebyeTemperatureLaw::IntegratedGruneisen,
             ThermalPressureReference::ReferenceTemperature,
+            None,
         )
     }
 }
@@ -257,9 +297,7 @@ where
         let temperature = positive_state(temperature, "temperature")?;
         let theta = self.characteristic_temperature(volume)?;
         if DEBYE {
-            finite_result(
-                3.0 * self.n * GAS_CONSTANT * temperature * debye_function_3(theta / temperature)?,
-            )
+            finite_result(self.cvmax * temperature * debye_function_3(theta / temperature)?)
         } else {
             let ratio = theta / temperature;
             let decay = (-ratio).exp();
@@ -278,7 +316,7 @@ where
         let ratio = self.characteristic_temperature(volume)? / temperature;
         let log_term = (-(-ratio).exp_m1()).ln();
         if DEBYE {
-            finite_result(self.n * GAS_CONSTANT * (4.0 * debye_function_3(ratio)? - 3.0 * log_term))
+            finite_result((self.cvmax / 3.0) * (4.0 * debye_function_3(ratio)? - 3.0 * log_term))
         } else {
             let occupation = (-ratio).exp() / (-(-ratio).exp_m1());
             finite_result(3.0 * self.n * GAS_CONSTANT * (ratio * occupation - log_term))
@@ -356,6 +394,12 @@ where
             ThermalPressureReference::ReferenceTemperature => {
                 self.thermal_energy(volume, temperature)? - self.thermal_energy(volume, self.tr)?
             }
+            ThermalPressureReference::ReferenceIsentrope => {
+                let reference_temperature =
+                    self.tr * self.characteristic_temperature(volume)? / self.theta0;
+                self.thermal_energy(volume, temperature)?
+                    - self.thermal_energy(volume, reference_temperature)?
+            }
             ThermalPressureReference::AbsoluteZero => self.thermal_energy(volume, temperature)?,
         };
         finite_result(self.volume_gruneisen_parameter(volume)? * energy_difference / volume / 1.0e4)
@@ -366,7 +410,8 @@ where
             ThermalPressureReference::ReferenceTemperature => {
                 self.thermal_pressure(volume, temperature)
             }
-            ThermalPressureReference::AbsoluteZero => finite_result(
+            ThermalPressureReference::ReferenceIsentrope
+            | ThermalPressureReference::AbsoluteZero => finite_result(
                 self.thermal_pressure(volume, temperature)?
                     - self.thermal_pressure(volume, self.tr)?,
             ),

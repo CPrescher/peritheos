@@ -639,6 +639,21 @@ By default, either oscillator model uses the reference-temperature baseline
 \left[E(V,T)-E(V,T_r)\right].
 \]
 
+For a BM3 reference isentrope, select
+`thermal_pressure_reference="reference_isentrope"`. The subtracted state then
+follows the Debye isentrope
+
+\[
+T_S(V)=T_r\frac{\Theta(V)}{\Theta_0},\qquad
+\Delta P_{\mathrm{th}}=10^{-4}\frac{\gamma(V)}{V}
+[E(V,T)-E(V,T_S)].
+\]
+
+The optional `Cvmax` parameter (J mol$^{-1}$ K$^{-1}$) replaces the default
+high-temperature limit $3nR$ in both Debye energy and entropy. This is needed
+when a source fits the heat-capacity limit instead of imposing the
+Dulong--Petit value.
+
 `MieGruneisenDebye` also accepts
 `thermal_pressure_reference="absolute_zero"` for publications whose supplied
 mechanical curve is explicitly a 0 K cold curve. In that mode,

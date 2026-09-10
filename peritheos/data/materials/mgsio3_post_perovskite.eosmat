@@ -73,6 +73,10 @@
     111.0,
     245.0
    ],
+   "experimental_temperature_range_k": [
+    300.0,
+    2535.0
+   ],
    "eos": {
     "type": "BM3",
     "parameters": {
@@ -97,11 +101,30 @@
      "theta0": 990.0,
      "gamma0": 2.61,
      "q": 2.1,
-     "n": 5
+     "n": 5,
+     "Cvmax": 103.9010625
     },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": 146.0,
+     "gamma0": 0.67,
+     "q": 0.8,
+     "n": null,
+     "Cvmax": 5.019375
+    },
+    "fixed_parameters": [
+     "Tr",
+     "n"
+    ],
+    "debye_temperature_law": "integrated_gruneisen",
+    "thermal_pressure_reference": "reference_isentrope",
     "model": "mie_gruneisen_debye"
    },
-   "notes": "Global inversion of Guignot et al. static P-V-T data and six shock experiments at substantially higher pressures. V0=162.2 A^3 was fixed; theta0=990(146) K, gamma0=2.61(67), and q=2.1(8). The paper defines the cold curve as a BM3 isentrope; this is retained because it is the engine-supported form published with the MGD thermal model.",
+   "fit_datasets": [
+    "mgsio3_post_perovskite_guignot_2007_table1_pvt",
+    "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
+   ],
+   "notes": "Global errors-in-variables inversion of 48 Guignot et al. static P-V-T observations and six PPv shock P-density states. V0=162.2 A^3 was fixed. Table 4 reports K0S=225(2) GPa, K0S'=4.21(7), theta0=990(146) K, gamma0=2.61(67), q=2.1(8), and Cvm=1.035(50) J g^-1 K^-1; Cvmax is the exact molar conversion using 100.3875 g mol^-1. The BM3 term is a 300 K reference isentrope, so thermal pressure subtracts energy at T_S(V)=Tr*theta(V)/theta0. The three source-reported shock temperatures are retained as measured diagnostics but are not constraints in the solid PPv inversion; section 3 explicitly identifies shock-temperature fitting only for MgSiO3 liquid.",
    "identifier": "mgsio3_post_perovskite_mosenfelder_2009_bm3_1",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -145,11 +168,12 @@
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2008JB005900",
      "locations": [
-      "Equation-of-state formulation",
-      "Table 4",
-      "combined shock/static fit"
+      "Equations (2)-(12)",
+      "Tables 2-4",
+      "Section 3, paragraphs 13-19",
+      "Guignot et al. (2007), Table 1"
      ],
-     "finding": "The stored 300 K record is the static BM3 component of the published model.",
+     "finding": "The complete published BM3 reference-isentrope plus Debye thermal model is executable. The fitted Cvm is stored as molar Cvmax, and the shock reduction closes in pressure-density space without inventing missing temperatures.",
      "doi": "10.1029/2008jb005900"
     },
     "migration_source": {
@@ -162,12 +186,14 @@
      "status": "bundled",
      "audit_date": "2026-09-03",
      "dataset_identifiers": [
+      "mgsio3_post_perovskite_guignot_2007_table1_pvt",
       "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
      ],
      "source_locations": [
-      "Table 2, rows with phase state PPv"
+      "Guignot et al. (2007), Table 1",
+      "Mosenfelder et al. (2009), Table 2 rows with phase state PPv"
      ],
-     "finding": "All six shock observations assigned to the MgSiO3 post-perovskite regime in Table 2, including one new aggregate experiment and five explicitly identified literature experiments used in the global inversion."
+     "finding": "Bundled inputs now comprise all 48 source static P-V-T observations and all six source-reported PPv shock states. The shock table distinguishes directly measured flyer/shock observables and pyrometry from impedance- and Rankine-Hugoniot-derived P-density values."
     }
    }
   },
@@ -1890,14 +1916,14 @@
     "reference_volume_law": "integrated_expansivity",
     "parameters": {
      "Tr": 300,
-     "alpha0": 0.00001667,
-     "alpha1": 1.13e-9,
+     "alpha0": 1.667e-05,
+     "alpha1": 1.13e-09,
      "dK_dT": -0.0085
     },
     "parameter_errors": {
      "Tr": null,
      "alpha0": null,
-     "alpha1": 1.14e-8,
+     "alpha1": 1.14e-08,
      "dK_dT": 0.0011
     },
     "fixed_parameters": [
@@ -2363,7 +2389,8 @@
      "name": "flyer_velocity_km_s",
      "quantity": "flyer_velocity",
      "unit": "km/s",
-     "role": "value"
+     "role": "value",
+     "measurement_status": "measured"
     },
     {
      "name": "flyer_velocity_uncertainty_km_s",
@@ -2376,7 +2403,8 @@
      "name": "initial_density_mg_m3",
      "quantity": "initial_density",
      "unit": "Mg/m^3",
-     "role": "value"
+     "role": "value",
+     "measurement_status": "measured"
     },
     {
      "name": "initial_density_uncertainty_mg_m3",
@@ -2389,7 +2417,8 @@
      "name": "shock_velocity_km_s",
      "quantity": "shock_velocity",
      "unit": "km/s",
-     "role": "value"
+     "role": "value",
+     "measurement_status": "measured_shock_transit"
     },
     {
      "name": "shock_velocity_uncertainty_km_s",
@@ -2402,7 +2431,8 @@
      "name": "particle_velocity_km_s",
      "quantity": "particle_velocity",
      "unit": "km/s",
-     "role": "value"
+     "role": "value",
+     "measurement_status": "derived_by_impedance_matching"
     },
     {
      "name": "particle_velocity_uncertainty_km_s",
@@ -2415,7 +2445,8 @@
      "name": "pressure_gpa",
      "quantity": "shock_pressure",
      "unit": "GPa",
-     "role": "value"
+     "role": "value",
+     "measurement_status": "derived_by_impedance_matching_and_rankine_hugoniot"
     },
     {
      "name": "pressure_uncertainty_gpa",
@@ -2428,7 +2459,8 @@
      "name": "shock_density_mg_m3",
      "quantity": "shock_density",
      "unit": "Mg/m^3",
-     "role": "value"
+     "role": "value",
+     "measurement_status": "derived_by_rankine_hugoniot_mass_conservation"
     },
     {
      "name": "shock_density_uncertainty_mg_m3",
@@ -2441,7 +2473,8 @@
      "name": "hugoniot_temperature_k",
      "quantity": "hugoniot_temperature",
      "unit": "K",
-     "role": "value"
+     "role": "value",
+     "measurement_status": "measured_optical_pyrometry_where_reported"
     },
     {
      "name": "hugoniot_temperature_uncertainty_k",
@@ -2454,7 +2487,8 @@
      "name": "phase_state",
      "quantity": "interpreted_phase_state",
      "unit": "1",
-     "role": "flag"
+     "role": "flag",
+     "measurement_status": "interpreted_phase_assignment"
     }
    ],
    "resource": {
@@ -2462,7 +2496,7 @@
     "sha256": "5011fe6ed20ad477dc13c42f30241a9bba050990c85f041d25984800662b89d4",
     "media_type": "text/csv"
    },
-   "notes": "Parenthesized table values are retained as generic published uncertainties because the table does not specify their statistic. The paper states a common +/-0.01 km/s flyer-velocity uncertainty for the Caltech experiments. Row provenance is retained because five of the six PPv rows originate in the cited Akins and Luo experiments; the 245.4 GPa aggregate experiment is new in this paper.",
+   "notes": "This resource contains source-reported shock inputs and reductions, not static states. Flyer velocity, initial density, shock transit velocity, and the three populated pyrometric temperatures are measured; particle velocity, pressure, and shocked density are derived by impedance matching and Rankine-Hugoniot relations; phase_state is interpreted. Parenthesized values are retained as generic published uncertainties because the table does not specify their statistic. Five rows originate in Akins and Luo; the 245.4 GPa aggregate experiment is new in this paper.",
    "reference": {
     "authors": [
      "Mosenfelder",
@@ -2488,17 +2522,74 @@
    "source_location": "Table 1, article pages 4-5",
    "source_url": "https://doi.org/10.1016/j.epsl.2007.01.025",
    "columns": [
-    {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
-    {"name": "pressure_original_gpa", "quantity": "published_pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_original_uncertainty_gpa", "quantity": "published_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_original_gpa"},
-    {"name": "mgsio3_lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "mgsio3_lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
-    {"name": "mgsio3_lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "mgsio3_unit_cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "mgsio3_unit_cell_volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "mgsio3_unit_cell_volume_a3"},
-    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
-    {"name": "mgo_lattice_a_angstrom", "quantity": "mgo_lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "pressure_scale_note", "quantity": "pressure_scale", "unit": "1", "role": "flag"}
+    {
+     "name": "source_order",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_original_gpa",
+     "quantity": "published_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_original_uncertainty_gpa",
+     "quantity": "published_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_original_gpa"
+    },
+    {
+     "name": "mgsio3_lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgsio3_lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgsio3_lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgsio3_unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "mgsio3_unit_cell_volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "mgsio3_unit_cell_volume_a3"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "mgo_lattice_a_angstrom",
+     "quantity": "mgo_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pressure_scale_note",
+     "quantity": "pressure_scale",
+     "unit": "1",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/mgsio3-post-perovskite-guignot-2007-table1-300k-compression.csv",
@@ -2512,7 +2603,13 @@
     "transcribed_on": "2026-09-08"
    },
    "reference": {
-    "authors": ["Guignot", "Andrault", "Morard", "Bolfan-Casanova", "Mezouar"],
+    "authors": [
+     "Guignot",
+     "Andrault",
+     "Morard",
+     "Bolfan-Casanova",
+     "Mezouar"
+    ],
     "year": 2007,
     "source": "Earth and Planetary Science Letters",
     "volume": "256",
@@ -2531,34 +2628,183 @@
    "source_location": "Table 1, article page 517",
    "source_url": "https://doi.org/10.1016/j.epsl.2007.10.036",
    "columns": [
-    {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
-    {"name": "run", "quantity": "experimental_run", "unit": "1", "role": "flag"},
-    {"name": "heating_method", "quantity": "heating_method", "unit": "1", "role": "flag"},
-    {"name": "pressure_mgo_gpa", "quantity": "published_mgo_pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_mgo_uncertainty_gpa", "quantity": "published_mgo_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_mgo_gpa"},
-    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
-    {"name": "temperature_uncertainty_description", "quantity": "temperature_uncertainty", "unit": "1", "role": "flag"},
-    {"name": "ppv_a_angstrom", "quantity": "post_perovskite_lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "ppv_a_uncertainty_angstrom", "quantity": "post_perovskite_lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "ppv_a_angstrom"},
-    {"name": "ppv_b_angstrom", "quantity": "post_perovskite_lattice_parameter_b", "unit": "angstrom", "role": "value"},
-    {"name": "ppv_b_uncertainty_angstrom", "quantity": "post_perovskite_lattice_parameter_b", "unit": "angstrom", "role": "uncertainty", "of": "ppv_b_angstrom"},
-    {"name": "ppv_c_angstrom", "quantity": "post_perovskite_lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "ppv_c_uncertainty_angstrom", "quantity": "post_perovskite_lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "ppv_c_angstrom"},
-    {"name": "ppv_volume_a3", "quantity": "post_perovskite_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "ppv_volume_uncertainty_a3", "quantity": "post_perovskite_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "ppv_volume_a3"},
-    {"name": "pv_a_angstrom", "quantity": "perovskite_lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "pv_a_uncertainty_angstrom", "quantity": "perovskite_lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "pv_a_angstrom"},
-    {"name": "pv_b_angstrom", "quantity": "perovskite_lattice_parameter_b", "unit": "angstrom", "role": "value"},
-    {"name": "pv_b_uncertainty_angstrom", "quantity": "perovskite_lattice_parameter_b", "unit": "angstrom", "role": "uncertainty", "of": "pv_b_angstrom"},
-    {"name": "pv_c_angstrom", "quantity": "perovskite_lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "pv_c_uncertainty_angstrom", "quantity": "perovskite_lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "pv_c_angstrom"},
-    {"name": "pv_volume_a3", "quantity": "perovskite_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "pv_volume_uncertainty_a3", "quantity": "perovskite_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "pv_volume_a3"},
-    {"name": "mgo_a_angstrom", "quantity": "mgo_lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "nacl_a_angstrom", "quantity": "nacl_lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "pressure_nacl_gpa", "quantity": "published_nacl_pressure", "unit": "GPa", "role": "value"},
-    {"name": "ppv_fit_included", "quantity": "fit_inclusion", "unit": "1", "role": "flag"},
-    {"name": "exclusion_note", "quantity": "exclusion_reason", "unit": "1", "role": "flag"}
+    {
+     "name": "source_order",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "heating_method",
+     "quantity": "heating_method",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_mgo_gpa",
+     "quantity": "published_mgo_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_mgo_uncertainty_gpa",
+     "quantity": "published_mgo_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_mgo_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_description",
+     "quantity": "temperature_uncertainty",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ppv_a_angstrom",
+     "quantity": "post_perovskite_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "ppv_a_uncertainty_angstrom",
+     "quantity": "post_perovskite_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "ppv_a_angstrom"
+    },
+    {
+     "name": "ppv_b_angstrom",
+     "quantity": "post_perovskite_lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "ppv_b_uncertainty_angstrom",
+     "quantity": "post_perovskite_lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "ppv_b_angstrom"
+    },
+    {
+     "name": "ppv_c_angstrom",
+     "quantity": "post_perovskite_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "ppv_c_uncertainty_angstrom",
+     "quantity": "post_perovskite_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "ppv_c_angstrom"
+    },
+    {
+     "name": "ppv_volume_a3",
+     "quantity": "post_perovskite_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "ppv_volume_uncertainty_a3",
+     "quantity": "post_perovskite_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "ppv_volume_a3"
+    },
+    {
+     "name": "pv_a_angstrom",
+     "quantity": "perovskite_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pv_a_uncertainty_angstrom",
+     "quantity": "perovskite_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "pv_a_angstrom"
+    },
+    {
+     "name": "pv_b_angstrom",
+     "quantity": "perovskite_lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pv_b_uncertainty_angstrom",
+     "quantity": "perovskite_lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "pv_b_angstrom"
+    },
+    {
+     "name": "pv_c_angstrom",
+     "quantity": "perovskite_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pv_c_uncertainty_angstrom",
+     "quantity": "perovskite_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "pv_c_angstrom"
+    },
+    {
+     "name": "pv_volume_a3",
+     "quantity": "perovskite_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "pv_volume_uncertainty_a3",
+     "quantity": "perovskite_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "pv_volume_a3"
+    },
+    {
+     "name": "mgo_a_angstrom",
+     "quantity": "mgo_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_a_angstrom",
+     "quantity": "nacl_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pressure_nacl_gpa",
+     "quantity": "published_nacl_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ppv_fit_included",
+     "quantity": "fit_inclusion",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "exclusion_note",
+     "quantity": "exclusion_reason",
+     "unit": "1",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/mgsio3-post-perovskite-komabayashi-2008-table1-pvt.csv",
@@ -2572,14 +2818,24 @@
     "transcribed_on": "2026-09-08"
    },
    "reference": {
-    "authors": ["Komabayashi", "Hirose", "Sugimura", "Sata", "Ohishi", "Dubrovinsky"],
+    "authors": [
+     "Komabayashi",
+     "Hirose",
+     "Sugimura",
+     "Sata",
+     "Ohishi",
+     "Dubrovinsky"
+    ],
     "year": 2008,
     "source": "Earth and Planetary Science Letters",
     "volume": "265",
     "locator": "515-524",
     "doi": "10.1016/j.epsl.2007.10.036"
    },
-   "used_by_eos_records": ["mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey","mgsio3_post_perovskite_komabayashi_2008_thermal_bm3"],
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey",
+    "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3"
+   ],
    "notes": "External-heating pressures were reported on the Speziale et al. (2001) MgO scale; the simultaneous MgO lattice parameters allow recalculation on the Sokolova et al. (2013) scale. The laser-heating temperature footnote states 10%, while the text describes about 200 K; both are preserved."
   },
   {
@@ -2589,17 +2845,74 @@
    "source_location": "Dorogokupets et al. (2015), postperovskite subsection and Figure 8; Guignot et al. (2007), Table 1; Komabayashi et al. (2008), Table 1",
    "source_url": "https://doi.org/10.1016/j.rgg.2015.01.011",
    "columns": [
-    {"name": "phase", "quantity": "reconstruction_branch", "unit": "1", "role": "flag"},
-    {"name": "source", "quantity": "source_citation", "unit": "1", "role": "flag"},
-    {"name": "source_doi", "quantity": "source_doi", "unit": "1", "role": "flag"},
-    {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
-    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
-    {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "volume_a3"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_uncertainty_gpa", "quantity": "pressure_error_or_spread_proxy", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "pressure_coordinate", "quantity": "pressure_scale", "unit": "1", "role": "flag"},
-    {"name": "selection_note", "quantity": "selection_provenance", "unit": "1", "role": "flag"}
+    {
+     "name": "phase",
+     "quantity": "reconstruction_branch",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source",
+     "quantity": "source_citation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_doi",
+     "quantity": "source_doi",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_order",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure_error_or_spread_proxy",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "pressure_coordinate",
+     "quantity": "pressure_scale",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "selection_note",
+     "quantity": "selection_provenance",
+     "unit": "1",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/dorogokupets-2015-298k-literature-reconstruction.csv",
@@ -2612,7 +2925,13 @@
     "media_type": "application/json"
    },
    "reference": {
-    "authors": ["Dorogokupets", "Dymshits", "Sokolova", "Danilov", "Litasov"],
+    "authors": [
+     "Dorogokupets",
+     "Dymshits",
+     "Sokolova",
+     "Danilov",
+     "Litasov"
+    ],
     "year": 2015,
     "source": "Russian Geology and Geophysics",
     "volume": "56",
@@ -2627,6 +2946,206 @@
     "covariance": "not_reported"
    },
    "notes": "This is a partial fit reconstruction, not the full joint thermoelastic optimization. The complete Komabayashi table is bundled; Ono et al. (2006) remains excluded because the source identifies that Au-scale branch as systematically offset comparison data."
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_guignot_2007_table1_pvt",
+   "kind": "static_pvt",
+   "description": "All 48 MgSiO3 post-perovskite observations printed by Guignot et al. (2007) Table 1: 24 room-temperature compression points and 24 laser-heated points.",
+   "source_location": "Guignot et al. (2007), Table 1",
+   "source_url": "https://doi.org/10.1016/j.epsl.2007.01.025",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value",
+     "measurement_status": "derived_from_mgo_pressure_standard"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value",
+     "measurement_status": "measured_diffraction"
+    },
+    {
+     "name": "b_a",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value",
+     "measurement_status": "measured_diffraction"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value",
+     "measurement_status": "measured_diffraction"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value",
+     "measurement_status": "derived_from_lattice_parameters"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value",
+     "measurement_status": "measured_spectroradiometry_for_heated_rows"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "mgo_a_a",
+     "quantity": "mgo_pressure_marker_lattice_parameter",
+     "unit": "angstrom",
+     "role": "value",
+     "measurement_status": "measured_diffraction"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-guignot-2007-table1-pvt.csv",
+    "sha256": "16e372df6ecaae23df2b9ec0403522d472d85248eb65c26a9f332780a6095f0c",
+    "media_type": "text/csv"
+   },
+   "notes": "Table values and parenthesized last-digit uncertainties are transcribed without reinterpretation. Room-temperature rows have no printed temperature uncertainty; the global fit treats their temperature as fixed at 300 K.",
+   "reference": {
+    "authors": [
+     "Guignot",
+     "Andrault",
+     "Morard",
+     "Bolfan-Casanova",
+     "Mezouar"
+    ],
+    "year": 2007,
+    "source": "Earth and Planetary Science Letters",
+    "volume": "256",
+    "locator": "162-168",
+    "doi": "10.1016/j.epsl.2007.01.025"
+   },
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
+   ]
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_mosenfelder_2009_derived_reference_isentrope",
+   "kind": "derived_model_grid",
+   "description": "Reference-isentrope and modeled Hugoniot states evaluated at the six source-reported shock densities using the published Table 4 coefficients.",
+   "source_location": "Derived from Mosenfelder et al. (2009), equations (2)-(12) and Tables 2-4",
+   "source_url": "https://doi.org/10.1029/2008JB005900",
+   "columns": [
+    {
+     "name": "shot",
+     "quantity": "shot_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "reported_shock_density_mg_m3",
+     "quantity": "reported_shock_density",
+     "unit": "Mg/m^3",
+     "role": "value",
+     "measurement_status": "source_reported_derived_input"
+    },
+    {
+     "name": "derived_cell_volume_a3",
+     "quantity": "derived_conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "derived_isentrope_pressure_gpa",
+     "quantity": "derived_reference_isentrope_pressure",
+     "unit": "GPa",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "derived_isentrope_temperature_k",
+     "quantity": "derived_reference_isentrope_temperature",
+     "unit": "K",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "derived_isentrope_energy_j_kg",
+     "quantity": "derived_reference_isentrope_specific_energy",
+     "unit": "J/kg",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "transition_energy_j_kg",
+     "quantity": "source_transition_energy",
+     "unit": "J/kg",
+     "role": "value",
+     "measurement_status": "source_parameter_derived_for_starting_material"
+    },
+    {
+     "name": "model_hugoniot_pressure_at_reported_density_gpa",
+     "quantity": "modeled_hugoniot_pressure",
+     "unit": "GPa",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "model_hugoniot_temperature_k",
+     "quantity": "modeled_hugoniot_temperature",
+     "unit": "K",
+     "role": "value",
+     "measurement_status": "model_derived"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-mosenfelder-2009-derived-reference-isentrope.csv",
+    "sha256": "f3f98e61c3d6d322cc95d63168410cf47ec2a3005169580ba44b3246f7890626",
+    "media_type": "text/csv"
+   },
+   "derived_from_datasets": [
+    "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
+   ],
+   "generation_script": "scripts/reproduce_mosenfelder_2009_mgsio3_post_perovskite.py --write-derived",
+   "notes": "Every state column other than the reported shock-density input is model-derived. This table is a transparent diagnostic and is not a fit input or experimental dataset. The Pv80Mj20 transition energy uses X_Mj=0.20 because the source gives 20 vol% and publishes no separate mole-fraction conversion used by its inversion.",
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
+   ],
+   "reference": {
+    "authors": [
+     "Mosenfelder",
+     "Asimow",
+     "Frost",
+     "Rubie",
+     "Ahrens"
+    ],
+    "year": 2009,
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "114",
+    "locator": "B01203",
+    "doi": "10.1029/2008JB005900"
+   }
   }
  ]
 }

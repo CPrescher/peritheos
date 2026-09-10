@@ -437,6 +437,36 @@ fn absolute_zero_mie_gruneisen_adds_full_vibrational_pressure() {
 }
 
 #[test]
+fn reference_isentrope_and_fitted_heat_capacity_are_explicit() {
+    use peritheos::thermal::ThermalPressureReference;
+
+    let reference = BM3::new(2.441_978_078_18, 225.0, 4.21).unwrap();
+    let model = MieGruneisenDebye::new_with_heat_capacity(
+        reference,
+        300.0,
+        990.0,
+        2.61,
+        2.1,
+        5.0,
+        Some(103.901_062_5),
+        DebyeTemperatureLaw::IntegratedGruneisen,
+        ThermalPressureReference::ReferenceIsentrope,
+    )
+    .unwrap();
+    let volume = 123.0 * 0.015_055_351_9;
+    let theta = model.characteristic_temperature(volume).unwrap();
+    let ts = 300.0 * theta / 990.0;
+
+    assert_close(model.thermal_pressure(volume, ts).unwrap(), 0.0, 1.0e-13);
+    assert_close(model.cvmax, 103.901_062_5, 1.0e-15);
+    assert_close(
+        model.pressure(volume, 300.0).unwrap(),
+        111.014_526_940_989_33,
+        2.0e-8,
+    );
+}
+
+#[test]
 fn simple_thermal_pressure_models_preserve_reference_state() {
     let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
     let linear = LinearThermalPressure::new(reference, 300.0, 0.002).unwrap();

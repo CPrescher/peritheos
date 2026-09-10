@@ -2655,6 +2655,7 @@ def test_normative_schema_is_bundled():
     assert thermal["thermal_pressure_reference"]["default"] == "reference_temperature"
     assert thermal["thermal_pressure_reference"]["enum"] == [
         "reference_temperature",
+        "reference_isentrope",
         "absolute_zero",
     ]
     assert thermal["reference_volume_law"]["enum"] == [

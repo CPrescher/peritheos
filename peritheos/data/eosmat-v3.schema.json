@@ -769,10 +769,11 @@
         "thermal_pressure_reference": {
           "enum": [
             "reference_temperature",
+            "reference_isentrope",
             "absolute_zero"
           ],
           "default": "reference_temperature",
-          "description": "Pressure baseline for MieGruneisenDebye. reference_temperature subtracts E(V,Tr); absolute_zero adds the unreferenced Debye thermal pressure to a 0 K cold curve."
+          "description": "Pressure baseline for MieGruneisenDebye. reference_temperature subtracts E(V,Tr); reference_isentrope subtracts E(V,Tr*theta(V)/theta0); absolute_zero adds the unreferenced Debye thermal pressure to a 0 K cold curve."
         },
         "thermal_expansion_law": {
           "enum": [

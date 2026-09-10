@@ -743,7 +743,11 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 if thermal_pressure_reference is not None and (
                     not isinstance(thermal_pressure_reference, str)
                     or thermal_pressure_reference
-                    not in {"reference_temperature", "absolute_zero"}
+                    not in {
+                        "reference_temperature",
+                        "reference_isentrope",
+                        "absolute_zero",
+                    }
                 ):
                     raise EosmatError(
                         f"{location}.thermal.thermal_pressure_reference is invalid"

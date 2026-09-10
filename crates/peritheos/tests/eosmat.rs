@@ -969,3 +969,35 @@ fn sueda_cf_mgal2o4_thermal_records_reproduce_table1() {
         assert!((record.volume(0.0001, 836.0).unwrap() - 243.8).abs() < 0.3);
     }
 }
+
+#[test]
+fn mosenfelder_ppv_reference_isentrope_record_is_executable() {
+    let Some(material) = load_bundled_material("mgsio3_post_perovskite.eosmat") else {
+        return;
+    };
+    let record = material
+        .eos_records
+        .iter()
+        .find(|record| record.identifier == "mgsio3_post_perovskite_mosenfelder_2009_bm3_1")
+        .unwrap();
+
+    assert_close(
+        record.pressure(123.0, 300.0).unwrap(),
+        111.014_526_940_989_33,
+        2.0e-8,
+    );
+    assert_eq!(
+        record
+            .document
+            .pointer("/thermal/thermal_pressure_reference")
+            .and_then(serde_json::Value::as_str),
+        Some("reference_isentrope")
+    );
+    assert_eq!(
+        record
+            .document
+            .pointer("/thermal/parameters/Cvmax")
+            .and_then(serde_json::Value::as_f64),
+        Some(103.901_062_5)
+    );
+}
