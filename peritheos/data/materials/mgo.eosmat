@@ -4637,22 +4637,33 @@
    "notes": "Accepted LitCurate source record litcurate_c6a0c7a005a7ff43 after resolving the printed atomic-unit volume basis directly from Table 1."
   },
   {
-   "identifier": "mgo_zhu_2025_vinet_300k",
-   "label": "Zhu et al. (2025), internally consistent MgO Vinet 300 K branch",
+   "identifier": "mgo_ye_2017_vinet_300k",
+   "label": "Ye et al. (2017), MgO Vinet 300 K co-compression fit",
    "reference": {
     "authors": [
-     "Zhu",
      "Ye",
-     "Sun",
-     "Katsura",
-     "Caracas"
+     "Prakapenka",
+     "Meng",
+     "Shim"
     ],
-    "year": 2025,
-    "title": "Internally consistent pressure-volume-temperature equations of state among platinum, gold, and MgO: Implications for phase transition boundaries in the mantle",
-    "source": "ESSOAr preprint",
-    "locator": "version 1",
-    "doi": "10.22541/essoar.176236186.65259830/v1"
+    "year": 2017,
+    "title": "Intercomparison of the gold, platinum, and MgO pressure scales up to 140 GPa and 2500 K",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "3450-3464",
+    "doi": "10.1002/2016JB013811"
    },
+   "source_lineage": [
+    {
+     "role": "scientific fit, co-compression observations, and published uncertainty",
+     "citation": "Ye et al. (2017), Section 3.3, Table 1, and corrected Data Set S1",
+     "doi": "10.1002/2016JB013811"
+    },
+    {
+     "role": "unrounded Dorogokupets-Dewaele reference volumes used in reproduction",
+     "citation": "Ye/Shim pytheos gold.py and periclase.py, blobs a4fe7240979a8bf5f8e225c13adc15d338ab11f1 and d63b07baca1714e445b7cb29d63108a6b37c5324"
+    }
+   ],
    "record_kind": "published",
    "equation_kind": "isothermal",
    "eos": {
@@ -4674,6 +4685,9 @@
    "fixed_parameters": [
     "V0",
     "K0"
+   ],
+   "fit_datasets": [
+    "ye_2017_data_s1_au_mgo_300k"
    ],
    "temperature_ref": 300.0,
    "experimental_pressure_range_gpa": [
@@ -4700,36 +4714,227 @@
      300.0
     ],
     "notes": [
-     "Executable 300 K reference isotherm of the wider source P-V-T pressure scale.",
-     "The MgO thermal branch uses supported power-law gamma, but its additional T-squared excess pressure is not silently omitted in a thermal production record."
+     "This is Ye et al.'s fitted 300 K co-compression isotherm.",
+     "Zhu et al. later fixed this static branch inside a separate thermal P-V-T model."
     ]
    },
    "parameter_provenance": {
-    "equation": "Main-text Equation 1 and Table 1: Vinet 300 K reference isotherm.",
-    "V0": "Table 1: 74.71 A^3 per B1 conventional cell, adopted from Ye et al. (2017).",
-    "K0": "Table 1: 160.3 GPa, adopted from Ye et al. (2017).",
-    "K0_prime": "Table 1: 4.182(19), optimized in the internally consistent P-V-T model.",
-    "scope": "Only the exactly supported 300 K Vinet component is stored; omitting the source beta0,m excess correction from a thermal record would not reproduce the published pressure scale."
+    "equation": "Ye et al. (2017), Section 3.3 and Table 1: third-order Vinet EOS.",
+    "V0": "Ye (2017) Table 1 prints 74.71 A^3 per B1 conventional cell and states that V0 and K0 were fixed to Dorogokupets-Dewaele (2007); the reproduction uses the source implementation's unrounded 74.698 A^3 anchor.",
+    "K0": "Ye (2017) Table 1: fixed at 160.3 GPa.",
+    "K0_prime": "Ye (2017) Table 1: 4.182(19), fitted to corrected Au+MgO Data Set S1 with Au-D07 as the pressure standard.",
+    "scope": "Complete Ye et al. 300 K Vinet fit; no Zhu thermal parameters are part of this record."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "source_location": "Ye et al. (2017), Section 3.3 and corrected Data Set S1",
+      "notes": "Au-D07 is evaluated at each simultaneous Au volume, and MgO K0-prime is fitted to the resulting unweighted pressure differences.",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Dewaele"
+       ],
+       "year": 2007,
+       "source": "High Pressure Research",
+       "volume": "27",
+       "locator": "431-446",
+       "doi": "10.1080/08957950701659700"
+      }
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The corrected paired volumes, exact reference anchors, one-parameter objective, and 1 GPa scatter uncertainty convention are reproduced by scripts/reproduce_zhu_2025_pressure_standards.py."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+     "doi": "10.1002/2016jb013811",
+     "locations": [
+      "Section 3.3",
+      "Table 1",
+      "corrected Data Set S1",
+      "erratum"
+     ],
+     "finding": "Ye fits K0-prime=4.182(19) with V0 and K0 fixed......"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "ye_2017_data_s1_au_mgo_300k"
+     ],
+     "finding": "All 28 corrected publisher Data Set S1 Au+MgO row pairs and their printed volume standard errors are bundled. The normalized factual CSV arrangement is CC0-scoped; no open license is asserted for the Wiley source file."
+    }
+   },
+   "aliases": [
+    "mgo_zhu_2025_vinet_300k"
+   ]
+  },
+  {
+   "identifier": "mgo_zhu_2025_pvt",
+   "label": "Zhu et al. (2025), MgO internally consistent P-V-T EOS",
+   "reference": {
+    "authors": [
+     "Zhu",
+     "Ye",
+     "Sun",
+     "Katsura",
+     "Caracas"
+    ],
+    "year": 2025,
+    "title": "Internally consistent pressure-volume-temperature equations of state among platinum, gold, and MgO: Implications for phase transition boundaries in the mantle",
+    "source": "ESSOAr preprint",
+    "locator": "version 1",
+    "doi": "10.22541/essoar.176236186.65259830/v1"
+   },
+   "source_lineage": [
+    {
+     "role": "fixed 300 K Vinet branch",
+     "citation": "Ye et al. (2017), Section 3.3 and Table 1",
+     "doi": "10.1002/2016JB013811"
+    },
+    {
+     "role": "thermal model equations and version-1 parameter table",
+     "citation": "Zhu et al. (2025), equations (2)-(8) and Table 1",
+     "doi": "10.22541/essoar.176236186.65259830/v1"
+    },
+    {
+     "role": "version-3 fit inputs, revised optimizer, and downstream property coefficients",
+     "citation": "Zhu et al. Mendeley Data version 3",
+     "doi": "10.17632/6kxnhc2g73.3"
+    }
+   ],
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 74.71,
+     "K0": 160.3,
+     "K0_prime": 4.182
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "fit_datasets": [
+    "zhu_2025_mgo_pvt"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    138.104
+   ],
+   "pressure_range_status": "reference_parameterization",
+   "experimental_temperature_range_k": [
+    298.0,
+    2986.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4.0,
+    "molar_mass_g_mol": 40.304
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0001,
+     138.104
+    ],
+    "temperature_k": [
+     298.0,
+     2986.0
+    ],
+    "volume_ratio": [
+     0.6890643822781422,
+     1.1490817828938562
+    ],
+    "notes": [
+     "Bounds conservatively report the extrema of the released v3 fit-input tables, not a rectangular phase-stability field.",
+     "The record follows the v3 optimizer and property script (gamma0=1.53 after rounding). The separate v3 pressure calculator instead hard-codes gamma0=1.52."
+    ]
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Fixed Ye et al. (2017) 300 K Vinet coefficient used by the released v3 optimizer.",
+     "K0": "Fixed Ye et al. (2017) 300 K Vinet coefficient used by the released v3 optimizer.",
+     "K0_prime": "Fixed Ye et al. (2017) 300 K Vinet coefficient used by the released v3 optimizer."
+    },
+    "thermal_correction": {
+     "Tr": "Mendeley Data v3 optimizer and downstream property implementation for MgO; beta0 is stored in J mol^-1 K^-2 after conversion from the source's J g^-1 K^-2 coefficient.",
+     "theta0": "Mendeley Data v3 optimizer and downstream property implementation for MgO; beta0 is stored in J mol^-1 K^-2 after conversion from the source's J g^-1 K^-2 coefficient.",
+     "gamma0": "Mendeley Data v3 optimizer and downstream property implementation for MgO; beta0 is stored in J mol^-1 K^-2 after conversion from the source's J g^-1 K^-2 coefficient.",
+     "a": "Mendeley Data v3 optimizer and downstream property implementation for MgO; beta0 is stored in J mol^-1 K^-2 after conversion from the source's J g^-1 K^-2 coefficient.",
+     "b": "Mendeley Data v3 optimizer and downstream property implementation for MgO; beta0 is stored in J mol^-1 K^-2 after conversion from the source's J g^-1 K^-2 coefficient.",
+     "n": "Mendeley Data v3 optimizer and downstream property implementation for MgO; beta0 is stored in J mol^-1 K^-2 after conversion from the source's J g^-1 K^-2 coefficient.",
+     "beta0": "Mendeley Data v3 optimizer and downstream property implementation for MgO; beta0 is stored in J mol^-1 K^-2 after conversion from the source's J g^-1 K^-2 coefficient.",
+     "m": "Mendeley Data v3 optimizer and downstream property implementation for MgO; beta0 is stored in J mol^-1 K^-2 after conversion from the source's J g^-1 K^-2 coefficient."
+    },
+    "additional": {
+     "thermal_model": "Zhu et al. (2025), equations (2)-(8): asymptotic-power-law Gruneisen parameter, Debye thermal energy, and a volume-dependent T-squared excess Helmholtz term, all referenced to 300 K.",
+     "version_note": "The record follows the v3 optimizer and property script (gamma0=1.53 after rounding). The separate v3 pressure calculator instead hard-codes gamma0=1.52."
+    }
    },
    "pressure_calibration": {
     "status": "not_applicable",
     "methods": [
      {
       "kind": "self_consistent",
-      "source_location": "Sections 2.1-2.3 and Table 1",
-      "notes": "Joint optimization to static compression, shock, thermal, elasticity, and heat-capacity constraints."
+      "reference": {
+       "authors": [
+        "Zhu",
+        "Ye",
+        "Sun",
+        "Katsura",
+        "Caracas"
+       ],
+       "year": 2025,
+       "title": "Internally consistent pressure-volume-temperature equations of state among platinum, gold, and MgO: Implications for phase transition boundaries in the mantle",
+       "source": "ESSOAr preprint",
+       "locator": "version 1",
+       "doi": "10.22541/essoar.176236186.65259830/v1"
+      },
+      "source_location": "Equations (2)-(8), released v3 fit inputs, and optimizer scripts",
+      "scope": "Joint static, shock, and thermal constraints on the internally consistent pressure scale."
      }
     ],
     "recalculation": {
-     "status": "not_applicable",
-     "notes": "This is itself a self-consistent pressure-standard parameterization."
+     "status": "ready",
+     "notes": "scripts/reproduce_zhu_2025_pressure_standards.py independently translates the released v3 iterative robust-bisquare optimizer and refits gamma0 and b from every bundled observation."
     },
-    "audit_date": "2026-09-05"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -4743,21 +4948,58 @@
      "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
      "doi": "10.22541/essoar.176236186.65259830/v1",
      "locations": [
-      "Equation 1",
+      "Equations (2)-(8)",
       "Table 1",
-      "Sections 2.1-2.3"
+      "Mendeley v3 MgO optimizer and property scripts"
      ],
-     "finding": "Table 1 provides MgO K0_prime=4.182(19); the ledger's 5.230 value belongs to the Pt column."
+     "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
     },
     "primary_data_check": {
-     "status": "external_repository",
-     "audit_date": "2026-09-05",
+     "status": "bundled",
+     "audit_date": "2026-09-08",
      "dataset_identifiers": [
-      "Mendeley Data 10.17632/6kxnhc2g73.3"
+      "zhu_2025_mgo_pvt"
      ],
-     "finding": "Optimization data and calculation scripts are published CC BY 4.0; this scoped record is validated against the parameter table and analytical Vinet implementation."
+     "finding": "Every active numeric row from the released v3 MgO/MgO_pvt_40_new.dat inputs is bundled as a stable CSV normalization under CC BY 4.0."
+    },
+    "reproduction": {
+     "method": "Independent translation of the released Mendeley v3 iterative robust-bisquare optimizer using all bundled shock, thermal-expansion, or P-V-T rows.",
+     "note": "This establishes thermal-refit parity against the optimizer/property parameter set. The inconsistent standalone v3 pressure calculators remain documented as a separate implementation diagnostic."
     }
-   }
+   },
+   "thermal": {
+    "type": "AsymptoticPowerLawMieGruneisenDebyeExcess",
+    "model": "asymptotic_power_law_mie_gruneisen_debye_excess",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 761.0,
+     "gamma0": 1.53,
+     "a": 1.0,
+     "b": 1.43,
+     "n": 2.0,
+     "beta0": -0.0008061,
+     "m": 4.8
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": null,
+     "a": null,
+     "b": null,
+     "n": null,
+     "beta0": null,
+     "m": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "a",
+     "n",
+     "beta0",
+     "m"
+    ]
+   },
+   "notes": "This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm."
   }
  ],
  "format": "peritheos.material",
@@ -6171,6 +6413,140 @@
    },
    "used_by_eos_records": [
     "mgo_b1_tange_2009_vinet"
+   ]
+  },
+  {
+   "identifier": "ye_2017_data_s1_au_mgo_300k",
+   "kind": "simultaneous_unit_cell_volumes",
+   "description": "All 28 corrected 300 K Au+MgO conventional-cell volume pairs and their reported standard errors from Ye et al. Data Set S1.",
+   "reference": {
+    "authors": [
+     "Ye",
+     "Prakapenka",
+     "Meng",
+     "Shim"
+    ],
+    "year": 2017,
+    "title": "Intercomparison of the gold, platinum, and MgO pressure scales up to 140 GPa and 2500 K",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "3450-3464",
+    "doi": "10.1002/2016JB013811"
+   },
+   "source_location": "Corrected Data Set S1",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2016JB013811&file=jgrb52101-sup-0002-supinfo.csv",
+   "license": "CC0-1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "license_scope": "Peritheos-created factual CSV normalization, column naming, observation indices, and arrangement, solely to the extent contributors hold rights; excludes the article, publisher CSV, and all third-party rights.",
+   "columns": [
+    {
+     "name": "observation_index",
+     "quantity": "observation_index",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "au_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "au_volume_standard_error_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_error",
+     "of": "au_volume_a3"
+    },
+    {
+     "name": "mgo_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "mgo_volume_standard_error_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_error",
+     "of": "mgo_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ye-2017-data-s1-au-mgo-300k.csv",
+    "sha256": "e4d30f69fb2a317e3d9aebcbac94e774324ca27919fe63d4b396c0c5305d114c",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "lossless_csv_normalization",
+    "official_filename": "jgrb52101-sup-0002-supinfo.csv",
+    "official_sha256": "fada21e5fc1a5c9bb1329ad08cc396065e158f215653afdf0978b8bfc2ebcbd9",
+    "normalization": "Removed blank lines, replaced symbolic headers with explicit quantity names, and added one-based observation indices; numeric tokens and source row order are unchanged.",
+    "erratum": "The publisher identifies the corrected S1-S4 files as the authoritative version of record because the originally published files contained rounded numbers."
+   },
+   "used_by_eos_records": [
+    "mgo_ye_2017_vinet_300k"
+   ],
+   "notes": "The source page states no open data-reuse license. The adjacent rights note limits CC0 to the Peritheos-created factual arrangement and does not relicense Wiley material."
+  },
+  {
+   "identifier": "zhu_2025_mgo_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 213 MgO P-V-T states used by the Zhu et al. v3 thermal fit.",
+   "reference": {
+    "authors": [
+     "Zhu",
+     "Ye",
+     "Sun",
+     "Katsura",
+     "Caracas"
+    ],
+    "year": 2025,
+    "title": "Internally consistent pressure-volume-temperature equations of state among platinum, gold, and MgO: Implications for phase transition boundaries in the mantle",
+    "source": "ESSOAr preprint",
+    "locator": "version 1",
+    "doi": "10.22541/essoar.176236186.65259830/v1"
+   },
+   "source_location": "Mendeley v3: MgO/MgO_pvt_40_new.dat",
+   "source_url": "https://data.mendeley.com/datasets/6kxnhc2g73/3",
+   "license": "CC-BY-4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "license_scope": "Zhu et al. Mendeley Data version 3 and this normalized redistribution.",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/zhu-2025-mgo-pvt.csv",
+    "sha256": "839acb4435c741aaa7266c956d9eba196756e5782ca63d47fb0b1a930fe4285c",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "lossless_csv_normalization",
+    "release_doi": "10.17632/6kxnhc2g73.3",
+    "release_archive_sha256": "77fbd3e3d02c2e5d27bf66b1ea69a88aed46266e1207b32b461fed33f48e4a0a",
+    "official_filename": "MgO/MgO_pvt_40_new.dat",
+    "official_sha256": "7fce0f2c195d0d3a2bb7f59e22064c283a6da64c259823466bb8616207ae34a0",
+    "normalization": "Removed blank and percent-comment lines, replaced whitespace separation with CSV commas, and supplied explicit quantity names; active numeric tokens and row order are unchanged."
+   },
+   "used_by_eos_records": [
+    "mgo_zhu_2025_pvt"
    ]
   }
  ]

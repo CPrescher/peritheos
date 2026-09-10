@@ -15,7 +15,9 @@
   ],
   "properties": {
     "format": {
-      "enum": ["peritheos.material"],
+      "enum": [
+        "peritheos.material"
+      ],
       "description": "Canonical format discriminator."
     },
     "format_version": {
@@ -40,17 +42,29 @@
     },
     "units": {
       "type": "object",
-      "required": ["pressure", "temperature", "volume"],
+      "required": [
+        "pressure",
+        "temperature",
+        "volume"
+      ],
       "properties": {
-        "pressure": {"const": "GPa"},
-        "temperature": {"const": "K"},
-        "volume": {"const": "angstrom^3/conventional_unit_cell"}
+        "pressure": {
+          "const": "GPa"
+        },
+        "temperature": {
+          "const": "K"
+        },
+        "volume": {
+          "const": "angstrom^3/conventional_unit_cell"
+        }
       },
       "additionalProperties": false
     },
     "aliases": {
       "type": "array",
-      "items": {"type": "string"}
+      "items": {
+        "type": "string"
+      }
     },
     "symmetry": {
       "type": "string"
@@ -59,7 +73,10 @@
       "$ref": "#/$defs/lattice"
     },
     "formula_units_per_cell": {
-      "type": ["number", "null"],
+      "type": [
+        "number",
+        "null"
+      ],
       "exclusiveMinimum": 0,
       "description": "Crystallographic Z used to convert conventional-cell volume to formula-molar volume."
     },
@@ -67,13 +84,18 @@
       "type": "string"
     },
     "space_group_number": {
-      "type": ["integer", "null"],
+      "type": [
+        "integer",
+        "null"
+      ],
       "minimum": 1,
       "maximum": 230
     },
     "atom_sites": {
       "type": "array",
-      "items": {"$ref": "#/$defs/atom_site"}
+      "items": {
+        "$ref": "#/$defs/atom_site"
+      }
     },
     "source": {
       "type": "object"
@@ -83,16 +105,22 @@
     },
     "peaks": {
       "type": "array",
-      "items": {"$ref": "#/$defs/peak"}
+      "items": {
+        "$ref": "#/$defs/peak"
+      }
     },
     "datasets": {
       "type": "array",
-      "items": {"$ref": "#/$defs/dataset"},
+      "items": {
+        "$ref": "#/$defs/dataset"
+      },
       "description": "Primary experimental datasets used to derive one or more EOS records. Small tables may be embedded as rows; larger tables may use a checksummed relative resource."
     },
     "eos_records": {
       "type": "array",
-      "items": {"$ref": "#/$defs/eos_record"},
+      "items": {
+        "$ref": "#/$defs/eos_record"
+      },
       "description": "Literature EOS parameterizations for this material and phase; may be empty for a structure-only exchange document."
     }
   },
@@ -102,17 +130,30 @@
         "properties": {
           "eos_records": {
             "contains": {
-              "properties": {"equation_kind": {"const": "hugoniot"}},
-              "required": ["equation_kind"]
+              "properties": {
+                "equation_kind": {
+                  "const": "hugoniot"
+                }
+              },
+              "required": [
+                "equation_kind"
+              ]
             }
           }
         },
-        "required": ["eos_records"]
+        "required": [
+          "eos_records"
+        ]
       },
       "then": {
-        "required": ["formula_units_per_cell"],
+        "required": [
+          "formula_units_per_cell"
+        ],
         "properties": {
-          "formula_units_per_cell": {"type": "number", "exclusiveMinimum": 0}
+          "formula_units_per_cell": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
         }
       }
     }
@@ -124,126 +165,284 @@
       "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
     },
     "nullable_number": {
-      "type": ["number", "null"]
+      "type": [
+        "number",
+        "null"
+      ]
     },
     "lattice": {
       "type": "object",
-      "required": ["a", "b", "c", "alpha", "beta", "gamma"],
+      "required": [
+        "a",
+        "b",
+        "c",
+        "alpha",
+        "beta",
+        "gamma"
+      ],
       "properties": {
-        "a": {"type": "number"},
-        "b": {"$ref": "#/$defs/nullable_number"},
-        "c": {"$ref": "#/$defs/nullable_number"},
-        "alpha": {"type": "number"},
-        "beta": {"type": "number"},
-        "gamma": {"type": "number"}
+        "a": {
+          "type": "number"
+        },
+        "b": {
+          "$ref": "#/$defs/nullable_number"
+        },
+        "c": {
+          "$ref": "#/$defs/nullable_number"
+        },
+        "alpha": {
+          "type": "number"
+        },
+        "beta": {
+          "type": "number"
+        },
+        "gamma": {
+          "type": "number"
+        }
       },
       "additionalProperties": false
     },
     "atom_site": {
       "type": "object",
-      "required": ["element", "x", "y", "z", "occupancy"],
+      "required": [
+        "element",
+        "x",
+        "y",
+        "z",
+        "occupancy"
+      ],
       "properties": {
-        "element": {"type": "string"},
-        "x": {"type": "number"},
-        "y": {"type": "number"},
-        "z": {"type": "number"},
-        "occupancy": {"type": "number"},
-        "wyckoff": {"type": "string"}
+        "element": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        },
+        "occupancy": {
+          "type": "number"
+        },
+        "wyckoff": {
+          "type": "string"
+        }
       },
       "additionalProperties": true
     },
     "peak": {
       "type": "array",
       "prefixItems": [
-        {"type": "number"},
-        {"type": "number"},
-        {"type": "number"},
-        {"type": "number"},
-        {"type": "number"}
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
       ],
       "minItems": 5,
       "maxItems": 5
     },
     "dataset_column": {
       "type": "object",
-      "required": ["name", "quantity", "unit", "role"],
+      "required": [
+        "name",
+        "quantity",
+        "unit",
+        "role"
+      ],
       "properties": {
-        "name": {"$ref": "#/$defs/identifier"},
-        "quantity": {"type": "string", "minLength": 1},
-        "unit": {"type": "string", "minLength": 1},
-        "role": {"enum": ["value", "uncertainty", "standard_deviation", "standard_error", "bound", "flag"]},
-        "of": {"$ref": "#/$defs/identifier"}
+        "name": {
+          "$ref": "#/$defs/identifier"
+        },
+        "quantity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "value",
+            "uncertainty",
+            "standard_deviation",
+            "standard_error",
+            "bound",
+            "flag"
+          ]
+        },
+        "of": {
+          "$ref": "#/$defs/identifier"
+        }
       },
       "additionalProperties": true
     },
     "dataset_resource": {
       "type": "object",
-      "required": ["path", "sha256", "media_type"],
+      "required": [
+        "path",
+        "sha256",
+        "media_type"
+      ],
       "properties": {
-        "path": {"type": "string", "minLength": 1},
-        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-        "media_type": {"type": "string", "minLength": 1}
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": true
     },
     "dataset": {
       "type": "object",
-      "required": ["identifier", "kind", "reference", "source_location", "columns", "used_by_eos_records"],
+      "required": [
+        "identifier",
+        "kind",
+        "reference",
+        "source_location",
+        "columns",
+        "used_by_eos_records"
+      ],
       "properties": {
-        "identifier": {"$ref": "#/$defs/identifier"},
-        "kind": {"type": "string", "minLength": 1},
-        "description": {"type": "string"},
-        "reference": {"$ref": "#/$defs/reference"},
-        "source_location": {"type": "string", "minLength": 1},
-        "source_url": {"type": "string", "format": "uri"},
-        "license": {"type": "string"},
+        "identifier": {
+          "$ref": "#/$defs/identifier"
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "reference": {
+          "$ref": "#/$defs/reference"
+        },
+        "source_location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "license": {
+          "type": "string"
+        },
         "columns": {
           "type": "array",
           "minItems": 1,
-          "items": {"$ref": "#/$defs/dataset_column"}
+          "items": {
+            "$ref": "#/$defs/dataset_column"
+          }
         },
         "rows": {
           "type": "array",
           "items": {
             "type": "array",
-            "items": {"type": ["number", "null"]}
+            "items": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
           }
         },
-        "resource": {"$ref": "#/$defs/dataset_resource"},
+        "resource": {
+          "$ref": "#/$defs/dataset_resource"
+        },
         "used_by_eos_records": {
           "type": "array",
           "minItems": 1,
-          "items": {"$ref": "#/$defs/identifier"}
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
         },
-        "uncertainty": {"type": "object"},
-        "notes": {"type": "string"}
+        "uncertainty": {
+          "type": "object"
+        },
+        "notes": {
+          "type": "string"
+        }
       },
       "oneOf": [
-        {"required": ["rows"]},
-        {"required": ["resource"]}
+        {
+          "required": [
+            "rows"
+          ]
+        },
+        {
+          "required": [
+            "resource"
+          ]
+        }
       ],
       "additionalProperties": true
     },
     "reference": {
       "oneOf": [
-        {"type": "string"},
+        {
+          "type": "string"
+        },
         {
           "type": "object",
-          "required": ["authors", "year", "source"],
+          "required": [
+            "authors",
+            "year",
+            "source"
+          ],
           "properties": {
             "authors": {
               "type": "array",
               "minItems": 1,
-              "items": {"type": "string"}
+              "items": {
+                "type": "string"
+              }
             },
-            "authors_truncated": {"type": "boolean"},
-            "year": {"type": "integer"},
-            "title": {"type": "string"},
-            "source": {"type": "string"},
-            "volume": {"type": "string"},
-            "locator": {"type": "string"},
-            "details": {"type": "string"},
-            "doi": {"type": "string"}
+            "authors_truncated": {
+              "type": "boolean"
+            },
+            "year": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "volume": {
+              "type": "string"
+            },
+            "locator": {
+              "type": "string"
+            },
+            "details": {
+              "type": "string"
+            },
+            "doi": {
+              "type": "string"
+            }
           },
           "additionalProperties": true
         }
@@ -251,7 +450,11 @@
     },
     "equation": {
       "type": "object",
-      "required": ["type", "model", "parameters"],
+      "required": [
+        "type",
+        "model",
+        "parameters"
+      ],
       "properties": {
         "type": {
           "enum": [
@@ -297,43 +500,234 @@
         },
         "parameters": {
           "type": "object",
-          "required": ["V0"],
-          "additionalProperties": {"type": "number"}
+          "required": [
+            "V0"
+          ],
+          "additionalProperties": {
+            "type": "number"
+          }
         }
       },
       "additionalProperties": true,
       "allOf": [
         {
           "oneOf": [
-            {"properties": {"type": {"const": "Baonza"}, "model": {"const": "baonza"}}},
-            {"properties": {"type": {"const": "BM2"}, "model": {"const": "birch_murnaghan_2"}}},
-            {"properties": {"type": {"const": "BM3"}, "model": {"const": "birch_murnaghan_3"}}},
-            {"properties": {"type": {"const": "BM4"}, "model": {"const": "birch_murnaghan_4"}}},
-            {"properties": {"type": {"const": "Holzapfel"}, "model": {"const": "holzapfel"}}},
-            {"properties": {"type": {"const": "ModifiedTait"}, "model": {"const": "modified_tait"}}},
-            {"properties": {"type": {"const": "Morse3"}, "model": {"const": "morse_3"}}},
-            {"properties": {"type": {"const": "Murnaghan"}, "model": {"const": "murnaghan"}}},
-            {"properties": {"type": {"const": "NaturalStrain2"}, "model": {"const": "natural_strain_2"}}},
-            {"properties": {"type": {"const": "NaturalStrain3"}, "model": {"const": "natural_strain_3"}}},
-            {"properties": {"type": {"const": "NaturalStrain4"}, "model": {"const": "natural_strain_4"}}},
-            {"properties": {"type": {"const": "RydbergStacey"}, "model": {"const": "rydberg_stacey"}}},
-            {"properties": {"type": {"const": "SunMorse3"}, "model": {"const": "sun_morse_3"}}},
-            {"properties": {"type": {"const": "SunMorse4"}, "model": {"const": "sun_morse_4"}}},
-            {"properties": {"type": {"const": "Vinet"}, "model": {"const": "vinet"}}},
-            {"properties": {"type": {"const": "Vinet3"}, "model": {"const": "vinet_3"}, "parameters": {"required": ["V0", "K0", "eta", "beta", "psi"], "properties": {"V0": {"type": "number", "exclusiveMinimum": 0}, "K0": {"type": "number", "exclusiveMinimum": 0}, "eta": {"type": "number"}, "beta": {"type": "number"}, "psi": {"type": "number"}}, "additionalProperties": false}}},
-            {"properties": {"type": {"const": "LinearUsUpHugoniot"}, "model": {"const": "linear_us_up_hugoniot"}}}
+            {
+              "properties": {
+                "type": {
+                  "const": "Baonza"
+                },
+                "model": {
+                  "const": "baonza"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "BM2"
+                },
+                "model": {
+                  "const": "birch_murnaghan_2"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "BM3"
+                },
+                "model": {
+                  "const": "birch_murnaghan_3"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "BM4"
+                },
+                "model": {
+                  "const": "birch_murnaghan_4"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "Holzapfel"
+                },
+                "model": {
+                  "const": "holzapfel"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "ModifiedTait"
+                },
+                "model": {
+                  "const": "modified_tait"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "Morse3"
+                },
+                "model": {
+                  "const": "morse_3"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "Murnaghan"
+                },
+                "model": {
+                  "const": "murnaghan"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "NaturalStrain2"
+                },
+                "model": {
+                  "const": "natural_strain_2"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "NaturalStrain3"
+                },
+                "model": {
+                  "const": "natural_strain_3"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "NaturalStrain4"
+                },
+                "model": {
+                  "const": "natural_strain_4"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "RydbergStacey"
+                },
+                "model": {
+                  "const": "rydberg_stacey"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "SunMorse3"
+                },
+                "model": {
+                  "const": "sun_morse_3"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "SunMorse4"
+                },
+                "model": {
+                  "const": "sun_morse_4"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "Vinet"
+                },
+                "model": {
+                  "const": "vinet"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "Vinet3"
+                },
+                "model": {
+                  "const": "vinet_3"
+                },
+                "parameters": {
+                  "required": [
+                    "V0",
+                    "K0",
+                    "eta",
+                    "beta",
+                    "psi"
+                  ],
+                  "properties": {
+                    "V0": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "K0": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "eta": {
+                      "type": "number"
+                    },
+                    "beta": {
+                      "type": "number"
+                    },
+                    "psi": {
+                      "type": "number"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "LinearUsUpHugoniot"
+                },
+                "model": {
+                  "const": "linear_us_up_hugoniot"
+                }
+              }
+            }
           ]
         }
       ]
     },
     "thermal": {
       "type": "object",
-      "required": ["type", "model", "parameters"],
+      "required": [
+        "type",
+        "model",
+        "parameters"
+      ],
       "properties": {
         "type": {
           "enum": [
             "AlphaKT",
             "AsymptoticPowerLawMieGruneisenDebye",
+            "AsymptoticPowerLawMieGruneisenDebyeExcess",
             "DoubleDebyeHelmholtz",
             "DoubleDebyeLogMomentHelmholtz",
             "DorogokupetsOganov2007",
@@ -351,6 +745,7 @@
           "enum": [
             "thermal_reference_state",
             "asymptotic_power_law_mie_gruneisen_debye",
+            "asymptotic_power_law_mie_gruneisen_debye_excess",
             "double_debye_helmholtz",
             "double_debye_log_moment_helmholtz",
             "dorogokupets_oganov_2007",
@@ -364,22 +759,36 @@
           ]
         },
         "debye_temperature_law": {
-          "enum": ["integrated_gruneisen", "variable_exponent"],
+          "enum": [
+            "integrated_gruneisen",
+            "variable_exponent"
+          ],
           "default": "integrated_gruneisen",
           "description": "Characteristic-temperature relation for MieGruneisenDebye. Omission means integrated_gruneisen; JSON Schema defaults are annotations and do not insert the field."
         },
         "thermal_pressure_reference": {
-          "enum": ["reference_temperature", "absolute_zero"],
+          "enum": [
+            "reference_temperature",
+            "absolute_zero"
+          ],
           "default": "reference_temperature",
           "description": "Pressure baseline for MieGruneisenDebye. reference_temperature subtracts E(V,Tr); absolute_zero adds the unreferenced Debye thermal pressure to a 0 K cold curve."
         },
         "thermal_expansion_law": {
-          "enum": ["constant", "linear_temperature", "linear_reference_temperature"],
+          "enum": [
+            "constant",
+            "linear_temperature",
+            "linear_reference_temperature"
+          ],
           "default": "constant",
           "description": "Volumetric expansion law integrated by thermal_reference_state. Omission means constant; linear_temperature means alpha(T)=alpha0+alpha1*T, while linear_reference_temperature means alpha(T)=alpha0+alpha1*(T-Tr); both linear laws require alpha1."
         },
         "reference_volume_law": {
-          "enum": ["integrated_expansivity", "linear_temperature", "berman"],
+          "enum": [
+            "integrated_expansivity",
+            "linear_temperature",
+            "berman"
+          ],
           "default": "integrated_expansivity",
           "description": "Reference-volume construction for thermal_reference_state. Omission integrates the selected expansivity; linear_temperature applies V0(T)=V0(Tr)*(1+alpha0*(T-Tr)); berman applies V0(T)=V0(Tr)*(1+alpha0*(T-Tr)+0.5*alpha1*(T-Tr)^2)."
         },
@@ -388,87 +797,324 @@
           "properties": {
             "Tr": {
               "anyOf": [
-                {"type": "number", "exclusiveMinimum": 0},
-                {"type": "null"}
+                {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "type": "null"
+                }
               ],
               "description": "Thermal-model reference temperature in K. For MieGruneisenDebye absolute_zero it anchors reference-relative increments but is not subtracted from total pressure. For absolute Helmholtz cold-curve models, null means that no reference subtraction is applied."
             }
           },
-          "additionalProperties": {"type": "number"}
+          "additionalProperties": {
+            "type": "number"
+          }
         },
         "parameter_errors": {
           "$ref": "#/$defs/parameter_errors"
         },
         "fixed_parameters": {
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         }
       },
       "additionalProperties": true,
       "allOf": [
         {
           "oneOf": [
-            {"properties": {"type": {"const": "AlphaKT"}, "model": {"const": "thermal_reference_state"}}},
-            {"properties": {"type": {"const": "AsymptoticPowerLawMieGruneisenDebye"}, "model": {"const": "asymptotic_power_law_mie_gruneisen_debye"}}},
-            {"properties": {"type": {"const": "DoubleDebyeHelmholtz"}, "model": {"const": "double_debye_helmholtz"}}},
-            {"properties": {"type": {"const": "DoubleDebyeLogMomentHelmholtz"}, "model": {"const": "double_debye_log_moment_helmholtz"}}},
-            {"properties": {"type": {"const": "DorogokupetsOganov2007"}, "model": {"const": "dorogokupets_oganov_2007"}}},
-            {"properties": {"type": {"const": "LinearThermalPressure"}, "model": {"const": "linear_thermal_pressure"}}},
-            {"properties": {"type": {"const": "LogVolumeThermalPressure"}, "model": {"const": "log_volume_thermal_pressure"}}},
-            {"properties": {"type": {"const": "SecondOrderTaylorThermalPressure"}, "model": {"const": "second_order_taylor_thermal_pressure"}}},
-            {"properties": {"type": {"const": "MieGruneisenDebye"}, "model": {"const": "mie_gruneisen_debye"}}},
-            {"properties": {"type": {"const": "MieGruneisenEinstein"}, "model": {"const": "mie_gruneisen_einstein"}}},
-            {"properties": {"type": {"const": "MultiOscillatorGruneisen"}, "model": {"const": "multi_oscillator_gruneisen_thermal_pressure"}}},
-            {"properties": {"type": {"const": "Sokolova2016"}, "model": {"const": "multi_oscillator_gruneisen_thermal_pressure"}}},
-            {"properties": {"type": {"const": "ThermalModifiedTait"}, "model": {"const": "thermal_modified_tait"}}}
+            {
+              "properties": {
+                "type": {
+                  "const": "AlphaKT"
+                },
+                "model": {
+                  "const": "thermal_reference_state"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "AsymptoticPowerLawMieGruneisenDebye"
+                },
+                "model": {
+                  "const": "asymptotic_power_law_mie_gruneisen_debye"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "AsymptoticPowerLawMieGruneisenDebyeExcess"
+                },
+                "model": {
+                  "const": "asymptotic_power_law_mie_gruneisen_debye_excess"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "DoubleDebyeHelmholtz"
+                },
+                "model": {
+                  "const": "double_debye_helmholtz"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "DoubleDebyeLogMomentHelmholtz"
+                },
+                "model": {
+                  "const": "double_debye_log_moment_helmholtz"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "DorogokupetsOganov2007"
+                },
+                "model": {
+                  "const": "dorogokupets_oganov_2007"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "LinearThermalPressure"
+                },
+                "model": {
+                  "const": "linear_thermal_pressure"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "LogVolumeThermalPressure"
+                },
+                "model": {
+                  "const": "log_volume_thermal_pressure"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "SecondOrderTaylorThermalPressure"
+                },
+                "model": {
+                  "const": "second_order_taylor_thermal_pressure"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "MieGruneisenDebye"
+                },
+                "model": {
+                  "const": "mie_gruneisen_debye"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "MieGruneisenEinstein"
+                },
+                "model": {
+                  "const": "mie_gruneisen_einstein"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "MultiOscillatorGruneisen"
+                },
+                "model": {
+                  "const": "multi_oscillator_gruneisen_thermal_pressure"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "Sokolova2016"
+                },
+                "model": {
+                  "const": "multi_oscillator_gruneisen_thermal_pressure"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "ThermalModifiedTait"
+                },
+                "model": {
+                  "const": "thermal_modified_tait"
+                }
+              }
+            }
           ]
         },
         {
-          "if": {"required": ["debye_temperature_law"]},
-          "then": {"properties": {"type": {"const": "MieGruneisenDebye"}}}
-        },
-        {
-          "if": {"required": ["thermal_expansion_law"]},
-          "then": {"properties": {"type": {"const": "AlphaKT"}}}
-        },
-        {
-          "if": {"required": ["reference_volume_law"]},
-          "then": {"properties": {"type": {"const": "AlphaKT"}}}
-        },
-        {
-          "if": {"properties": {"thermal_expansion_law": {"enum": ["linear_temperature", "linear_reference_temperature"]}}, "required": ["thermal_expansion_law"]},
-          "then": {"properties": {"parameters": {"required": ["alpha1"]}}}
-        },
-        {
           "if": {
-            "anyOf": [
-              {"not": {"required": ["thermal_expansion_law"]}},
-              {"properties": {"thermal_expansion_law": {"const": "constant"}}, "required": ["thermal_expansion_law"]}
+            "required": [
+              "debye_temperature_law"
             ]
-          },
-          "then": {"properties": {"parameters": {"properties": {"alpha1": {"const": 0}}}}}
-        },
-        {
-          "if": {
-            "properties": {"reference_volume_law": {"const": "linear_temperature"}},
-            "required": ["reference_volume_law"]
           },
           "then": {
             "properties": {
-              "thermal_expansion_law": {"const": "constant"},
-              "parameters": {"properties": {"alpha1": {"const": 0}}}
+              "type": {
+                "const": "MieGruneisenDebye"
+              }
             }
           }
         },
         {
           "if": {
-            "properties": {"reference_volume_law": {"const": "berman"}},
-            "required": ["reference_volume_law"]
+            "required": [
+              "thermal_expansion_law"
+            ]
           },
           "then": {
             "properties": {
-              "thermal_expansion_law": {"const": "linear_temperature"},
-              "parameters": {"required": ["alpha1"]}
+              "type": {
+                "const": "AlphaKT"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "reference_volume_law"
+            ]
+          },
+          "then": {
+            "properties": {
+              "type": {
+                "const": "AlphaKT"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "thermal_expansion_law": {
+                "enum": [
+                  "linear_temperature",
+                  "linear_reference_temperature"
+                ]
+              }
+            },
+            "required": [
+              "thermal_expansion_law"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "required": [
+                  "alpha1"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "anyOf": [
+              {
+                "not": {
+                  "required": [
+                    "thermal_expansion_law"
+                  ]
+                }
+              },
+              {
+                "properties": {
+                  "thermal_expansion_law": {
+                    "const": "constant"
+                  }
+                },
+                "required": [
+                  "thermal_expansion_law"
+                ]
+              }
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "properties": {
+                  "alpha1": {
+                    "const": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "reference_volume_law": {
+                "const": "linear_temperature"
+              }
+            },
+            "required": [
+              "reference_volume_law"
+            ]
+          },
+          "then": {
+            "properties": {
+              "thermal_expansion_law": {
+                "const": "constant"
+              },
+              "parameters": {
+                "properties": {
+                  "alpha1": {
+                    "const": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "reference_volume_law": {
+                "const": "berman"
+              }
+            },
+            "required": [
+              "reference_volume_law"
+            ]
+          },
+          "then": {
+            "properties": {
+              "thermal_expansion_law": {
+                "const": "linear_temperature"
+              },
+              "parameters": {
+                "required": [
+                  "alpha1"
+                ]
+              }
             }
           }
         }
@@ -476,39 +1122,72 @@
     },
     "parameter_errors": {
       "type": "object",
-      "additionalProperties": {"$ref": "#/$defs/nullable_number"}
+      "additionalProperties": {
+        "$ref": "#/$defs/nullable_number"
+      }
     },
     "range": {
       "type": "array",
-      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
       "minItems": 2,
       "maxItems": 2
     },
     "validity": {
       "type": "object",
       "properties": {
-        "pressure_gpa": {"$ref": "#/$defs/range"},
-        "temperature_k": {"$ref": "#/$defs/range"},
-        "volume_ratio": {"$ref": "#/$defs/range"},
-        "notes": {"type": "array", "items": {"type": "string"}}
+        "pressure_gpa": {
+          "$ref": "#/$defs/range"
+        },
+        "temperature_k": {
+          "$ref": "#/$defs/range"
+        },
+        "volume_ratio": {
+          "$ref": "#/$defs/range"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       },
       "additionalProperties": false
     },
     "volume_metadata": {
       "type": "object",
       "properties": {
-        "reference_value": {"type": "number", "exclusiveMinimum": 0},
-        "public_to_model_scale": {"type": "number", "exclusiveMinimum": 0},
-        "model_unit": {"type": "string"}
+        "reference_value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "public_to_model_scale": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "model_unit": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
     "parameter_covariance": {
       "oneOf": [
-        {"type": "null"},
+        {
+          "type": "null"
+        },
         {
           "type": "object",
-          "required": ["matrix", "parameter_order"],
+          "required": [
+            "matrix",
+            "parameter_order"
+          ],
           "properties": {
             "matrix": {
               "type": "array",
@@ -516,13 +1195,18 @@
               "items": {
                 "type": "array",
                 "minItems": 1,
-                "items": {"type": "number"}
+                "items": {
+                  "type": "number"
+                }
               }
             },
             "parameter_order": {
               "type": "array",
               "minItems": 1,
-              "items": {"type": "string", "minLength": 1}
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           },
           "additionalProperties": false
@@ -543,67 +1227,137 @@
       "properties": {
         "software": {
           "type": "object",
-          "required": ["name", "version"],
+          "required": [
+            "name",
+            "version"
+          ],
           "properties": {
-            "name": {"type": "string", "minLength": 1},
-            "version": {"type": "string", "minLength": 1},
-            "version_date": {"type": "string", "format": "date"}
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version_date": {
+              "type": "string",
+              "format": "date"
+            }
           },
           "additionalProperties": true
         },
-        "dataset": {"$ref": "#/$defs/identifier"},
-        "selection": {"type": "object"},
-        "objective": {"type": "string", "minLength": 1},
+        "dataset": {
+          "$ref": "#/$defs/identifier"
+        },
+        "selection": {
+          "type": "object"
+        },
+        "objective": {
+          "type": "string",
+          "minLength": 1
+        },
         "weights": {
           "type": "array",
-          "items": {"$ref": "#/$defs/identifier"}
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
         },
         "refined_parameters": {
           "type": "array",
           "minItems": 1,
-          "items": {"type": "string", "minLength": 1}
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "fixed_parameters": {
           "type": "array",
-          "items": {"type": "string", "minLength": 1}
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
-        "covariance_scaling": {"type": "string"},
-        "statistics": {"type": "object"},
-        "reproduction": {"type": "object"}
+        "covariance_scaling": {
+          "type": "string"
+        },
+        "statistics": {
+          "type": "object"
+        },
+        "reproduction": {
+          "type": "object"
+        }
       },
       "additionalProperties": true
     },
     "derivation": {
       "type": "object",
-      "required": ["source_kind", "source_identifier", "method"],
+      "required": [
+        "source_kind",
+        "source_identifier",
+        "method"
+      ],
       "properties": {
         "source_kind": {
-          "enum": ["sesame_table", "published_table", "calculation"]
+          "enum": [
+            "sesame_table",
+            "published_table",
+            "calculation"
+          ]
         },
-        "source_identifier": {"type": "string", "minLength": 1},
-        "source_version": {"type": "string", "minLength": 1},
-        "method": {"type": "string", "minLength": 1},
-        "sampling_domain": {"type": "object"},
-        "software": {"type": "object"},
-        "access_and_licensing": {"type": "string", "minLength": 1}
+        "source_identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sampling_domain": {
+          "type": "object"
+        },
+        "software": {
+          "type": "object"
+        },
+        "access_and_licensing": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": true
     },
     "scientific_validation": {
       "type": "object",
-      "required": ["status"],
+      "required": [
+        "status"
+      ],
       "properties": {
         "status": {
-          "enum": ["primary_source_validated", "pending_primary_source_check", "deferred"]
+          "enum": [
+            "primary_source_validated",
+            "pending_primary_source_check",
+            "deferred"
+          ]
         },
-        "note": {"type": "string"},
-        "migration_source": {"type": "object"}
+        "note": {
+          "type": "string"
+        },
+        "migration_source": {
+          "type": "object"
+        }
       },
       "additionalProperties": true
     },
     "pressure_calibration_method": {
       "type": "object",
-      "required": ["kind", "source_location"],
+      "required": [
+        "kind",
+        "source_location"
+      ],
       "properties": {
         "kind": {
           "enum": [
@@ -626,36 +1380,68 @@
           "$ref": "#/$defs/identifier",
           "description": "Globally unique identifier of an executable non-EOS pressure calibration, such as a ruby R1 scale, bundled in the Peritheos calibration library."
         },
-        "reference": {"$ref": "#/$defs/reference"},
-        "source_location": {"type": "string", "minLength": 1},
-        "scope": {"type": "string"},
-        "notes": {"type": "string"}
+        "reference": {
+          "$ref": "#/$defs/reference"
+        },
+        "source_location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
       },
       "additionalProperties": true,
       "allOf": [
         {
           "if": {
-            "properties": {"kind": {"const": "equation_of_state"}},
-            "required": ["kind"]
+            "properties": {
+              "kind": {
+                "const": "equation_of_state"
+              }
+            },
+            "required": [
+              "kind"
+            ]
           },
-          "then": {"required": ["reference"]}
+          "then": {
+            "required": [
+              "reference"
+            ]
+          }
         }
       ]
     },
     "pressure_calibration": {
       "type": "object",
-      "required": ["status", "methods", "recalculation"],
+      "required": [
+        "status",
+        "methods",
+        "recalculation"
+      ],
       "properties": {
         "status": {
-          "enum": ["resolved", "partially_resolved", "not_applicable", "unresolved"]
+          "enum": [
+            "resolved",
+            "partially_resolved",
+            "not_applicable",
+            "unresolved"
+          ]
         },
         "methods": {
           "type": "array",
-          "items": {"$ref": "#/$defs/pressure_calibration_method"}
+          "items": {
+            "$ref": "#/$defs/pressure_calibration_method"
+          }
         },
         "recalculation": {
           "type": "object",
-          "required": ["status"],
+          "required": [
+            "status"
+          ],
           "properties": {
             "status": {
               "enum": [
@@ -667,12 +1453,19 @@
                 "not_possible"
               ]
             },
-            "notes": {"type": "string"}
+            "notes": {
+              "type": "string"
+            }
           },
           "additionalProperties": true
         },
-        "audit_date": {"type": "string", "format": "date"},
-        "notes": {"type": "string"}
+        "audit_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes": {
+          "type": "string"
+        }
       },
       "additionalProperties": true
     },
@@ -688,136 +1481,302 @@
         "scientific_validation"
       ],
       "properties": {
-        "identifier": {"$ref": "#/$defs/identifier"},
-        "label": {"type": "string"},
+        "identifier": {
+          "$ref": "#/$defs/identifier"
+        },
+        "label": {
+          "type": "string"
+        },
         "aliases": {
           "type": "array",
           "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1, "pattern": "^\\S(?:.*\\S)?$"}
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^\\S(?:.*\\S)?$"
+          }
         },
-        "reference": {"$ref": "#/$defs/reference"},
-        "default": {"type": "boolean"},
-        "default_for": {"enum": ["equilibrium", "hugoniot"]},
+        "reference": {
+          "$ref": "#/$defs/reference"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "default_for": {
+          "enum": [
+            "equilibrium",
+            "hugoniot"
+          ]
+        },
         "equation_kind": {
-          "enum": ["isothermal", "thermal", "hugoniot"],
+          "enum": [
+            "isothermal",
+            "thermal",
+            "hugoniot"
+          ],
           "description": "Thermodynamic dimensionality or constrained path represented by this EOS record. Omission retains backward-compatible inference for isothermal and thermal records."
         },
-        "loading_path": {"enum": ["principal", "precompressed"]},
-        "branch_kind": {"enum": ["untransformed", "transformed"]},
+        "loading_path": {
+          "enum": [
+            "principal",
+            "precompressed"
+          ]
+        },
+        "branch_kind": {
+          "enum": [
+            "untransformed",
+            "transformed"
+          ]
+        },
         "initial_state": {
           "type": "object",
-          "required": ["phase", "material_identifier", "temperature_k", "pressure_gpa", "density_g_cm3"],
+          "required": [
+            "phase",
+            "material_identifier",
+            "temperature_k",
+            "pressure_gpa",
+            "density_g_cm3"
+          ],
           "properties": {
-            "phase": {"type": "string", "minLength": 1},
-            "material_identifier": {"$ref": "#/$defs/identifier"},
-            "eos_record_identifier": {"$ref": "#/$defs/identifier"},
-            "temperature_k": {"type": "number", "exclusiveMinimum": 0},
-            "pressure_gpa": {"type": "number"},
-            "density_g_cm3": {"type": "number", "exclusiveMinimum": 0}
+            "phase": {
+              "type": "string",
+              "minLength": 1
+            },
+            "material_identifier": {
+              "$ref": "#/$defs/identifier"
+            },
+            "eos_record_identifier": {
+              "$ref": "#/$defs/identifier"
+            },
+            "temperature_k": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "pressure_gpa": {
+              "type": "number"
+            },
+            "density_g_cm3": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
           },
           "additionalProperties": true
         },
         "volume_basis": {
           "type": "object",
           "description": "Common amount of material represented by every V and V0 value. V0 for a transformed branch is the precursor volume containing this amount, not necessarily one precursor conventional cell.",
-          "required": ["kind", "formula_units", "molar_mass_g_mol"],
+          "required": [
+            "kind",
+            "formula_units",
+            "molar_mass_g_mol"
+          ],
           "properties": {
-            "kind": {"const": "formula_units"},
-            "formula_units": {"type": "number", "exclusiveMinimum": 0},
-            "molar_mass_g_mol": {"type": "number", "exclusiveMinimum": 0}
+            "kind": {
+              "const": "formula_units"
+            },
+            "formula_units": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "molar_mass_g_mol": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
           },
           "additionalProperties": true
         },
         "branch_domain": {
           "type": "object",
-          "required": ["particle_velocity_km_s", "kind", "boundary_status"],
+          "required": [
+            "particle_velocity_km_s",
+            "kind",
+            "boundary_status"
+          ],
           "properties": {
-            "particle_velocity_km_s": {"$ref": "#/$defs/range"},
+            "particle_velocity_km_s": {
+              "$ref": "#/$defs/range"
+            },
             "kind": {
-              "enum": ["phase_stability", "experimental_coverage", "recommended"]
+              "enum": [
+                "phase_stability",
+                "experimental_coverage",
+                "recommended"
+              ]
             },
             "boundary_status": {
-              "enum": ["reported_exactly", "reported_qualitatively", "inferred"]
+              "enum": [
+                "reported_exactly",
+                "reported_qualitatively",
+                "inferred"
+              ]
             },
-            "notes": {"type": "array", "items": {"type": "string"}}
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           },
           "additionalProperties": false
         },
         "record_kind": {
-          "enum": ["published", "refit", "derived", "diagnostic"],
+          "enum": [
+            "published",
+            "refit",
+            "derived",
+            "diagnostic"
+          ],
           "description": "Scientific status of the parameter set. Omission means published for backward compatibility."
         },
         "derived_from_record": {
           "$ref": "#/$defs/identifier",
           "description": "EOS record whose equation choices or published fixed parameters form the basis of this derived record."
         },
-        "fit_provenance": {"$ref": "#/$defs/fit_provenance"},
-        "derivation": {"$ref": "#/$defs/derivation"},
-        "eos": {"$ref": "#/$defs/equation"},
-        "parameter_errors": {"$ref": "#/$defs/parameter_errors"},
+        "fit_provenance": {
+          "$ref": "#/$defs/fit_provenance"
+        },
+        "derivation": {
+          "$ref": "#/$defs/derivation"
+        },
+        "eos": {
+          "$ref": "#/$defs/equation"
+        },
+        "parameter_errors": {
+          "$ref": "#/$defs/parameter_errors"
+        },
         "parameter_error_confidence": {
-          "type": ["number", "null"],
+          "type": [
+            "number",
+            "null"
+          ],
           "exclusiveMinimum": 0,
           "exclusiveMaximum": 1,
           "description": "Two-sided confidence level of reported parameter-error half-widths. Null means the values are standard errors or the source convention is otherwise recorded in notes."
         },
         "fixed_parameters": {
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
-        "experimental_pressure_range_gpa": {"$ref": "#/$defs/range"},
+        "experimental_pressure_range_gpa": {
+          "$ref": "#/$defs/range"
+        },
         "pressure_range_status": {
-          "enum": ["reported_exactly", "reported_qualitatively", "theoretical", "reference_parameterization"]
+          "enum": [
+            "reported_exactly",
+            "reported_qualitatively",
+            "theoretical",
+            "reference_parameterization"
+          ]
         },
-        "experimental_temperature_range_k": {"$ref": "#/$defs/range"},
-        "thermal": {"$ref": "#/$defs/thermal"},
-        "temperature_ref": {"type": "number"},
-        "volume": {"$ref": "#/$defs/volume_metadata"},
-        "validity": {"$ref": "#/$defs/validity"},
-        "parameter_provenance": {"type": "object"},
+        "experimental_temperature_range_k": {
+          "$ref": "#/$defs/range"
+        },
+        "thermal": {
+          "$ref": "#/$defs/thermal"
+        },
+        "temperature_ref": {
+          "type": "number"
+        },
+        "volume": {
+          "$ref": "#/$defs/volume_metadata"
+        },
+        "validity": {
+          "$ref": "#/$defs/validity"
+        },
+        "parameter_provenance": {
+          "type": "object"
+        },
         "source_lineage": {
           "type": "array",
           "description": "Ordered scientific-fit, parameter-table, implementation, correction, and experimental-context sources contributing to a composite record.",
           "items": {
             "type": "object",
-            "required": ["role", "citation"],
+            "required": [
+              "role",
+              "citation"
+            ],
             "properties": {
-              "role": {"type": "string"},
-              "citation": {"type": "string"},
-              "doi": {"type": "string"}
+              "role": {
+                "type": "string"
+              },
+              "citation": {
+                "type": "string"
+              },
+              "doi": {
+                "type": "string"
+              }
             },
             "additionalProperties": true
           }
         },
-        "pressure_calibration": {"$ref": "#/$defs/pressure_calibration"},
-        "parameter_covariance": {"$ref": "#/$defs/parameter_covariance"},
-        "scientific_validation": {"$ref": "#/$defs/scientific_validation"},
-        "notes": {"type": "string"}
+        "pressure_calibration": {
+          "$ref": "#/$defs/pressure_calibration"
+        },
+        "parameter_covariance": {
+          "$ref": "#/$defs/parameter_covariance"
+        },
+        "scientific_validation": {
+          "$ref": "#/$defs/scientific_validation"
+        },
+        "notes": {
+          "type": "string"
+        }
       },
       "allOf": [
         {
           "if": {
-            "properties": {"record_kind": {"const": "refit"}},
-            "required": ["record_kind"]
+            "properties": {
+              "record_kind": {
+                "const": "refit"
+              }
+            },
+            "required": [
+              "record_kind"
+            ]
           },
-          "then": {"required": ["derived_from_record", "fit_provenance"]}
+          "then": {
+            "required": [
+              "derived_from_record",
+              "fit_provenance"
+            ]
+          }
         },
         {
           "if": {
-            "properties": {"record_kind": {"const": "derived"}},
-            "required": ["record_kind"]
+            "properties": {
+              "record_kind": {
+                "const": "derived"
+              }
+            },
+            "required": [
+              "record_kind"
+            ]
           },
-          "then": {"required": ["derivation"]}
+          "then": {
+            "required": [
+              "derivation"
+            ]
+          }
         },
         {
           "if": {
             "properties": {
               "eos": {
-                "properties": {"type": {"const": "LinearUsUpHugoniot"}},
-                "required": ["type"]
+                "properties": {
+                  "type": {
+                    "const": "LinearUsUpHugoniot"
+                  }
+                },
+                "required": [
+                  "type"
+                ]
               }
             },
-            "required": ["eos"]
+            "required": [
+              "eos"
+            ]
           },
           "then": {
             "required": [
@@ -829,49 +1788,97 @@
               "branch_domain"
             ],
             "properties": {
-              "equation_kind": {"const": "hugoniot"},
+              "equation_kind": {
+                "const": "hugoniot"
+              },
               "eos": {
                 "properties": {
-                  "parameters": {"required": ["V0", "rho0", "c0", "s", "P0"]}
+                  "parameters": {
+                    "required": [
+                      "V0",
+                      "rho0",
+                      "c0",
+                      "s",
+                      "P0"
+                    ]
+                  }
                 }
               }
             },
-            "not": {"required": ["thermal"]}
+            "not": {
+              "required": [
+                "thermal"
+              ]
+            }
           }
         },
         {
           "if": {
-            "properties": {"equation_kind": {"const": "hugoniot"}},
-            "required": ["equation_kind"]
+            "properties": {
+              "equation_kind": {
+                "const": "hugoniot"
+              }
+            },
+            "required": [
+              "equation_kind"
+            ]
           },
           "then": {
             "properties": {
               "eos": {
-                "properties": {"type": {"const": "LinearUsUpHugoniot"}}
+                "properties": {
+                  "type": {
+                    "const": "LinearUsUpHugoniot"
+                  }
+                }
               }
             }
           }
         },
         {
           "if": {
-            "properties": {"equation_kind": {"const": "thermal"}},
-            "required": ["equation_kind"]
+            "properties": {
+              "equation_kind": {
+                "const": "thermal"
+              }
+            },
+            "required": [
+              "equation_kind"
+            ]
           },
-          "then": {"required": ["thermal"]}
+          "then": {
+            "required": [
+              "thermal"
+            ]
+          }
         },
         {
           "if": {
-            "properties": {"equation_kind": {"const": "isothermal"}},
-            "required": ["equation_kind"]
+            "properties": {
+              "equation_kind": {
+                "const": "isothermal"
+              }
+            },
+            "required": [
+              "equation_kind"
+            ]
           },
           "then": {
             "not": {
               "anyOf": [
-                {"required": ["thermal"]},
+                {
+                  "required": [
+                    "thermal"
+                  ]
+                },
                 {
                   "properties": {
                     "eos": {
-                      "properties": {"type": {"const": "LinearUsUpHugoniot"}}
+                      "properties": {
+                        "type": {
+                          "const": "LinearUsUpHugoniot"
+                        }
+                      }
                     }
                   }
                 }

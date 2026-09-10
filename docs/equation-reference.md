@@ -718,6 +718,28 @@ functional form is not approximated by a different $q$ law. The pressure
 standard wrapper converts diffraction volumes from conventional-cell
 $\mathring{\mathrm A}^3$ to the molar volume required by thermal EOS classes.
 
+### Asymptotic-power-law Debye with T2 excess
+
+`AsymptoticPowerLawMieGruneisenDebyeExcess` retains the Tange Gruneisen and
+Debye-temperature laws and adds the Zhu et al. (2025) excess Helmholtz term
+
+\[
+F_{\mathrm{ex}}(V,T)=-\frac{1}{2}\beta_0
+\left(\frac{V}{V_0}\right)^mT^2.
+\]
+
+Its pressure contribution is
+
+\[
+P_{\mathrm{ex}}(V,T)=\frac{\beta_0m}{2V_0}
+\left(\frac{V}{V_0}\right)^{m-1}T^2.
+\]
+
+Both the Debye and excess pressures are referenced by subtracting their values
+at `Tr`. `beta0` is expressed in J mol$^{-1}$ K$^{-2}$ and `m` is
+dimensionless. This is the complete thermal pressure form used by the Zhu Au,
+Pt, and MgO P-V-T records.
+
 ### Linear thermal pressure
 
 `LinearThermalPressure` composes any reference isotherm with

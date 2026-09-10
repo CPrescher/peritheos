@@ -70,6 +70,18 @@ CURRENT_SOURCE_AUDIT_RECORDS = {
     "palladium_frost_2023_bm3_2",
 }
 
+YE_2017_COCOMPRESSION_RECORDS = {
+    "gold_ye_2017_vinet_300k",
+    "mgo_ye_2017_vinet_300k",
+    "platinum_ye_2017_vinet_300k",
+}
+
+ZHU_2025_THERMAL_RECORDS = {
+    "gold_zhu_2025_pvt",
+    "mgo_zhu_2025_pvt",
+    "platinum_zhu_2025_pvt",
+}
+
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
     """Construct one compact primary-evidence description."""
@@ -3193,6 +3205,9 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     reproduction = previous.get("reproduction")
     audit_date = (
         "2026-09-08"
+        if result["identifier"]
+        in YE_2017_COCOMPRESSION_RECORDS | ZHU_2025_THERMAL_RECORDS
+        else "2026-09-08"
         if result["identifier"]
         in {
             "lead_fcc_kuznetsov_2002_bm3_2",

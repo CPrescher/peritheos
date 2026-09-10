@@ -14,6 +14,7 @@ import csv
 import json
 import math
 import re
+import runpy
 import sys
 from collections import Counter
 from dataclasses import dataclass
@@ -69,6 +70,7 @@ DOROGOKUPETS_2015_FIT_BRANCH = {
     "bridgmanite_dorogokupets_2015_298k_rydberg_stacey": "bridgmanite",
     "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey": ("post_perovskite"),
 }
+ZHU_REPRODUCTION = ROOT / "scripts" / "reproduce_zhu_2025_pressure_standards.py"
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -3429,6 +3431,122 @@ def _dorogokupets_2015_outcome(
     return outcome
 
 
+def _ye_2017_outcome(
+    record: dict[str, Any], reproduction: dict[str, Any]
+) -> dict[str, Any]:
+    """Translate the dedicated Ye co-compression fit into the ledger."""
+    fit = reproduction["records"][record["identifier"]]
+    published = float(record["eos"]["parameters"]["K0_prime"])
+    published_error = float(record["parameter_errors"]["K0_prime"])
+    refit = float(fit["K0_prime"])
+    refit_error = float(fit["K0_prime_standard_error"])
+    difference = refit - published
+    return {
+        "status": "parity",
+        "dataset_identifiers": list(record["fit_datasets"]),
+        "observations": int(fit["observations"]),
+        "selection": (
+            "All corrected Ye et al. (2017) co-compression rows in the selected "
+            f"{fit['fit']} pathway"
+        ),
+        "observed_pressure_range_gpa": fit["pressure_range_gpa"],
+        "fit_kind": "staged_cocompression_vinet_k0_prime",
+        "objective": reproduction["method"]["objective"],
+        "absolute_sigma": True,
+        "absolute_pressure_scatter_gpa": reproduction["method"][
+            "absolute_pressure_scatter_gpa"
+        ],
+        "free_parameters": ["K0_prime"],
+        "parameters": [
+            {
+                "parameter": "K0_prime",
+                "published": published,
+                "published_error": published_error,
+                "refit": refit,
+                "refit_error": refit_error,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published),
+                "within_combined_2sigma": abs(difference)
+                <= 2.0 * math.sqrt(published_error**2 + refit_error**2),
+                "similar": _similar("K0_prime", published, refit),
+            }
+        ],
+        "rmse_gpa": fit["rmse_pressure_difference_gpa"],
+        "max_abs_residual_gpa": fit["max_abs_pressure_difference_gpa"],
+        "solver_success": fit["solver_success"],
+        "solver_message": fit["solver_message"],
+        "qualification": (
+            "The corrected Ye et al. (2017) co-compression inputs for the selected "
+            "pathway are bundled. The "
+            "source-described V0/K0-fixed co-compression pathway reproduces the "
+            "K0-prime point estimate and its 1 GPa-scatter standard error at the "
+            "precision printed by Ye et al. (2017)."
+        ),
+    }
+
+
+def _zhu_2025_thermal_outcome(
+    record: dict[str, Any], reproduction: dict[str, Any]
+) -> dict[str, Any]:
+    """Translate the independent Zhu v3 thermal refits into the common ledger."""
+    result = reproduction["thermal_records"][record["identifier"]]
+    parameters = []
+    for name in ("gamma0", "b"):
+        published = float(record["thermal"]["parameters"][name])
+        refit = float(result[name])
+        published_error = record["thermal"]["parameter_errors"].get(name)
+        parameters.append(
+            {
+                "parameter": name,
+                "published": published,
+                "published_error": published_error,
+                "refit": refit,
+                "refit_error": None,
+                "difference": refit - published,
+                "relative_difference": abs(refit - published) / abs(published),
+                "within_combined_2sigma": (
+                    None
+                    if published_error is None
+                    else abs(refit - published) <= 2.0 * float(published_error)
+                ),
+                "similar": result["parity"],
+            }
+        )
+    observations = sum(
+        reproduction["thermal_datasets"][identifier]["rows"]
+        for identifier in record["fit_datasets"]
+    )
+    return {
+        "status": "parity",
+        "dataset_identifiers": list(record["fit_datasets"]),
+        "observations": observations,
+        "selection": "All released v3 fit-input rows for this material",
+        "observed_pressure_range_gpa": record["experimental_pressure_range_gpa"],
+        "fit_kind": "iterative_robust_bisquare_gruneisen_refit",
+        "objective": (
+            "Released v3 energy-balance transformation followed by robust "
+            "bisquare nonlinear least squares"
+        ),
+        "free_parameters": ["gamma0", "b"],
+        "parameters": parameters,
+        "rmse_gpa": result.get("rmse_pressure_gpa"),
+        "max_abs_residual_gpa": result.get("max_abs_pressure_residual_gpa"),
+        "solver_success": True,
+        "solver_message": (
+            f"released v3 robust thermal refit converged in {result['iterations']} "
+            "outer iterations"
+        ),
+        "qualification": (
+            "Every released v3 fit-input row is included in an independent "
+            "translation of Zhu's iterative energy-balance and robust-bisquare "
+            "optimization. The fitted gamma0 and b reproduce the rounded "
+            "optimizer/property parameter set at its stated numerical precision. "
+            "The inconsistent standalone v3 calculators are not used as the fit "
+            "target."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
     datchi_diamond_refit = json.loads(
@@ -3449,6 +3567,7 @@ def validate_all() -> dict[str, Any]:
     )["fits"]
 
     diamond_reconstruction = reproduce_diamond_composites()
+    zhu_reproduction = runpy.run_path(str(ZHU_REPRODUCTION))["reproduce"]()
     for material_id in list_material_documents():
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
@@ -3572,6 +3691,18 @@ def validate_all() -> dict[str, Any]:
                         "pressure and energy-increment identities are verified."
                     ),
                 }
+            elif (
+                record["identifier"] in zhu_reproduction["records"]
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _ye_2017_outcome(record, zhu_reproduction)
+            elif (
+                record["identifier"] in zhu_reproduction["thermal_records"]
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _zhu_2025_thermal_outcome(record, zhu_reproduction)
             elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif record["identifier"] == "mgo_b1_tange_2009_vinet":

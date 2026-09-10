@@ -106,7 +106,8 @@ def test_catalog_listing_lookup_and_material_filter():
         "gold_shen_2026_vinet_3",
         "gold_sokolova_2013_holzapfel_4",
         "gold_takemura_2008_vinet_6",
-        "gold_zhu_2025_vinet_300k",
+        "gold_ye_2017_vinet_300k",
+        "gold_zhu_2025_pvt",
     }
     assert get_material("mgo_b1").eos_records == (
         MGO_TANGE_2009,

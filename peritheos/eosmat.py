@@ -49,6 +49,7 @@ _RT_TYPES = {
 _THERMAL_TYPES = {
     "AlphaKT",
     "AsymptoticPowerLawMieGruneisenDebye",
+    "AsymptoticPowerLawMieGruneisenDebyeExcess",
     "DoubleDebyeHelmholtz",
     "DoubleDebyeLogMomentHelmholtz",
     "DorogokupetsOganov2007",
@@ -83,6 +84,9 @@ _RT_MODELS = {
 _THERMAL_MODELS = {
     "AlphaKT": "thermal_reference_state",
     "AsymptoticPowerLawMieGruneisenDebye": ("asymptotic_power_law_mie_gruneisen_debye"),
+    "AsymptoticPowerLawMieGruneisenDebyeExcess": (
+        "asymptotic_power_law_mie_gruneisen_debye_excess"
+    ),
     "DoubleDebyeHelmholtz": "double_debye_helmholtz",
     "DoubleDebyeLogMomentHelmholtz": "double_debye_log_moment_helmholtz",
     "DorogokupetsOganov2007": "dorogokupets_oganov_2007",
