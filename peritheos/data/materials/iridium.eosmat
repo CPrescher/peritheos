@@ -28,7 +28,8 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "Anzellini et al. (2025), BM3",
+   "label": "Anzellini et al. (2025), BM3 + HP",
+   "equation_kind": "thermal",
    "reference": {
     "authors": [
      "Anzellini",
@@ -63,13 +64,127 @@
     "K0_prime": 0.03
    },
    "fixed_parameters": [],
+   "thermal": {
+    "type": "HollandPowellThermalPressure",
+    "model": "holland_powell_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "theta": 298.0,
+     "alpha0": 1.87e-05,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "alpha0": 8e-07
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta",
+     "n"
+    ]
+   },
    "experimental_pressure_range_gpa": [
     0.0,
     101.0
    ],
    "temperature_ref": 300.0,
-   "notes": "Experimental 300 K isotherm combined with resistive- and laser-heating data; fcc Ir remained stable to 101 GPa and 5600 K in the investigated range.",
+   "experimental_temperature_range_k": [
+    300.0,
+    5600.0
+   ],
+   "notes": "Combined BM3 plus Holland-Powell thermal-pressure fit. The 300 K reference data are from Monteseguro et al. (2019), while the thermal contribution is constrained by the present resistive- and laser-heating experiments. Equation 2 uses a fixed 298 K Einstein temperature and the arithmetic mean of upstream/downstream pyrometry. The 122-row supplement contains the exact laser-heating observations but not numerical tables for the Monteseguro 300 K or present 830 K resistive-heating series. Figure 4 does expose 91 and 16 corresponding marker centers as vector paths; these are bundled as explicitly plot-derived coordinates with graphical uncertainty. A source-conditioned fit holds the published BM3 coefficients fixed and tests alpha0 on all exact hot rows. A separate four-parameter reconstruction combines the digitized series with exact hot rows in the stated plus-or-minus 100 K isotherm bands; it is not exact source parity because the original rows, averaging algorithm, weights, and covariance remain unpublished. fcc Ir remained stable to 101 GPa and 5600 K in the present experiments.",
    "identifier": "iridium_anzellini_2025_bm3_1",
+   "fit_datasets": [
+    "iridium_anzellini_2025_tables_s1_s3_pvt",
+    "iridium_anzellini_2025_figure4_300k_830k_vector_digitized"
+   ],
+   "fit_provenance": {
+    "software": {
+     "name": "EosFit7",
+     "version": "not reported"
+    },
+    "dataset": "iridium_anzellini_2025_tables_s1_s3_pvt",
+    "reconstruction_datasets": [
+     "iridium_anzellini_2025_tables_s1_s3_pvt",
+     "iridium_anzellini_2025_figure4_300k_830k_vector_digitized"
+    ],
+    "selection": {
+     "published_scope": "Monteseguro et al. (2019) 300 K data plus present resistive-heating and laser-heating observations.",
+     "reproduction_scope": "Conditional check: all 122 Supplementary Tables 1-3 laser-heating rows with the published BM3 coefficients fixed. Plot-derived reconstruction: 91 vector 300 K markers, 16 vector 830 K markers, and the 65 exact laser-heating rows within plus-or-minus 100 K of the seven plotted high-temperature isotherms."
+    },
+    "objective": "EosFit7 combined P-V-T regression; residual space and weights were not reported.",
+    "refined_parameters": [
+     "V0",
+     "K0",
+     "K0_prime",
+     "alpha0"
+    ],
+    "fixed_parameters": [
+     "Tr",
+     "theta",
+     "n"
+    ],
+    "statistics": {
+     "published_parameter_uncertainties": "Reported in Table 1; no goodness-of-fit statistic or covariance was published."
+    },
+    "reproduction": {
+     "software": "Peritheos fit_joint_eos",
+     "selection": "All 122 numerically published laser-heating rows",
+     "objective": "Unweighted pressure residuals",
+     "refined_parameters": [
+      "alpha0"
+     ],
+     "fixed_parameters": [
+      "V0",
+      "K0",
+      "K0_prime",
+      "Tr",
+      "theta",
+      "n"
+     ],
+     "status": "conditional thermal-term check plus a plot-derived four-parameter reconstruction; not an exact reproduction of the complete combined fit",
+     "plot_derived_combined_fit": {
+      "selection": "91 Figure 4 300 K markers, 16 Figure 4 830 K markers, and 65 exact supplementary rows in the stated plus-or-minus 100 K isotherm bands",
+      "objective": "Unweighted pressure residuals",
+      "refined_parameters": [
+       "V0",
+       "K0",
+       "K0_prime",
+       "alpha0"
+      ],
+      "status": "reconstruction from presentation coordinates; not source parity"
+     }
+    },
+    "source_model": "BM3 300 K reference isotherm plus Holland-Powell Einstein thermal pressure",
+    "temperature_reduction": "Arithmetic mean of simultaneous upstream and downstream spectral-radiometry temperatures.",
+    "unavailable_details": [
+     "original numerical rows underlying the Figure 4 Monteseguro 300 K and present-study 830 K markers",
+     "exact source averaging and row-selection algorithm for the stated plus-or-minus 100 K isotherms",
+     "regression weights",
+     "parameter covariance"
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Anzellini et al. (2025), Equations 1-3: 300 K BM3 reference pressure plus a volume-independent Holland-Powell Einstein thermal-pressure increment.",
+    "V0": "Table 1, experimental BM3 + HP row, A^3 per conventional fcc cell.",
+    "K0": "Table 1, experimental BM3 + HP row, GPa.",
+    "K0_prime": "Table 1, experimental BM3 + HP row, dimensionless.",
+    "Tr": "Equations 1-2 use 300 K as the reference temperature.",
+    "theta": "Text immediately following Equation 2 fixes the Einstein temperature at 298 K for Ir.",
+    "alpha0": "Table 1, experimental BM3 + HP row, K^-1.",
+    "n": "One atom per Ir formula unit; n cancels algebraically from the source pressure equation and is retained only to define the caloric molar basis."
+   },
+   "source_lineage": [
+    {
+     "role": "ambient-temperature pressure-volume observations used in the combined fit",
+     "citation": "Monteseguro et al. (2019)",
+     "doi": "10.1038/s41598-019-45401-x"
+    },
+    {
+     "role": "thermal-pressure equation, combined coefficients, and resistive- and laser-heating observations",
+     "citation": "Anzellini et al. (2025)",
+     "doi": "10.1038/s43246-025-00963-4"
+    }
+   ],
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -135,9 +250,13 @@
      "access_url": "https://doi.org/10.1038/s43246-025-00963-4",
      "locations": [
       "Model description",
-      "Table 1, combined experimental fit"
+      "Equations 1-3",
+      "Table 1, combined experimental fit",
+      "Methods, temperature averaging",
+      "Figure 4",
+      "Supplementary Figure 5"
      ],
-     "finding": "The stored record is the 300 K BM3 subset of a combined thermal fit.",
+     "finding": "The source publishes a BM3 300 K reference isotherm plus a volume-independent Holland-Powell Einstein thermal-pressure increment with Tr=300 K, theta=298 K, and alpha0=1.87(8)e-5 K^-1. The fit combines Monteseguro et al. (2019) ambient-temperature data with present resistive- and laser-heating data and averages the two pyrometry temperatures.",
      "doi": "10.1038/s43246-025-00963-4"
     },
     "migration_source": {
@@ -152,10 +271,14 @@
      "dataset_identifiers": [
       "iridium_anzellini_2025_tables_s1_s3_pvt"
      ],
-     "source_locations": [
-      "Supplementary Tables 1, 2, and 3"
+     "digitized_dataset_identifiers": [
+      "iridium_anzellini_2025_figure4_300k_830k_vector_digitized"
      ],
-     "finding": "All 122 laser-heated Ir P-V-T observations printed in Supplementary Tables 1-3, retaining the applicable MgO or KCl calibrant and both pyrometry measurements."
+     "source_locations": [
+      "Supplementary Tables 1, 2, and 3",
+      "Figure 4, 300 K and 830 K filled-circle series"
+     ],
+     "finding": "All 122 Ir P-V-T observations from the laser-heating runs printed in Supplementary Tables 1-3 are bundled, including two 300 K baseline rows and retaining the applicable MgO or KCl calibrant, both pyrometry measurements, and their source-required arithmetic mean. Figure 4 supplies vector presentation coordinates for 91 Monteseguro 300 K and 16 present-study 830 K markers; these 107 plot-derived rows are bundled separately with calibration and uncertainty metadata. The original numerical rows and exact fit protocol are not published, so the complete combined regression still cannot be rerun exactly."
     }
    }
   },
@@ -313,7 +436,7 @@
      "Stefaan Cottenier"
     ],
     "year": 2023,
-    "title": "Delta project \u2014 archive of old website",
+    "title": "Delta project — archive of old website",
     "source": "Materials Cloud Archive",
     "doi": "10.24435/materialscloud:5e-mv"
    },
@@ -422,7 +545,7 @@
    "source_lineage": [
     {
      "role": "exact compiled-reference coefficients and comparison implementation",
-     "citation": "Delta project \u2014 archive of old website, 10.24435/materialscloud:5e-mv, Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+     "citation": "Delta project — archive of old website, 10.24435/materialscloud:5e-mv, Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
      "doi": "10.24435/materialscloud:5e-mv",
      "url": "https://archive.materialscloud.org/record/2023.133",
      "license": "CC BY 4.0",
@@ -480,7 +603,7 @@
   {
    "identifier": "iridium_anzellini_2025_tables_s1_s3_pvt",
    "kind": "pressure_volume_temperature_lattice_parameters",
-   "description": "All 122 laser-heated Ir P-V-T observations printed in Supplementary Tables 1-3, retaining the applicable MgO or KCl calibrant and both pyrometry measurements.",
+   "description": "All 122 Ir P-V-T observations from the laser-heating runs printed in Supplementary Tables 1-3, including two 300 K baseline rows and retaining the applicable MgO or KCl calibrant and both pyrometry measurements.",
    "source_location": "Supplementary Tables 1, 2, and 3",
    "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs43246-025-00963-4/MediaObjects/43246_2025_963_MOESM1_ESM.pdf",
    "columns": [
@@ -541,6 +664,13 @@
      "of": "downstream_temperature_k"
     },
     {
+     "name": "mean_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value",
+     "description": "Arithmetic mean of the simultaneous upstream and downstream temperatures, as required by the article's Methods section."
+    },
+    {
      "name": "temperature_difference_k",
      "quantity": "reported_temperature_difference",
      "unit": "K",
@@ -549,10 +679,10 @@
    ],
    "resource": {
     "path": "datasets/iridium-anzellini-2025-tables-s1-s3-pvt.csv",
-    "sha256": "09209dc9aa2012ebbb234db8cbf62f0b8732ec3e6d64a374b59000376bc8e2d9",
+    "sha256": "2133efc7b402be8d804d098ef8badfe0e46d8a7ffc91351ca71bffaf6fc85250",
     "media_type": "text/csv"
    },
-   "notes": "The applicable calibrant is MgO for runs 1, 3, 5, and 8 and KCl for runs 2, 4, 6, and 7, as indicated by the populated source columns. Parenthesized pyrometry errors are retained without assigning a confidence convention. The reported Delta-T column is transcribed verbatim even where it differs from the arithmetic difference between the rounded TUS and TDS values. The source tabulates no row-wise pressure or lattice-parameter errors.",
+   "notes": "The applicable calibrant is MgO for runs 1, 3, 5, and 8 and KCl for runs 2, 4, 6, and 7, as indicated by the populated source columns. mean_temperature_k is derived exactly as (TUS+TDS)/2 because the article states that this average is the final temperature used in analysis. Parenthesized pyrometry errors are retained without assigning a confidence convention; no uncertainty is invented for the derived mean. The reported Delta-T column is transcribed verbatim even where it differs from the arithmetic difference between the rounded TUS and TDS values. The source tabulates no row-wise pressure or lattice-parameter errors.",
    "reference": {
     "authors": [
      "Anzellini",
@@ -575,6 +705,162 @@
    "used_by_eos_records": [
     "iridium_anzellini_2025_bm3_1"
    ]
+  },
+  {
+   "identifier": "iridium_anzellini_2025_figure4_300k_830k_vector_digitized",
+   "kind": "pressure_volume_temperature_digitized",
+   "description": "Vector digitization of the otherwise untabulated Figure 4 pressure-volume marker centers: 91 black Monteseguro et al. (2019) observations on the 300 K isotherm and 16 dark-red present-study observations on the 830 K isotherm.",
+   "source_location": "Figure 4, filled-circle 300 K and 830 K series",
+   "source_url": "https://www.nature.com/articles/s43246-025-00963-4.pdf",
+   "columns": [
+    {
+     "name": "plot_order",
+     "quantity": "index",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "series_order",
+     "quantity": "series_index",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "plot_x_pt",
+     "quantity": "figure_x_coordinate",
+     "unit": "PDF point",
+     "role": "value"
+    },
+    {
+     "name": "plot_y_pt",
+     "quantity": "figure_y_coordinate",
+     "unit": "PDF point",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_digitization_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "source_series",
+     "quantity": "source_series",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "source_marker",
+     "quantity": "plot_marker",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_reconstructed_fit",
+     "quantity": "fit_selection",
+     "unit": "boolean",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iridium-anzellini-2025-figure4-300k-830k-vector-digitized.csv",
+    "sha256": "097f35f293d7f6d93d286e86ed72166e7660817132e481b43e3301cac2d7bd8d",
+    "media_type": "text/csv"
+   },
+   "notes": "The 300 K black circles are explicitly attributed to Monteseguro et al. (2019) in the Figure 4 legend; the 830 K dark-red circles are present-study data. Fitted curves, other isotherms, ambient-pressure thermal-expansion triangles, and legend symbols are excluded. These coordinates are presentation data and must not be represented as the authors' original numerical rows.",
+   "reference": {
+    "authors": [
+     "Anzellini",
+     "Botella",
+     "Rodrigo-Ramon",
+     "Garcia-Beamud",
+     "Sanchez-Martin",
+     "Garbarino",
+     "Rosa",
+     "Gallego-Parra",
+     "Koemets",
+     "Errandonea"
+    ],
+    "year": 2025,
+    "source": "Commun. Mater.",
+    "volume": "6",
+    "locator": "221",
+    "doi": "10.1038/s43246-025-00963-4"
+   },
+   "used_by_eos_records": [
+    "iridium_anzellini_2025_bm3_1"
+   ],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Converted page 3 of the official open-access PDF to vector objects with pdfplumber, selected the 1.849-point filled-circle paths by the Figure 4 series colors, excluded legend and non-target objects by geometry and stroke state, read circle centers directly in PDF points, and mapped them through the linear frame/tick calibration. The extraction is reproducible with scripts/digitize_anzellini_2025_figure4.py.",
+    "source_pdf_sha256": "3c531753df70d77a32433c6663dc54b6796650d9412a2edbd981b130ea91aa01",
+    "source_pdf_page": 3,
+    "axis_calibration_pdf_points": {
+     "pressure": [
+      [
+       346.745,
+       0.0
+      ],
+      [
+       552.845,
+       150.0
+      ]
+     ],
+     "volume": [
+      [
+       248.247,
+       44.0
+      ],
+      [
+       50.643,
+       59.0
+      ]
+     ]
+    },
+    "digitization_uncertainty": "Conservative uniform center-placement bounds of 0.75 GPa and 0.08 A^3, approximately one marker radius plus calibration allowance; these are graphical curation bounds, not author-reported experimental uncertainties or source regression weights.",
+    "quality_control": {
+     "figure4_300k_marker_count": 91,
+     "figure4_830k_marker_count": 16,
+     "monteseguro_2019_figure2_source_pdf_sha256": "a0dccb0a383e653dc182f8c81fcb9305a49a77e12d0d5a53754b9d0cd29b24f3",
+     "monteseguro_2019_figure2_marker_count": 91,
+     "cross_figure_pressure_coordinate_correlation": 0.9999472364621498,
+     "cross_figure_volume_coordinate_correlation": 0.9999312058141785,
+     "digitized_300k_published_monteseguro_bm3_volume_rmse_a3": 0.11369073499284565,
+     "digitized_300k_volume_residual_refit": {
+      "V0_a3": 56.60040981,
+      "K0_gpa": 333.42838862,
+      "K0_prime": 5.34719715,
+      "rmse_a3": 0.09906013900747265
+     }
+    },
+    "digitized_on": "2026-09-08"
+   }
   }
  ]
 }

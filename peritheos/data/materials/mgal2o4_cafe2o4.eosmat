@@ -94,7 +94,9 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
     33.4
@@ -108,6 +110,7 @@
     "laser_heating": "2000-3000 K for about 60 minutes",
     "measurement_temperature": "room temperature after heating; no numerical value reported",
     "diffraction": "synchrotron X-ray diffraction at SSRL beamline 10-2",
+    "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
     "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 33.4 GPa state is their post-heating average"
    },
    "validity": {
@@ -118,14 +121,16 @@
     "notes": [
      "The only nonzero-pressure volume is the in-situ run-2 observation after laser heating; the zero-pressure volume is measured after recovery.",
      "The interval describes the two observations constraining the source parameterization, not a continuous stability field.",
-     "K0'=4 is fixed by the second-order Birch finite-strain model."
+     "K0'=4 is fixed by the second-order Birch finite-strain model.",
+     "This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work."
     ]
    },
    "parameter_provenance": {
     "equation": "Section 3.3: Birch second-order finite-strain EOS with Eulerian strain and K0'=4.",
     "V0": "Section 3.3: 240.3(2) A3 for the recovered CaFe2O4-type conventional cell.",
-    "K0": "Section 3.3: 211(+/-6) GPa from the ambient and run-2 pressure-volume states.",
-    "fit_selection": "Recovered zero-pressure cell and in-situ run-2 cell at the mean post-heating pressure of 33.4 GPa.",
+    "K0": "Section 3.3: 211(+/-6) GPa, calculated as the normalized pressure of the single in-situ run-2 state after holding the separately measured V0 fixed.",
+    "implicit_K0_prime": "Second-order Birch finite strain fixes K0'=4; it is assumed rather than fitted or stored as a BM2 parameter.",
+    "construction_states": "Recovered zero-pressure cell fixes V0; the in-situ run-2 cell at the mean post-heating pressure of 33.4 GPa then determines K0 algebraically. This is not a regression fit.",
     "uncertainties": "The source says bulk-modulus uncertainty is calculated from the difference between ruby- and Pt-derived post-heating pressures; no covariance or confidence convention is published."
    },
    "pressure_calibration": {
@@ -168,14 +173,14 @@
      }
     ],
     "recalculation": {
-     "status": "ready",
-     "notes": "The source prints both calibrated post-heating pressures. Their monotonic executable calibrations can be inverted if recalculation to another pressure scale is required; raw wavelength and Pt lattice measurements are not printed."
+     "status": "missing_calibrant_observations",
+     "notes": "The source prints both reduced post-heating pressures but not the paired ruby wavelength or Pt lattice measurement, so the pressure reduction cannot be rerun independently."
     },
     "audit_date": "2026-09-05"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration.",
+    "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration. Retained as the source-reported historical endpoint curve, but later multi-point CaFe2O4-type EOS measurements are preferred for quantitative use.",
     "audit_date": "2026-09-05",
     "verified_fields": [
      "canonical_doi",
@@ -202,7 +207,7 @@
       "Section 3.3",
       "Figure 4"
      ],
-     "finding": "The authors identify run 2 as CaFe2O4-type MgAl2O4 and derive a separate second-order Birch EOS from its recovered ambient and in-situ high-pressure cells; this is a phase parameterization, not an arbitrary run split."
+     "finding": "The authors identify run 2 as CaFe2O4-type MgAl2O4 and construct a separate second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from one compressed cell. They explicitly state that more points would be needed for a robust modulus and an estimate of K0'."
     },
     "primary_data_check": {
      "status": "bundled",
@@ -213,20 +218,24 @@
      "source_locations": [
       "Section 3.1 and Table 1"
      ],
-     "finding": "The two source states are bundled from printed pressure and lattice values; the nonzero-pressure volume and its propagated uncertainty are calculated transparently from the printed axes."
+     "finding": "The complete observations used by the source construction are bundled from printed pressure and lattice values. There is exactly one informative finite-pressure state; the source reports no supplementary materials, and the audit found no associated repository series."
     },
     "independent_refit": {
-     "classification": "parity",
-     "method": "Fixed-V0 BM2 solution from the rounded high-pressure lattice product, with K0'=4 implicit in BM2.",
+     "classification": "not_refittable",
+     "method": "Analytical reproduction of the source's one-point construction: fixed recovered V0, K0'=4 implicit in BM2, and K0 equal to the normalized pressure of the rounded high-pressure lattice product.",
      "parameters": {
       "V0": 240.3,
       "K0": 211.43687148
      },
+     "informative_finite_pressure_observations": 1,
+     "degrees_of_freedom_for_residual_test": 0,
+     "pressure_bracket_half_range_k0_gpa": 6.01392299,
      "published_curve_pressure_residual_gpa": -0.06901118,
-     "finding": "The refitted K0 differs from the published value by 0.44 GPa, much less than the printed 6 GPa standard uncertainty."
-    }
+     "finding": "The analytically reconstructed K0 differs from the published value by 0.44 GPa because the printed axes are rounded. Applying the same calculation to the ruby/Pt pressure bracket gives a 6.01 GPa half-range, reproducing the published +/-6 GPa uncertainty after rounding; there is no independent regression residual test."
+    },
+    "usage_recommendation": "not_recommended_for_quantitative_use"
    },
-   "notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4."
+   "notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit."
   },
   {
    "identifier": "mgal2o4_cafe2o4_irifune_2002_bm2_2",
@@ -874,7 +883,7 @@
   {
    "identifier": "mgal2o4_cafe2o4_funamori_1998_text_pv",
    "kind": "pressure_volume_lattice_parameters",
-   "description": "Recovered ambient and in-situ run-2 pressure-volume states used for the CaFe2O4-type MgAl2O4 BM2.",
+   "description": "Recovered ambient and single in-situ run-2 pressure-volume states used for the CaFe2O4-type MgAl2O4 one-point BM2 construction.",
    "reference": {
     "authors": [
      "Funamori",

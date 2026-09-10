@@ -5708,7 +5708,8 @@
         "access_url": "https://doi.org/10.1038/s43246-025-00963-4",
         "locations": [
           "Model description",
-          "Table 1, combined experimental fit"
+          "Table 1, combined experimental fit",
+          "Figure 4"
         ],
         "finding": "The stored record is the 300 K BM3 subset of a combined thermal fit.",
         "doi": "10.1038/s43246-025-00963-4"
@@ -8954,7 +8955,7 @@
       "label": "Funamori et al. (1998), CaFe2O4-type MgAl2O4 BM2",
       "doi": "10.1029/98jb01575",
       "status": "primary_source_validated",
-      "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration.",
+      "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration. Retained as the source-reported historical endpoint curve, but later multi-point CaFe2O4-type EOS measurements are preferred for quantitative use.",
       "primary_source_check": {
         "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
         "doi": "10.1029/98JB01575",
@@ -8965,8 +8966,9 @@
           "Section 3.3",
           "Figure 4"
         ],
-        "finding": "The authors identify run 2 as CaFe2O4-type MgAl2O4 and derive a separate second-order Birch EOS from its recovered ambient and in-situ high-pressure cells; this is a phase parameterization, not an arbitrary run split."
-      }
+        "finding": "The authors identify run 2 as CaFe2O4-type MgAl2O4 and construct a separate second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from one compressed cell. They explicitly state that more points would be needed for a robust modulus and an estimate of K0'."
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use"
     },
     {
       "material": "mgal2o4_cafe2o4",
@@ -9038,7 +9040,7 @@
       "label": "Funamori et al. (1998), CaTi2O4-type MgAl2O4 BM2",
       "doi": "10.1029/98jb01575",
       "status": "primary_source_validated",
-      "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration.",
+      "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration. Retained as the source-reported historical endpoint curve, but later multi-point CaTi2O4-type EOS measurements are preferred for quantitative use.",
       "primary_source_check": {
         "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
         "doi": "10.1029/98JB01575",
@@ -9049,8 +9051,9 @@
           "Table 2",
           "Figure 4"
         ],
-        "finding": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure, and the authors derive a separate second-order Birch EOS from its run-4 ambient and high-pressure cells; this is a phase parameterization, not an arbitrary run split."
-      }
+        "finding": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure. The authors construct its second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from the one usable compressed run-4 cell; run-2 CaTi2O4-type peaks were too weak and overlapped for a reliable cell volume."
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use"
     },
     {
       "material": "mgal2o4_cati2o4",

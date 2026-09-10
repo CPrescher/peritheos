@@ -163,11 +163,6 @@ INDIRECT_DATA = {
         "The supplementary solid DFT-MD table validates the finished pressure and "
         "energy model but is not the upstream cold-curve and phonon fitting grid."
     ),
-    "iridium_anzellini_2025_bm3_1": (
-        "The bundled rows are all heated states. The stored coefficients are the "
-        "300 K reference part of a combined thermal fit, but the record does not "
-        "represent the source's thermal correction needed to refit those rows."
-    ),
     "mgo_li_2006_bm3_absolute_acoustic": (
         "The Table 1 pressures are outputs of the stored acoustic-derived BM3, not "
         "independent pressure-volume observations. The source-derived isothermal "
@@ -175,16 +170,18 @@ INDIRECT_DATA = {
         "and the dedicated acoustic finite-strain reproduction."
     ),
     "mgal2o4_cafe2o4_funamori_1998_bm2_1": (
-        "The primary article reports only the ambient and compressed endpoint for "
-        "this polymorph. Those two states reproduce the published fixed-V0, "
-        "fixed-K0-prime curve in the dedicated Funamori reproduction, but do not "
-        "provide enough degrees of freedom for the generic refit campaign."
+        "The source construction is not a regression: recovered V0 is held fixed, "
+        "K0-prime=4 is assumed, and the only compressed observation determines K0 "
+        "algebraically. The article has no supplement, and the audit found no "
+        "associated repository series; the complete reported endpoint evidence is "
+        "bundled, but it leaves zero independent residual degrees of freedom."
     ),
     "mgal2o4_cati2o4_funamori_1998_bm2_1": (
-        "The primary article reports only the ambient and compressed endpoint for "
-        "this polymorph. Those two states reproduce the published fixed-V0, "
-        "fixed-K0-prime curve in the dedicated Funamori reproduction, but do not "
-        "provide enough degrees of freedom for the generic refit campaign."
+        "The source construction is not a regression: recovered V0 is held fixed, "
+        "K0-prime=4 is assumed, and the only compressed observation determines K0 "
+        "algebraically. The article has no supplement, and the audit found no "
+        "associated repository series; the complete reported endpoint evidence is "
+        "bundled, but it leaves zero independent residual degrees of freedom."
     ),
     "bridgmanite_chantel_2012_bm3_mgd": (
         "The bundled density and acoustic-velocity observations validate the "
@@ -253,6 +250,7 @@ UNWEIGHTED_DATASETS = {
     "namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized",
     "neon_fei_2007_figure5_digitized",
     "iron_zhang_2025_tables_s1_s3_s4_pvt",
+    "iridium_anzellini_2025_figure4_300k_830k_vector_digitized",
 }
 
 # The articles print row-wise metrology uncertainties but do not describe using
@@ -1555,10 +1553,230 @@ def _combined_fit_dataset(
     )
 
 
+def _fit_iridium_anzellini_2025(
+    document: dict[str, Any],
+    record: dict[str, Any],
+    series: Series,
+    executable: ThermalEOS,
+    volume_scale: float,
+) -> dict[str, Any]:
+    """Reproduce the supported part of Anzellini's combined P-V-T fit.
+
+    The exact laser-heating rows support a conditional alpha0 check.  Figure 4
+    additionally exposes the otherwise unpublished Monteseguro 300 K and
+    present-study 830 K marker centers as vector paths.  Combining those
+    plot-derived rows with the exact laser-heating rows inside the source's
+    stated +/-100 K isotherm bands gives an explicitly qualified reconstruction
+    of the four-parameter fit.
+    """
+    if series.temperature is None:
+        raise ValueError("Anzellini iridium reproduction requires mean temperature")
+    rt = record["eos"]["parameters"]
+    thermal = record["thermal"]["parameters"]
+    fixed = {
+        "rt_eos.V0": float(rt["V0"]) * volume_scale,
+        "rt_eos.K0": float(rt["K0"]),
+        "rt_eos.K0_prime": float(rt["K0_prime"]),
+        "Tr": float(thermal["Tr"]),
+        "theta": float(thermal["theta"]),
+        "n": float(thermal["n"]),
+    }
+    fit_arguments = {
+        "eos_class": type(executable),
+        "rt_eos_class": type(executable.rt_eos),
+        "volume": series.volume * volume_scale,
+        "temperature": series.temperature,
+        "pressure": series.pressure,
+        "configuration": _configuration(record),
+        "pressure_sigma": None,
+        "volume_sigma": None,
+        "temperature_sigma": None,
+        "absolute_sigma": False,
+        "max_nfev": 5000,
+    }
+    conditional = fit_joint_eos(
+        **fit_arguments,
+        initial={"alpha0": float(thermal["alpha0"])},
+        fixed=fixed,
+        bounds={"alpha0": _bounds("alpha0", float(thermal["alpha0"]))},
+    )
+    status, comparisons = _compare(record, conditional, True, volume_scale)
+    residuals = np.asarray(conditional.residuals, dtype=float)
+
+    full_initial = {
+        "rt_eos.V0": float(rt["V0"]) * volume_scale,
+        "rt_eos.K0": float(rt["K0"]),
+        "rt_eos.K0_prime": float(rt["K0_prime"]),
+        "alpha0": float(thermal["alpha0"]),
+    }
+    full = fit_joint_eos(
+        **fit_arguments,
+        initial=full_initial,
+        fixed={
+            name: value
+            for name, value in fixed.items()
+            if not name.startswith("rt_eos.")
+        },
+        bounds={name: _bounds(name, value) for name, value in full_initial.items()},
+    )
+    full_parameters = {
+        name: float(value)
+        for name, value in full.parameters.items()
+        if name in full_initial
+    }
+    full_parameters["rt_eos.V0"] /= volume_scale
+    full_residuals = np.asarray(full.residuals, dtype=float)
+
+    plot_dataset_id = "iridium_anzellini_2025_figure4_300k_830k_vector_digitized"
+    plot_dataset = next(
+        item
+        for item in document.get("datasets", [])
+        if item["identifier"] == plot_dataset_id
+    )
+    plot_series = _series(document, record, plot_dataset)
+    if plot_series.temperature is None:
+        raise ValueError("Anzellini Figure 4 reconstruction requires temperature")
+
+    isotherm_centers = np.asarray(
+        [1700.0, 2000.0, 2200.0, 2600.0, 3300.0, 3800.0, 4200.0]
+    )
+    distance_to_isotherm = np.min(
+        np.abs(series.temperature[:, None] - isotherm_centers[None, :]), axis=1
+    )
+    in_source_temperature_bands = distance_to_isotherm <= 100.0
+    reconstructed_volume = np.concatenate(
+        [plot_series.volume, series.volume[in_source_temperature_bands]]
+    )
+    reconstructed_temperature = np.concatenate(
+        [plot_series.temperature, series.temperature[in_source_temperature_bands]]
+    )
+    reconstructed_pressure = np.concatenate(
+        [plot_series.pressure, series.pressure[in_source_temperature_bands]]
+    )
+    reconstructed = fit_joint_eos(
+        type(executable),
+        type(executable.rt_eos),
+        reconstructed_volume * volume_scale,
+        reconstructed_temperature,
+        reconstructed_pressure,
+        initial=full_initial,
+        fixed={
+            name: value
+            for name, value in fixed.items()
+            if not name.startswith("rt_eos.")
+        },
+        bounds={name: _bounds(name, value) for name, value in full_initial.items()},
+        absolute_sigma=False,
+        max_nfev=5000,
+    )
+    _, reconstructed_comparisons = _compare(record, reconstructed, True, volume_scale)
+    reconstructed_residuals = np.asarray(reconstructed.residuals, dtype=float)
+    source_one_sigma_matches = {
+        item["parameter"]: (
+            item["published_error"] is not None
+            and abs(item["difference"]) <= item["published_error"]
+        )
+        for item in reconstructed_comparisons
+    }
+
+    return {
+        "status": status,
+        "dataset_identifiers": [series.dataset_id],
+        "observations": int(series.pressure.size),
+        "selection": "all 122 Supplementary Tables 1-3 laser-heating rows",
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": [
+            float(np.min(series.temperature)),
+            float(np.max(series.temperature)),
+        ],
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": series.temperature_column,
+        },
+        "fit_kind": "conditional_holland_powell_thermal_pressure",
+        "objective": "unweighted_pressure_residuals",
+        "absolute_sigma": False,
+        "conditional_fixed_parameters": [
+            "rt_eos.V0",
+            "rt_eos.K0",
+            "rt_eos.K0_prime",
+            "Tr",
+            "theta",
+            "n",
+        ],
+        "free_parameters": list(conditional.free_parameters),
+        "parameters": comparisons,
+        "published_rmse_gpa": _published_rmse(
+            executable, volume_scale, series, float(thermal["Tr"])
+        ),
+        "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "reduced_chi_square": (
+            float(conditional.reduced_chi_square)
+            if np.isfinite(conditional.reduced_chi_square)
+            else None
+        ),
+        "degrees_of_freedom": int(conditional.degrees_of_freedom),
+        "solver_success": bool(conditional.success),
+        "solver_message": str(conditional.message),
+        "hot_rows_four_parameter_diagnostic": {
+            "purpose": (
+                "Demonstrates that the laser-heating rows alone do not identify "
+                "the BM3 reference and alpha0 jointly; this is not the source's "
+                "combined fit."
+            ),
+            "free_parameters": list(full.free_parameters),
+            "parameters": full_parameters,
+            "rmse_gpa": float(np.sqrt(np.mean(full_residuals**2))),
+            "solver_success": bool(full.success),
+            "solver_message": str(full.message),
+        },
+        "plot_derived_combined_fit": {
+            "status": "reconstructed_from_vector_figure_not_source_parity",
+            "dataset_identifiers": [series.dataset_id, plot_dataset_id],
+            "observations": int(reconstructed_pressure.size),
+            "selection": (
+                "91 Figure 4 black-circle 300 K markers, 16 Figure 4 "
+                "dark-red-circle 830 K markers, and 65 exact supplementary "
+                "laser-heating rows within +/-100 K of the plotted 1700, 2000, "
+                "2200, 2600, 3300, 3800, and 4200 K isotherms"
+            ),
+            "objective": "unweighted_pressure_residuals",
+            "free_parameters": list(reconstructed.free_parameters),
+            "parameters": reconstructed_comparisons,
+            "within_published_one_sigma": source_one_sigma_matches,
+            "rmse_gpa": float(np.sqrt(np.mean(reconstructed_residuals**2))),
+            "solver_success": bool(reconstructed.success),
+            "solver_message": str(reconstructed.message),
+        },
+        "complete_combined_fit_status": "plot_derived_reconstruction_only",
+        "qualification": (
+            "The exact Equations 1-3 thermal correction and source temperature "
+            "average are reproduced. With the published BM3 reference held fixed, "
+            "all 122 laser-heating rows independently refit alpha0. A second, "
+            "explicitly plot-derived reconstruction uses the vector marker centers "
+            "for the missing 300 K and 830 K series and the source's stated "
+            "+/-100 K temperature bands. It materially approaches all four "
+            "published coefficients, but is not source parity because the original "
+            "numerical rows, exact averaging/selection algorithm, weights, and "
+            "covariance remain unpublished."
+        ),
+    }
+
+
 def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+
+
     dataset_identifiers = [dataset["identifier"]]
     if record_id in COMBINED_FIT_DATASET_RECORDS:
         dataset, dataset_identifiers = _combined_fit_dataset(document, record)
@@ -1763,6 +1981,16 @@ def _fit_record(
     executable = material.eos_records[0].eos
     thermal = isinstance(executable, ThermalEOS)
     static_initial, static_fixed = _static_parameters(record)
+
+    if record_id == "iridium_anzellini_2025_bm3_1":
+        assert thermal
+        return _fit_iridium_anzellini_2025(
+            document,
+            record,
+            series,
+            executable,
+            material.eos_records[0].volume_scale,
+        )
 
     if record["reference"].get("doi") == "10.1029/2007GL030712":
         # Independent validation choices, not Fei's unpublished weights/mask.

@@ -1,5 +1,6 @@
 import csv
 import hashlib
+import json
 import math
 from pathlib import Path
 
@@ -23,6 +24,7 @@ CASES = {
         "high_volume": 212.406277266,
         "diagnostic": "cafe2o4_type",
         "refit_k0": 211.436871484,
+        "bracket_half_range": 6.013922991,
     },
     "mgal2o4_cati2o4": {
         "record": "mgal2o4_cati2o4_funamori_1998_bm2_1",
@@ -36,6 +38,7 @@ CASES = {
         "high_volume": 195.540421098,
         "diagnostic": "cati2o4_type",
         "refit_k0": 206.401375420,
+        "bracket_half_range": 2.888977261,
     },
 }
 
@@ -64,6 +67,12 @@ def test_funamori_phase_identity_and_published_bm2(material_identifier, case):
         "parameters": case["parameters"],
     }
     assert stored["parameter_errors"] == case["errors"]
+    assert stored["fixed_parameters"] == ["V0"]
+    assert "K0'=4" in stored["parameter_provenance"]["implicit_K0_prime"]
+    assert (
+        stored["pressure_calibration"]["recalculation"]["status"]
+        == "missing_calibrant_observations"
+    )
     assert stored["scientific_validation"]["status"] == "primary_source_validated"
 
     executable = Material.from_eosmat(document).get_eos_record(case["record"])
@@ -91,17 +100,24 @@ def test_funamori_text_data_transcription_and_checksum(material_identifier, case
 
 
 @pytest.mark.parametrize(("material_identifier", "case"), CASES.items())
-def test_funamori_published_curve_and_fixed_v0_refit_have_parity(
+def test_funamori_published_curve_and_fixed_v0_endpoint_reproduction(
     material_identifier, case
 ):
     diagnostic = reproduce()[case["diagnostic"]]
-    assert diagnostic["fixed_v0_refit_k0_gpa"] == pytest.approx(
+    assert diagnostic["fixed_v0_endpoint_k0_gpa"] == pytest.approx(
         case["refit_k0"], abs=1.0e-9
     )
     assert (
-        abs(diagnostic["fixed_v0_refit_k0_gpa"] - case["parameters"]["K0"])
+        abs(diagnostic["fixed_v0_endpoint_k0_gpa"] - case["parameters"]["K0"])
         < case["errors"]["K0"]
     )
+    assert diagnostic["pressure_bracket_half_range_k0_gpa"] == pytest.approx(
+        case["bracket_half_range"], abs=1.0e-9
+    )
+    assert (
+        round(diagnostic["pressure_bracket_half_range_k0_gpa"]) == case["errors"]["K0"]
+    )
+    assert diagnostic["informative_finite_pressure_observations"] == 1
 
     document = get_material_document(material_identifier)
     stored = document["eos_records"][0]
@@ -111,6 +127,27 @@ def test_funamori_published_curve_and_fixed_v0_refit_have_parity(
     )
     stored_refit = stored["scientific_validation"]["independent_refit"]["parameters"]
     assert stored_refit["K0"] == pytest.approx(case["refit_k0"], abs=1.0e-8)
+    reproduction = stored["scientific_validation"]["independent_refit"]
+    assert reproduction["classification"] == "not_refittable"
+    assert reproduction["degrees_of_freedom_for_residual_test"] == 0
+
+
+def test_funamori_generic_ledger_preserves_not_refittable_endpoint_decision():
+    ledger = json.loads(
+        (ROOT / "docs" / "data" / "primary-eos-refits.json").read_text(encoding="utf-8")
+    )
+    identifiers = {case["record"] for case in CASES.values()}
+    entries = {
+        entry["record_identifier"]: entry
+        for entry in ledger["records"]
+        if entry["record_identifier"] in identifiers
+    }
+    assert set(entries) == identifiers
+    for entry in entries.values():
+        assert entry["status"] == "not_refittable"
+        assert entry["fixed_parameters"] == ["V0"]
+        assert "not a regression" in entry["reason"]
+        assert "zero independent residual degrees of freedom" in entry["reason"]
 
 
 def test_funamori_audit_disposes_all_same_doi_candidates_once():
@@ -126,3 +163,6 @@ def test_funamori_audit_disposes_all_same_doi_candidates_once():
         "litcurate_cc1efc12c6e1c6e0",
     ):
         assert audit.count(candidate) == 1
+    assert "no supplementary" in audit.lower()
+    assert "materials" in audit.lower()
+    assert "one-point construction" in audit.lower()

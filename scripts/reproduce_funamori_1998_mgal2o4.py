@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Reproduce Funamori et al.'s (1998) two MgAl2O4 BM2 fits.
+"""Reproduce Funamori et al.'s (1998) two MgAl2O4 BM2 constructions.
 
 Each source EOS is constrained by a recovered ambient cell and one in-situ
-high-pressure cell.  The script multiplies the printed high-pressure lattice
-axes, evaluates the published curve, and independently solves for K0 with V0
-fixed to the separately printed ambient volume.  K0'=4 is implicit in BM2.
+high-pressure cell.  This is not a regression: the source fixes the separately
+measured V0, assumes K0'=4, and obtains K0 as the normalized pressure of the
+single compressed state.  The script reproduces that calculation from the
+printed lattice axes and also propagates the ruby/Pt pressure bracket.
 """
 
 from __future__ import annotations
@@ -37,8 +38,14 @@ def bm2_pressure(volume: np.ndarray | float, v0: float, k0: float) -> np.ndarray
     return 1.5 * k0 * (eta**7 - eta**5)
 
 
-def reproduce() -> dict[str, dict[str, float]]:
-    """Return deterministic lattice, curve, and fixed-V0 refit diagnostics."""
+def normalized_pressure(volume: float, pressure: float, v0: float) -> float:
+    """Return Funamori et al.'s second-order Birch normalized pressure."""
+    strain = 0.5 * ((v0 / volume) ** (2.0 / 3.0) - 1.0)
+    return pressure / (3.0 * strain * (1.0 + 2.0 * strain) ** 2.5)
+
+
+def reproduce() -> dict[str, dict[str, float | int]]:
+    """Return deterministic endpoint-construction diagnostics."""
     result = {}
     for phase, case in CASES.items():
         with case["path"].open(newline="", encoding="utf-8") as stream:
@@ -50,15 +57,22 @@ def reproduce() -> dict[str, dict[str, float]]:
             * float(high["c_angstrom"])
         )
         pressure = float(high["pressure_gpa"])
-        unit_curve_pressure = float(bm2_pressure(lattice_volume, case["V0"], 1.0))
-        refit_k0 = pressure / unit_curve_pressure
+        ruby_pressure = float(high["pressure_ruby_after_heating_gpa"])
+        pt_pressure = float(high["pressure_pt_after_heating_gpa"])
+        endpoint_k0 = normalized_pressure(lattice_volume, pressure, case["V0"])
+        ruby_k0 = normalized_pressure(lattice_volume, ruby_pressure, case["V0"])
+        pt_k0 = normalized_pressure(lattice_volume, pt_pressure, case["V0"])
         published_pressure = float(bm2_pressure(lattice_volume, case["V0"], case["K0"]))
         result[phase] = {
             "lattice_product_volume_a3": lattice_volume,
             "source_pressure_gpa": pressure,
             "published_curve_pressure_gpa": published_pressure,
             "published_curve_pressure_residual_gpa": published_pressure - pressure,
-            "fixed_v0_refit_k0_gpa": refit_k0,
+            "fixed_v0_endpoint_k0_gpa": endpoint_k0,
+            "ruby_endpoint_k0_gpa": ruby_k0,
+            "pt_endpoint_k0_gpa": pt_k0,
+            "pressure_bracket_half_range_k0_gpa": abs(ruby_k0 - pt_k0) / 2.0,
+            "informative_finite_pressure_observations": 1,
         }
     return result
 

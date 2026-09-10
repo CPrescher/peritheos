@@ -187,6 +187,12 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert [item["refit"] for item in wang_weidner["parameters"]] == pytest.approx(
         [45.832161459, 279.27071645]
     )
+    iridium = by_identifier["iridium_anzellini_2025_bm3_1"]
+    assert iridium["status"] == "parity"
+    assert iridium["fit_kind"] == "conditional_holland_powell_thermal_pressure"
+    assert iridium["complete_combined_fit_status"] == (
+        "plot_derived_reconstruction_only"
+    )
     assert "Complete plot-scope reproduction" in wang_weidner["qualification"]
 
     sokolova = by_identifier["mgo_sokolova_2013_holzapfel_4"]
@@ -194,6 +200,20 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert sokolova["marker_count"] == 11
     assert sokolova["global_observations"] == 392
     assert sokolova["independent_eos_refit"] is False
+    reconstructed = iridium["plot_derived_combined_fit"]
+    assert reconstructed["status"] == (
+        "reconstructed_from_vector_figure_not_source_parity"
+    )
+    assert reconstructed["observations"] == 172
+    assert [item["refit"] for item in reconstructed["parameters"]] == pytest.approx(
+        [56.626690638, 326.155456485, 5.581046757, 1.829165666e-5]
+    )
+    assert reconstructed["within_published_one_sigma"] == {
+        "rt_eos.V0": True,
+        "rt_eos.K0": True,
+        "rt_eos.K0_prime": False,
+        "alpha0": True,
+    }
     fu_bm2 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"]
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"
