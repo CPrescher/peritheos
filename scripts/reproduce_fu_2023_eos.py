@@ -17,9 +17,7 @@ BRIDGMANITE_RECORDS = (
     "mg088fe010al014si090o3_bridgmanite_fu_2023_bm3",
 )
 CA_RECORD = "ca_perovskite_fu_2023_bm3_mgd_refit"
-CA_REFIT_RECORD = (
-    "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
-)
+CA_REFIT_RECORD = "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
 AUDIT_PATH = (
     Path(__file__).resolve().parents[1] / "docs/data/fu-2023-casio3-refit-audit.json"
 )
@@ -105,9 +103,7 @@ def reproduce() -> dict[str, object]:
     expected = diagnostic["parameters"]
     assert isclose(refit_source["eos"]["parameters"]["V0"], expected["V0"])
     assert isclose(refit_source["eos"]["parameters"]["K0"], expected["K0"])
-    assert isclose(
-        refit_source["thermal"]["parameters"]["gamma0"], expected["gamma0"]
-    )
+    assert isclose(refit_source["thermal"]["parameters"]["gamma0"], expected["gamma0"])
     assert isclose(refit_source["thermal"]["parameters"]["q"], expected["q"])
     refit_model = Material.from_eosmat(
         ca_document, record_identifiers=[CA_REFIT_RECORD]

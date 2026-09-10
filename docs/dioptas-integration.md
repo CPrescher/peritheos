@@ -73,7 +73,7 @@ sources.
 ```python
 from peritheos import get_material_document, list_material_documents
 
-print(len(list_material_documents()))  # 286
+print(len(list_material_documents()))  # 263
 gold = get_material_document("gold")
 print(len(gold["eos_records"]))
 ```

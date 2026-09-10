@@ -207,25 +207,127 @@
    "source_location": "Akins (2003) thesis Table 4.2, the author-source table underlying Akins et al. (2004) electronic-data-supplement Table 1",
    "source_url": "https://thesis.library.caltech.edu/2291/",
    "columns": [
-    {"name": "source_order", "quantity": "source_row_order", "unit": "1", "role": "flag"},
-    {"name": "shot", "quantity": "shot_identifier", "unit": "1", "role": "flag"},
-    {"name": "starting_material", "quantity": "starting_material", "unit": "1", "role": "flag"},
-    {"name": "initial_density_g_cm3", "quantity": "initial_density", "unit": "g/cm^3", "role": "value"},
-    {"name": "initial_density_uncertainty_g_cm3", "quantity": "initial_density", "unit": "g/cm^3", "role": "uncertainty", "of": "initial_density_g_cm3"},
-    {"name": "flyer_driver_material", "quantity": "flyer_driver_material", "unit": "1", "role": "flag"},
-    {"name": "flyer_velocity_km_s", "quantity": "flyer_velocity", "unit": "km/s", "role": "value"},
-    {"name": "flyer_velocity_uncertainty_km_s", "quantity": "flyer_velocity", "unit": "km/s", "role": "uncertainty", "of": "flyer_velocity_km_s"},
-    {"name": "shock_velocity_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "value"},
-    {"name": "shock_velocity_uncertainty_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "uncertainty", "of": "shock_velocity_km_s"},
-    {"name": "elastic_precursor_velocity_km_s", "quantity": "elastic_precursor_velocity", "unit": "km/s", "role": "value"},
-    {"name": "elastic_precursor_velocity_uncertainty_km_s", "quantity": "elastic_precursor_velocity", "unit": "km/s", "role": "uncertainty", "of": "elastic_precursor_velocity_km_s"},
-    {"name": "second_wave_velocity_km_s", "quantity": "second_wave_velocity", "unit": "km/s", "role": "value"},
-    {"name": "second_wave_velocity_uncertainty_km_s", "quantity": "second_wave_velocity", "unit": "km/s", "role": "uncertainty", "of": "second_wave_velocity_km_s"},
-    {"name": "pressure_gpa", "quantity": "impedance_matched_shock_pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_uncertainty_gpa", "quantity": "impedance_matched_shock_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "shock_density_g_cm3", "quantity": "impedance_matched_shock_density", "unit": "g/cm^3", "role": "value"},
-    {"name": "shock_density_uncertainty_g_cm3", "quantity": "impedance_matched_shock_density", "unit": "g/cm^3", "role": "uncertainty", "of": "shock_density_g_cm3"},
-    {"name": "candidate_melt_constraint", "quantity": "diagnostic_selection", "unit": "1", "role": "flag"}
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "shot",
+     "quantity": "shot_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "starting_material",
+     "quantity": "starting_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "initial_density_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "initial_density_uncertainty_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
+     "role": "uncertainty",
+     "of": "initial_density_g_cm3"
+    },
+    {
+     "name": "flyer_driver_material",
+     "quantity": "flyer_driver_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "flyer_velocity_km_s",
+     "quantity": "flyer_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "flyer_velocity_uncertainty_km_s",
+     "quantity": "flyer_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "flyer_velocity_km_s"
+    },
+    {
+     "name": "shock_velocity_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_uncertainty_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "shock_velocity_km_s"
+    },
+    {
+     "name": "elastic_precursor_velocity_km_s",
+     "quantity": "elastic_precursor_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "elastic_precursor_velocity_uncertainty_km_s",
+     "quantity": "elastic_precursor_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "elastic_precursor_velocity_km_s"
+    },
+    {
+     "name": "second_wave_velocity_km_s",
+     "quantity": "second_wave_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "second_wave_velocity_uncertainty_km_s",
+     "quantity": "second_wave_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "second_wave_velocity_km_s"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "impedance_matched_shock_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "impedance_matched_shock_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "shock_density_g_cm3",
+     "quantity": "impedance_matched_shock_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "shock_density_uncertainty_g_cm3",
+     "quantity": "impedance_matched_shock_density",
+     "unit": "g/cm^3",
+     "role": "uncertainty",
+     "of": "shock_density_g_cm3"
+    },
+    {
+     "name": "candidate_melt_constraint",
+     "quantity": "diagnostic_selection",
+     "unit": "1",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/mgsio3-liquid-akins-2004-shock-states.csv",
@@ -244,7 +346,12 @@
    },
    "notes": "Initial density, flyer velocity, shock velocity, elastic-precursor velocity, and second-wave velocity are experimental observables. Pressure and shock density are impedance-match reductions and must not be treated as independent direct BM3 P-V measurements. candidate_melt_constraint marks only the three high-pressure enstatite states used by the diagnostic reconstruction.",
    "reference": {
-    "authors": ["Akins", "Luo", "Asimow", "Ahrens"],
+    "authors": [
+     "Akins",
+     "Luo",
+     "Asimow",
+     "Ahrens"
+    ],
     "year": 2004,
     "title": "Shock-induced melting of MgSiO3 perovskite and implications for melts in Earth's lowermost mantle",
     "source": "Geophysical Research Letters",
@@ -252,7 +359,9 @@
     "locator": "L14612",
     "doi": "10.1029/2004GL020237"
    },
-   "used_by_eos_records": ["mgsio3_liquid_akins_2004_adiabatic_bm3"]
+   "used_by_eos_records": [
+    "mgsio3_liquid_akins_2004_adiabatic_bm3"
+   ]
   },
   {
    "identifier": "mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt",
@@ -261,25 +370,126 @@
    "source_location": "Mosenfelder et al. (2009) Table 2, Akins et al. (2004) enstatite rows with phase state melt",
    "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008JB005900",
    "columns": [
-    {"name": "source_order", "quantity": "source_row_order", "unit": "1", "role": "flag"},
-    {"name": "shot", "quantity": "shot_identifier", "unit": "1", "role": "flag"},
-    {"name": "starting_material", "quantity": "starting_material", "unit": "1", "role": "flag"},
-    {"name": "reference", "quantity": "row_provenance", "unit": "1", "role": "flag"},
-    {"name": "flyer_driver_material", "quantity": "flyer_driver_material", "unit": "1", "role": "flag"},
-    {"name": "flyer_velocity_km_s", "quantity": "flyer_velocity", "unit": "km/s", "role": "value"},
-    {"name": "flyer_velocity_uncertainty_km_s", "quantity": "flyer_velocity", "unit": "km/s", "role": "uncertainty", "of": "flyer_velocity_km_s"},
-    {"name": "initial_density_g_cm3", "quantity": "initial_density", "unit": "g/cm^3", "role": "value"},
-    {"name": "initial_density_uncertainty_g_cm3", "quantity": "initial_density", "unit": "g/cm^3", "role": "uncertainty", "of": "initial_density_g_cm3"},
-    {"name": "shock_velocity_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "value"},
-    {"name": "shock_velocity_uncertainty_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "uncertainty", "of": "shock_velocity_km_s"},
-    {"name": "particle_velocity_km_s", "quantity": "impedance_matched_particle_velocity", "unit": "km/s", "role": "value"},
-    {"name": "particle_velocity_uncertainty_km_s", "quantity": "impedance_matched_particle_velocity", "unit": "km/s", "role": "uncertainty", "of": "particle_velocity_km_s"},
-    {"name": "pressure_gpa", "quantity": "impedance_matched_shock_pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_uncertainty_gpa", "quantity": "impedance_matched_shock_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "shock_density_g_cm3", "quantity": "impedance_matched_shock_density", "unit": "g/cm^3", "role": "value"},
-    {"name": "shock_density_uncertainty_g_cm3", "quantity": "impedance_matched_shock_density", "unit": "g/cm^3", "role": "uncertainty", "of": "shock_density_g_cm3"},
-    {"name": "phase_state", "quantity": "interpreted_phase_state", "unit": "1", "role": "flag"},
-    {"name": "fit_included", "quantity": "diagnostic_selection", "unit": "1", "role": "flag"}
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "shot",
+     "quantity": "shot_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "starting_material",
+     "quantity": "starting_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "reference",
+     "quantity": "row_provenance",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "flyer_driver_material",
+     "quantity": "flyer_driver_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "flyer_velocity_km_s",
+     "quantity": "flyer_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "flyer_velocity_uncertainty_km_s",
+     "quantity": "flyer_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "flyer_velocity_km_s"
+    },
+    {
+     "name": "initial_density_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "initial_density_uncertainty_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
+     "role": "uncertainty",
+     "of": "initial_density_g_cm3"
+    },
+    {
+     "name": "shock_velocity_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_uncertainty_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "shock_velocity_km_s"
+    },
+    {
+     "name": "particle_velocity_km_s",
+     "quantity": "impedance_matched_particle_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "particle_velocity_uncertainty_km_s",
+     "quantity": "impedance_matched_particle_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "particle_velocity_km_s"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "impedance_matched_shock_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "impedance_matched_shock_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "shock_density_g_cm3",
+     "quantity": "impedance_matched_shock_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "shock_density_uncertainty_g_cm3",
+     "quantity": "impedance_matched_shock_density",
+     "unit": "g/cm^3",
+     "role": "uncertainty",
+     "of": "shock_density_g_cm3"
+    },
+    {
+     "name": "phase_state",
+     "quantity": "interpreted_phase_state",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "fit_included",
+     "quantity": "diagnostic_selection",
+     "unit": "1",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/mgsio3-liquid-akins-2004-mosenfelder-2009-rereduced-melt.csv",
@@ -297,7 +507,13 @@
    },
    "notes": "Shock velocity is measured from streak-camera records. Particle velocity, pressure, shock density, and internal energy are calculated by impedance matching. The phase-state label is an interpretation. The diagnostic fit compares theoretical Hugoniot pressure with these reduced states and does not regress the stored BM3 directly against P-rho.",
    "reference": {
-    "authors": ["Mosenfelder", "Asimow", "Frost", "Rubie", "Ahrens"],
+    "authors": [
+     "Mosenfelder",
+     "Asimow",
+     "Frost",
+     "Rubie",
+     "Ahrens"
+    ],
     "year": 2009,
     "title": "The MgSiO3 system at high pressure: Thermodynamic properties of perovskite, postperovskite, and melt from global inversion of shock and static compression data",
     "source": "Journal of Geophysical Research: Solid Earth",
@@ -305,7 +521,9 @@
     "locator": "B01203",
     "doi": "10.1029/2008JB005900"
    },
-   "used_by_eos_records": ["mgsio3_liquid_akins_2004_adiabatic_bm3"]
+   "used_by_eos_records": [
+    "mgsio3_liquid_akins_2004_adiabatic_bm3"
+   ]
   }
  ]
 }

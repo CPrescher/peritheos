@@ -68,7 +68,7 @@ expansion and Grüneisen assumptions. No thermal EOS is inferred from them.
 
 ## Observations, calibration, and reproducibility
 
-The supplied complete [Table 2 CSV](../../peritheos/data/datasets/mg090fe010o-marquardt-2009-table2-pv.csv)
+The supplied complete [Table 2 CSV](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/mg090fe010o-marquardt-2009-table2-pv.csv)
 is copied byte-for-byte and linked by dataset identifier and SHA-256 in the
 material. All 29 pressure, volume, and volume-error triples match the primary
 table: 14 HS, 9 mixed-spin, and 6 LS. Ambient pressure is 10^-4 GPa.
@@ -178,7 +178,7 @@ ambient LS states. Each fit uses the same six Table 2 observations above
 marked preferred. Parameter uncertainties and covariance are unreported;
 the spread among assumed models is not a statistical error bar.
 
-The complete [Table S1 transcription](../../peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv)
+The complete [Table S1 transcription](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv)
 contains 15 rows: 12 models plus the three summary rows. Its KT columns are
 derived predictions, not extra compression observations. Only the columns at
 69, 70.1, 75.8 and 81.2 GPa are pure-LS BM3 checks. The 45.9, 52 and 59 GPa
@@ -196,7 +196,7 @@ no coefficient-uncertainty parity is claimed because the source supplies no
 coefficient standard errors or exact objective weights. Published values
 remain unchanged. The global refit ledger likewise finds 12 similar LS fits.
 
-The complete [Table S2 transcription](../../peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s2-elasticity.csv)
+The complete [Table S2 transcription](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s2-elasticity.csv)
 preserves 26 rows, all printed values and their parenthesized uncertainties,
 with parsed numerical uncertainties in separate columns. It is supporting
 elasticity evidence, never a P-V regression dataset. Its ambient KS value is

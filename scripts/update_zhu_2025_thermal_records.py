@@ -124,7 +124,12 @@ DATASETS = {
             "description": "Twelve Au shock states used by the Zhu et al. v3 thermal fit.",
             "source_location": "Mendeley v3: Au/Au_shock.dat",
             "columns": [
-                ("volume_a3_conventional_cell", "conventional_unit_cell_volume", "angstrom^3/conventional_unit_cell", "value"),
+                (
+                    "volume_a3_conventional_cell",
+                    "conventional_unit_cell_volume",
+                    "angstrom^3/conventional_unit_cell",
+                    "value",
+                ),
                 ("shock_pressure_gpa", "pressure", "GPa", "value"),
                 ("particle_velocity_m_s", "particle_velocity", "m/s", "value"),
             ],
@@ -139,7 +144,12 @@ DATASETS = {
             "source_location": "Mendeley v3: Au/Au_high_T.dat",
             "columns": [
                 ("temperature_k", "temperature", "K", "value"),
-                ("volume_a3_conventional_cell", "conventional_unit_cell_volume", "angstrom^3/conventional_unit_cell", "value"),
+                (
+                    "volume_a3_conventional_cell",
+                    "conventional_unit_cell_volume",
+                    "angstrom^3/conventional_unit_cell",
+                    "value",
+                ),
             ],
             "path": "datasets/zhu-2025-au-zero-pressure-thermal-expansion.csv",
             "sha256": "3baac523dbf58873d01e05499f73934bbebdfc5bbd03de876c9e4f06dfeee611",
@@ -153,7 +163,12 @@ DATASETS = {
             "description": "Sixty-eight Pt shock states used by the Zhu et al. v3 thermal fit.",
             "source_location": "Mendeley v3: Pt/Pt_shock_700.dat",
             "columns": [
-                ("volume_a3_conventional_cell", "conventional_unit_cell_volume", "angstrom^3/conventional_unit_cell", "value"),
+                (
+                    "volume_a3_conventional_cell",
+                    "conventional_unit_cell_volume",
+                    "angstrom^3/conventional_unit_cell",
+                    "value",
+                ),
                 ("shock_pressure_gpa", "pressure", "GPa", "value"),
                 ("particle_velocity_m_s", "particle_velocity", "m/s", "value"),
             ],
@@ -168,7 +183,12 @@ DATASETS = {
             "source_location": "Mendeley v3: Pt/Pt_high_T.dat",
             "columns": [
                 ("temperature_k", "temperature", "K", "value"),
-                ("volume_a3_conventional_cell", "conventional_unit_cell_volume", "angstrom^3/conventional_unit_cell", "value"),
+                (
+                    "volume_a3_conventional_cell",
+                    "conventional_unit_cell_volume",
+                    "angstrom^3/conventional_unit_cell",
+                    "value",
+                ),
             ],
             "path": "datasets/zhu-2025-pt-zero-pressure-thermal-expansion.csv",
             "sha256": "c338f3db484be4927880b90f7fcf88ce6b29c3c880e726755d3b29cf778cda70",
@@ -184,7 +204,12 @@ DATASETS = {
             "columns": [
                 ("pressure_gpa", "pressure", "GPa", "value"),
                 ("temperature_k", "temperature", "K", "value"),
-                ("volume_a3_conventional_cell", "conventional_unit_cell_volume", "angstrom^3/conventional_unit_cell", "value"),
+                (
+                    "volume_a3_conventional_cell",
+                    "conventional_unit_cell_volume",
+                    "angstrom^3/conventional_unit_cell",
+                    "value",
+                ),
             ],
             "path": "datasets/zhu-2025-mgo-pvt.csv",
             "sha256": "839acb4435c741aaa7266c956d9eba196756e5782ca63d47fb0b1a930fe4285c",
@@ -198,7 +223,9 @@ def _ye_record(source: dict, config: dict) -> dict:
     record = copy.deepcopy(source)
     record["identifier"] = config["ye_id"]
     record["aliases"] = [config["old_id"]]
-    record["label"] = f"Ye et al. (2017), {config['symbol']} Vinet 300 K co-compression fit"
+    record["label"] = (
+        f"Ye et al. (2017), {config['symbol']} Vinet 300 K co-compression fit"
+    )
     record["reference"] = YE_REFERENCE
     record["source_lineage"] = [
         line
@@ -209,12 +236,27 @@ def _ye_record(source: dict, config: dict) -> dict:
         "This is Ye et al.'s fitted 300 K co-compression isotherm.",
         "Zhu et al. later fixed this static branch inside a separate thermal P-V-T model.",
     ]
-    record["parameter_provenance"]["equation"] = "Ye et al. (2017), Section 3.3 and Table 1: third-order Vinet EOS."
-    record["parameter_provenance"]["K0_prime"] = record["parameter_provenance"]["K0_prime"].replace("; Zhu (2025) adopts rather than refits it", "")
-    record["parameter_provenance"]["scope"] = "Complete Ye et al. 300 K Vinet fit; no Zhu thermal parameters are part of this record."
-    record["scientific_validation"]["note"] = "The equation, parameters, uncertainty, reference state, and corrected co-compression inputs were checked against Ye et al. (2017)."
-    record["scientific_validation"]["primary_source_check"].pop("adopting_source_doi", None)
-    record["scientific_validation"]["primary_source_check"]["finding"] = record["scientific_validation"]["primary_source_check"]["finding"].split("; Zhu")[0] + "."
+    record["parameter_provenance"]["equation"] = (
+        "Ye et al. (2017), Section 3.3 and Table 1: third-order Vinet EOS."
+    )
+    record["parameter_provenance"]["K0_prime"] = record["parameter_provenance"][
+        "K0_prime"
+    ].replace("; Zhu (2025) adopts rather than refits it", "")
+    record["parameter_provenance"]["scope"] = (
+        "Complete Ye et al. 300 K Vinet fit; no Zhu thermal parameters are part of this record."
+    )
+    record["scientific_validation"]["note"] = (
+        "The equation, parameters, uncertainty, reference state, and corrected co-compression inputs were checked against Ye et al. (2017)."
+    )
+    record["scientific_validation"]["primary_source_check"].pop(
+        "adopting_source_doi", None
+    )
+    record["scientific_validation"]["primary_source_check"]["finding"] = (
+        record["scientific_validation"]["primary_source_check"]["finding"].split(
+            "; Zhu"
+        )[0]
+        + "."
+    )
     return record
 
 
@@ -223,7 +265,9 @@ def _zhu_record(source: dict, config: dict) -> dict:
     record = copy.deepcopy(source)
     record.pop("aliases", None)
     record["identifier"] = config["zhu_id"]
-    record["label"] = f"Zhu et al. (2025), {config['symbol']} internally consistent P-V-T EOS"
+    record["label"] = (
+        f"Zhu et al. (2025), {config['symbol']} internally consistent P-V-T EOS"
+    )
     record["reference"] = ZHU_REFERENCE
     record["source_lineage"] = [
         {
@@ -307,12 +351,22 @@ def _zhu_record(source: dict, config: dict) -> dict:
         "note": "The thermal equations were checked against the preprint and the executable coefficients and fit inputs against the CC BY 4.0 Mendeley v3 release.",
         "audit_date": "2026-09-08",
         "verified_fields": [
-            "equation", "parameters", "units", "reference_state", "phase", "validity", "primary_data"
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "validity",
+            "primary_data",
         ],
         "primary_source_check": {
             "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
             "doi": ZHU_REFERENCE["doi"],
-            "locations": ["Equations (2)-(8)", "Table 1", f"Mendeley v3 {config['symbol']} optimizer and property scripts"],
+            "locations": [
+                "Equations (2)-(8)",
+                "Table 1",
+                f"Mendeley v3 {config['symbol']} optimizer and property scripts",
+            ],
             "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set.",
         },
         "primary_data_check": {
@@ -326,7 +380,9 @@ def _zhu_record(source: dict, config: dict) -> dict:
             "note": "This establishes thermal-refit parity against the optimizer/property parameter set. The inconsistent standalone v3 pressure calculators remain documented as a separate implementation diagnostic.",
         },
     }
-    record["notes"] = "This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm."
+    record["notes"] = (
+        "This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm."
+    )
     return record
 
 
@@ -376,7 +432,9 @@ def update() -> None:
             if record["identifier"] in {config["old_id"], config["ye_id"]}
         ]
         if len(matches) != 1:
-            raise ValueError(f"Expected one source record for {material}, got {matches}")
+            raise ValueError(
+                f"Expected one source record for {material}, got {matches}"
+            )
         index = matches[0]
         source = records[index]
         records[index : index + 1] = [

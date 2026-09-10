@@ -832,10 +832,10 @@
     "primary_source_check": {
      "access_url": "https://arxiv.org/pdf/1311.4577",
      "locations": [
-     "Equations 3-7",
-     "Table I, diamond column",
-     "Figure 7, DFT-MD pressure and internal-energy comparison",
-     "Supplemental Material, solid DFT-MD table"
+      "Equations 3-7",
+      "Table I, diamond column",
+      "Figure 7, DFT-MD pressure and internal-energy comparison",
+      "Supplemental Material, solid DFT-MD table"
      ],
      "finding": "The complete source equation and coefficients are represented. The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled, but the upstream cold-energy and phonon fitting grids are not supplied.",
      "doi": "10.1103/physrevb.89.224109"
@@ -1265,6 +1265,69 @@
  },
  "datasets": [
   {
+   "identifier": "diamond_dewaele_2008_table1_pvt",
+   "kind": "pressure_volume_temperature_lattice_parameter",
+   "description": "All 57 diamond observations printed in Table I for which the diamond lattice parameter was reported, spanning 0-900 K and pressures to 76.8 GPa.",
+   "source_location": "Table I, diamond aC rows",
+   "source_url": "https://doi.org/10.1103/PhysRevB.77.094106",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gauge",
+     "quantity": "pressure_gauge",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_h05_gpa",
+     "quantity": "pressure_on_holzapfel_2005_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/diamond-dewaele-2008-table1-pvt.csv",
+    "sha256": "383bff242d40c74cfa9f49047531fad506eb98659e62320307357b6d8f1641f6",
+    "media_type": "text/csv"
+   },
+   "notes": "The table defines atomic volume as aC^3/8. Temperature was measured within 5 K; relative lattice-parameter uncertainty is approximately +/-3e-4. The stated H05 pressure uncertainty increases from 0.05 GPa at 1 GPa to 3 GPa at 200 GPa; no rowwise error columns are provided.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Datchi",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2008,
+    "source": "Phys. Rev. B",
+    "volume": "77",
+    "locator": "094106",
+    "doi": "10.1103/PhysRevB.77.094106"
+   },
+   "used_by_eos_records": [
+    "diamond_dewaele_2008_vinet_2",
+    "diamond_correa_2008_dewaele_anchored",
+    "diamond_benedict_2014_dewaele_anchored"
+   ]
+  },
+  {
    "identifier": "diamond_occelli_2003_figure2_digitized",
    "kind": "pressure_volume_digitized_with_pressure_scale_conversion",
    "description": "All 24 diamond P-V marker centers in Occelli et al. (2003) Figure 2: 14 run-2 open circles to 140.8 GPa and 10 run-3 filled circles to 10.6 GPa on the original MXB1986 scale, with exact H2005 recalculation.",
@@ -1456,69 +1519,6 @@
     },
     "digitized_on": "2026-09-08"
    }
-  },
-  {
-   "identifier": "diamond_dewaele_2008_table1_pvt",
-   "kind": "pressure_volume_temperature_lattice_parameter",
-   "description": "All 57 diamond observations printed in Table I for which the diamond lattice parameter was reported, spanning 0-900 K and pressures to 76.8 GPa.",
-   "source_location": "Table I, diamond aC rows",
-   "source_url": "https://doi.org/10.1103/PhysRevB.77.094106",
-   "columns": [
-    {
-     "name": "run",
-     "quantity": "run_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gauge",
-     "quantity": "pressure_gauge",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "pressure_h05_gpa",
-     "quantity": "pressure_on_holzapfel_2005_scale",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/diamond-dewaele-2008-table1-pvt.csv",
-    "sha256": "383bff242d40c74cfa9f49047531fad506eb98659e62320307357b6d8f1641f6",
-    "media_type": "text/csv"
-   },
-   "notes": "The table defines atomic volume as aC^3/8. Temperature was measured within 5 K; relative lattice-parameter uncertainty is approximately +/-3e-4. The stated H05 pressure uncertainty increases from 0.05 GPa at 1 GPa to 3 GPa at 200 GPa; no rowwise error columns are provided.",
-   "reference": {
-    "authors": [
-     "Dewaele",
-     "Datchi",
-     "Loubeyre",
-     "Mezouar"
-    ],
-    "year": 2008,
-    "source": "Phys. Rev. B",
-    "volume": "77",
-    "locator": "094106",
-    "doi": "10.1103/PhysRevB.77.094106"
-   },
-   "used_by_eos_records": [
-    "diamond_dewaele_2008_vinet_2",
-    "diamond_correa_2008_dewaele_anchored",
-    "diamond_benedict_2014_dewaele_anchored"
-   ]
   },
   {
    "identifier": "diamond_correa_2008_figure8_dft_md_vector_digitized",

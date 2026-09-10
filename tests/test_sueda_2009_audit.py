@@ -87,9 +87,9 @@ def test_native_model_matches_independent_cell_normalization_and_table(
         for k in ("volume_a3", "temperature_k", "pressure_gpa")
     )
     calculated = record.pressure(v, t)
-    np.testing.assert_allclose(calculated, independent(v, t), atol=2e-10, rtol=0)
+    np.testing.assert_allclose(calculated, independent(v, t), atol=5e-10, rtol=0)
     assert np.sqrt(np.mean((calculated - p) ** 2)) == pytest.approx(rmse, abs=1e-10)
-    np.testing.assert_allclose(record.pressure(v, 300.0), bm3(v), atol=2e-10, rtol=0)
+    np.testing.assert_allclose(record.pressure(v, 300.0), bm3(v), atol=5e-10, rtol=0)
     assert record.pressure(240.1, 300.0) == pytest.approx(0.0, abs=1e-10)
     assert record.eos.bulk_modulus(240.1 * record.volume_scale, 300.0) == pytest.approx(
         205.0

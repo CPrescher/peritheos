@@ -108,7 +108,7 @@ published a separate 0–91.2 GPa table and a BM2 fit of `V0=238.9(9) A3`,
 | LitCurate identifier | Candidate | Disposition |
 |---|---|---|
 | `litcurate_ca9a93f28c82d5bc` | Run-2 `V0=240.3`, `K0=211`, `K0'=4` | **ACCEPT** as the source-reported CaFe2O4-type MgAl2O4 historical endpoint BM2; complete construction evidence verified, but not independently refittable. |
-| `litcurate_45e8795108756c17` | Runs-3/4 `V0=240.3`, `K0=206`, `K0'=4` | **ACCEPT** as the source-reported CaTi2O4-type `Cmcm` MgAl2O4 historical endpoint BM2; complete construction evidence verified, but not independently refittable. |
+| `litcurate_45e8795108756c17` | Runs-3/4 `V0=240.3`, `K0=206`, `K0'=4` | **ACCEPT** as the source-reported CaTi2O4-type `Cmcm` historical endpoint historical endpoint BM2; complete construction evidence verified, but not independently refittable. |
 | `litcurate_cc1efc12c6e1c6e0` | Yutani et al. (1997) CaFe2O4-type `K0=241`, `K0'=4` | **REJECT as a Funamori-source record**; it is a citation-reported comparison and lacks `V0` in LitCurate.  It remains eligible for audit under the Yutani primary paper. |
 
 Final and net-new production count for DOI `10.1029/98JB01575`: **2 records**.

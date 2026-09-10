@@ -73,6 +73,8 @@ available:
 | `MieGruneisenEinstein` | any built-in isothermal EOS | `Tr, theta0, gamma0, q, n` |
 | `Tange2009Debye` | any built-in isothermal EOS | `Tr, theta0, gamma0, a, b, n` |
 | `Dewaele2006` | any built-in isothermal EOS | `Tr, theta0, gamma0, gamma_inf, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n` |
+| `HollandPowellThermalPressure` | any built-in isothermal EOS exposing `K0` | `Tr, theta, alpha0, n` |
+| `HollandPowellThermalPressure` | any built-in isothermal EOS exposing `K0` | `Tr, theta, alpha0, n` |
 | `ThermalModifiedTait` | `ModifiedTait` | `Tr, theta, alpha0, n` |
 | `HollandPowell2011` | alias of `ThermalModifiedTait` | unchanged |
 | `MultiOscillatorGruneisenThermalEOS` | any built-in isothermal EOS | oscillator, electronic, anharmonic, and explicit atom-count parameters documented in the API reference |
@@ -212,14 +214,16 @@ under `benchmarks/baselines/` and are evidence, not performance promises.
 
 ## Integration-branch implementation status
 
-The workspace contains the public library and private binding crates. Built-in
+The workspace contains the public library and private binding crates. Migrated
 isothermal and thermal Python classes route their numerical work to `peritheos`,
 including inversion, derivatives, caloric properties, and the full
 multi-oscillator expression. This includes the material catalog's linear and
 log-volume thermal-pressure corrections, configurable thermal reference-state
 model, both Debye-temperature conventions, and Tange asymptotic-power-law
 model. Mie-Gruneisen models retain a Python fallback only when they wrap a
-user-defined `EosBase` implementation.
+user-defined `EosBase` implementation. The later-added cubic-exponent `Vinet3`
+and double-Debye Helmholtz variants currently use their Python evaluators;
+independent equation and catalog evaluation tests cover these exceptions.
 
 The public fitting functions use the `peritheos::fit` bounded solver for all
 five named loss functions. For exact built-in models, the Python layer passes

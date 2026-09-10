@@ -1,0 +1,80 @@
+{
+  "format": "peritheos.source-audit",
+  "format_version": 1,
+  "audit_date": "2026-09-08",
+  "dataset_identifier": "mao_1991_tables2_3_bridgmanite_pv",
+  "dataset_resource": "mao-1991-tables2-3-bridgmanite-pv.csv",
+  "source": {
+    "title": "Effect of pressure, temperature, and composition on lattice parameters and density of (Fe,Mg)SiO3-perovskites to 30 GPa",
+    "authors": [
+      "Ho-kwang Mao",
+      "Russell J. Hemley",
+      "Yingwei Fei",
+      "Jinfu Shu",
+      "Liang-chen Chen",
+      "Andrew P. Jephcoat",
+      "Yan Wu",
+      "William A. Bassett"
+    ],
+    "year": 1991,
+    "journal": "Journal of Geophysical Research: Solid Earth",
+    "volume": "96",
+    "pages": "8069-8079",
+    "doi": "10.1029/91JB00176",
+    "source_location": "Table 1 on journal page 8073; Tables 2 and 3 on journal pages 8073-8074",
+    "supplied_pdf_sha256": "801e26de9dda12d42a717829a1def1a987a20e83848c68dafaef89971778259e"
+  },
+  "transcription": {
+    "rows": 16,
+    "temperature_k": 300,
+    "compositions": {
+      "MgSiO3": 3,
+      "Mg0.9Fe0.1SiO3": 9,
+      "Mg0.8Fe0.2SiO3": 4
+    },
+    "scope": "All room-temperature rows in final-article Tables 2 and 3. Table 1 supplies the three separately measured ambient reference volumes.",
+    "fit_selection": "The article explicitly states that the Mg0.9Fe0.1SiO3 data were used for its least-squares Birch-Murnaghan fit; all nine 300 K rows of that composition are marked fit_included=1.",
+    "excluded_room_temperature_rows": "The seven x=0 and x=0.2 rows are comparison observations and are not part of the source-stated elastic fit.",
+    "other_reported_exclusions": "High-temperature Table 2 runs TA1 and TA4 carry footnote a: large errors due to poor films, not used in least-squares fitting. They are outside this room-temperature dataset.",
+    "weights": "The article says least squares but does not state a weighting or dependent-variable convention. An unweighted pressure-residual fit to the rounded final table recovers K0=260.80 GPa, which rounds to the reported 261 GPa.",
+    "uncertainties": "Parenthetical final-digit uncertainties for gold lattice parameter, cell volume, and perovskite lattice parameters are transcribed. No row-level pressure uncertainty is printed."
+  },
+  "fit": {
+    "model": "second-order Birch-Murnaghan",
+    "free_parameters": ["K0"],
+    "fixed_parameters": {
+      "V0_a3": 162.79,
+      "K0_prime": 4.0
+    },
+    "published_K0_gpa": 261.0,
+    "published_K0_error_gpa": 4.0,
+    "reproduction_objective": "unweighted pressure residuals",
+    "reproduction_K0_gpa": 260.7999230336436,
+    "reproduction_pressure_rmse_gpa": 0.285260736986341
+  },
+  "pressure_calibration_recalculation": {
+    "reference_eos_record": "gold_anderson_1989_bm3_1",
+    "status": "ready",
+    "observations": 16,
+    "bundled_anderson_parameters": {
+      "V0_a3": 67.79,
+      "K0_gpa": 166.65,
+      "K0_prime": 5.4823
+    },
+    "bundled_pressure_rmse_gpa": 0.19343195336960037,
+    "bundled_pressure_residual_range_gpa": [-0.26070956962537295, -0.12528215356088523],
+    "effective_V0_a3": 67.845399220027,
+    "effective_V0_pressure_rmse_gpa": 0.01737177214619901,
+    "interpretation": "The Anderson EOS is bundled and executable, and every Mao row preserves the Au lattice parameter needed for recalculation. The small systematic offset is consistent with the bundled Anderson V0 having been converted from the paper's rounded ambient density; fitting only that reference volume nearly exactly recovers the printed pressures."
+  },
+  "relation_to_precursor": {
+    "dataset_identifier": "mao_1989_carnegie_table8_bridgmanite_pv",
+    "differences": [
+      "The final article adopts the Anderson, Isaak, and Yamamoto (1989) gold EOS for the tabulated and fitted pressures instead of the precursor's averaged older-gold/ruby pressures.",
+      "The final table adds four room-temperature Fe10 runs: D1, D3, D12, and D20.",
+      "The final article explicitly fits only the Fe10 rows, whereas the precursor says that the three composition sets were combined.",
+      "Several pressures and one P10A5 volume differ after the final reduction."
+    ],
+    "disposition": "Retain the precursor table as a provenance and reduction diagnostic; use this final-article dataset for the production EOS refit."
+  }
+}

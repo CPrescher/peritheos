@@ -58,7 +58,10 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "Gleason et al. (2008), second-order BM",
+   "label": "Gleason et al. (2008), temperature-reduced second-order BM",
+   "identifier": "e_feooh_gleason_2008_bm2_1",
+   "equation_kind": "isothermal",
+   "record_kind": "published",
    "reference": {
     "authors": [
      "Gleason",
@@ -66,6 +69,7 @@
      "Kunz"
     ],
     "year": 2008,
+    "title": "Pressure-temperature stability studies of FeOOH using X-ray diffraction",
     "source": "American Mineralogist",
     "volume": "93",
     "locator": "1882-1885",
@@ -83,42 +87,134 @@
     "V0": 0.5,
     "K0": 5.0
    },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    5.0,
-    21.0
+   "fixed_parameters": [
+    "V0"
    ],
-   "notes": "Gleason et al. report V0 = 66.3 +/- 0.5 A^3 and K0 = 158 +/- 5 GPa; K0' is fixed to 4 by the second-order Birch-Murnaghan equation.",
-   "identifier": "e_feooh_gleason_2008_bm2_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+   "experimental_pressure_range_gpa": [
+    3.81,
+    21.01
+   ],
+   "experimental_temperature_range_k": [
+    473.15,
+    673.15
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "epsilon_feooh_gleason_2008_deposit_table2_pvt"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     3.81,
+     21.01
+    ],
+    "temperature_k": [
+     473.15,
+     673.15
+    ],
+    "volume_ratio": [
+     0.9102564102564102,
+     0.9808446455505279
+    ],
+    "notes": [
+     "Bounds are the extrema of the 49 deposited epsilon-FeOOH observations, not a rectangular phase-stability field.",
+     "The executable BM2 is the recovered 300 K reference curve. It is not a temperature-dependent epsilon-FeOOH EOS; hot states require the documented fit-time volume reduction and must not be evaluated as 300 K observations.",
+     "The represented source phase is the hydrogen-off-center InOOH-type structure in the source's P21mn axis setting, equivalent by axis permutation to this material's P21nm setting."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Gleason et al. (2008), manuscript page 7: ambient-pressure, room-temperature volume V_epsilon0=66.3(5) A^3 obtained for the non-quenchable phase by the Jeanloz (1981) G-versus-g extrapolation.",
+    "K0": "Gleason et al. (2008), abstract, manuscript page 7, and Figure 3b: K0=158(5) GPa from the pooled epsilon-FeOOH observations.",
+    "K0_prime": "Gleason et al. (2008), manuscript page 7 and Figure 3b: K0-prime assumed to be 4, represented intrinsically by BM2.",
+    "temperature_correction": "Forensic reconstruction from the deposited rows: reducing each volume to 300 K with V_300=V_T*exp[-alpha0*(T-300 K)] and the paper's goethite alpha0=2.3e-5 K^-1, then fixing V0=66.3 A^3, gives K0=158.099 GPa. The epsilon paragraph does not print this formula, so this is recorded as a numerically recovered source protocol rather than an independently measured epsilon thermal-expansion law.",
+    "volume_basis": "Depository Table 2 reports the conventional orthorhombic unit-cell volume. The source P21mn cell and this material's axis-permuted P21nm cell both contain Z=2 FeOOH."
+   },
+   "fit_protocol": {
+    "selection": "All 49 deposited Table 2 rows refined as high-pressure epsilon-FeOOH, spanning 200-400 degC and 3.81-21.01 GPa. No alpha-FeOOH, gamma-FeOOH, hematite, or phase-boundary points are added; no epsilon row is excluded.",
+    "method": "Staged reconstruction of the source's simplest analysis: infer the non-quenchable phase's ambient volume by the cited Jeanloz G-versus-g extrapolation, reduce hot volumes to the 300 K reference with the paper's constant zero-pressure volumetric expansivity, then fit a pooled BM2 with V0 and K0-prime fixed.",
+    "temperature_handling": {
+     "status": "numerically_recovered_not_explicitly_printed",
+     "reference_temperature_k": 300.0,
+     "alpha0_per_k": 2.3e-05,
+     "alpha0_error_per_k": 6e-06,
+     "law": "V_ref = V_T * exp[-alpha0 * (T - Tr)]",
+     "source_scope": "alpha0 is the paper's zero-pressure goethite result; it is used only to reproduce the epsilon fit reduction and is not stored as an epsilon thermal EOS coefficient."
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "free_parameters": [
+     "K0"
+    ],
+    "fixed_parameters": {
+     "V0": 66.3,
+     "K0_prime": 4.0,
+     "Tr": 300.0,
+     "alpha0": 2.3e-05
+    },
+    "exclusions": [],
+    "weights": null,
+    "weighting_note": "The manuscript and deposit do not state EOS regression weights, residual variable, covariance, or whether the deposited 95% Rietveld confidence limits entered the fit. The reproducible diagnostic therefore uses unweighted pressure residuals; the reported limits are not silently treated as one-standard-deviation weights.",
+    "covariance": null,
+    "fit_statistic": null
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Shim",
+        "Duffy",
+        "Takemura"
+       ],
+       "year": 2002,
+       "title": "Equation of state of gold and its application to the phase boundaries near 660 km depth in Earth's mantle",
+       "source": "Earth and Planetary Science Letters",
+       "volume": "203",
+       "locator": "729-739"
+      },
+      "source_location": "Experimental Procedure, manuscript page 4",
+      "scope": "All epsilon-FeOOH rows are elevated-temperature runs, for which the source says gold was the sole internal pressure standard."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Depository Table 2 contains reduced sample pressures but no row-wise gold lattice parameters. The Shim et al. calibration family is identified, including its high-temperature use, but observation-level pressure recalculation cannot be rerun."
+    },
+    "audit_date": "2026-09-08",
+    "notes": "The sample was mixed with gold 7:1 by weight in non-dried 4:1 methanol-ethanol. Ruby and NaCl were also used for ambient-temperature compression, but none of the deposited epsilon-FeOOH rows are ambient-temperature observations."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The official OSTI manuscript and MSA depository were audited directly. The source's pooled multitemperature protocol is now reproduced without relabeling hot rows as reference-temperature observations; the epsilon-specific temperature-reduction formula is a numerical reconstruction and is qualified as such.",
+    "audit_date": "2026-09-08",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "crystallography",
+     "volume_basis",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "fit_scope",
+     "temperature_reduction",
+     "primary_observations",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
-     "access_url": "https://doi.org/10.2138/am.2008.2942",
+     "access_url": "https://www.osti.gov/servlets/purl/950968",
+     "article_sha256": "e5f34c3c2e8c3ff48cba8dcca1ff811669acf2bf0d837373c1e5e95bc7408e8f",
      "locations": [
-      "EOS method",
-      "goethite and epsilon-FeOOH parameter tables"
+      "Experimental Procedure, manuscript pages 3-5",
+      "Results and epsilon-FeOOH scatter, manuscript pages 5-6",
+      "Secondary analyses and epsilon-FeOOH EOS, manuscript page 7",
+      "Figure 3b caption and plot, manuscript pages 14 and 20",
+      "MSA depository item AM-08-056, Table 2"
      ],
+     "finding": "The source pools every deposited high-temperature P21mn epsilon-FeOOH observation in a BM2 analysis, assumes K0-prime=4, and obtains V0 separately by G-versus-g extrapolation. Its prose reports no resolvable epsilon thermal trend and no explicit correction formula; applying its own alpha0 to reduce the hot volumes to 300 K is the numerical step that recovers K0=158 GPa.",
      "doi": "10.2138/am.2008.2942"
     },
     "migration_source": {
@@ -136,9 +232,40 @@
      "source_locations": [
       "MSA depository item AM-08-056, Table 2"
      ],
-     "finding": "All 49 epsilon-FeOOH P-T lattice-parameter and unit-cell-volume observations published in depository Table 2."
+     "finding": "All 49 epsilon-FeOOH P-T lattice-parameter and conventional-cell-volume observations from depository Table 2 are bundled in source order. Every row is hot (200-400 degC); none is a room-temperature observation."
+    },
+    "numerical_reproduction": {
+     "source_faithful_temperature_reduced_bm2": {
+      "observations": 49,
+      "selection": "all Table 2 epsilon-FeOOH rows",
+      "V0_fixed_a3": 66.3,
+      "K0_prime_fixed": 4.0,
+      "reference_temperature_k": 300.0,
+      "alpha0_fixed_per_k": 2.3e-05,
+      "K0_refit_gpa": 158.0986983485346,
+      "K0_refit_standard_error_gpa": 1.6723069894662843,
+      "published_curve_pressure_rmse_gpa": 0.9457320622338763,
+      "refit_pressure_rmse_gpa": 0.945697749035616,
+      "max_abs_published_pressure_residual_gpa": 2.2886387669776873,
+      "qualification": "The refit rounds to the published K0 and lies well inside its +/-5 GPa interval. Exact source weighting and the epsilon-specific correction statement are unavailable."
+     },
+     "controls": {
+      "raw_hot_volumes_fixed_V0_unweighted_K0_gpa": 175.62426318239244,
+      "raw_hot_volumes_published_curve_rmse_gpa": 1.4987955733085832,
+      "raw_hot_volumes_refit_rmse_gpa": 0.752363989167498,
+      "raw_hot_volumes_free_V0_K0": {
+       "V0_a3": 66.13966055233124,
+       "K0_gpa": 182.8709102210605
+      },
+      "unweighted_linear_G_vs_g_V0_a3": 66.16275734712724,
+      "finding": "The raw pooled controls reject the previous interpretation of all hot rows as reference-temperature data. The G-versus-g intercept independently recovers the published V0 within its stated uncertainty."
+     }
+    },
+    "phase_boundary": {
+     "finding": "Only rows refined as the source's high-pressure P21mn epsilon phase enter this record. That setting is axis-permuted to P21nm here; the record is neither alpha-FeOOH nor the hydrogen-centered low-spin Pnnm phase stored as e_feooh_hc_low_spin."
     }
-   }
+   },
+   "notes": "Published 300 K BM2 reference curve recovered from 49 elevated-temperature observations. The source explicitly reports the pooled fit, fixed K0-prime, G-versus-g V0 extrapolation, and absence of a resolvable epsilon thermal-expansion trend, but it does not print an epsilon temperature-correction equation or fit weights. A forensic reconstruction using the paper's alpha0 reproduces K0 to rounding; that correction is retained as fit provenance, not promoted to a general temperature-dependent epsilon-FeOOH model."
   },
   {
    "label": "Suzuki (2016), BM3 thermal reference state",
@@ -363,120 +490,6 @@
  },
  "datasets": [
   {
-   "identifier": "epsilon_feooh_gleason_2008_deposit_table2_pvt",
-   "kind": "pressure_volume_temperature",
-   "description": "All 49 epsilon-FeOOH P-T lattice-parameter and unit-cell-volume observations published in depository Table 2.",
-   "source_location": "MSA depository item AM-08-056, Table 2",
-   "source_url": "https://msaweb.org/MSA/AmMin/TOC/2008/ND2008_data/AM-08-056.zip",
-   "columns": [
-    {
-     "name": "file",
-     "quantity": "source_row_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_95ci_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "temperature_celsius",
-     "quantity": "temperature",
-     "unit": "degC",
-     "role": "value"
-    },
-    {
-     "name": "temperature_95ci_celsius",
-     "quantity": "temperature",
-     "unit": "degC",
-     "role": "uncertainty",
-     "of": "temperature_celsius"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_95ci_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_b_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_b_95ci_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_b_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_95ci_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "cell_volume_a3",
-     "quantity": "cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "cell_volume_95ci_a3",
-     "quantity": "cell_volume",
-     "unit": "angstrom^3",
-     "role": "uncertainty",
-     "of": "cell_volume_a3"
-    }
-   ],
-   "resource": {
-    "path": "datasets/epsilon-feooh-gleason-2008-deposit-table2-pvt.csv",
-    "sha256": "d072bc326b925971e6a79e028016536fa09ff8f3b598864ce194cada0c60d7db",
-    "media_type": "text/csv"
-   },
-   "notes": "Parenthesized errors are the 95% confidence limits from the Rietveld refinements, as defined by the deposit. Temperatures and source row identifiers are retained exactly as published; parenthesized uncertainties are expanded to absolute values.",
-   "reference": {
-    "authors": [
-     "Gleason",
-     "Jeanloz",
-     "Kunz"
-    ],
-    "year": 2008,
-    "source": "American Mineralogist",
-    "volume": "93",
-    "locator": "1882-1885",
-    "doi": "10.2138/am.2008.2942"
-   },
-   "used_by_eos_records": [
-    "e_feooh_gleason_2008_bm2_1"
-   ]
-  },
-  {
    "identifier": "epsilon_feooh_suzuki_2016_table1_pvt",
    "kind": "pressure_volume_temperature",
    "description": "All 33 epsilon-FeOOH pressure-temperature lattice-parameter and conventional-cell-volume observations printed in Suzuki (2016) Table 1.",
@@ -586,6 +599,130 @@
    },
    "used_by_eos_records": [
     "e_feooh_suzuki_2016_bm3_thermal_2"
+   ]
+  },
+  {
+   "identifier": "epsilon_feooh_gleason_2008_deposit_table2_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 49 epsilon-FeOOH P-T lattice-parameter and unit-cell-volume observations published in depository Table 2.",
+   "source_location": "MSA depository item AM-08-056, Table 2",
+   "source_url": "https://msaweb.org/MSA/AmMin/TOC/2008/ND2008_data/AM-08-056.zip",
+   "columns": [
+    {
+     "name": "file",
+     "quantity": "source_row_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_95ci_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_celsius",
+     "quantity": "temperature",
+     "unit": "degC",
+     "role": "value"
+    },
+    {
+     "name": "temperature_95ci_celsius",
+     "quantity": "temperature",
+     "unit": "degC",
+     "role": "uncertainty",
+     "of": "temperature_celsius"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_95ci_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_95ci_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_95ci_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "cell_volume_a3",
+     "quantity": "cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "cell_volume_95ci_a3",
+     "quantity": "cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/epsilon-feooh-gleason-2008-deposit-table2-pvt.csv",
+    "sha256": "d072bc326b925971e6a79e028016536fa09ff8f3b598864ce194cada0c60d7db",
+    "media_type": "text/csv"
+   },
+   "source_artifact": {
+    "archive_sha256": "11cb79a0961ae7664650265d72aadc6f1997caf8c6b2984950c6738aca3aef07",
+    "document_name": "Gleason_p1882_08_T1-2.doc",
+    "document_sha256": "2d4dabfb418a8244316d5b159f3fdd5f401c012ecc350ab25fe66528e14d1e69"
+   },
+   "uncertainty": {
+    "status": "reported",
+    "confidence": "95_percent_confidence_limit",
+    "notes": "The Table 2 heading defines the parenthesized values as 95% confidence limits from Rietveld refinement. The source does not state that these limits were EOS regression weights, and they are not treated as one-standard-deviation errors in the reproduction."
+   },
+   "notes": "All 49 rows are transcribed verbatim at printed precision and remain in source order. Temperatures are retained in degrees Celsius and parenthesized limits are expanded to absolute values. The source does not label compression versus decompression row by row, but explicitly says all epsilon-phase data were included.",
+   "reference": {
+    "authors": [
+     "Gleason",
+     "Jeanloz",
+     "Kunz"
+    ],
+    "year": 2008,
+    "source": "American Mineralogist",
+    "volume": "93",
+    "locator": "1882-1885",
+    "doi": "10.2138/am.2008.2942"
+   },
+   "used_by_eos_records": [
+    "e_feooh_gleason_2008_bm2_1"
    ]
   }
  ]

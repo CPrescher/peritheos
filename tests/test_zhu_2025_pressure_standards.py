@@ -26,9 +26,7 @@ def test_zhu_reproduction_and_schemas():
     for identifier, (k0_prime, error, rows) in expected.items():
         refit = result["records"][identifier]
         assert refit["K0_prime"] == pytest.approx(k0_prime, abs=5e-4)
-        assert refit["K0_prime_standard_error"] == pytest.approx(
-            error, abs=5e-4
-        )
+        assert refit["K0_prime_standard_error"] == pytest.approx(error, abs=5e-4)
         assert refit["observations"] == rows
         assert refit["rmse_pressure_difference_gpa"] < 0.6
     schema = json.loads(
@@ -61,9 +59,7 @@ def test_zhu_reproduction_and_schemas():
         assert result["thermal_records"][thermal_record["identifier"]]["parity"]
 
     assert sum(item[2] for item in module.THERMAL_DATASETS.values()) == 320
-    assert result["thermal_reproduction_scope"]["status"] == (
-        "thermal_refit_parity"
-    )
+    assert result["thermal_reproduction_scope"]["status"] == ("thermal_refit_parity")
     expected_thermal_refits = {
         "gold_zhu_2025_pvt": (2.93599996, 2.62559912, 22),
         "platinum_zhu_2025_pvt": (2.75224510, 5.10989873, 85),

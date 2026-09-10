@@ -359,9 +359,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         alpha = np.asarray(self.anharmonic_coefficient(volumes), dtype=float)
         return self._result(-0.5 * self.n * R * alpha * temperatures**2)
 
-    def anharmonic_internal_energy(
-        self, V: NumericType, T: NumericType
-    ) -> NumericType:
+    def anharmonic_internal_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the anharmonic/electronic internal energy in J mol^-1."""
         return self._result(
             -np.asarray(self.anharmonic_helmholtz_free_energy(V, T), dtype=float)
@@ -731,9 +729,7 @@ class DoubleDebyeLogMomentHelmholtz(DoubleDebyeHelmholtz):
         _, temperatures = self._state(V, T)
         return self._result(-self.n * R * self.anharmonic_a * temperatures**2)
 
-    def anharmonic_internal_energy(
-        self, V: NumericType, T: NumericType
-    ) -> NumericType:
+    def anharmonic_internal_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return Correa's anharmonic internal energy in J mol^-1."""
         return self._result(
             -np.asarray(self.anharmonic_helmholtz_free_energy(V, T), dtype=float)

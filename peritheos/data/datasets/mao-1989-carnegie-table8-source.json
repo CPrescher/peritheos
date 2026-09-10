@@ -1,0 +1,61 @@
+{
+  "format": "peritheos.source-audit",
+  "format_version": 1,
+  "audit_date": "2026-09-08",
+  "dataset_identifier": "mao_1989_carnegie_table8_bridgmanite_pv",
+  "dataset_resource": "mao-1989-carnegie-table8-bridgmanite-pv.csv",
+  "source": {
+    "title": "Annual Report of the Director of the Geophysical Laboratory, 1988-1989",
+    "section_title": "The Effect of Pressure, Temperature, and Composition on the Lattice Parameters and Density of (Fe,Mg)SiO3-Perovskites to 30 GPa",
+    "authors": [
+      "Ho-kwang Mao",
+      "Russell J. Hemley",
+      "Jinfu Shu",
+      "Liang-chen Chen",
+      "Andrew P. Jephcoat",
+      "Yan Wu",
+      "William A. Bassett"
+    ],
+    "year": 1989,
+    "publisher": "Geophysical Laboratory, Carnegie Institution of Washington",
+    "source_location": "printed pages 82-89; Table 8 on page 85",
+    "official_archive_index": "https://carnegiescience.edu/about/history/publications/carnegie-year-books",
+    "scan_url": "https://archive.org/details/annualreportofd198889carn",
+    "internet_archive_identifier": "annualreportofd198889carn",
+    "downloaded_pdf_sha256": "9de4b25a7133d64716ec4054246c2b00cfcb7880b62f933439a951efb7f84428"
+  },
+  "transcription": {
+    "rows": 12,
+    "temperature_k": 298,
+    "compositions": {
+      "MgSiO3": 3,
+      "Mg0.9Fe0.1SiO3": 5,
+      "Mg0.8Fe0.2SiO3": 4
+    },
+    "scope": "All room-temperature rows printed in Table 8; the separate high-temperature Table 9 was not transcribed because it is not input to the audited 298 K BM2 records.",
+    "pressure_uncertainty": "The report says the gold- and ruby-scale pressures were averaged and had a 0.2 GPa standard deviation. The repeated CSV value records that source statement; it is not an independently estimated per-row weight.",
+    "volume_uncertainty": "Not reported.",
+    "exclusions": "None stated. The report says the three complete composition sets were combined.",
+    "weights": "No weights are stated. Near-exact coefficient recovery from the rounded table is obtained with unweighted pressure residuals."
+  },
+  "relation_to_final_publication": {
+    "doi": "10.1029/91JB00176",
+    "relationship": "Authoritative pre-publication report of the same experiment and nearly identical title, but not the final journal article.",
+    "material_difference": "The precursor combines all three compositions and reports K0=273.4(2.4) GPa for the fixed-K0-prime Birch fit. The final article instead fits nine Fe10 room-temperature rows, including four additional D-series runs, using Anderson et al. (1989) gold pressures and reports K0=261(4) GPa with K0-prime fixed at 4.",
+    "final_dataset_identifier": "mao_1991_tables2_3_bridgmanite_pv",
+    "disposition": "Diagnostic precursor observations only. The separately bundled final-article Tables 2-3 dataset is the fit resource for the production EOS records."
+  },
+  "search_log": {
+    "final_row_level_data_status": "found_in_user_supplied_final_article",
+    "checked": [
+      "Wiley/AGU article, PDF, and auxiliary-information endpoints",
+      "Crossref and OpenAlex metadata and repository links",
+      "Carnegie year-book archive and the cited 1988-1989 Geophysical Laboratory report",
+      "Internet Archive full-text holdings",
+      "author and institutional repositories surfaced by title/DOI searches",
+      "Kanani K. M. Lee dissertation and later published comparison tables",
+      "Mosenfelder et al. (2009) auxiliary-data description and attachment listing"
+    ],
+    "limitations": "The earlier public-web audit did not recover the paywalled final table. A subsequently supplied final-article PDF resolved the row identities, pressure scale, exclusions, and fit composition."
+  }
+}

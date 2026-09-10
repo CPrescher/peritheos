@@ -51,9 +51,7 @@ def test_redfern_natural_magnesite_records_execute(
     assert record["reference"]["doi"] == "10.1029/93GL02507"
     assert record["eos"]["parameters"] == {"V0": 279.4, "K0": k0, "K0_prime": kp}
     assert record["fixed_parameters"] == fixed_parameters
-    assert record["fit_datasets"] == [
-        "mg0991fe0008mn0001co3_redfern_1993_table1_pv"
-    ]
+    assert record["fit_datasets"] == ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"]
     assert record["volume_basis"]["molar_mass_g_mol"] == pytest.approx(84.595953)
     calibration = record["pressure_calibration"]
     assert calibration["status"] == "resolved"
@@ -62,17 +60,15 @@ def test_redfern_natural_magnesite_records_execute(
     assert calibration["methods"][0]["reported_relative_pressure_uncertainty"] == (
         pytest.approx(0.02)
     )
-    assert calibration["recalculation"]["status"] == (
-        "missing_calibrant_observations"
-    )
+    assert calibration["recalculation"]["status"] == ("missing_calibrant_observations")
     refit = record["scientific_validation"]["independent_refit"]
     assert refit["status"] in {"parity", "similar"}
     assert refit["observations"] in {9, 18}
     if record_identifier.endswith("bm3_2"):
         assert "weakly constrained" in refit["qualification"]
-        assert "strict uncertainty parity cannot be established" in refit[
-            "qualification"
-        ]
+        assert (
+            "strict uncertainty parity cannot be established" in refit["qualification"]
+        )
     eos = Material.from_eosmat(
         document, record_identifiers=[record_identifier]
     ).get_eos_record(record_identifier)
@@ -103,10 +99,7 @@ def test_redfern_reproduction_has_two_distinct_source_curves():
 
 
 def test_redfern_table1_transcription_is_complete_and_stable():
-    resource = (
-        ROOT
-        / "peritheos/data/datasets/magnesite-redfern-1993-table1-pv.csv"
-    )
+    resource = ROOT / "peritheos/data/datasets/magnesite-redfern-1993-table1-pv.csv"
     assert hashlib.sha256(resource.read_bytes()).hexdigest() == (
         "95beab712c819ad5ba48ae7b93dce998285bb955fd3e12fd6ab6f841697112db"
     )
@@ -146,9 +139,9 @@ def test_redfern_audit_records_primary_table_and_protocol():
 
 
 def test_redfern_documentation_records_direct_refits():
-    text = (
-        ROOT / "docs/literature-reproductions/redfern-1993-magnesite.md"
-    ).read_text(encoding="utf-8")
+    text = (ROOT / "docs/literature-reproductions/redfern-1993-magnesite.md").read_text(
+        encoding="utf-8"
+    )
     assert "Decker (1971)" in text
     assert "NaCl EOS" in text
     assert "18 authoritative Table 1" in text
@@ -179,7 +172,7 @@ def test_mao_1991_composition_records_execute(
     document, record = _record(material_identifier, record_identifier)
     assert record["reference"]["doi"] == "10.1029/91JB00176"
     assert record["eos"]["parameters"] == {"V0": v0, "K0": 261.0, "K0_prime": 4.0}
-    assert record["fixed_parameters"] == ["K0_prime"]
+    assert record["fixed_parameters"] == ["V0", "K0_prime"]
     assert record["volume_basis"]["molar_mass_g_mol"] == pytest.approx(mass)
     eos = Material.from_eosmat(
         document, record_identifiers=[record_identifier]

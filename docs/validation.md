@@ -5,15 +5,15 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 208 bundled material documents and 486 EOS records pass the
-format-3 validator; 207 documents construct executable materials and the
+separate. All 210 bundled material documents and 573 EOS records pass the
+format-3 validator; 209 documents construct executable materials and the
 source-only coesite-V card does not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 892 bundled records. Every record is
+The primary-source audit covers all 573 bundled records. Every record is
 `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -30,31 +30,22 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 895
+fit for every record with sufficient direct observations and documents all 573
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 192 parity matches and 100 additional numerically similar results. [63 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 526 records cannot be
+diagnostics. The current campaign finds 197 parity matches and 134 additional numerically similar results.
+This includes Sakai (2018) rhenium's numerical parity within reported parameter
+error widths, with comparable refit standard errors and an unspecified source
+confidence convention. [67 direct refits](primary-eos-refits.md#parity-not-achieved) do not
+recover at least one published coefficient, 1 record has a bounded partial
+refit, while 161 records cannot be
 directly refitted because row-level inputs or an executable source reduction
-are unavailable. Two derived diamond records are exact source-equation
-reconstructions rather than coefficient refits. Eleven Sokolova records have the separate
-`source_reconstruction` status: their 392-row coupled ruby calibration is
-executable, but their EOS coefficients are not independently refittable. There
-are no unresolved
-extraction or solver failures. The
+are unavailable. Two further records are composite reconstructions, and eleven share a source-level
+calibration reconstruction. There are no unresolved extraction or solver failures. The
 machine-readable results are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
-Sakai (2018) rhenium achieves numerical parity within the reported parameter
-error widths, with comparable refit standard errors; its source confidence
-convention remains unspecified.
 The [source-audit index](source-audits.md) links the detailed publication-level
 investigations behind these classifications.
-
-The [Fei fp58 HS endpoint decision](literature-reproductions/fei-2007-ferropericlase.md#fp58-hs-endpoint-decision)
-explicitly includes the 42.75 GPa B1 point under the caption's rounded 42 GPa
-limit. The seven-point validation gives K0=153.18 ± 1.43 GPa (formal 1σ),
-close to the published 153 GPa, with V0=79.36 Å³ and K0′=4 fixed. The source
-coefficients are unchanged; the remaining endpoint assumption is documented.
 
 ### Audit outcome
 
@@ -173,7 +164,7 @@ Primary-source findings changed or qualified several migrated records:
   `K0=51.0(1.2) GPa` error. The unrelated migrated volume was removed.
 - Katsura et al.'s wadsleyite record restores `V0=538.49(2) angstrom^3`,
   the source uncertainty on fixed `K0=169.2(9) GPa`, and the fitted
-  `gamma0=1.64(2)` and `q=1.5(1)` errors. Fixed `theta0=826 K` remains
+  `gamma0=1.64(2)` and `q=1.5(1)` errors. Fixed `theta0=814 K` remains
   errorless because the paper does not assign it an error.
 - Zhao et al.'s jadeite record now implements the complete 300--1280 K
   Equation (1), not only its 300 K slice. It fixes the source's actual EOS
@@ -219,12 +210,12 @@ Primary-source findings changed or qualified several migrated records:
   [Chidester KCl reproduction](literature-reproductions.md#kcl-chidester-2021).
 - Shen and Smith's ten Cu-anchored 300 K records reproduce the phase-specific
   Vinet fits in Equation (4) and Table II: Pt, Au, Ta, W, Mo, MgO, NaCl B1,
-  NaCl B2, bcc Fe, and hcp Fe. Their pressures are now reconstructed from each
-  same-run Cu volume with the exact Fratanduono et al. (2020) third-order 298 K
-  Vinet form. Unweighted fixed-`V0` fits give eight `parity` and two `similar`
-  outcomes; MgO and NaCl-B2 retain bounded source-protocol qualifications. The
-  article publishes no pressure weights or covariance, so neither is inferred.
-  See the [dedicated Cu-reference audit](literature-reproductions/shen-smith-2026-cu-refits.md).
+  NaCl B2, bcc Fe, and hcp Fe. The fixed reference volumes, fitted pressure
+  intervals, and printed `K0`/`K0'` errors are retained. The article does not
+  state the confidence level of those errors or publish their covariance, so
+  Peritheos records neither and explicitly assumes independent parameters when
+  propagating them. These room-temperature fits do not acquire a thermal model
+  merely because the experiment was controlled at `298.5(5) K`.
 
 The audit also restores model inputs that the interchange migration omitted:
 `n` and `Z` for the eleven Sokolova compositions, `n = 3` for the two SiO2
@@ -359,15 +350,6 @@ tolerances reflect the plotted/tabulated residuals rather than table rounding.
 The B2 KCl/KBr regressions independently reproduce the exact linear thermal
 increment in Dewaele et al. (2012), equation 2 and Table V.
 
-The Dewaele-anchored Correa and Benedict diamond records use a separate
-`reconstructed` outcome. Their Dewaele 298 K anchor is independently refitted,
-while the full thermal branches are checked against all 57 vector Figure 8
-Correa pressure markers and the exact 96-row Benedict solid DFT-MD supplement.
-The composed pressure, reference-isotherm, and caloric-increment identities are
-then tested directly. No composite coefficients are optimized; the absent
-upstream cold-energy and phonon grids keep the standalone theory records
-`not_refittable` at coefficient level.
-
 The Bezacier ice VI/VII tests reproduce the temperature-dependent reference
 state from equations (1)--(3), perform volume and temperature round trips, and
 compare against representative measured rows in Table I within the published
@@ -431,3 +413,8 @@ equation 3 and Table 1 directly rather than changing equations or parameters to
 match another implementation. The comparison can be rerun with
 `scripts/compare_external_black_boxes.py`; neither external package is a
 Peritheos dependency or test oracle.
+
+The [primary iron source audit](literature-reproductions/iron-fei-input-papers.md)
+adds 43 records and 348 observations. Its record-specific criteria distinguish
+Brown coefficient agreement at printed precision, conditional fits within
+reported errors, unavailable scale reductions, and unresolved thermal residuals.

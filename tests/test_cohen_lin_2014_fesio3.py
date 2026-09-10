@@ -83,6 +83,68 @@ def test_cohen_lin_reproduction_matches_independent_100_gpa_checkpoints():
         assert differences["K100_prime"] < 0.004
 
 
+def test_cohen_lin_arxiv_v1_explains_final_table_rounding():
+    result = reproduce()["arxiv_v1_rounding_diagnostic"]
+    for phase in result.values():
+        calculated = phase["calculated"]
+        published = phase["published"]
+        assert calculated["V100_a3_per_formula"] == pytest.approx(
+            published["V100_a3_per_formula"], abs=0.01
+        )
+        assert calculated["K100_gpa"] == pytest.approx(published["K100_gpa"], abs=0.3)
+        assert calculated["K100_prime"] == pytest.approx(
+            published["K100_prime"], abs=0.002
+        )
+
+
+def test_cohen_lin_plot_reading_stays_an_approximate_non_dataset_diagnostic():
+    result = reproduce()["figure_3_approximate_diagnostic"]
+    assert result["classification"] == (
+        "approximate_plot_diagnostic_not_primary_observations"
+    )
+    assert result["pressure_grid_gpa"] == [
+        -10.0,
+        0.0,
+        25.0,
+        50.0,
+        75.0,
+        100.0,
+        125.0,
+        150.0,
+    ]
+    for phase in result["phases"].values():
+        assert len(phase["approximate_volumes_a3_per_formula"]) == 8
+        assert phase["at_100_gpa"]["absolute_difference_a3_per_formula"] < 0.06
+        assert phase["maximum_absolute_volume_difference_a3_per_formula"] < 0.22
+
+    for identifier in MATERIALS:
+        document = get_material_document(identifier)
+        record = next(
+            item
+            for item in document["eos_records"]
+            if item["reference"]["doi"].lower() == DOI
+        )
+        check = record["scientific_validation"]
+        assert check["source_exhaustion"]["classification"] == (
+            "no_authoritative_row_level_observations_found"
+        )
+        assert check["approximate_plot_diagnostic"]["classification"] == (
+            "approximate_plot_diagnostic_not_primary_observations"
+        )
+        assert "dataset_identifiers" not in check["primary_data_check"]
+        assert "digitized_dataset_identifiers" not in check["primary_data_check"]
+        assert check["independent_refit"]["classification"] == (
+            "published_checkpoint_parity_not_row_refit"
+        )
+
+
+def test_cohen_lin_table_i_lattice_products_confirm_100_gpa_volumes():
+    result = reproduce()["table_i_structure_diagnostic"]
+    assert set(result) == {"PPv", "PPv-II"}
+    for phase in result.values():
+        assert phase["absolute_difference_a3_per_formula"] < 0.05
+
+
 def test_cohen_lin_audit_disposes_all_three_litcurate_candidates_once():
     audit = (
         ROOT / "docs" / "literature-reproductions" / "cohen-lin-2014-fesio3.md"
@@ -96,3 +158,24 @@ def test_cohen_lin_audit_disposes_all_three_litcurate_candidates_once():
     assert len(same_doi) == 3
     for row in same_doi:
         assert audit.count(row["identifier"]) == 1
+
+
+def test_cohen_lin_refit_ledger_retains_all_three_as_not_refittable():
+    ledger = json.loads(
+        (ROOT / "docs" / "data" / "primary-eos-refits.json").read_text(encoding="utf-8")
+    )
+    records = {
+        row["record_identifier"]: row
+        for row in ledger["records"]
+        if "_cohen_lin_2014_" in row["record_identifier"]
+    }
+    assert set(records) == {
+        "fesio3_bridgmanite_cohen_lin_2014_vinet_1",
+        "fesio3_post_perovskite_cohen_lin_2014_vinet_1",
+        "fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1",
+    }
+    for record in records.values():
+        assert record["status"] == "not_refittable"
+        assert record["dataset_identifiers"] == []
+        assert "after source exhaustion" in record["reason"]
+        assert "approximate raster-marker diagnostic" in record["source_notes"]

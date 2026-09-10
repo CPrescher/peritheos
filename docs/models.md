@@ -58,8 +58,9 @@ reference isotherm.
 The allowed reference EOS depends on the thermal formulation. The
 Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure models
 accept any isothermal `EosBase` model;
-`LogVolumeThermalPressure` additionally requires `V0`, and
-`ThermalModifiedTait` requires `ModifiedTait`.
+`LogVolumeThermalPressure` additionally requires `V0`,
+`HollandPowellThermalPressure` requires `K0`, and `ThermalModifiedTait`
+requires `ModifiedTait`.
 Because thermal pressure is calculated from molar energy divided
 by molar volume, energy-based models require the volume convention described
 under [Units and reference states](units.md). The volume-independent linear
@@ -75,15 +76,20 @@ correction instead inherits the reference EOS volume convention.
 | [`AsymptoticPowerLawMieGruneisenDebyeExcess`](equation-reference.md#asymptotic-power-law-debye-with-t2-excess) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n`, `beta0`, `m` | Debye plus volume-dependent $T^2$ excess |
 | [`SoundVelocityDebyeHelmholtz`](equation-reference.md#sound-velocity-quasi-debye-helmholtz-eos) | any `EosBase` with `bulk_modulus` | `Tr`, molar mass, `n`, and longitudinal/shear velocity intercepts and slopes | sound-derived Debye |
 | [`Dewaele2006`](equation-reference.md#dewaele-2006-hcp-fe-thermal-pressure-scale) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `gamma_inf`, `beta`, anharmonic and electronic terms, `n` | Debye + $T^2$ |
+| [`Dewaele2006`](equation-reference.md#dewaele-2006-hcp-fe-thermal-pressure-scale) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `gamma_inf`, `beta`, anharmonic and electronic terms, `n` | Debye + $T^2$ |
+| [`SoundVelocityDebyeHelmholtz`](equation-reference.md#sound-velocity-quasi-debye-helmholtz-eos) | any `EosBase` with `bulk_modulus` | `Tr`, molar mass, `n`, and longitudinal/shear velocity intercepts and slopes | sound-derived Debye |
+| [`AsymptoticPowerLawMieGruneisenDebyeExcess`](equation-reference.md#asymptotic-power-law-debye-with-t2-excess) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n`, `beta0`, `m` | Debye plus volume-dependent $T^2$ excess |
 | [`DorogokupetsOganov2007`](equation-reference.md#dorogokupets-oganov-2007-four-oscillator-model) | any `EosBase` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect parameters | generalized Bose + Einstein |
 | [`LinearThermalPressure`](equation-reference.md#linear-thermal-pressure) | any `EosBase` | `Tr`, `alpha_KT` | none |
 | [`SecondOrderTaylorThermalPressure`](equation-reference.md#second-order-temperature-compression-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `eta0`, `c0`--`c5` | none |
 | [`LogVolumeThermalPressure`](equation-reference.md#logarithmic-volume-linear-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `alpha_KT_ref`, `dK_dT_V` | none |
 | [`ThermalReferenceStateEOS`](equation-reference.md#temperature-dependent-reference-state) | reference EOS exposing `V0`, `K0` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1`, `thermal_expansion_law`, `reference_volume_law` | none |
+| [`HollandPowellThermalPressure`](equation-reference.md#holland-powell-thermal-pressure) | reference EOS exposing `K0` | `Tr`, `theta`, `alpha0`, `n` | Holland-Powell Einstein pressure |
 | [`ThermalModifiedTait`](equation-reference.md#thermal-modified-tait) | `ModifiedTait` | `Tr`, `theta`, `alpha0`, `n` | Holland-Powell Einstein pressure |
 | [`MultiOscillatorGruneisenThermalEOS`](equation-reference.md#multi-oscillator-gruneisen-thermal-pressure) | any `EosBase` | mode, Gruneisen, anharmonic, electronic parameters plus `n` | Multi-mode |
 
-`HollandPowell2011` is an alias for `ThermalModifiedTait`.
+`ThermalModifiedTait` is the modified-Tait compatibility form;
+`HollandPowell2011` remains its alias.
 
 `MultiOscillatorGruneisenThermalEOS` accepts the complete optional `beta` and generalized Bose-mode
 terms. Its defaults (`beta=mb=mb1=0`) disable those additions and preserve the
@@ -119,6 +125,13 @@ paper equations alone to reproduce Peritheos values; see
 - Use `Dewaele2006` for the source-specific hcp-Fe pressure scale used by
   Dewaele et al. (2006), including its intrinsic-anharmonic and electronic
   pressure terms.
+- Use `Dewaele2006` for the source-specific hcp-Fe pressure scale used by
+  Dewaele et al. (2006), including its intrinsic-anharmonic and electronic
+  pressure terms.
+- Use `SoundVelocityDebyeHelmholtz` when a source derives the Debye temperature
+  from a cold-curve bulk modulus and published longitudinal/shear
+  velocity-density regressions. Those four regression coefficients are part of
+  the model definition and must not be silently substituted.
 - Use `DorogokupetsOganov2007` only for the paper's complete four-oscillator
   Helmholtz formulation. It is distinct from the later Sokolova workbook
   model even though the authors and physical terms overlap.

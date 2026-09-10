@@ -10,9 +10,7 @@ from peritheos import Material, get_material_document
 
 ROOT = Path(__file__).parents[1]
 CA_RECORD = "ca_perovskite_fu_2023_bm3_mgd_refit"
-CA_REFIT_RECORD = (
-    "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
-)
+CA_REFIT_RECORD = "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
 
 
 def test_fu_2023_reproduction_and_schemas():

@@ -49,7 +49,7 @@ pv = dataset.as_pressure_volume(pressure_unit="GPa")
 print(pv.pressure)
 print(pv.volume)
 print(pv.pressure_unit)  # GPa
-print(pv.volume_unit)    # angstrom^3
+print(pv.volume_unit)  # angstrom^3
 ```
 
 Levien and Prewitt report pressure in kbar, so this call converts it to GPa.

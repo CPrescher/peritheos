@@ -27,7 +27,9 @@ from peritheos.materials import (
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / "peritheos" / "data" / "datasets"
-DEFAULT_OUTPUT = ROOT / "docs" / "data" / "diamond-thermal-composite-reconstruction.json"
+DEFAULT_OUTPUT = (
+    ROOT / "docs" / "data" / "diamond-thermal-composite-reconstruction.json"
+)
 ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR = Avogadro * 1.0e-25
 EV_PER_ATOM_TO_J_PER_MOL = electron_volt * Avogadro
 
@@ -131,13 +133,15 @@ def _identity_diagnostics(
             + source.pressure(volume, temperature)
             - source.pressure(volume, anchored.Tr)
         )
-        pressure_errors.append(anchored.pressure(volume, temperature) - expected_pressure)
+        pressure_errors.append(
+            anchored.pressure(volume, temperature) - expected_pressure
+        )
         reference_errors.append(
             anchored.pressure(volume, anchored.Tr) - anchored.rt_eos.pressure(volume)
         )
-        source_increment = source.internal_energy(volume, temperature) - source.internal_energy(
-            volume, anchored.Tr
-        )
+        source_increment = source.internal_energy(
+            volume, temperature
+        ) - source.internal_energy(volume, anchored.Tr)
         anchored_increment = anchored.internal_energy(
             volume, temperature
         ) - anchored.internal_energy(volume, anchored.Tr)
@@ -147,9 +151,7 @@ def _identity_diagnostics(
         "max_abs_composition_pressure_error_gpa": float(
             np.max(np.abs(pressure_errors))
         ),
-        "max_abs_reference_isotherm_error_gpa": float(
-            np.max(np.abs(reference_errors))
-        ),
+        "max_abs_reference_isotherm_error_gpa": float(np.max(np.abs(reference_errors))),
         "max_abs_thermal_energy_increment_error_j_per_mol": float(
             np.max(np.abs(energy_increment_errors))
         ),
@@ -172,9 +174,7 @@ def reproduce() -> dict[str, Any]:
         "format_version": 1,
         "classification": "source-equation reconstruction, not independent refit",
         "coefficient_optimization_performed": False,
-        "composition": (
-            "P(V,T)=P_Dewaele(V,298 K)+P_theory(V,T)-P_theory(V,298 K)"
-        ),
+        "composition": ("P(V,T)=P_Dewaele(V,298 K)+P_theory(V,T)-P_theory(V,298 K)"),
         "correa_2008": {
             "source_dataset": "diamond_correa_2008_figure8_dft_md_vector_digitized",
             "source_model_pressure_validation": _pressure_diagnostics(
@@ -214,7 +214,10 @@ def main() -> None:
     args = parser.parse_args()
     rendered = json.dumps(reproduce(), indent=2) + "\n"
     if args.check:
-        if not args.output.exists() or args.output.read_text(encoding="utf-8") != rendered:
+        if (
+            not args.output.exists()
+            or args.output.read_text(encoding="utf-8") != rendered
+        ):
             raise SystemExit(f"stale generated file: {args.output}")
     else:
         args.output.write_text(rendered, encoding="utf-8")

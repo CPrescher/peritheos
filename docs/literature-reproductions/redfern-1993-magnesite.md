@@ -10,7 +10,7 @@ Table 1 publishes 18 room-temperature static-compression measurements for
 natural `Mg0.991Fe0.008Mn0.001CO3` (Harwood specimen 2212): pressure, hexagonal
 `a` and `c`, conventional-cell volume, and parenthetical uncertainties. These
 rows are transcribed directly in
-[`peritheos/data/datasets/magnesite-redfern-1993-table1-pv.csv`](../../peritheos/data/datasets/magnesite-redfern-1993-table1-pv.csv).
+[`peritheos/data/datasets/magnesite-redfern-1993-table1-pv.csv`](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/magnesite-redfern-1993-table1-pv.csv).
 No figure digitization is used.
 
 ## Pressure calibration

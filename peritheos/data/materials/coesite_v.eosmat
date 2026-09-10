@@ -21,6 +21,7 @@
  "atom_sites": [],
  "peaks": [],
  "notes": "Metastable high-pressure silica polymorph containing penta- and hexa-coordinated Si. The material and phase identity are retained, but no executable EOS is distributed: Supplementary Table 11 reports K0 and K0_prime while omitting the required V0, and Supplementary Table 10 supplies only one integer-pressure P-V anchor. The held candidate and its sensitivity-bounded diagnostic reconstruction are preserved under source.held_eos_candidate for provenance only.",
+ "eos_records": [],
  "source": {
   "reference": {
    "authors": [
@@ -115,6 +116,5 @@
     "finding": "No complete numerical coesite-V AM05 E-P-V grid was found in the article, supplement, six crystallographic CIFs, ICSD data statement, repositories, or the computational coauthor's thesis."
    }
   }
- },
- "eos_records": []
+ }
 }

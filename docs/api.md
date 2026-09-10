@@ -19,15 +19,12 @@ codes, Rust error kinds, and source-chain examples.
 
 ```python
 from peritheos import (
-    Dataset,
-    DatasetColumn,
     EOSRecord,
     HugoniotBranchDomain,
     HugoniotInitialState,
     HugoniotRecord,
     HugoniotVolumeBasis,
     Material,
-    PressureVolumeData,
     get_eos_record,
     get_material,
     list_eos_records,
@@ -59,43 +56,6 @@ It stays in the common
 records expose `shock_velocity()`, `particle_velocity()`, `density()`, and
 `specific_internal_energy_change()` in addition to `pressure()` and `volume()`.
 
-### Observation datasets
-
-`Material.datasets` remains the tuple of raw `.eosmat` mappings for backward
-compatibility. `Material.get_dataset(identifier)` is the convenient typed path:
-it loads embedded rows or packaged CSV resources, verifies packaged-resource
-SHA-256 checksums before parsing, and retains the source reference, source
-location, notes, column metadata, and EOS-record links.
-
-```python
-from peritheos import get_material
-
-coesite = get_material("coesite")
-dataset = coesite.get_dataset("coesite_levien_1981_table7_pv")
-pv = dataset.as_pressure_volume(pressure_unit="GPa")
-
-print(dataset.reference, dataset.source_location)
-print(pv.volume)          # angstrom^3, as declared by Table 7
-print(pv.pressure)        # converted from kbar to GPa
-print(pv.volume_sigma)    # source-declared standard deviations
-print(pv.pressure_sigma)  # first entry is NaN: no value was reported
-```
-
-`Dataset.columns` contains typed `DatasetColumn` metadata and `dataset[name]`
-returns a read-only NumPy array. When an archived CSV retains different source
-headings, those are available in `source_column_names`; values are mapped by
-the schema-defined column order. `values(name, unit=...)` converts compatible
-numeric columns, while `find_columns(quantity=..., role=...)` supports all
-other dataset kinds without imposing a table-specific model. For datasets with
-more than one pressure or volume series, pass `pressure_column=` or
-`volume_column=` to `as_pressure_volume()`. General uncertainty columns remain
-available as `pressure_uncertainty` and `volume_uncertainty`, accompanied by
-their declared roles; the `*_sigma` aliases are populated only when the schema
-explicitly marks the column as a standard deviation. This distinction avoids
-silently treating standard errors or confidence bounds as one-sigma errors.
-See [Loading observation datasets](datasets.md) for the complete workflow,
-supported unit families, integrity checks, and non-P-V column access.
-
 `search_materials()` and `search_eos_records()` accept typed filters for free
 text, name, alias, formula, phase, model family, DOI, author/reference,
 thermal or caloric capability, calibration pressure/temperature, uncertainty,
@@ -118,7 +78,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 288 bundled
+`list_material_documents()` returns the identifiers of all 210 bundled
 material cards, including source-only cards with no executable EOS.
 `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
@@ -224,9 +184,6 @@ temperature = DIAMOND_BENEDICT_2014.temperature_from_volumes(
 The record's `reference_volume` is the Table I **0 K motionless-ion cold-curve**
 volume, not a 300 K zero-total-pressure state. The record also carries the
 source's narrower DFT-MD comparison domain and diamond phase-stability caveat.
-The Helmholtz class also exposes `internal_energy(V, T)` and `entropy(V, T)`;
-these retain the reference subtraction needed for thermodynamically consistent
-caloric increments in derived reference-isotherm composites.
 
 The earlier Correa logarithmic-moment branch is a separate convenience record:
 
@@ -239,10 +196,6 @@ pressure = DIAMOND_CORREA_2008.pressure(8.0 * 4.43, 5000.0)
 
 It preserves the published DFT-GGA cold-curve volume and records the authors'
 approximately 3% ambient-volume caveat rather than applying an implicit shift.
-The two `_dewaele_anchored` convenience records are Peritheos-derived
-source-equation reconstructions. They were not fitted as composite EOSs in any
-of the three source papers; see the [diamond composite
-audit](literature-reproductions/diamond-dewaele-thermal-composites.md).
 
 For example, the independently reproducible staged aragonite BM2 record can be
 used at its 298 K reference state or at the represented high temperatures:
@@ -327,6 +280,7 @@ Constructor signatures and special requirements are:
 | `ModifiedTait` | `(V0, K0, K0_prime, K0_double_prime)` | rejects singular coefficient sets and volumes outside its real domain |
 | `Baonza` | `(V0, K0, K0_prime)` | uses the published fixed pseudospinodal exponent $\beta=0.85$ |
 | `Vinet` | `(V0, K0, K0_prime)` | none |
+| `Vinet3` | `(V0, K0, eta, beta, psi)` | none |
 | `RydbergStacey` | `(V0, K0, K0_prime, K_infinity_prime)` | `K_infinity_prime` sets the limiting high-pressure derivative |
 | `Morse3` | `(V0, K0, K0_prime)` | three-dimensional Morse-potential form |
 | `SunMorse3` | `(V0, K0, K0_prime)` | Sun--Morse form with $n=3$ |
@@ -348,9 +302,12 @@ from peritheos.eos.thermal import (
     DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz,
     HollandPowell2011,
+    HollandPowellThermalPressure,
     LinearThermalPressure,
     LogVolumeThermalPressure,
+    DebyeQuadraticThermalPressure,
     MieGruneisenDebye,
+    AsymptoticPowerLawMieGruneisenDebyeExcess,
     MieGruneisenEinstein,
     MultiOscillatorGruneisenThermalEOS,
     Sokolova2016,
@@ -375,20 +332,29 @@ Thermal constructor signatures are:
 | `SecondOrderTaylorThermalPressure` | `Tr, eta0, c0, c1, c2, c3, c4, c5` |
 | `SoundVelocityDebyeHelmholtz` | `Tr, molar_mass_g_mol, n, longitudinal_intercept, longitudinal_slope, shear_intercept, shear_slope` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
+| `DebyeQuadraticThermalPressure` | `Tr, theta0, gamma0, q, n, A, m` |
 | `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"`; volume laws also include `linear_temperature` and `berman` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen", thermal_pressure_reference="reference_temperature", Cvmax=None` |
 | `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |
+| `HollandPowellThermalPressure` | `Tr, theta, alpha0, n` |
 | `ThermalModifiedTait` | `Tr, theta, alpha0, n` |
 | `MultiOscillatorGruneisenThermalEOS` | `Tr, QE1o, mE1, QE2o, mE2, delta, t, a_0, m, g, e_0`, followed by optional `beta, QBo, d, mb, QB1o, d1, mb1, n` |
 | `Tange2009Debye` | `Tr, theta0, gamma0, a, b, n` |
+| `AsymptoticPowerLawMieGruneisenDebyeExcess` | `Tr, theta0, gamma0, a, b, n, beta0, m` |
 
 `Sokolova2016` is the compatibility alias for
 `MultiOscillatorGruneisenThermalEOS`.
 
+`Tange2009Debye.constrained_reference_parameters(...)` implements the Fit 3
+ambient constraints. Given trial `gamma0` and fixed `T0`, `K_S0`, `alpha0`,
+`C_P0`, and `n`, it returns the dependent `K0`, `theta0`, and `Cv0` values used
+by the source's four-variable global objective.
+
 The Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure
 classes accept any `EosBase` reference. `SoundVelocityDebyeHelmholtz` also
 requires the reference to implement `bulk_modulus`. `LogVolumeThermalPressure` and
-`SecondOrderTaylorThermalPressure` require `V0`; thermal modified Tait requires `ModifiedTait`; and
+`SecondOrderTaylorThermalPressure` require `V0`;
+`HollandPowellThermalPressure` requires `K0`; thermal modified Tait requires `ModifiedTait`; and
 `ThermalReferenceStateEOS` requires a reference that reconstructs through
 `V0` and `K0`. Energy-based thermal classes require molar volume in
 `J bar^-1 mol^-1`; `LinearThermalPressure`,
@@ -407,8 +373,8 @@ Their ordinary `temperature(P,V)` inversion and DAC
 `temperature_from_volumes()` inversion are supported. For the latter,
 both classes subtract their pressure on the 300 K isotherm so the
 confinement term excludes zero-point and baseline thermal pressure.
-`HollandPowell2011` is an alias for
-`ThermalModifiedTait`. Exact equations and parameter roles are documented
+`ThermalModifiedTait` is the modified-Tait compatibility subclass, and
+`HollandPowell2011` remains its alias. Exact equations and parameter roles are documented
 under [Thermal equations](equation-reference.md#thermal-equations).
 `Sokolova2016` is a compatibility alias for
 `MultiOscillatorGruneisenThermalEOS`.
@@ -435,14 +401,6 @@ Common methods:
 - `molar_heat_capacity_p(V, T)` when a caloric model exists
 - `adiabatic_bulk_modulus(V, T)` when a caloric model exists
 - `gruneisen_parameter(V, T)` when a caloric model exists
-
-`DorogokupetsOganov2007` additionally exposes its complete equations (7)--(14)
-potential through `absolute_thermal_pressure`,
-`thermal_helmholtz_free_energy`, `thermal_internal_energy`, `thermal_entropy`,
-`thermal_enthalpy`, and `thermal_gibbs_free_energy`. These quantities include
-the oscillator zero-point, anharmonic, electronic, and vacancy terms; the
-ordinary `thermal_pressure` remains shifted to the published 298.15 K
-reference isotherm.
 
 `thermal_pressure_increment()` is the heating pressure above the reference
 isotherm. It equals `thermal_pressure()` for reference-relative models and
@@ -475,15 +433,26 @@ fitting, EOSMAT records, and phase-branch semantics.
 ## Fitting
 
 ```python
+from peritheos import EulerianFiniteStrainAcoustic
 from peritheos.fitting import (
+    AcousticFitResult,
     FitResult,
     HugoniotFitResult,
+    fit_acoustic_finite_strain,
     fit_joint_eos,
     fit_linear_us_up,
     fit_rt_eos,
     fit_thermal_eos,
 )
 ```
+
+`EulerianFiniteStrainAcoustic` evaluates the corresponding adiabatic bulk and
+shear moduli and Vp/Vs curves. `fit_acoustic_finite_strain()` fits those
+third-order Eulerian density--Vp--Vs relations and returns an
+`AcousticFitResult`. Density uncertainties are handled as shared latent
+coordinates; 2-by-2 or 3-by-3 observation covariance matrices can preserve
+within-row velocity or velocity/density correlations. See the [acoustic
+finite-strain guide](fitting.md#acoustic-finite-strain-fitting).
 
 `FitResult` contains the fitted `model`, parameter and uncertainty mappings,
 covariance and correlation matrices, raw and weighted residuals, chi-square,
@@ -552,20 +521,3 @@ parameter covariance. See [Uncertainty in EOS calculations](uncertainty.md).
 Partial parameter-error sets are supported. Parameters omitted from the error
 mapping or covariance ordering are treated as exact, rather than as having an
 unknown error that Peritheos will estimate.
-
-`peritheos.eos.rt.Vinet3(V0, K0, eta, beta, psi)` evaluates the
-Fratanduono (2020) cubic exponential Vinet form, with analytic `pressure`
-and `bulk_modulus` and numerical `volume` inversion. Scalar and NumPy array
-inputs follow the equilibrium EOS API. This model currently uses NumPy and
-the shared Python inversion path. Its eta, beta, psi parameters remain
-independent in parameter reconstruction and material exports.
-
-```python
-from peritheos import get_eos_record
-cu = get_eos_record("copper_fratanduono_2020_vinet3_298k")
-pressure_gpa = cu.pressure(45.94823)  # 3.908992349216 GPa, conventional cell Å³
-```
-
-`DebyeQuadraticThermalPressure(rt_eos, Tr, theta0, gamma0, q, n, A, m)`
-adds Debye pressure and a quadratic temperature correction; see the
-[equation reference](equation-reference.md#debye-plus-quadratic-thermal-pressure).

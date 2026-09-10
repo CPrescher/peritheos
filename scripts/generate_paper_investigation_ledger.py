@@ -297,8 +297,8 @@ def render() -> str:
                 "",
                 f"Evidence: [{evidence}]({evidence}).",
                 "",
-        ]
-    )
+            ]
+        )
 
     lines.extend(
         [
@@ -409,9 +409,9 @@ def render() -> str:
         ]
     )
     data_labels = {
+        "partial_published_table": "partial published table/checkpoints",
         "bundled": "bundled",
         "bundled_indirect": "bundled indirect",
-
         "combined_primary_data_partially_bundled": "partial primary rows bundled",
         "plot_only": "plot only/digitized",
         "parameterization_only": "parameterization only",

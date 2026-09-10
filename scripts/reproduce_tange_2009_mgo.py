@@ -197,9 +197,7 @@ def approximate_residual_groups(
     ):
         residuals = []
         for row in _external_rows(directory, key):
-            molar_volume = (
-                MGO_MOLAR_MASS_G_MOL / float(row["density_g_cm3"]) / 10.0
-            )
+            molar_volume = MGO_MOLAR_MASS_G_MOL / float(row["density_g_cm3"]) / 10.0
             residuals.append(
                 float(
                     eos.adiabatic_bulk_modulus(
@@ -273,8 +271,7 @@ def approximate_weighted_residuals(
         (
             groups["thermal_expansion_pressure_gpa"] / 0.3,
             groups["isaak_1989_adiabatic_bulk_modulus_gpa"] / isaak_sigmas,
-            groups["sinogeikin_2000_adiabatic_bulk_modulus_gpa"]
-            / sinogeikin_sigmas,
+            groups["sinogeikin_2000_adiabatic_bulk_modulus_gpa"] / sinogeikin_sigmas,
             groups["zha_2000_adiabatic_bulk_modulus_gpa"]
             / (zha_sigmas * zha_sigma_scale),
             groups["li_2006_adiabatic_bulk_modulus_gpa"] / elastic_sigmas,

@@ -23,7 +23,7 @@ from typing import Any
 
 AUDIT_DATE = "2026-09-01"
 CATALOG_AUDIT_DATE = "2026-09-03"
-REPORT_AUDIT_DATE = "2026-09-08"
+REPORT_AUDIT_DATE = "2026-09-10"
 AGGREGATE_AUDIT_DATE = "2026-09-08"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
@@ -59,6 +59,7 @@ CURRENT_SOURCE_AUDIT_RECORDS = {
     "ca_perovskite_kawai_2014_vinet_mgd_3",
     "ca_perovskite_sun_2016_bm3_3",
     "ca_perovskite_tetragonal_sun_2022_bm3_1",
+    "e_feooh_gleason_2008_bm2_1",
     "phase_egg_mookherjee_2019_bm3_lp_1",
     "phase_egg_schulze_2018_bm3_1",
     "rbcl_b2_campbell_1994_bm3_1",
@@ -117,8 +118,7 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
             "Equations 3-7",
             "Table I, diamond column",
             "Section III.A",
-            "Figure 7",
-            "Supplemental Material, solid DFT-MD table",
+            "Figure 6",
         ],
         "The record implements the complete diamond Helmholtz branch, including "
         "the motionless-ion Vinet cold curve, volume-dependent double-Debye "
@@ -468,29 +468,34 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
     "10.1063/1.342969": source(
         "https://doi.org/10.1063/1.342969",
         [
-            "Section II, Equations (4)-(5), and Table I, page 1535",
-            "Tables II-III and Equations (6)-(8), pages 1536-1537",
-            "Section V, Equations (12)-(18), and Table IV, pages 1538-1540",
-            "Equations (19)-(29) and Table V, pages 1540-1541",
+            "ambient density paragraph, page 1535",
+            "Section III and Equation (8), pages 1536-1537",
+            "Equations (20)-(29), pages 1540-1541",
+            "Table V, page 1541",
         ],
-        "The stored record reproduces Equation (29) and all 126 top-row values "
-        "in Table V: a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure "
-        "slope. Tables I-IV expose the staged derivation of the two "
-        "thermal coefficients and the non-regression selection of K0'. The partial "
-        "published error on (dKT/dT)V is retained; the article also identifies an "
-        "additional unquantified contribution from K0' uncertainty.",
+        "The stored record reproduces Equation (29) and the top rows of Table V: "
+        "a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. "
+        "The partial published error on (dKT/dT)V is retained; the article also "
+        "identifies an additional unquantified contribution from K0' uncertainty.",
     ),
     "10.1063/1.344177": source(
         "https://www.researchgate.net/profile/John-Moriarty-7/publication/224513875_The_equation_of_state_of_platinum_to_660_GPa_66_Mbar/links/0deec51d6192cc65e2000000/The-equation-of-state-of-platinum-to-660-GPa-66-Mbar.pdf",
         [
             "Equations (7)-(12)",
+            "LMTO implementation footnote 15",
+            "Table III",
             "Table IV",
+            "Figure 3",
             "Figures 4 and 5",
             "summary, page 2966",
         ],
-        "The stored pressure scale is the theoretical 300 K universal (Vinet) "
-        "isotherm qualified against shock data, plus the paper's approximate "
-        "constant thermal-pressure extension below 2000 K.",
+        "Equation (11) and Table IV provide an exact analytical 300 K universal "
+        "(Vinet) parameterization, qualified against the shock data, plus the "
+        "paper's approximate constant thermal-pressure extension below 2000 K. "
+        "The underlying LMTO E0(V), P0(V), density-of-states, and 300 K fit grids "
+        "are plotted or described but not tabulated, so the curve is exactly "
+        "reconstructable while the source regression is not independently "
+        "refittable.",
     ),
     "10.1063/5.0179469": source(
         "https://doi.org/10.1063/5.0179469",
@@ -537,14 +542,11 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
             "Table II, pages 9-12",
             "Section III.E, pages 8 and 12-14",
             "Experimental methods, page 2",
-            "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)",
         ],
         "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V "
         "fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are "
-        "preserved. Pressures are reproducible from same-run Cu volumes using "
-        "Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article "
-        "Table I 298 K coefficients. The article does not state a confidence "
-        "level, pressure weights, or parameter covariance, so none is inferred.",
+        "preserved. The article does not state a confidence level or publish "
+        "parameter covariance, so neither is inferred.",
     ),
     "10.1103/physrevb.103.014101": source(
         "https://doi.org/10.1103/PhysRevB.103.014101",
@@ -607,15 +609,8 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
         ["Equation 2", "Table II", "Figures 2 and 3"],
     ),
     "10.1103/physrevb.77.094106": source(
-        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.094106/fulltext",
-        [
-            "Section II, H05 pressure calibration",
-            "Table I, diamond aC rows",
-            "Table III, 298 K diamond Vinet fit",
-        ],
-        "Diamond pressures are explicitly reported on the Holzapfel (2005) H05 "
-        "ruby scale. The 298 K Vinet parameters and the complete diamond P-V-T "
-        "observations printed in Table I are represented separately.",
+        "https://doi.org/10.1103/PhysRevB.77.094106",
+        ["Vinet formulation", "Table I", "300 K neon data"],
     ),
     "10.1103/physrevb.78.104102": source(
         "https://doi.org/10.1103/PhysRevB.78.104102",
@@ -791,62 +786,23 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
         "that table alone; the paper's published thermally reduced 0 K fit "
         "also includes the earlier Finger et al. low-pressure series.",
     ),
-    "diamond_dewaele_2008_vinet_2": source(
-        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.094106/fulltext",
-        [
-            "Section II, H05 pressure calibration",
-            "Table I, diamond aC rows",
-            "Table III, 298 K diamond Vinet fit",
-        ],
-        "The diamond observations and fitted reference isotherm are explicitly "
-        "on the Holzapfel (2005) H05 ruby scale.",
-    ),
-    "diamond_correa_2008_double_debye_log_moment_5": source(
-        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext",
-        [
-            "Equations 2-7 and 13-18",
-            "Table I, diamond row",
-            "Figure 8, vector DFT-MD pressure markers",
-        ],
-        "The complete source equation and coefficients are represented. All 57 "
-        "Figure 8 pressure markers are bundled as plot checkpoints, but the "
-        "upstream cold-energy and phonon fitting grids are not tabulated.",
-    ),
-    "diamond_benedict_2014_double_debye_4": source(
-        "https://arxiv.org/pdf/1311.4577",
-        [
-            "Equations 3-7",
-            "Table I, diamond column",
-            "Figure 7, DFT-MD pressure and internal-energy comparison",
-            "Supplemental Material, solid DFT-MD table",
-        ],
-        "The complete source equation and coefficients are represented. The exact "
-        "96-row solid DFT-MD pressure/internal-energy validation grid is bundled, "
-        "but the upstream cold-energy and phonon fitting grids are not supplied.",
-    ),
     "diamond_correa_2008_dewaele_anchored": source(
         "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
         [
             "Dewaele et al. (2008), Table III",
             "Correa et al. (2008), equations 2-7 and 13-18 and Table I",
-            "Correa et al. (2008), Figure 8 vector DFT-MD markers",
         ],
-        "Peritheos-derived composition of the primary-source-validated Dewaele "
-        "298 K Vinet isotherm and the reference-relative Correa thermal free "
-        "energy. This is an exact source-equation reconstruction, not a composite "
-        "coefficient fit.",
+        "Derived composition of the primary-source-validated Dewaele 298 K "
+        "Vinet isotherm and the reference-relative Correa thermal free energy.",
     ),
     "diamond_benedict_2014_dewaele_anchored": source(
         "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
         [
             "Dewaele et al. (2008), Table III",
             "Benedict et al. (2014), equations 3-7 and Table I",
-            "Benedict et al. (2014), Supplemental Material, solid DFT-MD table",
         ],
-        "Peritheos-derived composition of the primary-source-validated Dewaele "
-        "298 K Vinet isotherm and the reference-relative Benedict thermal free "
-        "energy. This is an exact source-equation reconstruction, not a composite "
-        "coefficient fit.",
+        "Derived composition of the primary-source-validated Dewaele 298 K "
+        "Vinet isotherm and the reference-relative Benedict thermal free energy.",
     ),
     "aragonite_martinez_1996_bm2_2": source(
         "https://rruff.info/doclib/am/vol81/AM81_611.pdf",
@@ -876,9 +832,8 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
         "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye "
         "energy, one-formula-unit volume basis, high-temperature cubic phase, "
         "Pt pressure standard, and experimental P-T envelope were checked "
-        "directly. All 144 Table 1 observations were transcribed at printed "
-        "precision and independently reproduce the source fit. The 300 K cubic "
-        "isotherm is retained only as the model reference state.",
+        "directly. The 300 K cubic isotherm is retained only as the model "
+        "reference state.",
     ),
     "ca_perovskite_tetragonal_sun_2022_bm3_1": source(
         "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
@@ -891,9 +846,8 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
         ],
         "Table 2's fixed-derivative fit is used. Its V0 and error are converted "
         "from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 "
-        "cell. All 23 Table 1 rows were transcribed, with the 14 reanalyzed 2016 "
-        "and nine new 2022 observations distinguished, and independently "
-        "reproduce both Table 2 fits.",
+        "cell; the fitted modulus, direct data range, 300 K phase, Fei et al. "
+        "Pt pressure scale, and lack of published covariance are retained.",
     ),
     "coesite_levien_1981_bm3_1": source(
         "https://msaweb.org/AmMin/AM66/AM66_324.pdf",
@@ -908,28 +862,11 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
     "lead_fcc_fortes_2019_bm4_1": source(
         "https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
         [
-            "Equations 1-8",
+            "Equations 1-5",
             "sections 2.1-2.3",
-            "Tables 1-2, report pages 8-9",
+            "Table 1, report page 9",
         ],
-        "The stored BM4 record is exactly the 300 K isotherm of the fully specified "
-        "polynomial P-V-T surface. The report's Table 1 constants are evaluated at "
-        "Delta T=0 (300 K), not at absolute zero.",
-    ),
-    "lead_fcc_kuznetsov_2002_bm3_2": source(
-        "https://doi.org/10.1016/S0038-1098(02)00112-6",
-        ["Equations 1-3", "Tables 1-2", "Figures 2-3"],
-        "The stored BM3 record is exactly the 296 K isotherm of the published "
-        "fcc P-V-T surface. The paper observes fcc Pb at room temperature, "
-        "reports transition onset near 12 GPa, and tabulates a 296 K fcc "
-        "transition state at 13.1 GPa.",
-    ),
-    "lead_hcp_kuznetsov_2002_bm3_3": source(
-        "https://doi.org/10.1016/S0038-1098(02)00112-6",
-        ["Equations 1-3", "Tables 1-2", "Figures 2-3"],
-        "The stored BM3 record is exactly the 296 K isotherm of the published "
-        "hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and "
-        "B0_prime=3.61.",
+        "The stored record is the 300 K isotherm of the report's temperature-dependent BM4 model.",
     ),
     "kcl_b2_dewaele_2012_vinet_3": source(
         "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.85.214105/fulltext",
@@ -1054,20 +991,6 @@ SOKOLOVA_COMPOSITION: dict[str, tuple[float, float]] = {
     "silver_sokolova_2013_holzapfel_2": (1.0, 47.0),
     "tantalum_sokolova_2013_holzapfel_3": (1.0, 73.0),
     "tungsten_sokolova_2013_holzapfel_4": (1.0, 74.0),
-}
-
-SOKOLOVA_COMPARISON_DATASETS = {
-    "aluminum_sokolova_2013_holzapfel_2": "aluminum_dewaele_2004_table1_compression",
-    "copper_sokolova_2013_holzapfel_2": "copper_dewaele_2004_table1_compression",
-    "diamond_sokolova_2013_holzapfel_3": "diamond_dewaele_2008_table1_pvt",
-    "gold_sokolova_2013_holzapfel_4": "gold_dewaele_2004_table1_compression",
-    "mgo_sokolova_2013_holzapfel_4": "mgo_jacobsen_2008_table1_helium_compression",
-    "molybdenum_sokolova_2013_holzapfel_2": "molybdenum_dewaele_2008_table2_compression",
-    "niobium_sokolova_2013_holzapfel_2": "niobium_takemura_2006_table1_compression",
-    "platinum_sokolova_2013_holzapfel_3": "platinum_dewaele_2004_table1_compression",
-    "silver_sokolova_2013_holzapfel_2": "silver_dewaele_2008_table2_compression",
-    "tantalum_sokolova_2013_holzapfel_3": "tantalum_dewaele_2004_table1_compression",
-    "tungsten_sokolova_2013_holzapfel_4": "tungsten_dewaele_2004_table1_compression",
 }
 
 SOKOLOVA_2013_REFERENCE = {
@@ -1957,45 +1880,10 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             )
             + "The publications do not provide individual parameter errors, "
             "parameter covariance, or a complete machine-readable list of fit "
-            "points and weights. A source-constrained reconstruction nevertheless "
-            "combines 392 room-temperature comparison observations for all eleven "
-            "markers in one shared Equation (20) objective against the pointwise "
-            "mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, "
-            "with Table 4 retained as a post-calibration closure test. This tests "
-            "the coupled cross-calibration and is not an independent refit "
-            "of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the "
+            "points and weights. The *_sokolova_2013 identifier names the "
             "scientific fit year; the 2016 workbook remains explicit in "
             "source_lineage as the implementation and correction source."
         )
-        validation = record.setdefault("scientific_validation", {})
-        validation["primary_data_check"] = {
-            "status": "parameterization_only",
-            "audit_date": "2026-09-08",
-            "source_locations": [
-                "Sokolova et al. (2013), Tables 1-4 and Equation (20)",
-                "Dorogokupets and Oganov (2007), two-stage optimization protocol",
-                "Sokolova et al. (2016), official mmc1-mmc11 workbooks",
-            ],
-            "comparison_dataset_identifiers": [
-                SOKOLOVA_COMPARISON_DATASETS[identifier]
-            ],
-            "manifest": "datasets/sokolova-2013-global-calibration-manifest.json",
-            "finding": (
-                "The complete coefficient-refit objective remains unavailable because "
-                "the source omits row-level thermochemical/ultrasonic inputs, weights, "
-                "optimizer details, and covariance. Machine-readable comparison rows "
-                "do support a coupled eleven-marker reconstruction of the shared ruby "
-                "Equation (20) from the Table 2/3 precursor isotherms and a Table 4 "
-                "closure test; it must not be classified as an independent EOS refit."
-            ),
-        }
-        validation["source_reconstruction"] = {
-            "status": "coupled_cross_calibration_reconstructed",
-            "result": "docs/data/sokolova-2013-global-calibration.json",
-            "observations": 392,
-            "markers": 11,
-            "independent_eos_refit": False,
-        }
         for component, name, value in (
             ("eos", "n", n),
             ("eos", "Z", atomic_number),
@@ -2063,19 +1951,7 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
         old_v0 = record["eos"]["parameters"]["V0"]
         old_thermal = dict(record["thermal"])
         record["label"] = "Anderson et al. (1989), Au logarithmic-volume thermal EOS"
-        record["reference"]["title"] = (
-            "Anharmonicity and the equation of state for gold"
-        )
-        record["record_kind"] = "published"
-        record["equation_kind"] = "thermal"
-        record["volume_basis"] = {
-            "kind": "formula_units",
-            "formula_units": 4,
-            "molar_mass_g_mol": 196.967,
-        }
         record["eos"]["parameters"]["V0"] = 67.79
-        record["parameter_error_confidence"] = None
-        record["parameter_covariance"] = None
         record["fixed_parameters"] = ["V0", "K0", "K0_prime"]
         record["temperature_ref"] = 300.0
         record["thermal"] = {
@@ -2101,49 +1977,6 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
                 "Table V calculation grid; a reference parameterization, not an independent experimental envelope."
             ],
         }
-        record["pressure_calibration"] = {
-            "status": "not_applicable",
-            "methods": [
-                {
-                    "kind": "ambient_pressure",
-                    "source_location": "Sections II-VI and Tables I-IV",
-                    "scope": (
-                        "Literature heat-capacity, expansivity, and ultrasonic "
-                        "constraints at one atmosphere"
-                    ),
-                },
-                {
-                    "kind": "other",
-                    "reference": {
-                        "authors": ["Heinz", "Jeanloz"],
-                        "year": 1984,
-                        "source": "J. Appl. Phys.",
-                        "volume": "55",
-                        "locator": "885",
-                        "doi": "10.1063/1.333139",
-                    },
-                    "source_location": "Section VII, paragraph following Equation (29)",
-                    "scope": (
-                        "Adopted 300 K static coefficients KT0=166.65 GPa and "
-                        "K0'=5.4823"
-                    ),
-                },
-            ],
-            "recalculation": {
-                "status": "not_applicable",
-                "notes": (
-                    "This paper constructs a reference pressure scale from literature "
-                    "thermodynamic properties and adopted static coefficients; it does "
-                    "not reduce a new pressure-calibrated experiment."
-                ),
-            },
-            "audit_date": "2026-09-08",
-            "notes": (
-                "The exact provenance of the adopted static coefficients and every "
-                "ambient-pressure constraint is recorded; no experimental pressure "
-                "calibration is inferred."
-            ),
-        }
         record["parameter_provenance"] = {
             "reference_isotherm": {
                 "V0": (
@@ -2155,97 +1988,23 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             },
             "thermal_correction": {
                 "Tr": "Equations (21), (27b), and (29); 300 K",
-                "alpha_KT_ref": (
-                    "Linear least-squares slope of Table IV thermal pressure above "
-                    "1.3 Debye temperatures, reported in Equations (20)-(21) as "
-                    "7.14e-3 GPa/K"
-                ),
-                "dK_dT_V": (
-                    "Linear least-squares slope of the Table III constant-volume KT "
-                    "curve generated with trial K0'=5.5 over 200-550 K, reported as "
-                    "-11.5e-3 GPa/K; the final K0'=5.4823 changes it negligibly"
-                ),
-            },
-            "constraint_lineage": {
-                "heat_capacity": (
-                    "Hultgren et al. (1963) below 300 K and Barin and Knacke "
-                    "(1973) Equation (4) above 300 K"
-                ),
-                "thermal_expansivity": (
-                    "White and Collins (1972), the AIP Handbook (1972), and "
-                    "Touloukian et al. (1975); hand-smoothed through 250 K and "
-                    "quadratic least-squares fit from 250-1000 K"
-                ),
-                "elastic_constants": (
-                    "Neighbours and Alers (1958) through 300 K and Chang and "
-                    "Himmel (1966) from 300-550 K"
-                ),
-                "bulk_modulus_pressure_derivatives": (
-                    "Daniels and Smith (1958), Golding et al. (1967), Hiki and "
-                    "Granato (1966), and Heinz and Jeanloz (1984)"
-                ),
-                "static_reference_isotherm": (
-                    "Heinz and Jeanloz (1984) revised equation of state"
-                ),
+                "alpha_KT_ref": ("Equations (20), (21), (26), and (29); 7.14e-3 GPa/K"),
+                "dK_dT_V": ("Section III and Equations (26)-(29); -11.5e-3 GPa/K"),
             },
         }
         record["notes"] = (
             "Anderson et al. Equation (29): the adopted 300 K BM3 curve "
             "KT0=166.65 GPa and K0'=5.4823 is combined with "
-            "[0.00714-0.0115*ln(V0/V)]*(T-300) GPa. This is a staged "
-            "literature synthesis, not a global P-V-T regression: Tables I-IV "
-            "combine heat-capacity, expansivity, and ultrasonic data from distinct "
-            "sources; low-temperature expansivities were graphically smoothed; "
-            "several derived curves were fit separately; K0'=5.2-5.5 was selected "
-            "by a thermodynamic-consistency diagnostic; and the final static K0 and "
-            "K0' were adopted from Heinz and Jeanloz. V0=67.79 A^3 is "
+            "[0.00714-0.0115*ln(V0/V)]*(T-300) GPa. V0=67.79 A^3 is "
             "converted from the paper's ambient density 19.30 g/cm^3 and "
-            "atomic mass 196.967 g/mol for the four-atom fcc cell. Table I prints "
-            "Cp=1.1288 in units of 0.1 J g^-1 K^-1 at 300 K, but Equation (4) "
-            "and Table IV gamma=2.974 independently imply about 1.288; both the "
-            "printed and reconstructed values are preserved in the supporting "
-            "dataset. Table V "
+            "atomic mass 196.967 g/mol for the four-atom fcc cell. Table V "
             "covers V/V0=0.66-1 and 300-3000 K. The stored 0.001 GPa/K "
             "dK_dT_V error is the explicit propagated contribution reported "
             "for the near-identical K0'=5.5 calculation; the paper notes an "
-            "additional unquantified contribution from K0' uncertainty. No global "
-            "objective, complete covariance matrix, row weights, digitized "
-            "low-temperature smoothing curve, or exact numerical-integration "
-            "protocol is published."
+            "additional unquantified contribution from K0' uncertainty. No "
+            "complete covariance matrix or errors for the adopted static "
+            "parameters are published."
         )
-        validation_extensions = record.setdefault("scientific_validation", {})
-        validation_extensions["primary_data_check"] = {
-            "status": "bundled_indirect",
-            "audit_date": "2026-09-08",
-            "dataset_identifiers": [
-                "gold_anderson_1989_table1_thermodynamic_inputs",
-                "gold_anderson_1989_table2_temperature_derivatives",
-                "gold_anderson_1989_table3_bulk_moduli",
-                "gold_anderson_1989_table4_anharmonic_diagnostics",
-                "gold_anderson_1989_table5_pressure_grid",
-            ],
-            "source_locations": ["Tables I-V; Equations (4)-(29)"],
-            "finding": (
-                "All numerical tables that constrain or verify Equation (29) are "
-                "bundled. They are heterogeneous literature properties and derived "
-                "coefficient/output tables, not a common observation matrix for a "
-                "global EOS regression. The paper does not publish the hand-smoothed "
-                "low-temperature expansivity curve, a global objective or weights, "
-                "an exact integration algorithm, or covariance, so a reproducible "
-                "global fit is not defined."
-            ),
-        }
-        validation_extensions["reproduction"] = {
-            "method": (
-                "Independent reconstruction of the published one-dimensional "
-                "regressions and thermodynamic-consistency trials, followed by "
-                "direct Equation (29) evaluation against all Table V top-row pressures"
-            ),
-            "script": "scripts/reproduce_anderson_1989_gold_thermal_eos.py",
-            "report": "docs/data/anderson-1989-gold-thermal-eos-reproduction.json",
-            "table5_states": 126,
-            "global_fit_status": "not_defined_by_source",
-        }
         for correction in (
             {
                 "path": "eos.parameters.V0",
@@ -2285,7 +2044,7 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
         ):
             correction["primary_reference"] = {
                 "doi": "10.1063/1.342969",
-                "location": "pages 1535-1541, Tables I-V and Equations (4)-(29)",
+                "location": "pages 1535-1541, Equations (20)-(29), and Table V",
             }
             append_correction(record, correction)
 
@@ -2631,10 +2390,24 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             "type": "Vinet",
             "parameters": {
                 "V0": 60.4000884,
-                "K0": 266.0,
-                "K0_prime": 5.81,
+                "K0": 798.31 / 3.0,
+                "K0_prime": 1.0 + 7.2119 / 1.5,
             },
             "model": "vinet",
+        }
+        record["source_parameterization"] = {
+            "equation": "Equation (11)",
+            "V0_bohr3_per_atom": 101.9,
+            "P_T_gpa": 798.31,
+            "eta": 7.2119,
+            "equivalent_parameter_mapping": {
+                "K0": "P_T/3",
+                "K0_prime": "1+eta/1.5",
+            },
+            "table_iv_rounded_parameters": {
+                "K0_gpa": 266.0,
+                "K0_prime": 5.81,
+            },
         }
         record["parameter_errors"] = {
             "V0": None,
@@ -2654,13 +2427,19 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
         record["experimental_temperature_range_k"] = [300.0, 2000.0]
         record["notes"] = (
             "The 300 K pressure scale is Holmes et al.'s theoretical universal "
-            "(Vinet) EOS, qualified against shock data to at least 10% in pressure: "
-            "V0=101.9 bohr^3/atom (converted to the four-atom fcc cell), K0=266 "
-            "GPa, and K0'=5.81. Their approximate finite-temperature extension "
-            "adds alpha*K_T*(T-300 K), with alpha=0.261e-4 K^-1 and K_T=266 GPa, "
-            "and is stated to be adequate below 2000 K. The 300 K isotherm itself "
-            "is represented through 550 GPa; 32-660 GPa is the shock-Hugoniot "
-            "range, not the static-isotherm validity range."
+            "(Vinet) EOS, qualified against shock data to at least 10% in pressure. "
+            "Equation (11) and Table IV give V0=101.9 bohr^3/atom, P_T=798.31 "
+            "GPa, and eta=7.2119; the executable Vinet coefficients are the exact "
+            "mappings K0=P_T/3 and K0'=1+eta/1.5. Table IV's separately printed "
+            "B_T=266 GPa and B_T'=5.81 are rounded interpretations of the same "
+            "curve. The approximate finite-temperature extension adds "
+            "alpha*B_T*(T-300 K), with alpha=0.261e-4 K^-1 and rounded B_T=266 "
+            "GPa, and is stated to be adequate below 2000 K. The 300 K isotherm "
+            "itself is represented through 550 GPa; 32-660 GPa is the "
+            "shock-Hugoniot range, not the static-isotherm validity range. The "
+            "source publishes no numerical LMTO E0(V), P0(V), density-of-states, "
+            "or 300 K fit grid, so the analytical curve is exactly reconstructable "
+            "but its underlying theoretical fit is not independently refittable."
         )
         for correction in (
             {
@@ -2672,10 +2451,13 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             {
                 "path": "eos",
                 "source_value": "BM3(V0=60.3793086, K0=266, K0_prime=5.81)",
-                "value": "Vinet(V0=60.4000884, K0=266, K0_prime=5.81)",
+                "value": ("Vinet(V0=60.4000884, K0=798.31/3, K0_prime=1+7.2119/1.5)"),
                 "reason": (
                     "Use Equation (11) and convert its V0=101.9 bohr^3/atom "
-                    "to the four-atom fcc conventional cell."
+                    "to the four-atom fcc conventional cell, then map the more "
+                    "precisely printed P_T=798.31 GPa and eta=7.2119 exactly onto "
+                    "Vinet K0 and K0_prime. Table IV's B_T=266 GPa and B_T'=5.81 "
+                    "are rounded interpretations."
                 ),
             },
             {
@@ -3029,6 +2811,258 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             },
             "audit_date": "2026-09-07",
         }
+        record["experimental_pressure_range_gpa"] = [0.0, 8.16]
+        record["pressure_range_status"] = "reported_exactly"
+        record["experimental_temperature_range_k"] = [300.0, 1280.0]
+        record["fit_datasets"] = ["jadeite_zhao_1997_table1_pvt"]
+        record["thermal"] = {
+            "type": "AlphaKT",
+            "model": "thermal_reference_state",
+            "thermal_expansion_law": "linear_temperature",
+            "reference_volume_law": "integrated_expansivity",
+            "parameters": {
+                "Tr": 300.0,
+                "alpha0": 2.56e-5,
+                "alpha1": 2.6e-9,
+                "dK_dT": -0.0165,
+            },
+            "parameter_errors": {
+                "Tr": None,
+                "alpha0": 2.2e-6,
+                "alpha1": 1.8e-9,
+                "dK_dT": 0.0049,
+            },
+            "fixed_parameters": ["Tr"],
+        }
+        record["parameter_provenance"] = {
+            "equation": (
+                "Zhao et al. (1997), Equation (1), page 6: third-order "
+                "Birch-Murnaghan with temperature-dependent V_T and K_T"
+            ),
+            "V0": (
+                "Discussion and Table 2, page 7: fixed at 403 A^3 in every "
+                "tradeoff fit; it is not the Table 1 measurement 403.32(8) A^3"
+            ),
+            "K0": "Preferred K0'=5 column of Table 2: 125(4) GPa; fit prose reports 124.5(4.0) GPa",
+            "K0_prime": "Preferred fit constrained K0'=5.0",
+            "thermal": (
+                "Fit paragraph on page 6 and preferred K0'=5 column of Table 2: "
+                "dK/dT=-1.65(49)e-2 GPa/K, a=2.56(22)e-5 K^-1, and "
+                "b=0.26(18)e-8 K^-2"
+            ),
+            "temperature_ref": "Equation (1) defines K_T relative to 300 K",
+            "fit_selection": (
+                "All 31 Table 1 rows are the source-selected hydrostatic states; "
+                "the nonhydrostatic cold-compression observations were excluded "
+                "before the table was constructed"
+            ),
+        }
+        record["fit_provenance"] = {
+            "software": {"name": "not reported", "version": "not reported"},
+            "dataset": "jadeite_zhao_1997_table1_pvt",
+            "selection": {
+                "dataset": "jadeite_zhao_1997_table1_pvt",
+                "included_rows": 31,
+                "excluded_bundled_rows": 0,
+                "source_preselection": (
+                    "Only observations collected after heating removed the cold-"
+                    "compression deviatoric stress were admitted to Table 1"
+                ),
+            },
+            "objective": "not reported",
+            "refined_parameters": ["K0", "alpha0", "alpha1", "dK_dT"],
+            "fixed_parameters": ["V0", "K0_prime", "Tr"],
+            "covariance_scaling": "not reported",
+            "statistics": {"observations": 31},
+            "source_objective": "not_reported",
+            "source_weights": "not_reported",
+            "source_covariance": "not_reported",
+            "reproduction_objective": (
+                "ordinary pressure residuals over all 31 source-selected hydrostatic "
+                "rows; no row weights inferred because the paper does not report "
+                "the EOS objective or row-wise pressure and temperature uncertainties"
+            ),
+        }
+        record["experimental_configuration"] = {
+            "apparatus": "DIA-6 multi-anvil press (SAM-85)",
+            "diffraction": (
+                "energy-dispersive synchrotron X-ray diffraction at NSLS X-17B; "
+                "Ge solid-state detector at fixed 2theta=5.847 degrees; modified "
+                "GSAS Rietveld whole-pattern refinement"
+            ),
+            "pressure_medium_and_container": "cylindrical hexagonal-BN sample chamber",
+            "pressure_standard": "NaCl using Decker (1971)",
+            "temperature_measurement": "Pt-Pt/10%Rh thermocouple",
+            "path": (
+                "compress cold to the highest pressure, heat to the highest "
+                "temperature to remove deviatoric stress, then collect successive "
+                "cooling/decompression states"
+            ),
+        }
+        record["validity"] = {
+            "pressure_gpa": [0.0, 8.16],
+            "temperature_k": [300.0, 1280.0],
+            "notes": [
+                "Experimental P-T bounds are an observed envelope, not a rectangular extrapolation guarantee.",
+                "The source states that the pressure range is too small to resolve K0' confidently; K0'=5 is the preferred constrained alternative.",
+            ],
+        }
+        record["pressure_calibration"] = {
+            "status": "resolved",
+            "methods": [
+                {
+                    "kind": "equation_of_state",
+                    "material": "NaCl",
+                    "reference": {
+                        "authors": ["Decker"],
+                        "year": 1971,
+                        "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+                        "source": "Journal of Applied Physics",
+                        "volume": "42",
+                        "locator": "3239-3244",
+                        "doi": "10.1063/1.1660714",
+                    },
+                    "source_location": "Experimental Aspects, page 5",
+                    "scope": "all high-P-T Table 1 pressures",
+                }
+            ],
+            "recalculation": {
+                "status": "missing_calibrant_observations",
+                "notes": (
+                    "The exact NaCl scale is identified, but Table 1 does not print "
+                    "the simultaneous NaCl lattice parameters required to recalculate "
+                    "the reported pressures. The paper reports aggregate pressure "
+                    "precision rather than row-wise pressure uncertainties."
+                ),
+            },
+            "audit_date": "2026-09-07",
+        }
+        record["experimental_pressure_range_gpa"] = [0.0, 8.16]
+        record["pressure_range_status"] = "reported_exactly"
+        record["experimental_temperature_range_k"] = [300.0, 1280.0]
+        record["fit_datasets"] = ["jadeite_zhao_1997_table1_pvt"]
+        record["thermal"] = {
+            "type": "AlphaKT",
+            "model": "thermal_reference_state",
+            "thermal_expansion_law": "linear_temperature",
+            "reference_volume_law": "integrated_expansivity",
+            "parameters": {
+                "Tr": 300.0,
+                "alpha0": 2.56e-5,
+                "alpha1": 2.6e-9,
+                "dK_dT": -0.0165,
+            },
+            "parameter_errors": {
+                "Tr": None,
+                "alpha0": 2.2e-6,
+                "alpha1": 1.8e-9,
+                "dK_dT": 0.0049,
+            },
+            "fixed_parameters": ["Tr"],
+        }
+        record["parameter_provenance"] = {
+            "equation": (
+                "Zhao et al. (1997), Equation (1), page 6: third-order "
+                "Birch-Murnaghan with temperature-dependent V_T and K_T"
+            ),
+            "V0": (
+                "Discussion and Table 2, page 7: fixed at 403 A^3 in every "
+                "tradeoff fit; it is not the Table 1 measurement 403.32(8) A^3"
+            ),
+            "K0": "Preferred K0'=5 column of Table 2: 125(4) GPa; fit prose reports 124.5(4.0) GPa",
+            "K0_prime": "Preferred fit constrained K0'=5.0",
+            "thermal": (
+                "Fit paragraph on page 6 and preferred K0'=5 column of Table 2: "
+                "dK/dT=-1.65(49)e-2 GPa/K, a=2.56(22)e-5 K^-1, and "
+                "b=0.26(18)e-8 K^-2"
+            ),
+            "temperature_ref": "Equation (1) defines K_T relative to 300 K",
+            "fit_selection": (
+                "All 31 Table 1 rows are the source-selected hydrostatic states; "
+                "the nonhydrostatic cold-compression observations were excluded "
+                "before the table was constructed"
+            ),
+        }
+        record["fit_provenance"] = {
+            "software": {"name": "not reported", "version": "not reported"},
+            "dataset": "jadeite_zhao_1997_table1_pvt",
+            "selection": {
+                "dataset": "jadeite_zhao_1997_table1_pvt",
+                "included_rows": 31,
+                "excluded_bundled_rows": 0,
+                "source_preselection": (
+                    "Only observations collected after heating removed the cold-"
+                    "compression deviatoric stress were admitted to Table 1"
+                ),
+            },
+            "objective": "not reported",
+            "refined_parameters": ["K0", "alpha0", "alpha1", "dK_dT"],
+            "fixed_parameters": ["V0", "K0_prime", "Tr"],
+            "covariance_scaling": "not reported",
+            "statistics": {"observations": 31},
+            "source_objective": "not_reported",
+            "source_weights": "not_reported",
+            "source_covariance": "not_reported",
+            "reproduction_objective": (
+                "ordinary pressure residuals over all 31 source-selected hydrostatic "
+                "rows; no row weights inferred because the paper does not report "
+                "the EOS objective or row-wise pressure and temperature uncertainties"
+            ),
+        }
+        record["experimental_configuration"] = {
+            "apparatus": "DIA-6 multi-anvil press (SAM-85)",
+            "diffraction": (
+                "energy-dispersive synchrotron X-ray diffraction at NSLS X-17B; "
+                "Ge solid-state detector at fixed 2theta=5.847 degrees; modified "
+                "GSAS Rietveld whole-pattern refinement"
+            ),
+            "pressure_medium_and_container": "cylindrical hexagonal-BN sample chamber",
+            "pressure_standard": "NaCl using Decker (1971)",
+            "temperature_measurement": "Pt-Pt/10%Rh thermocouple",
+            "path": (
+                "compress cold to the highest pressure, heat to the highest "
+                "temperature to remove deviatoric stress, then collect successive "
+                "cooling/decompression states"
+            ),
+        }
+        record["validity"] = {
+            "pressure_gpa": [0.0, 8.16],
+            "temperature_k": [300.0, 1280.0],
+            "notes": [
+                "Experimental P-T bounds are an observed envelope, not a rectangular extrapolation guarantee.",
+                "The source states that the pressure range is too small to resolve K0' confidently; K0'=5 is the preferred constrained alternative.",
+            ],
+        }
+        record["pressure_calibration"] = {
+            "status": "resolved",
+            "methods": [
+                {
+                    "kind": "equation_of_state",
+                    "material": "NaCl",
+                    "reference": {
+                        "authors": ["Decker"],
+                        "year": 1971,
+                        "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+                        "source": "Journal of Applied Physics",
+                        "volume": "42",
+                        "locator": "3239-3244",
+                        "doi": "10.1063/1.1660714",
+                    },
+                    "source_location": "Experimental Aspects, page 5",
+                    "scope": "all high-P-T Table 1 pressures",
+                }
+            ],
+            "recalculation": {
+                "status": "missing_calibrant_observations",
+                "notes": (
+                    "The exact NaCl scale is identified, but Table 1 does not print "
+                    "the simultaneous NaCl lattice parameters required to recalculate "
+                    "the reported pressures. The paper reports aggregate pressure "
+                    "precision rather than row-wise pressure uncertainties."
+                ),
+            },
+            "audit_date": "2026-09-07",
+        }
         record["notes"] = (
             "Complete preferred high-temperature BM3 parameterization from Zhao et al. (1997), fitted to the 31 hydrostatic Table 1 P-V-T states. The authors fixed V0=403 A^3 and K0'=5, and varied K0, dK/dT, a, and b. Their alternate K0'=4, K0'=6, and unconstrained-K0' tradeoff solutions remain documented in the source audit rather than being silently combined. The source does not report the regression objective, row weights, parameter covariance, or confidence convention."
         )
@@ -3354,9 +3388,8 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
                 "stored coefficients are an explicitly identified Peritheos refit."
                 if result["identifier"] in DERIVED_REFIT_RECORDS
                 else (
-                    "Exact source-equation reconstruction of separately audited "
-                    "reference-isotherm and simulated thermal components; no "
-                    "composite coefficients were fitted."
+                    "Derived composition of separately primary-source-validated "
+                    "reference-isotherm and simulated thermal components."
                     if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
                     else (
                         "Independently checked against the cited primary publication "
@@ -3416,17 +3449,14 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
             "pressure_calibration",
         ]
 
-    if "_delta_archive_experimental_reference_bm3" in result["identifier"]:
-        # Delta rows are heterogeneous reference-property compilations, not
-        # row-level P-V fits, so preserve their narrower source-specific claim.
-        result["scientific_validation"]["note"] = previous["note"]
-        result["scientific_validation"]["verified_fields"] = previous["verified_fields"]
-
     if result["identifier"] == "ca_perovskite_caracas_2005_bm3_3":
+        result["scientific_validation"]["audit_date"] = previous.get(
+            "audit_date", "2026-09-08"
+        )
         result["scientific_validation"]["note"] = (
             "The primary article and publisher HTML were audited directly. "
-            "Exactly one cubic source parameterization is executable; all 18 "
-            "Table 2 fits remain distinguished in the audit metadata."
+            "Four selected Pm-3m and I4/mcm parameterizations are executable; "
+            "all 18 Table 2 fits remain distinguished in the audit fixture."
         )
         result["scientific_validation"]["verified_fields"] = [
             "equation",
@@ -3498,21 +3528,16 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         if reproduction is not None:
             result["scientific_validation"]["reproduction"] = reproduction
 
-    if result["identifier"] == "gold_anderson_1989_bm3_1":
-        result["scientific_validation"]["note"] = (
-            "The complete primary article was audited table by table. The staged "
-            "thermodynamic derivation, upstream-property lineage, Table-I 300 K Cp "
-            "inconsistency, Equation (29), and all Table-V output states are recorded."
-        )
+    if result["identifier"] == "e_feooh_gleason_2008_bm2_1":
+        result["scientific_validation"]["note"] = previous["note"]
+        result["scientific_validation"]["audit_date"] = previous["audit_date"]
+        result["scientific_validation"]["verified_fields"] = previous["verified_fields"]
+
+    if result["identifier"] == "platinum_holmes_1989_vinet_1":
         result["scientific_validation"]["audit_date"] = "2026-09-08"
-        result["scientific_validation"]["verified_fields"] = [
-            *VERIFIED_FIELDS,
-            "thermodynamic_constraint_lineage",
-            "derived_table_reproduction",
-            "fit_reproducibility",
-        ]
-        if reproduction is not None:
-            result["scientific_validation"]["reproduction"] = reproduction
+        result["scientific_validation"]["verified_fields"].extend(
+            ["source_parameterization", "numerical_reproduction", "fit_role"]
+        )
 
     if result["identifier"] == "kcl_b2_chidester_2021_bm3_5":
         result["scientific_validation"]["note"] = (
@@ -3621,6 +3646,11 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
 
 def main() -> None:
     curate_migrated_catalog()
+    expected_records = sum(
+        record["identifier"] not in REMOVED_UNSUPPORTED_RECORDS
+        for path in MATERIALS.glob("*.eosmat")
+        for record in json.loads(path.read_text(encoding="utf-8"))["eos_records"]
+    )
     entries: list[dict[str, Any]] = []
     for path in sorted(MATERIALS.glob("*.eosmat")):
         document = json.loads(path.read_text(encoding="utf-8"))
@@ -3736,8 +3766,12 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 821:
-        raise ValueError(f"Expected 821 EOS records, found {len(entries)}")
+    if len(entries) != expected_records:
+        raise ValueError(
+            f"Expected {expected_records} retained EOS records, found {len(entries)}"
+        )
+    if len({entry["record"] for entry in entries}) != len(entries):
+        raise ValueError("Primary-source audit produced duplicate record identifiers")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
@@ -3790,7 +3824,6 @@ def aggregate_existing_audits() -> None:
     """Rebuild aggregate audit files without rewriting curated material records."""
     entries: list[dict[str, Any]] = []
     pressure_calibrations: list[dict[str, Any]] = []
-    audit_dates = [REPORT_AUDIT_DATE]
     for path in sorted(MATERIALS.glob("*.eosmat")):
         document = json.loads(path.read_text(encoding="utf-8"))
         for record in document["eos_records"]:
@@ -3799,7 +3832,6 @@ def aggregate_existing_audits() -> None:
                 raise ValueError(
                     f"{path.name}:{record.get('identifier')} has no existing audit"
                 )
-            audit_dates.append(check.get("audit_date", REPORT_AUDIT_DATE))
             entry = {
                 "material": document["identifier"],
                 "file": path.name,
@@ -3819,11 +3851,10 @@ def aggregate_existing_audits() -> None:
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
-    report_audit_date = max(audit_dates)
     report = {
         "format": "peritheos.primary-source-audit",
         "format_version": 1,
-        "audit_date": report_audit_date,
+        "audit_date": REPORT_AUDIT_DATE,
         "policy": {
             "scientific_authority": "primary publications and official supplements",
             "external_catalogs": (
@@ -3852,7 +3883,7 @@ def aggregate_existing_audits() -> None:
     manifest["materials"] = len(list(MATERIALS.glob("*.eosmat")))
     manifest["eos_records"] = len(entries)
     manifest["scientific_validation"] = {
-        "audit_date": report_audit_date,
+        "audit_date": REPORT_AUDIT_DATE,
         "report": "../primary-source-audit.json",
         "counts": dict(sorted(counts.items())),
         "policy": (
@@ -3867,7 +3898,7 @@ def aggregate_existing_audits() -> None:
         calibration["recalculation"]["status"] for calibration in pressure_calibrations
     )
     manifest["pressure_calibration"] = {
-        "audit_date": report_audit_date,
+        "audit_date": REPORT_AUDIT_DATE,
         "status_counts": {
             status: pressure_statuses[status]
             for status in (

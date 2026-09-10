@@ -1,0 +1,180 @@
+{
+  "reference": {
+    "authors": [
+      "Fei",
+      "Li",
+      "Hirose",
+      "Minarik",
+      "Van Orman",
+      "Sanloup",
+      "van Westrenen",
+      "Komabayashi",
+      "Funakoshi"
+    ],
+    "year": 2004,
+    "title": "A critical evaluation of pressure scales at high temperatures by in situ X-ray diffraction measurements",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "143-144",
+    "locator": "515-526",
+    "doi": "10.1016/j.pepi.2003.09.018"
+  },
+  "zotero_item_key": "5DR2KFRL",
+  "zotero_attachment_key": "YXST2ARI",
+  "source_artifact_sha256": "b3fb00483e702e48d9d4cb5b4fa1dcefbbe176f94b4eca438d84b99a225342fd",
+  "source_version": "Final publication, pages 515-526",
+  "data_license": "No separate data license stated; article copyright Elsevier 2004",
+  "equation_authority": {
+    "reference": "Shim, Duffy and Takemura (2002)",
+    "doi": "10.1016/S0012-821X(02)00917-2",
+    "url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_epsl_2002.pdf",
+    "locations": "Equations 1-8 and Table 1; BM3 plus integrated constant-q MGD, 300 K reference"
+  },
+  "table3": {
+    "columns": [
+      "parameter",
+      "MgO",
+      "Au",
+      "Pt"
+    ],
+    "rows": [
+      [
+        "V0_A3",
+        "74.71(1)",
+        "67.850(4)",
+        "60.38(1)"
+      ],
+      [
+        "K0_GPa",
+        "160.2(2)",
+        "167(3)",
+        "273(3)"
+      ],
+      [
+        "K0_prime",
+        "3.99(1)",
+        "5.0(2)",
+        "4.8(3)"
+      ],
+      [
+        "theta0_K",
+        "773",
+        "170",
+        "230"
+      ],
+      [
+        "gamma0",
+        "1.524(25)",
+        "2.97(3)",
+        "2.69(3)"
+      ],
+      [
+        "q0",
+        "1.65(40)",
+        "0.7(3)",
+        "0.5(5)"
+      ],
+      [
+        "q1",
+        "11.8(2)",
+        "0",
+        "0"
+      ],
+      [
+        "3R_J_g_K",
+        "0.12664",
+        "0.12500",
+        "0.12786"
+      ]
+    ],
+    "footnotes": {
+      "MgO": "All parameters from Speziale et al. (2001); q=q0*(V/V0)^q1. Adopted comparison scale, not a new Fei EOS. Printed mass heat-capacity coefficient is retained without silently repairing it.",
+      "Au": "All parameters except q from Shim et al. (2002). Fei prints gamma0 error 0.03, whereas Shim Table 1 prints 0.05; retain Fei value and conflict.",
+      "Pt": "This study."
+    }
+  },
+  "isotherm_q_diagnostics": {
+    "source_location": "page 521, Section 3.1",
+    "rows": [
+      {
+        "temperature_k_printed": 1473,
+        "q": 0.15
+      },
+      {
+        "temperature_k_printed": 1673,
+        "q": 0.27
+      },
+      {
+        "temperature_k_printed": 1873,
+        "q": 0.41
+      },
+      {
+        "temperature_k_printed": 2127,
+        "q": 0.81
+      }
+    ],
+    "notes": "2127 K is printed in prose but Table 1 and Figure 3 use 2173 K. No continuous q(T) law or errors are supplied; these are local diagnostic estimates, not additional universal EOS records."
+  },
+  "source_issues": [
+    "Page 522 prints annealing at 227 K and 25 GPa; retained as a likely typographical error, not used as a thermal observation.",
+    "Table 2 printed Pt outputs differ systematically from the rounded Table 3 parameterization; record and diagnose rather than change published coefficients.",
+    "Table 3 3R is a mass-specific coefficient, not the SI molar gas constant. Preserve 0.12500 for Au; it also appears in adopted Shim Table 1.",
+    "No objective, covariance, confidence level, or complete upstream shock dataset is supplied."
+  ],
+  "hirose_selection": {
+    "rule": "All 26 rows of Fei Table 1 plus all 12 hot rows of Hirose Table 1; no Table 2 Au-Pt rows.",
+    "evidence": "Hirose page 153 specifies 38 hot observations, Fei simultaneous Au-MgO data at 9-26 GPa and 1273-2173 K. Fei Table 1 has exactly 26 such rows, P=8.64-25.56 GPa; Table 2 is Au-Pt and reaches 28.24 GPa. The 8.64 GPa row must be retained (9 is rounded).",
+    "status": "uniquely matched by complete table, paired phases, row count and marginal ranges; no author machine-readable selection file published",
+    "fei_run_ids": [
+      "s456003",
+      "s701014",
+      "s456004",
+      "s454003",
+      "s453001",
+      "s457002",
+      "s451011",
+      "s693017",
+      "s453003",
+      "s454006",
+      "s460005",
+      "s695007",
+      "s456005",
+      "s693019",
+      "s455007",
+      "s457010",
+      "s696009",
+      "s454008",
+      "s453004",
+      "s451013",
+      "s454009",
+      "s700010",
+      "s693021",
+      "s459002",
+      "s453005",
+      "s694007"
+    ]
+  },
+  "ambient_lattice_parameters": {
+    "MgO": {
+      "a_angstrom": 4.2118,
+      "error": 0.0005,
+      "source": "Table 1 footnote"
+    },
+    "Au": {
+      "a_angstrom": 4.0786,
+      "error": 0.0002,
+      "source": "Tables 1-2 footnotes"
+    },
+    "Pt": {
+      "a_angstrom": 3.9231,
+      "error": 0.0005,
+      "source": "Table 2 footnote"
+    }
+  },
+  "table_row_counts": {
+    "Table 1": 26,
+    "Table 2": 42
+  },
+  "figure_only_evidence": {
+    "Figure 5": "Limited W, Mo, Pd, Ag and NaCl comparison observations at 1473 K; no new parameters for these standards, no raw lattice table. See separate plot digitization."
+  }
+}

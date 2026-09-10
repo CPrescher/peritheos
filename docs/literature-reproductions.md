@@ -35,14 +35,6 @@ The source-reported parameter set remains the library record unless a correction
 is explicitly justified. A refit is supporting evidence, not permission to
 silently replace the publication.
 
-## NiO: Noguchi et al. (1999)
-
-The formerly blocked 300 K BM3 record now has an executable, qualified
-shock-to-isotherm reproduction. The audit uses the published Debye
-Mie--Gruneisen reduction before fitting BM3 and explicitly demonstrates why the
-raw Hugoniot P-V rows cannot be treated as isothermal observations. See the
-[standalone Noguchi NiO audit](literature-reproductions/noguchi-1999-nio-shock-reduction.md).
-
 The [Anderson et al. (1989) gold thermal EOS audit](literature-reproductions/anderson-1989-gold-thermal-eos.md)
 is the canonical example of a reproducible staged thermodynamic derivation that
 must not be relabeled as a global pressure-volume refit. It bundles the source
@@ -73,6 +65,11 @@ recover the respective papers' free coefficients within their printed errors.
 These published records retain their own pressure scales, fixed parameters and
 thermal constraints; they do not replace the Dorogokupets synthesis.
 
+The [Fei et al. (2016) hcp-iron audit](literature-reproductions/fei-2016-iron.md)
+preserves both published BM3 fits and the full Debye plus electronic/anharmonic
+pressure surface, with all 96 supplementary measurements and independent
+partial-data diagnostics.
+
 ## Diamond: Dewaele-anchored thermal composites
 
 The Correa (2008) and Benedict (2014) diamond thermal branches combined with
@@ -91,6 +88,50 @@ validation from the unavailable exact eight-source global refit. A separate
 164-row, non-redistributed reconstruction reaches numerical similarity for all
 four free coefficients while remaining explicitly qualified by its Zha
 curve surrogate and reconstructed legacy weights.
+
+## NiO: Noguchi et al. (1999)
+
+The formerly blocked 300 K BM3 record now has an executable, qualified
+shock-to-isotherm reproduction. The audit uses the published Debye
+Mie--Gruneisen reduction before fitting BM3 and explicitly demonstrates why the
+raw Hugoniot P-V rows cannot be treated as isothermal observations. See the
+[standalone Noguchi NiO audit](literature-reproductions/noguchi-1999-nio-shock-reduction.md).
+
+The Anzellini et al. (2025) iridium audit is maintained as a
+[standalone thermal-EOS reproduction](literature-reproductions/anzellini-2025-iridium.md).
+It implements the paper's exact BM3 plus Holland--Powell pressure surface and
+keeps the conditional hot-data test distinct from the unavailable complete
+combined regression.
+
+## NiO: Noguchi et al. (1999)
+
+The formerly blocked 300 K BM3 record now has an executable, qualified
+shock-to-isotherm reproduction. The audit uses the published Debye
+Mie--Gruneisen reduction before fitting BM3 and explicitly demonstrates why the
+raw Hugoniot P-V rows cannot be treated as isothermal observations. See the
+[standalone Noguchi NiO audit](literature-reproductions/noguchi-1999-nio-shock-reduction.md).
+
+The Anzellini et al. (2025) iridium audit is maintained as a
+[standalone thermal-EOS reproduction](literature-reproductions/anzellini-2025-iridium.md).
+It implements the paper's exact BM3 plus Holland--Powell pressure surface and
+keeps the conditional hot-data test distinct from the unavailable complete
+combined regression.
+
+The dedicated [Tange et al. (2009) MgO audit](literature-reproductions/tange-2009-mgo.md)
+reconstructs the paper's fixed thermodynamic constraints and a 102-row coupled
+thermal--elastic--shock objective. It distinguishes the successful partial
+validation from the unavailable exact eight-source global refit. A separate
+164-row, non-redistributed reconstruction reaches numerical similarity for all
+four free coefficients while remaining explicitly qualified by its Zha
+curve surrogate and reconstructed legacy weights.
+
+## NiO: Noguchi et al. (1999)
+
+The formerly blocked 300 K BM3 record now has an executable, qualified
+shock-to-isotherm reproduction. The audit uses the published Debye
+Mie--Gruneisen reduction before fitting BM3 and explicitly demonstrates why the
+raw Hugoniot P-V rows cannot be treated as isothermal observations. See the
+[standalone Noguchi NiO audit](literature-reproductions/noguchi-1999-nio-shock-reduction.md).
 
 <a id="casio3-caracas-2005"></a>
 
@@ -165,16 +206,14 @@ range and identifies I4/mcm as the lowest-energy static configuration. It does
 not publish the optimized atomic coordinates required for new diffraction-ready
 low-symmetry material records.
 
-### Selected record and numerical reproduction
+### Selected records and numerical reproduction
 
-The one executable addition is `ca_perovskite_caracas_2005_bm3_3`, the Pm-3m
-BM3 fit (`V0 = 44.579 A^3`, `K0 = 250 GPa`, `K0' = 4.098`). It belongs in the
-existing cubic `ca_perovskite` material because Pm-3m has one formula unit in
-its primitive conventional cell, so the source's `V0/Z` is directly the public
-cell volume. The low-symmetry rows do not belong in that material. The cubic
-BM4 row is retained as explicit alternative-fit metadata rather than being
-misrepresented as a duplicate or added as a second record in this focused
-change.
+Production retains the BM3 and BM4 alternatives for the ideal `Pm-3m` parent
+and the lowest-energy `I4/mcm` configuration. They belong on the existing
+`ca_perovskite` and `ca_perovskite_tetragonal` material cards, respectively.
+The other seven exploratory tilt branches remain in the audit coefficient
+table but are not promoted to standalone material records because the source
+does not publish their optimized coordinates.
 
 As an independent check, inversion of the published BM3 equation at 130 GPa
 gives `V = 33.436317 A^3`. Using the CaSiO3 formula mass and one formula unit per
@@ -187,106 +226,9 @@ fit weights, residuals, and covariance are not published. Table 2's stated
 calculation uncertainty of about 20 meV per molecule describes the energy scale,
 not an uncertainty on `V0`, `K0`, `K0'`, or `K0''`; the coefficient errors remain
 explicitly unavailable. Consequently no source-faithful coefficient refit is
-possible; the refit ledger classifies this record as
+possible; the refit ledger classifies the four retained records as
 `theoretical_parameterization_only` and `not_refittable` rather than digitizing
 or synthesizing observations.
-
-<a id="sun-2016-2022-casio3"></a>
-
-## CaSiO3 perovskite: Sun et al. (2016, 2022)
-
-### Sources, rights assessment, and table scope
-
-This audit used the author-hosted publisher PDF and publisher page for Sun et
-al., *Confirming a pyrolitic lower mantle using self-consistent pressure scales
-and new constraints on CaSiO3 perovskite*, JGR Solid Earth **121**, 4876--4894
-(2016), [doi:10.1002/2016JB013062](https://doi.org/10.1002/2016JB013062), and
-the author-hosted publisher PDF for Sun et al., *High-pressure experimental
-study of tetragonal CaSiO3-perovskite to 200 GPa*, American Mineralogist
-**107**, 110--115 (2022),
-[doi:10.2138/am-2021-7913](https://doi.org/10.2138/am-2021-7913).
-
-Neither article nor its table states an explicit open data-reuse license. The
-[Wiley terms of use](https://onlinelibrary.wiley.com/terms-of-use) allow limited
-credited reuse but do not provide a general open-data grant, while the
-[MSA publishing policy](https://msaweb.org/publishingpolicy/) retains
-author/society copyright and preserves fair-use rights. The bundled CSVs are
-therefore narrowly described as source-attributed factual numerical
-transcriptions for scientific validation; they reproduce no prose, table
-image, caption, or typographic arrangement, and Peritheos does not assert that
-they are openly licensed. Downstream redistributors remain responsible for
-their own rights assessment.
-
-The 2016 dataset contains all 144 P-T-V observations printed in Table 1,
-including repeated entries, in the three-block reading order. Its rows span
-21.2--151.8 GPa and 1200--2600 K. The paper's 156 GPa upper bound describes the
-overall diffraction experiment, not a printed Table 1 pressure. Parenthetical
-P and V uncertainties are retained; Table 1 has no row-wise T uncertainty, so
-the separately stated 50--100 K experimental estimate is metadata rather than
-an invented column.
-
-The 2022 dataset contains all 23 Table 1 rows at 300 K. The first 14 are
-explicitly footnoted to Sun et al. (2016) and were reanalyzed for the common
-pressure scale; the final nine are new 2022 observations. The conventional
-I4/mcm lattice values and volumes are preserved. The source divided `a` and
-`c` by two and volume by `Z=4` for plotting and fitting on a one-formula-unit
-basis; Peritheos instead fits the equivalent conventional-cell volumes without
-altering `K0` or `K0'`. Every printed volume agrees with `a^2 c` within its
-rounding precision. Neither source states an exclusion, so all rows enter the
-reproductions.
-
-### Pressure calibration and its remaining limit
-
-Both tables report reduced pressures on the Fei et al. (2007) self-consistent
-Pt scale, [doi:10.1073/pnas.0609013104](https://doi.org/10.1073/pnas.0609013104).
-The 2016 experiments used 5 wt% Pt as both pressure standard and laser
-absorber. The 2022 fit combines the reanalyzed 2016 quenched measurements with
-new Pt-calibrated measurements.
-
-The applicable Fei Pt model is reconstructed exactly as a Vinet 300 K
-reference isotherm plus Mie--Gruneisen--Debye thermal pressure: conventional
-fcc `Z=4` `V0=60.38 A^3`, `K0=277 GPa`, `K0'=5.08`, `Tr=300 K`,
-`theta0=230 K`, `gamma0=2.72`, `q=0.5`, and `n=1`, using the source's
-non-integrated `theta=theta0*(V/V0)^[-gamma(V)]` convention. It remains
-executable as compatibility record `pt_fcc_fei_2007`. Exact row-wise pressure
-recalculation is nevertheless impossible because neither CaSiO3 table prints
-the simultaneous Pt volumes. The applications also extrapolate beyond the
-Fei Pt experiment's direct 0--94 GPa pressure range (and, for much of the 2016
-thermal table, its 300--1873 K temperature range); this is now an explicit
-calibration caveat rather than an unrecorded dependency.
-
-### Fit protocol discrimination and results
-
-For 2016, equations (1)--(6) specify BM3 at 300 K plus
-`Delta Pth = gamma(V)/V [E_D(V,T)-E_D(V,300 K)]`, with
-`gamma=gamma0*(V/V0)^q` and the integrated-Gruneisen Debye-temperature law.
-Model 1 fixes `K0'=4`, `theta0=1000 K`, `Tr=300 K`, and `n=5`, while refining
-`V0`, `K0`, `gamma0`, and `q`. For 2022, Table 2 reports both a three-parameter
-BM3 and a preferred alternative with `K0'=4` fixed.
-
-Neither paper states the residual direction, weights, or covariance scaling.
-The decisive reconstruction is ordinary, unweighted pressure-residual least
-squares with covariance scaled by residual variance. It reproduces all three
-published fit rows and their parenthetical uncertainties after rounding:
-
-| Source fit | Published | Independent unweighted refit | Pressure RMSE |
-|---|---|---|---:|
-| 2016 cubic BM3-MGD | `V0=45.4(1)`, `K0=249(4)`, `gamma0=1.8(2)`, `q=1.1(4)` | `45.4632 +/- 0.1278`, `250.265 +/- 4.463`, `1.8726 +/- 0.1610`, `1.0425 +/- 0.4045` | 0.9360 GPa |
-| 2022 tetragonal BM3, `K0'=4` | `V0/Z=45.6(2)`, `K0=229(4)` | `45.5620 +/- 0.1579`, `228.984 +/- 4.159` | 1.9330 GPa |
-| 2022 tetragonal BM3, free `K0'` | `V0/Z=45.6(4)`, `K0=227(21)`, `K0'=4.0(3)` | `45.6042 +/- 0.4228`, `226.687 +/- 21.492`, `4.02795 +/- 0.25760` | 1.9324 GPa |
-
-The uncertainty-weighted alternatives are not numerically equivalent. For
-example, using both printed P and V uncertainties shifts the 2016 solution to
-`V0=45.3075`, `K0=256.980`, `gamma0=2.1003`, and `q=1.7824`; the weighted 2022
-free fit shifts to `V0/Z=44.8816`, `K0=276.778`, and `K0'=3.4152`. This
-comparison is the basis for marking the unweighted protocol as inferred rather
-than source-explicit.
-
-The reproducible command is
-`python scripts/reproduce_sun_2016_2022_casio3.py`. These experimental records
-and datasets are independent of the removed Sun et al. (2010) DFT benchmark;
-no 2010 calculation, table, coefficient, or provenance is reused here.
-
 ## Stishovite, Wang et al. (2012)
 
 ### Source, observations, and calibration
@@ -581,67 +523,6 @@ estimate a 3% spread among plausible ruby scales at 160 GPa. No coefficient
 covariance or explicit data-reuse license is stated. Section IV prints
 `gamma_th0=1.04(1)`, while the final parameter set in Table V prints
 `1.04(2)`; the production record conservatively follows final Table V.
-
-### Diamond Table II reanalysis
-
-Datchi et al. also refit the earlier natural-diamond measurements of
-[Occelli, Loubeyre, and LeToullec (2003)](https://doi.org/10.1038/nmat831)
-on seven ruby scales. Table II fixes `V0=5.6733 A^3/atom` and prints, among
-other rows, `K0=447(3) GPa`, `K0_prime=3.00(7)` on MXB1986 and
-`K0=443(3) GPa`, `K0_prime=3.97(5)` on H2005. Datchi do not reprint the
-diamond observations and neither paper specifies the Table II row exclusions
-or regression weights.
-
-Occelli Figure 2 is vector artwork. Dataset
-`diamond_occelli_2003_figure2_digitized` therefore preserves the exact centers
-of all 24 plotted observations: 14 open-circle run-2 points and 10 filled-circle
-run-3 points. Axis values come from least-squares calibration through every
-major tick. The one clipped ambient marker keeps its raw digitized coordinate,
-but its source pressure is set to zero because Occelli explicitly identify it
-as the unloaded zero-pressure observation. The copyrighted paper and figure
-artwork are not redistributed; only the digitized numerical facts and their
-provenance are bundled.
-
-The recalibration is exact conditional on those digitized MXB1986 pressures:
-
-\[
-r=\left(1+\frac{7.665P_{\mathrm{MXB}}}{1904}\right)^{1/7.665},
-\qquad
-P_{\mathrm{H05}}=\frac{1845}{14.7+7.5}
-\left\{\exp\left[\frac{14.7+7.5}{7.5}(1-r^{-7.5})\right]-1\right\}.
-\]
-
-This is the best-scale Freund--Ingalls form and coefficients printed by
-[Holzapfel (2005)](https://doi.org/10.1080/09511920500147501). Occelli state
-that run 2 reached 139 GPa, which converts to 152.919 GPa on H2005; the
-production record's experimental range is now expressed on that source-reported
-H2005 basis. The center of the final plotted marker digitizes to 140.800 GPa
-on MXB1986 and 154.975 GPa on H2005. That plot-level discrepancy is preserved
-in the dataset rather than silently replacing the textual experimental limit.
-
-| Scale and protocol | `K0` (GPa) | `K0_prime` | volume chi-square |
-|---|---:|---:|---:|
-| MXB1986, published Table II | 447 | 3.00 | 4.5 |
-| MXB1986, run 2/equal volume weight | 446.712 | 2.990 | 7.16 |
-| H2005, published Table II | 443 | 3.97 | 1.5 |
-| H2005, run 2/equal volume weight | 444.346 | 3.961 | 1.82 |
-| H2005, all 24/equal volume weight | 441.862 | 4.024 | 5.97 |
-| H2005, all 24/unweighted pressure | 441.038 | 4.045 | -- |
-
-The run-2/equal-volume result is the best-supported Table II protocol
-hypothesis: the same selection and objective approach both independently
-printed scale rows, and equal volume weighting follows from Occelli's constant
-`+/-0.003 cm^3/mol` volume uncertainty. It is not promoted to a source fact.
-Occelli also report pressure errors increasing from `+/-0.05 GPa` at 1 GPa to
-`+/-1 GPa` at 140 GPa, but supply no rowwise interpolation rule. The audit does
-not invent one, and it does not estimate coefficient covariance or refit
-errors from plot data. The common ledger consequently classifies this as a
-conditional `similar` reproduction, not strict parity. Reproduce the report
-with:
-
-```bash
-python scripts/reproduce_datchi_2007_diamond.py
-```
 
 ## C01: boron carbide, Somayazulu et al. (2023)
 
@@ -1520,6 +1401,36 @@ in the article. The library retains the published parameterization as an
 explicitly warned archival record while exposing the complete source-faithful
 refit and all sensitivity results; it is not a recommended quantitative EOS.
 
+<a id="epsilon-feooh-gleason-2008"></a>
+
+## Epsilon-FeOOH: Gleason et al. (2008)
+
+The epsilon-phase record from the same paper has a different resolution. All
+49 MSA Table 2 observations are at 200-400 degC, and the authors explicitly
+pool them after finding no resolvable isotherm-to-isotherm thermal trend. The
+former generic validation selected the one row nearest 300 K and labeled the
+BM2 record `not_refittable`; that was not the source's protocol.
+
+A forensic reconstruction recovers the missing temperature-reduction step.
+Reducing every hot volume to 300 K with the paper's own zero-pressure
+`alpha0 = 2.3e-5 K^-1`, fixing the separately G-versus-g-extrapolated
+`V0 = 66.3 A^3`, and assuming `K0' = 4` gives `K0 = 158.099 GPa`, which
+rounds to the published `158(5) GPa`. The raw hot volumes give 175.624 GPa
+under the same fixed-V0 BM2 fit, so they must not be treated as
+reference-temperature observations.
+
+The source never prints the epsilon-specific reduction formula or its
+regression weights. The correction is therefore retained as qualified fit
+provenance, not promoted to an independently measured epsilon thermal EOS.
+All rows are included, deposited 95% Rietveld confidence limits are not
+silently treated as one-sigma weights, and every pressure is traced to the
+Shim et al. (2002) gold scale used exclusively for the high-temperature runs.
+Row-wise recalculation remains impossible because gold volumes are absent.
+
+See the [dedicated epsilon-FeOOH reproduction](epsilon-feooh-gleason-2008.md)
+for the phase-setting mapping, equations, source hashes, controls, and usage
+recommendation.
+
 <a id="mo2c-haines-2001"></a>
 
 ## Mo2C: Haines et al. (2001)
@@ -1740,6 +1651,93 @@ flyer Hugoniots, while shots 1 and 4 use measured particle velocity. The
 published `0--345 GPa` and `300--8500 K` limits are retained as the stated
 pressure-scale domain, not as a rectangular observation envelope or a B1
 phase-stability claim.
+
+<a id="mgo-li-2006"></a>
+
+## MgO: Li et al. (2006) acoustic absolute-pressure scale
+
+### What was fitted
+
+Li, Woody, and Kung, *Elasticity of MgO to 11 GPa with an independent absolute
+pressure scale: Implications for pressure calibration*, JGR Solid Earth **111**,
+B11206 (2006), [doi:10.1029/2005JB004251](https://doi.org/10.1029/2005JB004251),
+did not regress a BM3 curve against independently measured pressure-volume
+points. They simultaneously measured density and P- and S-wave velocity,
+fitted the preferred decompression data to third-order acoustic finite-strain
+equations, converted the fitted adiabatic bulk coefficients to 300 K isothermal
+coefficients, and only then evaluated BM3 pressure.
+
+For
+
+\[
+\epsilon=\frac{1-(\rho/\rho_0)^{2/3}}{2},
+\]
+
+the reproduced Equations 1--2 are
+
+\[
+\rho V_P^2=(1-2\epsilon)^{5/2}(L_1+L_2\epsilon),\qquad
+\rho V_S^2=(1-2\epsilon)^{5/2}(M_1+M_2\epsilon),
+\]
+
+with
+
+\[
+L_1=K_{0S}+\frac{4G_0}{3},\quad
+L_2=5L_1-3K_{0T}\left(K'_{0S}+\frac{4G'_0}{3}\right),
+\]
+
+\[
+M_1=G_0,\qquad M_2=5G_0-3K_{0T}G'_0.
+\]
+
+In the table's units, density in g/cm3 times squared velocity in (km/s)^2 is
+GPa. The ledger fit uses the independently reported ambient
+`rho0=3.566 g/cm3`, `VP=9.74 km/s`, and `VS=6.00 km/s` anchor plus all ten
+decompression-after-annealing density/velocity rows. It minimizes ordinary,
+unweighted simultaneous VP and VS residuals. The paper gives row uncertainties
+and fitted parameter errors but does not state its objective weights, fitting
+software, or enough detail to reproduce its iterative adiabatic-foot correction
+and covariance exactly. It does explicitly state that substituting `K0T` for
+`K0S` in `L2` and `M2` accounts for the measured isothermal strains and gives
+results indistinguishable from that iterative procedure; the ledger implements
+this source-sanctioned approximation.
+
+### Direct coefficient reproduction
+
+| Quantity | Published preferred fit | Peritheos reproduction |
+|---|---:|---:|
+| `K0S`, GPa | 163.5(11) | 163.51149 |
+| `K0S_prime` | 4.20(10) | 4.21800 |
+| `G0`, GPa | 129.8(6) | 129.71748 |
+| `G0_prime` | 2.42(6) | 2.43179 |
+| VP RMS, km/s | 0.02 | 0.02165 |
+| VS RMS, km/s | 0.015 | 0.01474 |
+
+All four acoustic coefficients fall within the source's reported one-standard-
+deviation errors, and the high-pressure-row RMS values reproduce the printed
+precision. Equation 4 then applies the source-adopted `alpha=3.12e-5 K^-1`,
+`gamma0=1.54`, `q=1.3`, `dK0T/dT=-0.028 GPa/K`, and `T=300 K`. The reproduced
+isothermal result is `K0T=161.18806 GPa`, `K0T_prime=4.25565`, compared with the
+stored source-derived `161.17673 GPa` and `4.23791`.
+
+This therefore constitutes a direct reconstruction of the published
+measurement-to-isothermal-coefficient chain, even though `K0T` and `K0T_prime`
+are deterministic transforms of the fitted adiabatic coefficients rather than
+free P-V regression parameters. The primary refit ledger classifies it as
+`similar`: the point estimates are recovered, but strict isothermal uncertainty
+parity cannot be claimed because the source does not propagate uncertainties or
+covariance for the adopted thermodynamic constants. The source's Table 2 also
+prints `K0S=163.6(11) GPa`, conflicting with the abstract and Section 4 value
+`163.5(11) GPa`; the latter defines the stored preferred derivation.
+
+The columns `KS`, `G`, and `Pcal` are all derived from the same density and
+velocity measurements. In particular, `Pcal` is Equation 3 evaluated with the
+acoustic-derived isothermal BM3 coefficients. None is used as an independent
+observation in the ledger fit, avoiding both duplicated information and the
+circular Pcal-versus-volume regression that previously motivated the overly
+broad `not_refittable` classification.
+
 <a id="mgo-dewaele-2000"></a>
 
 ## MgO: Li et al. (2006) acoustic absolute-pressure scale
@@ -1827,6 +1825,114 @@ circular Pcal-versus-volume regression that previously motivated the overly
 broad `not_refittable` classification.
 
 <a id="mgo-dewaele-2000"></a>
+
+## MgO: Li et al. (2006) acoustic absolute-pressure scale
+
+Li, Woody, and Kung, *J. Geophys. Res.* **111**, B11206
+([doi:10.1029/2005JB004251](https://doi.org/10.1029/2005JB004251)),
+did not regress their reported BM3 coefficients against independent pressure
+and volume. They simultaneously measured density, P-wave velocity, and S-wave
+velocity, fitted Equations 1--2 to obtain the adiabatic elastic coefficients,
+converted those coefficients to 300 K isothermal values with Equation 4, and
+only then used BM3 Equation 3 to calculate pressure. Consequently, Table 1
+`Pcal` is an EOS output and is never an observation in this reproduction.
+
+The preferred source fit uses the ten room-temperature decompression
+measurements collected after annealing, together with the independently
+reported ambient density and velocities. For
+(epsilon=[1-(
+ho/
+ho_0)^{2/3}]/2), the reproduced velocity equations are
+
+[
+V_P^2=rac{(1-2epsilon)^{5/2}(L_1+L_2epsilon)}{
+ho},
+qquad
+V_S^2=rac{(1-2epsilon)^{5/2}(M_1+M_2epsilon)}{
+ho}.
+]
+
+The source notes in paragraph 10 that measured isothermal strains can be fitted
+by using (K_{0T}), rather than (K_{0S}), in the (L_2) and (M_2)
+coefficients; it reports that this is indistinguishable from iteratively moving
+each observation to its adiabatic foot. That published alternative is directly
+reproducible, whereas the iteration details are not. The deterministic audit
+therefore minimizes unweighted simultaneous (V_P) and (V_S) residuals with
+(K_{0T}=K_{0S}/(1+alphagamma T)).
+
+| Coefficient | Published | Refit |
+|---|---:|---:|
+| (K_{0S}) (GPa) | 163.5(11) | 163.51149 |
+| (K_{0S}') | 4.20(10) | 4.21800 |
+| (G_0) (GPa) | 129.8(6) | 129.71748 |
+| (G_0') | 2.42(6) | 2.43179 |
+| (K_{0T}) (GPa), Equation 4 | 161.17673 | 161.18806 |
+| (K_{0T}'), Equation 4 | 4.23791 | 4.25565 |
+
+All four directly fitted acoustic coefficients lie within the source's
+one-standard-deviation intervals. The high-pressure-row RMS residuals are
+0.02165 km/s for (V_P) and 0.01474 km/s for (V_S), matching the paper's
+rounded 0.02 and 0.015 km/s. This establishes a direct reproduction of the
+measurement-to-isothermal-coefficient chain and justifies including the record
+in the primary refit ledger as `similar`. It does not turn the calculation
+into a P--V fit: the Table 1 elastic moduli and pressures remain excluded
+derived quantities. Strict `parity` is not claimed because the exact weights,
+iterative correction, covariance, and propagation of the adopted thermodynamic
+constants are not published.
+
+## MgO: Li et al. (2006) acoustic absolute-pressure scale
+
+Li, Woody, and Kung, *J. Geophys. Res.* **111**, B11206
+([doi:10.1029/2005JB004251](https://doi.org/10.1029/2005JB004251)),
+did not regress their reported BM3 coefficients against independent pressure
+and volume. They simultaneously measured density, P-wave velocity, and S-wave
+velocity, fitted Equations 1--2 to obtain the adiabatic elastic coefficients,
+converted those coefficients to 300 K isothermal values with Equation 4, and
+only then used BM3 Equation 3 to calculate pressure. Consequently, Table 1
+`Pcal` is an EOS output and is never an observation in this reproduction.
+
+The preferred source fit uses the ten room-temperature decompression
+measurements collected after annealing, together with the independently
+reported ambient density and velocities. For
+(epsilon=[1-(
+ho/
+ho_0)^{2/3}]/2), the reproduced velocity equations are
+
+[
+V_P^2=rac{(1-2epsilon)^{5/2}(L_1+L_2epsilon)}{
+ho},
+qquad
+V_S^2=rac{(1-2epsilon)^{5/2}(M_1+M_2epsilon)}{
+ho}.
+]
+
+The source notes in paragraph 10 that measured isothermal strains can be fitted
+by using (K_{0T}), rather than (K_{0S}), in the (L_2) and (M_2)
+coefficients; it reports that this is indistinguishable from iteratively moving
+each observation to its adiabatic foot. That published alternative is directly
+reproducible, whereas the iteration details are not. The deterministic audit
+therefore minimizes unweighted simultaneous (V_P) and (V_S) residuals with
+(K_{0T}=K_{0S}/(1+alphagamma T)).
+
+| Coefficient | Published | Refit |
+|---|---:|---:|
+| (K_{0S}) (GPa) | 163.5(11) | 163.51149 |
+| (K_{0S}') | 4.20(10) | 4.21800 |
+| (G_0) (GPa) | 129.8(6) | 129.71748 |
+| (G_0') | 2.42(6) | 2.43179 |
+| (K_{0T}) (GPa), Equation 4 | 161.17673 | 161.18806 |
+| (K_{0T}'), Equation 4 | 4.23791 | 4.25565 |
+
+All four directly fitted acoustic coefficients lie within the source's
+one-standard-deviation intervals. The high-pressure-row RMS residuals are
+0.02165 km/s for (V_P) and 0.01474 km/s for (V_S), matching the paper's
+rounded 0.02 and 0.015 km/s. This establishes a direct reproduction of the
+measurement-to-isothermal-coefficient chain and justifies including the record
+in the primary refit ledger as `similar`. It does not turn the calculation
+into a P--V fit: the Table 1 elastic moduli and pressures remain excluded
+derived quantities. Strict `parity` is not claimed because the exact weights,
+iterative correction, covariance, and propagation of the adopted thermodynamic
+constants are not published.
 
 ## MgO: Dewaele et al. (2000)
 
@@ -2487,9 +2593,6 @@ refit record are added. Resolution requires the authors' fitting code or an
 authoritative statement of the numeric `n`, Debye-temperature volume law, and
 thermal-energy/volume normalization used to obtain the published coefficients.
 
-- [Fratanduono (2020) Cu Vinet3 and reconstruction limitations](literature-reproductions/fratanduono-2020-cu.md).
-- [Shen–Smith (2026) Cu-referenced refits](literature-reproductions/shen-smith-2026-cu-refits.md).
-
 ## Rhenium: Sakai et al. (2018)
 
 The [Sakai (2018) rhenium audit](literature-reproductions/sakai-2018-rhenium.md)
@@ -2499,12 +2602,8 @@ quoted errors, with a `parity` outcome, comparable refit standard errors, and
 explicit row-selection and objective sensitivities. The separate maximum-pressure checkpoint retains
 its printed-precision discrepancy.
 
-## Fei 2016 and its primary iron inputs
+## Primary Fei-input iron papers
 
-The [Fei 2016 audit](literature-reproductions/fei-2016-iron.md) adds three
-published hcp-iron records and all 96 supplementary observations.
-The [five-paper audit](literature-reproductions/iron-fei-input-papers.md)
-adds 43 published records and 348 observations from Brown (2000), Dubrovinsky
-(2000), Yamazaki (2012), Sakai (2014), and Dewaele (2006), including an
-Fe0.9Ni0.1 material. Both audits distinguish numerical checks from complete
-coefficient parity and document the remaining source-data gaps.
+The [five-paper audit](literature-reproductions/iron-fei-input-papers.md) covers
+43 additional published Fe and Fe0.9Ni0.1 records, all available numeric
+observations, independent source checkpoints and unresolved regression gaps.

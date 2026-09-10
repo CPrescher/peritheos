@@ -226,7 +226,7 @@
     ],
     "recalculation": {
      "status": "ready",
-     "notes": "Every row reports Pt 111 d-spacing. For fcc Pt, a=sqrt(3)*d111 and V=a^3; evaluation with the bundled Holmes record reproduces the rounded source pressures with 0.254 GPa RMSE and 0.445 GPa maximum difference. Pt 200 is retained but the authors explicitly used only Pt 111 to reduce nonhydrostatic bias."
+     "notes": "Every row reports Pt 111 d-spacing. For fcc Pt, a=sqrt(3)*d111 and V=a^3; evaluation with the bundled Holmes record reproduces the rounded source pressures with 0.269 GPa RMSE and 0.462 GPa maximum difference using the exact Equation (11) coefficients. Pt 200 is retained but the authors explicitly used only Pt 111 to reduce nonhydrostatic bias."
     },
     "audit_date": "2026-09-05"
    },

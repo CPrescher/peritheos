@@ -266,16 +266,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -286,12 +286,12 @@
      "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
+     "status": "transition_constraints_only",
+     "audit_date": "2026-09-08",
      "source_locations": [
       "Table 7"
      ],
-     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+     "finding": "Lin et al. report only an 84-102 GPa spectroscopic crossover interval and an approximately 1.6% volume drop near 95 GPa for Mg0.40Fe0.60O, not a row-level pressure-volume series. Those transition constraints are not substituted for observations."
     }
    }
   },
@@ -378,16 +378,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -398,12 +398,12 @@
      "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
+     "status": "transition_constraints_only",
+     "audit_date": "2026-09-08",
      "source_locations": [
       "Table 7"
      ],
-     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+     "finding": "Lin et al. report only an 84-102 GPa spectroscopic crossover interval and an approximately 1.6% volume drop near 95 GPa for Mg0.40Fe0.60O, not a row-level pressure-volume series. Those transition constraints are not substituted for observations."
     }
    }
   }

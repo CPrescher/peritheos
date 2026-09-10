@@ -56,10 +56,11 @@ its coefficients.
 ## Catalog implication
 
 The fit is cataloged as `cu_sun_2010_low_vn_refit`, with `record_kind: refit`,
-and links to the published Vinet record through `derived_from_record`. Its
-material document references the checksummed transcription and records the
-exact `m=8` fit provenance. It does not replace or masquerade as the published
-`cu_sun_2010_low_vn` curve.
+on the phase-unresolved `cu_handbook_1972_legacy` card. Its material document
+references the checksummed transcription and records the exact `m=8` fit
+provenance. The Sun source-author benchmark curve is not retained merely to
+serve as a catalog parent; Sun et al. remain cited for the equation and fitting
+convention.
 
 ## Reproduction
 

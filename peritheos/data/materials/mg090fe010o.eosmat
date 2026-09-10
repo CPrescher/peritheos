@@ -156,7 +156,7 @@
     "V0": "Table 7 HS column: 75.55 A^3 per conventional B1 cell.",
     "K0": "Table 7 HS column: 159 GPa.",
     "K0_prime": "Table 7 high-spin K0' column.",
-    "original_dataset": "Solomatova et al. refit the P-V data of Marquardt et al. (2009), DOI 10.1126/science.1169365.",
+    "original_dataset": "Solomatova et al. refit the P-V data of Marquardt et al. (2009b), DOI 10.1016/j.epsl.2009.08.017.",
     "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
    },
    "pressure_calibration": {
@@ -170,21 +170,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_relationship",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -197,12 +192,16 @@
      "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Table 7"
+     "status": "complete_earlier_primary_table",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
      ],
-     "finding": "The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription."
+     "source_locations": [
+      "Marquardt et al. (2009b), EPSL Table 2",
+      "Solomatova et al. (2016), Tables 2 and 7"
+     ],
+     "finding": "All 29 pressure-volume rows printed in the earlier EPSL article are bundled with the source HS/mixed/LS assignments preserved. A coupled reconstruction is similar to Table 7. Solomatova's Brillouin K0S prior is retained as a fit constraint, never as an observation."
     }
    }
   },
@@ -284,7 +283,7 @@
     "V0": "Table 7 LS column: 74.59 A^3 per conventional B1 cell.",
     "K0": "Table 7 LS column: 159 GPa.",
     "K0_prime": "Table 7: low-spin K0' fixed to 4.",
-    "original_dataset": "Solomatova et al. refit the P-V data of Marquardt et al. (2009), DOI 10.1126/science.1169365.",
+    "original_dataset": "Solomatova et al. refit the P-V data of Marquardt et al. (2009b), DOI 10.1016/j.epsl.2009.08.017.",
     "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
    },
    "pressure_calibration": {
@@ -298,21 +297,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_relationship",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -325,12 +319,16 @@
      "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Table 7"
+     "status": "complete_earlier_primary_table",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
      ],
-     "finding": "The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription."
+     "source_locations": [
+      "Marquardt et al. (2009b), EPSL Table 2",
+      "Solomatova et al. (2016), Tables 2 and 7"
+     ],
+     "finding": "All 29 pressure-volume rows printed in the earlier EPSL article are bundled with the source HS/mixed/LS assignments preserved. A coupled reconstruction is similar to Table 7. Solomatova's Brillouin K0S prior is retained as a fit constraint, never as an observation."
     }
    }
   },

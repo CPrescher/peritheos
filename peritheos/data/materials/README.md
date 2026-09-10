@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 288 material documents with 895 EOS records. The
+This directory contains 210 curated material documents with 573 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -17,7 +17,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-10 classifies all 895 bundled records as
+dated 2026-09-10 classifies all 573 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -33,9 +33,8 @@ LitCurate intake, the selected Shi et al. Rh2O3(II)-type alumina thermal EOS,
 the Fu et al. Fe-Al bridgmanite records, the phase-separated Sun et al. cubic
 and tetragonal CaSiO3 records, and phase-restricted MgO and NiO Hugoniots. The
 library also includes the Datchi et al. absolute-zero c-BN MGD record, the
-Suzuki epsilon-FeOOH reference-temperature thermal EOS, the Noguchi et al.
-700 K CaSiO3 BM2-MGD record, and the published 296 K Kuznetsov fcc- and hcp-Pb
-BM3 slices. The Katsura et al. ringwoodite thermal EOS remains
+Suzuki epsilon-FeOOH reference-temperature thermal EOS, and the Noguchi et al.
+700 K CaSiO3 BM2-MGD record. The Katsura et al. ringwoodite thermal EOS remains
 excluded because its published atom-count normalization could not be
 reproduced consistently. The KCl record is the preferred
 `kcl.eosmat` record and
@@ -49,8 +48,7 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 277 distinct primary datasets with 16,932 observation
-rows, represented by 302 material-document links to 389 EOS records.
+The current bundle contains 290 distinct primary datasets with 17,355 observation rows, represented by 317 material-document links to 430 EOS records.
 The Ono et al. cubic-SnO2 table is linked from both legacy diffraction-pattern
 entries. The Shen--Smith Table S1 workbook is linked across its ten calibrant
 and phase entries while retaining the simultaneously measured Cu reference

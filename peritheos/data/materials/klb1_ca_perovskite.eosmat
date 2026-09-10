@@ -93,16 +93,43 @@
     "klb1_ricolleau_2009_table_s1_ca_perovskite_pvt"
    ],
    "fit_provenance": {
-    "software": {"name": "Peritheos/SciPy ODR", "version": "0.7.0"},
+    "software": {
+     "name": "Peritheos/SciPy ODR",
+     "version": "0.7.0"
+    },
     "dataset": "klb1_ricolleau_2009_table_s1_ca_perovskite_pvt",
-    "selection": {"predicate": "all 153 Table S1 rows", "included_rows": 153, "excluded_rows": 0, "qualification": "The paper does not publish row exclusions; this audit selection is not asserted to be the authors' undocumented exact selection."},
+    "selection": {
+     "predicate": "all 153 Table S1 rows",
+     "included_rows": 153,
+     "excluded_rows": 0,
+     "qualification": "The paper does not publish row exclusions; this audit selection is not asserted to be the authors' undocumented exact selection."
+    },
     "objective": "Orthogonal distance regression with printed one-sigma P and Ca-perovskite volume uncertainties; temperatures held fixed.",
-    "weights": ["pressure_sigma_gpa", "ca_perovskite_volume_sigma_a3"],
-    "refined_parameters": ["K0", "dK_dT", "alpha0", "alpha1"],
-    "fixed_parameters": ["V0", "K0_prime", "Tr"],
+    "weights": [
+     "pressure_sigma_gpa",
+     "ca_perovskite_volume_sigma_a3"
+    ],
+    "refined_parameters": [
+     "K0",
+     "dK_dT",
+     "alpha0",
+     "alpha1"
+    ],
+    "fixed_parameters": [
+     "V0",
+     "K0_prime",
+     "Tr"
+    ],
     "covariance_scaling": "Unscaled ODR covariance from printed observation sigmas; the paper's convention is unreported.",
-    "statistics": {"observations": 153, "vertical_pressure_rmse_gpa": 1.7103504794769988, "odr_residual_variance": 1.1305644210637933},
-    "reproduction": {"result": "docs/data/ricolleau-2009-klb1-eos-refit.json", "qualification": "The paper does not state its weighting, temperature-error treatment, or covariance scaling."}
+    "statistics": {
+     "observations": 153,
+     "vertical_pressure_rmse_gpa": 1.7103504794769988,
+     "odr_residual_variance": 1.1305644210637933
+    },
+    "reproduction": {
+     "result": "docs/data/ricolleau-2009-klb1-eos-refit.json",
+     "qualification": "The paper does not state its weighting, temperature-error treatment, or covariance scaling."
+    }
    },
    "experimental_pressure_range_gpa": [
     30.0,
@@ -213,7 +240,19 @@
    "kind": "calibrated_pressure_volume_temperature",
    "description": "Complete Ricolleau et al. (2009) Table S1 P-V-T series, projected onto the KLB-1 Ca-perovskite volume column.",
    "reference": {
-    "authors": ["Ricolleau", "Fei", "Cottrell", "Watson", "Deng", "Zhang", "Fiquet", "Auzende", "Roskosz", "Morard", "Prakapenka"],
+    "authors": [
+     "Ricolleau",
+     "Fei",
+     "Cottrell",
+     "Watson",
+     "Deng",
+     "Zhang",
+     "Fiquet",
+     "Auzende",
+     "Roskosz",
+     "Morard",
+     "Prakapenka"
+    ],
     "year": 2009,
     "source": "Geophysical Research Letters",
     "volume": "36",
@@ -223,22 +262,109 @@
    "source_location": "Official Supporting Information Table S1",
    "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2008GL036759&file=grl25568-sup-0002-ts01.txt",
    "columns": [
-    {"name": "source_line", "quantity": "source_row", "unit": "1", "role": "flag"},
-    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_sigma_gpa", "quantity": "pressure", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
-    {"name": "mg_perovskite_volume_a3", "quantity": "mg_perovskite_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "mg_perovskite_volume_sigma_a3", "quantity": "mg_perovskite_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "mg_perovskite_volume_a3"},
-    {"name": "ferropericlase_volume_a3", "quantity": "ferropericlase_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "ferropericlase_volume_sigma_a3", "quantity": "ferropericlase_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "ferropericlase_volume_a3"},
-    {"name": "ca_perovskite_volume_a3", "quantity": "ca_perovskite_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "ca_perovskite_volume_sigma_a3", "quantity": "ca_perovskite_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "ca_perovskite_volume_a3"},
-    {"name": "pressure_medium_volume_a3", "quantity": "pressure_medium_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "pressure_medium_volume_sigma_a3", "quantity": "pressure_medium_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "pressure_medium_volume_a3"},
-    {"name": "pressure_medium_volume_2_a3", "quantity": "secondary_pressure_medium_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "pressure_medium_volume_2_sigma_a3", "quantity": "secondary_pressure_medium_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "pressure_medium_volume_2_a3"},
-    {"name": "gold_volume_a3", "quantity": "gold_calibrant_conventional_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "gold_volume_sigma_a3", "quantity": "gold_calibrant_conventional_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "gold_volume_a3"}
+    {
+     "name": "source_line",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "mg_perovskite_volume_a3",
+     "quantity": "mg_perovskite_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "mg_perovskite_volume_sigma_a3",
+     "quantity": "mg_perovskite_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "mg_perovskite_volume_a3"
+    },
+    {
+     "name": "ferropericlase_volume_a3",
+     "quantity": "ferropericlase_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "ferropericlase_volume_sigma_a3",
+     "quantity": "ferropericlase_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "ferropericlase_volume_a3"
+    },
+    {
+     "name": "ca_perovskite_volume_a3",
+     "quantity": "ca_perovskite_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "ca_perovskite_volume_sigma_a3",
+     "quantity": "ca_perovskite_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "ca_perovskite_volume_a3"
+    },
+    {
+     "name": "pressure_medium_volume_a3",
+     "quantity": "pressure_medium_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "pressure_medium_volume_sigma_a3",
+     "quantity": "pressure_medium_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "pressure_medium_volume_a3"
+    },
+    {
+     "name": "pressure_medium_volume_2_a3",
+     "quantity": "secondary_pressure_medium_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "pressure_medium_volume_2_sigma_a3",
+     "quantity": "secondary_pressure_medium_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "pressure_medium_volume_2_a3"
+    },
+    {
+     "name": "gold_volume_a3",
+     "quantity": "gold_calibrant_conventional_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "gold_volume_sigma_a3",
+     "quantity": "gold_calibrant_conventional_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "gold_volume_a3"
+    }
    ],
    "resource": {
     "path": "datasets/klb1-ricolleau-2009-table-s1-pvt.csv",

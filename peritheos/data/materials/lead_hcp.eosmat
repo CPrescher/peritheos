@@ -438,6 +438,45 @@
  ],
  "datasets": [
   {
+   "identifier": "lead_dewaele_2019_table2_compression",
+   "kind": "pressure_volume",
+   "description": "All 17 hcp-Pb pressure-volume observations printed in Dewaele (2019), Table 2, in measurement order.",
+   "reference": {
+    "authors": [
+     "Dewaele"
+    ],
+    "year": 2019,
+    "source": "Minerals",
+    "doi": "10.3390/min9110684"
+   },
+   "source_location": "Table 2",
+   "source_url": "https://www.mdpi.com/2075-163X/9/11/684",
+   "columns": [
+    {
+     "name": "pressure_dorogokupets_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/lead-dewaele-2019-table2-compression.csv",
+    "sha256": "37d1dbcbd19c4e750785552bde3af89c044504c6c5b551a63b7ff9ee0405172f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "lead_hcp_dewaele_2019_mao_vinet",
+    "lead_hcp_dewaele_2019_dor_vinet"
+   ],
+   "notes": "Dorogokupets ruby pressures; convert only these rows for the Mao alternative. Combined exploratory fits also use the separately linked Kuznetsov digitization on its unchanged Brown-NaCl scale."
+  },
+  {
    "identifier": "lead_hcp_kuznetsov_2002_figure3_digitized",
    "kind": "pressure_volume_digitized",
    "description": "Twenty-one hcp-Pb square-marker centers digitized from Figure 3. Open squares are high-temperature observations reduced to room temperature by the source authors; solid squares are room-temperature observations. Overlapped markers carry wider digitization uncertainties and explicit confidence labels.",
@@ -622,6 +661,74 @@
     },
     "digitized_on": "2026-09-07"
    }
+  },
+  {
+   "identifier": "lead_dewaele_2019_figure2_vector",
+   "kind": "pressure_volume_digitized",
+   "description": "Figure 2 vector marker coordinates: nine Kuznetsov squares and 17 current-run circles. Select series explicitly; curve vertices are stored in a separate diagnostic resource.",
+   "reference": {
+    "authors": [
+     "Dewaele"
+    ],
+    "year": 2019,
+    "source": "Minerals",
+    "doi": "10.3390/min9110684"
+   },
+   "source_location": "Page 4, Figure 2",
+   "source_url": "https://www.mdpi.com/2075-163X/9/11/684",
+   "columns": [
+    {
+     "name": "series",
+     "quantity": "source_series",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pdf_object_or_vertex_index",
+     "quantity": "source_object_index",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pdf_x_pt",
+     "quantity": "pdf_x_coordinate",
+     "unit": "pt",
+     "role": "flag"
+    },
+    {
+     "name": "pdf_y_from_top_pt",
+     "quantity": "pdf_y_coordinate_from_top",
+     "unit": "pt",
+     "role": "flag"
+    },
+    {
+     "name": "plotted_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/lead-dewaele-2019-figure2-vector.csv",
+    "sha256": "22ed15f7087ab70db1958e379a6edd761e9046166a73390a8a1d313259b180b2",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "pdf_vector_digitization",
+    "source_pdf_sha256": "8ae1bb7611c6925a6a66ac39ed3b6c5bd435df304e7939f2de0362346cb9466d",
+    "calibration_resource": "datasets/lead-dewaele-2019-figure2-vector-source.json"
+   },
+   "used_by_eos_records": [
+    "lead_hcp_dewaele_2019_mao_vinet",
+    "lead_hcp_dewaele_2019_dor_vinet"
+   ],
+   "notes": "Source-consistency diagnostic only. The replotted Kuznetsov points lack independently recoverable original measurement temperatures and are excluded from active observation fits. Figure 2's curve/table comparison remains documented; it is not an adopted EOS fit."
   }
  ]
 }

@@ -51,9 +51,7 @@ def load_data() -> dict[str, np.ndarray]:
 def published_curve_diagnostic() -> dict[str, object]:
     """Evaluate the published BM2 at the four exact Table S2 states."""
     data = load_data()
-    residuals = np.asarray(BM2(**PUBLISHED).pressure(data["volume"])) - data[
-        "pressure"
-    ]
+    residuals = np.asarray(BM2(**PUBLISHED).pressure(data["volume"])) - data["pressure"]
     return {
         "observations": int(data["pressure"].size),
         "parameters": {**PUBLISHED, "K0_prime": 4.0},

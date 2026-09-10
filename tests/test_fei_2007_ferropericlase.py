@@ -69,7 +69,12 @@ def test_fei_source_owned_catalog_scope_and_published_parameters():
 
 def test_official_tables_transcribe_every_row_and_preserve_checksums():
     for doc, count in zip(documents(), [46, 77, 27]):
-        dataset = doc["datasets"][-1]
+        dataset = next(
+            d
+            for d in doc["datasets"]
+            if d["identifier"]
+            == f"{doc['identifier']}_fei_2007_table_s{TABLES[doc['identifier']][0]}_pv"
+        )
         for key in ("resource", "original_resource"):
             resource = dataset[key]
             assert (
@@ -159,7 +164,15 @@ def test_independent_refits_never_replace_published_parameters_or_include_decomp
                 or record["record_kind"] != "published"
             ):
                 continue
-            fit = _fit_record(doc, record, doc["datasets"][-1])
+            fit = _fit_record(
+                doc,
+                record,
+                next(
+                    d
+                    for d in doc["datasets"]
+                    if d["identifier"] == record["fit_datasets"][0]
+                ),
+            )
             assert fit["fit_kind"] == "independent_validation_refit"
             assert fit["absolute_sigma"] is False
             assert (
@@ -236,7 +249,13 @@ def test_fp20_ls_stored_refit_is_distinct_reproducible_and_has_joint_uncertainty
     assert executable.pressure(volume) == pytest.approx(pressure + residuals)
     assert np.sqrt(np.mean(residuals**2)) < 0.87
     assert result["source_curve_pressure_rmse_gpa"] > 1.76
-    check = _fit_record(doc, record, doc["datasets"][-1])
+    check = _fit_record(
+        doc,
+        record,
+        next(
+            d for d in doc["datasets"] if d["identifier"] == record["fit_datasets"][0]
+        ),
+    )
     assert check["status"] == "parity"
     assert check["fit_kind"] == "stored_refit_reproduction"
     assert "not Fei's published coefficients" in check["qualification"]

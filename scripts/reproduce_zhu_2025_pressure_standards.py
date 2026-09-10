@@ -131,11 +131,31 @@ CALCULATOR_OVERRIDES = {
 }
 
 THERMAL_DATASETS = {
-    "zhu_2025_au_shock": ("zhu-2025-au-shock.csv", "ef2fb3cbfc1636d6a513c40783e6c860d5d3ced3a9e48e0e939ef36f8f8ece01", 12),
-    "zhu_2025_au_zero_pressure_thermal_expansion": ("zhu-2025-au-zero-pressure-thermal-expansion.csv", "3baac523dbf58873d01e05499f73934bbebdfc5bbd03de876c9e4f06dfeee611", 10),
-    "zhu_2025_pt_shock": ("zhu-2025-pt-shock.csv", "025914a80db03e52fe631c8f18646b722a558026d616079edea3d47c7509b924", 68),
-    "zhu_2025_pt_zero_pressure_thermal_expansion": ("zhu-2025-pt-zero-pressure-thermal-expansion.csv", "c338f3db484be4927880b90f7fcf88ce6b29c3c880e726755d3b29cf778cda70", 17),
-    "zhu_2025_mgo_pvt": ("zhu-2025-mgo-pvt.csv", "839acb4435c741aaa7266c956d9eba196756e5782ca63d47fb0b1a930fe4285c", 213),
+    "zhu_2025_au_shock": (
+        "zhu-2025-au-shock.csv",
+        "ef2fb3cbfc1636d6a513c40783e6c860d5d3ced3a9e48e0e939ef36f8f8ece01",
+        12,
+    ),
+    "zhu_2025_au_zero_pressure_thermal_expansion": (
+        "zhu-2025-au-zero-pressure-thermal-expansion.csv",
+        "3baac523dbf58873d01e05499f73934bbebdfc5bbd03de876c9e4f06dfeee611",
+        10,
+    ),
+    "zhu_2025_pt_shock": (
+        "zhu-2025-pt-shock.csv",
+        "025914a80db03e52fe631c8f18646b722a558026d616079edea3d47c7509b924",
+        68,
+    ),
+    "zhu_2025_pt_zero_pressure_thermal_expansion": (
+        "zhu-2025-pt-zero-pressure-thermal-expansion.csv",
+        "c338f3db484be4927880b90f7fcf88ce6b29c3c880e726755d3b29cf778cda70",
+        17,
+    ),
+    "zhu_2025_mgo_pvt": (
+        "zhu-2025-mgo-pvt.csv",
+        "839acb4435c741aaa7266c956d9eba196756e5782ca63d47fb0b1a930fe4285c",
+        213,
+    ),
 }
 
 
@@ -199,11 +219,7 @@ def _released_v3_pressure(
         * 1.0e-7
         * (parameters["source_molar_mass"] * 4.0 / volume / 6.023 * 1.0e7)
     )
-    excess_pressure = (
-        excess_factor
-        * (temperature**2 - 300.0**2)
-        * parameters["m"]
-    )
+    excess_pressure = excess_factor * (temperature**2 - 300.0**2) * parameters["m"]
     return static + debye_pressure / 1.0e4 + excess_pressure
 
 
@@ -281,20 +297,11 @@ def _debye_energy(
     for index in np.ndindex(theta_values.shape):
         ratio = float(theta_values[index] / temperatures[index])
         integral = quad(
-            lambda value: 0.0
-            if value > 700.0
-            else value**3 / np.expm1(value),
+            lambda value: 0.0 if value > 700.0 else value**3 / np.expm1(value),
             0.0,
             ratio,
         )[0]
-        output[index] = (
-            9.0
-            * n
-            * 8.314
-            * temperatures[index]
-            * ratio**-3
-            * integral
-        )
+        output[index] = 9.0 * n * 8.314 * temperatures[index] * ratio**-3 * integral
     return output
 
 
@@ -375,9 +382,7 @@ def _gamma_theta(
 ) -> tuple[np.ndarray, np.ndarray]:
     gamma = gamma0 * (1.0 + a * (ratios**exponent - 1.0))
     theta = (
-        theta0
-        * np.exp((gamma0 - gamma) / exponent)
-        * ratios ** (gamma0 * (a - 1.0))
+        theta0 * np.exp((gamma0 - gamma) / exponent) * ratios ** (gamma0 * (a - 1.0))
     )
     return gamma, theta
 
@@ -436,8 +441,10 @@ def _refit_mgo(parameters: dict[str, Any]) -> dict[str, Any]:
     excess = _source_excess_pressure(
         ratios, temperature, parameters
     ) - _source_excess_pressure(ratios, 300.0, parameters)
-    predicted = static + excess + (
-        1.0e-9 * gamma * energy_difference / (volume * 6.022e-7 / 4.0)
+    predicted = (
+        static
+        + excess
+        + (1.0e-9 * gamma * energy_difference / (volume * 6.022e-7 / 4.0))
     )
     residuals = pressure - predicted
     return {
@@ -457,9 +464,7 @@ def _refit_shock_and_expansion(
 ) -> dict[str, Any]:
     prefix = "au" if parameters["material"] == "gold" else "pt"
     shock = _load_thermal_csv(f"zhu_2025_{prefix}_shock")
-    expansion = _load_thermal_csv(
-        f"zhu_2025_{prefix}_zero_pressure_thermal_expansion"
-    )
+    expansion = _load_thermal_csv(f"zhu_2025_{prefix}_zero_pressure_thermal_expansion")
     volume = shock["volume_a3_conventional_cell"]
     pressure = shock["shock_pressure_gpa"]
     particle_velocity = shock["particle_velocity_m_s"]
@@ -471,12 +476,7 @@ def _refit_shock_and_expansion(
     static = _vinet_pressure(volume, parameters)
     high_static = _vinet_pressure(high_volume, parameters)
     density = volume * 6.022e-7 / 4.0
-    shock_energy = (
-        0.5
-        * particle_velocity**2
-        * parameters["shock_molar_mass"]
-        / 1000.0
-    )
+    shock_energy = 0.5 * particle_velocity**2 * parameters["shock_molar_mass"] / 1000.0
     compression_energy = np.asarray(
         [
             150.55
@@ -496,10 +496,7 @@ def _refit_shock_and_expansion(
         * parameters["stress_y"]
         * (
             1.0
-            + parameters["stress_a"]
-            / 1000.0
-            * pressure
-            / shock_ratios ** (-1.0 / 3.0)
+            + parameters["stress_a"] / 1000.0 * pressure / shock_ratios ** (-1.0 / 3.0)
         )
     )
     start_gamma = 2.8 if identifier.startswith("gold") else 2.5
@@ -610,8 +607,7 @@ def _refit_shock_and_expansion(
         [
             brentq(
                 lambda trial: float(
-                    _debye_energy(theta_value, trial, parameters["n"])
-                    - target_energy
+                    _debye_energy(theta_value, trial, parameters["n"]) - target_energy
                 ),
                 1.0,
                 1.0e5,
@@ -671,9 +667,7 @@ def _refit_shock_and_expansion(
         "thermal_expansion_observations": int(high_volume.size),
         "nonzero_robust_weights": int(np.count_nonzero(weights)),
         "rmse_pressure_gpa": float(np.sqrt(np.mean(pressure_residuals**2))),
-        "max_abs_pressure_residual_gpa": float(
-            np.max(np.abs(pressure_residuals))
-        ),
+        "max_abs_pressure_residual_gpa": float(np.max(np.abs(pressure_residuals))),
         "shock_temperature_range_k": [
             float(np.min(shock_temperature)),
             float(np.max(shock_temperature)),
@@ -692,17 +686,11 @@ def _thermal_refits() -> dict[str, Any]:
         target = {name: parameters[name] for name in ("gamma0", "a", "b")}
         differences = {name: fit[name] - value for name, value in target.items()}
         if identifier == "gold_zhu_2025_pvt":
-            parity = abs(differences["gamma0"]) < 0.01 and abs(
-                differences["b"]
-            ) < 0.1
+            parity = abs(differences["gamma0"]) < 0.01 and abs(differences["b"]) < 0.1
         elif identifier == "platinum_zhu_2025_pvt":
-            parity = abs(differences["gamma0"]) < 0.01 and abs(
-                differences["b"]
-            ) < 0.05
+            parity = abs(differences["gamma0"]) < 0.01 and abs(differences["b"]) < 0.05
         else:
-            parity = abs(differences["gamma0"]) < 0.01 and abs(
-                differences["b"]
-            ) < 0.005
+            parity = abs(differences["gamma0"]) < 0.01 and abs(differences["b"]) < 0.005
         assert parity
         results[identifier] = {
             **fit,
@@ -831,9 +819,9 @@ def reproduce() -> dict[str, Any]:
             row for row in document["eos_records"] if row["identifier"] == identifier
         )
         fit = fits[fit_name]
-        assert source["eos"]["parameters"]["K0_prime"] == PUBLISHED[fit_name][
-            "K0_prime"
-        ]
+        assert (
+            source["eos"]["parameters"]["K0_prime"] == PUBLISHED[fit_name]["K0_prime"]
+        )
         assert source["parameter_errors"]["K0_prime"] == PUBLISHED[fit_name]["error"]
         model = Material.from_eosmat(
             document, record_identifiers=[identifier]

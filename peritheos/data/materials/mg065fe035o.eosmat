@@ -170,21 +170,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_relationship",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -197,12 +192,16 @@
      "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Table 7"
+     "status": "complete_earlier_primary_table",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mg065fe035o_chen_2012_table1_pv"
      ],
-     "finding": "The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription."
+     "source_locations": [
+      "Chen et al. (2012), Table 1",
+      "Solomatova et al. (2016), Tables 2 and 7"
+     ],
+     "finding": "All 36 Chen pressure-volume observations are bundled. A coupled three-level MINUTI reconstruction with Solomatova's Table 2 priors is numerically similar to both Table 7 branches. Chen measured (Mg0.654(1)Fe0.330(1)Ti0.016(1))O; Mg0.65Fe0.35O is the nominal catalog and Solomatova fit composition."
     }
    }
   },
@@ -298,21 +297,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_relationship",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -325,14 +319,107 @@
      "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Table 7"
+     "status": "complete_earlier_primary_table",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mg065fe035o_chen_2012_table1_pv"
      ],
-     "finding": "The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription."
+     "source_locations": [
+      "Chen et al. (2012), Table 1",
+      "Solomatova et al. (2016), Tables 2 and 7"
+     ],
+     "finding": "All 36 Chen pressure-volume observations are bundled. A coupled three-level MINUTI reconstruction with Solomatova's Table 2 priors is numerically similar to both Table 7 branches. Chen measured (Mg0.654(1)Fe0.330(1)Ti0.016(1))O; Mg0.65Fe0.35O is the nominal catalog and Solomatova fit composition."
     }
    }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg065fe035o_chen_2012_table1_pv",
+   "kind": "pressure_volume",
+   "description": "Complete 36-row 300 K compression series for the FP35 specimen printed in Chen et al. Table 1.",
+   "reference": {
+    "authors": [
+     "Chen",
+     "Jackson",
+     "Sturhahn",
+     "Zhang",
+     "Zhao",
+     "Toellner"
+    ],
+    "year": 2012,
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "117",
+    "locator": "B08208",
+    "doi": "10.1029/2012JB009162"
+   },
+   "source_location": "Table 1, page 4",
+   "source_url": "https://authors.library.caltech.edu/records/q8w3v-8a448/files/2012JB009162.pdf?download=1",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_deviation",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "compression_path",
+     "quantity": "compression_path",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_solomatova_2016_fit",
+     "quantity": "reconstructed_fit_selection",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mg065fe035o-chen-2012-table1-pv.csv",
+    "sha256": "2c0a1be7f09c40bee120077216fd8b5a2f6f856a21a468d7387e5fd687e86eb1",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg065fe035o_solomatova_2016_hs_bm3_reference_1",
+    "mg065fe035o_solomatova_2016_ls_bm3_reference_2"
+   ],
+   "uncertainty": {
+    "reported_as": "Parenthetical pressure standard deviations and approximately 0.5% volume uncertainties printed in Table 1; the ambient pressure has no printed uncertainty.",
+    "covariance": "not_reported"
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "method": "Complete manual transcription retaining the printed precision and expanding parenthetical uncertainties.",
+    "transcribed_on": "2026-09-08"
+   },
+   "notes": "The catalog's Mg0.65Fe0.35O label is nominal. Chen et al. measured (Mg0.654(1)Fe0.330(1)Ti0.016(1))O; the audit retains this composition distinction and uses Solomatova's nominal x=0.35 spin count only for its reconstruction."
   }
  ]
 }

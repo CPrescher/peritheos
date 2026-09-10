@@ -2516,6 +2516,206 @@
    ]
   },
   {
+   "identifier": "mgsio3_post_perovskite_guignot_2007_table1_pvt",
+   "kind": "static_pvt",
+   "description": "All 48 MgSiO3 post-perovskite observations printed by Guignot et al. (2007) Table 1: 24 room-temperature compression points and 24 laser-heated points.",
+   "source_location": "Guignot et al. (2007), Table 1",
+   "source_url": "https://doi.org/10.1016/j.epsl.2007.01.025",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value",
+     "measurement_status": "derived_from_mgo_pressure_standard"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value",
+     "measurement_status": "measured_diffraction"
+    },
+    {
+     "name": "b_a",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value",
+     "measurement_status": "measured_diffraction"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value",
+     "measurement_status": "measured_diffraction"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value",
+     "measurement_status": "derived_from_lattice_parameters"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value",
+     "measurement_status": "measured_spectroradiometry_for_heated_rows"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "mgo_a_a",
+     "quantity": "mgo_pressure_marker_lattice_parameter",
+     "unit": "angstrom",
+     "role": "value",
+     "measurement_status": "measured_diffraction"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-guignot-2007-table1-pvt.csv",
+    "sha256": "16e372df6ecaae23df2b9ec0403522d472d85248eb65c26a9f332780a6095f0c",
+    "media_type": "text/csv"
+   },
+   "notes": "Table values and parenthesized last-digit uncertainties are transcribed without reinterpretation. Room-temperature rows have no printed temperature uncertainty; the global fit treats their temperature as fixed at 300 K.",
+   "reference": {
+    "authors": [
+     "Guignot",
+     "Andrault",
+     "Morard",
+     "Bolfan-Casanova",
+     "Mezouar"
+    ],
+    "year": 2007,
+    "source": "Earth and Planetary Science Letters",
+    "volume": "256",
+    "locator": "162-168",
+    "doi": "10.1016/j.epsl.2007.01.025"
+   },
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
+   ]
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_mosenfelder_2009_derived_reference_isentrope",
+   "kind": "derived_model_grid",
+   "description": "Reference-isentrope and modeled Hugoniot states evaluated at the six source-reported shock densities using the published Table 4 coefficients.",
+   "source_location": "Derived from Mosenfelder et al. (2009), equations (2)-(12) and Tables 2-4",
+   "source_url": "https://doi.org/10.1029/2008JB005900",
+   "columns": [
+    {
+     "name": "shot",
+     "quantity": "shot_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "reported_shock_density_mg_m3",
+     "quantity": "reported_shock_density",
+     "unit": "Mg/m^3",
+     "role": "value",
+     "measurement_status": "source_reported_derived_input"
+    },
+    {
+     "name": "derived_cell_volume_a3",
+     "quantity": "derived_conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "derived_isentrope_pressure_gpa",
+     "quantity": "derived_reference_isentrope_pressure",
+     "unit": "GPa",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "derived_isentrope_temperature_k",
+     "quantity": "derived_reference_isentrope_temperature",
+     "unit": "K",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "derived_isentrope_energy_j_kg",
+     "quantity": "derived_reference_isentrope_specific_energy",
+     "unit": "J/kg",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "transition_energy_j_kg",
+     "quantity": "source_transition_energy",
+     "unit": "J/kg",
+     "role": "value",
+     "measurement_status": "source_parameter_derived_for_starting_material"
+    },
+    {
+     "name": "model_hugoniot_pressure_at_reported_density_gpa",
+     "quantity": "modeled_hugoniot_pressure",
+     "unit": "GPa",
+     "role": "value",
+     "measurement_status": "model_derived"
+    },
+    {
+     "name": "model_hugoniot_temperature_k",
+     "quantity": "modeled_hugoniot_temperature",
+     "unit": "K",
+     "role": "value",
+     "measurement_status": "model_derived"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-mosenfelder-2009-derived-reference-isentrope.csv",
+    "sha256": "f3f98e61c3d6d322cc95d63168410cf47ec2a3005169580ba44b3246f7890626",
+    "media_type": "text/csv"
+   },
+   "derived_from_datasets": [
+    "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
+   ],
+   "generation_script": "scripts/reproduce_mosenfelder_2009_mgsio3_post_perovskite.py --write-derived",
+   "notes": "Every state column other than the reported shock-density input is model-derived. This table is a transparent diagnostic and is not a fit input or experimental dataset. The Pv80Mj20 transition energy uses X_Mj=0.20 because the source gives 20 vol% and publishes no separate mole-fraction conversion used by its inversion.",
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
+   ],
+   "reference": {
+    "authors": [
+     "Mosenfelder",
+     "Asimow",
+     "Frost",
+     "Rubie",
+     "Ahrens"
+    ],
+    "year": 2009,
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "114",
+    "locator": "B01203",
+    "doi": "10.1029/2008JB005900"
+   }
+  },
+  {
    "identifier": "mgsio3_post_perovskite_guignot_2007_table1_300k_compression",
    "kind": "pressure_volume_temperature_lattice_parameters_with_calibrant",
    "description": "All 24 room-temperature MgSiO3 post-perovskite observations in Guignot et al. (2007) Table 1, retaining the simultaneous MgO calibrant lattice parameter.",
@@ -2946,206 +3146,6 @@
     "covariance": "not_reported"
    },
    "notes": "This is a partial fit reconstruction, not the full joint thermoelastic optimization. The complete Komabayashi table is bundled; Ono et al. (2006) remains excluded because the source identifies that Au-scale branch as systematically offset comparison data."
-  },
-  {
-   "identifier": "mgsio3_post_perovskite_guignot_2007_table1_pvt",
-   "kind": "static_pvt",
-   "description": "All 48 MgSiO3 post-perovskite observations printed by Guignot et al. (2007) Table 1: 24 room-temperature compression points and 24 laser-heated points.",
-   "source_location": "Guignot et al. (2007), Table 1",
-   "source_url": "https://doi.org/10.1016/j.epsl.2007.01.025",
-   "columns": [
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value",
-     "measurement_status": "derived_from_mgo_pressure_standard"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "a_a",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value",
-     "measurement_status": "measured_diffraction"
-    },
-    {
-     "name": "b_a",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value",
-     "measurement_status": "measured_diffraction"
-    },
-    {
-     "name": "c_a",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value",
-     "measurement_status": "measured_diffraction"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value",
-     "measurement_status": "derived_from_lattice_parameters"
-    },
-    {
-     "name": "volume_uncertainty_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "uncertainty",
-     "of": "volume_a3"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value",
-     "measurement_status": "measured_spectroradiometry_for_heated_rows"
-    },
-    {
-     "name": "temperature_uncertainty_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "uncertainty",
-     "of": "temperature_k"
-    },
-    {
-     "name": "mgo_a_a",
-     "quantity": "mgo_pressure_marker_lattice_parameter",
-     "unit": "angstrom",
-     "role": "value",
-     "measurement_status": "measured_diffraction"
-    }
-   ],
-   "resource": {
-    "path": "datasets/mgsio3-post-perovskite-guignot-2007-table1-pvt.csv",
-    "sha256": "16e372df6ecaae23df2b9ec0403522d472d85248eb65c26a9f332780a6095f0c",
-    "media_type": "text/csv"
-   },
-   "notes": "Table values and parenthesized last-digit uncertainties are transcribed without reinterpretation. Room-temperature rows have no printed temperature uncertainty; the global fit treats their temperature as fixed at 300 K.",
-   "reference": {
-    "authors": [
-     "Guignot",
-     "Andrault",
-     "Morard",
-     "Bolfan-Casanova",
-     "Mezouar"
-    ],
-    "year": 2007,
-    "source": "Earth and Planetary Science Letters",
-    "volume": "256",
-    "locator": "162-168",
-    "doi": "10.1016/j.epsl.2007.01.025"
-   },
-   "used_by_eos_records": [
-    "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
-   ]
-  },
-  {
-   "identifier": "mgsio3_post_perovskite_mosenfelder_2009_derived_reference_isentrope",
-   "kind": "derived_model_grid",
-   "description": "Reference-isentrope and modeled Hugoniot states evaluated at the six source-reported shock densities using the published Table 4 coefficients.",
-   "source_location": "Derived from Mosenfelder et al. (2009), equations (2)-(12) and Tables 2-4",
-   "source_url": "https://doi.org/10.1029/2008JB005900",
-   "columns": [
-    {
-     "name": "shot",
-     "quantity": "shot_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "reported_shock_density_mg_m3",
-     "quantity": "reported_shock_density",
-     "unit": "Mg/m^3",
-     "role": "value",
-     "measurement_status": "source_reported_derived_input"
-    },
-    {
-     "name": "derived_cell_volume_a3",
-     "quantity": "derived_conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value",
-     "measurement_status": "model_derived"
-    },
-    {
-     "name": "derived_isentrope_pressure_gpa",
-     "quantity": "derived_reference_isentrope_pressure",
-     "unit": "GPa",
-     "role": "value",
-     "measurement_status": "model_derived"
-    },
-    {
-     "name": "derived_isentrope_temperature_k",
-     "quantity": "derived_reference_isentrope_temperature",
-     "unit": "K",
-     "role": "value",
-     "measurement_status": "model_derived"
-    },
-    {
-     "name": "derived_isentrope_energy_j_kg",
-     "quantity": "derived_reference_isentrope_specific_energy",
-     "unit": "J/kg",
-     "role": "value",
-     "measurement_status": "model_derived"
-    },
-    {
-     "name": "transition_energy_j_kg",
-     "quantity": "source_transition_energy",
-     "unit": "J/kg",
-     "role": "value",
-     "measurement_status": "source_parameter_derived_for_starting_material"
-    },
-    {
-     "name": "model_hugoniot_pressure_at_reported_density_gpa",
-     "quantity": "modeled_hugoniot_pressure",
-     "unit": "GPa",
-     "role": "value",
-     "measurement_status": "model_derived"
-    },
-    {
-     "name": "model_hugoniot_temperature_k",
-     "quantity": "modeled_hugoniot_temperature",
-     "unit": "K",
-     "role": "value",
-     "measurement_status": "model_derived"
-    }
-   ],
-   "resource": {
-    "path": "datasets/mgsio3-post-perovskite-mosenfelder-2009-derived-reference-isentrope.csv",
-    "sha256": "f3f98e61c3d6d322cc95d63168410cf47ec2a3005169580ba44b3246f7890626",
-    "media_type": "text/csv"
-   },
-   "derived_from_datasets": [
-    "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
-   ],
-   "generation_script": "scripts/reproduce_mosenfelder_2009_mgsio3_post_perovskite.py --write-derived",
-   "notes": "Every state column other than the reported shock-density input is model-derived. This table is a transparent diagnostic and is not a fit input or experimental dataset. The Pv80Mj20 transition energy uses X_Mj=0.20 because the source gives 20 vol% and publishes no separate mole-fraction conversion used by its inversion.",
-   "used_by_eos_records": [
-    "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
-   ],
-   "reference": {
-    "authors": [
-     "Mosenfelder",
-     "Asimow",
-     "Frost",
-     "Rubie",
-     "Ahrens"
-    ],
-    "year": 2009,
-    "source": "Journal of Geophysical Research: Solid Earth",
-    "volume": "114",
-    "locator": "B01203",
-    "doi": "10.1029/2008JB005900"
-   }
   }
  ]
 }

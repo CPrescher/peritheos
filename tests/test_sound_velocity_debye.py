@@ -44,10 +44,14 @@ def test_sound_velocity_debye_pressure_is_helmholtz_derivative():
     volume = 0.9
     temperature = 4000.0
     step = volume * 2.0e-5
-    numerical_pressure = -(
-        eos.thermal_helmholtz_free_energy(volume + step, temperature)
-        - eos.thermal_helmholtz_free_energy(volume - step, temperature)
-    ) / (2.0 * step) / 1.0e4
+    numerical_pressure = (
+        -(
+            eos.thermal_helmholtz_free_energy(volume + step, temperature)
+            - eos.thermal_helmholtz_free_energy(volume - step, temperature)
+        )
+        / (2.0 * step)
+        / 1.0e4
+    )
 
     assert eos.thermal_pressure(volume, temperature) == pytest.approx(
         numerical_pressure, rel=2.0e-5

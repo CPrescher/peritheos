@@ -123,7 +123,9 @@ class SoundVelocityDebyeHelmholtz(ThermalEOS):
         bulk = np.asarray(self.rt_eos.bulk_modulus(volumes), dtype=float)
         shear = 3.0 * (1.0 - 2.0 * poisson) * bulk / (2.0 * (1.0 + poisson))
         if not np.all(np.isfinite(shear)) or np.any(shear <= 0.0):
-            raise EosNumericalError("Calculated shear modulus is not positive and finite")
+            raise EosNumericalError(
+                "Calculated shear modulus is not positive and finite"
+            )
         return self._result(shear)
 
     def longitudinal_velocity(self, V: NumericType) -> NumericType:
@@ -157,13 +159,12 @@ class SoundVelocityDebyeHelmholtz(ThermalEOS):
         number_density = self.n * Avogadro / volume_m3_mol
         velocity_m_s = np.asarray(self.effective_sound_velocity(volumes)) * 1000.0
         theta = (
-            hbar
-            / Boltzmann
-            * np.cbrt(6.0 * np.pi**2 * number_density)
-            * velocity_m_s
+            hbar / Boltzmann * np.cbrt(6.0 * np.pi**2 * number_density) * velocity_m_s
         )
         if not np.all(np.isfinite(theta)) or np.any(theta <= 0.0):
-            raise EosNumericalError("Characteristic temperature is not positive and finite")
+            raise EosNumericalError(
+                "Characteristic temperature is not positive and finite"
+            )
         return self._result(theta)
 
     def gruneisen_parameter(
@@ -194,8 +195,10 @@ class SoundVelocityDebyeHelmholtz(ThermalEOS):
         """Return vibrational entropy in J mol^-1 K^-1."""
         volumes, temperatures = self._broadcast_state(V, T)
         ratio = np.asarray(self.characteristic_temperature(volumes)) / temperatures
-        entropy = self.n * R * (
-            4.0 * _debye_function_3(ratio) - 3.0 * np.log(-np.expm1(-ratio))
+        entropy = (
+            self.n
+            * R
+            * (4.0 * _debye_function_3(ratio) - 3.0 * np.log(-np.expm1(-ratio)))
         )
         return self._result(np.asarray(entropy, dtype=float))
 
@@ -213,9 +216,11 @@ class SoundVelocityDebyeHelmholtz(ThermalEOS):
         """Return Debye constant-volume heat capacity in J mol^-1 K^-1."""
         volumes, temperatures = self._broadcast_state(V, T)
         ratio = np.asarray(self.characteristic_temperature(volumes)) / temperatures
-        heat_capacity = 3.0 * self.n * R * (
-            4.0 * _debye_function_3(ratio)
-            - 3.0 * ratio / np.expm1(ratio)
+        heat_capacity = (
+            3.0
+            * self.n
+            * R
+            * (4.0 * _debye_function_3(ratio) - 3.0 * ratio / np.expm1(ratio))
         )
         return self._result(np.asarray(heat_capacity, dtype=float))
 
@@ -281,13 +286,12 @@ class SoundVelocityDebyeHelmholtz(ThermalEOS):
             initial_temperature, "initial_temperature"
         )
         initial_pressure = validate_finite_scalar(initial_pressure, "initial_pressure")
-        initial_energy = float(self.internal_energy(initial_volume, initial_temperature))
+        initial_energy = float(
+            self.internal_energy(initial_volume, initial_temperature)
+        )
         target_energy = (
             initial_energy
-            + 0.5
-            * (pressure + initial_pressure)
-            * (initial_volume - volume)
-            * 1.0e4
+            + 0.5 * (pressure + initial_pressure) * (initial_volume - volume) * 1.0e4
         )
 
         def residual(temperature: float) -> float:

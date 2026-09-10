@@ -5893,158 +5893,6 @@
    ]
   },
   {
-   "identifier": "mgo_duffy_ahrens_1995_table3_hugoniot",
-   "kind": "shock_hugoniot",
-   "description": "All four final shock states from Duffy and Ahrens (1995) Table 3, retaining every printed value and one-standard-deviation uncertainty.",
-   "reference": {
-    "authors": [
-     "Duffy",
-     "Ahrens"
-    ],
-    "year": 1995,
-    "title": "Compressional sound velocity, equation of state, and constitutive response of shock-compressed magnesium oxide",
-    "source": "Journal of Geophysical Research: Solid Earth",
-    "volume": "100",
-    "locator": "529-542",
-    "doi": "10.1029/94JB02065"
-   },
-   "source_location": "Table 3, journal page 533",
-   "source_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/duffy_ahrens_seismo_1995.pdf",
-   "columns": [
-    {
-     "name": "shot_number",
-     "quantity": "shot_number",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "flyer_driver",
-     "quantity": "flyer_driver_material",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "impact_velocity_km_s",
-     "quantity": "impact_velocity",
-     "unit": "km/s",
-     "role": "value"
-    },
-    {
-     "name": "impact_velocity_standard_deviation_km_s",
-     "quantity": "impact_velocity",
-     "unit": "km/s",
-     "role": "standard_deviation",
-     "of": "impact_velocity_km_s"
-    },
-    {
-     "name": "initial_density_g_cm3",
-     "quantity": "initial_density",
-     "unit": "g/cm^3",
-     "role": "value"
-    },
-    {
-     "name": "initial_density_standard_deviation_g_cm3",
-     "quantity": "initial_density",
-     "unit": "g/cm^3",
-     "role": "standard_deviation",
-     "of": "initial_density_g_cm3"
-    },
-    {
-     "name": "particle_velocity_km_s",
-     "quantity": "particle_velocity",
-     "unit": "km/s",
-     "role": "value"
-    },
-    {
-     "name": "particle_velocity_standard_deviation_km_s",
-     "quantity": "particle_velocity",
-     "unit": "km/s",
-     "role": "standard_deviation",
-     "of": "particle_velocity_km_s"
-    },
-    {
-     "name": "shock_velocity_km_s",
-     "quantity": "shock_velocity",
-     "unit": "km/s",
-     "role": "value"
-    },
-    {
-     "name": "shock_velocity_standard_deviation_km_s",
-     "quantity": "shock_velocity",
-     "unit": "km/s",
-     "role": "standard_deviation",
-     "of": "shock_velocity_km_s"
-    },
-    {
-     "name": "axial_stress_gpa",
-     "quantity": "hugoniot_axial_stress",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "axial_stress_standard_deviation_gpa",
-     "quantity": "hugoniot_axial_stress",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "axial_stress_gpa"
-    },
-    {
-     "name": "shocked_density_g_cm3",
-     "quantity": "hugoniot_density",
-     "unit": "g/cm^3",
-     "role": "value"
-    },
-    {
-     "name": "shocked_density_standard_deviation_g_cm3",
-     "quantity": "hugoniot_density",
-     "unit": "g/cm^3",
-     "role": "standard_deviation",
-     "of": "shocked_density_g_cm3"
-    },
-    {
-     "name": "elastic_precursor_velocity_km_s",
-     "quantity": "elastic_precursor_velocity",
-     "unit": "km/s",
-     "role": "value"
-    },
-    {
-     "name": "elastic_precursor_velocity_standard_deviation_km_s",
-     "quantity": "elastic_precursor_velocity",
-     "unit": "km/s",
-     "role": "standard_deviation",
-     "of": "elastic_precursor_velocity_km_s"
-    },
-    {
-     "name": "used_in_published_hugoniot_fit",
-     "quantity": "fit_selection",
-     "unit": "1",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/mgo-duffy-ahrens-1995-table3-hugoniot.csv",
-    "sha256": "22a966924d96973ff66c8dcb37f51c7b51e426feb507dbe5b5c4665d075ee31c",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "mgo_b1_duffy_ahrens_1995_hugoniot_5"
-   ],
-   "license": "CC0-1.0",
-   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-   "license_scope": "Peritheos-created factual CSV transcription, normalization, column naming, and arrangement, solely to the extent contributors hold rights; excludes the article, publisher PDF, table typography, and all third-party rights.",
-   "provenance": {
-    "type": "transcribed_from_primary_table",
-    "source_pdf_sha256": "daaf0a41440bb125dd0a062ca0582c358ceabf04f39c08c40cda2ea73dc67b2b",
-    "transcribed_on": "2026-09-08",
-    "notes": "The author-hosted copy of the published article is not bundled. Parenthesized values are expanded as one-standard-deviation columns. Blank elastic-precursor cells mean no precursor value is printed. All four final states are selected for the published polycrystalline fit."
-   },
-   "uncertainty": {
-    "reported_values": "one_standard_deviation_in_last_digits",
-    "parameter_covariance": "not_reported"
-   },
-   "notes": "This dataset represents the principal shock Hugoniot only. Stress and shocked density are Rankine-Hugoniot reductions retained for consistency checks, not extra fit observations. The Table 3 precursor velocity is retained but excluded from the Us-up fit."
-  },
-  {
    "identifier": "mgo_duffy_1995_figure2_digitized",
    "kind": "pressure_molar_volume_digitized",
    "description": "Seventeen clearly distinguishable markers from the filled-circle current-study MgO series in Figure 2, including the ambient reference point. Filled triangles and all open shock-compression symbols were excluded. Experimental error bars are included only where their stems and caps are separable; blank error fields do not mean zero error.",
@@ -6304,6 +6152,140 @@
    ]
   },
   {
+   "identifier": "ye_2017_data_s1_au_mgo_300k",
+   "kind": "simultaneous_unit_cell_volumes",
+   "description": "All 28 corrected 300 K Au+MgO conventional-cell volume pairs and their reported standard errors from Ye et al. Data Set S1.",
+   "reference": {
+    "authors": [
+     "Ye",
+     "Prakapenka",
+     "Meng",
+     "Shim"
+    ],
+    "year": 2017,
+    "title": "Intercomparison of the gold, platinum, and MgO pressure scales up to 140 GPa and 2500 K",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "3450-3464",
+    "doi": "10.1002/2016JB013811"
+   },
+   "source_location": "Corrected Data Set S1",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2016JB013811&file=jgrb52101-sup-0002-supinfo.csv",
+   "license": "CC0-1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "license_scope": "Peritheos-created factual CSV normalization, column naming, observation indices, and arrangement, solely to the extent contributors hold rights; excludes the article, publisher CSV, and all third-party rights.",
+   "columns": [
+    {
+     "name": "observation_index",
+     "quantity": "observation_index",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "au_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "au_volume_standard_error_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_error",
+     "of": "au_volume_a3"
+    },
+    {
+     "name": "mgo_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "mgo_volume_standard_error_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_error",
+     "of": "mgo_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ye-2017-data-s1-au-mgo-300k.csv",
+    "sha256": "e4d30f69fb2a317e3d9aebcbac94e774324ca27919fe63d4b396c0c5305d114c",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "lossless_csv_normalization",
+    "official_filename": "jgrb52101-sup-0002-supinfo.csv",
+    "official_sha256": "fada21e5fc1a5c9bb1329ad08cc396065e158f215653afdf0978b8bfc2ebcbd9",
+    "normalization": "Removed blank lines, replaced symbolic headers with explicit quantity names, and added one-based observation indices; numeric tokens and source row order are unchanged.",
+    "erratum": "The publisher identifies the corrected S1-S4 files as the authoritative version of record because the originally published files contained rounded numbers."
+   },
+   "used_by_eos_records": [
+    "mgo_ye_2017_vinet_300k"
+   ],
+   "notes": "The source page states no open data-reuse license. The adjacent rights note limits CC0 to the Peritheos-created factual arrangement and does not relicense Wiley material."
+  },
+  {
+   "identifier": "zhu_2025_mgo_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 213 MgO P-V-T states used by the Zhu et al. v3 thermal fit.",
+   "reference": {
+    "authors": [
+     "Zhu",
+     "Ye",
+     "Sun",
+     "Katsura",
+     "Caracas"
+    ],
+    "year": 2025,
+    "title": "Internally consistent pressure-volume-temperature equations of state among platinum, gold, and MgO: Implications for phase transition boundaries in the mantle",
+    "source": "ESSOAr preprint",
+    "locator": "version 1",
+    "doi": "10.22541/essoar.176236186.65259830/v1"
+   },
+   "source_location": "Mendeley v3: MgO/MgO_pvt_40_new.dat",
+   "source_url": "https://data.mendeley.com/datasets/6kxnhc2g73/3",
+   "license": "CC-BY-4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "license_scope": "Zhu et al. Mendeley Data version 3 and this normalized redistribution.",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/zhu-2025-mgo-pvt.csv",
+    "sha256": "839acb4435c741aaa7266c956d9eba196756e5782ca63d47fb0b1a930fe4285c",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "lossless_csv_normalization",
+    "release_doi": "10.17632/6kxnhc2g73.3",
+    "release_archive_sha256": "77fbd3e3d02c2e5d27bf66b1ea69a88aed46266e1207b32b461fed33f48e4a0a",
+    "official_filename": "MgO/MgO_pvt_40_new.dat",
+    "official_sha256": "7fce0f2c195d0d3a2bb7f59e22064c283a6da64c259823466bb8616207ae34a0",
+    "normalization": "Removed blank and percent-comment lines, replaced whitespace separation with CSV commas, and supplied explicit quantity names; active numeric tokens and row order are unchanged."
+   },
+   "used_by_eos_records": [
+    "mgo_zhu_2025_pvt"
+   ]
+  },
+  {
    "identifier": "mgo_dubrovinsky_1997_cod_thermal_expansion",
    "kind": "ambient_pressure_thermal_expansion",
    "description": "The 25 MgO conventional-cell volumes through 2986 K represented by Tange et al., recovered from their row-level COD deposits.",
@@ -6482,138 +6464,156 @@
    ]
   },
   {
-   "identifier": "ye_2017_data_s1_au_mgo_300k",
-   "kind": "simultaneous_unit_cell_volumes",
-   "description": "All 28 corrected 300 K Au+MgO conventional-cell volume pairs and their reported standard errors from Ye et al. Data Set S1.",
+   "identifier": "mgo_duffy_ahrens_1995_table3_hugoniot",
+   "kind": "shock_hugoniot",
+   "description": "All four final shock states from Duffy and Ahrens (1995) Table 3, retaining every printed value and one-standard-deviation uncertainty.",
    "reference": {
     "authors": [
-     "Ye",
-     "Prakapenka",
-     "Meng",
-     "Shim"
+     "Duffy",
+     "Ahrens"
     ],
-    "year": 2017,
-    "title": "Intercomparison of the gold, platinum, and MgO pressure scales up to 140 GPa and 2500 K",
+    "year": 1995,
+    "title": "Compressional sound velocity, equation of state, and constitutive response of shock-compressed magnesium oxide",
     "source": "Journal of Geophysical Research: Solid Earth",
-    "volume": "122",
-    "locator": "3450-3464",
-    "doi": "10.1002/2016JB013811"
+    "volume": "100",
+    "locator": "529-542",
+    "doi": "10.1029/94JB02065"
    },
-   "source_location": "Corrected Data Set S1",
-   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2016JB013811&file=jgrb52101-sup-0002-supinfo.csv",
-   "license": "CC0-1.0",
-   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-   "license_scope": "Peritheos-created factual CSV normalization, column naming, observation indices, and arrangement, solely to the extent contributors hold rights; excludes the article, publisher CSV, and all third-party rights.",
+   "source_location": "Table 3, journal page 533",
+   "source_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/duffy_ahrens_seismo_1995.pdf",
    "columns": [
     {
-     "name": "observation_index",
-     "quantity": "observation_index",
-     "unit": "dimensionless",
+     "name": "shot_number",
+     "quantity": "shot_number",
+     "unit": "1",
      "role": "flag"
     },
     {
-     "name": "au_volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
+     "name": "flyer_driver",
+     "quantity": "flyer_driver_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "impact_velocity_km_s",
+     "quantity": "impact_velocity",
+     "unit": "km/s",
      "role": "value"
     },
     {
-     "name": "au_volume_standard_error_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_error",
-     "of": "au_volume_a3"
+     "name": "impact_velocity_standard_deviation_km_s",
+     "quantity": "impact_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "impact_velocity_km_s"
     },
     {
-     "name": "mgo_volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
+     "name": "initial_density_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
      "role": "value"
     },
     {
-     "name": "mgo_volume_standard_error_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_error",
-     "of": "mgo_volume_a3"
-    }
-   ],
-   "resource": {
-    "path": "datasets/ye-2017-data-s1-au-mgo-300k.csv",
-    "sha256": "e4d30f69fb2a317e3d9aebcbac94e774324ca27919fe63d4b396c0c5305d114c",
-    "media_type": "text/csv"
-   },
-   "provenance": {
-    "type": "lossless_csv_normalization",
-    "official_filename": "jgrb52101-sup-0002-supinfo.csv",
-    "official_sha256": "fada21e5fc1a5c9bb1329ad08cc396065e158f215653afdf0978b8bfc2ebcbd9",
-    "normalization": "Removed blank lines, replaced symbolic headers with explicit quantity names, and added one-based observation indices; numeric tokens and source row order are unchanged.",
-    "erratum": "The publisher identifies the corrected S1-S4 files as the authoritative version of record because the originally published files contained rounded numbers."
-   },
-   "used_by_eos_records": [
-    "mgo_ye_2017_vinet_300k"
-   ],
-   "notes": "The source page states no open data-reuse license. The adjacent rights note limits CC0 to the Peritheos-created factual arrangement and does not relicense Wiley material."
-  },
-  {
-   "identifier": "zhu_2025_mgo_pvt",
-   "kind": "pressure_volume_temperature",
-   "description": "All 213 MgO P-V-T states used by the Zhu et al. v3 thermal fit.",
-   "reference": {
-    "authors": [
-     "Zhu",
-     "Ye",
-     "Sun",
-     "Katsura",
-     "Caracas"
-    ],
-    "year": 2025,
-    "title": "Internally consistent pressure-volume-temperature equations of state among platinum, gold, and MgO: Implications for phase transition boundaries in the mantle",
-    "source": "ESSOAr preprint",
-    "locator": "version 1",
-    "doi": "10.22541/essoar.176236186.65259830/v1"
-   },
-   "source_location": "Mendeley v3: MgO/MgO_pvt_40_new.dat",
-   "source_url": "https://data.mendeley.com/datasets/6kxnhc2g73/3",
-   "license": "CC-BY-4.0",
-   "license_url": "https://creativecommons.org/licenses/by/4.0/",
-   "license_scope": "Zhu et al. Mendeley Data version 3 and this normalized redistribution.",
-   "columns": [
+     "name": "initial_density_standard_deviation_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "initial_density_g_cm3"
+    },
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
+     "name": "particle_velocity_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "particle_velocity_standard_deviation_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "particle_velocity_km_s"
+    },
+    {
+     "name": "shock_velocity_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_standard_deviation_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "shock_velocity_km_s"
+    },
+    {
+     "name": "axial_stress_gpa",
+     "quantity": "hugoniot_axial_stress",
      "unit": "GPa",
      "role": "value"
     },
     {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
+     "name": "axial_stress_standard_deviation_gpa",
+     "quantity": "hugoniot_axial_stress",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "axial_stress_gpa"
+    },
+    {
+     "name": "shocked_density_g_cm3",
+     "quantity": "hugoniot_density",
+     "unit": "g/cm^3",
      "role": "value"
     },
     {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
+     "name": "shocked_density_standard_deviation_g_cm3",
+     "quantity": "hugoniot_density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "shocked_density_g_cm3"
+    },
+    {
+     "name": "elastic_precursor_velocity_km_s",
+     "quantity": "elastic_precursor_velocity",
+     "unit": "km/s",
      "role": "value"
+    },
+    {
+     "name": "elastic_precursor_velocity_standard_deviation_km_s",
+     "quantity": "elastic_precursor_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "elastic_precursor_velocity_km_s"
+    },
+    {
+     "name": "used_in_published_hugoniot_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
     }
    ],
    "resource": {
-    "path": "datasets/zhu-2025-mgo-pvt.csv",
-    "sha256": "839acb4435c741aaa7266c956d9eba196756e5782ca63d47fb0b1a930fe4285c",
+    "path": "datasets/mgo-duffy-ahrens-1995-table3-hugoniot.csv",
+    "sha256": "22a966924d96973ff66c8dcb37f51c7b51e426feb507dbe5b5c4665d075ee31c",
     "media_type": "text/csv"
    },
-   "provenance": {
-    "type": "lossless_csv_normalization",
-    "release_doi": "10.17632/6kxnhc2g73.3",
-    "release_archive_sha256": "77fbd3e3d02c2e5d27bf66b1ea69a88aed46266e1207b32b461fed33f48e4a0a",
-    "official_filename": "MgO/MgO_pvt_40_new.dat",
-    "official_sha256": "7fce0f2c195d0d3a2bb7f59e22064c283a6da64c259823466bb8616207ae34a0",
-    "normalization": "Removed blank and percent-comment lines, replaced whitespace separation with CSV commas, and supplied explicit quantity names; active numeric tokens and row order are unchanged."
-   },
    "used_by_eos_records": [
-    "mgo_zhu_2025_pvt"
-   ]
+    "mgo_b1_duffy_ahrens_1995_hugoniot_5"
+   ],
+   "license": "CC0-1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "license_scope": "Peritheos-created factual CSV transcription, normalization, column naming, and arrangement, solely to the extent contributors hold rights; excludes the article, publisher PDF, table typography, and all third-party rights.",
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "source_pdf_sha256": "daaf0a41440bb125dd0a062ca0582c358ceabf04f39c08c40cda2ea73dc67b2b",
+    "transcribed_on": "2026-09-08",
+    "notes": "The author-hosted copy of the published article is not bundled. Parenthesized values are expanded as one-standard-deviation columns. Blank elastic-precursor cells mean no precursor value is printed. All four final states are selected for the published polycrystalline fit."
+   },
+   "uncertainty": {
+    "reported_values": "one_standard_deviation_in_last_digits",
+    "parameter_covariance": "not_reported"
+   },
+   "notes": "This dataset represents the principal shock Hugoniot only. Stress and shocked density are Rankine-Hugoniot reductions retained for consistency checks, not extra fit observations. The Table 3 precursor velocity is retained but excluded from the Us-up fit."
   }
  ]
 }

@@ -183,8 +183,8 @@ calibration range.
 | `diamond_sokolova_2013` | diamond, 8 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `diamond_correa_2008` | diamond, 8 atoms/cell | Vinet + logarithmic-moment double-Debye Helmholtz | 0–1075 GPa, 1–10000 K; DFT-GGA ambient-volume caveat applies | [Correa et al. (2008)](https://doi.org/10.1103/PhysRevB.78.024101) |
 | `diamond_benedict_2014` | diamond, 8 atoms/cell | Vinet + double-Debye Helmholtz | 0–1000 GPa, 300–9000 K; phase boundary must be checked separately | [Benedict et al. (2014)](https://doi.org/10.1103/PhysRevB.89.224109) |
-| `diamond_correa_2008_dewaele_anchored` | diamond, 8 atoms/cell | Dewaele 298 K Vinet + Correa logarithmic-moment thermal increment | Combined source envelopes; exact Peritheos source-equation reconstruction, not a composite refit | [Dewaele et al. (2008)](https://doi.org/10.1103/PhysRevB.77.094106); [Correa et al. (2008)](https://doi.org/10.1103/PhysRevB.78.024101) |
-| `diamond_benedict_2014_dewaele_anchored` | diamond, 8 atoms/cell | Dewaele 298 K Vinet + Benedict double-Debye thermal increment | Combined source envelopes; exact Peritheos source-equation reconstruction, not a composite refit | [Dewaele et al. (2008)](https://doi.org/10.1103/PhysRevB.77.094106); [Benedict et al. (2014)](https://doi.org/10.1103/PhysRevB.89.224109) |
+| `diamond_correa_2008_dewaele_anchored` | diamond, 8 atoms/cell | Dewaele 298 K Vinet + Correa logarithmic-moment thermal increment | Combined source envelopes; derived composition | [Dewaele et al. (2008)](https://doi.org/10.1103/PhysRevB.77.094106); [Correa et al. (2008)](https://doi.org/10.1103/PhysRevB.78.024101) |
+| `diamond_benedict_2014_dewaele_anchored` | diamond, 8 atoms/cell | Dewaele 298 K Vinet + Benedict double-Debye thermal increment | Combined source envelopes; derived composition | [Dewaele et al. (2008)](https://doi.org/10.1103/PhysRevB.77.094106); [Benedict et al. (2014)](https://doi.org/10.1103/PhysRevB.89.224109) |
 | `al_fcc_sokolova_2013` | Al fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `cu_fcc_sokolova_2013` | Cu fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `ag_fcc_sokolova_2013` | Ag fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
@@ -265,12 +265,6 @@ term and not a shifted reference state; the temperature slope varies as
 `alpha_KT_ref + dK_dT_V*ln(V0/V)`. The source reports only a partial numerical
 uncertainty for `dK_dT_V` and notes an additional unquantified contribution
 from `K0'`, which remains visible in the record notes.
-The [dedicated source reconstruction](literature-reproductions/anderson-1989-gold-thermal-eos.md)
-shows that this is a staged synthesis of heterogeneous thermodynamic constraints,
-not a global P-V-T fit. All numerical source tables are bundled, including the
-literal and thermodynamically reconstructed forms of the anomalous 300 K Table I
-heat capacity, and all 126 Equation (29) Table V states are reproduced within
-printed rounding.
 
 The Tange calibration domain is the marginal envelope of several pressure-scale-free data
 sets, not a rectangular guarantee that every combination of its extrema was

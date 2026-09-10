@@ -1681,21 +1681,100 @@
    "source_location": "Tables 1-2, article pages 62-65",
    "source_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
    "columns": [
-    {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
-    {"name": "run", "quantity": "experimental_run", "unit": "1", "role": "flag"},
-    {"name": "table", "quantity": "source_table", "unit": "1", "role": "flag"},
-    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
-    {"name": "pressure_original_gpa", "quantity": "published_pressure", "unit": "GPa", "role": "value"},
-    {"name": "a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "a_uncertainty_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "a_angstrom"},
-    {"name": "c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "c_uncertainty_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "c_angstrom"},
-    {"name": "unit_cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "unit_cell_volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "unit_cell_volume_a3"},
-    {"name": "c_over_a", "quantity": "axial_ratio", "unit": "1", "role": "value"},
-    {"name": "c_over_a_uncertainty", "quantity": "axial_ratio", "unit": "1", "role": "uncertainty", "of": "c_over_a"},
-    {"name": "pressure_standard", "quantity": "pressure_standard", "unit": "1", "role": "flag"},
-    {"name": "pressure_calibration", "quantity": "pressure_calibration", "unit": "1", "role": "flag"}
+    {
+     "name": "source_order",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "table",
+     "quantity": "source_table",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_original_gpa",
+     "quantity": "published_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_uncertainty_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_uncertainty_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "c_over_a",
+     "quantity": "axial_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "c_over_a_uncertainty",
+     "quantity": "axial_ratio",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "c_over_a"
+    },
+    {
+     "name": "pressure_standard",
+     "quantity": "pressure_standard",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_calibration",
+     "quantity": "pressure_calibration",
+     "unit": "1",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/akimotoite-wang-2004-tables1-2-pvt.csv",
@@ -1709,14 +1788,24 @@
     "transcribed_on": "2026-09-08"
    },
    "reference": {
-    "authors": ["Wang", "Uchida", "Zhang", "Rivers", "Sutton"],
+    "authors": [
+     "Wang",
+     "Uchida",
+     "Zhang",
+     "Rivers",
+     "Sutton"
+    ],
     "year": 2004,
     "source": "Phys. Earth Planet. Inter.",
     "volume": "143-144",
     "locator": "57-80",
     "doi": "10.1016/j.pepi.2003.08.007"
    },
-   "used_by_eos_records": ["akimotoite_dorogokupets_2015_298k_rydberg_stacey","akimotoite_wang_2004_t0133_bm3","akimotoite_wang_2004_t0150_bm3"],
+   "used_by_eos_records": [
+    "akimotoite_dorogokupets_2015_298k_rydberg_stacey",
+    "akimotoite_wang_2004_t0133_bm3",
+    "akimotoite_wang_2004_t0150_bm3"
+   ],
    "notes": "Table 1 contains 78 Au-marker rows and Table 2 contains 56 NaCl-marker rows, matching the article's stated total of 134 usable quasi-hydrostatic observations. The source prints derived Au pressures rather than Au volumes."
   },
   {
@@ -1726,25 +1815,126 @@
    "source_location": "Table 1, article pages 100-101",
    "source_url": "https://doi.org/10.1016/j.pepi.2013.06.005",
    "columns": [
-    {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
-    {"name": "run", "quantity": "experimental_run", "unit": "1", "role": "flag"},
-    {"name": "run_order", "quantity": "run_row", "unit": "1", "role": "flag"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
-    {"name": "two_way_p_time_10_minus_7_s", "quantity": "two_way_p_travel_time", "unit": "1e-7 s", "role": "value"},
-    {"name": "two_way_s_time_10_minus_7_s", "quantity": "two_way_s_travel_time", "unit": "1e-7 s", "role": "value"},
-    {"name": "length_mm", "quantity": "sample_length", "unit": "mm", "role": "value"},
-    {"name": "density_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "value"},
-    {"name": "density_uncertainty_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "uncertainty", "of": "density_g_cm3"},
-    {"name": "vp_km_s", "quantity": "compressional_velocity", "unit": "km/s", "role": "value"},
-    {"name": "vp_uncertainty_km_s", "quantity": "compressional_velocity", "unit": "km/s", "role": "uncertainty", "of": "vp_km_s"},
-    {"name": "vs_km_s", "quantity": "shear_velocity", "unit": "km/s", "role": "value"},
-    {"name": "vs_uncertainty_km_s", "quantity": "shear_velocity", "unit": "km/s", "role": "uncertainty", "of": "vs_km_s"},
-    {"name": "ks_gpa", "quantity": "adiabatic_bulk_modulus", "unit": "GPa", "role": "value"},
-    {"name": "ks_uncertainty_gpa", "quantity": "adiabatic_bulk_modulus", "unit": "GPa", "role": "uncertainty", "of": "ks_gpa"},
-    {"name": "g_gpa", "quantity": "shear_modulus", "unit": "GPa", "role": "value"},
-    {"name": "g_uncertainty_gpa", "quantity": "shear_modulus", "unit": "GPa", "role": "uncertainty", "of": "g_gpa"}
+    {
+     "name": "source_order",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run_order",
+     "quantity": "run_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "two_way_p_time_10_minus_7_s",
+     "quantity": "two_way_p_travel_time",
+     "unit": "1e-7 s",
+     "role": "value"
+    },
+    {
+     "name": "two_way_s_time_10_minus_7_s",
+     "quantity": "two_way_s_travel_time",
+     "unit": "1e-7 s",
+     "role": "value"
+    },
+    {
+     "name": "length_mm",
+     "quantity": "sample_length",
+     "unit": "mm",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "density_uncertainty_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "uncertainty",
+     "of": "density_g_cm3"
+    },
+    {
+     "name": "vp_km_s",
+     "quantity": "compressional_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vp_uncertainty_km_s",
+     "quantity": "compressional_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "vp_km_s"
+    },
+    {
+     "name": "vs_km_s",
+     "quantity": "shear_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vs_uncertainty_km_s",
+     "quantity": "shear_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "vs_km_s"
+    },
+    {
+     "name": "ks_gpa",
+     "quantity": "adiabatic_bulk_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ks_uncertainty_gpa",
+     "quantity": "adiabatic_bulk_modulus",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "ks_gpa"
+    },
+    {
+     "name": "g_gpa",
+     "quantity": "shear_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "g_uncertainty_gpa",
+     "quantity": "shear_modulus",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "g_gpa"
+    }
    ],
    "resource": {
     "path": "datasets/akimotoite-zhou-2014-table1-elasticity.csv",
@@ -1758,14 +1948,23 @@
     "transcribed_on": "2026-09-08"
    },
    "reference": {
-    "authors": ["Zhou", "Gréaux", "Nishiyama", "Irifune", "Higo"],
+    "authors": [
+     "Zhou",
+     "Gréaux",
+     "Nishiyama",
+     "Irifune",
+     "Higo"
+    ],
     "year": 2014,
     "source": "Phys. Earth Planet. Inter.",
     "volume": "228",
     "locator": "97-105",
     "doi": "10.1016/j.pepi.2013.06.005"
    },
-   "used_by_eos_records": ["akimotoite_dorogokupets_2015_298k_rydberg_stacey","akimotoite_zhou_2014_300k_bm3"],
+   "used_by_eos_records": [
+    "akimotoite_dorogokupets_2015_298k_rydberg_stacey",
+    "akimotoite_zhou_2014_300k_bm3"
+   ],
    "notes": "An unweighted linear KS(P,T) regression closely reproduces the published rounded coefficients; uncertainty weighting is retained only as a sensitivity check because the paper does not state that objective."
   },
   {
@@ -1775,17 +1974,74 @@
    "source_location": "Dorogokupets et al. (2015), MgSiO3-akimotoite subsection and Figures 6-7; Reynard et al. (1996), Table 1 and Figure 3; Wang et al. (2004), Tables 1-2; Zhou et al. (2014), Table 1",
    "source_url": "https://doi.org/10.1016/j.rgg.2015.01.011",
    "columns": [
-    {"name": "phase", "quantity": "reconstruction_branch", "unit": "1", "role": "flag"},
-    {"name": "source", "quantity": "source_citation", "unit": "1", "role": "flag"},
-    {"name": "source_doi", "quantity": "source_doi", "unit": "1", "role": "flag"},
-    {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
-    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
-    {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "volume_a3"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_uncertainty_gpa", "quantity": "pressure_error_or_spread_proxy", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "pressure_coordinate", "quantity": "pressure_scale", "unit": "1", "role": "flag"},
-    {"name": "selection_note", "quantity": "selection_provenance", "unit": "1", "role": "flag"}
+    {
+     "name": "phase",
+     "quantity": "reconstruction_branch",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source",
+     "quantity": "source_citation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_doi",
+     "quantity": "source_doi",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_order",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure_error_or_spread_proxy",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "pressure_coordinate",
+     "quantity": "pressure_scale",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "selection_note",
+     "quantity": "selection_provenance",
+     "unit": "1",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/dorogokupets-2015-298k-literature-reconstruction.csv",
@@ -1798,7 +2054,13 @@
     "media_type": "application/json"
    },
    "reference": {
-    "authors": ["Dorogokupets", "Dymshits", "Sokolova", "Danilov", "Litasov"],
+    "authors": [
+     "Dorogokupets",
+     "Dymshits",
+     "Sokolova",
+     "Danilov",
+     "Litasov"
+    ],
     "year": 2015,
     "source": "Russian Geology and Geophysics",
     "volume": "56",

@@ -1,0 +1,181 @@
+{
+  "gold": {
+    "rows": 26,
+    "run_ids": [
+      "s456003",
+      "s701014",
+      "s456004",
+      "s454003",
+      "s453001",
+      "s457002",
+      "s451011",
+      "s693017",
+      "s453003",
+      "s454006",
+      "s460005",
+      "s695007",
+      "s456005",
+      "s693019",
+      "s455007",
+      "s457010",
+      "s696009",
+      "s454008",
+      "s453004",
+      "s451013",
+      "s454009",
+      "s700010",
+      "s693021",
+      "s459002",
+      "s453005",
+      "s694007"
+    ],
+    "native_equation_max_difference_gpa": 1.4210854715202004e-13,
+    "published_rmse_gpa": 0.38380272463080617,
+    "published_mae_gpa": 0.319097910226003,
+    "table_output_max_difference_gpa": 0.01426179854427545,
+    "table_output_max_fraction_of_parameter_error_bound": 0.03383692715540836,
+    "free_parameters": [
+      "q"
+    ],
+    "published_parameters": [
+      0.7
+    ],
+    "published_errors": [
+      0.3
+    ],
+    "refit_parameters": [
+      0.362697666985952
+    ],
+    "diagnostic_standard_errors": [
+      0.10660430483537577
+    ],
+    "rmse_gpa": 0.3252921712897157,
+    "solver_success": true,
+    "limitations": "Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise."
+  },
+  "platinum": {
+    "rows": 42,
+    "run_ids": [
+      "s424056/7",
+      "s424054/5",
+      "s424052/3",
+      "s424050/1",
+      "s424048/9",
+      "s424046/7",
+      "s424042/3",
+      "s376004",
+      "s377002",
+      "s381006",
+      "s379003",
+      "s380008",
+      "s383004",
+      "s375014",
+      "s377003",
+      "s381007",
+      "s378006",
+      "s379005",
+      "s380009",
+      "s383005",
+      "s376012",
+      "s376013",
+      "s375016",
+      "s376006/7",
+      "s382009",
+      "s382006/7",
+      "s377007",
+      "s377005",
+      "s377006",
+      "s377004",
+      "s381016",
+      "s378008",
+      "s378010",
+      "s378011",
+      "s379009",
+      "s379007",
+      "s379011",
+      "s379018",
+      "s380018/9",
+      "s380012/3",
+      "s380010",
+      "s383010"
+    ],
+    "native_equation_max_difference_gpa": 2.5224267119483557e-13,
+    "published_rmse_gpa": 0.4425700746025304,
+    "published_mae_gpa": 0.35187573664246163,
+    "table_output_max_difference_gpa": 0.1941933665520068,
+    "table_output_max_fraction_of_parameter_error_bound": 0.8361013045836931,
+    "free_parameters": [
+      "K0",
+      "K0_prime",
+      "gamma0",
+      "q"
+    ],
+    "published_parameters": [
+      273.0,
+      4.8,
+      2.69,
+      0.5
+    ],
+    "published_errors": [
+      3.0,
+      0.3,
+      0.03,
+      0.5
+    ],
+    "refit_parameters": [
+      289.7385100564044,
+      2.6362948786042586,
+      2.5593954645105224,
+      -0.9772060885899044
+    ],
+    "diagnostic_standard_errors": [
+      10.3726774978476,
+      1.15390092138576,
+      0.043643579128377956,
+      0.5358518884201623
+    ],
+    "rmse_gpa": 0.37435995784049936,
+    "solver_success": true,
+    "limitations": "Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise."
+  },
+  "platinum_300k": {
+    "rows": 7,
+    "run_ids": [
+      "s424056/7",
+      "s424054/5",
+      "s424052/3",
+      "s424050/1",
+      "s424048/9",
+      "s424046/7",
+      "s424042/3"
+    ],
+    "native_equation_max_difference_gpa": 2.2382096176443156e-13,
+    "published_rmse_gpa": 0.15714060367632096,
+    "published_mae_gpa": 0.1279820076492396,
+    "table_output_max_difference_gpa": null,
+    "table_output_max_fraction_of_parameter_error_bound": null,
+    "free_parameters": [
+      "K0",
+      "K0_prime"
+    ],
+    "published_parameters": [
+      290.0,
+      2.7
+    ],
+    "published_errors": [
+      10.0,
+      0.9
+    ],
+    "refit_parameters": [
+      294.3521728010139,
+      2.105306649289372
+    ],
+    "diagnostic_standard_errors": [
+      5.872755547550196,
+      0.6508837388401868
+    ],
+    "rmse_gpa": 0.14115315078596466,
+    "solver_success": true,
+    "limitations": "Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise."
+  }
+}

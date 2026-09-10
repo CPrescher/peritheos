@@ -1,5 +1,12 @@
 # References
 
+- Fei, Y., Murphy, C., Shibazaki, Y., Shahar, A. & Huang, H. (2016).
+  Thermal equation of state of hcp-iron: Constraint on the density deficit of
+  Earth's solid inner core. *Geophysical Research Letters*, 43, 6837–6843.
+  [doi:10.1002/2016GL069456](https://doi.org/10.1002/2016GL069456).
+  Both Equation (1) BM3 fits, Equation (2)'s complete thermal pressure,
+  and all 96 observations in Tables S1–S2 are included.
+
 - Correa, A. A., Benedict, L. X., Young, D. A., Schwegler, E. & Bonev, S. A.
   (2008). First-principles multiphase
   equation of state of carbon under extreme conditions. *Physical Review B*,
@@ -125,16 +132,8 @@
   [doi:10.1103/fxgq-96sg](https://doi.org/10.1103/fxgq-96sg). Peritheos uses
   the reduced-300 K Vinet form in Equation 4, the fixed reference volumes and
   fitted parameters in Table II, and the phase/range qualifications in Table I
-  and Section III.E. Pressures are reconstructed from the official Table S1
-  same-run Cu volumes using Fratanduono et al.'s published third-order 298 K
-  Cu Vinet form. The printed parameter errors are retained without an inferred
-  confidence level, weighting scheme, or covariance.
-- Fratanduono, D. E. et al. (2020). Probing the solid phase of noble metal
-  copper at terapascal conditions. *Physical Review Letters*, 124, 015701.
-  [doi:10.1103/PhysRevLett.124.015701](https://doi.org/10.1103/PhysRevLett.124.015701).
-  Peritheos uses the 298 K central coefficients in main-article Table I and the
-  third-order Vinet pressure-density equation in Supplemental Section S4,
-  Equation 2, as Shen and Smith's Cu reference scale.
+  and Section III.E. The printed parameter errors are retained without an
+  inferred confidence level or covariance.
 - Sun, N., Mao, Z., Yan, S., Wu, X., Prakapenka, V. B. & Lin, J.-F. (2016).
   Confirming a pyrolitic lower mantle using self-consistent pressure scales
   and new constraints on CaSiO3 perovskite. *Journal of Geophysical Research:
@@ -142,18 +141,14 @@
   [doi:10.1002/2016JB013062](https://doi.org/10.1002/2016JB013062). Peritheos
   uses equations 1--6, Table 1, and the model-1 row of Table 2 for the cubic
   Pm-3m BM3-Mie-Gruneisen-Debye record. Its 300 K isotherm is an extrapolated
-  model reference outside the measured 1200--2600 K cubic-phase field. All 144
-  printed Table 1 rows are bundled and reproduce the four free coefficients
-  and their uncertainties under the inferred unweighted pressure-residual fit.
+  model reference outside the measured 1200--2600 K cubic-phase field.
 - Sun, N., Bian, H., Zhang, Y., Lin, J.-F., Prakapenka, V. B. & Mao, Z.
   (2022). High-pressure experimental study of tetragonal
   CaSiO3-perovskite to 200 GPa. *American Mineralogist*, 107, 110--115.
   [doi:10.2138/am-2021-7913](https://doi.org/10.2138/am-2021-7913). Peritheos
   uses the fixed-`K0'=4` fit in Table 2 and converts the published normalized
   Z=1 reference volume to the conventional I4/mcm Z=4 cell. Table 1 supplies
-  the direct 21.5--199.2 GPa data range; routine validity is 30--150 GPa. Its
-  14 reanalyzed 2016 rows and nine new 2022 rows are distinguished explicitly,
-  and unweighted refits reproduce both Table 2 alternatives.
+  the direct 21.5--199.2 GPa data range; routine validity is 30--150 GPa.
 - Frank, M. R., Fei, Y. & Hu, J. (2004). Constraining the equation of state of
   fluid H2O to 80 GPa using the melting curve, bulk modulus, and thermal
   expansivity of ice VII. *Geochimica et Cosmochimica Acta*, 68, 2781--2790.
@@ -168,8 +163,11 @@
 - Fortes, A. D. (2019). *A revised equation of state for in situ pressure
   determination using fcc-Pb (0 < P < 13 GPa, T > 100 K)*. STFC Rutherford
   Appleton Laboratory Technical Report RAL-TR-2019-002. Peritheos uses
-  equations 1--5 and the 300 K values in Table 1. The stable institutional
-  primary copy is [RAL-TR-2019-002](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf).
+  equations 1--8 and the 300 K values in Table 1. The stable institutional
+  primary copy is [RAL-TR-2019-002](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf),
+  [doi:10.5286/raltr.2019002](https://doi.org/10.5286/raltr.2019002); the
+  reconstruction boundary is documented in the
+  [dedicated audit](literature-reproductions/fortes-2019-fcc-pb.md).
 - Hazen, R. M. & Finger, L. W. (1979). Crystal structure and compressibility
   of zircon at high pressure. *American Mineralogist*, 64, 196--201.
   Peritheos uses Table 1 and the Birch--Murnaghan result on page 198:
@@ -286,12 +284,6 @@
   [doi:10.1038/nmat831](https://doi.org/10.1038/nmat831). The 300 K
   compression data are a principal experimental constraint behind the later
   Sokolova diamond pressure scale.
-- Ono, S., Kikegawa, T. & Ohishi, Y. (2006). The stability and
-  compressibility of MgAl2O4 high-pressure polymorphs. *Physics and Chemistry
-  of Minerals*, 33, 200–206.
-  [doi:10.1007/s00269-006-0068-z](https://doi.org/10.1007/s00269-006-0068-z).
-  The 300 K Cmcm BM2 and all 14 Table 3 observations are bundled; see the
-  [source audit](literature-reproductions/ono-2006-mgal2o4-cati2o4.md).
 - Poirier, J.-P. & Tarantola, A. (1998). A logarithmic equation of state.
   *Physics of the Earth and Planetary Interiors*, 109, 1-8.
   [doi:10.1016/S0031-9201(98)00112-5](https://doi.org/10.1016/S0031-9201(98)00112-5).
@@ -450,27 +442,6 @@ not interchangeable with a percentage of cold pressure. Peritheos defines
 The source docstrings contain the model-specific reference nearest each
 implementation. Bibliographic precision should be checked against the original
 publication when citing a model in scientific work.
-
-- Irifune, T., Naka, H., Sanehira, T., Inoue, T. & Funakoshi, K. (2002).
-  In situ X-ray observations of phase transitions in MgAl2O4 spinel to 40 GPa
-  using multianvil apparatus with sintered diamond anvils. *Physics and Chemistry
-  of Minerals*, **29**, 645–654. [doi:10.1007/s00269-002-0275-1](https://doi.org/10.1007/s00269-002-0275-1).
-
-
-- Sueda, Y., Irifune, T., Sanehira, T., Yagi, T., Nishiyama, N., Kikegawa, T.
-  & Funakoshi, K.-i. (2009). Thermal equation of state of CaFe2O4-type MgAl2O4.
-  *Physics of the Earth and Planetary Interiors*, 174(1–4), 78–85.
-  [doi:10.1016/j.pepi.2008.07.046](https://doi.org/10.1016/j.pepi.2008.07.046).
-  [Source audit and reproduction](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md):
-  two thermal fits from Table 2, all 46 Table 1 observations, and explicit
-  interpretations of the printing errors in Equations 3, 4, 6, and 7.
-
-- Fei, Y., Murphy, C., Shibazaki, Y., Shahar, A. & Huang, H. (2016).
-  Thermal equation of state of hcp-iron: Constraint on the density deficit of
-  Earth's solid inner core. *Geophysical Research Letters*, 43, 6837–6843.
-  [doi:10.1002/2016GL069456](https://doi.org/10.1002/2016GL069456).
-  Both Equation (1) BM3 fits, Equation (2)'s complete thermal pressure,
-  and all 96 observations in Tables S1–S2 are included.
 
 ## Additional primary iron sources
 

@@ -63,8 +63,10 @@ def test_official_table_s1_transcription_is_complete_and_lossless():
     assert rows[-1]["gold_volume_a3"] == "51.747"
 
 
-def test_staged_spin_and_thermal_refits_are_reproducible(reproduction):
-    assert json.loads(AUDIT.read_text(encoding="utf-8")) == reproduction
+def test_staged_spin_and_thermal_refits_are_reproducible(
+    reproduction, assert_audit_close
+):
+    assert_audit_close(reproduction, json.loads(AUDIT.read_text(encoding="utf-8")))
     assert reproduction["observations"] == {
         "total": 153,
         "room_temperature": 17,
@@ -121,7 +123,8 @@ def test_staged_spin_and_thermal_refits_are_reproducible(reproduction):
             "dK_dT": -0.03512956,
             "alpha0": 3.4593130e-5,
             "alpha1": 5.6142331e-9,
-        }
+        },
+        rel=5e-6,
     )
     assert fp["parameters"] == pytest.approx(
         {

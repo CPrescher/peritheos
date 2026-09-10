@@ -815,16 +815,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -835,12 +835,16 @@
      "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Table 7"
+     "status": "digitized_earlier_primary_figure",
+     "audit_date": "2026-09-08",
+     "digitized_dataset_identifiers": [
+      "mg075fe025o_mao_2011_figure1_300k_digitized"
      ],
-     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+     "source_locations": [
+      "Mao et al. (2011), Figure 1",
+      "Solomatova et al. (2016), Tables 2 and 7"
+     ],
+     "finding": "All 42 plotted 300 K Mao observations are bundled as a digitized source dataset. The coupled reconstruction is executable but does not reproduce the published branch coefficients closely enough for parity; it is retained as a parity-not-achieved audit result."
     }
    }
   },
@@ -927,16 +931,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -947,12 +951,16 @@
      "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Table 7"
+     "status": "digitized_earlier_primary_figure",
+     "audit_date": "2026-09-08",
+     "digitized_dataset_identifiers": [
+      "mg075fe025o_mao_2011_figure1_300k_digitized"
      ],
-     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+     "source_locations": [
+      "Mao et al. (2011), Figure 1",
+      "Solomatova et al. (2016), Tables 2 and 7"
+     ],
+     "finding": "All 42 plotted 300 K Mao observations are bundled as a digitized source dataset. The coupled reconstruction is executable but does not reproduce the published branch coefficients closely enough for parity; it is retained as a parity-not-achieved audit result."
     }
    }
   }

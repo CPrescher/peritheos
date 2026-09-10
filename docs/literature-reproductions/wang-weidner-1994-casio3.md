@@ -98,7 +98,7 @@ authors' undisclosed regression protocol.
 ## Bundled data and numerical result
 
 The machine-readable resource is
-[`ca-perovskite-wang-weidner-1994-figure3-digitized.csv`](../../peritheos/data/datasets/ca-perovskite-wang-weidner-1994-figure3-digitized.csv).
+[`ca-perovskite-wang-weidner-1994-figure3-digitized.csv`](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/ca-perovskite-wang-weidner-1994-figure3-digitized.csv).
 It stores the four marker centers, rendered-plot coordinates, conservative
 digitization bounds (`0.10 GPa`, `0.01 A3`), and an explicit source-fit flag.
 Those bounds describe digitization only; they are not the source's statistical

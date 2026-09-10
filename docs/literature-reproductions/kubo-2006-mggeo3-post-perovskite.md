@@ -60,8 +60,8 @@ the source-selected result: the paper presents it specifically to demonstrate
 the large `V0`-`K0`-`K0'` trade-off. It is executable but non-default.
 
 Recalculating all 25 pressures from the rounded Pt 111 spacings with the
-bundled `platinum_holmes_1989_vinet_1` record gives a 0.253508148 GPa RMSE and
-a 0.445212011 GPa maximum difference from the printed pressures. This confirms
+bundled `platinum_holmes_1989_vinet_1` record, using the exact Equation (11) coefficients, gives a 0.269310636 GPa RMSE and
+a 0.461569238 GPa maximum difference from the printed pressures. This confirms
 the calibration lineage to the precision permitted by the four-decimal-place
 Pt spacings.
 

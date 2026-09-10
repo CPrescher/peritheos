@@ -165,9 +165,10 @@ def test_kubo_mggeo3_peritheos_and_pt_pressure_scale_are_executable():
         volumes = record.volume(pressure_grid)
         assert record.pressure(volumes) == pytest.approx(pressure_grid, rel=1.0e-10)
 
+    # Use Holmes Equation (11) coefficients, not rounded Table IV moduli.
     pt_rmse, pt_maximum = platinum_reduction_metrics()
-    assert pt_rmse == pytest.approx(0.2535081479, abs=5.0e-10)
-    assert pt_maximum == pytest.approx(0.4452120107, abs=5.0e-10)
+    assert pt_rmse == pytest.approx(0.2693106358, abs=5.0e-10)
+    assert pt_maximum == pytest.approx(0.4615692383, abs=5.0e-10)
     available_records = set(list_eos_record_documents())
     for record in document["eos_records"]:
         if record["identifier"] not in {PREFERRED_IDENTIFIER, SENSITIVITY_IDENTIFIER}:

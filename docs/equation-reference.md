@@ -1,5 +1,18 @@
 # Equation reference
 
+## Debye plus quadratic thermal pressure
+
+`DebyeQuadraticThermalPressure` adds the integrated-law Mie–Grüneisen–Debye
+pressure relative to `Tr` and `A (V/V0)^m (T² − Tr²)`. `A` uses GPa/K²,
+`m` is dimensionless, and `Tr`, `theta0`, `gamma0`, `q`, `n` follow the Debye
+model. Internal volumes are molar J/bar/mol. Positive finite volumes,
+temperatures, `Tr`, `theta0`, and `n` are required; other coefficients must
+be finite. `A = 0` recovers MGD. The thermal increment vanishes at `Tr`.
+It is a pressure surface without caloric observables. The
+[Fei (2016) audit](literature-reproductions/fei-2016-iron.md) derives the
+mapping from the published mass-specific electronic/anharmonic term and
+explains the independent electronic Grüneisen convention.
+
 This page defines the equations evaluated by Peritheos. Constructor parameter
 names are shown in code font; mathematical symbols use the corresponding
 subscripts. The definitions here follow the implementation and the numerical
@@ -794,6 +807,67 @@ the catalog's published Luo pressure scale continues to execute the Appendix-B
 Taylor surrogate. Supplying coefficients from another experiment creates an
 explicit sensitivity model, not a source-author reconstruction.
 
+### Sound-velocity quasi-Debye Helmholtz EOS
+
+`SoundVelocityDebyeHelmholtz` implements the quasi-Debye construction used by
+Luo et al. (2023), Equations (1)--(6) and Appendix A. Independent linear
+room-temperature regressions
+
+\[
+C_l^{\rm fit}=a_l+b_l\rho,\qquad C_s^{\rm fit}=a_s+b_s\rho
+\]
+
+define $\tau=C_l^{\rm fit}/C_s^{\rm fit}$ and
+$\mu=(\tau^2-2)/[2(\tau^2-1)]$. The wrapped cold curve supplies
+$B_s=-V\,\partial P_c/\partial V$; the model velocities are then
+
+\[
+G=\frac{3(1-2\mu)}{2(1+\mu)}B_s,\quad
+C_l^2=\frac{B_s+4G/3}{\rho},\quad C_s^2=\frac{G}{\rho},
+\]
+
+\[
+\frac{3}{C_{\rm eff}^3}=\frac{1}{C_l^3}+\frac{2}{C_s^3},\qquad
+\Theta=\frac{\hbar}{k_B}\left(6\pi^2\frac{N}{V}\right)^{1/3}C_{\rm eff}.
+\]
+
+With $E_{\rm ph}=3nRTD_3(\Theta/T)$ and
+$\gamma=-\partial\ln\Theta/\partial\ln V$, the absolute vibrational pressure
+is $P_{\rm ph}=\gamma E_{\rm ph}/V$. The implementation exposes vibrational
+energy, entropy, Helmholtz energy, heat capacity, longitudinal/shear/effective
+velocities, cold compression energy, and the Rankine--Hugoniot temperature
+solver. It omits zero-point energy, following Luo's integral of heat capacity
+from zero temperature. Constructor volumes are molar J bar$^{-1}$ mol$^{-1}$,
+velocities are km/s, and density is g cm$^{-3}$.
+
+The four velocity-regression coefficients are required inputs. Luo et al. name
+Kono et al. (2010) as their source but do not print the fitted coefficients, so
+the catalog's published Luo pressure scale continues to execute the Appendix-B
+Taylor surrogate. Supplying coefficients from another experiment creates an
+explicit sensitivity model, not a source-author reconstruction.
+
+### Asymptotic-power-law Debye with T2 excess
+
+`AsymptoticPowerLawMieGruneisenDebyeExcess` retains the Tange Gruneisen and
+Debye-temperature laws and adds the Zhu et al. (2025) excess Helmholtz term
+
+\[
+F_{\mathrm{ex}}(V,T)=-\frac{1}{2}\beta_0
+\left(\frac{V}{V_0}\right)^mT^2.
+\]
+
+Its pressure contribution is
+
+\[
+P_{\mathrm{ex}}(V,T)=\frac{\beta_0m}{2V_0}
+\left(\frac{V}{V_0}\right)^{m-1}T^2.
+\]
+
+Both the Debye and excess pressures are referenced by subtracting their values
+at `Tr`. `beta0` is expressed in J mol$^{-1}$ K$^{-2}$ and `m` is
+dimensionless. This is the complete thermal pressure form used by the Zhu Au,
+Pt, and MgO P-V-T records.
+
 ### Linear thermal pressure
 
 `LinearThermalPressure` composes any reference isotherm with
@@ -861,10 +935,12 @@ pressure whose temperature slope changes logarithmically with compression.
 The generic class name describes that mechanism rather than the paper or its
 use as a pressure standard.
 
-### Thermal modified Tait
+<a id="thermal-modified-tait"></a>
 
-`ThermalModifiedTait` combines a `ModifiedTait` reference EOS with a fixed
-Einstein temperature `theta`. Define
+### Holland--Powell thermal pressure
+
+`HollandPowellThermalPressure` combines any reference EOS exposing `K0` with a
+fixed Einstein temperature `theta`. Define
 
 \[
 E_E(T)=\frac{3nR\Theta}{\exp(\Theta/T)-1},
@@ -885,7 +961,11 @@ This pressure is independent of volume. Its implied Gruneisen parameter is
 \gamma(V)=10^4V\phi.
 \]
 
-`HollandPowell2011` is an alias for this implementation.
+`ThermalModifiedTait` is the compatibility subclass that requires a
+`ModifiedTait` reference EOS. `HollandPowell2011` remains an alias for that
+compatibility class. The generic class is needed when a source applies the same
+Holland--Powell thermal-pressure term to another reference isotherm, as
+Anzellini et al. (2025) do with BM3 for iridium.
 
 ### Dewaele 2006 hcp-Fe thermal pressure scale
 
@@ -1128,30 +1208,3 @@ on the positive-temperature branch nearest $T_r$. The distinct two-volume
 DAC inversion and forward `volume_with_dac_confinement(P_cold,T,f_dac)` solve
 are documented under
 [Diamond-anvil-cell thermal-pressure contribution](dac-thermal-pressure.md).
-
-## Third-order Vinet exponential polynomial
-
-`Vinet3(V0, K0, eta, beta, psi)` implements Fratanduono et al.
-(2020), Supplemental S4 Eq. (2). With $x=(V/V_0)^{1/3}$, $y=1-x$, and
-$F=\eta y+\beta y^2+\psi y^3$,
-
-$$P=3K_0 y x^{-2}e^F,$$
-$$K=K_0 x^{-2}e^F[x+2y+xy(\eta+2\beta y+3\psi y^2)].$$
-
-The second expression is $-V\,dP/dV$ and remains regular at $V=V_0$.
-The independent eta, beta, psi coefficients must not be collapsed into
-ordinary Vinet. The [Cu source audit](literature-reproductions/fratanduono-2020-cu.md)
-documents the density reference conversion and source limitations.
-
-## Debye plus quadratic thermal pressure
-
-`DebyeQuadraticThermalPressure` adds the integrated-law Mie–Grüneisen–Debye
-pressure relative to `Tr` and `A (V/V0)^m (T² − Tr²)`. `A` uses GPa/K²,
-`m` is dimensionless, and `Tr`, `theta0`, `gamma0`, `q`, `n` follow the Debye
-model. Internal volumes are molar J/bar/mol. Positive finite volumes,
-temperatures, `Tr`, `theta0`, and `n` are required; other coefficients must
-be finite. `A = 0` recovers MGD. The thermal increment vanishes at `Tr`.
-It is a pressure surface without caloric observables. The
-[Fei (2016) audit](literature-reproductions/fei-2016-iron.md) derives the
-mapping from the published mass-specific electronic/anharmonic term and
-explains the independent electronic Grüneisen convention.

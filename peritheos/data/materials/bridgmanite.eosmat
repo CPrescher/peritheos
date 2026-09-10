@@ -2045,13 +2045,14 @@
     }
    },
    "parameter_errors": {
-    "V0": null,
+    "V0": 0.07,
     "K0": 4.0,
     "K0_prime": null
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
    "fixed_parameters": [
+    "V0",
     "K0_prime"
    ],
    "temperature_ref": 298.0,
@@ -2070,46 +2071,123 @@
     "molar_mass_g_mol": 100.387
    },
    "parameter_provenance": {
-    "equation": "The 298 K isotherms use a Birch-Murnaghan fit with K0'=4 fixed.",
-    "parameters": "Source composition-specific V0=162.49 A3 and shared K0=261(4) GPa, K0'=4."
+    "equation": "The final 298 K isotherms use a Birch equation with K0'=4 fixed; Peritheos stores the algebraically identical BM3 special case.",
+    "parameters": "Final-publication Table 1 gives V0=162.49(7) A3 for MgSiO3; the room-temperature fit paragraph gives K0=261(4) GPa with K0'=4.",
+    "fit_scope": "The shared elastic coefficient was fitted only to the nine 300 K Fe10 rows in Table 2. The MgSiO3 and Fe20 rows demonstrate indistinguishable compression, while their Table 1 V0 values remain composition specific."
    },
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "title": "Anharmonicity and the equation of state for gold",
+       "source": "Journal of Applied Physics",
+       "volume": "65",
+       "locator": "1534-1543",
+       "doi": "10.1063/1.342969"
+      },
+      "reference_eos_record": "gold_anderson_1989_bm3_1",
+      "source_location": "Final article, journal page 8073 and Tables 2-3",
+      "scope": "Adopted pressure coordinate for the equation-of-state calculation and all tabulated room-temperature rows."
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "source": "Journal of Geophysical Research",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "reference_calibration_record": "ruby_mao_1986",
+      "source_location": "Final article, journal page 8073",
+      "scope": "Independent hydrostatic pressure cross-check; not the pressure coordinate used for the final EOS fit."
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "Ne",
+      "reference": {
+       "authors": [
+        "Hemley",
+        "Zha",
+        "Jephcoat",
+        "Mao",
+        "Finger",
+        "Cox"
+       ],
+       "year": 1989,
+       "title": "X-ray diffraction and equation of state of solid neon to 110 GPa",
+       "source": "Physical Review B",
+       "doi": "10.1103/PhysRevB.39.11820"
+      },
+      "source_location": "Final article, journal page 8073",
+      "scope": "Stress-condition check. The source says neon was unsuitable for accurate calibration and excluded bridged-sample data with multi-GPa disagreement."
+     }
+    ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The accessible primary record does not expose row-wise calibrant observables."
+     "status": "ready",
+     "notes": "Tables 2-3 preserve every row-wise Au lattice parameter and temperature, and gold_anderson_1989_bm3_1 is executable. Recalculation with its density-derived rounded V0=67.79 A3 gives pressures 0.13-0.26 GPa below the printed values; the table is reproduced to 0.017 GPa RMSE if the effective Au V0 is fitted as 67.8454 A3."
     },
-    "audit_date": "2026-09-05"
+    "audit_date": "2026-09-08",
+    "notes": "The final article explicitly states that only gold pressures were used for its perovskite EOS; that main pressure axis is linked to an executable record. Ruby and neon served as checks. The overall status remains partial because row-wise ruby and neon readings are not printed and the rounded Anderson reference volume does not exactly regenerate the tabulated pressures."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Primary publisher record checked and executable BM3 checkpoints independently reproduced.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
-     "fixed_parameters",
-     "volume_basis"
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "parameter_errors"
     ],
     "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/91JB00176",
-     "doi": "10.1029/91JB00176",
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/91JB00176",
+     "doi": "10.1029/91jb00176",
      "locations": [
-      "Abstract",
-      "298 K isotherm results"
+      "Final article abstract and journal pages 8071-8074",
+      "Final article Tables 1-3",
+      "Final article equation-of-state fit paragraph and Figure 4"
      ],
-     "finding": "Three composition-specific V0 values share one statistically indistinguishable constrained modulus."
+     "finding": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-05",
-     "finding": "No accessible numerical pressure-volume table was available; no graphical points were fabricated."
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mao_1991_tables2_3_bridgmanite_pv"
+     ],
+     "source_locations": [
+      "Table 1",
+      "Table 2, nine 300 K Fe10 rows",
+      "Table 3, seven composition-comparison rows"
+     ],
+     "diagnostic_dataset_identifiers": [
+      "mao_1989_carnegie_table8_bridgmanite_pv"
+     ],
+     "diagnostic_dataset_scope": "Authoritative 12-row precursor table retained to document the changed pressure reduction and fit scope.",
+     "finding": "All 16 final room-temperature rows are transcribed. The source selects the nine Fe10 rows; with V0=162.79 A3 and K0'=4 fixed, an unweighted pressure-residual fit gives K0=260.80 GPa and reproduces the reported 261(4) GPa."
     }
-   }
+   },
+   "fit_datasets": [
+    "mao_1991_tables2_3_bridgmanite_pv"
+   ],
+   "notes": "BM2 is represented as BM3 with V0 and K0_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes."
   },
   {
    "identifier": "bridgmanite_holland_2013_mpv_modified_tait",
@@ -3935,6 +4013,165 @@
    "used_by_eos_records": [
     "bridgmanite_fiquet_2000_bm3_1"
    ]
+  },
+  {
+   "identifier": "mao_1991_tables2_3_bridgmanite_pv",
+   "kind": "pressure_volume",
+   "description": "All 16 final-article room-temperature rows from Tables 2-3; fit_included selects the nine Fe10 observations explicitly used for the published BM2 fit.",
+   "reference": {
+    "authors": [
+     "Mao",
+     "Hemley",
+     "Fei",
+     "Shu",
+     "Chen",
+     "Jephcoat",
+     "Wu",
+     "Bassett"
+    ],
+    "year": 1991,
+    "title": "Effect of pressure, temperature, and composition on lattice parameters and density of (Fe,Mg)SiO3-perovskites to 30 GPa",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "96",
+    "locator": "Tables 1-3, 8069-8079",
+    "doi": "10.1029/91JB00176"
+   },
+   "source_location": "Tables 1-3 and equation-of-state fit paragraph on journal pages 8073-8074",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "transcription_order",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "source_table",
+     "quantity": "source_table",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run_number",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "x_fe",
+     "quantity": "iron_fraction",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "formula",
+     "quantity": "composition",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_lattice_a",
+     "quantity": "gold_lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "gold_lattice_uncertainty_a",
+     "quantity": "gold_lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "gold_lattice_a"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_uncertainty_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_a"
+    },
+    {
+     "name": "b_a",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "b_uncertainty_a",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "b_a"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_uncertainty_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_a"
+    },
+    {
+     "name": "fit_included",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "exclusion_reason",
+     "quantity": "fit_exclusion_reason",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mao-1991-tables2-3-bridgmanite-pv.csv",
+    "sha256": "6a87357beda9b5a08b575052dbefa3e1dfe33bb406331a60e16b164d43532785",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "bridgmanite_mao_1991_bm2_1"
+   ],
+   "uncertainty": {
+    "pressure": "No row-level pressure uncertainties are printed.",
+    "volume": "Parenthetical final-digit uncertainties are transcribed; the statistical convention is not stated.",
+    "fit_weights": "The source says least squares but does not specify weights; the reproducible fit uses unweighted pressure residuals."
+   },
+   "notes": "The source fits only Fe10 data. MgSiO3 and Fe20 rows are retained as composition-comparison observations; the precursor table is a separate diagnostic resource."
   },
   {
    "identifier": "dorogokupets_2015_bridgmanite_298k_reconstruction",

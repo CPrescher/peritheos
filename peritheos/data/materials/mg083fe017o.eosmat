@@ -340,16 +340,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -360,12 +360,16 @@
      "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Table 7"
+     "status": "digitized_normalized_primary_figure",
+     "audit_date": "2026-09-08",
+     "digitized_dataset_identifiers": [
+      "mg083fe017o_lin_2005_figure2_300k_digitized"
      ],
-     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+     "source_locations": [
+      "Lin et al. (2005), Figure 2",
+      "Solomatova et al. (2016), Tables 2 and 7"
+     ],
+     "finding": "The 43 plotted V/V0,HS observations are bundled, but the primary figure does not supply the absolute V0,HS normalization. A Table-7-anchored shape fit is diagnostic only, so the absolute HS/LS branch pair remains not independently refittable."
     }
    }
   },
@@ -452,16 +456,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -472,12 +476,16 @@
      "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
     },
     "primary_data_check": {
-     "status": "source_parameterization_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Table 7"
+     "status": "digitized_normalized_primary_figure",
+     "audit_date": "2026-09-08",
+     "digitized_dataset_identifiers": [
+      "mg083fe017o_lin_2005_figure2_300k_digitized"
      ],
-     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+     "source_locations": [
+      "Lin et al. (2005), Figure 2",
+      "Solomatova et al. (2016), Tables 2 and 7"
+     ],
+     "finding": "The 43 plotted V/V0,HS observations are bundled, but the primary figure does not supply the absolute V0,HS normalization. A Table-7-anchored shape fit is diagnostic only, so the absolute HS/LS branch pair remains not independently refittable."
     }
    }
   }
@@ -601,6 +609,108 @@
     "transcribed_on": "2026-09-05"
    },
    "notes": "fit_included=1 encodes the source's strict below-47-GPa high-spin fit selection. Higher-pressure measurements are preserved and labelled either as above-cutoff or spin-crossover observations."
+  },
+  {
+   "identifier": "mg083fe017o_lin_2005_figure2_300k_digitized",
+   "kind": "normalized_pressure_volume",
+   "description": "All 43 Mg0.83Fe0.17O 300 K V/V0,HS markers digitized from Lin et al. Figure 2.",
+   "reference": {
+    "authors": [
+     "Lin",
+     "Struzhkin",
+     "Jacobsen",
+     "Hu",
+     "Chow",
+     "Kung",
+     "Liu",
+     "Mao",
+     "Hemley"
+    ],
+    "year": 2005,
+    "source": "Nature",
+    "volume": "436",
+    "locator": "377-380",
+    "doi": "10.1038/nature03825"
+   },
+   "source_location": "Figure 2",
+   "source_url": "https://www.jsg.utexas.edu/lin/files/LinmwNature2005.pdf",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_marker",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio_v_v0_hs",
+     "quantity": "normalized_volume",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "spin_regime",
+     "quantity": "source_spin_assignment",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_source_high_spin_fit",
+     "quantity": "source_high_spin_fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_source_low_spin_fit",
+     "quantity": "source_low_spin_fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_solomatova_2016_fit",
+     "quantity": "reconstructed_fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "digitization_pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "digitization_volume_ratio_uncertainty",
+     "quantity": "normalized_volume",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "volume_ratio_v_v0_hs"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mg083fe017o-lin-2005-figure2-300k-digitized.csv",
+    "sha256": "39ec70f8a50dd5b3ae76484ee37fa8315ffab9329c80e576b8413721c04695ea",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg083fe017o_solomatova_2016_hs_bm3_reference_1",
+    "mg083fe017o_solomatova_2016_ls_bm3_reference_2"
+   ],
+   "uncertainty": {
+    "reported_as": "No numerical experimental error bars are tabulated; stored sigmas describe vector-plot digitization only.",
+    "covariance": "not_reported"
+   },
+   "provenance": {
+    "type": "digitized_from_primary_vector_figure",
+    "method": "Every circular Mg0.83Fe0.17O marker in Figure 2 was recovered from the vector artwork and retained in source order.",
+    "digitized_on": "2026-09-08"
+   },
+   "notes": "The source ordinate is V/V0,HS and does not print V0,HS. This dataset therefore constrains curve shape but cannot independently identify the absolute Table 7 volume parameters."
   }
  ]
 }

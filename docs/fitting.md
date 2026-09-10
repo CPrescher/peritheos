@@ -164,6 +164,50 @@ use the fitted $K_0'$ uncertainty and like-for-like BM2/BM3 fit statistics for
 a quantitative model-order decision rather than an unweighted straight-line
 fit to the transformed points.
 
+## Acoustic finite-strain fitting
+
+`fit_acoustic_finite_strain` fits simultaneous density, compressional-velocity,
+and shear-velocity observations without treating pressure as an independent
+observation. It implements the third-order Eulerian relations commonly used in
+ultrasonic and Brillouin studies:
+
+```python
+from peritheos.fitting import fit_acoustic_finite_strain
+
+result = fit_acoustic_finite_strain(
+    density=density_g_cm3,
+    compressional_velocity=vp_km_s,
+    shear_velocity=vs_km_s,
+    rho0=reference_density_g_cm3,
+    initial={
+        "K_S0": 250.0,
+        "K_S0_prime": 4.0,
+        "G0": 175.0,
+        "G0_prime": 1.7,
+    },
+    density_sigma=density_errors,
+    compressional_velocity_sigma=vp_errors,
+    shear_velocity_sigma=vs_errors,
+    absolute_sigma=True,
+)
+```
+
+With g/cm3 for density and km/s for velocity, `rho * velocity**2` is
+numerically a modulus in GPa. `rho0` is a fixed measured reference state.
+Supplying `density_sigma` makes each density a shared latent coordinate for its
+Vp and Vs observations. A 2-by-2 `observation_covariance` describes correlated
+Vp/Vs errors; a 3-by-3 matrix ordered as Vp, Vs, density enables a correlated
+errors-in-variables fit. Individual sigma arguments and covariance matrices
+cannot be combined.
+
+The result contains the fitted `EulerianFiniteStrainAcoustic` model, covariance
+and correlation matrices, raw Vp and Vs residuals, adjusted densities, and the
+same solver/statistical diagnostics used by other Peritheos fits. Source papers
+often omit their exact transformed residual definition, weights, or within-row
+correlations. In that case an unweighted or diagonal-error reconstruction must
+be reported as a sensitivity analysis rather than exact source parity; see the
+[Chantel et al. reproduction](literature-reproductions/chantel-2012-bridgmanite.md).
+
 ## Linear `Us`-`up` Hugoniot fitting
 
 Use `fit_linear_us_up` for ordinary least squares, weighted least squares, or

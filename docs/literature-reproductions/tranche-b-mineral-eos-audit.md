@@ -14,12 +14,12 @@ Twenty-four defensible records are retained from ten papers. The analytical curv
 | Tsuchiya and Mookherjee (2015), doi:10.1038/srep15534 | 1 | Primary Results, Figure 2, Table 1, and Methods: ordered model-1 phase-H BM3. |
 | Sagatova et al. (2021), doi:10.1134/S0016702921080073 | 7 | Official full text, Methods and Table 2: seven source-owned room-temperature Vinet parameterizations. |
 | Liu et al. (2011), doi:10.1088/1674-0068/24/06/703-710 | 1 | Primary Sections II–III and Table I: source-owned static PBE-GGA BM3. |
-| Ismailova et al. (2016), doi:10.1126/sciadv.1600427 | 1 | Primary article and supplement: one measured Fe-deficient bridgmanite BM2. |
+| Ismailova et al. (2016), doi:10.1126/sciadv.1600427 | 1 | Primary article and supplement: one measured Fe-deficient bridgmanite BM2; four selected Table S2 states are bundled as checkpoints, not misidentified as the complete Figure 3 fit series. |
 | Ricolleau et al. (2009), doi:10.1029/2008GL036759 | 4 | Official full text, Section 3 and Table 1: three independent thermal BM2 fits and one room-temperature low-spin branch. |
 | Liu et al. (2007), doi:10.1088/0953-8984/19/24/246103 | 1 | Primary calculation section and Table 1: source-owned cubic CaSiO3 LDA BM3. |
-| Bykova et al. (2018), doi:10.1038/s41467-018-07265-z | 2 | Official open article and supplement: one published coesite-I/II/III BM3 and one reproducible coesite-IV AM05 derivation. The one-anchor coesite-V reconstruction is held outside the executable catalog. |
+| Bykova et al. (2018), doi:10.1038/s41467-018-07265-z | 2 | Official open article and supplement, deposited CIFs, and the Cernok and Tidholm theses: one published coesite-I/II/III BM3 and one reproducible coesite-IV AM05 derivation. The one-anchor coesite-V reconstruction is held outside the executable catalog. |
 
-The phase-H dataset contains all 12 rows of primary Table 1. Its lattice-derived volumes reproduce the published BM3 with a pressure RMS residual of 0.5462582 GPa and maximum absolute residual of 1.1329591 GPa; the residual is consistent with three-decimal lattice-parameter rounding. The Sagatova Ca-perovskite values are printed per formula unit and multiplied by four for the conventional I4/mcm material-card basis; all other Sagatova Table 2 volumes already use the respective conventional-cell basis. Ricolleau's official Table S1 is now bundled losslessly and normalized into all 153 P-V-T rows, including 17 room-temperature and 136 heated observations. Its limiting ferropericlase spin branches reproduce the published V0 values and errors, while exact thermal parity remains qualified because the source omits fit masks, weights, temperature-error treatment, and covariance scaling. The [focused audit](ricolleau-2009-klb1-eos.md) records the full result.
+The phase-H dataset contains all 12 rows of primary Table 1. Its lattice-derived volumes reproduce the published BM3 with a pressure RMS residual of 0.5462582 GPa and maximum absolute residual of 1.1329591 GPa; the residual is consistent with three-decimal lattice-parameter rounding. The Sagatova Ca-perovskite values are printed per formula unit and multiplied by four for the conventional I4/mcm material-card basis; all other Sagatova Table 2 volumes already use the respective conventional-cell basis. Ricolleau's three thermal records use the stated integrated linear-in-temperature expansivity and linear bulk-modulus temperature derivative, with a 300 K BM2 reference curve.
 
 The Bykova audit now bundles 24 exact experimental observations used by the combined coesite-I/II/III branch: seven coesite-I and two coesite-II rows from the cited Cernok et al. (2014) diffraction table, plus all four coesite-II and 11 coesite-III rows from Bykova Supplementary Table 2. The fitted ambient output in the Cernok table is excluded. Phase-specific source cells (Z=16, 32, and 24) are normalized to the coesite Z=16 card. The source explicitly fits all three tetrahedral phases together, including the two coesite-III states at 35.9 and 36.9 GPa that coexist with coesite-IV; the record's pressure scope is therefore corrected to 36.9 GPa. Several current-study coesite-I points remain plot-only, and the 2018 objective and weights are not reported. Consequently, the 24-row unweighted pressure-residual diagnostic (`V0=542.2160 A3`, `K0=126.3278 GPa`, `K0'=1.69514`, RMS `0.69677 GPa`) is classified `parity_not_achieved`, not passed off as a reproduction of the unavailable complete fit. The published curve has RMS `1.26981 GPa` on this incomplete exact subset.
 
@@ -37,16 +37,6 @@ For Bykova's two theoretical high-pressure phases, Supplementary Table 11 prints
 | litcurate_55fe40018a8643d7 | Citation | Reject | Mao et al. comparison value, incomplete and not fit in this paper. |
 
 ### Wang and Weidner (1994), 10.1029/94GL00976
-
-The full source audit and plot-only refit are documented in
-[`wang-weidner-1994-casio3.md`](wang-weidner-1994-casio3.md). The paper states
-that exactly four room-temperature decompression observations above 2.0 GPa
-were fitted with BM2 and `K0'=4` fixed. Figure 3 exposes those four marker
-centers but the paper contains no numerical room-temperature P--V table. Their
-unweighted pressure-residual refit gives `V0=45.83216 A3` and
-`K0=279.2707 GPa`, recovering the published `45.83(7) A3` and `280(23) GPa`.
-The source's 11.7 GPa value is a thermal-expansion isobar, so it is no longer
-misrepresented as the room-temperature fit limit.
 
 | LitCurate candidate | Origin | Disposition | Reason / production mapping |
 |---|---|---|---|
@@ -155,6 +145,8 @@ The English translation DOI is used as the canonical identifier. The official Ru
 
 ### Ismailova et al. (2016), 10.1126/sciadv.1600427
 
+The checksum-matched official supplement is CC BY-NC 4.0. Table S2 contains four selected crystallographic states, while Figure 3A plots substantially more compression/decompression markers. The exact four-row transcription is bundled and tested, but both unweighted and uncertainty-weighted BM2 fits miss the published coefficients materially. The source fit remains directly unrefittable because the full P-V series, inclusion flags, objective, weights, and row-level Ne calibrant volumes are absent. See the [standalone audit](ismailova-2016-fe-bridgmanite.md).
+
 | LitCurate candidate | Origin | Disposition | Reason / production mapping |
 |---|---|---|---|
 | litcurate_607d82ad74297299 | Source | Accept | Independent BM2 for measured `(Fe2+0.64(2)Fe3+0.24(2))Si1.00(3)O3` with about 12% A-site vacancies → `fe088sio3_bridgmanite_ismailova_2016_300k_bm2`. |
@@ -162,14 +154,6 @@ The English translation DOI is used as the canonical identifier. The official Ru
 ### Ricolleau et al. (2009), 10.1029/2008GL036759
 
 The records describe coexisting phases separated from natural KLB-1 pyrolite. Their compositions evolve slightly with pressure and temperature, so the material cards retain sample-specific symbolic formulas instead of inventing fixed endmember stoichiometries.
-
-Official Table S1 contributes all 153 experimental P-V-T rows, every printed
-one-sigma uncertainty, all Au and pressure-medium volumes, and eight secondary
-medium-volume continuation values. The seven 300 K ferropericlase points below
-50 GPa and seven separated points at 74.21-98.36 GPa reproduce the published
-high-spin and low-spin V0 values and errors. The intervening 52.22-54.89 GPa
-points are preserved without an invented branch assignment. See the
-[dedicated numerical audit](ricolleau-2009-klb1-eos.md).
 
 | LitCurate candidate | Origin | Disposition | Reason / production mapping |
 |---|---|---|---|
@@ -236,7 +220,7 @@ The complete APS primary PDF was checked. Table I reports a source-owned fourth-
 
 ## Pressure calibration and limitations
 
-The theoretical records use `not_applicable` pressure calibration with an ab-initio method. Wang and Weidner explicitly use the Decker (1971) NaCl thermal EOS, doi:10.1063/1.1660714; the calibration identity is now resolved, while row-wise recalculation remains unavailable because the four paired NaCl lattice parameters or volumes are not published. Ismailova's exact pressure calibration was likewise left explicitly unresolved. Ricolleau used the Fei et al. (2007) Au scale; recalculation is now marked ready because Table S1 supplies Au volume and temperature for every row and `gold_fei_2007_vinet_2` is executable. No covariance matrix is invented where the papers do not publish one. The Sagatova source plots relative-volume curves but does not publish the calculated P–V grids, so numerical checking is limited to analytical anchors and monotonic compressed-volume checkpoints.
+The theoretical records use `not_applicable` pressure calibration with an ab-initio method. Wang and Weidner identify NaCl as their pressure standard, but the exact calibration equation and complete paired calibrant observations were not resolved, so recalculation is explicitly marked unavailable. Ismailova's lineage is now resolved to the Fei et al. (2007) Ne EOS, but recalculation remains unavailable because row-level Ne lattice parameters are absent. Ricolleau used the Fei et al. (2007) Au scale; recalculation remains unavailable because the paired Table-S1 calibrant observations were not bundled. No covariance matrix is invented where the papers do not publish one. The Sagatova source plots relative-volume curves but does not publish the calculated P–V grids, so numerical checking is limited to analytical anchors and monotonic compressed-volume checkpoints.
 
 ## Zotero-ready primary-source metadata
 

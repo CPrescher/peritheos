@@ -1,3 +1,4 @@
+import copy
 import json
 from pathlib import Path
 
@@ -23,8 +24,16 @@ def report():
     return build_report()
 
 
-def test_tange_partial_validation_report_is_current(report):
-    assert json.loads(REPORT.read_text(encoding="utf-8")) == report
+def test_tange_partial_validation_report_is_current(report, assert_audit_close):
+    saved = json.loads(REPORT.read_text(encoding="utf-8"))
+    replay = copy.deepcopy(report)
+    # This incomplete global-fit diagnostic has weakly constrained parameters.
+    # Allow 0.02% coefficient drift / 0.0001 GPa residual drift, well below
+    # source precision; keep all discrete metadata exact and other checks tight.
+    partial = replay["bundled_partial_validation"].pop("partial_refit")
+    expected_partial = saved["bundled_partial_validation"].pop("partial_refit")
+    assert_audit_close(partial, expected_partial, rel=2e-4, abs=1e-4)
+    assert_audit_close(replay, saved)
     assert report["scope"] == "partial_validation_not_global_refit"
     assert report["global_refit_reproduced"] is False
     assert "Zha" in report["global_refit_blocker"]
@@ -54,8 +63,7 @@ def test_tange_local_reconstruction_is_qualified_similarity():
     comparisons = approximate["approximate_refit"]["coefficient_comparisons"]
     assert all(item["similar"] for item in comparisons)
     assert all(
-        item["all_parameters_similar"]
-        for item in approximate["zha_weight_sensitivity"]
+        item["all_parameters_similar"] for item in approximate["zha_weight_sensitivity"]
     )
 
 

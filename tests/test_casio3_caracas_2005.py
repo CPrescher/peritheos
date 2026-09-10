@@ -80,7 +80,10 @@ def test_caracas_2005_audit_regeneration_preserves_parameterization_resolution()
         regenerated["scientific_validation"]["parameterization_resolution"]
         == (source["scientific_validation"]["parameterization_resolution"])
     )
-    assert regenerated["scientific_validation"]["audit_date"] == "2026-09-08"
+    assert (
+        regenerated["scientific_validation"]["audit_date"]
+        == source["scientific_validation"]["audit_date"]
+    )
 
 
 def test_caracas_2005_bm3_reproduces_published_130_gpa_density():

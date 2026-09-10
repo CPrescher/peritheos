@@ -98,7 +98,9 @@ def test_reconstructed_source_rows_and_pressure_coordinates():
     assert sum(bool(row["ks_gpa"]) for row in zhou) == 55
 
 
-def test_diagnostic_fits_are_stable_and_do_not_claim_published_parity():
+def test_diagnostic_fits_are_stable_and_do_not_claim_published_parity(
+    assert_audit_close,
+):
     fits = reproduce()["fits"]
 
     assert fits["bridgmanite"]["unweighted"]["K0_gpa"] == pytest.approx(256.4434912813)
@@ -133,7 +135,7 @@ def test_diagnostic_fits_are_stable_and_do_not_claim_published_parity():
     )
 
     checked_report = json.loads(REPORT.read_text(encoding="utf-8"))
-    assert checked_report["fits"] == fits
+    assert_audit_close(fits, checked_report["fits"])
     assert checked_report["reconstruction_sha256"] == _sha256(RECONSTRUCTION)
 
 

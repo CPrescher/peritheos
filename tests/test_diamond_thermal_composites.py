@@ -30,9 +30,12 @@ def test_composite_cards_distinguish_derivation_and_h05_calibration():
     assert datasets["diamond_correa_2008_figure8_dft_md_vector_digitized"][
         "digitization"
     ]["method"].startswith("Marker centers extracted")
-    assert datasets["diamond_benedict_2014_supplement_solid_dft_md"][
-        "transcription"
-    ]["arxiv_identifier"] == "1311.4577"
+    assert (
+        datasets["diamond_benedict_2014_supplement_solid_dft_md"]["transcription"][
+            "arxiv_identifier"
+        ]
+        == "1311.4577"
+    )
 
 
 def test_correa_figure_8_validates_published_complete_pressure_model():

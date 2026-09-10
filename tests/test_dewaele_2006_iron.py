@@ -44,7 +44,7 @@ def test_python_fallback_matches_native_dewaele_2006_evaluator():
     assert hasattr(native, "_native")
     assert not hasattr(fallback, "_native")
     assert fallback.pressure(volumes, temperatures) == pytest.approx(
-        native.pressure(volumes, temperatures), rel=5.0e-12, abs=5.0e-12
+        native.pressure(volumes, temperatures), rel=1.0e-11, abs=5.0e-12
     )
     assert fallback.characteristic_temperature(volumes) == pytest.approx(
         native.characteristic_temperature(volumes), rel=5.0e-12

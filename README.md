@@ -31,7 +31,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
   - Linear thermal pressure
   - Second-order temperature-compression thermal pressure
   - Logarithmic-volume thermal pressure
-  - Holland-Powell thermal modified Tait
+  - Holland-Powell Einstein thermal pressure with generic reference isotherms
   - Double-Debye Helmholtz free-energy models
   - Dorogokupets-Oganov four-oscillator model
   - Multi-oscillator Gruneisen thermal pressure
@@ -45,7 +45,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - Versioned material and EOS-record catalog with explicit literature provenance,
   calibration/data envelopes, extrapolation enabled by default, inversion, and
   measurement/parameter uncertainty
-- A Peritheos-owned `.eosmat` schema and 208-material-document/486-record EOS library with optional
+- A Peritheos-owned `.eosmat` schema and 210-material-document/573-record EOS library with optional
   diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
   compatibility
 - Recursive pressure-scale normalization across Au, Pt, KCl, ruby R1, and
@@ -127,7 +127,7 @@ that need the serialized representation. See [Loading observation
 datasets](docs/datasets.md) for column discovery, supported conversions,
 uncertainty semantics, and resource-integrity behavior.
 
-The normal catalog API constructs all 287 executable materials and 895 records directly
+The normal catalog API constructs all 209 materials and 573 records directly
 from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
 typed discovery examples, [Pressure standards](docs/pressure-standards.md) for
 EOS records commonly used in that application, and

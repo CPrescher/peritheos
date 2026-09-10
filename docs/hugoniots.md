@@ -17,8 +17,7 @@ The initial production set deliberately contains only untransformed principal
 branches:
 
 - `mgo_b1_duffy_ahrens_1995_hugoniot_5`: published B1 MgO relation over
-  14--133 GPa, independently reproduced from all four Table 3 final states with
-  their printed `Us` and `up` standard deviations.
+  14--133 GPa.
 - `nickel_oxide_noguchi_1999_linear_hugoniot_2`: Peritheos OLS fit to the eight
   final-state B1 NiO observations over 17.7--147.6 GPa; separately resolved
   elastic-limit states are excluded.

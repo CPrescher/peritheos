@@ -24,9 +24,7 @@ DATA_PATH = (
     / "fe088sio3-bridgmanite-ismailova-2016-table-s2-selected-crystallography.csv"
 )
 RECORD_ID = "fe088sio3_bridgmanite_ismailova_2016_300k_bm2"
-DATASET_ID = (
-    "fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography"
-)
+DATASET_ID = "fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography"
 CHECKSUM = "2fa03e31214c2bbddabcaa67aaff4921ab04d04431c124856fb228f7dad77591"
 
 
@@ -81,9 +79,7 @@ def test_ismailova_table_s2_checkpoint_transcription_is_lossless():
         "126.93(13)",
     ]
     assert rows[0]["reported_high_temperature_condition_k"] == ""
-    assert rows[-1]["reported_high_temperature_condition_source_token"] == (
-        "1835(100)"
-    )
+    assert rows[-1]["reported_high_temperature_condition_source_token"] == ("1835(100)")
 
 
 def test_ismailova_pressure_scale_lineage_is_resolved_but_not_recalculable():
@@ -95,9 +91,7 @@ def test_ismailova_pressure_scale_lineage_is_resolved_but_not_recalculable():
     assert calibration["methods"][0]["reference_eos_record"] == (
         "neon_fcc_fei_2007_vinet_2"
     )
-    assert calibration["recalculation"]["status"] == (
-        "missing_calibrant_observations"
-    )
+    assert calibration["recalculation"]["status"] == ("missing_calibrant_observations")
     assert "no separate CSV" in artifact["repository_file_inventory"]
     assert "requested from the authors" in artifact["data_availability"]
     validate_pressure_calibration_references()

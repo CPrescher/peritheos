@@ -336,7 +336,9 @@ class MieGruneisenDebye(_MieGruneisenBase):
         """Return non-numeric choices, omitting the default pressure baseline."""
         if type(self) is not MieGruneisenDebye:
             return super().configuration_values()
-        configuration = {"debye_temperature_law": self.debye_temperature_law}
+        configuration: dict[str, str | float] = {
+            "debye_temperature_law": self.debye_temperature_law
+        }
         if self.thermal_pressure_reference != "reference_temperature":
             configuration["thermal_pressure_reference"] = (
                 self.thermal_pressure_reference
@@ -662,7 +664,7 @@ class AsymptoticPowerLawMieGruneisenDebyeExcess(Tange2009Debye):
     ) -> NumericType:
         """Return the unreferenced or ``Tr``-referenced excess pressure in GPa."""
         volumes, temperatures, ratio = self._state(V, T)
-        temperature_term = temperatures**2
+        temperature_term: np.ndarray = np.asarray(temperatures, dtype=float) ** 2
         if referenced:
             temperature_term = temperature_term - self.Tr**2
         result = (
@@ -698,18 +700,14 @@ class AsymptoticPowerLawMieGruneisenDebyeExcess(Tange2009Debye):
 
     def thermal_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return Debye plus excess internal energy in J mol^-1."""
-        debye = np.asarray(
-            MieGruneisenDebye.thermal_energy(self, V, T), dtype=float
-        )
+        debye = np.asarray(MieGruneisenDebye.thermal_energy(self, V, T), dtype=float)
         result = debye + np.asarray(self.excess_internal_energy(V, T), dtype=float)
         return self._scalar_or_array(result)
 
     def thermal_entropy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return Debye plus excess entropy in J mol^-1 K^-1."""
         _, temperatures, ratio = self._state(V, T)
-        debye = np.asarray(
-            MieGruneisenDebye.thermal_entropy(self, V, T), dtype=float
-        )
+        debye = np.asarray(MieGruneisenDebye.thermal_entropy(self, V, T), dtype=float)
         result = debye + self.beta0 * ratio**self.m * temperatures
         return self._scalar_or_array(result)
 
@@ -719,15 +717,11 @@ class AsymptoticPowerLawMieGruneisenDebyeExcess(Tange2009Debye):
         steps = 1.0e-5 * temperatures
         debye = (
             np.asarray(
-                MieGruneisenDebye.thermal_energy(
-                    self, V, temperatures + steps
-                ),
+                MieGruneisenDebye.thermal_energy(self, V, temperatures + steps),
                 dtype=float,
             )
             - np.asarray(
-                MieGruneisenDebye.thermal_energy(
-                    self, V, temperatures - steps
-                ),
+                MieGruneisenDebye.thermal_energy(self, V, temperatures - steps),
                 dtype=float,
             )
         ) / (2.0 * steps)
@@ -780,9 +774,7 @@ class AsymptoticPowerLawMieGruneisenDebyeExcess(Tange2009Debye):
         )
         return self._scalar_or_array(result)
 
-    def thermal_gibbs_free_energy(
-        self, V: NumericType, T: NumericType
-    ) -> NumericType:
+    def thermal_gibbs_free_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the full thermal Gibbs-energy contribution in J mol^-1."""
         volumes, temperatures, _ = self._state(V, T)
         pressure = np.asarray(

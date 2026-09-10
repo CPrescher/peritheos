@@ -48,7 +48,7 @@ parameters and numerical results when a primary-source audit found that the
 new canonical record is not identical. They are intentionally omitted from
 `list_materials()`, `list_eos_records()`, and search results, whose deterministic
 contents are exactly the bundled 207-executable-material/486-record collection.
-The document API separately exposes all 208 material cards, including cards
+The document API separately exposes all 210 material cards, including cards
 with no executable EOS.
 
 The migration audit covered all 37 historical convenience records: 9 have an

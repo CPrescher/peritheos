@@ -112,11 +112,14 @@ def test_seagle_supplement_recovers_all_subsolidus_calibrant_rows():
     assert sum(row["iron_phase"] == "hcp" for row in rows) == 65
     assert sum(row["iron_phase"] == "fcc" for row in rows) == 14
     assert sum(not row["iron_phase"] for row in rows) == 2
-    assert sum(
-        row["pressure_recalculation_status"]
-        == "ready_seagle_table1_series_pressure"
-        for row in rows
-    ) == 2
+    assert (
+        sum(
+            row["pressure_recalculation_status"]
+            == "ready_seagle_table1_series_pressure"
+            for row in rows
+        )
+        == 2
+    )
     assert rows[48] == {
         "source_row": "49",
         "feo_unit_cell_volume_a3": "60.676",
@@ -138,8 +141,7 @@ def test_seagle_supplement_recovers_all_subsolidus_calibrant_rows():
             row["source_series_pressure_uncertainty_gpa"],
         )
         for row in rows
-        if row["pressure_recalculation_status"]
-        == "ready_seagle_table1_series_pressure"
+        if row["pressure_recalculation_status"] == "ready_seagle_table1_series_pressure"
     } == {
         ("61", "68.480", "2580", "50", "4"),
         ("62", "68.404", "2590", "50", "4"),
@@ -153,9 +155,7 @@ def test_ozawa_printed_table_supplies_b1_and_b8_fit_candidates():
     b8_dataset = _dataset(b8_document, OZAWA_DATASET_ID)
     assert b1_dataset["resource"] == b8_dataset["resource"]
 
-    path = resources.files("peritheos.data").joinpath(
-        b1_dataset["resource"]["path"]
-    )
+    path = resources.files("peritheos.data").joinpath(b1_dataset["resource"]["path"])
     with path.open(newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle))
     assert len(rows) == 20
@@ -189,9 +189,5 @@ def test_campbell_supplement_recovers_complete_fe_feo_table():
     assert sum(row["iron_phase"] == "hcp" for row in rows) == 10
     assert all(row["nacl_phase"] in {"B1", "B2"} for row in rows)
     assert rows[0]["run_id"] == "FeFeO_030"
-    assert float(rows[0]["feo_molar_volume_cm3_mol"]) == pytest.approx(
-        11.4433538834759
-    )
-    assert float(rows[-1]["reported_pressure_gpa"]) == pytest.approx(
-        55.1248168632253
-    )
+    assert float(rows[0]["feo_molar_volume_cm3_mol"]) == pytest.approx(11.4433538834759)
+    assert float(rows[-1]["reported_pressure_gpa"]) == pytest.approx(55.1248168632253)

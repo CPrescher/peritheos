@@ -209,7 +209,7 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The primary article and publisher HTML were audited directly. Exactly one cubic source parameterization is executable; all 18 Table 2 fits remain distinguished in the audit metadata.",
+    "note": "The primary article and publisher HTML were audited directly. Four selected Pm-3m and I4/mcm parameterizations are executable; all 18 Table 2 fits remain distinguished in the audit fixture.",
     "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
@@ -4030,96 +4030,6 @@
  },
  "datasets": [
   {
-   "identifier": "ca_perovskite_sun_2016_table1_pvt",
-   "kind": "pressure_volume_temperature",
-   "description": "All 144 cubic CaSiO3 P-V-T observations printed in Sun et al. (2016) Table 1, retained in the table's three-block reading order.",
-   "reference": {
-    "authors": [
-     "Sun",
-     "Mao",
-     "Yan",
-     "Wu",
-     "Prakapenka",
-     "Lin"
-    ],
-    "year": 2016,
-    "title": "Confirming a pyrolitic lower mantle using self-consistent pressure scales and new constraints on CaSiO3 perovskite",
-    "source": "Journal of Geophysical Research: Solid Earth",
-    "volume": "121",
-    "locator": "Table 1, pages 4880-4881",
-    "doi": "10.1002/2016JB013062"
-   },
-   "source_location": "Author-hosted publisher PDF, Table 1, pages 4880-4881",
-   "source_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
-   "license": "No explicit open data-reuse license is stated. Wiley/AGU copyright and reuse terms apply to the article; this source-attributed factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
-   "source_artifact": {
-    "filename": "SunLowerMantleEoSJGR2016.pdf",
-    "download_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
-    "sha256": "10d8f6389b59fd7dcb94e349cbac0390e04a2ec55a815b8d238fd97797fccb2b",
-    "retrieved": "2026-09-07"
-   },
-   "columns": [
-    {
-     "name": "source_order",
-     "quantity": "source_order",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "source_block",
-     "quantity": "printed_table_block",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_per_formula_unit",
-     "quantity": "formula_unit_volume",
-     "unit": "angstrom^3/formula_unit",
-     "role": "value"
-    },
-    {
-     "name": "volume_uncertainty_a3",
-     "quantity": "formula_unit_volume",
-     "unit": "angstrom^3/formula_unit",
-     "role": "uncertainty",
-     "of": "volume_a3_per_formula_unit"
-    }
-   ],
-   "resource": {
-    "path": "datasets/ca-perovskite-sun-2016-table1-pvt.csv",
-    "sha256": "0d1bff5418ef54eb97e8d608121e0154a773871450a32824c45da9b66df1bb2f",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "ca_perovskite_sun_2016_bm3_3"
-   ],
-   "uncertainty": {
-    "pressure_and_volume": "Parenthetical row-wise uncertainties are transcribed literally and scaled to the last printed digit.",
-    "temperature": "No row-wise temperature uncertainty is printed in Table 1; the experimental section gives a general 50-100 K uncertainty.",
-    "fit": "The source does not state weights or a confidence convention for fitted-parameter uncertainties. Numerical protocol discrimination supports ordinary unweighted pressure residuals with residual-variance covariance scaling."
-   },
-   "notes": "All 144 printed rows are retained, including repeated observations. The CSV contains only factual numbers and minimal source-order labels, not article prose, table imagery, or the publisher's layout. It is distinct from the removed Sun et al. (2010) theoretical benchmark."
-  },
-  {
    "identifier": "ca_perovskite_shim_2000_table1_pv",
    "kind": "pressure_volume",
    "description": "The ten low-differential-stress CaSiO3 perovskite points selected for EOS fitting.",
@@ -4492,6 +4402,96 @@
     "ca_perovskite_wang_1996_preferred_bm3"
    ],
    "notes": "The 12 observations at 2.66-10.07 GPa have fit_included=1. The two lower-pressure states have fit_included=0 because the authors attribute their high differential stress to amorphization and explicitly omit them. Pressures and temperatures are transcribed at the precision printed in Table 1."
+  },
+  {
+   "identifier": "ca_perovskite_sun_2016_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 144 cubic CaSiO3 P-V-T observations printed in Sun et al. (2016) Table 1, retained in the table's three-block reading order.",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Mao",
+     "Yan",
+     "Wu",
+     "Prakapenka",
+     "Lin"
+    ],
+    "year": 2016,
+    "title": "Confirming a pyrolitic lower mantle using self-consistent pressure scales and new constraints on CaSiO3 perovskite",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "121",
+    "locator": "Table 1, pages 4880-4881",
+    "doi": "10.1002/2016JB013062"
+   },
+   "source_location": "Author-hosted publisher PDF, Table 1, pages 4880-4881",
+   "source_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
+   "license": "No explicit open data-reuse license is stated. Wiley/AGU copyright and reuse terms apply to the article; this source-attributed factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
+   "source_artifact": {
+    "filename": "SunLowerMantleEoSJGR2016.pdf",
+    "download_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
+    "sha256": "10d8f6389b59fd7dcb94e349cbac0390e04a2ec55a815b8d238fd97797fccb2b",
+    "retrieved": "2026-09-07"
+   },
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_block",
+     "quantity": "printed_table_block",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_per_formula_unit",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "uncertainty",
+     "of": "volume_a3_per_formula_unit"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-sun-2016-table1-pvt.csv",
+    "sha256": "0d1bff5418ef54eb97e8d608121e0154a773871450a32824c45da9b66df1bb2f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "ca_perovskite_sun_2016_bm3_3"
+   ],
+   "uncertainty": {
+    "pressure_and_volume": "Parenthetical row-wise uncertainties are transcribed literally and scaled to the last printed digit.",
+    "temperature": "No row-wise temperature uncertainty is printed in Table 1; the experimental section gives a general 50-100 K uncertainty.",
+    "fit": "The source does not state weights or a confidence convention for fitted-parameter uncertainties. Numerical protocol discrimination supports ordinary unweighted pressure residuals with residual-variance covariance scaling."
+   },
+   "notes": "All 144 printed rows are retained, including repeated observations. The CSV contains only factual numbers and minimal source-order labels, not article prose, table imagery, or the publisher's layout. It is distinct from the removed Sun et al. (2010) theoretical benchmark."
   },
   {
    "identifier": "ca_perovskite_wang_weidner_1994_figure3_digitized",

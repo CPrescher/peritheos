@@ -88,7 +88,77 @@ def reproduce():
             entry["table1_2070k_pressure_gpa"] = float(source_pressure(3.7152**3, 2070))
             entry["full_fit_reproduced"] = False
         result[suffix] = entry
+    result["fit2"].update(complete_fit2(rows))
     return result
+
+
+def complete_fit2(hirose_rows):
+    """All 26 Fei Table 1 rows, including 8.64 GPa, plus 12 hot DAC rows."""
+    with (DATA.parent / "gold-fei-2004-table1.csv").open() as stream:
+        fei_rows = list(csv.DictReader(stream))
+    rows = fei_rows + [r for r in hirose_rows if float(r["temperature_k"]) > 300]
+    v, t, p = [
+        np.array([float(r[key]) for r in rows])
+        for key in ("volume_a3", "temperature_k", "pressure_gpa")
+    ]
+    initial = np.array([1.03e-6, 3.95e-10, 1.61e-13, 3.61e-4])
+    scales = np.array([1e-6, 1e-10, 1e-13, 1e-4])
+    residual = source_pressure(v, t) - p
+    fits = {}
+    for mode in ("unweighted_pressure", "printed_pressure_error_weights"):
+        weights = (
+            np.ones(len(rows))
+            if mode == "unweighted_pressure"
+            else np.array([float(r["pressure_gpa_uncertainty"]) for r in rows])
+        )
+        fit = least_squares(
+            lambda values: (
+                (source_pressure(v, t, coefficients=values * scales) - p) / weights
+            ),
+            initial / scales,
+            xtol=1e-12,
+            ftol=1e-12,
+            gtol=1e-12,
+            max_nfev=4000,
+        )
+        # Residual-scaled linearized covariance is diagnostic, not source uncertainty.
+        covariance = (
+            np.linalg.inv(fit.jac.T @ fit.jac) * np.sum(fit.fun**2) / (len(rows) - 4)
+        )
+        covariance *= scales[:, None] * scales[None, :]
+        delta = source_pressure(v, t, coefficients=fit.x * scales) - p
+        fits[mode] = {
+            "parameters": (fit.x * scales).tolist(),
+            "parameter_names": ["beta1", "beta2", "beta3", "kprime_log_coefficient"],
+            "diagnostic_standard_errors": np.sqrt(np.diag(covariance)).tolist(),
+            "diagnostic_covariance": covariance.tolist(),
+            "scaled_jacobian_condition_number": float(np.linalg.cond(fit.jac)),
+            "rmse_gpa": float(np.sqrt(np.mean(delta**2))),
+            "mae_gpa": float(np.mean(np.abs(delta))),
+            "solver_success": bool(fit.success),
+        }
+    worst = int(np.argmax(np.abs(residual)))
+    native = get_eos_record("gold_hirose_2008_bm3_fit2").pressure(v, temperature=t)
+    return {
+        "rows": len(rows),
+        "fei_rows": len(fei_rows),
+        "hirose_hot_rows": 12,
+        "fei_run_ids": [r["run"] for r in fei_rows],
+        "published_rmse_gpa": float(np.sqrt(np.mean(residual**2))),
+        "published_mae_gpa": float(np.mean(np.abs(residual))),
+        "published_max_absolute_residual_gpa": float(np.max(np.abs(residual))),
+        "maximum_residual_state": {
+            "pressure_gpa": float(p[worst]),
+            "temperature_k": float(t[worst]),
+        },
+        "native_equation_max_difference_gpa": float(
+            np.max(np.abs(native - source_pressure(v, t)))
+        ),
+        "diagnostic_refits": fits,
+        "full_dataset_recovered": True,
+        "full_fit_reproduced": False,
+        "limitations": "Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.",
+    }
 
 
 def ledger_outcome(record):
@@ -101,10 +171,39 @@ def ledger_outcome(record):
         "published_rmse_gpa": metrics["published_rmse_gpa"],
     }
     if suffix == "fit2":
+        fit = metrics["diagnostic_refits"]["unweighted_pressure"]
+        published = [1.03e-6, 3.95e-10, 1.61e-13, 3.61e-4]
+        errors = [4.4e-7, 3.88e-10, 9.7e-14, 2.2e-5]
+        within = all(
+            abs(v - p) <= e for v, p, e in zip(fit["parameters"], published, errors)
+        )
         return {
             **common,
-            "status": "not_refittable",
-            "reason": "All 21 Table 1 output pressures are reproduced, including 12 high-temperature observations. The full 38-row fit also used 26 Fei et al. (2004) observations not bundled by this initial Hirose audit. Their recovery and complete-fit reproduction are handled in the separate Fei follow-up.",
+            "dataset_identifiers": ["gold_hirose_2008_table1", "gold_fei_2004_table1"],
+            "status": "similar" if within else "parity_not_achieved",
+            "fit_kind": "diagnostic_unweighted_pressure",
+            "parameters": [
+                {
+                    "parameter": n,
+                    "published": p,
+                    "refit": v,
+                    "published_error": e,
+                    "refit_error": se,
+                    "relative_difference": abs(v - p) / abs(p),
+                    "within_combined_2sigma": None,
+                    "similar": abs(v - p) <= e,
+                }
+                for n, p, v, e, se in zip(
+                    fit["parameter_names"],
+                    published,
+                    fit["parameters"],
+                    errors,
+                    fit["diagnostic_standard_errors"],
+                )
+            ],
+            "rmse_gpa": fit["rmse_gpa"],
+            "solver_success": fit["solver_success"],
+            "reason": metrics["limitations"],
             "reproduction": metrics,
         }
     names = ["K0_prime"] if suffix == "300k" else ["dK_dT", "alpha0", "alpha1"]

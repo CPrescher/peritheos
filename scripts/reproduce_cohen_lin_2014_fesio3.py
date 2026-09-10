@@ -1,9 +1,10 @@
-"""Reproduce Cohen and Lin's (2014) three static FeSiO3 Vinet fits.
+"""Audit Cohen and Lin's (2014) three static FeSiO3 Vinet records.
 
-Table III gives both the zero-pressure Vinet coefficients and independently
-tabulated volume, bulk modulus, and pressure derivative at 100 GPa.  The
-energy-volume grid in Figure 3 is not tabulated, so those high-pressure values
-are used as deterministic convention checks without digitizing false precision.
+The final article's Table III gives both the zero-pressure Vinet coefficients
+and independently tabulated volume, bulk modulus, and pressure derivative at
+100 GPa.  No inspected primary artifact tabulates the underlying E(V) rows.
+This module therefore keeps exact table replay separate from a deliberately
+approximate, volume-axis-only reading of the raster Figure 3 markers.
 """
 
 from __future__ import annotations
@@ -38,6 +39,53 @@ PUBLISHED = {
         "K100": 580.0,
         "K100_prime": 3.44,
     },
+}
+
+# The original arXiv v1 author PDF prints one extra decimal for K0 and K100.
+# These superseded values are useful independent rounding diagnostics, but the
+# production records correctly retain the final version-of-record Table III.
+ARXIV_V1 = {
+    "Pv": {
+        "V0": 44.31,
+        "K0": 224.8,
+        "K0_prime": 4.42,
+        "V100": 34.27,
+        "K100": 596.5,
+        "K100_prime": 3.34,
+    },
+    "PPv": {
+        "V0": 44.90,
+        "K0": 189.7,
+        "K0_prime": 4.73,
+        "V100": 33.98,
+        "K100": 579.0,
+        "K100_prime": 3.47,
+    },
+    "PPv-II": {
+        "V0": 45.45,
+        "K0": 194.7,
+        "K0_prime": 4.67,
+        "V100": 34.49,
+        "K100": 580.1,
+        "K100_prime": 3.44,
+    },
+}
+
+PRESSURE_GRID_GPA = (-10.0, 0.0, 25.0, 50.0, 75.0, 100.0, 125.0, 150.0)
+
+# Approximate marker centers read only from the x axis of the 1606 x 978 raster
+# embedded in the arXiv v2 Figures_03.eps.  The plot frame maps x=231..1589 to
+# V=30..50 A^3/FeSiO3.  These are graphical diagnostics, not primary rows and
+# must never be passed to the primary-refit campaign as observations.
+FIGURE_3_APPROXIMATE_VOLUMES = {
+    "Pv": (46.3878, 44.1924, 40.3710, 37.8056, 35.8126, 34.2267, 32.9153, 31.7904),
+    "PPv": (47.7393, 44.7695, 40.4073, 37.6030, 35.5508, 33.9255, 32.5843, 31.4585),
+    "PPv-II": (47.9910, 45.2944, 40.9946, 38.1788, 36.1063, 34.4562, 33.0890, 31.9350),
+}
+
+TABLE_I_100_GPA_LATTICES = {
+    "PPv": (2.508, 8.614, 6.283),
+    "PPv-II": (10.082, 5.478, 2.495),
 }
 
 
@@ -81,7 +129,7 @@ def modulus_and_derivative(
 
 
 def reproduce() -> dict[str, object]:
-    """Return stable 100 GPa checkpoint diagnostics for all three phases."""
+    """Return exact table checks plus explicitly approximate plot diagnostics."""
     phases = {}
     for name, values in PUBLISHED.items():
         volume = volume_at_pressure(
@@ -107,7 +155,76 @@ def reproduce() -> dict[str, object]:
                 "K100_prime": abs(derivative - values["K100_prime"]),
             },
         }
-    return {"pressure_gpa": 100.0, "phases": phases}
+    arxiv_v1 = {}
+    for name, values in ARXIV_V1.items():
+        volume = volume_at_pressure(
+            100.0, values["V0"], values["K0"], values["K0_prime"]
+        )
+        modulus, derivative = modulus_and_derivative(
+            volume, values["V0"], values["K0"], values["K0_prime"]
+        )
+        arxiv_v1[name] = {
+            "calculated": {
+                "V100_a3_per_formula": volume,
+                "K100_gpa": modulus,
+                "K100_prime": derivative,
+            },
+            "published": {
+                "V100_a3_per_formula": values["V100"],
+                "K100_gpa": values["K100"],
+                "K100_prime": values["K100_prime"],
+            },
+        }
+
+    figure_diagnostic = {}
+    for name, approximate_volumes in FIGURE_3_APPROXIMATE_VOLUMES.items():
+        values = PUBLISHED[name]
+        model_volumes = [
+            volume_at_pressure(pressure, values["V0"], values["K0"], values["K0_prime"])
+            for pressure in PRESSURE_GRID_GPA
+        ]
+        differences = np.asarray(approximate_volumes) - np.asarray(model_volumes)
+        index_100 = PRESSURE_GRID_GPA.index(100.0)
+        figure_diagnostic[name] = {
+            "approximate_volumes_a3_per_formula": list(approximate_volumes),
+            "published_curve_volumes_a3_per_formula": model_volumes,
+            "maximum_absolute_volume_difference_a3_per_formula": float(
+                np.max(np.abs(differences))
+            ),
+            "at_100_gpa": {
+                "figure_3_approximate_volume_a3_per_formula": approximate_volumes[
+                    index_100
+                ],
+                "table_iii_volume_a3_per_formula": values["V100"],
+                "absolute_difference_a3_per_formula": abs(
+                    approximate_volumes[index_100] - values["V100"]
+                ),
+            },
+        }
+
+    structure_check = {
+        name: {
+            "table_i_lattice_a3_per_formula": float(np.prod(lattice) / 4.0),
+            "table_iii_volume_a3_per_formula": PUBLISHED[name]["V100"],
+            "absolute_difference_a3_per_formula": abs(
+                float(np.prod(lattice) / 4.0) - PUBLISHED[name]["V100"]
+            ),
+        }
+        for name, lattice in TABLE_I_100_GPA_LATTICES.items()
+    }
+
+    return {
+        "pressure_gpa": 100.0,
+        "phases": phases,
+        "arxiv_v1_rounding_diagnostic": arxiv_v1,
+        "figure_3_approximate_diagnostic": {
+            "classification": "approximate_plot_diagnostic_not_primary_observations",
+            "pressure_grid_gpa": list(PRESSURE_GRID_GPA),
+            "coordinate_uncertainty_a3_per_formula": 0.03,
+            "phases": figure_diagnostic,
+        },
+        "table_i_structure_diagnostic": structure_check,
+    }
 
 
 def main() -> None:

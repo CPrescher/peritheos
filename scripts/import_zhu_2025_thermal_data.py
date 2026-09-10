@@ -73,9 +73,7 @@ def normalize(source_root: Path, output_root: Path = OUTPUT_ROOT) -> dict[str, s
         source = source_root / table.relative_path
         digest = _sha256(source)
         if digest != table.sha256:
-            raise ValueError(
-                f"Unexpected SHA-256 for {table.relative_path}: {digest}"
-            )
+            raise ValueError(f"Unexpected SHA-256 for {table.relative_path}: {digest}")
         rows = []
         for line in source.read_text(encoding="utf-8-sig").splitlines():
             stripped = line.strip()

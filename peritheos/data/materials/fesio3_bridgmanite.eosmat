@@ -128,51 +128,87 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the authoritative article and independent 100 GPa Vinet checkpoints printed in Table III.",
-    "audit_date": "2026-09-05",
+    "note": "Retained after source-exhaustion review: the final Table III parameterization passes independent 100 GPa checks, but no authoritative E(V) rows were deposited and the record remains not refittable.",
+    "audit_date": "2026-09-08",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "theoretical_method",
-     "pressure_range",
-     "independent_source_checkpoints"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf",
-     "doi": "10.1103/PhysRevB.90.140102",
+     "doi": "10.1103/physrevb.90.140102",
      "locations": [
       "Computational methods",
       "Figure 3",
-      "Table III"
+      "Table III",
+      "arXiv v1 Table 2",
+      "arXiv v2 source archive"
      ],
-     "finding": "The paper reports a separate static Vinet fit for FeSiO3 Pv."
+     "finding": "The final paper reports a separate static Vinet fit for FeSiO3 Pv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement."
     },
     "primary_data_check": {
      "status": "parameterization_and_independent_table_checkpoints",
-     "audit_date": "2026-09-05",
+     "audit_date": "2026-09-08",
      "source_locations": [
       "Figure 3",
-      "Table III"
+      "Table III",
+      "arXiv v1 Table 2",
+      "arXiv v2 Figures_03.eps"
      ],
-     "finding": "The eight energy-volume observations are plot-only, but Table III independently prints V100=34.27 A3/FeSiO3, K100=597 GPa, and K100'=3.34; the stored curve reproduces all three after rounding."
+     "finding": "The eight energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=34.27 A3/FeSiO3, K100=597 GPa, and K100'=3.34; the stored curve is within 0.0108 A3/FeSiO3, 0.110 GPa, and 0.00114, respectively."
     },
     "independent_refit": {
-     "classification": "parity",
+     "classification": "published_checkpoint_parity_not_row_refit",
      "method": "Direct evaluation and inversion of the published Vinet coefficients at 100 GPa.",
      "parameters": {
       "V100_a3_per_formula": 34.28075129,
       "K100_gpa": 596.88962244,
       "K100_prime": 3.33886142
      },
-     "finding": "All values round to the source Table III checkpoints 34.27 A3, 597 GPa, and 3.34."
+     "finding": "The final-table replay differs by 0.0108 A3/FeSiO3, 0.110 GPa, and 0.00114 in K'; arXiv v1's extra-decimal coefficients confirm that the small offsets are publication-rounding effects. This is an equation-convention replay, not a row-level refit."
+    },
+    "version_history_check": {
+     "source": "arXiv:1407.0361v1, author PDF Table 2",
+     "source_sha256": "368f7774c0ec004e1c99f9100a927c1559998eb2849047c7856277470430378c",
+     "published_parameters": {
+      "V0_a3_per_formula": 44.31,
+      "K0_gpa": 224.8,
+      "K0_prime": 4.42,
+      "V100_a3_per_formula": 34.27,
+      "K100_gpa": 596.5,
+      "K100_prime": 3.34
+     },
+     "finding": "The extra-decimal v1 K0 and K100 values explain the coarser final Table III rounding; the version of record remains normative."
+    },
+    "approximate_plot_diagnostic": {
+     "classification": "approximate_plot_diagnostic_not_primary_observations",
+     "source": "arXiv v2 Figures_03.eps raster",
+     "source_sha256": "d1780680166a0234ffbfe75d8cb04eb0e7708efedcc921459e12c7c1172a0372",
+     "figure_3_volume_at_100_gpa_a3_per_formula": 34.2267,
+     "table_iii_volume_at_100_gpa_a3_per_formula": 34.27,
+     "finding": "The x-axis-only marker reading agrees within 0.044 A3/FeSiO3; raster coordinates are not registered as a fit dataset."
+    },
+    "source_exhaustion": {
+     "classification": "no_authoritative_row_level_observations_found",
+     "audit_date": "2026-09-08",
+     "inspected": [
+      "APS version-of-record page and attachment inventory",
+      "Crossref and OpenAlex related-object metadata",
+      "UCL Discovery record and its single PDF",
+      "Carnegie Science publication record",
+      "arXiv v1 PDF and v2 source archive",
+      "general research-data index searches"
+     ],
+     "arxiv_v2_source_sha256": "460ed6935a6cadcd97bdf4fddfb5b74fd7593cd9fea631dc93d020c0611ec4e0",
+     "finding": "The v2 archive contains TeX, BibTeX output, and eight EPS figures only; Figure 3 is a single encoded raster, not recoverable vector data."
     }
    },
-   "notes": "No numerical energy-volume grid was deposited; the independent Table III 100 GPa volume and modulus triplet provides a stronger equation-convention check than digitizing the small Figure 3 panel."
+   "notes": "Retain as a directly published Vinet parameterization. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations."
   },
   {
    "identifier": "fesio3_bridgmanite_holland_2013_fpv_modified_tait",

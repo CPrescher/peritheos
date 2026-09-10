@@ -182,7 +182,7 @@ def reconstruct() -> dict[str, Any]:
         return np.asarray(
             [
                 value / math.sqrt(counts[row["material"]])
-                for value, row in zip(raw, observations, strict=True)
+                for value, row in zip(raw, observations)
             ]
         )
 

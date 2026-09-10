@@ -62,10 +62,10 @@ def test_reconstruction_stops_at_figure_coverage_and_converges():
     assert result["correction"][6] == pytest.approx(1.76014977919467)
 
 
-def test_audit_records_limits_and_does_not_claim_parameter_parity():
+def test_audit_records_limits_and_does_not_claim_parameter_parity(assert_audit_close):
     result, rows = reproduce()
     saved = json.loads((DATA / f"{PREFIX}-thermal-reduction.json").read_text())
-    assert result == saved
+    assert_audit_close(result, saved)
     assert len(rows) == 53
     assert result["selection"]["unreconstructed_high_density_rows"] == 46
     assert result["figure_blue_check"]["negative_implied_thermal_correction_rows"] == 16

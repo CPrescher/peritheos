@@ -1,0 +1,43 @@
+{
+  "source_doi": "10.3390/min9110684",
+  "source_url": "https://www.mdpi.com/2075-163X/9/11/684",
+  "source_pdf_sha256": "8ae1bb7611c6925a6a66ac39ed3b6c5bd435df304e7939f2de0362346cb9466d",
+  "source_location": "Page 4, Figure 2 main panel",
+  "method": "PDF vector filled-square/filled-circle bounding-box centers and fitted-curve vertices; duplicate stroke outlines and legend markers excluded",
+  "pressure_ticks_pdf_x_pt": [
+    215.130937093,
+    268.6565491,
+    322.2300841,
+    375.7503121000001
+  ],
+  "pressure_tick_values_gpa": [
+    0,
+    50,
+    100,
+    150
+  ],
+  "volume_ticks_pdf_y_from_top_pt": [
+    117.57002829999999,
+    208.07465289999993
+  ],
+  "volume_tick_values_a3": [
+    25,
+    20
+  ],
+  "pressure_map_slope_intercept": [
+    0.9338259561552913,
+    -200.89138068231426
+  ],
+  "volume_map_slope_intercept": [
+    -0.055245795693847924,
+    31.495249763181718
+  ],
+  "counts": {
+    "kuznetsov_squares": 9,
+    "dewaele_circles": 17,
+    "published_curve": 100
+  },
+  "dataset_sha256": "22ed15f7087ab70db1958e379a6edd761e9046166a73390a8a1d313259b180b2",
+  "curve_dataset_sha256": "83f1eef4bfb37b1d7d0ead4eae4844502bbf788218ca28eec72369fc79daab6c",
+  "limitations": "Coordinates are quantized by the source plot, not exact observations. The nine-square selection is visibly attributed to Kuznetsov (legend says 2003; reference 18 is 2002). Curve vertices are a diagnostic and must never enter an observation fit. Pressure-scale identity is checked independently against Table 2 and Table 1."
+}

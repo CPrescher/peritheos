@@ -1,0 +1,174 @@
+{
+  "300k": {
+    "rows": 9,
+    "native_equation_max_difference_gpa": 7.105427357601002e-14,
+    "published_rmse_gpa": 0.6706550807731002,
+    "published_mae_gpa": 0.5557724396483715,
+    "refit_parameters": [
+      5.583345175577682
+    ],
+    "refit_rmse_gpa": 0.6697309596138137,
+    "solver_success": true
+  },
+  "fit1": {
+    "rows": 12,
+    "native_equation_max_difference_gpa": 2.7000623958883807e-13,
+    "published_rmse_gpa": 0.4595254485710879,
+    "published_mae_gpa": 0.33730015926331564,
+    "refit_parameters": [
+      -0.02833246974542927,
+      3.176726019971372e-05,
+      1.499809712594869e-08
+    ],
+    "refit_rmse_gpa": 0.38847700499064436,
+    "solver_success": true
+  },
+  "fit2": {
+    "rows": 38,
+    "native_equation_max_difference_gpa": 4.973799150320701e-13,
+    "published_rmse_gpa": 0.4479194129604852,
+    "published_mae_gpa": 0.3593742559217345,
+    "table1_output_max_difference_gpa": 0.056280393595443456,
+    "table1_2070k_pressure_gpa": 119.71470068922771,
+    "full_fit_reproduced": false,
+    "fei_rows": 26,
+    "hirose_hot_rows": 12,
+    "fei_run_ids": [
+      "s456003",
+      "s701014",
+      "s456004",
+      "s454003",
+      "s453001",
+      "s457002",
+      "s451011",
+      "s693017",
+      "s453003",
+      "s454006",
+      "s460005",
+      "s695007",
+      "s456005",
+      "s693019",
+      "s455007",
+      "s457010",
+      "s696009",
+      "s454008",
+      "s453004",
+      "s451013",
+      "s454009",
+      "s700010",
+      "s693021",
+      "s459002",
+      "s453005",
+      "s694007"
+    ],
+    "published_max_absolute_residual_gpa": 1.1147006892277176,
+    "maximum_residual_state": {
+      "pressure_gpa": 118.6,
+      "temperature_k": 2070.0
+    },
+    "diagnostic_refits": {
+      "unweighted_pressure": {
+        "parameters": [
+          9.92432340196662e-07,
+          4.317096827328185e-10,
+          1.5138052764129062e-13,
+          0.00035948951655538234
+        ],
+        "parameter_names": [
+          "beta1",
+          "beta2",
+          "beta3",
+          "kprime_log_coefficient"
+        ],
+        "diagnostic_standard_errors": [
+          4.451582786810252e-07,
+          3.914573750843612e-10,
+          9.764418143574431e-14,
+          2.2723104275899732e-05
+        ],
+        "diagnostic_covariance": [
+          [
+            1.9816589307825326e-13,
+            -1.7366516380915762e-16,
+            4.264617166712407e-20,
+            2.9119513712013687e-13
+          ],
+          [
+            -1.7366516380915875e-16,
+            1.5323887650793824e-19,
+            -3.783559287343151e-23,
+            -1.5902461797787623e-16
+          ],
+          [
+            4.2646171667125803e-20,
+            -3.78355928734328e-23,
+            9.534386168256554e-27,
+            2.9531423623296305e-19
+          ],
+          [
+            2.9119513712230933e-13,
+            -1.590246179797932e-16,
+            2.9531423623343543e-19,
+            5.163394679334127e-10
+          ]
+        ],
+        "scaled_jacobian_condition_number": 580.3418314688203,
+        "rmse_gpa": 0.4451417991116562,
+        "mae_gpa": 0.35270308872094824,
+        "solver_success": true
+      },
+      "printed_pressure_error_weights": {
+        "parameters": [
+          2.6751641510436886e-06,
+          -6.354905038585128e-10,
+          2.4369272458174403e-13,
+          0.00013416238562363473
+        ],
+        "parameter_names": [
+          "beta1",
+          "beta2",
+          "beta3",
+          "kprime_log_coefficient"
+        ],
+        "diagnostic_standard_errors": [
+          2.8896081550263396e-06,
+          2.6202749552927015e-09,
+          6.818035477467797e-13,
+          0.00010339308780478612
+        ],
+        "diagnostic_covariance": [
+          [
+            8.349835289594726e-12,
+            -7.562289354118789e-15,
+            1.959230947743095e-18,
+            9.974694659182966e-11
+          ],
+          [
+            -7.562289354118863e-15,
+            6.865840841334169e-18,
+            -1.783105682381083e-21,
+            -8.882810200555555e-14
+          ],
+          [
+            1.959230947743137e-18,
+            -1.783105682381103e-21,
+            4.648560777200953e-25,
+            2.5064328938304393e-17
+          ],
+          [
+            9.974694659183686e-11,
+            -8.88281020055612e-14,
+            2.50643289383056e-17,
+            1.0690130605808213e-08
+          ]
+        ],
+        "scaled_jacobian_condition_number": 1315.2021431146102,
+        "rmse_gpa": 2.8289780573532086,
+        "mae_gpa": 1.8472536369011785,
+        "solver_success": true
+      }
+    },
+    "full_dataset_recovered": true,
+    "limitations": "Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data."
+  }
+}

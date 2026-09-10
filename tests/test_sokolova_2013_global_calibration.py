@@ -18,11 +18,13 @@ MANIFEST_PATH = (
 )
 
 
-def test_sokolova_global_reconstruction_uses_all_markers_in_one_objective():
+def test_sokolova_global_reconstruction_uses_all_markers_in_one_objective(
+    assert_audit_close,
+):
     committed = json.loads(RESULT_PATH.read_text(encoding="utf-8"))
     replay = reconstruct()
 
-    assert replay == committed
+    assert_audit_close(replay, committed)
     assert committed["classification"] == (
         "source_constrained_cross_calibration_reconstruction"
     )

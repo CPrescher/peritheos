@@ -170,8 +170,12 @@ def test_kuznetsov_hcp_296k_slice_is_a_published_eos_record():
         "K0": KUZNETSOV_HCP["K0_296"],
         "K0_prime": KUZNETSOV_HCP["K0_prime_296"],
     }
-    dataset = document["datasets"][0]
-    assert record["identifier"] in dataset["used_by_eos_records"]
+    dataset = next(
+        item
+        for item in document["datasets"]
+        if record["identifier"] in item.get("used_by_eos_records", [])
+    )
+    assert dataset["reference"]["doi"] == record["reference"]["doi"]
 
 
 def test_reported_fit_limitations_are_machine_checkable():

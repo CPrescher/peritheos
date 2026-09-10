@@ -82,9 +82,9 @@ def _records() -> list[tuple[dict, Material]]:
     return found
 
 
-def test_twenty_four_primary_source_records_have_exact_parameters_or_reproduced_derivations():
+def test_twenty_three_primary_source_records_have_exact_parameters_or_reproduced_derivations():
     records = _records()
-    assert len(records) == 24
+    assert len(records) == 23
     observed = {
         r["identifier"]: tuple(r["eos"]["parameters"].values()) for r, _ in records
     }
@@ -130,7 +130,7 @@ def test_phase_h_primary_table_is_complete_unchanged_and_reproduced():
         "4ad82028fa5483acc94f7d1218f1b13176c25f178ebe3750cdfb11309a0ccaf4"
     )
     result = reproduce()
-    assert result["accepted_record_count"] == 24
+    assert result["accepted_record_count"] == 23
     assert result["phase_h_table1"]["observations"] == 12
     assert result["phase_h_table1"]["published_bm3_pressure_rmse_gpa"] == pytest.approx(
         0.5462582, abs=1e-6

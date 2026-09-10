@@ -179,55 +179,89 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the primary article, its 100 GPa structure, and independent Table III Vinet checkpoints.",
-    "audit_date": "2026-09-05",
+    "note": "Retained after source-exhaustion review: the final Table III parameterization passes independent 100 GPa EOS and structure checks, but no authoritative E(V) rows were deposited and the record remains not refittable.",
+    "audit_date": "2026-09-08",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "crystal_system",
-     "space_group",
-     "formula_units_per_cell",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "theoretical_method",
-     "pressure_range",
-     "independent_source_checkpoints"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf",
-     "doi": "10.1103/PhysRevB.90.140102",
+     "doi": "10.1103/physrevb.90.140102",
      "locations": [
       "Table I",
       "Computational methods",
       "Figure 3",
-      "Table III"
+      "Table III",
+      "arXiv v1 Table 2",
+      "arXiv v2 source archive"
      ],
-     "finding": "The paper reports a separate static Vinet fit and complete 100 GPa structure for FeSiO3 PPv."
+     "finding": "The final paper reports a separate static Vinet fit and complete 100 GPa structure for FeSiO3 PPv. APS, UCL, Carnegie, Crossref/OpenAlex relations, both arXiv versions, and research-data indexes expose no numerical E(V) supplement."
     },
     "primary_data_check": {
      "status": "parameterization_and_independent_table_checkpoints",
-     "audit_date": "2026-09-05",
+     "audit_date": "2026-09-08",
      "source_locations": [
       "Figure 3",
-      "Table III"
+      "Table III",
+      "Table I lattice",
+      "arXiv v1 Table 2",
+      "arXiv v2 Figures_03.eps"
      ],
-     "finding": "The energy-volume observations are plot-only; Table III independently prints V100=33.98 A3/FeSiO3, K100=579 GPa, and K100'=3.47."
+     "finding": "The energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=33.98 A3/FeSiO3, K100=579 GPa, and K100'=3.47; the Table I lattice product gives 33.9343 A3/FeSiO3."
     },
     "independent_refit": {
-     "classification": "parity",
+     "classification": "published_checkpoint_parity_not_row_refit",
      "method": "Direct evaluation and inversion of the published Vinet coefficients at 100 GPa.",
      "parameters": {
       "V100_a3_per_formula": 33.94964929,
       "K100_gpa": 577.87062193,
       "K100_prime": 3.46807678
      },
-     "finding": "V100 and K100' round to the printed values; K100 differs by 1.13 GPa (0.20%) at the source's integer coefficient precision."
+     "finding": "V100 and K100' agree at printed precision; K100 differs by 1.13 GPa (0.20%) because final Table III rounds K0 to an integer. This is an equation-convention replay, not a row-level refit."
+    },
+    "version_history_check": {
+     "source": "arXiv:1407.0361v1, author PDF Table 2",
+     "source_sha256": "368f7774c0ec004e1c99f9100a927c1559998eb2849047c7856277470430378c",
+     "published_parameters": {
+      "V0_a3_per_formula": 44.9,
+      "K0_gpa": 189.7,
+      "K0_prime": 4.73,
+      "V100_a3_per_formula": 33.98,
+      "K100_gpa": 579.0,
+      "K100_prime": 3.47
+     },
+     "finding": "Using v1 K0=189.7 GPa yields K100=578.726 GPa, confirming that final-publication integer rounding explains the apparent checkpoint offset; the version of record remains normative."
+    },
+    "approximate_plot_diagnostic": {
+     "classification": "approximate_plot_diagnostic_not_primary_observations",
+     "source": "arXiv v2 Figures_03.eps raster",
+     "source_sha256": "d1780680166a0234ffbfe75d8cb04eb0e7708efedcc921459e12c7c1172a0372",
+     "figure_3_volume_at_100_gpa_a3_per_formula": 33.9255,
+     "table_iii_volume_at_100_gpa_a3_per_formula": 33.98,
+     "finding": "The x-axis-only marker reading agrees within 0.055 A3/FeSiO3; raster coordinates are not registered as a fit dataset."
+    },
+    "source_exhaustion": {
+     "classification": "no_authoritative_row_level_observations_found",
+     "audit_date": "2026-09-08",
+     "inspected": [
+      "APS version-of-record page and attachment inventory",
+      "Crossref and OpenAlex related-object metadata",
+      "UCL Discovery record and its single PDF",
+      "Carnegie Science publication record",
+      "arXiv v1 PDF and v2 source archive",
+      "general research-data index searches"
+     ],
+     "arxiv_v2_source_sha256": "460ed6935a6cadcd97bdf4fddfb5b74fd7593cd9fea631dc93d020c0611ec4e0",
+     "finding": "The v2 archive contains TeX, BibTeX output, and eight EPS figures only; Figure 3 is a single encoded raster, not recoverable vector data."
     }
    },
-   "notes": "The small K100 rounding discrepancy is consistent with Table III's integer K0 and K100 values."
+   "notes": "Retain as a directly published Vinet parameterization. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations."
   }
  ]
 }

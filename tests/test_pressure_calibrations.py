@@ -520,8 +520,18 @@ def test_chidester_edge_restores_average_pt_temperature_and_is_reversible():
         source_temperature,
     )
     assert gold.edge_identifiers[0] == edge_identifier
-    assert "platinum_sokolova_2013_holzapfel_3" in gold.calibration_path
-    assert gold.target_pressure_gpa == pytest.approx(103.66816140389605)
+    assert gold.intermediate_states[0]["target_temperature_k"] == pytest.approx(
+        expected_pt_temperature
+    )
+    # New calibration edges may shorten the remaining route. Chaining from
+    # the corrected Pt state must give the same result as the full path.
+    from_pt = recalculate_pressure_calibration_path(
+        forward.target_pressure_gpa,
+        pt_identifier,
+        "gold_fei_2007_vinet_2",
+        expected_pt_temperature,
+    )
+    assert gold.target_pressure_gpa == pytest.approx(from_pt.target_pressure_gpa)
 
     with pytest.raises(ValidationError, match="requires temperature_k"):
         recalculate_pressure_calibration_path(
