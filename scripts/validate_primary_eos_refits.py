@@ -78,6 +78,8 @@ DOROGOKUPETS_2015_FIT_BRANCH = {
     "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey": ("post_perovskite"),
 }
 ZHU_REPRODUCTION = ROOT / "scripts" / "reproduce_zhu_2025_pressure_standards.py"
+NOGUCHI_REFIT_JSON = ROOT / "docs" / "data" / "noguchi-2013-casio3-refit.json"
+NOGUCHI_RECORD_ID = "ca_perovskite_noguchi_2013_bm2_mgd_1"
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -4536,6 +4538,99 @@ def _mosenfelder_2009_outcome(record: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _noguchi_2013_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Translate the row-free, locally reproducible staged audit into the ledger."""
+    artifact = json.loads(NOGUCHI_REFIT_JSON.read_text(encoding="utf-8"))
+    model = artifact["models"]["model_1_fei_mgd"]
+    fitted = {
+        **model["reference_isotherm_refit"]["parameters"],
+        **model["thermal_refit"]["parameters"],
+    }
+    refit_errors = {
+        **model["reference_isotherm_refit"]["standard_errors"],
+        **model["thermal_refit"]["standard_errors"],
+    }
+    published = {
+        **record["eos"]["parameters"],
+        **{
+            name: value
+            for name, value in record["thermal"]["parameters"].items()
+            if name in {"theta0", "gamma0", "q"}
+        },
+    }
+    published_errors = {
+        **record["parameter_errors"],
+        **record["thermal"]["parameter_errors"],
+    }
+    comparisons = []
+    for name in ("V0", "K0", "theta0", "gamma0", "q"):
+        difference = float(fitted[name]) - float(published[name])
+        combined_two_sigma = 2.0 * math.hypot(
+            float(published_errors[name]), float(refit_errors[name])
+        )
+        comparison = {
+            "parameter": name,
+            "published": float(published[name]),
+            "published_error": float(published_errors[name]),
+            "refit": float(fitted[name]),
+            "refit_error": float(refit_errors[name]),
+            "difference": difference,
+            "relative_difference": abs(difference) / abs(float(published[name])),
+            "within_combined_2sigma": abs(difference) <= combined_two_sigma,
+            "similar": _similar(name, float(published[name]), float(fitted[name])),
+        }
+        comparisons.append(comparison)
+    if not all(
+        item["within_combined_2sigma"] and item["similar"] for item in comparisons
+    ):
+        raise AssertionError("dedicated Noguchi audit no longer supports parity")
+    selection = artifact["selection"]
+    return {
+        "status": "parity",
+        "dataset_identifiers": [str(NOGUCHI_REFIT_JSON.relative_to(ROOT))],
+        "source_table_sha256": artifact["source"]["pvt_sha256"],
+        "observations": (
+            selection["reference_isotherm_observations"]
+            + selection["thermal_observations"]
+        ),
+        "selection": (
+            "9 accepted external-heating rows for the 700 K BM2 stage; all 42 "
+            "high-temperature rows for the thermal stage; source orders 12, 14, "
+            "and 20 excluded only as directed by Table 1 footnote e"
+        ),
+        "observed_pressure_range_gpa": record["experimental_pressure_range_gpa"],
+        "fit_kind": "staged_bm2_then_mie_gruneisen_debye",
+        "objective": "unweighted pressure residuals",
+        "free_parameters": ["V0", "K0", "theta0", "gamma0", "q"],
+        "parameters": comparisons,
+        "published_rmse_gpa": model["published_curve"]["pressure_rmse_gpa"],
+        "rmse_gpa": model["thermal_refit"]["pressure_rmse_gpa"],
+        "solver_success": True,
+        "solver_message": "dedicated Noguchi (2013) staged refit completed",
+        "stages": [
+            {
+                "name": "700 K BM2 reference isotherm",
+                "observations": selection["reference_isotherm_observations"],
+                "free_parameters": ["V0", "K0"],
+                "rmse_gpa": model["reference_isotherm_refit"]["pressure_rmse_gpa"],
+            },
+            {
+                "name": "high-temperature MGD pressure",
+                "observations": selection["thermal_observations"],
+                "free_parameters": ["theta0", "gamma0", "q"],
+                "rmse_gpa": model["thermal_refit"]["pressure_rmse_gpa"],
+            },
+        ],
+        "alternative_model_audits": {
+            name: value
+            for name, value in artifact["models"].items()
+            if "model_1" not in name
+        },
+        "pressure_calibration_checks": artifact["pressure_calibration_checks"],
+        "qualification": artifact["protocol"]["qualification"],
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
     datchi_diamond_refit = json.loads(
@@ -4700,6 +4795,8 @@ def validate_all() -> dict[str, Any]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif record["identifier"] == "mgo_b1_tange_2009_vinet":
                 outcome = _tange_2009_approximate_outcome(record)
+            elif record["identifier"] == NOGUCHI_RECORD_ID:
+                outcome = _noguchi_2013_outcome(record)
             elif not identifiers:
                 outcome = {
                     "status": "not_refittable",

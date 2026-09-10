@@ -2,7 +2,13 @@ import pytest
 
 from peritheos import get_material_document
 from peritheos.materials import Material
-from scripts.reproduce_noguchi_2013_casio3 import isothermal_bulk_modulus
+from scripts.reproduce_noguchi_2013_casio3 import (
+    EXPECTED_EXCLUDED_ORDERS,
+    STATIC_SOURCE_ORDERS,
+    THERMAL_SOURCE_ORDERS,
+    isothermal_bulk_modulus,
+    load_artifact,
+)
 
 RECORD_ID = "ca_perovskite_noguchi_2013_bm2_mgd_1"
 TARGET_DOI = "10.1007/s00269-012-0549-1"
@@ -96,11 +102,67 @@ def test_noguchi_2013_primary_scope_calibration_and_refit_parity():
     assert calibration["methods"][0]["reference"]["doi"] == (
         "10.1016/j.pepi.2003.09.018"
     )
-    assert calibration["recalculation"]["status"] == ("reference_eos_not_bundled")
+    assert calibration["recalculation"]["status"] == "ready"
     validation = source["scientific_validation"]
-    assert validation["primary_data_check"]["status"] == "parameterization_only"
+    assert validation["primary_data_check"]["status"] == (
+        "external_primary_table_refitted"
+    )
     assert validation["independent_refit"]["result"] == "parity"
+    assert validation["independent_refit"]["reproducibility_artifact"] == (
+        "docs/data/noguchi-2013-casio3-refit.json"
+    )
     assert len(validation["excluded_alternatives"]) == 3
+
+
+def test_noguchi_2013_row_free_refit_artifact_covers_both_pressure_branches():
+    artifact = load_artifact()
+
+    assert artifact["format"] == "peritheos.non-row-level-source-refit"
+    assert artifact["record_identifier"] == RECORD_ID
+    assert artifact["selection"]["source_rows"] == 54
+    assert tuple(artifact["selection"]["excluded_source_orders"]) == (
+        EXPECTED_EXCLUDED_ORDERS
+    )
+    assert tuple(artifact["selection"]["reference_isotherm_source_orders"]) == (
+        STATIC_SOURCE_ORDERS
+    )
+    assert len(THERMAL_SOURCE_ORDERS) == artifact["selection"]["thermal_observations"]
+    assert artifact["source"]["pvt_sha256"] == (
+        "f6e599a617516126b898d320bfec9c836aa0dc6b86c68a395e138d12bbbec38a"
+    )
+
+    models = artifact["models"]
+    model1 = models["model_1_fei_mgd"]
+    assert model1["reference_isotherm_refit"]["parameters"] == pytest.approx(
+        {"V0": 46.5004858667, "K0": 207.3687833523}
+    )
+    assert model1["thermal_refit"]["parameters"] == pytest.approx(
+        {"theta0": 1292.4153082753, "gamma0": 2.7214885828, "q": 1.2646275685}
+    )
+    assert models["model_2_fei_fixed_theta_mgd"]["thermal_refit"][
+        "parameters"
+    ] == pytest.approx({"gamma0": 2.7332425255, "q": 1.5808299709})
+    assert models["model_3_holmes_fixed_theta_mgd"]["thermal_refit"][
+        "parameters"
+    ] == pytest.approx({"gamma0": 2.8203814426, "q": 2.1164984390})
+    assert models["model_4_fei_log_volume"]["thermal_refit"][
+        "derived_alpha_ref_per_k"
+    ] == pytest.approx(5.7332603943e-5)
+
+    calibration = artifact["pressure_calibration_checks"]
+    assert calibration["fei_2004"]["all_rows"]["within_0_5_gpa"] == 52
+    assert calibration["fei_2004"]["excluding_apparent_source_anomalies"][
+        "pressure_rmse_gpa"
+    ] == pytest.approx(0.2131772577)
+    assert calibration["holmes_1989"]["all_rows"]["within_0_5_gpa"] == 50
+    assert calibration["holmes_1989"]["excluding_apparent_source_anomalies"][
+        "pressure_rmse_gpa"
+    ] == pytest.approx(0.2489379226)
+    assert [item["source_order"] for item in calibration["source_anomalies"]] == [
+        4,
+        48,
+        54,
+    ]
 
 
 def test_noguchi_2013_reproduces_published_300_k_extrapolation():

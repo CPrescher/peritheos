@@ -2027,6 +2027,20 @@ scale produces the distinct model 3 (`V700 = 45.8 A^3`, `K700 = 238 GPa`,
 Model 2 fixes `theta700 = 1000 K`; model 4 uses a different thermodynamic
 thermal-pressure equation. Neither is promoted as a duplicate C04 record.
 
+The pressure audit now executes both branches. Fei et al.'s Table 3 Pt
+coefficients were reconstructed as the reported 300 K BM3 reference
+(`V0 = 60.38 A^3/fcc cell`, `K0 = 273 GPa`, `K0' = 4.8`) plus referenced MGD
+thermal pressure (`theta0 = 230 K`, `gamma0 = 2.69`, `q = 0.5`, `n = 1`). It
+reproduces 52 of 54 printed Fei pressures within 0.5 GPa. The existing Holmes
+record reproduces 50 of 54 printed Holmes pressures within 0.5 GPa. Three
+rows have Pt lattice/pressure combinations that are internally inconsistent
+with one or both printed branches and their neighboring sequence: source
+orders 4 and 54 affect both scales, while source order 48 affects only the
+Holmes column. These are retained unchanged in every CaSiO3 fit. Excluding
+them only from the calibrant diagnostic gives 0.213 GPa RMSE over 52 Fei rows
+and 0.249 GPa over 51 Holmes rows; the remaining Holmes miss is 0.568 GPa and
+is consistent with rounded lattice, temperature, and calibrant coefficients.
+
 The measured table spans 51.3--127.2 GPa. The source describes the nominal
 thermal scope as 700--2300 K; printed temperatures span 697--2278 K because
 the 697--704 K external-heating series is treated as a single 700 K isotherm.
@@ -2038,33 +2052,53 @@ level of its printed parameter errors and publishes no covariance matrix.
 ### Independent refit and redistribution limit
 
 A complete local audit transcription of Table 1 contained 54 rows. The staged
-source selection leaves nine externally heated rows for the 700 K BM2 fit and
-42 laser-heated rows for the thermal fit; the three broad-peak rows are not
-used. With no source-stated weighting rule, unweighted pressure-residual fits
-through Peritheos provide the least-assumptive comparison:
+source selection leaves source orders 9-11, 13, and 15-19 (nine externally
+heated rows) for the 700 K BM2 fit and all 42 high-temperature rows (orders
+1-8 and 21-54) for the thermal fit. Source orders 12, 14, and 20 are the only
+fit exclusions: each carries Table 1 footnote e for large 200-peak FWHM. The
+paper treats the printed 697-704 K static series as exactly 700 K. It first
+fits BM2, then fixes the reported BM2 coefficients for each thermal stage; the
+reproduction necessarily uses their printed rounded values because unrounded
+coefficients are unavailable. No weighting rule, fitting software, covariance,
+or confidence convention is stated. Unweighted pressure-residual fits therefore
+provide a transparent reproducibility diagnostic:
 
 | Parameter | Published model 1 | Peritheos staged refit |
 |---|---:|---:|
 | `V700` (A^3/cell) | 46.5 +/- 0.1 | 46.50049 +/- 0.13399 |
-| `K700` (GPa) | 207 +/- 4 | 207.36877 +/- 3.53803 |
-| `theta700` (K) | 1300 +/- 500 | 1292.42481 +/- 528.87816 |
+| `K700` (GPa) | 207 +/- 4 | 207.36878 +/- 3.53803 |
+| `theta700` (K) | 1300 +/- 500 | 1292.41531 +/- 528.88205 |
 | `gamma700` | 2.7 +/- 0.3 | 2.72149 +/- 0.29823 |
-| `q` | 1.2 +/- 0.8 | 1.26461 +/- 0.77855 |
+| `q` | 1.2 +/- 0.8 | 1.26463 +/- 0.77855 |
 
 The BM2 pressure RMSE is 0.47281 GPa. The thermal-stage RMSE is 1.22099 GPa;
 the rounded published parameters give 1.22277 GPa over the same 42 rows. This
-is parameter and error-magnitude parity. The published coefficients remain
-the executable record; no refit record is created.
+is parameter and error-magnitude parity. The same test also recovers model 2
+as `gamma700 = 2.73324 +/- 0.29673`, `q = 1.58083 +/- 0.42995`; model 3 as
+`V700 = 45.83827 +/- 0.11334 A^3`, `K700 = 237.87073 +/- 3.61627 GPa`,
+`gamma700 = 2.82038 +/- 0.41760`, `q = 2.11650 +/- 0.61679`; and model 4 as
+`alpha700 = (5.7333 +/- 0.5082) 10^-5/K`,
+`(dK/dT)V = -0.00976 +/- 0.00436 GPa/K`. Recovery of all four branches and
+their error magnitudes is strong evidence for the objective, though the
+source omissions prevent claiming certainty about the authors' exact code.
+The published model-1 coefficients remain the executable production record;
+no refit record is created.
 
 The subscription article gives no reusable data license. Following the
 repository's redistribution policy, the complete numeric table and local
-audit transcription are not committed. The reproduction script therefore
-checks the shipped parameterization itself, including the exactly zero
-thermal increment at 700 K and the article's independently reported 300 K
-extrapolation (`V300 = 45.8 A^3`, `K300 = 225 GPa`). Rounded model-1
-coefficients give `45.7896 A^3` and `226.47 GPa`; the small bulk-modulus
-difference is consistent with propagating coefficients printed to only two or
-three significant digits.
+audit transcription are not committed. Instead,
+[`docs/data/noguchi-2013-casio3-refit.json`](data/noguchi-2013-casio3-refit.json)
+preserves normalized-transcription SHA-256 digests, exact row selection,
+aggregate residual statistics, all four refits, calibration diagnostics, and
+source-anomaly annotations without exposing the table. The reproduction
+script checks that artifact and the shipped parameterization by default. With
+`--source-table PATH`, it accepts a lawfully obtained local CSV, verifies its
+digest, reruns every fit and both Pt-scale checks, and fails on numerical
+drift. It also checks the exactly zero thermal increment at 700 K and the
+article's independently reported 300 K extrapolation (`V300 = 45.8 A^3`,
+`K300 = 225 GPa`). Rounded model-1 coefficients give `45.7896 A^3` and
+`226.47 GPa`; the small bulk-modulus difference is consistent with propagating
+coefficients printed to only two or three significant digits.
 
 ## Phase Egg: Schulze et al. (2018)
 

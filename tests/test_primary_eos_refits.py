@@ -222,6 +222,17 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     )
     assert by_identifier["b4c_somayazulu_2023_berman_refit"]["status"] == ("parity")
     assert by_identifier["gold_shen_2026_vinet_3"]["status"] == "parity"
+    noguchi = by_identifier["ca_perovskite_noguchi_2013_bm2_mgd_1"]
+    assert noguchi["status"] == "parity"
+    assert noguchi["observations"] == 51
+    assert noguchi["source_table_sha256"] == (
+        "f6e599a617516126b898d320bfec9c836aa0dc6b86c68a395e138d12bbbec38a"
+    )
+    assert [item["refit"] for item in noguchi["parameters"]] == pytest.approx(
+        [46.5004858667, 207.3687833523, 1292.4153082753, 2.7214885828, 1.2646275685]
+    )
+    assert noguchi["stages"][0]["observations"] == 9
+    assert noguchi["stages"][1]["observations"] == 42
     assert by_identifier["ca_perovskite_sun_2016_bm3_3"]["status"] == ("parity")
     assert by_identifier["ca_perovskite_tetragonal_sun_2022_bm3_1"]["status"] == (
         "parity"

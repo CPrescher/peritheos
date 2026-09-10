@@ -1075,10 +1075,10 @@
      }
     ],
     "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "Table 1 prints row-wise Pt lattice parameters and temperatures, but the Fei et al. (2004) Pt pressure scale is not yet an executable bundled record. The Holmes et al. (1989) pressures and model 3 are retained as a documented alternative only and are not mixed into this preferred Fei-scale record."
+     "status": "ready",
+     "notes": "The dedicated Noguchi audit reconstructs the Fei et al. (2004) Pt scale from its published Table 3 BM3-MGD coefficients and also executes the bundled Holmes et al. (1989) alternative. A lawful local Table 1 transcription can rerun both reductions; the subscription-only rows themselves are not bundled. Three apparent source-table inconsistencies are reported without changing any printed value or fit input."
     },
-    "audit_date": "2026-09-05"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -1108,39 +1108,40 @@
      "doi": "10.1007/s00269-012-0549-1"
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-05",
+     "status": "external_primary_table_refitted",
+     "audit_date": "2026-09-08",
      "source_locations": [
       "Table 1, journal pages 84-85"
      ],
-     "finding": "Table 1 contains 54 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and three explicit fit exclusions. A complete local transcription was used for the audit and independent refit, but is not redistributed because the subscription article states no reusable data license."
+     "finding": "All 54 Table 1 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and the three explicit fit exclusions were independently transcribed and refitted. The copyrighted rows are not redistributed; a committed non-row-level artifact preserves normalized transcription hashes, selections, coefficients, error estimates, residual diagnostics, both calibration checks, and apparent source anomalies."
     },
     "independent_refit": {
      "result": "parity",
-     "data": "Local audit transcription of Table 1; 9 accepted external-heating rows for the 700 K BM2 stage and 42 laser-heated rows for the MGD stage. The three rows footnoted for broad 200 peaks were excluded.",
-     "method": "Unweighted pressure-residual fits using Peritheos fit_rt_eos and fit_thermal_eos. This is the only non-invented objective because the paper does not state fit weights or the confidence convention for its printed errors.",
+     "data": "Local audit transcription of Table 1; 9 accepted external-heating rows for the 700 K BM2 stage and all 42 high-temperature rows for the thermal stage. The three rows footnoted for broad 200 peaks were excluded.",
+     "method": "Staged unweighted pressure-residual fits using Peritheos fit_rt_eos and fit_thermal_eos. The paper does not state weights, fitting software, covariance, or the confidence convention for its printed errors. The recovery of coefficients and error magnitudes across all four Table 2 branches strongly supports, but cannot prove, this numerical objective.",
+     "reproducibility_artifact": "docs/data/noguchi-2013-casio3-refit.json",
      "reference_isotherm_result": {
-      "V0_a3": 46.500486344,
-      "K0_gpa": 207.368770748,
-      "V0_standard_error_a3": 0.133985207,
-      "K0_standard_error_gpa": 3.538027129,
+      "V0_a3": 46.500485867,
+      "K0_gpa": 207.368783352,
+      "V0_standard_error_a3": 0.133985192,
+      "K0_standard_error_gpa": 3.538027038,
       "pressure_rmse_gpa": 0.472809105
      },
      "thermal_result": {
-      "theta0_k": 1292.424812413,
-      "gamma0": 2.721487009,
-      "q": 1.264614238,
-      "theta0_standard_error_k": 528.878160179,
-      "gamma0_standard_error": 0.298232257,
-      "q_standard_error": 0.778552138,
+      "theta0_k": 1292.415308275,
+      "gamma0": 2.721488583,
+      "q": 1.264627569,
+      "theta0_standard_error_k": 528.882046291,
+      "gamma0_standard_error": 0.298232371,
+      "q_standard_error": 0.778550678,
       "pressure_rmse_gpa": 1.220993277
      },
-     "finding": "Both staged refits reproduce every published free coefficient within rounding and reproduce the printed parameter-error magnitudes closely. The published parameterization gives 1.222765067 GPa RMSE on the 42 high-temperature rows."
+     "finding": "The preferred Fei-scale model 1 and alternative models 2-4 all reproduce their published free coefficients within rounding and closely reproduce the printed parameter-error magnitudes. The published model-1 parameterization gives 1.222765067 GPa RMSE on the 42 high-temperature rows. Both printed Pt pressure branches were independently recalculated; excluding three apparent source-table inconsistencies only for that diagnostic gives 0.213 GPa Fei and 0.249 GPa Holmes RMSE."
     },
     "excluded_alternatives": [
      {
       "name": "model 2",
-      "reason": "Same Fei scale and 700 K BM2, but theta0=1000 K is fixed; model 1 is the unconstrained preferred parameterization requested for C04."
+      "reason": "Same Fei scale and 700 K BM2, but theta0=1000 K is fixed; model 1 is the preferred branch in which all three thermal coefficients are fitted."
      },
      {
       "name": "model 3",

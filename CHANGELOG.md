@@ -224,7 +224,11 @@ All notable changes to Peritheos are documented here. The project follows
   published standard deviations.
 - Added Noguchi et al.'s (2013) non-default 700 K BM2-MGD CaSiO3 perovskite
   EOS, preserving its cubic-phase domain, Fei et al. Pt calibration, and
-  staged-refit parity without redistributing the subscription-only table.
+  staged-refit parity without redistributing the subscription-only table. A
+  row-free reproducibility artifact now records normalized source-table hashes,
+  all four published fit branches, explicit broad-peak exclusions, and
+  independent Fei/Holmes Pt-scale diagnostics; users with lawful local access
+  can rerun the complete audit through the reproduction script.
 - Audited Katsura et al.'s (2004) 127-row ringwoodite dataset and documented
   why its thermal EOS remains excluded: the published coefficients cannot be
   reproduced with the chemically required seven-atom normalization.
