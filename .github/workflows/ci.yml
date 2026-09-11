@@ -246,12 +246,13 @@ jobs:
           identifiers = list_material_documents()
           documents = [get_material_document(identifier) for identifier in identifiers]
           assert package.joinpath("py.typed").is_file()
-          assert package.joinpath("data", "datasets", "experimental-metal-eos-batch-200.csv").is_file()
+          assert package.joinpath("data", "datasets", "experimental-metal-eos-batch-47.csv").is_file()
           assert BM3(10, 120, 4).pressure(9) > 0
           assert Baonza(10, 120, 4).pressure(9) > 0
           assert len(documents) == manifest["materials"]
           assert sum(len(document["eos_records"]) for document in documents) == manifest["eos_records"]
-          assert sum(len(Material.from_eosmat(document).eos_records) for document in documents) == manifest["eos_records"]
+          materials = [Material.from_eosmat(document) for document in documents if document["eos_records"]]
+          assert sum(len(material.eos_records) for material in materials) == manifest["eos_records"]
           PY
 
   free-threaded:
@@ -365,10 +366,11 @@ jobs:
           identifiers = list_material_documents()
           documents = [get_material_document(identifier) for identifier in identifiers]
           assert package.joinpath("py.typed").is_file()
-          assert package.joinpath("data", "datasets", "experimental-metal-eos-batch-200.csv").is_file()
+          assert package.joinpath("data", "datasets", "experimental-metal-eos-batch-47.csv").is_file()
           assert BM3(10, 120, 4).pressure(9) > 0
           assert Baonza(10, 120, 4).pressure(9) > 0
           assert len(documents) == manifest["materials"]
           assert sum(len(document["eos_records"]) for document in documents) == manifest["eos_records"]
-          assert sum(len(Material.from_eosmat(document).eos_records) for document in documents) == manifest["eos_records"]
+          materials = [Material.from_eosmat(document) for document in documents if document["eos_records"]]
+          assert sum(len(material.eos_records) for material in materials) == manifest["eos_records"]
           PY

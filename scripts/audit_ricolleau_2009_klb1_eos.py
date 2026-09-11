@@ -373,9 +373,9 @@ def reproduce() -> dict[str, Any]:
             "doi": "10.1029/2008GL036759",
             "location": "Official Supporting Information Table S1",
             "download_name": "grl25568-sup-0002-ts01.txt",
-            "raw_table": str(RAW_TABLE.relative_to(ROOT)),
+            "raw_table": RAW_TABLE.relative_to(ROOT).as_posix(),
             "raw_table_sha256": _sha256(RAW_TABLE),
-            "normalized_table": str(NORMALIZED_TABLE.relative_to(ROOT)),
+            "normalized_table": NORMALIZED_TABLE.relative_to(ROOT).as_posix(),
             "normalized_table_sha256": _sha256(NORMALIZED_TABLE),
         },
         "observations": {

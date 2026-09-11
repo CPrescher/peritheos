@@ -860,7 +860,7 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
         // not the Python distribution's complete material catalog.
         return;
     }
-    let mut paths = fs::read_dir(materials_directory)
+    let mut paths = fs::read_dir(&materials_directory)
         .unwrap()
         .map(|entry| entry.unwrap().path())
         .filter(|path| {
@@ -872,6 +872,7 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
 
     let mut records = 0;
     let mut thermal_records = 0;
+    let mut expected_thermal_records = 0;
     for path in &paths {
         let material = load_eosmat(path)
             .unwrap_or_else(|error| panic!("{} failed to load: {error}", path.display()));
@@ -881,6 +882,16 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
         let round_tripped = load_eosmat_str(&serialized)
             .unwrap_or_else(|error| panic!("{} failed to round trip: {error}", path.display()));
         assert_eq!(round_tripped.document, material.document);
+        expected_thermal_records += material.document["eos_records"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .filter(|record| {
+                record
+                    .get("thermal")
+                    .is_some_and(serde_json::Value::is_object)
+            })
+            .count();
         records += material.eos_records.len();
         thermal_records += material
             .eos_records
@@ -958,9 +969,13 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
         }
     }
 
-    assert_eq!(paths.len(), 286);
-    assert_eq!(records, 829);
-    assert_eq!(thermal_records, 66);
+    let manifest: serde_json::Value = serde_json::from_str(
+        &fs::read_to_string(materials_directory.join("manifest.json")).unwrap(),
+    )
+    .unwrap();
+    assert_eq!(paths.len() as u64, manifest["materials"].as_u64().unwrap());
+    assert_eq!(records as u64, manifest["eos_records"].as_u64().unwrap());
+    assert_eq!(thermal_records, expected_thermal_records);
 }
 
 #[test]
@@ -1039,4 +1054,122 @@ fn mosenfelder_ppv_reference_isentrope_record_is_executable() {
             .and_then(serde_json::Value::as_f64),
         Some(103.901_062_5)
     );
+}
+
+#[test]
+fn cubic_vinet_and_excess_debye_catalog_records_match_python() {
+    for (file, identifier, volume, temperature, expected) in [
+        (
+            "copper.eosmat",
+            "copper_fratanduono_2020_vinet3_298k",
+            37.774_468_038_976_8,
+            298.0,
+            52.920_275_050_890_2,
+        ),
+        (
+            "gold.eosmat",
+            "gold_zhu_2025_pvt",
+            54.28,
+            2000.0,
+            80.543_884_929_631_94,
+        ),
+        (
+            "platinum.eosmat",
+            "platinum_zhu_2025_pvt",
+            48.304,
+            2000.0,
+            121.001_850_523_676_92,
+        ),
+        (
+            "mgo.eosmat",
+            "mgo_zhu_2025_pvt",
+            59.768,
+            2000.0,
+            65.725_774_181_661_35,
+        ),
+    ] {
+        let Some(material) = load_bundled_material(file) else {
+            return;
+        };
+        let record = material
+            .eos_records
+            .iter()
+            .find(|record| record.identifier == identifier)
+            .unwrap();
+        assert_close(
+            record.pressure(volume, temperature).unwrap(),
+            expected,
+            1.0e-10,
+        );
+        assert_close(
+            record.volume(expected, temperature).unwrap(),
+            volume,
+            1.0e-9,
+        );
+    }
+}
+
+#[test]
+fn source_data_refit_does_not_require_a_parent_eos_record() {
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    document["eos_records"][0]["record_kind"] = "refit".into();
+    document["datasets"] = serde_json::json!([{
+        "identifier": "primary_observations",
+        "label": "Synthetic compression data",
+        "kind": "compression",
+        "source_location": "Synthetic test table",
+        "used_by_eos_records": ["test_bm3"],
+        "reference": "Test observations",
+        "columns": [{"name": "pressure", "quantity": "pressure", "unit": "GPa", "role": "value"}],
+        "rows": [[0.0]]
+    }]);
+    document["eos_records"][0]["fit_provenance"] =
+        serde_json::json!({"dataset": "primary_observations"});
+    validate_eosmat_document(&document).unwrap();
+    let material = load_eosmat_str(&document.to_string()).unwrap();
+    assert_eq!(material.eos_records.len(), 1);
+    document["eos_records"][0]["fit_provenance"] = serde_json::Value::Null;
+    assert!(validate_eosmat_document(&document).is_err());
+}
+
+#[test]
+fn cubic_vinet_reduces_to_vinet_and_excess_pressure_has_the_published_limit() {
+    use peritheos::isothermal::{Vinet, Vinet3};
+    use peritheos::thermal::{
+        AsymptoticPowerLawMieGruneisenDebye, AsymptoticPowerLawMieGruneisenDebyeExcess,
+    };
+    use peritheos::{IsothermalEos, ThermalEos};
+
+    let reference = Vinet::new(1.0, 160.0, 4.0).unwrap();
+    let cubic = Vinet3::new(1.0, 160.0, 4.5, 0.0, 0.0).unwrap();
+    for volume in [0.5, 0.8, 1.0, 1.1] {
+        assert_close(
+            cubic.pressure(volume).unwrap(),
+            reference.pressure(volume).unwrap(),
+            1.0e-12,
+        );
+        assert_close(
+            cubic.bulk_modulus(volume).unwrap(),
+            reference.bulk_modulus(volume).unwrap(),
+            1.0e-12,
+        );
+    }
+    assert!(cubic.pressure(0.0).is_err());
+    assert!(cubic.bulk_modulus(f64::NAN).is_err());
+    assert!(Vinet3::new(1.0, 160.0, f64::NAN, 0.0, 0.0).is_err());
+    let debye =
+        AsymptoticPowerLawMieGruneisenDebye::new(reference, 300.0, 700.0, 1.5, 0.1, 4.0, 2.0)
+            .unwrap();
+    let excess = AsymptoticPowerLawMieGruneisenDebyeExcess::new(debye, 0.01, 2.0).unwrap();
+    // At V/V0=0.8, beta0=0.01 and m=2, the analytic excess term is 0.728 GPa.
+    assert_close(
+        excess.thermal_pressure(0.8, 1000.0).unwrap()
+            - debye.thermal_pressure(0.8, 1000.0).unwrap(),
+        0.728,
+        1.0e-12,
+    );
+    assert_close(excess.thermal_pressure(0.8, 300.0).unwrap(), 0.0, 1.0e-12);
+    assert!(excess.pressure(0.0, 1000.0).is_err());
+    assert!(excess.pressure(0.8, -1.0).is_err());
+    assert!(AsymptoticPowerLawMieGruneisenDebyeExcess::new(debye, f64::NAN, 2.0).is_err());
 }

@@ -37,8 +37,7 @@ diagnostics. The current campaign finds 197 parity matches and 134 additional nu
 This includes Sakai (2018) rhenium's numerical parity within reported parameter
 error widths, with comparable refit standard errors and an unspecified source
 confidence convention. [67 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, 1 record has a bounded partial
-refit, while 161 records cannot be
+recover at least one published coefficient, while 162 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Two further records are composite reconstructions, and eleven share a source-level
 calibration reconstruction. There are no unresolved extraction or solver failures. The

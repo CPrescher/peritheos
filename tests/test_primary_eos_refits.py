@@ -35,13 +35,11 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 573, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "bounded_partial": 1,
-        "not_refittable": 161,
+        "not_refittable": 162,
         "parity": 197,
         "parity_not_achieved": 67,
-        "reconstructed": 2,
         "similar": 134,
-        "source_reconstruction": 11,
+        "source_reconstruction": 13,
     }
     assert all(
         item.get("reason")
@@ -62,7 +60,9 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     correa_composite = by_identifier["diamond_correa_2008_dewaele_anchored"]
     benedict_composite = by_identifier["diamond_benedict_2014_dewaele_anchored"]
     assert (
-        correa_composite["status"] == benedict_composite["status"] == ("reconstructed")
+        correa_composite["status"]
+        == benedict_composite["status"]
+        == ("source_reconstruction")
     )
     assert correa_composite["composite_coefficient_optimization_performed"] is False
     assert benedict_composite["composite_coefficient_optimization_performed"] is False
@@ -79,7 +79,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert "## Composite reconstructions" in markdown
 
     luo = by_identifier["mgo_b1_luo_2023_vinet_thermal_5"]
-    assert luo["status"] == "bounded_partial"
+    assert luo["status"] == "not_refittable"
     assert luo["dataset_identifiers"] == [
         "mgo_luo_2023_table1_shock",
         "mgo_li_2006_table1_elasticity",
@@ -657,7 +657,8 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     reconstructed = [
         item
         for item in ledger["records"]
-        if item["status"] in {"reconstructed", "bounded_partial"}
+        if item.get("reconstruction_kind") == "derived_reference_isotherm_composition"
+        or item.get("fit_kind") == "sound_velocity_quasi_debye_bounded_partial"
     ]
     assert markdown.count("### `") == len(explained) + len(reconstructed)
     assert all(identifier in markdown for identifier in by_identifier)

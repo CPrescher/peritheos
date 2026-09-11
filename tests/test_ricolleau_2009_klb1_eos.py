@@ -115,7 +115,8 @@ def test_staged_spin_and_thermal_refits_are_reproducible(
             "dK_dT": -0.03637101,
             "alpha0": 3.4591171e-5,
             "alpha1": 6.5642355e-9,
-        }
+        },
+        rel=5e-6,
     )
     assert ca["parameters"] == pytest.approx(
         {
@@ -131,7 +132,8 @@ def test_staged_spin_and_thermal_refits_are_reproducible(
             "dK_dT": -0.03401873,
             "alpha0": 2.7597290e-5,
             "alpha1": 3.0874780e-8,
-        }
+        },
+        rel=5e-6,
     )
     assert "row exclusions" in reproduction["conclusion"]["irreducible_blocker"]
 

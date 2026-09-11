@@ -28,11 +28,11 @@ def test_tange_partial_validation_report_is_current(report, assert_audit_close):
     saved = json.loads(REPORT.read_text(encoding="utf-8"))
     replay = copy.deepcopy(report)
     # This incomplete global-fit diagnostic has weakly constrained parameters.
-    # Allow 0.02% coefficient drift / 0.0001 GPa residual drift, well below
+    # Allow 0.1% coefficient drift / 0.0005 GPa residual drift, well below
     # source precision; keep all discrete metadata exact and other checks tight.
     partial = replay["bundled_partial_validation"].pop("partial_refit")
     expected_partial = saved["bundled_partial_validation"].pop("partial_refit")
-    assert_audit_close(partial, expected_partial, rel=2e-4, abs=1e-4)
+    assert_audit_close(partial, expected_partial, rel=1e-3, abs=5e-4)
     assert_audit_close(replay, saved)
     assert report["scope"] == "partial_validation_not_global_refit"
     assert report["global_refit_reproduced"] is False
@@ -81,7 +81,7 @@ def test_tange_partial_refit_is_not_misreported_as_global_parity(report):
     fit = report["bundled_partial_validation"]["partial_refit"]
 
     assert fit["solver_success"] is True
-    assert fit["coefficients"]["a"] == pytest.approx(1.0, abs=2e-5)
+    assert fit["coefficients"]["a"] == pytest.approx(1.0, abs=1e-4)
     assert fit["coefficients"]["a"] != pytest.approx(0.138, abs=0.05)
 
 

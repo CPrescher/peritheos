@@ -1637,8 +1637,9 @@ gives `V0K=83.8757 A3/cell`, `B0=58.0915 GPa`, and `B'=6.57924`, with
 `chi2=47.7618` for nine degrees of freedom. The unphysical extrapolated
 reference state and large shift from the published `74.0741`, `169.8`, and
 `4.501` are the important result: Luo's new rows plus a low-pressure Li proxy
-do not identify the global parameterization. This is classified
-`bounded_partial`, not parity or a replacement EOS.
+do not identify the global parameterization. The record is classified
+`not_refittable` because a full independent refit is unavailable; this subset
+calculation remains a diagnostic and does not replace the published EOS.
 
 A full source-author refit remains impossible until the exact Kono linear
 coefficients, upstream numerical rows and row mask, residual-unit treatment,

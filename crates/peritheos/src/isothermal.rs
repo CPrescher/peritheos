@@ -899,3 +899,59 @@ pub fn holzapfel_bulk_modulus_derivative_analytical(
         / x.powi(3);
     finite_result((term_1 + term_2 - term_3) / (-bulk_modulus / x) / 3.0)
 }
+
+/// Vinet EOS with a cubic polynomial in the exponential (Fratanduono et al., 2020).
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Vinet3 {
+    /// Reference volume.
+    pub v0: f64,
+    /// Reference bulk modulus.
+    pub k0: f64,
+    /// Linear exponent coefficient.
+    pub eta: f64,
+    /// Quadratic exponent coefficient.
+    pub beta: f64,
+    /// Cubic exponent coefficient.
+    pub psi: f64,
+}
+
+impl Vinet3 {
+    /// Construct the cubic-exponent Vinet model.
+    ///
+    /// # Errors
+    /// Returns an error for nonpositive volume/modulus or nonfinite coefficients.
+    pub fn new(v0: f64, k0: f64, eta: f64, beta: f64, psi: f64) -> EosResult<Self> {
+        Ok(Self {
+            v0: positive_parameter(v0, "V0")?,
+            k0: positive_parameter(k0, "K0")?,
+            eta: finite_parameter(eta, "eta")?,
+            beta: finite_parameter(beta, "beta")?,
+            psi: finite_parameter(psi, "psi")?,
+        })
+    }
+}
+
+impl IsothermalEos for Vinet3 {
+    fn reference_volume(&self) -> f64 {
+        self.v0
+    }
+
+    fn pressure(&self, volume: f64) -> EosResult<f64> {
+        let x = (positive_state(volume, "volume")? / self.v0).cbrt();
+        let y = 1.0 - x;
+        finite_result(
+            3.0 * self.k0 * y / x.powi(2) * (y * (self.eta + y * (self.beta + y * self.psi))).exp(),
+        )
+    }
+
+    fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
+        let x = (positive_state(volume, "volume")? / self.v0).cbrt();
+        let y = 1.0 - x;
+        let slope = self.eta + 2.0 * self.beta * y + 3.0 * self.psi * y.powi(2);
+        finite_result(
+            self.k0 / x.powi(2)
+                * (y * (self.eta + y * (self.beta + y * self.psi))).exp()
+                * (x + 2.0 * y + x * y * slope),
+        )
+    }
+}

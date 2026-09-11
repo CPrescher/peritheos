@@ -90,7 +90,7 @@ uv run python scripts/validate_primary_eos_refits.py
 
 The first command regenerates
 `docs/data/diamond-thermal-composite-reconstruction.json`. The record-level
-ledger classifies both derived records as `reconstructed`, retains the two
+ledger classifies both derived records as `source_reconstruction`, retains the two
 standalone theory records as `not_refittable` at coefficient level, and embeds
 the independent anchor refit, source-model diagnostics, and complete-model
 identity checks.

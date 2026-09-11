@@ -30,6 +30,10 @@ fn hirose_gold_records_load_and_roundtrip_through_native_eosmat() {
     use peritheos::eosmat::load_eosmat_str;
     let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("../../peritheos/data/materials/gold.eosmat");
+    if !path.is_file() {
+        // The published Rust crate does not include the Python material catalog.
+        return;
+    }
     let mut document: serde_json::Value =
         serde_json::from_str(&std::fs::read_to_string(path).unwrap()).unwrap();
     document["eos_records"]

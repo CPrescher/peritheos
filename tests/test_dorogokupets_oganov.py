@@ -134,14 +134,16 @@ def test_bundled_dorogokupets_oganov_pt_record_uses_cell_volume_units():
     )
 
 
-def test_dorogokupets_oganov_pt_audit_artifact_is_current_and_qualified():
+def test_dorogokupets_oganov_pt_audit_artifact_is_current_and_qualified(
+    assert_audit_close,
+):
     expected = build_audit()
     stored = json.loads(
         (
             ROOT / "docs" / "data" / "dorogokupets-oganov-2007-platinum-audit.json"
         ).read_text(encoding="utf-8")
     )
-    assert stored == expected
+    assert_audit_close(expected, stored, rel=1e-10, abs=1e-10)
     assert stored["global_objective"]["status"] == "not_exactly_reconstructible"
     assert stored["exact_reconstructions"]["table_vi"]["rows"] == 28
     assert stored["exact_reconstructions"]["table_vi"]["max_abs_gpa"] < 0.02

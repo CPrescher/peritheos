@@ -841,7 +841,7 @@ def reproduce() -> dict[str, Any]:
             observed_rows = sum(1 for _ in csv.DictReader(stream))
         assert observed_rows == rows
         thermal_datasets[identifier] = {
-            "path": str(path.relative_to(ROOT)),
+            "path": path.relative_to(ROOT).as_posix(),
             "sha256": digest,
             "rows": rows,
         }
@@ -883,7 +883,7 @@ def reproduce() -> dict[str, Any]:
         },
         "datasets": {
             identifier: {
-                "path": str(metadata["path"].relative_to(ROOT)),
+                "path": metadata["path"].relative_to(ROOT).as_posix(),
                 "sha256": metadata["sha256"],
                 "rows": metadata["rows"],
             }

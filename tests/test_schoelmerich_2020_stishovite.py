@@ -49,9 +49,11 @@ def test_table1_is_preserved_without_a_production_eos():
     }
 
 
-def test_deterministic_audit_records_rejection_and_source_checks():
+def test_deterministic_audit_records_rejection_and_source_checks(assert_audit_close):
     result = _load_script().audit()
-    assert json.loads(AUDIT.read_text(encoding="utf-8")) == result
+    assert_audit_close(
+        result, json.loads(AUDIT.read_text(encoding="utf-8")), rel=1e-12, abs=1e-12
+    )
 
     table = result["reported_table"]
     assert table["rankine_hugoniot_pressure_check"][

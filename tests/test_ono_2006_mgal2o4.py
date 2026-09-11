@@ -129,16 +129,22 @@ def test_ono_independent_table_reproduction_and_public_inversion():
 
 
 def test_ono_audit_ledgers_and_direct_candidate_disposition():
-    audit = json.loads((ROOT / "peritheos/data/primary-source-audit.json").read_text())
+    audit = json.loads(
+        (ROOT / "peritheos/data/primary-source-audit.json").read_text(encoding="utf-8")
+    )
     assert len([r for r in audit["records"] if r["record"] == RECORD]) == 1
-    refits = json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())
+    refits = json.loads(
+        (ROOT / "docs/data/primary-eos-refits.json").read_text(encoding="utf-8")
+    )
     refit = next(r for r in refits["records"] if r["record_identifier"] == RECORD)
     assert refit["status"] == "parity"
     assert refit["observations"] == 14
     report = (
         ROOT / "docs/literature-reproductions/ono-2006-mgal2o4-cati2o4.md"
-    ).read_text()
+    ).read_text(encoding="utf-8")
     assert DOI in report
     assert "Citation traces only" in report
     assert "No EOS" in report
-    assert RECORD in (ROOT / "docs/material-eos-candidates.md").read_text()
+    assert RECORD in (ROOT / "docs/material-eos-candidates.md").read_text(
+        encoding="utf-8"
+    )

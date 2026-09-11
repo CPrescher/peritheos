@@ -24,10 +24,34 @@ def _load_script():
     return module
 
 
-def test_dewaele_2019_audit_preserves_partial_reproduction_status():
+def test_dewaele_2019_audit_preserves_partial_reproduction_status(assert_audit_close):
     result = _load_script().reproduce()
 
-    assert json.loads(REFIT_DATA.read_text(encoding="utf-8")) == result
+    stored = json.loads(REFIT_DATA.read_text(encoding="utf-8"))
+    # Subtraction amplifies relative noise in near-zero parameter differences.
+    # Check those against each report's coefficients, then compare fitted
+    # parameters and all remaining metrics at the usual solver precision.
+    for audit in (stored, result):
+        for group in ("row_level_refits", "source_publication_checks"):
+            for record in audit[group].values():
+                for fit in record.values():
+                    if (
+                        not isinstance(fit, dict)
+                        or "absolute_parameter_difference" not in fit
+                    ):
+                        continue
+                    differences = fit.pop("absolute_parameter_difference")
+                    assert differences == pytest.approx(
+                        [
+                            abs(fitted - published)
+                            for fitted, published in zip(
+                                fit["parameters"], record["published_atomic_parameters"]
+                            )
+                        ],
+                        rel=1e-12,
+                        abs=1e-12,
+                    )
+    assert_audit_close(result, stored)
 
     assert result["catalog_record_count"] == 30
     assert len(result["row_level_refits"]) == 28

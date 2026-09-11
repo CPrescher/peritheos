@@ -180,7 +180,7 @@ def reproduce() -> dict[str, Any]:
     for name, filename in DATASETS.items():
         path = DATA / filename
         resources[name] = {
-            "path": str(path.relative_to(ROOT)),
+            "path": path.relative_to(ROOT).as_posix(),
             "rows": len(_rows(name)),
             "sha256": _sha256(path),
         }

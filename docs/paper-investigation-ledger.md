@@ -11,22 +11,19 @@ produce an executable record.
 - **Reproduced:** every executable record from the paper reached `parity` or
   `similar` in the documented independent check.
 - **Partly reproduced:** at least one record was reproduced, while another
-  could not be refitted directly from available row-level evidence.
+  has only a source reconstruction or could not be refitted directly.
 - **Coefficient parity not achieved:** the refit ran, but at least one
   published coefficient was outside both the uncertainty and numerical
   similarity criteria, or a coupled source-level objective had a demonstrably
   different optimum. These are source-fit discrepancies, not software-run
   failures; the record may remain for faithful published-curve provenance.
-- **Bounded partial refit:** a declared primary-row subset or proxy fit runs,
-  but missing source inputs or protocol details prevent an authoritative
-  source-global coefficient comparison.
 - **Direct refit unavailable:** the equation and parameters were audited, but
   independent coefficient recovery was impossible because primary rows, an
   executable calibration, or the original reduction were unavailable or
-  circular.
-- **Coupled source reconstruction:** a shared source-level calibration was
-  reconstructed from linked comparison rows, but omitted upstream rows or
-  weights prevent an independent refit of the catalog EOS coefficients.
+  circular. Qualified subset or proxy fits may still provide diagnostics.
+- **Source reconstruction:** a source calculation or composition of audited
+  equations is reproduced without independently fitting the complete EOS.
+  Component refits and remaining source-input gaps are documented separately.
 - **Withheld/deferred:** investigation did not pass the executable-record
   acceptance gate, so no production EOS was added.
 
@@ -39,13 +36,12 @@ refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 157 |
-| Partly reproduced | 5 |
+| Reproduced | 156 |
+| Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 11 |
 | Coefficient parity not achieved | 14 |
-| Bounded partial refit | 1 |
-| Direct refit unavailable | 52 |
-| Coupled source reconstruction | 1 |
+| Direct refit unavailable | 53 |
+| Source reconstruction | 1 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 88 |
 
@@ -852,14 +848,6 @@ All purported BM4 branches omit K0-double-prime and the inaccessible primary cou
 Evidence: [literature-reproductions/tranche-c-zero-yield-audits.md](literature-reproductions/tranche-c-zero-yield-audits.md).
 
 
-## Papers with bounded partial refits
-
-These **1 paper** account for 1 bounded partial refit.
-
-| Paper | Affected records | Boundary |
-|---|---|---|
-| [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | `mgo_b1_luo_2023_vinet_thermal_5` | A 12-residual primary-row sensitivity fit is executable, but it is not the source global refit: Kono's exact velocity-density regressions, the selected upstream shock/PVT rows, temperature/density error propagation, cross-observable normalization, and covariance are still unavailable. Tables II-III are excluded because they are derived EOS output. |
-
 ## Papers with coefficient discrepancies
 
 These **25 papers** account for all 67 records
@@ -942,7 +930,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **56 papers** contain 161 records for which a
+These **57 papers** contain 162 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -985,6 +973,7 @@ have other records that were reproduced.
 | [Liu et al. (2007)](https://doi.org/10.1088/0953-8984/19/24/246103) | `ca_perovskite_liu_2007_lda_static_bm3` | The source plots its calculated EOS but does not tabulate the energy-volume grid. |
 | [Liu et al. (2010)](https://doi.org/10.1142/s0217984910022391) | `mgsio3_post_perovskite_liu_2010_lda_static_bm3` | Figure 1 plots the EOS, but the underlying calculated E-V points and regression covariance are not tabulated; validation uses the exact printed equation and coefficients. |
 | [Liu et al. (2011)](https://doi.org/10.1088/1674-0068/24/06/703-710) | `bridgmanite_liu_2011_gga_static_bm3` | The calculated 0-150 GPa volume series is plotted in Figure 1 but not tabulated; Table I provides the complete fitted coefficients. |
+| [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | `mgo_b1_luo_2023_vinet_thermal_5` | A 12-residual primary-row sensitivity fit is executable, but it is not the source global refit: Kono's exact velocity-density regressions, the selected upstream shock/PVT rows, temperature/density error propagation, cross-observable normalization, and covariance are still unavailable. Tables II-III are excluded because they are derived EOS output. |
 | [Marcondes et al. (2020)](https://doi.org/10.1103/physrevb.102.104112) | `mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1`, `mg09375fe00625o_marcondes_2020_11nn_ls_bm3_2`, `mg09375fe00625o_marcondes_2020_11nn_ms_bm3_3`, `mg09375fe00625o_marcondes_2020_2nn_hs_bm3_4`, `mg09375fe00625o_marcondes_2020_2nn_ls_bm3_5`, `mg09375fe00625o_marcondes_2020_2nn_ms_bm3_6`, `mg096875fe003125o_marcondes_2020_hs_bm3_1`, `mg096875fe003125o_marcondes_2020_ls_bm3_2` | The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve. |
 | [Marquardt et al. (2009)](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009b_hs_bm3` | EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective. |
 | [Metsue and Tsuchiya (2012)](https://doi.org/10.1111/j.1365-246x.2012.05511.x) | `bridgmanite_metsue_2012_static_bm3_1`, `mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3` | The coefficients and six calculation pressures are stated; row-wise calculated P-V values are not tabulated. The six calculation pressures and full coefficients are stated; row-wise calculated P-V values are not tabulated. Coefficients and calculation pressures are given; row-wise P-V values are not tabulated. |
@@ -1077,7 +1066,7 @@ the primary-source and refit ledgers.
 | [Dewaele et al. (2004)](https://doi.org/10.1103/physrevb.70.094112) | Reproduced | 12 | 12 parity | 12 bundled |
 | [Dewaele et al. (2005), high-pressure metrology abstract](https://doi.org/10.1107/S0108767305096972) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Dewaele et al. (2006)](https://doi.org/10.1103/physrevlett.97.215504) | Partly reproduced | 2 | 1 similar; 1 direct refit unavailable | 2 bundled |
-| [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.77.094106) | Reproduced | 3 | 1 parity; 2 source-equation reconstruction | 3 bundled |
+| [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.77.094106) | Partly reproduced | 3 | 1 parity; 2 source reconstruction | 3 bundled |
 | [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.78.104102) | Reproduced | 2 | 2 similar | 2 bundled |
 | [Dewaele et al. (2012)](https://doi.org/10.1103/physrevb.85.214105) | Reproduced | 4 | 4 similar | 4 bundled |
 | [Dewaele et al. (2015)](https://doi.org/10.1103/physrevb.91.134108) | Reproduced | 2 | 2 parity | 2 bundled |
@@ -1191,7 +1180,7 @@ the primary-source and refit ledgers.
 | [Liu et al. (2010)](https://doi.org/10.1142/s0217984910022391) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Liu et al. (2011)](https://doi.org/10.1088/1674-0068/24/06/703-710) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Lower-mantle MgSiO3 thermoelastic parameter review (1996)](https://doi.org/10.1098/rsta.1996.0053) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | Bounded partial refit | 1 | 1 bounded partial refit | 1 bundled |
+| [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Lv et al. (2020)](https://doi.org/10.2138/am-2020-7279) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Magad-Weiss et al. (2021)](https://doi.org/10.1103/physrevb.103.014101) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Mao et al. (1974)](https://doi.org/10.1029/jb079i008p01165) | Reproduced | 1 | 1 parity | 1 bundled |
@@ -1283,7 +1272,7 @@ the primary-source and refit ledgers.
 | [Singh and Singh (2021), alkaline-earth oxide EOS formulation](https://doi.org/10.12693/aphyspola.140.131) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
 | [Sinogeikin and Bass (1999), MgO elasticity](https://doi.org/10.1103/PhysRevB.59.R14141) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Sinogeikin et al. (2004), MgSiO3 elasticity](https://doi.org/10.1029/2004GL019559) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Sokolova et al. (2013)](https://doi.org/10.1016/j.rgg.2013.01.005) | Coupled source reconstruction | 11 | 11 coupled source reconstruction | 11 parameterization only |
+| [Sokolova et al. (2013)](https://doi.org/10.1016/j.rgg.2013.01.005) | Source reconstruction | 11 | 11 source reconstruction | 11 parameterization only |
 | [Sokolova et al. (2018), MgO-MgSiO3 spreadsheets](https://doi.org/10.1080/08957959.2018.1465056) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Sokolova et al. (2021), Ca-silicate EOS](https://doi.org/10.3390/min11030322) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Solomatova et al. (2016)](https://doi.org/10.2138/am-2016-5510) | Mixed: reproduced and discrepant records | 16 | 8 similar; 4 parity not achieved; 4 direct refit unavailable |  |

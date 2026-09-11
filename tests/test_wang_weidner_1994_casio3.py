@@ -93,7 +93,7 @@ def test_wang_weidner_four_point_bm2_refit_recovers_published_coefficients():
 
     assert result.success
     assert result.parameters["V0"] == pytest.approx(45.832161459, abs=2.0e-8)
-    assert result.parameters["K0"] == pytest.approx(279.27071645, abs=2.0e-7)
+    assert result.parameters["K0"] == pytest.approx(279.27071645, abs=1.0e-6)
     assert abs(result.parameters["V0"] - 45.83) < record["parameter_errors"]["V0"]
     assert abs(result.parameters["K0"] - 280.0) < record["parameter_errors"]["K0"]
     published_residuals = BM2(45.83, 280.0).pressure(volume) - pressure

@@ -19,15 +19,16 @@ use serde_json::Value;
 use crate::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use crate::isothermal::{
     Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
-    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
+    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
 };
 use crate::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DebyeQuadraticThermalPressure, DebyeTemperatureLaw,
-    Dewaele2006, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
-    DoubleDebyeLogMomentHelmholtz, HollandPowellThermalPressure, LinearThermalPressure,
-    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
-    ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters,
-    ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
+    AsymptoticPowerLawMieGruneisenDebye, AsymptoticPowerLawMieGruneisenDebyeExcess,
+    DebyeQuadraticThermalPressure, DebyeTemperatureLaw, Dewaele2006, DorogokupetsOganov2007,
+    DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz, DoubleDebyeLogMomentHelmholtz,
+    HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
+    ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
+    ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -174,6 +175,8 @@ pub enum IsothermalModel {
     SunMorse4(SunMorse4),
     /// Vinet EOS.
     Vinet(Vinet),
+    /// Cubic-exponent Vinet EOS.
+    Vinet3(Vinet3),
 }
 
 impl IsothermalModel {
@@ -196,6 +199,7 @@ impl IsothermalModel {
             Self::SunMorse3(_) => "sun_morse_3",
             Self::SunMorse4(_) => "sun_morse_4",
             Self::Vinet(_) => "vinet",
+            Self::Vinet3(_) => "vinet_3",
         }
     }
 
@@ -218,6 +222,7 @@ impl IsothermalModel {
             Self::SunMorse3(_) => "SunMorse3",
             Self::SunMorse4(_) => "SunMorse4",
             Self::Vinet(_) => "Vinet",
+            Self::Vinet3(_) => "Vinet3",
         }
     }
 }
@@ -240,6 +245,7 @@ macro_rules! dispatch_isothermal {
             IsothermalModel::SunMorse3($model) => $expression,
             IsothermalModel::SunMorse4($model) => $expression,
             IsothermalModel::Vinet($model) => $expression,
+            IsothermalModel::Vinet3($model) => $expression,
         }
     };
 }
@@ -342,6 +348,9 @@ impl ReferenceStateEos for IsothermalModel {
             Self::Vinet(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::Vinet),
+            Self::Vinet3(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::Vinet3),
         }
     }
 }
@@ -571,6 +580,10 @@ impl Hugoniot for HugoniotModel {
 pub enum ThermalModel {
     /// Tange-type asymptotic-power-law Mie--Gruneisen--Debye EOS.
     AsymptoticPowerLawMieGruneisenDebye(AsymptoticPowerLawMieGruneisenDebye<IsothermalModel>),
+    /// Debye EOS with a quadratic-temperature excess term.
+    AsymptoticPowerLawMieGruneisenDebyeExcess(
+        AsymptoticPowerLawMieGruneisenDebyeExcess<IsothermalModel>,
+    ),
     /// Vinet cold curve plus absolute double-Debye Helmholtz contribution.
     DoubleDebyeHelmholtz(DoubleDebyeHelmholtz),
     /// Vinet double-Debye Helmholtz model constrained by the logarithmic moment.
@@ -605,6 +618,7 @@ macro_rules! dispatch_thermal {
     ($self:expr, $model:ident => $expression:expr) => {
         match $self {
             ThermalModel::AsymptoticPowerLawMieGruneisenDebye($model) => $expression,
+            ThermalModel::AsymptoticPowerLawMieGruneisenDebyeExcess($model) => $expression,
             ThermalModel::DoubleDebyeHelmholtz($model) => $expression,
             ThermalModel::DoubleDebyeLogMomentHelmholtz($model) => $expression,
             ThermalModel::Dewaele2006($model) => $expression,
@@ -630,6 +644,9 @@ impl ThermalModel {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(_) => {
                 "asymptotic_power_law_mie_gruneisen_debye"
+            }
+            Self::AsymptoticPowerLawMieGruneisenDebyeExcess(_) => {
+                "asymptotic_power_law_mie_gruneisen_debye_excess"
             }
             Self::DoubleDebyeHelmholtz(_) => "double_debye_helmholtz",
             Self::DoubleDebyeLogMomentHelmholtz(_) => "double_debye_log_moment_helmholtz",
@@ -733,6 +750,9 @@ impl LoadedEos {
         match self {
             Self::Isothermal(model) => model.model_identifier(),
             Self::Thermal(model) => match model {
+                ThermalModel::AsymptoticPowerLawMieGruneisenDebyeExcess(value) => {
+                    value.debye.rt_eos.model_identifier()
+                }
                 ThermalModel::AsymptoticPowerLawMieGruneisenDebye(value) => {
                     value.rt_eos.model_identifier()
                 }
@@ -2014,11 +2034,9 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
             }
         }
         let fit_provenance = record.get("fit_provenance");
-        if record_kind == "refit"
-            && (derived_from.is_none() || !fit_provenance.is_some_and(Value::is_object))
-        {
+        if record_kind == "refit" && !fit_provenance.is_some_and(Value::is_object) {
             return Err(invalid_document(format!(
-                "{location} refit records require derived_from_record and fit_provenance"
+                "{location} refit records require fit_provenance"
             )));
         }
         if record_kind == "derived" {
@@ -2556,6 +2574,7 @@ fn is_molar_volume_model(model: &str) -> bool {
             | "mie_gruneisen_debye"
             | "mie_gruneisen_einstein"
             | "asymptotic_power_law_mie_gruneisen_debye"
+            | "asymptotic_power_law_mie_gruneisen_debye_excess"
             | "double_debye_helmholtz"
             | "double_debye_log_moment_helmholtz"
             | "dewaele_2006"
@@ -2588,6 +2607,9 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "Baonza" => "baonza",
             "AlphaKT" => "thermal_reference_state",
             "AsymptoticPowerLawMieGruneisenDebye" => "asymptotic_power_law_mie_gruneisen_debye",
+            "AsymptoticPowerLawMieGruneisenDebyeExcess" => {
+                "asymptotic_power_law_mie_gruneisen_debye_excess"
+            }
             "DoubleDebyeHelmholtz" => "double_debye_helmholtz",
             "DoubleDebyeLogMomentHelmholtz" => "double_debye_log_moment_helmholtz",
             "Dewaele2006" => "dewaele_2006",
@@ -2621,6 +2643,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "SunMorse3" => "sun_morse_3",
             "SunMorse4" => "sun_morse_4",
             "Vinet" => "vinet",
+            "Vinet3" => "vinet_3",
             "LinearUsUpHugoniot" => "linear_us_up_hugoniot",
             _ => return Err(format!("unknown isothermal type {model_type:?}")),
         }
@@ -2719,6 +2742,10 @@ fn build_isothermal(
         "vinet" => {
             check_type(component, "Vinet")?;
             Vinet::new(v0, p("K0")?, p("K0_prime")?).map(IsothermalModel::Vinet)
+        }
+        "vinet_3" => {
+            check_type(component, "Vinet3")?;
+            Vinet3::new(v0, p("K0")?, p("eta")?, p("beta")?, p("psi")?).map(IsothermalModel::Vinet3)
         }
         _ => return Err(format!("unknown isothermal model {model:?}")),
     };
@@ -3026,6 +3053,22 @@ fn build_thermal(
                 p("n")?,
             )
             .map(ThermalModel::AsymptoticPowerLawMieGruneisenDebye)
+        }
+        "asymptotic_power_law_mie_gruneisen_debye_excess" => {
+            check_type(component, "AsymptoticPowerLawMieGruneisenDebyeExcess")?;
+            let beta0 = p("beta0")?;
+            let m = p("m")?;
+            AsymptoticPowerLawMieGruneisenDebye::new(
+                reference,
+                p("Tr")?,
+                p("theta0")?,
+                p("gamma0")?,
+                p("a")?,
+                p("b")?,
+                p("n")?,
+            )
+            .and_then(|debye| AsymptoticPowerLawMieGruneisenDebyeExcess::new(debye, beta0, m))
+            .map(ThermalModel::AsymptoticPowerLawMieGruneisenDebyeExcess)
         }
         "multi_oscillator_gruneisen_thermal_pressure" => {
             let model_type = component

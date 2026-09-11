@@ -44,10 +44,31 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def test_reconstruction_writer_preserves_git_normalized_bytes(tmp_path):
+def test_reconstruction_writer_preserves_rows_and_lf_endings(
+    tmp_path, assert_audit_close
+):
     output = tmp_path / "reconstruction.csv"
     write_reconstruction(output)
-    assert output.read_bytes() == RECONSTRUCTION.read_bytes()
+
+    # Computed pressure coordinates differ in their final bits across CPUs.
+    # Preserve the CSV structure and source metadata exactly, and compare the
+    # reconstructed numerical columns well below the source precision.
+    def read_rows(path):
+        with path.open(newline="", encoding="utf-8") as handle:
+            reader = csv.DictReader(handle)
+            rows = list(reader)
+            columns = reader.fieldnames
+        for row in rows:
+            for key, value in row.items():
+                try:
+                    row[key] = float(value)
+                except ValueError:
+                    pass
+        return {"columns": columns, "rows": rows}
+
+    assert_audit_close(
+        read_rows(output), read_rows(RECONSTRUCTION), rel=1e-12, abs=1e-10
+    )
     assert b"\r" not in output.read_bytes()
 
 

@@ -347,7 +347,9 @@ def reproduce():
     report = {}
     for material in ("iron", "fe09ni01_hcp", "nacl_b2"):
         doc = json.loads(
-            (ROOT / "peritheos/data/materials" / f"{material}.eosmat").read_text()
+            (ROOT / "peritheos/data/materials" / f"{material}.eosmat").read_text(
+                encoding="utf-8"
+            )
         )
         for r in doc["eos_records"]:
             if belongs(r["identifier"]):
@@ -430,7 +432,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     text = json.dumps(reproduce(), indent=2, ensure_ascii=False, allow_nan=False) + "\n"
     if args.check:
-        if REPORT.read_text() != text:
+        if REPORT.read_text(encoding="utf-8") != text:
             raise SystemExit("Iron source reproduction report is stale")
     else:
         REPORT.write_text(text)

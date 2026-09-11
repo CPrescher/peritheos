@@ -49,8 +49,13 @@ def _record_and_datasets():
     return record, datasets
 
 
-def test_anderson_reproduction_report_is_current():
-    assert json.loads(REPORT.read_text(encoding="utf-8")) == reproduce()
+def test_anderson_reproduction_report_is_current(assert_audit_close):
+    assert_audit_close(
+        reproduce(),
+        json.loads(REPORT.read_text(encoding="utf-8")),
+        rel=1e-12,
+        abs=1e-12,
+    )
 
 
 def test_anderson_source_tables_are_complete_and_checksummed():

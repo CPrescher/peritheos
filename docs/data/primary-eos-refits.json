@@ -3,13 +3,11 @@
   "format_version": 1,
   "generated_with": "scripts/validate_primary_eos_refits.py",
   "policy": {
-    "bounded_partial": "A declared subset/proxy fit is executable from primary rows, but missing source inputs or protocol details prevent an authoritative full-fit comparison.",
-    "not_refittable": "The primary source supplies no direct row-level observations, or the necessary reduction/calibration is not executable.",
+    "not_refittable": "Available observations or source reduction/calibration details are insufficient for an independent full refit. A qualified subset or proxy calculation may still be available as a diagnostic.",
     "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria, or a dedicated partial-source audit cannot reproduce the published coefficient pair.",
-    "reconstructed": "A derived record is reproduced exactly from separately audited source components without optimizing composite coefficients. Any independent component refit and source-data validation are reported separately.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold.",
-    "source_reconstruction": "A coupled source-level calculation is executable, but omitted upstream observations or weights prevent independent recovery of the published EOS coefficients."
+    "source_reconstruction": "A source calculation or composition of audited source equations is reproduced without independently fitting the complete EOS coefficients. Component refits and remaining source-input gaps are documented separately."
   },
   "records": [
     {
@@ -9145,7 +9143,7 @@
       "reconstruction_kind": "derived_reference_isotherm_composition",
       "record_identifier": "diamond_correa_2008_dewaele_anchored",
       "source_notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Correa(V,T)-P_Correa(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Correa's simulated logarithmic-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
-      "status": "reconstructed",
+      "status": "source_reconstruction",
       "thermal_model_validation": {
         "absolute_pressure_bias_gpa": 0.007726312574195697,
         "absolute_pressure_max_abs_residual_gpa": 5.1902427630941474,
@@ -9215,7 +9213,7 @@
       "reconstruction_kind": "derived_reference_isotherm_composition",
       "record_identifier": "diamond_benedict_2014_dewaele_anchored",
       "source_notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Benedict(V,T)-P_Benedict(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Benedict's simulated first-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
-      "status": "reconstructed",
+      "status": "source_reconstruction",
       "thermal_model_validation": {
         "absolute_pressure_bias_gpa": 1.9077043064788057,
         "absolute_pressure_max_abs_residual_gpa": 6.644920907505423,
@@ -27873,7 +27871,7 @@
       "solver_message": "`xtol` termination condition is satisfied.",
       "solver_success": true,
       "source_notes": "This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; four temperatures span 3088-5676 K and three Eulerian sound velocities are reported. The full quasi-Debye equations and inverse-variance objective are reconstructable from Luo et al. (2023) and Xian et al. (2022), and Peritheos implements that mechanism as SoundVelocityDebyeHelmholtz. The source-author numerical rerun is not reconstructable because the Kono velocity-density coefficients, complete upstream row mask, uncertainty propagation across P-V-T observables, and covariance are not published. A bounded 12-residual fit using only Luo Table I primary rows and a declared Li-2006 velocity-ratio proxy is recorded in the refit ledger; it does not replace this published Appendix-B record. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.",
-      "status": "bounded_partial"
+      "status": "not_refittable"
     },
     {
       "comparison_scope": "shared_ruby_calibration",
@@ -39391,13 +39389,11 @@
     }
   ],
   "summary": {
-    "bounded_partial": 1,
-    "not_refittable": 161,
+    "not_refittable": 162,
     "parity": 197,
     "parity_not_achieved": 67,
-    "reconstructed": 2,
     "similar": 134,
-    "source_reconstruction": 11,
+    "source_reconstruction": 13,
     "total": 573
   }
 }

@@ -2,7 +2,7 @@
 
 use crate::isothermal::{
     Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
-    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
+    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
 };
 use crate::quadrature::integrate;
 use crate::root::solve_temperature_function;
@@ -3111,4 +3111,66 @@ fn bose_mode_energy(theta: f64, temperature: f64, dispersion: f64) -> EosResult<
     let thermal_part =
         temperature * theta * dispersion * occupation / (temperature * dispersion + theta);
     finite_result(zero_point + thermal_part)
+}
+
+impl ReferenceStateEos for Vinet3 {
+    fn reference_bulk_modulus(&self) -> f64 {
+        self.k0
+    }
+
+    fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
+        Self::new(volume, bulk_modulus, self.eta, self.beta, self.psi)
+    }
+}
+
+/// Asymptotic-power-law Debye EOS with a volume-dependent quadratic-temperature
+/// excess pressure, referenced to the isotherm temperature (Zhu et al., 2025).
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct AsymptoticPowerLawMieGruneisenDebyeExcess<R> {
+    /// Quasi-harmonic Debye contribution.
+    pub debye: AsymptoticPowerLawMieGruneisenDebye<R>,
+    /// Excess Helmholtz coefficient in J mol^-1 K^-2.
+    pub beta0: f64,
+    /// Excess volume exponent.
+    pub m: f64,
+}
+
+impl<R: IsothermalEos> AsymptoticPowerLawMieGruneisenDebyeExcess<R> {
+    /// Add an excess term to the quasi-harmonic model.
+    ///
+    /// # Errors
+    /// Returns an error for nonfinite excess coefficients.
+    pub fn new(
+        debye: AsymptoticPowerLawMieGruneisenDebye<R>,
+        beta0: f64,
+        m: f64,
+    ) -> EosResult<Self> {
+        Ok(Self {
+            debye,
+            beta0: finite_parameter(beta0, "beta0")?,
+            m: finite_parameter(m, "m")?,
+        })
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for AsymptoticPowerLawMieGruneisenDebyeExcess<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        self.debye.reference_eos()
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.debye.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let debye = self.debye.thermal_pressure(volume, temperature)?;
+        let v0 = self.reference_eos().reference_volume();
+        let excess = 0.5 * self.beta0 * self.m / v0
+            * (volume / v0).powf(self.m - 1.0)
+            * (temperature.powi(2) - self.debye.tr.powi(2))
+            / 1.0e4;
+        finite_result(debye + excess)
+    }
 }

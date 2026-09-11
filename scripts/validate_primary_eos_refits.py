@@ -1850,7 +1850,7 @@ def _luo_2023_bounded_partial_outcome(
     ]
     normalized = residuals(fit.x)
     return {
-        "status": "bounded_partial",
+        "status": "not_refittable",
         "dataset_identifiers": [shock_id, acoustic_id],
         "observations": int(normalized.size),
         "selection": (
@@ -4978,7 +4978,7 @@ def validate_all() -> dict[str, Any]:
                 theory = diamond_reconstruction[source_key]
                 pressure_validation = theory["source_model_pressure_validation"]
                 outcome = {
-                    "status": "reconstructed",
+                    "status": "source_reconstruction",
                     "dataset_identifiers": identifiers,
                     "observations": anchor["observations"]
                     + pressure_validation["observations"],
@@ -5084,25 +5084,16 @@ def validate_all() -> dict[str, Any]:
                 "similarity criteria, or a dedicated partial-source audit cannot "
                 "reproduce the published coefficient pair."
             ),
-            "reconstructed": (
-                "A derived record is reproduced exactly from separately audited "
-                "source components without optimizing composite coefficients. Any "
-                "independent component refit and source-data validation are reported "
-                "separately."
-            ),
-            "bounded_partial": (
-                "A declared subset/proxy fit is executable from primary rows, but "
-                "missing source inputs or protocol details prevent an authoritative "
-                "full-fit comparison."
-            ),
             "not_refittable": (
-                "The primary source supplies no direct row-level observations, or "
-                "the necessary reduction/calibration is not executable."
+                "Available observations or source reduction/calibration details are "
+                "insufficient for an independent full refit. A qualified subset or "
+                "proxy calculation may still be available as a diagnostic."
             ),
             "source_reconstruction": (
-                "A coupled source-level calculation is executable, but omitted "
-                "upstream observations or weights prevent independent recovery of "
-                "the published EOS coefficients."
+                "A source calculation or composition of audited source equations "
+                "is reproduced without independently fitting the complete EOS "
+                "coefficients. Component refits and remaining source-input gaps "
+                "are documented separately."
             ),
         },
         "summary": {"total": len(results), **dict(sorted(counts.items()))},
@@ -5228,13 +5219,10 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         f"The campaign covers all **{summary['total']}** EOS records. "
         f"**{summary.get('parity', 0)}** achieve uncertainty parity, "
         f"**{summary.get('similar', 0)}** are numerically similar, "
-        f"**{summary.get('source_reconstruction', 0)}** have a coupled source "
+        f"**{summary.get('source_reconstruction', 0)}** have a source "
         "reconstruction without an independent EOS refit, "
         f"**[{summary.get('parity_not_achieved', 0)}](#parity-not-achieved)** do not "
         "achieve parity, "
-        f"**[{summary.get('reconstructed', 0)}](#composite-reconstructions)** are "
-        "exact source-equation reconstructions, "
-        f"**{summary.get('bounded_partial', 0)}** have bounded partial refits, "
         f"**{summary.get('not_refittable', 0)}** cannot be directly refitted, and "
         f"**{summary.get('refit_failed', 0)}** attempts failed before comparison.",
         "",
@@ -5251,10 +5239,11 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "standard errors are comparable. Its explicit `parity_basis` preserves this ",
         "distinction: the source confidence convention is unknown, and no formal ",
         "combined-two-sigma result is asserted.",
-        "`source_reconstruction` is deliberately separate: a coupled published ",
-        "calibration can be exercised against source-linked comparison rows, but ",
-        "the EOS coefficients themselves cannot be independently recovered from ",
-        "the observations and weights the publication makes available.",
+        "`source_reconstruction` covers source calculations and compositions of ",
+        "audited equations without an independent refit of the complete EOS. ",
+        "Component refits and remaining source-input gaps are documented separately. ",
+        "`not_refittable` means the available inputs do not support a full independent ",
+        "refit; qualified subset or proxy calculations may still provide diagnostics.",
         "",
         "Fits use the equation and fixed coefficients declared by each record. Published ",
         "row-wise uncertainties are used only when complete and positive; otherwise the ",
@@ -5288,12 +5277,16 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         data = ", ".join(item["dataset_identifiers"]) or item["primary_data_status"]
         reason = item.get("reason") or item.get("qualification")
         outcome = item["status"]
-        if item["status"] in {
-            "similar",
-            "parity_not_achieved",
-            "refit_failed",
-            "reconstructed",
-        }:
+        if (
+            item["status"]
+            in {
+                "similar",
+                "parity_not_achieved",
+                "refit_failed",
+            }
+            or item.get("reconstruction_kind")
+            == "derived_reference_isotherm_composition"
+        ):
             anchor = f"investigation-{item['record_identifier']}"
             outcome = f"[{outcome}](#{anchor})"
         if reason:
@@ -5322,7 +5315,9 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         )
 
     reconstructed = [
-        item for item in ledger["records"] if item["status"] == "reconstructed"
+        item
+        for item in ledger["records"]
+        if item.get("reconstruction_kind") == "derived_reference_isotherm_composition"
     ]
     lines.extend(["", "## Composite reconstructions", ""])
     for item in reconstructed:
@@ -5358,9 +5353,11 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             )
 
     partial = [
-        item for item in ledger["records"] if item["status"] == "bounded_partial"
+        item
+        for item in ledger["records"]
+        if item.get("fit_kind") == "sound_velocity_quasi_debye_bounded_partial"
     ]
-    lines.extend(["", "## Bounded partial refits", ""])
+    lines.extend(["", "## Partial diagnostics for records without a full refit", ""])
     if partial:
         for item in partial:
             parameters = "; ".join(
@@ -5388,7 +5385,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
                 ]
             )
     else:
-        lines.append("No record has a bounded partial refit.")
+        lines.append("No record has a partial diagnostic fit.")
 
     unsuccessful = [
         item

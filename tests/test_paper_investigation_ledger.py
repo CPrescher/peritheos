@@ -1,6 +1,7 @@
 import json
 import subprocess
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,10 +37,20 @@ def test_paper_investigation_ledger_is_complete_and_current():
     assert "| Reproduced |" in ledger
     assert "| Coefficient parity not achieved |" in ledger
     assert "| Direct refit unavailable |" in ledger
-    assert "| Coupled source reconstruction | 1 |" in ledger
+    assert "| Source reconstruction | 1 |" in ledger
     assert "Katsura et al. (2004)" in ledger
     assert "Wang et al. (2026)" in ledger
     assert (
         "Zhang et al. (2025)</a>" not in ledger
         and "3 final-input parity, upstream reduction partial" in ledger
     )
+
+
+def test_source_reconstruction_does_not_count_as_an_independent_paper_refit():
+    from scripts.generate_paper_investigation_ledger import classify
+
+    assert classify(Counter(source_reconstruction=2)) == "source_reconstruction"
+    assert (
+        classify(Counter(parity=1, source_reconstruction=2)) == "partial_reproduction"
+    )
+    assert classify(Counter(not_refittable=1)) == "direct_refit_unavailable"

@@ -19,11 +19,9 @@ OUTPUT_PATH = ROOT / "docs" / "paper-investigation-ledger.md"
 STATUS_LABELS = {
     "parity": "parity",
     "similar": "similar",
-    "reconstructed": "source-equation reconstruction",
     "parity_not_achieved": "parity not achieved",
-    "bounded_partial": "bounded partial refit",
     "not_refittable": "direct refit unavailable",
-    "source_reconstruction": "coupled source reconstruction",
+    "source_reconstruction": "source reconstruction",
 }
 
 OUTCOME_LABELS = {
@@ -31,9 +29,8 @@ OUTCOME_LABELS = {
     "partial_reproduction": "Partly reproduced",
     "mixed_reproduction": "Mixed: reproduced and discrepant records",
     "parity_not_achieved": "Coefficient parity not achieved",
-    "bounded_partial": "Bounded partial refit",
     "direct_refit_unavailable": "Direct refit unavailable",
-    "source_reconstruction": "Coupled source reconstruction",
+    "source_reconstruction": "Source reconstruction",
     "withheld_unreproduced": "Withheld: could not reproduce",
     "deferred_incomplete_model": "Deferred: incomplete source/model mapping",
     "deferred_batch_boundary": "Deferred: complete family queued for next batch",
@@ -79,23 +76,20 @@ def markdown_cell(value: str) -> str:
 
 def classify(statuses: Counter[str]) -> str:
     """Collapse record-level refit results into one paper disposition."""
-    reproduced = statuses["parity"] + statuses["similar"] + statuses["reconstructed"]
+    reproduced = statuses["parity"] + statuses["similar"]
     discrepant = statuses["parity_not_achieved"]
-    bounded = statuses["bounded_partial"]
     unavailable = statuses["not_refittable"]
     reconstructed = statuses["source_reconstruction"]
     if discrepant and reproduced:
         return "mixed_reproduction"
     if discrepant:
         return "parity_not_achieved"
-    if reproduced and unavailable:
+    if reproduced and (unavailable or reconstructed):
         return "partial_reproduction"
     if reproduced:
         return "reproduced"
     if reconstructed:
         return "source_reconstruction"
-    if bounded:
-        return "bounded_partial"
     return "direct_refit_unavailable"
 
 
@@ -216,17 +210,6 @@ def render() -> str:
         for paper in unavailable_papers
         for record in paper["records"]
     )
-    bounded_papers = [
-        paper
-        for paper in catalog_papers
-        if any(record["status"] == "bounded_partial" for record in paper["records"])
-    ]
-    bounded_record_count = sum(
-        record["status"] == "bounded_partial"
-        for paper in bounded_papers
-        for record in paper["records"]
-    )
-
     lines = [
         "# Paper investigation ledger",
         "",
@@ -241,22 +224,19 @@ def render() -> str:
         "- **Reproduced:** every executable record from the paper reached `parity` or",
         "  `similar` in the documented independent check.",
         "- **Partly reproduced:** at least one record was reproduced, while another",
-        "  could not be refitted directly from available row-level evidence.",
+        "  has only a source reconstruction or could not be refitted directly.",
         "- **Coefficient parity not achieved:** the refit ran, but at least one",
         "  published coefficient was outside both the uncertainty and numerical",
         "  similarity criteria, or a coupled source-level objective had a demonstrably",
         "  different optimum. These are source-fit discrepancies, not software-run",
         "  failures; the record may remain for faithful published-curve provenance.",
-        "- **Bounded partial refit:** a declared primary-row subset or proxy fit runs,",
-        "  but missing source inputs or protocol details prevent an authoritative",
-        "  source-global coefficient comparison.",
         "- **Direct refit unavailable:** the equation and parameters were audited, but",
         "  independent coefficient recovery was impossible because primary rows, an",
         "  executable calibration, or the original reduction were unavailable or",
-        "  circular.",
-        "- **Coupled source reconstruction:** a shared source-level calibration was",
-        "  reconstructed from linked comparison rows, but omitted upstream rows or",
-        "  weights prevent an independent refit of the catalog EOS coefficients.",
+        "  circular. Qualified subset or proxy fits may still provide diagnostics.",
+        "- **Source reconstruction:** a source calculation or composition of audited",
+        "  equations is reproduced without independently fitting the complete EOS.",
+        "  Component refits and remaining source-input gaps are documented separately.",
         "- **Withheld/deferred:** investigation did not pass the executable-record",
         "  acceptance gate, so no production EOS was added.",
         "",
@@ -298,36 +278,6 @@ def render() -> str:
                 f"Evidence: [{evidence}]({evidence}).",
                 "",
             ]
-        )
-
-    lines.extend(
-        [
-            "",
-            "## Papers with bounded partial refits",
-            "",
-            f"These **{len(bounded_papers)} "
-            f"{'paper' if len(bounded_papers) == 1 else 'papers'}** account for "
-            f"{bounded_record_count} bounded partial "
-            f"{'refit' if bounded_record_count == 1 else 'refits'}.",
-            "",
-            "| Paper | Affected records | Boundary |",
-            "|---|---|---|",
-        ]
-    )
-    for paper in bounded_papers:
-        bounded = [
-            record
-            for record in paper["records"]
-            if record["status"] == "bounded_partial"
-        ]
-        reasons = []
-        for record in bounded:
-            reason = record["reason"]
-            if reason not in reasons:
-                reasons.append(reason)
-        lines.append(
-            f"| {source_link(paper)} | {record_list(bounded)} | "
-            f"{markdown_cell(' '.join(reasons))} |"
         )
 
     lines.extend(

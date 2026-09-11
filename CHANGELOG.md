@@ -54,62 +54,7 @@ All notable changes to Peritheos are documented here. The project follows
 - Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
   octahedral-tilt branches that lacked diffraction-ready structures. The full
   nine-structure BM3/BM4 coefficient table remains an audit fixture; production
-  retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
-  contains 209 materials and 573 primary-source-validated EOS records.
-
-- Removed all 92 Delta-project benchmark records from the production material
-  catalog: 50 code-specific WIEN2k/FLEUR PBE curves and 42 heterogeneous
-  experimental-reference comparison curves. The associated benchmark-only
-  material cards, packaged datasets, import scripts, reproductions, and tests
-  were also removed.
-- Removed all 220 Sun et al. (2010) source-author universal-EOS benchmark
-  parameterizations and their 49 phase-unresolved material cards. The source
-  parameter table, Morse/Sun-Morse implementations, and equation tests remain
-  as non-catalog benchmark fixtures. The independently refitted, dataset-backed
-  AIP Handbook Cu isotherm remains on its own historical material card.
-- Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
-  octahedral-tilt branches that lacked diffraction-ready structures. The full
-  nine-structure BM3/BM4 coefficient table remains an audit fixture; production
-  retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
-  contains 208 materials and 491 primary-source-validated EOS records.
-
-- Removed all 92 Delta-project benchmark records from the production material
-  catalog: 50 code-specific WIEN2k/FLEUR PBE curves and 42 heterogeneous
-  experimental-reference comparison curves. The associated benchmark-only
-  material cards, packaged datasets, import scripts, reproductions, and tests
-  were also removed.
-- Removed all 220 Sun et al. (2010) source-author universal-EOS benchmark
-  parameterizations and their 49 phase-unresolved material cards. The source
-  parameter table, Morse/Sun-Morse implementations, and equation tests remain
-  as non-catalog benchmark fixtures. The independently refitted, dataset-backed
-  AIP Handbook Cu isotherm remains on its own historical material card.
-- Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
-  octahedral-tilt branches that lacked diffraction-ready structures. The full
-  nine-structure BM3/BM4 coefficient table remains an audit fixture; production
-  retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
-  contains 208 material documents and 486 primary-source-validated EOS records.
-
-- Removed the Schoelmerich et al. (2020) shock-corrected stishovite BM3 record.
-  Its corrected 300 K fit states and complete correction/weighting protocol are
-  not published numerically, so digitizing the fitted figure is not independent
-  reproduction.
-
-- Removed all 92 Delta-project benchmark records from the production material
-  catalog: 50 code-specific WIEN2k/FLEUR PBE curves and 42 heterogeneous
-  experimental-reference comparison curves. The associated benchmark-only
-  material cards, packaged datasets, import scripts, reproductions, and tests
-  were also removed.
-- Removed all 220 Sun et al. (2010) source-author universal-EOS benchmark
-  parameterizations and their 49 phase-unresolved material cards. The source
-  parameter table, Morse/Sun-Morse implementations, and equation tests remain
-  as non-catalog benchmark fixtures. The independently refitted, dataset-backed
-  AIP Handbook Cu isotherm remains on its own historical material card.
-- Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
-  octahedral-tilt branches that lacked diffraction-ready structures. The full
-  nine-structure BM3/BM4 coefficient table remains an audit fixture; production
-  retains the Pm-3m and lowest-energy I4/mcm pairs. After the additional
-  Schoelmerich removal below, the production catalog contains 208 materials and
-  486 primary-source-validated EOS records.
+  retains the Pm-3m and lowest-energy I4/mcm pairs.
 - Removed the Schoelmerich et al. (2020) shock-corrected stishovite BM3 record
   and its Figure 3 digitization. The corrected 300 K fit states and complete
   correction/weighting protocol are not published numerically, so graphically
@@ -117,39 +62,15 @@ All notable changes to Peritheos are documented here. The project follows
   reproduction. The primary Table 1 shock transcription remains as an audit
   fixture rather than a registered EOS dataset.
 
-- Removed all 92 Delta-project benchmark records from the production material
-  catalog: 50 code-specific WIEN2k/FLEUR PBE curves and 42 heterogeneous
-  experimental-reference comparison curves. The associated benchmark-only
-  material cards, packaged datasets, import scripts, reproductions, and tests
-  were also removed.
-- Removed all 220 Sun et al. (2010) source-author universal-EOS benchmark
-  parameterizations and their 49 phase-unresolved material cards. The source
-  parameter table, Morse/Sun-Morse implementations, and equation tests remain
-  as non-catalog benchmark fixtures. The independently refitted, dataset-backed
-  AIP Handbook Cu isotherm remains on its own historical material card.
-- Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
-  octahedral-tilt branches that lacked diffraction-ready structures. The full
-  nine-structure BM3/BM4 coefficient table remains an audit fixture; production
-  retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
-  contains 208 materials and 486 primary-source-validated EOS records.
-
-- Removed all 92 Delta-project benchmark records from the production material
-  catalog: 50 code-specific WIEN2k/FLEUR PBE curves and 42 heterogeneous
-  experimental-reference comparison curves. The associated benchmark-only
-  material cards, packaged datasets, import scripts, reproductions, and tests
-  were also removed.
-- Removed all 220 Sun et al. (2010) source-author universal-EOS benchmark
-  parameterizations and their 49 phase-unresolved material cards. The source
-  parameter table, Morse/Sun-Morse implementations, and equation tests remain
-  as non-catalog benchmark fixtures. The independently refitted, dataset-backed
-  AIP Handbook Cu isotherm remains on its own historical material card.
-- Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
-  octahedral-tilt branches that lacked diffraction-ready structures. The full
-  nine-structure BM3/BM4 coefficient table remains an audit fixture; production
-  retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
-  contains 208 materials and 488 primary-source-validated EOS records.
+The catalog now contains 210 material documents, 209 executable materials,
+and 573 primary-source-validated EOS records.
 
 ### Changed
+
+- Simplified refit outcomes: derived diamond composites now use
+  `source_reconstruction`, and the incomplete Luo MgO full refit uses
+  `not_refittable`. Component checks, partial-fit diagnostics, and numerical
+  results remain available in the record-level evidence.
 
 - Added a typed, checksum-verifying dataset loader for embedded and packaged
   `.eosmat` observations, including unit-aware pressure-volume views and

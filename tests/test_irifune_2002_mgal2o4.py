@@ -88,13 +88,15 @@ def test_irifune_independent_reproduction_and_ledger():
     # 2 GPa envelopes the disclosed scatter, not an invented measurement error.
     for volume, observed in zip((216.1, 213.3, 213.1), (27.4, 32.1, 34.7)):
         assert executable.pressure(volume) == pytest.approx(observed, abs=2.0)
-    ledger = json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())
+    ledger = json.loads(
+        (ROOT / "docs/data/primary-eos-refits.json").read_text(encoding="utf-8")
+    )
     item = next(r for r in ledger["records"] if r["record_identifier"] == RECORD)
     assert item["status"] == "parity"
     assert item["observations"] == 3
     assert item["fixed_parameters"] == ["V0"]
     assert "diagnostic" in item["qualification"]
     candidates = json.loads(
-        (ROOT / "docs/data/litcurate-eos-candidates.json").read_text()
+        (ROOT / "docs/data/litcurate-eos-candidates.json").read_text(encoding="utf-8")
     )
     assert DOI not in json.dumps(candidates)
