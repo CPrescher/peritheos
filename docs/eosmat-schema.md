@@ -69,6 +69,11 @@ scientific provenance. Small tables should be embedded in `rows`, making a
 standalone `.eosmat` self-contained. A large table may instead use a relative,
 checksummed `resource`. Exactly one storage form is allowed.
 
+Use `Material.get_dataset(identifier)` to load these observations as typed,
+read-only columns. See [Loading observation datasets](datasets.md) for resource
+verification, unit conversion, and uncertainty handling, and the
+[dataset API reference](api.md#observation-datasets) for public interfaces.
+
 Each dataset declares a stable `identifier`, `kind`, primary `reference`, exact
 `source_location`, typed `columns`, and the `used_by_eos_records` identifiers.
 Uncertainty columns explicitly identify the value column to which they apply.

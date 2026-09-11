@@ -4,6 +4,10 @@ Material cards can include the observations used to fit or validate their EOS
 records. Peritheos exposes those tables as typed, read-only NumPy columns. The
 same API works for small tables embedded directly in an `.eosmat` document and
 for CSV resources distributed with the package; pandas is not required.
+See the [API reference](api.md#observation-datasets) for signatures, the
+[EOSMAT dataset schema](eosmat-schema.md#primary-experimental-datasets) for the
+storage contract, and [Error handling](error-handling.md) for exception types
+and stable codes.
 
 ## Find and load a dataset
 

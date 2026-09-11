@@ -65,6 +65,52 @@ identifier. A two-value range uses `range_semantics="contains"` by default;
 metadata do not satisfy a range filter. See [Material
 catalog](catalog.md) for signatures and examples.
 
+## Observation datasets
+
+```python
+from peritheos import (
+    Dataset,
+    DatasetColumn,
+    DatasetError,
+    DatasetLookupError,
+    DatasetResource,
+    PressureVolumeData,
+)
+```
+
+`Material.get_dataset(identifier) -> Dataset` loads an observation table from
+embedded rows or a checksummed packaged CSV. `Material.datasets` continues to
+expose raw metadata mappings for discovery and serialization. For external
+resources, use `Dataset.from_mapping(metadata, *, resource_root=None)` with a
+local resource directory; the default root is the package's data directory.
+
+| Interface | Result or metadata |
+|---|---|
+| `len(dataset)` | Number of observation rows |
+| `dataset[name]` | Read-only NumPy array indexed by schema column name |
+| `dataset.get_column(name)` | `DatasetColumn` with `name`, `quantity`, `unit`, `role`, optional `of`, and extension `metadata` |
+| `dataset.find_columns(*, quantity=None, role=None)` | Tuple of matching `DatasetColumn` objects |
+| `dataset.values(name, *, unit=None)` | Read-only array, optionally converted to compatible units |
+| `dataset.as_pressure_volume(*, pressure_unit=None, volume_unit=None, pressure_column=None, volume_column=None)` | `PressureVolumeData` view with pressure/volume arrays, units, associated uncertainties, and uncertainty roles |
+| `dataset.resource` | `DatasetResource` with `path`, `sha256`, `media_type`, and extension `metadata`, or `None` for embedded rows |
+
+`Dataset` also preserves `identifier`, `kind`, `reference`, `source_location`,
+`description`, `notes`, `used_by_eos_records`, and extension `metadata`.
+`checksum_verified` is `True` after resource verification and `None` for
+embedded rows; `source_column_names` retains archived CSV headings.
+`PressureVolumeData.dataset` links back to the loaded table. Its
+`pressure_sigma` and `volume_sigma` aliases are available only for explicitly
+declared standard deviations; other uncertainty roles retain their original
+meaning. Missing numeric cells become `numpy.nan`. Unit conversion preserves
+volume basis and does not infer material-specific basis changes.
+
+Unknown dataset or column names raise `DatasetLookupError`; invalid loading,
+ambiguous selection, checksum failures, and unsupported conversions raise
+`DatasetError`. See [Loading observation datasets](datasets.md) for examples,
+[the dataset schema](eosmat-schema.md#primary-experimental-datasets) for the
+storage contract, and [Error handling](error-handling.md) for exception bases
+and stable codes.
+
 ## Shared `.eosmat` material library
 
 ```python
@@ -141,10 +187,14 @@ coverage.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
-CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 826
-bundled records are
-`primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
-validated records and refuses deferred ones by default; callers can inspect legacy values with
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 573
+bundled records across 209 executable materials are
+`primary_source_validated`; none remains pending or deferred. This status
+records source validation, not numerical refit parity; see
+[Validation](validation.md) for reproduction results and scientific limitations.
+
+`Material.from_eosmat()` constructs validated records and refuses deferred ones
+by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with
 `record_identifiers=(...)`. This opt-in never changes the stored status.
 
@@ -307,7 +357,6 @@ from peritheos.eos.thermal import (
     LogVolumeThermalPressure,
     DebyeQuadraticThermalPressure,
     MieGruneisenDebye,
-    AsymptoticPowerLawMieGruneisenDebyeExcess,
     MieGruneisenEinstein,
     MultiOscillatorGruneisenThermalEOS,
     Sokolova2016,
@@ -324,8 +373,8 @@ Thermal constructor signatures are:
 | Class | Parameters after `rt_eos` |
 |---|---|
 | `AsymptoticPowerLawMieGruneisenDebyeExcess` | `Tr, theta0, gamma0, a, b, n, beta0, m` |
-| `DoubleDebyeHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_1_0, a_1, b_1`, followed by optional `n, alpha0, Ve, kappa, phi0` |
-| `DoubleDebyeLogMomentHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_0_0, a_0, b_0`, followed by optional `n, anharmonic_a, phi0` |
+| `DoubleDebyeHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_1_0, a_1, b_1`, followed by optional `n, alpha0, Ve, kappa, phi0, Tr=None` |
+| `DoubleDebyeLogMomentHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_0_0, a_0, b_0`, followed by optional `n, anharmonic_a, phi0, Tr=None` |
 | `Dewaele2006` | `Tr, theta0, gamma0, gamma_inf, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n` |
 | `DorogokupetsOganov2007` | `Tr`, four oscillator-mode parameter groups, `gamma0, gamma_inf, beta`, anharmonic, electronic, defect, and atom-count terms |
 | `LinearThermalPressure` | `Tr, alpha_KT` |
@@ -333,14 +382,19 @@ Thermal constructor signatures are:
 | `SoundVelocityDebyeHelmholtz` | `Tr, molar_mass_g_mol, n, longitudinal_intercept, longitudinal_slope, shear_intercept, shear_slope` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
 | `DebyeQuadraticThermalPressure` | `Tr, theta0, gamma0, q, n, A, m` |
-| `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"`; volume laws also include `linear_temperature` and `berman` |
+| `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity", bulk_modulus_law="linear_temperature", beta1=0, beta2=0, beta3=0, kprime_log_coefficient=0`; volume laws also include `linear_temperature` and `berman` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen", thermal_pressure_reference="reference_temperature", Cvmax=None` |
 | `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |
 | `HollandPowellThermalPressure` | `Tr, theta, alpha0, n` |
 | `ThermalModifiedTait` | `Tr, theta, alpha0, n` |
 | `MultiOscillatorGruneisenThermalEOS` | `Tr, QE1o, mE1, QE2o, mE2, delta, t, a_0, m, g, e_0`, followed by optional `beta, QBo, d, mb, QB1o, d1, mb1, n` |
 | `Tange2009Debye` | `Tr, theta0, gamma0, a, b, n` |
-| `AsymptoticPowerLawMieGruneisenDebyeExcess` | `Tr, theta0, gamma0, a, b, n, beta0, m` |
+
+`ThermalReferenceStateEOS` also supports `bulk_modulus_law="reciprocal_cubic"`
+with `dK_dT=0` and the `beta1`, `beta2`, and `beta3` coefficients. The optional
+`kprime_log_coefficient` controls the reference modulus pressure derivative
+for supported families. See [Cubic reference compressibility](eosmat-schema.md#cubic-reference-compressibility)
+for the equations, supported reference models, and domain restrictions.
 
 `Sokolova2016` is the compatibility alias for
 `MultiOscillatorGruneisenThermalEOS`.
@@ -362,17 +416,25 @@ requires the reference to implement `bulk_modulus`. `LogVolumeThermalPressure` a
 volume unit consistent with their reference EOS. The second-order Taylor model
 adds absolute thermal pressure to a cold curve; its pressure need not vanish at
 `Tr`, although `thermal_pressure_increment()` is zero there by definition.
-The double-Debye Helmholtz classes instead require a `Vinet` object representing
-the classical 0 K cold curve. Their `thermal_pressure()` is the absolute
-non-cold contribution, including zero-point pressure, rather than a difference
-from a reference temperature. Each additionally exposes `cold_energy()`,
-`zero_point_energy()`, `ion_helmholtz_free_energy()`,
-`anharmonic_helmholtz_free_energy()`, `helmholtz_free_energy()`,
-`ion_pressure()`, and `anharmonic_pressure()`.
-Their ordinary `temperature(P,V)` inversion and DAC
-`temperature_from_volumes()` inversion are supported. For the latter,
-both classes subtract their pressure on the 300 K isotherm so the
-confinement term excludes zero-point and baseline thermal pressure.
+The double-Debye Helmholtz classes require a `Vinet` reference. With the
+constructor default `Tr=None`, it represents the classical 0 K cold curve and
+`thermal_pressure()` is the absolute non-cold contribution, including
+zero-point pressure. Supplying `Tr` instead treats the Vinet curve as an
+isotherm and subtracts the non-cold Helmholtz contribution at that temperature.
+Each class exposes `cold_energy()`, `zero_point_energy()`,
+`ion_helmholtz_free_energy()`, `anharmonic_helmholtz_free_energy()`,
+`helmholtz_free_energy()`, `ion_pressure()`, and `anharmonic_pressure()`.
+The caloric interfaces `ion_internal_energy(V, T)`,
+`anharmonic_internal_energy(V, T)`, and `internal_energy(V, T)` return J/mol;
+`ion_entropy(V, T)`, `anharmonic_entropy(V, T)`, and `entropy(V, T)` return
+J/mol/K. The reference-isotherm subtraction is preserved in total internal
+energy, while fixed-volume energy increments and entropy retain the thermal
+model. The absolute energy zero remains conventional. See the
+[diamond composite audit](literature-reproductions/diamond-dewaele-thermal-composites.md)
+for the distinction between source models and derived anchored composites.
+Ordinary `temperature(P,V)` inversion and DAC `temperature_from_volumes()`
+inversion are supported. DAC increments subtract the pressure at the chosen
+reference temperature (300 K for the default absolute models).
 `ThermalModifiedTait` is the modified-Tait compatibility subclass, and
 `HollandPowell2011` remains its alias. Exact equations and parameter roles are documented
 under [Thermal equations](equation-reference.md#thermal-equations).

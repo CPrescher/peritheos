@@ -27,6 +27,8 @@ the built-in categories used before the hierarchy was introduced, so existing
 | `EosmatError` | `ValidationError` | invalid or unsupported material document |
 | `MaterialError` | `ValidationError` | invalid material or EOS record |
 | `MaterialLookupError` | `KeyError` | unknown material or record identifier |
+| `DatasetError` | `ValidationError` | invalid dataset loading, ambiguous columns, or unsupported conversion |
+| `DatasetLookupError` | `KeyError` | unknown dataset or column identifier |
 
 The classes are available from `peritheos` and `peritheos.errors`. Every
 instance provides:
@@ -61,10 +63,15 @@ as `__cause__` where applicable.
 
 General pure-Python validation uses the domain default, such as
 `eos.invalid_input`, `fit.invalid_input`, or `eosmat.invalid_document`. Native
-EOS and Rust APIs provide the more specific codes below.
+EOS and Rust APIs provide more specific codes; Python dataset loading also
+reports integrity and media-type failures. Examples are listed below.
 
 | Code | Category |
 |---|---|
+| `dataset.invalid` | dataset metadata, column selection, or conversion is invalid |
+| `dataset.not_found` | dataset or column identifier does not exist |
+| `dataset.checksum_mismatch` | resource bytes do not match the declared SHA-256 checksum |
+| `dataset.unsupported_media_type` | resource media type is not supported (currently only `text/csv`) |
 | `eos.invalid_parameter` | model constructor parameter is invalid |
 | `eos.invalid_state` | requested volume, pressure, or temperature is invalid |
 | `eos.outside_invertible_range` | state is outside the supported inverse branch |
@@ -81,6 +88,9 @@ EOS and Rust APIs provide the more specific codes below.
 
 New codes may be added. Existing code should include a broader typed fallback
 instead of assuming this table is exhaustive.
+
+See [Loading observation datasets](datasets.md) for the typed loader and
+[the dataset API](api.md#observation-datasets) for its public interfaces.
 
 ## Rust errors and sources
 
