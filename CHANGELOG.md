@@ -7,8 +7,7 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [0.8.0] - 2026-09-11
 
-Prepared on 2026-09-11; this date and the matching citation date are provisional
-until publication. This release expands the model and dataset APIs and revises
+This release expands the model and dataset APIs and revises
 the scientific catalog. It contains 210 material documents, 209 executable
 materials, and 573 primary-source-validated EOS records. Source validation
 checks the published parameterization; it does not imply independent refit
