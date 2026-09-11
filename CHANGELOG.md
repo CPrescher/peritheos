@@ -5,358 +5,184 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-09-11
+
+Prepared on 2026-09-11; this date and the matching citation date are provisional
+until publication. This release expands the model and dataset APIs and revises
+the scientific catalog. It contains 210 material documents, 209 executable
+materials, and 573 primary-source-validated EOS records. Source validation
+checks the published parameterization; it does not imply independent refit
+parity or a recommendation for every quantitative application.
+
 ### Added
 
-- Added Hirose et al. (2008) gold 300 K and both thermal EOS fits, all 21
-  paired Au/MgO observations, source reproduction, and calibration metadata.
-  Extended the native reference-state EOS with cubic compressibility and a
-  logarithmic temperature dependence of K0′ for the preferred thermal fit.
+- Typed observation loading through `Material.get_dataset()`, `Dataset`,
+  `DatasetColumn`, `DatasetResource`, and `PressureVolumeData`. Embedded and
+  packaged CSV data expose read-only arrays, verified resource checksums,
+  column metadata, unit conversion, and pressure-volume views with reported
+  uncertainties. `DatasetError` and `DatasetLookupError` provide typed failures;
+  the existing raw `Material.datasets` mappings remain available.
+- `EulerianFiniteStrainAcoustic`, `fit_acoustic_finite_strain()`, and
+  `AcousticFitResult` for joint density/P-wave/S-wave velocity fitting,
+  including optional density errors, bounds, robust losses, covariance,
+  adjusted observations, and JSON-safe diagnostics.
+- Python and Rust `Vinet3` and the Fratanduono et al. (2020) 298 K Cu reference
+  record, completing the implementation described prematurely in the 0.7.0
+  notes. Same-run Cu volumes now support Shen–Smith pressure reconstruction;
+  reduced isentropic states are not treated as independent 298 K fit data.
+- Thermal model APIs and `.eosmat` registrations for `Dewaele2006`,
+  `DebyeQuadraticThermalPressure`, `HollandPowellThermalPressure`,
+  `AsymptoticPowerLawMieGruneisenDebyeExcess`, and
+  `SoundVelocityDebyeHelmholtz`. These cover single-Debye iron scales with
+  anharmonic/electronic terms, Fei's quadratic Debye pressure, a composable
+  Holland–Powell thermal term, a quadratic excess free energy, and a
+  sound-velocity-derived Debye model. Native implementations support the first
+  four; the sound-velocity model provides Python thermodynamic and shock-state
+  calculations. `Dewaele2006` includes the exact `gamma_inf=0` limit.
+- `MieGruneisenDebye` reference-isentrope subtraction and optional `Cvmax`,
+  with native support for the BM3 shock-static construction. `Tange2009Debye`
+  exposes `constrained_reference_parameters()` for the source's coupled ambient
+  elastic and heat-capacity constraints.
+- Cubic compressibility (`bulk_modulus_law="reciprocal_cubic"`) and a
+  logarithmic temperature correction to `K0_prime` in `ThermalReferenceStateEOS`,
+  including native evaluation and fitting. The existing linear modulus law
+  remains the default; these laws define a mechanical P-V-T surface.
+- Complete caloric Helmholtz observables for `DorogokupetsOganov2007`, and
+  ionic, anharmonic, and total entropy/internal energy for both double-Debye
+  Helmholtz models, consistent with their reference-isotherm subtractions.
+- The executable `ruby_sokolova_2013` calibration in Python and Rust, with
+  explicit provenance for the Sokolova pressure-scale reconstruction.
+- Primary-source Fe, Fe0.9Ni0.1, and NaCl-B2 records from Brown (2000),
+  Dubrovinsky (2000), Dewaele (2006), Yamazaki (2012), and Sakai (2014): 43
+  published records and 348 observations, with qualified regression audits.
+  Fei et al. (2016) adds two 300 K hcp-Fe BM3 alternatives, its thermal pressure
+  surface, and all 96 supplementary observations; remaining source and partial
+  refit discrepancies are documented.
+- Hirose et al. (2008) Au: the 300 K isotherm, both thermal fits, and all 21
+  paired Au/MgO observations. Sakai et al. (2018) adds the hcp-Re Vinet scale
+  on Yokoo Pt, all 58 Figure 10 vector markers, and a 26-point RP01 refit with
+  coefficient and uncertainty parity; alternate selections remain diagnostics.
+- Source-owned MgSiO3 records from Wang (2004), Zhou (2014), and Komabayashi
+  (2008), MgAl2O4 records from Irifune (2002), Ono (2006), and Sueda (2009),
+  and high-/low-spin ferropericlase records from Fei (2007) and Marquardt
+  (2009). Source-fit alternatives, published errors, staged protocols, and
+  independently derived refits are distinguished in their provenance.
+- Separate Ye et al. (2017) Au/Pt/MgO 300 K standards and Zhu et al. (2025)
+  thermal P-V-T records. The corrected Ye supplements reproduce the printed
+  fits and errors; Zhu's released v3 optimizer/property coefficients and
+  bundled thermal inputs support the thermal reconstruction. Differences
+  from the preprint and standalone calculators remain explicit.
+- Fei et al. (2004) Au/Pt pressure standards, a separately identified Fu
+  CaSiO3 literature-data refit, and Kuznetsov (2002) fcc/hcp Pb reference
+  isotherms. The Pb isotherms do not establish a refit of the unpublished
+  full thermal observation set.
 
-- Added 43 published Fe/Fe0.9Ni0.1/NaCl-B2 records from Brown (2000), Dubrovinsky
-  (2000), Yamazaki (2012), Sakai (2014), and Dewaele (2006), plus 348 primary
-  observations, independent equation checks and qualified regression audits.
-  Added the exact zero-gamma-infinity limit of the existing Debye model.
+### Corrected
 
-- Recovered all 58 Sakai (2018) Figure 10 vector markers and independently
-  refitted the 26 RP01 Yokoo-Pt points. Both rhenium Vinet coefficients agree
-  within the quoted errors; the result is `parity`, with comparable refit
-  standard errors. Alternate row selections and fit objectives are documented.
+- Chen et al. (2018) tetragonal CaSiO3 now uses the source-stated Vinet EOS,
+  replacing `ca_perovskite_tetragonal_chen_2018_bm2` with
+  `ca_perovskite_tetragonal_chen_2018_vinet`. All seven table rows, the Z=4
+  volume normalization, two-sigma errors, and Pt calibration are preserved.
+  Numerical agreement remains qualified because source weights and pressure
+  errors are unavailable; no separate refit record is introduced.
+- Zhao et al. (1997) jadeite now includes its complete 300–1280 K thermal
+  relation and the fitted reference coefficient `V0=403 Å³`, replacing the
+  measured `403.32(8) Å³` table value. The 31 hydrostatic states and Decker
+  NaCl lineage support a qualified refit with unresolved source weighting.
+- Restored the complete Fischer et al. (2011) B1/B8 FeO thermal relations,
+  Anzellini et al. (2025) Ir BM3 plus Holland–Powell thermal EOS, and
+  Mosenfelder et al. (2009) MgSiO3 post-perovskite shock-static EOS. Ir uses
+  the mean pyrometry temperature for its 122 supplementary observations;
+  Mosenfelder's reconstruction uses 48 static states and six PPv shock states.
+- Holmes et al. (1989) Pt now maps the exact published universal-equation
+  coefficients to Vinet parameters instead of using their rounded elastic
+  interpretations. Its approximate thermal extension still uses the published
+  rounded modulus; the seven shock observations qualify the curve rather than
+  independently reproducing the unavailable theoretical fit.
+- The Au/Pt/MgO `*_zhu_2025_vinet_300k` names now resolve as aliases of the
+  source-correct `*_ye_2017_vinet_300k` identifiers. Zhu's thermal models have
+  separate `*_zhu_2025_pvt` identifiers.
+- Source-only cards are skipped by executable catalog enumeration. Coesite-V
+  remains accessible through the document API, but cannot be constructed as
+  a `Material` without an executable EOS.
 
-- Added Sakai et al. (2018)'s hcp-rhenium Vinet EOS on the Yokoo platinum
-  scale, with published errors, calibration provenance, and a documented
-  high-compression pressure reproduction.
+### Scientific evidence and limitations
 
-- Added Fei et al. (2016) hcp-iron: two published 300 K BM3 alternatives,
-  the complete thermal pressure surface, and all 96 supplementary observations.
-  Added native and Python `DebyeQuadraticThermalPressure`, independent
-  equation checks, and explicit partial-refit/source-discrepancy documentation.
+- Consolidated recovered source tables, digitizations, deterministic audits,
+  and record-level refit results. These include Sun (2016/2022) and Noguchi
+  (2013) CaSiO3, Li (2006) acoustic MgO, Noguchi (1999) shock-reduced NiO,
+  Redfern magnesite, Datchi diamond, and MgSiO3 staged fits. Akins (2004)
+  liquid MgSiO3 retains a qualified `similar` source-equation check from three
+  reduced shock states; it does not establish strict fit parity. Published values
+  remain distinct from diagnostic refits. Noguchi's subscription-only table
+  is represented by a row-free reproducibility artifact and local-input script.
+- Dewaele (2019) metal evidence is consolidated without claiming completion of
+  all 30 records. The common ledger classifies 24 records as `similar` using
+  two-ruby-scale refits within the printed 95% intervals, without inferred
+  refit covariance. Recovered Fe EPAPS observations additionally support both
+  scale reductions in the dedicated audit, although the common ledger still
+  reports discrepancies for Fe under its different fitting path.
+- All 41 Lazicki Be helium-run rows are bundled, including the version-of-record
+  `a=2.162 Å` at 24.6 GPa and the superseded manuscript token `2.262 Å` in
+  provenance. The two Be records nevertheless remain `not_refittable` in the
+  current common ledger, and the dedicated audit has not integrated this
+  recovery. The earlier claim that 26 records were linked to completed refits
+  is therefore not the released validation state; neither is the old claim
+  that the Be table is unavailable.
+- hcp-Pb retains 17 tabulated Dewaele rows, 21 digitized Kuznetsov Figure 3
+  markers (seven room-temperature and 14 thermally reduced), and a separate
+  nine-marker selection recovered from Dewaele Figure 2. The 24-point
+  room-temperature combination, 38-point all-marker combination, and 26-point
+  Figure 2 combination are distinct diagnostics. The current common ledger
+  evaluates the 21 Kuznetsov markers alone and reports `parity_not_achieved`;
+  the dedicated metal audit fits the 17 Dewaele rows alone. No combined
+  selection establishes the unpublished original rows, weights, pressure-scale
+  handling, or full-fit parity. Published Pb coefficients are preserved.
+- Anderson Au, Dorogokupets–Oganov Pt, Sokolova's global calibration, and
+  Tange MgO retain qualified component/partial reconstructions rather than
+  claims of complete global-refit parity. The Luo MgO full refit remains
+  `not_refittable`; derived diamond composites use `source_reconstruction`.
+  Funamori (1998) transformation-derived MgAl2O4 curves remain executable
+  source constructions with no statistically independent regression to rerun.
+- Sun (2019) liquid FeSiO3 audits distinguish the 40 liquid and six nonliquid
+  table states and digitized thermal-fit inputs from an exact numerical source
+  regression. Ismailova Fe0.88SiO3, Cohen–Lin FeSiO3, and Dorogokupets (2015)
+  MgSiO3 retain explicit missing-input or fit-protocol limitations. Recovered
+  checkpoints and curve agreement do not establish unavailable source data.
 
-- Added four independently published MgSiO3 EOS records from Wang (2004),
-  Zhou (2014) and Komabayashi (2008), with original-pressure-scale refits that
-  recover the free coefficients within printed uncertainties. Published
-  coefficients and existing defaults are preserved; the PPv thermal refit
-  follows the source's two stages and ambient-expansion constraint.
-- Bundled the source tables and documented the partial Dorogokupets (2015)
-  MgSiO3 reconstruction, including unresolved joint-fit and pressure-scale choices.
+See the [record-level refit ledger](docs/primary-eos-refits.md) and
+[paper investigation ledger](docs/paper-investigation-ledger.md) for the
+qualified outcomes and links to individual reproductions.
 
-### Removed
+### Removed and compatibility
 
-- Removed all 92 Delta-project benchmark records from the production material
-  catalog: 50 code-specific WIEN2k/FLEUR PBE curves and 42 heterogeneous
-  experimental-reference comparison curves. The associated benchmark-only
-  material cards, packaged datasets, import scripts, reproductions, and tests
-  were also removed.
-- Removed all 220 Sun et al. (2010) source-author universal-EOS benchmark
-  parameterizations and their 49 phase-unresolved material cards. The source
-  parameter table, Morse/Sun-Morse implementations, and equation tests remain
-  as non-catalog benchmark fixtures. The independently refitted, dataset-backed
-  AIP Handbook Cu isotherm remains on its own historical material card.
-- Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
-  octahedral-tilt branches that lacked diffraction-ready structures. The full
-  nine-structure BM3/BM4 coefficient table remains an audit fixture; production
-  retains the Pm-3m and lowest-energy I4/mcm pairs.
-- Removed the Schoelmerich et al. (2020) shock-corrected stishovite BM3 record
-  and its Figure 3 digitization. The corrected 300 K fit states and complete
-  correction/weighting protocol are not published numerically, so graphically
-  recovering coefficients from the fitted figure is not independent
-  reproduction. The primary Table 1 shock transcription remains as an audit
-  fixture rather than a registered EOS dataset.
-
-The catalog now contains 210 material documents, 209 executable materials,
-and 573 primary-source-validated EOS records.
-
-### Changed
-
-- Simplified refit outcomes: derived diamond composites now use
-  `source_reconstruction`, and the incomplete Luo MgO full refit uses
-  `not_refittable`. Component checks, partial-fit diagnostics, and numerical
-  results remain available in the record-level evidence.
-
-- Added a typed, checksum-verifying dataset loader for embedded and packaged
-  `.eosmat` observations, including unit-aware pressure-volume views and
-  uncertainty arrays, while retaining the raw `Material.datasets` mappings.
-
-- Reconstructed the staged Anderson et al. (1989) logarithmic-volume thermal
-  gold EOS from all five published numerical tables. The audit preserves the
-  heterogeneous calorimetric, expansivity, and ultrasonic constraint lineage,
-  verifies Equation (29) at all 126 Table V states, documents the Table I 300 K
-  heat-capacity inconsistency, and retains the record as `not_refittable`
-  because the source defines no global regression objective or covariance.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Audited the Dorogokupets--Oganov (2007) platinum pressure scale from its
-  six-material shock, ultrasonic, X-ray, and thermochemical construction.
-  Added the complete caloric Helmholtz observables in Python and Rust, a
-  deterministic evidence ledger, recovered Dewaele/Holmes row-level subsets,
-  and explicit separation of exact checks, partial validation, and unavailable
-  global-fit inputs.
-
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Retained coesite-V as a phase card but demoted its one-anchor reconstructed
-  BM3 curve to structured, non-executable provenance because the source omits
-  `V0` and does not deposit enough numerical states to test the curve.
-- Reconstructed the Mosenfelder et al. (2009) MgSiO3 post-perovskite
-  shock-static inversion from 48 static P-V-T rows and six PPv shock states.
-  `MieGruneisenDebye` now supports a BM3 reference isentrope and an optional
-  fitted high-temperature molar heat-capacity limit.
-
-- Restored Zhao et al.'s complete 300--1280 K jadeite BM3 thermal relation and
-  corrected its fixed EOS reference volume from the observed `403.32(8)` A^3
-  table row to the source's `403` A^3 coefficient. All 31 hydrostatic P-V-T
-  rows are now refitted, the Decker NaCl calibration and source exclusions are
-  explicit, and the remaining unpublished weighting/covariance details are
-  documented in a dedicated audit.
-
-- Removed the Chantel et al. (2012) composite bridgmanite BM3-MGD
-  parameterization from the production EOS catalog. Its acoustic source audit
-  and Table 1 transcription remain as nonproduction evidence. The executable
-  third-order Eulerian density--Vp--Vs model and fitter remain available as a
-  general API.
-- Reclassified the Li et al. (2006) MgO acoustic absolute-pressure BM3 from
-  directly unrefittable to a numerically similar source-data reproduction. The
-  primary ledger now fits the measured density and P/S velocities through the
-  published finite-strain and isothermal-conversion chain while explicitly
-  excluding the derived moduli and calculated pressures.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Preserved Schoelmerich et al. (2020) Table 1 as a CC BY 4.0 audit fixture and
-  documented its Hugoniot reductions and apparent internal-energy unit defect.
-
-- Reclassified Li et al.'s (2006) MgO acoustic absolute-pressure BM3 from
-  directly unrefittable to a qualified `similar` reproduction. The primary
-  ledger now fits the ambient anchor and ten decompression density/VP/VS rows
-  with the source-sanctioned isothermal finite-strain form, converts the fitted
-  coefficients with Equation 4, and explicitly excludes the derived elastic
-  moduli and calculated pressures from the objective.
-- Reconstructed Noguchi et al.'s (1999) NiO shock-to-300 K Debye
-  Mie--Gruneisen reduction from the bundled Hugoniot states. The BM3 record is
-  now a qualified `similar` refit with an executable audit, source conventions,
-  generated-ledger coverage, and regression tests; raw shock P-V states remain
-  explicitly excluded from isothermal fitting.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Corrected Chen et al.'s (2018) tetragonal CaSiO3 record from BM2 to the
-  source-stated Vinet equation, bundled all seven Table 1 refinements with
-  checksum and Pt-scale provenance, and added qualified pressure-, volume-,
-  and propagated-uncertainty refit diagnostics.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Re-audited the three Cohen and Lin (2014) FeSiO3 Pv/PPv/PPv-II Vinet
-  records across APS, UCL, Carnegie, DOI/data indexes, and both arXiv versions.
-  All remain retained published parameterizations and explicitly
-  `not_refittable`; new version-history, 100 GPa structure, and raster-only
-  Figure 3 diagnostics document why no plot-derived rows are promoted to
-  primary observations.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Restored the complete Anzellini et al. (2025) iridium BM3 plus
-  Holland--Powell thermal-pressure EOS. The generic thermal term now composes
-  with a BM3 reference in Python, Rust, fitting, and `.eosmat`; all 122
-  supplementary laser-heating-run observations carry the source-required mean
-  pyrometry temperature, and the refit ledger reports thermal-coefficient
-  parity without treating hot states as 300 K observations.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Retained coesite-V as a phase card but demoted its one-anchor reconstructed
-  BM3 curve to structured, non-executable provenance because the source omits
-  `V0` and does not deposit enough numerical states to test the curve.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Recovered the exact Sun et al. (2019) liquid-FeSiO3 EOS selection from Figure
-  1 marker identities: 40 Table 1 liquid states are now explicitly flagged and
-  six nonliquid states excluded. The refit audit now distinguishes the paper's
-  staged energy/Cv and pressure-energy/gamma regression from a non-source,
-  ill-conditioned thermal-subtraction sensitivity; the missing numerical
-  derivative inputs, rather than phase membership, prevent a direct refit.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Audited Ismailova et al.'s (2016) vacancy-rich Fe0.88SiO3 bridgmanite BM2,
-  bundling all four selected Table S2 crystallographic checkpoints under the
-  source's CC BY-NC 4.0 terms and resolving the Fei-neon pressure lineage. A
-  deterministic diagnostic shows that these rows are not the complete Figure 3
-  fit input, so the record remains explicitly `not_refittable` with the exact
-  missing rows, calibration observations, exclusions, and weights documented.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Preserved Schoelmerich et al. (2020) stishovite Table 1 as a CC BY 4.0 audit
-  fixture. A deterministic source audit verifies the Hugoniot reductions,
-  documents the apparent energy-unit defect, and records why the reported
-  shock-corrected 300 K EOS is not reproducibly cataloged.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Reclassified the Li et al. (2006) MgO acoustic absolute-pressure BM3 from
-  directly unrefittable to a numerically similar source-data reproduction. The
-  primary ledger now fits the measured density and P/S velocities through the
-  published finite-strain and isothermal-conversion chain while explicitly
-  excluding the derived moduli and calculated pressures.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Removed the Chantel et al. (2012) composite bridgmanite BM3-MGD
-  parameterization from the production EOS catalog. Its acoustic source audit
-  and Table 1 transcription remain as nonproduction evidence. The executable
-  third-order Eulerian density--Vp--Vs model and fitter remain available as a
-  general API.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Reconstructed the Mosenfelder et al. (2009) MgSiO3 post-perovskite
-  shock-static inversion from 48 static P-V-T rows and six PPv shock states.
-  `MieGruneisenDebye` now supports a BM3 reference isentrope and an optional
-  fitted high-temperature molar heat-capacity limit.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Restored Zhao et al.'s complete 300--1280 K jadeite BM3 thermal relation and
-  corrected its fixed EOS reference volume from the observed `403.32(8)` A^3
-  table row to the source's `403` A^3 coefficient. All 31 hydrostatic P-V-T
-  rows are now refitted, the Decker NaCl calibration and source exclusions are
-  explicit, and the remaining unpublished weighting/covariance details are
-  documented in a dedicated audit.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Restricted active Kuznetsov Pb validation to the seven identifiable
-  room-temperature markers, combined with Dewaele's 17 tabulated rows. Removed
-  the provisional thermal reconstruction; thermally reduced plot points remain
-  provenance only and are excluded from active observation fits.
-
-- Tested the combined 17-row Dewaele and 21-marker Kuznetsov hcp-Pb data with
-  explicit mixed pressure scales, marker selections, group weights and
-  digitization sensitivity. The general ledger now reports the exploratory
-  38-point fit; published Pb coefficient agreement remains unachieved.
-- Recovered nine Kuznetsov squares directly from Dewaele Figure 2. Their merged
-  26-point fit reproduces the drawn curve but not Table 1, while the newer rows
-  alone reproduce Table 1. Recorded the figure/table mismatch and updated the
-  Pb ledger diagnostic to this plotted selection, preserving published values.
-
-- Linked 26 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. The two Be records use all 41 helium-run
-  rows from Lazicki et al.'s APS version of record, whose authoritative
-  `a=2.162 A` value at 24.6 GPa corrects the superseded accepted-manuscript
-  token `2.262 A`; both source values remain explicit in provenance. Only
-  hcp-Pb retains its documented exact-row source gap.
-
-- Re-audited the Tange et al. (2009) pressure-scale-free MgO Fit 3 record.
-  The model now exposes the source's fixed-ambient constraint calculation;
-  102 redistributable thermal-expansion, elastic, and shock rows, a coupled
-  partial-fit reproduction, provenance, tests, and explicit full-refit blockers
-  are bundled without claiming parity for the unavailable eight-source fit.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Reclassified the Sun et al. (2016) cubic and Sun et al. (2022) tetragonal
-  CaSiO3 EOS records from direct-refit unavailable to uncertainty parity.
-  Source-precision transcriptions now bundle all 144 thermal P-V-T rows and all
-  23 room-temperature P-V/lattice rows, distinguish the 2022 paper's 14
-  reanalyzed 2016 observations from its nine new measurements, reconstruct the
-  Fei et al. Pt calibration dependency, and reproduce the 2016 preferred fit
-  plus both 2022 BM3 alternatives under the inferred unweighted protocol.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
-
-- Reconstructed Noguchi et al.'s (1999) NiO shock-to-300 K Debye
-  Mie--Gruneisen reduction from the bundled Hugoniot states. The BM3 record is
-  now a qualified `similar` refit with an executable audit, source conventions,
-  generated-ledger coverage, and regression tests; raw shock P-V states remain
-  explicitly excluded from isothermal fitting.
-- Linked 24 Dewaele (2019) metal records to their bundled source tables and
-  dedicated two-ruby-scale refits. They are now classified as numerically
-  similar within the source's printed 95% intervals instead of incorrectly
-  appearing as directly unrefittable. Be and hcp-Pb retain their documented
-  source-data gaps.
+- Removed 92 Delta-project benchmark records (50 code-specific PBE curves and
+  42 experimental-reference comparison curves), their benchmark-only cards,
+  datasets, and import/reproduction tooling from the production distribution.
+- Removed 220 Sun et al. (2010) universal-EOS benchmark parameterizations and
+  49 phase-unresolved cards. The numerical source table, Morse/Sun-Morse
+  implementations, and equation tests remain benchmark fixtures; the
+  independently refitted AIP Handbook Cu isotherm retains its own card.
+- Removed 14 Caracas et al. (2005) exploratory CaSiO3 tilt-branch records
+  without diffraction-ready structures. The full nine-structure coefficient
+  table remains an audit fixture; production retains the Pm-3m and I4/mcm pairs.
+- Removed the Chantel (2012) composite bridgmanite EOS and Schoelmerich (2020)
+  shock-corrected stishovite EOS from production, and demoted the one-anchor
+  coesite-V reconstruction to non-executable provenance. Their available source
+  evidence remains; Schoelmerich's fitted-curve digitization is removed because
+  it cannot independently reproduce the unpublished shock correction.
+- Removed identifiers and benchmark resources are no longer available through
+  catalog lookup or package-resource access. Callers must update the Chen
+  identifier and account for the distinction between material documents and
+  executable materials. Ye/Zhu's former isotherm identifiers remain aliases.
+- `.eosmat` stays at format 3, with additional model discriminators and thermal
+  options; older consumers may not construct those models. A `refit` record
+  still requires `fit_provenance`, but may now represent a source-data refit
+  without `derived_from_record`. Existing default thermal conventions and
+  raw dataset mappings are preserved. Rust callers must account for added
+  model/reference enum variants in exhaustive matches and new fields when
+  constructing affected thermal structs directly. The ruby calibration array
+  now has eight entries, which affects fixed seven-element array types.
 
 ## [0.7.0] - 2026-09-07
 
@@ -984,7 +810,8 @@ and 573 primary-source-validated EOS records.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/CPrescher/peritheos/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/CPrescher/peritheos/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/CPrescher/peritheos/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/CPrescher/peritheos/compare/v0.4.0...v0.5.0
