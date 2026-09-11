@@ -51,6 +51,19 @@ def test_dewaele_2019_audit_preserves_partial_reproduction_status(assert_audit_c
                         rel=1e-12,
                         abs=1e-12,
                     )
+    # This nested volume-inversion fit drifts by 1.7e-7 A^3/atom across
+    # supported SciPy/CPU combinations. Bound only its maximum residual in
+    # physical units (below the source's 0.001 A^3 volume precision); retain
+    # the usual coefficient, RMSE, and metadata comparisons everywhere else.
+    platinum = "platinum_dewaele_2019_dor_vinet"
+    volume_fit = "unweighted_volume_residual_fit"
+    actual_max = result["row_level_refits"][platinum][volume_fit].pop(
+        "max_abs_a3_per_atom"
+    )
+    stored_max = stored["row_level_refits"][platinum][volume_fit].pop(
+        "max_abs_a3_per_atom"
+    )
+    assert actual_max == pytest.approx(stored_max, rel=0, abs=5e-7)
     assert_audit_close(result, stored)
 
     assert result["catalog_record_count"] == 30

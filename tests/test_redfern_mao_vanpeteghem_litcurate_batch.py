@@ -93,9 +93,15 @@ def test_redfern_reproduction_has_two_distinct_source_curves():
     assert fixed["pressure_rmse_gpa"] == pytest.approx(0.5222697411)
     assert fixed["observations"] == 18
     assert free["parameters"]["K0"] == pytest.approx(150.77458546)
-    assert free["parameters"]["K0_prime"] == pytest.approx(2.72487469)
+    # Nested volume inversion / finite-difference fits differ by 1.4e-5 on
+    # minimum SciPy. A 1e-5 relative bound is still far below the fitted
+    # one-sigma K0_prime uncertainty (1.345); retain the tighter K0 and
+    # chi-square checks so a changed curve or objective cannot pass unnoticed.
+    assert free["parameters"]["K0_prime"] == pytest.approx(2.72487469, rel=1e-5)
     assert free["observations"] == 9
     assert free["weighted_volume_reduced_chi_square"] == pytest.approx(1.66811664)
+    assert fixed["solver_success"] is True
+    assert free["solver_success"] is True
 
 
 def test_redfern_table1_transcription_is_complete_and_stable():

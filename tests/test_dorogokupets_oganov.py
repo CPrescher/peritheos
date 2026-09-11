@@ -143,6 +143,17 @@ def test_dorogokupets_oganov_pt_audit_artifact_is_current_and_qualified(
             ROOT / "docs" / "data" / "dorogokupets-oganov-2007-platinum-audit.json"
         ).read_text(encoding="utf-8")
     )
+    # Finite-difference optimization is less reproducible than evaluating
+    # published coefficients: CI residual drift reaches 2.3e-8 GPa. Give only
+    # this diagnostic fit solver-scale tolerance; retain 1e-10 for the source
+    # curve, thermodynamic tables, shock calculations, and exact metadata.
+    actual_fit = expected["partial_validations"]["static_diffraction"].pop(
+        "static_only_unweighted_fit"
+    )
+    stored_fit = stored["partial_validations"]["static_diffraction"].pop(
+        "static_only_unweighted_fit"
+    )
+    assert_audit_close(actual_fit, stored_fit, rel=1e-6, abs=1e-8)
     assert_audit_close(expected, stored, rel=1e-10, abs=1e-10)
     assert stored["global_objective"]["status"] == "not_exactly_reconstructible"
     assert stored["exact_reconstructions"]["table_vi"]["rows"] == 28
