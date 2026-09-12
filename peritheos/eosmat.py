@@ -16,6 +16,7 @@ from importlib import resources
 from pathlib import Path
 from typing import Any
 
+from peritheos.catalog_families import _valid_family_id
 from peritheos.errors import EosmatError, MaterialLookupError
 from peritheos.pressure_calibrations import (
     list_pressure_calibrations,
@@ -193,6 +194,8 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
         raise EosmatError("cell_contents must be a string")
     if "identifier" in document and not isinstance(document["identifier"], str):
         raise EosmatError("identifier must be a string")
+    if "family_id" in document and not _valid_family_id(document["family_id"]):
+        raise EosmatError("family_id must be a lower-snake-case identifier")
     if is_canonical:
         if not document.get("identifier"):
             raise EosmatError("Canonical eosmat requires a material identifier")

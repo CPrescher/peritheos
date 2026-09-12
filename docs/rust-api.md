@@ -179,3 +179,11 @@ cargo doc --workspace --all-features --no-deps --open
 
 Start on the `peritheos` landing page in the generated documentation. It
 contains runnable quick starts and links to the model and fitting modules.
+
+## Material family metadata
+
+`Material::family_id()` returns `Option<&str>` from the retained `.eosmat`
+document. The native reader validates the optional identifier and preserves it
+on export, including unknown external families. It does not require a bundled
+family registry or change EOS selection. Family registry lookup and grouped
+catalog discovery are currently Python APIs.

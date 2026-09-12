@@ -11,6 +11,14 @@ All notable changes to Peritheos are documented here. The project follows
   Python, Rust, and `.eosmat` loading, with reference energies consistent
   with pressure in both absolute and reference-temperature modes.
 
+- Optional material family metadata and curated bridgmanite, Mg–Fe monoxide,
+  post-perovskite, phase D, NaAlSiO4 calcium-ferrite type, magnesite, olivine,
+  and garnet families. Python provides family lookup, exact family
+  filters, and grouping of catalog/search results with standalone fallback.
+  Existing material identifiers, flat discovery, and EOS records are preserved.
+  Python and Rust validate and round-trip the optional `.eosmat` `family_id`;
+  Rust exposes `Material::family_id()`.
+
 ## [0.8.0] - 2026-09-11
 
 This release expands the model and dataset APIs and revises

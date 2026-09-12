@@ -19,6 +19,7 @@ import numpy as np
 from scipy.constants import Avogadro, electron_volt
 from scipy.special import ndtri
 
+from peritheos.catalog_families import _valid_family_id
 from peritheos.eos import EosBase, EquationOfState, NumericType, ThermalEOS
 from peritheos.eos.rt import (
     BM2,
@@ -985,8 +986,13 @@ class Material:
         default_factory=dict, compare=False, repr=False
     )
     aliases: tuple[str, ...] = ()
+    family_id: str | None = None
 
     def __post_init__(self) -> None:
+        if self.family_id is not None and not _valid_family_id(self.family_id):
+            raise MaterialError(
+                "family_id must be a lower-snake-case identifier or None"
+            )
         if not self.identifier:
             raise MaterialError("Material identifier must not be empty")
         if not self.eos_records:
@@ -1657,6 +1663,7 @@ def _material_to_eosmat(material: Material) -> dict[str, Any]:
         }
     )
     optional = {
+        "family_id": material.family_id,
         "symmetry": material.symmetry,
         "lattice": material.lattice,
         "formula_units_per_cell": material.formula_units_per_cell,
@@ -2251,6 +2258,7 @@ def _material_from_eosmat(
             ) from error
 
     known_keys = {
+        "family_id",
         "format",
         "format_version",
         "identifier",
@@ -2317,6 +2325,7 @@ def _material_from_eosmat(
             if key not in known_keys
         },
         aliases=tuple(document.get("aliases", ())),
+        family_id=document.get("family_id"),
     )
 
 
@@ -4221,11 +4230,13 @@ def get_material(identifier: str) -> Material:
     return catalog_get_material(identifier)
 
 
-def list_materials(*, formula: str | None = None) -> tuple[Material, ...]:
-    """List all bundled materials, optionally filtered by formula."""
+def list_materials(
+    *, formula: str | None = None, family_id: str | None = None
+) -> tuple[Material, ...]:
+    """List all bundled materials, optionally filtered by formula and family."""
     from peritheos.catalog import list_materials as catalog_list_materials
 
-    return catalog_list_materials(formula=formula)
+    return catalog_list_materials(formula=formula, family_id=family_id)
 
 
 def get_eos_record(identifier: str) -> EOSRecord:

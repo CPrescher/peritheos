@@ -33,6 +33,10 @@
     "formula": {
       "type": "string"
     },
+    "family_id": {
+      "$ref": "#/$defs/identifier",
+      "description": "Optional browsing family identifier. No composition or EOS is selected by membership; external family definitions need not be installed."
+    },
     "phase": {
       "type": "string"
     },

@@ -21,6 +21,7 @@ be conveyed by shape validation alone.
 | `identifier` | yes | Stable lower-snake-case material identifier. |
 | `name` | yes | Human-readable material or phase name. |
 | `formula` | yes | Chemical formula as text. |
+| `family_id` | no | Lower-snake-case browsing family ID; omit when unassigned. No default composition or EOS is implied. |
 | `units` | yes | Fixed public exchange units described below. |
 | `eos_records` | yes | Array of zero or more EOS records. |
 | `phase`, `aliases`, `notes` | no | Additional material identity and description. |
@@ -36,6 +37,14 @@ record.
 
 Unknown optional fields must be preserved by a round-trip-capable reader. They
 must never be treated as Python import paths or executable code.
+
+The optional `family_id` uses the same identifier syntax as material IDs.
+It must be a string when present (`null` is not accepted). Readers validate its
+shape without requiring the family registry: external definitions may be absent.
+The bundled catalog additionally requires every family reference to resolve.
+Python exposes `Material.family_id` (`None` when absent); Rust exposes
+`Material::family_id()`. Both preserve external IDs when exporting. Family
+definitions and grouped discovery are described in [Material catalog](catalog.md).
 
 ## Fixed exchange units
 

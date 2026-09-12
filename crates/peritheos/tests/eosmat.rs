@@ -1175,6 +1175,44 @@ fn cubic_vinet_reduces_to_vinet_and_excess_pressure_has_the_published_limit() {
 }
 
 #[test]
+fn optional_family_metadata_preserves_external_ids_without_changing_eos() {
+    let original = load_eosmat_str(simple_document()).unwrap();
+    assert_eq!(original.family_id(), None);
+    let mut document = original.document.clone();
+    document["family_id"] = "external_family".into();
+    let imported = load_eosmat_str(&serialize_eosmat(&document).unwrap()).unwrap();
+    assert_eq!(imported.family_id(), Some("external_family"));
+    assert_eq!(imported.eos_records, original.eos_records);
+    assert_eq!(imported.document, document);
+    assert_eq!(
+        load_eosmat_str(&imported.to_json().unwrap())
+            .unwrap()
+            .family_id(),
+        Some("external_family")
+    );
+}
+
+#[test]
+fn malformed_family_ids_are_rejected() {
+    for value in [
+        serde_json::Value::Null,
+        serde_json::json!(42),
+        serde_json::json!([]),
+        serde_json::json!(""),
+        serde_json::json!("Upper"),
+        serde_json::json!("two words"),
+        serde_json::json!("a__b"),
+        serde_json::json!("a_"),
+        serde_json::json!("é"),
+    ] {
+        let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+        document["family_id"] = value;
+        let error = validate_eosmat_document(&document).unwrap_err();
+        assert!(error.to_string().contains("family_id"));
+    }
+}
+
+#[test]
 fn double_debye_bm_reference_survives_eosmat_round_trip() {
     use peritheos::eosmat::material_from_value;
     use serde_json::json;

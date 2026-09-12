@@ -299,6 +299,7 @@ def search_eos_records(
     name: str | None = None,
     alias: str | None = None,
     formula: str | None = None,
+    family_id: str | None = None,
     phase: str | None = None,
     model_family: str | None = None,
     doi: str | None = None,
@@ -320,7 +321,10 @@ def search_eos_records(
     any closed-interval overlap. A missing published range never matches a
     range query.
     """
-    from peritheos.catalog import _catalog_index, list_eos_records
+    from peritheos.catalog import _catalog_index, get_material_family, list_eos_records
+
+    if family_id is not None:
+        get_material_family(family_id)
 
     pressure, temperature, statuses = _prepare_filters(
         pressure_gpa=pressure_gpa,
@@ -335,7 +339,11 @@ def search_eos_records(
     return tuple(
         record
         for record in list_eos_records()
-        if _record_matches(
+        if (
+            family_id is None
+            or material_by_record[record.identifier].family_id == family_id
+        )
+        and _record_matches(
             record,
             text=text,
             name=name,
@@ -364,6 +372,7 @@ def search_materials(
     name: str | None = None,
     alias: str | None = None,
     formula: str | None = None,
+    family_id: str | None = None,
     phase: str | None = None,
     model_family: str | None = None,
     doi: str | None = None,
@@ -395,7 +404,7 @@ def search_materials(
         validation_status=validation_status,
     )
     results = []
-    for material in list_materials():
+    for material in list_materials(family_id=family_id):
         material_text = (
             material.identifier,
             material.name or "",

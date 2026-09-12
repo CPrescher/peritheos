@@ -15,6 +15,25 @@ from peritheos import EosError, EosValidationError, PeritheosError
 See [Error handling](error-handling.md) for the complete hierarchy, stable
 codes, Rust error kinds, and source-chain examples.
 
+## Material families
+
+`MaterialFamily(identifier, name, description, formula=None)` describes a
+browsing family. `Material.family_id` is optional; `MaterialGroup(family,
+materials)` carries a family and its matching materials, or one standalone
+material with `family=None`. These types and functions are exported from both
+`peritheos` and `peritheos.catalog`:
+
+- `list_material_families()` returns definitions in identifier order.
+- `get_material_family(identifier)` resolves an exact family ID.
+- `list_materials(family_id=...)` filters membership, optionally with `formula`.
+- `search_materials(family_id=...)` and `search_eos_records(family_id=...)`
+  combine membership with the existing search criteria.
+- `group_materials(materials)` groups any listing or search result without
+  expanding membership or selecting a default material.
+
+See [family browsing](catalog.md#browse-material-families) for consumer examples,
+ordering, error behavior, and imported-material fallback.
+
 ## Materials and EOS records
 
 ```python

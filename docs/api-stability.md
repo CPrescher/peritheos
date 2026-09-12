@@ -74,6 +74,12 @@ In particular, `MieGruneisenDebye` with `debye_temperature_law:
 variable_exponent` cannot fall back to its `integrated_gruneisen` default: the
 characteristic-temperature laws differ for nonzero `q`.
 
+Optional material families are additive discovery metadata. Family IDs have a
+separate lookup namespace; existing material and EOS IDs, aliases and flat
+listing/search results keep their meanings. Applications adopt grouping
+explicitly through `group_materials()`. Membership does not select a default
+composition or alter any numerical record.
+
 ## Compatibility commitments
 
 `volume()` is the preferred pressure-to-volume method. `calculate_volume()` is

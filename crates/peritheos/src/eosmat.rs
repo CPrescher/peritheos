@@ -1125,6 +1125,14 @@ pub struct Material {
 }
 
 impl Material {
+    /// Optional browsing family ID, without selecting a composition or EOS.
+    ///
+    /// Unknown external families are retained without requiring a registry.
+    #[must_use]
+    pub fn family_id(&self) -> Option<&str> {
+        self.document.get("family_id").and_then(Value::as_str)
+    }
+
     /// Find a record by its stable identifier.
     #[must_use]
     pub fn record(&self, identifier: &str) -> Option<&EosRecord> {
@@ -1731,6 +1739,21 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
     }
     for key in ["identifier", "phase", "symmetry", "notes"] {
         validate_optional_string(document, key)?;
+    }
+    if let Some(value) = document.get("family_id") {
+        let valid = value.as_str().is_some_and(|identifier| {
+            identifier.split('_').all(|part| {
+                !part.is_empty()
+                    && part
+                        .bytes()
+                        .all(|byte| byte.is_ascii_lowercase() || byte.is_ascii_digit())
+            })
+        });
+        if !valid {
+            return Err(invalid_document(
+                "family_id must be a lower-snake-case identifier",
+            ));
+        }
     }
     if document
         .get("cell_contents")

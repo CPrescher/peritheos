@@ -298,3 +298,17 @@ the change affects a bundled record or its primary dataset.
 - [ ] Ledgers, manifests, catalog totals, references, user documentation, and
       `CHANGELOG.md` are updated.
 - [ ] All relevant contributor checks pass.
+
+## Assign an optional browsing family
+
+Set `family_id` on a material card only when its documented composition and
+phase fall within a definition in `peritheos/data/material-families.json`.
+Family membership is curated, not inferred from names or formulas. Preserve
+exact composition, phase, structure and provenance on the individual card.
+
+For a new family, add a unique stable `identifier`, `name`, `description` that
+states inclusion/exclusion boundaries, and optionally a descriptive `formula`.
+Do not add a member list: membership is derived from material cards. Leave
+unrelated or uncertain materials unassigned; no single-member family is needed.
+Run the catalog family and `.eosmat` tests after editing membership. Families
+are discovery metadata and do not define mixing or interpolation rules.

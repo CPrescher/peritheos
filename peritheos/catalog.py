@@ -16,6 +16,13 @@ from functools import cache
 from types import MappingProxyType
 from typing import TypeVar
 
+from peritheos.catalog_families import (
+    MaterialFamily,
+    MaterialGroup,
+    get_material_family,
+    group_materials,
+    list_material_families,
+)
 from peritheos.eosmat import get_material_document, list_material_documents
 from peritheos.errors import MaterialError, MaterialLookupError
 from peritheos.materials import EOSRecord, Material
@@ -68,8 +75,17 @@ def _catalog_index() -> _CatalogIndex:
     materials: dict[str, Material] = {}
     records: dict[str, EOSRecord] = {}
     material_by_record: dict[str, Material] = {}
+    families = {family.identifier for family in list_material_families()}
     for document_identifier in list_material_documents():
         document = get_material_document(document_identifier)
+        if (
+            document.get("family_id") is not None
+            and document["family_id"] not in families
+        ):
+            raise MaterialError(
+                f"Bundled material {document_identifier!r} references unknown "
+                f"family {document['family_id']!r}"
+            )
         # Source-only or structure-only cards remain available through the
         # document API but cannot produce an executable Material.
         if not document["eos_records"]:
@@ -192,11 +208,21 @@ def get_eos_record(identifier: str) -> EOSRecord:
     )
 
 
-def list_materials(*, formula: str | None = None) -> tuple[Material, ...]:
-    """List all bundled executable materials in identifier order."""
+def list_materials(
+    *, formula: str | None = None, family_id: str | None = None
+) -> tuple[Material, ...]:
+    """List executable materials in identifier order, optionally within a family.
+
+    Unknown family filters raise MaterialLookupError. None leaves membership
+    unrestricted and retains the historical flat listing.
+    """
+    if family_id is not None:
+        get_material_family(family_id)
     materials = tuple(
         _catalog_index().materials[key] for key in sorted(_catalog_index().materials)
     )
+    if family_id is not None:
+        materials = tuple(item for item in materials if item.family_id == family_id)
     if formula is None:
         return materials
     formula_key = formula.strip().casefold()
@@ -226,12 +252,17 @@ from peritheos.catalog_search import (  # noqa: E402, I001
 
 
 __all__ = [
+    "MaterialFamily",
+    "MaterialGroup",
     "RangeQuery",
     "RangeSemantics",
     "ValidationStatus",
     "get_eos_record",
     "get_material",
+    "get_material_family",
+    "group_materials",
     "list_eos_records",
+    "list_material_families",
     "list_materials",
     "search_eos_records",
     "search_materials",
