@@ -12,11 +12,11 @@ generated rustdoc remains the source for exact types and signatures.
 
 ## Add the crate
 
-For the 0.7 release series:
+For the 0.9 release series:
 
 ```toml
 [dependencies]
-peritheos = "0.7"
+peritheos = "0.9"
 ```
 
 When developing against a local checkout, replace the version with
@@ -179,6 +179,23 @@ cargo doc --workspace --all-features --no-deps --open
 
 Start on the `peritheos` landing page in the generated documentation. It
 contains runnable quick starts and links to the model and fitting modules.
+
+## Double-Debye reference models
+
+`DoubleDebyeHelmholtz<R = Vinet>` and
+`DoubleDebyeLogMomentHelmholtz<R = Vinet>` accept `Vinet`, `BM2`, `BM3`, and
+`BM4` references through `isothermal::ReferenceEnergyEos`. The reference
+energy is consistent with pressure for both the absolute cold-curve mode and
+the reference-isotherm mode. See the
+[equation reference](equation-reference.md#double-debye-helmholtz) for the
+energy definitions and reference-temperature conventions.
+
+Existing concrete Vinet models retain their default type parameter. Since
+0.9.0, the two corresponding `eosmat::ThermalModel` variants contain
+`DoubleDebyeHelmholtz<IsothermalModel>` and
+`DoubleDebyeLogMomentHelmholtz<IsothermalModel>`. Code that constructs or
+destructures those variants directly must handle `IsothermalModel` references
+instead of assuming a concrete `Vinet`.
 
 ## Material family metadata
 

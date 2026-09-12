@@ -435,10 +435,11 @@ requires the reference to implement `bulk_modulus`. `LogVolumeThermalPressure` a
 volume unit consistent with their reference EOS. The second-order Taylor model
 adds absolute thermal pressure to a cold curve; its pressure need not vanish at
 `Tr`, although `thermal_pressure_increment()` is zero there by definition.
-The double-Debye Helmholtz classes require a `Vinet` reference. With the
+The double-Debye Helmholtz classes accept `Vinet`, `BM2`, `BM3`, or `BM4`
+references with matching reference energies. With the
 constructor default `Tr=None`, it represents the classical 0 K cold curve and
 `thermal_pressure()` is the absolute non-cold contribution, including
-zero-point pressure. Supplying `Tr` instead treats the Vinet curve as an
+zero-point pressure. Supplying `Tr` instead treats the reference curve as an
 isotherm and subtracts the non-cold Helmholtz contribution at that temperature.
 Each class exposes `cold_energy()`, `zero_point_energy()`,
 `ion_helmholtz_free_energy()`, `anharmonic_helmholtz_free_energy()`,
