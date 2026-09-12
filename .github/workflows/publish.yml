@@ -141,12 +141,15 @@ jobs:
           import json
           from importlib import resources
           from peritheos import Material, get_material_document, list_material_documents
+          from peritheos import group_materials, list_material_families
           from peritheos.eos.rt import BM3, Baonza
           package = resources.files("peritheos")
           manifest = json.loads(package.joinpath("data", "materials", "manifest.json").read_text())
           identifiers = list_material_documents()
           documents = [get_material_document(identifier) for identifier in identifiers]
           assert package.joinpath("py.typed").is_file()
+          assert package.joinpath("data", "material-families.json").is_file()
+          assert list_material_families()
           assert package.joinpath("data", "datasets", "experimental-metal-eos-batch-47.csv").is_file()
           assert BM3(10, 120, 4).pressure(9) > 0
           assert Baonza(10, 120, 4).pressure(9) > 0
@@ -154,6 +157,7 @@ jobs:
           assert sum(len(document["eos_records"]) for document in documents) == manifest["eos_records"]
           materials = [Material.from_eosmat(document) for document in documents if document["eos_records"]]
           assert sum(len(material.eos_records) for material in materials) == manifest["eos_records"]
+          assert sum(len(group.materials) for group in group_materials(materials)) == len(materials)
           PY
 
       - name: Upload wheel
@@ -234,12 +238,15 @@ jobs:
           import json
           from importlib import resources
           from peritheos import Material, get_material_document, list_material_documents
+          from peritheos import group_materials, list_material_families
           from peritheos.eos.rt import BM3, Baonza
           package = resources.files("peritheos")
           manifest = json.loads(package.joinpath("data", "materials", "manifest.json").read_text())
           identifiers = list_material_documents()
           documents = [get_material_document(identifier) for identifier in identifiers]
           assert package.joinpath("py.typed").is_file()
+          assert package.joinpath("data", "material-families.json").is_file()
+          assert list_material_families()
           assert package.joinpath("data", "datasets", "experimental-metal-eos-batch-47.csv").is_file()
           assert BM3(10, 120, 4).pressure(9) > 0
           assert Baonza(10, 120, 4).pressure(9) > 0
@@ -247,6 +254,7 @@ jobs:
           assert sum(len(document["eos_records"]) for document in documents) == manifest["eos_records"]
           materials = [Material.from_eosmat(document) for document in documents if document["eos_records"]]
           assert sum(len(material.eos_records) for material in materials) == manifest["eos_records"]
+          assert sum(len(group.materials) for group in group_materials(materials)) == len(materials)
           PY
 
   publish:

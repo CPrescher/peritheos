@@ -5,12 +5,17 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-09-12
+
+This release adds Birch–Murnaghan references to the double-Debye Helmholtz
+models and optional material families for catalog browsing. Existing material
+and EOS identifiers, numerical records, and flat discovery remain unchanged.
+
 ### Added
 
 - BM2, BM3, and BM4 references for both double-Debye Helmholtz models in
   Python, Rust, and `.eosmat` loading, with reference energies consistent
   with pressure in both absolute and reference-temperature modes.
-
 - Optional material family metadata and curated bridgmanite, Mg–Fe monoxide,
   post-perovskite, phase D, NaAlSiO4 calcium-ferrite type, magnesite, olivine,
   and garnet families. Python provides family lookup, exact family
@@ -18,6 +23,16 @@ All notable changes to Peritheos are documented here. The project follows
   Existing material identifiers, flat discovery, and EOS records are preserved.
   Python and Rust validate and round-trip the optional `.eosmat` `family_id`;
   Rust exposes `Material::family_id()`.
+
+### Compatibility
+
+- Python's existing Vinet double-Debye constructors remain supported, and
+  `.eosmat` stays at format 3. Older readers cannot load the newly supported
+  Birch–Murnaghan/double-Debye model combinations.
+- Rust double-Debye types now accept a reference-EOS type parameter, defaulting
+  to `Vinet`. The two corresponding `ThermalModel` variants hold models with
+  `IsothermalModel` references; callers constructing or destructuring those
+  variants directly must account for that type change.
 
 ## [0.8.0] - 2026-09-11
 
@@ -823,7 +838,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/CPrescher/peritheos/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/CPrescher/peritheos/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/CPrescher/peritheos/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/CPrescher/peritheos/compare/v0.5.0...v0.6.0
