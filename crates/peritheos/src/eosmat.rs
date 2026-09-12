@@ -19,7 +19,8 @@ use serde_json::Value;
 use crate::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use crate::isothermal::{
     Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
-    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
+    NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SunMorse3, SunMorse4, Vinet, Vinet3, BM2,
+    BM3, BM4,
 };
 use crate::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, AsymptoticPowerLawMieGruneisenDebyeExcess,
@@ -261,6 +262,21 @@ impl IsothermalEos for IsothermalModel {
 
     fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
         dispatch_isothermal!(self, model => model.bulk_modulus(volume))
+    }
+}
+
+impl ReferenceEnergyEos for IsothermalModel {
+    fn reference_energy(&self, volume: f64) -> EosResult<f64> {
+        match self {
+            Self::Vinet(model) => model.reference_energy(volume),
+            Self::BM2(model) => model.reference_energy(volume),
+            Self::BM3(model) => model.reference_energy(volume),
+            Self::BM4(model) => model.reference_energy(volume),
+            _ => Err(EosError::InvalidParameter {
+                name: "rt_eos",
+                reason: "double-Debye requires a Vinet, BM2, BM3, or BM4 reference EOS",
+            }),
+        }
     }
 }
 
@@ -584,10 +600,10 @@ pub enum ThermalModel {
     AsymptoticPowerLawMieGruneisenDebyeExcess(
         AsymptoticPowerLawMieGruneisenDebyeExcess<IsothermalModel>,
     ),
-    /// Vinet cold curve plus absolute double-Debye Helmholtz contribution.
-    DoubleDebyeHelmholtz(DoubleDebyeHelmholtz),
-    /// Vinet double-Debye Helmholtz model constrained by the logarithmic moment.
-    DoubleDebyeLogMomentHelmholtz(DoubleDebyeLogMomentHelmholtz),
+    /// Reference curve plus double-Debye Helmholtz contribution.
+    DoubleDebyeHelmholtz(DoubleDebyeHelmholtz<IsothermalModel>),
+    /// Reference-curve double-Debye Helmholtz model constrained by the logarithmic moment.
+    DoubleDebyeLogMomentHelmholtz(DoubleDebyeLogMomentHelmholtz<IsothermalModel>),
     /// Dewaele et al. (2006) single-Debye hcp-Fe pressure scale.
     Dewaele2006(Dewaele2006<IsothermalModel>),
     /// Dorogokupets--Oganov (2007) four-oscillator Helmholtz model.
@@ -756,8 +772,10 @@ impl LoadedEos {
                 ThermalModel::AsymptoticPowerLawMieGruneisenDebye(value) => {
                     value.rt_eos.model_identifier()
                 }
-                ThermalModel::DoubleDebyeHelmholtz(_)
-                | ThermalModel::DoubleDebyeLogMomentHelmholtz(_) => "vinet",
+                ThermalModel::DoubleDebyeHelmholtz(value) => value.rt_eos.model_identifier(),
+                ThermalModel::DoubleDebyeLogMomentHelmholtz(value) => {
+                    value.rt_eos.model_identifier()
+                }
                 ThermalModel::Dewaele2006(value) => value.rt_eos.model_identifier(),
                 ThermalModel::DorogokupetsOganov2007(value) => value.rt_eos.model_identifier(),
                 ThermalModel::LinearThermalPressure(value) => value.rt_eos.model_identifier(),
@@ -2795,9 +2813,6 @@ fn build_thermal(
     let built = match model {
         "double_debye_helmholtz" => {
             check_type(component, "DoubleDebyeHelmholtz")?;
-            let IsothermalModel::Vinet(reference) = reference else {
-                return Err("double_debye_helmholtz requires a Vinet reference EOS".to_owned());
-            };
             let mut model = DoubleDebyeHelmholtz::new(
                 reference,
                 p("Vp")?,
@@ -2826,11 +2841,6 @@ fn build_thermal(
         }
         "double_debye_log_moment_helmholtz" => {
             check_type(component, "DoubleDebyeLogMomentHelmholtz")?;
-            let IsothermalModel::Vinet(reference) = reference else {
-                return Err(
-                    "double_debye_log_moment_helmholtz requires a Vinet reference EOS".to_owned(),
-                );
-            };
             let mut model = DoubleDebyeLogMomentHelmholtz::new(
                 reference,
                 p("Vp")?,

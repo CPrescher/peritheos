@@ -1,10 +1,10 @@
-"""Tests for the generic Vinet/double-Debye Helmholtz EOS."""
+"""Tests for the generic reference-curve/double-Debye Helmholtz EOS."""
 
 import numpy as np
 import pytest
 from scipy.constants import Avogadro, R, electron_volt
 
-from peritheos.eos.rt import BM3, Vinet
+from peritheos.eos.rt import BM2, BM3, BM4, Murnaghan, Vinet
 from peritheos.eos.thermal import (
     DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz,
@@ -424,10 +424,13 @@ def test_invalid_temperature_is_rejected(diamond_eos, temperature):
         diamond_eos.pressure(diamond_eos.rt_eos.V0, temperature)
 
 
-def test_non_vinet_cold_curve_is_rejected():
-    with pytest.raises(TypeError, match="Vinet cold curve"):
-        DoubleDebyeHelmholtz(
-            BM3(1.0, 100.0, 4.0),
+@pytest.mark.parametrize(
+    "model_type", [DoubleDebyeHelmholtz, DoubleDebyeLogMomentHelmholtz]
+)
+def test_unsupported_cold_curve_is_rejected(model_type):
+    with pytest.raises(TypeError, match="Vinet, BM2, BM3, or BM4"):
+        model_type(
+            Murnaghan(1.0, 100.0, 4.0),
             1.0,
             100.0,
             0.0,
@@ -534,3 +537,68 @@ def test_correa_parameter_reconstruction(correa_diamond_eos):
     assert rebuilt.theta_0_0 == 1900.0
     assert rebuilt.theta_a0 == correa_diamond_eos.theta_a0
     assert rebuilt.rt_eos.K0 == correa_diamond_eos.rt_eos.K0
+
+
+@pytest.mark.parametrize("fixture_name", ["diamond_eos", "correa_diamond_eos"])
+@pytest.mark.parametrize("reference_type", [BM2, BM3, BM4])
+@pytest.mark.parametrize("reference_temperature", [None, 298.0])
+def test_birch_murnaghan_reference_energy_and_thermal_composition(
+    request, fixture_name, reference_type, reference_temperature
+):
+    from scipy.integrate import quad
+
+    source = request.getfixturevalue(fixture_name)
+    reference_parameters = {"V0": source.rt_eos.V0, "K0": 432.4}
+    if reference_type is not BM2:
+        reference_parameters["K0_prime"] = 4.6
+    if reference_type is BM4:
+        reference_parameters["K0_double_prime"] = -0.012
+    reference = reference_type(**reference_parameters)
+    model = type(source)(
+        rt_eos=reference,
+        Tr=reference_temperature,
+        **source.parameter_values(include_reference=False),
+    )
+    volumes = reference.V0 * np.array([0.75, 0.9, 1.0, 1.08])
+    assert model.cold_energy(reference.V0) == pytest.approx(model.phi0)
+    for volume in volumes:
+        integrated_energy = (
+            model.phi0 - 1.0e4 * quad(reference.pressure, reference.V0, volume)[0]
+        )
+        assert model.cold_energy(volume) == pytest.approx(integrated_energy, abs=1e-8)
+
+    step = 1.0e-5 * volumes
+    for temperature in [0.0, 298.0, 2400.0]:
+        numerical_pressure = -(
+            model.helmholtz_free_energy(volumes + step, temperature)
+            - model.helmholtz_free_energy(volumes - step, temperature)
+        ) / (2.0 * step * 1.0e4)
+        np.testing.assert_allclose(
+            model.pressure(volumes, temperature),
+            numerical_pressure,
+            rtol=2.0e-7,
+            atol=2.0e-7,
+        )
+        expected = reference.pressure(volumes) + source.thermal_pressure(
+            volumes, temperature
+        )
+        if reference_temperature is not None:
+            expected -= source.thermal_pressure(volumes, reference_temperature)
+        np.testing.assert_allclose(model.pressure(volumes, temperature), expected)
+
+    if reference_temperature is not None:
+        np.testing.assert_allclose(
+            model.pressure(volumes, reference_temperature), reference.pressure(volumes)
+        )
+        np.testing.assert_allclose(
+            model.thermal_pressure(volumes, reference_temperature), 0.0
+        )
+    volume = 0.9 * reference.V0
+    temperature = 2400.0
+    pressure = model.pressure(volume, temperature)
+    assert model.volume(pressure, temperature) == pytest.approx(volume, rel=1e-9)
+    assert model.temperature(pressure, volume) == pytest.approx(temperature, rel=1e-9)
+    assert model.internal_energy(volume, temperature) == pytest.approx(
+        model.helmholtz_free_energy(volume, temperature)
+        + temperature * model.entropy(volume, temperature)
+    )

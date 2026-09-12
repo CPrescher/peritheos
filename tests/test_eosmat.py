@@ -3004,3 +3004,46 @@ def test_validator_rejects_duplicate_record_id_and_multiple_defaults():
     document["eos_records"][1]["default"] = True
     with pytest.raises(ValueError, match="at most one default"):
         validate_eosmat_document(document)
+
+
+@pytest.mark.parametrize(
+    "identifier",
+    [
+        "diamond_benedict_2014_double_debye_4",
+        "diamond_correa_2008_double_debye_log_moment_5",
+    ],
+)
+@pytest.mark.parametrize("order", [2, 3, 4])
+@pytest.mark.parametrize("reference_temperature", [None, 298.0])
+def test_double_debye_bm_reference_survives_eosmat_round_trip(
+    identifier, order, reference_temperature
+):
+    document = copy.deepcopy(get_material_document("diamond"))
+    source = next(r for r in document["eos_records"] if r["identifier"] == identifier)
+    source["eos"]["type"] = f"BM{order}"
+    source["eos"]["model"] = f"birch_murnaghan_{order}"
+    if order == 2:
+        source["eos"]["parameters"].pop("K0_prime")
+    if order == 4:
+        source["eos"]["parameters"]["K0_double_prime"] = -0.012
+    source["parameter_errors"] = {}
+    source["thermal"]["parameters"]["Tr"] = reference_temperature
+    validate_eosmat_document(document)
+    material = Material.from_eosmat(document, record_identifiers=[identifier])
+    record = material.get_eos_record(identifier)
+    serialized = material.to_eosmat()
+    restored = Material.from_eosmat(serialized).get_eos_record(identifier)
+    assert type(restored.eos.rt_eos).__name__ == f"BM{order}"
+    assert (
+        serialized["eos_records"][0]["thermal"]["parameters"]["Tr"]
+        == reference_temperature
+    )
+    for temperature in [298.0, 2400.0]:
+        pressure = record.pressure(40.0, temperature)
+        assert restored.pressure(40.0, temperature) == pytest.approx(pressure)
+        assert restored.volume(pressure, temperature) == pytest.approx(40.0)
+    if reference_temperature is not None:
+        volume = 40.0 * record.volume_scale
+        assert record.pressure(40.0, reference_temperature) == pytest.approx(
+            record.eos.rt_eos.pressure(volume)
+        )

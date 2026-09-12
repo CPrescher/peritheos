@@ -98,10 +98,13 @@ for every valid volume. Consequently, `rt_eos` must represent the same
 reference temperature supplied as `Tr`. Peritheos does not silently translate
 an isotherm between reference temperatures.
 
-The double-Debye Helmholtz classes are the explicit exceptions: they consume a 0 K
-motionless-ion Vinet cold curve and add absolute ionic (including zero-point)
-and anharmonic free energies. Their cold-curve `V0` therefore must not be
-interpreted as an ambient-temperature zero-pressure volume.
+With `Tr=None`, the double-Debye Helmholtz classes consume a 0 K
+motionless-ion cold curve (`Vinet`, `BM2`, `BM3`, or `BM4`) and add absolute
+ionic (including zero-point) and anharmonic free energies. Their cold-curve
+`V0` therefore must not be interpreted as an ambient-temperature zero-pressure
+volume. With a numeric `Tr`, they instead treat the supplied curve as the
+complete isotherm at that temperature and subtract the non-cold contribution
+there.
 
 ## Shock Hugoniot units and initial states
 

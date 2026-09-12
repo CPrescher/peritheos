@@ -342,9 +342,10 @@ temperature coordinate, not a claim that the reference EOS is an isotherm at
 that temperature.
 
 For the two double-Debye Helmholtz types, `Tr` is always written explicitly.
-`"Tr": null` means that the stored Vinet curve is the motionless-ion 0 K cold
+The reference may be `Vinet`, `BM2`, `BM3`, or `BM4`.
+`"Tr": null` means that the stored reference curve is the motionless-ion 0 K cold
 curve and no non-cold contribution is subtracted. A positive numeric `Tr`
-means that the Vinet curve is the complete isotherm at that temperature; the
+means that the reference curve is the complete isotherm at that temperature; the
 ionic and anharmonic free energy and pressure at `Tr` are subtracted before the
 thermal contribution is added. `null` is not accepted for any other thermal
 parameter or model.

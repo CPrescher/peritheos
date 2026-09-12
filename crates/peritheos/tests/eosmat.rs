@@ -1173,3 +1173,80 @@ fn cubic_vinet_reduces_to_vinet_and_excess_pressure_has_the_published_limit() {
     assert!(excess.pressure(0.8, -1.0).is_err());
     assert!(AsymptoticPowerLawMieGruneisenDebyeExcess::new(debye, f64::NAN, 2.0).is_err());
 }
+
+#[test]
+fn double_debye_bm_reference_survives_eosmat_round_trip() {
+    use peritheos::eosmat::material_from_value;
+    use serde_json::json;
+
+    for order in [2, 3, 4] {
+        for log_moment in [false, true] {
+            for tr in [None, Some(298.0)] {
+                let mut document: serde_json::Value =
+                    serde_json::from_str(simple_document()).unwrap();
+                let record = &mut document["eos_records"][0];
+                record["eos"]["type"] = json!(format!("BM{order}"));
+                record["eos"]["model"] = json!(format!("birch_murnaghan_{order}"));
+                if order == 2 {
+                    record["eos"]["parameters"]
+                        .as_object_mut()
+                        .unwrap()
+                        .remove("K0_prime");
+                } else {
+                    record["eos"]["parameters"]["K0_prime"] = json!(4.6);
+                }
+                if order == 4 {
+                    record["eos"]["parameters"]["K0_double_prime"] = json!(-0.02);
+                }
+                record["volume"] = json!({
+                    "reference_value": 10.0, "public_to_model_scale": 0.11,
+                    "model_unit": "J bar^-1 mol^-1"
+                });
+                let mut parameters = json!({
+                    "Vp": 1.1, "theta_a0": 1000.0, "a_a": 0.1, "b_a": 0.8,
+                    "theta_b0": 2000.0, "a_b": 0.2, "b_b": 1.2,
+                    "n": 2.0, "phi0": -1200.0, "Tr": tr
+                });
+                let (name, model) = if log_moment {
+                    parameters["theta_0_0"] = json!(1400.0);
+                    parameters["a_0"] = json!(0.15);
+                    parameters["b_0"] = json!(1.0);
+                    parameters["anharmonic_a"] = json!(3.8e-5);
+                    (
+                        "DoubleDebyeLogMomentHelmholtz",
+                        "double_debye_log_moment_helmholtz",
+                    )
+                } else {
+                    parameters["theta_1_0"] = json!(1500.0);
+                    parameters["a_1"] = json!(0.15);
+                    parameters["b_1"] = json!(1.0);
+                    parameters["alpha0"] = json!(3.8e-5);
+                    parameters["Ve"] = json!(1.1);
+                    parameters["kappa"] = json!(0.5);
+                    ("DoubleDebyeHelmholtz", "double_debye_helmholtz")
+                };
+                record["thermal"] = json!({"type": name, "model": model, "parameters": parameters});
+                let material = material_from_value(document.clone()).unwrap();
+                let loaded = load_eosmat_str(&material.to_json().unwrap()).unwrap();
+                assert_eq!(loaded.document, document);
+                let record = &loaded.eos_records[0];
+                assert_eq!(
+                    record.eos.isothermal_model_identifier(),
+                    format!("birch_murnaghan_{order}")
+                );
+                let pressure = record.pressure(9.0, 2400.0).unwrap();
+                assert_close(record.volume(pressure, 2400.0).unwrap(), 9.0, 1e-9);
+                if let Some(temperature) = tr {
+                    assert_close(record.pressure(10.0, temperature).unwrap(), 0.0, 1e-12);
+                }
+                // Unsupported families still fail at construction, not during evaluation.
+                document["eos_records"][0]["eos"] = json!({
+                    "type": "Murnaghan", "model": "murnaghan",
+                    "parameters": {"V0": 10.0, "K0": 160.0, "K0_prime": 4.6}
+                });
+                let error = material_from_value(document).unwrap_err();
+                assert!(error.to_string().contains("Vinet, BM2, BM3, or BM4"));
+            }
+        }
+    }
+}

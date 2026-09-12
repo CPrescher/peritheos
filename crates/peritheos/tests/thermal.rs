@@ -1,4 +1,4 @@
-use peritheos::isothermal::{Holzapfel, ModifiedTait, Vinet, BM3};
+use peritheos::isothermal::{Holzapfel, ModifiedTait, ReferenceEnergyEos, Vinet, BM2, BM3, BM4};
 use peritheos::thermal::{
     debye_function_3, AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, Dewaele2006,
     DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
@@ -1150,4 +1150,98 @@ fn shared_python_thermal_compatibility_fixture_matches() {
             }
         }
     }
+}
+
+fn check_double_debye_reference<R: ReferenceEnergyEos + Copy>(reference: R) {
+    let absolute = DoubleDebyeHelmholtz::new(
+        reference, 1.1, 1000.0, 0.1, 0.8, 2000.0, 0.2, 1.2, 1500.0, 0.15, 1.0, 2.0, 3.8e-5, 1.1,
+        0.5, -1200.0,
+    )
+    .unwrap();
+    let log_absolute = DoubleDebyeLogMomentHelmholtz::new(
+        reference, 1.1, 1000.0, 0.1, 0.8, 2000.0, 0.2, 1.2, 1400.0, 0.15, 1.0, 2.0, 3.8e-5, -1200.0,
+    )
+    .unwrap();
+    for tr in [None, Some(298.0)] {
+        let model = tr.map_or(absolute, |t| {
+            absolute.with_reference_temperature(t).unwrap()
+        });
+        let log_model = tr.map_or(log_absolute, |t| {
+            log_absolute.with_reference_temperature(t).unwrap()
+        });
+        assert_close(
+            model.cold_energy(reference.reference_volume()).unwrap(),
+            -1200.0,
+            1e-12,
+        );
+        assert_close(
+            log_model.cold_energy(reference.reference_volume()).unwrap(),
+            -1200.0,
+            1e-12,
+        );
+        for ratio in [0.75, 0.9, 1.0, 1.08] {
+            let volume = ratio * reference.reference_volume();
+            let step = 1e-5 * volume;
+            let cold_pressure = -(model.cold_energy(volume + step).unwrap()
+                - model.cold_energy(volume - step).unwrap())
+                / (2.0 * step * 1e4);
+            assert_close(cold_pressure, reference.pressure(volume).unwrap(), 2e-7);
+            for temperature in [0.0, 298.0, 2400.0] {
+                let pressure = -(model
+                    .helmholtz_free_energy(volume + step, temperature)
+                    .unwrap()
+                    - model
+                        .helmholtz_free_energy(volume - step, temperature)
+                        .unwrap())
+                    / (2.0 * step * 1e4);
+                assert_close(pressure, model.pressure(volume, temperature).unwrap(), 2e-7);
+                let log_pressure = -(log_model
+                    .helmholtz_free_energy(volume + step, temperature)
+                    .unwrap()
+                    - log_model
+                        .helmholtz_free_energy(volume - step, temperature)
+                        .unwrap())
+                    / (2.0 * step * 1e4);
+                assert_close(
+                    log_pressure,
+                    log_model.pressure(volume, temperature).unwrap(),
+                    2e-7,
+                );
+            }
+            if let Some(temperature) = tr {
+                assert_close(
+                    model.pressure(volume, temperature).unwrap(),
+                    reference.pressure(volume).unwrap(),
+                    1e-12,
+                );
+                assert_close(
+                    log_model.pressure(volume, temperature).unwrap(),
+                    reference.pressure(volume).unwrap(),
+                    1e-12,
+                );
+            }
+        }
+        let volume = 0.9 * reference.reference_volume();
+        let pressure = model.pressure(volume, 2400.0).unwrap();
+        assert_close(model.volume(pressure, 2400.0).unwrap(), volume, 1e-9);
+        assert_close(model.temperature(pressure, volume).unwrap(), 2400.0, 1e-9);
+        let log_pressure = log_model.pressure(volume, 2400.0).unwrap();
+        assert_close(
+            log_model.volume(log_pressure, 2400.0).unwrap(),
+            volume,
+            1e-9,
+        );
+        assert_close(
+            log_model.temperature(log_pressure, volume).unwrap(),
+            2400.0,
+            1e-9,
+        );
+    }
+}
+
+#[test]
+fn double_debye_birch_murnaghan_references_preserve_energy_pressure_consistency() {
+    check_double_debye_reference(BM2::new(1.1, 160.0).unwrap());
+    check_double_debye_reference(BM3::new(1.1, 160.0, 4.6).unwrap());
+    check_double_debye_reference(BM4::new(1.1, 160.0, 4.6, -0.02).unwrap());
 }

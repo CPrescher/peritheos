@@ -55,6 +55,12 @@ the absolute simulated free energy or, when their optional `Tr` is supplied,
 add the simulated non-cold contribution relative to `Tr` to an experimental
 reference isotherm.
 
+Both double-Debye models support `Vinet`, `BM2`, `BM3`, and `BM4` with a
+matching reference energy, so total pressure remains the negative volume
+derivative of total Helmholtz energy. The same choices apply in Python, Rust,
+and `.eosmat` files. Changing a published reference curve creates a new
+composition whose accuracy must be checked separately.
+
 The allowed reference EOS depends on the thermal formulation. The
 Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure models
 accept any isothermal `EosBase` model;
@@ -68,8 +74,8 @@ correction instead inherits the reference EOS volume convention.
 
 | Import | Reference EOS | Thermal parameters | Caloric model |
 |---|---|---|---|
-| [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet` 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0`, `Tr` | double Debye + $T^2$ |
-| [`DoubleDebyeLogMomentHelmholtz`](equation-reference.md#logarithmic-moment-double-debye-variant) | `Vinet` 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; cutoff A, cutoff B, and `theta_0` parameter triples; optional `n`, `anharmonic_a`, `phi0`, `Tr` | logarithmic-moment double Debye + $T^2$ |
+| [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet`, `BM2`, `BM3`, or `BM4`: 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0`, `Tr` | double Debye + $T^2$ |
+| [`DoubleDebyeLogMomentHelmholtz`](equation-reference.md#logarithmic-moment-double-debye-variant) | `Vinet`, `BM2`, `BM3`, or `BM4`: 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; cutoff A, cutoff B, and `theta_0` parameter triples; optional `n`, `anharmonic_a`, `phi0`, `Tr` | logarithmic-moment double Debye + $T^2$ |
 | [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `Cvmax`, `debye_temperature_law`, `thermal_pressure_reference` | Debye |
 | [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |

@@ -2,7 +2,8 @@
 
 use crate::isothermal::{
     Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
-    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
+    NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SunMorse3, SunMorse4, Vinet, Vinet3, BM2,
+    BM3, BM4,
 };
 use crate::quadrature::integrate;
 use crate::root::solve_temperature_function;
@@ -1499,16 +1500,16 @@ struct DoubleDebyeModeTerms {
     weight_a_prime: f64,
 }
 
-/// Vinet curve plus a double-Debye Helmholtz contribution.
+/// Reference curve plus a double-Debye Helmholtz contribution.
 ///
-/// When `tr` is `None`, the Vinet member is a motionless-ion 0 K cold curve
+/// When `tr` is `None`, the reference curve is a motionless-ion 0 K cold curve
 /// and [`Self::thermal_pressure`] is an absolute contribution including
-/// zero-point pressure. When `tr` is present, the Vinet member is a complete
+/// zero-point pressure. When `tr` is present, the reference curve is a complete
 /// reference isotherm and the non-cold contribution is rebased to zero at it.
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DoubleDebyeHelmholtz {
-    /// Vinet cold curve, or complete reference isotherm when `tr` is present.
-    pub rt_eos: Vinet,
+pub struct DoubleDebyeHelmholtz<R = Vinet> {
+    /// Reference cold curve, or complete reference isotherm when `tr` is present.
+    pub rt_eos: R,
     /// Characteristic reference volume in J bar^-1 mol^-1.
     pub vp: f64,
     /// First Debye cutoff at `vp`, in kelvin.
@@ -1537,24 +1538,24 @@ pub struct DoubleDebyeHelmholtz {
     pub ve: f64,
     /// Anharmonic volume exponent.
     pub kappa: f64,
-    /// Cold energy at the Vinet reference volume in J mol^-1.
+    /// Cold energy at the reference volume in J mol^-1.
     pub phi0: f64,
     /// Optional complete-reference-isotherm temperature in kelvin.
     pub tr: Option<f64>,
 }
 
-impl DoubleDebyeHelmholtz {
+impl<R: ReferenceEnergyEos> DoubleDebyeHelmholtz<R> {
     /// Conventional temperature used to select the nearest inversion branch.
     pub const REFERENCE_TEMPERATURE: f64 = 300.0;
 
-    /// Construct a Vinet/double-Debye Helmholtz model.
+    /// Construct a double-Debye Helmholtz model with a reference energy.
     ///
     /// # Errors
     ///
     /// Returns an error for invalid or non-finite parameters.
     #[allow(clippy::too_many_arguments, clippy::similar_names)]
     pub fn new(
-        rt_eos: Vinet,
+        rt_eos: R,
         vp: f64,
         theta_a0: f64,
         a_a: f64,
@@ -1571,6 +1572,7 @@ impl DoubleDebyeHelmholtz {
         kappa: f64,
         phi0: f64,
     ) -> EosResult<Self> {
+        rt_eos.reference_energy(rt_eos.reference_volume())?;
         let alpha0 = finite_parameter(alpha0, "alpha0")?;
         if alpha0 < 0.0 {
             return Err(EosError::InvalidParameter {
@@ -1599,7 +1601,7 @@ impl DoubleDebyeHelmholtz {
         })
     }
 
-    /// Rebase the non-cold contribution onto the supplied Vinet isotherm.
+    /// Rebase the non-cold contribution onto the supplied reference isotherm.
     ///
     /// # Errors
     ///
@@ -1731,23 +1733,13 @@ impl DoubleDebyeHelmholtz {
         finite_result(3.0 * GAS_CONSTANT * (4.0 * debye_function_3(ratio)? - 3.0 * occupation))
     }
 
-    /// Return the Vinet cold-curve energy in J mol^-1.
+    /// Return the reference-curve energy in J mol^-1.
     ///
     /// # Errors
     ///
     /// Returns an error for an invalid volume or a non-finite result.
     pub fn cold_energy(&self, volume: f64) -> EosResult<f64> {
-        let volume = positive_state(volume, "volume")?;
-        let delta = self.rt_eos.k0_prime - 1.0;
-        let x = (volume / self.rt_eos.v0).cbrt();
-        let reduced = if delta.abs() < 1.0e-7 {
-            let y = x - 1.0;
-            1.125 * y.powi(2) - 1.125 * delta * y.powi(3)
-        } else {
-            let exponent = 1.5 * delta * (x - 1.0);
-            (-(-exponent).exp_m1() - exponent * (-exponent).exp()) / delta.powi(2)
-        };
-        finite_result(self.phi0 + 4.0 * self.rt_eos.v0 * self.rt_eos.k0 * 1.0e4 * reduced)
+        finite_result(self.phi0 + self.rt_eos.reference_energy(volume)?)
     }
 
     /// Return the weighted double-Debye zero-point energy in J mol^-1.
@@ -1861,10 +1853,10 @@ impl DoubleDebyeHelmholtz {
     }
 }
 
-impl ThermalEos for DoubleDebyeHelmholtz {
-    type Reference = Vinet;
+impl<R: ReferenceEnergyEos> ThermalEos for DoubleDebyeHelmholtz<R> {
+    type Reference = R;
 
-    fn reference_eos(&self) -> &Vinet {
+    fn reference_eos(&self) -> &R {
         &self.rt_eos
     }
 
@@ -1942,7 +1934,7 @@ impl ThermalEos for DoubleDebyeHelmholtz {
     }
 }
 
-impl CaloricEos for DoubleDebyeHelmholtz {
+impl<R: ReferenceEnergyEos> CaloricEos for DoubleDebyeHelmholtz<R> {
     fn molar_heat_capacity_v(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         let terms = self.mode_terms(volume)?;
         finite_result(
@@ -1957,15 +1949,15 @@ impl CaloricEos for DoubleDebyeHelmholtz {
     }
 }
 
-/// Vinet/double-Debye Helmholtz EOS constrained by the logarithmic phonon moment.
+/// Double-Debye Helmholtz EOS constrained by the logarithmic phonon moment.
 ///
 /// The mode weights conserve `theta_0` as in Correa et al. (2008), equation
 /// 13. The anharmonic coefficient is volume independent, so it contributes to
 /// free energy and heat capacity but not pressure.
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DoubleDebyeLogMomentHelmholtz {
-    /// Vinet cold curve, or complete reference isotherm when `tr` is present.
-    pub rt_eos: Vinet,
+pub struct DoubleDebyeLogMomentHelmholtz<R = Vinet> {
+    /// Reference cold curve, or complete reference isotherm when `tr` is present.
+    pub rt_eos: R,
     /// Characteristic reference volume in J bar^-1 mol^-1.
     pub vp: f64,
     /// First Debye cutoff at `vp`, in kelvin.
@@ -1990,13 +1982,13 @@ pub struct DoubleDebyeLogMomentHelmholtz {
     pub n: f64,
     /// Volume-independent anharmonic coefficient in K^-1.
     pub anharmonic_a: f64,
-    /// Cold energy at the Vinet reference volume in J mol^-1.
+    /// Cold energy at the reference volume in J mol^-1.
     pub phi0: f64,
     /// Optional complete-reference-isotherm temperature in kelvin.
     pub tr: Option<f64>,
 }
 
-impl DoubleDebyeLogMomentHelmholtz {
+impl<R: ReferenceEnergyEos> DoubleDebyeLogMomentHelmholtz<R> {
     /// Conventional temperature used to select the nearest inversion branch.
     pub const REFERENCE_TEMPERATURE: f64 = 300.0;
 
@@ -2007,7 +1999,7 @@ impl DoubleDebyeLogMomentHelmholtz {
     /// Returns an error for invalid or non-finite parameters.
     #[allow(clippy::too_many_arguments, clippy::similar_names)]
     pub fn new(
-        rt_eos: Vinet,
+        rt_eos: R,
         vp: f64,
         theta_a0: f64,
         a_a: f64,
@@ -2022,6 +2014,7 @@ impl DoubleDebyeLogMomentHelmholtz {
         anharmonic_a: f64,
         phi0: f64,
     ) -> EosResult<Self> {
+        rt_eos.reference_energy(rt_eos.reference_volume())?;
         let anharmonic_a = finite_parameter(anharmonic_a, "anharmonic_a")?;
         if anharmonic_a < 0.0 {
             return Err(EosError::InvalidParameter {
@@ -2048,7 +2041,7 @@ impl DoubleDebyeLogMomentHelmholtz {
         })
     }
 
-    /// Rebase the non-cold contribution onto the supplied Vinet isotherm.
+    /// Rebase the non-cold contribution onto the supplied reference isotherm.
     ///
     /// # Errors
     ///
@@ -2134,23 +2127,13 @@ impl DoubleDebyeLogMomentHelmholtz {
         Ok((weight_a, 1.0 - weight_a))
     }
 
-    /// Return the Vinet cold-curve energy in J mol^-1.
+    /// Return the reference-curve energy in J mol^-1.
     ///
     /// # Errors
     ///
     /// Returns an error for an invalid volume or a non-finite result.
     pub fn cold_energy(&self, volume: f64) -> EosResult<f64> {
-        let volume = positive_state(volume, "volume")?;
-        let delta = self.rt_eos.k0_prime - 1.0;
-        let x = (volume / self.rt_eos.v0).cbrt();
-        let reduced = if delta.abs() < 1.0e-7 {
-            let y = x - 1.0;
-            1.125 * y.powi(2) - 1.125 * delta * y.powi(3)
-        } else {
-            let exponent = 1.5 * delta * (x - 1.0);
-            (-(-exponent).exp_m1() - exponent * (-exponent).exp()) / delta.powi(2)
-        };
-        finite_result(self.phi0 + 4.0 * self.rt_eos.v0 * self.rt_eos.k0 * 1.0e4 * reduced)
+        finite_result(self.phi0 + self.rt_eos.reference_energy(volume)?)
     }
 
     /// Return the weighted double-Debye zero-point energy in J mol^-1.
@@ -2173,8 +2156,10 @@ impl DoubleDebyeLogMomentHelmholtz {
     /// Returns an error for an invalid state or failed Debye evaluation.
     pub fn ion_helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         let terms = self.mode_terms(volume)?;
-        let free_a = DoubleDebyeHelmholtz::single_debye_free_energy(terms.theta_a, temperature)?;
-        let free_b = DoubleDebyeHelmholtz::single_debye_free_energy(terms.theta_b, temperature)?;
+        let free_a =
+            DoubleDebyeHelmholtz::<R>::single_debye_free_energy(terms.theta_a, temperature)?;
+        let free_b =
+            DoubleDebyeHelmholtz::<R>::single_debye_free_energy(terms.theta_b, temperature)?;
         finite_result(self.n * (terms.weight_a * free_a + (1.0 - terms.weight_a) * free_b))
     }
 
@@ -2199,7 +2184,7 @@ impl DoubleDebyeLogMomentHelmholtz {
         temperature: f64,
     ) -> EosResult<f64> {
         self.anharmonic_coefficient(volume)?;
-        let temperature = DoubleDebyeHelmholtz::nonnegative_temperature(temperature)?;
+        let temperature = DoubleDebyeHelmholtz::<R>::nonnegative_temperature(temperature)?;
         finite_result(-self.n * GAS_CONSTANT * self.anharmonic_a * temperature.powi(2))
     }
 
@@ -2210,7 +2195,7 @@ impl DoubleDebyeLogMomentHelmholtz {
     /// Returns an error for an invalid state.
     pub fn anharmonic_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         self.anharmonic_coefficient(volume)?;
-        DoubleDebyeHelmholtz::nonnegative_temperature(temperature)?;
+        DoubleDebyeHelmholtz::<R>::nonnegative_temperature(temperature)?;
         Ok(0.0)
     }
 
@@ -2237,12 +2222,14 @@ impl DoubleDebyeLogMomentHelmholtz {
     pub fn ion_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
         let terms = self.mode_terms(volume)?;
-        let free_a = DoubleDebyeHelmholtz::single_debye_free_energy(terms.theta_a, temperature)?;
-        let free_b = DoubleDebyeHelmholtz::single_debye_free_energy(terms.theta_b, temperature)?;
+        let free_a =
+            DoubleDebyeHelmholtz::<R>::single_debye_free_energy(terms.theta_a, temperature)?;
+        let free_b =
+            DoubleDebyeHelmholtz::<R>::single_debye_free_energy(terms.theta_b, temperature)?;
         let energy_a =
-            DoubleDebyeHelmholtz::single_debye_internal_energy(terms.theta_a, temperature)?;
+            DoubleDebyeHelmholtz::<R>::single_debye_internal_energy(terms.theta_a, temperature)?;
         let energy_b =
-            DoubleDebyeHelmholtz::single_debye_internal_energy(terms.theta_b, temperature)?;
+            DoubleDebyeHelmholtz::<R>::single_debye_internal_energy(terms.theta_b, temperature)?;
         finite_result(
             self.n
                 * ((terms.weight_a * terms.gamma_a * energy_a
@@ -2254,10 +2241,10 @@ impl DoubleDebyeLogMomentHelmholtz {
     }
 }
 
-impl ThermalEos for DoubleDebyeLogMomentHelmholtz {
-    type Reference = Vinet;
+impl<R: ReferenceEnergyEos> ThermalEos for DoubleDebyeLogMomentHelmholtz<R> {
+    type Reference = R;
 
-    fn reference_eos(&self) -> &Vinet {
+    fn reference_eos(&self) -> &R {
         &self.rt_eos
     }
 
@@ -2335,19 +2322,19 @@ impl ThermalEos for DoubleDebyeLogMomentHelmholtz {
     }
 }
 
-impl CaloricEos for DoubleDebyeLogMomentHelmholtz {
+impl<R: ReferenceEnergyEos> CaloricEos for DoubleDebyeLogMomentHelmholtz<R> {
     fn molar_heat_capacity_v(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         let terms = self.mode_terms(volume)?;
-        let temperature = DoubleDebyeHelmholtz::nonnegative_temperature(temperature)?;
+        let temperature = DoubleDebyeHelmholtz::<R>::nonnegative_temperature(temperature)?;
         finite_result(
             self.n
                 * (terms.weight_a
-                    * DoubleDebyeHelmholtz::single_debye_heat_capacity(
+                    * DoubleDebyeHelmholtz::<R>::single_debye_heat_capacity(
                         terms.theta_a,
                         temperature,
                     )?
                     + (1.0 - terms.weight_a)
-                        * DoubleDebyeHelmholtz::single_debye_heat_capacity(
+                        * DoubleDebyeHelmholtz::<R>::single_debye_heat_capacity(
                             terms.theta_b,
                             temperature,
                         )?

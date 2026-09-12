@@ -1,4 +1,4 @@
-"""Vinet plus double-Debye Helmholtz equation of state."""
+"""Reference curve plus double-Debye Helmholtz equation of state."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from peritheos.eos import (
     validate_positive_scalar,
     validate_volume,
 )
-from peritheos.eos.rt import Vinet
+from peritheos.eos.rt import BM2, BM3, BM4, Vinet
 from peritheos.errors import (
     ConfigurationError,
     EosNumericalError,
@@ -24,13 +24,13 @@ from .mie_gruneisen import _debye_function_3
 
 
 class DoubleDebyeHelmholtz(ThermalEOS):
-    """Full Vinet/double-Debye Helmholtz equation of state.
+    """Full reference-curve/double-Debye Helmholtz equation of state.
 
     With no reference temperature this implements
     ``F(V,T) = E_cold(V) + F_ion(V,T) + F_anh(V,T)``.  With ``Tr`` supplied,
     both non-cold terms are replaced by their differences from ``Tr``.
 
-    ``rt_eos`` must be a :class:`~peritheos.eos.rt.Vinet` object.  With the
+    ``rt_eos`` must be a ``Vinet``, ``BM2``, ``BM3``, or ``BM4`` object. With the
     default ``Tr=None`` it represents the classical, motionless-ion 0 K cold
     curve and the ionic term is absolute, including zero-point energy and
     pressure.  Supplying ``Tr`` instead treats ``rt_eos`` as a complete
@@ -79,7 +79,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
 
     def __init__(
         self,
-        rt_eos: Vinet,
+        rt_eos: Vinet | BM2 | BM3 | BM4,
         Vp: float,
         theta_a0: float,
         a_a: float,
@@ -97,9 +97,9 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         phi0: float = 0.0,
         Tr: float | None = None,
     ) -> None:
-        if not isinstance(rt_eos, Vinet):
+        if not isinstance(rt_eos, (Vinet, BM2, BM3, BM4)):
             raise ConfigurationError(
-                "rt_eos must be a Vinet cold curve or reference isotherm"
+                "rt_eos must be a Vinet, BM2, BM3, or BM4 cold curve or reference isotherm"
             )
         super().__init__(rt_eos)
         self.Vp = validate_positive_scalar(Vp, "Vp")
@@ -285,8 +285,26 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         return result
 
     def cold_energy(self, V: NumericType) -> NumericType:
-        """Return the Vinet cold-curve energy in J mol^-1."""
+        """Return the reference-curve energy in J mol^-1, equal to phi0 at V0."""
         volumes = np.asarray(validate_volume(V), dtype=float)
+        if isinstance(self.rt_eos, (BM2, BM3, BM4)):
+            # Integrate -P dV using Eulerian strain f. The pressure's
+            # (1 + 2f)^(5/2) factor cancels against dV/df.
+            strain = 0.5 * np.expm1((2.0 / 3.0) * np.log(self.rt_eos.V0 / volumes))
+            cubic = 0.0
+            quartic = 0.0
+            if isinstance(self.rt_eos, (BM3, BM4)):
+                cubic = self.rt_eos.K0_prime - 4.0
+            if isinstance(self.rt_eos, BM4):
+                quartic = 0.75 * (
+                    self.rt_eos.K0 * self.rt_eos.K0_double_prime
+                    + (self.rt_eos.K0_prime - 4.0) * (self.rt_eos.K0_prime - 3.0)
+                    + 35.0 / 9.0
+                )
+            energy = self.phi0 + 4.5 * self.rt_eos.V0 * self.rt_eos.K0 * 1.0e4 * (
+                strain**2 * (1.0 + cubic * strain + quartic * strain**2)
+            )
+            return self._result(energy)
         delta = self.rt_eos.K0_prime - 1.0
         x = np.cbrt(volumes / self.rt_eos.V0)
         if abs(delta) < 1.0e-7:
@@ -584,7 +602,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
 
 
 class DoubleDebyeLogMomentHelmholtz(DoubleDebyeHelmholtz):
-    """Vinet/double-Debye Helmholtz EOS constrained by ``theta_0``.
+    """Double-Debye Helmholtz EOS constrained by ``theta_0``.
 
     The two Debye-mode weights satisfy the logarithmic phonon-moment
     constraint
@@ -613,7 +631,7 @@ class DoubleDebyeLogMomentHelmholtz(DoubleDebyeHelmholtz):
 
     def __init__(
         self,
-        rt_eos: Vinet,
+        rt_eos: Vinet | BM2 | BM3 | BM4,
         Vp: float,
         theta_a0: float,
         a_a: float,
@@ -629,9 +647,9 @@ class DoubleDebyeLogMomentHelmholtz(DoubleDebyeHelmholtz):
         phi0: float = 0.0,
         Tr: float | None = None,
     ) -> None:
-        if not isinstance(rt_eos, Vinet):
+        if not isinstance(rt_eos, (Vinet, BM2, BM3, BM4)):
             raise ConfigurationError(
-                "rt_eos must be a Vinet cold curve or reference isotherm"
+                "rt_eos must be a Vinet, BM2, BM3, or BM4 cold curve or reference isotherm"
             )
         ThermalEOS.__init__(self, rt_eos)
         self.Vp = validate_positive_scalar(Vp, "Vp")

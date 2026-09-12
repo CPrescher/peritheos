@@ -955,3 +955,68 @@ impl IsothermalEos for Vinet3 {
         )
     }
 }
+
+/// Reference curves with an energy primitive consistent with their pressure.
+///
+/// Volumes must use J bar^-1 mol^-1 and bulk moduli `GPa`. The returned energy
+/// is in J mol^-1, zero at the reference volume, with `dE/dV = -1e4 P`.
+/// For a finite-temperature reference isotherm this is its Helmholtz energy
+/// difference; for a motionless-ion cold curve it is the static energy.
+pub trait ReferenceEnergyEos: IsothermalEos {
+    /// Return the energy difference from the reference volume in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume, unsupported reference curve,
+    /// or non-finite energy.
+    fn reference_energy(&self, volume: f64) -> EosResult<f64>;
+}
+
+fn birch_murnaghan_energy(
+    v0: f64,
+    k0: f64,
+    cubic: f64,
+    quartic: f64,
+    volume: f64,
+) -> EosResult<f64> {
+    let volume = positive_state(volume, "volume")?;
+    let strain = 0.5 * ((2.0 / 3.0) * (v0 / volume).ln()).exp_m1();
+    finite_result(
+        4.5 * v0 * k0 * 1.0e4 * strain.powi(2) * (1.0 + cubic * strain + quartic * strain.powi(2)),
+    )
+}
+
+impl ReferenceEnergyEos for BM2 {
+    fn reference_energy(&self, volume: f64) -> EosResult<f64> {
+        birch_murnaghan_energy(self.v0, self.k0, 0.0, 0.0, volume)
+    }
+}
+
+impl ReferenceEnergyEos for BM3 {
+    fn reference_energy(&self, volume: f64) -> EosResult<f64> {
+        birch_murnaghan_energy(self.v0, self.k0, self.k0_prime - 4.0, 0.0, volume)
+    }
+}
+
+impl ReferenceEnergyEos for BM4 {
+    fn reference_energy(&self, volume: f64) -> EosResult<f64> {
+        let (_, xi) = self.coefficients();
+        birch_murnaghan_energy(self.v0, self.k0, self.k0_prime - 4.0, 2.0 * xi, volume)
+    }
+}
+
+impl ReferenceEnergyEos for Vinet {
+    fn reference_energy(&self, volume: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let delta = self.k0_prime - 1.0;
+        let x = (volume / self.v0).cbrt();
+        let reduced = if delta.abs() < 1.0e-7 {
+            let y = x - 1.0;
+            1.125 * y.powi(2) - 1.125 * delta * y.powi(3)
+        } else {
+            let exponent = 1.5 * delta * (x - 1.0);
+            (-(-exponent).exp_m1() - exponent * (-exponent).exp()) / delta.powi(2)
+        };
+        finite_result(4.0 * self.v0 * self.k0 * 1.0e4 * reduced)
+    }
+}

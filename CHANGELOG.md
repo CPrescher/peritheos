@@ -5,6 +5,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- BM2, BM3, and BM4 references for both double-Debye Helmholtz models in
+  Python, Rust, and `.eosmat` loading, with reference energies consistent
+  with pressure in both absolute and reference-temperature modes.
+
 ## [0.8.0] - 2026-09-11
 
 This release expands the model and dataset APIs and revises
