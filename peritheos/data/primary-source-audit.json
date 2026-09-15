@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-10",
+  "audit_date": "2026-09-15",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 573,
-    "primary_source_validated": 573
+    "records": 574,
+    "primary_source_validated": 574
   },
   "records": [
     {
@@ -9980,6 +9980,29 @@
           "Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure"
         ],
         "finding": "One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work."
+      }
+    },
+    {
+      "material": "rhenium",
+      "file": "rhenium.eosmat",
+      "record": "rhenium_zha_2004_bm3_log_thermal",
+      "label": "Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure",
+      "doi": "10.1063/1.1765752",
+      "status": "primary_source_validated",
+      "note": "Primary PDF equations and tables checked visually; independent isochore-slope regression reproduces both thermal coefficients and published derived free-V0 isotherms bound the high-temperature curve comparison.",
+      "primary_source_check": {
+        "doi": "10.1063/1.1765752",
+        "access_url": "https://doi.org/10.1063/1.1765752",
+        "locations": [
+          "Equations (3)-(6), p. 2410",
+          "Table IIa-IIb, p. 2412",
+          "Tables III-IV and Figure 5, p. 2414",
+          "Table V, p. 2415",
+          "Appendix and Table VII, pp. 2416-2418"
+        ],
+        "finding": "Table III is a complete continuous thermal EOS, distinct from the preferred subsequent fixed-volume isotherms. Its fitted coefficients reproduce from all eight observed isochore slopes.",
+        "zotero_item_key": "9BAJ2FCF",
+        "zotero_attachment_key": "JABFZJUC"
       }
     },
     {

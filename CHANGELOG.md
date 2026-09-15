@@ -5,6 +5,17 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Zha et al. (2004) rhenium Equation (6) thermal EOS, all eight paired Au/Re
+  observations, derived isotherm tables, and an independent staged refit. The
+  continuous Table III branch is distinguished from the authors' preferred
+  fixed-volume isotherms. The catalog now contains 574 executable EOS records.
+- Primary-source investigation of Xian et al. (2022), with literal thermal
+  polynomial diagnostics. Its Re/Au models remain outside the executable
+  catalog because source-specific inputs and printed-equation issues remain
+  unresolved.
+
 ## [0.9.0] - 2026-09-12
 
 This release adds Birch–Murnaghan references to the double-Debye Helmholtz

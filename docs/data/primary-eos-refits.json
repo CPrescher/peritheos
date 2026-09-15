@@ -35452,6 +35452,77 @@
       "status": "parity"
     },
     {
+      "dataset_identifiers": [
+        "rhenium_zha_2004_table2_paired_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        6.41,
+        8.47
+      ],
+      "experimental_temperature_range_k": [
+        1380.3,
+        1914.5
+      ],
+      "fit_kind": "isochore_slope_linear_regression",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr"
+      ],
+      "free_parameters": [
+        "alpha_KT_ref",
+        "dK_dT_V"
+      ],
+      "label": "Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure",
+      "material_identifier": "rhenium",
+      "model": "BM3",
+      "objective": "unweighted residuals of (P-P300)/(T-300), the staged isochore construction in Section III",
+      "observations": 8,
+      "observed_pressure_range_gpa": [
+        6.41,
+        8.47
+      ],
+      "observed_temperature_range_k": [
+        1380.3,
+        1914.5
+      ],
+      "parameters": [
+        {
+          "difference": -3.84347255083517e-06,
+          "parameter": "alpha_KT_ref",
+          "published": 0.00776,
+          "published_error": null,
+          "refit": 0.007756156527449165,
+          "refit_error": null,
+          "relative_difference": 0.0004952928544890682,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 1.2110300001665075e-06,
+          "parameter": "dK_dT_V",
+          "published": -0.00815,
+          "published_error": null,
+          "refit": -0.008148788969999833,
+          "refit_error": null,
+          "relative_difference": 0.0001485926380572402,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "All eight primary Re observations and paired Au marker diffraction values and uncertainties are bundled. Derived Tables IV/V and the six Table VII diffraction diagnostics are retained separately.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.1765752",
+      "published_rmse_gpa": 0.4084918269955869,
+      "reason": "Both thermal point estimates recover within 0.05%; source errors are unavailable. The source staged isochore objective differs from direct pressure least squares. See literature-reproductions/zha-2004-rhenium.md.",
+      "record_identifier": "rhenium_zha_2004_bm3_log_thermal",
+      "rmse_gpa": 0.4083849112682927,
+      "solver_success": true,
+      "source_notes": "Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V>Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.",
+      "status": "similar"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -39392,8 +39463,8 @@
     "not_refittable": 162,
     "parity": 197,
     "parity_not_achieved": 67,
-    "similar": 134,
+    "similar": 135,
     "source_reconstruction": 13,
-    "total": 573
+    "total": 574
   }
 }

@@ -94,7 +94,7 @@ def test_complete_material_library_is_bundled_and_valid():
 
     assert len(identifiers) == 210
     assert len(set(identifiers)) == 210
-    assert sum(len(document["eos_records"]) for document in documents) == 573
+    assert sum(len(document["eos_records"]) for document in documents) == 574
     assert {
         document["identifier"] for document in documents if not document["eos_records"]
     } == {"coesite_v"}
@@ -152,10 +152,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 573
+    assert len({record["identifier"] for record in records}) == 574
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 573
+    assert statuses.count("primary_source_validated") == 574
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -257,6 +257,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-09-07",
         "2026-09-08",
         "2026-09-10",
+        "2026-09-15",
     }
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
@@ -326,7 +327,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         native_identifiers - legacy_native_identifiers - overnight_identifiers
     )
     assert len(overnight_identifiers) == 148
-    assert len(batch_identifiers) == 243
+    assert len(batch_identifiers) == 244
     assert {audit_dates[identifier] for identifier in batch_identifiers} == {
         "2026-09-01",
         "2026-09-03",
@@ -335,6 +336,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-09-07",
         "2026-09-08",
         "2026-09-10",
+        "2026-09-15",
     }
     assert native_identifiers == (
         legacy_native_identifiers | overnight_identifiers | batch_identifiers
@@ -366,10 +368,10 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 573,
-        "primary_source_validated": 573,
+        "records": 574,
+        "primary_source_validated": 574,
     }
-    assert report["audit_date"] == "2026-09-10"
+    assert report["audit_date"] == "2026-09-15"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
 
@@ -842,7 +844,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 573
+    assert len(records) == 574
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -855,6 +857,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-07",
         "2026-09-08",
         "2026-09-10",
+        "2026-09-15",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")
@@ -913,7 +916,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 573
+    assert checked == 574
     assert failures == []
 
 
@@ -2928,8 +2931,8 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 210
-    assert manifest["eos_records"] == 573
-    assert manifest["scientific_validation"]["audit_date"] == "2026-09-10"
+    assert manifest["eos_records"] == 574
+    assert manifest["scientific_validation"]["audit_date"] == "2026-09-15"
 
 
 @pytest.mark.parametrize(

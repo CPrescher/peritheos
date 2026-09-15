@@ -1929,6 +1929,10 @@ def _fit_record(
         from scripts.reproduce_sakai_2018_rhenium import ledger_outcome
 
         return ledger_outcome(record)
+    if record_id == "rhenium_zha_2004_bm3_log_thermal":
+        from scripts.reproduce_zha_2004_xian_2022_rhenium import ledger_outcome
+
+        return ledger_outcome(record)
     from scripts.reproduce_iron_source_papers import (
         belongs,
     )

@@ -1,0 +1,63 @@
+{
+  "format": "peritheos.source-investigation",
+  "format_version": 1,
+  "doi": "10.1063/5.0089292",
+  "citation": "Xian et al. (2022), AIP Advances 12, 055313",
+  "audit_date": "2026-09-15",
+  "zotero_item_key": "ZNQIGGGF",
+  "zotero_attachment_key": "EPQGNQ83",
+  "outcome": "deferred_incomplete_model",
+  "cold_curve": {
+    "equation": "Vinet, Equation (12); zero kelvin",
+    "specific_volume_cm3_g": 0.047893,
+    "specific_volume_error_cm3_g": 0.00031,
+    "K0_gpa": 319.01,
+    "K0_error_gpa": 0.86,
+    "K0_prime": 4.13,
+    "K0_prime_error": 0.11,
+    "uncertainty": "Monte Carlo; confidence convention and covariance not specified"
+  },
+  "printed_surrogate": {
+    "equations": "(37)-(40), p. 055313-5; powers of absolute T in K",
+    "K0_gpa_coefficients": [
+      318.03,
+      -0.01109,
+      3.502e-08
+    ],
+    "K0_prime_coefficients": [
+      4.136,
+      4.864e-05,
+      5.428e-10
+    ],
+    "specific_volume_cm3_g_coefficients": [
+      0.04789,
+      -3.635e-07,
+      -1.651e-11
+    ],
+    "coefficient_errors": null
+  },
+  "blockers": [
+    "The four longitudinal/shear velocity-density linear regression coefficients needed for Poisson ratio and Debye temperature are not printed. Recovering a new regression from Ikuta data would be a declared reconstruction, not a reproduction of the authors coefficients.",
+    "Equation (40) prints negative linear and quadratic volume coefficients, giving negative zero-pressure thermal expansivity throughout the quoted domain. No author correction was located; no sign change is applied.",
+    "Equation (6) prints ln(1-exp(chi)) although chi=Theta/T is positive, giving a non-real entropy; the physical negative exponent is an interpretation, not the printed equation.",
+    "Equation (7) prints h where the angular-wavevector convention requires hbar; electronic beta0 units printed in prose also conflict with Cv=beta*T.",
+    "Gold comparison only reports K0=133.96 and Kprime=6.05, without its cold reference volume and complete material-specific thermal inputs."
+  ],
+  "scope": "Title says 130 GPa, abstract/body say 140 GPa, both with 3200 K; comparisons extrapolate to 500 GPa. These are not a common experimental rectangle.",
+  "availability": "Both PDF and local publisher snapshot checked. The paper supplies no observation table, numerical velocity regressions, source code, or supplement; its data-availability statement says data sharing is not applicable. Public correction search did not locate an erratum.",
+  "reference": {
+    "authors": [
+      "Xian",
+      "Xiang",
+      "Liu",
+      "Chen",
+      "Luo"
+    ],
+    "year": 2022,
+    "title": "Accurate equation of state of rhenium as pressure scale up to 130 GPa and 3200 K",
+    "source": "AIP Advances",
+    "volume": "12",
+    "locator": "055313",
+    "doi": "10.1063/5.0089292"
+  }
+}

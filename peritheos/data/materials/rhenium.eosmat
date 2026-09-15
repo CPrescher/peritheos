@@ -712,6 +712,149 @@
    "fit_datasets": [
     "rhenium_sakai_2018_figure10"
    ]
+  },
+  {
+   "identifier": "rhenium_zha_2004_bm3_log_thermal",
+   "label": "Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure",
+   "reference": {
+    "authors": [
+     "Zha",
+     "Bassett",
+     "Shim"
+    ],
+    "year": 2004,
+    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+    "source": "Review of Scientific Instruments",
+    "volume": "75",
+    "locator": "2409-2418",
+    "doi": "10.1063/1.1765752"
+   },
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "temperature_ref": 300.0,
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 29.4087,
+     "K0": 360.0,
+     "K0_prime": 4.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "thermal": {
+    "type": "LogVolumeThermalPressure",
+    "model": "log_volume_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha_KT_ref": 0.00776,
+     "dK_dT_V": -0.00815
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha_KT_ref": null,
+     "dK_dT_V": null
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    6.41,
+    8.47
+   ],
+   "experimental_temperature_range_k": [
+    1380.3,
+    1914.5
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "rhenium_zha_2004_table2_paired_pvt"
+   ],
+   "notes": "Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V>Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.",
+   "parameter_provenance": {
+    "V0": "Table III: Va=29.4087 A^3, conventional hcp cell, Z=2; JCPDS 05-0702.",
+    "K0": "Table III: 360 GPa, fixed ambient reference.",
+    "K0_prime": "Table III: 4.5, fixed ambient reference.",
+    "alpha_KT_ref": "Table III: 0.00776 GPa/K, fitted.",
+    "dK_dT_V": "Table III: -0.00815 GPa/K, fitted.",
+    "Tr": "Equations (3)-(6): 300 K.",
+    "equation": "Equation (6): BM3 plus [alpha*KT+(dKT/dT)_V ln(Va/V)](T-300)."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "source": "Journal of Applied Physics",
+       "doi": "10.1063/1.342969"
+      },
+      "source_location": "Table IIa caption and Section III",
+      "notes": "The cited Anderson gold EOS is known and Table IIa specifies Va=67.847 A^3. Applying the related catalog coefficients with that volume differs from the printed marker pressures by up to 0.318 GPa; exact numerical calibration provenance is unresolved. The related record is not an exact executable calibration link.",
+      "related_eos_record": "gold_anderson_1989_bm3_1"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "All paired Au volumes and temperatures are available. The exact source realization of Anderson calibration is unresolved; the related catalog model with the explicit source reference volume does not reproduce every printed pressure. Retain source pressures and treat recalculation as a separate interpretation."
+    },
+    "audit_date": "2026-09-15"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Primary PDF equations and tables checked visually; independent isochore-slope regression reproduces both thermal coefficients and published derived free-V0 isotherms bound the high-temperature curve comparison.",
+    "audit_date": "2026-09-15",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.1765752",
+     "access_url": "https://doi.org/10.1063/1.1765752",
+     "locations": [
+      "Equations (3)-(6), p. 2410",
+      "Table IIa-IIb, p. 2412",
+      "Tables III-IV and Figure 5, p. 2414",
+      "Table V, p. 2415",
+      "Appendix and Table VII, pp. 2416-2418"
+     ],
+     "finding": "Table III is a complete continuous thermal EOS, distinct from the preferred subsequent fixed-volume isotherms. Its fitted coefficients reproduce from all eight observed isochore slopes.",
+     "zotero_item_key": "9BAJ2FCF",
+     "zotero_attachment_key": "JABFZJUC"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-15",
+     "dataset_identifiers": [
+      "rhenium_zha_2004_table2_paired_pvt"
+     ],
+     "source_locations": [
+      "Table IIa-IIb"
+     ],
+     "finding": "All eight primary Re observations and paired Au marker diffraction values and uncertainties are bundled. Derived Tables IV/V and the six Table VII diffraction diagnostics are retained separately."
+    }
+   }
   }
  ],
  "datasets": [
@@ -949,6 +1092,298 @@
    },
    "used_by_eos_records": [
     "rhenium_sakai_2018_yokoo_pt_vinet"
+   ]
+  },
+  {
+   "identifier": "rhenium_zha_2004_table2_paired_pvt",
+   "kind": "simultaneous_xrd_compression",
+   "description": "All eight Table IIa-IIb paired Au/Re observations, including four Au d spacings and lattice estimates, mean lattice error and relative error. Values remain exactly as printed; Re P/V/T row uncertainties are not reported.",
+   "reference": {
+    "authors": [
+     "Zha",
+     "Bassett",
+     "Shim"
+    ],
+    "year": 2004,
+    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+    "source": "Review of Scientific Instruments",
+    "volume": "75",
+    "locator": "2409-2418",
+    "doi": "10.1063/1.1765752"
+   },
+   "source_location": "Table IIa-IIb, p. 2412",
+   "source_url": "https://doi.org/10.1063/1.1765752",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_over_a",
+     "quantity": "ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "value",
+     "basis": "conventional_unit_cell"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "au_d_111_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_d_200_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_d_220_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_d_311_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_a_111_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_a_200_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_a_220_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_a_311_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_a_mean_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_a_error_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "au_a_mean_angstrom"
+    },
+    {
+     "name": "au_relative_a_error",
+     "quantity": "ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "au_volume_a3",
+     "quantity": "calibrant_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/rhenium-zha-2004-table2-paired-pvt.csv",
+    "sha256": "f67d2d443c553705ecba1295cf83964ca22fc86a7136b72255d64cd12bdc092d",
+    "media_type": "text/csv"
+   },
+   "row_count": 8,
+   "used_by_eos_records": [
+    "rhenium_zha_2004_bm3_log_thermal"
+   ],
+   "notes": "Gold mean-lattice errors retain the printed ± convention; no confidence level is specified in the table. Appendix A gives aggregate error estimates, not row-specific P/V/T errors. Au volumes retain their Z=4 conventional-cell basis."
+  },
+  {
+   "identifier": "rhenium_zha_2004_table4_isotherms",
+   "kind": "derived_eos_parameters",
+   "description": "Both six-temperature BM3 representations from Table IV; fixed-V0 is the author-preferred branch, parentheses are unconstrained fits to Equation (6). These are derived outputs, not independent experimental fits.",
+   "reference": {
+    "authors": [
+     "Zha",
+     "Bassett",
+     "Shim"
+    ],
+    "year": 2004,
+    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+    "source": "Review of Scientific Instruments",
+    "volume": "75",
+    "locator": "2409-2418",
+    "doi": "10.1063/1.1765752"
+   },
+   "source_location": "Table IV, p. 2414",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "branch",
+     "quantity": "fit_branch",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "v0_a3",
+     "quantity": "reference_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "k0_gpa",
+     "quantity": "bulk_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "k0_prime",
+     "quantity": "bulk_modulus_pressure_derivative",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/rhenium-zha-2004-table4-isotherms.csv",
+    "sha256": "df0420e4163183b1b215231bc10c754e6dd12e345813602f1501f1b75707382f",
+    "media_type": "text/csv"
+   },
+   "row_count": 12,
+   "used_by_eos_records": [
+    "rhenium_zha_2004_bm3_log_thermal"
+   ]
+  },
+  {
+   "identifier": "rhenium_zha_2004_table5_pressure_grid",
+   "kind": "derived_pressure_grid",
+   "description": "All 147 printed Table V states, from the preferred fixed-V0 Table IV isotherms. These do not equal the continuous Table III Equation (6) thermal surface.",
+   "reference": {
+    "authors": [
+     "Zha",
+     "Bassett",
+     "Shim"
+    ],
+    "year": 2004,
+    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+    "source": "Review of Scientific Instruments",
+    "volume": "75",
+    "locator": "2409-2418",
+    "doi": "10.1063/1.1765752"
+   },
+   "source_location": "Table V, p. 2415",
+   "columns": [
+    {
+     "name": "compression",
+     "quantity": "compression",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/rhenium-zha-2004-table5-pressure-grid.csv",
+    "sha256": "878aa381e55778efe8d91ebae6ec8fcd0ea4b7e7e03008f7ffdfda9ac271c6b5",
+    "media_type": "text/csv"
+   },
+   "row_count": 147,
+   "used_by_eos_records": [
+    "rhenium_zha_2004_bm3_log_thermal"
+   ]
+  },
+  {
+   "identifier": "rhenium_zha_2004_table7_diffraction",
+   "kind": "diffraction_diagnostics",
+   "description": "All six Re diffraction spacings at 1480.2 K and 8.47 GPa; the 100/101 pair supplies the Table IIb fit volume. Other pairs diagnose strain and are not extra independent fit observations.",
+   "reference": {
+    "authors": [
+     "Zha",
+     "Bassett",
+     "Shim"
+    ],
+    "year": 2004,
+    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+    "source": "Review of Scientific Instruments",
+    "volume": "75",
+    "locator": "2409-2418",
+    "doi": "10.1063/1.1765752"
+   },
+   "source_location": "Table VII and Appendix, p. 2417",
+   "columns": [
+    {
+     "name": "hkl",
+     "quantity": "miller_indices",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "d_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/rhenium-zha-2004-table7-diffraction.csv",
+    "sha256": "ef9c14034ff89679fcfec1f81062078ef94cf6ef63c308022d41aa30a0409e18",
+    "media_type": "text/csv"
+   },
+   "row_count": 6,
+   "used_by_eos_records": [
+    "rhenium_zha_2004_bm3_log_thermal"
    ]
   }
  ],

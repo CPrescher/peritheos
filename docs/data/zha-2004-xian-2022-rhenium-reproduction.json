@@ -1,0 +1,248 @@
+{
+  "zha_isochore_refit": {
+    "observations": 8,
+    "objective": "unweighted residuals of (P-P300)/(T-300), the staged isochore construction in Section III",
+    "parameters": {
+      "alpha_KT_ref": 0.007756156527449165,
+      "dK_dT_V": -0.008148788969999833
+    },
+    "relative_coefficient_differences": {
+      "alpha_KT_ref": 0.0004952928544890682,
+      "dK_dT_V": 0.0001485926380572402
+    },
+    "published_pressure_rmse_gpa": 0.4084918269955869,
+    "published_pressure_max_abs_residual_gpa": 0.7723362519062933,
+    "refit_pressure_rmse_gpa": 0.4083849112682927,
+    "pressure_residuals_gpa": [
+      0.3535534677223362,
+      -0.17886783410557427,
+      -0.21629201911066165,
+      0.07000639068682624,
+      -0.7723362519062933,
+      0.7256405343053203,
+      0.023612279660714997,
+      0.051309668748887205
+    ],
+    "direct_pressure_objective_sensitivity": {
+      "alpha_KT_ref": 0.007779527996942454,
+      "dK_dT_V": -0.005396049165804931
+    }
+  },
+  "zha_table4_free_branch_checks": [
+    {
+      "temperature_k": 500.0,
+      "max_abs_difference_gpa": 0.029947743860944342
+    },
+    {
+      "temperature_k": 1000.0,
+      "max_abs_difference_gpa": 0.02915341886914291
+    },
+    {
+      "temperature_k": 1500.0,
+      "max_abs_difference_gpa": 0.044864682754578666
+    },
+    {
+      "temperature_k": 2000.0,
+      "max_abs_difference_gpa": 0.05969751226449205
+    },
+    {
+      "temperature_k": 2500.0,
+      "max_abs_difference_gpa": 0.044140276178861626
+    },
+    {
+      "temperature_k": 3000.0,
+      "max_abs_difference_gpa": 0.06586183737150364
+    }
+  ],
+  "zha_gold_calibration_diagnostic": {
+    "related_record": "gold_anderson_1989_bm3_1",
+    "source_reference_volume_a3": 67.847,
+    "temperature_k": [
+      1380.3,
+      1480.2,
+      1506.5,
+      1548.6,
+      1628.5,
+      1716.8,
+      1801.0,
+      1914.5
+    ],
+    "printed_pressure_gpa": [
+      7.29,
+      8.47,
+      8.0,
+      7.58,
+      7.46,
+      6.41,
+      6.48,
+      6.66
+    ],
+    "calculated_pressure_gpa": [
+      7.296309638852103,
+      8.4819749702483,
+      8.036061340889047,
+      7.628132827871857,
+      7.532508706178867,
+      6.588218562601627,
+      6.71875139345576,
+      6.977743680164021
+    ],
+    "pressure_residuals_gpa": [
+      0.0063096388521026725,
+      0.011974970248299854,
+      0.03606134088904689,
+      0.04813282787185713,
+      0.0725087061788674,
+      0.17821856260162683,
+      0.23875139345575924,
+      0.3177436801640212
+    ],
+    "rmse_gpa": 0.15763210474444736,
+    "max_abs_residual_gpa": 0.3177436801640212,
+    "catalog_default_V0_pressure_residuals_gpa": [
+      -0.1209142033264845,
+      -0.11663831423833493,
+      -0.08910828761382028,
+      -0.07301089464200672,
+      -0.04437330611764789,
+      0.0706204275396729,
+      0.13466306700908248,
+      0.21803100536049147
+    ],
+    "max_abs_volume_minus_printed_mean_a_cubed_a3": 4.2239527985543646e-05,
+    "max_abs_pressure_change_using_mean_of_four_a_gpa": 0.01929456336083568,
+    "rounding_corner_residual_interval_gpa": [
+      [
+        -0.011389279892368265,
+        0.023840924385235773
+      ],
+      [
+        -0.0060111670314864085,
+        0.030097082399029418
+      ],
+      [
+        0.017926193852483507,
+        0.05437820375471514
+      ],
+      [
+        0.02956782356744636,
+        0.0666743894749331
+      ],
+      [
+        0.053439077449429995,
+        0.09163444397161946
+      ],
+      [
+        0.15817754218494873,
+        0.1981760404218429
+      ],
+      [
+        0.21816745326936005,
+        0.25947368286638195
+      ],
+      [
+        0.2962252726108474,
+        0.3393642628777096
+      ]
+    ],
+    "rounding_scope": "Half last printed digit for a, T, Va, K0, Kprime, alpha_KT, dK_dT_V and tabulated P; corner evaluations only, not experimental uncertainty.",
+    "anderson_section3_exploratory_pairs": [
+      {
+        "K0_prime": 6.39,
+        "dK_dT_V_gpa_per_k": -0.0052,
+        "pressure_residuals_gpa": [
+          -0.011684433379188341,
+          0.01467025106605746,
+          0.008054695706103843,
+          -0.01451561272626023,
+          -0.02671721656675352,
+          -0.002229459166173342,
+          0.02240429206492145,
+          0.05178159342421029
+        ],
+        "rmse_gpa": 0.02379440389881492,
+        "max_abs_residual_gpa": 0.05178159342421029
+      },
+      {
+        "K0_prime": 6.12,
+        "dK_dT_V_gpa_per_k": -0.0071,
+        "pressure_residuals_gpa": [
+          -0.006255342025237809,
+          0.013857429400220056,
+          0.01650568619818138,
+          0.004401399970746844,
+          0.003262747939598576,
+          0.05238066171338396,
+          0.0879021735673442,
+          0.13232918282138773
+        ],
+        "rmse_gpa": 0.05970254563427258,
+        "max_abs_residual_gpa": 0.13232918282138773
+      },
+      {
+        "K0_prime": 5.5,
+        "dK_dT_V_gpa_per_k": -0.0115,
+        "pressure_residuals_gpa": [
+          0.006320528726869057,
+          0.011975162797760674,
+          0.036082774332514944,
+          0.048241546810867675,
+          0.07276677051099423,
+          0.17911181724522063,
+          0.2399327623326739,
+          0.31933304608105484
+        ],
+        "rmse_gpa": 0.15840215346434444,
+        "max_abs_residual_gpa": 0.31933304608105484
+      },
+      {
+        "K0_prime": 5.21,
+        "dK_dT_V_gpa_per_k": -0.0135,
+        "pressure_residuals_gpa": [
+          0.012031799773775553,
+          0.011119498063454358,
+          0.044971543156224314,
+          0.06811863099597204,
+          0.10424021790532922,
+          0.23630398132659902,
+          0.3084914880995413,
+          0.4036001183252633
+        ],
+        "rmse_gpa": 0.20362239666456916,
+        "max_abs_residual_gpa": 0.4036001183252633
+      }
+    ],
+    "finding": "The final Anderson Equation (29) with Zha's Va does not reproduce all printed pressures. Source rounding and lattice averaging do not explain the difference. The Section III pair Kprime=6.39, dK_dT_V=-0.0052 is closer but still not an exact reproduction and is not identified by Zha as its chosen realization. Calibration remains partially resolved."
+  },
+  "zha_table5": {
+    "states": 147,
+    "fixed_V0_branch_max_abs_residual_gpa": 0.013193872459368094,
+    "continuous_eq6_max_abs_difference_gpa": 0.772000000000002
+  },
+  "xian_literal_equations_37_40": [
+    {
+      "temperature_k": 300.0,
+      "specific_volume_cm3_g": 0.0477794641,
+      "zero_pressure_expansivity_per_k": -7.815198580262017e-06,
+      "pressure_at_printed_cold_V0_gpa": -0.7432619067378726
+    },
+    {
+      "temperature_k": 1000.0,
+      "specific_volume_cm3_g": 0.04750999,
+      "zero_pressure_expansivity_per_k": -8.34603417091858e-06,
+      "pressure_at_printed_cold_V0_gpa": -2.4237013337094924
+    },
+    {
+      "temperature_k": 2000.0,
+      "specific_volume_cm3_g": 0.04709696,
+      "zero_pressure_expansivity_per_k": -9.120333881422495e-06,
+      "pressure_at_printed_cold_V0_gpa": -4.7876989668748635
+    },
+    {
+      "temperature_k": 3200.0,
+      "specific_volume_cm3_g": 0.0465577376,
+      "zero_pressure_expansivity_per_k": -1.0077036045669023e-05,
+      "pressure_at_printed_cold_V0_gpa": -7.526182599920997
+    }
+  ]
+}

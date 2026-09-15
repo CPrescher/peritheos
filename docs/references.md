@@ -1,5 +1,21 @@
 # References
 
+- Zha, C.-S., Bassett, W. A. & Shim, S.-H. (2004). Rhenium, an in situ
+  pressure calibrant for internally heated diamond anvil cells. *Review of
+  Scientific Instruments*, 75, 2409-2418.
+  [doi:10.1063/1.1765752](https://doi.org/10.1063/1.1765752).
+  The continuous Equation (6)/Table III thermal EOS and paired Table II
+  observations are included; the later preferred isotherms are preserved as
+  derived data. See the [Zha reproduction](literature-reproductions/zha-2004-rhenium.md).
+
+- Xian, Y., Xiang, S., Liu, L., Chen, J. & Luo, Y. (2022). Accurate equation
+  of state of rhenium as pressure scale up to 130 GPa and 3200 K.
+  *AIP Advances*, 12, 055313.
+  [doi:10.1063/5.0089292](https://doi.org/10.1063/5.0089292).
+  Investigated but deferred from the executable catalog because source-specific
+  velocity coefficients and printed thermal equations remain unresolved; see
+  the [Xian reproduction audit](literature-reproductions/xian-2022-rhenium.md).
+
 - Fei, Y., Murphy, C., Shibazaki, Y., Shahar, A. & Huang, H. (2016).
   Thermal equation of state of hcp-iron: Constraint on the density deficit of
   Earth's solid inner core. *Geophysical Research Letters*, 43, 6837–6843.

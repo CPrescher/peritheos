@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **573** EOS records. **197** achieve uncertainty parity, **134** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[67](#parity-not-achieved)** do not achieve parity, **162** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **574** EOS records. **197** achieve uncertainty parity, **135** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[67](#parity-not-achieved)** do not achieve parity, **162** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -567,6 +567,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`rhenium_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `rhenium_anzellini_2014_table3_compression` | 59 | `V0` 29.474 → 29.4765; `K0` 350.5 → 349.467; `K0_prime` 3.98 → 4.01284 | —/0.574492 | [similar](#investigation-rhenium_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`rhenium_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `rhenium_anzellini_2014_table3_compression` | 59 | `V0` 29.468 → 29.4712; `K0` 350.5 → 349.324; `K0_prime` 4.62 → 4.65097 | —/0.604048 | [similar](#investigation-rhenium_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`rhenium_sakai_2018_yokoo_pt_vinet`](https://doi.org/10.1080/08957959.2018.1448082) | `rhenium_sakai_2018_figure10` | 26 | `K0` 358 → 357.192; `K0_prime` 4.8 → 4.83483 | 3.21309/3.10617 | parity — Numerical parity: 26 RP01 Yokoo-Pt Figure 10 points reproduce both coefficients within the quoted errors, with comparable conditional refit standard errors (10.23 GPa and 0.180). Parity is based on the reported parameter error widths, not a formal combined-two-sigma claim. Exact row selection, weights and source error confidence are unspecified. Including six Micro17 points shifts K0/K0' to about 327.1/5.373; this selection sensitivity is retained in the dedicated Sakai 2018 audit. |
+| [`rhenium_zha_2004_bm3_log_thermal`](https://doi.org/10.1063/1.1765752) | `rhenium_zha_2004_table2_paired_pvt` | 8 | `alpha_KT_ref` 0.00776 → 0.00775616; `dK_dT_V` -0.00815 → -0.00814879 | 0.408492/0.408385 | [similar](#investigation-rhenium_zha_2004_bm3_log_thermal) — Both thermal point estimates recover within 0.05%; source errors are unavailable. The source staged isochore objective differs from direct pressure least squares. See literature-reproductions/zha-2004-rhenium.md. |
 | [`rhodium_rodrigo_ramon_2024_vinet_1`](https://doi.org/10.1038/s41598-024-78006-0) | `rhodium_rodrigo_ramon_2024_table2_compression` | 51 | `V0` 55.046 → 55.0484; `K0` 251 → 250.426; `K0_prime` 5.7 → 5.70433 | 0.0486409/0.018579 | parity |
 | [`ringwoodite_meng_1994_bm3_1`](https://doi.org/10.1007/BF00203299) | `ringwoodite_meng_1994_table1_pvt` | 12 | `V0` 526.7 → 526.901; `K0` 182 → 178.432; `K0_prime` 4.2 → 4.49028 | 0.17443/0.167996 | parity |
 | [`ruthenium_anzellini_2019_bm3_1`](https://doi.org/10.1038/s41598-019-51037-8) | `ruthenium_anzellini_2019_table1_compression` | 116 | `V0` 27.122 → 27.1517; `K0` 323.4 → 317.525; `K0_prime` 4.15 → 4.24557 | 0.466705/0.444082 | [similar](#investigation-ruthenium_anzellini_2019_bm3_1) |
@@ -802,7 +803,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **201** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **202** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests or a dedicated partial-source reconstruction does
@@ -4531,6 +4532,26 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-rhenium_zha_2004_bm3_log_thermal"></a>
+
+### `rhenium_zha_2004_bm3_log_thermal`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `rhenium_zha_2004_table2_paired_pvt` with 8 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `alpha_KT_ref` | 0.00776 | 0.00775616 | 0.05% | — | yes |
+| `dK_dT_V` | -0.00815 | -0.00814879 | 0.01% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 6.41-8.47 GPa; source-declared range: 6.41-8.47 GPa; fit kind: `isochore_slope_linear_regression`; objective: `unweighted residuals of (P-P300)/(T-300), the staged isochore construction in Section III`; published/refit pressure RMSE: 0.408492/0.408385 GPa; reduced chi-square: —; free parameters: `alpha_KT_ref, dK_dT_V`; source-fixed parameters: `V0, K0, K0_prime, Tr`.
+
+**Source/data scope.** All eight primary Re observations and paired Au marker diffraction values and uncertainties are bundled. Derived Tables IV/V and the six Table VII diffraction diagnostics are retained separately.
+
+**Registered source-fit note.** Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V>Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `alpha_KT_ref`, `dK_dT_V`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-ruthenium_anzellini_2019_bm3_1"></a>
 

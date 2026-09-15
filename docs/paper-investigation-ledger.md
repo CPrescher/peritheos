@@ -29,21 +29,21 @@ produce an executable record.
 
 ## Summary
 
-The register covers **335 primary papers**: **235** support the 573 audited catalog records and **100** were investigated without adding a production record.
+The register covers **337 primary papers**: **236** support the 574 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 156 |
+| Reproduced | 157 |
 | Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 11 |
 | Coefficient parity not achieved | 14 |
 | Direct refit unavailable | 53 |
 | Source reconstruction | 1 |
 | Withheld: could not reproduce | 6 |
-| Deferred: incomplete source/model mapping | 88 |
+| Deferred: incomplete source/model mapping | 89 |
 
 ## Withheld or deferred papers
 
@@ -815,6 +815,14 @@ The extracted rows are acoustic finite-strain elasticity results rather than com
 
 Evidence: [literature-reproductions/wu-2016-feal-phase-d.md](literature-reproductions/wu-2016-feal-phase-d.md).
 
+### [Xian et al. (2022), rhenium thermal pressure scale](https://doi.org/10.1063/5.0089292)
+
+**Outcome:** Deferred: incomplete source/model mapping (2026-09-15).
+
+Complete primary paper audited. Unpublished velocity-density fit coefficients prevent exact quasi-Debye reconstruction; the printed alternative Eq. (40) has negative thermal expansion and other thermal equations contain unresolved notation errors. No signs, missing parameters, or gold reference volume were guessed.
+
+Evidence: [literature-reproductions/xian-2022-rhenium.md](literature-reproductions/xian-2022-rhenium.md).
+
 ### [Xu et al. (2024), Al-bearing superhydrous phase B](https://doi.org/10.1029/2023GL107818)
 
 **Outcome:** Withheld: could not reproduce (2026-09-05).
@@ -1323,6 +1331,7 @@ the primary-source and refit ledgers.
 | [Wolf et al. (2015)](https://doi.org/10.1002/2015jb012108) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Wu et al. (2013)](https://doi.org/10.7498/aps.62.049101) | Direct refit unavailable | 2 | 2 direct refit unavailable | 2 theoretical parameterization only |
 | [Wu et al. (2016), Fe-Al phase D elasticity](https://doi.org/10.1002/2016JB013209) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Xian et al. (2022), rhenium thermal pressure scale](https://doi.org/10.1063/5.0089292) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Xiao et al. (2013)](https://doi.org/10.2138/am.2013.4470) | Partly reproduced | 3 | 1 similar; 2 direct refit unavailable | 1 bundled |
 | [Xu et al. (2020)](https://doi.org/10.1029/2020gl088877) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Xu et al. (2024), Al-bearing superhydrous phase B](https://doi.org/10.1029/2023GL107818) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
@@ -1331,6 +1340,7 @@ the primary-source and refit ledgers.
 | [Yang et al. (2015)](https://doi.org/10.1038/srep17188) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Ye et al. (2017)](https://doi.org/10.1002/2016jb013811) | Reproduced | 3 | 3 parity | 3 bundled |
 | [Yu et al. (2024)](https://doi.org/10.1029/2023jb028026) | Reproduced | 1 | 1 similar | 1 bundled |
+| [Zha et al. (2004)](https://doi.org/10.1063/1.1765752) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Zha, Mao, and Hemley (2000), MgO elasticity pressure scale](https://doi.org/10.1073/pnas.240466697) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Zhang and Bukowinski (1991)](https://doi.org/10.1103/physrevb.44.2495) | Direct refit unavailable | 3 | 3 direct refit unavailable |  |
 | [Zhang and Weidner (1999), Al-enriched silicate perovskite](https://doi.org/10.1126/science.284.5415.782) | Direct refit unavailable | 0 | no production record | investigation evidence only |
