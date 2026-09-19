@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **583** EOS records. **199** achieve uncertainty parity, **142** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[67](#parity-not-achieved)** do not achieve parity, **162** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **585** EOS records. **199** achieve uncertainty parity, **144** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[67](#parity-not-achieved)** do not achieve parity, **162** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -614,6 +614,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`tantalum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `tantalum_dewaele_2004_table1_compression` | 36 | `V0` 36.038 → 36.0378; `K0` 196.1 → 196.056; `K0_prime` 3.64 → 3.64172 | —/0.300105 | [similar](#investigation-tantalum_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`tantalum_dewaele_2004_mao_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `tantalum_dewaele_2004_table1_compression` | 36 | `K0` 198.2 → 195.278; `K0_prime` 3.07 → 3.24406 | 0.387667/0.264718 | parity |
 | [`tantalum_dewaele_2004_revised_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `tantalum_dewaele_2004_table1_compression` | 36 | `K0_prime` 3.52 → 3.57078 | 0.394586/0.282194 | parity |
+| [`tho2_cotunnite_chidester_2018_bm3_linear_thermal`](https://doi.org/10.2138/am-2018-6212) | `tho2_cotunnite_chidester_2018_table_s2` | 59 | `V0` 164.393 → 164.482; `K0` 190 → 191.04; `alpha_KT` 0.0037 → 0.00352444 | 0.967702/0.959574 | [similar](#investigation-tho2_cotunnite_chidester_2018_bm3_linear_thermal) — Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed. |
+| [`thorianite_chidester_2018_bm3_linear_thermal`](https://doi.org/10.2138/am-2018-6212) | `thorianite_chidester_2018_table_s1` | 29 | `K0` 204 → 203.128; `alpha_KT` 0.0035 → 0.00366139 | 0.910071/0.916805 | [similar](#investigation-thorianite_chidester_2018_bm3_linear_thermal) — Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed. |
 | [`titanium_alpha_dewaele_2015_vinet_1`](https://doi.org/10.1103/PhysRevB.91.134108) | `titanium_alpha_dewaele_2015_table4_compression` | 4 | `V0` 35.304 → 35.3222; `K0` 110.4 → 109.354 | 0.0519872/0.0452526 | parity |
 | [`titanium_omega_dewaele_2015_vinet_1`](https://doi.org/10.1103/PhysRevB.91.134108) | `titanium_omega_dewaele_2015_table4_compression` | 41 | `V0` 52.38 → 52.785; `K0` 106.9 → 98.4377; `K0_prime` 3.68 → 3.79577 | 2.92213/2.24692 | parity |
 | [`tungsten_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
@@ -812,7 +814,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **209** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **211** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests or a dedicated partial-source reconstruction does
@@ -5070,6 +5072,47 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-tho2_cotunnite_chidester_2018_bm3_linear_thermal"></a>
+
+### `tho2_cotunnite_chidester_2018_bm3_linear_thermal`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `tho2_cotunnite_chidester_2018_table_s2` with 59 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 164.393 | 164.482 | 0.05% | — | yes |
+| `K0` | 190 | 191.04 | 0.55% | — | yes |
+| `alpha_KT` | 0.0037 | 0.00352444 | 4.74% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 16.6-62 GPa; fit kind: `source_constrained_bm3_linear_thermal_diagnostic`; objective: `joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy`; published/refit pressure RMSE: 0.967702/0.959574 GPa; reduced chi-square: —; free parameters: `V0, K0, alpha_KT`; source-fixed parameters: `K0_prime, Tr`.
+
+**Source/data scope.** All 59 high-temperature observations. No reliable room-temperature lattice parameters or volumes: the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. All coordinate and lattice errors retained; confidence convention, fit weights, covariance and raw calibrant readings unreported.
+
+**Registered source-fit note.** All 59 high-temperature observations. No reliable room-temperature lattice parameters or volumes: the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `alpha_KT`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-thorianite_chidester_2018_bm3_linear_thermal"></a>
+
+### `thorianite_chidester_2018_bm3_linear_thermal`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `thorianite_chidester_2018_table_s1` with 29 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 204 | 203.128 | 0.43% | — | yes |
+| `alpha_KT` | 0.0035 | 0.00366139 | 4.61% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 0-28 GPa; fit kind: `source_constrained_bm3_linear_thermal_diagnostic`; objective: `joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy`; published/refit pressure RMSE: 0.910071/0.916805 GPa; reduced chi-square: —; free parameters: `K0, alpha_KT`; source-fixed parameters: `V0, K0_prime, Tr`.
+
+**Source/data scope.** Only T=300 K rows with P<15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. All coordinate and lattice errors retained; confidence convention, fit weights, covariance and raw calibrant readings unreported.
+
+**Registered source-fit note.** Only T=300 K rows with P<15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `alpha_KT`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-tungsten_dewaele_2019_mao_vinet"></a>
 

@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Chidester et al. (2018) experimental thermal EOSs for thorianite and
+  cotunnite-type ThO2, with all 100 official observation rows, source exclusions,
+  diffraction structures, independent reproduction and weighting diagnostics.
+  The catalog now contains 213 executable materials and 585 EOS records.
+
 - Lv et al. (2016) synthetic qandilite Mg2.00(1)Ti1.00(1)O4, with separate
   published BM2 and BM3 records, all 18 primary P–V rows and uncertainties,
   independently sourced diffraction structure, and reproducible refit checks.

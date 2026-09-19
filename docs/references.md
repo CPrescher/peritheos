@@ -486,6 +486,18 @@ publication when citing a model in scientific work.
 - Yamazaki, Ito, Yoshino, Yoneda, Guo, Zhang, Sun, Shimojuku, Tsujino, Kunimoto, Higo, Funakoshi (2012). *P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils*. Geophysical Research Letters 39, L20308. [doi:10.1029/2012GL053540](https://doi.org/10.1029/2012GL053540). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
 - Sakai, Takahashi, Nishitani, Mashino, Ohtani, Hirao (2014). *Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar*. Physics of the Earth and Planetary Interiors 228, 114–126. [doi:10.1016/j.pepi.2013.12.010](https://doi.org/10.1016/j.pepi.2013.12.010). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
 
+## Thorium dioxide experimental EOS and structures
+
+- Chidester, B.A., Pardo, O.S., Fischer, R.A., Thompson, E.C., Heinz, D.L.,
+  Prescher, C., Prakapenka, V.B., and Campbell, A.J. (2018). High-pressure phase
+  behavior and equations of state of ThO2 polymorphs. *American Mineralogist*,
+  103, 749–756. [doi:10.2138/am-2018-6212](https://doi.org/10.2138/am-2018-6212).
+  See the [source audit and refits](literature-reproductions/chidester-2018-tho2.md).
+- Idiri, M., Le Bihan, T., Heathman, S., and Rebizant, J. (2004). Behavior of
+  actinide dioxides under pressure: UO2 and ThO2. *Physical Review B*, 70,
+  014113. [doi:10.1103/PhysRevB.70.014113](https://doi.org/10.1103/PhysRevB.70.014113).
+  Experimental structure authority for both ThO2 cards; its EOS is not added here.
+
 ## Synthetic qandilite
 
 - Lv, M., Liu, X., Shieh, S. R., Xie, T., Wang, F., Prescher, C., and

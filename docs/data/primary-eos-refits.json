@@ -38996,6 +38996,267 @@
       "status": "parity"
     },
     {
+      "dataset_identifiers": [
+        "tho2_cotunnite_chidester_2018_table_s2"
+      ],
+      "experimental_pressure_range_gpa": [
+        16.6,
+        62
+      ],
+      "experimental_temperature_range_k": [
+        1018,
+        2553
+      ],
+      "fit_kind": "source_constrained_bm3_linear_thermal_diagnostic",
+      "fixed_parameters": [
+        "K0_prime",
+        "Tr"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "alpha_KT"
+      ],
+      "label": "Chidester et al. (2018), cotunnite-type ThO2 experimental thermal EOS",
+      "material_identifier": "tho2_cotunnite",
+      "model": "BM3",
+      "objective": "joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy",
+      "observations": 59,
+      "parameters": [
+        {
+          "parameter": "V0",
+          "published": 164.39336765021082,
+          "published_error": 0.3985293761217232,
+          "refit": 164.48163575583166,
+          "refit_error": null,
+          "relative_difference": 0.0005369322794618716,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "K0",
+          "published": 190.0,
+          "published_error": 3.0,
+          "refit": 191.0397624784711,
+          "refit_error": null,
+          "relative_difference": 0.005472434097216263,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "alpha_KT",
+          "published": 0.0037,
+          "published_error": 0.0004,
+          "refit": 0.003524437225708338,
+          "refit_error": null,
+          "relative_difference": 0.047449398457206006,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "All 59 high-temperature observations. No reliable room-temperature lattice parameters or volumes: the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. All coordinate and lattice errors retained; confidence convention, fit weights, covariance and raw calibrant readings unreported.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2018-6212",
+      "published_rmse_gpa": 0.9677019947550033,
+      "reason": "Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.",
+      "record_identifier": "tho2_cotunnite_chidester_2018_bm3_linear_thermal",
+      "reproduction": {
+        "benchmarks": [
+          {
+            "absolute_tolerance_gpa": 1.8,
+            "calculated_pressure_gpa": 17.40251772768322,
+            "measured_pressure_gpa": 17.4,
+            "molar_volume_cm3_mol": 23.4,
+            "sample": "B25_446",
+            "temperature_k": 1781.0,
+            "within_tolerance": true
+          },
+          {
+            "absolute_tolerance_gpa": 2.0,
+            "calculated_pressure_gpa": 61.21383738825827,
+            "measured_pressure_gpa": 62.0,
+            "molar_volume_cm3_mol": 20.45,
+            "sample": "B70_562",
+            "temperature_k": 2480.0,
+            "within_tolerance": true
+          }
+        ],
+        "excluded_samples": [],
+        "native_max_difference_gpa": 1.8474111129762605e-13,
+        "published_rmse_gpa": 0.9677019947550033,
+        "qualification": "Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.",
+        "refits": {
+          "effective_errors": {
+            "parameters_molar": [
+              24.76328907391668,
+              191.0397624784711,
+              0.003524437225708338
+            ],
+            "rmse_gpa": 0.9595744940835326,
+            "solver_success": true
+          },
+          "pressure_errors": {
+            "parameters_molar": [
+              24.76913058211163,
+              189.60047066050265,
+              0.0035969663424990778
+            ],
+            "rmse_gpa": 0.9618256527943065,
+            "solver_success": true
+          },
+          "unweighted": {
+            "parameters_molar": [
+              24.795461910856677,
+              189.56670332201293,
+              0.0034017321081616565
+            ],
+            "rmse_gpa": 0.9568045385129228,
+            "solver_success": true
+          }
+        },
+        "selected_rows": 59,
+        "selection": "All high-T rows; no 300 K observations exist.",
+        "total_rows": 59
+      },
+      "rmse_gpa": 0.9595744940835326,
+      "selection": "All high-T rows; no 300 K observations exist.",
+      "solver_success": true,
+      "source_notes": "All 59 high-temperature observations. No reliable room-temperature lattice parameters or volumes: the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.",
+      "status": "similar"
+    },
+    {
+      "dataset_identifiers": [
+        "thorianite_chidester_2018_table_s1"
+      ],
+      "experimental_pressure_range_gpa": [
+        0,
+        28
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        2135
+      ],
+      "fit_kind": "source_constrained_bm3_linear_thermal_diagnostic",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime",
+        "Tr"
+      ],
+      "free_parameters": [
+        "K0",
+        "alpha_KT"
+      ],
+      "label": "Chidester et al. (2018), thorianite experimental thermal EOS",
+      "material_identifier": "thorianite",
+      "model": "BM3",
+      "objective": "joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy",
+      "observations": 29,
+      "parameters": [
+        {
+          "parameter": "K0",
+          "published": 204.0,
+          "published_error": 2.0,
+          "refit": 203.12770813359694,
+          "refit_error": null,
+          "relative_difference": 0.004275940521583628,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "alpha_KT",
+          "published": 0.0035,
+          "published_error": 0.0003,
+          "refit": 0.0036613931510300997,
+          "refit_error": null,
+          "relative_difference": 0.046112328865742735,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Only T=300 K rows with P<15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. All coordinate and lattice errors retained; confidence convention, fit weights, covariance and raw calibrant readings unreported.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2018-6212",
+      "published_rmse_gpa": 0.9100714261490399,
+      "reason": "Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.",
+      "record_identifier": "thorianite_chidester_2018_bm3_linear_thermal",
+      "reproduction": {
+        "benchmarks": [
+          {
+            "absolute_tolerance_gpa": 1.6,
+            "calculated_pressure_gpa": 17.416223687612707,
+            "measured_pressure_gpa": 18.7,
+            "molar_volume_cm3_mol": 24.98,
+            "sample": "B5_209",
+            "temperature_k": 1734.0,
+            "within_tolerance": true
+          },
+          {
+            "absolute_tolerance_gpa": 2.0,
+            "calculated_pressure_gpa": 27.86835723534161,
+            "measured_pressure_gpa": 28.0,
+            "molar_volume_cm3_mol": 24.11,
+            "sample": "B5_253",
+            "temperature_k": 1986.0,
+            "within_tolerance": true
+          }
+        ],
+        "excluded_samples": [
+          "B12_30",
+          "B12_31",
+          "B12_32",
+          "B12_33",
+          "B12_34",
+          "B12_35",
+          "B12_37",
+          "B12_38",
+          "B12_43",
+          "B12_60",
+          "B12_61",
+          "B12_62"
+        ],
+        "native_max_difference_gpa": 1.6697754290362354e-13,
+        "published_rmse_gpa": 0.9100714261490399,
+        "qualification": "Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.",
+        "refits": {
+          "effective_errors": {
+            "parameters_molar": [
+              26.379,
+              203.12770813359694,
+              0.0036613931510300997
+            ],
+            "rmse_gpa": 0.9168047800085756,
+            "solver_success": true
+          },
+          "pressure_errors": {
+            "parameters_molar": [
+              26.379,
+              207.73074192731534,
+              0.0032168320684765593
+            ],
+            "rmse_gpa": 0.9335039522275557,
+            "solver_success": true
+          },
+          "unweighted": {
+            "parameters_molar": [
+              26.379,
+              200.09516089645732,
+              0.0037337895313435503
+            ],
+            "rmse_gpa": 0.9006840107104128,
+            "solver_success": true
+          }
+        },
+        "selected_rows": 29,
+        "selection": "All high-T rows plus 300 K rows below 15 GPa; measured ambient V0 fixed.",
+        "total_rows": 41
+      },
+      "rmse_gpa": 0.9168047800085756,
+      "selection": "All high-T rows plus 300 K rows below 15 GPa; measured ambient V0 fixed.",
+      "solver_success": true,
+      "source_notes": "Only T=300 K rows with P<15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.",
+      "status": "similar"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -40342,8 +40603,8 @@
     "not_refittable": 162,
     "parity": 199,
     "parity_not_achieved": 67,
-    "similar": 142,
+    "similar": 144,
     "source_reconstruction": 13,
-    "total": 583
+    "total": 585
   }
 }

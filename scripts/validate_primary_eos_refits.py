@@ -1912,6 +1912,10 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if "_chidester_2018_" in record_id:
+        from scripts.reproduce_chidester_2018_tho2 import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id.startswith("superhydrous_phase_b_lt_litasov_2007_"):
         from scripts.reproduce_litasov_2007_superhydrous_phase_b import ledger_outcome
 
