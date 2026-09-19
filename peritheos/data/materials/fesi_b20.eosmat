@@ -1,0 +1,524 @@
+{
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "fesi_b20",
+  "name": "FeSi (B20)",
+  "formula": "FeSi",
+  "phase": "b20",
+  "aliases": [
+    "epsilon FeSi",
+    "iron monosilicide B20"
+  ],
+  "cell_contents": "8 atoms per conventional cell; 4 formula units of FeSi",
+  "units": {
+    "pressure": "GPa",
+    "temperature": "K",
+    "volume": "angstrom^3/conventional_unit_cell"
+  },
+  "symmetry": "CUBIC",
+  "lattice": {
+    "a": 4.495,
+    "b": 4.495,
+    "c": 4.495,
+    "alpha": 90.0,
+    "beta": 90.0,
+    "gamma": 90.0
+  },
+  "formula_units_per_cell": 4,
+  "space_group": "P213",
+  "space_group_number": 198,
+  "atom_sites": [
+    {
+      "element": "Fe",
+      "wyckoff": "4a",
+      "x": 0.1365,
+      "y": 0.1365,
+      "z": 0.1365,
+      "occupancy": 1.0
+    },
+    {
+      "element": "Si",
+      "wyckoff": "4a",
+      "x": 0.84262,
+      "y": 0.84262,
+      "z": 0.84262,
+      "occupancy": 1.0
+    }
+  ],
+  "peaks": [],
+  "source": {
+    "structure_reference": {
+      "authors": [
+        "Wartchow",
+        "Gerighausen",
+        "Binnewies"
+      ],
+      "year": 1997,
+      "title": "Redetermination of the crystal structure of iron silicide, FeSi",
+      "source": "Zeitschrift für Kristallographie – New Crystal Structures",
+      "volume": "212",
+      "locator": "320",
+      "doi": "10.1524/ncrs.1997.212.1.320"
+    },
+    "structure_location": "Refined B20 FeSi coordinates and a=4.495(2) A at 298 K from Wartchow et al. (1997), page 320/Table 2; full occupancy. Its separate structural lattice need not match Fischer’s EOS V0."
+  },
+  "notes": "Refined B20 FeSi coordinates and a=4.495(2) A at 298 K from Wartchow et al. (1997), page 320/Table 2; full occupancy. Its separate structural lattice need not match Fischer’s EOS V0.",
+  "eos_records": [
+    {
+      "identifier": "fesi_b20_fischer_2014_bm3_1",
+      "label": "Fischer et al. (2014), FeSi b20 BM3 at 300 K",
+      "default": true,
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": [
+          "Fischer",
+          "Campbell",
+          "Caracas",
+          "Reaman",
+          "Heinz",
+          "Dera",
+          "Prakapenka"
+        ],
+        "year": 2014,
+        "title": "Equations of state in the Fe–FeSi system at high pressures and temperatures",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "119",
+        "locator": "2810-2827",
+        "doi": "10.1002/2013JB010898"
+      },
+      "sample_composition": "Stoichiometric FeSi starting material",
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+          "V0": 90.37317819186943,
+          "K0": 192.2,
+          "K0_prime": 5.03
+        }
+      },
+      "parameter_errors": {
+        "V0": 0.10627450029912619,
+        "K0": 1.6,
+        "K0_prime": 0.17
+      },
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "fixed_parameters": [
+        "V0"
+      ],
+      "temperature_ref": 300.0,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        36.27929763454465
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_range_status": "reported_exactly",
+      "range_provenance": {
+        "source_location": "2014 official Table S2, source worksheet row numbers retained",
+        "selection": "phase=B20",
+        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
+      },
+      "fit_datasets": [
+        "fischer_2014_table_s2_pvt"
+      ],
+      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
+      "parameter_provenance": {
+        "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
+        "V0": "Table 2 and Section 4.2: 6.803 cm^3/mol atoms; multiply by 8/0.602214076 for this cell. Measured and held fixed.",
+        "K0": "Table 2 and Section 4.2: 192.2 GPa. Fitted.",
+        "K0_prime": "Table 2 and Section 4.2: 5.03. Fitted.",
+        "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
+        "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged."
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "B2 KBr",
+            "reference": {
+              "authors": [
+                "Fischer",
+                "Campbell",
+                "Caracas",
+                "Reaman",
+                "Dera",
+                "Prakapenka"
+              ],
+              "year": 2012,
+              "title": "Equation of state and phase diagram of Fe–16Si alloy as a candidate component of Earth’s core",
+              "source": "Earth and Planetary Science Letters",
+              "volume": "357–358",
+              "locator": "268-276",
+              "doi": "10.1016/j.epsl.2012.09.022"
+            },
+            "source_location": "Fischer (2014) Sections 2-3; Fischer (2012) methods/Table 1",
+            "notes": "Exact Fischer 2012 B2 KBr thermal calibration is not bundled; do not substitute the Dewaele 2012 KBr record. KBr is colder than the sample; the marker temperature requires the source gradient correction."
+          },
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": [
+                "Mao",
+                "Xu",
+                "Bell"
+              ],
+              "year": 1986,
+              "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "reference_calibration_record": "ruby_mao_1986",
+            "source_location": "Fischer (2014) Section 2; Fischer (2012) methods",
+            "notes": "Additional room-temperature pressure standard; no raw ruby wavelengths are tabulated."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Raw KBr lattice parameters are retained for all compressed observations. Only corrected sample temperatures are tabulated; marker temperatures would require reconstruction of the original surface-temperature/gradient procedure, not a second sample correction. Secondary ruby/neon raw readings are not tabulated."
+        },
+        "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-09-19",
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "published_uncertainties",
+          "fixed_parameters",
+          "primary_data",
+          "pressure_calibration",
+          "fit_selection",
+          "numerical_reproduction"
+        ],
+        "primary_source_check": {
+          "doi": "10.1002/2013JB010898",
+          "access_url": "https://doi.org/10.1002/2013JB010898",
+          "locations": [
+            "Table 2 and Section 4.2",
+            "2014 official Table S2, source worksheet row numbers retained"
+          ],
+          "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-19",
+          "dataset_identifiers": [
+            "fischer_2014_table_s2_pvt"
+          ],
+          "source_locations": [
+            "2014 official Table S2, source worksheet row numbers retained"
+          ],
+          "finding": "All 180 rows and available coordinate errors/marker measurements are preserved. 27 B20 observations are selected for this branch. No mixed-phase observations are silently admitted."
+        },
+        "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      },
+      "default_for": "equilibrium"
+    },
+    {
+      "identifier": "fesi_b20_fischer_2014_vinet_2",
+      "label": "Fischer et al. (2014), FeSi b20 VINET at 300 K",
+      "default": false,
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": [
+          "Fischer",
+          "Campbell",
+          "Caracas",
+          "Reaman",
+          "Heinz",
+          "Dera",
+          "Prakapenka"
+        ],
+        "year": 2014,
+        "title": "Equations of state in the Fe–FeSi system at high pressures and temperatures",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "119",
+        "locator": "2810-2827",
+        "doi": "10.1002/2013JB010898"
+      },
+      "sample_composition": "Stoichiometric FeSi starting material",
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {
+          "V0": 90.37317819186943,
+          "K0": 193.1,
+          "K0_prime": 5.03
+        }
+      },
+      "parameter_errors": {
+        "V0": 0.10627450029912619,
+        "K0": 1.6,
+        "K0_prime": 0.17
+      },
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "fixed_parameters": [
+        "V0"
+      ],
+      "temperature_ref": 300.0,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        36.27929763454465
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "pressure_range_status": "reported_exactly",
+      "range_provenance": {
+        "source_location": "2014 official Table S2, source worksheet row numbers retained",
+        "selection": "phase=B20",
+        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
+      },
+      "fit_datasets": [
+        "fischer_2014_table_s2_pvt"
+      ],
+      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
+      "parameter_provenance": {
+        "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
+        "V0": "Table S6 and Text S1, page 2: 6.803 cm^3/mol atoms; multiply by 8/0.602214076 for this cell. Measured and held fixed.",
+        "K0": "Table S6 and Text S1, page 2: 193.1 GPa. Fitted.",
+        "K0_prime": "Table S6 and Text S1, page 2: 5.03. Fitted.",
+        "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
+        "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged."
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "B2 KBr",
+            "reference": {
+              "authors": [
+                "Fischer",
+                "Campbell",
+                "Caracas",
+                "Reaman",
+                "Dera",
+                "Prakapenka"
+              ],
+              "year": 2012,
+              "title": "Equation of state and phase diagram of Fe–16Si alloy as a candidate component of Earth’s core",
+              "source": "Earth and Planetary Science Letters",
+              "volume": "357–358",
+              "locator": "268-276",
+              "doi": "10.1016/j.epsl.2012.09.022"
+            },
+            "source_location": "Fischer (2014) Sections 2-3; Fischer (2012) methods/Table 1",
+            "notes": "Exact Fischer 2012 B2 KBr thermal calibration is not bundled; do not substitute the Dewaele 2012 KBr record. KBr is colder than the sample; the marker temperature requires the source gradient correction."
+          },
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": [
+                "Mao",
+                "Xu",
+                "Bell"
+              ],
+              "year": 1986,
+              "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "reference_calibration_record": "ruby_mao_1986",
+            "source_location": "Fischer (2014) Section 2; Fischer (2012) methods",
+            "notes": "Additional room-temperature pressure standard; no raw ruby wavelengths are tabulated."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Raw KBr lattice parameters are retained for all compressed observations. Only corrected sample temperatures are tabulated; marker temperatures would require reconstruction of the original surface-temperature/gradient procedure, not a second sample correction. Secondary ruby/neon raw readings are not tabulated."
+        },
+        "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-09-19",
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "published_uncertainties",
+          "fixed_parameters",
+          "primary_data",
+          "pressure_calibration",
+          "fit_selection",
+          "numerical_reproduction"
+        ],
+        "primary_source_check": {
+          "doi": "10.1002/2013JB010898",
+          "access_url": "https://doi.org/10.1002/2013JB010898",
+          "locations": [
+            "Table S6 and Text S1, page 2",
+            "2014 official Table S2, source worksheet row numbers retained"
+          ],
+          "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-19",
+          "dataset_identifiers": [
+            "fischer_2014_table_s2_pvt"
+          ],
+          "source_locations": [
+            "2014 official Table S2, source worksheet row numbers retained"
+          ],
+          "finding": "All 180 rows and available coordinate errors/marker measurements are preserved. 27 B20 observations are selected for this branch. No mixed-phase observations are silently admitted."
+        },
+        "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    }
+  ],
+  "datasets": [
+    {
+      "identifier": "fischer_2014_table_s2_pvt",
+      "kind": "pressure_volume_temperature_multiphase_with_calibrant",
+      "description": "All 180 source observations, including excluded phases and pressure-marker observations; derived cell volumes supplement unchanged numeric source inputs.",
+      "source_location": "2014 official Table S2, source worksheet row numbers retained",
+      "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2013JB010898&file=2013JB010898ts02.xls",
+      "columns": [
+        {
+          "name": "source_row",
+          "quantity": "source_row",
+          "unit": "1",
+          "role": "flag"
+        },
+        {
+          "name": "phase",
+          "quantity": "phase",
+          "unit": "1",
+          "role": "flag"
+        },
+        {
+          "name": "temperature_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "value"
+        },
+        {
+          "name": "temperature_uncertainty_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "kbr_a_angstrom",
+          "quantity": "kbr_a_angstrom",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "kbr_a_uncertainty_angstrom",
+          "quantity": "kbr_a_angstrom",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "kbr_a_angstrom"
+        },
+        {
+          "name": "b20_a_angstrom",
+          "quantity": "b20_a_angstrom",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "b20_a_uncertainty_angstrom",
+          "quantity": "b20_a_angstrom",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "b20_a_angstrom"
+        },
+        {
+          "name": "b2_a_angstrom",
+          "quantity": "b2_a_angstrom",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "b2_a_uncertainty_angstrom",
+          "quantity": "b2_a_angstrom",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "b2_a_angstrom"
+        },
+        {
+          "name": "source_flags",
+          "quantity": "source_flags",
+          "unit": "1",
+          "role": "flag"
+        },
+        {
+          "name": "b20_volume_a3",
+          "quantity": "sample_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "b2_volume_a3",
+          "quantity": "sample_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        }
+      ],
+      "resource": {
+        "path": "datasets/fischer-2014-table-s2-pvt.csv",
+        "sha256": "2b12a3c4ed7203fd40b5bc3195ce6643bc362a1fb48d7497dd926237d721a6b6",
+        "media_type": "text/csv"
+      },
+      "reference": {
+        "authors": [
+          "Fischer",
+          "Campbell",
+          "Caracas",
+          "Reaman",
+          "Heinz",
+          "Dera",
+          "Prakapenka"
+        ],
+        "year": 2014,
+        "title": "Equations of state in the Fe–FeSi system at high pressures and temperatures",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "119",
+        "locator": "2810-2827",
+        "doi": "10.1002/2013JB010898"
+      },
+      "used_by_eos_records": [
+        "fesi_b20_fischer_2014_bm3_1",
+        "fesi_b20_fischer_2014_vinet_2"
+      ],
+      "provenance": {
+        "type": "transcribed_official_supplement",
+        "source_workbook_sha256": "062bd6d9ef82db42bb2819314e01e565e01d5bff209678a84c25d52c92d9cc43"
+      },
+      "notes": "Original numerical precision is retained. Source zero uncertainties remain zero, blank uncertainties remain blank. No open data license was identified. The CSV contains factual measurements, not the source table image or layout. Sample temperatures already include the source gradient correction and must not be corrected again. Asterisks are recorded in source_flags and their numeric fields left blank: * means one d-spacing, uncertainty undefined; ** in Table S2 means phase detected but no reliable lattice parameter. The exceptional S2 row 62 marks both phase columns **, which is preserved without repair. Derived cubic volumes are a^3; hcp volumes are sqrt(3)/2*a^3*(c/a). Covariance of a and c/a is not given, so no independent-error volume sigma is fabricated. The complete S2 data also support the withheld B2 audit. KBr lattice uncertainties are standard errors across indexed d-spacings; pressure errors propagate marker lattice and temperature uncertainty. The 2012 source also identifies sample lattice errors as standard errors. The 2014 temperature errors combine 100 K analytical uncertainty, differences between the two sample sides and thickness correction; no confidence level is specified."
+    }
+  ]
+}

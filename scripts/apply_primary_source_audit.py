@@ -3822,6 +3822,15 @@ def main() -> None:
 
 def aggregate_existing_audits() -> None:
     """Rebuild aggregate audit files without rewriting curated material records."""
+    # Some audits retain additional candidate evidence only in this ledger.
+    existing = (
+        {
+            item["record"]: item
+            for item in json.loads(REPORT.read_text(encoding="utf-8"))["records"]
+        }
+        if REPORT.exists()
+        else {}
+    )
     entries: list[dict[str, Any]] = []
     pressure_calibrations: list[dict[str, Any]] = []
     for path in sorted(MATERIALS.glob("*.eosmat")):
@@ -3832,14 +3841,18 @@ def aggregate_existing_audits() -> None:
                 raise ValueError(
                     f"{path.name}:{record.get('identifier')} has no existing audit"
                 )
+            previous = existing.get(record["identifier"], {})
             entry = {
+                **previous,
                 "material": document["identifier"],
                 "file": path.name,
                 "record": record["identifier"],
                 "label": record["label"],
                 "doi": normalized_doi(record.get("reference")),
                 "status": check["status"],
-                "note": check["note"],
+                "note": check.get("note")
+                or previous.get("note")
+                or check["primary_source_check"]["finding"],
                 "primary_source_check": check["primary_source_check"],
             }
             if "usage_recommendation" in check:

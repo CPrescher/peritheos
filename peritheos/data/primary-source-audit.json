@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 589,
-    "primary_source_validated": 589
+    "records": 598,
+    "primary_source_validated": 598
   },
   "records": [
     {
@@ -2766,6 +2766,96 @@
       }
     },
     {
+      "material": "fe073si027_d03",
+      "file": "fe073si027_d03.eosmat",
+      "record": "fe073si027_d03_fischer_2014_vinet_1",
+      "label": "Fischer et al. (2014), Fe0.73Si0.27 d03 VINET + MGD",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table S5 and Text S1, page 2",
+          "2012 official Table S2, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fe084si016_d03",
+      "file": "fe084si016_d03.eosmat",
+      "record": "fe084si016_d03_fischer_2014_bm3_1",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 d03 BM3 at 300 K",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 1 and Section 4.1",
+          "2014 official Table S1, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fe084si016_d03",
+      "file": "fe084si016_d03.eosmat",
+      "record": "fe084si016_d03_fischer_2014_vinet_2",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 d03 VINET at 300 K",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table S4 and Text S1, page 1",
+          "2014 official Table S1, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fe084si016_hcp",
+      "file": "fe084si016_hcp.eosmat",
+      "record": "fe084si016_hcp_fischer_2014_bm3_1",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 hcp BM3 + MGD",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 1 and Section 4.1",
+          "2014 official Table S1, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fe084si016_hcp",
+      "file": "fe084si016_hcp.eosmat",
+      "record": "fe084si016_hcp_fischer_2014_vinet_2",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 hcp VINET + MGD",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table S4 and Text S1, page 1",
+          "2014 official Table S1, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
       "material": "fe088sio3_bridgmanite",
       "file": "fe088sio3_bridgmanite.eosmat",
       "record": "fe088sio3_bridgmanite_ismailova_2016_300k_bm2",
@@ -3424,6 +3514,80 @@
           "orthorhombic FeS VI constrained BM3 fit"
         ],
         "doi": "10.2138/am.2006.2347"
+      }
+    },
+    {
+      "material": "fesi_b2",
+      "file": "fesi_b2.eosmat",
+      "record": "fesi_b2_fischer_2014_bm3_refit",
+      "label": "Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 2/S6 fixed assumptions",
+          "Official Table S2, all 114 phase=B2 observations",
+          "scripts/refit_fischer_2014_b2.py and docs/data/fischer-2014-b2-refits.json"
+        ],
+        "finding": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld."
+      }
+    },
+    {
+      "material": "fesi_b2",
+      "file": "fesi_b2.eosmat",
+      "record": "fesi_b2_fischer_2014_vinet_refit",
+      "label": "Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 2/S6 fixed assumptions",
+          "Official Table S2, all 114 phase=B2 observations",
+          "scripts/refit_fischer_2014_b2.py and docs/data/fischer-2014-b2-refits.json"
+        ],
+        "finding": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld."
+      }
+    },
+    {
+      "material": "fesi_b20",
+      "file": "fesi_b20.eosmat",
+      "record": "fesi_b20_fischer_2014_bm3_1",
+      "label": "Fischer et al. (2014), FeSi b20 BM3 at 300 K",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 2 and Section 4.2",
+          "2014 official Table S2, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fesi_b20",
+      "file": "fesi_b20.eosmat",
+      "record": "fesi_b20_fischer_2014_vinet_2",
+      "label": "Fischer et al. (2014), FeSi b20 VINET at 300 K",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table S6 and Text S1, page 2",
+          "2014 official Table S2, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
       }
     },
     {
@@ -9911,6 +10075,46 @@
       }
     },
     {
+      "material": "qandilite",
+      "file": "qandilite.eosmat",
+      "record": "qandilite_lv_2016_bm2",
+      "label": "Lv et al. (2016), 300 K BM2 (K0′ = 4)",
+      "doi": "10.1007/s00269-015-0794-1",
+      "status": "primary_source_validated",
+      "note": "Published experimental alternative; Table 1 reproduced and independent diagnostic refit within reported one-sigma coefficient errors.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-015-0794-1",
+        "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+        "locations": [
+          "Experimental method, p. 302",
+          "Table 1 and unnumbered BM equation, p. 303",
+          "Figures 3–5, p. 304",
+          "Table 2, p. 305"
+        ],
+        "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
+      }
+    },
+    {
+      "material": "qandilite",
+      "file": "qandilite.eosmat",
+      "record": "qandilite_lv_2016_bm3",
+      "label": "Lv et al. (2016), 300 K BM3 (free K0′)",
+      "doi": "10.1007/s00269-015-0794-1",
+      "status": "primary_source_validated",
+      "note": "Published experimental alternative; Table 1 reproduced and independent diagnostic refit within reported one-sigma coefficient errors.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-015-0794-1",
+        "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+        "locations": [
+          "Experimental method, p. 302",
+          "Table 1 and unnumbered BM equation, p. 303",
+          "Figures 3–5, p. 304",
+          "Table 2, p. 305"
+        ],
+        "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
+      }
+    },
+    {
       "material": "rbcl",
       "file": "rbcl.eosmat",
       "record": "rbcl_b2_campbell_1994_bm3_1",
@@ -11102,6 +11306,50 @@
       }
     },
     {
+      "material": "vanadium_bcc",
+      "file": "vanadium_bcc.eosmat",
+      "record": "vanadium_bcc_crichton_2016_bm3_thermal",
+      "label": "Crichton et al. (2016), bcc V thermal BM3",
+      "doi": "10.1080/08957959.2015.1123256",
+      "status": "primary_source_validated",
+      "note": "Primary author manuscript and publisher abstract audit with independent Figure 2 curve reproduction; no claim of original 62-row fit recovery.",
+      "primary_source_check": {
+        "doi": "10.1080/08957959.2015.1123256",
+        "access_url": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
+        "source_version": "UCL author accepted manuscript; numerical abstract cross-checked on publisher publication-of-record page",
+        "locations": [
+          "Accepted manuscript pp.4-7: Experimental, Results, Conclusion",
+          "Accepted manuscript p.11: Figure 2",
+          "Publisher abstract (21 January 2016)",
+          "Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions"
+        ],
+        "finding": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit."
+      },
+      "withheld_candidates": [
+        {
+          "candidate": "BM3 K0_prime fixed at 3.5",
+          "parameters": {
+            "K0": 160.5,
+            "K0_error": 3.5,
+            "K0_prime": 3.5
+          },
+          "status": "deferred_incomplete_model",
+          "reason": "Alternative V0, alpha0, alpha1 and dK0/dT not reported; main-fit coefficients cannot be borrowed."
+        },
+        {
+          "candidate": "BM3 K0_prime fixed at 4",
+          "parameters": {
+            "K0": 157.9,
+            "K0_error": 3.5,
+            "K0_prime": 4
+          },
+          "status": "deferred_incomplete_model",
+          "reason": "Alternative V0, alpha0, alpha1 and dK0/dT not reported; main-fit coefficients cannot be borrowed."
+        }
+      ],
+      "evidence": "literature-reproductions/crichton-2016-vanadium.md"
+    },
+    {
       "material": "wadsleyite",
       "file": "wadsleyite.eosmat",
       "record": "wadsleyite_katsura_2009_bm3_1",
@@ -11283,90 +11531,6 @@
         "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
         "doi": "10.1103/zp3m-kjpc"
       }
-    },
-    {
-      "material": "qandilite",
-      "file": "qandilite.eosmat",
-      "record": "qandilite_lv_2016_bm2",
-      "label": "Lv et al. (2016), 300 K BM2 (K0′ = 4)",
-      "doi": "10.1007/s00269-015-0794-1",
-      "status": "primary_source_validated",
-      "note": "Published experimental alternative; Table 1 reproduced and independent diagnostic refit within reported one-sigma coefficient errors.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-015-0794-1",
-        "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
-        "locations": [
-          "Experimental method, p. 302",
-          "Table 1 and unnumbered BM equation, p. 303",
-          "Figures 3–5, p. 304",
-          "Table 2, p. 305"
-        ],
-        "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
-      }
-    },
-    {
-      "material": "qandilite",
-      "file": "qandilite.eosmat",
-      "record": "qandilite_lv_2016_bm3",
-      "label": "Lv et al. (2016), 300 K BM3 (free K0′)",
-      "doi": "10.1007/s00269-015-0794-1",
-      "status": "primary_source_validated",
-      "note": "Published experimental alternative; Table 1 reproduced and independent diagnostic refit within reported one-sigma coefficient errors.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-015-0794-1",
-        "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
-        "locations": [
-          "Experimental method, p. 302",
-          "Table 1 and unnumbered BM equation, p. 303",
-          "Figures 3–5, p. 304",
-          "Table 2, p. 305"
-        ],
-        "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
-      }
-    },
-    {
-      "material": "vanadium_bcc",
-      "file": "vanadium_bcc.eosmat",
-      "record": "vanadium_bcc_crichton_2016_bm3_thermal",
-      "label": "Crichton et al. (2016), bcc V thermal BM3",
-      "doi": "10.1080/08957959.2015.1123256",
-      "status": "primary_source_validated",
-      "note": "Primary author manuscript and publisher abstract audit with independent Figure 2 curve reproduction; no claim of original 62-row fit recovery.",
-      "primary_source_check": {
-        "doi": "10.1080/08957959.2015.1123256",
-        "access_url": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
-        "source_version": "UCL author accepted manuscript; numerical abstract cross-checked on publisher publication-of-record page",
-        "locations": [
-          "Accepted manuscript pp.4-7: Experimental, Results, Conclusion",
-          "Accepted manuscript p.11: Figure 2",
-          "Publisher abstract (21 January 2016)",
-          "Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions"
-        ],
-        "finding": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit."
-      },
-      "withheld_candidates": [
-        {
-          "candidate": "BM3 K0_prime fixed at 3.5",
-          "parameters": {
-            "K0": 160.5,
-            "K0_error": 3.5,
-            "K0_prime": 3.5
-          },
-          "status": "deferred_incomplete_model",
-          "reason": "Alternative V0, alpha0, alpha1 and dK0/dT not reported; main-fit coefficients cannot be borrowed."
-        },
-        {
-          "candidate": "BM3 K0_prime fixed at 4",
-          "parameters": {
-            "K0": 157.9,
-            "K0_error": 3.5,
-            "K0_prime": 4
-          },
-          "status": "deferred_incomplete_model",
-          "reason": "Alternative V0, alpha0, alpha1 and dK0/dT not reported; main-fit coefficients cannot be borrowed."
-        }
-      ],
-      "evidence": "literature-reproductions/crichton-2016-vanadium.md"
     }
   ]
 }

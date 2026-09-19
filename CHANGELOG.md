@@ -7,6 +7,14 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Seven Fischer et al. (2014) published experimental Fe–Si EOS records and two
+  independently validated Peritheos B2 refits on five materials,
+  with all 391 supplementary P–V–T rows, 185 earlier Fe–16Si observations,
+  independent BM3/Vinet/MGD checks and explicit crystal occupancies. Both B2
+  FeSi published thermal fits remain withheld because their reconstruction
+  misses the data; the factor-of-two diagnosis remains a hypothesis. The B2
+  refits preserve full covariance, sensitivity results and measured-range limits.
+
 - Nisr et al. (2017) experimental hydrous stishovite and hydrous CaCl2-type
   silica as separate composition/phase cards, plus the source-owned dry
   reference fit. Includes the corrected article audit, all 43 official

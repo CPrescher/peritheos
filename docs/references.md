@@ -534,3 +534,10 @@ publication when citing a model in scientific work.
   [doi:10.2138/am-2003-5-615](https://doi.org/10.2138/am-2003-5-615).
 
 See the [source audit and reproduction](literature-reproductions/lv-2016-qandilite.md).
+
+## Experimental Fe–Si sources
+
+- Fischer et al. (2014). *Equations of state in the Fe–FeSi system at high pressures and temperatures*. Journal of Geophysical Research: Solid Earth 119, 2810–2827. [doi:10.1002/2013JB010898](https://doi.org/10.1002/2013JB010898). Seven accepted records and two withheld B2 fits are documented in the [source audit](literature-reproductions/fischer-2014-fesi.md).
+- Fischer et al. (2012). *Equation of state and phase diagram of Fe–16Si alloy as a candidate component of Earth's core*. Earth and Planetary Science Letters 357–358, 268–276. [doi:10.1016/j.epsl.2012.09.022](https://doi.org/10.1016/j.epsl.2012.09.022). Primary observations and staged protocol for the 2014 Fe–16Si Vinet reanalysis.
+- Fischer et al. (2013). *Phase relations in the Fe–FeSi system at high pressures and temperatures*. Earth and Planetary Science Letters 373, 54–64. [doi:10.1016/j.epsl.2013.04.035](https://doi.org/10.1016/j.epsl.2013.04.035). Companion composition and phase identification.
+- Wartchow, Gerighausen & Binnewies (1997). *Redetermination of the crystal structure of iron silicide, FeSi*. Zeitschrift für Kristallographie – New Crystal Structures 212, 320. [doi:10.1524/ncrs.1997.212.1.320](https://doi.org/10.1524/ncrs.1997.212.1.320). Refined B20 structure used independently of the EOS reference volume.
