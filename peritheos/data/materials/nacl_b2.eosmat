@@ -486,6 +486,1202 @@
      "finding": "Original Sakai (2011a) paired NaCl/Pt calibration observations are not attached to this 2014 paper. Table 2 NaCl values are downstream measurements, not independent P5 calibration constraints."
     }
    }
+  },
+  {
+   "identifier": "nacl_b2_sakai_2011_matsui_pt_bm3",
+   "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Ohtani",
+     "Hirao",
+     "Ohishi"
+    ],
+    "year": 2011,
+    "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+    "source": "Journal of Applied Physics",
+    "volume": "109",
+    "locator": "084912",
+    "doi": "10.1063/1.3573393"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 37.73,
+     "K0": 47,
+     "K0_prime": 4.1
+    }
+   },
+   "parameter_errors": {
+    "V0": 4.05,
+    "K0": 0.46,
+    "K0_prime": 0.02
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    53.7,
+    304.4
+   ],
+   "range_provenance": {
+    "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
+    "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
+   },
+   "validity": {
+    "pressure_gpa": [
+     53.7,
+     304.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations."
+    ]
+   },
+   "fit_datasets": [
+    "nacl_b2_sakai_2011_table1",
+    "nacl_b2_sata_2002_table1_sakai_input"
+   ],
+   "parameter_provenance": {
+    "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.73(4.05) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
+    "K0": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed.",
+    "K0_prime": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed."
+   },
+   "notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Matsui",
+        "Ito",
+        "Katsura",
+        "Yamazaki",
+        "Yoshino",
+        "Yokoyama",
+        "Funakoshi"
+       ],
+       "year": 2009,
+       "doi": "10.1063/1.3054331",
+       "source": "Journal of Applied Physics",
+       "volume": "105",
+       "locator": "013505"
+      },
+      "source_location": "Sections II, III.B–C and Tables I–II; reference 15",
+      "scope": "Same paired Pt observations, reduced on the named scale; all four source pressure columns retained.",
+      "reference_eos_record": "platinum_matsui_2009_vinet_300k"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Exact 300 K Pt reference isotherm linked. Paired Pt observations are bundled. Curve conversion is executable; it is distinct from refitting recalibrated observations and may extrapolate beyond the calibrant validity envelope."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3573393",
+     "access_url": "https://doi.org/10.1063/1.3573393",
+     "locations": [
+      "Table I, p.084912-3",
+      "Table II, p.084912-4",
+      "Sections III.A–C, pp.084912-2–5",
+      "Figure 5 and comparisons, p.084912-5"
+     ],
+     "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "nacl_b2_sakai_2011_table1",
+      "nacl_b2_sata_2002_table1_sakai_input"
+     ],
+     "source_locations": [
+      "Sakai (2011) Table I",
+      "Sata (2002) Table I"
+     ],
+     "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+    }
+   },
+   "pressure_range_status": "reported_exactly"
+  },
+  {
+   "identifier": "nacl_b2_sakai_2011_matsui_pt_vinet",
+   "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Ohtani",
+     "Hirao",
+     "Ohishi"
+    ],
+    "year": 2011,
+    "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+    "source": "Journal of Applied Physics",
+    "volume": "109",
+    "locator": "084912",
+    "doi": "10.1063/1.3573393"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 37.73,
+     "K0": 40.4,
+     "K0_prime": 5.04
+    }
+   },
+   "parameter_errors": {
+    "V0": 4.05,
+    "K0": 0.54,
+    "K0_prime": 0.04
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    53.7,
+    304.4
+   ],
+   "range_provenance": {
+    "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
+    "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
+   },
+   "validity": {
+    "pressure_gpa": [
+     53.7,
+     304.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations."
+    ]
+   },
+   "fit_datasets": [
+    "nacl_b2_sakai_2011_table1",
+    "nacl_b2_sata_2002_table1_sakai_input"
+   ],
+   "parameter_provenance": {
+    "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.73(4.05) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
+    "K0": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed.",
+    "K0_prime": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed."
+   },
+   "notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Matsui",
+        "Ito",
+        "Katsura",
+        "Yamazaki",
+        "Yoshino",
+        "Yokoyama",
+        "Funakoshi"
+       ],
+       "year": 2009,
+       "doi": "10.1063/1.3054331",
+       "source": "Journal of Applied Physics",
+       "volume": "105",
+       "locator": "013505"
+      },
+      "source_location": "Sections II, III.B–C and Tables I–II; reference 15",
+      "scope": "Same paired Pt observations, reduced on the named scale; all four source pressure columns retained.",
+      "reference_eos_record": "platinum_matsui_2009_vinet_300k"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Exact 300 K Pt reference isotherm linked. Paired Pt observations are bundled. Curve conversion is executable; it is distinct from refitting recalibrated observations and may extrapolate beyond the calibrant validity envelope."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3573393",
+     "access_url": "https://doi.org/10.1063/1.3573393",
+     "locations": [
+      "Table I, p.084912-3",
+      "Table II, p.084912-4",
+      "Sections III.A–C, pp.084912-2–5",
+      "Figure 5 and comparisons, p.084912-5"
+     ],
+     "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "nacl_b2_sakai_2011_table1",
+      "nacl_b2_sata_2002_table1_sakai_input"
+     ],
+     "source_locations": [
+      "Sakai (2011) Table I",
+      "Sata (2002) Table I"
+     ],
+     "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+    }
+   },
+   "pressure_range_status": "reported_exactly"
+  },
+  {
+   "identifier": "nacl_b2_sakai_2011_fei_pt_bm3",
+   "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Ohtani",
+     "Hirao",
+     "Ohishi"
+    ],
+    "year": 2011,
+    "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+    "source": "Journal of Applied Physics",
+    "volume": "109",
+    "locator": "084912",
+    "doi": "10.1063/1.3573393"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 37.73,
+     "K0": 47.8,
+     "K0_prime": 4.06
+    }
+   },
+   "parameter_errors": {
+    "V0": 3.88,
+    "K0": 0.45,
+    "K0_prime": 0.02
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    54,
+    301.8
+   ],
+   "range_provenance": {
+    "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
+    "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
+   },
+   "validity": {
+    "pressure_gpa": [
+     54,
+     301.8
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations."
+    ]
+   },
+   "fit_datasets": [
+    "nacl_b2_sakai_2011_table1",
+    "nacl_b2_sata_2002_table1_sakai_input"
+   ],
+   "parameter_provenance": {
+    "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.73(3.88) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
+    "K0": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed.",
+    "K0_prime": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed."
+   },
+   "notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "doi": "10.1073/pnas.0609013104",
+       "source": "Proceedings of the National Academy of Sciences",
+       "volume": "104",
+       "locator": "9182–9186"
+      },
+      "source_location": "Sections II, III.B–C and Tables I–II; reference 6",
+      "scope": "Same paired Pt observations, reduced on the named scale; all four source pressure columns retained.",
+      "reference_eos_record": "platinum_fei_2007_vinet_300k"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Exact 300 K Pt reference isotherm linked. Paired Pt observations are bundled. Curve conversion is executable; it is distinct from refitting recalibrated observations and may extrapolate beyond the calibrant validity envelope."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3573393",
+     "access_url": "https://doi.org/10.1063/1.3573393",
+     "locations": [
+      "Table I, p.084912-3",
+      "Table II, p.084912-4",
+      "Sections III.A–C, pp.084912-2–5",
+      "Figure 5 and comparisons, p.084912-5"
+     ],
+     "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "nacl_b2_sakai_2011_table1",
+      "nacl_b2_sata_2002_table1_sakai_input"
+     ],
+     "source_locations": [
+      "Sakai (2011) Table I",
+      "Sata (2002) Table I"
+     ],
+     "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+    }
+   },
+   "pressure_range_status": "reported_exactly"
+  },
+  {
+   "identifier": "nacl_b2_sakai_2011_fei_pt_vinet",
+   "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Ohtani",
+     "Hirao",
+     "Ohishi"
+    ],
+    "year": 2011,
+    "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+    "source": "Journal of Applied Physics",
+    "volume": "109",
+    "locator": "084912",
+    "doi": "10.1063/1.3573393"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 37.73,
+     "K0": 41.36,
+     "K0_prime": 4.96
+    }
+   },
+   "parameter_errors": {
+    "V0": 3.88,
+    "K0": 0.53,
+    "K0_prime": 0.04
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    54,
+    301.8
+   ],
+   "range_provenance": {
+    "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
+    "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
+   },
+   "validity": {
+    "pressure_gpa": [
+     54,
+     301.8
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations."
+    ]
+   },
+   "fit_datasets": [
+    "nacl_b2_sakai_2011_table1",
+    "nacl_b2_sata_2002_table1_sakai_input"
+   ],
+   "parameter_provenance": {
+    "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.73(3.88) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
+    "K0": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed.",
+    "K0_prime": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed."
+   },
+   "notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "doi": "10.1073/pnas.0609013104",
+       "source": "Proceedings of the National Academy of Sciences",
+       "volume": "104",
+       "locator": "9182–9186"
+      },
+      "source_location": "Sections II, III.B–C and Tables I–II; reference 6",
+      "scope": "Same paired Pt observations, reduced on the named scale; all four source pressure columns retained.",
+      "reference_eos_record": "platinum_fei_2007_vinet_300k"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Exact 300 K Pt reference isotherm linked. Paired Pt observations are bundled. Curve conversion is executable; it is distinct from refitting recalibrated observations and may extrapolate beyond the calibrant validity envelope."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3573393",
+     "access_url": "https://doi.org/10.1063/1.3573393",
+     "locations": [
+      "Table I, p.084912-3",
+      "Table II, p.084912-4",
+      "Sections III.A–C, pp.084912-2–5",
+      "Figure 5 and comparisons, p.084912-5"
+     ],
+     "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "nacl_b2_sakai_2011_table1",
+      "nacl_b2_sata_2002_table1_sakai_input"
+     ],
+     "source_locations": [
+      "Sakai (2011) Table I",
+      "Sata (2002) Table I"
+     ],
+     "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+    }
+   },
+   "pressure_range_status": "reported_exactly"
+  },
+  {
+   "identifier": "nacl_b2_sakai_2011_do_pt_bm3",
+   "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Ohtani",
+     "Hirao",
+     "Ohishi"
+    ],
+    "year": 2011,
+    "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+    "source": "Journal of Applied Physics",
+    "volume": "109",
+    "locator": "084912",
+    "doi": "10.1063/1.3573393"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 37.76,
+     "K0": 47.24,
+     "K0_prime": 4.14
+    }
+   },
+   "parameter_errors": {
+    "V0": 4.21,
+    "K0": 0.47,
+    "K0_prime": 0.02
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    54.7,
+    313.8
+   ],
+   "range_provenance": {
+    "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
+    "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
+   },
+   "validity": {
+    "pressure_gpa": [
+     54.7,
+     313.8
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations."
+    ]
+   },
+   "fit_datasets": [
+    "nacl_b2_sakai_2011_table1",
+    "nacl_b2_sata_2002_table1_sakai_input"
+   ],
+   "parameter_provenance": {
+    "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.76(4.21) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
+    "K0": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed.",
+    "K0_prime": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed."
+   },
+   "notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "doi": "10.1103/PhysRevB.75.024115",
+       "source": "Physical Review B",
+       "volume": "75",
+       "locator": "024115"
+      },
+      "source_location": "Sections II, III.B–C and Tables I–II; reference 12",
+      "scope": "Same paired Pt observations, reduced on the named scale; all four source pressure columns retained.",
+      "reference_eos_record": "platinum_dorogokupets_oganov_2007_vinet_4"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Paired Pt readings are bundled; dedicated reproduction supports independent re-reduction. Source unrounded readings and the exact peak-combination rule are unavailable."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3573393",
+     "access_url": "https://doi.org/10.1063/1.3573393",
+     "locations": [
+      "Table I, p.084912-3",
+      "Table II, p.084912-4",
+      "Sections III.A–C, pp.084912-2–5",
+      "Figure 5 and comparisons, p.084912-5"
+     ],
+     "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "nacl_b2_sakai_2011_table1",
+      "nacl_b2_sata_2002_table1_sakai_input"
+     ],
+     "source_locations": [
+      "Sakai (2011) Table I",
+      "Sata (2002) Table I"
+     ],
+     "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+    }
+   },
+   "pressure_range_status": "reported_exactly"
+  },
+  {
+   "identifier": "nacl_b2_sakai_2011_do_pt_vinet",
+   "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Ohtani",
+     "Hirao",
+     "Ohishi"
+    ],
+    "year": 2011,
+    "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+    "source": "Journal of Applied Physics",
+    "volume": "109",
+    "locator": "084912",
+    "doi": "10.1063/1.3573393"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 37.76,
+     "K0": 40.37,
+     "K0_prime": 5.11
+    }
+   },
+   "parameter_errors": {
+    "V0": 4.21,
+    "K0": 0.55,
+    "K0_prime": 0.04
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    54.7,
+    313.8
+   ],
+   "range_provenance": {
+    "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
+    "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
+   },
+   "validity": {
+    "pressure_gpa": [
+     54.7,
+     313.8
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations."
+    ]
+   },
+   "fit_datasets": [
+    "nacl_b2_sakai_2011_table1",
+    "nacl_b2_sata_2002_table1_sakai_input"
+   ],
+   "parameter_provenance": {
+    "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.76(4.21) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
+    "K0": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed.",
+    "K0_prime": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed."
+   },
+   "notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "doi": "10.1103/PhysRevB.75.024115",
+       "source": "Physical Review B",
+       "volume": "75",
+       "locator": "024115"
+      },
+      "source_location": "Sections II, III.B–C and Tables I–II; reference 12",
+      "scope": "Same paired Pt observations, reduced on the named scale; all four source pressure columns retained.",
+      "reference_eos_record": "platinum_dorogokupets_oganov_2007_vinet_4"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Paired Pt readings are bundled; dedicated reproduction supports independent re-reduction. Source unrounded readings and the exact peak-combination rule are unavailable."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3573393",
+     "access_url": "https://doi.org/10.1063/1.3573393",
+     "locations": [
+      "Table I, p.084912-3",
+      "Table II, p.084912-4",
+      "Sections III.A–C, pp.084912-2–5",
+      "Figure 5 and comparisons, p.084912-5"
+     ],
+     "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "nacl_b2_sakai_2011_table1",
+      "nacl_b2_sata_2002_table1_sakai_input"
+     ],
+     "source_locations": [
+      "Sakai (2011) Table I",
+      "Sata (2002) Table I"
+     ],
+     "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+    }
+   },
+   "pressure_range_status": "reported_exactly"
+  },
+  {
+   "identifier": "nacl_b2_sakai_2011_holmes_pt_bm3",
+   "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Ohtani",
+     "Hirao",
+     "Ohishi"
+    ],
+    "year": 2011,
+    "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+    "source": "Journal of Applied Physics",
+    "volume": "109",
+    "locator": "084912",
+    "doi": "10.1063/1.3573393"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 38.01,
+     "K0": 43.42,
+     "K0_prime": 4.36
+    }
+   },
+   "parameter_errors": {
+    "V0": 5.26,
+    "K0": 0.5,
+    "K0_prime": 0.02
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    54.5,
+    333.1
+   ],
+   "range_provenance": {
+    "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
+    "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
+   },
+   "validity": {
+    "pressure_gpa": [
+     54.5,
+     333.1
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations."
+    ]
+   },
+   "fit_datasets": [
+    "nacl_b2_sakai_2011_table1",
+    "nacl_b2_sata_2002_table1_sakai_input"
+   ],
+   "parameter_provenance": {
+    "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 38.01(5.26) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
+    "K0": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed.",
+    "K0_prime": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed."
+   },
+   "notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Holmes",
+        "Moriarty",
+        "Gathers",
+        "Nellis"
+       ],
+       "year": 1989,
+       "doi": "10.1063/1.344177",
+       "source": "Journal of Applied Physics",
+       "volume": "66",
+       "locator": "2962–2967"
+      },
+      "source_location": "Sections II, III.B–C and Tables I–II; reference 9",
+      "scope": "Same paired Pt observations, reduced on the named scale; all four source pressure columns retained."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Paired Pt observations are bundled. Dedicated reproduction checks marker pressures and reconstructs Sata pressures; the exact original peak-combination rule and unrounded readings are unavailable. The bundled exact Holmes Equation (11) scale differs from Table I by up to 0.71 GPa; a rounded 60.38/266/5.81 variant is a closer numerical match but is not asserted as the undocumented source implementation."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3573393",
+     "access_url": "https://doi.org/10.1063/1.3573393",
+     "locations": [
+      "Table I, p.084912-3",
+      "Table II, p.084912-4",
+      "Sections III.A–C, pp.084912-2–5",
+      "Figure 5 and comparisons, p.084912-5"
+     ],
+     "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "nacl_b2_sakai_2011_table1",
+      "nacl_b2_sata_2002_table1_sakai_input"
+     ],
+     "source_locations": [
+      "Sakai (2011) Table I",
+      "Sata (2002) Table I"
+     ],
+     "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+    }
+   },
+   "pressure_range_status": "reported_exactly"
+  },
+  {
+   "identifier": "nacl_b2_sakai_2011_holmes_pt_vinet",
+   "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Ohtani",
+     "Hirao",
+     "Ohishi"
+    ],
+    "year": 2011,
+    "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+    "source": "Journal of Applied Physics",
+    "volume": "109",
+    "locator": "084912",
+    "doi": "10.1063/1.3573393"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 38.01,
+     "K0": 36.07,
+     "K0_prime": 5.49
+    }
+   },
+   "parameter_errors": {
+    "V0": 5.26,
+    "K0": 0.54,
+    "K0_prime": 0.04
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    54.5,
+    333.1
+   ],
+   "range_provenance": {
+    "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
+    "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
+   },
+   "validity": {
+    "pressure_gpa": [
+     54.5,
+     333.1
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Conservative Table I observation envelope on the named Pt scale. Lower-pressure Sata observations also enter the published fit; zero-pressure reference and comparisons to 364 GPa are extrapolations."
+    ]
+   },
+   "fit_datasets": [
+    "nacl_b2_sakai_2011_table1",
+    "nacl_b2_sata_2002_table1_sakai_input"
+   ],
+   "parameter_provenance": {
+    "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 38.01(5.26) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
+    "K0": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed.",
+    "K0_prime": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed."
+   },
+   "notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Holmes",
+        "Moriarty",
+        "Gathers",
+        "Nellis"
+       ],
+       "year": 1989,
+       "doi": "10.1063/1.344177",
+       "source": "Journal of Applied Physics",
+       "volume": "66",
+       "locator": "2962–2967"
+      },
+      "source_location": "Sections II, III.B–C and Tables I–II; reference 9",
+      "scope": "Same paired Pt observations, reduced on the named scale; all four source pressure columns retained."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Paired Pt observations are bundled. Dedicated reproduction checks marker pressures and reconstructs Sata pressures; the exact original peak-combination rule and unrounded readings are unavailable. The bundled exact Holmes Equation (11) scale differs from Table I by up to 0.71 GPa; a rounded 60.38/266/5.81 variant is a closer numerical match but is not asserted as the undocumented source implementation."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3573393",
+     "access_url": "https://doi.org/10.1063/1.3573393",
+     "locations": [
+      "Table I, p.084912-3",
+      "Table II, p.084912-4",
+      "Sections III.A–C, pp.084912-2–5",
+      "Figure 5 and comparisons, p.084912-5"
+     ],
+     "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "nacl_b2_sakai_2011_table1",
+      "nacl_b2_sata_2002_table1_sakai_input"
+     ],
+     "source_locations": [
+      "Sakai (2011) Table I",
+      "Sata (2002) Table I"
+     ],
+     "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+    }
+   },
+   "pressure_range_status": "reported_exactly"
   }
  ],
  "format": "peritheos.material",
@@ -682,6 +1878,317 @@
    ],
    "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
    "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  },
+  {
+   "identifier": "nacl_b2_sakai_2011_table1",
+   "kind": "experimental_pressure_volume",
+   "description": "All 27 Table I paired Pt/NaCl observations, original lattice and volume errors, and four named Pt pressure scales.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Ohtani",
+     "Hirao",
+     "Ohishi"
+    ],
+    "year": 2011,
+    "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+    "source": "Journal of Applied Physics",
+    "volume": "109",
+    "locator": "084912",
+    "doi": "10.1063/1.3573393"
+   },
+   "source_location": "Table I",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pt_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pt_a_error_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "pt_a_angstrom"
+    },
+    {
+     "name": "pt_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "pt_volume_error_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "pt_volume_a3"
+    },
+    {
+     "name": "nacl_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_a_error_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "nacl_a_angstrom"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_error_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "pressure_matsui_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_fei_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_do_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_holmes_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/nacl-b2-sakai-2011-table1.csv",
+    "sha256": "1ce9affa3dafe81794258c10cfeb85b10f300751ff1ccc46c04b474f675e88e3",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "notes": "Visually checked against publication PDF. Confidence convention not specified. Source-printed zero lattice error is retained as printed rounding, not a zero-variance weight. Source PDF hashes and retrieval audit: datasets/nacl-b2-sakai-2011-source.json."
+   },
+   "used_by_eos_records": [
+    "nacl_b2_sakai_2011_matsui_pt_bm3",
+    "nacl_b2_sakai_2011_matsui_pt_vinet",
+    "nacl_b2_sakai_2011_fei_pt_bm3",
+    "nacl_b2_sakai_2011_fei_pt_vinet",
+    "nacl_b2_sakai_2011_do_pt_bm3",
+    "nacl_b2_sakai_2011_do_pt_vinet",
+    "nacl_b2_sakai_2011_holmes_pt_bm3",
+    "nacl_b2_sakai_2011_holmes_pt_vinet"
+   ],
+   "uncertainty": {
+    "reported_as": "unspecified_error_width",
+    "confidence": null,
+    "covariance": "not_reported",
+    "notes": "Source error widths retained verbatim; no sigma/confidence convention is inferred."
+   }
+  },
+  {
+   "identifier": "nacl_b2_sata_2002_table1_sakai_input",
+   "kind": "experimental_pressure_volume",
+   "description": "All 29 Sata Table I rows used as upstream evidence by Sakai; includes excluded rows 8 and 11, annealing flags, Pt/MgO marker readings and errors. Original Holmes/MgO pressures are not relabeled as Matsui pressures.",
+   "reference": {
+    "authors": [
+     "Sata",
+     "Shen",
+     "Rivers",
+     "Sutton"
+    ],
+    "year": 2002,
+    "doi": "10.1103/PhysRevB.65.104114",
+    "source": "Physical Review B",
+    "volume": "65",
+    "locator": "104114",
+    "title": "Pressure-volume equation of state of the high-pressure B2 phase of NaCl"
+   },
+   "source_location": "Table I",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "annealed",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "excluded_by_sakai",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pt_d111_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pt_d111_error_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "pt_d111_angstrom"
+    },
+    {
+     "name": "pt_d200_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pt_d200_error_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "pt_d200_angstrom"
+    },
+    {
+     "name": "pressure_holmes_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_holmes_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_holmes_gpa"
+    },
+    {
+     "name": "mgo_d111_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgo_d111_error_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "mgo_d111_angstrom"
+    },
+    {
+     "name": "mgo_d200_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgo_d200_error_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "mgo_d200_angstrom"
+    },
+    {
+     "name": "pressure_mgo_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_mgo_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_mgo_gpa"
+    },
+    {
+     "name": "nacl_d100_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_d100_error_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "nacl_d100_angstrom"
+    },
+    {
+     "name": "nacl_d110_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_d110_error_angstrom",
+     "quantity": "d_spacing",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "nacl_d110_angstrom"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_error_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/nacl-b2-sata-2002-table1-sakai-input.csv",
+    "sha256": "b8ea2f4663b9b2b4e2f8b7c7ede6c63625e3f1e7bb1f93dfed2ef79651d8cb8a",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "notes": "Visually checked against publication PDF. Confidence convention not specified. Source-printed zero lattice error is retained as printed rounding, not a zero-variance weight. Source PDF hashes and retrieval audit: datasets/nacl-b2-sakai-2011-source.json."
+   },
+   "used_by_eos_records": [
+    "nacl_b2_sakai_2011_matsui_pt_bm3",
+    "nacl_b2_sakai_2011_matsui_pt_vinet",
+    "nacl_b2_sakai_2011_fei_pt_bm3",
+    "nacl_b2_sakai_2011_fei_pt_vinet",
+    "nacl_b2_sakai_2011_do_pt_bm3",
+    "nacl_b2_sakai_2011_do_pt_vinet",
+    "nacl_b2_sakai_2011_holmes_pt_bm3",
+    "nacl_b2_sakai_2011_holmes_pt_vinet"
+   ],
+   "uncertainty": {
+    "reported_as": "unspecified_error_width",
+    "confidence": null,
+    "covariance": "not_reported",
+    "notes": "Source error widths retained verbatim; no sigma/confidence convention is inferred."
+   }
   }
  ]
 }

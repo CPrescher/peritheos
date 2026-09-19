@@ -7,10 +7,18 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Eight Sakai et al. (2011) experimental NaCl-B2 BM3/Vinet records on four
+  distinct Pt scales, with all 27 new and 29 upstream Sata observations,
+  marker readings, uncertainty provenance, staged refits and source benchmarks.
+  Exact 300 K Matsui (2009) and Fei (2007) Pt reference-isotherm records enable
+  public-API recalibration. A reproducible comparison quantifies conversion
+  differences from the published NaCl fits and separates calibrant extrapolation.
+  The catalog now contains 584 executable EOS records.
+
 - Zha et al. (2004) rhenium Equation (6) thermal EOS, all eight paired Au/Re
   observations, derived isotherm tables, and an independent staged refit. The
   continuous Table III branch is distinguished from the authors' preferred
-  fixed-volume isotherms. The catalog now contains 574 executable EOS records.
+  fixed-volume isotherms.
 - Primary-source investigation of Xian et al. (2022), with literal thermal
   polynomial diagnostics. Its Re/Au models remain outside the executable
   catalog because source-specific inputs and printed-equation issues remain

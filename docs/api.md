@@ -206,7 +206,7 @@ coverage.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
-CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 574
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 584
 bundled records across 209 executable materials are
 `primary_source_validated`; none remains pending or deferred. This status
 records source validation, not numerical refit parity; see

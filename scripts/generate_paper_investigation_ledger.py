@@ -385,6 +385,15 @@ def render() -> str:
             )
             if qualified_final_input:
                 data_form += f"; {qualified_final_input} final-input parity, upstream reduction partial"
+            conditional_fixed_volume = sum(
+                record.get("parity_basis") == "conditional_fixed_V0_diagnostic_only"
+                for record in paper["records"]
+            )
+            if conditional_fixed_volume:
+                data_form += (
+                    f"; {conditional_fixed_volume} conditional fixed-V0 refits; "
+                    "source weights and marker averaging unspecified"
+                )
             record_count = len(paper["records"])
         else:
             result = "no production record"

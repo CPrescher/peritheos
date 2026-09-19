@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-15",
+  "audit_date": "2026-09-19",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 574,
-    "primary_source_validated": 574
+    "records": 584,
+    "primary_source_validated": 584
   },
   "records": [
     {
@@ -11044,6 +11044,331 @@
         ],
         "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
         "doi": "10.1103/zp3m-kjpc"
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_do_pt_bm3",
+      "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_do_pt_vinet",
+      "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_fei_pt_bm3",
+      "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_fei_pt_vinet",
+      "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_holmes_pt_bm3",
+      "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_holmes_pt_vinet",
+      "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_matsui_2009_vinet_300k",
+      "label": "Matsui et al. (2009), Pt Vinet reference isotherm, 300 K",
+      "doi": "10.1063/1.3054331",
+      "status": "primary_source_validated",
+      "note": "Primary reference-isotherm coefficients and independent Sakai Table I marker reductions verified; scope and partial-fit limits retained.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3054331",
+        "access_url": "https://doi.org/10.1063/1.3054331",
+        "locations": [
+          "Equation (6), Table II (300 K Vinet reference isotherm)",
+          "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+        ],
+        "finding": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "platinum_holmes_1989_table3_shock"
+        ],
+        "source_locations": [
+          "Equation (6), Table II (300 K Vinet reference isotherm)",
+          "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+        ],
+        "finding": "The 300 K reference branch is defined exactly. The source fits shock data up to 290 GPa with thermal reduction and checks static P-V-T data; the existing seven Holmes shots are preserved as upstream constraints, not static 300 K fit inputs. The full shock/thermal optimization is outside this reference-isotherm record and is not independently refitted."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_fei_2007_vinet_300k",
+      "label": "Fei et al. (2007), Pt Vinet reference isotherm, 300 K",
+      "doi": "10.1073/pnas.0609013104",
+      "status": "primary_source_validated",
+      "note": "Primary reference-isotherm coefficients and independent Sakai Table I marker reductions verified; scope and partial-fit limits retained.",
+      "primary_source_check": {
+        "doi": "10.1073/pnas.0609013104",
+        "access_url": "https://doi.org/10.1073/pnas.0609013104",
+        "locations": [
+          "Table 1, Vinet rows and Pt footnote",
+          "Results and Discussion, Pt scale; Figure 2"
+        ],
+        "finding": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "platinum_dewaele_2004_table1_compression",
+          "platinum_fei_2004_table2"
+        ],
+        "source_locations": [
+          "Table 1, Vinet rows and Pt footnote",
+          "Results and Discussion, Pt scale; Figure 2"
+        ],
+        "finding": "All 36 Dewaele (2004) static rows and the 42 Fei (2004) P-V-T rows are already bundled. The 300 K diagnostic refits the Dewaele subset with published V0 and K0 held fixed, using the revised ruby column. The joint thermal fit and Fei (2007) Au re-reduction are not reconstructed by this isothermal-only record."
       }
     }
   ]

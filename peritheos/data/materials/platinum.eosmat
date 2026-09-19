@@ -2529,6 +2529,272 @@
     }
    },
    "notes": "Section 3.2 page 522 preliminary 300 K fit: K0=290(10), K0_prime=2.7(9). Same Table 3 V0=60.38 A^3; narrow compression range gives an unreliable derivative. Not the preferred Pt pressure scale. Seven Table 2 300 K observations only. The source does not explicitly enumerate V0/theta0 as fixed; holding them fixed is a diagnostic regression choice, not a reported constraint."
+  },
+  {
+   "identifier": "platinum_matsui_2009_vinet_300k",
+   "label": "Matsui et al. (2009), Pt Vinet reference isotherm, 300 K",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Matsui",
+     "Ito",
+     "Katsura",
+     "Yamazaki",
+     "Yoshino",
+     "Yokoyama",
+     "Funakoshi"
+    ],
+    "year": 2009,
+    "title": "The temperature-pressure-volume equation of state of platinum",
+    "source": "Journal of Applied Physics",
+    "volume": "105",
+    "locator": "013505",
+    "doi": "10.1063/1.3054331"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 195.084
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 60.38,
+     "K0": 273.0,
+     "K0_prime": 5.2
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reference_parameterization",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     300.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Exact 300 K reference isotherm only, not the full Matsui thermal EOS. Table II V0=60.38 A^3, K0=273 GPa, K0_prime=5.20; uncertainties and covariance not reported for this triplet. The source recommends its complete model up to 300 GPa; shock constraints reach 290 GPa and are not 300 K observations."
+    ]
+   },
+   "notes": "Exact 300 K reference isotherm only, not the full Matsui thermal EOS. Table II V0=60.38 A^3, K0=273 GPa, K0_prime=5.20; uncertainties and covariance not reported for this triplet. The source recommends its complete model up to 300 GPa; shock constraints reach 290 GPa and are not 300 K observations.",
+   "parameter_provenance": {
+    "V0": "Equation (6), Table II (300 K Vinet reference isotherm)",
+    "K0": "Equation (6), Table II (300 K Vinet reference isotherm)",
+    "K0_prime": "Equation (6), Table II (300 K Vinet reference isotherm)"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary reference-isotherm coefficients and independent Sakai Table I marker reductions verified; scope and partial-fit limits retained.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3054331",
+     "access_url": "https://doi.org/10.1063/1.3054331",
+     "locations": [
+      "Equation (6), Table II (300 K Vinet reference isotherm)",
+      "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+     ],
+     "finding": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "platinum_holmes_1989_table3_shock"
+     ],
+     "source_locations": [
+      "Equation (6), Table II (300 K Vinet reference isotherm)",
+      "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+     ],
+     "finding": "The 300 K reference branch is defined exactly. The source fits shock data up to 290 GPa with thermal reduction and checks static P-V-T data; the existing seven Holmes shots are preserved as upstream constraints, not static 300 K fit inputs. The full shock/thermal optimization is outside this reference-isotherm record and is not independently refitted."
+    }
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Matsui",
+        "Ito",
+        "Katsura",
+        "Yamazaki",
+        "Yoshino",
+        "Yokoyama",
+        "Funakoshi"
+       ],
+       "year": 2009,
+       "title": "The temperature-pressure-volume equation of state of platinum",
+       "source": "Journal of Applied Physics",
+       "volume": "105",
+       "locator": "013505",
+       "doi": "10.1063/1.3054331"
+      },
+      "source_location": "Shock-Hugoniot and thermal-expansion optimization; no static marker pressure scale",
+      "scope": "Reference isotherm from complete source thermal model"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Primary shock/thermal pressure model, not a static sample fit with another marker."
+    },
+    "audit_date": "2026-09-19"
+   }
+  },
+  {
+   "identifier": "platinum_fei_2007_vinet_300k",
+   "label": "Fei et al. (2007), Pt Vinet reference isotherm, 300 K",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Ricolleau",
+     "Frank",
+     "Mibe",
+     "Shen",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "title": "Toward an internally consistent pressure scale",
+    "source": "Proceedings of the National Academy of Sciences",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 195.084
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 60.38,
+     "K0": 277.0,
+     "K0_prime": 5.08
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.01,
+    "K0": null,
+    "K0_prime": 0.02
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0"
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     93.6
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Exact 300 K reference isotherm only, not the full Fei thermal EOS. Table 1 gives the Vinet coefficients 60.38(1), 277, 5.08(2); confidence convention and covariance are unspecified. The same rounded cold coefficients occur in Dewaele (2004), whose catalog reference is 298 K; this record preserves the explicit Fei 300 K convention. V0 and K0 are held fixed in the cold-subset diagnostic. Thermal rows are retained as upstream context, not fitted as isothermal data. The conservative validity envelope is the Dewaele cold subset, not all later use of this pressure scale."
+    ]
+   },
+   "notes": "Exact 300 K reference isotherm only, not the full Fei thermal EOS. Table 1 gives the Vinet coefficients 60.38(1), 277, 5.08(2); confidence convention and covariance are unspecified. The same rounded cold coefficients occur in Dewaele (2004), whose catalog reference is 298 K; this record preserves the explicit Fei 300 K convention. V0 and K0 are held fixed in the cold-subset diagnostic. Thermal rows are retained as upstream context, not fitted as isothermal data. The conservative validity envelope is the Dewaele cold subset, not all later use of this pressure scale.",
+   "parameter_provenance": {
+    "V0": "Table 1, Vinet rows and Pt footnote",
+    "K0": "Table 1, Vinet rows and Pt footnote",
+    "K0_prime": "Table 1, Vinet rows and Pt footnote"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary reference-isotherm coefficients and independent Sakai Table I marker reductions verified; scope and partial-fit limits retained.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1073/pnas.0609013104",
+     "access_url": "https://doi.org/10.1073/pnas.0609013104",
+     "locations": [
+      "Table 1, Vinet rows and Pt footnote",
+      "Results and Discussion, Pt scale; Figure 2"
+     ],
+     "finding": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "platinum_dewaele_2004_table1_compression",
+      "platinum_fei_2004_table2"
+     ],
+     "source_locations": [
+      "Table 1, Vinet rows and Pt footnote",
+      "Results and Discussion, Pt scale; Figure 2"
+     ],
+     "finding": "All 36 Dewaele (2004) static rows and the 42 Fei (2004) P-V-T rows are already bundled. The 300 K diagnostic refits the Dewaele subset with published V0 and K0 held fixed, using the revised ruby column. The joint thermal fit and Fei (2007) Au re-reduction are not reconstructed by this isothermal-only record."
+    }
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    93.6
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_dewaele_2004",
+      "source_location": "Results and Discussion and Figure 2, Dewaele (2004) static subset",
+      "scope": "300 K reference branch; the joint high-temperature optimization is outside this record"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The source-adopted cold-subset ruby scale is exact and bundled; conversion uses the reference-isotherm curve, not a reconstruction of the joint thermal fit."
+    },
+    "audit_date": "2026-09-19"
+   },
+   "fit_datasets": [
+    "platinum_dewaele_2004_table1_compression"
+   ]
   }
  ],
  "format": "peritheos.material",
@@ -2831,7 +3097,8 @@
     "platinum_dewaele_2004_revised_ruby_vinet",
     "platinum_dorogokupets_oganov_2007_vinet_4",
     "platinum_dewaele_2019_mao_vinet",
-    "platinum_dewaele_2019_dor_vinet"
+    "platinum_dewaele_2019_dor_vinet",
+    "platinum_fei_2007_vinet_300k"
    ],
    "transcription": {
     "type": "direct_table_transcription",
@@ -3244,7 +3511,8 @@
    },
    "used_by_eos_records": [
     "platinum_fei_2004_bm3_mgd",
-    "platinum_fei_2004_bm3_300k"
+    "platinum_fei_2004_bm3_300k",
+    "platinum_fei_2007_vinet_300k"
    ],
    "uncertainty": {
     "notes": "Parenthetical source errors with unspecified confidence. Missing temperature errors and errors on recalculated pressures remain missing; no zero sigma or row-wise temperature error invented. Type C thermocouple without pressure-emf correction; ~30 C/500 micrometre gradient, sample length ~250 micrometre."
@@ -3371,7 +3639,8 @@
     "doi": "10.1063/1.344177"
    },
    "used_by_eos_records": [
-    "platinum_holmes_1989_vinet_1"
+    "platinum_holmes_1989_vinet_1",
+    "platinum_matsui_2009_vinet_300k"
    ]
   },
   {

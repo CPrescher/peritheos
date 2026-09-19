@@ -29,18 +29,18 @@ produce an executable record.
 
 ## Summary
 
-The register covers **337 primary papers**: **236** support the 574 audited catalog records and **101** were investigated without adding a production record.
+The register covers **339 primary papers**: **238** support the 584 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 157 |
+| Reproduced | 158 |
 | Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 11 |
 | Coefficient parity not achieved | 14 |
-| Direct refit unavailable | 53 |
+| Direct refit unavailable | 54 |
 | Source reconstruction | 1 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 89 |
@@ -938,7 +938,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **57 papers** contain 162 records for which a
+These **58 papers** contain 163 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -984,6 +984,7 @@ have other records that were reproduced.
 | [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | `mgo_b1_luo_2023_vinet_thermal_5` | A 12-residual primary-row sensitivity fit is executable, but it is not the source global refit: Kono's exact velocity-density regressions, the selected upstream shock/PVT rows, temperature/density error propagation, cross-observable normalization, and covariance are still unavailable. Tables II-III are excluded because they are derived EOS output. |
 | [Marcondes et al. (2020)](https://doi.org/10.1103/physrevb.102.104112) | `mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1`, `mg09375fe00625o_marcondes_2020_11nn_ls_bm3_2`, `mg09375fe00625o_marcondes_2020_11nn_ms_bm3_3`, `mg09375fe00625o_marcondes_2020_2nn_hs_bm3_4`, `mg09375fe00625o_marcondes_2020_2nn_ls_bm3_5`, `mg09375fe00625o_marcondes_2020_2nn_ms_bm3_6`, `mg096875fe003125o_marcondes_2020_hs_bm3_1`, `mg096875fe003125o_marcondes_2020_ls_bm3_2` | The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve. |
 | [Marquardt et al. (2009)](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009b_hs_bm3` | EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective. |
+| [Matsui et al. (2009)](https://doi.org/10.1063/1.3054331) | `platinum_matsui_2009_vinet_300k` | The 300 K Vinet branch is an exact projection of the published thermal model. Its shock-Hugoniot and thermal-expansion optimization cannot be refitted as static 300 K observations. The seven bundled Holmes shots retain recoverable upstream constraints; Table III and Sakai (2011) marker reductions independently check the executable reference isotherm. |
 | [Metsue and Tsuchiya (2012)](https://doi.org/10.1111/j.1365-246x.2012.05511.x) | `bridgmanite_metsue_2012_static_bm3_1`, `mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3` | The coefficients and six calculation pressures are stated; row-wise calculated P-V values are not tabulated. The six calculation pressures and full coefficients are stated; row-wise calculated P-V values are not tabulated. Coefficients and calculation pressures are given; row-wise P-V values are not tabulated. |
 | [Mookherjee et al. (2015)](https://doi.org/10.2138/am-2015-5312) | `mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3` | The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled. |
 | [Muñoz and Kunc (1993)](https://doi.org/10.1088/0953-8984/5/33/010) | `indium_nitride_munoz_1993_murnaghan_1` | This is a first-principles study. The calculated E(V) points are plotted but not tabulated; Table 1 contains only the fitted theoretical parameters. |
@@ -1096,7 +1097,7 @@ the primary-source and refit ledgers.
 | [Fedotenko et al. (2020)](https://doi.org/10.1016/j.jallcom.2020.156179) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Fei et al. (2000)](https://doi.org/10.2138/am-2000-11-1229) | Reproduced | 1 | 1 similar | 1 plot only/digitized |
 | [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | Mixed: reproduced and discrepant records | 3 | 1 similar; 1 parity not achieved; 1 direct refit unavailable | 3 bundled |
-| [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) | Reproduced | 3 | 2 parity; 1 similar | 3 plot only/digitized |
+| [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) | Reproduced | 4 | 2 parity; 2 similar | 1 bundled; 3 plot only/digitized |
 | [Fei et al. (2007)](https://doi.org/10.1029/2007gl030712) | Mixed: reproduced and discrepant records | 6 | 4 parity; 1 similar; 1 parity not achieved | 6 bundled |
 | [Fei et al. (2016)](https://doi.org/10.1002/2016gl069456) | Direct refit unavailable | 3 | 3 direct refit unavailable | 3 bundled |
 | [Ferre et al. (2009), dislocations in CaSiO3 perovskite](https://doi.org/10.2138/am.2009.3003) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
@@ -1206,6 +1207,7 @@ the primary-source and refit ledgers.
 | [Matsui (2002), MgSiO3-Al2O3 simulations](https://doi.org/10.2465/jmps.97.13) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Matsui et al. (1994), MgSiO3 simulations](https://doi.org/10.1029/94GL01370) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Matsui et al. (2000), MgO pressure standard](https://doi.org/10.2138/am-2000-2-308) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Matsui et al. (2009)](https://doi.org/10.1063/1.3054331) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Matsui et al. (2012)](https://doi.org/10.2138/am.2012.3937) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [McCarthy and Harrison (1994), MgO bulk properties](https://doi.org/10.1103/PhysRevB.49.8574) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [McHardy et al. (2026)](https://doi.org/10.1103/zp3m-kjpc) | Reproduced | 3 | 3 parity | 3 bundled |
@@ -1254,6 +1256,7 @@ the primary-source and refit ledgers.
 | [Ross (1997)](https://doi.org/10.2138/am-1997-7-805) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Ross and Angel (1999)](https://doi.org/10.2138/am-1999-0309) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Sagatova et al. (2021)](https://doi.org/10.1134/s0016702921080073) | Direct refit unavailable | 7 | 7 direct refit unavailable |  |
+| [Sakai et al. (2011)](https://doi.org/10.1063/1.3573393) | Reproduced | 8 | 8 parity | 8 bundled; 8 conditional fixed-V0 refits; source weights and marker averaging unspecified |
 | [Sakai et al. (2014)](https://doi.org/10.1016/j.pepi.2013.12.010) | Mixed: reproduced and discrepant records | 38 | 6 similar; 23 parity not achieved; 9 direct refit unavailable | 37 bundled |
 | [Sakai et al. (2016)](https://doi.org/10.1038/srep22652) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Sakai et al. (2018)](https://doi.org/10.1080/08957959.2018.1448082) | Reproduced | 1 | 1 parity | 1 plot only/digitized |

@@ -117,6 +117,7 @@ MODEL_CLASSES = {
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
+    "platinum_matsui_2009_vinet_300k": "The 300 K Vinet branch is an exact projection of the published thermal model. Its shock-Hugoniot and thermal-expansion optimization cannot be refitted as static 300 K observations. The seven bundled Holmes shots retain recoverable upstream constraints; Table III and Sakai (2011) marker reductions independently check the executable reference isotherm.",
     "fe088sio3_bridgmanite_ismailova_2016_300k_bm2": "Supplementary Table S2 bundles only four selected crystallographic states, while Figure 3A plots substantially more compression and decompression markers for the published BM2 fit. The source gives no complete row list, inclusion/exclusion flags, regression objective, numerical weights, or row-wise Ne calibrant volumes. The four exact rows are checkpoint data, not a defensible reconstruction of the source fit input.",
     "iron_dewaele_2006_vinet_thermal": "The bundled EPAPS rows constrain the near-room-temperature Vinet reference isotherm. The high-temperature Gruneisen coefficients were determined with separate shock-wave data and the anharmonic/electronic terms with ab-initio pressures, so the complete thermal fit input is not available for an independent joint refit.",
     "lead_hcp_kuznetsov_2002_bm3_3": "The bundled Figure 3 coordinates are plot-digitized room-temperature and source-reduced markers, not the complete original P-V-T observations used to fit the nine-coefficient hcp thermal BM3 surface. The original rows, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md).",
@@ -195,6 +196,7 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "platinum_fei_2007_vinet_300k": "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The complete Fei (2007) joint thermal optimization and Au re-reduction are not reconstructed; the source confidence convention is unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure.",
     **{
         f"mg090fe010o_marquardt_2009b_ls_bm3_s1_{i:02d}": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
         for i in range(1, 13)
@@ -238,6 +240,7 @@ FIT_QUALIFICATIONS = {
 # information. Preserve the automatic result for transparency, but cap the public
 # classification at the strongest conclusion supported by the source evidence.
 QUALIFIED_STATUS_OVERRIDES = {
+    "platinum_fei_2007_vinet_300k": "similar",
     "ca_perovskite_tetragonal_chen_2018_vinet": "similar",
 }
 
@@ -263,6 +266,7 @@ INVESTIGATION_NOTES = {
 
 # Dataset choices that cannot be inferred uniquely from generic quantity metadata.
 PRESSURE_COLUMNS = {
+    "platinum_dewaele_2004_table1_compression#platinum_fei_2007_vinet_300k": "ruby_pressure_revised_gpa",
     "iron_zhang_2025_tables_s1_s3_s4_pvt": "pressure_gpa_fit",
     "akimotoite_reynard_1996_table1_compression#akimotoite_reynard_1996_bm3_ruby_2": (
         "ruby_pressure_gpa"
@@ -1912,6 +1916,10 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if record_id.startswith("nacl_b2_sakai_2011_"):
+        from scripts.reproduce_sakai_2011_nacl_b2 import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id.startswith("gold_hirose_2008_"):
         from scripts.reproduce_hirose_2008_gold import ledger_outcome
 
@@ -5077,7 +5085,10 @@ def validate_all() -> dict[str, Any]:
                 "meets the parameter-specific numerical similarity threshold. "
                 "The Sakai 2018 rhenium audit explicitly accepts numerical parity "
                 "within reported parameter error widths, with comparable refit "
-                "standard errors; its source confidence convention remains unknown."
+                "standard errors; its source confidence convention remains unknown. "
+                "Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within "
+                "printed error widths, without claiming the unspecified source "
+                "weights, marker averaging or error confidence were recovered."
             ),
             "similar": (
                 "Every fitted parameter either agrees within combined 2-sigma or "
@@ -5243,6 +5254,10 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "standard errors are comparable. Its explicit `parity_basis` preserves this ",
         "distinction: the source confidence convention is unknown, and no formal ",
         "combined-two-sigma result is asserted.",
+        "Sakai (2011) NaCl-B2 accepts conditional fixed-V0 numerical parity ",
+        "within the printed coefficient error widths; source weights and marker ",
+        "averaging remain unspecified. Its staged-volume and weighting diagnostics ",
+        "are retained separately, without assigning an error confidence convention.",
         "`source_reconstruction` covers source calculations and compositions of ",
         "audited equations without an independent refit of the complete EOS. ",
         "Component refits and remaining source-input gaps are documented separately. ",

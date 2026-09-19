@@ -4,7 +4,7 @@
   "generated_with": "scripts/validate_primary_eos_refits.py",
   "policy": {
     "not_refittable": "Available observations or source reduction/calibration details are insufficient for an independent full refit. A qualified subset or proxy calculation may still be available as a diagnostic.",
-    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown.",
+    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria, or a dedicated partial-source audit cannot reproduce the published coefficient pair.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold.",
     "source_reconstruction": "A source calculation or composition of audited source equations is reproduced without independently fitting the complete EOS coefficients. Component refits and remaining source-input gaps are documented separately."
@@ -31433,6 +31433,518 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [
+        "nacl_b2_sakai_2011_table1",
+        "nacl_b2_sata_2002_table1_sakai_input"
+      ],
+      "experimental_pressure_range_gpa": [
+        53.7,
+        304.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
+      "material_identifier": "nacl_b2",
+      "model": "BM3",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 54,
+      "parameters": [
+        {
+          "difference": 0.14269653390601178,
+          "parameter": "K0",
+          "published": 47,
+          "published_error": 0.46,
+          "refit": 47.14269653390601,
+          "refit_error": null,
+          "relative_difference": 0.0030360964660853572,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.0024285642019705733,
+          "parameter": "K0_prime",
+          "published": 4.1,
+          "published_error": 0.02,
+          "refit": 4.097571435798029,
+          "refit_error": null,
+          "relative_difference": 0.0005923327321879448,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "conditional_fixed_V0_diagnostic_only",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3573393",
+      "published_rmse_gpa": 1.7230450703272333,
+      "qualification": "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+      "record_identifier": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "rmse_gpa": 1.6993824533388564,
+      "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "nacl_b2_sakai_2011_table1",
+        "nacl_b2_sata_2002_table1_sakai_input"
+      ],
+      "experimental_pressure_range_gpa": [
+        53.7,
+        304.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
+      "material_identifier": "nacl_b2",
+      "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 54,
+      "parameters": [
+        {
+          "difference": 0.16907511535775654,
+          "parameter": "K0",
+          "published": 40.4,
+          "published_error": 0.54,
+          "refit": 40.569075115357755,
+          "refit_error": null,
+          "relative_difference": 0.004185027607865261,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.009082757104093453,
+          "parameter": "K0_prime",
+          "published": 5.04,
+          "published_error": 0.04,
+          "refit": 5.030917242895907,
+          "refit_error": null,
+          "relative_difference": 0.0018021343460502882,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "conditional_fixed_V0_diagnostic_only",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3573393",
+      "published_rmse_gpa": 1.8460788926566665,
+      "qualification": "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+      "record_identifier": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "rmse_gpa": 1.8395355775985864,
+      "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "nacl_b2_sakai_2011_table1",
+        "nacl_b2_sata_2002_table1_sakai_input"
+      ],
+      "experimental_pressure_range_gpa": [
+        54,
+        301.8
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
+      "material_identifier": "nacl_b2",
+      "model": "BM3",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 54,
+      "parameters": [
+        {
+          "difference": 0.1563439003346474,
+          "parameter": "K0",
+          "published": 47.8,
+          "published_error": 0.45,
+          "refit": 47.956343900334645,
+          "refit_error": null,
+          "relative_difference": 0.0032707928940302806,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.003964942904191915,
+          "parameter": "K0_prime",
+          "published": 4.06,
+          "published_error": 0.02,
+          "refit": 4.056035057095808,
+          "refit_error": null,
+          "relative_difference": 0.0009765869222147575,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "conditional_fixed_V0_diagnostic_only",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3573393",
+      "published_rmse_gpa": 1.6803982142212028,
+      "qualification": "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+      "record_identifier": "nacl_b2_sakai_2011_fei_pt_bm3",
+      "rmse_gpa": 1.669898938809278,
+      "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "nacl_b2_sakai_2011_table1",
+        "nacl_b2_sata_2002_table1_sakai_input"
+      ],
+      "experimental_pressure_range_gpa": [
+        54,
+        301.8
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
+      "material_identifier": "nacl_b2",
+      "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 54,
+      "parameters": [
+        {
+          "difference": 0.18272898787221692,
+          "parameter": "K0",
+          "published": 41.36,
+          "published_error": 0.53,
+          "refit": 41.542728987872216,
+          "refit_error": null,
+          "relative_difference": 0.0044180122793089196,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.008717584856909433,
+          "parameter": "K0_prime",
+          "published": 4.96,
+          "published_error": 0.04,
+          "refit": 4.9512824151430905,
+          "refit_error": null,
+          "relative_difference": 0.0017575775921188372,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "conditional_fixed_V0_diagnostic_only",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3573393",
+      "published_rmse_gpa": 1.806433366215317,
+      "qualification": "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+      "record_identifier": "nacl_b2_sakai_2011_fei_pt_vinet",
+      "rmse_gpa": 1.7942403376763154,
+      "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "nacl_b2_sakai_2011_table1",
+        "nacl_b2_sata_2002_table1_sakai_input"
+      ],
+      "experimental_pressure_range_gpa": [
+        54.7,
+        313.8
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
+      "material_identifier": "nacl_b2",
+      "model": "BM3",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 54,
+      "parameters": [
+        {
+          "difference": 0.17982661181845572,
+          "parameter": "K0",
+          "published": 47.24,
+          "published_error": 0.47,
+          "refit": 47.41982661181846,
+          "refit_error": null,
+          "relative_difference": 0.0038066598606785714,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.00563255185750311,
+          "parameter": "K0_prime",
+          "published": 4.14,
+          "published_error": 0.02,
+          "refit": 4.134367448142497,
+          "refit_error": null,
+          "relative_difference": 0.0013605197723437464,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "conditional_fixed_V0_diagnostic_only",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3573393",
+      "published_rmse_gpa": 1.758957818379996,
+      "qualification": "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+      "record_identifier": "nacl_b2_sakai_2011_do_pt_bm3",
+      "rmse_gpa": 1.751572038560592,
+      "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "nacl_b2_sakai_2011_table1",
+        "nacl_b2_sata_2002_table1_sakai_input"
+      ],
+      "experimental_pressure_range_gpa": [
+        54.7,
+        313.8
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
+      "material_identifier": "nacl_b2",
+      "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 54,
+      "parameters": [
+        {
+          "difference": 0.2018223618446484,
+          "parameter": "K0",
+          "published": 40.37,
+          "published_error": 0.55,
+          "refit": 40.571822361844646,
+          "refit_error": null,
+          "relative_difference": 0.0049993153788617396,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.009669430889447383,
+          "parameter": "K0_prime",
+          "published": 5.11,
+          "published_error": 0.04,
+          "refit": 5.100330569110553,
+          "refit_error": null,
+          "relative_difference": 0.0018922565341384311,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "conditional_fixed_V0_diagnostic_only",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3573393",
+      "published_rmse_gpa": 1.927095895583068,
+      "qualification": "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+      "record_identifier": "nacl_b2_sakai_2011_do_pt_vinet",
+      "rmse_gpa": 1.9102536236213106,
+      "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "nacl_b2_sakai_2011_table1",
+        "nacl_b2_sata_2002_table1_sakai_input"
+      ],
+      "experimental_pressure_range_gpa": [
+        54.5,
+        333.1
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
+      "material_identifier": "nacl_b2",
+      "model": "BM3",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 54,
+      "parameters": [
+        {
+          "difference": 0.19799899381413155,
+          "parameter": "K0",
+          "published": 43.42,
+          "published_error": 0.5,
+          "refit": 43.61799899381413,
+          "refit_error": null,
+          "relative_difference": 0.004560087374807268,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.009418243505972868,
+          "parameter": "K0_prime",
+          "published": 4.36,
+          "published_error": 0.02,
+          "refit": 4.3505817564940275,
+          "refit_error": null,
+          "relative_difference": 0.002160147593113043,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "conditional_fixed_V0_diagnostic_only",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3573393",
+      "published_rmse_gpa": 1.9070710376559392,
+      "qualification": "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+      "record_identifier": "nacl_b2_sakai_2011_holmes_pt_bm3",
+      "rmse_gpa": 1.9041763407754038,
+      "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "nacl_b2_sakai_2011_table1",
+        "nacl_b2_sata_2002_table1_sakai_input"
+      ],
+      "experimental_pressure_range_gpa": [
+        54.5,
+        333.1
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
+      "material_identifier": "nacl_b2",
+      "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 54,
+      "parameters": [
+        {
+          "difference": 0.20065321056808472,
+          "parameter": "K0",
+          "published": 36.07,
+          "published_error": 0.54,
+          "refit": 36.270653210568085,
+          "refit_error": null,
+          "relative_difference": 0.0055628835754944475,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.016175252472230284,
+          "parameter": "K0_prime",
+          "published": 5.49,
+          "published_error": 0.04,
+          "refit": 5.47382474752777,
+          "refit_error": null,
+          "relative_difference": 0.002946311925725006,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "conditional_fixed_V0_diagnostic_only",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3573393",
+      "published_rmse_gpa": 2.1441274596796984,
+      "qualification": "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+      "record_identifier": "nacl_b2_sakai_2011_holmes_pt_vinet",
+      "rmse_gpa": 2.1397727210913047,
+      "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "status": "parity"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -34769,6 +35281,95 @@
       "rmse_gpa": 0.141153150785964,
       "solver_success": true,
       "source_notes": "Section 3.2 page 522 preliminary 300 K fit: K0=290(10), K0_prime=2.7(9). Same Table 3 V0=60.38 A^3; narrow compression range gives an unreliable derivative. Not the preferred Pt pressure scale. Seven Table 2 300 K observations only. The source does not explicitly enumerate V0/theta0 as fixed; holding them fixed is a diagnostic regression choice, not a reported constraint.",
+      "status": "similar"
+    },
+    {
+      "dataset_identifiers": [
+        "platinum_holmes_1989_table3_shock"
+      ],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [
+        "V0"
+      ],
+      "label": "Matsui et al. (2009), Pt Vinet reference isotherm, 300 K",
+      "material_identifier": "platinum",
+      "model": "Vinet",
+      "primary_data_finding": "The 300 K reference branch is defined exactly. The source fits shock data up to 290 GPa with thermal reduction and checks static P-V-T data; the existing seven Holmes shots are preserved as upstream constraints, not static 300 K fit inputs. The full shock/thermal optimization is outside this reference-isotherm record and is not independently refitted.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3054331",
+      "reason": "The 300 K Vinet branch is an exact projection of the published thermal model. Its shock-Hugoniot and thermal-expansion optimization cannot be refitted as static 300 K observations. The seven bundled Holmes shots retain recoverable upstream constraints; Table III and Sakai (2011) marker reductions independently check the executable reference isotherm.",
+      "record_identifier": "platinum_matsui_2009_vinet_300k",
+      "source_notes": "Exact 300 K reference isotherm only, not the full Matsui thermal EOS. Table II V0=60.38 A^3, K0=273 GPa, K0_prime=5.20; uncertainties and covariance not reported for this triplet. The source recommends its complete model up to 300 GPa; shock constraints reach 290 GPa and are not 300 K observations.",
+      "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": true,
+      "automatic_status": "parity",
+      "columns": {
+        "pressure": "ruby_pressure_revised_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "platinum_dewaele_2004_table1_compression"
+      ],
+      "degrees_of_freedom": 35,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        93.6
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0"
+      ],
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Fei et al. (2007), Pt Vinet reference isotherm, 300 K",
+      "material_identifier": "platinum",
+      "model": "Vinet",
+      "objective": "errors_in_variables",
+      "observations": 36,
+      "observed_pressure_range_gpa": [
+        0.0,
+        93.6
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        49.22,
+        60.42
+      ],
+      "parameters": [
+        {
+          "difference": 0.004481455470603635,
+          "parameter": "K0_prime",
+          "published": 5.08,
+          "published_error": 0.02,
+          "refit": 5.084481455470604,
+          "refit_error": 0.05040704691460084,
+          "relative_difference": 0.000882176273740873,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 36 Dewaele (2004) static rows and the 42 Fei (2004) P-V-T rows are already bundled. The 300 K diagnostic refits the Dewaele subset with published V0 and K0 held fixed, using the revised ruby column. The joint thermal fit and Fei (2007) Au re-reduction are not reconstructed by this isothermal-only record.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1073/pnas.0609013104",
+      "published_rmse_gpa": 0.26172133030571426,
+      "qualification": "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The complete Fei (2007) joint thermal optimization and Au re-reduction are not reconstructed; the source confidence convention is unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure.",
+      "record_identifier": "platinum_fei_2007_vinet_300k",
+      "reduced_chi_square": 0.059128404314979906,
+      "rmse_gpa": 0.22095749200854134,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Exact 300 K reference isotherm only, not the full Fei thermal EOS. Table 1 gives the Vinet coefficients 60.38(1), 277, 5.08(2); confidence convention and covariance are unspecified. The same rounded cold coefficients occur in Dewaele (2004), whose catalog reference is 298 K; this record preserves the explicit Fei 300 K convention. V0 and K0 are held fixed in the cold-subset diagnostic. Thermal rows are retained as upstream context, not fitted as isothermal data. The conservative validity envelope is the Dewaele cold subset, not all later use of this pressure scale.",
       "status": "similar"
     },
     {
@@ -39460,11 +40061,11 @@
     }
   ],
   "summary": {
-    "not_refittable": 162,
-    "parity": 197,
+    "not_refittable": 163,
+    "parity": 205,
     "parity_not_achieved": 67,
-    "similar": 135,
+    "similar": 136,
     "source_reconstruction": 13,
-    "total": 574
+    "total": 584
   }
 }

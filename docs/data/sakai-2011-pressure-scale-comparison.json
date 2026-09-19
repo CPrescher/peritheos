@@ -1,0 +1,1337 @@
+{
+  "calibrant_checks": {
+    "fei": {
+      "max_difference_from_independent_vinet_gpa": 0.0,
+      "max_difference_from_sakai_marker_pressures_gpa": 0.14535775
+    },
+    "matsui": {
+      "max_difference_from_independent_vinet_gpa": 0.0,
+      "max_difference_from_sakai_marker_pressures_gpa": 0.15810909,
+      "table3_300k_0p7V0_pressure_gpa": 235.96241204
+    }
+  },
+  "comparisons": {
+    "do_to_do_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.7902318,
+          242.53065141
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 242.53065141,
+          "published_target_pressure_gpa": 242.53065141,
+          "sample_volume_a3": 16.10008593
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          54.7902318,
+          242.53065141
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          16.10008593,
+          24.03816277
+        ],
+        "sampled_states": 867,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_do_pt_bm3",
+        "platinum_dorogokupets_oganov_2007_vinet_4"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_do_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.7,
+          313.8
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 313.8,
+          "published_target_pressure_gpa": 313.8,
+          "sample_volume_a3": 14.88095866
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          54.7,
+          313.8
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          14.88095866,
+          24.04732914
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_do_pt_bm3",
+      "states_outside_linked_envelopes": 134,
+      "target_standard_eos_record": "platinum_dorogokupets_oganov_2007_vinet_4"
+    },
+    "do_to_do_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.7,
+          242.6328934
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 242.6328934,
+          "published_target_pressure_gpa": 242.6328934,
+          "sample_volume_a3": 16.10654586
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          54.7,
+          242.6328934
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          16.10654586,
+          23.9824654
+        ],
+        "sampled_states": 863,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_do_pt_vinet",
+        "platinum_dorogokupets_oganov_2007_vinet_4"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_do_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.7,
+          313.8
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 313.8,
+          "published_target_pressure_gpa": 313.8,
+          "sample_volume_a3": 14.84566779
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          54.7,
+          313.8
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          14.84566779,
+          23.9824654
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_do_pt_vinet",
+      "states_outside_linked_envelopes": 138,
+      "target_standard_eos_record": "platinum_dorogokupets_oganov_2007_vinet_4"
+    },
+    "do_to_fei_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.11784279,
+          93.49737121
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 54.11784279,
+          "published_target_pressure_gpa": 54.12858926,
+          "sample_volume_a3": 24.03816277
+        },
+        "max_abs_difference_gpa": 0.01074647,
+        "max_abs_relative_difference_percent": 0.0198536,
+        "published_target_pressure_range_gpa": [
+          54.12858926,
+          93.4868212
+        ],
+        "rms_difference_gpa": 0.00622215,
+        "sample_volume_range_a3": [
+          20.96742866,
+          24.03816277
+        ],
+        "sampled_states": 336,
+        "signed_difference_range_gpa": [
+          -0.01074647,
+          0.01055001
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_do_pt_bm3",
+        "platinum_dorogokupets_oganov_2007_vinet_4",
+        "platinum_fei_2007_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_fei_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.02962346,
+          301.8189964
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 301.8189964,
+          "published_target_pressure_gpa": 301.72745868,
+          "sample_volume_a3": 14.88095866
+        },
+        "max_abs_difference_gpa": 0.09153772,
+        "max_abs_relative_difference_percent": 0.03033788,
+        "published_target_pressure_range_gpa": [
+          54.0404248,
+          301.72745868
+        ],
+        "rms_difference_gpa": 0.03593311,
+        "sample_volume_range_a3": [
+          14.88095866,
+          24.04732914
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.01080134,
+          0.09153772
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_do_pt_bm3",
+      "states_outside_linked_envelopes": 665,
+      "target_standard_eos_record": "platinum_fei_2007_vinet_300k"
+    },
+    "do_to_fei_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.02962346,
+          93.55614391
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 54.02962346,
+          "published_target_pressure_gpa": 54.10847292,
+          "sample_volume_a3": 23.9824654
+        },
+        "max_abs_difference_gpa": 0.07884947,
+        "max_abs_relative_difference_percent": 0.1457248,
+        "published_target_pressure_range_gpa": [
+          54.10847292,
+          93.56426863
+        ],
+        "rms_difference_gpa": 0.0499565,
+        "sample_volume_range_a3": [
+          20.9866244,
+          23.9824654
+        ],
+        "sampled_states": 329,
+        "signed_difference_range_gpa": [
+          -0.07884947,
+          -0.00812471
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_do_pt_vinet",
+        "platinum_dorogokupets_oganov_2007_vinet_4",
+        "platinum_fei_2007_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_fei_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.02962346,
+          301.62624471
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 301.62624471,
+          "published_target_pressure_gpa": 301.8,
+          "sample_volume_a3": 14.84880382
+        },
+        "max_abs_difference_gpa": 0.17375529,
+        "max_abs_relative_difference_percent": 0.1457248,
+        "published_target_pressure_range_gpa": [
+          54.10847292,
+          301.8
+        ],
+        "rms_difference_gpa": 0.05080877,
+        "sample_volume_range_a3": [
+          14.84880382,
+          23.9824654
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.17375529,
+          0.0446634
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_do_pt_vinet",
+      "states_outside_linked_envelopes": 672,
+      "target_standard_eos_record": "platinum_fei_2007_vinet_300k"
+    },
+    "do_to_matsui_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          53.69701298,
+          235.75697515
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 235.75697515,
+          "published_target_pressure_gpa": 235.56406564,
+          "sample_volume_a3": 16.09988714
+        },
+        "max_abs_difference_gpa": 0.19290952,
+        "max_abs_relative_difference_percent": 0.08189259,
+        "published_target_pressure_range_gpa": [
+          53.7,
+          235.56406564
+        ],
+        "rms_difference_gpa": 0.07899162,
+        "sample_volume_range_a3": [
+          16.09988714,
+          24.04583448
+        ],
+        "sampled_states": 868,
+        "signed_difference_range_gpa": [
+          -0.00298702,
+          0.19290952
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_do_pt_bm3",
+        "platinum_dorogokupets_oganov_2007_vinet_4",
+        "platinum_matsui_2009_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          53.69701298,
+          304.34521491
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 304.34521491,
+          "published_target_pressure_gpa": 304.04169681,
+          "sample_volume_a3": 14.88095866
+        },
+        "max_abs_difference_gpa": 0.3035181,
+        "max_abs_relative_difference_percent": 0.09982779,
+        "published_target_pressure_range_gpa": [
+          53.7,
+          304.04169681
+        ],
+        "rms_difference_gpa": 0.11603401,
+        "sample_volume_range_a3": [
+          14.88095866,
+          24.04583448
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.00298702,
+          0.3035181
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_do_pt_bm3",
+      "states_outside_linked_envelopes": 133,
+      "target_standard_eos_record": "platinum_matsui_2009_vinet_300k"
+    },
+    "do_to_matsui_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          53.68264527,
+          235.71960843
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 235.71960843,
+          "published_target_pressure_gpa": 235.86283412,
+          "sample_volume_a3": 16.10924166
+        },
+        "max_abs_difference_gpa": 0.14322569,
+        "max_abs_relative_difference_percent": 0.12386425,
+        "published_target_pressure_range_gpa": [
+          53.74922134,
+          235.86283412
+        ],
+        "rms_difference_gpa": 0.07486303,
+        "sample_volume_range_a3": [
+          16.10924166,
+          23.9824654
+        ],
+        "sampled_states": 863,
+        "signed_difference_range_gpa": [
+          -0.14322569,
+          -0.05822732
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_do_pt_vinet",
+        "platinum_dorogokupets_oganov_2007_vinet_4",
+        "platinum_matsui_2009_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          53.68264527,
+          304.14924344
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 304.14924344,
+          "published_target_pressure_gpa": 304.4,
+          "sample_volume_a3": 14.84879517
+        },
+        "max_abs_difference_gpa": 0.25075656,
+        "max_abs_relative_difference_percent": 0.12386425,
+        "published_target_pressure_range_gpa": [
+          53.74922134,
+          304.4
+        ],
+        "rms_difference_gpa": 0.10009992,
+        "sample_volume_range_a3": [
+          14.84879517,
+          23.9824654
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.25075656,
+          -0.05822732
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_do_pt_vinet",
+      "states_outside_linked_envelopes": 138,
+      "target_standard_eos_record": "platinum_matsui_2009_vinet_300k"
+    },
+    "fei_to_do_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.80122359,
+          95.27122519
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 54.80122359,
+          "published_target_pressure_gpa": 54.7902318,
+          "sample_volume_a3": 24.03816277
+        },
+        "max_abs_difference_gpa": 0.01099179,
+        "max_abs_relative_difference_percent": 0.02006159,
+        "published_target_pressure_range_gpa": [
+          54.7902318,
+          95.28212399
+        ],
+        "rms_difference_gpa": 0.0063935,
+        "sample_volume_range_a3": [
+          20.96742866,
+          24.03816277
+        ],
+        "sampled_states": 336,
+        "signed_difference_range_gpa": [
+          -0.0108988,
+          0.01099179
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_fei_pt_bm3",
+        "platinum_fei_2007_vinet_300k",
+        "platinum_dorogokupets_oganov_2007_vinet_4"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_do_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.71104761,
+          313.70291146
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 313.70291146,
+          "published_target_pressure_gpa": 313.8,
+          "sample_volume_a3": 14.88095866
+        },
+        "max_abs_difference_gpa": 0.09708854,
+        "max_abs_relative_difference_percent": 0.03093962,
+        "published_target_pressure_range_gpa": [
+          54.7,
+          313.8
+        ],
+        "rms_difference_gpa": 0.03783722,
+        "sample_volume_range_a3": [
+          14.88095866,
+          24.04732914
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.09708854,
+          0.01104761
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_fei_pt_bm3",
+      "states_outside_linked_envelopes": 665,
+      "target_standard_eos_record": "platinum_dorogokupets_oganov_2007_vinet_4"
+    },
+    "fei_to_do_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.78064807,
+          95.35123362
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 54.78064807,
+          "published_target_pressure_gpa": 54.7,
+          "sample_volume_a3": 23.9824654
+        },
+        "max_abs_difference_gpa": 0.08064807,
+        "max_abs_relative_difference_percent": 0.14743706,
+        "published_target_pressure_range_gpa": [
+          54.7,
+          95.34284018
+        ],
+        "rms_difference_gpa": 0.05123529,
+        "sample_volume_range_a3": [
+          20.9866244,
+          23.9824654
+        ],
+        "sampled_states": 329,
+        "signed_difference_range_gpa": [
+          0.00839344,
+          0.08064807
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_fei_pt_vinet",
+        "platinum_fei_2007_vinet_300k",
+        "platinum_dorogokupets_oganov_2007_vinet_4"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_do_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.78064807,
+          313.77985161
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 313.77985161,
+          "published_target_pressure_gpa": 313.59556074,
+          "sample_volume_a3": 14.84880382
+        },
+        "max_abs_difference_gpa": 0.18429087,
+        "max_abs_relative_difference_percent": 0.14743706,
+        "published_target_pressure_range_gpa": [
+          54.7,
+          313.59556074
+        ],
+        "rms_difference_gpa": 0.05313164,
+        "sample_volume_range_a3": [
+          14.84880382,
+          23.9824654
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.04667358,
+          0.18429087
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_fei_pt_vinet",
+      "states_outside_linked_envelopes": 672,
+      "target_standard_eos_record": "platinum_dorogokupets_oganov_2007_vinet_4"
+    },
+    "fei_to_fei_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.0,
+          93.44628315
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 93.44628315,
+          "published_target_pressure_gpa": 93.44628315,
+          "sample_volume_a3": 20.96984259
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          54.0,
+          93.44628315
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          20.96984259,
+          24.05153691
+        ],
+        "sampled_states": 337,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_fei_pt_bm3",
+        "platinum_fei_2007_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_fei_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.0,
+          301.8
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 301.8,
+          "published_target_pressure_gpa": 301.8,
+          "sample_volume_a3": 14.87982764
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          54.0,
+          301.8
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          14.87982764,
+          24.05153691
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_fei_pt_bm3",
+      "states_outside_linked_envelopes": 664,
+      "target_standard_eos_record": "platinum_fei_2007_vinet_300k"
+    },
+    "fei_to_fei_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.0,
+          93.59537183
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 93.59537183,
+          "published_target_pressure_gpa": 93.59537183,
+          "sample_volume_a3": 20.98480726
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          54.0,
+          93.59537183
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          20.98480726,
+          23.9933693
+        ],
+        "sampled_states": 330,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_fei_pt_vinet",
+        "platinum_fei_2007_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_fei_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.0,
+          301.8
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 301.8,
+          "published_target_pressure_gpa": 301.8,
+          "sample_volume_a3": 14.84880382
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          54.0,
+          301.8
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          14.84880382,
+          23.9933693
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_fei_pt_vinet",
+      "states_outside_linked_envelopes": 671,
+      "target_standard_eos_record": "platinum_fei_2007_vinet_300k"
+    },
+    "fei_to_matsui_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          53.70779954,
+          93.25597114
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 93.25597114,
+          "published_target_pressure_gpa": 93.23953544,
+          "sample_volume_a3": 20.96605618
+        },
+        "max_abs_difference_gpa": 0.0164357,
+        "max_abs_relative_difference_percent": 0.01762739,
+        "published_target_pressure_range_gpa": [
+          53.7,
+          93.23953544
+        ],
+        "rms_difference_gpa": 0.01065286,
+        "sample_volume_range_a3": [
+          20.96605618,
+          24.04583448
+        ],
+        "sampled_states": 337,
+        "signed_difference_range_gpa": [
+          0.00779954,
+          0.0164357
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_fei_pt_bm3",
+        "platinum_fei_2007_vinet_300k",
+        "platinum_matsui_2009_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          53.70779954,
+          304.32584771
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 304.32584771,
+          "published_target_pressure_gpa": 304.11557202,
+          "sample_volume_a3": 14.87982764
+        },
+        "max_abs_difference_gpa": 0.21027569,
+        "max_abs_relative_difference_percent": 0.06914335,
+        "published_target_pressure_range_gpa": [
+          53.7,
+          304.11557202
+        ],
+        "rms_difference_gpa": 0.07991024,
+        "sample_volume_range_a3": [
+          14.87982764,
+          24.04583448
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          0.00779954,
+          0.21027569
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_fei_pt_bm3",
+      "states_outside_linked_envelopes": 664,
+      "target_standard_eos_record": "platinum_matsui_2009_vinet_300k"
+    },
+    "fei_to_matsui_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          53.80325502,
+          93.25355777
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 93.25355777,
+          "published_target_pressure_gpa": 93.30402591,
+          "sample_volume_a3": 20.98994397
+        },
+        "max_abs_difference_gpa": 0.05046814,
+        "max_abs_relative_difference_percent": 0.05408999,
+        "published_target_pressure_range_gpa": [
+          53.79109233,
+          93.30402591
+        ],
+        "rms_difference_gpa": 0.02493712,
+        "sample_volume_range_a3": [
+          20.98994397,
+          23.97826663
+        ],
+        "sampled_states": 328,
+        "signed_difference_range_gpa": [
+          -0.05046814,
+          0.0121627
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_fei_pt_vinet",
+        "platinum_fei_2007_vinet_300k",
+        "platinum_matsui_2009_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          53.71231125,
+          304.32584771
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 205.14762933,
+          "published_target_pressure_gpa": 205.27923552,
+          "sample_volume_a3": 16.81360313
+        },
+        "max_abs_difference_gpa": 0.13160618,
+        "max_abs_relative_difference_percent": 0.07474593,
+        "published_target_pressure_range_gpa": [
+          53.7,
+          304.39945705
+        ],
+        "rms_difference_gpa": 0.08832597,
+        "sample_volume_range_a3": [
+          14.84880382,
+          23.98740523
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.13160618,
+          0.01231125
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_fei_pt_vinet",
+      "states_outside_linked_envelopes": 673,
+      "target_standard_eos_record": "platinum_matsui_2009_vinet_300k"
+    },
+    "matsui_to_do_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.71776008,
+          242.34045753
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 242.34045753,
+          "published_target_pressure_gpa": 242.54059033,
+          "sample_volume_a3": 16.09988714
+        },
+        "max_abs_difference_gpa": 0.2001328,
+        "max_abs_relative_difference_percent": 0.08251518,
+        "published_target_pressure_range_gpa": [
+          54.71470329,
+          242.54059033
+        ],
+        "rms_difference_gpa": 0.08174384,
+        "sample_volume_range_a3": [
+          16.09988714,
+          24.04583448
+        ],
+        "sampled_states": 868,
+        "signed_difference_range_gpa": [
+          -0.2001328,
+          0.00305679
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_matsui_pt_bm3",
+        "platinum_matsui_2009_vinet_300k",
+        "platinum_dorogokupets_oganov_2007_vinet_4"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_do_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.71776008,
+          313.48424094
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 313.48424094,
+          "published_target_pressure_gpa": 313.8,
+          "sample_volume_a3": 14.88095866
+        },
+        "max_abs_difference_gpa": 0.31575906,
+        "max_abs_relative_difference_percent": 0.1006243,
+        "published_target_pressure_range_gpa": [
+          54.71470329,
+          313.8
+        ],
+        "rms_difference_gpa": 0.12037215,
+        "sample_volume_range_a3": [
+          14.88095866,
+          24.04583448
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.31575906,
+          0.00305679
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "states_outside_linked_envelopes": 133,
+      "target_standard_eos_record": "platinum_dorogokupets_oganov_2007_vinet_4"
+    },
+    "matsui_to_do_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.7681313,
+          242.65041381
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 242.65041381,
+          "published_target_pressure_gpa": 242.50182431,
+          "sample_volume_a3": 16.10924166
+        },
+        "max_abs_difference_gpa": 0.1485895,
+        "max_abs_relative_difference_percent": 0.12455448,
+        "published_target_pressure_range_gpa": [
+          54.7,
+          242.50182431
+        ],
+        "rms_difference_gpa": 0.07724454,
+        "sample_volume_range_a3": [
+          16.10924166,
+          23.9824654
+        ],
+        "sampled_states": 863,
+        "signed_difference_range_gpa": [
+          0.0599145,
+          0.1485895
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_matsui_pt_vinet",
+        "platinum_matsui_2009_vinet_300k",
+        "platinum_dorogokupets_oganov_2007_vinet_4"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_do_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.7681313,
+          313.85699496
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 313.85699496,
+          "published_target_pressure_gpa": 313.59612455,
+          "sample_volume_a3": 14.84879517
+        },
+        "max_abs_difference_gpa": 0.26087041,
+        "max_abs_relative_difference_percent": 0.12455448,
+        "published_target_pressure_range_gpa": [
+          54.7,
+          313.59612455
+        ],
+        "rms_difference_gpa": 0.10366531,
+        "sample_volume_range_a3": [
+          14.84879517,
+          23.9824654
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          0.0599145,
+          0.26087041
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "states_outside_linked_envelopes": 138,
+      "target_standard_eos_record": "platinum_dorogokupets_oganov_2007_vinet_4"
+    },
+    "matsui_to_fei_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.04698761,
+          93.49352299
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 93.49352299,
+          "published_target_pressure_gpa": 93.50987808,
+          "sample_volume_a3": 20.96605618
+        },
+        "max_abs_difference_gpa": 0.01635509,
+        "max_abs_relative_difference_percent": 0.01749022,
+        "published_target_pressure_range_gpa": [
+          54.05479138,
+          93.50987808
+        ],
+        "rms_difference_gpa": 0.01062268,
+        "sample_volume_range_a3": [
+          20.96605618,
+          24.04583448
+        ],
+        "sampled_states": 337,
+        "signed_difference_range_gpa": [
+          -0.01635509,
+          -0.00780376
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_matsui_pt_bm3",
+        "platinum_matsui_2009_vinet_300k",
+        "platinum_fei_2007_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_fei_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.04698761,
+          301.59374925
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 301.59374925,
+          "published_target_pressure_gpa": 301.8,
+          "sample_volume_a3": 14.87982764
+        },
+        "max_abs_difference_gpa": 0.20625075,
+        "max_abs_relative_difference_percent": 0.06834021,
+        "published_target_pressure_range_gpa": [
+          54.05479138,
+          301.8
+        ],
+        "rms_difference_gpa": 0.07863875,
+        "sample_volume_range_a3": [
+          14.87982764,
+          24.04583448
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.20625075,
+          -0.00780376
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "states_outside_linked_envelopes": 664,
+      "target_standard_eos_record": "platinum_fei_2007_vinet_300k"
+    },
+    "matsui_to_fei_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.13812861,
+          93.55769698
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 93.55769698,
+          "published_target_pressure_gpa": 93.50747655,
+          "sample_volume_a3": 20.98994397
+        },
+        "max_abs_difference_gpa": 0.05022042,
+        "max_abs_relative_difference_percent": 0.05370739,
+        "published_target_pressure_range_gpa": [
+          54.15029769,
+          93.50747655
+        ],
+        "rms_difference_gpa": 0.02484284,
+        "sample_volume_range_a3": [
+          20.98994397,
+          23.97826663
+        ],
+        "sampled_states": 328,
+        "signed_difference_range_gpa": [
+          -0.01216909,
+          0.05022042
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_matsui_pt_vinet",
+        "platinum_matsui_2009_vinet_300k",
+        "platinum_fei_2007_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_fei_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.04698761,
+          301.87219992
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 203.69248918,
+          "published_target_pressure_gpa": 203.56273484,
+          "sample_volume_a3": 16.83188033
+        },
+        "max_abs_difference_gpa": 0.12975434,
+        "max_abs_relative_difference_percent": 0.07412842,
+        "published_target_pressure_range_gpa": [
+          54.05930552,
+          301.8
+        ],
+        "rms_difference_gpa": 0.08722649,
+        "sample_volume_range_a3": [
+          14.84880382,
+          23.98740523
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.01231791,
+          0.12975434
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "states_outside_linked_envelopes": 673,
+      "target_standard_eos_record": "platinum_fei_2007_vinet_300k"
+    },
+    "matsui_to_holmes_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.71951442,
+          328.30517442
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 82.21252514,
+          "published_target_pressure_gpa": 82.1653182,
+          "sample_volume_a3": 21.83781052
+        },
+        "max_abs_difference_gpa": 0.04720694,
+        "max_abs_relative_difference_percent": 0.07607307,
+        "published_target_pressure_range_gpa": [
+          54.67791925,
+          328.30024011
+        ],
+        "rms_difference_gpa": 0.03944838,
+        "sample_volume_range_a3": [
+          14.94804283,
+          24.04583448
+        ],
+        "sampled_states": 994,
+        "signed_difference_range_gpa": [
+          0.00493432,
+          0.04720694
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_matsui_pt_bm3",
+        "platinum_matsui_2009_vinet_300k",
+        "platinum_holmes_1989_vinet_1"
+      ],
+      "comparison_status": "diagnostic_only_unresolved_holmes_variant",
+      "published_target_eos_record": "nacl_b2_sakai_2011_holmes_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.71951442,
+          333.10313002
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 82.21252514,
+          "published_target_pressure_gpa": 82.1653182,
+          "sample_volume_a3": 21.83781052
+        },
+        "max_abs_difference_gpa": 0.04720694,
+        "max_abs_relative_difference_percent": 0.07607307,
+        "published_target_pressure_range_gpa": [
+          54.67791925,
+          333.1
+        ],
+        "rms_difference_gpa": 0.03931159,
+        "sample_volume_range_a3": [
+          14.88390935,
+          24.04583448
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          0.00313002,
+          0.04720694
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "states_outside_linked_envelopes": 7,
+      "target_standard_eos_record": "platinum_holmes_1989_vinet_1"
+    },
+    "matsui_to_holmes_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          54.81490498,
+          328.25977378
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 328.25977378,
+          "published_target_pressure_gpa": 327.8792376,
+          "sample_volume_a3": 14.92502457
+        },
+        "max_abs_difference_gpa": 0.38053618,
+        "max_abs_relative_difference_percent": 0.34058458,
+        "published_target_pressure_range_gpa": [
+          54.62884754,
+          327.8792376
+        ],
+        "rms_difference_gpa": 0.11447767,
+        "sample_volume_range_a3": [
+          14.92502457,
+          23.97826977
+        ],
+        "sampled_states": 992,
+        "signed_difference_range_gpa": [
+          -0.08184471,
+          0.38053618
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_matsui_pt_vinet",
+        "platinum_matsui_2009_vinet_300k",
+        "platinum_holmes_1989_vinet_1"
+      ],
+      "comparison_status": "diagnostic_only_unresolved_holmes_variant",
+      "published_target_eos_record": "nacl_b2_sakai_2011_holmes_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          54.71951442,
+          333.51207552
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 333.51207552,
+          "published_target_pressure_gpa": 333.1,
+          "sample_volume_a3": 14.85194085
+        },
+        "max_abs_difference_gpa": 0.41207552,
+        "max_abs_relative_difference_percent": 0.34168475,
+        "published_target_pressure_range_gpa": [
+          54.53318285,
+          333.1
+        ],
+        "rms_difference_gpa": 0.11953902,
+        "sample_volume_range_a3": [
+          14.85194085,
+          23.98740523
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          -0.08184471,
+          0.41207552
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "states_outside_linked_envelopes": 9,
+      "target_standard_eos_record": "platinum_holmes_1989_vinet_1"
+    },
+    "matsui_to_matsui_bm3": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          53.7,
+          299.64734059
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 299.64734059,
+          "published_target_pressure_gpa": 299.64734059,
+          "sample_volume_a3": 14.94883906
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          53.7,
+          299.64734059
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          14.94883906,
+          24.04583448
+        ],
+        "sampled_states": 993,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_matsui_pt_bm3",
+        "platinum_matsui_2009_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          53.7,
+          304.4
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 304.4,
+          "published_target_pressure_gpa": 304.4,
+          "sample_volume_a3": 14.87547619
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          53.7,
+          304.4
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          14.87547619,
+          24.04583448
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "states_outside_linked_envelopes": 8,
+      "target_standard_eos_record": "platinum_matsui_2009_vinet_300k"
+    },
+    "matsui_to_matsui_vinet": {
+      "all_linked_envelopes": {
+        "converted_pressure_range_gpa": [
+          53.79109242,
+          299.8515405
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 299.8515405,
+          "published_target_pressure_gpa": 299.8515405,
+          "sample_volume_a3": 14.92190405
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          53.79109242,
+          299.8515405
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          14.92190405,
+          23.97826662
+        ],
+        "sampled_states": 992,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "calibration_path": [
+        "nacl_b2_sakai_2011_matsui_pt_vinet",
+        "platinum_matsui_2009_vinet_300k"
+      ],
+      "comparison_status": "exact_calibration_links",
+      "published_target_eos_record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "sample_envelope": {
+        "converted_pressure_range_gpa": [
+          53.7,
+          304.4
+        ],
+        "largest_difference_at": {
+          "converted_pressure_gpa": 304.4,
+          "published_target_pressure_gpa": 304.4,
+          "sample_volume_a3": 14.84879517
+        },
+        "max_abs_difference_gpa": 0.0,
+        "max_abs_relative_difference_percent": 0.0,
+        "published_target_pressure_range_gpa": [
+          53.7,
+          304.4
+        ],
+        "rms_difference_gpa": 0.0,
+        "sample_volume_range_a3": [
+          14.84879517,
+          23.98740523
+        ],
+        "sampled_states": 1001,
+        "signed_difference_range_gpa": [
+          0.0,
+          0.0
+        ]
+      },
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "states_outside_linked_envelopes": 9,
+      "target_standard_eos_record": "platinum_matsui_2009_vinet_300k"
+    }
+  },
+  "method": "Convert each published NaCl curve through a virtual Pt volume at 300 K; compare with the same-form published target curve at identical NaCl volume. No refit or coefficient replacement.",
+  "qualifications": [
+    "Matsui is the display baseline, not a new recommended material default.",
+    "The all_linked_envelopes subset passes the public API with check_validity=True; full sample-envelope comparisons explicitly include calibrant extrapolation.",
+    "Holmes uses the exact bundled Equation (11) as a diagnostic. Sakai's precise Holmes variant is unresolved, so its published NaCl records remain unlinked and cannot be used as an automatically resolved source calibration.",
+    "These are deterministic differences between rounded published curves, not experimental errors or confidence bounds. The variants share observations and are not independent experiments."
+  ],
+  "sampling": "1001 equally spaced NaCl volumes per pair across the intersection of both published sample envelopes; maxima are sampled, not analytic bounds."
+}
