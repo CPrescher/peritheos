@@ -39883,6 +39883,98 @@
       "status": "parity"
     },
     {
+      "curve_validation": {
+        "max_abs_relative_volume_difference": 0.00056694644,
+        "observations": 24,
+        "tolerance": 0.001
+      },
+      "dataset_identifiers": [
+        "vanadium_crichton_2016_figure2_points"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        11.5
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        1000.0
+      ],
+      "fixed_parameters": [
+        "Tr"
+      ],
+      "label": "Crichton et al. (2016), bcc V thermal BM3",
+      "material_identifier": "vanadium_bcc",
+      "model": "BM3",
+      "observations": 29,
+      "partial_validation": {
+        "fixed_parameters": [
+          "Tr"
+        ],
+        "free_parameters": [
+          "V0",
+          "K0",
+          "K0_prime",
+          "alpha0",
+          "alpha1",
+          "dK_dT"
+        ],
+        "jacobian_rank": 6,
+        "objective": "Unweighted pressure residuals at nominal color-bin temperatures; simultaneous six-parameter least squares. Source reports unweighted fitting, but exact row temperatures and 33 additional observations cannot be individually recovered.",
+        "observations": 29,
+        "original_fit_reproduced": false,
+        "parameters": [
+          {
+            "difference": 0.051001895,
+            "parameter": "V0",
+            "published": 27.995,
+            "refit": 28.046002
+          },
+          {
+            "difference": 0.04260892,
+            "parameter": "K0",
+            "published": 150.4,
+            "refit": 150.44261
+          },
+          {
+            "difference": -0.74064489,
+            "parameter": "K0_prime",
+            "published": 5.5,
+            "refit": 4.7593551
+          },
+          {
+            "difference": -1.2507567e-05,
+            "parameter": "alpha0",
+            "published": 4.8e-05,
+            "refit": 3.5492433e-05
+          },
+          {
+            "difference": 1.716213e-08,
+            "parameter": "alpha1",
+            "published": -2.4e-08,
+            "refit": -6.8378701e-09
+          },
+          {
+            "difference": 0.0045821715,
+            "parameter": "dK_dT",
+            "published": -0.0446,
+            "refit": -0.040017829
+          }
+        ],
+        "published_rmse_gpa": 0.24263848,
+        "refit_rmse_gpa": 0.18247682,
+        "selection": "All 29 distinguishable filled Figure 2 symbols; exclude 10 cited open symbols and recovered star. No fitted-curve readings used.",
+        "status": "diagnostic_only",
+        "uncertainty": "No parameter errors inferred: temperature binning, digitization, incomplete sampling and unreported covariance preclude original-fit statistics."
+      },
+      "primary_data_finding": "Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.",
+      "primary_data_status": "plot_only",
+      "primary_source": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
+      "reason": "Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.",
+      "record_identifier": "vanadium_bcc_crichton_2016_bm3_thermal",
+      "source_notes": "Source-owned unconstrained 62-point unweighted fit, measured to 11.5 GPa and 1000 K. Initial first-cycle stressed-foil observations were anomalous; recovered ambient point is explicitly excluded. No statistical confidence/covariance is specified. Nominal-temperature digitized symbols only support a qualified proxy refit, not the original regression. The source Conclusion quotes 2.7% ambient and 1.2% at 10 GPa expansion from 300 to 1000 K; stored coefficients give 2.294% and 1.026%. Figure 2 supports the stored expansion convention; no coefficient is changed to force the prose values. Two fixed-K0-prime alternatives are withheld for missing V0 and thermal parameters.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -40600,11 +40692,11 @@
     }
   ],
   "summary": {
-    "not_refittable": 162,
+    "not_refittable": 163,
     "parity": 199,
     "parity_not_achieved": 67,
     "similar": 144,
     "source_reconstruction": 13,
-    "total": 585
+    "total": 586
   }
 }

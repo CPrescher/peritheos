@@ -268,6 +268,10 @@ production EOS record added.**
 
 ### C06 — Bcc vanadium: practical high-temperature marker
 
+- **Implemented (2026-09-19):** main experimental fit in `vanadium_bcc`;
+  [source audit](literature-reproductions/crichton-2016-vanadium.md).
+  The two fixed-K′ alternatives remain withheld for missing coefficients.
+  Plot-only observations support a proxy diagnostic, not the original refit.
 - **Change:** add a new elemental material and P-V-T record.
 - **Source:** Crichton et al. (2016), [High-temperature equation of state of
   vanadium](https://doi.org/10.1080/08957959.2015.1123256).

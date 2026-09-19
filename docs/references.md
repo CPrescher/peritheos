@@ -19,6 +19,23 @@
   in Superhydrous Phase B. *Physics and Chemistry of Minerals*, 41, 725.
   [doi:10.1007/s00269-014-0697-6](https://doi.org/10.1007/s00269-014-0697-6).
   The official H2 coordinate correction is applied to the LT structural model.
+- Crichton, W. A., Guignard, J., Bailey, E., Dobson, D. P., Hunt, S. A. &
+  Thomson, A. R. (2016). High-temperature equation of state of vanadium.
+  *High Pressure Research*, 36, 16–22.
+  [doi:10.1080/08957959.2015.1123256](https://doi.org/10.1080/08957959.2015.1123256).
+  See the [bcc vanadium audit](literature-reproductions/crichton-2016-vanadium.md)
+  for the main experimental fit, missing alternative-fit coefficients and
+  source-version limitations.
+- James, W. J. & Straumanis, M. E. (1960). Lattice parameter and expansion
+  coefficient of vanadium. *Journal of the Electrochemical Society*, 107, 69.
+  Separate diffraction structure, via [COD 9012770](https://qiserver.ugr.es/cod/9012770.cif)
+  / AMCSD 0014111.
+- Angel, R. J., Gonzalez-Platas, J. & Alvaro, M. (2014). EosFit7c and a Fortran
+  module (library) for equation of state calculations. *Zeitschrift für
+  Kristallographie*, 229, 405–419.
+  [doi:10.1515/zkri-2013-1711](https://doi.org/10.1515/zkri-2013-1711).
+  Pages 410 and 412 document the earlier EosFit alpha(T) convention and
+  temperature-dependent reference modulus used for the vanadium audit.
 
 - Zha, C.-S., Bassett, W. A. & Shim, S.-H. (2004). Rhenium, an in situ
   pressure calibrant for internally heated diamond anvil cells. *Review of
