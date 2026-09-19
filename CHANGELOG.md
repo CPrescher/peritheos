@@ -7,10 +7,16 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Litasov et al. (2013) natural Fe0.95Mn0.05CO3 siderite 300 K BM3,
+  diffraction structure, all 111 paired sample/Au observations, and independent
+  RT, joint thermal, staged, and axial diagnostics. An opt-in joint thermal
+  refit includes the complete fitted coefficients and covariance; both conflicting
+  published thermal versions remain non-executable source evidence. The catalog contains 576 executable
+  EOS records.
 - Zha et al. (2004) rhenium Equation (6) thermal EOS, all eight paired Au/Re
   observations, derived isotherm tables, and an independent staged refit. The
   continuous Table III branch is distinguished from the authors' preferred
-  fixed-volume isotherms. The catalog now contains 574 executable EOS records.
+  fixed-volume isotherms.
 - Primary-source investigation of Xian et al. (2022), with literal thermal
   polynomial diagnostics. Its Re/Au models remain outside the executable
   catalog because source-specific inputs and printed-equation issues remain

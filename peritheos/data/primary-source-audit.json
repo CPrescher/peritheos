@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-15",
+  "audit_date": "2026-09-19",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 574,
-    "primary_source_validated": 574
+    "records": 576,
+    "primary_source_validated": 576
   },
   "records": [
     {
@@ -10090,6 +10090,44 @@
           "Table 1"
         ],
         "finding": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly."
+      }
+    },
+    {
+      "material": "siderite_fe095mn005",
+      "file": "siderite_fe095mn005.eosmat",
+      "record": "siderite_fe095mn005_litasov_2013_bm3",
+      "label": "Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3",
+      "doi": "10.1016/j.pepi.2013.07.011",
+      "status": "primary_source_validated",
+      "note": "Room-temperature parameterization traced to the primary manuscript and final publisher abstract, independently refitted on the original printed pressure scale. See docs/literature-reproductions/litasov-2013-siderite.md for limitations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.07.011",
+        "doi": "10.1016/j.pepi.2013.07.011",
+        "locations": [
+          "Publication-of-record abstract",
+          "User-supplied Accepted Manuscript: Section 2, pages 3-4",
+          "Section 3, pages 4-5; Tables 1 and 2, pages 12-15"
+        ],
+        "finding": "Natural Fe0.95Mn0.05CO3 from Panasqueira; BM3 with V0 fixed at 293.4 A^3. The highest-pressure 300 K observation (241.54 A^3, 33.01 GPa) is reproduced within the printed 0.1 GPa pressure bound. An independent refit of all 27 printed 300 K rows gives K0=120.2242 GPa and Kprime=3.572214. Thermal expansion conflicts between Table 1 and the abstract remain withheld."
+      }
+    },
+    {
+      "material": "siderite_fe095mn005",
+      "file": "siderite_fe095mn005.eosmat",
+      "record": "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
+      "label": "Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3",
+      "doi": "10.1016/j.pepi.2013.07.011",
+      "status": "primary_source_validated",
+      "note": "Primary observations, composition, equation mapping, reference state and calibration lineage audited; independent numerical reproduction validates the separately labelled refit, not author-fit parity.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.07.011",
+        "doi": "10.1016/j.pepi.2013.07.011",
+        "locations": [
+          "Publication-of-record abstract",
+          "User-supplied Accepted Manuscript: Section 2, pages 3-4",
+          "Section 3, pages 4-5; Tables 1 and 2, pages 12-15"
+        ],
+        "finding": "All 111 Table 2 observations are fitted with the Section 3 HTBM model, using the integrated-expansivity convention in cited Litasov (2007) Equations (1)-(4). The refit and residuals are independently reproduced; the source alpha0 conflict is retained rather than corrected."
       }
     },
     {

@@ -1,5 +1,23 @@
 # References
 
+- Effenberger, H., Mereiter, K. & Zemann, J. (1981). Crystal structure
+  refinements of magnesite, calcite, rhodochrosite, siderite, smithonite, and
+  dolomite, with discussion of some aspects of the stereochemistry of calcite
+  type carbonates. *Zeitschrift für Kristallographie*, **156**, 233–243.
+  [doi:10.1524/zkri.1981.156.14.233](https://doi.org/10.1524/zkri.1981.156.14.233).
+- Litasov, K. D., Ohtani, E., Ghosh, S., Nishihara, Y., Suzuki, A. &
+  Funakoshi, K. (2007). Thermal equation of state of superhydrous phase B to
+  27 GPa and 1373 K. *Physics of the Earth and Planetary Interiors*, **164**,
+  142–160. [doi:10.1016/j.pepi.2007.06.003](https://doi.org/10.1016/j.pepi.2007.06.003).
+
+- Litasov, K. D., Shatskiy, A., Gavryushkin, P. N., Sharygin, I. S.,
+  Dorogokupets, P. I., Dymshits, A. M., Ohtani, E., Higo, Y. & Funakoshi, K.
+  (2013). P–V–T equation of state of siderite to 33 GPa and 1673 K.
+  *Physics of the Earth and Planetary Interiors*, 224, 83–87.
+  [doi:10.1016/j.pepi.2013.07.011](https://doi.org/10.1016/j.pepi.2013.07.011).
+  Natural Fe0.95Mn0.05CO3; published 300 K BM3 and an explicit Peritheos thermal
+  refit are executable; both conflicting published thermal sets remain evidence only. See the [source audit and refit](literature-reproductions/litasov-2013-siderite.md).
+
 - Zha, C.-S., Bassett, W. A. & Shim, S.-H. (2004). Rhenium, an in situ
   pressure calibrant for internally heated diamond anvil cells. *Review of
   Scientific Instruments*, 75, 2409-2418.

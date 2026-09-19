@@ -1,0 +1,661 @@
+{
+  "format": "peritheos.source-investigation",
+  "format_version": 1,
+  "audit_date": "2026-09-19",
+  "doi": "10.1016/j.pepi.2013.07.011",
+  "outcome": "partial_reproduction",
+  "composition": "Fe0.95Mn0.05CO3",
+  "composition_authority": "Section 2, manuscript page 3: Panasqueira tungsten mine, Covilha, Castelo Branco, Portugal; pre/post-run microprobe shows no detectable composition change.",
+  "accepted_record_identifiers": [
+    "siderite_fe095mn005_litasov_2013_bm3",
+    "siderite_fe095mn005_litasov_2013_joint_thermal_refit"
+  ],
+  "candidate_inventory_complete": true,
+  "source_version": {
+    "kind": "Accepted Manuscript",
+    "filename": "j.pepi.2013.07.011.pdf",
+    "pages": 21,
+    "accepted_date": "2013-07-18",
+    "sha256": "9697456ddfae48591f90f498fff0644f899a936c2eb2b8e30beae5b0d4fe77b6",
+    "finding": "User-supplied complete manuscript with Tables 1-2; publication-of-record abstract checked independently. Final typeset full text and any official supplement/correction not recovered."
+  },
+  "candidates": [
+    {
+      "label": "Room-temperature volume BM3",
+      "disposition": "accepted",
+      "record_identifier": "siderite_fe095mn005_litasov_2013_bm3",
+      "parameters": {
+        "V0": 293.4,
+        "K0": 120.0,
+        "K0_prime": 3.57
+      },
+      "reported_errors": {
+        "V0": 0.1,
+        "K0": 1.0,
+        "K0_prime": 0.09
+      },
+      "fixed_parameters": [
+        "V0"
+      ],
+      "source_location": "Abstract; Section 3; Table 1",
+      "uncertainty_conflict": {
+        "field": "parameter_errors.K0",
+        "abstract": 1.0,
+        "manuscript_table_1": 2.0,
+        "resolution": "The accepted 300 K record follows the room-temperature abstract error (also present in the publication-of-record abstract). Table 1 summarizes the P-V-T fit and reports 2 GPa. Both are retained as source evidence; no confidence level is inferred."
+      }
+    },
+    {
+      "label": "High-temperature volume BM3",
+      "disposition": "withheld_source_coefficient_conflict",
+      "parameters_shared": {
+        "V0": 293.4,
+        "K0": 120,
+        "K0_prime": 3.57,
+        "alpha1": 6e-10,
+        "dK_dT": -0.015,
+        "Tr": 300
+      },
+      "alpha0_abstract": 3.57e-05,
+      "alpha0_table1": 3.77e-05,
+      "reported_thermal_errors": {
+        "alpha0": 9e-07,
+        "alpha1": 1.4e-09,
+        "dK_dT": 0.001
+      },
+      "fixed_parameters": [
+        "V0",
+        "Tr"
+      ],
+      "source_location": "Abstract; Section 3 lines 107-124; Table 1",
+      "finding": "Section 3 fits K0,Kprime,dK/dT,a0,a1 jointly; abstract describes sequential analysis. Both full and staged sensitivity fits retained. Neither printed a0 is silently preferred by its fit residual."
+    },
+    {
+      "label": "a-axis compressibility",
+      "disposition": "axial_only_not_unit_cell_volume_eos",
+      "parameters": {
+        "KTa": 166,
+        "K_prime": 14.0
+      },
+      "reported_errors": {
+        "KTa": 2,
+        "K_prime": 0.8
+      },
+      "source_location": "Abstract and Section 3, manuscript page 5",
+      "fictive_reference_volume_a3": 103.4
+    },
+    {
+      "label": "c-axis compressibility",
+      "disposition": "axial_only_not_unit_cell_volume_eos",
+      "parameters": {
+        "KTc": 59,
+        "K_prime": 2.7
+      },
+      "reported_errors": {
+        "KTc": 1,
+        "K_prime": 0.1
+      },
+      "source_location": "Abstract and Section 3, manuscript page 5",
+      "fictive_reference_volume_a3": 3633.8,
+      "Kprime_error_conflict": {
+        "abstract": 0.1,
+        "section3": 0.4
+      }
+    }
+  ],
+  "excluded_comparisons": "Table 1 columns Zhang (1998), Lavina (2010), Badaut (2010, DFT), and Sanchez-Valle (2011, adiabatic moduli) are cited earlier work, not additional Litasov fits. No source-owned computational EOS is reported.",
+  "uncertainty_convention": "Table 2 a/c/V parentheses are 1-sigma; pressure <=0.1 GPa is a global bound. Parameter confidence, covariance, fitting weights and T/Au-volume errors are not specified.",
+  "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+      {
+        "kind": "equation_of_state",
+        "reference": {
+          "authors": [
+            "Sokolova",
+            "Dorogokupets",
+            "Litasov"
+          ],
+          "year": 2013,
+          "source": "Russian Geology and Geophysics",
+          "volume": "54",
+          "locator": "181-199",
+          "doi": "10.1016/j.rgg.2013.01.005"
+        },
+        "source_location": "Section 2, manuscript page 3, lines 81-86; Au EOS also attributed to Litasov et al. (2013a), Journal of Applied Physics 113, 093507.",
+        "calibrant": "Au (5 wt%), cubic conventional-cell volume",
+        "notes": "Exact 2013 numerical realization is not interchangeable with the catalog corrected Sokolova implementation; comparison in the source audit. Dorogokupets and Dewaele (2007) is only a comparison, not the adopted scale."
+      }
+    ],
+    "recalculation": {
+      "status": "not_possible",
+      "notes": "All 111 paired Au volumes and temperatures are bundled, but the exact 2013 pressure realization remains unresolved. The related corrected catalog record gives up to 0.716 GPa discrepancy. No exact reference_eos_record link or recalibrated pressure is asserted."
+    },
+    "audit_date": "2026-09-19"
+  },
+  "primary_data": {
+    "status": "bundled",
+    "row_count": 111,
+    "room_temperature_rows": 27,
+    "heated_rows": 84,
+    "run_counts": [
+      66,
+      12,
+      6,
+      27
+    ],
+    "resource": {
+      "path": "datasets/siderite-fe095mn005-litasov-2013-table2-pvt.csv",
+      "sha256": "8b9ea451453f8f9c189bd479356b947f8d65f612688384cd2aa4564ff4732394",
+      "media_type": "text/csv"
+    },
+    "columns": [
+      {
+        "name": "row",
+        "quantity": "row_index",
+        "unit": "1",
+        "role": "value"
+      },
+      {
+        "name": "run",
+        "quantity": "run_index",
+        "unit": "1",
+        "role": "value"
+      },
+      {
+        "name": "source_pdf_page",
+        "quantity": "page_index",
+        "unit": "1",
+        "role": "value"
+      },
+      {
+        "name": "temperature_k",
+        "quantity": "temperature",
+        "unit": "K",
+        "role": "value"
+      },
+      {
+        "name": "gold_volume_a3",
+        "quantity": "calibrant_conventional_unit_cell_volume",
+        "unit": "angstrom^3",
+        "role": "value"
+      },
+      {
+        "name": "pressure_gpa",
+        "quantity": "pressure",
+        "unit": "GPa",
+        "role": "value"
+      },
+      {
+        "name": "a_a",
+        "quantity": "lattice_parameter",
+        "unit": "angstrom",
+        "role": "value"
+      },
+      {
+        "name": "a_sigma_a",
+        "quantity": "lattice_parameter",
+        "unit": "angstrom",
+        "role": "standard_deviation",
+        "of": "a_a"
+      },
+      {
+        "name": "c_a",
+        "quantity": "lattice_parameter",
+        "unit": "angstrom",
+        "role": "value"
+      },
+      {
+        "name": "c_sigma_a",
+        "quantity": "lattice_parameter",
+        "unit": "angstrom",
+        "role": "standard_deviation",
+        "of": "c_a"
+      },
+      {
+        "name": "volume_a3",
+        "quantity": "conventional_unit_cell_volume",
+        "unit": "angstrom^3",
+        "role": "value"
+      },
+      {
+        "name": "volume_sigma_a3",
+        "quantity": "conventional_unit_cell_volume",
+        "unit": "angstrom^3",
+        "role": "standard_deviation",
+        "of": "volume_a3"
+      }
+    ],
+    "source_location": "Accepted Manuscript Table 2, pages 13-15 (PDF pages 14-16)",
+    "exclusions": "None during transcription. RT diagnostic selects all T=300 K rows; joint thermal diagnostic retains all 111 rows."
+  },
+  "reproduction": {
+    "status": "rt_similar_separate_executable_joint_thermal_refit",
+    "script": "scripts/reproduce_litasov_2013_siderite.py",
+    "results": "docs/data/litasov-2013-siderite-reproduction.json",
+    "source_rms_range_gpa": [
+      0.11,
+      0.17
+    ],
+    "finding": "Unweighted all-row pressure residuals do not reproduce the reported RMS range. Source objective/weights and any unprinted selection are unknown. Published coefficients are not overwritten; an explicit opt-in joint thermal refit is now executable."
+  },
+  "validity": {
+    "data_pressure_range_gpa": [
+      0.0,
+      33.01
+    ],
+    "data_temperature_range_k": [
+      300.0,
+      1673.0
+    ],
+    "accepted_record_temperature_range_k": [
+      300.0,
+      300.0
+    ],
+    "phase": "Natural high-spin R-3c siderite",
+    "notes": "These are measured-path extrema, not a rectangular stability field. Section 4 cites spin transition near 45 GPa and roughly 10% volume collapse, outside this fit. Redox-dependent decomposition is discussed; the authors defer their own quantitative boundary to subsequent papers. No such boundary is invented.",
+    "accepted_thermal_refit_temperature_range_k": [
+      300.0,
+      1673.0
+    ]
+  },
+  "crystallography": {
+    "status": "accepted_separately_sourced_sites",
+    "source": {
+      "reference": {
+        "authors": [
+          "Effenberger",
+          "Mereiter",
+          "Zemann"
+        ],
+        "year": 1981,
+        "source": "Zeitschrift fuer Kristallographie",
+        "volume": "156",
+        "locator": "233-243",
+        "doi": "10.1524/zkri.1981.156.14.233"
+      },
+      "source_location": "Table 3, page 237; indexed primary table text checked against COD 9017361 / AMCSD 0020837.",
+      "access_url": "https://rruff.info/doclib/zk/vol156/ZK156_233.pdf",
+      "cif_url": "https://www.crystallography.net/cod/9017361.cif",
+      "cif_sha256": "80f988981f062e705681514efce8492fcff9c95bf56a1e899d950eba6cdd7a13",
+      "finding": "Fractional sites from a separately measured Ivigtut, Greenland crystal with matching Fe0.95Mn0.05CO3 composition; O x=0.27427(10), cation 6b, carbon 6a, oxygen 18e. Direct primary PDF retrieval failed; Table 3 is available as indexed primary-source text and agrees with the deposited structure transcription. The lattice here instead uses the EOS sample Table 2 first ambient row (Panasqueira), not the Ivigtut lattice."
+    },
+    "lattice": {
+      "a": 4.6934,
+      "b": 4.6934,
+      "c": 15.3844,
+      "alpha": 90.0,
+      "beta": 90.0,
+      "gamma": 120.0
+    },
+    "formula_units_per_cell": 6,
+    "cell_contents": "Fe5.7Mn0.3C6O18 in the conventional hexagonal cell",
+    "notes": "Diffraction model combines the EOS sample first ambient a/c measurement with separately sourced occupied sites of matching composition. It is not a source-specific atomic refinement of the Panasqueira crystal. The resulting lattice volume 293.4853 A^3 agrees with the printed row 293.49(3), and differs legitimately from the averaged, fixed EOS V0=293.4(1). No pure-end-member substitution or synthetic peaks are used."
+  },
+  "retrieval_attempts": [
+    {
+      "route": "Zotero local API",
+      "query": "siderite",
+      "result": "No matching items; API active. EOS Library JT8V6LUL Litasov query returned three unrelated references."
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0031920113001064",
+      "result": "Publication abstract and section previews available via web index; no primary tables or complete methods."
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0031920113001064/pdfft",
+      "result": "HTTP 403"
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0031920113001064",
+      "result": "Browser CAPTCHA; not completed."
+    },
+    {
+      "url": "https://api.elsevier.com/content/article/pii/S0031920113001064?httpAccept=text/xml",
+      "result": "HTTP 200, coredata metadata only; no full text or supplement links.",
+      "response_sha256": "c58974f094c56bf73b1fb91cd6f75168715c79811b3391464d86c5ca3554e5e9"
+    },
+    {
+      "url": "https://api.crossref.org/works/10.1016/j.pepi.2013.07.011",
+      "result": "Publication metadata and Elsevier text-mining links; empty relation and no update-to field.",
+      "response_sha256": "0e0a2e8a3f39b7ea4737ab13b159d119e427f0628ac8e3382dd0e7087f6a335f"
+    },
+    {
+      "url": "https://api.openalex.org/works/https://doi.org/10.1016/j.pepi.2013.07.011",
+      "result": "Closed access; no repository full text or PDF URL.",
+      "response_sha256": "f2687e2eb6bf594705e01da222405faf81eabec5340fad46abc15163c337e357"
+    },
+    {
+      "url": "https://www.igm.nsc.ru/igm_pubs/show_publication.php?id=55080",
+      "result": "Indexed institutional bibliographic abstract; direct request timed out."
+    },
+    {
+      "url": "https://www.crust.irk.ru/member_186.html",
+      "result": "Author publication listing; target citation has no paper download link."
+    },
+    {
+      "url": "https://www.researchgate.net/publication/257922507_PVT_equation_of_state_of_siderite_to_33_GPa_and_1673_K",
+      "result": "Explicitly no full text available; no request sent to authors."
+    },
+    {
+      "route": "Web searches by exact DOI, PII, title, authors, correction/erratum, supplement and PDF",
+      "result": "No correction, official supplement, or full primary tables recovered. This does not establish that none exist."
+    },
+    {
+      "route": "User-supplied file",
+      "result": "Complete 21-page accepted manuscript recovered and visually checked; source-version hash above. Prior source-access hold superseded for RT EOS and observations."
+    }
+  ],
+  "remaining_limitations": [
+    "Resolve thermal a0=3.57e-5 versus 3.77e-5 from an authoritative final table/correction or author clarification.",
+    "Recover source weighting/selection to reproduce the stated RMS and axial fits.",
+    "Resolve exact 2013 Au pressure implementation before exposing an executable calibration link."
+  ],
+  "published_thermal_variants": [
+    {
+      "identifier": "litasov_2013_thermal_abstract",
+      "label": "Litasov et al. (2013), thermal abstract",
+      "executable": false,
+      "status": "unresolved_source_coefficient_conflict",
+      "source_location": "Manuscript and publication-of-record abstract",
+      "model": "BM3 with integrated alpha(T)=a0+a1*T and linear K0(T)",
+      "parameters": {
+        "V0": 293.4,
+        "K0": 120.0,
+        "K0_prime": 3.57,
+        "Tr": 300.0,
+        "alpha0": 3.57e-05,
+        "alpha1": 6e-10,
+        "dK_dT": -0.015
+      },
+      "parameter_errors": {
+        "V0": 0.1,
+        "K0": 1.0,
+        "K0_prime": 0.09,
+        "Tr": null,
+        "alpha0": 9e-07,
+        "alpha1": 1.4e-09,
+        "dK_dT": 0.001
+      },
+      "fixed_parameters": [
+        "V0",
+        "Tr"
+      ],
+      "units": {
+        "V0": "angstrom^3/conventional_unit_cell",
+        "K0": "GPa",
+        "K0_prime": "1",
+        "Tr": "K",
+        "alpha0": "K^-1",
+        "alpha1": "K^-2",
+        "dK_dT": "GPa/K"
+      },
+      "note": "Source evidence only; unavailable through EOSRecord lookup. The independent joint refit does not identify an authoritative correction."
+    },
+    {
+      "identifier": "litasov_2013_thermal_table_1",
+      "label": "Litasov et al. (2013), thermal table 1",
+      "executable": false,
+      "status": "unresolved_source_coefficient_conflict",
+      "source_location": "Accepted Manuscript Table 1, manuscript page 12 / PDF page 13",
+      "model": "BM3 with integrated alpha(T)=a0+a1*T and linear K0(T)",
+      "parameters": {
+        "V0": 293.4,
+        "K0": 120.0,
+        "K0_prime": 3.57,
+        "Tr": 300.0,
+        "alpha0": 3.77e-05,
+        "alpha1": 6e-10,
+        "dK_dT": -0.015
+      },
+      "parameter_errors": {
+        "V0": 0.1,
+        "K0": 2.0,
+        "K0_prime": 0.09,
+        "Tr": null,
+        "alpha0": 9e-07,
+        "alpha1": 1.4e-09,
+        "dK_dT": 0.001
+      },
+      "fixed_parameters": [
+        "V0",
+        "Tr"
+      ],
+      "units": {
+        "V0": "angstrom^3/conventional_unit_cell",
+        "K0": "GPa",
+        "K0_prime": "1",
+        "Tr": "K",
+        "alpha0": "K^-1",
+        "alpha1": "K^-2",
+        "dK_dT": "GPa/K"
+      },
+      "note": "Source evidence only; unavailable through EOSRecord lookup. The independent joint refit does not identify an authoritative correction."
+    }
+  ],
+  "peritheos_refits": [
+    {
+      "identifier": "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
+      "executable": true,
+      "record_kind": "refit",
+      "derived_from_record": "siderite_fe095mn005_litasov_2013_bm3",
+      "source_owned": false,
+      "finding": "Joint fit of all 111 observations; V0 and Tr fixed, all five other coefficients fitted. Does not resolve which published thermal set the authors intended.",
+      "parameters": {
+        "V0": 293.4,
+        "K0": 121.90288040577286,
+        "K0_prime": 3.427642322450656,
+        "Tr": 300.0,
+        "alpha0": 3.587839262956832e-05,
+        "alpha1": 1.0132344225608927e-09,
+        "dK_dT": -0.014597911024728977
+      },
+      "covariance": {
+        "parameter_order": [
+          "rt_eos.K0",
+          "rt_eos.K0_prime",
+          "alpha0",
+          "alpha1",
+          "dK_dT"
+        ],
+        "matrix": [
+          [
+            0.7842745417590038,
+            -0.07148259605165835,
+            -6.965160383271317e-07,
+            -8.786025334045753e-11,
+            0.000582685370765936
+          ],
+          [
+            -0.0714825960516266,
+            0.007425993244286765,
+            4.7632205124672975e-08,
+            4.3397724557261567e-11,
+            -7.342311228642463e-05
+          ],
+          [
+            -6.965160383279096e-07,
+            4.763220512477247e-08,
+            2.079868453806082e-12,
+            -1.798360629827851e-15,
+            -2.9778663113210606e-10
+          ],
+          [
+            -8.786025333799081e-11,
+            4.339772455703979e-11,
+            -1.7983606298301387e-15,
+            3.8369452863052014e-18,
+            -1.4491481769100264e-12
+          ],
+          [
+            0.0005826853707644635,
+            -7.342311228631405e-05,
+            -2.97786631130212e-10,
+            -1.449148176911703e-12,
+            1.4123513979375359e-06
+          ]
+        ]
+      },
+      "fit_provenance": {
+        "software": {
+          "name": "SciPy least_squares",
+          "version": "1.18.1",
+          "python": "3.14.6",
+          "numpy": "2.5.2"
+        },
+        "script": "scripts/reproduce_litasov_2013_siderite.py",
+        "dataset": "siderite_fe095mn005_litasov_2013_table2_pvt",
+        "dataset_sha256": "8b9ea451453f8f9c189bd479356b947f8d65f612688384cd2aa4564ff4732394",
+        "selection": {
+          "predicate": "all Table 2 rows",
+          "included_rows": 111,
+          "included_source_rows_1_based": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111
+          ],
+          "excluded_source_rows_1_based": []
+        },
+        "objective": "unweighted_pressure_residuals",
+        "weights": [],
+        "refined_parameters": [
+          "rt_eos.K0",
+          "rt_eos.K0_prime",
+          "alpha0",
+          "alpha1",
+          "dK_dT"
+        ],
+        "fixed_parameters": [
+          "V0",
+          "Tr"
+        ],
+        "fixed_values": {
+          "V0": 293.4,
+          "Tr": 300.0
+        },
+        "method": "Joint trust-region reflective least squares; scaled alpha0/1e-5 and alpha1/1e-8; xtol=ftol=gtol=1e-12, max_nfev=5000; no parameter bounds or row exclusions. Starting vector is the Table 1 set [120,3.57,3.77,0.06,-0.015] in solver coordinates.",
+        "absolute_sigma": false,
+        "covariance_scaling": "Local inverse-Jacobian covariance scaled by RSS/(111-5), converted to physical parameter units. Conditional on fixed V0 and Tr; excludes calibration systematics, source-data correlations and model inadequacy.",
+        "statistics": {
+          "observations": 111,
+          "free_parameters": 5,
+          "degrees_of_freedom": 106,
+          "pressure_rmse_gpa": 0.22121166605746373,
+          "max_absolute_pressure_residual_gpa": 0.5441362934808893,
+          "residual_sum_squares_gpa2": 5.431740733190994,
+          "solver_success": true
+        },
+        "source_parameter_conflict": "Both published thermal coefficient sets remain non-executable source metadata; these optimized coefficients are a new Peritheos result, not a correction or recovery of the authors original fit.",
+        "weighting_description": "equal; reported pressure bound is not treated as a row sigma; volume errors are retained but not used as weights"
+      }
+    }
+  ]
+}

@@ -1912,6 +1912,13 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if record_id in {
+        "siderite_fe095mn005_litasov_2013_bm3",
+        "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
+    }:
+        from scripts.reproduce_litasov_2013_siderite import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id.startswith("gold_hirose_2008_"):
         from scripts.reproduce_hirose_2008_gold import ledger_outcome
 

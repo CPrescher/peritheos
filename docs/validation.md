@@ -5,21 +5,23 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 210 bundled material documents and 574 EOS records pass the
-format-3 validator; 209 documents construct executable materials and the
+separate. All 211 bundled material documents and 576 EOS records pass the
+format-3 validator; 210 documents construct executable materials and the
 source-only coesite-V card does not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 574 bundled records. Every record is
+The primary-source audit covers all 576 bundled records. Every record is
 `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
 phase, published uncertainty convention, and represented data range to the
 cited primary publication or official supplement. Parsing or reproducing
-another library was never sufficient.
+another library was never sufficient. Explicit refit records instead trace their
+observations and model choices to the source and identify optimized coefficients
+as Peritheos results.
 
 The package ships the complete record-by-record ledger as
 `peritheos/data/primary-source-audit.json`. Each `.eosmat` record repeats its
@@ -30,10 +32,13 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 574
+fit for every record with sufficient direct observations and documents all 576
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 197 parity matches and 135 additional numerically similar results.
+diagnostics. The current campaign finds 198 parity matches and 136 additional numerically similar results.
+For the opt-in Litasov siderite thermal refit, parity means reproducing the
+stored Peritheos fit, not resolving the two conflicting published thermal
+parameter sets, which remain non-executable source evidence.
 This includes Sakai (2018) rhenium's numerical parity within reported parameter
 error widths, with comparable refit standard errors and an unspecified source
 confidence convention. [67 direct refits](primary-eos-refits.md#parity-not-achieved) do not
