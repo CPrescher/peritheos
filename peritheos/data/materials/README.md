@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 210 curated material documents with 574 EOS records. The
+This directory contains 211 curated material documents with 581 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -17,7 +17,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-15 classifies all 574 bundled records as
+dated 2026-09-19 classifies all 581 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -48,7 +48,14 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 294 distinct primary datasets with 17,528 observation rows, represented by 321 material-document links to 431 EOS records.
+Litasov et al. (2007) adds seven experimental LT superhydrous-phase-B records,
+69 complete P–V–T rows with both Au pressure scales and marker observations,
+and 30 diffraction peaks. The independent Pnn2 structure applies the authors'
+O6 correction and official 2014 H2 erratum; the original archive CIF is retained.
+The source audit documents equation typos, calibration qualifications and held
+branches, separately from the Al-bearing Xu (2024) investigation.
+
+The current bundle contains 296 distinct primary datasets with 17,627 observation rows, represented by 323 material-document links to 438 EOS records.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,

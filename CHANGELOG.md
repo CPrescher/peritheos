@@ -7,10 +7,16 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Litasov et al. (2007) nominally pure-Mg LT superhydrous phase B: seven
+  experimental EOS alternatives, all 69 P–V–T rows with Au observations, 30
+  diffraction peaks, corrected independent Pnn2 structure, and reproducible
+  refits. Equation-printing issues and incomplete alternatives are documented.
+  The catalog now contains 581 executable EOS records across 210 materials.
+
 - Zha et al. (2004) rhenium Equation (6) thermal EOS, all eight paired Au/Re
   observations, derived isotherm tables, and an independent staged refit. The
   continuous Table III branch is distinguished from the authors' preferred
-  fixed-volume isotherms. The catalog now contains 574 executable EOS records.
+  fixed-volume isotherms.
 - Primary-source investigation of Xian et al. (2022), with literal thermal
   polynomial diagnostics. Its Re/Au models remain outside the executable
   catalog because source-specific inputs and printed-equation issues remain

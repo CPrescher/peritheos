@@ -23,7 +23,7 @@ from typing import Any
 
 AUDIT_DATE = "2026-09-01"
 CATALOG_AUDIT_DATE = "2026-09-03"
-REPORT_AUDIT_DATE = "2026-09-15"
+REPORT_AUDIT_DATE = "2026-09-19"
 AGGREGATE_AUDIT_DATE = "2026-09-08"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"

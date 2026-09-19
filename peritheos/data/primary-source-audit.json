@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-15",
+  "audit_date": "2026-09-19",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 574,
-    "primary_source_validated": 574
+    "records": 581,
+    "primary_source_validated": 581
   },
   "records": [
     {
@@ -10552,6 +10552,139 @@
           "Figure 5"
         ],
         "finding": "A distinct static-GGA cubic EOS is published."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_bm3_a89",
+      "label": "Litasov et al. (2007), bm3 a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_bm3_t03",
+      "label": "Litasov et al. (2007), bm3 t03",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_htbm_a89",
+      "label": "Litasov et al. (2007), htbm a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_htbm_t03",
+      "label": "Litasov et al. (2007), htbm t03",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89",
+      "label": "Litasov et al. (2007), thermal pressure a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
+      "label": "Litasov et al. (2007), mgd free debye a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89",
+      "label": "Litasov et al. (2007), mgd elastic debye a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
       }
     },
     {

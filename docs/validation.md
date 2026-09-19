@@ -5,15 +5,15 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 210 bundled material documents and 574 EOS records pass the
-format-3 validator; 209 documents construct executable materials and the
+separate. All 211 bundled material documents and 581 EOS records pass the
+format-3 validator; 210 documents construct executable materials and the
 source-only coesite-V card does not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 574 bundled records. Every record is
+The primary-source audit covers all 581 bundled records. Every record is
 `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -30,10 +30,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 574
+fit for every record with sufficient direct observations and documents all 581
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 197 parity matches and 135 additional numerically similar results.
+diagnostics. The current campaign finds 197 parity matches and 142 additional numerically similar results.
 This includes Sakai (2018) rhenium's numerical parity within reported parameter
 error widths, with comparable refit standard errors and an unspecified source
 confidence convention. [67 direct refits](primary-eos-refits.md#parity-not-achieved) do not
@@ -400,7 +400,7 @@ volume.
 | Pt | 0.90 | 300 | 38.000024146 | 37.994819022 | 38.000024146 |
 | Pt | 0.80 | 1000 | 112.879825670 | 112.862087358 | 112.870486265 |
 | NaCl B2 | 0.75 | 300 | 15.988842533 | 15.988842533 | — |
-| NaCl B2 | 0.65 | 1000 | 36.527254597 | 36.509419876 | — |
+| NaCl B2 | 0.65 | 1000 | 36.581254597 | 36.509419876 | — |
 | Ne | 0.65 | 300 | 2.646283932 | 2.646283932 | — |
 | Ne | 0.50 | 1000 | 14.180923257 | 14.168848666 | — |
 

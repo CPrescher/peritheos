@@ -1,5 +1,25 @@
 # References
 
+- Litasov, K. D., Ohtani, E., Ghosh, S., Nishihara, Y., Suzuki, A. &
+  Funakoshi, K. (2007). Thermal equation of state of superhydrous phase B to
+  27 GPa and 1373 K. *Physics of the Earth and Planetary Interiors*, 164, 142–160.
+  [doi:10.1016/j.pepi.2007.06.003](https://doi.org/10.1016/j.pepi.2007.06.003).
+  Seven experimental fits and the complete Table 2 observations are included;
+  see the [source audit](literature-reproductions/litasov-2007-superhydrous-phase-b.md)
+  for equation corrections and held alternatives.
+
+- Koch-Müller, M., Dera, P., Fei, Y., Hellwig, H., Liu, Z., Van Orman, J. &
+  Wirth, R. (2005). Polymorphic phase transition in Superhydrous Phase B.
+  *Physics and Chemistry of Minerals*, 32, 349–361.
+  [doi:10.1007/s00269-005-0007-4](https://doi.org/10.1007/s00269-005-0007-4).
+  Table 4's MKM0105 Pnn2 structure supplies the independent diffraction model,
+  with the author-corrected O6 coordinate archived in AMCSD/COD.
+
+- Koch-Müller, M. and coauthors (2014). Erratum to: Polymorphic phase transition
+  in Superhydrous Phase B. *Physics and Chemistry of Minerals*, 41, 725.
+  [doi:10.1007/s00269-014-0697-6](https://doi.org/10.1007/s00269-014-0697-6).
+  The official H2 coordinate correction is applied to the LT structural model.
+
 - Zha, C.-S., Bassett, W. A. & Shim, S.-H. (2004). Rhenium, an in situ
   pressure calibrant for internally heated diamond anvil cells. *Review of
   Scientific Instruments*, 75, 2409-2418.
