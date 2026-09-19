@@ -29,14 +29,14 @@ produce an executable record.
 
 ## Summary
 
-The register covers **337 primary papers**: **236** support the 574 audited catalog records and **101** were investigated without adding a production record.
+The register covers **338 primary papers**: **237** support the 577 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 157 |
+| Reproduced | 158 |
 | Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 11 |
 | Coefficient parity not achieved | 14 |
@@ -1225,6 +1225,7 @@ the primary-source and refit ledgers.
 | [Muhammad et al. (2024)](https://doi.org/10.1039/d4nr00093e) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Muñoz and Kunc (1993)](https://doi.org/10.1088/0953-8984/5/33/010) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 theoretical parameterization only |
 | [Myhill (2022), anisotropic high-P-T EOS](https://doi.org/10.1093/gji/ggac180) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Nisr et al. (2017)](https://doi.org/10.1002/2017jb014055) | Reproduced | 3 | 3 parity | 3 bundled |
 | [Noguchi et al. (1999)](https://doi.org/10.1016/s0022-3697(98)00296-0) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Noguchi et al. (2013)](https://doi.org/10.1007/s00269-012-0549-1) | Reproduced | 1 | 1 parity | 1 external primary table (refitted; not redistributed) |
 | [Oganov and Dorogokupets (2003)](https://doi.org/10.1103/physrevb.67.224110) | Partly reproduced | 11 | 2 similar; 9 direct refit unavailable | 2 partial published table/checkpoints; 9 theoretical parameterization only |

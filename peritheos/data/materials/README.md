@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 210 curated material documents with 574 EOS records. The
+This directory contains 212 curated material documents with 577 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -17,7 +17,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-15 classifies all 574 bundled records as
+dated 2026-09-19 classifies all 577 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -34,7 +34,9 @@ the Fu et al. Fe-Al bridgmanite records, the phase-separated Sun et al. cubic
 and tetragonal CaSiO3 records, and phase-restricted MgO and NiO Hugoniots. The
 library also includes the Datchi et al. absolute-zero c-BN MGD record, the
 Suzuki epsilon-FeOOH reference-temperature thermal EOS, and the Noguchi et al.
-700 K CaSiO3 BM2-MGD record. The Katsura et al. ringwoodite thermal EOS remains
+700 K CaSiO3 BM2-MGD record, plus Nisr et al.'s dry stishovite, hydrous
+stishovite, and hydrous CaCl2-type silica reference-temperature EOS records.
+The Katsura et al. ringwoodite thermal EOS remains
 excluded because its published atom-count normalization could not be
 reproduced consistently. The KCl record is the preferred
 `kcl.eosmat` record and
@@ -48,7 +50,7 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 294 distinct primary datasets with 17,528 observation rows, represented by 321 material-document links to 431 EOS records.
+The current bundle contains 296 distinct primary datasets with 17,573 observation rows, represented by 327 material-document links to 434 EOS records.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,

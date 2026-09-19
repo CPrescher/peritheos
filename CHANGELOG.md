@@ -7,6 +7,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Nisr et al. (2017) experimental hydrous stishovite and hydrous CaCl2-type
+  silica as separate composition/phase cards, plus the source-owned dry
+  reference fit. Includes the corrected article audit, all 43 official
+  supplement rows, corrected ambient observations, documented diffraction
+  peak-position fallbacks, and independent refits within published errors.
+  The catalog now contains 577 executable EOS records.
+
 - Zha et al. (2004) rhenium Equation (6) thermal EOS, all eight paired Au/Re
   observations, derived isotherm tables, and an independent staged refit. The
   continuous Table III branch is distinguished from the authors' preferred

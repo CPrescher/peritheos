@@ -1912,6 +1912,10 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if "_nisr_2017_" in record_id:
+        from scripts.reproduce_nisr_2017_silica import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id.startswith("gold_hirose_2008_"):
         from scripts.reproduce_hirose_2008_gold import ledger_outcome
 

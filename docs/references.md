@@ -465,3 +465,10 @@ publication when citing a model in scientific work.
 - Dubrovinsky, Saxena, Tutti, Rekhi, LeBehan (2000). *In Situ X-Ray Study of Thermal Expansion and Phase Transition of Iron at Multimegabar Pressure*. Physical Review Letters 84, 1720–1723. [doi:10.1103/PhysRevLett.84.1720](https://doi.org/10.1103/PhysRevLett.84.1720). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
 - Yamazaki, Ito, Yoshino, Yoneda, Guo, Zhang, Sun, Shimojuku, Tsujino, Kunimoto, Higo, Funakoshi (2012). *P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils*. Geophysical Research Letters 39, L20308. [doi:10.1029/2012GL053540](https://doi.org/10.1029/2012GL053540). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
 - Sakai, Takahashi, Nishitani, Mashino, Ohtani, Hirao (2014). *Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar*. Physics of the Earth and Planetary Interiors 228, 114–126. [doi:10.1016/j.pepi.2013.12.010](https://doi.org/10.1016/j.pepi.2013.12.010). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
+
+- Nisr, C., Leinenweber, K., Prakapenka, V., Prescher, C., Tkachev, S., and
+  Shim, S.-H. D. (2017). Phase transition and equation of state of dense
+  hydrous silica up to 63 GPa. *JGR: Solid Earth* **122**, 6972–6983.
+  [doi:10.1002/2017JB014055](https://doi.org/10.1002/2017JB014055),
+  corrected 26 October 2017, with official Supporting Information S1.
+  [Source audit and reproduction](literature-reproductions/nisr-2017-hydrous-silica.md).

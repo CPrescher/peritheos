@@ -14725,6 +14725,127 @@
       "status": "parity"
     },
     {
+      "absolute_sigma": false,
+      "dataset_identifiers": [
+        "nisr_2017_silica_tables_s1_s4"
+      ],
+      "degrees_of_freedom": 6,
+      "experimental_pressure_range_gpa": [
+        42.225,
+        62.934
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "diagnostic_unweighted_pressure",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Nisr et al. (2017), hydrous CaCl2-type silica BM2",
+      "material_identifier": "hydrous_silica_cacl2_nisr_2017",
+      "model": "BM2",
+      "objective": "unweighted pressure residuals; source dependent variable and weights unspecified",
+      "observations": 8,
+      "observed_pressure_range_gpa": [
+        42.225,
+        62.934
+      ],
+      "parameters": [
+        {
+          "difference": 0.03776659985669539,
+          "parameter": "V0",
+          "published": 47.23,
+          "published_error": 0.36,
+          "refit": 47.26776659985669,
+          "refit_error": 0.09096853257033174,
+          "relative_difference": 0.0007996315870568579,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.7823895649852943,
+          "parameter": "K0",
+          "published": 286.0,
+          "published_error": 18.0,
+          "refit": 284.2176104350147,
+          "refit_error": 4.983794925908353,
+          "relative_difference": 0.006232131346102428,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 43 S1-S4 rows bundled, including eight phase-resolved coexistence entries, all printed lattice/volume sigmas and Rwp values. Au readings and pressure errors absent.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
+      "published_rmse_gpa": 0.19094366489555822,
+      "qualification": "Coefficient parity within published 1-sigma widths, not recovery of an unpublished weighting protocol. Pressure errors, gold volumes and source covariance are absent. Printed zero volume errors are retained, never treated as infinite weights. Volume-objective sensitivity fits are in the paper-specific reproduction.",
+      "record_identifier": "hydrous_silica_cacl2_nisr_2017_bm2",
+      "rmse_gpa": 0.18052922464767193,
+      "selection": "All Table S4 rows, including its ambient row when present; Table S3 coexistence rows excluded.",
+      "solver_success": true,
+      "source_notes": "Al-free sample; water inferred from volume calibration, not directly measured by SIMS/IR/TGA on this specimen. Raman confirms structural OH qualitatively. Preserve Table 1 Si0.954O2H0.184: its mass-equivalent H2O is about 2.81 wt%, within the reported 3.2(5) wt% range but not exactly its central value. H retention at high pressure is inferred, not measured. No atomic coordinates were refined (Section 2). The 28-42 GPa interval is two-phase coexistence, excluded from both hydrous EOS fits. CaCl2-type Pnnm denotes the Si-O framework refinement model; hydrogen ordering and a possible delta-AlOOH-related subgroup are unresolved (Section 3.2). BM2 means fixed K0_prime=4; V0 is an extrapolation to zero pressure. Structural reference cell is measured at 47.57 GPa, not the EOS V0.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": false,
+      "dataset_identifiers": [
+        "nisr_2017_silica_tables_s1_s4"
+      ],
+      "degrees_of_freedom": 6,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        22.747
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "diagnostic_unweighted_pressure",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Nisr et al. (2017), hydrous stishovite BM3",
+      "material_identifier": "hydrous_stishovite_nisr_2017",
+      "model": "BM3",
+      "objective": "unweighted pressure residuals; source dependent variable and weights unspecified",
+      "observations": 7,
+      "observed_pressure_range_gpa": [
+        0.0,
+        22.747
+      ],
+      "parameters": [
+        {
+          "difference": -0.08327325015096676,
+          "parameter": "K0",
+          "published": 257.0,
+          "published_error": 9.0,
+          "refit": 256.91672674984903,
+          "refit_error": 8.220730001966343,
+          "relative_difference": 0.0003240204286029835,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 43 S1-S4 rows bundled, including eight phase-resolved coexistence entries, all printed lattice/volume sigmas and Rwp values. Au readings and pressure errors absent.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
+      "published_rmse_gpa": 0.8534573050120292,
+      "qualification": "Coefficient parity within published 1-sigma widths, not recovery of an unpublished weighting protocol. Pressure errors, gold volumes and source covariance are absent. Printed zero volume errors are retained, never treated as infinite weights. Volume-objective sensitivity fits are in the paper-specific reproduction.",
+      "record_identifier": "hydrous_stishovite_nisr_2017_bm3",
+      "rmse_gpa": 0.8534500073171926,
+      "selection": "All Table S2 rows, including its ambient row when present; Table S3 coexistence rows excluded.",
+      "solver_success": true,
+      "source_notes": "Al-free sample; water inferred from volume calibration, not directly measured by SIMS/IR/TGA on this specimen. Raman confirms structural OH qualitatively. Preserve Table 1 Si0.954O2H0.184: its mass-equivalent H2O is about 2.81 wt%, within the reported 3.2(5) wt% range but not exactly its central value. H retention at high pressure is inferred, not measured. No atomic coordinates were refined (Section 2). The 28-42 GPa interval is two-phase coexistence, excluded from both hydrous EOS fits. CaCl2-type Pnnm denotes the Si-O framework refinement model; hydrogen ordering and a possible delta-AlOOH-related subgroup are unresolved (Section 3.2). Table 3 fixed V0=47.191 is retained, not replaced by Table 2 47.198. The cell axes imply 47.198696 A^3.",
+      "status": "parity"
+    },
+    {
       "absolute_sigma": true,
       "all_table_rows_diagnostic": {
         "observations": 45,
@@ -37082,6 +37203,62 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": false,
+      "dataset_identifiers": [
+        "nisr_2017_silica_tables_s1_s4"
+      ],
+      "degrees_of_freedom": 19,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        62.934
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "diagnostic_unweighted_pressure",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Nisr et al. (2017), dry reference stishovite BM3",
+      "material_identifier": "sio2_stv_andr",
+      "model": "BM3",
+      "objective": "unweighted pressure residuals; source dependent variable and weights unspecified",
+      "observations": 20,
+      "observed_pressure_range_gpa": [
+        0.0,
+        62.934
+      ],
+      "parameters": [
+        {
+          "difference": 0.13550830271987024,
+          "parameter": "K0",
+          "published": 312.0,
+          "published_error": 2.0,
+          "refit": 312.13550830271987,
+          "refit_error": 1.2359903703892177,
+          "relative_difference": 0.00043432148307650717,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 43 S1-S4 rows bundled, including eight phase-resolved coexistence entries, all printed lattice/volume sigmas and Rwp values. Au readings and pressure errors absent.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
+      "published_rmse_gpa": 0.6476689559796908,
+      "qualification": "Coefficient parity within published 1-sigma widths, not recovery of an unpublished weighting protocol. Pressure errors, gold volumes and source covariance are absent. Printed zero volume errors are retained, never treated as infinite weights. Volume-objective sensitivity fits are in the paper-specific reproduction.",
+      "record_identifier": "stishovite_nisr_2017_dry_bm3",
+      "rmse_gpa": 0.6474641865194608,
+      "selection": "All Table S1 rows, including its ambient row when present; Table S3 coexistence rows excluded.",
+      "solver_success": true,
+      "source_notes": "Source-owned new dry reference specimen (10 GPa, 1473 K, 1 h synthesis), co-compressed with hydrous sample in He. Distinct dataset and pressure scale from Andrault (2003); only K0_prime is adopted. Table 3 EOS V0=46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612; preserve both. All S1 volumes are source-refined tetragonal values; article describes onset of dry post-stishovite distortion near 60 GPa. Full 0-62.934 GPa fit is the authors' reference curve, not a claim of rutile stability throughout. No dry CaCl2 EOS is fitted in this paper; Table 4 dry row cites Andrault (2003). Existing ambient crystallography is retained separately from this EOS reference cell.",
+      "status": "parity"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_kbar",
@@ -39461,10 +39638,10 @@
   ],
   "summary": {
     "not_refittable": 162,
-    "parity": 197,
+    "parity": 200,
     "parity_not_achieved": 67,
     "similar": 135,
     "source_reconstruction": 13,
-    "total": 574
+    "total": 577
   }
 }
