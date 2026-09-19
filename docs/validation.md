@@ -5,15 +5,15 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 218 bundled material documents and 591 EOS records pass the
-format-3 validator; 217 documents construct executable materials and the
+separate. All 223 bundled material documents and 600 EOS records pass the
+format-3 validator; 222 documents construct executable materials and the
 source-only coesite-V card does not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 591 bundled records. Every record is
+The primary-source audit covers all 600 bundled records. Every record is
 `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -32,10 +32,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 591
+fit for every record with sufficient direct observations and documents all 600
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 203 parity matches and 145 additional numerically similar results.
+diagnostics. The current campaign finds 212 parity matches and 145 additional numerically similar results.
 For the opt-in Litasov siderite thermal refit, parity means reproducing the
 stored Peritheos fit, not resolving the two conflicting published thermal
 parameter sets, which remain non-executable source evidence.
@@ -422,3 +422,13 @@ The [primary iron source audit](literature-reproductions/iron-fei-input-papers.m
 adds 43 records and 348 observations. Its record-specific criteria distinguish
 Brown coefficient agreement at printed precision, conditional fits within
 reported errors, unavailable scale reductions, and unresolved thermal residuals.
+
+The [Fischer (2014) Fe–Si audit](literature-reproductions/fischer-2014-fesi.md)
+adds seven published records with complete single-phase data selections and
+independent BM3/Vinet/MGD checks. Both B2 FeSi thermal candidates remain
+withheld because physical Debye normalization fails to reproduce their
+observations; doubling thermal-energy amplitude is a diagnostic, not an
+accepted correction. Two separate Peritheos B2 refits reproduce the observations
+with physical normalization and retain full conditional covariance and sensitivity
+limits; their ledger parity refers to stored-refit reproduction. All three aggregate and eight computational candidates
+have explicit exclusions.

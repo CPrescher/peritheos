@@ -220,4 +220,3 @@ correction or author clarification, identify the original fitting objective
 and row treatment, and reproduce the exact 2013 Au reduction. The retained
 data and diagnostics make those questions reviewable without altering the
 published room-temperature record.
-

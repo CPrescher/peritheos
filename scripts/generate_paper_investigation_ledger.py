@@ -46,6 +46,14 @@ CITATION_OVERRIDES = {
 }
 
 
+PAPER_SCOPE_NOTES = {
+    "10.1002/2013jb010898": (
+        "Two published B2 FeSi candidates withheld: unresolved thermal normalization; two independent Peritheos refits added; "
+        "see [source audit](literature-reproductions/fischer-2014-fesi.md)."
+    ),
+}
+
+
 def load_json(path: Path) -> dict[str, Any]:
     """Load one UTF-8 JSON document."""
     return json.loads(path.read_text(encoding="utf-8"))
@@ -386,6 +394,9 @@ def render() -> str:
     for paper in papers:
         if paper["records"]:
             result = compact_counts(paper["statuses"], STATUS_LABELS)
+            scope_note = PAPER_SCOPE_NOTES.get(str(paper.get("doi", "")).lower())
+            if scope_note:
+                result += "; " + scope_note
             data_form = compact_counts(paper["data_statuses"], data_labels)
             qualified_final_input = sum(
                 "not a reconstruction of every upstream reduction"

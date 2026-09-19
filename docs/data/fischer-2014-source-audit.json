@@ -1,0 +1,886 @@
+{
+  "format": "peritheos.fischer-2014-source-audit",
+  "audit_date": "2026-09-19",
+  "source_doi": "10.1002/2013JB010898",
+  "supplement_workbooks": {
+    "Table S1": {
+      "filename": "2013jb010898ts01.xls",
+      "sha256": "c79452c8fbf63828f22a2eb92bacf81d6c73b823ee5db5fbf43877498ab202be",
+      "nonempty_parameter_rows": []
+    },
+    "Table S2": {
+      "filename": "2013jb010898ts02.xls",
+      "sha256": "062bd6d9ef82db42bb2819314e01e565e01d5bff209678a84c25d52c92d9cc43",
+      "nonempty_parameter_rows": []
+    },
+    "Table S3": {
+      "filename": "2013jb010898ts03.xls",
+      "sha256": "329ce602e79e2ebda5a52f5279d161aad7f1a0e759a24e3bbf62cb7f438c88f9",
+      "nonempty_parameter_rows": []
+    },
+    "Table S4": {
+      "filename": "2013jb010898ts04.xls",
+      "sha256": "f4bdcc4db0d93ee50066a1cc3e1af961927ad7e4ba18d8aed7a494f629d8380e",
+      "nonempty_parameter_rows": [
+        {
+          "source_row": 3,
+          "cells": [
+            "",
+            "D03 Fe–9Si alloy",
+            "hcp+B2 Fe–9Si alloy",
+            "hcp Fe–9Si alloy",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 4,
+          "cells": [
+            "V0 (cm3/mol)",
+            "6.961 ± 0.012",
+            "6.924 ± 0.018",
+            "7.283 ± 0.025",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 5,
+          "cells": [
+            "K0 (GPa)",
+            "182.0 ± 3.9",
+            "161.5 ± 1.5",
+            "111.4 ± 1.2",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 6,
+          "cells": [
+            "K0ʹ",
+            "5.59 ± 0.51",
+            "5.01 ± 0.07",
+            "6.08 ± 0.08",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 7,
+          "cells": [
+            "θ0 (K)",
+            "",
+            417.0,
+            417.0,
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 8,
+          "cells": [
+            "γ0",
+            "",
+            "2.22 ± 0.08",
+            "1.15 ± 0.15",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 9,
+          "cells": [
+            "q",
+            "",
+            1.0,
+            1.0,
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    "Table S5": {
+      "filename": "2013jb010898ts05.xls",
+      "sha256": "45c522f382b398b23afc7495ac21e28eb0e1826a50d41b496cd0fe6bcb3b5122",
+      "nonempty_parameter_rows": [
+        {
+          "source_row": 3,
+          "cells": [
+            "",
+            "D03 Fe–16Si alloy",
+            "hcp+B2 Fe–16Si alloy"
+          ]
+        },
+        {
+          "source_row": 4,
+          "cells": [
+            "V0 (cm3/mol)",
+            "6.799 ± 0.004",
+            6.799
+          ]
+        },
+        {
+          "source_row": 5,
+          "cells": [
+            "K0 (GPa)",
+            "193.9 ± 4.8",
+            "212.7 ± 2.0"
+          ]
+        },
+        {
+          "source_row": 6,
+          "cells": [
+            "K0ʹ",
+            "4.91 ± 0.59",
+            4.0
+          ]
+        },
+        {
+          "source_row": 7,
+          "cells": [
+            "θ0 (K)",
+            417.0,
+            417.0
+          ]
+        },
+        {
+          "source_row": 8,
+          "cells": [
+            "γ0",
+            "1.90 ± 0.07",
+            "1.59 ± 0.10"
+          ]
+        },
+        {
+          "source_row": 9,
+          "cells": [
+            "q",
+            1.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "Table S6": {
+      "filename": "2013jb010898ts06.xls",
+      "sha256": "67c58d46b845766757d13a8696a1c9e6d2cb39df7e4a009e39141bd264e02be6",
+      "nonempty_parameter_rows": [
+        {
+          "source_row": 3,
+          "cells": [
+            "",
+            "B20 FeSi",
+            "B2 FeSi",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 4,
+          "cells": [
+            "V0 (cm3/mol)",
+            "6.803 ± 0.008",
+            6.414,
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 5,
+          "cells": [
+            "K0 (GPa)",
+            "193.1± 1.6",
+            "236.1 ± 1.8",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 6,
+          "cells": [
+            "K0ʹ",
+            "5.03 ± 0.17",
+            4.17,
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 7,
+          "cells": [
+            "θ0 (K)",
+            "",
+            417.0,
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 8,
+          "cells": [
+            "γ0",
+            "",
+            "1.17 ± 0.04",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 9,
+          "cells": [
+            "q",
+            "",
+            "1.41 ± 0.21",
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    "Table S7": {
+      "filename": "2013jb010898ts07.xls",
+      "sha256": "d0cddaa370194d22ff6bb35946f42bc9110a55064595bf4666a202a77d84b84c",
+      "nonempty_parameter_rows": [
+        {
+          "source_row": 3,
+          "cells": [
+            "",
+            "Outer core density deficit",
+            "Outer core bulk sound speed",
+            "Inner core density deficit",
+            "Inner core bulk sound speed",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 4,
+          "cells": [
+            "Fe–9Si",
+            "11.3 ± 0.9",
+            "7.7 ± 1.5",
+            "6.2 ± 0.9",
+            "4.9 ± 0.3",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 5,
+          "cells": [
+            "Fe–16Si",
+            "11.6 ± 1.5",
+            "21 ± 3",
+            "8.7 ± 1.4",
+            "–16 ± 1",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 6,
+          "cells": [
+            "FeSi",
+            "11.5 ± 1.6",
+            "9.4 ± 1.9",
+            "7.5 ± 1.4",
+            "18 ± 2",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "source_row": 7,
+          "cells": [
+            "Weighted average",
+            "11.4 ± 0.7",
+            "10 ± 7",
+            "7.0 ± 1.4",
+            "3 ± 17",
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "text_s1_sha256": "e423a6ba68a30396201e245dfa4c23a2369acc6bf8c264fdb862aa79336e5357",
+  "reproduction": {
+    "fesi_b20_bm3": {
+      "observations": 27,
+      "selection": "phase=B20",
+      "objective": "unweighted_pressure_residual_diagnostic",
+      "solver_success": true,
+      "parameters": {
+        "K0": 189.4339205573745,
+        "K0_prime": 5.227244085744256
+      },
+      "parameter_standard_errors": {
+        "K0": 3.106730740838062,
+        "K0_prime": 0.3042395510448708
+      },
+      "published_rmse_gpa": 0.3842459034600674,
+      "published_residual_range_gpa": [
+        -0.7310348890019434,
+        0.8895220836630919
+      ],
+      "refit_rmse_gpa": 0.36984812122367966,
+      "pressure_range_gpa": [
+        0.0,
+        36.27929763454465
+      ],
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "source_checkpoints": [
+        {
+          "source_row": 4,
+          "pressure_gpa": 0.0,
+          "calculated_pressure_gpa": 0.01148551249496817
+        },
+        {
+          "source_row": 17,
+          "pressure_gpa": 20.563918102890963,
+          "calculated_pressure_gpa": 21.022700656316577
+        },
+        {
+          "source_row": 30,
+          "pressure_gpa": 36.27929763454465,
+          "calculated_pressure_gpa": 36.523066276349645
+        }
+      ]
+    },
+    "fesi_b20_vinet": {
+      "observations": 27,
+      "selection": "phase=B20",
+      "objective": "unweighted_pressure_residual_diagnostic",
+      "solver_success": true,
+      "parameters": {
+        "K0": 188.75024102388844,
+        "K0_prime": 5.382263523360568
+      },
+      "parameter_standard_errors": {
+        "K0": 3.0878841053800823,
+        "K0_prime": 0.2994749091095578
+      },
+      "published_rmse_gpa": 0.39292178311665704,
+      "published_residual_range_gpa": [
+        -0.7525790295122619,
+        0.8979711607198304
+      ],
+      "refit_rmse_gpa": 0.3722477695771139,
+      "pressure_range_gpa": [
+        0.0,
+        36.27929763454465
+      ],
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "source_checkpoints": [
+        {
+          "source_row": 4,
+          "pressure_gpa": 0.0,
+          "calculated_pressure_gpa": 0.011539294795561626
+        },
+        {
+          "source_row": 17,
+          "pressure_gpa": 20.563918102890963,
+          "calculated_pressure_gpa": 21.05868433188248
+        },
+        {
+          "source_row": 30,
+          "pressure_gpa": 36.27929763454465,
+          "calculated_pressure_gpa": 36.438248730716246
+        }
+      ]
+    },
+    "fesi_b2_bm3": {
+      "observations": 114,
+      "selection": "phase=B2",
+      "objective": "unweighted_pressure_residual_diagnostic",
+      "solver_success": true,
+      "parameters": {
+        "K0": 230.94775310358185,
+        "gamma0": 2.6091220402761834,
+        "q": 1.7288262784065045
+      },
+      "parameter_standard_errors": {
+        "K0": 2.4268581376114318,
+        "gamma0": 0.18115449040052825,
+        "q": 0.5662594761185361
+      },
+      "published_rmse_gpa": 7.147574357055818,
+      "published_residual_range_gpa": [
+        -16.529816145681195,
+        -1.060646242896084
+      ],
+      "refit_rmse_gpa": 2.4074742243355254,
+      "pressure_range_gpa": [
+        42.74768265572292,
+        146.9148894617161
+      ],
+      "temperature_range_k": [
+        1162.665,
+        3146.8
+      ],
+      "source_checkpoints": [
+        {
+          "source_row": 70,
+          "pressure_gpa": 42.74768265572292,
+          "calculated_pressure_gpa": 38.277908254280824
+        },
+        {
+          "source_row": 127,
+          "pressure_gpa": 78.07702087130097,
+          "calculated_pressure_gpa": 67.77572324497103
+        },
+        {
+          "source_row": 183,
+          "pressure_gpa": 146.9148894617161,
+          "calculated_pressure_gpa": 136.4298254329411
+        }
+      ],
+      "unpublished_double_thermal_amplitude_diagnostic": {
+        "rmse_gpa": 2.4092315617209183,
+        "residual_range_gpa": [
+          -5.999806268279528,
+          3.924682635823565
+        ],
+        "production_accepted": false
+      }
+    },
+    "fesi_b2_vinet": {
+      "observations": 114,
+      "selection": "phase=B2",
+      "objective": "unweighted_pressure_residual_diagnostic",
+      "solver_success": true,
+      "parameters": {
+        "K0": 236.4367247464593,
+        "gamma0": 2.355118528597009,
+        "q": 1.4168455122766337
+      },
+      "parameter_standard_errors": {
+        "K0": 2.4678087530003974,
+        "gamma0": 0.1623448041876811,
+        "q": 0.5627381806323365
+      },
+      "published_rmse_gpa": 6.9194276129944905,
+      "published_residual_range_gpa": [
+        -16.378183597781224,
+        -0.5934791038002558
+      ],
+      "refit_rmse_gpa": 2.3591245828472545,
+      "pressure_range_gpa": [
+        42.74768265572292,
+        146.9148894617161
+      ],
+      "temperature_range_k": [
+        1162.665,
+        3146.8
+      ],
+      "source_checkpoints": [
+        {
+          "source_row": 70,
+          "pressure_gpa": 42.74768265572292,
+          "calculated_pressure_gpa": 38.68305171565236
+        },
+        {
+          "source_row": 127,
+          "pressure_gpa": 78.07702087130097,
+          "calculated_pressure_gpa": 68.28304072156567
+        },
+        {
+          "source_row": 183,
+          "pressure_gpa": 146.9148894617161,
+          "calculated_pressure_gpa": 135.9422624485413
+        }
+      ],
+      "unpublished_double_thermal_amplitude_diagnostic": {
+        "rmse_gpa": 2.3600690020277613,
+        "residual_range_gpa": [
+          -5.552996124733994,
+          3.8727472410056833
+        ],
+        "production_accepted": false
+      }
+    },
+    "fe084si016_d03_bm3": {
+      "observations": 15,
+      "selection": "phase=D03",
+      "objective": "unweighted_pressure_residual_diagnostic",
+      "solver_success": true,
+      "parameters": {
+        "K0": 186.84133517216333,
+        "K0_prime": 5.097657266143661
+      },
+      "parameter_standard_errors": {
+        "K0": 5.485179839593044,
+        "K0_prime": 0.6136071248923315
+      },
+      "published_rmse_gpa": 0.37100099392633423,
+      "published_residual_range_gpa": [
+        -0.4861151624435003,
+        1.0444721640095835
+      ],
+      "refit_rmse_gpa": 0.36042130883382295,
+      "pressure_range_gpa": [
+        0.0,
+        28.788509683548785
+      ],
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "source_checkpoints": [
+        {
+          "source_row": 4,
+          "pressure_gpa": 0.0,
+          "calculated_pressure_gpa": 0.005688781557369728
+        },
+        {
+          "source_row": 11,
+          "pressure_gpa": 17.780521371043307,
+          "calculated_pressure_gpa": 17.715582427356644
+        },
+        {
+          "source_row": 18,
+          "pressure_gpa": 28.788509683548785,
+          "calculated_pressure_gpa": 28.331842818567175
+        }
+      ]
+    },
+    "fe084si016_d03_vinet": {
+      "observations": 15,
+      "selection": "phase=D03",
+      "objective": "unweighted_pressure_residual_diagnostic",
+      "solver_success": true,
+      "parameters": {
+        "K0": 186.37314888821965,
+        "K0_prime": 5.228340811672298
+      },
+      "parameter_standard_errors": {
+        "K0": 5.447983668109959,
+        "K0_prime": 0.6078383174853023
+      },
+      "published_rmse_gpa": 0.3851341155433156,
+      "published_residual_range_gpa": [
+        -0.7342803706793894,
+        0.8085253606927054
+      ],
+      "refit_rmse_gpa": 0.3600414228245232,
+      "pressure_range_gpa": [
+        0.0,
+        28.788509683548785
+      ],
+      "temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "source_checkpoints": [
+        {
+          "source_row": 4,
+          "pressure_gpa": 0.0,
+          "calculated_pressure_gpa": 0.005657695317448807
+        },
+        {
+          "source_row": 11,
+          "pressure_gpa": 17.780521371043307,
+          "calculated_pressure_gpa": 17.582126208852518
+        },
+        {
+          "source_row": 18,
+          "pressure_gpa": 28.788509683548785,
+          "calculated_pressure_gpa": 28.054229312869396
+        }
+      ]
+    },
+    "fe084si016_hcp_bm3": {
+      "observations": 76,
+      "selection": "phase=hcp",
+      "objective": "unweighted_pressure_residual_diagnostic",
+      "solver_success": true,
+      "parameters": {
+        "V0": 7.189773588625372,
+        "K0": 131.12231626070584,
+        "K0_prime": 5.254359978226923,
+        "gamma0": 1.1846549215957523
+      },
+      "parameter_standard_errors": {
+        "V0": 0.08925092809045795,
+        "K0": 14.641111760323927,
+        "K0_prime": 0.2693800939618895,
+        "gamma0": 0.15009375791673163
+      },
+      "published_rmse_gpa": 1.3644500996228763,
+      "published_residual_range_gpa": [
+        -2.8577013725516167,
+        2.909957335407654
+      ],
+      "refit_rmse_gpa": 1.3538606422733572,
+      "pressure_range_gpa": [
+        46.46991151576709,
+        197.0644255148494
+      ],
+      "temperature_range_k": [
+        1128.7150000000001,
+        2566.255
+      ],
+      "source_checkpoints": [
+        {
+          "source_row": 19,
+          "pressure_gpa": 59.3958006580585,
+          "calculated_pressure_gpa": 58.391398169757174
+        },
+        {
+          "source_row": 57,
+          "pressure_gpa": 124.94439525969516,
+          "calculated_pressure_gpa": 126.46524909709592
+        },
+        {
+          "source_row": 94,
+          "pressure_gpa": 196.80764128364558,
+          "calculated_pressure_gpa": 195.98933431189516
+        }
+      ]
+    },
+    "fe084si016_hcp_vinet": {
+      "observations": 76,
+      "selection": "phase=hcp",
+      "objective": "unweighted_pressure_residual_diagnostic",
+      "solver_success": true,
+      "parameters": {
+        "V0": 7.295653997445465,
+        "K0": 109.52134680682111,
+        "K0_prime": 6.124474654588902,
+        "gamma0": 1.197579411489314
+      },
+      "parameter_standard_errors": {
+        "V0": 0.10024999089830806,
+        "K0": 13.511642209305009,
+        "K0_prime": 0.2727993788326591,
+        "gamma0": 0.15251652595865556
+      },
+      "published_rmse_gpa": 1.3839029983172282,
+      "published_residual_range_gpa": [
+        -3.0220266759668277,
+        2.6217745249656446
+      ],
+      "refit_rmse_gpa": 1.3550833522657029,
+      "pressure_range_gpa": [
+        46.46991151576709,
+        197.0644255148494
+      ],
+      "temperature_range_k": [
+        1128.7150000000001,
+        2566.255
+      ],
+      "source_checkpoints": [
+        {
+          "source_row": 19,
+          "pressure_gpa": 59.3958006580585,
+          "calculated_pressure_gpa": 58.3173153482642
+        },
+        {
+          "source_row": 57,
+          "pressure_gpa": 124.94439525969516,
+          "calculated_pressure_gpa": 126.44437167022863
+        },
+        {
+          "source_row": 94,
+          "pressure_gpa": 196.80764128364558,
+          "calculated_pressure_gpa": 195.7211933450423
+        }
+      ]
+    },
+    "fe073si027_d03_vinet": {
+      "observations": 98,
+      "static_observations": 32,
+      "thermal_observations": 66,
+      "static_parameters": {
+        "K0": 198.3596639384861,
+        "K0_prime": 4.371062701202991
+      },
+      "thermal_parameters": {
+        "gamma0": 1.8612195215936098
+      },
+      "published_rmse_gpa": 1.7623682494216073,
+      "published_residual_range_gpa": [
+        -4.75148030236425,
+        7.207064483077019
+      ],
+      "static_refit_rmse_gpa": 0.6930050292951956,
+      "thermal_refit_rmse_gpa": 2.0723557131084025,
+      "source_checkpoints": [
+        {
+          "source_row": 4,
+          "pressure_gpa": 0.0,
+          "calculated_pressure_gpa": -0.013004554508447118
+        },
+        {
+          "source_row": 53,
+          "pressure_gpa": 28.642804867002784,
+          "calculated_pressure_gpa": 28.96791049580642
+        },
+        {
+          "source_row": 101,
+          "pressure_gpa": 63.03555479484396,
+          "calculated_pressure_gpa": 70.24261927792098
+        }
+      ]
+    }
+  },
+  "candidates": [
+    {
+      "identifier": "fesi_b20_fischer_2014_bm3_1",
+      "outcome": "accepted",
+      "record_kind": "published"
+    },
+    {
+      "identifier": "fesi_b20_fischer_2014_vinet_2",
+      "outcome": "accepted",
+      "record_kind": "published"
+    },
+    {
+      "identifier": "fe084si016_d03_fischer_2014_bm3_1",
+      "outcome": "accepted",
+      "record_kind": "published"
+    },
+    {
+      "identifier": "fe084si016_d03_fischer_2014_vinet_2",
+      "outcome": "accepted",
+      "record_kind": "published"
+    },
+    {
+      "identifier": "fe084si016_hcp_fischer_2014_bm3_1",
+      "outcome": "accepted",
+      "record_kind": "published"
+    },
+    {
+      "identifier": "fe084si016_hcp_fischer_2014_vinet_2",
+      "outcome": "accepted",
+      "record_kind": "published"
+    },
+    {
+      "identifier": "fe073si027_d03_fischer_2014_vinet_1",
+      "outcome": "accepted",
+      "record_kind": "published"
+    },
+    {
+      "identifier": "fesi_b2_fischer_2014_bm3",
+      "outcome": "withheld_unreproduced",
+      "reason": "Published coefficients under the reconstructed physically normalized model fail against the 114 B2 observations. Doubling thermal-energy amplitude recovers the reported residual scale; an energy/volume normalization mismatch is a hypothesis, not an established author-side error."
+    },
+    {
+      "identifier": "fesi_b2_fischer_2014_vinet",
+      "outcome": "withheld_unreproduced",
+      "reason": "Published coefficients under the reconstructed physically normalized model fail against the 114 B2 observations. Doubling thermal-energy amplitude recovers the reported residual scale; an energy/volume normalization mismatch is a hypothesis, not an established author-side error."
+    },
+    {
+      "identifier": "fe9si_hcp_b2_bm3",
+      "outcome": "excluded_aggregate",
+      "reason": "Unknown phase fractions and Si partitioning; no homogeneous cell."
+    },
+    {
+      "identifier": "fe9si_hcp_b2_vinet",
+      "outcome": "excluded_aggregate",
+      "reason": "Unknown phase fractions and Si partitioning; no homogeneous cell."
+    },
+    {
+      "identifier": "fe16si_hcp_b2_vinet",
+      "outcome": "excluded_aggregate",
+      "reason": "Unknown phase fractions and Si partitioning; no homogeneous cell."
+    },
+    {
+      "identifier": "hcp_Fe_0k",
+      "outcome": "excluded_computational"
+    },
+    {
+      "identifier": "hcp_Fe11Si_0k",
+      "outcome": "excluded_computational"
+    },
+    {
+      "identifier": "hcp_Fe5Si_ordered_0k",
+      "outcome": "excluded_computational"
+    },
+    {
+      "identifier": "hcp_Fe5Si_disordered_1_0k",
+      "outcome": "excluded_computational"
+    },
+    {
+      "identifier": "hcp_Fe5Si_disordered_2_0k",
+      "outcome": "excluded_computational"
+    },
+    {
+      "identifier": "hcp_Fe3Si_ordered_0k",
+      "outcome": "excluded_computational"
+    },
+    {
+      "identifier": "hcp_Fe3Si_disordered_0k",
+      "outcome": "excluded_computational"
+    },
+    {
+      "identifier": "hcp_FeSi_0k",
+      "outcome": "excluded_computational"
+    }
+  ],
+  "additional_exclusions": [
+    "Thermally corrected computational Fe5Si applications",
+    "Comparator EOS attributed to other authors",
+    "Core-composition estimates in Tables 4/S7 are not EOS records"
+  ],
+  "b2_cause_assessment": {
+    "established": "The reconstructed published curves underestimate all 114 B2 pressures; doubling only the thermal-energy amplitude nearly recovers the reported BM3 residual extrema.",
+    "hypothesis": "Energy/volume or atom-count normalization mismatch in the source calculation or its reconstruction.",
+    "not_established": "The exact cause or location of the discrepancy, an author-side factor-of-two coding error, or an authoritative correction.",
+    "resolution_needed": "Source fitting code or author-generated cold/thermal pressure components at specified observations, with explicit energy, volume and atom-count conventions.",
+    "catalog_policy": {
+      "published_parameters": "Preserve as non-executable source evidence until the equation/normalization discrepancy is resolved.",
+      "independent_refit": "May be accepted without author approval after its own scientific and software validation, explicitly labelled as a Peritheos refit of the source observations with complete provenance and uncertainty qualifications.",
+      "current_refit_status": "Two explicitly labelled independent Peritheos refits accepted conditionally over the measured range; published B2 coefficients remain non-executable."
+    }
+  },
+  "independent_refits": [
+    {
+      "identifier": "fesi_b2_fischer_2014_bm3_refit",
+      "record_kind": "refit",
+      "evidence": "docs/data/fischer-2014-b2-refits.json",
+      "outcome": "accepted_conditional_refit"
+    },
+    {
+      "identifier": "fesi_b2_fischer_2014_vinet_refit",
+      "record_kind": "refit",
+      "evidence": "docs/data/fischer-2014-b2-refits.json",
+      "outcome": "accepted_conditional_refit"
+    }
+  ]
+}

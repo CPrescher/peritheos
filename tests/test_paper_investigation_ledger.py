@@ -20,7 +20,7 @@ def test_paper_investigation_ledger_is_complete_and_current():
         for row in audit
     }
 
-    assert len(paper_keys) == 242
+    assert len(paper_keys) == 243
     assert len(nonproduction) >= 41
     assert {row["outcome"] for row in nonproduction} == {
         "withheld_unreproduced",
@@ -38,6 +38,8 @@ def test_paper_investigation_ledger_is_complete_and_current():
     assert "| Coefficient parity not achieved |" in ledger
     assert "| Direct refit unavailable |" in ledger
     assert "| Source reconstruction | 1 |" in ledger
+    assert "Two published B2 FeSi candidates withheld" in ledger
+    assert "two independent Peritheos refits added" in ledger
     assert "Katsura et al. (2004)" in ledger
     assert "Wang et al. (2026)" in ledger
     assert (

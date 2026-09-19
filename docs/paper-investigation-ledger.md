@@ -29,14 +29,14 @@ produce an executable record.
 
 ## Summary
 
-The register covers **343 primary papers**: **242** support the 591 audited catalog records and **101** were investigated without adding a production record.
+The register covers **344 primary papers**: **243** support the 600 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 162 |
+| Reproduced | 163 |
 | Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 11 |
 | Coefficient parity not achieved | 14 |
@@ -1111,6 +1111,7 @@ the primary-source and refit ledgers.
 | [Finkelstein et al. (2014)](https://doi.org/10.2138/am.2014.4526) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Finkelstein et al. (2017)](https://doi.org/10.2138/am-2017-5966) | Coefficient parity not achieved | 2 | 2 parity not achieved | 2 bundled |
 | [Fiquet et al. (2000)](https://doi.org/10.1029/1999gl008397) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Fischer et al. (2014)](https://doi.org/10.1002/2013jb010898) | Reproduced | 9 | 9 parity; Two published B2 FeSi candidates withheld: unresolved thermal normalization; two independent Peritheos refits added; see [source audit](literature-reproductions/fischer-2014-fesi.md). | 9 bundled |
 | [Fortes (2019)](https://doi.org/10.5286/raltr.2019002) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 partial primary rows bundled |
 | [Frank et al. (2004)](https://doi.org/10.1016/j.gca.2003.12.007) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Fratanduono et al. (2020)](https://doi.org/10.1103/physrevlett.124.015701) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
@@ -1283,8 +1284,8 @@ the primary-source and refit ledgers.
 | [Shieh et al. (2000)](https://doi.org/10.1016/s0012-821x(00)00033-9) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Shieh et al. (2002), MgSiO3 post-perovskite](https://doi.org/10.1103/PhysRevLett.89.255507) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Shieh et al. (2006)](https://doi.org/10.1073/pnas.0506811103) | Reproduced | 3 | 3 parity | 3 plot only/digitized |
-| [Shim et al. (2000)](https://doi.org/10.1016/s0031-9201(00)00154-0) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Shim et al. (2000)](https://doi.org/10.1029/2000jb900183) | Reproduced | 1 | 1 similar | 1 bundled |
+| [Shim et al. (2000)](https://doi.org/10.1016/s0031-9201(00)00154-0) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Shim et al. (2002)](https://doi.org/10.1029/2002gl016148) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Shukla et al. (2016), Fe3+- and Al-bearing bridgmanite](https://doi.org/10.1002/2016GL069332) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Siersch et al. (2021)](https://doi.org/10.1016/j.pepi.2021.106786) | Reproduced | 1 | 1 parity | 1 bundled |

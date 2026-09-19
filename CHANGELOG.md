@@ -11,13 +11,22 @@ All notable changes to Peritheos are documented here. The project follows
   diffraction structure, all 111 paired sample/Au observations, and independent
   RT, joint thermal, staged, and axial diagnostics. An opt-in joint thermal
   refit includes the complete fitted coefficients and covariance; both conflicting
-  published thermal versions remain non-executable source evidence. The catalog contains 591 executable
-  EOS records.
+  published thermal versions remain non-executable source evidence. The catalog
+  contains 600 executable EOS records.
+- Seven Fischer et al. (2014) published experimental Fe–Si EOS records and two
+  independently validated Peritheos B2 refits on five materials,
+  with all 391 supplementary P–V–T rows, 185 earlier Fe–16Si observations,
+  independent BM3/Vinet/MGD checks and explicit crystal occupancies. Both B2
+  FeSi published thermal fits remain withheld because their reconstruction
+  misses the data; the factor-of-two diagnosis remains a hypothesis. The B2
+  refits preserve full covariance, sensitivity results and measured-range limits.
+
 - Nisr et al. (2017) experimental hydrous stishovite and hydrous CaCl2-type
   silica as separate composition/phase cards, plus the source-owned dry
   reference fit. Includes the corrected article audit, all 43 official
   supplement rows, corrected ambient observations, documented diffraction
   peak-position fallbacks, and independent refits within published errors.
+  The catalog now contains 589 executable EOS records.
 
 
 - Chidester et al. (2018) experimental thermal EOSs for thorianite and
