@@ -2608,3 +2608,9 @@ its printed-precision discrepancy.
 The [five-paper audit](literature-reproductions/iron-fei-input-papers.md) covers
 43 additional published Fe and Fe0.9Ni0.1 records, all available numeric
 observations, independent source checkpoints and unresolved regression gaps.
+
+## Litasov (2007), superhydrous phase B
+
+See the [complete source audit](literature-reproductions/litasov-2007-superhydrous-phase-b.md)
+for seven experimental records, all 69 P–V–T observations and Au markers,
+corrected Pnn2 crystallography, independent fits, and explicitly held alternatives.

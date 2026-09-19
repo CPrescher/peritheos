@@ -155,6 +155,13 @@ that case:
   refittable in the validation ledger; and
 - do not synthesize observations or infer parameter uncertainties.
 
+For a concrete unresolved data gap, add a reviewed entry to
+[incomplete datasets and author requests](dataset-requests.md). State what is
+missing, what it would enable, whether author outreach is worthwhile, and the
+actual contact status. Link the audit and distinguish minimum inputs from
+optional calibration or uncertainty information. Keep the request open until
+received data have been validated and the scientific ledgers updated.
+
 A parameter list with no auditable equation or volume convention is not
 sufficient.
 

@@ -1,0 +1,116 @@
+{
+  "doi": "10.1007/s00269-015-0794-1",
+  "source": "Table 1, p. 303; all 18 printed rows at 300 K",
+  "qualification": "Source residual direction, weights, covariance and input file are not published. Equal-weight pressure fitting is the registered audit; weighted-volume and effective-variance fits are sensitivity checks. Only the latter assumes exact ambient pressure for propagation.",
+  "results": {
+    "bm2": {
+      "published_parameters": [
+        603.21,
+        172.0
+      ],
+      "published_pressure_rmse_gpa": 0.12839286307063819,
+      "published_max_abs_residual_gpa": 0.2616524252130574,
+      "high_pressure_checkpoint": {
+        "volume_a3": 559.91,
+        "observed_pressure_gpa": 14.9,
+        "calculated_pressure_gpa": 14.871946157972653,
+        "observed_volume_at_14_9_gpa_a3": 559.91,
+        "calculated_volume_at_14_9_gpa_a3": 559.8415582331995
+      },
+      "implementation_max_error_gpa": 1.438849039914203e-13,
+      "all_rows_unweighted_pressure": {
+        "rows": 18,
+        "parameters": {
+          "V0": 603.1925061747284,
+          "K0": 172.11051740761872
+        },
+        "pressure_rmse_gpa": 0.128360254517702,
+        "sum_squared_objective": 0.29657438891728627
+      },
+      "all_rows_weighted_volume": {
+        "rows": 18,
+        "parameters": {
+          "V0": 603.1946091866299,
+          "K0": 172.1873048324504
+        },
+        "pressure_rmse_gpa": 0.12843347948713427,
+        "sum_squared_objective": 18.311359665495292
+      },
+      "all_rows_effective_variance": {
+        "rows": 18,
+        "parameters": {
+          "V0": 603.1559538337635,
+          "K0": 172.40296865775525
+        },
+        "pressure_rmse_gpa": 0.12855313737165444,
+        "sum_squared_objective": 11.734636184167092
+      },
+      "dac_only_unweighted_pressure": {
+        "rows": 17,
+        "parameters": {
+          "V0": 603.3133796617805,
+          "K0": 171.40163736031562
+        },
+        "pressure_rmse_gpa": 0.12366831467672633,
+        "sum_squared_objective": 0.25999548493469066
+      }
+    },
+    "bm3": {
+      "published_parameters": [
+        603.1,
+        175.0,
+        3.5
+      ],
+      "published_pressure_rmse_gpa": 0.12730232663245047,
+      "published_max_abs_residual_gpa": 0.27433414554452895,
+      "high_pressure_checkpoint": {
+        "volume_a3": 559.91,
+        "observed_pressure_gpa": 14.9,
+        "calculated_pressure_gpa": 14.801422650150755,
+        "observed_volume_at_14_9_gpa_a3": 559.91,
+        "calculated_volume_at_14_9_gpa_a3": 559.6647813328573
+      },
+      "implementation_max_error_gpa": 5.5067062021407764e-14,
+      "all_rows_unweighted_pressure": {
+        "rows": 18,
+        "parameters": {
+          "V0": 603.0696346428408,
+          "K0": 175.51188294549314,
+          "K0_prime": 3.4947193495932822
+        },
+        "pressure_rmse_gpa": 0.12639854464684092,
+        "sum_squared_objective": 0.28757865759910983
+      },
+      "all_rows_weighted_volume": {
+        "rows": 18,
+        "parameters": {
+          "V0": 603.0863507723503,
+          "K0": 175.2417798607502,
+          "K0_prime": 3.538543972967149
+        },
+        "pressure_rmse_gpa": 0.12645569353300132,
+        "sum_squared_objective": 17.787804208292773
+      },
+      "all_rows_effective_variance": {
+        "rows": 18,
+        "parameters": {
+          "V0": 603.0279040448445,
+          "K0": 176.212346563701,
+          "K0_prime": 3.4215008428241966
+        },
+        "pressure_rmse_gpa": 0.12653436497309872,
+        "sum_squared_objective": 11.21521240629996
+      },
+      "dac_only_unweighted_pressure": {
+        "rows": 17,
+        "parameters": {
+          "V0": 603.2704932944413,
+          "K0": 172.42188727425005,
+          "K0_prime": 3.8528369252852053
+        },
+        "pressure_rmse_gpa": 0.12351723566991664,
+        "sum_squared_objective": 0.2593606276281414
+      }
+    }
+  }
+}

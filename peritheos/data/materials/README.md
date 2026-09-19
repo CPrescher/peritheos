@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 212 curated material documents with 577 EOS records. The
+This directory contains 217 curated material documents with 589 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -17,7 +17,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-19 classifies all 577 bundled records as
+dated 2026-09-19 classifies all 589 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -46,11 +46,24 @@ reference-volume law. The paper's separate global thermal BM3 entry is excluded
 because its fitted reference volume is omitted and the remaining coefficients
 do not reproduce the printed dataset under the documented equations.
 
+The Chidester et al. (2018) thorianite and cotunnite-type ThO2 cards retain
+separate experimental thermal fits and separately sourced experimental
+structures. All 100 official supplemental rows are bundled, including the
+12 room-temperature fluorite observations excluded near the volume anomaly.
+Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
+
 ## Primary observation tables
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 296 distinct primary datasets with 17,573 observation rows, represented by 327 material-document links to 434 EOS records.
+Litasov et al. (2007) adds seven experimental LT superhydrous-phase-B records,
+69 complete P–V–T rows with both Au pressure scales and marker observations,
+and 30 diffraction peaks. The independent Pnn2 structure applies the authors'
+O6 correction and official 2014 H2 erratum; the original archive CIF is retained.
+The source audit documents equation typos, calibration qualifications and held
+branches, separately from the Al-bearing Xu (2024) investigation.
+
+The current bundle contains 303 distinct primary datasets with 17,854 observation rows, represented by 334 material-document links to 446 EOS records.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,
