@@ -85,6 +85,7 @@ The current collection contains 123 standalone reports.
 | LitCurate source-exhaustion audit: citation and compilation papers | [`litcurate-source-exhaustion-citation-audit.md`](literature-reproductions/litcurate-source-exhaustion-citation-audit.md) |
 | LitCurate tranche C: zero-yield paper audits | [`tranche-c-zero-yield-audits.md`](literature-reproductions/tranche-c-zero-yield-audits.md) |
 | Liu et al. (2010): MgSiO3 post-perovskite | [`liu-2010-mgsio3-post-perovskite.md`](literature-reproductions/liu-2010-mgsio3-post-perovskite.md) |
+| Lv et al. (2016): synthetic qandilite at 300 K | [`lv-2016-qandilite.md`](literature-reproductions/lv-2016-qandilite.md) |
 | Mao et al. (1991): (Fe,Mg)SiO3 perovskites | [`mao-1991-bridgmanites.md`](literature-reproductions/mao-1991-bridgmanites.md) |
 | Mao et al. (2011) ferropericlase spin-branch audit | [`mao-2011-ferropericlase.md`](literature-reproductions/mao-2011-ferropericlase.md) |
 | Mao et al. (2011): Fe-dolomite and dolomite-III | [`mao-2011-dolomite-iii.md`](literature-reproductions/mao-2011-dolomite-iii.md) |

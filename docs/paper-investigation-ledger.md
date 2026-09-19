@@ -29,14 +29,14 @@ produce an executable record.
 
 ## Summary
 
-The register covers **338 primary papers**: **237** support the 581 audited catalog records and **101** were investigated without adding a production record.
+The register covers **339 primary papers**: **238** support the 583 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 158 |
+| Reproduced | 159 |
 | Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 11 |
 | Coefficient parity not achieved | 14 |
@@ -1190,6 +1190,7 @@ the primary-source and refit ledgers.
 | [Liu et al. (2011)](https://doi.org/10.1088/1674-0068/24/06/703-710) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Lower-mantle MgSiO3 thermoelastic parameter review (1996)](https://doi.org/10.1098/rsta.1996.0053) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
+| [Lv et al. (2016)](https://doi.org/10.1007/s00269-015-0794-1) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Lv et al. (2020)](https://doi.org/10.2138/am-2020-7279) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Magad-Weiss et al. (2021)](https://doi.org/10.1103/physrevb.103.014101) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Mao et al. (1974)](https://doi.org/10.1029/jb079i008p01165) | Reproduced | 1 | 1 parity | 1 bundled |

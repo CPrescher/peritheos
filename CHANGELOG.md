@@ -7,11 +7,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Lv et al. (2016) synthetic qandilite Mg2.00(1)Ti1.00(1)O4, with separate
+  published BM2 and BM3 records, all 18 primary P–V rows and uncertainties,
+  independently sourced diffraction structure, and reproducible refit checks.
+  The catalog now contains 583 executable EOS records.
+
 - Litasov et al. (2007) nominally pure-Mg LT superhydrous phase B: seven
   experimental EOS alternatives, all 69 P–V–T rows with Au observations, 30
   diffraction peaks, corrected independent Pnn2 structure, and reproducible
   refits. Equation-printing issues and incomplete alternatives are documented.
-  The catalog now contains 581 executable EOS records across 210 materials.
 
 - Zha et al. (2004) rhenium Equation (6) thermal EOS, all eight paired Au/Re
   observations, derived isotherm tables, and an independent staged refit. The

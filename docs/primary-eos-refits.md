@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **581** EOS records. **197** achieve uncertainty parity, **142** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[67](#parity-not-achieved)** do not achieve parity, **162** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **583** EOS records. **199** achieve uncertainty parity, **142** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[67](#parity-not-achieved)** do not achieve parity, **162** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -561,6 +561,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`praseodymium_dioxide_gerward_2005_bm3_1`](https://people.iith.ac.in/kanchana/publications/2005/17.pdf) | `praseodymium_dioxide_gerward_2005_figure3b_digitized` | 18 | `K0` 187 → 183.32; `K0_prime` 4.8 → 4.96544 | 0.177766/0.10475 | parity |
 | [`pseudowollastonite_sagatova_2021_gga_300k_vinet`](https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. |
 | [`pyrope_milani_2015_bm3_1`](https://doi.org/10.1016/j.lithos.2015.03.017) | `pyrope_milani_2015_table_a2_compression` | 12 | `V0` 1506.15 → 1506.15; `K0` 163.7 → 163.739; `K0_prime` 6.4 → 6.36875 | 0.0177237/0.00382681 | parity |
+| [`qandilite_lv_2016_bm2`](https://link.springer.com/article/10.1007/s00269-015-0794-1) | `qandilite_lv_2016_table1_pv` | 18 | `V0` 603.21 → 603.193; `K0` 172 → 172.111 | 0.128393/0.12836 | parity |
+| [`qandilite_lv_2016_bm3`](https://link.springer.com/article/10.1007/s00269-015-0794-1) | `qandilite_lv_2016_table1_pv` | 18 | `V0` 603.1 → 603.07; `K0` 175 → 175.512; `K0_prime` 3.5 → 3.49472 | 0.127302/0.126399 | parity |
 | [`rbcl_b2_campbell_1994_bm3_1`](https://doi.org/10.1029/94JB00127) | `rbcl_campbell_1994_table1_compression` | 24 | `K0` 17.9 → 17.8808; `K0_prime` 5.23 → 5.23815 | 0.289865/0.279065 | parity — Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted with the paper's hypothetical zero-pressure density held fixed. The refit recovers K0 and K0' within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl). |
 | [`rhenium_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`rhenium_anzellini_2014_vinet_1`](https://doi.org/10.1063/1.4863300) | `rhenium_anzellini_2014_table3_compression` | 59 | `V0` 29.4666 → 29.4712; `K0` 352.6 → 349.324; `K0_prime` 4.56 → 4.65097 | 0.613188/0.604048 | parity |

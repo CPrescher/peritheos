@@ -34957,6 +34957,170 @@
       "status": "parity"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "qandilite_lv_2016_table1_pv"
+      ],
+      "degrees_of_freedom": 16,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        14.9
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Lv et al. (2016), 300 K BM2 (K0\u2032 = 4)",
+      "material_identifier": "qandilite",
+      "model": "BM2",
+      "objective": "pressure_residuals",
+      "observations": 18,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        14.9
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        559.91,
+        602.58
+      ],
+      "parameters": [
+        {
+          "difference": -0.01749355166634814,
+          "parameter": "V0",
+          "published": 603.21,
+          "published_error": 0.18,
+          "refit": 603.1925064483337,
+          "refit_error": 0.19518692105262656,
+          "relative_difference": 2.9000765349294835e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.11051554527242047,
+          "parameter": "K0",
+          "published": 172.0,
+          "published_error": 1.0,
+          "refit": 172.11051554527242,
+          "refit_error": 1.333579457846535,
+          "relative_difference": 0.000642532239955933,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 18 rows with original P, a, V and every reported uncertainty. Raw ruby readings unavailable.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+      "published_rmse_gpa": 0.12839286307062586,
+      "record_identifier": "qandilite_lv_2016_bm2",
+      "reduced_chi_square": 0.018535899307331904,
+      "rmse_gpa": 0.12836025451770725,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "qandilite_lv_2016_table1_pv"
+      ],
+      "degrees_of_freedom": 15,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        14.9
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Lv et al. (2016), 300 K BM3 (free K0\u2032)",
+      "material_identifier": "qandilite",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 18,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        14.9
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        559.91,
+        602.58
+      ],
+      "parameters": [
+        {
+          "difference": -0.030365116611164922,
+          "parameter": "V0",
+          "published": 603.1,
+          "published_error": 0.25,
+          "refit": 603.0696348833889,
+          "refit_error": 0.26187526904391,
+          "relative_difference": 5.034839431464918e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.5118771820368977,
+          "parameter": "K0",
+          "published": 175.0,
+          "published_error": 5.0,
+          "refit": 175.5118771820369,
+          "refit_error": 5.11605078308972,
+          "relative_difference": 0.0029250124687822724,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.0052798602314854115,
+          "parameter": "K0_prime",
+          "published": 3.5,
+          "published_error": 0.7,
+          "refit": 3.4947201397685146,
+          "refit_error": 0.7238741340801185,
+          "relative_difference": 0.0015085314947101175,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 18 rows with original P, a, V and every reported uncertainty. Raw ruby readings unavailable.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+      "published_rmse_gpa": 0.12730232663244365,
+      "record_identifier": "qandilite_lv_2016_bm3",
+      "reduced_chi_square": 0.019171910506607538,
+      "rmse_gpa": 0.1263985446468416,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.",
+      "status": "parity"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -40176,10 +40340,10 @@
   ],
   "summary": {
     "not_refittable": 162,
-    "parity": 197,
+    "parity": 199,
     "parity_not_achieved": 67,
     "similar": 142,
     "source_reconstruction": 13,
-    "total": 581
+    "total": 583
   }
 }

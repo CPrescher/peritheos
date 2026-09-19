@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 581,
-    "primary_source_validated": 581
+    "records": 583,
+    "primary_source_validated": 583
   },
   "records": [
     {
@@ -11177,6 +11177,46 @@
         ],
         "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
         "doi": "10.1103/zp3m-kjpc"
+      }
+    },
+    {
+      "material": "qandilite",
+      "file": "qandilite.eosmat",
+      "record": "qandilite_lv_2016_bm2",
+      "label": "Lv et al. (2016), 300 K BM2 (K0′ = 4)",
+      "doi": "10.1007/s00269-015-0794-1",
+      "status": "primary_source_validated",
+      "note": "Published experimental alternative; Table 1 reproduced and independent diagnostic refit within reported one-sigma coefficient errors.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-015-0794-1",
+        "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+        "locations": [
+          "Experimental method, p. 302",
+          "Table 1 and unnumbered BM equation, p. 303",
+          "Figures 3–5, p. 304",
+          "Table 2, p. 305"
+        ],
+        "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
+      }
+    },
+    {
+      "material": "qandilite",
+      "file": "qandilite.eosmat",
+      "record": "qandilite_lv_2016_bm3",
+      "label": "Lv et al. (2016), 300 K BM3 (free K0′)",
+      "doi": "10.1007/s00269-015-0794-1",
+      "status": "primary_source_validated",
+      "note": "Published experimental alternative; Table 1 reproduced and independent diagnostic refit within reported one-sigma coefficient errors.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-015-0794-1",
+        "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+        "locations": [
+          "Experimental method, p. 302",
+          "Table 1 and unnumbered BM equation, p. 303",
+          "Figures 3–5, p. 304",
+          "Table 2, p. 305"
+        ],
+        "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
       }
     }
   ]
