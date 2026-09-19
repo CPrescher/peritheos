@@ -1,0 +1,378 @@
+{
+  "doi": "10.1002/2017JB014055",
+  "fits": {
+    "hydrous_silica_cacl2_nisr_2017_bm2": {
+      "pressure": {
+        "covariance": [
+          [
+            0.0082752761753367,
+            -0.45193087506670543
+          ],
+          [
+            -0.45193087506670543,
+            24.838218756440753
+          ]
+        ],
+        "degrees_of_freedom": 6,
+        "excluded_zero_sigma_pressures_gpa": [],
+        "free_parameters": [
+          "V0",
+          "K0"
+        ],
+        "high_pressure_benchmark": {
+          "calculated_pressure_gpa": 63.08153825752761,
+          "calculated_volume_a3": 40.25551176667466,
+          "source_pressure_gpa": 62.934,
+          "source_volume_a3": 40.2441
+        },
+        "objective": "pressure",
+        "observations": 8,
+        "parameters": {
+          "K0": 284.21760957450044,
+          "V0": 47.267766615506154
+        },
+        "pressure_range_gpa": [
+          42.225,
+          62.934
+        ],
+        "published_max_abs_residual_gpa": 0.344671528340335,
+        "published_rmse_gpa": 0.19094366489555822,
+        "published_volume_rmse_a3": 0.016530143814598212,
+        "rmse_gpa": 0.18052922464762117,
+        "solver_success": true,
+        "source_rows": 8,
+        "standard_errors": {
+          "K0": 4.983795617442669,
+          "V0": 0.09096854497757288
+        },
+        "table": "S4"
+      },
+      "volume": {
+        "covariance": [
+          [
+            0.008252610576830908,
+            -0.45693432437476417
+          ],
+          [
+            -0.4569343243747641,
+            25.466169684080523
+          ]
+        ],
+        "degrees_of_freedom": 6,
+        "excluded_zero_sigma_pressures_gpa": [],
+        "free_parameters": [
+          "V0",
+          "K0"
+        ],
+        "high_pressure_benchmark": {
+          "calculated_pressure_gpa": 63.08153825752761,
+          "calculated_volume_a3": 40.25551176667466,
+          "source_pressure_gpa": 62.934,
+          "source_volume_a3": 40.2441
+        },
+        "objective": "volume",
+        "observations": 8,
+        "parameters": {
+          "K0": 284.7793393515807,
+          "V0": 47.2576324754774
+        },
+        "pressure_range_gpa": [
+          42.225,
+          62.934
+        ],
+        "published_max_abs_residual_gpa": 0.344671528340335,
+        "published_rmse_gpa": 0.19094366489555822,
+        "published_volume_rmse_a3": 0.016530143814598212,
+        "rmse_gpa": 0.18072160089179126,
+        "solver_success": true,
+        "source_rows": 8,
+        "standard_errors": {
+          "K0": 5.046401657030534,
+          "V0": 0.09084388023874206
+        },
+        "table": "S4"
+      },
+      "volume_sigma": {
+        "covariance": [
+          [
+            0.006552442353135489,
+            -0.3739051771993215
+          ],
+          [
+            -0.37390517719932154,
+            21.460939150469265
+          ]
+        ],
+        "degrees_of_freedom": 5,
+        "excluded_zero_sigma_pressures_gpa": [
+          44.857
+        ],
+        "free_parameters": [
+          "V0",
+          "K0"
+        ],
+        "high_pressure_benchmark": {
+          "calculated_pressure_gpa": 63.08153825752761,
+          "calculated_volume_a3": 40.25551176667466,
+          "source_pressure_gpa": 62.934,
+          "source_volume_a3": 40.2441
+        },
+        "objective": "volume_sigma",
+        "observations": 7,
+        "parameters": {
+          "K0": 289.4105428178168,
+          "V0": 47.17065845030739
+        },
+        "pressure_range_gpa": [
+          42.225,
+          62.934
+        ],
+        "published_max_abs_residual_gpa": 0.344671528340335,
+        "published_rmse_gpa": 0.19094366489555822,
+        "published_volume_rmse_a3": 0.016530143814598212,
+        "rmse_gpa": 0.20063790554557356,
+        "solver_success": true,
+        "source_rows": 8,
+        "standard_errors": {
+          "K0": 4.632595293188179,
+          "V0": 0.08094715778293571
+        },
+        "table": "S4"
+      }
+    },
+    "hydrous_stishovite_nisr_2017_bm3": {
+      "pressure": {
+        "covariance": [
+          [
+            67.58040176522955
+          ]
+        ],
+        "degrees_of_freedom": 6,
+        "excluded_zero_sigma_pressures_gpa": [],
+        "free_parameters": [
+          "K0"
+        ],
+        "high_pressure_benchmark": {
+          "calculated_pressure_gpa": 21.79665318204645,
+          "calculated_volume_a3": 43.80045306042046,
+          "source_pressure_gpa": 22.747,
+          "source_volume_a3": 43.9177
+        },
+        "objective": "pressure",
+        "observations": 7,
+        "parameters": {
+          "K0": 256.91672674984903
+        },
+        "pressure_range_gpa": [
+          0.0,
+          22.747
+        ],
+        "published_max_abs_residual_gpa": 1.2146026393206855,
+        "published_rmse_gpa": 0.8534573050120292,
+        "published_volume_rmse_a3": 0.13703488269655417,
+        "rmse_gpa": 0.8534500073171926,
+        "solver_success": true,
+        "source_rows": 7,
+        "standard_errors": {
+          "K0": 8.220730001966343
+        },
+        "table": "S2"
+      },
+      "volume": {
+        "covariance": [
+          [
+            94.64184420293508
+          ]
+        ],
+        "degrees_of_freedom": 6,
+        "excluded_zero_sigma_pressures_gpa": [],
+        "free_parameters": [
+          "K0"
+        ],
+        "high_pressure_benchmark": {
+          "calculated_pressure_gpa": 21.79665318204645,
+          "calculated_volume_a3": 43.80045306042046,
+          "source_pressure_gpa": 22.747,
+          "source_volume_a3": 43.9177
+        },
+        "objective": "volume",
+        "observations": 7,
+        "parameters": {
+          "K0": 254.85799935413297
+        },
+        "pressure_range_gpa": [
+          0.0,
+          22.747
+        ],
+        "published_max_abs_residual_gpa": 1.2146026393206855,
+        "published_rmse_gpa": 0.8534573050120292,
+        "published_volume_rmse_a3": 0.13703488269655417,
+        "rmse_gpa": 0.8578988115141801,
+        "solver_success": true,
+        "source_rows": 7,
+        "standard_errors": {
+          "K0": 9.728403990528717
+        },
+        "table": "S2"
+      },
+      "volume_sigma": {
+        "covariance": [
+          [
+            68.6101621832319
+          ]
+        ],
+        "degrees_of_freedom": 6,
+        "excluded_zero_sigma_pressures_gpa": [],
+        "free_parameters": [
+          "K0"
+        ],
+        "high_pressure_benchmark": {
+          "calculated_pressure_gpa": 21.79665318204645,
+          "calculated_volume_a3": 43.80045306042046,
+          "source_pressure_gpa": 22.747,
+          "source_volume_a3": 43.9177
+        },
+        "objective": "volume_sigma",
+        "observations": 7,
+        "parameters": {
+          "K0": 257.8836359636993
+        },
+        "pressure_range_gpa": [
+          0.0,
+          22.747
+        ],
+        "published_max_abs_residual_gpa": 1.2146026393206855,
+        "published_rmse_gpa": 0.8534573050120292,
+        "published_volume_rmse_a3": 0.13703488269655417,
+        "rmse_gpa": 0.854433333029234,
+        "solver_success": true,
+        "source_rows": 7,
+        "standard_errors": {
+          "K0": 8.283125145935676
+        },
+        "table": "S2"
+      }
+    },
+    "stishovite_nisr_2017_dry_bm3": {
+      "pressure": {
+        "covariance": [
+          [
+            1.5276721923903258
+          ]
+        ],
+        "degrees_of_freedom": 19,
+        "excluded_zero_sigma_pressures_gpa": [],
+        "free_parameters": [
+          "K0"
+        ],
+        "high_pressure_benchmark": {
+          "calculated_pressure_gpa": 61.70107282919292,
+          "calculated_volume_a3": 40.301639443980434,
+          "source_pressure_gpa": 62.934,
+          "source_volume_a3": 40.3876
+        },
+        "objective": "pressure",
+        "observations": 20,
+        "parameters": {
+          "K0": 312.1355083033121
+        },
+        "pressure_range_gpa": [
+          0.0,
+          62.934
+        ],
+        "published_max_abs_residual_gpa": 1.2329271708070806,
+        "published_rmse_gpa": 0.6476689559796908,
+        "published_volume_rmse_a3": 0.05948624123392584,
+        "rmse_gpa": 0.6474641865194618,
+        "solver_success": true,
+        "source_rows": 20,
+        "standard_errors": {
+          "K0": 1.2359903690524152
+        },
+        "table": "S1"
+      },
+      "volume": {
+        "covariance": [
+          [
+            1.9081768708748275
+          ]
+        ],
+        "degrees_of_freedom": 19,
+        "excluded_zero_sigma_pressures_gpa": [],
+        "free_parameters": [
+          "K0"
+        ],
+        "high_pressure_benchmark": {
+          "calculated_pressure_gpa": 61.70107282919292,
+          "calculated_volume_a3": 40.301639443980434,
+          "source_pressure_gpa": 62.934,
+          "source_volume_a3": 40.3876
+        },
+        "objective": "volume",
+        "observations": 20,
+        "parameters": {
+          "K0": 310.87893668665487
+        },
+        "pressure_range_gpa": [
+          0.0,
+          62.934
+        ],
+        "published_max_abs_residual_gpa": 1.2329271708070806,
+        "published_rmse_gpa": 0.6476689559796908,
+        "published_volume_rmse_a3": 0.05948624123392584,
+        "rmse_gpa": 0.6648416807914087,
+        "solver_success": true,
+        "source_rows": 20,
+        "standard_errors": {
+          "K0": 1.3813677536683804
+        },
+        "table": "S1"
+      },
+      "volume_sigma": {
+        "covariance": [
+          [
+            1.8268452126880976
+          ]
+        ],
+        "degrees_of_freedom": 19,
+        "excluded_zero_sigma_pressures_gpa": [],
+        "free_parameters": [
+          "K0"
+        ],
+        "high_pressure_benchmark": {
+          "calculated_pressure_gpa": 61.70107282919292,
+          "calculated_volume_a3": 40.301639443980434,
+          "source_pressure_gpa": 62.934,
+          "source_volume_a3": 40.3876
+        },
+        "objective": "volume_sigma",
+        "observations": 20,
+        "parameters": {
+          "K0": 311.0360187934286
+        },
+        "pressure_range_gpa": [
+          0.0,
+          62.934
+        ],
+        "published_max_abs_residual_gpa": 1.2329271708070806,
+        "published_rmse_gpa": 0.6476689559796908,
+        "published_volume_rmse_a3": 0.05948624123392584,
+        "rmse_gpa": 0.6608095769049652,
+        "solver_success": true,
+        "source_rows": 20,
+        "standard_errors": {
+          "K0": 1.3516083799267071
+        },
+        "table": "S1"
+      }
+    }
+  },
+  "version": "Corrected 26 October 2017; official supporting information S1",
+  "water_content_audit": {
+    "corrected_table2_volume_expansion_percent": 1.3506839313706553,
+    "formula_implied_water_wt_percent": 2.8102183775300906,
+    "reported_uncertainty_wt_percent": 0.5,
+    "source_formula": "Si0.954O2H0.184",
+    "volume_calibrated_water_wt_percent": 3.2
+  }
+}

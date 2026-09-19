@@ -1,0 +1,547 @@
+{
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "qandilite",
+  "name": "Synthetic qandilite (Lv 2016)",
+  "formula": "Mg2.00Ti1.00O4",
+  "phase": "cubic inverse spinel",
+  "aliases": [
+    "Mg2TiO4",
+    "magnesium orthotitanate"
+  ],
+  "composition": {
+    "reported_formula": "Mg2.00(1)Ti1.00(1)O4",
+    "source_location": "Lv et al. (2016), p. 302, 10 EMPA analyses",
+    "cation_uncertainties": {
+      "Mg": 0.01,
+      "Ti": 0.01
+    },
+    "notes": "The qandilite major phase is represented alone; the <~5% MgTiO3 impurity is excluded. No exact cation-disorder refinement of this EOS sample was published."
+  },
+  "units": {
+    "pressure": "GPa",
+    "temperature": "K",
+    "volume": "angstrom^3/conventional_unit_cell"
+  },
+  "symmetry": "CUBIC",
+  "lattice": {
+    "a": 8.44192,
+    "b": 8.44192,
+    "c": 8.44192,
+    "alpha": 90.0,
+    "beta": 90.0,
+    "gamma": 90.0
+  },
+  "formula_units_per_cell": 8,
+  "space_group": "F d -3 m:2",
+  "space_group_number": 227,
+  "atom_sites": [
+    {
+      "element": "Mg",
+      "wyckoff": "8a",
+      "multiplicity": 8,
+      "x": 0.125,
+      "y": 0.125,
+      "z": 0.125,
+      "occupancy": 1.0
+    },
+    {
+      "element": "Mg",
+      "wyckoff": "16d",
+      "multiplicity": 16,
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5,
+      "occupancy": 0.5
+    },
+    {
+      "element": "Ti",
+      "wyckoff": "16d",
+      "multiplicity": 16,
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5,
+      "occupancy": 0.5
+    },
+    {
+      "element": "O",
+      "wyckoff": "32e",
+      "multiplicity": 32,
+      "x": 0.2594,
+      "y": 0.2594,
+      "z": 0.2594,
+      "occupancy": 1.0
+    }
+  ],
+  "source": {
+    "citation": {
+      "authors": [
+        "O’Neill",
+        "Redfern",
+        "Kesson",
+        "Short"
+      ],
+      "year": 2003,
+      "title": "An in situ neutron diffraction study of cation disordering in synthetic qandilite Mg2TiO4 at high temperatures",
+      "source": "American Mineralogist",
+      "volume": "88",
+      "locator": "860–865",
+      "doi": "10.2138/am-2003-5-615",
+      "url": "https://rruff.net/doclib/am/vol88/AM88_860.pdf"
+    },
+    "structure_provenance": {
+      "source_locations": [
+        "O’Neill et al. (2003), Table 1 first column, p. 861; Results pp. 861–862; Table 3, p. 863"
+      ],
+      "reference_temperature_k": 298.15,
+      "lattice_a_uncertainty_a": 5e-05,
+      "oxygen_u_uncertainty": 0.0001,
+      "notes": "Table 1 Si-standard-present refinement including (111): a=8.44192(5) A, u=0.2594(1). Standard Fd-3m origin-2 inverse-spinel Wyckoff model: Mg tetrahedral 8a; Mg/Ti 1:1 on octahedral 16d; O 32e. Inversion x=1.000(3) supports the ideal fully inverse occupancies. Z=8 derived from 8+16 cations and 32 O per conventional cell. This separately measured same-composition structure is a diffraction fallback, not a refinement of the Lv sample. Its lattice differs legitimately from Lv Table 1 and each fitted V0."
+    },
+    "primary_files": [
+      {
+        "role": "EOS publication of record",
+        "zotero_item": "268TSW4J",
+        "zotero_attachment": "3CBMV38U",
+        "sha256": "2e61e8d2b32f573c3f992d762970527ac2bf25535113250fd60c6be0d31e46a5"
+      },
+      {
+        "role": "independent crystallographic publication",
+        "url": "https://rruff.net/doclib/am/vol88/AM88_860.pdf",
+        "sha256": "e488f6205e8ca980d3598154215969fbcaf1cf85a1263fe1029b9a042611671d"
+      }
+    ]
+  },
+  "notes": "The EOS sample was synthesized at 1673 K for 52 h and cooled at 5 K/min. Cubic inverse spinel persisted through 14.9 GPa at 300 K; this is observed metastable persistence, not equilibrium phase stability. Structure and EOS reference cells come from separately identified experiments.",
+  "eos_records": [
+    {
+      "identifier": "qandilite_lv_2016_bm2",
+      "label": "Lv et al. (2016), 300 K BM2 (K0′ = 4)",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default": true,
+      "reference": {
+        "authors": [
+          "Lv",
+          "Liu",
+          "Shieh",
+          "Xie",
+          "Wang",
+          "Prescher",
+          "Prakapenka"
+        ],
+        "year": 2016,
+        "title": "Equation of state of synthetic qandilite Mg2TiO4 at ambient temperature",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "43",
+        "locator": "301–306",
+        "doi": "10.1007/s00269-015-0794-1"
+      },
+      "eos": {
+        "type": "BM2",
+        "model": "birch_murnaghan_2",
+        "parameters": {
+          "V0": 603.21,
+          "K0": 172.0
+        }
+      },
+      "parameter_errors": {
+        "V0": 0.18,
+        "K0": 1.0
+      },
+      "fixed_parameters": [],
+      "parameter_error_convention": "One standard deviation; Table 2 footnote a and Figure 5 caption.",
+      "parameter_covariance": null,
+      "temperature_ref": 300.0,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        14.9
+      ],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "range_provenance": {
+        "source_location": "Table 1 and abstract",
+        "notes": "Ambient anchor plus 17 DAC states; no decomposition, splitting or new peaks observed. Zero-pressure reference is defined by the EOS."
+      },
+      "fit_datasets": [
+        "qandilite_lv_2016_table1_pv"
+      ],
+      "parameter_provenance": {
+        "equation": "Unnumbered standard Eulerian Birch–Murnaghan equation, p. 303; conventional cubic cell volume.",
+        "V0": "Fitted, p. 303: 603.21(18) A3; not the measured 602.58(49) A3 ambient volume.",
+        "K0": "Fitted, p. 303 and Table 2: 172.0 GPa.",
+        "K0_prime": "Fixed at 4 by BM2 model order; explicitly stated p. 303 and Table 2 footnote b.",
+        "reference_state": "P=0 GPa, T=300 K; Z=8 conventional cubic cell."
+      },
+      "fit_provenance": {
+        "scope": "Independent audit diagnostic, not the unpublished source regression settings.",
+        "software": {
+          "name": "Peritheos",
+          "version": "0.9.0"
+        },
+        "dataset": "qandilite_lv_2016_table1_pv",
+        "selection": {
+          "predicate": "all Table 1 rows",
+          "included_rows": 18,
+          "excluded_rows": 0
+        },
+        "objective": "unweighted_pressure_residuals",
+        "weights": [],
+        "refined_parameters": [
+          "V0",
+          "K0"
+        ],
+        "fixed_parameters": [],
+        "fixed_model_choices": {
+          "K0_prime": 4.0
+        },
+        "reproduction": {
+          "script": "scripts/reproduce_lv_2016_qandilite.py"
+        },
+        "weight_notes": "Equal weights in independent audit; source numerical weights are unreported.",
+        "statistics": {
+          "observations": 18,
+          "free_parameters": 2,
+          "pressure_rmse_gpa": 0.128360254517702
+        }
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference_calibration_record": "ruby_mao_1978",
+            "reference": {
+              "authors": [
+                "Mao",
+                "Bell",
+                "Shaner",
+                "Steinberg"
+              ],
+              "year": 1978,
+              "source": "Journal of Applied Physics",
+              "doi": "10.1063/1.325277"
+            },
+            "source_location": "Experimental method p. 302; Table 1 footnote a",
+            "notes": "Ne pressure medium; pressures averaged before and after each diffraction acquisition. The paper cites Mao 1978, not Mao 1986."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Individual before/after readings, R1 wavelengths and reference wavelengths are not tabulated. Only averaged pressure and assumed 0.1 GPa uncertainty are recoverable."
+        }
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-09-19",
+        "verified_fields": [
+          "composition",
+          "equation",
+          "parameters",
+          "fixed_parameters",
+          "reference_state",
+          "volume_basis",
+          "structure",
+          "pressure_calibration",
+          "primary_data",
+          "independent_reproduction"
+        ],
+        "primary_source_check": {
+          "doi": "10.1007/s00269-015-0794-1",
+          "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+          "locations": [
+            "Experimental method, p. 302",
+            "Table 1 and unnumbered BM equation, p. 303",
+            "Figures 3–5, p. 304",
+            "Table 2, p. 305"
+          ],
+          "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-19",
+          "dataset_identifiers": [
+            "qandilite_lv_2016_table1_pv"
+          ],
+          "source_locations": [
+            "Table 1, p. 303"
+          ],
+          "finding": "All 18 rows with original P, a, V and every reported uncertainty. Raw ruby readings unavailable."
+        },
+        "reproduction": {
+          "script": "scripts/reproduce_lv_2016_qandilite.py",
+          "report": "docs/literature-reproductions/lv-2016-qandilite.md",
+          "result": "Both published curves reproduce Table 1; independent all-row unweighted refits recover all coefficients within reported one-sigma errors."
+        },
+        "unresolved": [
+          "Exact source weighting and numerical covariance unpublished; cannot reproduce the original confidence ellipse exactly."
+        ]
+      },
+      "notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim."
+    },
+    {
+      "identifier": "qandilite_lv_2016_bm3",
+      "label": "Lv et al. (2016), 300 K BM3 (free K0′)",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default": false,
+      "reference": {
+        "authors": [
+          "Lv",
+          "Liu",
+          "Shieh",
+          "Xie",
+          "Wang",
+          "Prescher",
+          "Prakapenka"
+        ],
+        "year": 2016,
+        "title": "Equation of state of synthetic qandilite Mg2TiO4 at ambient temperature",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "43",
+        "locator": "301–306",
+        "doi": "10.1007/s00269-015-0794-1"
+      },
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+          "V0": 603.1,
+          "K0": 175.0,
+          "K0_prime": 3.5
+        }
+      },
+      "parameter_errors": {
+        "V0": 0.25,
+        "K0": 5.0,
+        "K0_prime": 0.7
+      },
+      "fixed_parameters": [],
+      "parameter_error_convention": "One standard deviation; Table 2 footnote a and Figure 5 caption.",
+      "parameter_covariance": null,
+      "temperature_ref": 300.0,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        14.9
+      ],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "range_provenance": {
+        "source_location": "Table 1 and abstract",
+        "notes": "Ambient anchor plus 17 DAC states; no decomposition, splitting or new peaks observed. Zero-pressure reference is defined by the EOS."
+      },
+      "fit_datasets": [
+        "qandilite_lv_2016_table1_pv"
+      ],
+      "parameter_provenance": {
+        "equation": "Unnumbered standard Eulerian Birch–Murnaghan equation, p. 303; conventional cubic cell volume.",
+        "V0": "Fitted, p. 303: 603.10(25) A3; not the measured 602.58(49) A3 ambient volume.",
+        "K0": "Fitted, p. 303 and Table 2: 175.0 GPa.",
+        "K0_prime": "Fitted 3.5(7), p. 303 and Table 2.",
+        "reference_state": "P=0 GPa, T=300 K; Z=8 conventional cubic cell."
+      },
+      "fit_provenance": {
+        "scope": "Independent audit diagnostic, not the unpublished source regression settings.",
+        "software": {
+          "name": "Peritheos",
+          "version": "0.9.0"
+        },
+        "dataset": "qandilite_lv_2016_table1_pv",
+        "selection": {
+          "predicate": "all Table 1 rows",
+          "included_rows": 18,
+          "excluded_rows": 0
+        },
+        "objective": "unweighted_pressure_residuals",
+        "weights": [],
+        "refined_parameters": [
+          "V0",
+          "K0",
+          "K0_prime"
+        ],
+        "fixed_parameters": [],
+        "fixed_model_choices": {},
+        "reproduction": {
+          "script": "scripts/reproduce_lv_2016_qandilite.py"
+        },
+        "weight_notes": "Equal weights in independent audit; source numerical weights are unreported.",
+        "statistics": {
+          "observations": 18,
+          "free_parameters": 3,
+          "pressure_rmse_gpa": 0.12639854464684092
+        }
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference_calibration_record": "ruby_mao_1978",
+            "reference": {
+              "authors": [
+                "Mao",
+                "Bell",
+                "Shaner",
+                "Steinberg"
+              ],
+              "year": 1978,
+              "source": "Journal of Applied Physics",
+              "doi": "10.1063/1.325277"
+            },
+            "source_location": "Experimental method p. 302; Table 1 footnote a",
+            "notes": "Ne pressure medium; pressures averaged before and after each diffraction acquisition. The paper cites Mao 1978, not Mao 1986."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Individual before/after readings, R1 wavelengths and reference wavelengths are not tabulated. Only averaged pressure and assumed 0.1 GPa uncertainty are recoverable."
+        }
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-09-19",
+        "verified_fields": [
+          "composition",
+          "equation",
+          "parameters",
+          "fixed_parameters",
+          "reference_state",
+          "volume_basis",
+          "structure",
+          "pressure_calibration",
+          "primary_data",
+          "independent_reproduction"
+        ],
+        "primary_source_check": {
+          "doi": "10.1007/s00269-015-0794-1",
+          "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+          "locations": [
+            "Experimental method, p. 302",
+            "Table 1 and unnumbered BM equation, p. 303",
+            "Figures 3–5, p. 304",
+            "Table 2, p. 305"
+          ],
+          "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-19",
+          "dataset_identifiers": [
+            "qandilite_lv_2016_table1_pv"
+          ],
+          "source_locations": [
+            "Table 1, p. 303"
+          ],
+          "finding": "All 18 rows with original P, a, V and every reported uncertainty. Raw ruby readings unavailable."
+        },
+        "reproduction": {
+          "script": "scripts/reproduce_lv_2016_qandilite.py",
+          "report": "docs/literature-reproductions/lv-2016-qandilite.md",
+          "result": "Both published curves reproduce Table 1; independent all-row unweighted refits recover all coefficients within reported one-sigma errors."
+        },
+        "unresolved": [
+          "Exact source weighting and numerical covariance unpublished; cannot reproduce the original confidence ellipse exactly."
+        ]
+      },
+      "notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim."
+    }
+  ],
+  "datasets": [
+    {
+      "identifier": "qandilite_lv_2016_table1_pv",
+      "kind": "pressure_volume",
+      "description": "All 18 Table 1 states: ambient powder-XRD anchor and 17 synchrotron DAC states at 300 K.",
+      "source_location": "Table 1, p. 303",
+      "source_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+      "reference": {
+        "authors": [
+          "Lv",
+          "Liu",
+          "Shieh",
+          "Xie",
+          "Wang",
+          "Prescher",
+          "Prakapenka"
+        ],
+        "year": 2016,
+        "title": "Equation of state of synthetic qandilite Mg2TiO4 at ambient temperature",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "43",
+        "locator": "301–306",
+        "doi": "10.1007/s00269-015-0794-1"
+      },
+      "columns": [
+        {
+          "name": "source_row",
+          "quantity": "source_row_order",
+          "unit": "1",
+          "role": "flag"
+        },
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "pressure_sigma_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "a_a",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "a_sigma_a",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "a_a"
+        },
+        {
+          "name": "volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/qandilite-lv-2016-table1-pv.csv",
+        "sha256": "4a21ad66ea1fa6dffbd2f0b92d5456023165d3540575815b9f65933bd7fb5f40",
+        "media_type": "text/csv"
+      },
+      "uncertainty": {
+        "reported_as": "Parenthetical one standard deviation for a and V; high-P uncertainty assumed as 0.1 GPa. Ambient pressure uncertainty is missing, not zero.",
+        "covariance": "not_reported"
+      },
+      "selection": {
+        "audit": "All 18 rows; separate 17-DAC-row sensitivity. Exact source input selection and weights not published."
+      },
+      "license": "No separate dataset reuse license identified; factual table transcription only.",
+      "used_by_eos_records": [
+        "qandilite_lv_2016_bm2",
+        "qandilite_lv_2016_bm3"
+      ]
+    }
+  ]
+}

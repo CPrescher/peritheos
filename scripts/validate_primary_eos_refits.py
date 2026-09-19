@@ -1919,6 +1919,18 @@ def _fit_record(
         from scripts.reproduce_litasov_2013_siderite import ledger_outcome
 
         return ledger_outcome(record)
+    if "_nisr_2017_" in record_id:
+        from scripts.reproduce_nisr_2017_silica import ledger_outcome
+
+        return ledger_outcome(record)
+    if "_chidester_2018_" in record_id:
+        from scripts.reproduce_chidester_2018_tho2 import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id.startswith("superhydrous_phase_b_lt_litasov_2007_"):
+        from scripts.reproduce_litasov_2007_superhydrous_phase_b import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id.startswith("gold_hirose_2008_"):
         from scripts.reproduce_hirose_2008_gold import ledger_outcome
 
@@ -5047,6 +5059,26 @@ def validate_all() -> dict[str, Any]:
                 outcome = _tange_2009_approximate_outcome(record)
             elif record["identifier"] == NOGUCHI_RECORD_ID:
                 outcome = _noguchi_2013_outcome(record)
+            elif record["identifier"] == "vanadium_bcc_crichton_2016_bm3_thermal":
+                crichton = json.loads(
+                    (
+                        ROOT / "docs/data/crichton-2016-vanadium-reproduction.json"
+                    ).read_text(encoding="utf-8")
+                )
+                outcome = {
+                    "status": "not_refittable",
+                    "dataset_identifiers": identifiers,
+                    "observations": 29,
+                    "reason": check["finding"],
+                    "partial_validation": crichton["nominal_temperature_proxy_fit"],
+                    "curve_validation": {
+                        "observations": len(crichton["curve_checkpoints"]),
+                        "max_abs_relative_volume_difference": crichton[
+                            "curve_max_abs_relative_volume_difference"
+                        ],
+                        "tolerance": crichton["curve_tolerance"],
+                    },
+                }
             elif not identifiers:
                 outcome = {
                     "status": "not_refittable",

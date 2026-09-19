@@ -5,11 +5,6 @@
   dolomite, with discussion of some aspects of the stereochemistry of calcite
   type carbonates. *Zeitschrift für Kristallographie*, **156**, 233–243.
   [doi:10.1524/zkri.1981.156.14.233](https://doi.org/10.1524/zkri.1981.156.14.233).
-- Litasov, K. D., Ohtani, E., Ghosh, S., Nishihara, Y., Suzuki, A. &
-  Funakoshi, K. (2007). Thermal equation of state of superhydrous phase B to
-  27 GPa and 1373 K. *Physics of the Earth and Planetary Interiors*, **164**,
-  142–160. [doi:10.1016/j.pepi.2007.06.003](https://doi.org/10.1016/j.pepi.2007.06.003).
-
 - Litasov, K. D., Shatskiy, A., Gavryushkin, P. N., Sharygin, I. S.,
   Dorogokupets, P. I., Dymshits, A. M., Ohtani, E., Higo, Y. & Funakoshi, K.
   (2013). P–V–T equation of state of siderite to 33 GPa and 1673 K.
@@ -17,6 +12,43 @@
   [doi:10.1016/j.pepi.2013.07.011](https://doi.org/10.1016/j.pepi.2013.07.011).
   Natural Fe0.95Mn0.05CO3; published 300 K BM3 and an explicit Peritheos thermal
   refit are executable; both conflicting published thermal sets remain evidence only. See the [source audit and refit](literature-reproductions/litasov-2013-siderite.md).
+
+- Litasov, K. D., Ohtani, E., Ghosh, S., Nishihara, Y., Suzuki, A. &
+  Funakoshi, K. (2007). Thermal equation of state of superhydrous phase B to
+  27 GPa and 1373 K. *Physics of the Earth and Planetary Interiors*, 164, 142–160.
+  [doi:10.1016/j.pepi.2007.06.003](https://doi.org/10.1016/j.pepi.2007.06.003).
+  Seven experimental fits and the complete Table 2 observations are included;
+  see the [source audit](literature-reproductions/litasov-2007-superhydrous-phase-b.md)
+  for equation corrections and held alternatives.
+
+- Koch-Müller, M., Dera, P., Fei, Y., Hellwig, H., Liu, Z., Van Orman, J. &
+  Wirth, R. (2005). Polymorphic phase transition in Superhydrous Phase B.
+  *Physics and Chemistry of Minerals*, 32, 349–361.
+  [doi:10.1007/s00269-005-0007-4](https://doi.org/10.1007/s00269-005-0007-4).
+  Table 4's MKM0105 Pnn2 structure supplies the independent diffraction model,
+  with the author-corrected O6 coordinate archived in AMCSD/COD.
+
+- Koch-Müller, M. and coauthors (2014). Erratum to: Polymorphic phase transition
+  in Superhydrous Phase B. *Physics and Chemistry of Minerals*, 41, 725.
+  [doi:10.1007/s00269-014-0697-6](https://doi.org/10.1007/s00269-014-0697-6).
+  The official H2 coordinate correction is applied to the LT structural model.
+- Crichton, W. A., Guignard, J., Bailey, E., Dobson, D. P., Hunt, S. A. &
+  Thomson, A. R. (2016). High-temperature equation of state of vanadium.
+  *High Pressure Research*, 36, 16–22.
+  [doi:10.1080/08957959.2015.1123256](https://doi.org/10.1080/08957959.2015.1123256).
+  See the [bcc vanadium audit](literature-reproductions/crichton-2016-vanadium.md)
+  for the main experimental fit, missing alternative-fit coefficients and
+  source-version limitations.
+- James, W. J. & Straumanis, M. E. (1960). Lattice parameter and expansion
+  coefficient of vanadium. *Journal of the Electrochemical Society*, 107, 69.
+  Separate diffraction structure, via [COD 9012770](https://qiserver.ugr.es/cod/9012770.cif)
+  / AMCSD 0014111.
+- Angel, R. J., Gonzalez-Platas, J. & Alvaro, M. (2014). EosFit7c and a Fortran
+  module (library) for equation of state calculations. *Zeitschrift für
+  Kristallographie*, 229, 405–419.
+  [doi:10.1515/zkri-2013-1711](https://doi.org/10.1515/zkri-2013-1711).
+  Pages 410 and 412 document the earlier EosFit alpha(T) convention and
+  temperature-dependent reference modulus used for the vanadium audit.
 
 - Zha, C.-S., Bassett, W. A. & Shim, S.-H. (2004). Rhenium, an in situ
   pressure calibrant for internally heated diamond anvil cells. *Review of
@@ -483,3 +515,35 @@ publication when citing a model in scientific work.
 - Dubrovinsky, Saxena, Tutti, Rekhi, LeBehan (2000). *In Situ X-Ray Study of Thermal Expansion and Phase Transition of Iron at Multimegabar Pressure*. Physical Review Letters 84, 1720–1723. [doi:10.1103/PhysRevLett.84.1720](https://doi.org/10.1103/PhysRevLett.84.1720). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
 - Yamazaki, Ito, Yoshino, Yoneda, Guo, Zhang, Sun, Shimojuku, Tsujino, Kunimoto, Higo, Funakoshi (2012). *P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils*. Geophysical Research Letters 39, L20308. [doi:10.1029/2012GL053540](https://doi.org/10.1029/2012GL053540). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
 - Sakai, Takahashi, Nishitani, Mashino, Ohtani, Hirao (2014). *Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar*. Physics of the Earth and Planetary Interiors 228, 114–126. [doi:10.1016/j.pepi.2013.12.010](https://doi.org/10.1016/j.pepi.2013.12.010). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
+
+- Nisr, C., Leinenweber, K., Prakapenka, V., Prescher, C., Tkachev, S., and
+  Shim, S.-H. D. (2017). Phase transition and equation of state of dense
+  hydrous silica up to 63 GPa. *JGR: Solid Earth* **122**, 6972–6983.
+  [doi:10.1002/2017JB014055](https://doi.org/10.1002/2017JB014055),
+  corrected 26 October 2017, with official Supporting Information S1.
+  [Source audit and reproduction](literature-reproductions/nisr-2017-hydrous-silica.md).
+
+## Thorium dioxide experimental EOS and structures
+
+- Chidester, B.A., Pardo, O.S., Fischer, R.A., Thompson, E.C., Heinz, D.L.,
+  Prescher, C., Prakapenka, V.B., and Campbell, A.J. (2018). High-pressure phase
+  behavior and equations of state of ThO2 polymorphs. *American Mineralogist*,
+  103, 749–756. [doi:10.2138/am-2018-6212](https://doi.org/10.2138/am-2018-6212).
+  See the [source audit and refits](literature-reproductions/chidester-2018-tho2.md).
+- Idiri, M., Le Bihan, T., Heathman, S., and Rebizant, J. (2004). Behavior of
+  actinide dioxides under pressure: UO2 and ThO2. *Physical Review B*, 70,
+  014113. [doi:10.1103/PhysRevB.70.014113](https://doi.org/10.1103/PhysRevB.70.014113).
+  Experimental structure authority for both ThO2 cards; its EOS is not added here.
+
+## Synthetic qandilite
+
+- Lv, M., Liu, X., Shieh, S. R., Xie, T., Wang, F., Prescher, C., and
+  Prakapenka, V. B. (2016). Equation of state of synthetic qandilite Mg2TiO4
+  at ambient temperature. *Physics and Chemistry of Minerals* **43**, 301–306.
+  [doi:10.1007/s00269-015-0794-1](https://doi.org/10.1007/s00269-015-0794-1).
+- O’Neill, H. St. C., Redfern, S. A. T., Kesson, S., and Short, S. (2003).
+  An in situ neutron diffraction study of cation disordering in synthetic
+  qandilite Mg2TiO4 at high temperatures. *American Mineralogist* **88**, 860–865.
+  [doi:10.2138/am-2003-5-615](https://doi.org/10.2138/am-2003-5-615).
+
+See the [source audit and reproduction](literature-reproductions/lv-2016-qandilite.md).

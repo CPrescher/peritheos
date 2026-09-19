@@ -173,6 +173,11 @@ def build_papers() -> tuple[list[dict[str, Any]], dict[str, int]]:
                 "statuses": statuses,
                 "data_statuses": data_statuses,
                 "records": sorted(records, key=lambda row: row["record_identifier"]),
+                "withheld_candidates": [
+                    {**candidate, "evidence": row["evidence"]}
+                    for row in source_rows
+                    for candidate in row.get("withheld_candidates", [])
+                ],
             }
         )
 
@@ -320,6 +325,10 @@ def render() -> str:
             "source-faithful coefficient refit could not be performed. A paper can also",
             "have other records that were reproduced.",
             "",
+            "See [incomplete datasets and author requests](dataset-requests.md) for",
+            "reviewed outreach recommendations, exact requests, and contact status.",
+            "Papers not yet listed there remain unassessed for outreach.",
+            "",
             "| Paper | Affected records | Why direct refitting was unavailable |",
             "|---|---|---|",
         ]
@@ -394,6 +403,19 @@ def render() -> str:
             f"| {source_link(paper)} | {OUTCOME_LABELS[paper['outcome']]} | "
             f"{record_count} | {result} | {data_form} |"
         )
+
+    incomplete_alternatives = [
+        paper for paper in catalog_papers if paper.get("withheld_candidates")
+    ]
+    if incomplete_alternatives:
+        lines.extend(["", "## Withheld alternatives in catalog papers", ""])
+        for paper in incomplete_alternatives:
+            for candidate in paper["withheld_candidates"]:
+                lines.append(
+                    f"- {source_link(paper)}, {candidate['candidate']}: "
+                    f"{candidate['reason']} "
+                    f"[Audit]({candidate['evidence']})."
+                )
 
     lines.extend(
         [

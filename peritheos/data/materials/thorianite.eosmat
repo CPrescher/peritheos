@@ -1,0 +1,348 @@
+{
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "thorianite",
+  "name": "Thorianite",
+  "formula": "ThO2",
+  "phase": "fluorite",
+  "aliases": [
+    "tho2_fluorite"
+  ],
+  "units": {
+    "pressure": "GPa",
+    "temperature": "K",
+    "volume": "angstrom^3/conventional_unit_cell"
+  },
+  "symmetry": "CUBIC",
+  "lattice": {
+    "a": 5.5958,
+    "b": 5.5958,
+    "c": 5.5958,
+    "alpha": 90.0,
+    "beta": 90.0,
+    "gamma": 90.0
+  },
+  "formula_units_per_cell": 4,
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "atom_sites": [
+    {
+      "element": "Th",
+      "wyckoff": "4a",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "occupancy": 1.0
+    },
+    {
+      "element": "O",
+      "wyckoff": "8c",
+      "x": 0.25,
+      "y": 0.25,
+      "z": 0.25,
+      "occupancy": 1.0
+    }
+  ],
+  "peaks": [],
+  "source": {
+    "reference": {
+      "authors": [
+        "Idiri",
+        "Le Bihan",
+        "Heathman",
+        "Rebizant"
+      ],
+      "year": 2004,
+      "source": "Physical Review B 70, 014113",
+      "doi": "10.1103/PhysRevB.70.014113"
+    },
+    "source_location": "Idiri et al. (2004) pp.014113-1–2: site multiplicities, coordinates and Z.",
+    "notes": "Fluorite lattice from Chidester p.751 ambient measurement; sites from Idiri introduction."
+  },
+  "datasets": [
+    {
+      "identifier": "thorianite_chidester_2018_table_s1",
+      "kind": "pressure_volume_temperature",
+      "reference": {
+        "authors": [
+          "Chidester",
+          "Pardo",
+          "Fischer",
+          "Thompson",
+          "Heinz",
+          "Prescher",
+          "Prakapenka",
+          "Campbell"
+        ],
+        "year": 2018,
+        "source": "American Mineralogist 103, 749–756",
+        "doi": "10.2138/am-2018-6212"
+      },
+      "source_location": "Official deposit AM-18-56212, 6212_supp1.csv, Supplemental Table 1",
+      "source_url": "http://www.minsocam.org/MSA/AmMin/TOC/2018/May2018_data/AM-18-56212.zip",
+      "columns": [
+        {
+          "name": "sample",
+          "quantity": "observation_identifier",
+          "unit": "text",
+          "role": "flag"
+        },
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "pressure_error_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "a_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "a_error_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "a_angstrom"
+        },
+        {
+          "name": "volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "volume_error_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        },
+        {
+          "name": "molar_volume_cm3_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "value"
+        },
+        {
+          "name": "molar_volume_error_cm3_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "uncertainty",
+          "of": "molar_volume_cm3_mol"
+        },
+        {
+          "name": "temperature_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "value"
+        },
+        {
+          "name": "temperature_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {
+          "name": "pressure_standard",
+          "quantity": "observation_identifier",
+          "unit": "text",
+          "role": "flag"
+        },
+        {
+          "name": "included_in_fit",
+          "quantity": "selection_flag",
+          "unit": "1",
+          "role": "flag"
+        }
+      ],
+      "resource": {
+        "path": "datasets/chidester_2018_thorianite_pvt.csv",
+        "sha256": "f8012da92ae1588a6e05f03b9559963e908bb338ea062dcff34b29408d9f8fa9",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [
+        "thorianite_chidester_2018_bm3_linear_thermal"
+      ],
+      "uncertainty": {
+        "reported_as": "source err columns; confidence level not specified",
+        "covariance": "not_reported"
+      },
+      "notes": "All source rows and columns retained. Original bytes are in datasets/chidester_2018_sources; only headers/delimiters normalized and a documented selection flag added. No raw calibrant volume, temperature or optical reading is deposited. Ar 3% scale accuracy is separate from tabulated pressure errors."
+    }
+  ],
+  "eos_records": [
+    {
+      "identifier": "thorianite_chidester_2018_bm3_linear_thermal",
+      "label": "Chidester et al. (2018), thorianite experimental thermal EOS",
+      "reference": {
+        "authors": [
+          "Chidester",
+          "Pardo",
+          "Fischer",
+          "Thompson",
+          "Heinz",
+          "Prescher",
+          "Prakapenka",
+          "Campbell"
+        ],
+        "year": 2018,
+        "source": "American Mineralogist 103, 749–756",
+        "doi": "10.2138/am-2018-6212"
+      },
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default_for": "equilibrium",
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+          "V0": 175.2134402119156,
+          "K0": 204,
+          "K0_prime": 4.0
+        }
+      },
+      "thermal": {
+        "type": "LinearThermalPressure",
+        "model": "linear_thermal_pressure",
+        "parameters": {
+          "Tr": 300.0,
+          "alpha_KT": 0.0035
+        },
+        "parameter_errors": {
+          "Tr": null,
+          "alpha_KT": 0.0003
+        },
+        "fixed_parameters": [
+          "Tr"
+        ]
+      },
+      "parameter_errors": {
+        "V0": 0.046495093880867706,
+        "K0": 2,
+        "K0_prime": null
+      },
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "temperature_ref": 300.0,
+      "experimental_pressure_range_gpa": [
+        0,
+        28
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        2135
+      ],
+      "pressure_range_status": "reported_exactly",
+      "fit_datasets": [
+        "thorianite_chidester_2018_table_s1"
+      ],
+      "parameter_provenance": {
+        "reference_isotherm": {
+          "V0": "Table 1 p.750 and EOS text p.754: 26.379(0.007) cm^3/mol of ThO2; multiply by 4e24/N_A for conventional Z=4 cell. Measured ambient, fixed in fit.",
+          "K0": "Table 1 p.750: fitted; GPa.",
+          "K0_prime": "Table 1 (bold) and p.754: fixed at 4."
+        },
+        "thermal_correction": {
+          "Tr": "Equations 1–3 p.754: fixed 300 K.",
+          "alpha_KT": "Table 1 and Equation 3 p.754: fitted constant product alpha*K_T in GPa/K, not constant alpha and not Debye MGD."
+        }
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": [
+                "Dewaele",
+                "Belonoshko",
+                "Garbarino",
+                "Occelli",
+                "Bouvier",
+                "Hanfland",
+                "Mezouar"
+              ],
+              "year": 2012,
+              "source": "Physical Review B 85, 214105",
+              "doi": "10.1103/PhysRevB.85.214105"
+            },
+            "source_location": "Chidester p.751, synchrotron methods",
+            "scope": "KBr in B5/B25; KCl in B70. Midpoint insulator temperature between sample surface and diamond; sample temperatures corrected by -3%."
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": [
+                "Ross",
+                "Mao",
+                "Bell",
+                "Xu"
+              ],
+              "year": 1986,
+              "source": "Journal of Chemical Physics 85, 1028–1033"
+            },
+            "source_location": "p.751, sample B12",
+            "scope": "Ar pressure EOS; 3% accuracy assigned separately from row errors."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Source scale citations and standard identities retained, but row-wise calibrant lattice/volume and marker temperatures are absent. No pressure recalculation claimed."
+        },
+        "audit_date": "2026-09-19"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-09-19",
+        "note": "Primary article and official CSVs audited; independent source-equation evaluation and diagnostic refits in scripts/reproduce_chidester_2018_tho2.py.",
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "published_uncertainties",
+          "validity"
+        ],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.2138/am-2018-6212",
+          "doi": "10.2138/am-2018-6212",
+          "locations": [
+            "Table 1, p.750",
+            "Methods, p.751",
+            "Equations 1–3, p.754",
+            "Figure 7, p.754",
+            "Supplemental Table 1"
+          ],
+          "finding": "Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0_prime fixed 4 plus constant linear thermal pressure."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-19",
+          "dataset_identifiers": [
+            "thorianite_chidester_2018_table_s1"
+          ],
+          "source_locations": [
+            "Supplemental Table 1"
+          ],
+          "finding": "Only T=300 K rows with P<15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. All coordinate and lattice errors retained; confidence convention, fit weights, covariance and raw calibrant readings unreported.",
+          "reproduction_resource": "docs/data/chidester-2018-tho2-reproduction.json"
+        }
+      },
+      "notes": "Only T=300 K rows with P<15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md."
+    }
+  ],
+  "notes": "End-member ThO2 (Strem 99.99%); conventional cell contains Th4O8. Distinct phase, not a multiphase aggregate. Structure and EOS provenance are separate."
+}

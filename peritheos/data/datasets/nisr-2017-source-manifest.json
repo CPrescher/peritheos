@@ -1,0 +1,34 @@
+{
+  "doi": "10.1002/2017JB014055",
+  "audit_date": "2026-09-19",
+  "sources": [
+    {
+      "role": "corrected_publication_of_record",
+      "filename": "Nisr et al. - 2017 - Phase transition and equation of state of dense hydrous silica up to 63 GPa.pdf",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
+      "sha256": "b52a57931a5068da41824af1b62ee44de60b03ad795038def88b8b935717fb13",
+      "size_bytes": 870439,
+      "version": "Corrected 26 October 2017"
+    },
+    {
+      "role": "official_supporting_information",
+      "filename": "jgrb52249-sup-0001-supplementary.pdf",
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014055&file=jgrb52249-sup-0001-Supplementary.pdf",
+      "sha256": "bd1dcde5c4256d170e1d0627bad922efd67b3798bfbcf9b75a7aa0c29e7cae9c",
+      "size_bytes": 112068,
+      "version": "Publisher-served S1; internal footer June 8, 2017, DRAFT; downloaded 2026-09-19"
+    }
+  ],
+  "transcription": {
+    "path": "nisr-2017-silica-tables-s1-s4.csv",
+    "sha256": "2fa7b1d2a800d22bc61d2479933166404d3061f35346e3421e36254bd8c8ba63",
+    "row_count": 43,
+    "counts": {
+      "S1": 20,
+      "S2": 7,
+      "S3": 8,
+      "S4": 8
+    },
+    "method": "pdftotext -layout; numeric tokens transcribed at source precision, checked against rendered Tables S1-S4. Empty tetragonal b and absent Rwp are not synthesized. Printed zero sigmas retained."
+  }
+}

@@ -1,0 +1,506 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "hydrous_stishovite_nisr_2017",
+ "name": "Hydrous stishovite (Nisr 2017)",
+ "formula": "Si0.954O2H0.184",
+ "phase": "stishovite, rutile-type hydrous silica",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "formula_units_per_cell": 2,
+ "symmetry": "TETRAGONAL",
+ "space_group": "P42/mnm",
+ "space_group_number": 136,
+ "lattice": {
+  "a": 4.20682,
+  "b": 4.20682,
+  "c": 2.66694,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "atom_sites": [],
+ "peaks": [
+  [
+   1,
+   0,
+   1,
+   2.252447296,
+   1.0
+  ],
+  [
+   2,
+   0,
+   0,
+   2.10341,
+   1.0
+  ],
+  [
+   2,
+   1,
+   0,
+   1.881347098,
+   1.0
+  ],
+  [
+   1,
+   1,
+   2,
+   1.216804295,
+   1.0
+  ],
+  [
+   3,
+   0,
+   1,
+   1.241161685,
+   1.0
+  ]
+ ],
+ "source": {
+  "structure": {
+   "reference": {
+    "authors": [
+     "Nisr",
+     "Leinenweber",
+     "Prakapenka",
+     "Prescher",
+     "Tkachev",
+     "Shim"
+    ],
+    "year": 2017,
+    "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "6972-6983",
+    "doi": "10.1002/2017JB014055"
+   },
+   "source_location": "Sections 2 and 3.2; Figure 2a; Table S2",
+   "reference_pressure_gpa": 0.0,
+   "reference_temperature_k": 300.0,
+   "conventional_cell": "Primitive tetragonal rutile cell, Z=2",
+   "fallback": "Position-only indexed peak list. hkl taken from source figures; d calculated from the measured single-phase cell. Intensity 1 is a uniform display marker, not measured or calculated intensity. No atomic model asserted because H positions are unresolved and the article did not refine any coordinates. This limited fallback is unsuitable for intensity simulation or hydrogen-site inference.",
+   "separate_structure_context": {
+    "doi": "10.2138/am-2003-2-307",
+    "reference": "Andrault et al. (2003), rutile and CaCl2-type silica conventional-cell topology; does not determine hydrous atomic sites."
+   }
+  },
+  "eos": {
+   "reference": {
+    "authors": [
+     "Nisr",
+     "Leinenweber",
+     "Prakapenka",
+     "Prescher",
+     "Tkachev",
+     "Shim"
+    ],
+    "year": 2017,
+    "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "6972-6983",
+    "doi": "10.1002/2017JB014055"
+   },
+   "source_location": "Tables 3-4 and Section 3.3"
+  },
+  "source_manifest": "datasets/nisr-2017-source-manifest.json"
+ },
+ "sample_composition": {
+  "reported_formula": "Si0.954O2H0.184",
+  "reported_water_wt_percent": 3.2,
+  "reported_water_uncertainty_wt_percent": 0.5,
+  "method": "Volume calibration updated from Spektor 2011/2016, explained in Text S1 and companion Nisr 2017, doi:10.2138/am-2017-5944; no calibration coefficients in this source supplement. Raman structural OH is qualitative."
+ },
+ "notes": "Al-free sample; water inferred from volume calibration, not directly measured by SIMS/IR/TGA on this specimen. Raman confirms structural OH qualitatively. Preserve Table 1 Si0.954O2H0.184: its mass-equivalent H2O is about 2.81 wt%, within the reported 3.2(5) wt% range but not exactly its central value. H retention at high pressure is inferred, not measured. No atomic coordinates were refined (Section 2). The 28-42 GPa interval is two-phase coexistence, excluded from both hydrous EOS fits. CaCl2-type Pnnm denotes the Si-O framework refinement model; hydrogen ordering and a possible delta-AlOOH-related subgroup are unresolved (Section 3.2). Table 3 fixed V0=47.191 is retained, not replaced by Table 2 47.198. The cell axes imply 47.198696 A^3. Diffraction uses the explicitly limited peak-position fallback described in source.structure.",
+ "eos_records": [
+  {
+   "identifier": "hydrous_stishovite_nisr_2017_bm3",
+   "label": "Nisr et al. (2017), hydrous stishovite BM3",
+   "reference": {
+    "authors": [
+     "Nisr",
+     "Leinenweber",
+     "Prakapenka",
+     "Prescher",
+     "Tkachev",
+     "Shim"
+    ],
+    "year": 2017,
+    "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "6972-6983",
+    "doi": "10.1002/2017JB014055"
+   },
+   "record_kind": "published",
+   "default": true,
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 47.191,
+     "K0": 257.0,
+     "K0_prime": 4.59
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 9.0,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    22.747
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "range_provenance": {
+    "pressure": {
+     "source_location": "Section 3.3; official Table S2",
+     "basis": "reported_exactly",
+     "notes": "Marginal fit-data range, not a phase stability boundary. Ambient 1 bar treated as zero pressure by the published BM convention."
+    },
+    "temperature": {
+     "source_location": "Section 2; Figure 5",
+     "basis": "reported_exactly"
+    }
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.3 cites Birch (1978): P=3K0/2*(eta^7-eta^5)*[1+3/4*(K0_prime-4)*(eta^2-1)], eta=(V0/V)^(1/3). K0_prime=4 reduces exactly to BM2. No thermal term.",
+    "V0": "Table 3 and Section 3.3: fixed to source ambient volume; keep final EOS table value despite differing ambient structural tables.",
+    "K0": "Table 3",
+    "K0_prime": "Section 3.3: fixed 4 for CaCl2 type; fixed 4.59 adopted from Andrault et al. (2003) for both stishovites.",
+    "uncertainty": "Tables 3-4: estimated 1 sigma. No source covariance or weighting protocol. Null fixed-parameter errors do not mean error-free measurement.",
+    "volume_normalization": "angstrom cubed per conventional primitive rutile/orthorhombic cell, Z=2; no molar or atom conversion."
+   },
+   "fit_datasets": [
+    "nisr_2017_silica_tables_s1_s4"
+   ],
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "PNAS",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Section 2: pressure from separate Au foil, individual XRD peaks, in the same He-loaded DAC chamber.",
+      "notes": "Fei (2007) publishes both BM3 and Vinet Au fits; Nisr does not specify the variant. No exact reference_eos_record is asserted."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Official Tables S1-S4 contain sample P,V,lattice observations, no paired Au lattice/volume readings and no pressure uncertainties. Variant ambiguity also prevents an exact re-reduction."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "authoritative_eos",
+     "doi": "10.1002/2017JB014055",
+     "version": "Corrected 26 October 2017; Erratum corrects dry c and V0 in Table 2 only.",
+     "citation": "Nisr et al. (2017), JGR: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055."
+    },
+    {
+     "role": "primary_observations",
+     "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014055&file=jgrb52249-sup-0001-Supplementary.pdf",
+     "version": "Official supplement currently served by Wiley; June 8 2017 DRAFT footer retained, no corrected S1 provided.",
+     "citation": "Nisr et al. (2017), JGR: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055."
+    }
+   ],
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Corrected publication and official supplement audited; independent source-row fits reproduce coefficients within published 1-sigma errors. See docs/literature-reproductions/nisr-2017-hydrous-silica.md.",
+    "primary_source_check": {
+     "doi": "10.1002/2017JB014055",
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
+     "locations": [
+      "Sections 2, 3.1-3.3 and 4.2",
+      "Tables 1-4",
+      "Figures 2-5",
+      "Erratum, page 6983",
+      "Supporting Text S1 and Tables S1-S4"
+     ],
+     "finding": "Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved."
+    },
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "primary_data",
+     "independent_refit"
+    ],
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "nisr_2017_silica_tables_s1_s4"
+     ],
+     "finding": "All 43 S1-S4 rows bundled, including eight phase-resolved coexistence entries, all printed lattice/volume sigmas and Rwp values. Au readings and pressure errors absent."
+    },
+    "unresolved": [
+     "Original least-squares dependent variable and weights are unspecified; diagnostic objective is explicit.",
+     "Pressure marker variant and row-wise marker observations unavailable."
+    ]
+   },
+   "notes": "Al-free sample; water inferred from volume calibration, not directly measured by SIMS/IR/TGA on this specimen. Raman confirms structural OH qualitatively. Preserve Table 1 Si0.954O2H0.184: its mass-equivalent H2O is about 2.81 wt%, within the reported 3.2(5) wt% range but not exactly its central value. H retention at high pressure is inferred, not measured. No atomic coordinates were refined (Section 2). The 28-42 GPa interval is two-phase coexistence, excluded from both hydrous EOS fits. CaCl2-type Pnnm denotes the Si-O framework refinement model; hydrogen ordering and a possible delta-AlOOH-related subgroup are unresolved (Section 3.2). Table 3 fixed V0=47.191 is retained, not replaced by Table 2 47.198. The cell axes imply 47.198696 A^3.",
+   "parameter_covariance": null,
+   "parameter_error_confidence": null,
+   "parameter_uncertainty_convention": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "nisr_2017_silica_tables_s1_s4",
+   "kind": "pressure_lattice_volume",
+   "description": "Complete official supplement: 20 dry S1, 7 hydrous rutile S2, 8 coexistence S3, 8 hydrous CaCl2 S4 rows. Identical shared resource linked to each phase record; record selection is explicit.",
+   "reference": {
+    "authors": [
+     "Nisr",
+     "Leinenweber",
+     "Prakapenka",
+     "Prescher",
+     "Tkachev",
+     "Shim"
+    ],
+    "year": 2017,
+    "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "6972-6983",
+    "doi": "10.1002/2017JB014055"
+   },
+   "source_location": "Official supporting information, Text S1 and Tables S1-S4, pp. X-3 to X-5",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014055&file=jgrb52249-sup-0001-Supplementary.pdf",
+   "columns": [
+    {
+     "name": "table",
+     "quantity": "source_table",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_sigma_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_sigma_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_sigma_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "rwp_background_subtracted_percent",
+     "quantity": "rietveld_residual",
+     "unit": "%",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/nisr-2017-silica-tables-s1-s4.csv",
+    "sha256": "2fa7b1d2a800d22bc61d2479933166404d3061f35346e3421e36254bd8c8ba63",
+    "media_type": "text/csv"
+   },
+   "row_count": 43,
+   "used_by_eos_records": [
+    "hydrous_stishovite_nisr_2017_bm3"
+   ],
+   "uncertainty_convention": "Printed sigma columns retained. Volume sigmas of zero at S3 hydrous rutile 38.334 GPa and S4 44.857 GPa are unusable weights, not exact data. Pressure sigmas absent. Figure 4 calls plotted error bars 1 sigma.",
+   "notes": "No paired Au observations. T=300 K from article, not an added measured column. S1 ambient V=46.612 differs from corrected article 46.569(11); S2 ambient V=47.191 differs from Table 2 47.198(21) and its lattice product. Preserve all independently reported values. Supplement gives no run labels.",
+   "source_provenance": {
+    "source_pdf_sha256": "bd1dcde5c4256d170e1d0627bad922efd67b3798bfbcf9b75a7aa0c29e7cae9c",
+    "manifest": "datasets/nisr-2017-source-manifest.json",
+    "license": "No separate data license stated; attributed factual numeric transcription."
+   }
+  },
+  {
+   "identifier": "nisr_2017_corrected_table2_ambient",
+   "kind": "ambient_structure_and_composition",
+   "reference": {
+    "authors": [
+     "Nisr",
+     "Leinenweber",
+     "Prakapenka",
+     "Prescher",
+     "Tkachev",
+     "Shim"
+    ],
+    "year": 2017,
+    "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "6972-6983",
+    "doi": "10.1002/2017JB014055"
+   },
+   "source_location": "Corrected publication of record, Table 2, 1 bar and 300 K; Erratum p. 6983",
+   "columns": [
+    {
+     "name": "composition_flag",
+     "quantity": "composition",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_sigma_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_sigma_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    },
+    {
+     "name": "water_wt_percent",
+     "quantity": "water_content",
+     "unit": "wt%",
+     "role": "value"
+    },
+    {
+     "name": "water_uncertainty_wt_percent",
+     "quantity": "water_content",
+     "unit": "wt%",
+     "role": "uncertainty",
+     "of": "water_wt_percent"
+    }
+   ],
+   "rows": [
+    [
+     0,
+     4.1805,
+     0.0009,
+     2.6647,
+     0.0009,
+     46.569,
+     0.011,
+     0,
+     null
+    ],
+    [
+     1,
+     4.2068,
+     0.0009,
+     2.6669,
+     0.0009,
+     47.198,
+     0.021,
+     3.2,
+     0.5
+    ]
+   ],
+   "used_by_eos_records": [
+    "hydrous_stishovite_nisr_2017_bm3"
+   ],
+   "notes": "composition_flag=0 dry, 1 hydrous. Structural/composition benchmarks, not substituted for S1/S2 fit observations. Source correction changes the dry c and V only. Hydrous water is volume-calibrated; original Spektor calibration would give 2.7 wt%."
+  }
+ ]
+}

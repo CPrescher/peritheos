@@ -1,0 +1,178 @@
+{
+  "doi": "10.1016/j.pepi.2007.06.003",
+  "audit_date": "2026-09-19",
+  "source_version": "Author-uploaded final publication of record, all 19 pages visually/rendered-text inspected. Publisher landing page challenged; no local main-paper PDF hash asserted.",
+  "supplements_and_corrections": "No main-paper official supplement or correction located in inspected article, publisher metadata or DOI relations; this is a search outcome, not proof of absence. Structure paper has retrieved official 2014 erratum.",
+  "zotero": "Local Zotero API enabled; global title and superhydrous searches returned no matching entries. Source retrieved independently.",
+  "table1": {
+    "oxide_wt_percent": {
+      "SiO2": [
+        29.06,
+        0.24
+      ],
+      "MgO": [
+        64.61,
+        0.6
+      ],
+      "total": [
+        93.67,
+        0.55
+      ]
+    },
+    "density_g_cm3": [
+      3.3,
+      0.01
+    ],
+    "raw_formula": "Mg9.87Si2.98H4.33O18",
+    "normalized_H4_formula": "Mg9.98Si3.01H4O18",
+    "notes": "H inferred from EPMA deficit; nominal stoichiometric ideal model is Mg10Si3O18H4. Source reports small MgO impurity.",
+    "reported_uncertainty": "1 sigma (explicit Table 1 header)"
+  },
+  "accepted_records": [
+    "superhydrous_phase_b_lt_litasov_2007_bm3_a89",
+    "superhydrous_phase_b_lt_litasov_2007_bm3_t03",
+    "superhydrous_phase_b_lt_litasov_2007_htbm_a89",
+    "superhydrous_phase_b_lt_litasov_2007_htbm_t03",
+    "superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89",
+    "superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
+    "superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89"
+  ],
+  "held_candidates": [
+    {
+      "model": "BM2 at 300 K",
+      "scale": "A89",
+      "K0_gpa": 145.2,
+      "K0_error_gpa": 0.4,
+      "K0_prime": 4,
+      "fixed": [
+        "K0_prime"
+      ],
+      "reason": "Table 4 gives no separate V0 for fixed-Kprime branch. Do not borrow the free-BM3 V0."
+    },
+    {
+      "model": "BM2 at 300 K",
+      "scale": "T03",
+      "K0_gpa": 149.2,
+      "K0_error_gpa": 0.6,
+      "K0_prime": 4,
+      "fixed": [
+        "K0_prime"
+      ],
+      "reason": "Table 4 gives no separate V0 for fixed-Kprime branch."
+    },
+    {
+      "model": "Anderson–Grüneisen power-law K(T), Eq. (5)",
+      "delta_T": 5.4,
+      "reason": "No separately complete coefficient set; prose delta_T−Kprime=−0.1 conflicts with 5.4−5.3=+0.1. No implied parameter borrowing."
+    },
+    {
+      "model": "Individual isotherm fits",
+      "temperatures_k": [
+        300,
+        473,
+        673,
+        873,
+        1073,
+        1273
+      ],
+      "K0_prime": 5.3,
+      "reason": "Figures 6–7 plot V0(T)/V0 and K(T); coefficients/errors not tabulated. No digitized production records; reconstructed fits remain diagnostics if attempted."
+    },
+    {
+      "model": "Six-parameter quadratic thermal pressure",
+      "reason": "Quadratic coefficient unresolved and not printed; authors omit it from final Table 5 fit."
+    },
+    {
+      "model": "Table 7 axial HTBM fits",
+      "reason": "Fictive a^3,b^3,c^3 volumes, not conventional unit-cell EOS. Coefficients preserved below; no volume-model promotion."
+    },
+    {
+      "model": "Reference fits and other phases in Table 8 and Figures 4, 6, 12–15",
+      "reason": "Comparators from other papers, not new source-owned experimental SuB fits."
+    }
+  ],
+  "table7_axial_fits": {
+    "volume_definition": "cube of the indicated lattice axis in Litasov long-b setting, not cell volume; alpha is expansivity of axis cubed",
+    "K0_prime_fixed": 5.3,
+    "Tr_k": 300,
+    "a": {
+      "V0_a3": [
+        133.1,
+        0.2
+      ],
+      "K0_gpa": [
+        125.7,
+        0.3
+      ],
+      "dK_dT_gpa_k": [
+        -0.028,
+        0.007
+      ],
+      "a0_per_k": [
+        3.74e-05,
+        4.6e-06
+      ],
+      "a1_per_k2": [
+        1.25e-08,
+        1.24e-08
+      ]
+    },
+    "b": {
+      "V0_a3": [
+        2740.6,
+        1.9
+      ],
+      "K0_gpa": [
+        136.6,
+        1.2
+      ],
+      "dK_dT_gpa_k": [
+        -0.033,
+        0.003
+      ],
+      "a0_per_k": [
+        3.23e-05,
+        1.8e-06
+      ],
+      "a1_per_k2": [
+        2.01e-08,
+        4.9e-09
+      ]
+    },
+    "c": {
+      "V0_a3": [
+        662.25,
+        0.39
+      ],
+      "K0_gpa": [
+        143.9,
+        1.2
+      ],
+      "dK_dT_gpa_k": [
+        -0.017,
+        0.003
+      ],
+      "a0_per_k": [
+        2.58e-05,
+        1.7e-06
+      ],
+      "a1_per_k2": [
+        7.8e-09,
+        3.5e-09
+      ]
+    },
+    "uncertainty_conflict": "a-axis Table 7 prints 125.7(3), formally ±0.3 GPa; prose/abstract say 126±3 GPa. Preserve both without silent repair."
+  },
+  "source_files": [
+    {
+      "url": "https://artscimedia.case.edu/wp-content/uploads/sites/186/2016/06/14222658/Koch_Muller_et_al_PCM_2005.pdf",
+      "sha256": "09c633547f3aa21149c95040b368caacce87057f8d798724230954e245cf9c3b",
+      "redistributed": false
+    },
+    {
+      "url": "https://link.springer.com/content/pdf/10.1007/s00269-014-0697-6.pdf",
+      "sha256": "7694d54e2b8e55eb8e8600e8370830dadfbfc2617597c172cfa243cc27038c38",
+      "redistributed": false
+    }
+  ]
+}
