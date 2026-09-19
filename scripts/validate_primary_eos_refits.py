@@ -198,6 +198,40 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 FIT_QUALIFICATIONS = {
     "platinum_fei_2007_vinet_300k": "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The complete Fei (2007) joint thermal optimization and Au re-reduction are not reconstructed; the source confidence convention is unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure.",
     **{
+        f"fesi_b2_fischer_2014_{model}_refit": (
+            "Stored Peritheos refit reproduction using all 114 single-phase B2 rows "
+            "and physical n=2 per FeSi formula. Parity compares against independently "
+            "fitted Peritheos coefficients, not Fischer's published B2 parameters, "
+            "which remain withheld. Unweighted pressure residuals; V0, K0-prime "
+            "and theta0 are conditional fixed assumptions. Full covariance, "
+            "weighting/reference sensitivities and pressure-block holdouts are "
+            "in the [Fischer audit](literature-reproductions/fischer-2014-fesi.md). "
+            "No validated core extrapolation."
+        )
+        for model in ("bm3", "vinet")
+    },
+    **{
+        identifier: (
+            "Complete single-phase source rows with published fixed choices. "
+            "Unweighted pressure residuals and residual-scaled refit errors are "
+            "diagnostics: source weights, coefficient confidence and covariance "
+            "are unspecified. Parity denotes the ledger's numerical/combined-error "
+            "criterion, not recovery of the authors' regression covariance. "
+            "The Fe-16Si entry checks the 66-row thermal stage; the independent "
+            "script also refits its 32-row static stage. See the "
+            "[Fischer audit](literature-reproductions/fischer-2014-fesi.md)."
+        )
+        for identifier in (
+            "fesi_b20_fischer_2014_bm3_1",
+            "fesi_b20_fischer_2014_vinet_2",
+            "fe084si016_d03_fischer_2014_bm3_1",
+            "fe084si016_d03_fischer_2014_vinet_2",
+            "fe084si016_hcp_fischer_2014_bm3_1",
+            "fe084si016_hcp_fischer_2014_vinet_2",
+            "fe073si027_d03_fischer_2014_vinet_1",
+        )
+    },
+    **{
         f"mg090fe010o_marquardt_2009b_ls_bm3_s1_{i:02d}": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
         for i in range(1, 13)
     },
@@ -319,6 +353,20 @@ PRESSURE_COLUMNS = {
 }
 
 VOLUME_COLUMNS = {
+    **{
+        f"fischer_2014_table_s2_pvt#fesi_b2_fischer_2014_{model}_refit": "b2_volume_a3"
+        for model in ("bm3", "vinet")
+    },
+    **{
+        f"fischer_2014_table_s{table}_pvt#{material}_fischer_2014_{model}_{index}": f"{phase}_volume_a3"
+        for material, phase, table in (
+            ("fesi_b20", "b20", 2),
+            ("fe084si016_d03", "d03", 1),
+            ("fe084si016_hcp", "hcp", 1),
+        )
+        for model, index in (("bm3", 1), ("vinet", 2))
+    },
+    "fischer_2012_table_s2_pvt#fe073si027_d03_fischer_2014_vinet_1": "d03_volume_a3",
     "ca_perovskite_tetragonal_chen_2018_table1_compression": "i4mcm_volume_a3_conventional_cell",
     "coesite_i_ii_cernok_2014_table1_pv": "volume_a3_z16_equivalent_cell",
     "coesite_ii_iii_bykova_2018_table2_pv": "volume_a3_z16_equivalent_cell",
@@ -361,6 +409,20 @@ VOLUME_SIGMA_COLUMNS = {
 }
 
 PHASE_FILTERS = {
+    **{
+        f"fesi_b2_fischer_2014_{model}_refit": {"phase": "B2"}
+        for model in ("bm3", "vinet")
+    },
+    **{
+        f"{material}_fischer_2014_{model}_{index}": {"phase": phase}
+        for material, phase in (
+            ("fesi_b20", "B20"),
+            ("fe084si016_d03", "D03"),
+            ("fe084si016_hcp", "hcp"),
+        )
+        for model, index in (("bm3", 1), ("vinet", 2))
+    },
+    "fe073si027_d03_fischer_2014_vinet_1": {"phase": "D03"},
     "mgal2o4_cafe2o4_irifune_2002_bm2_2": {"fit_included": "1"},
     **{
         f"mg090fe010o_marquardt_2009b_ls_bm3_s1_{i:02d}": {"spin_region": "low_spin"}
@@ -829,6 +891,13 @@ def _select_rows(
         if all(str(row.get(name, "")) == expected for name, expected in filters.items())
     ]
     detail = ", ".join(f"{key}={value}" for key, value in filters.items()) or "all rows"
+    if record_id == "fe073si027_d03_fischer_2014_vinet_1":
+        selected = [row for row in selected if _number(row.get("temperature_k")) > 300]
+        detail = (
+            "66 D03 observations above 300 K; source-staged gamma0 fit with the "
+            "published 300 K coefficients fixed. The independent Fischer script "
+            "also refits the 32-row static stage."
+        )
     if record_id == "feo_fischer_2011_bm3_2":
         detail = (
             "all 52 Table S1 rows; finite B1 volumes retain 42 phase-specific "
@@ -1920,6 +1989,25 @@ def _fit_record(
         from scripts.reproduce_sakai_2011_nacl_b2 import ledger_outcome
 
         return ledger_outcome(record)
+    if record_id in {
+        "siderite_fe095mn005_litasov_2013_bm3",
+        "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
+    }:
+        from scripts.reproduce_litasov_2013_siderite import ledger_outcome
+
+        return ledger_outcome(record)
+    if "_nisr_2017_" in record_id:
+        from scripts.reproduce_nisr_2017_silica import ledger_outcome
+
+        return ledger_outcome(record)
+    if "_chidester_2018_" in record_id:
+        from scripts.reproduce_chidester_2018_tho2 import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id.startswith("superhydrous_phase_b_lt_litasov_2007_"):
+        from scripts.reproduce_litasov_2007_superhydrous_phase_b import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id.startswith("gold_hirose_2008_"):
         from scripts.reproduce_hirose_2008_gold import ledger_outcome
 
@@ -2253,6 +2341,13 @@ def _fit_record(
         source_protocol_unweighted = True
 
     source_objective = record.get("fit_provenance", {}).get("objective")
+    if record["reference"].get("doi") == "10.1002/2013JB010898":
+        # No numerical regression weights are published. Preserve all raw errors
+        # in the datasets, but do not mistake them for the authors' objective.
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        series.temperature_sigma = None
+        source_protocol_unweighted = True
     if source_objective == "unweighted_pressure_residuals":
         series.pressure_sigma = None
         series.volume_sigma = None
@@ -5048,6 +5143,26 @@ def validate_all() -> dict[str, Any]:
                 outcome = _tange_2009_approximate_outcome(record)
             elif record["identifier"] == NOGUCHI_RECORD_ID:
                 outcome = _noguchi_2013_outcome(record)
+            elif record["identifier"] == "vanadium_bcc_crichton_2016_bm3_thermal":
+                crichton = json.loads(
+                    (
+                        ROOT / "docs/data/crichton-2016-vanadium-reproduction.json"
+                    ).read_text(encoding="utf-8")
+                )
+                outcome = {
+                    "status": "not_refittable",
+                    "dataset_identifiers": identifiers,
+                    "observations": 29,
+                    "reason": check["finding"],
+                    "partial_validation": crichton["nominal_temperature_proxy_fit"],
+                    "curve_validation": {
+                        "observations": len(crichton["curve_checkpoints"]),
+                        "max_abs_relative_volume_difference": crichton[
+                            "curve_max_abs_relative_volume_difference"
+                        ],
+                        "tolerance": crichton["curve_tolerance"],
+                    },
+                }
             elif not identifiers:
                 outcome = {
                     "status": "not_refittable",

@@ -46,6 +46,14 @@ CITATION_OVERRIDES = {
 }
 
 
+PAPER_SCOPE_NOTES = {
+    "10.1002/2013jb010898": (
+        "Two published B2 FeSi candidates withheld: unresolved thermal normalization; two independent Peritheos refits added; "
+        "see [source audit](literature-reproductions/fischer-2014-fesi.md)."
+    ),
+}
+
+
 def load_json(path: Path) -> dict[str, Any]:
     """Load one UTF-8 JSON document."""
     return json.loads(path.read_text(encoding="utf-8"))
@@ -173,6 +181,11 @@ def build_papers() -> tuple[list[dict[str, Any]], dict[str, int]]:
                 "statuses": statuses,
                 "data_statuses": data_statuses,
                 "records": sorted(records, key=lambda row: row["record_identifier"]),
+                "withheld_candidates": [
+                    {**candidate, "evidence": row["evidence"]}
+                    for row in source_rows
+                    for candidate in row.get("withheld_candidates", [])
+                ],
             }
         )
 
@@ -320,6 +333,10 @@ def render() -> str:
             "source-faithful coefficient refit could not be performed. A paper can also",
             "have other records that were reproduced.",
             "",
+            "See [incomplete datasets and author requests](dataset-requests.md) for",
+            "reviewed outreach recommendations, exact requests, and contact status.",
+            "Papers not yet listed there remain unassessed for outreach.",
+            "",
             "| Paper | Affected records | Why direct refitting was unavailable |",
             "|---|---|---|",
         ]
@@ -377,6 +394,9 @@ def render() -> str:
     for paper in papers:
         if paper["records"]:
             result = compact_counts(paper["statuses"], STATUS_LABELS)
+            scope_note = PAPER_SCOPE_NOTES.get(str(paper.get("doi", "")).lower())
+            if scope_note:
+                result += "; " + scope_note
             data_form = compact_counts(paper["data_statuses"], data_labels)
             qualified_final_input = sum(
                 "not a reconstruction of every upstream reduction"
@@ -403,6 +423,19 @@ def render() -> str:
             f"| {source_link(paper)} | {OUTCOME_LABELS[paper['outcome']]} | "
             f"{record_count} | {result} | {data_form} |"
         )
+
+    incomplete_alternatives = [
+        paper for paper in catalog_papers if paper.get("withheld_candidates")
+    ]
+    if incomplete_alternatives:
+        lines.extend(["", "## Withheld alternatives in catalog papers", ""])
+        for paper in incomplete_alternatives:
+            for candidate in paper["withheld_candidates"]:
+                lines.append(
+                    f"- {source_link(paper)}, {candidate['candidate']}: "
+                    f"{candidate['reason']} "
+                    f"[Audit]({candidate['evidence']})."
+                )
 
     lines.extend(
         [

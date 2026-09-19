@@ -268,6 +268,10 @@ production EOS record added.**
 
 ### C06 — Bcc vanadium: practical high-temperature marker
 
+- **Implemented (2026-09-19):** main experimental fit in `vanadium_bcc`;
+  [source audit](literature-reproductions/crichton-2016-vanadium.md).
+  The two fixed-K′ alternatives remain withheld for missing coefficients.
+  Plot-only observations support a proxy diagnostic, not the original refit.
 - **Change:** add a new elemental material and P-V-T record.
 - **Source:** Crichton et al. (2016), [High-temperature equation of state of
   vanadium](https://doi.org/10.1080/08957959.2015.1123256).
@@ -371,17 +375,20 @@ production EOS record added.**
 
 ### C14 — Fe-Si system: B20/B2 FeSi and Fe-9 wt% Si phases
 
+- **Audited (2026-09-19):** seven published records accepted: BM3 and Vinet
+  for B20 FeSi, D03 Fe–9Si and hcp Fe–9Si, plus the thermal D03 Fe–16Si
+  Vinet reanalysis. All seven supplementary tables and Text S1 were inspected.
 - **Source:** Fischer et al. (2014), [Equations of state in the Fe-FeSi system
   at high pressures and temperatures](https://doi.org/10.1002/2013JB010898).
-- **Published scope:** room-temperature and thermal BM3 + MGD fits for
-  stoichiometric B20 and B2 FeSi and multiple Fe-9Si structures, with data to
-  about 145 GPa and 3400 K for FeSi.
-- **Likely mapping:** several phase- and composition-specific material records,
-  each using `BM3` + `MieGruneisenDebye` where the paper supplies a complete
-  thermal fit.
-- **Effort/risk:** medium-to-high. This must be split by exact composition,
-  structure, and phase field. Volumes are reported per mole of atoms in parts
-  of the paper, so conversion errors are a major audit target.
+- **Withheld:** both B2 FeSi thermal fits fail against the 114 single-phase
+  observations using physical Debye normalization. Doubling thermal-energy
+  amplitude recovers the reported residual range, but is not an authoritative
+  correction. Two separately labelled, physically normalized Peritheos B2 refits
+  are now executable with conditional covariance and sensitivity evidence.
+- **Excluded:** three hcp+B2 aggregate fits and eight computational branches.
+  Full observations, calibrant inputs, constraints, structure approximations,
+  independent diagnostics and all dispositions are in the
+  [source audit](literature-reproductions/fischer-2014-fesi.md).
 
 ### C15 — Ferropericlase Mg0.75Fe0.25O across spin crossover
 

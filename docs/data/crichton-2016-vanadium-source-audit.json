@@ -1,0 +1,94 @@
+{
+  "format": "peritheos.paper-source-audit",
+  "format_version": 1,
+  "doi": "10.1080/08957959.2015.1123256",
+  "audit_date": "2026-09-19",
+  "accepted_records": [
+    "vanadium_bcc_crichton_2016_bm3_thermal"
+  ],
+  "withheld_candidates": [
+    {
+      "candidate": "BM3 K0_prime fixed at 3.5",
+      "parameters": {
+        "K0": 160.5,
+        "K0_error": 3.5,
+        "K0_prime": 3.5
+      },
+      "status": "deferred_incomplete_model",
+      "reason": "Alternative V0, alpha0, alpha1 and dK0/dT not reported; main-fit coefficients cannot be borrowed."
+    },
+    {
+      "candidate": "BM3 K0_prime fixed at 4",
+      "parameters": {
+        "K0": 157.9,
+        "K0_error": 3.5,
+        "K0_prime": 4
+      },
+      "status": "deferred_incomplete_model",
+      "reason": "Alternative V0, alpha0, alpha1 and dK0/dT not reported; main-fit coefficients cannot be borrowed."
+    }
+  ],
+  "primary_observations": {
+    "original_fit_rows": 62,
+    "recoverable_filled_figure_symbols": 29,
+    "cited_comparison_symbols": 10,
+    "excluded_recovered_ambient_symbols": 1,
+    "independent_curve_checkpoints": 24,
+    "status": "plot_only",
+    "calibrant_readings": "not_recovered",
+    "source_measurement_errors": "not_reported_in_plot",
+    "exact_temperatures": "not_reported_in_plot"
+  },
+  "sources": [
+    {
+      "kind": "accepted_manuscript",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
+      "sha256": "ac9ab4ecb9480327b3f7dd52854620220e91a1c35b5e3e03100e328090d1aaf3",
+      "bytes": 555531
+    },
+    {
+      "kind": "eosfit_methodology",
+      "url": "https://www.rossangel.com/Download/2014_Angel_etal_EosFit7.pdf",
+      "sha256": "ad254a92900bf8e7fa4b52821224d393d3d17358b762f31350462108d2a659be",
+      "bytes": 224689
+    },
+    {
+      "kind": "figure2_embedded_jpeg",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
+      "sha256": "20401fd15d6e5b7ab3c73f7a9f2ab28adef64df40980c2a6ef42f68200be91d1",
+      "bytes": 71841
+    },
+    {
+      "kind": "structure_cif",
+      "url": "https://qiserver.ugr.es/cod/9012770.cif",
+      "sha256": "3f81e29961c91b096d22f3dc3313b08dd87e56bd1449e0b7a24eb2dc01e41548",
+      "bytes": 3352
+    },
+    {
+      "kind": "crossref_metadata",
+      "url": "https://api.crossref.org/works/10.1080/08957959.2015.1123256",
+      "sha256": "132bb65cab8f944109d8521d276a20cacbb319bbacd70a1d68b60438b68deb6f",
+      "bytes": 5507
+    },
+    {
+      "kind": "digitized_pressure_volume_temperature",
+      "path": "datasets/vanadium-crichton-2016-figure2-points.csv",
+      "media_type": "text/csv",
+      "sha256": "e623d3b3773e0ef5653b76390ea12c3216a844db871642a0ce150685cb9f9c73"
+    },
+    {
+      "kind": "digitized_eos_curve",
+      "path": "datasets/vanadium-crichton-2016-figure2-curves.csv",
+      "media_type": "text/csv",
+      "sha256": "3a9fc4b2e68cede68b714f1769da9126ba51c9fb5789be3fb726eee490d2c831"
+    }
+  ],
+  "access_routes": {
+    "publisher": "Browser publication-of-record abstract inspected; full text and figures access gated. Direct full/PDF/supplement URLs returned HTTP 403. No supplemental navigation link exposed.",
+    "crossref": "DOI metadata retrieved; relation empty and no update-to property. CrossMark browser widget gave blank content.",
+    "repositories": "UCL accepted manuscript downloaded; Manchester metadata lists DOI but no additional article file.",
+    "search": "Exact DOI/title with correction and supplement terms yielded no accessible correction or official additional files.",
+    "zotero": "Local API available. Exact-title and Crichton library searches, plus vanadium query within Methods / EOS Library JT8V6LUL, found no relevant item or attachment.",
+    "crystallography": "COD mirror experimental CIF retrieved, attributed to James and Straumanis 1960 / AMCSD 0014111; primary crystallography manuscript was not retrieved."
+  }
+}
