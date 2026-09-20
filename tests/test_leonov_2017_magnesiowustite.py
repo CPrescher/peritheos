@@ -63,7 +63,9 @@ def test_leonov_preserves_all_complete_hs_table_rows_and_correct_volume_basis():
 
 def test_leonov_records_match_independent_bm3_equation():
     for _fraction, (document, record) in _records().items():
-        executable = Material.from_eosmat(document).get_eos_record(record["identifier"])
+        executable = Material.from_eosmat(
+            document, record_identifiers=[record["identifier"]]
+        ).get_eos_record(record["identifier"])
         parameters = record["eos"]["parameters"]
         volumes = parameters["V0"] * np.array([0.95, 0.85, 0.75])
         expected = bm3_pressure(

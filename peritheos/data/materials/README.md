@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 210 curated material documents with 574 EOS records. The
+This directory contains 212 curated material documents with 578 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -17,8 +17,10 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-15 classifies all 574 bundled records as
-`primary_source_validated`. No bundled record remains pending or deferred. The complete
+dated 2026-09-20 classifies 576 of 578 bundled records as
+`primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
+as `deferred` source evidence because of unresolved coefficient-refit
+discrepancies; they are not exposed by the executable catalog. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
 Additional records native to Peritheos have no invented Dioptas migration
@@ -48,7 +50,7 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 294 distinct primary datasets with 17,528 observation rows, represented by 321 material-document links to 431 EOS records.
+The current bundle contains 296 distinct primary datasets with 21,063 observation rows, represented by 329 material-document links to 435 EOS records.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,
@@ -140,7 +142,7 @@ The corrected Anderson Au record instead uses the format-3 extension
 must preserve this unknown component rather than evaluating it as `AlphaKT`;
 the latter is a different equation.
 
-Four Dioptas structure-only entries (`fe_fcc`, `fes_iii`, `nitrogen_epsilon`,
+Three Dioptas structure-only entries (`fes_iii`, `nitrogen_epsilon`,
 and `o8`) are intentionally not bundled because they contain no EOS record.
 The `.eosmat` schema still permits an empty `eos_records` array for
 application-created structure-only documents.

@@ -1,0 +1,241 @@
+{
+  "format": "peritheos.campbell-2009-source-manifest",
+  "format_version": 1,
+  "audit_date": "2026-09-20",
+  "assets": [
+    {
+      "identifier": "article",
+      "url": "https://doi.org/10.1016/j.epsl.2009.07.022",
+      "role": "publication of record; Zotero REIAHWUZ / XUI8LMTT",
+      "sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0",
+      "bytes": 475931
+    },
+    {
+      "identifier": "figure_s1",
+      "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X09004373-mmc1.pdf",
+      "role": "official supplement; experimental diffraction image and index",
+      "sha256": "2598861708d969b5af573d38119aff53731751f7bf7c2b017ecadd1c90230ade",
+      "bytes": 1807113
+    },
+    {
+      "identifier": "tables_s2_s5",
+      "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X09004373-mmc2.xls",
+      "role": "official full-precision workbook",
+      "sha256": "b857b9e40f76389dd78da9b757c504b17607d69e4cdc55087fff6e2cb8566f30",
+      "bytes": 133632
+    },
+    {
+      "identifier": "seagle_article",
+      "url": "https://doi.org/10.1016/j.epsl.2007.11.004",
+      "role": "primary fit-input study",
+      "sha256": "0a04407aa5b7eb1e0b9bf74dd155aeac4f83e056e521649fbbd7e48cbc8e7309",
+      "bytes": 795776
+    },
+    {
+      "identifier": "seagle_table",
+      "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X07007261-mmc1.pdf",
+      "role": "81 paired volume-temperature rows; no individual pressure column",
+      "sha256": "ddf0cc71bc4e251c2bf040f34eb7327f042c2b75b9787ec56636250bffeaeffa",
+      "bytes": 79055
+    },
+    {
+      "identifier": "fe_structure",
+      "url": "https://www.crystallography.net/cod/9014789.cif",
+      "role": "Nishihara primary crystallographic deposition via AMCSD/COD",
+      "sha256": "ef139c694dbd2497c48cbece7be3f9e8af6f68f67fb7ff8db0c49d679befa1f1",
+      "bytes": 4675
+    },
+    {
+      "identifier": "nio_structure",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.110.1333/fulltext",
+      "role": "Roth primary neutron-diffraction article, nuclear B1 structure and magnetic distortion",
+      "sha256": "865b051d18cb9f447a19c355f76934614fca5b0ae365c77d313091f451ed370a",
+      "bytes": 758006
+    },
+    {
+      "identifier": "seagle_2006_hcp_calibration",
+      "url": "https://doi.org/10.1029/2005JB004091",
+      "retrieved_from": "https://repository.geologyscience.ru/server/api/core/bitstreams/4d65b0d3-8bfe-4957-9ace-4a6e8f7cb57c/content",
+      "role": "Publication-of-record PDF; equations 1-4, Table 2, paragraph 18, all 41 Table 3 Fe pressure benchmarks",
+      "sha256": "557f12cf75582f2ae1b9be9d740aca4f62d44c3f4d9ddb6ac54e785d93900e25",
+      "bytes": 196688
+    },
+    {
+      "identifier": "fischer_2011_pressure_reduction_statement",
+      "url": "https://mineralphysics.uchicago.edu/Papers/FischerEPSL2011preprint.pdf",
+      "role": "Author manuscript p10: later iron-volume recalibration and its description of earlier NaCl pressure scales; not a statement of Campbell fitting weights",
+      "sha256": "c69717d039d80421dcdac45ff0207844dd734ad284039b0a573e6a30cb153d24",
+      "bytes": 854800
+    },
+    {
+      "identifier": "funamori_1996_fcc_calibration",
+      "url": "https://doi.org/10.1029/96GL00943",
+      "role": "User-supplied publication PDF; Table 1 p955 and 1400 K elastic parameters/reference citation p956",
+      "sha256": "d0ab4575aebe335b7ca7ed4c86692ba70a70bad6d75f79d28155a37ba40486c0",
+      "bytes": 512430
+    },
+    {
+      "identifier": "boehler_1990_mean_thermal_expansion",
+      "url": "https://doi.org/10.1029/JB095iB13p21731",
+      "role": "User-supplied publication PDF; Table 1 p21734 and mean-expansivity volume scaling/Figure 6 p21735",
+      "sha256": "06d7968538aad23ec2c009596a557ea0f4eb68f612a66af2e13a2288ba102467",
+      "bytes": 698490
+    },
+    {
+      "identifier": "basinski_1955_reference_lattice",
+      "url": "https://doi.org/10.1098/rspa.1955.0102",
+      "role": "Free publication PDF from Royal Society; Table 2 p462 gives lattice spacings in kX, not angstroms",
+      "sha256": "984151887b5df8c73788f84ed8ebfb5755f95834d4dfd6fc823290cbdf520abf",
+      "bytes": 1495339,
+      "retrieved_from": "https://royalsocietypublishing.org/rspa/article-pdf/229/1179/459/49004/rspa.1955.0102.pdf"
+    }
+  ],
+  "correction_search": {
+    "routes": [
+      "Publication-of-record PDF and ScienceDirect snapshot U6TGWFQH",
+      "Crossref works/10.1016/j.epsl.2009.07.022 relation and update-to fields",
+      "Author publication list and DOI/title correction/erratum search"
+    ],
+    "finding": "No linked correction or erratum located; Crossref relation is empty and update-to absent. This is a search result, not a guarantee that none exists."
+  },
+  "workbook_versions": {
+    "previous_download_sha256": "de34fb0f7fa172a63c799f317d7310cdf729ecf0fee211a1c2fbf087a9b03974",
+    "new_download_sha256": "b857b9e40f76389dd78da9b757c504b17607d69e4cdc55087fff6e2cb8566f30",
+    "comparison": "All cell values of all four worksheets compare exactly; binary bytes differ."
+  },
+  "candidates": [
+    {
+      "phase": "fcc Fe",
+      "decision": "accepted experimental Table 1 thermal EOS",
+      "record": "fe_fcc_campbell_2009_bm3_mgd"
+    },
+    {
+      "phase": "stoichiometric B1 FeO",
+      "decision": "accepted experimental Table 1 thermal EOS",
+      "record": "feo_campbell_2009_bm3_mgd"
+    },
+    {
+      "phase": "fcc Ni",
+      "decision": "accepted experimental Table 1 thermal EOS",
+      "record": "nickel_campbell_2009_bm3_mgd"
+    },
+    {
+      "phase": "cubic-average B1 NiO",
+      "decision": "accepted experimental Table 1 thermal EOS",
+      "record": "nickel_oxide_b1_campbell_2009_bm3_mgd"
+    },
+    {
+      "phase": "hcp Fe",
+      "decision": "adopted Dewaele (2006), explicitly no new Campbell fit"
+    },
+    {
+      "phase": "IW/NNO buffers",
+      "decision": "derived integrals and polynomials, not independent material EOS"
+    },
+    {
+      "phase": "nonstoichiometric/rhombohedral/B8 FeO",
+      "decision": "no source-owned fit; excluded from the selected composition/phase scope"
+    }
+  ],
+  "seagle_reconstruction": {
+    "status": "Historical hcp-only stage: 65 reconstructed pressures. See fcc_follow_up for the completed 79-pressure audit.",
+    "reference_volume": "55.845/8.30 cm3/mol from paragraph 18 density; printed Table 2 value 6.687 retained as sensitivity",
+    "electronic_coefficient": "9.10e-8 kJ/g/K2; dimensional/exponent correction to misprinted Table 2, independently checked against published pressures",
+    "checkpoints": "seagle-hcp-pressure-checkpoints.csv",
+    "derived_pressures": "seagle-2008-reconstructed-pressures.csv",
+    "fcc_access_limit": "Resolved by user-supplied Funamori and Boehler PDFs on 2026-09-20; reference-lattice source Basinski independently recovered.",
+    "checkpoint_selection": "All 41 Seagle 2006 Table 3 Fe observations; five unambiguous hcp matches in Seagle 2008 lower-eutectic Table 2 and supplement. Exclude rows 4 and 11 because article hcp-pressure labels conflict with fcc-sized supplement volumes; no phase relabeling or volume halving.",
+    "seagle-hcp-pressure-checkpoints.csv_sha256": "50249d178d06015466d72a93c31ffbc80259dec49c7164da10c098f81f381174",
+    "seagle-2008-reconstructed-pressures.csv_sha256": "3ca0b20be501e1aaeac741e94a88dfff3bd20636ac0bbf6aece0749ed77cc5fb"
+  },
+  "protocol_follow_up": {
+    "audit_date": "2026-09-20",
+    "artifact": "campbell-2009-protocol-audit.json",
+    "script": "scripts/audit_campbell_2009_protocol.py",
+    "selections": 12,
+    "fits_including_matched_controls": 84,
+    "calibration_hypothesis": "Replace only 65 Seagle hcp pressures with Dewaele (2006); retain Campbell reported NaCl pressures and label nominal-only additions. This is not recovered Campbell reduction.",
+    "retrieval_outcomes": {
+      "zotero": "Funamori: only 1998 MgAl2O4 and 2008 SiO2; Chopelas: no items; Boehler: other papers, no 1990 calibration",
+      "public_search": "Exact DOI/title and institution searches did not yield the required full Funamori or Boehler papers",
+      "funamori_publisher": "PDF access required, as verified in browser during preceding reconstruction",
+      "boehler_desy": "https://bib-pubdb1.desy.de/record/393183 explicitly says no PDF",
+      "campbell_preprint_old_url": "https://www.geol.umd.edu/~ajc/Papers/CampbellEPSL2009preprint.pdf returned HTTP 404",
+      "later_resolution": "User supplied both missing papers; Basinski 1955 reference lattice recovered from free Royal Society article. Earlier access outcomes above are historical."
+    },
+    "source_description_conflict": "Fischer 2011 author manuscript describes earlier Seagle/Campbell pressures as NaCl based; Seagle 2008 describes iron/FeO calibration. The exact older inputs used by Campbell remain unresolved."
+  },
+  "fcc_follow_up": {
+    "script": "scripts/reconstruct_seagle_2008_fcc.py",
+    "report": "seagle-2008-fcc-reconstruction.json",
+    "derived_pressures": "seagle-2008-completed-pressure-audit.csv",
+    "status": "79 of 81 row-level pressures reconstructed: 65 hcp plus 14 conditional fcc; rows 61 and 62 lack iron volume and remain blank.",
+    "reference_inputs": {
+      "K0_gpa": 120,
+      "K0_prime": 5,
+      "reference_temperature_k": 1400,
+      "reference_lattice_bracket": [
+        [
+          1347,
+          3.6524
+        ],
+        [
+          1457,
+          3.6622
+        ]
+      ],
+      "lattice_unit": "kX",
+      "kx_to_angstrom": 1.00202,
+      "kx_conversion_primary_source": "https://digital.library.unt.edu/ark:/67531/metadc13211/m1/9/",
+      "kx_conversion_source_page": "NBS Monograph 25, Section 3 (1964), p3",
+      "boehler_fcc_V0_300_cm3_mol": 6.835,
+      "boehler_ambient_mean_expansivity_per_k": 7.7e-05,
+      "dln_alpha_dln_v": 6.5,
+      "dln_alpha_dln_v_sensitivity": [
+        6,
+        7
+      ]
+    },
+    "audit_assumptions": "BM3 functional form is an audit assumption: Funamori does not print the analytic form here. Linear interpolation of Basinski lattice spacing to 1400 K, followed by historical kX conversion and cubing. Boehler mean expansivity evaluated at the implicitly solved 300 K volume, then linear-in-temperature correction to 1400 K; not an exponential instantaneous-expansivity law. No calibration parameter fitted to Seagle or Campbell targets.",
+    "checks": "All eight unambiguous Seagle fcc checkpoints within printed pressure errors, RMS 2.842907 GPa and mean bias +2.766732 GPa. Funamori 1400 K rows differ by -0.601264 and +0.353884 GPa; no row-wise pressure error is printed there. This agreement does not recover the exact historical algorithm.",
+    "uncertainty": "Pressure errors propagate measured iron volume and global 150 K temperature only, preserving absent volume errors. Separate delta=6 and 7 pressures expose limited thermal-model sensitivity; calibration/reference-volume/interpolation systematics are not absorbed into measurement errors. Effective-variance fcc fits include shared P-V and P-T covariance.",
+    "fit_outcome": "Five added selections, 35 added fits; total 12 selections and 84 fits. None has all three parameters inside printed source intervals. Published coefficient values are retained as evidence; the Fe/FeO records are deferred from execution.",
+    "input_and_output_sha256": {
+      "basinski-1955-fcc-lattice.csv": "0494602a788ce25009162a52a21170904ae886ac2cd797c607d5d0d003863152",
+      "funamori-1996-fcc-table1.csv": "a21cfb6ca49d1ac3668a18e535be30ee7ae06339ab99f206be071f37eac7cec3",
+      "seagle-2008-fcc-pressure-checkpoints.csv": "630205f163b55d59d3188425d9ee008822d65e55eb4de845d2e22029932e7a61",
+      "seagle-2008-fcc-reconstruction.json": "cc4a73e20388bb46af17cb00e45a653b6868cdac731c84e229cf36fc5bd8ad5b",
+      "seagle-2008-completed-pressure-audit.csv": "a2c9a0175f855967f87bb7c6ae5ad282c3fd67fbde8e4760fa577bba03b48245"
+    }
+  },
+  "mismatch_diagnostics": {
+    "script": "scripts/diagnose_campbell_2009_mismatch.py",
+    "report": "docs/data/campbell-2009-mismatch-diagnostics.json",
+    "figure": "docs/images/campbell-2009-mismatch.png",
+    "notes": "docs/literature-reproductions/campbell-2009-mismatch.md",
+    "scope": "Unweighted pressure-residual diagnostics on the 29-row fcc and 104-row FeO combinations; source/marker, temperature-bin and nominal-series removal, fixed-q profiles, and five mean-expansion interpretations. Includes a Dewaele hcp control. Published numerical coefficients and reconstruction files are unchanged; the Fe/FeO source records are deferred from execution.",
+    "main_finding": "Seagle hcp rows contribute 91.16% of published-model FeO pressure SSE on the original reconstructed scale. Inferred nominal 50/55 GPa series contribute 76.71%; removing any single nominal series or temperature bin leaves q at the lower bound. Better fcc melting-checkpoint agreement from a 1400 K volume-ratio convention does not restore combined coefficients.",
+    "limits": "Group influence is not evidence of invalid data; temperature, pressure and source coverage are confounded. Nominal-series labels are prior audit inferences. All five thermal interpretations satisfy the broad checkpoint pressure intervals. No implementation is selected as the historical one. Profile curves are not confidence intervals or guarantees of a global optimum.",
+    "sha256": {
+      "scripts/diagnose_campbell_2009_mismatch.py": "0cbde3aabb2cb5709c61c5718e7eeee91c027cb74c7a9bf71efcd7ac4b96ec7e",
+      "docs/data/campbell-2009-mismatch-diagnostics.json": "a765653288b120ba721d5c9eeb6f458e17ae7d6f716bf5d4e32bfc26852ce81f",
+      "docs/images/campbell-2009-mismatch.png": "3a5d4245bf397e3441f62f4d06409e0359f5adbb58ccbd7d77efc3e535630403",
+      "peritheos/data/datasets/feo-campbell-2009-table-s2-pvt.csv": "ff207b7820f0b63bb127f790351a3f6c019e42cf42ffef1ec622051f76c93350",
+      "peritheos/data/datasets/feo-seagle-2008-supplement-volume-temperature.csv": "8cfbb93c222b64b5ebde5efe31e3dc73fe193f12542ca19993cec838567a7e05",
+      "docs/data/seagle-2008-reconstructed-pressures.csv": "3ca0b20be501e1aaeac741e94a88dfff3bd20636ac0bbf6aece0749ed77cc5fb",
+      "docs/data/seagle-2008-fcc-pressure-checkpoints.csv": "630205f163b55d59d3188425d9ee008822d65e55eb4de845d2e22029932e7a61"
+    }
+  },
+  "catalog_disposition": {
+    "deferred_non_executable": [
+      "fe_fcc_campbell_2009_bm3_mgd",
+      "feo_campbell_2009_bm3_mgd"
+    ],
+    "reason": "Substantial unresolved combined-data coefficient-refit discrepancies; retain published parameters and mismatch diagnostics as source evidence, not executable EOS. This is not proof that the publication is wrong.",
+    "unchanged_executable": [
+      "nickel_campbell_2009_bm3_mgd",
+      "nickel_oxide_b1_campbell_2009_bm3_mgd"
+    ],
+    "audit_date": "2026-09-20"
+  }
+}

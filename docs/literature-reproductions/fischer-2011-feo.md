@@ -60,9 +60,15 @@ Ozawa, and Seagle rows; B8 additionally uses Ozawa. The source recovery is now:
 
 | Study | Available row-level source | Recovered scope | Pressure status |
 |---|---|---:|---|
-| Seagle et al. (2008) | Official supplementary Table 1 | 81 B1 volume-temperature rows: 65 hcp-Fe, 14 fcc-Fe, 2 without Fe volume | 65 ready with Dewaele; 14 require Campbell fcc-Fe; 2 retain the source's 50 +/- 4 GPa series pressure |
+| Seagle et al. (2008) | Official supplementary Table 1 | 81 B1 volume-temperature rows: 65 hcp-Fe, 14 fcc-Fe, 2 without Fe volume | 65 ready with Dewaele; 14 require the deferred Campbell fcc-Fe calibration; 2 retain the source's 50 +/- 4 GPa series pressure |
 | Ozawa et al. (2010) | Printed article Table 2; no supplement exists | 12 B1 and 8 B8 P-V-T rows | Reported pressures and hcp-Fe volumes bundled |
-| Campbell et al. (2009) | Official supplementary Table S2 | 25 B1 P-V-T rows: 10 hcp-Fe and 15 fcc-Fe | hcp rows ready; fcc-Fe calibration still to register |
+| Campbell et al. (2009) | Official supplementary Table S2 | 25 B1 P-V-T rows: 10 hcp-Fe and 15 fcc-Fe | hcp calibration executable; Campbell fcc calibration deferred |
+
+The Campbell fcc parameters are retained as the deferred source record
+`fe_fcc_campbell_2009_bm3_mgd`, excluded from the executable catalog after the
+[Campbell mismatch investigation](campbell-2009-mismatch.md). Its automatic
+calibration link is removed. These fcc rows therefore have source parameters
+for diagnostic work, but no accepted executable Campbell calibration.
 
 Thus Ozawa's printed table is sufficient at the publication's own precision,
 and neither Seagle nor Campbell is now a missing-data source. What remains

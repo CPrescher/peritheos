@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-15",
+  "audit_date": "2026-09-20",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,9 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 574,
-    "primary_source_validated": 574
+    "records": 578,
+    "deferred": 2,
+    "primary_source_validated": 576
   },
   "records": [
     {
@@ -3255,6 +3256,26 @@
       }
     },
     {
+      "material": "fe_fcc",
+      "file": "fe_fcc.eosmat",
+      "record": "fe_fcc_campbell_2009_bm3_mgd",
+      "label": "Campbell et al. (2009), fcc Fe, 295 K BM3-Debye",
+      "doi": "10.1016/j.epsl.2009.07.022",
+      "status": "deferred",
+      "note": "Deferred from the executable catalog because substantial coefficient-refit discrepancies remain after the Seagle pressure reconstruction, protocol comparisons and thermal-correction diagnostics. Published equations and parameters are retained as source evidence, not accepted executable EOS. The exact combined pressure reduction and regression inputs remain unresolved; this does not establish that the publication is wrong. See docs/literature-reproductions/campbell-2009-mismatch.md.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
+        "doi": "10.1016/j.epsl.2009.07.022",
+        "locations": [
+          "Sections 2.1-2.2 and 3",
+          "Equation (5), Table 1, page 560",
+          "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
+        ],
+        "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+        "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
+      }
+    },
+    {
       "material": "feh2",
       "file": "feh2.eosmat",
       "record": "feh2_p_pin_2014_vinet_1",
@@ -3296,7 +3317,7 @@
       "material": "feo",
       "file": "feo.eosmat",
       "record": "feo_fischer_2011_bm3_2",
-      "label": "B1 Fe0.94O, Fischer et al. (2011)",
+      "label": "B1 iron-saturated FeO, Fischer et al. (2011)",
       "doi": "10.1016/j.epsl.2011.02.025",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -3367,6 +3388,26 @@
           "Thermodynamic data section"
         ],
         "finding": "The fper endmember is a distinct modified-Tait reference isotherm."
+      }
+    },
+    {
+      "material": "feo",
+      "file": "feo.eosmat",
+      "record": "feo_campbell_2009_bm3_mgd",
+      "label": "Campbell et al. (2009), B1 FeO, 295 K BM3-Debye",
+      "doi": "10.1016/j.epsl.2009.07.022",
+      "status": "deferred",
+      "note": "Deferred from the executable catalog because substantial coefficient-refit discrepancies remain after the Seagle pressure reconstruction, protocol comparisons and thermal-correction diagnostics. Published equations and parameters are retained as source evidence, not accepted executable EOS. The exact combined pressure reduction and regression inputs remain unresolved; this does not establish that the publication is wrong. See docs/literature-reproductions/campbell-2009-mismatch.md.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
+        "doi": "10.1016/j.epsl.2009.07.022",
+        "locations": [
+          "Sections 2.1-2.2 and 3",
+          "Equation (5), Table 1, page 560",
+          "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
+        ],
+        "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+        "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
       }
     },
     {
@@ -9082,6 +9123,26 @@
       }
     },
     {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_campbell_2009_bm3_mgd",
+      "label": "Campbell et al. (2009), fcc Ni, 295 K BM3-Debye",
+      "doi": "10.1016/j.epsl.2009.07.022",
+      "status": "primary_source_validated",
+      "note": "Verified against the publication of record, official supplements, independent Debye quadrature, source buffer outputs, and conditional primary-data refits. Published parameters are preserved despite refit-protocol limitations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
+        "doi": "10.1016/j.epsl.2009.07.022",
+        "locations": [
+          "Sections 2.1-2.2 and 3",
+          "Equation (5), Table 1, page 560",
+          "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
+        ],
+        "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+        "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
+      }
+    },
+    {
       "material": "nickel_oxide",
       "file": "nickel_oxide.eosmat",
       "record": "nickel_oxide_noguchi_1999_bm3_1",
@@ -9116,6 +9177,26 @@
         ],
         "finding": "All eight final shock states remain on the source's untransformed rocksalt/B1 interpretation. The paper reports pressure and volume errors below about 2% but no row-wise shock- or particle-velocity uncertainties, so the stored coefficient errors are residual-scaled OLS standard errors.",
         "doi": "10.1016/S0022-3697(98)00296-0"
+      }
+    },
+    {
+      "material": "nickel_oxide_b1",
+      "file": "nickel_oxide_b1.eosmat",
+      "record": "nickel_oxide_b1_campbell_2009_bm3_mgd",
+      "label": "Campbell et al. (2009), cubic-average B1 NiO, 295 K BM3-Debye",
+      "doi": "10.1016/j.epsl.2009.07.022",
+      "status": "primary_source_validated",
+      "note": "Verified against the publication of record, official supplements, independent Debye quadrature, source buffer outputs, and conditional primary-data refits. Published parameters are preserved despite refit-protocol limitations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
+        "doi": "10.1016/j.epsl.2009.07.022",
+        "locations": [
+          "Sections 2.1-2.2 and 3",
+          "Equation (5), Table 1, page 560",
+          "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
+        ],
+        "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+        "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
       }
     },
     {

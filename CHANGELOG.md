@@ -7,10 +7,26 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Campbell et al. (2009) Fe–FeO and Ni–NiO source audit, with all 101 Ni–NiO
+  observations, official buffer checkpoints and conditional refit diagnostics.
+  The published fcc-Fe and FeO parameters are retained as deferred source
+  records, excluded from the executable catalog because substantial combined
+  refit discrepancies remain unresolved. The Ni and NiO records remain
+  executable. No diagnostic refit is promoted to an executable EOS.
+  Reconstructs 65 Seagle hcp and 14 conditional fcc pressures, checked against
+  54 published pressure benchmarks, with two rows lacking iron volumes.
+  Adds pressure/volume protocol comparisons, source and temperature influence
+  checks, q profiles and five thermal-correction sensitivities. Removes the
+  executable Campbell fcc-Fe calibration link from the Fischer FeO record.
+  The catalog exposes 576 EOS records across 210 executable materials; the
+  document library retains 578 source records in 212 material documents.
+  Catalog loading excludes deferred records while retaining accepted records
+  from the same material.
+
 - Zha et al. (2004) rhenium Equation (6) thermal EOS, all eight paired Au/Re
   observations, derived isotherm tables, and an independent staged refit. The
   continuous Table III branch is distinguished from the authors' preferred
-  fixed-volume isotherms. The catalog now contains 574 executable EOS records.
+  fixed-volume isotherms. That addition brought the catalog to 574 executable EOS records.
 - Primary-source investigation of Xian et al. (2022), with literal thermal
   polynomial diagnostics. Its Re/Au models remain outside the executable
   catalog because source-specific inputs and printed-equation issues remain

@@ -23,7 +23,7 @@ from typing import Any
 
 AUDIT_DATE = "2026-09-01"
 CATALOG_AUDIT_DATE = "2026-09-03"
-REPORT_AUDIT_DATE = "2026-09-15"
+REPORT_AUDIT_DATE = "2026-09-20"
 AGGREGATE_AUDIT_DATE = "2026-09-08"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
@@ -948,7 +948,19 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
 
 # Valid DOI groups may still contain a specifically deferred record. This map
 # is keyed by record ID so DOI-level evidence cannot accidentally promote one.
-FORCED_DEFERRED: dict[str, str] = {}
+CAMPBELL_MISMATCH_REASON = (
+    "Deferred from the executable catalog because substantial coefficient-refit "
+    "discrepancies remain after the Seagle pressure reconstruction, protocol "
+    "comparisons and thermal-correction diagnostics. Published equations and "
+    "parameters are retained as source evidence, not accepted executable EOS. "
+    "The exact combined pressure reduction and regression inputs remain "
+    "unresolved; this does not establish that the publication is wrong. See "
+    "docs/literature-reproductions/campbell-2009-mismatch.md."
+)
+FORCED_DEFERRED: dict[str, str] = {
+    "fe_fcc_campbell_2009_bm3_mgd": CAMPBELL_MISMATCH_REASON,
+    "feo_campbell_2009_bm3_mgd": CAMPBELL_MISMATCH_REASON,
+}
 
 
 DEFERRED_BY_DOI: dict[str, str] = {
@@ -3376,12 +3388,22 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         # Preserve that evidence when deterministically rebuilding the ledger.
         record_evidence = previous_evidence
     doi_evidence = VALIDATED_SOURCES.get(doi) if doi is not None else None
-    if result["identifier"] not in FORCED_DEFERRED and (
-        record_evidence is not None or doi_evidence is not None
-    ):
+    if result["identifier"] in FORCED_DEFERRED:
+        validation = {
+            **previous,
+            "status": "deferred",
+            "note": FORCED_DEFERRED[result["identifier"]],
+            "audit_date": "2026-09-20",
+            "unresolved": [
+                "substantial combined-data coefficient-refit discrepancy",
+                "exact Seagle pressure reduction used by Campbell",
+                "author regression inputs, row selection and fitting procedure",
+            ],
+        }
+    elif record_evidence is not None or doi_evidence is not None:
         evidence = dict(record_evidence or doi_evidence or {})
         evidence["doi"] = doi
-        validation: dict[str, Any] = {
+        validation = {
             "status": "primary_source_validated",
             "note": (
                 "Primary observations and source protocol were validated; the "

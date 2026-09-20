@@ -1,0 +1,1655 @@
+{
+  "buffer_checkpoints": [
+    {
+      "difference_cm3_mol": 0.005451551364472174,
+      "model_delta_volume_cm3_mol": 5.028695895504822,
+      "pressure_gpa": 10,
+      "source_delta_volume_cm3_mol": 5.02324434414035,
+      "source_table": "Table S4",
+      "temperature_k": 1500,
+      "three_vs_five_point_difference_cm3_mol": 2.356299773609294e-05,
+      "tolerance_cm3_mol": 0.02
+    },
+    {
+      "difference_cm3_mol": 0.00714372558183296,
+      "model_delta_volume_cm3_mol": 5.086945260400771,
+      "pressure_gpa": 10,
+      "source_delta_volume_cm3_mol": 5.079801534818938,
+      "source_table": "Table S4",
+      "temperature_k": 2400,
+      "three_vs_five_point_difference_cm3_mol": -0.00025057105479575625,
+      "tolerance_cm3_mol": 0.02
+    },
+    {
+      "difference_cm3_mol": 0.0009085606631531462,
+      "model_delta_volume_cm3_mol": 4.318818736401405,
+      "pressure_gpa": 10,
+      "source_delta_volume_cm3_mol": 4.317910175738252,
+      "source_table": "Table S5",
+      "temperature_k": 1500,
+      "three_vs_five_point_difference_cm3_mol": 0.00012284080712277046,
+      "tolerance_cm3_mol": 0.02
+    },
+    {
+      "difference_cm3_mol": 0.0017774261467922159,
+      "model_delta_volume_cm3_mol": 3.790311935188397,
+      "pressure_gpa": 60,
+      "source_delta_volume_cm3_mol": 3.7885345090416047,
+      "source_table": "Table S5",
+      "temperature_k": 1500,
+      "three_vs_five_point_difference_cm3_mol": 1.4034872545920507e-05,
+      "tolerance_cm3_mol": 0.02
+    },
+    {
+      "difference_cm3_mol": 0.0019659476342646087,
+      "model_delta_volume_cm3_mol": 3.821785087824784,
+      "pressure_gpa": 60,
+      "source_delta_volume_cm3_mol": 3.8198191401905195,
+      "source_table": "Table S5",
+      "temperature_k": 2400,
+      "three_vs_five_point_difference_cm3_mol": 1.5998005550077465e-05,
+      "tolerance_cm3_mol": 0.02
+    }
+  ],
+  "format": "peritheos.campbell-2009-reproduction",
+  "format_version": 1,
+  "record_refits": {
+    "fe_fcc_campbell_2009_bm3_mgd": {
+      "chi_square": 3.012502562458923,
+      "covariance": [
+        [
+          162.8746554313512,
+          -0.22600749460544114,
+          21.719704725002064
+        ],
+        [
+          -0.22600749460546263,
+          0.004248750062573016,
+          -0.0028956611450944745
+        ],
+        [
+          21.719704725001687,
+          -0.002895661145091084,
+          3.211995494519869
+        ]
+      ],
+      "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+      "dataset_identifiers": [
+        "feo_campbell_2009_table_s2_pvt"
+      ],
+      "degrees_of_freedom": 12,
+      "free_parameters": [
+        "rt_eos.K0",
+        "gamma0",
+        "q"
+      ],
+      "include_quenched": false,
+      "objective": "pressure_residuals",
+      "observations": 15,
+      "observed_pressure_range_gpa": [
+        3.9954833425198,
+        19.9741252379723
+      ],
+      "observed_temperature_range_k": [
+        873.0,
+        1812.08
+      ],
+      "parameters": {
+        "gamma0": 2.039582181252982,
+        "q": 1.5805187698179386,
+        "rt_eos.K0": 116.55374710610315
+      },
+      "published_rmse_gpa": 0.7961176429654007,
+      "qualification": "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.",
+      "reduced_chi_square": 0.25104188020491025,
+      "rmse_gpa": 0.44814451258933,
+      "seagle_nominal_isobars": false,
+      "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.",
+      "sensitivity": {
+        "effective_variance": {
+          "chi_square": 26.85832150841632,
+          "covariance": [
+            [
+              128.04115621146747,
+              -0.08250307268514677,
+              21.277225475328787
+            ],
+            [
+              -0.08250307268517108,
+              0.0007284898676961038,
+              -0.005730648734278382
+            ],
+            [
+              21.27722547532844,
+              -0.005730648734274288,
+              3.7542596309381993
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 12,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 15,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            19.9741252379723
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            1812.08
+          ],
+          "parameters": {
+            "gamma0": 2.001531039014373,
+            "q": 0.010000000000001674,
+            "rt_eos.K0": 114.28160179190121
+          },
+          "published_rmse_gpa": 0.7961176429654007,
+          "reduced_chi_square": 2.2381934590346932,
+          "rmse_gpa": 0.5959512103580247,
+          "seagle_nominal_isobars": false,
+          "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.02699055145224165,
+            "q": 1.937591192934722,
+            "rt_eos.K0": 11.315527217565581
+          },
+          "weighting": "effective_variance",
+          "weights_fixed_at_published_parameters": true
+        },
+        "pressure_uncertainty": {
+          "chi_square": 208.61623535819447,
+          "covariance": [
+            [
+              302.0820091598821,
+              0.0644483741445867,
+              53.63403419648095
+            ],
+            [
+              0.06444837414458764,
+              0.0007975042850746078,
+              0.024199845538180144
+            ],
+            [
+              53.63403419648075,
+              0.024199845538179932,
+              9.928133026037042
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 12,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 15,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            19.9741252379723
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            1812.08
+          ],
+          "parameters": {
+            "gamma0": 1.8807994428018637,
+            "q": 0.010000000000000002,
+            "rt_eos.K0": 129.34440703442107
+          },
+          "published_rmse_gpa": 0.7961176429654007,
+          "reduced_chi_square": 17.38468627984954,
+          "rmse_gpa": 0.9897160786418321,
+          "seagle_nominal_isobars": false,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.028240118361554503,
+            "q": 3.1508940042529265,
+            "rt_eos.K0": 17.38050658524895
+          },
+          "weighting": "pressure_uncertainty",
+          "weights_fixed_at_published_parameters": false
+        },
+        "with_seagle_nominal_isobars": {
+          "chi_square": 21.59199143622051,
+          "covariance": [
+            [
+              177.89793419934335,
+              0.0069456928089471435,
+              18.707402098398124
+            ],
+            [
+              0.00694569280913481,
+              0.008563219646710406,
+              0.0559656976548749
+            ],
+            [
+              18.707402098399555,
+              0.055965697654853236,
+              2.384334507476373
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 26,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 29,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            27.0
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            2160.0
+          ],
+          "parameters": {
+            "gamma0": 2.0849799311996224,
+            "q": 0.010000000000000002,
+            "rt_eos.K0": 110.43170390631765
+          },
+          "published_rmse_gpa": 0.9588375814004422,
+          "reduced_chi_square": 0.8304612090854042,
+          "rmse_gpa": 0.8628739356564145,
+          "seagle_nominal_isobars": true,
+          "solver_message": "`xtol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.09253766609716503,
+            "q": 1.5441290449558849,
+            "rt_eos.K0": 13.337838438043226
+          },
+          "weighting": "unweighted",
+          "weights_fixed_at_published_parameters": false
+        }
+      },
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "standard_errors": {
+        "gamma0": 0.06518243676461487,
+        "q": 1.7922040884117716,
+        "rt_eos.K0": 12.762235518566142
+      },
+      "weighting": "unweighted",
+      "weights_fixed_at_published_parameters": false
+    },
+    "feo_campbell_2009_bm3_mgd": {
+      "chi_square": 6.6302396383065005,
+      "covariance": [
+        [
+          15.269351538073208,
+          -0.004944395869559962,
+          2.6918773173335375
+        ],
+        [
+          -0.004944395869544289,
+          0.002098099623464476,
+          0.00786092043303758
+        ],
+        [
+          2.6918773173336183,
+          0.007860920433034787,
+          0.5224770135791857
+        ]
+      ],
+      "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+      "dataset_identifiers": [
+        "feo_campbell_2009_table_s2_pvt"
+      ],
+      "degrees_of_freedom": 22,
+      "free_parameters": [
+        "rt_eos.K0",
+        "gamma0",
+        "q"
+      ],
+      "include_quenched": false,
+      "objective": "pressure_residuals",
+      "observations": 25,
+      "observed_pressure_range_gpa": [
+        3.9954833425198,
+        57.5614962915957
+      ],
+      "observed_temperature_range_k": [
+        873.0,
+        2096.29
+      ],
+      "parameters": {
+        "gamma0": 1.3501486315851328,
+        "q": 0.75080329342005,
+        "rt_eos.K0": 152.01202370998223
+      },
+      "published_rmse_gpa": 1.3160641005220062,
+      "qualification": "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.",
+      "reduced_chi_square": 0.30137452901393186,
+      "rmse_gpa": 0.5149850342798905,
+      "seagle_nominal_isobars": false,
+      "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.",
+      "sensitivity": {
+        "effective_variance": {
+          "chi_square": 12.632167979311774,
+          "covariance": [
+            [
+              36.16029449114896,
+              -0.00994210665373452,
+              8.00792117833188
+            ],
+            [
+              -0.009942106653736672,
+              0.0001382378293218745,
+              -0.0011785003696121084
+            ],
+            [
+              8.00792117833186,
+              -0.001178500369611699,
+              1.8583813417169681
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 22,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 25,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            57.5614962915957
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            2096.29
+          ],
+          "parameters": {
+            "gamma0": 1.2417693925131266,
+            "q": 1.1607215087483922,
+            "rt_eos.K0": 157.93426528628794
+          },
+          "published_rmse_gpa": 1.3160641005220062,
+          "reduced_chi_square": 0.5741894536050807,
+          "rmse_gpa": 0.6466842550629637,
+          "seagle_nominal_isobars": false,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.01175745845503502,
+            "q": 1.3632246116165039,
+            "rt_eos.K0": 6.013343037874105
+          },
+          "weighting": "effective_variance",
+          "weights_fixed_at_published_parameters": true
+        },
+        "pressure_uncertainty": {
+          "chi_square": 131.11701251830507,
+          "covariance": [
+            [
+              92.71432321123775,
+              -0.03695545881136512,
+              18.842074908831776
+            ],
+            [
+              -0.03695545881137028,
+              0.0002838721491828885,
+              -0.001018194465683596
+            ],
+            [
+              18.842074908831723,
+              -0.0010181944656825284,
+              4.071092132846915
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 22,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 25,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            57.5614962915957
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            2096.29
+          ],
+          "parameters": {
+            "gamma0": 1.2492254625114592,
+            "q": 0.010000000000000002,
+            "rt_eos.K0": 164.12000725114174
+          },
+          "published_rmse_gpa": 1.3160641005220062,
+          "reduced_chi_square": 5.959864205377503,
+          "rmse_gpa": 2.60670721090295,
+          "seagle_nominal_isobars": false,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.016848505844225134,
+            "q": 2.017694757104482,
+            "rt_eos.K0": 9.628827717393108
+          },
+          "weighting": "pressure_uncertainty",
+          "weights_fixed_at_published_parameters": false
+        },
+        "seagle_hcp_density_text": {
+          "active_parameter_bounds": [
+            "q"
+          ],
+          "chi_square": 509.22416481714293,
+          "covariance": [
+            [
+              26.489891581038698,
+              0.009409495594072424,
+              2.474612620713038
+            ],
+            [
+              0.009409495594114841,
+              0.014815141142920528,
+              0.03151362581322793
+            ],
+            [
+              2.474612620713135,
+              0.031513625813224,
+              0.30005748404586685
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors. Boundary-active fits do not support symmetric parameter intervals.",
+          "degrees_of_freedom": 87,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 90,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            98.01686511532894
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            2510.0
+          ],
+          "parameters": {
+            "gamma0": 2.0954434175349776,
+            "q": 0.010000000000000004,
+            "rt_eos.K0": 130.32044086106293
+          },
+          "published_rmse_gpa": 3.6892925262474425,
+          "reduced_chi_square": 5.853151319737275,
+          "rmse_gpa": 2.378664809456354,
+          "seagle_nominal_isobars": false,
+          "seagle_pressure_reconstruction": {
+            "hcp_individual_rows": 65,
+            "nominal_only_rows": 0,
+            "pressure_uncertainties_used_as_weights": false,
+            "reference_volume": "density_text"
+          },
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.12171746441213983,
+            "q": 0.5477750305060161,
+            "rt_eos.K0": 5.146833160404435
+          },
+          "weighting": "unweighted",
+          "weights_fixed_at_published_parameters": false
+        },
+        "seagle_hcp_density_text_plus_nominal": {
+          "active_parameter_bounds": [
+            "q"
+          ],
+          "chi_square": 624.3875835667694,
+          "covariance": [
+            [
+              25.125932537544937,
+              0.04038585103155746,
+              2.763326540543158
+            ],
+            [
+              0.04038585103160074,
+              0.00835938028198274,
+              0.025207746750090333
+            ],
+            [
+              2.7633265405432734,
+              0.025207746750085767,
+              0.36321361981028655
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors. Boundary-active fits do not support symmetric parameter intervals.",
+          "degrees_of_freedom": 103,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 106,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            98.01686511532894
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            2590.0
+          ],
+          "parameters": {
+            "gamma0": 1.7912695653407493,
+            "q": 0.010000000000000002,
+            "rt_eos.K0": 136.60092211660333
+          },
+          "published_rmse_gpa": 3.428587782074825,
+          "reduced_chi_square": 6.0620153744346545,
+          "rmse_gpa": 2.427024701475718,
+          "seagle_nominal_isobars": false,
+          "seagle_pressure_reconstruction": {
+            "hcp_individual_rows": 65,
+            "nominal_only_rows": 16,
+            "pressure_uncertainties_used_as_weights": false,
+            "reference_volume": "density_text"
+          },
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.09142964662505669,
+            "q": 0.6026720665588264,
+            "rt_eos.K0": 5.0125774345684615
+          },
+          "weighting": "unweighted",
+          "weights_fixed_at_published_parameters": false
+        },
+        "seagle_hcp_table_2": {
+          "active_parameter_bounds": [
+            "q"
+          ],
+          "chi_square": 470.5169182343676,
+          "covariance": [
+            [
+              24.54412997039386,
+              0.006832265192977481,
+              2.3225738779571015
+            ],
+            [
+              0.006832265192964434,
+              0.013662853588024566,
+              0.029351398829833363
+            ],
+            [
+              2.3225738779570713,
+              0.029351398829834598,
+              0.285353717847874
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors. Boundary-active fits do not support symmetric parameter intervals.",
+          "degrees_of_freedom": 87,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 90,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            95.08127702998785
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            2510.0
+          ],
+          "parameters": {
+            "gamma0": 2.0619249493316274,
+            "q": 0.010000000000000002,
+            "rt_eos.K0": 125.54410932608727
+          },
+          "published_rmse_gpa": 2.930862975780076,
+          "reduced_chi_square": 5.40824043947549,
+          "rmse_gpa": 2.2864745260246484,
+          "seagle_nominal_isobars": false,
+          "seagle_pressure_reconstruction": {
+            "hcp_individual_rows": 65,
+            "nominal_only_rows": 0,
+            "pressure_uncertainties_used_as_weights": false,
+            "reference_volume": "table_2"
+          },
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.11688820979048556,
+            "q": 0.5341850969915521,
+            "rt_eos.K0": 4.95420326292673
+          },
+          "weighting": "unweighted",
+          "weights_fixed_at_published_parameters": false
+        },
+        "seagle_hcp_table_2_plus_nominal": {
+          "active_parameter_bounds": [
+            "q"
+          ],
+          "chi_square": 542.4648902168744,
+          "covariance": [
+            [
+              21.78672561870656,
+              0.03589384160879791,
+              2.3611377222311667
+            ],
+            [
+              0.03589384160879168,
+              0.007272728985920201,
+              0.021655623895003903
+            ],
+            [
+              2.3611377222311494,
+              0.02165562389500454,
+              0.30580241306941336
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors. Boundary-active fits do not support symmetric parameter intervals.",
+          "degrees_of_freedom": 103,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 106,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            95.08127702998785
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            2590.0
+          ],
+          "parameters": {
+            "gamma0": 1.8214438317346682,
+            "q": 0.010000000000000012,
+            "rt_eos.K0": 130.53414848231816
+          },
+          "published_rmse_gpa": 2.7371824145705324,
+          "reduced_chi_square": 5.266649419581305,
+          "rmse_gpa": 2.2622098275652456,
+          "seagle_nominal_isobars": false,
+          "seagle_pressure_reconstruction": {
+            "hcp_individual_rows": 65,
+            "nominal_only_rows": 16,
+            "pressure_uncertainties_used_as_weights": false,
+            "reference_volume": "table_2"
+          },
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.08528029658672748,
+            "q": 0.5529940443344877,
+            "rt_eos.K0": 4.667625265454218
+          },
+          "weighting": "unweighted",
+          "weights_fixed_at_published_parameters": false
+        },
+        "with_seagle_nominal_isobars": {
+          "chi_square": 380.7409105346686,
+          "covariance": [
+            [
+              13.624213935698027,
+              0.13868310277254794,
+              2.4559393091836683
+            ],
+            [
+              0.13868310277253984,
+              0.00859426676020582,
+              0.044300062691814496
+            ],
+            [
+              2.45593930918365,
+              0.044300062691815786,
+              0.5039505246437421
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 103,
+          "free_parameters": [
+            "rt_eos.K0",
+            "gamma0",
+            "q"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 106,
+          "observed_pressure_range_gpa": [
+            3.9954833425198,
+            93.0
+          ],
+          "observed_temperature_range_k": [
+            873.0,
+            2590.0
+          ],
+          "parameters": {
+            "gamma0": 1.7593197831126806,
+            "q": 1.586967586934677,
+            "rt_eos.K0": 150.35634007770275
+          },
+          "published_rmse_gpa": 3.0756035778811617,
+          "reduced_chi_square": 3.6965136945113457,
+          "rmse_gpa": 1.8952296384350193,
+          "seagle_nominal_isobars": true,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.09270526824407456,
+            "q": 0.7098947278602245,
+            "rt_eos.K0": 3.69109928553785
+          },
+          "weighting": "unweighted",
+          "weights_fixed_at_published_parameters": false
+        }
+      },
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "standard_errors": {
+        "gamma0": 0.04580501744857736,
+        "q": 0.7228257145254212,
+        "rt_eos.K0": 3.9076017629836857
+      },
+      "weighting": "unweighted",
+      "weights_fixed_at_published_parameters": false
+    },
+    "nickel_campbell_2009_bm3_mgd": {
+      "chi_square": 254.63664306419747,
+      "covariance": [
+        [
+          86.52569648898285,
+          -4.338844124125901,
+          -0.6750521662830209
+        ],
+        [
+          -4.338844124126282,
+          0.22657011024717563,
+          0.03071241005775006
+        ],
+        [
+          -0.6750521662828642,
+          0.03071241005773923,
+          0.007624159144865243
+        ]
+      ],
+      "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+      "dataset_identifiers": [
+        "ni_nio_campbell_2009_table_s3_pvt"
+      ],
+      "degrees_of_freedom": 89,
+      "free_parameters": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0"
+      ],
+      "include_quenched": false,
+      "objective": "pressure_residuals",
+      "observations": 92,
+      "observed_pressure_range_gpa": [
+        2.336174779961698,
+        65.9
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        2457.07
+      ],
+      "parameters": {
+        "gamma0": 2.2346872649936373,
+        "rt_eos.K0": 184.94162576175438,
+        "rt_eos.K0_prime": 4.3699470196631856
+      },
+      "published_rmse_gpa": 1.8570845659635873,
+      "qualification": "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.",
+      "reduced_chi_square": 2.8610858771258143,
+      "rmse_gpa": 1.6636675144162327,
+      "seagle_nominal_isobars": false,
+      "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.",
+      "sensitivity": {
+        "all_101_including_quenched": {
+          "chi_square": 338.223683066419,
+          "covariance": [
+            [
+              61.35687453161699,
+              -2.514266656196605,
+              -0.4335229535403539
+            ],
+            [
+              -2.5142666561971354,
+              0.10988926758692433,
+              0.015040282361148847
+            ],
+            [
+              -0.43352295354009784,
+              0.015040282361134607,
+              0.005660416327160758
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 98,
+          "free_parameters": [
+            "rt_eos.K0",
+            "rt_eos.K0_prime",
+            "gamma0"
+          ],
+          "include_quenched": true,
+          "objective": "pressure_residuals",
+          "observations": 101,
+          "observed_pressure_range_gpa": [
+            2.336174779961698,
+            65.9
+          ],
+          "observed_temperature_range_k": [
+            293.0,
+            2457.07
+          ],
+          "parameters": {
+            "gamma0": 1.9878939737108328,
+            "rt_eos.K0": 210.7129530764961,
+            "rt_eos.K0_prime": 3.351206235127984
+          },
+          "published_rmse_gpa": 2.305227971041216,
+          "reduced_chi_square": 3.4512620721063167,
+          "rmse_gpa": 1.8299588348624887,
+          "seagle_nominal_isobars": false,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.07523573836389696,
+            "rt_eos.K0": 7.833062908697784,
+            "rt_eos.K0_prime": 0.3314955016088821
+          },
+          "weighting": "unweighted",
+          "weights_fixed_at_published_parameters": false
+        },
+        "effective_variance": {
+          "chi_square": 109.85699724415356,
+          "covariance": [
+            [
+              13.00330917830897,
+              -1.0974550980952513,
+              0.0009010953839795498
+            ],
+            [
+              -1.0974550980952607,
+              0.10812709344538238,
+              -0.0018150482837794581
+            ],
+            [
+              0.0009010953839807825,
+              -0.0018150482837795572,
+              0.0010168880635204774
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 89,
+          "free_parameters": [
+            "rt_eos.K0",
+            "rt_eos.K0_prime",
+            "gamma0"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 92,
+          "observed_pressure_range_gpa": [
+            2.336174779961698,
+            65.9
+          ],
+          "observed_temperature_range_k": [
+            298.0,
+            2457.07
+          ],
+          "parameters": {
+            "gamma0": 2.4487530280619474,
+            "rt_eos.K0": 156.55803035847,
+            "rt_eos.K0_prime": 6.1348172423345515
+          },
+          "published_rmse_gpa": 1.8570845659635873,
+          "reduced_chi_square": 1.2343482836421749,
+          "rmse_gpa": 1.7554492065820972,
+          "seagle_nominal_isobars": false,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.03188868237353932,
+            "rt_eos.K0": 3.6060101467285097,
+            "rt_eos.K0_prime": 0.3288268441678422
+          },
+          "weighting": "effective_variance",
+          "weights_fixed_at_published_parameters": true
+        },
+        "pressure_uncertainty": {
+          "chi_square": 1041.6676589394845,
+          "covariance": [
+            [
+              25.047481283688526,
+              -1.4656984920497187,
+              -0.0026027633820595625
+            ],
+            [
+              -1.4656984920497773,
+              0.14269684007637187,
+              -0.0061760823949549865
+            ],
+            [
+              -0.0026027633820492426,
+              -0.006176082394955591,
+              0.0047288938840005955
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 89,
+          "free_parameters": [
+            "rt_eos.K0",
+            "rt_eos.K0_prime",
+            "gamma0"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 92,
+          "observed_pressure_range_gpa": [
+            2.336174779961698,
+            65.9
+          ],
+          "observed_temperature_range_k": [
+            298.0,
+            2457.07
+          ],
+          "parameters": {
+            "gamma0": 2.633041620565996,
+            "rt_eos.K0": 196.69281493126613,
+            "rt_eos.K0_prime": 3.2705084624747767
+          },
+          "published_rmse_gpa": 1.8570845659635873,
+          "reduced_chi_square": 11.70413099932005,
+          "rmse_gpa": 2.4521503194791916,
+          "seagle_nominal_isobars": false,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.06876695342968595,
+            "rt_eos.K0": 5.004745876034919,
+            "rt_eos.K0_prime": 0.3777523528402859
+          },
+          "weighting": "pressure_uncertainty",
+          "weights_fixed_at_published_parameters": false
+        }
+      },
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "standard_errors": {
+        "gamma0": 0.08731643112762479,
+        "rt_eos.K0": 9.30191896809378,
+        "rt_eos.K0_prime": 0.4759938132446425
+      },
+      "weighting": "unweighted",
+      "weights_fixed_at_published_parameters": false
+    },
+    "nickel_oxide_b1_campbell_2009_bm3_mgd": {
+      "chi_square": 141.7169222375273,
+      "covariance": [
+        [
+          63.34995531176319,
+          -2.9579976820838896,
+          -0.39972388742024295
+        ],
+        [
+          -2.9579976820839917,
+          0.14369426562625998,
+          0.017067085657524232
+        ],
+        [
+          -0.39972388742020204,
+          0.017067085657521675,
+          0.0034696239751733633
+        ]
+      ],
+      "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+      "dataset_identifiers": [
+        "ni_nio_campbell_2009_table_s3_pvt"
+      ],
+      "degrees_of_freedom": 89,
+      "free_parameters": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0"
+      ],
+      "include_quenched": false,
+      "objective": "pressure_residuals",
+      "observations": 92,
+      "observed_pressure_range_gpa": [
+        2.336174779961698,
+        65.9
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        2457.07
+      ],
+      "parameters": {
+        "gamma0": 1.6663366899899843,
+        "rt_eos.K0": 209.23491406729121,
+        "rt_eos.K0_prime": 4.3161254605600705
+      },
+      "published_rmse_gpa": 1.308570029875968,
+      "qualification": "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.",
+      "reduced_chi_square": 1.592324968960981,
+      "rmse_gpa": 1.2411290539942956,
+      "seagle_nominal_isobars": false,
+      "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.",
+      "sensitivity": {
+        "all_101_including_quenched": {
+          "chi_square": 192.4433860075464,
+          "covariance": [
+            [
+              43.42003431148493,
+              -1.7343112584763685,
+              -0.24760724196723402
+            ],
+            [
+              -1.7343112584765727,
+              0.07379249328694172,
+              0.008451667501706773
+            ],
+            [
+              -0.24760724196716363,
+              0.008451667501702795,
+              0.0024717261164302496
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 98,
+          "free_parameters": [
+            "rt_eos.K0",
+            "rt_eos.K0_prime",
+            "gamma0"
+          ],
+          "include_quenched": true,
+          "objective": "pressure_residuals",
+          "observations": 101,
+          "observed_pressure_range_gpa": [
+            2.336174779961698,
+            65.9
+          ],
+          "observed_temperature_range_k": [
+            293.0,
+            2457.07
+          ],
+          "parameters": {
+            "gamma0": 1.4959341203722096,
+            "rt_eos.K0": 232.65049274341936,
+            "rt_eos.K0_prime": 3.4042606717117394
+          },
+          "published_rmse_gpa": 1.6693488648747348,
+          "reduced_chi_square": 1.9637080204851673,
+          "rmse_gpa": 1.3803550483410627,
+          "seagle_nominal_isobars": false,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.049716457199103094,
+            "rt_eos.K0": 6.589388007355837,
+            "rt_eos.K0_prime": 0.27164773749645277
+          },
+          "weighting": "unweighted",
+          "weights_fixed_at_published_parameters": false
+        },
+        "effective_variance": {
+          "chi_square": 148.4802667203819,
+          "covariance": [
+            [
+              10.08506898456591,
+              -0.8020908955989046,
+              -0.005963980624116189
+            ],
+            [
+              -0.802090895598913,
+              0.08366856022274034,
+              -0.0010456591621515637
+            ],
+            [
+              -0.005963980624116813,
+              -0.001045659162151518,
+              0.000721451240061176
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 89,
+          "free_parameters": [
+            "rt_eos.K0",
+            "rt_eos.K0_prime",
+            "gamma0"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 92,
+          "observed_pressure_range_gpa": [
+            2.336174779961698,
+            65.9
+          ],
+          "observed_temperature_range_k": [
+            298.0,
+            2457.07
+          ],
+          "parameters": {
+            "gamma0": 1.7789627416067135,
+            "rt_eos.K0": 184.41528147050204,
+            "rt_eos.K0_prime": 5.8139291183483035
+          },
+          "published_rmse_gpa": 1.308570029875968,
+          "reduced_chi_square": 1.6683176035997966,
+          "rmse_gpa": 1.337683741622873,
+          "seagle_nominal_isobars": false,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.02685984437894561,
+            "rt_eos.K0": 3.1756997629760138,
+            "rt_eos.K0_prime": 0.2892551818425045
+          },
+          "weighting": "effective_variance",
+          "weights_fixed_at_published_parameters": true
+        },
+        "pressure_uncertainty": {
+          "chi_square": 224.5937661256051,
+          "covariance": [
+            [
+              6.041065967606716,
+              -0.46161106383674727,
+              -0.010283638610744663
+            ],
+            [
+              -0.4616110638367993,
+              0.053178534377361406,
+              -0.000675390012859087
+            ],
+            [
+              -0.010283638610740033,
+              -0.0006753900128595219,
+              0.0007482169732084702
+            ]
+          ],
+          "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+          "degrees_of_freedom": 89,
+          "free_parameters": [
+            "rt_eos.K0",
+            "rt_eos.K0_prime",
+            "gamma0"
+          ],
+          "include_quenched": false,
+          "objective": "pressure_residuals",
+          "observations": 92,
+          "observed_pressure_range_gpa": [
+            2.336174779961698,
+            65.9
+          ],
+          "observed_temperature_range_k": [
+            298.0,
+            2457.07
+          ],
+          "parameters": {
+            "gamma0": 1.7863652766461908,
+            "rt_eos.K0": 192.55934299578084,
+            "rt_eos.K0_prime": 5.227295913870697
+          },
+          "published_rmse_gpa": 1.308570029875968,
+          "reduced_chi_square": 2.5235254620854506,
+          "rmse_gpa": 1.2897208127947841,
+          "seagle_nominal_isobars": false,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true,
+          "standard_errors": {
+            "gamma0": 0.027353555037846,
+            "rt_eos.K0": 2.4578580039552156,
+            "rt_eos.K0_prime": 0.23060471456013515
+          },
+          "weighting": "pressure_uncertainty",
+          "weights_fixed_at_published_parameters": false
+        }
+      },
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "standard_errors": {
+        "gamma0": 0.05890351411565666,
+        "rt_eos.K0": 7.959268516124028,
+        "rt_eos.K0_prime": 0.37907026476137634
+      },
+      "weighting": "unweighted",
+      "weights_fixed_at_published_parameters": false
+    }
+  },
+  "seagle_nominal_isobar_assignments": [
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 1
+    },
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 2
+    },
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 3
+    },
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 4
+    },
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 5
+    },
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 6
+    },
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 7
+    },
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 8
+    },
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 9
+    },
+    {
+      "nominal_pressure_gpa": 20.0,
+      "source_row": 10
+    },
+    {
+      "nominal_pressure_gpa": 27.0,
+      "source_row": 11
+    },
+    {
+      "nominal_pressure_gpa": 27.0,
+      "source_row": 12
+    },
+    {
+      "nominal_pressure_gpa": 27.0,
+      "source_row": 13
+    },
+    {
+      "nominal_pressure_gpa": 27.0,
+      "source_row": 14
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 15
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 16
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 17
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 18
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 19
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 20
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 21
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 22
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 23
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 24
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 25
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 26
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 27
+    },
+    {
+      "nominal_pressure_gpa": 55.0,
+      "source_row": 28
+    },
+    {
+      "nominal_pressure_gpa": 72.0,
+      "source_row": 29
+    },
+    {
+      "nominal_pressure_gpa": 72.0,
+      "source_row": 30
+    },
+    {
+      "nominal_pressure_gpa": 72.0,
+      "source_row": 31
+    },
+    {
+      "nominal_pressure_gpa": 72.0,
+      "source_row": 32
+    },
+    {
+      "nominal_pressure_gpa": 72.0,
+      "source_row": 33
+    },
+    {
+      "nominal_pressure_gpa": 72.0,
+      "source_row": 34
+    },
+    {
+      "nominal_pressure_gpa": 72.0,
+      "source_row": 35
+    },
+    {
+      "nominal_pressure_gpa": 72.0,
+      "source_row": 36
+    },
+    {
+      "nominal_pressure_gpa": 93.0,
+      "source_row": 37
+    },
+    {
+      "nominal_pressure_gpa": 93.0,
+      "source_row": 38
+    },
+    {
+      "nominal_pressure_gpa": 93.0,
+      "source_row": 39
+    },
+    {
+      "nominal_pressure_gpa": 93.0,
+      "source_row": 40
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 41
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 42
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 43
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 44
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 45
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 46
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 47
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 48
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 49
+    },
+    {
+      "nominal_pressure_gpa": 89.0,
+      "source_row": 50
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 51
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 52
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 53
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 54
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 55
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 56
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 57
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 58
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 59
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 60
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 61
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 62
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 63
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 64
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 65
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 66
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 67
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 68
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 69
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 70
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 71
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 72
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 73
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 74
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 75
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 76
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 77
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 78
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 79
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 80
+    },
+    {
+      "nominal_pressure_gpa": 50.0,
+      "source_row": 81
+    }
+  ],
+  "seagle_pressure_calibration_checks": {
+    "seagle_2006_table_3": {
+      "density_text": {
+        "max_absolute_difference_gpa": 0.6057801965774274,
+        "rmse_gpa": 0.2441169073876555,
+        "within_reported_pressure_uncertainty": 41
+      },
+      "observations": 41,
+      "table_2": {
+        "max_absolute_difference_gpa": 3.656651853403588,
+        "rmse_gpa": 2.4360017297755556,
+        "within_reported_pressure_uncertainty": 16
+      }
+    },
+    "seagle_2008_table_2_lower_eutectic": {
+      "density_text": {
+        "max_absolute_difference_gpa": 0.5917476070488874,
+        "rmse_gpa": 0.3463112551462289,
+        "within_reported_pressure_uncertainty": 5
+      },
+      "observations": 5,
+      "table_2": {
+        "max_absolute_difference_gpa": 2.9092870953617336,
+        "rmse_gpa": 2.263362600766069,
+        "within_reported_pressure_uncertainty": 5
+      }
+    }
+  },
+  "seagle_pressure_series_checks": [
+    {
+      "hcp_rows": 0,
+      "nominal_pressure_gpa": 20.0,
+      "reconstructed_mean_gpa": null,
+      "reconstructed_range_gpa": null
+    },
+    {
+      "hcp_rows": 0,
+      "nominal_pressure_gpa": 27.0,
+      "reconstructed_mean_gpa": null,
+      "reconstructed_range_gpa": null
+    },
+    {
+      "hcp_rows": 29,
+      "nominal_pressure_gpa": 50.0,
+      "reconstructed_mean_gpa": 49.422512240937245,
+      "reconstructed_range_gpa": [
+        45.14945086743673,
+        56.720631457864684
+      ]
+    },
+    {
+      "hcp_rows": 14,
+      "nominal_pressure_gpa": 55.0,
+      "reconstructed_mean_gpa": 54.82524941303497,
+      "reconstructed_range_gpa": [
+        52.91413173461177,
+        56.74093657760418
+      ]
+    },
+    {
+      "hcp_rows": 8,
+      "nominal_pressure_gpa": 72.0,
+      "reconstructed_mean_gpa": 71.35315199360204,
+      "reconstructed_range_gpa": [
+        69.53381351427555,
+        72.42965499308208
+      ]
+    },
+    {
+      "hcp_rows": 10,
+      "nominal_pressure_gpa": 89.0,
+      "reconstructed_mean_gpa": 88.81924115196838,
+      "reconstructed_range_gpa": [
+        85.19461727243446,
+        98.01686511532894
+      ]
+    },
+    {
+      "hcp_rows": 4,
+      "nominal_pressure_gpa": 93.0,
+      "reconstructed_mean_gpa": 92.41734554972527,
+      "reconstructed_range_gpa": [
+        92.13365542235118,
+        92.79571697126833
+      ]
+    }
+  ]
+}

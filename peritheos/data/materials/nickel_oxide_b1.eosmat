@@ -1,0 +1,465 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "CUBIC",
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "peaks": [],
+ "eos_records": [
+  {
+   "identifier": "nickel_oxide_b1_campbell_2009_bm3_mgd",
+   "label": "Campbell et al. (2009), cubic-average B1 NiO, 295 K BM3-Debye",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Danielson",
+     "Righter",
+     "Seagle",
+     "Wang",
+     "Prakapenka"
+    ],
+    "year": 2009,
+    "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "286",
+    "locator": "556-564",
+    "doi": "10.1016/j.epsl.2009.07.022"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 72.88438073639448,
+     "K0": 190.0,
+     "K0_prime": 5.4
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 3,
+    "K0_prime": 0.2
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 295.0,
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "variable_exponent",
+    "parameters": {
+     "Tr": 295.0,
+     "theta0": 480.0,
+     "gamma0": 1.8,
+     "q": 1.0,
+     "n": 2.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.04,
+     "q": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n",
+     "q"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    2.336174779961698,
+    65.9
+   ],
+   "experimental_temperature_range_k": [
+    298.0,
+    2457.07
+   ],
+   "range_provenance": {
+    "source_location": "Tables S2-S3; Seagle (2008) Table 1 and subsolidus supplement for Fe/FeO",
+    "notes": "Marginal experimental coverage, not a rectangular phase-stability field. Fe/FeO upper bounds include earlier Seagle approximate isobars; new-study-only bounds and selected-row extrema are in the reproduction JSON. fcc Fe and stoichiometric B1 FeO must remain within their source phase/composition fields. The 295 K reference is an extrapolation. NiO is a source cubic-average B1 model across unresolved magnetic distortion."
+   },
+   "fit_datasets": [
+    "ni_nio_campbell_2009_table_s3_pvt"
+   ],
+   "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. All 101 source rows are bundled. Nine quenched DAC states are retained but excluded from the main 92-row refit because Section 2.2 warns of residual stresses; an all-row sensitivity fit is reported. Ideal rocksalt structural model following Roth (1958), Introduction and Fig. 1; conventional Fm-3m cell with four Ni and four O. The reference edge is normalized to Campbell Table 1 V0, not claimed as a separate ambient cubic refinement. Roth establishes cubic paramagnetic NiO and a rhombohedral distortion below the Neel temperature (523 K at ambient pressure). Campbell reports B1 and fits one cubic-average volume model, including low-temperature MAP points; this record cannot predict magnetic ordering, rhombohedral splitting, or the pressure-dependent Neel boundary. Use the separate nickel_oxide rhombohedral card for resolved low-temperature diffraction. ",
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-09-19",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl B1",
+      "reference": {
+       "authors": [
+        "Decker"
+       ],
+       "year": 1971,
+       "source": "Journal of Applied Physics",
+       "volume": "42",
+       "locator": "3239-3244",
+       "doi": "10.1063/1.1660714"
+      },
+      "source_location": "Sections 2.1-2.2; Tables S2-S3, NaCl B1 rows"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl B2",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "PNAS",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Section 2.2; Tables S2-S3, NaCl B2 rows"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Paired NaCl phase, molar volume, effective temperature and their errors are bundled for every current-study row. The exact Decker B1/Fei B2 pair is not registered as a complete executable catalog calibration route. Use the tabulated pressure; do not substitute a newer NaCl scale. Seagle fit-input rows have Fe volumes and temperatures but no NaCl readings or individual pressures."
+    },
+    "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
+   },
+   "parameter_provenance": {
+    "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
+    "V0": "Table 1: 10.973 cm3/mol, fixed from JCPDS, footnote a; source does not identify the card number. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
+    "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",
+    "K0_prime": "Table 1, fitted; uncertainty as printed.",
+    "thermal": {
+     "Tr": "Equation (5): 295 K reference subtraction.",
+     "theta0": "Table 1, fixed from Knacke et al. (1991), footnote f.",
+     "gamma0": "Table 1, fitted; uncertainty as printed.",
+     "q": "Table 1, fixed to 1 (italics), not fitted.",
+     "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Verified against the publication of record, official supplements, independent Debye quadrature, source buffer outputs, and conditional primary-data refits. Published parameters are preserved despite refit-protocol limitations.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "published_uncertainties",
+     "fixed_parameters",
+     "thermal_model",
+     "temperature_correction",
+     "pressure_calibration",
+     "primary_data",
+     "validity",
+     "literature_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
+     "doi": "10.1016/j.epsl.2009.07.022",
+     "locations": [
+      "Sections 2.1-2.2 and 3",
+      "Equation (5), Table 1, page 560",
+      "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
+     ],
+     "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+     "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-19",
+     "dataset_identifiers": [
+      "ni_nio_campbell_2009_table_s3_pvt"
+     ],
+     "finding": "All 101 Table S3 observations and NaCl calibrant readings are bundled. The main diagnostic fits 92 heated/MAP rows; all-row and weighting sensitivity results are separately reported. Exact source weights and mask are unpublished."
+    },
+    "independent_reproduction": {
+     "script": "scripts/reproduce_campbell_2009_buffers.py",
+     "report": "docs/literature-reproductions/campbell-2009-buffers.md",
+     "results": "docs/data/campbell-2009-reproduction.json",
+     "benchmark": "Official Tables S4-S5 differentiated through Equation (6), with 0.02 cm3/mol paired-volume tolerance; independent Debye quadrature checks individual equations.",
+     "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit."
+    }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "ni_nio_campbell_2009_table_s3_pvt",
+   "kind": "pressure_volume_temperature_multiphase_with_calibrant",
+   "description": "All 101 paired fcc-Ni/B1-NiO observations, including nine quenched DAC rows, with NaCl calibration readings and every reported uncertainty.",
+   "source_location": "Official mmc2.xls, Table S3, worksheet rows 8-108",
+   "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X09004373-mmc2.xls",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run_id",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "nickel_molar_volume_cm3_mol",
+     "quantity": "nickel_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "nickel_molar_volume_uncertainty_cm3_mol",
+     "quantity": "nickel_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "nickel_molar_volume_cm3_mol"
+    },
+    {
+     "name": "nio_molar_volume_cm3_mol",
+     "quantity": "b1_nio_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "nio_molar_volume_uncertainty_cm3_mol",
+     "quantity": "b1_nio_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "nio_molar_volume_cm3_mol"
+    },
+    {
+     "name": "nacl_molar_volume_cm3_mol",
+     "quantity": "nacl_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "nacl_molar_volume_uncertainty_cm3_mol",
+     "quantity": "nacl_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "nacl_molar_volume_cm3_mol"
+    },
+    {
+     "name": "nacl_phase",
+     "quantity": "nacl_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "delta_nio_ni_molar_volume_cm3_mol",
+     "quantity": "nio_minus_nickel_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "delta_nio_ni_molar_volume_uncertainty_cm3_mol",
+     "quantity": "nio_minus_nickel_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "delta_nio_ni_molar_volume_cm3_mol"
+    },
+    {
+     "name": "sample_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "sample_temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "sample_temperature_k"
+    },
+    {
+     "name": "nacl_temperature_k",
+     "quantity": "nacl_temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "nacl_temperature_uncertainty_k",
+     "quantity": "nacl_temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "nacl_temperature_k"
+    },
+    {
+     "name": "reported_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "reported_pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "reported_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ni-nio-campbell-2009-table-s3-pvt.csv",
+    "media_type": "text/csv",
+    "sha256": "a56e125e5337c3f45c4b51ef80df9cd5333bd452c0210bcc2beb252b68840f5d"
+   },
+   "notes": "Full stored precision, source row order, and all uncertainties are retained. Rows 100-108 are quenched 293-295 K DAC states; Section 2.2 cautions that residual stress invalidates mechanical equilibrium after quenching. The primary refit excludes those nine rows transparently and reports an all-row sensitivity fit. The authors report B1 NiO throughout; the cubic-average volume model does not resolve the low-temperature rhombohedral/magnetic distortion.",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Danielson",
+     "Righter",
+     "Seagle",
+     "Wang",
+     "Prakapenka"
+    ],
+    "year": 2009,
+    "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "286",
+    "locator": "556-564",
+    "doi": "10.1016/j.epsl.2009.07.022"
+   },
+   "used_by_eos_records": [
+    "nickel_oxide_b1_campbell_2009_bm3_mgd"
+   ],
+   "provenance": {
+    "type": "transcribed_official_supplement",
+    "source_workbook_sha256": "b857b9e40f76389dd78da9b757c504b17607d69e4cdc55087fff6e2cb8566f30"
+   }
+  },
+  {
+   "identifier": "campbell_2009_tables_s4_s5_buffer_results",
+   "kind": "published_model_output",
+   "description": "All 3434 log10 oxygen fugacity outputs from official Tables S4-S5; derived buffer integration results, never independent EOS observations.",
+   "source_location": "mmc2.xls, Tables S4-S5, rows 7-23 and columns B-CX",
+   "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X09004373-mmc2.xls",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Danielson",
+     "Righter",
+     "Seagle",
+     "Wang",
+     "Prakapenka"
+    ],
+    "year": 2009,
+    "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "286",
+    "locator": "556-564",
+    "doi": "10.1016/j.epsl.2009.07.022"
+   },
+   "columns": [
+    {
+     "name": "source_table",
+     "quantity": "source_table",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "log10_fugacity",
+     "quantity": "log10_oxygen_fugacity",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/campbell-2009-tables-s4-s5-buffer-results.csv",
+    "media_type": "text/csv",
+    "sha256": "95f0bfe5c2541885fc80bee1b3759b4ab2f6f23a9e9e13251b9dc0f81f1a2699"
+   },
+   "used_by_eos_records": [
+    "nickel_oxide_b1_campbell_2009_bm3_mgd"
+   ],
+   "notes": "Used only for independent numerical differentiation of Equation (6), to test the published paired-volume differences. Not included in fit_datasets.",
+   "provenance": {
+    "type": "transcribed_official_supplement",
+    "source_workbook_sha256": "b857b9e40f76389dd78da9b757c504b17607d69e4cdc55087fff6e2cb8566f30"
+   }
+  }
+ ],
+ "identifier": "nickel_oxide_b1",
+ "name": "Nickel oxide (cubic B1 model)",
+ "formula": "NiO",
+ "phase": "B1 (cubic-average model)",
+ "aliases": [
+  "cubic bunsenite"
+ ],
+ "lattice": {
+  "a": 4.177131582441286,
+  "b": 4.177131582441286,
+  "c": 4.177131582441286,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "atom_sites": [
+  {
+   "element": "Ni",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Ideal rocksalt structural model following Roth (1958), Introduction and Fig. 1; conventional Fm-3m cell with four Ni and four O. The reference edge is normalized to Campbell Table 1 V0, not claimed as a separate ambient cubic refinement. Roth establishes cubic paramagnetic NiO and a rhombohedral distortion below the Neel temperature (523 K at ambient pressure). Campbell reports B1 and fits one cubic-average volume model, including low-temperature MAP points; this record cannot predict magnetic ordering, rhombohedral splitting, or the pressure-dependent Neel boundary. Use the separate nickel_oxide rhombohedral card for resolved low-temperature diffraction.",
+ "source": {
+  "structure": {
+   "reference": {
+    "authors": [
+     "Roth"
+    ],
+    "year": 1958,
+    "title": "Magnetic Structures of MnO, FeO, CoO, and NiO",
+    "source": "Physical Review",
+    "volume": "110",
+    "locator": "1333-1341",
+    "doi": "10.1103/PhysRev.110.1333"
+   },
+   "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.110.1333/fulltext",
+   "source_location": "Introduction, Fig. 1, Table I: ideal NaCl-type nuclear structure and magnetic distortion; ideal 4a/4b occupancies follow stoichiometric NiO.",
+   "sha256": "865b051d18cb9f447a19c355f76934614fca5b0ae365c77d313091f451ed370a"
+  }
+ }
+}

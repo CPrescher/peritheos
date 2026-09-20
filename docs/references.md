@@ -465,3 +465,20 @@ publication when citing a model in scientific work.
 - Dubrovinsky, Saxena, Tutti, Rekhi, LeBehan (2000). *In Situ X-Ray Study of Thermal Expansion and Phase Transition of Iron at Multimegabar Pressure*. Physical Review Letters 84, 1720–1723. [doi:10.1103/PhysRevLett.84.1720](https://doi.org/10.1103/PhysRevLett.84.1720). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
 - Yamazaki, Ito, Yoshino, Yoneda, Guo, Zhang, Sun, Shimojuku, Tsujino, Kunimoto, Higo, Funakoshi (2012). *P-V-T equation of state for ε-iron up to 80 GPa and 1900 K using the Kawai-type high pressure apparatus equipped with sintered diamond anvils*. Geophysical Research Letters 39, L20308. [doi:10.1029/2012GL053540](https://doi.org/10.1029/2012GL053540). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
 - Sakai, Takahashi, Nishitani, Mashino, Ohtani, Hirao (2014). *Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar*. Physics of the Earth and Planetary Interiors 228, 114–126. [doi:10.1016/j.pepi.2013.12.010](https://doi.org/10.1016/j.pepi.2013.12.010). See the [source audit](literature-reproductions/iron-fei-input-papers.md).
+
+- Campbell, A. J., Danielson, L., Righter, K., Seagle, C. T., Wang, Y. &
+  Prakapenka, V. B. (2009). High pressure effects on the iron–iron oxide and
+  nickel–nickel oxide oxygen fugacity buffers. *Earth and Planetary Science
+  Letters*, **286**, 556–564.
+  [doi:10.1016/j.epsl.2009.07.022](https://doi.org/10.1016/j.epsl.2009.07.022).
+  Four experimental 295 K BM3–Debye fits; see the
+  [source audit](literature-reproductions/campbell-2009-buffers.md).
+- Nishihara, Y., Nakajima, Y., Akashi, A., Tsujino, N., Takahashi, E.,
+  Funakoshi, K. & Higo, Y. (2012). Isothermal compression of face-centered
+  cubic iron. *American Mineralogist*, **97**, 1417–1420.
+  [doi:10.2138/am.2012.3958](https://doi.org/10.2138/am.2012.3958).
+  Crystallographic source only for the new fcc Fe card, M620 at 17.59 GPa/1273 K.
+- Roth, W. L. (1958). Magnetic Structures of MnO, FeO, CoO, and NiO.
+  *Physical Review*, **110**, 1333–1341.
+  [doi:10.1103/PhysRev.110.1333](https://doi.org/10.1103/PhysRev.110.1333).
+  Nuclear B1 structure and magnetic-distortion qualification for NiO.

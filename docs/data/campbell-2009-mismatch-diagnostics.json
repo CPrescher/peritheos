@@ -1,0 +1,5795 @@
+{
+  "feo_dewaele_control": {
+    "full_fit": {
+      "active_bounds": [],
+      "observations": 104,
+      "parameters": {
+        "K0_gpa": 132.9804584783237,
+        "gamma0": 1.8301832396296234,
+        "q": 0.25041267750571644
+      },
+      "rmse_gpa": 2.1486025203319272,
+      "solver_success": true,
+      "sse_gpa2": 480.1152501991778
+    },
+    "groups": {
+      "seagle_nominal_series": {
+        "20.0": {
+          "published": {
+            "mean_gpa": -1.8161387564060392,
+            "observations": 10,
+            "rmse_gpa": 2.234193299390318,
+            "sse_gpa2": 49.91619699040595
+          },
+          "published_sse_fraction": 0.07166158099828554,
+          "refitted": {
+            "mean_gpa": 0.5768948923369631,
+            "observations": 10,
+            "rmse_gpa": 1.4175123677756045,
+            "sse_gpa2": 20.093413127968006
+          },
+          "row_ids": [
+            "seagle:1",
+            "seagle:2",
+            "seagle:3",
+            "seagle:4",
+            "seagle:5",
+            "seagle:6",
+            "seagle:7",
+            "seagle:8",
+            "seagle:9",
+            "seagle:10"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 94,
+            "parameters": {
+              "K0_gpa": 132.47079672589652,
+              "gamma0": 1.8934841418657373,
+              "q": 0.33735195411836644
+            },
+            "rmse_gpa": 2.207600674639019,
+            "solver_success": true,
+            "sse_gpa2": 458.10906943466523
+          }
+        },
+        "27.0": {
+          "published": {
+            "mean_gpa": -2.0416321635111423,
+            "observations": 4,
+            "rmse_gpa": 2.3140357839589183,
+            "sse_gpa2": 21.419046437769463
+          },
+          "published_sse_fraction": 0.030749993464070844,
+          "refitted": {
+            "mean_gpa": 0.017942546005930815,
+            "observations": 4,
+            "rmse_gpa": 1.447579209961243,
+            "sse_gpa2": 8.381942276448067
+          },
+          "row_ids": [
+            "seagle:11",
+            "seagle:12",
+            "seagle:13",
+            "seagle:14"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 100,
+            "parameters": {
+              "K0_gpa": 132.7173795483585,
+              "gamma0": 1.8344509235462152,
+              "q": 0.231117706728943
+            },
+            "rmse_gpa": 2.1718699336551746,
+            "solver_success": true,
+            "sse_gpa2": 471.70190087153327
+          }
+        },
+        "50.0": {
+          "published": {
+            "mean_gpa": -1.0586663764383704,
+            "observations": 29,
+            "rmse_gpa": 2.9508633334274648,
+            "sse_gpa2": 252.52023796443277
+          },
+          "published_sse_fraction": 0.3625276078238221,
+          "refitted": {
+            "mean_gpa": -0.10748423898129117,
+            "observations": 29,
+            "rmse_gpa": 2.40356238107145,
+            "sse_gpa2": 167.53625147135386
+          },
+          "row_ids": [
+            "seagle:51",
+            "seagle:52",
+            "seagle:53",
+            "seagle:54",
+            "seagle:55",
+            "seagle:56",
+            "seagle:57",
+            "seagle:58",
+            "seagle:59",
+            "seagle:60",
+            "seagle:63",
+            "seagle:64",
+            "seagle:65",
+            "seagle:66",
+            "seagle:67",
+            "seagle:68",
+            "seagle:69",
+            "seagle:70",
+            "seagle:71",
+            "seagle:72",
+            "seagle:73",
+            "seagle:74",
+            "seagle:75",
+            "seagle:76",
+            "seagle:77",
+            "seagle:78",
+            "seagle:79",
+            "seagle:80",
+            "seagle:81"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 75,
+            "parameters": {
+              "K0_gpa": 136.56238240818624,
+              "gamma0": 1.8115457786226157,
+              "q": 0.6465185514742631
+            },
+            "rmse_gpa": 2.0291242543469092,
+            "solver_success": true,
+            "sse_gpa2": 308.80089296841754
+          }
+        },
+        "55.0": {
+          "published": {
+            "mean_gpa": -2.9846964203137647,
+            "observations": 14,
+            "rmse_gpa": 3.1722548229490815,
+            "sse_gpa2": 140.88480926413192
+          },
+          "published_sse_fraction": 0.20225956261151237,
+          "refitted": {
+            "mean_gpa": -1.5405117883408477,
+            "observations": 14,
+            "rmse_gpa": 1.9583244128736996,
+            "sse_gpa2": 53.69048308479968
+          },
+          "row_ids": [
+            "seagle:15",
+            "seagle:16",
+            "seagle:17",
+            "seagle:18",
+            "seagle:19",
+            "seagle:20",
+            "seagle:21",
+            "seagle:22",
+            "seagle:23",
+            "seagle:24",
+            "seagle:25",
+            "seagle:26",
+            "seagle:27",
+            "seagle:28"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 90,
+            "parameters": {
+              "K0_gpa": 134.4141241545003,
+              "gamma0": 1.7835512011896224,
+              "q": 0.39104868990490566
+            },
+            "rmse_gpa": 2.15934337484776,
+            "solver_success": true,
+            "sse_gpa2": 419.6487429449024
+          }
+        },
+        "72.0": {
+          "published": {
+            "mean_gpa": 0.6917719145838017,
+            "observations": 8,
+            "rmse_gpa": 1.4254309462757808,
+            "sse_gpa2": 16.254827060805344
+          },
+          "published_sse_fraction": 0.02333604473623888,
+          "refitted": {
+            "mean_gpa": 0.8158189573737236,
+            "observations": 8,
+            "rmse_gpa": 1.9688324303646034,
+            "sse_gpa2": 31.01040911084313
+          },
+          "row_ids": [
+            "seagle:29",
+            "seagle:30",
+            "seagle:31",
+            "seagle:32",
+            "seagle:33",
+            "seagle:34",
+            "seagle:35",
+            "seagle:36"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 96,
+            "parameters": {
+              "K0_gpa": 131.479471521526,
+              "gamma0": 1.8221490278689758,
+              "q": 0.028354462950926987
+            },
+            "rmse_gpa": 2.15830057236313,
+            "solver_success": true,
+            "sse_gpa2": 447.19309062364937
+          }
+        },
+        "89.0": {
+          "published": {
+            "mean_gpa": 0.9185777741631412,
+            "observations": 10,
+            "rmse_gpa": 3.7485501469904663,
+            "sse_gpa2": 140.51628204502248
+          },
+          "published_sse_fraction": 0.2017304909923872,
+          "refitted": {
+            "mean_gpa": 0.35375610500539806,
+            "observations": 10,
+            "rmse_gpa": 3.4314758058255688,
+            "sse_gpa2": 117.75026205966236
+          },
+          "row_ids": [
+            "seagle:41",
+            "seagle:42",
+            "seagle:43",
+            "seagle:44",
+            "seagle:45",
+            "seagle:46",
+            "seagle:47",
+            "seagle:48",
+            "seagle:49",
+            "seagle:50"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 94,
+            "parameters": {
+              "K0_gpa": 133.6109630145473,
+              "gamma0": 1.8075864398854133,
+              "q": 0.22808837277163724
+            },
+            "rmse_gpa": 1.9610203751350648,
+            "solver_success": true,
+            "sse_gpa2": 361.48648569931777
+          }
+        },
+        "93.0": {
+          "published": {
+            "mean_gpa": 2.809928334092554,
+            "observations": 4,
+            "rmse_gpa": 2.817023521077665,
+            "sse_gpa2": 31.742486073219222
+          },
+          "published_sse_fraction": 0.04557071399610346,
+          "refitted": {
+            "mean_gpa": 2.348033103333158,
+            "observations": 4,
+            "rmse_gpa": 2.419994687902483,
+            "sse_gpa2": 23.425497157904942
+          },
+          "row_ids": [
+            "seagle:37",
+            "seagle:38",
+            "seagle:39",
+            "seagle:40"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 100,
+            "parameters": {
+              "K0_gpa": 132.9381057507163,
+              "gamma0": 1.7764474502012286,
+              "q": 0.03422444018077993
+            },
+            "rmse_gpa": 2.123908429041215,
+            "solver_success": true,
+            "sse_gpa2": 451.09870149523226
+          }
+        }
+      },
+      "study_and_marker": {
+        "Campbell": {
+          "published": {
+            "mean_gpa": -0.7777689775697485,
+            "observations": 25,
+            "rmse_gpa": 1.3160641005220062,
+            "sse_gpa2": 43.300617917069935
+          },
+          "published_sse_fraction": 0.062164005377579656,
+          "refitted": {
+            "mean_gpa": 0.1632613055435901,
+            "observations": 25,
+            "rmse_gpa": 1.5261322604571035,
+            "sse_gpa2": 58.22699191019771
+          },
+          "row_ids": [
+            "campbell_s2:1",
+            "campbell_s2:2",
+            "campbell_s2:3",
+            "campbell_s2:4",
+            "campbell_s2:5",
+            "campbell_s2:6",
+            "campbell_s2:7",
+            "campbell_s2:8",
+            "campbell_s2:9",
+            "campbell_s2:10",
+            "campbell_s2:11",
+            "campbell_s2:12",
+            "campbell_s2:13",
+            "campbell_s2:14",
+            "campbell_s2:15",
+            "campbell_s2:16",
+            "campbell_s2:17",
+            "campbell_s2:18",
+            "campbell_s2:19",
+            "campbell_s2:20",
+            "campbell_s2:21",
+            "campbell_s2:22",
+            "campbell_s2:23",
+            "campbell_s2:24",
+            "campbell_s2:25"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 79,
+            "parameters": {
+              "K0_gpa": 130.6872757259097,
+              "gamma0": 1.9223112192490976,
+              "q": 0.2574783242577189
+            },
+            "rmse_gpa": 2.291215945806671,
+            "solver_success": true,
+            "sse_gpa2": 414.7239703151819
+          }
+        },
+        "Seagle_fcc": {
+          "published": {
+            "mean_gpa": -1.8805654441503543,
+            "observations": 14,
+            "rmse_gpa": 2.257293629677796,
+            "sse_gpa2": 71.33524342817542
+          },
+          "published_sse_fraction": 0.10241157446235638,
+          "refitted": {
+            "mean_gpa": 0.41719422195666817,
+            "observations": 14,
+            "rmse_gpa": 1.4261675769201498,
+            "sse_gpa2": 28.475355404416074
+          },
+          "row_ids": [
+            "seagle:1",
+            "seagle:2",
+            "seagle:3",
+            "seagle:4",
+            "seagle:5",
+            "seagle:6",
+            "seagle:7",
+            "seagle:8",
+            "seagle:9",
+            "seagle:10",
+            "seagle:11",
+            "seagle:12",
+            "seagle:13",
+            "seagle:14"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 90,
+            "parameters": {
+              "K0_gpa": 132.08211672934505,
+              "gamma0": 1.910980326633409,
+              "q": 0.33258762727572266
+            },
+            "rmse_gpa": 2.233291381246889,
+            "solver_success": true,
+            "sse_gpa2": 448.8831354196475
+          }
+        },
+        "Seagle_hcp": {
+          "published": {
+            "mean_gpa": -0.7158062831758986,
+            "observations": 65,
+            "rmse_gpa": 2.992088651523989,
+            "sse_gpa2": 581.9186424076116
+          },
+          "published_sse_fraction": 0.8354244201600639,
+          "refitted": {
+            "mean_gpa": -0.0804301976131217,
+            "observations": 65,
+            "rmse_gpa": 2.4601841797361557,
+            "sse_gpa2": 393.41290288456395
+          },
+          "row_ids": [
+            "seagle:15",
+            "seagle:16",
+            "seagle:17",
+            "seagle:18",
+            "seagle:19",
+            "seagle:20",
+            "seagle:21",
+            "seagle:22",
+            "seagle:23",
+            "seagle:24",
+            "seagle:25",
+            "seagle:26",
+            "seagle:27",
+            "seagle:28",
+            "seagle:29",
+            "seagle:30",
+            "seagle:31",
+            "seagle:32",
+            "seagle:33",
+            "seagle:34",
+            "seagle:35",
+            "seagle:36",
+            "seagle:37",
+            "seagle:38",
+            "seagle:39",
+            "seagle:40",
+            "seagle:41",
+            "seagle:42",
+            "seagle:43",
+            "seagle:44",
+            "seagle:45",
+            "seagle:46",
+            "seagle:47",
+            "seagle:48",
+            "seagle:49",
+            "seagle:50",
+            "seagle:51",
+            "seagle:52",
+            "seagle:53",
+            "seagle:54",
+            "seagle:55",
+            "seagle:56",
+            "seagle:57",
+            "seagle:58",
+            "seagle:59",
+            "seagle:60",
+            "seagle:63",
+            "seagle:64",
+            "seagle:65",
+            "seagle:66",
+            "seagle:67",
+            "seagle:68",
+            "seagle:69",
+            "seagle:70",
+            "seagle:71",
+            "seagle:72",
+            "seagle:73",
+            "seagle:74",
+            "seagle:75",
+            "seagle:76",
+            "seagle:77",
+            "seagle:78",
+            "seagle:79",
+            "seagle:80",
+            "seagle:81"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 39,
+            "parameters": {
+              "K0_gpa": 145.746404040637,
+              "gamma0": 1.5483113001531026,
+              "q": 0.37730707613106224
+            },
+            "rmse_gpa": 1.01341387703364,
+            "solver_success": true,
+            "sse_gpa2": 40.05329976040979
+          }
+        }
+      },
+      "temperature": {
+        "1500_to_2000": {
+          "published": {
+            "mean_gpa": -0.8875027493532772,
+            "observations": 51,
+            "rmse_gpa": 2.413490550886434,
+            "sse_gpa2": 297.07176860012333
+          },
+          "published_sse_fraction": 0.42648747082902605,
+          "refitted": {
+            "mean_gpa": -0.04645315272937081,
+            "observations": 51,
+            "rmse_gpa": 2.109684580045464,
+            "sse_gpa2": 226.98922039136198
+          },
+          "row_ids": [
+            "campbell_s2:1",
+            "campbell_s2:2",
+            "campbell_s2:3",
+            "campbell_s2:18",
+            "campbell_s2:19",
+            "campbell_s2:20",
+            "campbell_s2:21",
+            "campbell_s2:22",
+            "campbell_s2:23",
+            "seagle:1",
+            "seagle:2",
+            "seagle:3",
+            "seagle:5",
+            "seagle:6",
+            "seagle:7",
+            "seagle:9",
+            "seagle:11",
+            "seagle:12",
+            "seagle:13",
+            "seagle:23",
+            "seagle:24",
+            "seagle:25",
+            "seagle:29",
+            "seagle:30",
+            "seagle:31",
+            "seagle:34",
+            "seagle:41",
+            "seagle:42",
+            "seagle:43",
+            "seagle:52",
+            "seagle:54",
+            "seagle:55",
+            "seagle:56",
+            "seagle:57",
+            "seagle:58",
+            "seagle:66",
+            "seagle:67",
+            "seagle:68",
+            "seagle:69",
+            "seagle:70",
+            "seagle:71",
+            "seagle:72",
+            "seagle:73",
+            "seagle:74",
+            "seagle:75",
+            "seagle:76",
+            "seagle:77",
+            "seagle:78",
+            "seagle:79",
+            "seagle:80",
+            "seagle:81"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 53,
+            "parameters": {
+              "K0_gpa": 128.81758259947173,
+              "gamma0": 1.8981864268437476,
+              "q": 0.01801699734380085
+            },
+            "rmse_gpa": 2.1657424872977,
+            "solver_success": true,
+            "sse_gpa2": 248.59334762818062
+          }
+        },
+        "2000_to_2500": {
+          "published": {
+            "mean_gpa": -1.1402460028250418,
+            "observations": 35,
+            "rmse_gpa": 3.170651416754351,
+            "sse_gpa2": 351.856064229823
+          },
+          "published_sse_fraction": 0.5051378784202999,
+          "refitted": {
+            "mean_gpa": 0.057802577971080536,
+            "observations": 35,
+            "rmse_gpa": 2.3611730413467016,
+            "sse_gpa2": 195.12983459138516
+          },
+          "row_ids": [
+            "campbell_s2:16",
+            "campbell_s2:17",
+            "seagle:4",
+            "seagle:8",
+            "seagle:10",
+            "seagle:14",
+            "seagle:15",
+            "seagle:16",
+            "seagle:17",
+            "seagle:18",
+            "seagle:19",
+            "seagle:20",
+            "seagle:21",
+            "seagle:22",
+            "seagle:26",
+            "seagle:27",
+            "seagle:28",
+            "seagle:32",
+            "seagle:33",
+            "seagle:35",
+            "seagle:36",
+            "seagle:37",
+            "seagle:38",
+            "seagle:39",
+            "seagle:40",
+            "seagle:44",
+            "seagle:45",
+            "seagle:46",
+            "seagle:47",
+            "seagle:48",
+            "seagle:49",
+            "seagle:51",
+            "seagle:53",
+            "seagle:59",
+            "seagle:60"
+          ],
+          "without_group": {
+            "active_bounds": [
+              "q"
+            ],
+            "observations": 69,
+            "parameters": {
+              "K0_gpa": 136.5930163237086,
+              "gamma0": 1.6433787910649142,
+              "q": 0.01000000000000014
+            },
+            "rmse_gpa": 1.9299081122813453,
+            "solver_success": true,
+            "sse_gpa2": 256.99362720760485
+          }
+        },
+        "2500_and_above": {
+          "published": {
+            "mean_gpa": -6.322143386461406,
+            "observations": 1,
+            "rmse_gpa": 6.322143386461406,
+            "sse_gpa2": 39.96949699897769
+          },
+          "published_sse_fraction": 0.05738172215330213,
+          "refitted": {
+            "mean_gpa": -5.143193090654805,
+            "observations": 1,
+            "rmse_gpa": 5.143193090654805,
+            "sse_gpa2": 26.452435167759322
+          },
+          "row_ids": [
+            "seagle:50"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 103,
+            "parameters": {
+              "K0_gpa": 134.6861543816846,
+              "gamma0": 1.8544297431669952,
+              "q": 0.5439082153932461
+            },
+            "rmse_gpa": 2.0928928852985234,
+            "solver_success": true,
+            "sse_gpa2": 451.1606648213174
+          }
+        },
+        "below_1500": {
+          "published": {
+            "mean_gpa": -0.04742090361335743,
+            "observations": 17,
+            "rmse_gpa": 0.6711348564375663,
+            "sse_gpa2": 7.657173923933036
+          },
+          "published_sse_fraction": 0.010992928597371988,
+          "refitted": {
+            "mean_gpa": 0.5990295618820644,
+            "observations": 17,
+            "rmse_gpa": 1.362173005524871,
+            "sse_gpa2": 31.54376004867123
+          },
+          "row_ids": [
+            "campbell_s2:4",
+            "campbell_s2:5",
+            "campbell_s2:6",
+            "campbell_s2:7",
+            "campbell_s2:8",
+            "campbell_s2:9",
+            "campbell_s2:10",
+            "campbell_s2:11",
+            "campbell_s2:12",
+            "campbell_s2:13",
+            "campbell_s2:14",
+            "campbell_s2:15",
+            "campbell_s2:24",
+            "campbell_s2:25",
+            "seagle:63",
+            "seagle:64",
+            "seagle:65"
+          ],
+          "without_group": {
+            "active_bounds": [],
+            "observations": 87,
+            "parameters": {
+              "K0_gpa": 131.91986757108387,
+              "gamma0": 1.903616359673237,
+              "q": 0.31855162181808344
+            },
+            "rmse_gpa": 2.2614731452330648,
+            "solver_success": true,
+            "sse_gpa2": 444.94068843509865
+          }
+        }
+      }
+    },
+    "q_profiles": {
+      "Campbell": {
+        "fixed_q_fits": [
+          {
+            "active_bounds": [],
+            "observations": 25,
+            "parameters": {
+              "K0_gpa": 147.933303752591,
+              "gamma0": 1.3390891549716455,
+              "q": 0.01
+            },
+            "rmse_gpa": 0.532340478319488,
+            "solver_success": true,
+            "sse_gpa2": 7.0846596214355335
+          },
+          {
+            "active_bounds": [],
+            "observations": 25,
+            "parameters": {
+              "K0_gpa": 149.59301544898608,
+              "gamma0": 1.3434395974246043,
+              "q": 0.3
+            },
+            "rmse_gpa": 0.52112559374699,
+            "solver_success": true,
+            "sse_gpa2": 6.789297111453821
+          },
+          {
+            "active_bounds": [],
+            "observations": 25,
+            "parameters": {
+              "K0_gpa": 151.22417687558294,
+              "gamma0": 1.3479002855439868,
+              "q": 0.6
+            },
+            "rmse_gpa": 0.515637766678772,
+            "solver_success": true,
+            "sse_gpa2": 6.647057660636794
+          },
+          {
+            "active_bounds": [],
+            "observations": 25,
+            "parameters": {
+              "K0_gpa": 153.26818169010562,
+              "gamma0": 1.353897097146186,
+              "q": 1.0
+            },
+            "rmse_gpa": 0.516640248922866,
+            "solver_success": true,
+            "sse_gpa2": 6.672928670177023
+          },
+          {
+            "active_bounds": [],
+            "observations": 25,
+            "parameters": {
+              "K0_gpa": 154.7072510647002,
+              "gamma0": 1.3584970691165479,
+              "q": 1.3
+            },
+            "rmse_gpa": 0.5225670129767623,
+            "solver_success": true,
+            "sse_gpa2": 6.826907076286393
+          },
+          {
+            "active_bounds": [],
+            "observations": 25,
+            "parameters": {
+              "K0_gpa": 156.06972066952716,
+              "gamma0": 1.363226829459057,
+              "q": 1.6
+            },
+            "rmse_gpa": 0.5320519635780083,
+            "solver_success": true,
+            "sse_gpa2": 7.076982298680358
+          },
+          {
+            "active_bounds": [],
+            "observations": 25,
+            "parameters": {
+              "K0_gpa": 157.77351133440573,
+              "gamma0": 1.3697812686732018,
+              "q": 2.0
+            },
+            "rmse_gpa": 0.5490167067694934,
+            "solver_success": true,
+            "sse_gpa2": 7.535483607800499
+          },
+          {
+            "active_bounds": [],
+            "observations": 25,
+            "parameters": {
+              "K0_gpa": 161.52231719331746,
+              "gamma0": 1.3876259289895347,
+              "q": 3.0
+            },
+            "rmse_gpa": 0.6050325220425964,
+            "solver_success": true,
+            "sse_gpa2": 9.151608818230624
+          }
+        ],
+        "free_q_fit": {
+          "active_bounds": [],
+          "observations": 25,
+          "parameters": {
+            "K0_gpa": 152.01199778858555,
+            "gamma0": 1.3501485491023364,
+            "q": 0.7507982353595932
+          },
+          "rmse_gpa": 0.5149850342805222,
+          "solver_success": true,
+          "sse_gpa2": 6.630239638322767
+        }
+      },
+      "Seagle_fcc": {
+        "fixed_q_fits": [
+          {
+            "active_bounds": [],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 146.28083640372242,
+              "gamma0": 1.572599399139453,
+              "q": 0.01
+            },
+            "rmse_gpa": 1.2935058460306137,
+            "solver_success": true,
+            "sse_gpa2": 23.42420323201523
+          },
+          {
+            "active_bounds": [],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 148.27673664257878,
+              "gamma0": 1.5810704664444277,
+              "q": 0.3
+            },
+            "rmse_gpa": 1.2863619864149902,
+            "solver_success": true,
+            "sse_gpa2": 23.16618024130927
+          },
+          {
+            "active_bounds": [],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 150.2763333407427,
+              "gamma0": 1.5902411881254126,
+              "q": 0.6
+            },
+            "rmse_gpa": 1.279408327756103,
+            "solver_success": true,
+            "sse_gpa2": 22.91639936784335
+          },
+          {
+            "active_bounds": [],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 152.8438301606486,
+              "gamma0": 1.6031149606994968,
+              "q": 1.0
+            },
+            "rmse_gpa": 1.2707741484533916,
+            "solver_success": true,
+            "sse_gpa2": 22.608137109284197
+          },
+          {
+            "active_bounds": [],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 154.69867976358523,
+              "gamma0": 1.61325585575189,
+              "q": 1.3
+            },
+            "rmse_gpa": 1.2647394252637685,
+            "solver_success": true,
+            "sse_gpa2": 22.393921393431384
+          },
+          {
+            "active_bounds": [],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 156.49549574206418,
+              "gamma0": 1.6238137614097272,
+              "q": 1.6
+            },
+            "rmse_gpa": 1.2590533552385923,
+            "solver_success": true,
+            "sse_gpa2": 22.193014918725794
+          },
+          {
+            "active_bounds": [],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 158.80487767865122,
+              "gamma0": 1.6385409551106407,
+              "q": 2.0
+            },
+            "rmse_gpa": 1.2519726375474647,
+            "solver_success": true,
+            "sse_gpa2": 21.944096792345775
+          },
+          {
+            "active_bounds": [],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 164.17743615268566,
+              "gamma0": 1.6786214177868155,
+              "q": 3.0
+            },
+            "rmse_gpa": 1.2364621421004913,
+            "solver_success": true,
+            "sse_gpa2": 21.4037408038683
+          }
+        ],
+        "free_q_fit": {
+          "active_bounds": [
+            "q"
+          ],
+          "observations": 14,
+          "parameters": {
+            "K0_gpa": 190.30574661987504,
+            "gamma0": 2.095274020962455,
+            "q": 9.999999999999961
+          },
+          "rmse_gpa": 1.1773264189105537,
+          "solver_success": true,
+          "sse_gpa2": 19.40536495330648
+        }
+      },
+      "Seagle_hcp": {
+        "fixed_q_fits": [
+          {
+            "active_bounds": [],
+            "observations": 65,
+            "parameters": {
+              "K0_gpa": 124.89723534999452,
+              "gamma0": 2.0864633708751565,
+              "q": 0.01
+            },
+            "rmse_gpa": 2.38055039036499,
+            "solver_success": true,
+            "sse_gpa2": 368.3563104693489
+          },
+          {
+            "active_bounds": [],
+            "observations": 65,
+            "parameters": {
+              "K0_gpa": 126.85720537336822,
+              "gamma0": 2.1368828943325218,
+              "q": 0.3
+            },
+            "rmse_gpa": 2.362747793467221,
+            "solver_success": true,
+            "sse_gpa2": 362.8675138097244
+          },
+          {
+            "active_bounds": [],
+            "observations": 65,
+            "parameters": {
+              "K0_gpa": 128.78341220619515,
+              "gamma0": 2.190908061713722,
+              "q": 0.6
+            },
+            "rmse_gpa": 2.352265631787212,
+            "solver_success": true,
+            "sse_gpa2": 359.6549841616739
+          },
+          {
+            "active_bounds": [],
+            "observations": 65,
+            "parameters": {
+              "K0_gpa": 131.18765466054015,
+              "gamma0": 2.2666973614027324,
+              "q": 1.0
+            },
+            "rmse_gpa": 2.3481275227522995,
+            "solver_success": true,
+            "sse_gpa2": 358.39068610194533
+          },
+          {
+            "active_bounds": [],
+            "observations": 65,
+            "parameters": {
+              "K0_gpa": 132.86819018216624,
+              "gamma0": 2.3269274044304775,
+              "q": 1.3
+            },
+            "rmse_gpa": 2.3506584982332046,
+            "solver_success": true,
+            "sse_gpa2": 359.163699395539
+          },
+          {
+            "active_bounds": [],
+            "observations": 65,
+            "parameters": {
+              "K0_gpa": 134.44614786514936,
+              "gamma0": 2.390511370587089,
+              "q": 1.6
+            },
+            "rmse_gpa": 2.3567894022795772,
+            "solver_success": true,
+            "sse_gpa2": 361.0396586353262
+          },
+          {
+            "active_bounds": [],
+            "observations": 65,
+            "parameters": {
+              "K0_gpa": 136.39714827335803,
+              "gamma0": 2.4811417190128773,
+              "q": 2.0
+            },
+            "rmse_gpa": 2.369052599880532,
+            "solver_success": true,
+            "sse_gpa2": 364.8066643650459
+          },
+          {
+            "active_bounds": [],
+            "observations": 65,
+            "parameters": {
+              "K0_gpa": 140.5830436166236,
+              "gamma0": 2.7417626561619106,
+              "q": 3.0
+            },
+            "rmse_gpa": 2.4111742285629023,
+            "solver_success": true,
+            "sse_gpa2": 377.894475431584
+          }
+        ],
+        "free_q_fit": {
+          "active_bounds": [],
+          "observations": 65,
+          "parameters": {
+            "K0_gpa": 131.04562531084778,
+            "gamma0": 2.2619089705477613,
+            "q": 0.9754709112014017
+          },
+          "rmse_gpa": 2.3481116895740466,
+          "solver_success": true,
+          "sse_gpa2": 358.3858529364284
+        }
+      },
+      "combined": {
+        "fixed_q_fits": [
+          {
+            "active_bounds": [],
+            "observations": 104,
+            "parameters": {
+              "K0_gpa": 131.13963114363543,
+              "gamma0": 1.8150676211293673,
+              "q": 0.01
+            },
+            "rmse_gpa": 2.1514219131644046,
+            "solver_success": true,
+            "sse_gpa2": 481.3760898381746
+          },
+          {
+            "active_bounds": [],
+            "observations": 104,
+            "parameters": {
+              "K0_gpa": 133.34889146807976,
+              "gamma0": 1.833346003165541,
+              "q": 0.3
+            },
+            "rmse_gpa": 2.1487154438762146,
+            "solver_success": true,
+            "sse_gpa2": 480.16571811022436
+          },
+          {
+            "active_bounds": [],
+            "observations": 104,
+            "parameters": {
+              "K0_gpa": 135.49786355856554,
+              "gamma0": 1.8528601007803598,
+              "q": 0.6
+            },
+            "rmse_gpa": 2.153885938566971,
+            "solver_success": true,
+            "sse_gpa2": 482.4793621810784
+          },
+          {
+            "active_bounds": [],
+            "observations": 104,
+            "parameters": {
+              "K0_gpa": 138.1576576888802,
+              "gamma0": 1.8800320790825265,
+              "q": 1.0
+            },
+            "rmse_gpa": 2.1710406679982137,
+            "solver_success": true,
+            "sse_gpa2": 490.1954285386215
+          },
+          {
+            "active_bounds": [],
+            "observations": 104,
+            "parameters": {
+              "K0_gpa": 140.00752424655792,
+              "gamma0": 1.901371803930802,
+              "q": 1.3
+            },
+            "rmse_gpa": 2.190127495362865,
+            "solver_success": true,
+            "sse_gpa2": 498.8524783782192
+          },
+          {
+            "active_bounds": [],
+            "observations": 104,
+            "parameters": {
+              "K0_gpa": 141.74154495345388,
+              "gamma0": 1.9235765713453357,
+              "q": 1.6
+            },
+            "rmse_gpa": 2.213521755153108,
+            "solver_success": true,
+            "sse_gpa2": 509.56657029575416
+          },
+          {
+            "active_bounds": [],
+            "observations": 104,
+            "parameters": {
+              "K0_gpa": 143.88669275686482,
+              "gamma0": 1.9545367873478856,
+              "q": 2.0
+            },
+            "rmse_gpa": 2.250162145330915,
+            "solver_success": true,
+            "sse_gpa2": 526.5758867491434
+          },
+          {
+            "active_bounds": [],
+            "observations": 104,
+            "parameters": {
+              "K0_gpa": 148.52302195627752,
+              "gamma0": 2.0382907839016724,
+              "q": 3.0
+            },
+            "rmse_gpa": 2.361449156156899,
+            "solver_success": true,
+            "sse_gpa2": 579.9499801798695
+          }
+        ],
+        "free_q_fit": {
+          "active_bounds": [],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 132.9804584783237,
+            "gamma0": 1.8301832396296234,
+            "q": 0.25041267750571644
+          },
+          "rmse_gpa": 2.1486025203319272,
+          "solver_success": true,
+          "sse_gpa2": 480.1152501991778
+        }
+      }
+    },
+    "rows": [
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 19.9741252379723,
+        "published_residual_gpa": 0.04255167455294284,
+        "refitted_residual_gpa": 2.1901609805598277,
+        "row_id": "campbell_s2:1",
+        "series": "FeFeO_030",
+        "study": "campbell_s2",
+        "temperature_k": 1812.08
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 19.8045351237323,
+        "published_residual_gpa": -0.48968288034138396,
+        "refitted_residual_gpa": 1.304719151810172,
+        "row_id": "campbell_s2:2",
+        "series": "FeFeO_028",
+        "study": "campbell_s2",
+        "temperature_k": 1653.485
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 19.7547186522249,
+        "published_residual_gpa": -0.20875811559367108,
+        "refitted_residual_gpa": 1.3771905689846946,
+        "row_id": "campbell_s2:3",
+        "series": "FeFeO_021",
+        "study": "campbell_s2",
+        "temperature_k": 1572.975
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 19.0572197601149,
+        "published_residual_gpa": -0.03145468484203917,
+        "refitted_residual_gpa": 1.3380414810265684,
+        "row_id": "campbell_s2:4",
+        "series": "FeFeO_033",
+        "study": "campbell_s2",
+        "temperature_k": 1475.49
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 4.40702753099139,
+        "published_residual_gpa": 0.7626389686374919,
+        "refitted_residual_gpa": 2.3832578153568837,
+        "row_id": "campbell_s2:5",
+        "series": "T0691.023",
+        "study": "campbell_s2",
+        "temperature_k": 1273.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 6.88420826806315,
+        "published_residual_gpa": 0.4722659628680397,
+        "refitted_residual_gpa": 1.9840557175540177,
+        "row_id": "campbell_s2:6",
+        "series": "T0691.033",
+        "study": "campbell_s2",
+        "temperature_k": 1273.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 10.1786091993957,
+        "published_residual_gpa": -0.1511933504580636,
+        "refitted_residual_gpa": 1.220576816593761,
+        "row_id": "campbell_s2:7",
+        "series": "T0691.051",
+        "study": "campbell_s2",
+        "temperature_k": 1273.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 9.08432605161026,
+        "published_residual_gpa": 0.049700763772662526,
+        "refitted_residual_gpa": 1.4691116083288343,
+        "row_id": "campbell_s2:8",
+        "series": "T0691.042",
+        "study": "campbell_s2",
+        "temperature_k": 1273.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 3.9954833425198,
+        "published_residual_gpa": 0.6169534644426147,
+        "refitted_residual_gpa": 1.8743629703393019,
+        "row_id": "campbell_s2:9",
+        "series": "T0691.024",
+        "study": "campbell_s2",
+        "temperature_k": 1073.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 6.70709117993003,
+        "published_residual_gpa": 0.038208349598976454,
+        "refitted_residual_gpa": 1.1677905868043759,
+        "row_id": "campbell_s2:10",
+        "series": "T0691.034",
+        "study": "campbell_s2",
+        "temperature_k": 1073.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 8.59157948187823,
+        "published_residual_gpa": -0.26958795266017965,
+        "refitted_residual_gpa": 0.7629850431125274,
+        "row_id": "campbell_s2:11",
+        "series": "T0691.043",
+        "study": "campbell_s2",
+        "temperature_k": 1073.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 9.65582885235768,
+        "published_residual_gpa": -0.15066083027065957,
+        "refitted_residual_gpa": 0.8078302486094451,
+        "row_id": "campbell_s2:12",
+        "series": "T0691.052",
+        "study": "campbell_s2",
+        "temperature_k": 1073.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 6.28240221568665,
+        "published_residual_gpa": 0.06987931150313464,
+        "refitted_residual_gpa": 0.7929620228407446,
+        "row_id": "campbell_s2:13",
+        "series": "T0691.035",
+        "study": "campbell_s2",
+        "temperature_k": 873.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 8.22985586623152,
+        "published_residual_gpa": -0.3973380416493697,
+        "refitted_residual_gpa": 0.22073002907100303,
+        "row_id": "campbell_s2:14",
+        "series": "T0691.044",
+        "study": "campbell_s2",
+        "temperature_k": 873.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 9.30223232637767,
+        "published_residual_gpa": -0.057094632577207705,
+        "refitted_residual_gpa": 0.45960404661393284,
+        "row_id": "campbell_s2:15",
+        "series": "T0691.053",
+        "study": "campbell_s2",
+        "temperature_k": 873.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 57.5614962915957,
+        "published_residual_gpa": -2.3480677592488632,
+        "refitted_residual_gpa": -0.9871421535591978,
+        "row_id": "campbell_s2:16",
+        "series": "FeFeO_094",
+        "study": "campbell_s2",
+        "temperature_k": 2096.29
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 56.4737630900587,
+        "published_residual_gpa": -1.5030034978864535,
+        "refitted_residual_gpa": -0.446145047609555,
+        "row_id": "campbell_s2:17",
+        "series": "FeFeO_095",
+        "study": "campbell_s2",
+        "temperature_k": 2006.565
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 55.9507104077153,
+        "published_residual_gpa": -1.275744020301346,
+        "refitted_residual_gpa": -0.43299427409104396,
+        "row_id": "campbell_s2:18",
+        "series": "FeFeO_093",
+        "study": "campbell_s2",
+        "temperature_k": 1941.575
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 47.593716643029,
+        "published_residual_gpa": -2.3652346552691625,
+        "refitted_residual_gpa": -1.6383331873453884,
+        "row_id": "campbell_s2:19",
+        "series": "FeFeO_076",
+        "study": "campbell_s2",
+        "temperature_k": 1751.455
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 56.2736741898665,
+        "published_residual_gpa": -2.1065388709509136,
+        "refitted_residual_gpa": -1.9840029179333385,
+        "row_id": "campbell_s2:20",
+        "series": "FeFeO_092",
+        "study": "campbell_s2",
+        "temperature_k": 1731.57
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 48.0540324358088,
+        "published_residual_gpa": -2.765397043222734,
+        "refitted_residual_gpa": -2.312998435804886,
+        "row_id": "campbell_s2:21",
+        "series": "FeFeO_075",
+        "study": "campbell_s2",
+        "temperature_k": 1670.46
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 36.0207077276771,
+        "published_residual_gpa": -2.3834701314626514,
+        "refitted_residual_gpa": -1.3037548393612042,
+        "row_id": "campbell_s2:22",
+        "series": "FeFeO_040",
+        "study": "campbell_s2",
+        "temperature_k": 1655.91
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 48.2733529888627,
+        "published_residual_gpa": -1.8944388603548532,
+        "refitted_residual_gpa": -1.8745699040246677,
+        "row_id": "campbell_s2:23",
+        "series": "FeFeO_072",
+        "study": "campbell_s2",
+        "temperature_k": 1562.79
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 48.567495831539,
+        "published_residual_gpa": -1.9914044213886442,
+        "refitted_residual_gpa": -2.2473932384205497,
+        "row_id": "campbell_s2:24",
+        "series": "FeFeO_071",
+        "study": "campbell_s2",
+        "temperature_k": 1486.16
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 55.1248168632253,
+        "published_residual_gpa": -1.1073531861413812,
+        "refitted_residual_gpa": -2.044512450866506,
+        "row_id": "campbell_s2:25",
+        "series": "FeFeO_091",
+        "study": "campbell_s2",
+        "temperature_k": 1436.69
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 19.501110220622646,
+        "published_residual_gpa": -1.113383908651624,
+        "refitted_residual_gpa": 0.6897954852325618,
+        "row_id": "seagle:1",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 1640.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 21.763704040080526,
+        "published_residual_gpa": -3.0940073318546233,
+        "refitted_residual_gpa": -0.8773820368587906,
+        "row_id": "seagle:2",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 1820.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 20.328162313738584,
+        "published_residual_gpa": -1.9526425604513022,
+        "refitted_residual_gpa": 0.32074915837987916,
+        "row_id": "seagle:3",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 1840.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 21.90846895335586,
+        "published_residual_gpa": -2.9580630195480957,
+        "refitted_residual_gpa": -0.31660484306416947,
+        "row_id": "seagle:4",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 2010.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 21.156943479439313,
+        "published_residual_gpa": -2.745406871499547,
+        "refitted_residual_gpa": -0.3133845899233414,
+        "row_id": "seagle:5",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 1910.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 17.646165999656727,
+        "published_residual_gpa": 1.4988437653174635,
+        "refitted_residual_gpa": 4.0897445759412605,
+        "row_id": "seagle:6",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 1990.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 19.816789222077404,
+        "published_residual_gpa": -1.3346814640726095,
+        "refitted_residual_gpa": 0.654860631649747,
+        "row_id": "seagle:7",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 1720.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 20.99363053309928,
+        "published_residual_gpa": -1.4813922809998203,
+        "refitted_residual_gpa": 1.1215761320001825,
+        "row_id": "seagle:8",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 2000.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 20.851583601809775,
+        "published_residual_gpa": -2.0558178696096725,
+        "refitted_residual_gpa": 0.36387571976218425,
+        "row_id": "seagle:9",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 1910.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 22.434902266393753,
+        "published_residual_gpa": -2.9248360226905596,
+        "refitted_residual_gpa": 0.035718690250117646,
+        "row_id": "seagle:10",
+        "series": "20.0",
+        "study": "seagle",
+        "temperature_k": 2160.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 30.230137273661043,
+        "published_residual_gpa": -3.912340705684514,
+        "refitted_residual_gpa": -2.4618480228714503,
+        "row_id": "seagle:11",
+        "series": "27.0",
+        "study": "seagle",
+        "temperature_k": 1650.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 28.392861061385936,
+        "published_residual_gpa": -1.2968436477518779,
+        "refitted_residual_gpa": 0.7369606745945987,
+        "row_id": "seagle:12",
+        "series": "27.0",
+        "study": "seagle",
+        "temperature_k": 1880.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 29.030473323386044,
+        "published_residual_gpa": -1.6488052416314822,
+        "refitted_residual_gpa": 0.611844553106291,
+        "row_id": "seagle:13",
+        "series": "27.0",
+        "study": "seagle",
+        "temperature_k": 1970.0
+      },
+      {
+        "iron_phase": "fcc",
+        "pressure_gpa": 28.032110284345404,
+        "published_residual_gpa": -1.3085390589766952,
+        "refitted_residual_gpa": 1.1848129791942839,
+        "row_id": "seagle:14",
+        "series": "27.0",
+        "study": "seagle",
+        "temperature_k": 2050.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 53.86437655115843,
+        "published_residual_gpa": -4.211762235307617,
+        "refitted_residual_gpa": -2.120643861080353,
+        "row_id": "seagle:15",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2230.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 53.11814570835487,
+        "published_residual_gpa": -3.8054862089902173,
+        "refitted_residual_gpa": -2.065150896254721,
+        "row_id": "seagle:16",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2120.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 53.72300470000804,
+        "published_residual_gpa": -4.472047004526601,
+        "refitted_residual_gpa": -3.0308900833663017,
+        "row_id": "seagle:17",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2030.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 53.80940881458254,
+        "published_residual_gpa": -4.403730410149379,
+        "refitted_residual_gpa": -2.6344522715589562,
+        "row_id": "seagle:18",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2130.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 50.102619786338906,
+        "published_residual_gpa": -0.6742753484877042,
+        "refitted_residual_gpa": 1.1941632463077951,
+        "row_id": "seagle:19",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2160.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 52.690149202240846,
+        "published_residual_gpa": -3.3098246018950803,
+        "refitted_residual_gpa": -1.6733591622554584,
+        "row_id": "seagle:20",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2090.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 50.98835533149271,
+        "published_residual_gpa": -1.8448954123813408,
+        "refitted_residual_gpa": -0.49938714440708765,
+        "row_id": "seagle:21",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2000.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 51.38660545700302,
+        "published_residual_gpa": -2.095480426155227,
+        "refitted_residual_gpa": -0.5890025740476474,
+        "row_id": "seagle:22",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2050.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 51.41952700509767,
+        "published_residual_gpa": -3.0216866641938367,
+        "refitted_residual_gpa": -2.794602502120277,
+        "row_id": "seagle:23",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 1660.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 51.910436322819166,
+        "published_residual_gpa": -3.0678821201821975,
+        "refitted_residual_gpa": -2.488922127015975,
+        "row_id": "seagle:24",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 1770.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 52.861802703193554,
+        "published_residual_gpa": -3.6501373109373034,
+        "refitted_residual_gpa": -2.6815982916349057,
+        "row_id": "seagle:25",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 1890.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 52.57477954100768,
+        "published_residual_gpa": -2.8311412903226127,
+        "refitted_residual_gpa": -1.415338479493208,
+        "row_id": "seagle:26",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2030.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 51.875169347745825,
+        "published_residual_gpa": -1.6898232503119743,
+        "refitted_residual_gpa": 0.10886677446066528,
+        "row_id": "seagle:27",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2150.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 52.92582574119249,
+        "published_residual_gpa": -2.707577600551616,
+        "refitted_residual_gpa": -0.876847664305437,
+        "row_id": "seagle:28",
+        "series": "55.0",
+        "study": "seagle",
+        "temperature_k": 2160.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 70.16809990913734,
+        "published_residual_gpa": -0.6763695266982239,
+        "refitted_residual_gpa": -1.584697761528119,
+        "row_id": "seagle:29",
+        "series": "72.0",
+        "study": "seagle",
+        "temperature_k": 1720.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 69.95656936925234,
+        "published_residual_gpa": -0.4734525956106381,
+        "refitted_residual_gpa": -1.1031182004699218,
+        "row_id": "seagle:30",
+        "series": "72.0",
+        "study": "seagle",
+        "temperature_k": 1790.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 69.50254660429333,
+        "published_residual_gpa": 0.41635156160801046,
+        "refitted_residual_gpa": 0.1548119649863935,
+        "row_id": "seagle:31",
+        "series": "72.0",
+        "study": "seagle",
+        "temperature_k": 1890.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 70.22334266071127,
+        "published_residual_gpa": 0.19553224051747975,
+        "refitted_residual_gpa": 0.5736036935672217,
+        "row_id": "seagle:32",
+        "series": "72.0",
+        "study": "seagle",
+        "temperature_k": 2060.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 69.57291955833831,
+        "published_residual_gpa": 0.30800430338162244,
+        "refitted_residual_gpa": 0.6001462865936276,
+        "row_id": "seagle:33",
+        "series": "72.0",
+        "study": "seagle",
+        "temperature_k": 2030.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 67.43397726227096,
+        "published_residual_gpa": 2.1304123792570095,
+        "refitted_residual_gpa": 2.284591921166978,
+        "row_id": "seagle:34",
+        "series": "72.0",
+        "study": "seagle",
+        "temperature_k": 1990.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 69.91985021501249,
+        "published_residual_gpa": 0.38049682277561203,
+        "refitted_residual_gpa": 1.1179080279998175,
+        "row_id": "seagle:35",
+        "series": "72.0",
+        "study": "seagle",
+        "temperature_k": 2150.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 67.28891557852214,
+        "published_residual_gpa": 3.2532001314395416,
+        "refitted_residual_gpa": 4.483305726673791,
+        "row_id": "seagle:36",
+        "series": "72.0",
+        "study": "seagle",
+        "temperature_k": 2280.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 89.96564184644545,
+        "published_residual_gpa": 2.4669539683513335,
+        "refitted_residual_gpa": 1.3929644235424519,
+        "row_id": "seagle:37",
+        "series": "93.0",
+        "study": "seagle",
+        "temperature_k": 2040.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 89.92286614432557,
+        "published_residual_gpa": 2.903646517576391,
+        "refitted_residual_gpa": 2.42176799449733,
+        "row_id": "seagle:38",
+        "series": "93.0",
+        "study": "seagle",
+        "temperature_k": 2180.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 90.04546879764396,
+        "published_residual_gpa": 2.967860078224618,
+        "refitted_residual_gpa": 2.6063655525571505,
+        "row_id": "seagle:39",
+        "series": "93.0",
+        "study": "seagle",
+        "temperature_k": 2210.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 90.23938101728649,
+        "published_residual_gpa": 2.901252772217873,
+        "refitted_residual_gpa": 2.9710344427357,
+        "row_id": "seagle:40",
+        "series": "93.0",
+        "study": "seagle",
+        "temperature_k": 2310.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 83.78654336705851,
+        "published_residual_gpa": 2.066897725527568,
+        "refitted_residual_gpa": -0.6591826145311757,
+        "row_id": "seagle:41",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 1560.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 83.58485713077775,
+        "published_residual_gpa": 2.6790968936232815,
+        "refitted_residual_gpa": 0.4027295300247147,
+        "row_id": "seagle:42",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 1670.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 83.56834023096945,
+        "published_residual_gpa": 3.029669529558035,
+        "refitted_residual_gpa": 1.5118109362650358,
+        "row_id": "seagle:43",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 1850.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 84.58416916325461,
+        "published_residual_gpa": 2.7322701007333023,
+        "refitted_residual_gpa": 1.8587969830372089,
+        "row_id": "seagle:44",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 2010.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 84.04265288618242,
+        "published_residual_gpa": 3.5682573934610105,
+        "refitted_residual_gpa": 3.0641240838429127,
+        "row_id": "seagle:45",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 2100.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 87.9156863212393,
+        "published_residual_gpa": 0.5681803708522892,
+        "refitted_residual_gpa": 1.0416434933510317,
+        "row_id": "seagle:46",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 2340.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 83.35388366922996,
+        "published_residual_gpa": 5.550389918168349,
+        "refitted_residual_gpa": 6.512534704620407,
+        "row_id": "seagle:47",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 2460.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 92.77315867692941,
+        "published_residual_gpa": -5.310540634345827,
+        "refitted_residual_gpa": -5.633388956865005,
+        "row_id": "seagle:48",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 2140.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 87.1601032933281,
+        "published_residual_gpa": 0.6236998305148092,
+        "refitted_residual_gpa": 0.5816859809636554,
+        "row_id": "seagle:49",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 2210.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 95.15448140920283,
+        "published_residual_gpa": -6.322143386461406,
+        "refitted_residual_gpa": -5.143193090654805,
+        "row_id": "seagle:50",
+        "series": "89.0",
+        "study": "seagle",
+        "temperature_k": 2510.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 52.487975075036644,
+        "published_residual_gpa": -5.0859508681511585,
+        "refitted_residual_gpa": -2.5378687910065025,
+        "row_id": "seagle:51",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 2340.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 49.38250598077332,
+        "published_residual_gpa": -3.7349182210340075,
+        "refitted_residual_gpa": -2.3739494926746545,
+        "row_id": "seagle:52",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1950.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 50.63577581652072,
+        "published_residual_gpa": -2.5235299763957713,
+        "refitted_residual_gpa": -0.13443986517488327,
+        "row_id": "seagle:53",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 2300.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 51.136492195932675,
+        "published_residual_gpa": -3.992515954516705,
+        "refitted_residual_gpa": -3.3143067331917777,
+        "row_id": "seagle:54",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1770.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 50.103793463282386,
+        "published_residual_gpa": -3.612168616976412,
+        "refitted_residual_gpa": -3.200171438817904,
+        "row_id": "seagle:55",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1680.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 50.93509626634418,
+        "published_residual_gpa": -4.11621139189436,
+        "refitted_residual_gpa": -3.3180362052071715,
+        "row_id": "seagle:56",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1800.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 51.7039417199506,
+        "published_residual_gpa": -4.580597948140067,
+        "refitted_residual_gpa": -3.263557687528106,
+        "row_id": "seagle:57",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1960.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 50.8551523645134,
+        "published_residual_gpa": -4.256479890520538,
+        "refitted_residual_gpa": -3.1779366261811077,
+        "row_id": "seagle:58",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1880.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 53.453885315220546,
+        "published_residual_gpa": -5.843957094125443,
+        "refitted_residual_gpa": -3.661038368123613,
+        "row_id": "seagle:59",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 2230.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 53.33991711103536,
+        "published_residual_gpa": -4.994430545642643,
+        "refitted_residual_gpa": -2.2262288250354345,
+        "row_id": "seagle:60",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 2420.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 44.38698816477625,
+        "published_residual_gpa": 0.929776691748657,
+        "refitted_residual_gpa": 0.2900460746443727,
+        "row_id": "seagle:63",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1350.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 45.184720653188926,
+        "published_residual_gpa": 0.06025840811357597,
+        "refitted_residual_gpa": -0.40266256522473043,
+        "row_id": "seagle:64",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1400.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 45.19845888912139,
+        "published_residual_gpa": 0.3502498178753157,
+        "refitted_residual_gpa": 0.10671634561111176,
+        "row_id": "seagle:65",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1470.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 43.901218291837125,
+        "published_residual_gpa": 1.8523335531410652,
+        "refitted_residual_gpa": 1.7320840924600986,
+        "row_id": "seagle:66",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1510.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 44.083643570601055,
+        "published_residual_gpa": 1.4745066897943389,
+        "refitted_residual_gpa": 1.503166613063236,
+        "row_id": "seagle:67",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1550.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 44.14622737145524,
+        "published_residual_gpa": 1.452348164358952,
+        "refitted_residual_gpa": 1.580320960950644,
+        "row_id": "seagle:68",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1580.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 45.224537778949895,
+        "published_residual_gpa": 0.4807965519445787,
+        "refitted_residual_gpa": 0.8390445794628931,
+        "row_id": "seagle:69",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1650.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 43.75445171748664,
+        "published_residual_gpa": 1.9754722080457086,
+        "refitted_residual_gpa": 2.4333940794440636,
+        "row_id": "seagle:70",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1680.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 44.98697597909873,
+        "published_residual_gpa": 1.0910843015837202,
+        "refitted_residual_gpa": 1.8644628851442775,
+        "row_id": "seagle:71",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1780.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 45.21519634878278,
+        "published_residual_gpa": 1.1198951384105627,
+        "refitted_residual_gpa": 2.179506786297516,
+        "row_id": "seagle:72",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1870.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 48.21215950782092,
+        "published_residual_gpa": -1.573583460843075,
+        "refitted_residual_gpa": -0.2643504308723337,
+        "row_id": "seagle:73",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1950.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 44.374826192664,
+        "published_residual_gpa": 1.4504006653478143,
+        "refitted_residual_gpa": 2.404996906889778,
+        "row_id": "seagle:74",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1830.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 45.08238773724623,
+        "published_residual_gpa": 1.0089454303713339,
+        "refitted_residual_gpa": 2.1814566815442973,
+        "row_id": "seagle:75",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1900.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 46.37529191905482,
+        "published_residual_gpa": -0.6341097729496283,
+        "refitted_residual_gpa": 0.4579233998017216,
+        "row_id": "seagle:76",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1870.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 45.74787823717187,
+        "published_residual_gpa": 0.15813871104384702,
+        "refitted_residual_gpa": 1.3736685833533713,
+        "row_id": "seagle:77",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1910.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 42.8862008289279,
+        "published_residual_gpa": 2.6310994047242957,
+        "refitted_residual_gpa": 3.70223416532194,
+        "row_id": "seagle:78",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1860.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 45.061446862017014,
+        "published_residual_gpa": 0.5362862286167243,
+        "refitted_residual_gpa": 1.6691959391221332,
+        "row_id": "seagle:79",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1880.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 43.22627622547467,
+        "published_residual_gpa": 2.774026727879871,
+        "refitted_residual_gpa": 4.215401826803465,
+        "row_id": "seagle:80",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1980.0
+      },
+      {
+        "iron_phase": "hcp",
+        "pressure_gpa": 50.85548174630567,
+        "published_residual_gpa": -5.098489868523295,
+        "refitted_residual_gpa": -3.7761158213341446,
+        "row_id": "seagle:81",
+        "series": "50.0",
+        "study": "seagle",
+        "temperature_k": 1940.0
+      }
+    ],
+    "scale": "dewaele_2006_hypothesis"
+  },
+  "format": "peritheos.campbell-2009-mismatch-diagnostics",
+  "format_version": 1,
+  "materials": {
+    "fe_fcc": {
+      "full_fit": {
+        "active_bounds": [
+          "q"
+        ],
+        "observations": 29,
+        "parameters": {
+          "K0_gpa": 123.95765577196966,
+          "gamma0": 2.0240263660635116,
+          "q": 0.010000000000000002
+        },
+        "rmse_gpa": 0.8791534678681803,
+        "solver_success": true,
+        "sse_gpa2": 22.414413781874778
+      },
+      "groups": {
+        "seagle_nominal_series": {
+          "20.0": {
+            "published": {
+              "mean_gpa": -1.0489188799070237,
+              "observations": 10,
+              "rmse_gpa": 1.0680099066779416,
+              "sse_gpa2": 11.406451607622255
+            },
+            "published_sse_fraction": 0.2960678977685034,
+            "refitted": {
+              "mean_gpa": -0.22299469557697976,
+              "observations": 10,
+              "rmse_gpa": 0.2587592399482884,
+              "sse_gpa2": 0.6695634425861591
+            },
+            "row_ids": [
+              "seagle:1",
+              "seagle:2",
+              "seagle:3",
+              "seagle:4",
+              "seagle:5",
+              "seagle:6",
+              "seagle:7",
+              "seagle:8",
+              "seagle:9",
+              "seagle:10"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 19,
+              "parameters": {
+                "K0_gpa": 125.97450895168379,
+                "gamma0": 1.9515544775429423,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 1.0548236896162373,
+              "solver_success": true,
+              "sse_gpa2": 21.14040730733663
+            }
+          },
+          "27.0": {
+            "published": {
+              "mean_gpa": -2.0979177612969213,
+              "observations": 4,
+              "rmse_gpa": 2.098390513351527,
+              "sse_gpa2": 17.612970986094737
+            },
+            "published_sse_fraction": 0.4571654246817723,
+            "refitted": {
+              "mean_gpa": -1.1278443240623846,
+              "observations": 4,
+              "rmse_gpa": 1.1455486367777428,
+              "sse_gpa2": 5.249126716893379
+            },
+            "row_ids": [
+              "seagle:11",
+              "seagle:12",
+              "seagle:13",
+              "seagle:14"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 106.91113072540688,
+                "gamma0": 2.178047493470125,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 0.6736622401042981,
+              "solver_success": true,
+              "sse_gpa2": 11.345520343558523
+            }
+          }
+        },
+        "study_and_marker": {
+          "Campbell": {
+            "published": {
+              "mean_gpa": 0.3411434710098906,
+              "observations": 15,
+              "rmse_gpa": 0.7961176429654007,
+              "sse_gpa2": 9.507049521611776
+            },
+            "published_sse_fraction": 0.2467666775497242,
+            "refitted": {
+              "mean_gpa": 0.620710020135615,
+              "observations": 15,
+              "rmse_gpa": 1.0486729271606485,
+              "sse_gpa2": 16.495723622395243
+            },
+            "row_ids": [
+              "campbell_s2:1",
+              "campbell_s2:2",
+              "campbell_s2:3",
+              "campbell_s2:4",
+              "campbell_s2:5",
+              "campbell_s2:6",
+              "campbell_s2:7",
+              "campbell_s2:8",
+              "campbell_s2:9",
+              "campbell_s2:10",
+              "campbell_s2:11",
+              "campbell_s2:12",
+              "campbell_s2:13",
+              "campbell_s2:14",
+              "campbell_s2:15"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 138.2531033096175,
+                "gamma0": 1.8994384252267333,
+                "q": 0.010000000000000227
+              },
+              "rmse_gpa": 0.11083521652523469,
+              "solver_success": true,
+              "sse_gpa2": 0.1719822331107392
+            }
+          },
+          "Seagle_fcc": {
+            "published": {
+              "mean_gpa": -1.3486328460184231,
+              "observations": 14,
+              "rmse_gpa": 1.4397277171573846,
+              "sse_gpa2": 29.019422593716996
+            },
+            "published_sse_fraction": 0.7532333224502757,
+            "refitted": {
+              "mean_gpa": -0.481523160858524,
+              "observations": 14,
+              "rmse_gpa": 0.6502027244021413,
+              "sse_gpa2": 5.918690159479538
+            },
+            "row_ids": [
+              "seagle:1",
+              "seagle:2",
+              "seagle:3",
+              "seagle:4",
+              "seagle:5",
+              "seagle:6",
+              "seagle:7",
+              "seagle:8",
+              "seagle:9",
+              "seagle:10",
+              "seagle:11",
+              "seagle:12",
+              "seagle:13",
+              "seagle:14"
+            ],
+            "without_group": {
+              "active_bounds": [],
+              "observations": 15,
+              "parameters": {
+                "K0_gpa": 116.5537299823621,
+                "gamma0": 2.039582187210775,
+                "q": 1.5805162634306364
+              },
+              "rmse_gpa": 0.4481445125893845,
+              "solver_success": true,
+              "sse_gpa2": 3.012502562459655
+            }
+          }
+        },
+        "temperature": {
+          "1500_to_2000": {
+            "published": {
+              "mean_gpa": -0.8022757084448944,
+              "observations": 13,
+              "rmse_gpa": 1.3425368128060295,
+              "sse_gpa2": 23.43126621861184
+            },
+            "published_sse_fraction": 0.6081861362356377,
+            "refitted": {
+              "mean_gpa": -0.029462449582269394,
+              "observations": 13,
+              "rmse_gpa": 1.0116808715582004,
+              "sse_gpa2": 13.30547641639788
+            },
+            "row_ids": [
+              "campbell_s2:1",
+              "campbell_s2:2",
+              "campbell_s2:3",
+              "seagle:1",
+              "seagle:2",
+              "seagle:3",
+              "seagle:5",
+              "seagle:6",
+              "seagle:7",
+              "seagle:9",
+              "seagle:11",
+              "seagle:12",
+              "seagle:13"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 16,
+              "parameters": {
+                "K0_gpa": 113.75509606543997,
+                "gamma0": 2.1197631500064285,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 0.6970385480319008,
+              "solver_success": true,
+              "sse_gpa2": 7.773803799078727
+            }
+          },
+          "2000_to_2500": {
+            "published": {
+              "mean_gpa": -1.4413661897541203,
+              "observations": 4,
+              "rmse_gpa": 1.487094237490346,
+              "sse_gpa2": 8.845797084707975
+            },
+            "published_sse_fraction": 0.22960309104420806,
+            "refitted": {
+              "mean_gpa": -0.4195851055995128,
+              "observations": 4,
+              "rmse_gpa": 0.5047943536019696,
+              "sse_gpa2": 1.0192693577137213
+            },
+            "row_ids": [
+              "seagle:4",
+              "seagle:8",
+              "seagle:10",
+              "seagle:14"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 124.06217584163137,
+                "gamma0": 2.0008016552731216,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 0.9199773420708002,
+              "solver_success": true,
+              "sse_gpa2": 21.158957748091353
+            }
+          },
+          "below_1500": {
+            "published": {
+              "mean_gpa": 0.2026117658075454,
+              "observations": 12,
+              "rmse_gpa": 0.7216537034252739,
+              "sse_gpa2": 6.249408812008959
+            },
+            "published_sse_fraction": 0.16221077272015433,
+            "refitted": {
+              "mean_gpa": 0.38588985974853696,
+              "observations": 12,
+              "rmse_gpa": 0.8210596815377864,
+              "sse_gpa2": 8.089668007763176
+            },
+            "row_ids": [
+              "campbell_s2:4",
+              "campbell_s2:5",
+              "campbell_s2:6",
+              "campbell_s2:7",
+              "campbell_s2:8",
+              "campbell_s2:9",
+              "campbell_s2:10",
+              "campbell_s2:11",
+              "campbell_s2:12",
+              "campbell_s2:13",
+              "campbell_s2:14",
+              "campbell_s2:15"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 17,
+              "parameters": {
+                "K0_gpa": 131.4341399713826,
+                "gamma0": 1.9401561285214177,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 0.88007461357603,
+              "solver_success": true,
+              "sse_gpa2": 13.167032532836974
+            }
+          }
+        }
+      },
+      "q_profiles": {
+        "Campbell": {
+          "fixed_q_fits": [
+            {
+              "active_bounds": [],
+              "observations": 15,
+              "parameters": {
+                "K0_gpa": 105.42817727978061,
+                "gamma0": 2.0391342729327335,
+                "q": 0.01
+              },
+              "rmse_gpa": 0.4680344284339892,
+              "solver_success": true,
+              "sse_gpa2": 3.2858433929929642
+            },
+            {
+              "active_bounds": [],
+              "observations": 15,
+              "parameters": {
+                "K0_gpa": 107.55799613581534,
+                "gamma0": 2.039539613800591,
+                "q": 0.3
+              },
+              "rmse_gpa": 0.46112016104919307,
+              "solver_success": true,
+              "sse_gpa2": 3.189477043890506
+            },
+            {
+              "active_bounds": [],
+              "observations": 15,
+              "parameters": {
+                "K0_gpa": 109.72544686834694,
+                "gamma0": 2.0397925101169734,
+                "q": 0.6
+              },
+              "rmse_gpa": 0.4555938002978398,
+              "solver_success": true,
+              "sse_gpa2": 3.113485663047419
+            },
+            {
+              "active_bounds": [],
+              "observations": 15,
+              "parameters": {
+                "K0_gpa": 112.55840928312038,
+                "gamma0": 2.039887314402621,
+                "q": 1.0
+              },
+              "rmse_gpa": 0.45067726901959726,
+              "solver_success": true,
+              "sse_gpa2": 3.046650012164436
+            },
+            {
+              "active_bounds": [],
+              "observations": 15,
+              "parameters": {
+                "K0_gpa": 114.64028653388105,
+                "gamma0": 2.0397912763637125,
+                "q": 1.3
+              },
+              "rmse_gpa": 0.4487215743414589,
+              "solver_success": true,
+              "sse_gpa2": 3.020265769192161
+            },
+            {
+              "active_bounds": [],
+              "observations": 15,
+              "parameters": {
+                "K0_gpa": 116.6854407534148,
+                "gamma0": 2.0395635865139026,
+                "q": 1.6
+              },
+              "rmse_gpa": 0.4481472245135557,
+              "solver_success": true,
+              "sse_gpa2": 3.012539022588049
+            },
+            {
+              "active_bounds": [],
+              "observations": 15,
+              "parameters": {
+                "K0_gpa": 119.35533719751496,
+                "gamma0": 2.0390717877724045,
+                "q": 2.0
+              },
+              "rmse_gpa": 0.44935702519316323,
+              "solver_success": true,
+              "sse_gpa2": 3.028826041356737
+            },
+            {
+              "active_bounds": [],
+              "observations": 15,
+              "parameters": {
+                "K0_gpa": 125.74800301198088,
+                "gamma0": 2.03702496725573,
+                "q": 3.0
+              },
+              "rmse_gpa": 0.4607288389986875,
+              "solver_success": true,
+              "sse_gpa2": 3.184065946276178
+            }
+          ],
+          "free_q_fit": {
+            "active_bounds": [],
+            "observations": 15,
+            "parameters": {
+              "K0_gpa": 116.5537299823621,
+              "gamma0": 2.039582187210775,
+              "q": 1.5805162634306364
+            },
+            "rmse_gpa": 0.4481445125893845,
+            "solver_success": true,
+            "sse_gpa2": 3.012502562459655
+          }
+        },
+        "Seagle_fcc": {
+          "fixed_q_fits": [
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 138.2531033864736,
+                "gamma0": 1.8994384241094835,
+                "q": 0.01
+              },
+              "rmse_gpa": 0.11083521652523592,
+              "solver_success": true,
+              "sse_gpa2": 0.17198223311074304
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 140.18754425513163,
+                "gamma0": 1.9100041584141088,
+                "q": 0.3
+              },
+              "rmse_gpa": 0.1259807245827002,
+              "solver_success": true,
+              "sse_gpa2": 0.22219600152935032
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 142.1286214195426,
+                "gamma0": 1.9213887220561396,
+                "q": 0.6
+              },
+              "rmse_gpa": 0.14183744285258346,
+              "solver_success": true,
+              "sse_gpa2": 0.2816500427294383
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 144.62587353502877,
+                "gamma0": 1.9372839585533603,
+                "q": 1.0
+              },
+              "rmse_gpa": 0.1629490985473642,
+              "solver_success": true,
+              "sse_gpa2": 0.37173372204358046
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 146.43368793750582,
+                "gamma0": 1.9497400586720457,
+                "q": 1.3
+              },
+              "rmse_gpa": 0.17862186416300174,
+              "solver_success": true,
+              "sse_gpa2": 0.44668078499892183
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 148.18814248174485,
+                "gamma0": 1.962652736839323,
+                "q": 1.6
+              },
+              "rmse_gpa": 0.19409148434779894,
+              "solver_success": true,
+              "sse_gpa2": 0.5274010601486463
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 150.44804226811996,
+                "gamma0": 1.9805775488619322,
+                "q": 2.0
+              },
+              "rmse_gpa": 0.2143495107823209,
+              "solver_success": true,
+              "sse_gpa2": 0.6432399788166843
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 155.72955336672072,
+                "gamma0": 2.0289136587780727,
+                "q": 3.0
+              },
+              "rmse_gpa": 0.262999323600983,
+              "solver_success": true,
+              "sse_gpa2": 0.9683610190040441
+            }
+          ],
+          "free_q_fit": {
+            "active_bounds": [
+              "q"
+            ],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 138.2531033096175,
+              "gamma0": 1.8994384252267333,
+              "q": 0.010000000000000227
+            },
+            "rmse_gpa": 0.11083521652523469,
+            "solver_success": true,
+            "sse_gpa2": 0.1719822331107392
+          }
+        },
+        "combined": {
+          "fixed_q_fits": [
+            {
+              "active_bounds": [],
+              "observations": 29,
+              "parameters": {
+                "K0_gpa": 123.95765541131824,
+                "gamma0": 2.024026372799582,
+                "q": 0.01
+              },
+              "rmse_gpa": 0.87915346786818,
+              "solver_success": true,
+              "sse_gpa2": 22.414413781874764
+            },
+            {
+              "active_bounds": [],
+              "observations": 29,
+              "parameters": {
+                "K0_gpa": 126.2328193312802,
+                "gamma0": 2.029165120946915,
+                "q": 0.3
+              },
+              "rmse_gpa": 0.8931273485759607,
+              "solver_success": true,
+              "sse_gpa2": 23.13261736245544
+            },
+            {
+              "active_bounds": [],
+              "observations": 29,
+              "parameters": {
+                "K0_gpa": 128.53883620498908,
+                "gamma0": 2.034489849551618,
+                "q": 0.6
+              },
+              "rmse_gpa": 0.9078494937324796,
+              "solver_success": true,
+              "sse_gpa2": 23.901530394839263
+            },
+            {
+              "active_bounds": [],
+              "observations": 29,
+              "parameters": {
+                "K0_gpa": 131.5397949440663,
+                "gamma0": 2.0416067131190196,
+                "q": 1.0
+              },
+              "rmse_gpa": 0.9278104190337771,
+              "solver_success": true,
+              "sse_gpa2": 24.964133036361364
+            },
+            {
+              "active_bounds": [],
+              "observations": 29,
+              "parameters": {
+                "K0_gpa": 133.73646176184826,
+                "gamma0": 2.0469585138161492,
+                "q": 1.3
+              },
+              "rmse_gpa": 0.9429725686023815,
+              "solver_success": true,
+              "sse_gpa2": 25.786720688960624
+            },
+            {
+              "active_bounds": [],
+              "observations": 29,
+              "parameters": {
+                "K0_gpa": 135.88789731565993,
+                "gamma0": 2.0523225502363567,
+                "q": 1.6
+              },
+              "rmse_gpa": 0.9582582691082995,
+              "solver_success": true,
+              "sse_gpa2": 26.62950839911859
+            },
+            {
+              "active_bounds": [],
+              "observations": 29,
+              "parameters": {
+                "K0_gpa": 138.68786381615027,
+                "gamma0": 2.0594923340339397,
+                "q": 2.0
+              },
+              "rmse_gpa": 0.9787803814027592,
+              "solver_success": true,
+              "sse_gpa2": 27.782320015548994
+            },
+            {
+              "active_bounds": [],
+              "observations": 29,
+              "parameters": {
+                "K0_gpa": 145.3597335545962,
+                "gamma0": 2.077478846541113,
+                "q": 3.0
+              },
+              "rmse_gpa": 1.0304755958554863,
+              "solver_success": true,
+              "sse_gpa2": 30.794518655957862
+            }
+          ],
+          "free_q_fit": {
+            "active_bounds": [
+              "q"
+            ],
+            "observations": 29,
+            "parameters": {
+              "K0_gpa": 123.95765577196966,
+              "gamma0": 2.0240263660635116,
+              "q": 0.010000000000000002
+            },
+            "rmse_gpa": 0.8791534678681803,
+            "solver_success": true,
+            "sse_gpa2": 22.414413781874778
+          }
+        }
+      },
+      "rows": [
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.9741252379723,
+          "published_residual_gpa": 1.1448326047391824,
+          "refitted_residual_gpa": 1.9465463850558784,
+          "row_id": "campbell_s2:1",
+          "series": "FeFeO_030",
+          "study": "campbell_s2",
+          "temperature_k": 1812.08
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.8045351237323,
+          "published_residual_gpa": 1.3868056130375557,
+          "refitted_residual_gpa": 2.0304917655058503,
+          "row_id": "campbell_s2:2",
+          "series": "FeFeO_028",
+          "study": "campbell_s2",
+          "temperature_k": 1653.485
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.7547186522249,
+          "published_residual_gpa": 0.15417265768107669,
+          "refitted_residual_gpa": 0.7029338344900538,
+          "row_id": "campbell_s2:3",
+          "series": "FeFeO_021",
+          "study": "campbell_s2",
+          "temperature_k": 1572.975
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.0572197601149,
+          "published_residual_gpa": 2.0551209375913153,
+          "refitted_residual_gpa": 2.4938375786147837,
+          "row_id": "campbell_s2:4",
+          "series": "FeFeO_033",
+          "study": "campbell_s2",
+          "temperature_k": 1475.49
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 4.40702753099139,
+          "published_residual_gpa": -0.21755026338320071,
+          "refitted_residual_gpa": -0.0072209390284578845,
+          "row_id": "campbell_s2:5",
+          "series": "T0691.023",
+          "study": "campbell_s2",
+          "temperature_k": 1273.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 6.88420826806315,
+          "published_residual_gpa": -0.44154310977517675,
+          "refitted_residual_gpa": -0.19464758179913133,
+          "row_id": "campbell_s2:6",
+          "series": "T0691.033",
+          "study": "campbell_s2",
+          "temperature_k": 1273.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 10.1786091993957,
+          "published_residual_gpa": -0.013114090665977685,
+          "refitted_residual_gpa": 0.2587700231232546,
+          "row_id": "campbell_s2:7",
+          "series": "T0691.051",
+          "study": "campbell_s2",
+          "temperature_k": 1273.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 9.08432605161026,
+          "published_residual_gpa": -0.6545867799391427,
+          "refitted_residual_gpa": -0.38950476822616764,
+          "row_id": "campbell_s2:8",
+          "series": "T0691.042",
+          "study": "campbell_s2",
+          "temperature_k": 1273.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 3.9954833425198,
+          "published_residual_gpa": 0.3728636026763379,
+          "refitted_residual_gpa": 0.5724537823188101,
+          "row_id": "campbell_s2:9",
+          "series": "T0691.024",
+          "study": "campbell_s2",
+          "temperature_k": 1073.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 6.70709117993003,
+          "published_residual_gpa": -0.3969336423848171,
+          "refitted_residual_gpa": -0.2083729601869342,
+          "row_id": "campbell_s2:10",
+          "series": "T0691.034",
+          "study": "campbell_s2",
+          "temperature_k": 1073.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 8.59157948187823,
+          "published_residual_gpa": -0.17454955386796733,
+          "refitted_residual_gpa": -0.007908986784281424,
+          "row_id": "campbell_s2:11",
+          "series": "T0691.043",
+          "study": "campbell_s2",
+          "temperature_k": 1073.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 9.65582885235768,
+          "published_residual_gpa": 0.3558010225284871,
+          "refitted_residual_gpa": 0.4999140823465815,
+          "row_id": "campbell_s2:12",
+          "series": "T0691.052",
+          "study": "campbell_s2",
+          "temperature_k": 1073.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 6.28240221568665,
+          "published_residual_gpa": 0.7328273177873594,
+          "refitted_residual_gpa": 0.7973368626629629,
+          "row_id": "campbell_s2:13",
+          "series": "T0691.035",
+          "study": "campbell_s2",
+          "temperature_k": 873.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 8.22985586623152,
+          "published_residual_gpa": 0.2765568697078393,
+          "refitted_residual_gpa": 0.2983844971478522,
+          "row_id": "campbell_s2:14",
+          "series": "T0691.044",
+          "study": "campbell_s2",
+          "temperature_k": 873.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 9.30223232637767,
+          "published_residual_gpa": 0.536448879415488,
+          "refitted_residual_gpa": 0.517636726793171,
+          "row_id": "campbell_s2:15",
+          "series": "T0691.053",
+          "study": "campbell_s2",
+          "temperature_k": 873.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.501110220622646,
+          "published_residual_gpa": -0.8037993266886652,
+          "refitted_residual_gpa": -0.2008708898381215,
+          "row_id": "seagle:1",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1640.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 21.763704040080526,
+          "published_residual_gpa": -1.1955464060751737,
+          "refitted_residual_gpa": -0.39893158702618337,
+          "row_id": "seagle:2",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1820.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 20.328162313738584,
+          "published_residual_gpa": -1.011354733282424,
+          "refitted_residual_gpa": -0.23054129638106247,
+          "row_id": "seagle:3",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1840.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 21.90846895335586,
+          "published_residual_gpa": -1.2559493087173657,
+          "refitted_residual_gpa": -0.3070767435252897,
+          "row_id": "seagle:4",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 2010.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 21.156943479439313,
+          "published_residual_gpa": -1.1411775108094382,
+          "refitted_residual_gpa": -0.2869242674025472,
+          "row_id": "seagle:5",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1910.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 17.646165999656727,
+          "published_residual_gpa": -0.6429188537383332,
+          "refitted_residual_gpa": 0.13452457185578837,
+          "row_id": "seagle:6",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1990.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.816789222077404,
+          "published_residual_gpa": -0.8935120943901644,
+          "refitted_residual_gpa": -0.21751288725099371,
+          "row_id": "seagle:7",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1720.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 20.99363053309928,
+          "published_residual_gpa": -1.1282890823594514,
+          "refitted_residual_gpa": -0.21737342120237813,
+          "row_id": "seagle:8",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 2000.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 20.851583601809775,
+          "published_residual_gpa": -1.0995294969247418,
+          "refitted_residual_gpa": -0.25386454893798316,
+          "row_id": "seagle:9",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1910.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 22.434902266393753,
+          "published_residual_gpa": -1.3171119860844804,
+          "refitted_residual_gpa": -0.2513758860610267,
+          "row_id": "seagle:10",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 2160.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 30.230137273661043,
+          "published_residual_gpa": -2.1098231765125064,
+          "refitted_residual_gpa": -1.4523126850330783,
+          "row_id": "seagle:11",
+          "series": "27.0",
+          "study": "seagle",
+          "temperature_k": 1650.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 28.392861061385936,
+          "published_residual_gpa": -2.0522492300301707,
+          "refitted_residual_gpa": -1.0820116187818911,
+          "row_id": "seagle:12",
+          "series": "27.0",
+          "study": "seagle",
+          "temperature_k": 1880.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 29.030473323386044,
+          "published_residual_gpa": -2.1654842567898243,
+          "refitted_residual_gpa": -1.0745386208252121,
+          "row_id": "seagle:13",
+          "series": "27.0",
+          "study": "seagle",
+          "temperature_k": 1970.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 28.032110284345404,
+          "published_residual_gpa": -2.064114381855184,
+          "refitted_residual_gpa": -0.9025143716093567,
+          "row_id": "seagle:14",
+          "series": "27.0",
+          "study": "seagle",
+          "temperature_k": 2050.0
+        }
+      ],
+      "scale": "seagle_2006"
+    },
+    "feo": {
+      "full_fit": {
+        "active_bounds": [
+          "q"
+        ],
+        "observations": 104,
+        "parameters": {
+          "K0_gpa": 134.30432400053795,
+          "gamma0": 1.9063503537644297,
+          "q": 0.010000000000000002
+        },
+        "rmse_gpa": 2.3538254681921105,
+        "solver_success": true,
+        "sse_gpa2": 576.2114108098201
+      },
+      "groups": {
+        "seagle_nominal_series": {
+          "20.0": {
+            "published": {
+              "mean_gpa": -1.8161387564060392,
+              "observations": 10,
+              "rmse_gpa": 2.234193299390318,
+              "sse_gpa2": 49.91619699040595
+            },
+            "published_sse_fraction": 0.03850624323140906,
+            "refitted": {
+              "mean_gpa": 1.359189699987929,
+              "observations": 10,
+              "rmse_gpa": 1.8835761639269695,
+              "sse_gpa2": 35.47859165313838
+            },
+            "row_ids": [
+              "seagle:1",
+              "seagle:2",
+              "seagle:3",
+              "seagle:4",
+              "seagle:5",
+              "seagle:6",
+              "seagle:7",
+              "seagle:8",
+              "seagle:9",
+              "seagle:10"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 94,
+              "parameters": {
+                "K0_gpa": 131.59594445205008,
+                "gamma0": 2.033243394302995,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 2.3774838845032296,
+              "solver_success": true,
+              "sse_gpa2": 531.3283843808213
+            }
+          },
+          "27.0": {
+            "published": {
+              "mean_gpa": -2.0416321635111423,
+              "observations": 4,
+              "rmse_gpa": 2.3140357839589183,
+              "sse_gpa2": 21.419046437769463
+            },
+            "published_sse_fraction": 0.016523033837616267,
+            "refitted": {
+              "mean_gpa": 1.01763245415923,
+              "observations": 4,
+              "rmse_gpa": 1.8216427461005469,
+              "sse_gpa2": 13.273529177682967
+            },
+            "row_ids": [
+              "seagle:11",
+              "seagle:12",
+              "seagle:13",
+              "seagle:14"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 100,
+              "parameters": {
+                "K0_gpa": 133.74857727639503,
+                "gamma0": 1.9335589115821212,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 2.3713478248986086,
+              "solver_success": true,
+              "sse_gpa2": 562.3290506651363
+            }
+          },
+          "50.0": {
+            "published": {
+              "mean_gpa": -3.172940571493173,
+              "observations": 29,
+              "rmse_gpa": 4.411122301570648,
+              "sse_gpa2": 564.2819988230042
+            },
+            "published_sse_fraction": 0.4352971822344668,
+            "refitted": {
+              "mean_gpa": -0.773975649143068,
+              "observations": 29,
+              "rmse_gpa": 2.605593852170515,
+              "sse_gpa2": 196.88446035159473
+            },
+            "row_ids": [
+              "seagle:51",
+              "seagle:52",
+              "seagle:53",
+              "seagle:54",
+              "seagle:55",
+              "seagle:56",
+              "seagle:57",
+              "seagle:58",
+              "seagle:59",
+              "seagle:60",
+              "seagle:63",
+              "seagle:64",
+              "seagle:65",
+              "seagle:66",
+              "seagle:67",
+              "seagle:68",
+              "seagle:69",
+              "seagle:70",
+              "seagle:71",
+              "seagle:72",
+              "seagle:73",
+              "seagle:74",
+              "seagle:75",
+              "seagle:76",
+              "seagle:77",
+              "seagle:78",
+              "seagle:79",
+              "seagle:80",
+              "seagle:81"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 75,
+              "parameters": {
+                "K0_gpa": 135.8202217633452,
+                "gamma0": 1.7989249097265982,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 2.2101827402033356,
+              "solver_success": true,
+              "sse_gpa2": 366.36808088195437
+            }
+          },
+          "55.0": {
+            "published": {
+              "mean_gpa": -5.434931103903327,
+              "observations": 14,
+              "rmse_gpa": 5.542427045816612,
+              "sse_gpa2": 430.0589658147923
+            },
+            "published_sse_fraction": 0.33175514442126874,
+            "refitted": {
+              "mean_gpa": -2.345329947458133,
+              "observations": 14,
+              "rmse_gpa": 2.587741872832472,
+              "sse_gpa2": 93.74971200574714
+            },
+            "row_ids": [
+              "seagle:15",
+              "seagle:16",
+              "seagle:17",
+              "seagle:18",
+              "seagle:19",
+              "seagle:20",
+              "seagle:21",
+              "seagle:22",
+              "seagle:23",
+              "seagle:24",
+              "seagle:25",
+              "seagle:26",
+              "seagle:27",
+              "seagle:28"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 90,
+              "parameters": {
+                "K0_gpa": 135.200332293716,
+                "gamma0": 1.815626017936239,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 2.276439280587923,
+              "solver_success": true,
+              "sse_gpa2": 466.3958218383295
+            }
+          },
+          "72.0": {
+            "published": {
+              "mean_gpa": -1.4031024343259553,
+              "observations": 8,
+              "rmse_gpa": 1.7336196971867037,
+              "sse_gpa2": 24.04349803578975
+            },
+            "published_sse_fraction": 0.018547582534742632,
+            "refitted": {
+              "mean_gpa": 0.8045401896112079,
+              "observations": 8,
+              "rmse_gpa": 1.8194107954462488,
+              "sse_gpa2": 26.48204514069082
+            },
+            "row_ids": [
+              "seagle:29",
+              "seagle:30",
+              "seagle:31",
+              "seagle:32",
+              "seagle:33",
+              "seagle:34",
+              "seagle:35",
+              "seagle:36"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 96,
+              "parameters": {
+                "K0_gpa": 134.54232526505433,
+                "gamma0": 1.9101970238712984,
+                "q": 0.010000000000000044
+              },
+              "rmse_gpa": 2.3910860084298986,
+              "solver_success": true,
+              "sse_gpa2": 548.8600607720857
+            }
+          },
+          "89.0": {
+            "published": {
+              "mean_gpa": -1.3082757629880106,
+              "observations": 10,
+              "rmse_gpa": 4.03088956449618,
+              "sse_gpa2": 162.480706811642
+            },
+            "published_sse_fraction": 0.12534051057821718,
+            "refitted": {
+              "mean_gpa": 0.6705107515892081,
+              "observations": 10,
+              "rmse_gpa": 3.483735413876832,
+              "sse_gpa2": 121.36412433899582
+            },
+            "row_ids": [
+              "seagle:41",
+              "seagle:42",
+              "seagle:43",
+              "seagle:44",
+              "seagle:45",
+              "seagle:46",
+              "seagle:47",
+              "seagle:48",
+              "seagle:49",
+              "seagle:50"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 94,
+              "parameters": {
+                "K0_gpa": 135.92884569232393,
+                "gamma0": 1.8630727091743722,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 2.1917502978508305,
+              "solver_success": true,
+              "sse_gpa2": 451.5543206041451
+            }
+          },
+          "93.0": {
+            "published": {
+              "mean_gpa": 0.4359222357926491,
+              "observations": 4,
+              "rmse_gpa": 0.4509305872229493,
+              "sse_gpa2": 0.8133535779729356
+            },
+            "published_sse_fraction": 0.0006274354336846283,
+            "refitted": {
+              "mean_gpa": 2.7306134109926603,
+              "observations": 4,
+              "rmse_gpa": 2.785809813929784,
+              "sse_gpa2": 31.04294527754999
+            },
+            "row_ids": [
+              "seagle:37",
+              "seagle:38",
+              "seagle:39",
+              "seagle:40"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 100,
+              "parameters": {
+                "K0_gpa": 136.13349946198474,
+                "gamma0": 1.8605863873348454,
+                "q": 0.010000000000000163
+              },
+              "rmse_gpa": 2.3211541941123452,
+              "solver_success": true,
+              "sse_gpa2": 538.7756792845331
+            }
+          }
+        },
+        "study_and_marker": {
+          "Campbell": {
+            "published": {
+              "mean_gpa": -0.7777689775697485,
+              "observations": 25,
+              "rmse_gpa": 1.3160641005220062,
+              "sse_gpa2": 43.300617917069935
+            },
+            "published_sse_fraction": 0.033402867728594646,
+            "refitted": {
+              "mean_gpa": 0.989228451113418,
+              "observations": 25,
+              "rmse_gpa": 1.522314065683166,
+              "sse_gpa2": 57.93600286442025
+            },
+            "row_ids": [
+              "campbell_s2:1",
+              "campbell_s2:2",
+              "campbell_s2:3",
+              "campbell_s2:4",
+              "campbell_s2:5",
+              "campbell_s2:6",
+              "campbell_s2:7",
+              "campbell_s2:8",
+              "campbell_s2:9",
+              "campbell_s2:10",
+              "campbell_s2:11",
+              "campbell_s2:12",
+              "campbell_s2:13",
+              "campbell_s2:14",
+              "campbell_s2:15",
+              "campbell_s2:16",
+              "campbell_s2:17",
+              "campbell_s2:18",
+              "campbell_s2:19",
+              "campbell_s2:20",
+              "campbell_s2:21",
+              "campbell_s2:22",
+              "campbell_s2:23",
+              "campbell_s2:24",
+              "campbell_s2:25"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 79,
+              "parameters": {
+                "K0_gpa": 131.51731996705226,
+                "gamma0": 2.0369239385652604,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 2.531468148139872,
+              "solver_success": true,
+              "sse_gpa2": 506.2581478186903
+            }
+          },
+          "Seagle_fcc": {
+            "published": {
+              "mean_gpa": -1.8805654441503543,
+              "observations": 14,
+              "rmse_gpa": 2.257293629677796,
+              "sse_gpa2": 71.33524342817542
+            },
+            "published_sse_fraction": 0.05502927706902533,
+            "refitted": {
+              "mean_gpa": 1.2616019154654434,
+              "observations": 14,
+              "rmse_gpa": 1.866090658317186,
+              "sse_gpa2": 48.752120830821355
+            },
+            "row_ids": [
+              "seagle:1",
+              "seagle:2",
+              "seagle:3",
+              "seagle:4",
+              "seagle:5",
+              "seagle:6",
+              "seagle:7",
+              "seagle:8",
+              "seagle:9",
+              "seagle:10",
+              "seagle:11",
+              "seagle:12",
+              "seagle:13",
+              "seagle:14"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 90,
+              "parameters": {
+                "K0_gpa": 130.32044086106293,
+                "gamma0": 2.0954434175349776,
+                "q": 0.010000000000000004
+              },
+              "rmse_gpa": 2.378664809456354,
+              "solver_success": true,
+              "sse_gpa2": 509.22416481714293
+            }
+          },
+          "Seagle_hcp": {
+            "published": {
+              "mean_gpa": -2.933356925988704,
+              "observations": 65,
+              "rmse_gpa": 4.263762374427978,
+              "sse_gpa2": 1181.6785230632013
+            },
+            "published_sse_fraction": 0.91156785520238,
+            "refitted": {
+              "mean_gpa": -0.48024662173554533,
+              "observations": 65,
+              "rmse_gpa": 2.687644914488916,
+              "sse_gpa2": 469.5232871145785
+            },
+            "row_ids": [
+              "seagle:15",
+              "seagle:16",
+              "seagle:17",
+              "seagle:18",
+              "seagle:19",
+              "seagle:20",
+              "seagle:21",
+              "seagle:22",
+              "seagle:23",
+              "seagle:24",
+              "seagle:25",
+              "seagle:26",
+              "seagle:27",
+              "seagle:28",
+              "seagle:29",
+              "seagle:30",
+              "seagle:31",
+              "seagle:32",
+              "seagle:33",
+              "seagle:34",
+              "seagle:35",
+              "seagle:36",
+              "seagle:37",
+              "seagle:38",
+              "seagle:39",
+              "seagle:40",
+              "seagle:41",
+              "seagle:42",
+              "seagle:43",
+              "seagle:44",
+              "seagle:45",
+              "seagle:46",
+              "seagle:47",
+              "seagle:48",
+              "seagle:49",
+              "seagle:50",
+              "seagle:51",
+              "seagle:52",
+              "seagle:53",
+              "seagle:54",
+              "seagle:55",
+              "seagle:56",
+              "seagle:57",
+              "seagle:58",
+              "seagle:59",
+              "seagle:60",
+              "seagle:63",
+              "seagle:64",
+              "seagle:65",
+              "seagle:66",
+              "seagle:67",
+              "seagle:68",
+              "seagle:69",
+              "seagle:70",
+              "seagle:71",
+              "seagle:72",
+              "seagle:73",
+              "seagle:74",
+              "seagle:75",
+              "seagle:76",
+              "seagle:77",
+              "seagle:78",
+              "seagle:79",
+              "seagle:80",
+              "seagle:81"
+            ],
+            "without_group": {
+              "active_bounds": [],
+              "observations": 39,
+              "parameters": {
+                "K0_gpa": 145.746404040637,
+                "gamma0": 1.5483113001531026,
+                "q": 0.37730707613106224
+              },
+              "rmse_gpa": 1.01341387703364,
+              "solver_success": true,
+              "sse_gpa2": 40.05329976040979
+            }
+          }
+        },
+        "temperature": {
+          "1500_to_2000": {
+            "published": {
+              "mean_gpa": -2.1224687119743137,
+              "observations": 51,
+              "rmse_gpa": 3.0929377362478734,
+              "sse_gpa2": 487.87945585561204
+            },
+            "published_sse_fraction": 0.3763589000659346,
+            "refitted": {
+              "mean_gpa": 0.06718584059843742,
+              "observations": 51,
+              "rmse_gpa": 2.1744128275582537,
+              "sse_gpa2": 241.1316283771439
+            },
+            "row_ids": [
+              "campbell_s2:1",
+              "campbell_s2:2",
+              "campbell_s2:3",
+              "campbell_s2:18",
+              "campbell_s2:19",
+              "campbell_s2:20",
+              "campbell_s2:21",
+              "campbell_s2:22",
+              "campbell_s2:23",
+              "seagle:1",
+              "seagle:2",
+              "seagle:3",
+              "seagle:5",
+              "seagle:6",
+              "seagle:7",
+              "seagle:9",
+              "seagle:11",
+              "seagle:12",
+              "seagle:13",
+              "seagle:23",
+              "seagle:24",
+              "seagle:25",
+              "seagle:29",
+              "seagle:30",
+              "seagle:31",
+              "seagle:34",
+              "seagle:41",
+              "seagle:42",
+              "seagle:43",
+              "seagle:52",
+              "seagle:54",
+              "seagle:55",
+              "seagle:56",
+              "seagle:57",
+              "seagle:58",
+              "seagle:66",
+              "seagle:67",
+              "seagle:68",
+              "seagle:69",
+              "seagle:70",
+              "seagle:71",
+              "seagle:72",
+              "seagle:73",
+              "seagle:74",
+              "seagle:75",
+              "seagle:76",
+              "seagle:77",
+              "seagle:78",
+              "seagle:79",
+              "seagle:80",
+              "seagle:81"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 53,
+              "parameters": {
+                "K0_gpa": 131.025601695877,
+                "gamma0": 2.0384150670174157,
+                "q": 0.01000000000000001
+              },
+              "rmse_gpa": 2.4827457759694007,
+              "solver_success": true,
+              "sse_gpa2": 326.6934091689768
+            }
+          },
+          "2000_to_2500": {
+            "published": {
+              "mean_gpa": -3.2754469106836117,
+              "observations": 35,
+              "rmse_gpa": 4.520511880141767,
+              "sse_gpa2": 715.2259680476001
+            },
+            "published_sse_fraction": 0.5517380479998165,
+            "refitted": {
+              "mean_gpa": -0.11042781593563282,
+              "observations": 35,
+              "rmse_gpa": 2.8014314713821,
+              "sse_gpa2": 274.68064010975274
+            },
+            "row_ids": [
+              "campbell_s2:16",
+              "campbell_s2:17",
+              "seagle:4",
+              "seagle:8",
+              "seagle:10",
+              "seagle:14",
+              "seagle:15",
+              "seagle:16",
+              "seagle:17",
+              "seagle:18",
+              "seagle:19",
+              "seagle:20",
+              "seagle:21",
+              "seagle:22",
+              "seagle:26",
+              "seagle:27",
+              "seagle:28",
+              "seagle:32",
+              "seagle:33",
+              "seagle:35",
+              "seagle:36",
+              "seagle:37",
+              "seagle:38",
+              "seagle:39",
+              "seagle:40",
+              "seagle:44",
+              "seagle:45",
+              "seagle:46",
+              "seagle:47",
+              "seagle:48",
+              "seagle:49",
+              "seagle:51",
+              "seagle:53",
+              "seagle:59",
+              "seagle:60"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 69,
+              "parameters": {
+                "K0_gpa": 140.5712626148708,
+                "gamma0": 1.677316668985486,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 1.9743321776609317,
+              "solver_success": true,
+              "sse_gpa2": 268.9611407945676
+            }
+          },
+          "2500_and_above": {
+            "published": {
+              "mean_gpa": -9.184527092587516,
+              "observations": 1,
+              "rmse_gpa": 9.184527092587516,
+              "sse_gpa2": 84.35553791447408
+            },
+            "published_sse_fraction": 0.06507336409212836,
+            "refitted": {
+              "mean_gpa": -5.02073037207407,
+              "observations": 1,
+              "rmse_gpa": 5.02073037207407,
+              "sse_gpa2": 25.207733469067026
+            },
+            "row_ids": [
+              "seagle:50"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 103,
+              "parameters": {
+                "K0_gpa": 133.94766775245006,
+                "gamma0": 1.9093583655328334,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 2.3112913395779904,
+              "solver_success": true,
+              "sse_gpa2": 550.2329686100467
+            }
+          },
+          "below_1500": {
+            "published": {
+              "mean_gpa": -0.25701573937708694,
+              "observations": 17,
+              "rmse_gpa": 0.7216575116787539,
+              "sse_gpa2": 8.853422590760305
+            },
+            "published_sse_fraction": 0.006829687842120513,
+            "refitted": {
+              "mean_gpa": 0.9786078671083603,
+              "observations": 17,
+              "rmse_gpa": 1.4387782573267711,
+              "sse_gpa2": 35.19140885385643
+            },
+            "row_ids": [
+              "campbell_s2:4",
+              "campbell_s2:5",
+              "campbell_s2:6",
+              "campbell_s2:7",
+              "campbell_s2:8",
+              "campbell_s2:9",
+              "campbell_s2:10",
+              "campbell_s2:11",
+              "campbell_s2:12",
+              "campbell_s2:13",
+              "campbell_s2:14",
+              "campbell_s2:15",
+              "campbell_s2:24",
+              "campbell_s2:25",
+              "seagle:63",
+              "seagle:64",
+              "seagle:65"
+            ],
+            "without_group": {
+              "active_bounds": [
+                "q"
+              ],
+              "observations": 87,
+              "parameters": {
+                "K0_gpa": 132.54320107681758,
+                "gamma0": 1.9838960261929275,
+                "q": 0.010000000000000002
+              },
+              "rmse_gpa": 2.483195415996492,
+              "solver_success": true,
+              "sse_gpa2": 536.4645742402613
+            }
+          }
+        }
+      },
+      "q_profiles": {
+        "Campbell": {
+          "fixed_q_fits": [
+            {
+              "active_bounds": [],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 147.933303752591,
+                "gamma0": 1.3390891549716455,
+                "q": 0.01
+              },
+              "rmse_gpa": 0.532340478319488,
+              "solver_success": true,
+              "sse_gpa2": 7.0846596214355335
+            },
+            {
+              "active_bounds": [],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 149.59301544898608,
+                "gamma0": 1.3434395974246043,
+                "q": 0.3
+              },
+              "rmse_gpa": 0.52112559374699,
+              "solver_success": true,
+              "sse_gpa2": 6.789297111453821
+            },
+            {
+              "active_bounds": [],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 151.22417687558294,
+                "gamma0": 1.3479002855439868,
+                "q": 0.6
+              },
+              "rmse_gpa": 0.515637766678772,
+              "solver_success": true,
+              "sse_gpa2": 6.647057660636794
+            },
+            {
+              "active_bounds": [],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 153.26818169010562,
+                "gamma0": 1.353897097146186,
+                "q": 1.0
+              },
+              "rmse_gpa": 0.516640248922866,
+              "solver_success": true,
+              "sse_gpa2": 6.672928670177023
+            },
+            {
+              "active_bounds": [],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 154.7072510647002,
+                "gamma0": 1.3584970691165479,
+                "q": 1.3
+              },
+              "rmse_gpa": 0.5225670129767623,
+              "solver_success": true,
+              "sse_gpa2": 6.826907076286393
+            },
+            {
+              "active_bounds": [],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 156.06972066952716,
+                "gamma0": 1.363226829459057,
+                "q": 1.6
+              },
+              "rmse_gpa": 0.5320519635780083,
+              "solver_success": true,
+              "sse_gpa2": 7.076982298680358
+            },
+            {
+              "active_bounds": [],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 157.77351133440573,
+                "gamma0": 1.3697812686732018,
+                "q": 2.0
+              },
+              "rmse_gpa": 0.5490167067694934,
+              "solver_success": true,
+              "sse_gpa2": 7.535483607800499
+            },
+            {
+              "active_bounds": [],
+              "observations": 25,
+              "parameters": {
+                "K0_gpa": 161.52231719331746,
+                "gamma0": 1.3876259289895347,
+                "q": 3.0
+              },
+              "rmse_gpa": 0.6050325220425964,
+              "solver_success": true,
+              "sse_gpa2": 9.151608818230624
+            }
+          ],
+          "free_q_fit": {
+            "active_bounds": [],
+            "observations": 25,
+            "parameters": {
+              "K0_gpa": 152.01199778858555,
+              "gamma0": 1.3501485491023364,
+              "q": 0.7507982353595932
+            },
+            "rmse_gpa": 0.5149850342805222,
+            "solver_success": true,
+            "sse_gpa2": 6.630239638322767
+          }
+        },
+        "Seagle_fcc": {
+          "fixed_q_fits": [
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 146.28083640372242,
+                "gamma0": 1.572599399139453,
+                "q": 0.01
+              },
+              "rmse_gpa": 1.2935058460306137,
+              "solver_success": true,
+              "sse_gpa2": 23.42420323201523
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 148.27673664257878,
+                "gamma0": 1.5810704664444277,
+                "q": 0.3
+              },
+              "rmse_gpa": 1.2863619864149902,
+              "solver_success": true,
+              "sse_gpa2": 23.16618024130927
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 150.2763333407427,
+                "gamma0": 1.5902411881254126,
+                "q": 0.6
+              },
+              "rmse_gpa": 1.279408327756103,
+              "solver_success": true,
+              "sse_gpa2": 22.91639936784335
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 152.8438301606486,
+                "gamma0": 1.6031149606994968,
+                "q": 1.0
+              },
+              "rmse_gpa": 1.2707741484533916,
+              "solver_success": true,
+              "sse_gpa2": 22.608137109284197
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 154.69867976358523,
+                "gamma0": 1.61325585575189,
+                "q": 1.3
+              },
+              "rmse_gpa": 1.2647394252637685,
+              "solver_success": true,
+              "sse_gpa2": 22.393921393431384
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 156.49549574206418,
+                "gamma0": 1.6238137614097272,
+                "q": 1.6
+              },
+              "rmse_gpa": 1.2590533552385923,
+              "solver_success": true,
+              "sse_gpa2": 22.193014918725794
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 158.80487767865122,
+                "gamma0": 1.6385409551106407,
+                "q": 2.0
+              },
+              "rmse_gpa": 1.2519726375474647,
+              "solver_success": true,
+              "sse_gpa2": 21.944096792345775
+            },
+            {
+              "active_bounds": [],
+              "observations": 14,
+              "parameters": {
+                "K0_gpa": 164.17743615268566,
+                "gamma0": 1.6786214177868155,
+                "q": 3.0
+              },
+              "rmse_gpa": 1.2364621421004913,
+              "solver_success": true,
+              "sse_gpa2": 21.4037408038683
+            }
+          ],
+          "free_q_fit": {
+            "active_bounds": [
+              "q"
+            ],
+            "observations": 14,
+            "parameters": {
+              "K0_gpa": 190.30574661987504,
+              "gamma0": 2.095274020962455,
+              "q": 9.999999999999961
+            },
+            "rmse_gpa": 1.1773264189105537,
+            "solver_success": true,
+            "sse_gpa2": 19.40536495330648
+          }
+        },
+        "Seagle_hcp": {
+          "fixed_q_fits": [
+            {
+              "active_bounds": [],
+              "observations": 65,
+              "parameters": {
+                "K0_gpa": 122.75934069782238,
+                "gamma0": 2.461434750952365,
+                "q": 0.01
+              },
+              "rmse_gpa": 2.3668391206268566,
+              "solver_success": true,
+              "sse_gpa2": 364.1252824904313
+            },
+            {
+              "active_bounds": [],
+              "observations": 65,
+              "parameters": {
+                "K0_gpa": 124.99556959000716,
+                "gamma0": 2.5223607175906717,
+                "q": 0.3
+              },
+              "rmse_gpa": 2.3461209757406554,
+              "solver_success": true,
+              "sse_gpa2": 357.7784361326685
+            },
+            {
+              "active_bounds": [],
+              "observations": 65,
+              "parameters": {
+                "K0_gpa": 127.20319848112653,
+                "gamma0": 2.58750109141625,
+                "q": 0.6
+              },
+              "rmse_gpa": 2.3349074137322905,
+              "solver_success": true,
+              "sse_gpa2": 354.36652099563094
+            },
+            {
+              "active_bounds": [],
+              "observations": 65,
+              "parameters": {
+                "K0_gpa": 129.9730078997734,
+                "gamma0": 2.6785432976745596,
+                "q": 1.0
+              },
+              "rmse_gpa": 2.3328047101313962,
+              "solver_success": true,
+              "sse_gpa2": 353.72855801472974
+            },
+            {
+              "active_bounds": [],
+              "observations": 65,
+              "parameters": {
+                "K0_gpa": 131.91825880936094,
+                "gamma0": 2.750614091304741,
+                "q": 1.3
+              },
+              "rmse_gpa": 2.3386341230975995,
+              "solver_success": true,
+              "sse_gpa2": 355.49862151157106
+            },
+            {
+              "active_bounds": [],
+              "observations": 65,
+              "parameters": {
+                "K0_gpa": 133.7512070971258,
+                "gamma0": 2.82646797192512,
+                "q": 1.6
+              },
+              "rmse_gpa": 2.349190616110137,
+              "solver_success": true,
+              "sse_gpa2": 358.71527580329507
+            },
+            {
+              "active_bounds": [],
+              "observations": 65,
+              "parameters": {
+                "K0_gpa": 136.0253129374031,
+                "gamma0": 2.9342692978671243,
+                "q": 2.0
+              },
+              "rmse_gpa": 2.3685858247436085,
+              "solver_success": true,
+              "sse_gpa2": 364.6629225964634
+            },
+            {
+              "active_bounds": [],
+              "observations": 65,
+              "parameters": {
+                "K0_gpa": 140.92855383402068,
+                "gamma0": 3.243048813878676,
+                "q": 3.0
+              },
+              "rmse_gpa": 2.431457414326745,
+              "solver_success": true,
+              "sse_gpa2": 384.2790352494925
+            }
+          ],
+          "free_q_fit": {
+            "active_bounds": [],
+            "observations": 65,
+            "parameters": {
+              "K0_gpa": 129.03687730505808,
+              "gamma0": 2.6464206596453597,
+              "q": 0.861524731635157
+            },
+            "rmse_gpa": 2.3320974228825038,
+            "solver_success": true,
+            "sse_gpa2": 353.514095337989
+          }
+        },
+        "combined": {
+          "fixed_q_fits": [
+            {
+              "active_bounds": [],
+              "observations": 104,
+              "parameters": {
+                "K0_gpa": 134.30432421419266,
+                "gamma0": 1.9063503441241394,
+                "q": 0.01
+              },
+              "rmse_gpa": 2.3538254681921114,
+              "solver_success": true,
+              "sse_gpa2": 576.2114108098204
+            },
+            {
+              "active_bounds": [],
+              "observations": 104,
+              "parameters": {
+                "K0_gpa": 136.67747713009106,
+                "gamma0": 1.9226687176523845,
+                "q": 0.3
+              },
+              "rmse_gpa": 2.370050895828913,
+              "solver_success": true,
+              "sse_gpa2": 584.1826898772209
+            },
+            {
+              "active_bounds": [],
+              "observations": 104,
+              "parameters": {
+                "K0_gpa": 138.98246312955717,
+                "gamma0": 1.9402199517684593,
+                "q": 0.6
+              },
+              "rmse_gpa": 2.394001162741472,
+              "solver_success": true,
+              "sse_gpa2": 596.0491229895821
+            },
+            {
+              "active_bounds": [],
+              "observations": 104,
+              "parameters": {
+                "K0_gpa": 141.83092867316205,
+                "gamma0": 1.9648444485865706,
+                "q": 1.0
+              },
+              "rmse_gpa": 2.4348028935466375,
+              "solver_success": true,
+              "sse_gpa2": 616.5395735640002
+            },
+            {
+              "active_bounds": [],
+              "observations": 104,
+              "parameters": {
+                "K0_gpa": 143.80915261243257,
+                "gamma0": 1.98430758827816,
+                "q": 1.3
+              },
+              "rmse_gpa": 2.4705432925694373,
+              "solver_success": true,
+              "sse_gpa2": 634.772752687823
+            },
+            {
+              "active_bounds": [],
+              "observations": 104,
+              "parameters": {
+                "K0_gpa": 145.66131430557732,
+                "gamma0": 2.004652434324854,
+                "q": 1.6
+              },
+              "rmse_gpa": 2.509664898909441,
+              "solver_success": true,
+              "sse_gpa2": 655.0354621010861
+            },
+            {
+              "active_bounds": [],
+              "observations": 104,
+              "parameters": {
+                "K0_gpa": 147.94956834178953,
+                "gamma0": 2.0331421625466595,
+                "q": 2.0
+              },
+              "rmse_gpa": 2.5658702485747074,
+              "solver_success": true,
+              "sse_gpa2": 684.7037737821663
+            },
+            {
+              "active_bounds": [],
+              "observations": 104,
+              "parameters": {
+                "K0_gpa": 152.8824791210267,
+                "gamma0": 2.110645623163384,
+                "q": 3.0
+              },
+              "rmse_gpa": 2.719536606145221,
+              "solver_success": true,
+              "sse_gpa2": 769.1714526250421
+            }
+          ],
+          "free_q_fit": {
+            "active_bounds": [
+              "q"
+            ],
+            "observations": 104,
+            "parameters": {
+              "K0_gpa": 134.30432400053795,
+              "gamma0": 1.9063503537644297,
+              "q": 0.010000000000000002
+            },
+            "rmse_gpa": 2.3538254681921105,
+            "solver_success": true,
+            "sse_gpa2": 576.2114108098201
+          }
+        }
+      },
+      "rows": [
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.9741252379723,
+          "published_residual_gpa": 0.04255167455294284,
+          "refitted_residual_gpa": 2.9808392969902293,
+          "row_id": "campbell_s2:1",
+          "series": "FeFeO_030",
+          "study": "campbell_s2",
+          "temperature_k": 1812.08
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.8045351237323,
+          "published_residual_gpa": -0.48968288034138396,
+          "refitted_residual_gpa": 2.0272247241993,
+          "row_id": "campbell_s2:2",
+          "series": "FeFeO_028",
+          "study": "campbell_s2",
+          "temperature_k": 1653.485
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.7547186522249,
+          "published_residual_gpa": -0.20875811559367108,
+          "refitted_residual_gpa": 2.0788833404167413,
+          "row_id": "campbell_s2:3",
+          "series": "FeFeO_021",
+          "study": "campbell_s2",
+          "temperature_k": 1572.975
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.0572197601149,
+          "published_residual_gpa": -0.03145468484203917,
+          "refitted_residual_gpa": 1.9945118213088726,
+          "row_id": "campbell_s2:4",
+          "series": "FeFeO_033",
+          "study": "campbell_s2",
+          "temperature_k": 1475.49
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 4.40702753099139,
+          "published_residual_gpa": 0.7626389686374919,
+          "refitted_residual_gpa": 2.6721873633484448,
+          "row_id": "campbell_s2:5",
+          "series": "T0691.023",
+          "study": "campbell_s2",
+          "temperature_k": 1273.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 6.88420826806315,
+          "published_residual_gpa": 0.4722659628680397,
+          "refitted_residual_gpa": 2.322306369083302,
+          "row_id": "campbell_s2:6",
+          "series": "T0691.033",
+          "study": "campbell_s2",
+          "temperature_k": 1273.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 10.1786091993957,
+          "published_residual_gpa": -0.1511933504580636,
+          "refitted_residual_gpa": 1.6175025334161894,
+          "row_id": "campbell_s2:7",
+          "series": "T0691.051",
+          "study": "campbell_s2",
+          "temperature_k": 1273.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 9.08432605161026,
+          "published_residual_gpa": 0.049700763772662526,
+          "refitted_residual_gpa": 1.8465914793336662,
+          "row_id": "campbell_s2:8",
+          "series": "T0691.042",
+          "study": "campbell_s2",
+          "temperature_k": 1273.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 3.9954833425198,
+          "published_residual_gpa": 0.6169534644426147,
+          "refitted_residual_gpa": 2.1144754982916663,
+          "row_id": "campbell_s2:9",
+          "series": "T0691.024",
+          "study": "campbell_s2",
+          "temperature_k": 1073.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 6.70709117993003,
+          "published_residual_gpa": 0.038208349598976454,
+          "refitted_residual_gpa": 1.4496287013244729,
+          "row_id": "campbell_s2:10",
+          "series": "T0691.034",
+          "study": "campbell_s2",
+          "temperature_k": 1073.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 8.59157948187823,
+          "published_residual_gpa": -0.26958795266017965,
+          "refitted_residual_gpa": 1.0751067558071181,
+          "row_id": "campbell_s2:11",
+          "series": "T0691.043",
+          "study": "campbell_s2",
+          "temperature_k": 1073.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 9.65582885235768,
+          "published_residual_gpa": -0.15066083027065957,
+          "refitted_residual_gpa": 1.1423857629517542,
+          "row_id": "campbell_s2:12",
+          "series": "T0691.052",
+          "study": "campbell_s2",
+          "temperature_k": 1073.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 6.28240221568665,
+          "published_residual_gpa": 0.06987931150313464,
+          "refitted_residual_gpa": 1.0191007931465679,
+          "row_id": "campbell_s2:13",
+          "series": "T0691.035",
+          "study": "campbell_s2",
+          "temperature_k": 873.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 8.22985586623152,
+          "published_residual_gpa": -0.3973380416493697,
+          "refitted_residual_gpa": 0.4711108339253016,
+          "row_id": "campbell_s2:14",
+          "series": "T0691.044",
+          "study": "campbell_s2",
+          "temperature_k": 873.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 9.30223232637767,
+          "published_residual_gpa": -0.057094632577207705,
+          "refitted_residual_gpa": 0.7328516069258839,
+          "row_id": "campbell_s2:15",
+          "series": "T0691.053",
+          "study": "campbell_s2",
+          "temperature_k": 873.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 57.5614962915957,
+          "published_residual_gpa": -2.3480677592488632,
+          "refitted_residual_gpa": 0.8417754615110553,
+          "row_id": "campbell_s2:16",
+          "series": "FeFeO_094",
+          "study": "campbell_s2",
+          "temperature_k": 2096.29
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 56.4737630900587,
+          "published_residual_gpa": -1.5030034978864535,
+          "refitted_residual_gpa": 1.315331375805819,
+          "row_id": "campbell_s2:17",
+          "series": "FeFeO_095",
+          "study": "campbell_s2",
+          "temperature_k": 2006.565
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 55.9507104077153,
+          "published_residual_gpa": -1.275744020301346,
+          "refitted_residual_gpa": 1.2766670911601565,
+          "row_id": "campbell_s2:18",
+          "series": "FeFeO_093",
+          "study": "campbell_s2",
+          "temperature_k": 1941.575
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 47.593716643029,
+          "published_residual_gpa": -2.3652346552691625,
+          "refitted_residual_gpa": -0.2647589454327104,
+          "row_id": "campbell_s2:19",
+          "series": "FeFeO_076",
+          "study": "campbell_s2",
+          "temperature_k": 1751.455
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 56.2736741898665,
+          "published_residual_gpa": -2.1065388709509136,
+          "refitted_residual_gpa": -0.4327489239856561,
+          "row_id": "campbell_s2:20",
+          "series": "FeFeO_092",
+          "study": "campbell_s2",
+          "temperature_k": 1731.57
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 48.0540324358088,
+          "published_residual_gpa": -2.765397043222734,
+          "refitted_residual_gpa": -0.988474133876295,
+          "row_id": "campbell_s2:21",
+          "series": "FeFeO_075",
+          "study": "campbell_s2",
+          "temperature_k": 1670.46
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 36.0207077276771,
+          "published_residual_gpa": -2.3834701314626514,
+          "refitted_residual_gpa": -0.24115003908921295,
+          "row_id": "campbell_s2:22",
+          "series": "FeFeO_040",
+          "study": "campbell_s2",
+          "temperature_k": 1655.91
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 48.2733529888627,
+          "published_residual_gpa": -1.8944388603548532,
+          "refitted_residual_gpa": -0.5962903929479779,
+          "row_id": "campbell_s2:23",
+          "series": "FeFeO_072",
+          "study": "campbell_s2",
+          "temperature_k": 1562.79
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 48.567495831539,
+          "published_residual_gpa": -1.9914044213886442,
+          "refitted_residual_gpa": -1.0152964104526276,
+          "row_id": "campbell_s2:24",
+          "series": "FeFeO_071",
+          "study": "campbell_s2",
+          "temperature_k": 1486.16
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 55.1248168632253,
+          "published_residual_gpa": -1.1073531861413812,
+          "refitted_residual_gpa": -0.7090506853266092,
+          "row_id": "campbell_s2:25",
+          "series": "FeFeO_091",
+          "study": "campbell_s2",
+          "temperature_k": 1436.69
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.501110220622646,
+          "published_residual_gpa": -1.113383908651624,
+          "refitted_residual_gpa": 1.3848106231262314,
+          "row_id": "seagle:1",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1640.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 21.763704040080526,
+          "published_residual_gpa": -3.0940073318546233,
+          "refitted_residual_gpa": -0.12112227778340312,
+          "row_id": "seagle:2",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1820.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 20.328162313738584,
+          "published_residual_gpa": -1.9526425604513022,
+          "refitted_residual_gpa": 1.0745326712255512,
+          "row_id": "seagle:3",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1840.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 21.90846895335586,
+          "published_residual_gpa": -2.9580630195480957,
+          "refitted_residual_gpa": 0.4999961546694074,
+          "row_id": "seagle:4",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 2010.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 21.156943479439313,
+          "published_residual_gpa": -2.745406871499547,
+          "refitted_residual_gpa": 0.4606783623255595,
+          "row_id": "seagle:5",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1910.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 17.646165999656727,
+          "published_residual_gpa": 1.4988437653174635,
+          "refitted_residual_gpa": 4.90688468408381,
+          "row_id": "seagle:6",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1990.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 19.816789222077404,
+          "published_residual_gpa": -1.3346814640726095,
+          "refitted_residual_gpa": 1.3767118058669752,
+          "row_id": "seagle:7",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1720.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 20.99363053309928,
+          "published_residual_gpa": -1.4813922809998203,
+          "refitted_residual_gpa": 1.9523883994933975,
+          "row_id": "seagle:8",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 2000.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 20.851583601809775,
+          "published_residual_gpa": -2.0558178696096725,
+          "refitted_residual_gpa": 1.1490231314234371,
+          "row_id": "seagle:9",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 1910.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 22.434902266393753,
+          "published_residual_gpa": -2.9248360226905596,
+          "refitted_residual_gpa": 0.9079934454483229,
+          "row_id": "seagle:10",
+          "series": "20.0",
+          "study": "seagle",
+          "temperature_k": 2160.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 30.230137273661043,
+          "published_residual_gpa": -3.912340705684514,
+          "refitted_residual_gpa": -1.5704789978793414,
+          "row_id": "seagle:11",
+          "series": "27.0",
+          "study": "seagle",
+          "temperature_k": 1650.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 28.392861061385936,
+          "published_residual_gpa": -1.2968436477518779,
+          "refitted_residual_gpa": 1.7404930961131733,
+          "row_id": "seagle:12",
+          "series": "27.0",
+          "study": "seagle",
+          "temperature_k": 1880.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 29.030473323386044,
+          "published_residual_gpa": -1.6488052416314822,
+          "refitted_residual_gpa": 1.6580274342536399,
+          "row_id": "seagle:13",
+          "series": "27.0",
+          "study": "seagle",
+          "temperature_k": 1970.0
+        },
+        {
+          "iron_phase": "fcc",
+          "pressure_gpa": 28.032110284345404,
+          "published_residual_gpa": -1.3085390589766952,
+          "refitted_residual_gpa": 2.2424882841494487,
+          "row_id": "seagle:14",
+          "series": "27.0",
+          "study": "seagle",
+          "temperature_k": 2050.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 56.74093657760418,
+          "published_residual_gpa": -7.088322261753369,
+          "refitted_residual_gpa": -3.2223184827998708,
+          "row_id": "seagle:15",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2230.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 55.74682019905816,
+          "published_residual_gpa": -6.434160699693514,
+          "refitted_residual_gpa": -2.9955680268139773,
+          "row_id": "seagle:16",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2120.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 56.12487154596692,
+          "published_residual_gpa": -6.873913850485479,
+          "refitted_residual_gpa": -3.792309943563893,
+          "row_id": "seagle:17",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2030.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 56.444295736986206,
+          "published_residual_gpa": -7.038617332553045,
+          "refitted_residual_gpa": -3.562516439118042,
+          "row_id": "seagle:18",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2130.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 52.91413173461177,
+          "published_residual_gpa": -3.48578729676057,
+          "refitted_residual_gpa": 0.10863076757115664,
+          "row_id": "seagle:19",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2160.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 55.25784935051947,
+          "published_residual_gpa": -5.877524750173706,
+          "refitted_residual_gpa": -2.559785127422032,
+          "row_id": "seagle:20",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2090.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 53.38392411039294,
+          "published_residual_gpa": -4.240464191281568,
+          "refitted_residual_gpa": -1.2760356568944928,
+          "row_id": "seagle:21",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2000.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 53.89151526330077,
+          "published_residual_gpa": -4.600390232452973,
+          "refitted_residual_gpa": -1.4399042704088103,
+          "row_id": "seagle:22",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2050.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 53.04877445679393,
+          "published_residual_gpa": -4.650934115890095,
+          "refitted_residual_gpa": -3.0410868064425145,
+          "row_id": "seagle:23",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 1660.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 53.76632932384573,
+          "published_residual_gpa": -4.923775121208763,
+          "refitted_residual_gpa": -2.8804941572977825,
+          "row_id": "seagle:24",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 1770.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 54.963984090388905,
+          "published_residual_gpa": -5.752318698132655,
+          "refitted_residual_gpa": -3.2334289403274994,
+          "row_id": "seagle:25",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 1890.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 55.003170845051,
+          "published_residual_gpa": -5.259532594365936,
+          "refitted_residual_gpa": -2.191296389668622,
+          "row_id": "seagle:26",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2030.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 54.61034924876152,
+          "published_residual_gpa": -4.425003151327672,
+          "refitted_residual_gpa": -0.8871811931260254,
+          "row_id": "seagle:27",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2150.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 55.6565392992081,
+          "published_residual_gpa": -5.438291158567225,
+          "refitted_residual_gpa": -1.8613245981014543,
+          "row_id": "seagle:28",
+          "series": "55.0",
+          "study": "seagle",
+          "temperature_k": 2160.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 71.7756892957995,
+          "published_residual_gpa": -2.2839589133603795,
+          "refitted_residual_gpa": -1.3438111735060403,
+          "row_id": "seagle:29",
+          "series": "72.0",
+          "study": "seagle",
+          "temperature_k": 1720.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 71.68207893563799,
+          "published_residual_gpa": -2.198962161996292,
+          "refitted_residual_gpa": -0.9209001665913092,
+          "row_id": "seagle:30",
+          "series": "72.0",
+          "study": "seagle",
+          "temperature_k": 1790.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 71.40380475777768,
+          "published_residual_gpa": -1.4849065918763387,
+          "refitted_residual_gpa": 0.2545150086361332,
+          "row_id": "seagle:31",
+          "series": "72.0",
+          "study": "seagle",
+          "temperature_k": 1890.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 72.42965499308208,
+          "published_residual_gpa": -2.0107800918533343,
+          "refitted_residual_gpa": 0.521229789090583,
+          "row_id": "seagle:32",
+          "series": "72.0",
+          "study": "seagle",
+          "temperature_k": 2060.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 71.72884324198887,
+          "published_residual_gpa": -1.8479193802689338,
+          "refitted_residual_gpa": 0.5613573857712879,
+          "row_id": "seagle:33",
+          "series": "72.0",
+          "study": "seagle",
+          "temperature_k": 2030.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 69.53381351427555,
+          "published_residual_gpa": 0.03057612725241654,
+          "refitted_residual_gpa": 2.2617931080932294,
+          "row_id": "seagle:34",
+          "series": "72.0",
+          "study": "seagle",
+          "temperature_k": 1990.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 72.30063458230893,
+          "published_residual_gpa": -2.0002875445208304,
+          "refitted_residual_gpa": 0.9628359400898887,
+          "row_id": "seagle:35",
+          "series": "72.0",
+          "study": "seagle",
+          "temperature_k": 2150.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 69.97069662794563,
+          "published_residual_gpa": 0.5714190820160496,
+          "refitted_residual_gpa": 4.13930162530589,
+          "row_id": "seagle:36",
+          "series": "72.0",
+          "study": "seagle",
+          "temperature_k": 2280.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 92.13365542235118,
+          "published_residual_gpa": 0.29894039244560133,
+          "refitted_residual_gpa": 1.8256186973540025,
+          "row_id": "seagle:37",
+          "series": "93.0",
+          "study": "seagle",
+          "temperature_k": 2040.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 92.28673800713588,
+          "published_residual_gpa": 0.5397746547660773,
+          "refitted_residual_gpa": 2.8089886336045424,
+          "row_id": "seagle:38",
+          "series": "93.0",
+          "study": "seagle",
+          "temperature_k": 2180.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 92.45327179814569,
+          "published_residual_gpa": 0.5600570777228882,
+          "refitted_residual_gpa": 2.984018688663454,
+          "row_id": "seagle:39",
+          "series": "93.0",
+          "study": "seagle",
+          "temperature_k": 2210.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 92.79571697126833,
+          "published_residual_gpa": 0.3449168182360296,
+          "refitted_residual_gpa": 3.303827624348642,
+          "row_id": "seagle:40",
+          "series": "93.0",
+          "study": "seagle",
+          "temperature_k": 2310.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 85.2572182970629,
+          "published_residual_gpa": 0.5962227955231754,
+          "refitted_residual_gpa": -0.13532070647036676,
+          "row_id": "seagle:41",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 1560.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 85.19461727243446,
+          "published_residual_gpa": 1.0693367519665742,
+          "refitted_residual_gpa": 0.9042198352609034,
+          "row_id": "seagle:42",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 1670.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 85.42348651304702,
+          "published_residual_gpa": 1.1745232474804652,
+          "refitted_residual_gpa": 1.9523558204671048,
+          "row_id": "seagle:43",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 1850.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 86.676205942709,
+          "published_residual_gpa": 0.6402333212789131,
+          "refitted_residual_gpa": 2.2339131065844526,
+          "row_id": "seagle:44",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 2010.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 86.26865503009527,
+          "published_residual_gpa": 1.3422552495481597,
+          "refitted_residual_gpa": 3.399412389994623,
+          "row_id": "seagle:45",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 2100.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 90.5177324058647,
+          "published_residual_gpa": -2.0338657137731104,
+          "refitted_residual_gpa": 1.253044505595014,
+          "row_id": "seagle:46",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 2340.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 86.17867831611524,
+          "published_residual_gpa": 2.725595271283069,
+          "refitted_residual_gpa": 6.626481263196112,
+          "row_id": "seagle:47",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 2460.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 95.09905440731585,
+          "published_residual_gpa": -7.636436364732262,
+          "refitted_residual_gpa": -5.362170837345317,
+          "row_id": "seagle:48",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 2140.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 89.55989821971049,
+          "published_residual_gpa": -1.776095095867575,
+          "refitted_residual_gpa": 0.8539025106836249,
+          "row_id": "seagle:49",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 2210.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 98.01686511532894,
+          "published_residual_gpa": -9.184527092587516,
+          "refitted_residual_gpa": -5.02073037207407,
+          "row_id": "seagle:50",
+          "series": "89.0",
+          "study": "seagle",
+          "temperature_k": 2510.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 55.68703846157853,
+          "published_residual_gpa": -8.285014254693046,
+          "refitted_residual_gpa": -3.9578312601410275,
+          "row_id": "seagle:51",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 2340.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 51.698198973410406,
+          "published_residual_gpa": -6.050611213671097,
+          "refitted_residual_gpa": -3.1855709572173154,
+          "row_id": "seagle:52",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1950.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 53.79229212331022,
+          "published_residual_gpa": -5.68004628318527,
+          "refitted_residual_gpa": -1.5154823089705758,
+          "row_id": "seagle:53",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 2300.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 53.00558104363496,
+          "published_residual_gpa": -5.8616048022189915,
+          "refitted_residual_gpa": -3.7561589539602807,
+          "row_id": "seagle:54",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1770.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 51.79513880689084,
+          "published_residual_gpa": -5.303513960584866,
+          "refitted_residual_gpa": -3.5355783310358078,
+          "row_id": "seagle:55",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1680.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 52.873749487120165,
+          "published_residual_gpa": -6.054864612670343,
+          "refitted_residual_gpa": -3.8176855603113324,
+          "row_id": "seagle:56",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1800.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 53.98917837286194,
+          "published_residual_gpa": -6.865834601051411,
+          "refitted_residual_gpa": -4.003275424305286,
+          "row_id": "seagle:57",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1960.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 52.97495981909443,
+          "published_residual_gpa": -6.3762873451015665,
+          "refitted_residual_gpa": -3.8138830881548884,
+          "row_id": "seagle:58",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1880.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 56.34226318218644,
+          "published_residual_gpa": -8.73233496109134,
+          "refitted_residual_gpa": -4.828805986279093,
+          "row_id": "seagle:59",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 2230.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 56.720631457864684,
+          "published_residual_gpa": -8.375144892471965,
+          "refitted_residual_gpa": -3.7549790860246404,
+          "row_id": "seagle:60",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 2420.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 45.463413202184874,
+          "published_residual_gpa": -0.14664834565996898,
+          "refitted_residual_gpa": 0.33288962970574687,
+          "row_id": "seagle:63",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1350.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 46.35474186113344,
+          "published_residual_gpa": -1.1097627998309392,
+          "refitted_residual_gpa": -0.4219625176771302,
+          "row_id": "seagle:64",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1400.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 46.51512485175165,
+          "published_residual_gpa": -0.9664161447549446,
+          "refitted_residual_gpa": -0.008005794270495414,
+          "row_id": "seagle:65",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1470.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 45.32388714075708,
+          "published_residual_gpa": 0.4296647042211106,
+          "refitted_residual_gpa": 1.541214053355482,
+          "row_id": "seagle:66",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1510.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 45.59122626873049,
+          "published_residual_gpa": -0.03307600833509383,
+          "refitted_residual_gpa": 1.2493048969649863,
+          "row_id": "seagle:67",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1550.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 45.71938819971711,
+          "published_residual_gpa": -0.12081266390291745,
+          "refitted_residual_gpa": 1.2808825015682146,
+          "row_id": "seagle:68",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1580.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 46.9348780394283,
+          "published_residual_gpa": -1.229543708533825,
+          "refitted_residual_gpa": 0.4491008545696431,
+          "row_id": "seagle:69",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1650.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 45.56306320749546,
+          "published_residual_gpa": 0.16686071803688662,
+          "refitted_residual_gpa": 1.9646288338245341,
+          "row_id": "seagle:70",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1680.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 47.00290501103368,
+          "published_residual_gpa": -0.9248447303512322,
+          "refitted_residual_gpa": 1.2585570443754506,
+          "row_id": "seagle:71",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1780.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 47.441736425087505,
+          "published_residual_gpa": -1.1066449378941599,
+          "refitted_residual_gpa": 1.4245655092409208,
+          "row_id": "seagle:72",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1870.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 50.55670464046676,
+          "published_residual_gpa": -3.918128593488916,
+          "refitted_residual_gpa": -1.0810911170202502,
+          "row_id": "seagle:73",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1950.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 46.525316471941466,
+          "published_residual_gpa": -0.7000896139296486,
+          "refitted_residual_gpa": 1.6898053064804373,
+          "row_id": "seagle:74",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1830.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 47.38588470628308,
+          "published_residual_gpa": -1.294551538665516,
+          "refitted_residual_gpa": 1.3622893859198086,
+          "row_id": "seagle:75",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1900.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 48.57289302107488,
+          "published_residual_gpa": -2.831710874969694,
+          "refitted_residual_gpa": -0.281807810876991,
+          "row_id": "seagle:76",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1870.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 48.05843318786626,
+          "published_residual_gpa": -2.1524162396505417,
+          "refitted_residual_gpa": 0.5491788481607784,
+          "row_id": "seagle:77",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1910.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 45.14945086743673,
+          "published_residual_gpa": 0.3678493662154665,
+          "refitted_residual_gpa": 2.885585916269555,
+          "row_id": "seagle:78",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1860.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 47.316356660383214,
+          "published_residual_gpa": -1.7186235697494752,
+          "refitted_residual_gpa": 0.8749115791978639,
+          "row_id": "seagle:79",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1880.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 45.78508713144297,
+          "published_residual_gpa": 0.21521582191157052,
+          "refitted_residual_gpa": 3.1871982148967106,
+          "row_id": "seagle:80",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1980.0
+        },
+        {
+          "iron_phase": "hcp",
+          "pressure_gpa": 53.11333236501266,
+          "published_residual_gpa": -7.356340487230284,
+          "refitted_residual_gpa": -4.53328820343399,
+          "row_id": "seagle:81",
+          "series": "50.0",
+          "study": "seagle",
+          "temperature_k": 1940.0
+        }
+      ],
+      "scale": "seagle_2006"
+    }
+  },
+  "qualification": "Diagnostic equal-pressure fits only, with the prior audit bounds. Residual sign is P(Campbell published model) minus input pressure. Group removal changes data coverage and is not evidence that a source group is invalid. Nominal Seagle series assignments are inherited audit inferences from FeO expansion lines, not recovered author run identifiers. Temperature and pressure/source coverage are confounded. Thermal variants are explicit assumptions, not recovered author implementations; no variant is adopted by closeness to Campbell coefficients. No published coefficient or original pressure reconstruction is modified. The Fe/FeO source records are deferred from execution. Fixed-q profiles are sensitivity curves, not confidence intervals or proof of a global optimum.",
+  "thermal_variants": {
+    "alpha_at_1400": {
+      "alpha_volume_reference_temperature_k": 1400,
+      "checkpoint_differences_gpa": [
+        0.3661284254833319,
+        1.2543949047485583,
+        0.5897127689450699,
+        0.8695788965702107,
+        0.4246923385622523,
+        1.1380981208986753,
+        0.26436739742865,
+        0.730305210014599
+      ],
+      "checkpoint_summary": {
+        "mean_gpa": 0.7046597578314184,
+        "observations": 8,
+        "rmse_gpa": 0.7818529228735583,
+        "sse_gpa2": 4.890351944047411
+      },
+      "checkpoints_within_reported_error": 8,
+      "delta": 6.5,
+      "fits": {
+        "fe_fcc_seagle_2006": {
+          "active_bounds": [
+            "q"
+          ],
+          "fcc_pressure_shift_mean_gpa": -0.8034415836136625,
+          "fcc_pressure_shift_range_gpa": [
+            -1.1641626034256802,
+            -0.3823979360275658
+          ],
+          "observations": 29,
+          "parameters": {
+            "K0_gpa": 123.08490517332837,
+            "gamma0": 1.934707548803292,
+            "q": 0.010000000000000002
+          },
+          "rmse_gpa": 0.7002268953417771,
+          "solver_success": true,
+          "sse_gpa2": 14.219213443839534
+        },
+        "feo_dewaele_2006_hypothesis": {
+          "active_bounds": [],
+          "fcc_pressure_shift_mean_gpa": -0.8034415836136625,
+          "fcc_pressure_shift_range_gpa": [
+            -1.1641626034256802,
+            -0.3823979360275658
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 133.73361310065064,
+            "gamma0": 1.7572167090984059,
+            "q": 0.16690547074355044
+          },
+          "rmse_gpa": 2.1866560387758214,
+          "solver_success": true,
+          "sse_gpa2": 497.2723217191358
+        },
+        "feo_seagle_2006": {
+          "active_bounds": [
+            "q"
+          ],
+          "fcc_pressure_shift_mean_gpa": -0.8034415836136625,
+          "fcc_pressure_shift_range_gpa": [
+            -1.1641626034256802,
+            -0.3823979360275658
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 135.7167215733651,
+            "gamma0": 1.8393374572069767,
+            "q": 0.01000000000000105
+          },
+          "rmse_gpa": 2.4278746107638924,
+          "solver_success": true,
+          "sse_gpa2": 613.03581306156
+        }
+      }
+    },
+    "alpha_at_observed_temperature": {
+      "alpha_volume_reference_temperature_k": "observed",
+      "checkpoint_differences_gpa": [
+        -0.03748382572364761,
+        -0.6032254940843842,
+        -0.9003300662110902,
+        -0.8758938557082487,
+        -1.4923022787599436,
+        -0.15656283903177837,
+        -1.6852641895474605,
+        -1.3145211886368813
+      ],
+      "checkpoint_summary": {
+        "mean_gpa": -0.8831979672129293,
+        "observations": 8,
+        "rmse_gpa": 1.0465795279265422,
+        "sse_gpa2": 8.76262966619955
+      },
+      "checkpoints_within_reported_error": 8,
+      "delta": 6.5,
+      "fits": {
+        "fe_fcc_seagle_2006": {
+          "active_bounds": [],
+          "fcc_pressure_shift_mean_gpa": -1.2143536469633673,
+          "fcc_pressure_shift_range_gpa": [
+            -2.0131193700134418,
+            -0.47296756673669904
+          ],
+          "observations": 29,
+          "parameters": {
+            "K0_gpa": 124.61873615161475,
+            "gamma0": 1.8785778603397645,
+            "q": 0.16162103574699083
+          },
+          "rmse_gpa": 0.6806848273974162,
+          "solver_success": true,
+          "sse_gpa2": 13.436623193222456
+        },
+        "feo_dewaele_2006_hypothesis": {
+          "active_bounds": [],
+          "fcc_pressure_shift_mean_gpa": -1.2143536469633673,
+          "fcc_pressure_shift_range_gpa": [
+            -2.0131193700134418,
+            -0.47296756673669904
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 134.1824259775087,
+            "gamma0": 1.7191322498627926,
+            "q": 0.12742302052352233
+          },
+          "rmse_gpa": 2.219894583656274,
+          "solver_success": true,
+          "sse_gpa2": 512.5049241048321
+        },
+        "feo_seagle_2006": {
+          "active_bounds": [
+            "q"
+          ],
+          "fcc_pressure_shift_mean_gpa": -1.2143536469633673,
+          "fcc_pressure_shift_range_gpa": [
+            -2.0131193700134418,
+            -0.47296756673669904
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 136.46941702971887,
+            "gamma0": 1.8038379476559956,
+            "q": 0.010000000000000363
+          },
+          "rmse_gpa": 2.477860912764234,
+          "solver_success": true,
+          "sse_gpa2": 638.5386491124996
+        }
+      }
+    },
+    "baseline": {
+      "alpha_volume_reference_temperature_k": 300,
+      "checkpoint_differences_gpa": [
+        1.2296948421061913,
+        3.5526402647436015,
+        2.6211767563689747,
+        3.0581673425058824,
+        2.7612759704394563,
+        3.082320275098432,
+        2.6068198533171696,
+        3.2217635746083815
+      ],
+      "checkpoint_summary": {
+        "mean_gpa": 2.766732359898511,
+        "observations": 8,
+        "rmse_gpa": 2.8429072021394246,
+        "sse_gpa2": 64.65697087980969
+      },
+      "checkpoints_within_reported_error": 8,
+      "delta": 6.5,
+      "fits": {
+        "fe_fcc_seagle_2006": {
+          "active_bounds": [
+            "q"
+          ],
+          "fcc_pressure_shift_mean_gpa": -9.89684524808711e-14,
+          "fcc_pressure_shift_range_gpa": [
+            -6.892264536872972e-13,
+            4.050093593832571e-13
+          ],
+          "observations": 29,
+          "parameters": {
+            "K0_gpa": 123.95765595597975,
+            "gamma0": 2.0240263638162848,
+            "q": 0.010000000000000002
+          },
+          "rmse_gpa": 0.8791534678681443,
+          "solver_success": true,
+          "sse_gpa2": 22.41441378187294
+        },
+        "feo_dewaele_2006_hypothesis": {
+          "active_bounds": [],
+          "fcc_pressure_shift_mean_gpa": -9.89684524808711e-14,
+          "fcc_pressure_shift_range_gpa": [
+            -6.892264536872972e-13,
+            4.050093593832571e-13
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 132.98046714024883,
+            "gamma0": 1.8301833207284015,
+            "q": 0.2504138543506444
+          },
+          "rmse_gpa": 2.1486025203303307,
+          "solver_success": true,
+          "sse_gpa2": 480.11525019846425
+        },
+        "feo_seagle_2006": {
+          "active_bounds": [
+            "q"
+          ],
+          "fcc_pressure_shift_mean_gpa": -9.89684524808711e-14,
+          "fcc_pressure_shift_range_gpa": [
+            -6.892264536872972e-13,
+            4.050093593832571e-13
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 134.3043241403671,
+            "gamma0": 1.9063503475110204,
+            "q": 0.010000000000000002
+          },
+          "rmse_gpa": 2.353825468192119,
+          "solver_success": true,
+          "sse_gpa2": 576.2114108098242
+        }
+      }
+    },
+    "delta_6": {
+      "alpha_volume_reference_temperature_k": 300,
+      "checkpoint_differences_gpa": [
+        1.3948472121724862,
+        4.174265551425059,
+        3.155390076970555,
+        3.63044750842937,
+        3.3944906083717044,
+        3.621079889538592,
+        3.2346973076059555,
+        3.9435003925816687
+      ],
+      "checkpoint_summary": {
+        "mean_gpa": 3.318589818386924,
+        "observations": 8,
+        "rmse_gpa": 3.4124033935646825,
+        "sse_gpa2": 93.15597536329409
+      },
+      "checkpoints_within_reported_error": 8,
+      "delta": 6.0,
+      "fits": {
+        "fe_fcc_seagle_2006": {
+          "active_bounds": [
+            "q"
+          ],
+          "fcc_pressure_shift_mean_gpa": 0.1490884804262418,
+          "fcc_pressure_shift_range_gpa": [
+            0.06587393529471797,
+            0.22977087803867136
+          ],
+          "observations": 29,
+          "parameters": {
+            "K0_gpa": 124.23890389202148,
+            "gamma0": 2.038973678802661,
+            "q": 0.010000000000000002
+          },
+          "rmse_gpa": 0.9225821629565883,
+          "solver_success": true,
+          "sse_gpa2": 24.683577574764055
+        },
+        "feo_dewaele_2006_hypothesis": {
+          "active_bounds": [],
+          "fcc_pressure_shift_mean_gpa": 0.1490884804262418,
+          "fcc_pressure_shift_range_gpa": [
+            0.06587393529471797,
+            0.22977087803867136
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 132.84703170608586,
+            "gamma0": 1.8437454435381508,
+            "q": 0.2660773341262859
+          },
+          "rmse_gpa": 2.1444965029570926,
+          "solver_success": true,
+          "sse_gpa2": 478.2819861243007
+        },
+        "feo_seagle_2006": {
+          "active_bounds": [
+            "q"
+          ],
+          "fcc_pressure_shift_mean_gpa": 0.1490884804262418,
+          "fcc_pressure_shift_range_gpa": [
+            0.06587393529471797,
+            0.22977087803867136
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 134.0445460559651,
+            "gamma0": 1.9187164323106847,
+            "q": 0.010000000000000002
+          },
+          "rmse_gpa": 2.342626737814098,
+          "solver_success": true,
+          "sse_gpa2": 570.7416034030383
+        }
+      }
+    },
+    "delta_7": {
+      "alpha_volume_reference_temperature_k": 300,
+      "checkpoint_differences_gpa": [
+        1.0757142665545665,
+        2.986447334010748,
+        2.133258570126749,
+        2.535593905805733,
+        2.1846740101522855,
+        2.591901069735947,
+        2.034680025271051,
+        2.567997784500065
+      ],
+      "checkpoint_summary": {
+        "mean_gpa": 2.263783370769643,
+        "observations": 8,
+        "rmse_gpa": 2.325976799020005,
+        "sse_gpa2": 43.28134455663479
+      },
+      "checkpoints_within_reported_error": 8,
+      "delta": 7.0,
+      "fits": {
+        "fe_fcc_seagle_2006": {
+          "active_bounds": [
+            "q"
+          ],
+          "fcc_pressure_shift_mean_gpa": -0.13904074752911175,
+          "fcc_pressure_shift_range_gpa": [
+            -0.21346984662406143,
+            -0.061863902414774685
+          ],
+          "observations": 29,
+          "parameters": {
+            "K0_gpa": 123.69748228878298,
+            "gamma0": 2.010061643877819,
+            "q": 0.010000000000000002
+          },
+          "rmse_gpa": 0.8405023865025452,
+          "solver_success": true,
+          "sse_gpa2": 20.486883589777744
+        },
+        "feo_dewaele_2006_hypothesis": {
+          "active_bounds": [],
+          "fcc_pressure_shift_mean_gpa": -0.13904074752911175,
+          "fcc_pressure_shift_range_gpa": [
+            -0.21346984662406143,
+            -0.061863902414774685
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 133.10668749894106,
+            "gamma0": 1.817564225631188,
+            "q": 0.23591871182105198
+          },
+          "rmse_gpa": 2.153230497515914,
+          "solver_success": true,
+          "sse_gpa2": 482.18576384499346
+        },
+        "feo_seagle_2006": {
+          "active_bounds": [
+            "q"
+          ],
+          "fcc_pressure_shift_mean_gpa": -0.13904074752911175,
+          "fcc_pressure_shift_range_gpa": [
+            -0.21346984662406143,
+            -0.061863902414774685
+          ],
+          "observations": 104,
+          "parameters": {
+            "K0_gpa": 134.54675768843225,
+            "gamma0": 1.894816065085307,
+            "q": 0.010000000000012329
+          },
+          "rmse_gpa": 2.3649759075976204,
+          "solver_success": true,
+          "sse_gpa2": 581.6835485257875
+        }
+      }
+    }
+  }
+}

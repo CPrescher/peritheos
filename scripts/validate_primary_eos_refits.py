@@ -43,6 +43,24 @@ from peritheos.materials import Material
 from scripts.reproduce_akins_2004_mgsio3_liquid import (
     reproduce as reproduce_akins_2004_mgsio3_liquid,
 )
+from scripts.reproduce_campbell_2009_buffers import (
+    QUALIFICATION as CAMPBELL_QUALIFICATION,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    RECORDS as CAMPBELL_RECORDS,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    S2 as CAMPBELL_S2,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    S3 as CAMPBELL_S3,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    SELECTION as CAMPBELL_SELECTION,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    fit_result as fit_campbell,
+)
 from scripts.reproduce_diamond_thermal_composites import (
     reproduce as reproduce_diamond_composites,
 )
@@ -222,7 +240,7 @@ FIT_QUALIFICATIONS = {
     "molybenum_carbide_mo2c_haines_2001_bm3_1": "Corrected source-scope reproduction: Figure 2 expresses the observations as V/V0 and reports only K0 and K0' as fitted coefficients, so the measured ambient V0 is held fixed. The 16-marker refit is statistically compatible with both published coefficients but remains only numerically similar; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).",
     "molybenum_carbide_mo2c_haines_2001_bm3_refit": "Explicit Peritheos refit record: all 16 digitized Figure 2 markers are fitted with measured V0 fixed and the documented errors-in-variables objective. This record reproduces its stored coefficients exactly and does not replace the published Haines parameterization; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).",
     "mgo_dewaele_2000_bm3_mgd_5": "Conditional current-study thermal reproduction: the 41 heated Table 2 rows constrain q while V0, K0, K0', theta0, gamma0, Tr, and n are held to the source's staged/adopted values. Dewaele et al.'s published thermal analysis additionally used Fei (1999) observations that are not reprinted in this article, so exact parameter parity is not required from the new current-study rows alone.",
-    "feo_fischer_2011_bm3_2": "Conditional current-study thermal reproduction: all 42 numerical B1 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. V0, theta0, q, Tr, and n are held fixed exactly as the source specifies. Fischer's published global fit also includes Campbell, Ozawa, and Seagle rows. All identifiable source tables are now bundled, but Campbell's fcc-Fe pressure calibration and Fischer's final combined row selection remain unresolved. The source also does not state its regression weights, residual variable, covariance, or optimizer; this result remains a current-study-only diagnostic rather than an exact global-fit reproduction. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
+    "feo_fischer_2011_bm3_2": "Conditional current-study thermal reproduction: all 42 numerical B1 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. V0, theta0, q, Tr, and n are held fixed exactly as the source specifies. Fischer's published global fit also includes Campbell, Ozawa, and Seagle rows. All identifiable source tables are now bundled, but Campbell's fcc-Fe calibration is retained only as deferred source evidence because of unresolved coefficient-refit discrepancies. It is not an executable calibration; Fischer's final combined row selection remains unresolved. The source also does not state its regression weights, residual variable, covariance, or optimizer; this result remains a current-study-only diagnostic rather than an exact global-fit reproduction. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
     "feo_b8_2_fischer_2011_bm3_1": "Recovered combined thermal reproduction: all 21 numerical B8 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. One-peak detections have no volume and are excluded; the three two-peak volumes whose errors are unconstrained use Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. The unweighted 29-row fit recovers every free coefficient within its published uncertainty. Fischer does not state its regression weights, residual variable, covariance, or optimizer, so this establishes numerical parameter parity rather than exact procedural identity. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
     "palladium_baty_2024_bm3_1": "Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024).",
     "palladium_frost_2023_vinet_1": "Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
@@ -4856,6 +4874,28 @@ def _solomatova_outcome(record: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _campbell_2009_outcome(material_id, record):
+    """Refit the available current-study rows without circular Fe calibration."""
+    metrics, result = fit_campbell(material_id)
+    status, comparisons = _compare(record, result, thermal=True, volume_scale=1.0)
+    # Preserve the current-study numbers, but classify the Fe/FeO source-level
+    # result by the unresolved combined-data discrepancy. The dedicated audit
+    # covers 79 reconstructed pressures and the regression/thermal alternatives.
+    if material_id in {"fe_fcc", "feo"}:
+        status = "parity_not_achieved"
+    return {
+        **metrics,
+        "status": status,
+        "parameters": comparisons,
+        "dataset_identifiers": [
+            CAMPBELL_S2 if material_id in {"fe_fcc", "feo"} else CAMPBELL_S3
+        ],
+        "fit_kind": "conditional_bm3_mgd_variable_exponent",
+        "selection": CAMPBELL_SELECTION,
+        "qualification": CAMPBELL_QUALIFICATION,
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
     dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text())["row_level_refits"]
@@ -4912,7 +4952,9 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if record["identifier"] in SOLOMATOVA_RECORD_SOURCES:
+            if record["identifier"] in CAMPBELL_RECORDS.values():
+                outcome = _campbell_2009_outcome(material_id, record)
+            elif record["identifier"] in SOLOMATOVA_RECORD_SOURCES:
                 outcome = _solomatova_outcome(record)
             elif (
                 record["identifier"] in dewaele_refits

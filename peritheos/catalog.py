@@ -86,11 +86,17 @@ def _catalog_index() -> _CatalogIndex:
                 f"Bundled material {document_identifier!r} references unknown "
                 f"family {document['family_id']!r}"
             )
-        # Source-only or structure-only cards remain available through the
-        # document API but cannot produce an executable Material.
-        if not document["eos_records"]:
+        # Deferred source records remain inspectable through the document API,
+        # but must not become executable or prevent other validated records in
+        # the same material from loading.
+        executable_ids = [
+            record["identifier"]
+            for record in document["eos_records"]
+            if record["scientific_validation"]["status"] == "primary_source_validated"
+        ]
+        if not executable_ids:
             continue
-        material = Material.from_eosmat(document)
+        material = Material.from_eosmat(document, record_identifiers=executable_ids)
         if material.identifier != document_identifier:
             raise MaterialError(
                 f"Bundled material file {document_identifier!r} contains identifier "
