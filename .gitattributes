@@ -3,3 +3,5 @@
 peritheos/data/datasets/klb1-ricolleau-2009-table-s1.tsv text eol=lf whitespace=-blank-at-eol,-blank-at-eof
 # JSON audit resources have byte-level provenance hashes.
 *.json text eol=lf
+# Preserve official ThO2 deposit bytes (mixed CSV/TSV and source line endings).
+peritheos/data/datasets/chidester_2018_sources/*.csv -text

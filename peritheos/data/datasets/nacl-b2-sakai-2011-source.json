@@ -1,0 +1,101 @@
+{
+  "audit_date": "2026-09-19",
+  "doi": "10.1063/1.3573393",
+  "zotero_item": "WZC4B8LJ",
+  "sources": [
+    {
+      "identifier": "sakai_2011",
+      "url": "https://pubs.aip.org/aip/jap/article-pdf/doi/10.1063/1.3573393/14708734/084912_1_online.pdf",
+      "source_location": "Tables I-II, sections II-III",
+      "sha256": "81d338917c4539b11cf1cb44101373ac747eb8d06a68c4442cd88f91e32a34ad",
+      "bytes": 1798324
+    },
+    {
+      "identifier": "sata_2002",
+      "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.65.104114/fulltext",
+      "source_location": "Table I, p.104114-3",
+      "sha256": "7de65751f17e156cdc13ef66cc88ec98e439779ab2b0b4d0f96a6e40072ce8b3",
+      "bytes": 159014
+    },
+    {
+      "identifier": "dorogokupets_oganov_2007",
+      "url": "https://uspex-team.org/static/file/PressureScales-PRB-2007.pdf",
+      "source_location": "Table I, 298.15 K reference isotherm",
+      "sha256": "d40060c7706d4f80ef4bbf07c06fef5100d1bc17e067cf9cf739482a2cad2f22",
+      "bytes": 633023
+    },
+    {
+      "identifier": "matsui_2009",
+      "doi": "10.1063/1.3054331",
+      "url": "https://pubs.aip.org/aip/jap/article/105/1/013505/145651/The-temperature-pressure-volume-equation-of-state",
+      "source_location": "Full publisher HTML, Eq.6 and Table II; accessed via browser institutional access",
+      "reference_isotherm": {
+        "type": "Vinet",
+        "V0": 60.38,
+        "K0": 273.0,
+        "K0_prime": 5.2,
+        "temperature_k": 300
+      }
+    },
+    {
+      "identifier": "fei_2007",
+      "doi": "10.1073/pnas.0609013104",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+      "source_location": "Primary full text Table 1 read in browser: Pt Vinet V0=60.38(1), K0=277 fixed, K0_prime=5.08(2)."
+    }
+  ],
+  "datasets": {
+    "nacl-b2-sakai-2011-table1.csv": {
+      "sha256": "1ce9affa3dafe81794258c10cfeb85b10f300751ff1ccc46c04b474f675e88e3",
+      "rows": 27,
+      "columns": [
+        "run",
+        "pt_a_angstrom",
+        "pt_a_error_angstrom",
+        "pt_volume_a3",
+        "pt_volume_error_a3",
+        "nacl_a_angstrom",
+        "nacl_a_error_angstrom",
+        "volume_a3",
+        "volume_error_a3",
+        "pressure_matsui_gpa",
+        "pressure_fei_gpa",
+        "pressure_do_gpa",
+        "pressure_holmes_gpa"
+      ]
+    },
+    "nacl-b2-sata-2002-table1-sakai-input.csv": {
+      "sha256": "b8ea2f4663b9b2b4e2f8b7c7ede6c63625e3f1e7bb1f93dfed2ef79651d8cb8a",
+      "rows": 29,
+      "columns": [
+        "source_row",
+        "annealed",
+        "excluded_by_sakai",
+        "pt_d111_angstrom",
+        "pt_d111_error_angstrom",
+        "pt_d200_angstrom",
+        "pt_d200_error_angstrom",
+        "pressure_holmes_gpa",
+        "pressure_holmes_error_gpa",
+        "mgo_d111_angstrom",
+        "mgo_d111_error_angstrom",
+        "mgo_d200_angstrom",
+        "mgo_d200_error_angstrom",
+        "pressure_mgo_gpa",
+        "pressure_mgo_error_gpa",
+        "nacl_d100_angstrom",
+        "nacl_d100_error_angstrom",
+        "nacl_d110_angstrom",
+        "nacl_d110_error_angstrom",
+        "volume_a3",
+        "volume_error_a3"
+      ]
+    }
+  },
+  "retrieval_audit": {
+    "sakai": "Publication-of-record PDF and publisher HTML snapshot in Zotero; live publisher page checked. No visible supplement link or attached supplementary files; hidden generic Supplementary Material template is not evidence of a supplement.",
+    "corrections": "Crossref DOI metadata has empty relation and no update-to/updated-by; focused correction/erratum search found none. No correction identified as of audit date.",
+    "sata": "APS publication of record recovered; every Table I row transcribed, not just selected observations.",
+    "missing": "Original unrounded coordinates, source regression objective, weights, covariance, precise Pt peak-combination rule, and scale-specific recalculated Sata pressures are not published."
+  }
+}

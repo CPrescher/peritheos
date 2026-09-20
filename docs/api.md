@@ -143,7 +143,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 212 bundled
+`list_material_documents()` returns the identifiers of all 225 bundled
 material cards, including source-only cards with no executable EOS.
 `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
@@ -206,7 +206,7 @@ coverage.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
-CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. Of 578 bundled records, 576 across 210 executable materials are
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. Of 614 bundled records, 612 across 223 executable materials are
 `primary_source_validated`. The Campbell fcc-Fe and FeO records remain
 `deferred` source evidence because substantial refit discrepancies are
 unresolved. They are excluded from the executable catalog. This status

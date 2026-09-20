@@ -134,6 +134,7 @@ def test_dewaele_records_preserve_cell_normalization_and_source_metadata(
     }
     if material_identifier == "platinum":
         expected_ids.add("platinum_dorogokupets_oganov_2007_vinet_4")
+        expected_ids.add("platinum_fei_2007_vinet_300k")
 
     if material_identifier != "gold":
         expected_ids.update(

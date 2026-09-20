@@ -2608,3 +2608,20 @@ its printed-precision discrepancy.
 The [five-paper audit](literature-reproductions/iron-fei-input-papers.md) covers
 43 additional published Fe and Fe0.9Ni0.1 records, all available numeric
 observations, independent source checkpoints and unresolved regression gaps.
+
+## Litasov (2007), superhydrous phase B
+
+See the [complete source audit](literature-reproductions/litasov-2007-superhydrous-phase-b.md)
+for seven experimental records, all 69 P–V–T observations and Au markers,
+corrected Pnn2 crystallography, independent fits, and explicitly held alternatives.
+
+## Experimental Fe–Si: Fischer et al. (2014)
+
+The [complete source audit](literature-reproductions/fischer-2014-fesi.md)
+accepts seven published BM3/Vinet records for B20 FeSi, D03 and hcp Fe–9Si,
+and D03 Fe–16Si. All primary P–V–T tables, uncertainties and marker observations
+are retained. Both B2 FeSi thermal fits remain withheld because an unresolved
+factor-of-two thermal-energy normalization is needed to recover their reported
+residuals. Two independent, explicitly labelled Peritheos B2 refits are accepted
+with conditional covariance and documented sensitivity limits. Aggregate and
+computational candidates have explicit exclusions.

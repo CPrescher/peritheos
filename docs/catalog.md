@@ -1,10 +1,14 @@
 # Material catalog
 
 Peritheos exposes the complete bundled library through the normal executable
-API. `list_materials()` returns 210 `Material` objects and
-`list_eos_records()` returns their 576 `EOSRecord` objects. Both are ordered by
+API. `list_materials()` returns 223 `Material` objects and
+`list_eos_records()` returns their 612 `EOSRecord` objects. Both are ordered by
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
+
+Thorianite and cotunnite-type ThO2 have separate experimental thermal records
+from Chidester et al. (2018); see the [source audit](literature-reproductions/chidester-2018-tho2.md)
+for their phase-dependent data selections and reference-state limits.
 
 ## Browse material families
 
@@ -217,3 +221,5 @@ rather than the former five-record convenience grouping. Every historical
 diamond record remains available through its module-level constant and record
 identifier. The two colliding anchored record identifiers have equation-identical
 canonical counterparts, so their numerical behavior is unchanged.
+
+The NaCl-B2 catalog includes eight [Sakai et al. (2011) experimental fits](literature-reproductions/sakai-2011-nacl-b2.md): BM3 and Vinet on four separate Pt scales. These retain their own reference volumes and uncertainties and are distinct from the 2014 Yokoo-Pt recalibration.

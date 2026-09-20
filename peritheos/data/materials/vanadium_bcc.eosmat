@@ -1,0 +1,399 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "vanadium_bcc",
+ "name": "Vanadium (bcc)",
+ "formula": "V",
+ "phase": "bcc",
+ "aliases": [
+  "Vanadium"
+ ],
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.0241,
+  "b": 3.0241,
+  "c": 3.0241,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "Im-3m",
+ "space_group_number": 229,
+ "atom_sites": [
+  {
+   "element": "V",
+   "wyckoff": "2a",
+   "multiplicity": 2,
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "source": {
+  "structure": {
+   "reference": {
+    "authors": [
+     "James",
+     "Straumanis"
+    ],
+    "year": 1960,
+    "title": "Lattice parameter and expansion coefficient of vanadium",
+    "source": "Journal of the Electrochemical Society",
+    "volume": "107",
+    "locator": "69"
+   },
+   "access_url": "https://qiserver.ugr.es/cod/9012770.cif",
+   "amcsd_id": "0014111",
+   "cod_id": "9012770",
+   "temperature_k": 298.15,
+   "resource": "datasets/vanadium-james-1960-9012770.cif",
+   "sha256": "3f81e29961c91b096d22f3dc3313b08dd87e56bd1449e0b7a24eb2dc01e41548",
+   "notes": "Separate experimental crystallography from James and Straumanis via the attributed AMCSD/COD transcription. Fully occupied 2a at origin generates (0,0,0) and (1/2,1/2,1/2)."
+  }
+ },
+ "notes": "Pure elemental bcc vanadium, not V oxide or a multiphase sample aggregate. The separately sourced 298.15 K diffraction cell (27.6559412875 A^3) differs from the Crichton relaxed-foil EOS reference (27.995 A^3); retain both reported conventions. Advent foil sample purity is not quantified in the EOS manuscript.",
+ "eos_records": [
+  {
+   "identifier": "vanadium_bcc_crichton_2016_bm3_thermal",
+   "label": "Crichton et al. (2016), bcc V thermal BM3",
+   "reference": {
+    "authors": [
+     "Crichton",
+     "Guignard",
+     "Bailey",
+     "Dobson",
+     "Hunt",
+     "Thomson"
+    ],
+    "year": 2016,
+    "title": "High-temperature equation of state of vanadium",
+    "source": "High Pressure Research",
+    "volume": "36",
+    "locator": "16-22",
+    "doi": "10.1080/08957959.2015.1123256"
+   },
+   "default": true,
+   "equation_kind": "thermal",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 27.995,
+     "K0": 150.4,
+     "K0_prime": 5.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 6.2,
+    "K0_prime": 1.0
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "reference_volume_law": "integrated_expansivity",
+    "bulk_modulus_law": "linear_temperature",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha0": 4.8e-05,
+     "alpha1": -2.4e-08,
+     "dK_dT": -0.0446
+    },
+    "parameter_errors": {
+     "alpha0": 6e-06,
+     "alpha1": 9e-09,
+     "dK_dT": 0.0007
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    11.5
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    1000.0
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "range_provenance": {
+    "source_location": "Abstract; Experimental; Figure 2",
+    "notes": "Marginal experimental coverage, not a fully sampled rectangle or phase boundary. The bcc-to-rhombohedral transitions discussed near 60-69 GPa are outside this experiment and do not extend its validity. Excludes oxidized/reacted material and initially stressed foil."
+   },
+   "parameter_provenance": {
+    "V0": "Results p.5: unconstrained relative reference volume 1.005(1), equal to independently recovered 1.005 = 27.995 A^3; Figure 2 caption confirms equality. Conventional bcc cell, Z=2. Absolute fitted-volume uncertainty is not explicitly printed; retain ratio error separately.",
+    "K0": "Results p.5, unconstrained 62-point unweighted fit: 150.4 +/-6.2 GPa.",
+    "K0_prime": "Results p.5: 5.5(10), fitted; constant with T in EosFit5 convention.",
+    "alpha0": "Results p.5: 4.8(6)e-5 K^-1, fitted intercept at T=0 in alpha(T)=alpha0+alpha1*T, NOT alpha(300 K).",
+    "alpha1": "Results p.5: -2.4(9)e-8 K^-2, fitted.",
+    "dK_dT": "Results p.5: -0.0446(7) GPa/K, fitted slope of K0(T) at zero pressure, not derivative of K0-prime.",
+    "Tr": "Experimental p.4 and K0,300 label: 300 K.",
+    "equation": "BM3; EOS-FIT5.2 (Angel 2002) with linear alpha(T); Angel et al. 2014 doi:10.1515/zkri-2013-1711 p.410 explicitly documents earlier EosFit exponential integral of alpha0+alpha1*T, p.412 linear K0(T)."
+   },
+   "source_volume_normalization": {
+    "fitted_relative_volume": 1.005,
+    "reported_uncertainty": 0.001,
+    "uncertainty_confidence": null,
+    "recovered_cell_volume_a3": 27.995,
+    "plot_denominator_a3": 27.85572139303483,
+    "notes": "The plot uses a different reference denominator from the relaxed EOS V0. Do not divide the stored EOS V0 by 1.005 or replace it with the separately sourced structural cell."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "source_location": "Experimental p.4: simultaneous NaCl:Au PTX-Cal solution",
+      "reference": {
+       "authors": [
+        "Crichton",
+        "Mezouar"
+       ],
+       "year": 2002,
+       "title": "Noninvasive pressure and temperature estimation in large-volume apparatus by equation-of-state cross-calibration",
+       "source": "High Temperatures-High Pressures",
+       "volume": "34",
+       "locator": "235-242"
+      },
+      "notes": "Method citation, not an identified NaCl/Au coefficient version. PTX-Cal solves |PNaCl-PAu|<1e-6 GPa scanning temperature; average returned P,T used. No exact executable standard link can be assigned."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No paired NaCl/Au cell volumes or exact calibration versions were recovered; original P,T reduction cannot be replayed."
+    },
+    "audit_date": "2026-09-19"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-19",
+    "note": "Primary author manuscript and publisher abstract audit with independent Figure 2 curve reproduction; no claim of original 62-row fit recovery.",
+    "primary_source_check": {
+     "doi": "10.1080/08957959.2015.1123256",
+     "access_url": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
+     "source_version": "UCL author accepted manuscript; numerical abstract cross-checked on publisher publication-of-record page",
+     "locations": [
+      "Accepted manuscript pp.4-7: Experimental, Results, Conclusion",
+      "Accepted manuscript p.11: Figure 2",
+      "Publisher abstract (21 January 2016)",
+      "Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions"
+     ],
+     "finding": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit."
+    },
+    "verified_fields": [
+     "composition",
+     "bcc phase",
+     "conventional two-atom volume",
+     "V0",
+     "K0",
+     "K0_prime",
+     "Tr",
+     "alpha0",
+     "alpha1",
+     "dK_dT",
+     "absolute-temperature integrated expansivity",
+     "linear K0(T)",
+     "parameter errors",
+     "experimental domain"
+    ],
+    "primary_data_check": {
+     "status": "plot_only",
+     "digitized_dataset_identifiers": [
+      "vanadium_crichton_2016_figure2_points"
+     ],
+     "finding": "Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.",
+     "reproduction_script": "scripts/reproduce_crichton_2016_vanadium.py"
+    },
+    "unresolved": [
+     "Full final typeset article and any inaccessible supplement could not be verified.",
+     "Exact NaCl/Au calibration versions are unspecified in the accessible methods.",
+     "The Conclusion expansion percentages disagree with the explicit coefficients; the latter match the independent plotted isotherms.",
+     "Original row-wise temperatures and covariance are absent."
+    ]
+   },
+   "validation_datasets": [
+    "vanadium_crichton_2016_figure2_points",
+    "vanadium_crichton_2016_figure2_curves"
+   ],
+   "notes": "Source-owned unconstrained 62-point unweighted fit, measured to 11.5 GPa and 1000 K. Initial first-cycle stressed-foil observations were anomalous; recovered ambient point is explicitly excluded. No statistical confidence/covariance is specified. Nominal-temperature digitized symbols only support a qualified proxy refit, not the original regression. The source Conclusion quotes 2.7% ambient and 1.2% at 10 GPa expansion from 300 to 1000 K; stored coefficients give 2.294% and 1.026%. Figure 2 supports the stored expansion convention; no coefficient is changed to force the prose values. Two fixed-K0-prime alternatives are withheld for missing V0 and thermal parameters."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "vanadium_crichton_2016_figure2_points",
+   "kind": "digitized_pressure_volume_temperature",
+   "reference": {
+    "authors": [
+     "Crichton",
+     "Guignard",
+     "Bailey",
+     "Dobson",
+     "Hunt",
+     "Thomson"
+    ],
+    "year": 2016,
+    "title": "High-temperature equation of state of vanadium",
+    "source": "High Pressure Research",
+    "volume": "36",
+    "locator": "16-22",
+    "doi": "10.1080/08957959.2015.1123256"
+   },
+   "source_location": "Accepted manuscript p.11, Figure 2 symbols",
+   "columns": [
+    {
+     "name": "series",
+     "quantity": "other",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "pixel_x",
+     "quantity": "other",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "pixel_y",
+     "quantity": "other",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "temperature_nominal_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_selection_half_width_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "bound",
+     "of": "temperature_nominal_k",
+     "notes": "Source selection interval around the nominal bin, not measurement uncertainty."
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "relative_volume",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_bound_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "relative_volume_digitization_bound",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "bound",
+     "of": "relative_volume"
+    }
+   ],
+   "resource": {
+    "path": "datasets/vanadium-crichton-2016-figure2-points.csv",
+    "media_type": "text/csv",
+    "sha256": "e623d3b3773e0ef5653b76390ea12c3216a844db871642a0ce150685cb9f9c73"
+   },
+   "used_by_eos_records": [
+    "vanadium_bcc_crichton_2016_bm3_thermal"
+   ],
+   "notes": "29 distinguishable filled source observations, 10 open cited Ming-Manghnani comparison points, and one excluded recovered star. Nominal color-bin temperatures are NOT measured temperatures: filled points lie within +/-20 K. Overlapping centres have a conservative 3-pixel reading bound, not a statistical sigma. Original 62 P-V-T rows and calibrant readings unavailable. Relative-volume denominator is the pre-relaxation normalization, inferred as 27.995/1.005 A^3; not the fitted V0. See audit for source selection and proxy-only fit.",
+   "uncertainty": {
+    "reported_as": "not_reported",
+    "covariance": "not_reported",
+    "digitization": "3 pixel bound on each axis; +/-20 K is source bin selection, not measurement uncertainty"
+   }
+  },
+  {
+   "identifier": "vanadium_crichton_2016_figure2_curves",
+   "kind": "digitized_eos_curve",
+   "reference": {
+    "authors": [
+     "Crichton",
+     "Guignard",
+     "Bailey",
+     "Dobson",
+     "Hunt",
+     "Thomson"
+    ],
+    "year": 2016,
+    "title": "High-temperature equation of state of vanadium",
+    "source": "High Pressure Research",
+    "volume": "36",
+    "locator": "16-22",
+    "doi": "10.1080/08957959.2015.1123256"
+   },
+   "source_location": "Accepted manuscript p.11, Figure 2 calculated isotherm lines",
+   "columns": [
+    {
+     "name": "pixel_x",
+     "quantity": "other",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "pixel_y",
+     "quantity": "other",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "relative_volume",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "relative_volume_digitization_bound",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "bound",
+     "of": "relative_volume"
+    }
+   ],
+   "resource": {
+    "path": "datasets/vanadium-crichton-2016-figure2-curves.csv",
+    "media_type": "text/csv",
+    "sha256": "3a9fc4b2e68cede68b714f1769da9126ba51c9fb5789be3fb726eee490d2c831"
+   },
+   "used_by_eos_records": [
+    "vanadium_bcc_crichton_2016_bm3_thermal"
+   ],
+   "notes": "24 independent curve readings, not experimental observations and never refitted. Three-pixel digitization bound; printed-coefficient curve tolerance 0.001 in the plotted normalized volume. Highest-pressure 900 K line merges with the red line and is not separately read."
+  }
+ ]
+}

@@ -5,15 +5,15 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 212 bundled material documents and 578 EOS records pass the
-format-3 validator; 210 documents construct executable materials. The
+separate. All 225 bundled material documents and 614 EOS records pass the
+format-3 validator; 223 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe source card do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 578 bundled records: 576 are
+The primary-source audit covers all 614 bundled records: 612 are
 `primary_source_validated` and two Campbell Fe/FeO records are `deferred`
 because substantial combined-data refit discrepancies remain unresolved.
 The deferred records preserve source parameters for inspection and are
@@ -23,7 +23,9 @@ Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
 phase, published uncertainty convention, and represented data range to the
 cited primary publication or official supplement. Parsing or reproducing
-another library was never sufficient.
+another library was never sufficient. Explicit refit records instead trace their
+observations and model choices to the source and identify optimized coefficients
+as Peritheos results.
 
 The package ships the complete record-by-record ledger as
 `peritheos/data/primary-source-audit.json`. Each `.eosmat` record repeats its
@@ -34,14 +36,20 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 578
+fit for every record with sufficient direct observations and documents all 614
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 197 parity matches and 136 additional numerically similar results.
+diagnostics. The current campaign finds 220 parity matches and 147 additional numerically similar results.
+For the opt-in Litasov siderite thermal refit, parity means reproducing the
+stored Peritheos fit, not resolving the two conflicting published thermal
+parameter sets, which remain non-executable source evidence.
 This includes Sakai (2018) rhenium's numerical parity within reported parameter
 error widths, with comparable refit standard errors and an unspecified source
-confidence convention. [70 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 162 records cannot be
+confidence convention. Sakai (2011) contributes eight conditional fixed-V0
+parity matches within printed error widths, with weighting and marker-averaging
+qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
+[70 direct refits](primary-eos-refits.md#parity-not-achieved) do not
+recover at least one published coefficient, while 164 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Two further records are composite reconstructions, and eleven share a source-level
 calibration reconstruction. There are no unresolved extraction or solver failures. The
@@ -404,7 +412,7 @@ volume.
 | Pt | 0.90 | 300 | 38.000024146 | 37.994819022 | 38.000024146 |
 | Pt | 0.80 | 1000 | 112.879825670 | 112.862087358 | 112.870486265 |
 | NaCl B2 | 0.75 | 300 | 15.988842533 | 15.988842533 | — |
-| NaCl B2 | 0.65 | 1000 | 36.527254597 | 36.509419876 | — |
+| NaCl B2 | 0.65 | 1000 | 36.581254597 | 36.509419876 | — |
 | Ne | 0.65 | 300 | 2.646283932 | 2.646283932 | — |
 | Ne | 0.50 | 1000 | 14.180923257 | 14.168848666 | — |
 
@@ -421,3 +429,13 @@ The [primary iron source audit](literature-reproductions/iron-fei-input-papers.m
 adds 43 records and 348 observations. Its record-specific criteria distinguish
 Brown coefficient agreement at printed precision, conditional fits within
 reported errors, unavailable scale reductions, and unresolved thermal residuals.
+
+The [Fischer (2014) Fe–Si audit](literature-reproductions/fischer-2014-fesi.md)
+adds seven published records with complete single-phase data selections and
+independent BM3/Vinet/MGD checks. Both B2 FeSi thermal candidates remain
+withheld because physical Debye normalization fails to reproduce their
+observations; doubling thermal-energy amplitude is a diagnostic, not an
+accepted correction. Two separate Peritheos B2 refits reproduce the observations
+with physical normalization and retain full conditional covariance and sensitivity
+limits; their ledger parity refers to stored-refit reproduction. All three aggregate and eight computational candidates
+have explicit exclusions.

@@ -9,9 +9,9 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 578,
+    "records": 614,
     "deferred": 2,
-    "primary_source_validated": 576
+    "primary_source_validated": 612
   },
   "records": [
     {
@@ -2767,6 +2767,96 @@
       }
     },
     {
+      "material": "fe073si027_d03",
+      "file": "fe073si027_d03.eosmat",
+      "record": "fe073si027_d03_fischer_2014_vinet_1",
+      "label": "Fischer et al. (2014), Fe0.73Si0.27 d03 VINET + MGD",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table S5 and Text S1, page 2",
+          "2012 official Table S2, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fe084si016_d03",
+      "file": "fe084si016_d03.eosmat",
+      "record": "fe084si016_d03_fischer_2014_bm3_1",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 d03 BM3 at 300 K",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 1 and Section 4.1",
+          "2014 official Table S1, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fe084si016_d03",
+      "file": "fe084si016_d03.eosmat",
+      "record": "fe084si016_d03_fischer_2014_vinet_2",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 d03 VINET at 300 K",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table S4 and Text S1, page 1",
+          "2014 official Table S1, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fe084si016_hcp",
+      "file": "fe084si016_hcp.eosmat",
+      "record": "fe084si016_hcp_fischer_2014_bm3_1",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 hcp BM3 + MGD",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 1 and Section 4.1",
+          "2014 official Table S1, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fe084si016_hcp",
+      "file": "fe084si016_hcp.eosmat",
+      "record": "fe084si016_hcp_fischer_2014_vinet_2",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 hcp VINET + MGD",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table S4 and Text S1, page 1",
+          "2014 official Table S1, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
       "material": "fe088sio3_bridgmanite",
       "file": "fe088sio3_bridgmanite.eosmat",
       "record": "fe088sio3_bridgmanite_ismailova_2016_300k_bm2",
@@ -3468,6 +3558,80 @@
       }
     },
     {
+      "material": "fesi_b2",
+      "file": "fesi_b2.eosmat",
+      "record": "fesi_b2_fischer_2014_bm3_refit",
+      "label": "Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 2/S6 fixed assumptions",
+          "Official Table S2, all 114 phase=B2 observations",
+          "scripts/refit_fischer_2014_b2.py and docs/data/fischer-2014-b2-refits.json"
+        ],
+        "finding": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld."
+      }
+    },
+    {
+      "material": "fesi_b2",
+      "file": "fesi_b2.eosmat",
+      "record": "fesi_b2_fischer_2014_vinet_refit",
+      "label": "Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 2/S6 fixed assumptions",
+          "Official Table S2, all 114 phase=B2 observations",
+          "scripts/refit_fischer_2014_b2.py and docs/data/fischer-2014-b2-refits.json"
+        ],
+        "finding": "Source observations, equation, physical normalization and fixed assumptions verified; executable coefficients and joint covariance are independent Peritheos refits. Published B2 parameters remain withheld."
+      }
+    },
+    {
+      "material": "fesi_b20",
+      "file": "fesi_b20.eosmat",
+      "record": "fesi_b20_fischer_2014_bm3_1",
+      "label": "Fischer et al. (2014), FeSi b20 BM3 at 300 K",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table 2 and Section 4.2",
+          "2014 official Table S2, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
+      "material": "fesi_b20",
+      "file": "fesi_b20.eosmat",
+      "record": "fesi_b20_fischer_2014_vinet_2",
+      "label": "Fischer et al. (2014), FeSi b20 VINET at 300 K",
+      "doi": "10.1002/2013jb010898",
+      "status": "primary_source_validated",
+      "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2013JB010898",
+        "access_url": "https://doi.org/10.1002/2013JB010898",
+        "locations": [
+          "Table S6 and Text S1, page 2",
+          "2014 official Table S2, source worksheet row numbers retained"
+        ],
+        "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+      }
+    },
+    {
       "material": "fesio3_bridgmanite",
       "file": "fesio3_bridgmanite.eosmat",
       "record": "fesio3_bridgmanite_cohen_lin_2014_vinet_1",
@@ -4013,6 +4177,48 @@
           "Figure 1"
         ],
         "doi": "10.1103/physrevb.39.12598"
+      }
+    },
+    {
+      "material": "hydrous_silica_cacl2_nisr_2017",
+      "file": "hydrous_silica_cacl2_nisr_2017.eosmat",
+      "record": "hydrous_silica_cacl2_nisr_2017_bm2",
+      "label": "Nisr et al. (2017), hydrous CaCl2-type silica BM2",
+      "doi": "10.1002/2017jb014055",
+      "status": "primary_source_validated",
+      "note": "Corrected publication and official supplement audited; independent source-row fits reproduce coefficients within published 1-sigma errors. See docs/literature-reproductions/nisr-2017-hydrous-silica.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2017JB014055",
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
+        "locations": [
+          "Sections 2, 3.1-3.3 and 4.2",
+          "Tables 1-4",
+          "Figures 2-5",
+          "Erratum, page 6983",
+          "Supporting Text S1 and Tables S1-S4"
+        ],
+        "finding": "Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved."
+      }
+    },
+    {
+      "material": "hydrous_stishovite_nisr_2017",
+      "file": "hydrous_stishovite_nisr_2017.eosmat",
+      "record": "hydrous_stishovite_nisr_2017_bm3",
+      "label": "Nisr et al. (2017), hydrous stishovite BM3",
+      "doi": "10.1002/2017jb014055",
+      "status": "primary_source_validated",
+      "note": "Corrected publication and official supplement audited; independent source-row fits reproduce coefficients within published 1-sigma errors. See docs/literature-reproductions/nisr-2017-hydrous-silica.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2017JB014055",
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
+        "locations": [
+          "Sections 2, 3.1-3.3 and 4.2",
+          "Tables 1-4",
+          "Figures 2-5",
+          "Erratum, page 6983",
+          "Supporting Text S1 and Tables S1-S4"
+        ],
+        "finding": "Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved."
       }
     },
     {
@@ -8974,6 +9180,270 @@
       }
     },
     {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_fei_pt_bm3",
+      "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_fei_pt_vinet",
+      "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_do_pt_bm3",
+      "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_do_pt_vinet",
+      "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_holmes_pt_bm3",
+      "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_sakai_2011_holmes_pt_vinet",
+      "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
+      "doi": "10.1063/1.3573393",
+      "status": "primary_source_validated",
+      "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3573393",
+        "access_url": "https://doi.org/10.1063/1.3573393",
+        "locations": [
+          "Table I, p.084912-3",
+          "Table II, p.084912-4",
+          "Sections III.A–C, pp.084912-2–5",
+          "Figure 5 and comparisons, p.084912-5"
+        ],
+        "finding": "Eight source-owned experimental fits, two equations on each of four Pt scales; published coefficients unchanged. Audit and deterministic diagnostics: docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "nacl_b2_sakai_2011_table1",
+          "nacl_b2_sata_2002_table1_sakai_input"
+        ],
+        "source_locations": [
+          "Sakai (2011) Table I",
+          "Sata (2002) Table I"
+        ],
+        "finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients."
+      }
+    },
+    {
       "material": "namg2al5sio12_cf",
       "file": "namg2al5sio12_cf.eosmat",
       "record": "namg2al5sio12_cf_kawai_2012_bm3_1",
@@ -9895,6 +10365,67 @@
       }
     },
     {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_matsui_2009_vinet_300k",
+      "label": "Matsui et al. (2009), Pt Vinet reference isotherm, 300 K",
+      "doi": "10.1063/1.3054331",
+      "status": "primary_source_validated",
+      "note": "Primary reference-isotherm coefficients and independent Sakai Table I marker reductions verified; scope and partial-fit limits retained.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3054331",
+        "access_url": "https://doi.org/10.1063/1.3054331",
+        "locations": [
+          "Equation (6), Table II (300 K Vinet reference isotherm)",
+          "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+        ],
+        "finding": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "platinum_holmes_1989_table3_shock"
+        ],
+        "source_locations": [
+          "Equation (6), Table II (300 K Vinet reference isotherm)",
+          "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+        ],
+        "finding": "The 300 K reference branch is defined exactly. The source fits shock data up to 290 GPa with thermal reduction and checks static P-V-T data; the existing seven Holmes shots are preserved as upstream constraints, not static 300 K fit inputs. The full shock/thermal optimization is outside this reference-isotherm record and is not independently refitted."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_fei_2007_vinet_300k",
+      "label": "Fei et al. (2007), Pt Vinet reference isotherm, 300 K",
+      "doi": "10.1073/pnas.0609013104",
+      "status": "primary_source_validated",
+      "note": "Primary reference-isotherm coefficients and independent Sakai Table I marker reductions verified; scope and partial-fit limits retained.",
+      "primary_source_check": {
+        "doi": "10.1073/pnas.0609013104",
+        "access_url": "https://doi.org/10.1073/pnas.0609013104",
+        "locations": [
+          "Table 1, Vinet rows and Pt footnote",
+          "Results and Discussion, Pt scale; Figure 2"
+        ],
+        "finding": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-09-19",
+        "dataset_identifiers": [
+          "platinum_dewaele_2004_table1_compression",
+          "platinum_fei_2004_table2"
+        ],
+        "source_locations": [
+          "Table 1, Vinet rows and Pt footnote",
+          "Results and Discussion, Pt scale; Figure 2"
+        ],
+        "finding": "All 36 Dewaele (2004) static rows and the 42 Fei (2004) P-V-T rows are already bundled. The 300 K diagnostic refits the Dewaele subset with published V0 and K0 held fixed, using the revised ruby column. The joint thermal fit and Fei (2007) Au re-reduction are not reconstructed by this isothermal-only record."
+      }
+    },
+    {
       "material": "praseodymium_dioxide",
       "file": "praseodymium_dioxide.eosmat",
       "record": "praseodymium_dioxide_gerward_2005_bm3_1",
@@ -9947,6 +10478,46 @@
           "Primary article abstract and reported BM3 fits for pyrope and almandine"
         ],
         "doi": "10.1016/j.lithos.2015.03.017"
+      }
+    },
+    {
+      "material": "qandilite",
+      "file": "qandilite.eosmat",
+      "record": "qandilite_lv_2016_bm2",
+      "label": "Lv et al. (2016), 300 K BM2 (K0′ = 4)",
+      "doi": "10.1007/s00269-015-0794-1",
+      "status": "primary_source_validated",
+      "note": "Published experimental alternative; Table 1 reproduced and independent diagnostic refit within reported one-sigma coefficient errors.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-015-0794-1",
+        "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+        "locations": [
+          "Experimental method, p. 302",
+          "Table 1 and unnumbered BM equation, p. 303",
+          "Figures 3–5, p. 304",
+          "Table 2, p. 305"
+        ],
+        "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
+      }
+    },
+    {
+      "material": "qandilite",
+      "file": "qandilite.eosmat",
+      "record": "qandilite_lv_2016_bm3",
+      "label": "Lv et al. (2016), 300 K BM3 (free K0′)",
+      "doi": "10.1007/s00269-015-0794-1",
+      "status": "primary_source_validated",
+      "note": "Published experimental alternative; Table 1 reproduced and independent diagnostic refit within reported one-sigma coefficient errors.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-015-0794-1",
+        "access_url": "https://link.springer.com/article/10.1007/s00269-015-0794-1",
+        "locations": [
+          "Experimental method, p. 302",
+          "Table 1 and unnumbered BM equation, p. 303",
+          "Figures 3–5, p. 304",
+          "Table 2, p. 305"
+        ],
+        "finding": "Both source-owned experimental BM alternatives define fitted V0 and K0; BM3 fits K0 prime, BM2 fixes it to 4. Complete Table 1 and uncertainties recovered from the publication of record."
       }
     },
     {
@@ -10171,6 +10742,44 @@
           "Table 1"
         ],
         "finding": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly."
+      }
+    },
+    {
+      "material": "siderite_fe095mn005",
+      "file": "siderite_fe095mn005.eosmat",
+      "record": "siderite_fe095mn005_litasov_2013_bm3",
+      "label": "Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3",
+      "doi": "10.1016/j.pepi.2013.07.011",
+      "status": "primary_source_validated",
+      "note": "Room-temperature parameterization traced to the primary manuscript and final publisher abstract, independently refitted on the original printed pressure scale. See docs/literature-reproductions/litasov-2013-siderite.md for limitations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.07.011",
+        "doi": "10.1016/j.pepi.2013.07.011",
+        "locations": [
+          "Publication-of-record abstract",
+          "User-supplied Accepted Manuscript: Section 2, pages 3-4",
+          "Section 3, pages 4-5; Tables 1 and 2, pages 12-15"
+        ],
+        "finding": "Natural Fe0.95Mn0.05CO3 from Panasqueira; BM3 with V0 fixed at 293.4 A^3. The highest-pressure 300 K observation (241.54 A^3, 33.01 GPa) is reproduced within the printed 0.1 GPa pressure bound. An independent refit of all 27 printed 300 K rows gives K0=120.2242 GPa and Kprime=3.572214. Thermal expansion conflicts between Table 1 and the abstract remain withheld."
+      }
+    },
+    {
+      "material": "siderite_fe095mn005",
+      "file": "siderite_fe095mn005.eosmat",
+      "record": "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
+      "label": "Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3",
+      "doi": "10.1016/j.pepi.2013.07.011",
+      "status": "primary_source_validated",
+      "note": "Primary observations, composition, equation mapping, reference state and calibration lineage audited; independent numerical reproduction validates the separately labelled refit, not author-fit parity.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.07.011",
+        "doi": "10.1016/j.pepi.2013.07.011",
+        "locations": [
+          "Publication-of-record abstract",
+          "User-supplied Accepted Manuscript: Section 2, pages 3-4",
+          "Section 3, pages 4-5; Tables 1 and 2, pages 12-15"
+        ],
+        "finding": "All 111 Table 2 observations are fitted with the Section 3 HTBM model, using the integrated-expansivity convention in cited Litasov (2007) Equations (1)-(4). The refit and residuals are independently reproduced; the source alpha0 conflict is retained rather than corrected."
       }
     },
     {
@@ -10483,6 +11092,27 @@
       }
     },
     {
+      "material": "sio2_stv_andr",
+      "file": "sio2_stv_andr.eosmat",
+      "record": "stishovite_nisr_2017_dry_bm3",
+      "label": "Nisr et al. (2017), dry reference stishovite BM3",
+      "doi": "10.1002/2017jb014055",
+      "status": "primary_source_validated",
+      "note": "Corrected publication and official supplement audited; independent source-row fits reproduce coefficients within published 1-sigma errors. See docs/literature-reproductions/nisr-2017-hydrous-silica.md.",
+      "primary_source_check": {
+        "doi": "10.1002/2017JB014055",
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
+        "locations": [
+          "Sections 2, 3.1-3.3 and 4.2",
+          "Tables 1-4",
+          "Figures 2-5",
+          "Erratum, page 6983",
+          "Supporting Text S1 and Tables S1-S4"
+        ],
+        "finding": "Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved."
+      }
+    },
+    {
       "material": "sno2",
       "file": "sno2.eosmat",
       "record": "sno2_hazen_1981_bm3_1",
@@ -10636,6 +11266,139 @@
       }
     },
     {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_bm3_a89",
+      "label": "Litasov et al. (2007), bm3 a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_bm3_t03",
+      "label": "Litasov et al. (2007), bm3 t03",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_htbm_a89",
+      "label": "Litasov et al. (2007), htbm a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_htbm_t03",
+      "label": "Litasov et al. (2007), htbm t03",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89",
+      "label": "Litasov et al. (2007), thermal pressure a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
+      "label": "Litasov et al. (2007), mgd free debye a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
+      "material": "superhydrous_phase_b_lt",
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "record": "superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89",
+      "label": "Litasov et al. (2007), mgd elastic debye a89",
+      "doi": "10.1016/j.pepi.2007.06.003",
+      "status": "primary_source_validated",
+      "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+        "doi": "10.1016/j.pepi.2007.06.003",
+        "locations": [
+          "Tables 1–7, pp. 144–152",
+          "Equations (1)–(10), pp. 147–150",
+          "Section 4.2, p. 153"
+        ],
+        "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+      }
+    },
+    {
       "material": "tantalum",
       "file": "tantalum.eosmat",
       "record": "tantalum_cynn_1999_bm3_1",
@@ -10769,6 +11532,48 @@
           "Tables I and II"
         ],
         "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+      }
+    },
+    {
+      "material": "tho2_cotunnite",
+      "file": "tho2_cotunnite.eosmat",
+      "record": "tho2_cotunnite_chidester_2018_bm3_linear_thermal",
+      "label": "Chidester et al. (2018), cotunnite-type ThO2 experimental thermal EOS",
+      "doi": "10.2138/am-2018-6212",
+      "status": "primary_source_validated",
+      "note": "Primary article and official CSVs audited; independent source-equation evaluation and diagnostic refits in scripts/reproduce_chidester_2018_tho2.py.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2018-6212",
+        "doi": "10.2138/am-2018-6212",
+        "locations": [
+          "Table 1, p.750",
+          "Methods, p.751",
+          "Equations 1–3, p.754",
+          "Figure 7, p.754",
+          "Supplemental Table 2"
+        ],
+        "finding": "Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0_prime fixed 4 plus constant linear thermal pressure."
+      }
+    },
+    {
+      "material": "thorianite",
+      "file": "thorianite.eosmat",
+      "record": "thorianite_chidester_2018_bm3_linear_thermal",
+      "label": "Chidester et al. (2018), thorianite experimental thermal EOS",
+      "doi": "10.2138/am-2018-6212",
+      "status": "primary_source_validated",
+      "note": "Primary article and official CSVs audited; independent source-equation evaluation and diagnostic refits in scripts/reproduce_chidester_2018_tho2.py.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2018-6212",
+        "doi": "10.2138/am-2018-6212",
+        "locations": [
+          "Table 1, p.750",
+          "Methods, p.751",
+          "Equations 1–3, p.754",
+          "Figure 7, p.754",
+          "Supplemental Table 1"
+        ],
+        "finding": "Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0_prime fixed 4 plus constant linear thermal pressure."
       }
     },
     {
@@ -10943,6 +11748,50 @@
         ],
         "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
       }
+    },
+    {
+      "material": "vanadium_bcc",
+      "file": "vanadium_bcc.eosmat",
+      "record": "vanadium_bcc_crichton_2016_bm3_thermal",
+      "label": "Crichton et al. (2016), bcc V thermal BM3",
+      "doi": "10.1080/08957959.2015.1123256",
+      "status": "primary_source_validated",
+      "note": "Primary author manuscript and publisher abstract audit with independent Figure 2 curve reproduction; no claim of original 62-row fit recovery.",
+      "primary_source_check": {
+        "doi": "10.1080/08957959.2015.1123256",
+        "access_url": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
+        "source_version": "UCL author accepted manuscript; numerical abstract cross-checked on publisher publication-of-record page",
+        "locations": [
+          "Accepted manuscript pp.4-7: Experimental, Results, Conclusion",
+          "Accepted manuscript p.11: Figure 2",
+          "Publisher abstract (21 January 2016)",
+          "Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions"
+        ],
+        "finding": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit."
+      },
+      "withheld_candidates": [
+        {
+          "candidate": "BM3 K0_prime fixed at 3.5",
+          "parameters": {
+            "K0": 160.5,
+            "K0_error": 3.5,
+            "K0_prime": 3.5
+          },
+          "status": "deferred_incomplete_model",
+          "reason": "Alternative V0, alpha0, alpha1 and dK0/dT not reported; main-fit coefficients cannot be borrowed."
+        },
+        {
+          "candidate": "BM3 K0_prime fixed at 4",
+          "parameters": {
+            "K0": 157.9,
+            "K0_error": 3.5,
+            "K0_prime": 4
+          },
+          "status": "deferred_incomplete_model",
+          "reason": "Alternative V0, alpha0, alpha1 and dK0/dT not reported; main-fit coefficients cannot be borrowed."
+        }
+      ],
+      "evidence": "literature-reproductions/crichton-2016-vanadium.md"
     },
     {
       "material": "wadsleyite",

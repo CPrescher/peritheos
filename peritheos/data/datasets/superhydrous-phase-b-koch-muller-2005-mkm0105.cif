@@ -1,0 +1,91 @@
+#------------------------------------------------------------------------------
+#$Date: 2024-05-02 13:48:35 +0300 (Thu, 02 May 2024) $
+#$Revision: 291455 $
+#$URL: file:///home/coder/svn-repositories/_RELOADED_COD/cod-reloaded/cif/9/00/73/9007379.cif $
+#------------------------------------------------------------------------------
+#
+# This file is available in the Crystallography Open Database (COD),
+# http://www.crystallography.net/. The original data for this entry
+# were provided the American Mineralogist Crystal Structure Database,
+# http://rruff.geo.arizona.edu/AMS/amcsd.php
+#
+# The file may be used within the scientific community so long as
+# proper attribution is given to the journal article from which the
+# data were obtained.
+#
+data_9007379
+loop_
+_publ_author_name
+'Koch-Muller M'
+'Dera, P.'
+'Fei, Y.'
+'Hellwig, H.'
+'Liu, Z.'
+'Van Orman, J.'
+'Wirth, R.'
+_publ_section_title
+;
+ Polymorphic phase transition in Superhydrous Phase B
+ Sample: MKM0105
+ Note: z(O6) corrected by authors
+;
+_journal_name_full               'Physics and Chemistry of Minerals'
+_journal_page_first              349
+_journal_page_last               361
+_journal_paper_doi               10.1007/s00269-005-0007-4
+_journal_volume                  32
+_journal_year                    2005
+_chemical_formula_sum            'H4 Mg10 O18 Si3'
+_chemical_name_common            'Superhydrous Phase B'
+_chemical_name_mineral           'Superhydrous Phase B'
+_space_group_IT_number           34
+_symmetry_space_group_name_Hall  'P 2 -2n'
+_symmetry_space_group_name_H-M   'P n n 2'
+_cell_angle_alpha                90
+_cell_angle_beta                 90
+_cell_angle_gamma                90
+_cell_length_a                   14.024
+_cell_length_b                   5.109
+_cell_length_c                   8.733
+_cell_formula_units_Z            2
+_cell_volume                     625.707
+_database_code_amcsd             0008972
+_exptl_crystal_density_diffrn    3.287
+_cod_original_formula_sum        'Mg10 Si3 O18 H4'
+_cod_database_code               9007379
+loop_
+_space_group_symop_operation_xyz
+x,y,z
+1/2+x,1/2-y,1/2+z
+1/2-x,1/2+y,1/2+z
+-x,-y,z
+loop_
+_atom_site_label
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Mg1 0.17310 0.32790 0.00530
+Mg2A 0.17750 0.83580 0.17520
+Mg2B 0.32400 0.34610 0.32420
+Mg3A 0.00000 0.50000 0.82860
+Mg3B 0.00000 0.50000 0.18700
+Mg4A 0.00000 0.00000 0.66250
+Mg4B 0.00000 0.00000 0.34550
+Si1 0.00000 0.00000 0.00770
+Si2 0.37660 0.01410 0.00510
+O1 0.41530 0.70880 0.99360
+O2 0.07830 0.69310 0.00500
+O3A 0.24950 0.02200 0.34510
+O3B 0.25520 0.51200 0.16200
+O4A 0.07600 0.14400 0.15310
+O4B 0.42980 0.64700 0.36190
+O5A 0.41450 0.15300 0.15990
+O5B 0.08890 0.68500 0.34790
+O6 0.25980 0.00480 0.00700
+H1 0.30000 0.60000 0.10000
+H2 0.27000 0.18000 0.45000
+loop_
+_cod_related_entry_id
+_cod_related_entry_database
+_cod_related_entry_code
+1 AMCSD 0008972

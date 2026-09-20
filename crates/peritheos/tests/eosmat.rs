@@ -165,6 +165,24 @@ fn bundled_dewaele_2006_iron_scale_loads_and_reproduces_fischer_pressure() {
 }
 
 #[test]
+fn bundled_crichton_vanadium_preserves_absolute_temperature_expansivity() {
+    let Some(material) = load_bundled_material("vanadium_bcc.eosmat") else {
+        return;
+    };
+    let record = material
+        .record("vanadium_bcc_crichton_2016_bm3_thermal")
+        .unwrap();
+    // Independently digitized Figure 2 high-P, high-T curve, in its original
+    // pre-relaxation volume normalization (different from the fitted V0).
+    let pressure = 11.356_521_74;
+    let volume = record.volume(pressure, 1000.0).unwrap();
+    assert_close(volume / (27.995 / 1.005), 0.952_121_21, 0.001);
+    assert_close(record.pressure(volume, 1000.0).unwrap(), pressure, 1e-9);
+    let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
+    assert_eq!(restored.document, material.document);
+}
+
+#[test]
 fn bundled_suzuki_epsilon_feooh_uses_reference_temperature_expansivity() {
     let Some(material) = load_bundled_material("e_feooh.eosmat") else {
         return;

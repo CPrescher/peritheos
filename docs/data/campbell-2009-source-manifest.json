@@ -145,7 +145,7 @@
     "derived_pressures": "seagle-2008-reconstructed-pressures.csv",
     "fcc_access_limit": "Resolved by user-supplied Funamori and Boehler PDFs on 2026-09-20; reference-lattice source Basinski independently recovered.",
     "checkpoint_selection": "All 41 Seagle 2006 Table 3 Fe observations; five unambiguous hcp matches in Seagle 2008 lower-eutectic Table 2 and supplement. Exclude rows 4 and 11 because article hcp-pressure labels conflict with fcc-sized supplement volumes; no phase relabeling or volume halving.",
-    "seagle-hcp-pressure-checkpoints.csv_sha256": "50249d178d06015466d72a93c31ffbc80259dec49c7164da10c098f81f381174",
+    "seagle-hcp-pressure-checkpoints.csv_sha256": "a1fd381ace9d1e0b8bb8089e6e8d700f33eeebed3313b8dbddde538559776edd",
     "seagle-2008-reconstructed-pressures.csv_sha256": "3ca0b20be501e1aaeac741e94a88dfff3bd20636ac0bbf6aece0749ed77cc5fb"
   },
   "protocol_follow_up": {
@@ -201,9 +201,9 @@
     "uncertainty": "Pressure errors propagate measured iron volume and global 150 K temperature only, preserving absent volume errors. Separate delta=6 and 7 pressures expose limited thermal-model sensitivity; calibration/reference-volume/interpolation systematics are not absorbed into measurement errors. Effective-variance fcc fits include shared P-V and P-T covariance.",
     "fit_outcome": "Five added selections, 35 added fits; total 12 selections and 84 fits. None has all three parameters inside printed source intervals. Published coefficient values are retained as evidence; the Fe/FeO records are deferred from execution.",
     "input_and_output_sha256": {
-      "basinski-1955-fcc-lattice.csv": "0494602a788ce25009162a52a21170904ae886ac2cd797c607d5d0d003863152",
-      "funamori-1996-fcc-table1.csv": "a21cfb6ca49d1ac3668a18e535be30ee7ae06339ab99f206be071f37eac7cec3",
-      "seagle-2008-fcc-pressure-checkpoints.csv": "630205f163b55d59d3188425d9ee008822d65e55eb4de845d2e22029932e7a61",
+      "basinski-1955-fcc-lattice.csv": "3ff3a29f4d681203d6a6b5742f6c7a08d5020e07cbd84f24cf78fd390662ad09",
+      "funamori-1996-fcc-table1.csv": "271be4a45930bd33f599299ab90c5ab038fd93bdb7ee90b70a1aabc2bccdfe0c",
+      "seagle-2008-fcc-pressure-checkpoints.csv": "e1eff44e5fa139d41702560cb79df0aa9b17dd80d88250d999d68d28fa773362",
       "seagle-2008-fcc-reconstruction.json": "cc4a73e20388bb46af17cb00e45a653b6868cdac731c84e229cf36fc5bd8ad5b",
       "seagle-2008-completed-pressure-audit.csv": "a2c9a0175f855967f87bb7c6ae5ad282c3fd67fbde8e4760fa577bba03b48245"
     }
@@ -223,7 +223,7 @@
       "peritheos/data/datasets/feo-campbell-2009-table-s2-pvt.csv": "ff207b7820f0b63bb127f790351a3f6c019e42cf42ffef1ec622051f76c93350",
       "peritheos/data/datasets/feo-seagle-2008-supplement-volume-temperature.csv": "8cfbb93c222b64b5ebde5efe31e3dc73fe193f12542ca19993cec838567a7e05",
       "docs/data/seagle-2008-reconstructed-pressures.csv": "3ca0b20be501e1aaeac741e94a88dfff3bd20636ac0bbf6aece0749ed77cc5fb",
-      "docs/data/seagle-2008-fcc-pressure-checkpoints.csv": "630205f163b55d59d3188425d9ee008822d65e55eb4de845d2e22029932e7a61"
+      "docs/data/seagle-2008-fcc-pressure-checkpoints.csv": "e1eff44e5fa139d41702560cb79df0aa9b17dd80d88250d999d68d28fa773362"
     }
   },
   "catalog_disposition": {

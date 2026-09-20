@@ -18,15 +18,66 @@ All notable changes to Peritheos are documented here. The project follows
   Adds pressure/volume protocol comparisons, source and temperature influence
   checks, q profiles and five thermal-correction sensitivities. Removes the
   executable Campbell fcc-Fe calibration link from the Fischer FeO record.
-  The catalog exposes 576 EOS records across 210 executable materials; the
-  document library retains 578 source records in 212 material documents.
+  The catalog exposes 612 EOS records across 223 executable materials; the
+  document library retains 614 source records in 225 material documents.
   Catalog loading excludes deferred records while retaining accepted records
   from the same material.
 
+- Eight Sakai et al. (2011) experimental NaCl-B2 BM3/Vinet records on four
+  distinct Pt scales, with all 27 new and 29 upstream Sata observations,
+  marker readings, uncertainty provenance, staged refits and source benchmarks.
+  Exact 300 K Matsui (2009) and Fei (2007) Pt reference-isotherm records enable
+  public-API recalibration. A reproducible comparison quantifies conversion
+  differences from the published NaCl fits and separates calibrant extrapolation.
+  That addition brought the catalog to 610 executable EOS records.
+
+- Litasov et al. (2013) natural Fe0.95Mn0.05CO3 siderite 300 K BM3,
+  diffraction structure, all 111 paired sample/Au observations, and independent
+  RT, joint thermal, staged, and axial diagnostics. An opt-in joint thermal
+  refit includes the complete fitted coefficients and covariance; both conflicting
+  published thermal versions remain non-executable source evidence. The catalog
+  contains 600 executable EOS records.
+- Seven Fischer et al. (2014) published experimental Fe–Si EOS records and two
+  independently validated Peritheos B2 refits on five materials,
+  with all 391 supplementary P–V–T rows, 185 earlier Fe–16Si observations,
+  independent BM3/Vinet/MGD checks and explicit crystal occupancies. Both B2
+  FeSi published thermal fits remain withheld because their reconstruction
+  misses the data; the factor-of-two diagnosis remains a hypothesis. The B2
+  refits preserve full covariance, sensitivity results and measured-range limits.
+
+- Nisr et al. (2017) experimental hydrous stishovite and hydrous CaCl2-type
+  silica as separate composition/phase cards, plus the source-owned dry
+  reference fit. Includes the corrected article audit, all 43 official
+  supplement rows, corrected ambient observations, documented diffraction
+  peak-position fallbacks, and independent refits within published errors.
+  The catalog now contains 589 executable EOS records.
+
+
+- Chidester et al. (2018) experimental thermal EOSs for thorianite and
+  cotunnite-type ThO2, with all 100 official observation rows, source exclusions,
+  diffraction structures, independent reproduction and weighting diagnostics.
+  The catalog now contains 213 executable materials and 585 EOS records.
+
+- Lv et al. (2016) synthetic qandilite Mg2.00(1)Ti1.00(1)O4, with separate
+  published BM2 and BM3 records, all 18 primary P–V rows and uncertainties,
+  independently sourced diffraction structure, and reproducible refit checks.
+
+- Litasov et al. (2007) nominally pure-Mg LT superhydrous phase B: seven
+  experimental EOS alternatives, all 69 P–V–T rows with Au observations, 30
+  diffraction peaks, corrected independent Pnn2 structure, and reproducible
+  refits. Equation-printing issues and incomplete alternatives are documented.
+
+- Incomplete-dataset and author-request tracker, linked to the investigation
+  ledger, with a reviewed request for the original Crichton vanadium data.
+- Crichton et al. (2016) experimental bcc vanadium thermal BM3, separately
+  sourced diffraction structure, digitized observations and independent curve
+  reproduction. The original 62-row refit is unavailable; a nominal-temperature
+  proxy is documented, and two incomplete fixed-K′ alternatives are withheld.
+  The catalog now contains 586 executable EOS records across 214 materials.
 - Zha et al. (2004) rhenium Equation (6) thermal EOS, all eight paired Au/Re
   observations, derived isotherm tables, and an independent staged refit. The
   continuous Table III branch is distinguished from the authors' preferred
-  fixed-volume isotherms. That addition brought the catalog to 574 executable EOS records.
+  fixed-volume isotherms.
 - Primary-source investigation of Xian et al. (2022), with literal thermal
   polynomial diagnostics. Its Re/Au models remain outside the executable
   catalog because source-specific inputs and printed-equation issues remain
