@@ -146,7 +146,8 @@ def reproduce():
                 0
             ]
         blocks = []
-        for indices in np.array_split(np.argsort(p), 3):
+        # Preserve source order for tied pressures across NumPy sort backends.
+        for indices in np.array_split(np.argsort(p, kind="stable"), 3):
             mask = all_rows.copy()
             mask[indices] = False
             block, r, _ = fit(mask, optimum)

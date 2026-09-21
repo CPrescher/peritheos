@@ -91,8 +91,12 @@ Source validation does not imply complete independent refit parity.
 - CI and release wheel smoke checks now verify source-only and executable
   records separately, preserving deferred records in the packaged documents
   without attempting to execute them.
-- Bounded platform-dependent numerical drift in the Redfern, Ricolleau, and
-  Crichton audit checks, with tight fitted-pressure and objective checks retained.
+- Bounded platform-dependent numerical drift in the Redfern, Ricolleau,
+  Crichton, and Litasov audit checks, with tight fitted-pressure and objective
+  checks retained. Siderite equation mapping is checked at identical stored
+  coefficients separately from the independent refit's numerical tolerance.
+- Stable source ordering for tied pressures in the Fischer FeSi holdout
+  diagnostics, preserving the original row selections across NumPy versions.
 
 ### Compatibility
 

@@ -22,6 +22,9 @@ from peritheos import (
 from scripts.reproduce_crichton_2016_vanadium import (
     CURVES,
     DATA,
+    NAMES,
+    OUTPUT,
+    PLOT_DENOMINATOR,
     POINTS,
     RECORD,
     ROOT,
@@ -127,6 +130,24 @@ def test_independent_curve_reproduction_and_proxy_does_not_claim_parity():
     assert proxy["published_rmse_gpa"] == pytest.approx(0.24263848)
     assert proxy["refit_rmse_gpa"] == pytest.approx(0.18247682)
     assert proxy["jacobian_rank"] == 6
+    saved = json.loads(OUTPUT.read_text())["nominal_temperature_proxy_fit"]
+    with POINTS.open() as stream:
+        points = [row for row in csv.DictReader(stream) if row["series"] == "filled"]
+    volume = (
+        np.array([float(row["relative_volume"]) for row in points]) * PLOT_DENOMINATOR
+    )
+    temperature = np.array([float(row["temperature_nominal_k"]) for row in points])
+
+    def coefficients(fit):
+        values = {p["parameter"]: p["refit"] for p in fit["parameters"]}
+        return np.array([values[name] for name in NAMES])
+
+    np.testing.assert_allclose(
+        source_pressure(volume, temperature, coefficients(proxy)),
+        source_pressure(volume, temperature, coefficients(saved)),
+        rtol=0,
+        atol=5e-6,
+    )
     subprocess.run(
         [sys.executable, "scripts/reproduce_crichton_2016_vanadium.py", "--check"],
         cwd=ROOT,
@@ -146,6 +167,11 @@ def test_report_freshness_bounds_modulus_difference_drift():
     assert reports_close(actual, saved)
 
     modulus["difference"] += 1e-3
+    assert not reports_close(actual, saved)
+    actual = copy.deepcopy(saved)
+    modulus = actual["nominal_temperature_proxy_fit"]["parameters"][1]
+    modulus["refit"] += 1e-2
+    modulus["difference"] += 1e-2
     assert not reports_close(actual, saved)
     actual = copy.deepcopy(saved)
     actual["nominal_temperature_proxy_fit"]["refit_rmse_gpa"] += 1e-4

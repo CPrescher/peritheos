@@ -174,13 +174,29 @@ def test_thermal_mapping_covariance_and_inversion_on_primary_states():
     record = get_eos_record(THERMAL_RECORD)
     data = observations()
     result = reproduce()["thermal_joint_refit"]
-    params = result["parameters"]
+    stored = get_material_document("siderite_fe095mn005")
+    raw = next(r for r in stored["eos_records"] if r["identifier"] == THERMAL_RECORD)
+    params = {**raw["eos"]["parameters"], **raw["thermal"]["parameters"]}
     scaled = np.array(
         [params[n] for n in ["K0", "K0_prime", "alpha0", "alpha1", "dK_dT"]]
     ) / np.array([1, 1, 1e-5, 1e-8, 1])
     calculated = record.pressure(data["volume_a3"], data["temperature_k"])
     reference = thermal_pressure(scaled, data["volume_a3"], data["temperature_k"])
-    np.testing.assert_allclose(calculated, reference, atol=2e-11)
+    # Equation mapping uses identical stored coefficients. A fresh independent
+    # optimizer run is checked separately at bounded pressure precision.
+    np.testing.assert_allclose(calculated, reference, atol=2e-11, rtol=0)
+    refitted_scaled = np.array(
+        [
+            result["parameters"][n]
+            for n in ["K0", "K0_prime", "alpha0", "alpha1", "dK_dT"]
+        ]
+    ) / np.array([1, 1, 1e-5, 1e-8, 1])
+    np.testing.assert_allclose(
+        calculated,
+        thermal_pressure(refitted_scaled, data["volume_a3"], data["temperature_k"]),
+        atol=5e-6,
+        rtol=0,
+    )
     assert np.sqrt(np.mean((calculated - data["pressure_gpa"]) ** 2)) == pytest.approx(
         0.221211666
     )
@@ -195,7 +211,10 @@ def test_thermal_mapping_covariance_and_inversion_on_primary_states():
     assert abs(record.pressure(247.82, 1673) - 32.10) < prediction.standard_error + 0.1
     covariance = np.array(record.parameter_covariance)
     np.testing.assert_allclose(
-        covariance, result["estimated_covariance_free_parameters"]
+        covariance,
+        result["estimated_covariance_free_parameters"],
+        rtol=2e-4,
+        atol=1e-20,
     )
     assert record.covariance_parameters == (
         "rt_eos.K0",
@@ -205,12 +224,36 @@ def test_thermal_mapping_covariance_and_inversion_on_primary_states():
         "dK_dT",
     )
     np.testing.assert_allclose(
-        np.sqrt(covariance.diagonal()), result["estimated_standard_errors"]
+        np.sqrt(covariance.diagonal()),
+        result["estimated_standard_errors"],
+        rtol=2e-4,
+        atol=1e-20,
     )
     record.volume(32.1, 1673, check_validity=True)
     for pressure, temperature in [(45, 300), (20, 1800)]:
         with pytest.raises(ValueError, match="outside the published"):
             record.volume(pressure, temperature, check_validity=True)
+
+
+def test_refit_parity_requires_pressure_agreement_as_well_as_coefficients(monkeypatch):
+    document = get_material_document("siderite_fe095mn005")
+    record = next(
+        r for r in document["eos_records"] if r["identifier"] == THERMAL_RECORD
+    )
+    report = reproduce()
+    stored = {**record["eos"]["parameters"], **record["thermal"]["parameters"]}
+    parameters = report["thermal_joint_refit"]["parameters"]
+    for name in parameters:
+        parameters[name] = stored[name]
+    # This fits inside alpha1's coefficient tolerance but produces a detectable
+    # pressure change, which must prevent a parity classification.
+    parameters["alpha1"] += 1.5e-13
+    monkeypatch.setattr(
+        "scripts.reproduce_litasov_2013_siderite.reproduce", lambda: report
+    )
+    outcome = ledger_outcome(record)
+    assert all(p["similar"] for p in outcome["parameters"])
+    assert outcome["status"] == "parity_not_achieved"
 
 
 def test_native_joint_fit_recovers_the_independent_reference_result():

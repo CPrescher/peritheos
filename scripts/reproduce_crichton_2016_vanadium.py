@@ -148,14 +148,24 @@ def reports_close(actual, saved):
         if actual.keys() != saved.keys():
             return False
         for key in actual:
-            if actual.get("parameter") == "K0" and key == "difference":
-                # Subtracting 150.4 GPa from the fitted modulus amplifies relative
-                # drift: Python 3.9/SciPy 1.13 differs by 3.2e-5 GPa here.
-                # Keep this absolute allowance confined to that derived value;
-                # fitted coefficients, pressure RMSE and all other fields retain
-                # their existing tolerances.
-                if not np.isclose(actual[key], saved[key], rtol=2e-5, atol=5e-5):
-                    return False
+            if {
+                "parameter",
+                "refit",
+                "published",
+            } <= actual.keys() and key == "difference":
+                # Refitted coefficients are compared directly below. Comparing
+                # their small difference from the source magnifies optimizer
+                # drift; instead verify its consistency on each side, allowing
+                # for the report's eight-significant-digit serialization.
+                for entry in (actual, saved):
+                    scale = max(abs(entry["refit"]), abs(entry["published"]))
+                    if not np.isclose(
+                        entry[key],
+                        entry["refit"] - entry["published"],
+                        rtol=0,
+                        atol=5e-8 * scale,
+                    ):
+                        return False
             elif not reports_close(actual[key], saved[key]):
                 return False
         return True

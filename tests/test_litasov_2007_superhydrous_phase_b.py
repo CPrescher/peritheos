@@ -16,6 +16,7 @@ from scripts.reproduce_litasov_2007_superhydrous_phase_b import (
     bm3,
     ledger_outcome,
     observations,
+    parameter_names,
     pressure,
     reproduce,
     rows,
@@ -89,9 +90,47 @@ def test_published_models_reproduce_primary_observations_and_invert(suffix):
 
 def test_independent_refits_and_sign_controls_are_current(assert_audit_close):
     result = reproduce()
-    assert_audit_close(result, json.loads(OUTPUT.read_text()), rel=1e-8, abs=1e-8)
+    saved = json.loads(OUTPUT.read_text())
+
+    # Compare fitted coefficients rather than magnifying their numerical drift
+    # by dividing through small published-minus-refitted differences. Check those
+    # derived fields for internal consistency, and keep the physical checks below.
+    def comparable(report):
+        if isinstance(report, list):
+            return [comparable(item) for item in report]
+        if not isinstance(report, dict):
+            return report
+        derived = set()
+        if {"parameter", "published", "refit"} <= report.keys():
+            difference = report["refit"] - report["published"]
+            assert report["difference"] == pytest.approx(difference, abs=1e-14)
+            assert report["relative_difference"] == pytest.approx(
+                abs(difference / report["published"]), abs=1e-14
+            )
+            derived = {"difference", "relative_difference"}
+        return {k: comparable(v) for k, v in report.items() if k not in derived}
+
+    assert_audit_close(comparable(result), comparable(saved), rel=1e-4, abs=1e-12)
     for suffix in CASES:
         fit = result[suffix]
+        assert fit["rmse_gpa"] == pytest.approx(
+            saved[suffix]["rmse_gpa"], rel=1e-8, abs=1e-10
+        )
+        _, (volume, temperature, _) = observations(suffix)
+
+        def coefficients(report):
+            fitted = {p["parameter"]: p["refit"] for p in report["parameters"]}
+            return [
+                fitted.get(name, value)
+                for name, value in zip(parameter_names(suffix), CASES[suffix][0])
+            ]
+
+        np.testing.assert_allclose(
+            pressure(suffix, volume, temperature, coefficients(fit)),
+            pressure(suffix, volume, temperature, coefficients(saved[suffix])),
+            rtol=0,
+            atol=5e-6,
+        )
         assert fit["solver_success"]
         assert all(p["similar"] for p in fit["parameters"])
         assert all(
