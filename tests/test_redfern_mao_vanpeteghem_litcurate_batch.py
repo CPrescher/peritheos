@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from peritheos import Material, get_material_document
+from peritheos.eos.rt import BM3
 
 ROOT = Path(__file__).parents[1]
 
@@ -92,12 +93,26 @@ def test_redfern_reproduction_has_two_distinct_source_curves():
     assert fixed["parameters"]["K0"] == pytest.approx(142.85474666)
     assert fixed["pressure_rmse_gpa"] == pytest.approx(0.5222697411)
     assert fixed["observations"] == 18
-    assert free["parameters"]["K0"] == pytest.approx(150.77458546)
-    # Nested volume inversion / finite-difference fits differ by 1.4e-5 on
-    # minimum SciPy. A 1e-5 relative bound is still far below the fitted
-    # one-sigma K0_prime uncertainty (1.345); retain the tighter K0 and
-    # chi-square checks so a changed curve or objective cannot pass unnoticed.
-    assert free["parameters"]["K0_prime"] == pytest.approx(2.72487469, rel=1e-5)
+    # Nested inversion / finite differences shift the correlated coefficients
+    # across SciPy/CPU combinations (Windows K0 drift: 3.15e-4 GPa). These
+    # absolute bounds are below 0.01% of their fitted one-sigma errors
+    # (7.16 GPa and 1.345). Check the fitted curve and objective tightly below.
+    assert free["parameters"]["K0"] == pytest.approx(150.77458546, rel=0, abs=5e-4)
+    assert free["parameters"]["K0_prime"] == pytest.approx(2.72487469, rel=0, abs=1e-4)
+    resource = ROOT / "peritheos/data/datasets/magnesite-redfern-1993-table1-pv.csv"
+    with resource.open(newline="", encoding="utf-8") as stream:
+        volumes = [
+            float(row["volume_a3"])
+            for row in csv.DictReader(stream)
+            if row["fit_included_bm3"] == "1"
+        ]
+    baseline = BM3(V0=279.4, K0=150.77458546, K0_prime=2.72487469)
+    fitted = BM3(**free["parameters"])
+    # Finite-difference step probes shift this curve by up to 3.2e-5 GPa;
+    # 1e-4 GPa remains 1000 times below the table's 0.1 GPa pressure precision.
+    assert fitted.pressure(volumes) == pytest.approx(
+        baseline.pressure(volumes), rel=0, abs=1e-4
+    )
     assert free["observations"] == 9
     assert free["weighted_volume_reduced_chi_square"] == pytest.approx(1.66811664)
     assert fixed["solver_success"] is True

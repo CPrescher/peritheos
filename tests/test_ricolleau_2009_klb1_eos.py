@@ -7,9 +7,11 @@ import json
 from collections import Counter
 from pathlib import Path
 
+import numpy as np
 import pytest
 
 from peritheos import get_material_document
+from scripts.audit_ricolleau_2009_klb1_eos import thermal_bm2_pressure
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "audit_ricolleau_2009_klb1_eos.py"
@@ -118,15 +120,18 @@ def test_staged_spin_and_thermal_refits_are_reproducible(
         },
         rel=5e-6,
     )
-    assert ca["parameters"] == pytest.approx(
-        {
-            "K0": 243.6059204,
-            "dK_dT": -0.03512956,
-            "alpha0": 3.4593130e-5,
-            "alpha1": 5.6142331e-9,
-        },
-        rel=5e-6,
-    )
+    expected_ca = {
+        "K0": 243.6059204,
+        "dK_dT": -0.03512956,
+        "alpha0": 3.4593130e-5,
+        "alpha1": 5.6142331e-9,
+    }
+    for name, expected in expected_ca.items():
+        # Minimum-dependency ODR shifts alpha0 by 5.46e-6 relative. Allow
+        # 1e-5 only here (less than 0.02% of its 1.76e-6 K^-1 standard error).
+        assert ca["parameters"][name] == pytest.approx(
+            expected, rel=1e-5 if name == "alpha0" else 5e-6
+        )
     assert fp["parameters"] == pytest.approx(
         {
             "dK_dT": -0.03401873,
@@ -136,6 +141,37 @@ def test_staged_spin_and_thermal_refits_are_reproducible(
         rel=5e-6,
     )
     assert "row exclusions" in reproduction["conclusion"]["irreducible_blocker"]
+
+
+def test_ca_refit_pressure_curve_is_stable_at_all_source_states(reproduction):
+    identifier = "klb1_ca_perovskite_ricolleau_2009_bm2_alphakt"
+    fitted = reproduction["record_refits"][identifier]["fit"]
+    stored = json.loads(AUDIT.read_text(encoding="utf-8"))["record_refits"][identifier][
+        "fit"
+    ]
+    with CSV.open(newline="", encoding="utf-8") as stream:
+        rows = list(csv.DictReader(stream))
+    volume = np.array([float(row["ca_perovskite_volume_a3"]) for row in rows])
+    temperature = np.array([float(row["temperature_k"]) for row in rows])
+
+    def curve(fit):
+        p = fit["parameters"]
+        return thermal_bm2_pressure(
+            volume,
+            temperature,
+            fit["fixed_parameters"]["V0"],
+            p["K0"],
+            p["dK_dT"],
+            p["alpha0"],
+            p["alpha1"],
+        )
+
+    # Observed curve drift is 4.4e-5 GPa. Bound its physical effect 100 times
+    # below the source's 0.01 GPa precision and retain objective agreement.
+    assert curve(fitted) == pytest.approx(curve(stored), rel=0, abs=1e-4)
+    assert fitted["residual_variance"] == pytest.approx(
+        stored["residual_variance"], rel=1e-6
+    )
 
 
 def test_four_records_register_source_rows_and_recalculation_readiness():

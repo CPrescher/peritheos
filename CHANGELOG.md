@@ -83,6 +83,11 @@ All notable changes to Peritheos are documented here. The project follows
   catalog because source-specific inputs and printed-equation issues remain
   unresolved.
 
+### Fixed
+
+- Bounded platform-dependent numerical drift in the Redfern and Ricolleau
+  audit tests, with tight fitted-pressure and objective checks retained.
+
 ## [0.9.0] - 2026-09-12
 
 This release adds Birch–Murnaghan references to the double-Debye Helmholtz
