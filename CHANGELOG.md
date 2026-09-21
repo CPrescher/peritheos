@@ -5,6 +5,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-09-21
+
+This release expands the scientific catalog to 612 executable EOS records
+across 223 materials, adding 39 records and 14 materials since 0.9.0. The
+complete document library contains 614 source records in 225 material cards.
+New source observations, independent refits, and pressure-scale comparisons
+make the evidence and limitations of the published parameterizations explicit.
+Source validation does not imply complete independent refit parity.
+
 ### Added
 
 - Campbell et al. (2009) Fe–FeO and Ni–NiO source audit, with all 101 Ni–NiO
@@ -29,14 +38,12 @@ All notable changes to Peritheos are documented here. The project follows
   Exact 300 K Matsui (2009) and Fei (2007) Pt reference-isotherm records enable
   public-API recalibration. A reproducible comparison quantifies conversion
   differences from the published NaCl fits and separates calibrant extrapolation.
-  That addition brought the catalog to 610 executable EOS records.
 
 - Litasov et al. (2013) natural Fe0.95Mn0.05CO3 siderite 300 K BM3,
   diffraction structure, all 111 paired sample/Au observations, and independent
   RT, joint thermal, staged, and axial diagnostics. An opt-in joint thermal
   refit includes the complete fitted coefficients and covariance; both conflicting
-  published thermal versions remain non-executable source evidence. The catalog
-  contains 600 executable EOS records.
+  published thermal versions remain non-executable source evidence.
 - Seven Fischer et al. (2014) published experimental Fe–Si EOS records and two
   independently validated Peritheos B2 refits on five materials,
   with all 391 supplementary P–V–T rows, 185 earlier Fe–16Si observations,
@@ -50,13 +57,10 @@ All notable changes to Peritheos are documented here. The project follows
   reference fit. Includes the corrected article audit, all 43 official
   supplement rows, corrected ambient observations, documented diffraction
   peak-position fallbacks, and independent refits within published errors.
-  The catalog now contains 589 executable EOS records.
-
 
 - Chidester et al. (2018) experimental thermal EOSs for thorianite and
   cotunnite-type ThO2, with all 100 official observation rows, source exclusions,
   diffraction structures, independent reproduction and weighting diagnostics.
-  The catalog now contains 213 executable materials and 585 EOS records.
 
 - Lv et al. (2016) synthetic qandilite Mg2.00(1)Ti1.00(1)O4, with separate
   published BM2 and BM3 records, all 18 primary P–V rows and uncertainties,
@@ -73,7 +77,6 @@ All notable changes to Peritheos are documented here. The project follows
   sourced diffraction structure, digitized observations and independent curve
   reproduction. The original 62-row refit is unavailable; a nominal-temperature
   proxy is documented, and two incomplete fixed-K′ alternatives are withheld.
-  The catalog now contains 586 executable EOS records across 214 materials.
 - Zha et al. (2004) rhenium Equation (6) thermal EOS, all eight paired Au/Re
   observations, derived isotherm tables, and an independent staged refit. The
   continuous Table III branch is distinguished from the authors' preferred
@@ -85,8 +88,20 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
+- CI and release wheel smoke checks now verify source-only and executable
+  records separately, preserving deferred records in the packaged documents
+  without attempting to execute them.
 - Bounded platform-dependent numerical drift in the Redfern and Ricolleau
   audit tests, with tight fitted-pressure and objective checks retained.
+
+### Compatibility
+
+- Public Python and Rust model APIs and `.eosmat` format 3 are unchanged.
+- Executable catalog loading now excludes deferred records while retaining
+  validated records from the same material. Deferred Campbell fcc-Fe and FeO
+  parameters remain available through the document API; they are not exposed
+  as executable catalog entries. Published coefficients and independent
+  Peritheos refits retain distinct identifiers and provenance.
 
 ## [0.9.0] - 2026-09-12
 
@@ -921,7 +936,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/CPrescher/peritheos/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/CPrescher/peritheos/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/CPrescher/peritheos/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/CPrescher/peritheos/compare/v0.6.0...v0.7.0
