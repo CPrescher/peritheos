@@ -146,7 +146,9 @@ def test_independent_curve_reproduction_and_proxy_does_not_claim_parity():
         source_pressure(volume, temperature, coefficients(proxy)),
         source_pressure(volume, temperature, coefficients(saved)),
         rtol=0,
-        atol=5e-6,
+        # Python 3.9/SciPy 1.13 on Linux differs by up to 6.4e-6 GPa;
+        # 1e-5 GPa remains negligible against the 0.18 GPa residual.
+        atol=1e-5,
     )
     subprocess.run(
         [sys.executable, "scripts/reproduce_crichton_2016_vanadium.py", "--check"],
