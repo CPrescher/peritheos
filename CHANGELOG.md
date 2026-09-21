@@ -97,6 +97,8 @@ Source validation does not imply complete independent refit parity.
   coefficients separately from the independent refit's numerical tolerance.
 - Stable source ordering for tied pressures in the Fischer FeSi holdout
   diagnostics, preserving the original row selections across NumPy versions.
+- Preserved crystallographic archive bytes during Windows checkouts and read
+  the investigation ledger as UTF-8 in its regression test.
 
 ### Compatibility
 

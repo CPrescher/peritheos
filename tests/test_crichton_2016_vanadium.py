@@ -234,6 +234,8 @@ def test_investigation_and_refit_ledgers_keep_incomplete_alternatives():
     assert row["status"] == "not_refittable"
     assert row["partial_validation"]["original_fit_reproduced"] is False
     assert row["curve_validation"]["observations"] == 24
-    paper_ledger = (ROOT / "docs/paper-investigation-ledger.md").read_text()
+    paper_ledger = (ROOT / "docs/paper-investigation-ledger.md").read_text(
+        encoding="utf-8"
+    )
     assert "BM3 K0_prime fixed at 3.5" in paper_ledger
     assert "BM3 K0_prime fixed at 4" in paper_ledger
