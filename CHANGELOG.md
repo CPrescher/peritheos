@@ -91,8 +91,8 @@ Source validation does not imply complete independent refit parity.
 - CI and release wheel smoke checks now verify source-only and executable
   records separately, preserving deferred records in the packaged documents
   without attempting to execute them.
-- Bounded platform-dependent numerical drift in the Redfern and Ricolleau
-  audit tests, with tight fitted-pressure and objective checks retained.
+- Bounded platform-dependent numerical drift in the Redfern, Ricolleau, and
+  Crichton audit checks, with tight fitted-pressure and objective checks retained.
 
 ### Compatibility
 

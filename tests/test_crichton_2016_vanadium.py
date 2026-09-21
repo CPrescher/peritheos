@@ -25,6 +25,7 @@ from scripts.reproduce_crichton_2016_vanadium import (
     POINTS,
     RECORD,
     ROOT,
+    reports_close,
     reproduce,
     source_pressure,
 )
@@ -131,6 +132,27 @@ def test_independent_curve_reproduction_and_proxy_does_not_claim_parity():
         cwd=ROOT,
         check=True,
     )
+
+
+def test_report_freshness_bounds_modulus_difference_drift():
+    saved = json.loads(
+        (ROOT / "docs/data/crichton-2016-vanadium-reproduction.json").read_text()
+    )
+    actual = copy.deepcopy(saved)
+    modulus = actual["nominal_temperature_proxy_fit"]["parameters"][1]
+    assert modulus["parameter"] == "K0"
+    modulus["refit"] += 3.2e-5
+    modulus["difference"] += 3.2e-5
+    assert reports_close(actual, saved)
+
+    modulus["difference"] += 1e-3
+    assert not reports_close(actual, saved)
+    actual = copy.deepcopy(saved)
+    actual["nominal_temperature_proxy_fit"]["refit_rmse_gpa"] += 1e-4
+    assert not reports_close(actual, saved)
+    actual = copy.deepcopy(saved)
+    actual["nominal_temperature_proxy_fit"]["parameters"][0]["difference"] += 3.2e-5
+    assert not reports_close(actual, saved)
 
 
 def test_native_fallback_derivatives_roundtrip_and_validity():

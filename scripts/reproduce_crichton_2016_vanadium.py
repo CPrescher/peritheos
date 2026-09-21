@@ -142,6 +142,32 @@ def reproduce():
     }
 
 
+def reports_close(actual, saved):
+    """Compare reports while bounding cancellation-sensitive optimizer drift."""
+    if isinstance(actual, dict):
+        if actual.keys() != saved.keys():
+            return False
+        for key in actual:
+            if actual.get("parameter") == "K0" and key == "difference":
+                # Subtracting 150.4 GPa from the fitted modulus amplifies relative
+                # drift: Python 3.9/SciPy 1.13 differs by 3.2e-5 GPa here.
+                # Keep this absolute allowance confined to that derived value;
+                # fitted coefficients, pressure RMSE and all other fields retain
+                # their existing tolerances.
+                if not np.isclose(actual[key], saved[key], rtol=2e-5, atol=5e-5):
+                    return False
+            elif not reports_close(actual[key], saved[key]):
+                return False
+        return True
+    if isinstance(actual, list):
+        return len(actual) == len(saved) and all(
+            reports_close(x, y) for x, y in zip(actual, saved)
+        )
+    if isinstance(actual, (int, float)) and not isinstance(actual, bool):
+        return bool(np.isclose(actual, saved, rtol=2e-5, atol=1e-10))
+    return actual == saved
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
@@ -162,17 +188,7 @@ def main():
     if args.check:
         saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
 
-        # Dedicated tests check physical tolerances; the report uses stable values.
-        def close(a, b):
-            if isinstance(a, dict):
-                return a.keys() == b.keys() and all(close(a[k], b[k]) for k in a)
-            if isinstance(a, list):
-                return len(a) == len(b) and all(close(x, y) for x, y in zip(a, b))
-            if isinstance(a, (int, float)) and not isinstance(a, bool):
-                return bool(np.isclose(a, b, rtol=2e-5, atol=1e-10))
-            return a == b
-
-        if not close(result, saved):
+        if not reports_close(result, saved):
             raise SystemExit("Crichton reproduction report is stale")
     else:
         OUTPUT.write_text(text, encoding="utf-8")
