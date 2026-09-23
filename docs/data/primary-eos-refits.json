@@ -5327,7 +5327,7 @@
         "q",
         "eta_s0"
       ],
-      "label": "Fu et al. (2023), CaSiO3 BM3-MGD literature-data refit",
+      "label": "Fu et al. (2023), published CaSiO3 BM3-MGD parameters",
       "material_identifier": "ca_perovskite",
       "model": "BM3",
       "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
@@ -5423,10 +5423,10 @@
           "within_combined_2sigma": null
         }
       ],
-      "primary_data_finding": "All likely regression observations were recovered externally: 140 Sun P-V-T rows at 1200-2200 K and 34 cubic Gr\u00e9aux P-density-Vp-Vs rows. They are not bundled because no reusable table-data license was identified. Four explicit weighting diagnostics, including propagated P-V uncertainty, fail to recover Fu Table S3, and the source does not disclose the objective or weights needed to select a unique fit. Executable pressure-volume round trips are analytical checkpoints only, not fit observations.",
-      "primary_data_status": "externally_recovered_not_redistributed",
+      "primary_data_finding": "The 174 reconstructed candidate observations are bundled with attribution: 140 Sun Table 1 P-V-T rows at 1200-2200 K and 34 cubic Gr\u00e9aux Figure 3b P-density-Vp-Vs rows. Gr\u00e9aux volume and elastic moduli are explicitly derived from the retained measurements. Fu does not disclose the exact row manifest, objective, or weights; the candidate selection and the non-parity audit are not an exact reconstruction of the published fit.",
+      "primary_data_status": "bundled",
       "primary_source": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
-      "qualification": "The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gr\u00e9aux XLSX and used locally, but are not redistributed because no reusable table-data license was identified. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded.",
+      "qualification": "The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gr\u00e9aux XLSX and are now bundled as attributed numerical transcriptions. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded.",
       "record_identifier": "ca_perovskite_fu_2023_bm3_mgd_refit",
       "selection": "140 Sun Table 1 P-V-T rows at 1200-2200 K plus 34 cubic Gr\u00e9aux Figure 3b P-Vp-Vs-density rows",
       "solver_message": "`ftol` termination condition is satisfied.",
@@ -5638,8 +5638,8 @@
           "within_combined_2sigma": null
         }
       ],
-      "primary_data_finding": "The 174 selected source rows were used locally but are not redistributed because no reusable table-data license was identified.",
-      "primary_data_status": "externally_recovered_not_redistributed",
+      "primary_data_finding": "The 174 reconstructed candidate observations are bundled with attribution: 140 Sun Table 1 P-V-T rows at 1200-2200 K and 34 cubic Gr\u00e9aux Figure 3b P-density-Vp-Vs rows. Gr\u00e9aux volume and elastic moduli are explicitly derived from the retained measurements. Fu does not disclose the exact row manifest, objective, or weights; the candidate selection and the non-parity audit are not an exact reconstruction of the published fit.",
+      "primary_data_status": "bundled",
       "primary_source": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
       "qualification": "This opt-in EOS record stores the pressure-producing subset of the audited unweighted seven-parameter joint fit. Parity here verifies the stored coefficients against the audit artifact; it does not imply parity with Fu Table S3 or knowledge of Fu's unpublished weights.",
       "record_identifier": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",

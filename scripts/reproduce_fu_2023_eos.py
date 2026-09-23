@@ -71,7 +71,7 @@ def reproduce() -> dict[str, object]:
     assert audit["fit_output_count"] == 242
     assert all(item["success"] for item in audit["sensitivity_fits"])
     assert all(
-        not source.get("redistributed", False)
+        source.get("redistributed", False)
         for source in audit["sources"].values()
         if source.get("role", "").startswith("candidate fit observations")
     )

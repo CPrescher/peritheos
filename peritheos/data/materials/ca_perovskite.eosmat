@@ -3449,7 +3449,7 @@
   {
    "determination_method": "experimental",
    "identifier": "ca_perovskite_fu_2023_bm3_mgd_refit",
-   "label": "Fu et al. (2023), CaSiO3 BM3-MGD literature-data refit",
+   "label": "Fu et al. (2023), published CaSiO3 BM3-MGD parameters",
    "reference": {
     "authors": [
      "Fu",
@@ -3595,8 +3595,8 @@
      "finding": "The source publishes a complete CaSiO3 BM3-MGD coefficient set, but not its regression objective, weights, covariance, code, or row manifest. The official ZIP contains only the supplement PDF and CIF. A 174-observation candidate selection can be reconstructed from the 140 Sun rows matching the Figure S3 temperature legend and 34 cubic Gréaux rows; multiple explicit weightings do not recover Table S3."
     },
     "primary_data_check": {
-     "status": "externally_recovered_not_redistributed",
-     "audit_date": "2026-09-08",
+     "status": "bundled",
+     "audit_date": "2026-09-23",
      "source_locations": [
       "Fu Online Materials Text S3, Figure S3, and Table S3",
       "Sun et al. (2016) Table 1",
@@ -3605,9 +3605,15 @@
      "observation_count": 174,
      "fit_output_count": 242,
      "audit_artifact": "docs/data/fu-2023-casio3-refit-audit.json",
-     "finding": "All likely regression observations were recovered externally: 140 Sun P-V-T rows at 1200-2200 K and 34 cubic Gréaux P-density-Vp-Vs rows. They are not bundled because no reusable table-data license was identified. Four explicit weighting diagnostics, including propagated P-V uncertainty, fail to recover Fu Table S3, and the source does not disclose the objective or weights needed to select a unique fit. Executable pressure-volume round trips are analytical checkpoints only, not fit observations."
+     "finding": "The 174 reconstructed candidate observations are bundled with attribution: 140 Sun Table 1 P-V-T rows at 1200-2200 K and 34 cubic Gréaux Figure 3b P-density-Vp-Vs rows. Gréaux volume and elastic moduli are explicitly derived from the retained measurements. Fu does not disclose the exact row manifest, objective, or weights; the candidate selection and the non-parity audit are not an exact reconstruction of the published fit.",
+     "dataset_identifiers": [
+      "ca_perovskite_fu_2023_candidate_composite_external"
+     ]
     }
-   }
+   },
+   "supporting_datasets": [
+    "ca_perovskite_fu_2023_candidate_composite_external"
+   ]
   },
   {
    "determination_method": "theoretical",
@@ -3939,13 +3945,15 @@
      "theta0",
      "n"
     ],
-    "covariance_scaling": "No covariance or parameter errors are reported; this explicit unweighted objective does not claim to reproduce Fu's undisclosed weights.",
+    "covariance_scaling": "Local linearized covariance (J.T J)^-1 scaled by RSS / (scalar_outputs - free_parameters); errors are one-standard-error estimates conditional on the chosen objective, independent residuals with common variance in that objective, and fixed parameters. Input-coordinate uncertainties, shared measurement correlations, systematic errors, and weighting-choice sensitivity are not included.",
     "statistics": {
      "observations": 174,
      "scalar_outputs": 242,
      "free_parameters": 7,
-     "residual_sum_squares_gpa2": 409.6931551567837,
-     "combined_output_rmse_gpa": 1.301132937918132
+     "residual_sum_squares_gpa2": 409.69315515686435,
+     "combined_output_rmse_gpa": 1.3011329379182601,
+     "degrees_of_freedom": 235,
+     "residual_variance_gpa2": 1.7433751283270826
     },
     "reproduction": {
      "script": "scripts/audit_fu_2023_casio3_refit.py",
@@ -3953,25 +3961,59 @@
      "solver": "scipy.optimize.least_squares",
      "maximum_function_evaluations": 5000,
      "initial_parameters": "Fu et al. Table S3"
-    }
+    },
+    "weighting_description": "Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three."
    },
    "equation_kind": "thermal",
    "eos": {
     "type": "BM3",
     "model": "birch_murnaghan_3",
     "parameters": {
-     "V0": 45.13462466318362,
-     "K0": 258.2712196007933,
+     "V0": 45.13462466128785,
+     "K0": 258.2712189512558,
      "K0_prime": 4.0
     }
    },
    "parameter_errors": {
-    "V0": null,
-    "K0": null,
+    "V0": 0.057198106520318606,
+    "K0": 1.4849868831105266,
     "K0_prime": null
    },
    "parameter_error_confidence": null,
-   "parameter_covariance": null,
+   "parameter_covariance": {
+    "parameter_order": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "gamma0",
+     "q"
+    ],
+    "matrix": [
+     [
+      0.003271623389509714,
+      -0.08132981922918672,
+      -0.0026290780700172173,
+      0.0011000640065802127
+     ],
+     [
+      -0.08132981922918672,
+      2.205186043010317,
+      0.06645328323290946,
+      -0.00203844792262391
+     ],
+     [
+      -0.0026290780700172173,
+      0.06645328323290946,
+      0.002498554924823638,
+      -0.0008253513612912812
+     ],
+     [
+      0.0011000640065802127,
+      -0.00203844792262391,
+      -0.0008253513612912812,
+      0.004547248540320451
+     ]
+    ]
+   },
    "fixed_parameters": [
     "K0_prime"
    ],
@@ -4001,15 +4043,15 @@
     "parameters": {
      "Tr": 300.0,
      "theta0": 1000.0,
-     "gamma0": 2.441960608077676,
-     "q": 1.8394637227819404,
+     "gamma0": 2.4419606043407156,
+     "q": 1.8394636082638287,
      "n": 5.0
     },
     "parameter_errors": {
      "Tr": null,
      "theta0": null,
-     "gamma0": null,
-     "q": null,
+     "gamma0": 0.04998554715939036,
+     "q": 0.06743328955583029,
      "n": null
     },
     "fixed_parameters": [
@@ -4074,16 +4116,16 @@
      "finding": "This is the reproducible unweighted Peritheos solution for the candidate Fu data selection, not a source-published coefficient set or a reconstruction of undisclosed source weights."
     },
     "primary_data_check": {
-     "status": "externally_recovered_not_redistributed",
-     "audit_date": "2026-09-08",
+     "status": "bundled",
+     "audit_date": "2026-09-23",
      "dataset_identifiers": [
       "ca_perovskite_fu_2023_candidate_composite_external"
      ],
      "audit_artifact": "docs/data/fu-2023-casio3-refit-audit.json",
-     "finding": "The 174 selected source rows were used locally but are not redistributed because no reusable table-data license was identified."
+     "finding": "The 174 reconstructed candidate observations are bundled with attribution: 140 Sun Table 1 P-V-T rows at 1200-2200 K and 34 cubic Gréaux Figure 3b P-density-Vp-Vs rows. Gréaux volume and elastic moduli are explicitly derived from the retained measurements. Fu does not disclose the exact row manifest, objective, or weights; the candidate selection and the non-parity audit are not an exact reconstruction of the published fit."
     }
    },
-   "notes": "Opt-in unweighted Peritheos refit. Every pressure, bulk-modulus, and shear-modulus residual enters in GPa with unit weight. The published Fu record remains the authoritative literature parameterization."
+   "notes": "Opt-in unweighted Peritheos refit. Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three. Errors are residual-scaled standard errors from the full seven-parameter joint fit; the pressure-volume covariance retains its marginal block. Fixed parameters have no estimated errors. The published Fu record remains the authoritative literature parameterization."
   }
  ],
  "format": "peritheos.material",
@@ -4676,11 +4718,23 @@
   },
   {
    "identifier": "ca_perovskite_fu_2023_candidate_composite_external",
-   "kind": "external_pvt_bulk_shear_composite",
-   "description": "External 174-row candidate dataset used for the opt-in unweighted Peritheos refit of the Fu et al. CaSiO3 parameterization.",
+   "kind": "pressure_volume_temperature",
+   "description": "174 reconstructed candidate observations for Fu (2023): 140 Sun P-V-T rows and 34 cubic Gréaux elastic rows; exact published fit selection is undisclosed.",
    "reference": "Sun et al. (2016) Table 1 and Gréaux et al. (2019) Figure 3b source data, selected by comparison with Fu et al. (2023) Figure S3",
    "source_location": "Sun Table 1 rows at 1200-2200 K and all cubic Gréaux Figure 3b rows",
    "columns": [
+    {
+     "name": "source_id",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
     {
      "name": "pressure_gpa",
      "quantity": "pressure",
@@ -4702,14 +4756,14 @@
     },
     {
      "name": "volume_a3",
-     "quantity": "volume",
-     "unit": "angstrom^3/formula_unit",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
      "role": "value"
     },
     {
      "name": "volume_standard_deviation_a3",
-     "quantity": "volume",
-     "unit": "angstrom^3/formula_unit",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
      "role": "standard_deviation",
      "of": "volume_a3"
     },
@@ -4740,12 +4794,127 @@
      "of": "shear_modulus_gpa"
     }
    ],
-   "rows": [],
    "used_by_eos_records": [
+    "ca_perovskite_fu_2023_bm3_mgd_refit",
     "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
    ],
-   "license": "No reusable table-data license identified; source rows are intentionally not redistributed.",
-   "notes": "This zero-row descriptor preserves resolvable fit lineage without redistributing the external tables. Reproduction requires the checksummed source files accepted by scripts/audit_fu_2023_casio3_refit.py; aggregate fit results are stored in docs/data/fu-2023-casio3-refit-audit.json."
+   "license": "CC0-1.0 applies only to Peritheos contributors' transcription, column naming, normalization, and arrangement. Source measurements remain attributed to Sun et al. (2016) and Gréaux et al. (2019); no CC license is asserted for their articles or source files. See datasets/ca-perovskite-fu-2023-observations.LICENSE.md.",
+   "notes": "The legacy identifier ending in _external is retained for compatibility; rows are now bundled. Sun row order references the existing 144-row transcription; rows above 2200 K are excluded. Gréaux source_order indexes the 34 cubic Figure 3b observations, excluding the tetragonal Figure 3a sheet. Uses measured PNaCl, not derived PFS. V=116.162/(0.602214076*rho), KS=rho*(Vp^2-4*Vs^2/3), mu=rho*Vs^2. Cubic CaSiO3 has Z=1, so formula-unit and conventional-cell volumes coincide. Empty Sun elastic cells denote unavailable observations. These are experimental constraints, not model-generated checkpoints.",
+   "resource": {
+    "path": "datasets/ca-perovskite-fu-2023-candidate-observations.csv",
+    "sha256": "8fd3515516cc18a80c5c7c527613c3cc30a56c772da3a710b538b514672117c6",
+    "media_type": "text/csv"
+   },
+   "source_datasets": [
+    "ca_perovskite_sun_2016_table1_pvt",
+    "ca_perovskite_greaux_2019_figure3b"
+   ],
+   "uncertainty": {
+    "source": "Reported source uncertainties are retained; no row-wise temperature uncertainty is supplied.",
+    "derived": "Gréaux V, KS, and shear errors use first-order propagation assuming independent density, Vp, and Vs errors; derived observables have shared inputs and are not statistically independent."
+   }
+  },
+  {
+   "identifier": "ca_perovskite_greaux_2019_figure3b",
+   "kind": "pressure_density_sound_velocity_temperature",
+   "description": "All 34 cubic CaSiO3 measurements in Gréaux et al. (2019) source worksheet Figure 3b, retaining both pressure columns and reported uncertainties.",
+   "reference": "Gréaux et al. (2019), Nature 565, 218–221, DOI 10.1038/s41586-018-0816-5, source worksheet Figure 3b",
+   "source_location": "Official source-data workbook, Figure 3b; source_order counts numeric observation rows",
+   "source_url": "https://doi.org/10.1038/s41586-018-0816-5",
+   "source_artifact": {
+    "sha256": "cde0964709863c3b487a054597fd3dd549738aaa9dc3f0c637a996932944479a",
+    "download_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-018-0816-5/MediaObjects/41586_2018_816_MOESM1_ESM.xlsx"
+   },
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_nacl_gpa",
+     "quantity": "pressure_nacl",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_nacl_sigma_gpa",
+     "quantity": "pressure_nacl",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_nacl_gpa"
+    },
+    {
+     "name": "pressure_finite_strain_gpa",
+     "quantity": "pressure_finite_strain",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_finite_strain_sigma_gpa",
+     "quantity": "pressure_finite_strain",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_finite_strain_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "vp_km_s",
+     "quantity": "vp_km",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vp_sigma_km_s",
+     "quantity": "vp_km",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "vp_km_s"
+    },
+    {
+     "name": "vs_km_s",
+     "quantity": "vs_km",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vs_sigma_km_s",
+     "quantity": "vs_km",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "vs_km_s"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density_g",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "density_sigma_g_cm3",
+     "quantity": "density_g",
+     "unit": "g/cm^3",
+     "role": "uncertainty",
+     "of": "density_g_cm3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-greaux-2019-figure3b.csv",
+    "sha256": "0531818afb9cb74758aa30ca2938f7687b76e8a19923707a24c92a486baeda9e",
+    "media_type": "text/csv"
+   },
+   "license": "CC0-1.0 applies only to Peritheos contributors' transcription, column naming, normalization, and arrangement. Source measurements remain attributed to Sun et al. (2016) and Gréaux et al. (2019); no CC license is asserted for their articles or source files. See datasets/ca-perovskite-fu-2023-observations.LICENSE.md.",
+   "used_by_eos_records": [
+    "ca_perovskite_fu_2023_bm3_mgd_refit",
+    "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
+   ],
+   "notes": "Factual numerical transcription only; no publisher workbook layout, prose, or figures are bundled. PNaCl is measured pressure; PFS is a derived finite-strain diagnostic. The separate Figure 3a tetragonal rows are outside the cubic candidate selection."
   },
   {
    "identifier": "ca_perovskite_noguchi_2013_table1_pvt",

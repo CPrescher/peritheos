@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Audit the CaSiO3 literature-data refit reported by Fu et al. (2023).
 
-The source tables are intentionally not bundled.  Supply a ``pdftotext -layout``
-rendering of Sun et al. (2016) and the official Gréaux et al. (2019) source-data
-workbook.  This script validates their checksums, reconstructs the row selection
+Uses the bundled numerical transcriptions by default. Alternatively supply a
+``pdftotext -layout`` rendering of Sun et al. (2016) and the official Gréaux
+et al. (2019) workbook. This script validates their checksums, reconstructs the row selection
 visible in Fu Figure S3, and explores explicit weighting choices for Fu equations
 17, 18, and 23-28.
 """
@@ -11,6 +11,7 @@ visible in Fu Figure S3, and explores explicit weighting choices for Fu equation
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import math
@@ -33,6 +34,19 @@ DEBYE_TEMPERATURE_K = 1000.0
 ATOM_COUNT = 5.0
 PUBLISHED = np.array([45.4, 248.0, 126.0, 1.6, 1.42, 2.65, 1.54])
 PARAMETERS = ("V0", "K0", "mu0", "mu0_prime", "gamma0", "q", "eta_s0")
+EQUAL_WEIGHTING = (
+    "Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa "
+    "has unit weight; measurement uncertainties are not used as weights. "
+    "Each Sun row contributes one residual and each Greaux row contributes three."
+)
+COVARIANCE_SCALING = (
+    "Local linearized covariance (J.T J)^-1 scaled by RSS / (scalar_outputs - "
+    "free_parameters); errors are one-standard-error estimates conditional on "
+    "the chosen objective, independent residuals with common variance in that "
+    "objective, and fixed parameters. Input-coordinate uncertainties, shared "
+    "measurement correlations, systematic errors, and weighting-choice "
+    "sensitivity are not included."
+)
 REGISTERED_REFIT_RECORD = (
     "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
 )
@@ -252,6 +266,37 @@ def _arrays(
     }
 
 
+def _fit_uncertainty(fit) -> dict[str, object]:
+    """Estimate residual-scaled errors for an identifiable interior solution."""
+    if not fit.success or np.any(fit.active_mask):
+        raise ValueError("parameter errors require a converged interior solution")
+    jacobian = np.asarray(fit.jac)
+    _, singular_values, right_vectors = np.linalg.svd(jacobian, full_matrices=False)
+    tolerance = np.finfo(float).eps * max(jacobian.shape) * singular_values[0]
+    rank = int(np.count_nonzero(singular_values > tolerance))
+    degrees_of_freedom = int(fit.fun.size - fit.x.size)
+    if rank != fit.x.size or degrees_of_freedom <= 0:
+        raise ValueError(
+            "parameter errors require full rank and residual degrees of freedom"
+        )
+    residual_variance = float(np.dot(fit.fun, fit.fun) / degrees_of_freedom)
+    scaled_vectors = right_vectors.T / singular_values
+    covariance = (scaled_vectors @ scaled_vectors.T) * residual_variance
+    return {
+        "standard_errors": dict(
+            zip(PARAMETERS, map(float, np.sqrt(np.diag(covariance))))
+        ),
+        "parameter_covariance": {
+            "parameter_order": list(PARAMETERS),
+            "matrix": covariance.tolist(),
+        },
+        "covariance_scaling": COVARIANCE_SCALING,
+        "degrees_of_freedom": degrees_of_freedom,
+        "residual_variance": residual_variance,
+        "jacobian_rank": rank,
+    }
+
+
 def fit_variant(arrays: dict[str, np.ndarray], weighting: str) -> dict[str, object]:
     def residual(parameters: np.ndarray) -> np.ndarray:
         sun_p, _, _ = _predictions(parameters, arrays["sun_v"], arrays["sun_t"])
@@ -311,20 +356,126 @@ def fit_variant(arrays: dict[str, np.ndarray], weighting: str) -> dict[str, obje
         "residual_sum_squares": float(np.sum(fit.fun**2)),
         "success": bool(fit.success),
         "message": fit.message,
+        **_fit_uncertainty(fit),
     }
 
 
+def update_refit_record(document: dict, result: dict) -> None:
+    """Copy the joint fit's pressure parameters and marginal covariance to EOSMAT."""
+    fit = next(
+        item
+        for item in result["sensitivity_fits"]
+        if item["objective"] == "unweighted_absolute_gpa"
+    )
+    record = next(
+        item
+        for item in document["eos_records"]
+        if item["identifier"] == REGISTERED_REFIT_RECORD
+    )
+    for component, names in (
+        (record, ("V0", "K0")),
+        (record["thermal"], ("gamma0", "q")),
+    ):
+        parameters = (
+            component["eos"]["parameters"]
+            if component is record
+            else component["parameters"]
+        )
+        for name in names:
+            parameters[name] = fit["parameters"][name]
+            component["parameter_errors"][name] = fit["standard_errors"][name]
+    names = ("V0", "K0", "gamma0", "q")
+    order = fit["parameter_covariance"]["parameter_order"]
+    indices = [order.index(name) for name in names]
+    covariance = np.asarray(fit["parameter_covariance"]["matrix"])
+    record["parameter_covariance"] = {
+        "parameter_order": ["rt_eos.V0", "rt_eos.K0", "gamma0", "q"],
+        "matrix": covariance[np.ix_(indices, indices)].tolist(),
+    }
+    record["parameter_error_confidence"] = (
+        None  # Standard errors, not interval half-widths.
+    )
+    provenance = record["fit_provenance"]
+    provenance["weighting_description"] = EQUAL_WEIGHTING
+    provenance["covariance_scaling"] = COVARIANCE_SCALING
+    provenance["statistics"].update(
+        {
+            "residual_sum_squares_gpa2": fit["residual_sum_squares"],
+            "combined_output_rmse_gpa": math.sqrt(
+                fit["residual_sum_squares"] / result["fit_output_count"]
+            ),
+            "degrees_of_freedom": fit["degrees_of_freedom"],
+            "residual_variance_gpa2": fit["residual_variance"],
+        }
+    )
+    record["notes"] = (
+        "Opt-in unweighted Peritheos refit. " + EQUAL_WEIGHTING + " "
+        "Errors are residual-scaled standard errors from the full seven-parameter "
+        "joint fit; the pressure-volume covariance retains its marginal block. "
+        "Fixed parameters have no estimated errors. The published Fu record "
+        "remains the authoritative literature parameterization."
+    )
+
+
+def load_bundled_observations() -> tuple[
+    list[dict[str, float]], list[dict[str, float]]
+]:
+    """Read the attributed source tables, validating catalog resource hashes."""
+    data = Path(__file__).resolve().parents[1] / "peritheos/data"
+    document = json.loads(
+        (data / "materials/ca_perovskite.eosmat").read_text(encoding="utf-8")
+    )
+
+    def read(identifier):
+        resource = next(
+            d for d in document["datasets"] if d["identifier"] == identifier
+        )["resource"]
+        path = data / resource["path"]
+        if _sha256(path) != resource["sha256"]:
+            raise ValueError(f"Bundled resource checksum mismatch: {identifier}")
+        with path.open(encoding="utf-8", newline="") as stream:
+            return [
+                {key: float(value) for key, value in row.items()}
+                for row in csv.DictReader(stream)
+            ]
+
+    sun = read("ca_perovskite_sun_2016_table1_pvt")
+    greaux = read("ca_perovskite_greaux_2019_figure3b")
+    # Original PDF parser visits each printed line across three blocks.
+    # Preserve its residual order for reproducible numerical differentiation.
+    sun.sort(key=lambda row: ((int(row["source_order"]) - 1) % 48, row["source_block"]))
+    return [
+        {
+            "pressure_gpa": row["pressure_gpa"],
+            "pressure_sigma_gpa": row["pressure_uncertainty_gpa"],
+            "temperature_k": row["temperature_k"],
+            "volume_a3": row["volume_a3_per_formula_unit"],
+            "volume_sigma_a3": row["volume_uncertainty_a3"],
+        }
+        for row in sun
+    ], greaux
+
+
 def audit(
-    sun_text: Path, greaux_xlsx: Path, sun_pdf: Path | None = None
+    sun_text: Path | None = None,
+    greaux_xlsx: Path | None = None,
+    sun_pdf: Path | None = None,
 ) -> dict[str, object]:
-    if _sha256(greaux_xlsx) != GRE_AUX_SHA256:
+    if (sun_text is None) != (greaux_xlsx is None):
+        raise ValueError(
+            "Supply both --sun-text and --greaux-xlsx, or neither for bundled data"
+        )
+    if greaux_xlsx is not None and _sha256(greaux_xlsx) != GRE_AUX_SHA256:
         raise ValueError(
             "Gréaux workbook checksum does not match the audited official file"
         )
     if sun_pdf is not None and _sha256(sun_pdf) != SUN_PDF_SHA256:
         raise ValueError("Sun PDF checksum does not match the audited author copy")
-    sun_rows = parse_sun_table(sun_text)
-    greaux_rows = parse_greaux_table(greaux_xlsx)
+    if sun_text is None:
+        sun_rows, greaux_rows = load_bundled_observations()
+    else:
+        sun_rows = parse_sun_table(sun_text)
+        greaux_rows = parse_greaux_table(greaux_xlsx)
     arrays = _arrays(sun_rows, greaux_rows)
     variants = [
         fit_variant(arrays, weighting)
@@ -351,16 +502,18 @@ def audit(
                 "url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
                 "pdf_sha256": SUN_PDF_SHA256,
                 "role": "candidate fit observations",
-                "redistributed": False,
-                "reason": "no reusable table-data license identified",
+                "redistributed": True,
+                "reason": "Attributed numerical transcription bundled; CC0 covers only Peritheos contributors' transcription and arrangement, not third-party source rights.",
+                "bundled_resource": "datasets/ca-perovskite-sun-2016-table1-pvt.csv",
             },
             "greaux_2019_source_data": {
                 "doi": "10.1038/s41586-018-0816-5",
                 "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-018-0816-5/MediaObjects/41586_2018_816_MOESM1_ESM.xlsx",
                 "xlsx_sha256": GRE_AUX_SHA256,
                 "role": "candidate fit observations",
-                "redistributed": False,
-                "reason": "Springer Nature copyright; no reusable data license identified",
+                "redistributed": True,
+                "reason": "Attributed numerical transcription bundled; CC0 covers only Peritheos contributors' transcription and arrangement, not third-party source rights.",
+                "bundled_resource": "datasets/ca-perovskite-greaux-2019-figure3b.csv",
             },
             "kawai_tsuchiya_2015": {
                 "doi": "10.1002/2015GL063446",
@@ -414,6 +567,7 @@ def audit(
             },
         },
         "weighting_disclosure": "not published by Fu et al.",
+        "refit_weighting_description": EQUAL_WEIGHTING,
         "registered_refit": {
             "record_identifier": REGISTERED_REFIT_RECORD,
             "objective": "unweighted_absolute_gpa",
@@ -432,12 +586,23 @@ def audit(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--sun-text", type=Path, required=True)
+    parser.add_argument("--sun-text", type=Path)
     parser.add_argument("--sun-pdf", type=Path)
-    parser.add_argument("--greaux-xlsx", type=Path, required=True)
+    parser.add_argument("--greaux-xlsx", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--update-record",
+        type=Path,
+        help="also update the registered refit's parameters, errors, and covariance in this EOSMAT file",
+    )
     args = parser.parse_args()
     result = audit(args.sun_text, args.greaux_xlsx, args.sun_pdf)
+    if args.update_record:
+        document = json.loads(args.update_record.read_text(encoding="utf-8"))
+        update_refit_record(document, result)
+        args.update_record.write_text(
+            json.dumps(document, indent=1, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
     rendered = json.dumps(result, indent=2, sort_keys=True) + "\n"
     if args.output:
         args.output.write_text(rendered, encoding="utf-8")

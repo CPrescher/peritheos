@@ -15,7 +15,13 @@ All notable changes to Peritheos are documented here. The project follows
   hashes and rerun the staged audit from bundled data. Clarify scoped CC0 for
   contributors’ factual transcriptions while retaining unspecified source terms.
 
+- Bundle and link the 174 reconstructed Fu (2023) CaSiO3 candidate observations, preserving source measurements, uncertainties, row provenance, and scoped CC0 transcription rights; allow the audit to run from bundled inputs.
+
 ### Fixed
+
+- Added residual-scaled standard errors and joint-fit covariance to the Fu
+  (2023) candidate-data CaSiO3 refit, with explicit equal scalar residual
+  weighting and reproducible export to the EOS record.
 
 - Filled missing hexagonal symmetry and `P63/mmc` (No. 194) space-group
   metadata for hcp beryllium, lead, and zinc, with explicit prototype-based

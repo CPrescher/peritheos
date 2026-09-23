@@ -14,6 +14,8 @@ Online Materials Text S1 and Table S2 resolve an ambiguity in the main article: 
 
 Text S3, main-text Equations 17–18 and 23–28, and Table S3 additionally publish a source-owned CaSiO3 composite coefficient set: BM3 `V0=45.4 Å³`, `K0=248 GPa`, fixed `K0'=4`; MGD `theta0=1000 K`, `gamma0=1.42`, and `q0=2.65`; and shear terms `mu0=126 GPa`, `mu0'=1.6`, and `etaS0=1.54`. The pressure-volume thermal branch is executable in Peritheos; the shear terms are retained in the audit but remain outside the EOS record's public model surface.
 
+The catalog labels this source-owned record **published CaSiO3 BM3-MGD parameters**. Its historical identifier ends in `_refit` because Fu fitted earlier literature data; it is not the independent Peritheos candidate-data refit. The published coefficients were not reproduced by the candidate-data audit, while the exact source selection and weights remain undisclosed.
+
 The official ZIP contains only `8435_supp1.pdf` and `8435fu.cif`: it has no row table, workbook, covariance, weights, or fitting code. Recovering the upstream studies changes the correct status from “no direct refit possible” to **completed refit attempt, coefficient parity not achieved**. It does not justify pretending that Fu's undisclosed regression protocol is known.
 
 ## Input-study reconstruction
@@ -41,16 +43,34 @@ Fu et al. do not disclose the residual definition, row or output weights, pressu
 | `mu0` (GPa) | 126 | 129.662 | 126.645 | 126.481 | 129.731 |
 | `mu0'` | 1.6 | 1.48479 | 1.57804 | 1.58375 | 1.48825 |
 | `gamma0` | 1.42 | 2.44196 | 1.57408 | 1.55879 | 2.39676 |
-| `q` | 2.65 | 1.83946 | -1.03500 | -1.02679 | 1.80306 |
+| `q` | 2.65 | 1.83946 | -1.03500 | -1.02684 | 1.80306 |
 | `etaS0` | 1.54 | 1.37236 | 1.37696 | 1.37693 | 1.37206 |
 
 The unweighted joint solution is also registered as the opt-in executable EOS record `ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit`. Its pressure-volume record stores the fitted `V0`, `K0`, `gamma0`, and `q`; the jointly fitted shear coefficients remain in the audit artifact because the EOS API does not encode a shear model. This record is a reproducible Peritheos result, not Fu et al.'s undisclosed regression.
+
+**Equal weighting:** every scalar pressure, bulk-modulus, and shear-modulus residual enters in GPa with unit weight. Measurement uncertainties are not used as weights. Each Sun row contributes one residual; each Gréaux row contributes three. Thus equal scalar weights do not imply equal total weight per experimental row or observable group.
+
+The refit reports approximate one-standard-error uncertainties for every fitted coefficient:
+
+| Parameter | Unweighted estimate ± standard error |
+|---|---:|
+| `V0` (Å³ per formula unit) | 45.1346 ± 0.0572 |
+| `K0` (GPa) | 258.271 ± 1.485 |
+| `mu0` (GPa) | 129.662 ± 1.333 |
+| `mu0'` | 1.4848 ± 0.0727 |
+| `gamma0` | 2.4420 ± 0.0500 |
+| `q` | 1.8395 ± 0.0674 |
+| `etaS0` | 1.3724 ± 0.1697 |
+
+The full seven-parameter covariance is calculated from the residual Jacobian as `C = RSS / (242 - 7) * inverse(J.T @ J)`, evaluated by singular-value decomposition. The 235 residual degrees of freedom give a variance estimate of 1.74338 GPa². The EOS record stores the four-parameter marginal covariance block, including correlations between reference-isotherm and thermal parameters; the audit retains all seven coefficients and their covariance. `K0'`, `Tr`, `theta0`, and `n` are fixed and have no estimated errors.
+
+These errors assume independent residuals with common variance in the chosen objective and condition on the fixed parameters. They do not include uncertainty in input coordinates, shared measurement correlations, systematic errors, or sensitivity to choosing different weights. The sensitivity fits also report residual-scaled covariance in their respective objectives; printed sigmas are treated as relative weights for those error estimates.
 
 All optimizations converge, but none reproduces Table S3; `gamma0`, `q`, and `etaS0` are especially protocol-sensitive. The propagated P-V diagnostic includes printed pressure and volume errors but cannot include temperature uncertainty because Sun reports only a 50–100 K range, not row-level values. Choosing the derived Gréaux `PFS` column instead of measured `PNaCl`, or fitting only pressure, also fails to recover the published thermal pair. The bounded conclusion is therefore non-parity caused by an underdetermined source protocol, not evidence that the published curve is numerically unusable.
 
 ## Redistribution boundary
 
-No new Gréaux, Sun, Kawai–Tsuchiya, Li, or Thomson rows are bundled. The Gréaux article is Springer Nature copyright and neither it nor the Sun author PDF provides a reusable table-data license. The repository contains only contributor-authored code, source checksums/counts, aggregate fit results, and the already-authorized Fu Table S2 transcription. Model-generated pressure/volume round trips are explicitly labeled **analytical checkpoints** and are never registered as `fit_datasets` or called observations.
+The 174 candidate observations are bundled as `ca-perovskite-fu-2023-candidate-observations.csv`: 140 selected Sun P-V-T rows and 34 cubic Gréaux rows. The complete 144-row Sun transcription and the 34-row Gréaux numerical source table are retained separately. Source IDs and observation indices trace each composite row; density-derived volume, KS, shear modulus, and their propagated errors are documented in the dataset declaration. No original article, workbook layout, prose, or figure is redistributed. [CC0](https://creativecommons.org/publicdomain/zero/1.0/) applies to Peritheos contributors’ transcription and arrangement (see `peritheos/data/datasets/ca-perovskite-fu-2023-observations.LICENSE.md`), without relicensing third-party sources. Kawai–Tsuchiya and Li remain analytical comparisons; Thomson remains excluded. Model-generated pressure/volume round trips are explicitly labeled **analytical checkpoints** and are never registered as observations.
 
 ## Exhaustive LitCurate disposition
 
@@ -78,7 +98,21 @@ pdftotext -layout SunLowerMantleEoSJGR2016.pdf sun-2016.txt
 uv run python scripts/audit_fu_2023_casio3_refit.py \
   --sun-text sun-2016.txt \
   --sun-pdf SunLowerMantleEoSJGR2016.pdf \
-  --greaux-xlsx 41586_2018_816_MOESM1_ESM.xlsx
+  --greaux-xlsx 41586_2018_816_MOESM1_ESM.xlsx \
+  --output docs/data/fu-2023-casio3-refit-audit.json \
+  --update-record peritheos/data/materials/ca_perovskite.eosmat
 ```
 
 The checked-in aggregate result is [`docs/data/fu-2023-casio3-refit-audit.json`](../data/fu-2023-casio3-refit-audit.json). It contains no third-party observation rows.
+
+The coefficient audit can now run directly from the checksummed bundled tables:
+
+```bash
+uv run python scripts/audit_fu_2023_casio3_refit.py
+```
+
+To rebuild the numerical CSVs from the original checksummed Gréaux workbook:
+
+```bash
+uv run python scripts/bundle_fu_2023_observations.py --greaux-xlsx /path/to/41586_2018_816_MOESM1_ESM.xlsx
+```

@@ -3896,9 +3896,9 @@ def _fu_2023_casio3_outcome(record: dict[str, Any]) -> dict[str, Any]:
         "weighting_sensitivity": audit["sensitivity_fits"],
         "qualification": (
             "The complete candidate observation rows were recovered from the "
-            "author-hosted Sun PDF and official Gréaux XLSX and used locally, but "
-            "are not redistributed because no reusable table-data license was "
-            "identified. Fu et al. publish neither an objective, row/output "
+            "author-hosted Sun PDF and official Gréaux XLSX and are now bundled "
+            "as attributed numerical transcriptions. Fu et al. publish neither "
+            "an objective, row/output "
             "weights, covariance, nor code. Four explicit weighting diagnostics, "
             "including propagated P-V uncertainty, "
             "all converge away from Table S3, especially for gamma0 and q; this "

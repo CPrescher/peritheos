@@ -116,10 +116,10 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 312 distinct primary datasets with
-22,186 observation rows, represented by
-351 material-document links to
-472 EOS records.
+The current bundle contains 313 distinct primary datasets with
+22,394 observation rows, represented by
+352 material-document links to
+473 EOS records.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,
