@@ -22,6 +22,7 @@
  "notes": "Static-GGA 6H polymorph. The EOS paper reports the fitted conventional-cell V0 but does not provide a complete zero-pressure structural coordinate set, so no lattice or atom-site values are inferred.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "srsio3_6h_xiao_2013_gga_bm2_1",
    "label": "Xiao et al. (2013), static-GGA 6H SrSiO3",
    "record_kind": "published",
@@ -76,6 +77,7 @@
     "molar_mass_g_mol": 163.702
    },
    "parameter_provenance": {
+    "determination_method": "Xiao (2013), static-GGA 6H calculation: computed compression fit, distinct from the cubic experimental fit.",
     "equation": "Same printed Birch-Murnaghan convention used for calculated P-V results.",
     "parameters": "Static-GGA 6H fit: V0=311.23(10) A3, K0=183.8(6) GPa, K0'=4 fixed."
    },

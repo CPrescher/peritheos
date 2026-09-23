@@ -76,6 +76,10 @@
    "temperature_ref": 300.0,
    "notes": "Quasihydrostatic 300 K Vinet fit to corundum data from 0.56 to 165 GPa. V0=255.45+/-0.52 A^3, K0=254.1+/-7.6 GPa, and K0'=4.00+/-0.15 were all fitted; errors are 95% confidence intervals.",
    "identifier": "alumina_dewaele_2013_vinet_1",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: section IV, page 064107-2; Table I; Figure 3; section V."
+   },
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -266,6 +270,7 @@
    "default": false,
    "notes": "Published corundum model 3 selected in main Table 1 and Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V [E_D(V,T)-E_D(V,300 K)], gamma=gamma0(V/V0)^q, and theta=theta0 exp[-(gamma-gamma0)/q], with n=5 atoms per Al2O3 formula unit. V0=255.1 A^3 is the fixed conventional six-formula-unit hexagonal corundum cell from Lutterotti and Scardi (1990); K0, gamma0, and q were fitted, while K0', V0, theta0, Tr, and n were fixed. Main Table 1 reports K0=246(2) GPa for the selected model, whereas sensitivity Table 2 reports 246(1) GPa; the selected-table uncertainty is retained and the discrepancy is explicit. Table 2's 500 K and 800 K Debye-temperature trials are sensitivity fits, not additional preferred records. All 75 Table S1 observations are bundled: 59 are grouped under Pt pressures (including the fixed 0 GPa reference row) and 16 under NaCl pressures. The source does not state an uncertainty confidence convention or coefficient covariance matrix. An independent unweighted Peritheos fit of pressure residuals at all 75 printed V-T states, with the published fixed parameters, returns K0=246.3083 GPa, gamma0=1.35931, and q=0.800868; all reproduce the published coefficients within their reported uncertainties. The published curve has a 1.23305 GPa pressure RMSE and the refit has a 1.19139 GPa RMSE. Weighting by the tabulated coordinate uncertainties does not recover q, so the parity result is specifically identified as an unweighted pressure-residual reproduction rather than an undocumented reconstruction of the authors' weighting.",
    "identifier": "alumina_shi_2022_bm3_mgd_2",
+   "determination_method": "experimental",
    "pressure_calibration": {
     "status": "partially_resolved",
     "methods": [
@@ -361,6 +366,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: main text, Equations 1-6, pages 3-4; main text, Table 1, page 4, selected corundum coefficients; main text, Table 2, page 6, three Debye-temperature sensitivity fits; Supporting Information, Figure S1, observations used to constrain the EOS; Supporting Information, Table S1, all corundum P-T-V observations; Supporting Information, Table S3, selected model used downstream.",
     "V0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fixed conventional six-formula-unit corundum cell from Lutterotti and Scardi (1990)",
     "K0": "Shi et al. (2022), main Table 1 selected model; fitted, with the selected-table 2 GPa uncertainty retained over Table 2's discrepant 1 GPa value",
     "K0_prime": "Shi et al. (2022), Equations 1-2 and main Tables 1-2; fixed at 4",

@@ -54,6 +54,7 @@
  "notes": "The stored lattice is the recovered run-2 MgAl2O4 cell. The source assigns the CaFe2O4 structure type but does not refine or publish target Mg/Al/O coordinates, so atom sites are not inferred. Pbnm is the source-axis setting of space-group 62 for the CaFe2O4 prototype. The lattice product differs slightly from the source's separately reported V0=240.3(2) A3 because all printed quantities are rounded.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mgal2o4_cafe2o4_funamori_1998_bm2_1",
    "label": "Funamori et al. (1998), CaFe2O4-type MgAl2O4 BM2",
    "default": true,
@@ -126,6 +127,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental method; Table 1; Section 3.1; Section 3.3; Figure 4.",
     "equation": "Section 3.3: Birch second-order finite-strain EOS with Eulerian strain and K0'=4.",
     "V0": "Section 3.3: 240.3(2) A3 for the recovered CaFe2O4-type conventional cell.",
     "K0": "Section 3.3: 211(+/-6) GPa, calculated as the normalized pressure of the single in-situ run-2 state after holding the separately measured V0 fixed.",
@@ -238,6 +240,7 @@
    "notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgal2o4_cafe2o4_irifune_2002_bm2_2",
    "label": "Irifune et al. (2002), CaFe2O4-type MgAl2O4 BM2",
    "default": false,
@@ -299,6 +302,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental, pp. 646-647; Bulk modulus discussion, p. 652; Table 2 and Figure 6.",
     "equation": "p. 652: BM3 with dK/dP=4, algebraically BM2.",
     "V0": "p. 652: averaged recovered conventional-cell volume 240.6(3) A3, held as normalization.",
     "K0": "p. 652: 213(3) GPa.",
@@ -475,6 +479,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.3; Section 3.1, Eqs. (1)-(8); Tables 1-2; Figures 2-4.",
     "equation": "Section 3.1, Eq. (1), p. 81: standard third-order Birch-Murnaghan reference isotherm.",
     "V0": "Section 3.1 and Table 2: fitted 240.1(2) A3 unit-cell volume at 300 K; fixed in both thermal stages.",
     "K0": "Section 3.1 and Table 2: 205(6) GPa; fixed in both thermal stages.",
@@ -613,6 +618,7 @@
      "finding": "All free thermal coefficients recover within one printed parenthetical error. The independent 16-row 300 K reconstruction also recovers the static coefficients within their printed errors; see the audit for selection ambiguity."
     }
    },
+   "determination_method": "experimental",
    "identifier": "mgal2o4_cafe2o4_sueda_2009_htbm_2",
    "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 HTBM",
    "thermal": {
@@ -711,6 +717,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.3; Section 3.1, Eqs. (1)-(8); Tables 1-2; Figures 2-4.",
     "equation": "Section 3.1, Eq. (1), p. 81: standard third-order Birch-Murnaghan reference isotherm.",
     "V0": "Section 3.1 and Table 2: fitted 240.1(2) A3 unit-cell volume at 300 K; fixed in both thermal stages.",
     "K0": "Section 3.1 and Table 2: 205(6) GPa; fixed in both thermal stages.",
@@ -851,6 +858,7 @@
      "finding": "All free thermal coefficients recover within one printed parenthetical error. The independent 16-row 300 K reconstruction also recovers the static coefficients within their printed errors; see the audit for selection ambiguity."
     }
    },
+   "determination_method": "experimental",
    "identifier": "mgal2o4_cafe2o4_sueda_2009_mgd_3",
    "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 BM3-MGD",
    "thermal": {

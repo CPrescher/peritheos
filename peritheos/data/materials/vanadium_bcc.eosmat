@@ -61,6 +61,7 @@
  "notes": "Pure elemental bcc vanadium, not V oxide or a multiphase sample aggregate. The separately sourced 298.15 K diffraction cell (27.6559412875 A^3) differs from the Crichton relaxed-foil EOS reference (27.995 A^3); retain both reported conventions. Advent foil sample purity is not quantified in the EOS manuscript.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "vanadium_bcc_crichton_2016_bm3_thermal",
    "label": "Crichton et al. (2016), bcc V thermal BM3",
    "reference": {
@@ -133,6 +134,7 @@
     "notes": "Marginal experimental coverage, not a fully sampled rectangle or phase boundary. The bcc-to-rhombohedral transitions discussed near 60-69 GPa are outside this experiment and do not extend its validity. Excludes oxidized/reacted material and initially stressed foil."
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Accepted manuscript pp.4-7: Experimental, Results, Conclusion; Accepted manuscript p.11: Figure 2; Publisher abstract (21 January 2016); Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions.",
     "V0": "Results p.5: unconstrained relative reference volume 1.005(1), equal to independently recovered 1.005 = 27.995 A^3; Figure 2 caption confirms equality. Conventional bcc cell, Z=2. Absolute fitted-volume uncertainty is not explicitly printed; retain ratio error separately.",
     "K0": "Results p.5, unconstrained 62-point unweighted fit: 150.4 +/-6.2 GPa.",
     "K0_prime": "Results p.5: 5.5(10), fitted; constant with T in EosFit5 convention.",

@@ -66,6 +66,7 @@
  "notes": "The composition is the article's microprobe result Mg0.058(1)Fe0.942(1)O. This record represents only the 300 K cubic B1 compression branch. The article's synchrotron Mossbauer observations begin above the diffraction series and do not provide a separate spin-resolved P-V dataset, so no high-spin, low-spin, or mixed-spin EOS is inferred. The lattice metric is normalized to the published fitted conventional-cell V0.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mgfe94o_b1_dobrosavljevic_2019_bm3_1",
    "label": "Dobrosavljevic et al. (2019), Mw94 B1 BM3",
    "record_kind": "published",
@@ -165,6 +166,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: article sections 2.1, 3, and 3.1; article Figure 1 and Table 1; official supplement Table S1.",
     "equation": "Article section 3.1 and Table 1: third-order Birch-Murnaghan isothermal EOS; the prose's isolated 'Burch-Murnaghan' spelling is interpreted by the explicit Birch-Murnaghan figure captions and standard equation implemented by MINUTI.",
     "V0": "Article Table 1: 9.860(7) A^3/atom, freely fitted; multiplied by eight atoms per conventional B1 cell.",
     "K0": "Article section 3.1 and Table 1: K0T=155.3(22) GPa, freely fitted.",

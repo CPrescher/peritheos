@@ -70,6 +70,7 @@
     44.9
    ],
    "notes": "Room-temperature third-order Birch-Murnaghan fit for metastable NiAs-type (B8) NiS. V0 and its independent propagated error use the primary paper's ambient a and c values. K0=156(10) GPa and K0'=4.4(1.2). The last tabulated readable P-V point is 44.9 GPa; above 45 GPa the diffraction lines become unreadable. No fitted-parameter covariance is published.",
+   "determination_method": "experimental",
    "identifier": "nis_campbell_1993_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -125,6 +126,7 @@
    "temperature_ref": 298.0,
    "pressure_range_status": "reported_exactly",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 6, ambient NiAs-type lattice parameters; page 6, Table 1, measured P-a-c data; page 6, third-order Birch-Murnaghan fit and Figure 1.",
     "V0": "Campbell and Heinz (1993), page 6: a0=3.4395(2) A and c0=5.3514(7) A; V0=sqrt(3)/2*a0^2*c0",
     "K0": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",
     "K0_prime": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",

@@ -78,6 +78,7 @@
     210.0
    ],
    "notes": "Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. All four row-level sources for the global B1 fit are now bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. Seagle contains 65 hcp-Fe rows, 14 fcc-Fe rows, and two rows without Fe volume that retain the source's 50 +/- 4 GPa isobar assignment; Campbell contains 10 hcp-Fe and 15 fcc-Fe rows. The exact regression weights/objective and Fischer's final combined row selection are not published. The marginal pressure range includes those comparison/fit-input studies and is not a phase-stability boundary.",
+   "determination_method": "experimental",
    "identifier": "feo_fischer_2011_bm3_2",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -216,6 +217,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Methods, pages 6-8; Equation (1) and equation-of-state section, pages 12-13; Table 1; Figures 2 and 3; Supplementary Table S1 (mmc1.xls).",
     "equation": "Equation (1): a 300 K BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure; no explicit anharmonic or electronic thermal-pressure terms.",
     "V0": "Table 1: 12.256 cm^3/mol, fixed from McCammon and Liu (1984); converted here to the conventional Z=4 B1 cell.",
     "K0": "Table 1: 149.4 +/- 1.0 GPa, fitted.",
@@ -282,8 +284,10 @@
    "fit_datasets": [
     "jacobsen_2005_table1_compression"
    ],
+   "determination_method": "experimental",
    "identifier": "fe093o_b1_jacobsen_2005_bm3_1",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiment, pages 577-578; Results section 3.1 and Table 1, pages 579-580; Figure 5, page 580.",
     "equation": "Results section 3.1, page 579: third-order Birch-Murnaghan EOS fitted with EOS-FIT 5.2.",
     "V0": "Results section 3.1, page 579: V0=79.41(4) A^3, varied in the fit.",
     "K0": "Results section 3.1, page 579: K0=146(2) GPa, varied in the fit.",
@@ -402,6 +406,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "feo_leonov_2017_hs_bm3_1",
    "label": "Leonov et al. (2017), FeO high-spin DFT+DMFT BM3",
    "record_kind": "published",
@@ -460,6 +465,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table I; Figures 1-4.",
     "equation": "Methods: third-order Birch-Murnaghan fit to DFT+DMFT total energies.",
     "V0": "Table I: 144.1 bohr^3/formula unit; converted to conventional Z=4 cell.",
     "K0": "Table I high-spin column: 142 GPa.",
@@ -519,6 +525,7 @@
    }
   },
   {
+   "determination_method": "unknown",
    "identifier": "feo_holland_2013_fper_modified_tait",
    "label": "Holland et al. (2013), fper modified Tait",
    "record_kind": "published",
@@ -583,6 +590,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table 1 and the official tc-ds62 endmember block establish the coefficients, but the existing audit does not trace this endmember's individual EOS constraints to measurements versus calculations. Determination remains unknown pending that source tracing; self_consistent is not a determination method.",
     "parameters": "Article Table 1 and official tc-ds62 fper block.",
     "unit_conversion": "V0=1.206 J/bar/mol, K0=1520 kbar, K0''=-0.00320 kbar^-1; converted to executable units and Z=4."
    },
@@ -635,6 +643,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "feo_campbell_2009_bm3_mgd",
    "label": "Campbell et al. (2009), B1 FeO, 295 K BM3-Debye",
    "reference": {
@@ -761,6 +770,7 @@
     "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5.",
     "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
     "V0": "Table 1: 12.256 cm3/mol, fixed from McCammon and Liu (1984), footnote b. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
     "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",

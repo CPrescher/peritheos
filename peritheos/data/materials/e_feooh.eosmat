@@ -59,6 +59,7 @@
  "eos_records": [
   {
    "label": "Gleason et al. (2008), temperature-reduced second-order BM",
+   "determination_method": "experimental",
    "identifier": "e_feooh_gleason_2008_bm2_1",
    "equation_kind": "isothermal",
    "record_kind": "published",
@@ -123,6 +124,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure, manuscript pages 3-5; Results and epsilon-FeOOH scatter, manuscript pages 5-6; Secondary analyses and epsilon-FeOOH EOS, manuscript page 7; Figure 3b caption and plot, manuscript pages 14 and 20; MSA depository item AM-08-056, Table 2.",
     "V0": "Gleason et al. (2008), manuscript page 7: ambient-pressure, room-temperature volume V_epsilon0=66.3(5) A^3 obtained for the non-quenchable phase by the Jeanloz (1981) G-versus-g extrapolation.",
     "K0": "Gleason et al. (2008), abstract, manuscript page 7, and Figure 3b: K0=158(5) GPa from the pooled epsilon-FeOOH observations.",
     "K0_prime": "Gleason et al. (2008), manuscript page 7 and Figure 3b: K0-prime assumed to be 4, represented intrinsically by BM2.",
@@ -269,6 +271,7 @@
   },
   {
    "label": "Suzuki (2016), BM3 thermal reference state",
+   "determination_method": "experimental",
    "identifier": "e_feooh_suzuki_2016_bm3_thermal_2",
    "equation_kind": "thermal",
    "record_kind": "published",
@@ -355,6 +358,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Methods, pages 420-421; Table 1 and Figure 1, page 421; Equation 1, temperature relations, and Table 2, page 422; compression and phase discussion, pages 422-423.",
     "V0": "Suzuki (2016), starting-material powder-XRD result and Table 2: V0,300=66.278(6) A^3 for the conventional Z=2 cell; held fixed in the P-V-T fit.",
     "K0": "Suzuki (2016), Table 2: KT0=135(3) GPa at 300 K.",
     "K0_prime": "Suzuki (2016), Equation 1 and Table 2: K'T=6.1(9), assumed temperature-independent.",

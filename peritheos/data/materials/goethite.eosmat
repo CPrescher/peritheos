@@ -117,6 +117,10 @@
     583.15
    ],
    "notes": "USAGE WARNING: retained for provenance and reproduction of the published curve, but not recommended for quantitative pressure-volume or thermoelastic use. Neither the complete 65-row primary table nor an independent fit of the 47 plotted Figure 3a marker centers reproduces K0 = 140.3 GPa and K0' = 4.6; the marker fit gives K0 = 193.45 GPa and K0' = 0.893 with the reconstructed thermal model. Equation 1 is malformed as printed, although the Figure 3 curve supports the standard BM3 sign used here. Gleason et al. report a thermal EOS, not a standalone 300 K BM3: a BM3 reference with V0 = 138.75 +/- 0.02 A^3, K0 = 140.3 +/- 3.7 GPa, and K0' = 4.6 +/- 0.4 is combined with Mie-Gruneisen-Debye thermal pressure. Equation 1 references E(300 K); Table 1 gives gamma0 = 0.91 +/- 0.07 and theta0 = 740 +/- 5 K, and the text assumes dln(gamma)/dln(V) = q = 1. The Debye atom count n = 4 follows FeOOH stoichiometry. The measured zero-pressure V0 is held fixed because the authors say all P-V-T rows determine K0 and K0', specifically. Thermal quantities are also held fixed in the numerical refit because gamma0 and theta0 are thermodynamically derived after the elastic fit and q is assumed, rather than being reported as simultaneous regression coefficients. The deposited table spans 23-310 degC even though the abstract states 23-250 degC.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 1 and goethite EOS discussion, manuscript pages 6-7; Goethite thermodynamic parameters, Table 1 on manuscript page 15; MSA depository item AM-08-056, Table 1."
+   },
    "identifier": "goethite_gleason_2008_bm3_1",
    "pressure_calibration": {
     "status": "partially_resolved",

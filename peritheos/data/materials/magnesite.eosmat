@@ -77,6 +77,10 @@
     7.0
    ],
    "notes": "Room-temperature unconstrained BM3 fit to single-crystal data from 0 to 7 GPa: V0=279.41+/-0.08 A^3, K0=117+/-3 GPa, and K0'=2.3+/-0.7. The paper also reports an alternative BM2 fit with K0=111+/-1 GPa; this record represents the BM3 result.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1, measured P-V data; Unit-cell parameters and equation of state, pages 684-685."
+   },
    "identifier": "magnesite_ross_1997_bm3_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -210,12 +214,14 @@
     "model_unit": "angstrom^3/conventional_unit_cell"
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Abstract, page 1627; Simulation techniques, page 1628; Results and printed energy equation, page 1628; Table 1 and Figure 1, page 1628; Table 2, page 1629; phase-transition qualification, page 1630.",
     "V0": "Results, page 1628: the simulations predict V0=287.49 A^3 at P=0",
     "K0": "Abstract and Table 2, pages 1627 and 1629: KT(0)=99.0(5) GPa for this work's unconstrained third-order fit",
     "K0_prime": "Abstract and Table 2, pages 1627 and 1629: dK/dP=4.28(1) for this work's unconstrained third-order fit",
     "equation": "Results, page 1628: printed E(V)=E1+E2+E3 third-order Birch-Murnaghan energy equation; the resulting pressure-volume convention is independently reproduced by all nine Table 1 pressure values"
    },
    "notes": "Static-lattice GGA pseudopotential calculation for the named magnesite phase using a fully relaxed 30-atom MgCO3 cell (Z=6), with atomic positions and cell shape relaxed at nine volumes. The source reports the zero-pressure reference volume and an isothermal BM3 fit, but no finite-temperature or vibrational contribution; temperature_ref=0 K records that static electronic reference. The nine calculated states span -2.41596 to 207.419 GPa. Table 1 incorrectly labels both its energy and volume columns as per formula unit: its 160-295 A^3 volumes, stated V0=287.49 A^3, Figure 1 volume axis, and exact BM3 pressure reproduction establish the 30-atom conventional-cell basis; the energy rows likewise recover K0=98.921 GPa only when interpreted per 30-atom cell and give a factor-of-six error under the printed label. The parenthetical K0 and K0_prime errors are preserved, but the source states no confidence convention or covariance and gives no V0 uncertainty. The alternative K0_prime=4 fit, K0=111(1) GPa is not stored because the article calls it a poor second-order fit and does not use it in the subsequent analysis. The calculation finds no discontinuity within the sampled pressure range but explicitly cannot rule out reconstructive transitions with an energy barrier.",
+   "determination_method": "theoretical",
    "identifier": "magnesite_vocadlo_1999_bm3_2",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -388,6 +394,7 @@
    },
    "phase_scope": "rhombohedral magnesite, space group R-3c, conventional hexagonal cell with Z=6",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiments, pages 2-3; Results, Equations 1 and 4-8, pages 4-6; Table 1, page 5; Data Availability Statement; official author data deposit, doi:10.5281/zenodo.8399354, Table S1.",
     "V0": "Yu et al. (2024), Experiments and Table 1: ambient conventional-cell volume 280.71 A^3, fixed in the fit; originally measured for sample V3782 by Yang et al. (2014)",
     "K0": "Yu et al. (2024), Table 1, preferred Mie-Gruneisen fit: KT0=105(2) GPa",
     "K0_prime": "Yu et al. (2024), Table 1, preferred Mie-Gruneisen fit: KT0'=4.49(5)",
@@ -399,6 +406,7 @@
     "equation": "Yu et al. (2024), Equations 1 and 4-8: BM3 300 K reference isotherm plus integrated constant-q Mie-Gruneisen-Debye thermal pressure"
    },
    "notes": "Preferred thermal parameterization from Table 1: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. Equations 7-8 specify gamma=gamma0(V/V0)^q and theta=theta0*exp[-(gamma-gamma0)/q], which is Peritheos's integrated_gruneisen law, not the Fei et al. variable-exponent law used for the Pt calibrant. The source conventional-cell volumes are converted internally to molar volume using Z=6, while the public API remains in A^3 per conventional hexagonal cell. The paper also reports a separate high-temperature BM3 reference-state fit with alpha0, alpha1, and dK/dT; it is not represented here because the preferred MGD model is explicitly described as more reliable for extrapolation and is used in the downstream mantle calculations. The publication does not report the regression weights, residual definition, coefficient covariance, or confidence convention for parenthetical parameter errors. An independent unweighted pressure-residual refit is therefore a transparent reproduction diagnostic rather than a claim to duplicate the unpublished regression protocol.",
+   "determination_method": "experimental",
    "identifier": "magnesite_yu_2024_bm3_mgd_3",
    "pressure_calibration": {
     "status": "partially_resolved",

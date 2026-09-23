@@ -36,6 +36,10 @@
  "peaks": [],
  "eos_records": [
   {
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
+   },
    "identifier": "nacl_b2_sakai_2025_rydberg_stacey_1",
    "label": "Sakai et al. (2025), NaCl-B2 generalized Rydberg-Stacey scale",
    "reference": {
@@ -200,6 +204,10 @@
     70.0
    ],
    "notes": "Heinz and Jeanloz report V0(B2)/V0(B1) = 0.929 +/- 0.071 and K0 = 36.2 +/- 4.2 GPa from a second-order finite-strain fit, which fixes K0' at 4. The V0 uncertainty is propagated using the ambient B1 volume. The uncitable Sata/Shen fit was removed.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1)-(5), pages 6047-6048; Table I, B2 compression data; page 6048, second-order finite-strain fit."
+   },
    "identifier": "nacl_b2_heinz_1984_bm2_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -289,6 +297,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.11 GPa and K0' +/- 0.02. The B2 phase data are above 33 GPa.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
+   },
    "identifier": "nacl_b2_shen_2026_vinet_2",
    "pressure_calibration": {
     "status": "resolved",
@@ -361,6 +373,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "nacl_b2_sakai_2014_yokoo_pt_bm3",
    "label": "Sakai et al. (2014), yokoo_pt_bm3",
    "reference": {
@@ -452,6 +465,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 2, journal p. 115: new P5 NaCl-B2 calibration.",
     "V0": "Section 2, journal p. 115: new P5 NaCl-B2 calibration: fixed/adopted",
     "K0": "Section 2, journal p. 115: new P5 NaCl-B2 calibration: published fit",
     "K0_prime": "Section 2, journal p. 115: new P5 NaCl-B2 calibration: published fit"
@@ -488,6 +502,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "nacl_b2_sakai_2011_matsui_pt_bm3",
    "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
    "reference": {
@@ -561,6 +576,7 @@
     "nacl_b2_sata_2002_table1_sakai_input"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, p.084912-3; Table II, p.084912-4; Sections III.A–C, pp.084912-2–5; Figure 5 and comparisons, p.084912-5.",
     "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.73(4.05) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
     "K0": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed.",
     "K0_prime": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed."
@@ -640,6 +656,7 @@
    "pressure_range_status": "reported_exactly"
   },
   {
+   "determination_method": "experimental",
    "identifier": "nacl_b2_sakai_2011_matsui_pt_vinet",
    "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
    "reference": {
@@ -713,6 +730,7 @@
     "nacl_b2_sata_2002_table1_sakai_input"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, p.084912-3; Table II, p.084912-4; Sections III.A–C, pp.084912-2–5; Figure 5 and comparisons, p.084912-5.",
     "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.73(4.05) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
     "K0": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed.",
     "K0_prime": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed."
@@ -792,6 +810,7 @@
    "pressure_range_status": "reported_exactly"
   },
   {
+   "determination_method": "experimental",
    "identifier": "nacl_b2_sakai_2011_fei_pt_bm3",
    "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
    "reference": {
@@ -865,6 +884,7 @@
     "nacl_b2_sata_2002_table1_sakai_input"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, p.084912-3; Table II, p.084912-4; Sections III.A–C, pp.084912-2–5; Figure 5 and comparisons, p.084912-5.",
     "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.73(3.88) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
     "K0": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed.",
     "K0_prime": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed."
@@ -943,6 +963,7 @@
    "pressure_range_status": "reported_exactly"
   },
   {
+   "determination_method": "experimental",
    "identifier": "nacl_b2_sakai_2011_fei_pt_vinet",
    "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
    "reference": {
@@ -1016,6 +1037,7 @@
     "nacl_b2_sata_2002_table1_sakai_input"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, p.084912-3; Table II, p.084912-4; Sections III.A–C, pp.084912-2–5; Figure 5 and comparisons, p.084912-5.",
     "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.73(3.88) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
     "K0": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed.",
     "K0_prime": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed."
@@ -1094,6 +1116,7 @@
    "pressure_range_status": "reported_exactly"
   },
   {
+   "determination_method": "experimental",
    "identifier": "nacl_b2_sakai_2011_do_pt_bm3",
    "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
    "reference": {
@@ -1167,6 +1190,7 @@
     "nacl_b2_sata_2002_table1_sakai_input"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, p.084912-3; Table II, p.084912-4; Sections III.A–C, pp.084912-2–5; Figure 5 and comparisons, p.084912-5.",
     "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.76(4.21) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
     "K0": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed.",
     "K0_prime": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed."
@@ -1241,6 +1265,7 @@
    "pressure_range_status": "reported_exactly"
   },
   {
+   "determination_method": "experimental",
    "identifier": "nacl_b2_sakai_2011_do_pt_vinet",
    "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
    "reference": {
@@ -1314,6 +1339,7 @@
     "nacl_b2_sata_2002_table1_sakai_input"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, p.084912-3; Table II, p.084912-4; Sections III.A–C, pp.084912-2–5; Figure 5 and comparisons, p.084912-5.",
     "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 37.76(4.21) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
     "K0": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed.",
     "K0_prime": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed."
@@ -1388,6 +1414,7 @@
    "pressure_range_status": "reported_exactly"
   },
   {
+   "determination_method": "experimental",
    "identifier": "nacl_b2_sakai_2011_holmes_pt_bm3",
    "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
    "reference": {
@@ -1461,6 +1488,7 @@
     "nacl_b2_sata_2002_table1_sakai_input"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, p.084912-3; Table II, p.084912-4; Sections III.A–C, pp.084912-2–5; Figure 5 and comparisons, p.084912-5.",
     "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 38.01(5.26) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
     "K0": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed.",
     "K0_prime": "Table II, named Pt-calibration row, bm3 column; fitted with V0 fixed."
@@ -1536,6 +1564,7 @@
    "pressure_range_status": "reported_exactly"
   },
   {
+   "determination_method": "experimental",
    "identifier": "nacl_b2_sakai_2011_holmes_pt_vinet",
    "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
    "reference": {
@@ -1609,6 +1638,7 @@
     "nacl_b2_sata_2002_table1_sakai_input"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, p.084912-3; Table II, p.084912-4; Sections III.A–C, pp.084912-2–5; Figure 5 and comparisons, p.084912-5.",
     "V0": "Section III.B, pp.084912-3–4: g–G quadratic zero-pressure extrapolation, 38.01(5.26) A^3, then fixed for both Table II fits. Printed absolute uncertainty retained; not a directly measured ambient B2 volume.",
     "K0": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed.",
     "K0_prime": "Table II, named Pt-calibration row, vinet column; fitted with V0 fixed."

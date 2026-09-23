@@ -125,6 +125,7 @@
     49.4
    ],
    "notes": "Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. It is distinct from the paper's later global linear-composition model. V0 and its error are propagated from the primary a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. Table 2 spans 0-49.4 GPa. No covariance or confidence convention for the K0 error is reported.",
+   "determination_method": "experimental",
    "identifier": "mgfe60o_richet_1989_bm2_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -180,12 +181,14 @@
    "temperature_ref": 298.0,
    "pressure_range_status": "reported_exactly",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 3037, MW60 ambient a=4.2805(4) A; pages 3038-3039, Tables 1-2, MW60 BM2 fit and P-V data; page 3041, equation (1) and discussion of fixing K0'=4.",
     "V0": "Richet et al. (1989), page 3037: a0=4.2805(4) A; V0=a0^3 for the four-formula-unit rocksalt cell",
     "K0": "Richet et al. (1989), Table 1, MW60 this-work static fit",
     "equation": "Richet et al. (1989), Table 1 footnote and equation (1): second-order Eulerian finite strain with K0'=4"
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgfe60o_solomatova_2016_hs_bm3_reference_1",
    "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
    "record_kind": "published",
@@ -249,6 +252,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 paired BM3 reference branches.",
     "V0": "Table 7: 77.9 A^3.",
     "K0": "Table 7: 159 GPa.",
@@ -296,6 +300,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgfe60o_solomatova_2016_ls_bm3_reference_2",
    "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
    "record_kind": "published",
@@ -361,6 +366,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 paired BM3 reference branches.",
     "V0": "Table 7: 73.83 A^3.",
     "K0": "Table 7: 169 GPa.",

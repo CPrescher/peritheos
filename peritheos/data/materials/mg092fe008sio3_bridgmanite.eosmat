@@ -33,6 +33,7 @@
  "notes": "The displayed Pbnm cell uses the established Fe-bearing bridgmanite axial ratios scaled isotropically to the density-derived EOS V0. It is a display cell, not a structure refinement of the chemically impure natural starting material. Gong et al. refer their analyzed natural pyroxene to the nominal Mg#92 formula used by this EOS record.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3",
    "label": "Gong et al. (2004), shock-derived adiabatic BM3",
    "record_kind": "published",
@@ -103,6 +104,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2 and 3.3; Table 1.",
     "equation": "Section 3.3 explicitly derives a third-order Eulerian finite-strain (Birch-Murnaghan) isentrope from the porosity-corrected shock states using a Mie-Gruneisen reduction.",
     "parameters": "Section 3.3: K0S=260.1(9) GPa, K0S'=4.18(4), with rho0=4.19 g cm-3.",
     "volume_basis": "V0 is calculated as Z M/(rho0 N_A), with Z=4 and nominal molar mass 102.9102 g mol-1, giving 163.13738187176514 A3.",

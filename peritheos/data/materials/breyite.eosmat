@@ -24,6 +24,7 @@
  "eos_records": [
   {
    "identifier": "breyite_sagatova_2021_gga_300k_vinet",
+   "determination_method": "theoretical",
    "label": "Sagatova et al. (2021), breyite GGA 300 K Vinet",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -87,6 +88,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 2; Phase relations.",
     "equation": "Vinet EOS, Methods.",
     "parameters": "Table 2, this-work GGA breyite row.",
     "method": "PBE-GGA quasi-harmonic free-energy calculation at room temperature."

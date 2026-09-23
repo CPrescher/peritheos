@@ -370,6 +370,14 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
         record_kind = record.get("record_kind", "published")
         if record_kind not in {"published", "refit", "derived", "diagnostic"}:
             raise EosmatError(f"{location}.record_kind is invalid")
+        determination_method = record.get("determination_method", "unknown")
+        if not isinstance(determination_method, str) or determination_method not in {
+            "experimental",
+            "theoretical",
+            "hybrid",
+            "unknown",
+        }:
+            raise EosmatError(f"{location}.determination_method is invalid")
         derived_from = record.get("derived_from_record")
         if derived_from is not None:
             if not isinstance(derived_from, str) or not derived_from:

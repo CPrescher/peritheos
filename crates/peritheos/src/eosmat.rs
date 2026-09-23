@@ -942,6 +942,15 @@ impl HugoniotRecord<'_> {
 }
 
 impl EosRecord {
+    /// How the parameters were determined; absent legacy metadata is `unknown`.
+    #[must_use]
+    pub fn determination_method(&self) -> &str {
+        self.document
+            .get("determination_method")
+            .and_then(Value::as_str)
+            .unwrap_or("unknown")
+    }
+
     /// Return a typed Hugoniot view when this record represents a shock path.
     #[must_use]
     pub fn as_hugoniot(&self) -> Option<HugoniotRecord<'_>> {
@@ -2048,6 +2057,16 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
         }
 
         let record_identifier = record.get("identifier").and_then(Value::as_str);
+        if let Some(method) = record.get("determination_method") {
+            if !matches!(
+                method.as_str(),
+                Some("experimental" | "theoretical" | "hybrid" | "unknown")
+            ) {
+                return Err(invalid_document(format!(
+                    "{location}.determination_method is invalid"
+                )));
+            }
+        }
         let record_kind = record
             .get("record_kind")
             .and_then(Value::as_str)

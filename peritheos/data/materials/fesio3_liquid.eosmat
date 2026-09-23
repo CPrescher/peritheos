@@ -22,6 +22,7 @@
  "notes": "A non-crystalline material card. The format's cell-volume unit is used as a one-formula-unit volume basis.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "fesio3_liquid_sun_2019_2500k_bm4_1",
    "label": "Sun et al. (2019), liquid FeSiO3 2500 K BM4 reference",
    "record_kind": "published",
@@ -93,6 +94,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Computational methods, Section 2; Table 1; Figure 1 and caption; Equations (4)-(9), Section 3.1.",
     "equation": "Section 3.1, Equations (4)-(9): the reference-temperature pressure P_T0(V) is a fourth-order Birch-Murnaghan EOS at T0=2500 K.",
     "V0": "Section 3.1: 47.25 cm^3/mol, converted using the exact Avogadro constant to 78.46047092 A^3 per FeSiO3 formula unit.",
     "K0": "Section 3.1: K_T0=2.217 GPa.",

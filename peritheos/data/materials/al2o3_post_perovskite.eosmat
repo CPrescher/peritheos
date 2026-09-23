@@ -43,6 +43,7 @@
  "eos_records": [
   {
    "identifier": "al2o3_post_perovskite_akber_knutson_2005_gga_bm3",
+   "determination_method": "theoretical",
    "label": "Akber-Knutson et al. (2005), static GGA CCM BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -107,6 +108,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2, paragraphs 6-8; Table 1.",
     "equation": "Section 2: internal energy versus volume fitted to the third-order Birch-Murnaghan equation.",
     "V0": "Table 1 post_perovskite CCM 100 mol.% row: 41.78 A^3 on the normalized approximately five-atom basis; multiplied by four for the executable conventional-cell basis.",
     "K0": "Table 1: 201 GPa.",

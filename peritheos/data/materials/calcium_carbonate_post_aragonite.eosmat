@@ -99,6 +99,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Room-temperature BM3 fit with V0 fixed at 97.76 A^3.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, static BM3 row; Table 2, MGD reference-isotherm row."
+   },
    "identifier": "calcium_carbonate_post_aragonite_lv_2020_bm3_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -235,6 +239,10 @@
     "model": "mie_gruneisen_debye"
    },
    "notes": "Joint high-pressure/high-temperature BM3-MGD fit. V0 and the Debye temperature were fixed; n is the five-atom formula-unit count used by the thermal model.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, static BM3 row; Table 2, MGD reference-isotherm row."
+   },
    "identifier": "calcium_carbonate_post_aragonite_lv_2020_bm3_2",
    "pressure_calibration": {
     "status": "resolved",

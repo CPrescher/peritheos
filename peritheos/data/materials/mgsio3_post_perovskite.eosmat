@@ -125,6 +125,10 @@
     "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
    ],
    "notes": "Global errors-in-variables inversion of 48 Guignot et al. static P-V-T observations and six PPv shock P-density states. V0=162.2 A^3 was fixed. Table 4 reports K0S=225(2) GPa, K0S'=4.21(7), theta0=990(146) K, gamma0=2.61(67), q=2.1(8), and Cvm=1.035(50) J g^-1 K^-1; Cvmax is the exact molar conversion using 100.3875 g mol^-1. The BM3 term is a 300 K reference isentrope, so thermal pressure subtracts energy at T_S(V)=Tr*theta(V)/theta0. The three source-reported shock temperatures are retained as measured diagnostics but are not constraints in the solid PPv inversion; section 3 explicitly identifies shock-temperature fitting only for MgSiO3 liquid.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Mosenfelder (2009), Table 4 and Section 3: joint inversion of static P-V-T observations and six PPv shock states. The isentropic reference and caloric model are reductions of experimental constraints."
+   },
    "identifier": "mgsio3_post_perovskite_mosenfelder_2009_bm3_1",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -232,6 +236,10 @@
    },
    "fixed_parameters": [],
    "notes": "Experimental BM3 fit 1 to laser-heated DAC data from this study plus Guignot et al., reaching 265 GPa. Stored as a room-temperature cold curve only because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. Sakai et al. prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range rather than extrapolated.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Methods and EOS results; EOS parameter table."
+   },
    "identifier": "mgsio3_post_perovskite_sakai_2016_bm3_2",
    "pressure_calibration": {
     "status": "resolved",
@@ -301,6 +309,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgsio3_post_perovskite_ono_2006_anderson_bm2_3",
    "label": "Ono et al. (2006), Anderson-gold-scale constrained BM3 (BM2)",
    "reference": {
@@ -371,6 +380,7 @@
     "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental methods; Results and printed EOS equation; Tables 1-3; Figure 2 and caption.",
     "equation": "Journal page 476: the printed third-order Birch-Murnaghan equation uses x=(V/V0)^(1/3), with P=(3/2)K0(x^-7-x^-5)[1+(3/4)(K0_prime-4)(x^-2-1)]. Fixing K0_prime=4 makes the executable curve exactly BM2.",
     "V0": "Journal page 477 and Table 3: 162.86 A^3, fixed; adopted from the 0 K LDA calculation of Oganov and Ono (2004), not measured at ambient pressure.",
     "K0": "Results prose and Table 3, journal page 477: 237(1) GPa for pressures reduced with the Anderson et al. (1989) gold standard.",
@@ -503,6 +513,7 @@
    "notes": "Pure MgSiO3 CaIrO3-type post-perovskite, not CaIrO3 composition or bridgmanite. The conventional Cmcm volume contains four MgSiO3 formula units. This pressure-scale-specific record is distinct from the later Mosenfelder and Sakai parameterizations."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgsio3_post_perovskite_ono_2006_jamieson_bm2_4",
    "label": "Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)",
    "reference": {
@@ -572,6 +583,7 @@
     "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental methods; Results and printed EOS equation; Tables 1-3; Figure 2 and caption.",
     "equation": "Journal page 476: the printed standard Eulerian third-order Birch-Murnaghan equation; fixed K0_prime=4 reduces it exactly to BM2.",
     "V0": "Journal page 477 and Table 3: 162.86 A^3, fixed and adopted from Oganov and Ono (2004) LDA.",
     "K0": "Results prose and Table 3, journal page 477: 226(1) GPa for pressures reduced with the Jamieson et al. (1982) gold standard.",
@@ -701,6 +713,7 @@
    "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgsio3_post_perovskite_ono_2006_dewaele_bm2_5",
    "label": "Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)",
    "reference": {
@@ -770,6 +783,7 @@
     "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental methods; Results and printed EOS equation; Tables 1-3; Figure 2 and caption.",
     "equation": "Journal page 476: the printed standard Eulerian third-order Birch-Murnaghan equation; fixed K0_prime=4 reduces it exactly to BM2.",
     "V0": "Journal page 477 and Table 3: 162.86 A^3, fixed and adopted from Oganov and Ono (2004) LDA.",
     "K0": "Results prose and Table 3, journal page 477: 248(1) GPa for pressures reduced with the Dewaele et al. (2004) gold standard.",
@@ -904,6 +918,7 @@
    "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgsio3_post_perovskite_akber_knutson_2005_gga_bm3",
    "label": "Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3",
    "record_kind": "published",
@@ -968,6 +983,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Table 1.",
     "equation": "Section 2: internal energy versus volume fitted to the third-order Birch-Murnaghan equation.",
     "V0": "Table 1, post-perovskite None row: 41.83 A^3 on the normalized five-atom basis; multiplied by four.",
     "K0": "Table 1: 204 GPa.",
@@ -1030,6 +1046,7 @@
    "notes": "Source-specific theoretical comparison; it does not replace experimental records."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3",
    "label": "Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3",
    "record_kind": "published",
@@ -1090,6 +1107,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Sections II-III; Figure 2; Table I.",
     "equation": "Section III identifies a third-order Birch-Murnaghan fit to F(V,T).",
     "parameters": "Table I, PPv LDA row at 300 K.",
     "volume_conversion": "40.02 A3 per MgSiO3 multiplied by Z=4."
@@ -1140,6 +1158,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3",
    "label": "Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3",
    "record_kind": "published",
@@ -1200,6 +1219,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Sections II-III; Figure 2; Table I.",
     "equation": "Section III identifies a third-order Birch-Murnaghan fit to F(V,T).",
     "parameters": "Table I, PPv PBE row at 300 K.",
     "volume_conversion": "42.56 A3 per MgSiO3 multiplied by Z=4."
@@ -1250,6 +1270,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgsio3_post_perovskite_li_zeng_2009_gga_bm3",
    "label": "Li and Zeng (2009), GGA BM3",
    "record_kind": "published",
@@ -1289,6 +1310,7 @@
     "molar_mass_g_mol": 100.387
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Figure 1; Table 1.",
     "equation": "Table 1, third-order Birch-Murnaghan column.",
     "parameters": "Table 1, this-study post-perovskite row.",
     "volume_basis": "Cmcm conventional cell, Z=4."
@@ -1338,6 +1360,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgsio3_post_perovskite_li_zeng_2009_gga_vinet",
    "label": "Li and Zeng (2009), GGA Vinet sensitivity",
    "record_kind": "published",
@@ -1377,6 +1400,7 @@
     "molar_mass_g_mol": 100.387
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Figure 1; Table 1.",
     "equation": "Table 1, Vinet column.",
     "parameters": "Table 1, this-study post-perovskite row.",
     "volume_basis": "Cmcm conventional cell, Z=4."
@@ -1425,6 +1449,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgsio3_post_perovskite_li_zeng_2009_gga_natural_strain3",
    "label": "Li and Zeng (2009), GGA natural-strain-3 sensitivity",
    "record_kind": "published",
@@ -1464,6 +1489,7 @@
     "molar_mass_g_mol": 100.387
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Figure 1; Table 1.",
     "equation": "Table 1, third-order natural-strain column.",
     "parameters": "Table 1, this-study post-perovskite row.",
     "volume_basis": "Cmcm conventional cell, Z=4."
@@ -1512,6 +1538,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgsio3_post_perovskite_liu_2010_lda_static_bm3",
    "label": "Liu et al. (2010), LDA static BM3",
    "record_kind": "published",
@@ -1577,6 +1604,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: abstract; Sections 2-3; Table 1; Figure 1.",
     "equation": "Section 3 states that computed E-V points are fitted to the third-order Birch-Murnaghan EOS.",
     "parameters": "Section 3 and Table 1, This work row: V0=163.3 A3, K0=219.3 GPa, and K0'=4.4.",
     "volume_basis": "The source identifies V as unit-cell volume; Cmcm MgSiO3 post-perovskite has Z=4.",
@@ -1629,6 +1657,7 @@
    "notes": "Accepted LitCurate source record litcurate_cf1303ecf47a5001. The six remaining same-DOI rows are literature comparisons and are not duplicated."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey",
    "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
    "record_kind": "published",
@@ -1703,6 +1732,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Experimental thermoelastic synthesis of heat capacity, expansion, acoustic and P-V-T measurements; see docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md, What the source optimized.",
     "equation": "Equation (2), exactly mapped to Rydberg-Stacey with K_infinity_prime=k/3.",
     "V0": "Table 1: 24.2 cm3/mol, converted with exact N_A and Z=4 to 160.74018170242837 A3.",
     "K0": "Table 1: 253.7 GPa.",
@@ -1769,6 +1799,7 @@
    "notes": "Accepted corrected mapping for LitCurate source row 868 (litcurate_ef9e7ca080ec8309). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved."
   },
   {
+   "determination_method": "hybrid",
    "identifier": "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3",
    "label": "Komabayashi et al. (2008), MgO-scale thermal BM3",
    "record_kind": "published",
@@ -1840,6 +1871,7 @@
     "mgsio3_post_perovskite_komabayashi_2008_table1_pvt"
    ],
    "parameter_provenance": {
+    "determination_method": "Komabayashi (2008), Tables 1-2: experimental P-V-T fits hold V0=163.813 A3 from Tsuchiya (2004) first-principles calculations fixed. This theoretical reference-volume anchor makes the represented parameterization hybrid.",
     "equation": "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522",
     "parameters": "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522",
     "fixed_parameters": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced.",

@@ -94,6 +94,10 @@
     "model": "thermal_reference_state"
    },
    "notes": "Joint PVT fit for pure H2O ice VII. Published molar V0=12.49(1) cm^3/mol is converted to the Z=2 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VII measurements tabulated in the paper.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; BM2 P-V-T fits for ice VI and ice VII."
+   },
    "identifier": "ice_vii_bezacier_2014_bm2_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -197,6 +201,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Independent 300 K compression fit. Published molar V0=12.4(1) cm^3/mol is converted to the Z=2 cubic cell. The fit used all three BM3 variables simultaneously; the numeric pressure domain is the range of the authors' 300 K compression data.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (2), pages 2782-2783; section 3.1, pages 2782-2783; Table 1; Figure 2."
+   },
    "identifier": "ice_vii_frank_2004_bm3_2",
    "pressure_calibration": {
     "status": "resolved",

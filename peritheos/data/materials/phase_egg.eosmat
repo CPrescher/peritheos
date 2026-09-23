@@ -136,6 +136,7 @@
  "notes": "The article writes the analyzed composition as Al0.98(1)Si0.92(1)O3OH1.39(5). This is condensed hydroxyl notation for Al0.98Si0.92H1.39O4 (three O plus one O bearing 1.39 H), consistent with the official CIF analytical formula; it is not O4.39. The deposited 2018 X-ray structure fixes Al and Si occupancies to unity because refined and fixed-occupancy models were indistinguishable, and it contains no H atom site. The ideal fully occupied structural model therefore has Al4Si4H4O16 cell contents and is a diffraction model for the analyzed Al3.92Si3.68H5.56O16 composition, not an assertion that the measured vacancies or excess hydrogen were crystallographically resolved. The H coordinate is the powder-XRD position from Schmidt et al. (1998) explicitly used in the 2018 paper's Figure 1. The structural ambient volume, 214.431(13) A^3, differs from fitted V0 because the authors excluded the in-house ambient point from the synchrotron EOS regression. The Mookherjee et al. (2019) record uses the ideal nominal formula AlSiO3(OH); its EOS metadata remains record-specific. The ambient diffraction structure is Schmidt et al.'s ordered P21/n refinement: the seven fully occupied 4e sites give four AlSiO4H formula units and the reported lattice gives 212.99 A^3. P21/n is the alternate setting of P21/c (space-group number 14). The structural volume is intentionally distinct from the static-DFT LP EOS reference volume of 210.21 A^3. Phase D is a different composition and material in the catalog.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "phase_egg_schulze_2018_bm3_1",
    "label": "Schulze et al. (2018), single-crystal BM3",
    "reference": {
@@ -194,6 +195,7 @@
     "phase_egg_schulze_2018_table1_compression"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Methods, sample synthesis and characterization; Methods, high-pressure experiments; Results, compressibility of Phase Egg; Tables 1-2; official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf.",
     "equation": "Results, pages 1977-1978: F-f plot requires a third-order Birch-Murnaghan EOS; standard Eulerian finite-strain convention implemented by EosFit7c",
     "V0": "Table 2, this-study column: 214.08(17) A^3 conventional cell; all three coefficients refined",
     "K0": "Table 2, this-study column: 153(8) GPa; all three coefficients refined",
@@ -311,6 +313,7 @@
    "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted in EosFit7c; none was fixed or adopted. Parenthesized coefficient errors are stored as printed, but the article gives no confidence level or covariance matrix. Table 2 also prints a BM3 re-fit to Vanpeteghem et al. (2003): V0=211.41(11) A^3, K0=155(5) GPa, K0_prime=6.7(5). That comparison reduction belongs to the older powder dataset and is not a second parameterization of the 2018 single-crystal observations. The fitted V0 is a zero-pressure extrapolation because the only ambient observation was intentionally omitted. The experimental pressure envelope is not a phase-stability guarantee."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "phase_egg_mookherjee_2019_bm3_lp_1",
    "label": "Mookherjee et al. (2019), static LP BM3",
    "reference": {
@@ -378,6 +381,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: article footer and bibliographic header, page 130; Methods, pages 131-132; equations (1)-(2) and equation-of-state discussion, pages 132-133; official MSA deposit AM-19-16694, Supplementary Table 1, low-pressure block.",
     "V0": "Mookherjee et al. (2019), equation-of-state section, pages 132-133: V0(LP)=210.21(+/-0.14) A^3",
     "K0": "Mookherjee et al. (2019), equation-of-state section, pages 132-133: K0(LP)=164.4(+/-1.8) GPa",
     "K0_prime": "Mookherjee et al. (2019), equation-of-state section, pages 132-133: K0'(LP)=7.14(+/-0.24)",
@@ -478,6 +482,7 @@
    "notes": "Published LP parameterization. All V0, K0, and K0' values were fitted; none was fixed or adopted. The source's separate HP proton-configuration parameters are scientifically distinct and are represented by a companion record rather than merged into this LP branch. The official supplement continues the LP calculation grid beyond the approximately 15 GPa proton-transfer boundary to 43.7 GPa; those rows document the source fit/curve but do not expand the recommended LP branch. The source reports no E0 value needed by pressure evaluation and no parameter covariance, confidence convention, row uncertainties, fit objective, weights, software-fit details, or fit statistic."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "phase_egg_mookherjee_2019_bm3_hp_1",
    "label": "Mookherjee et al. (2019), static HP proton-transferred BM3",
    "reference": {
@@ -546,6 +551,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods, pages 131-132; equations (1)-(2) and EOS discussion, pages 132-133; Figure 3.",
     "equation": "Equations (1)-(2): third-order Birch-Murnaghan energy in Eulerian finite strain; pressure is its negative volume derivative.",
     "parameters": "Equation-of-state discussion on page 133: V0(HP)=207.74(+/-0.01) A3, K0(HP)=222.8(+/-0.2) GPa, and K0'(HP)=4.44(+/-0.02).",
     "volume_basis": "Primitive monoclinic P21/c calculation cell, equivalent to the conventional Z=4 cell.",

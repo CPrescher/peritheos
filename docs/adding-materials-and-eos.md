@@ -73,6 +73,10 @@ Record:
 - equation numbers and the definition of every symbol;
 - parameter table and whether each value was fitted, fixed, adopted, or
   derived;
+- record-level `determination_method` (`experimental`, `theoretical`, `hybrid`,
+  or explicitly `unknown`) and its rationale in
+  `parameter_provenance.determination_method`, considering fixed coefficients
+  and thermal terms as well as the fitted data;
 - reference temperature, reference pressure, and volume basis;
 - pressure and temperature ranges actually represented by the experiments or
   fit;

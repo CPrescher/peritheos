@@ -73,6 +73,7 @@
     34.05
    ],
    "notes": "Volumetric BM3 fit to all 23+/-3 degC SrO data through 34.05 GPa. K0=91.3+/-2.7 GPa and K0'=4.3+/-0.3 are one-standard-deviation fit errors. The fixed V0 error represents the paper's stated 0.3% volume accuracy. Between about 7 and 30.7 GPa the nominal B1 cell shows a small tetragonal distortion, but the paper reports no volume discontinuity and deliberately fits all data together. No parameter covariance is published.",
+   "determination_method": "experimental",
    "identifier": "sro_liu_1973_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -132,6 +133,7 @@
    ],
    "pressure_range_status": "reported_exactly",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 8471, Table 2, 23+/-3 degC P-V observations; page 8472, first Birch formulation and fitted coefficients; page 8472, stated one-standard-deviation fit errors.",
     "V0": "Liu and Bassett (1973), Table 2: a0=5.160 A; V0=a0^3, with the stated 0.3% volume accuracy",
     "K0": "Liu and Bassett (1973), page 8472, first Birch formulation",
     "K0_prime": "Liu and Bassett (1973), page 8472, first Birch formulation",

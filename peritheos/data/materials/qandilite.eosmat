@@ -115,6 +115,7 @@
   "notes": "The EOS sample was synthesized at 1673 K for 52 h and cooled at 5 K/min. Cubic inverse spinel persisted through 14.9 GPa at 300 K; this is observed metastable persistence, not equilibrium phase stability. Structure and EOS reference cells come from separately identified experiments.",
   "eos_records": [
     {
+      "determination_method": "experimental",
       "identifier": "qandilite_lv_2016_bm2",
       "label": "Lv et al. (2016), 300 K BM2 (K0′ = 4)",
       "record_kind": "published",
@@ -170,6 +171,7 @@
         "qandilite_lv_2016_table1_pv"
       ],
       "parameter_provenance": {
+       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental method, p. 302; Table 1 and unnumbered BM equation, p. 303; Figures 3–5, p. 304; Table 2, p. 305.",
         "equation": "Unnumbered standard Eulerian Birch–Murnaghan equation, p. 303; conventional cubic cell volume.",
         "V0": "Fitted, p. 303: 603.21(18) A3; not the measured 602.58(49) A3 ambient volume.",
         "K0": "Fitted, p. 303 and Table 2: 172.0 GPa.",
@@ -284,6 +286,7 @@
       "notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim."
     },
     {
+      "determination_method": "experimental",
       "identifier": "qandilite_lv_2016_bm3",
       "label": "Lv et al. (2016), 300 K BM3 (free K0′)",
       "record_kind": "published",
@@ -341,6 +344,7 @@
         "qandilite_lv_2016_table1_pv"
       ],
       "parameter_provenance": {
+       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental method, p. 302; Table 1 and unnumbered BM equation, p. 303; Figures 3–5, p. 304; Table 2, p. 305.",
         "equation": "Unnumbered standard Eulerian Birch–Murnaghan equation, p. 303; conventional cubic cell volume.",
         "V0": "Fitted, p. 303: 603.10(25) A3; not the measured 602.58(49) A3 ambient volume.",
         "K0": "Fitted, p. 303 and Table 2: 175.0 GPa.",

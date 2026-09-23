@@ -78,6 +78,7 @@
  "notes": "Average B1 solid-solution structure for the source's eight-formula-unit DFT+DMFT supercell. The EOS is a high-spin theoretical branch, not an experimental ambient structure.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "mg0125fe0875o_leonov_2017_hs_bm3_1",
    "label": "(Mg0.125Fe0.875)O B1 magnesiowustite, Leonov et al. (2017) high-spin BM3",
    "record_kind": "published",
@@ -137,6 +138,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table I; Figures 1-4.",
     "equation": "Methods: third-order Birch-Murnaghan fit to the DFT+DMFT total-energy results.",
     "V0": "Table I: 143.1 bohr^3/formula unit, converted to a conventional Z=4 cell with the exact Bohr definition.",
     "K0": "Table I high-spin column: 139 GPa.",

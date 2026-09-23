@@ -17,6 +17,7 @@
  "notes": "Phase-specific card for published hcp-Zn EOS records. No diffraction structure is bundled.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "zinc_hcp_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), Zn MAO-scale Vinet",
    "record_kind": "published",
@@ -83,6 +84,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -151,6 +153,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "zinc_hcp_dewaele_2019_dor_vinet",
    "label": "Dewaele (2019), Zn DOR-scale Vinet",
    "record_kind": "published",
@@ -217,6 +220,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"

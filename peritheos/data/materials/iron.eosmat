@@ -28,6 +28,10 @@
  "peaks": [],
  "eos_records": [
   {
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
+   },
    "identifier": "iron_sakai_2025_rydberg_stacey_1",
    "label": "Sakai et al. (2025), Fe-hcp generalized Rydberg-Stacey scale",
    "reference": {
@@ -201,6 +205,10 @@
     300.0
    ],
    "notes": "Mao et al. report V0 = 22.35(3) A^3, K0 = 165(4) GPa, and K0' = 5.33(9) for the two-atom hcp cell. The legacy volume was also corrected for the hexagonal sin(120 degree) factor.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, journal page 21738; Table 3 and EOS discussion, journal pages 21739-21740."
+   },
    "identifier": "iron_mao_1990_bm3_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -306,6 +314,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.6 GPa and K0' +/- 0.03. The hcp phase data are above 16 GPa.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
+   },
    "identifier": "iron_shen_2026_vinet_2",
    "pressure_calibration": {
     "status": "resolved",
@@ -378,6 +390,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), Fe MAO-scale Vinet",
    "record_kind": "published",
@@ -448,6 +461,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -496,6 +510,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_dewaele_2019_dor_vinet",
    "label": "Dewaele (2019), Fe DOR-scale Vinet",
    "record_kind": "published",
@@ -566,6 +581,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -614,6 +630,7 @@
    ]
   },
   {
+   "determination_method": "hybrid",
    "identifier": "iron_zhang_2025_fit1_birch_murnaghan_3_mgd",
    "label": "Zhang et al. (2025), hcp-Fe Fit #1 BM3+MGD",
    "record_kind": "published",
@@ -799,6 +816,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Zhang (2025), supplementary fit tables and bundled input selection: 1,078 static experimental rows, 132 dynamic P-V rows and 103 ab-initio rows jointly constrain the thermal EOS.",
     "V0": "Table 2/S6 molar V0 converted exactly to a two-atom hcp conventional-cell volume",
     "K0": "Table 2 and Supplementary Table S6",
     "K0_prime": "Table 2 and Supplementary Table S6",
@@ -945,6 +963,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "iron_zhang_2025_fit2_birch_murnaghan_3_mgd",
    "label": "Zhang et al. (2025), hcp-Fe Fit #2 BM3+MGD",
    "record_kind": "published",
@@ -1132,6 +1151,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Zhang (2025), supplementary fit tables and bundled input selection: 1,078 static experimental rows, 132 dynamic P-V rows and 103 ab-initio rows jointly constrain the thermal EOS.",
     "V0": "Table 2/S6 molar V0 converted exactly to a two-atom hcp conventional-cell volume",
     "K0": "Table 2 and Supplementary Table S6",
     "K0_prime": "Table 2 and Supplementary Table S6",
@@ -1278,6 +1298,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "iron_zhang_2025_fit5_vinet_mgd",
    "label": "Zhang et al. (2025), hcp-Fe Fit #5 Vinet+MGD",
    "record_kind": "published",
@@ -1465,6 +1486,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Zhang (2025), supplementary fit tables and bundled input selection: 1,078 static experimental rows, 132 dynamic P-V rows and 103 ab-initio rows jointly constrain the thermal EOS.",
     "V0": "Table 2/S6 molar V0 converted exactly to a two-atom hcp conventional-cell volume",
     "K0": "Table 2 and Supplementary Table S6",
     "K0_prime": "Table 2 and Supplementary Table S6",
@@ -1611,6 +1633,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "iron_dewaele_2006_vinet_thermal",
    "label": "Dewaele et al. (2006), hcp-Fe Vinet thermal pressure scale",
    "record_kind": "published",
@@ -1721,6 +1744,7 @@
     "audit_date": "2026-09-08"
    },
    "parameter_provenance": {
+    "determination_method": "Dewaele (2006), Equations (1)-(2): experimental reference isotherm and shock-constrained Debye term plus ab-initio anharmonic/electronic pressure coefficients; see parameter_provenance.",
     "V0": "Table III; 11.214(49) A^3/atom converted to the stored two-atom conventional-cell basis",
     "K0": "Table III, Vinet row for this study",
     "K0_prime": "Table III, Vinet row for this study",
@@ -1824,6 +1848,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_fei_2016_bm3",
    "label": "Fei et al. (2016), preferred fixed-density 300 K BM3",
    "record_kind": "published",
@@ -1894,6 +1919,7 @@
     "iron_fei_2016_table_s1"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.1, equation (1), p. 6840; Section 3.2, equation (2), pp. 6840–6841; Official SI introduction and Tables S1–S2.",
     "V0": "Section 3.1, p. 6840: rho0=8.2695 g/cm^3; V0=2*M/(NA*rho0), M=55.845 g/mol. The structural reference cell is independent of this extrapolated EOS volume.",
     "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
     "K0_prime": "Section 3.1, p. 6840"
@@ -1977,6 +2003,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_fei_2016_free_density_bm3",
    "label": "Fei et al. (2016), free-density 300 K BM3 alternative",
    "record_kind": "published",
@@ -2045,6 +2072,7 @@
     "iron_fei_2016_table_s1"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.1, equation (1), p. 6840; Section 3.2, equation (2), pp. 6840–6841; Official SI introduction and Tables S1–S2.",
     "V0": "Section 3.1, p. 6840: rho0=8.3602 g/cm^3; V0=2*M/(NA*rho0), M=55.845 g/mol. The structural reference cell is independent of this extrapolated EOS volume. Density error 0.0241 g/cm^3 propagated linearly: sigma_V0=V0*sigma_rho/rho.",
     "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
     "K0_prime": "Section 3.1, p. 6840"
@@ -2128,6 +2156,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_fei_2016_bm3_debye_quadratic",
    "label": "Fei et al. (2016), preferred BM3 + Debye and electronic/anharmonic thermal pressure",
    "record_kind": "published",
@@ -2199,6 +2228,7 @@
     "iron_fei_2016_table_s2"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.1, equation (1), p. 6840; Section 3.2, equation (2), pp. 6840–6841; Official SI introduction and Tables S1–S2.",
     "V0": "Section 3.1, p. 6840: rho0=8.2695 g/cm^3; V0=2*M/(NA*rho0), M=55.845 g/mol. The structural reference cell is independent of this extrapolated EOS volume.",
     "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
     "K0_prime": "Section 3.1, p. 6840",
@@ -2320,6 +2350,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p1_bm3",
    "label": "Sakai et al. (2014), p1_bm3",
    "reference": {
@@ -2415,6 +2446,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -2453,6 +2485,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p1_vinet",
    "label": "Sakai et al. (2014), p1_vinet",
    "reference": {
@@ -2548,6 +2581,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -2586,6 +2620,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p1_v0_mao_bm3",
    "label": "Sakai et al. (2014), p1_v0_mao_bm3",
    "reference": {
@@ -2681,6 +2716,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -2719,6 +2755,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p1_v0_mao_vinet",
    "label": "Sakai et al. (2014), p1_v0_mao_vinet",
    "reference": {
@@ -2814,6 +2851,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -2852,6 +2890,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p1_v0_dewaele_bm3",
    "label": "Sakai et al. (2014), p1_v0_dewaele_bm3",
    "reference": {
@@ -2947,6 +2986,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -2985,6 +3025,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p1_v0_dewaele_vinet",
    "label": "Sakai et al. (2014), p1_v0_dewaele_vinet",
    "reference": {
@@ -3080,6 +3121,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -3118,6 +3160,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p2_bm3",
    "label": "Sakai et al. (2014), p2_bm3",
    "reference": {
@@ -3214,6 +3257,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -3252,6 +3296,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p2_vinet",
    "label": "Sakai et al. (2014), p2_vinet",
    "reference": {
@@ -3348,6 +3393,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -3386,6 +3432,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p3_bm3",
    "label": "Sakai et al. (2014), p3_bm3",
    "reference": {
@@ -3482,6 +3529,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -3520,6 +3568,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p3_vinet",
    "label": "Sakai et al. (2014), p3_vinet",
    "reference": {
@@ -3616,6 +3665,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -3654,6 +3704,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p4_bm3",
    "label": "Sakai et al. (2014), p4_bm3",
    "reference": {
@@ -3749,6 +3800,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -3787,6 +3839,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p4_vinet",
    "label": "Sakai et al. (2014), p4_vinet",
    "reference": {
@@ -3882,6 +3935,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -3920,6 +3974,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p5_bm3",
    "label": "Sakai et al. (2014), p5_bm3",
    "reference": {
@@ -4016,6 +4071,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -4054,6 +4110,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p5_vinet",
    "label": "Sakai et al. (2014), p5_vinet",
    "reference": {
@@ -4150,6 +4207,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -4188,6 +4246,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p6_bm3",
    "label": "Sakai et al. (2014), p6_bm3",
    "reference": {
@@ -4283,6 +4342,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -4321,6 +4381,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_sakai_2014_p6_vinet",
    "label": "Sakai et al. (2014), p6_vinet",
    "reference": {
@@ -4416,6 +4477,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–4; Sections 2 and 3.3–3.4.",
     "V0": "Tables 1–4; Sections 2 and 3.3–3.4: fixed/adopted",
     "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
     "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
@@ -4454,6 +4516,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "iron_yamazaki_2012_bm3_thermal",
    "label": "Yamazaki et al. (2012), bm3_thermal",
    "reference": {
@@ -4559,6 +4622,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Yamazaki (2012), Table 1 and thermal-pressure equations: experimental compression fits include fixed anharmonic/electronic thermal coefficients adopted from Alfe (2001) calculations.",
     "reference_isotherm": {
      "V0": "Equations (1)–(4), Table 1, Table S1: published fit",
      "K0": "Equations (1)–(4), Table 1, Table S1: published fit",
@@ -4649,6 +4713,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "iron_yamazaki_2012_vinet_thermal",
    "label": "Yamazaki et al. (2012), vinet_thermal",
    "reference": {
@@ -4754,6 +4819,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Yamazaki (2012), Table 1 and thermal-pressure equations: experimental compression fits include fixed anharmonic/electronic thermal coefficients adopted from Alfe (2001) calculations.",
     "reference_isotherm": {
      "V0": "Equations (1)–(4), Table 1, Table S1: published fit",
      "K0": "Equations (1)–(4), Table 1, Table S1: published fit",
@@ -4844,6 +4910,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_dubrovinsky_2000_bm3_thermal",
    "label": "Dubrovinsky et al. (2000), bm3_thermal",
    "reference": {
@@ -4935,6 +5002,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), Table II.",
     "reference_isotherm": {
      "V0": "Equation (1), Table II: published fit",
      "K0": "Equation (1), Table II: published fit",
@@ -5017,6 +5085,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_dewaele_2006_bm3",
    "label": "Dewaele et al. (2006), bm3",
    "reference": {
@@ -5112,6 +5181,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, BM row; atomic volume 11.234(12) doubled to conventional cell.",
     "V0": "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell: published fit",
     "K0": "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell: fixed/adopted",
     "K0_prime": "Table I, BM row; atomic volume 11.234(12) doubled to conventional cell: published fit"
@@ -5150,6 +5220,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "iron_brown_2000_linear_hugoniot",
    "label": "Brown et al. (2000), nominal-iron steel linear Hugoniot, solid subset",
    "reference": {
@@ -5246,6 +5317,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table III linear fit to all 37 Tables I–II points.",
     "V0": "Table III linear fit to all 37 Tables I–II points: fixed/adopted",
     "rho0": "Table III linear fit to all 37 Tables I–II points: fixed/adopted",
     "c0": "Table III linear fit to all 37 Tables I–II points: published fit",

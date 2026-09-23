@@ -110,6 +110,10 @@
    },
    "notes": "Preferred default for mantle work. The fit combines multi-anvil data at 28-63 GPa and 300-1500 K with laser-heated DAC data at 52-108 GPa and 300 or 1500-2430 K; the study reports measurements up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=950(150) K, gamma0=1.54(9), and q=1.5(3). The paper calls the exponent b; with its fixed a=1, the published Gruneisen expression reduces exactly to gamma=gamma0(V/V0)^b used here.",
    "identifier": "bridgmanite_tange_2012_bm3_1",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: EOS formulation; Table 2, BM3 and Vinet rows."
+   },
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -230,6 +234,10 @@
    },
    "notes": "Alternative Vinet fit to the same multi-anvil and laser-heated DAC dataset, measured up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=940(140) K, gamma0=1.55(9), and q=1.1(3). The paper calls the exponent b; with a fixed to 1, it is the q parameter of the conventional MGD volume dependence stored here.",
    "identifier": "bridgmanite_tange_2012_vinet_2",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: EOS formulation; Table 2, BM3 and Vinet rows."
+   },
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -335,6 +343,10 @@
    "fixed_parameters": [],
    "notes": "Single-crystal P-V data to 10 GPa. Retained as a low-pressure structural reference, not as the default mantle-range EoS. The normalized-stress plot supported a second-order Birch-Murnaghan fit, so K0_prime=4 is implicit in BM2 rather than stored as a fitted parameter.",
    "identifier": "bridgmanite_vanpeteghem_2006_bm2_3",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; Table 1."
+   },
    "pressure_calibration": {
     "status": "unresolved",
     "methods": [],
@@ -431,10 +443,12 @@
    ],
    "temperature_ref": 300.0,
    "identifier": "bridgmanite_saxena_1999_bm3_4",
+   "determination_method": "experimental",
    "fit_datasets": [
     "bridgmanite_saxena_1999_table1_pvt"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract and experimental technique, pages 226-227; Table 1 and results, page 227; Equation 5, page 229; Equations 14-20 and Tables 2-3, pages 228-231.",
     "equation": "Equation 5, page 229: standard third-order Birch-Murnaghan finite-strain pressure equation with the isothermal K_T and K'_T at the chosen temperature.",
     "V0": "Tables 2 and 3, pages 228 and 231: the calculated one-atmosphere 300 K molar volume is 24.45 cm^3/mol. It is converted with the exact Avogadro constant to the conventional Pbnm bridgmanite cell with Z=4, giving 162.4007 A^3.",
     "K0": "Tables 2 and 3, pages 228 and 231: K_T=260.51 GPa at 300 K. The abstract rounds the same 300 K value to 261 GPa.",
@@ -582,6 +596,7 @@
   },
   {
    "identifier": "bridgmanite_katsura_2009_bm3",
+   "determination_method": "experimental",
    "label": "Katsura et al. (2009), preferred 300 K BM3",
    "record_kind": "published",
    "reference": {
@@ -660,6 +675,7 @@
     "bridgmanite_katsura_2009_corrected_table1_pvt"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: original article abstract and paragraphs 5-18; original article equations 1-8; corrigendum corrected Table 1, doi:10.1029/2009GL039318.",
     "equation": "Original article section 4.1, equation 1: third-order Birch-Murnaghan reference isotherm at 300 K.",
     "V0": "Original article paragraph 11: a0=4.7769(2), b0=4.9298(2), and c0=6.8956(3) angstrom; their product gives the Pbnm conventional-cell V0 stored here, and independent-error propagation gives its stored uncertainty.",
     "K0": "Original article abstract and section 4.1: fitted isothermal K_T0=256(2) GPa.",
@@ -811,6 +827,7 @@
   },
   {
    "identifier": "bridgmanite_katsura_2009_bm3_k0_fixed",
+   "determination_method": "experimental",
    "label": "Katsura et al. (2009), K0-fixed 300 K BM3 sensitivity fit",
    "record_kind": "published",
    "reference": {
@@ -889,6 +906,7 @@
     "bridgmanite_katsura_2009_corrected_table1_pvt"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: original article section 4.1, paragraph 12; corrigendum corrected Table 1, doi:10.1029/2009GL039318.",
     "equation": "Original article section 4.1: third-order Birch-Murnaghan equation.",
     "V0": "Original article paragraph 11 ambient lattice product; shared with the preferred fit.",
     "K0": "Original article section 4.1: assumed K_T0=253 GPa as a Brillouin-comparison sensitivity value.",
@@ -954,6 +972,7 @@
   },
   {
    "identifier": "bridgmanite_wolf_2015_vinet_mgd_4",
+   "determination_method": "experimental",
    "label": "Wolf et al. (2015), reanalyzed Fe-free bridgmanite Vinet-MGD",
    "record_kind": "published",
    "equation_kind": "thermal",
@@ -1095,6 +1114,7 @@
     "bridgmanite_wolf_2015_table2_pvt"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: final Wolf et al. article, sections 3.1-3.4 and 4.2; final Wolf et al. article, equations 1-11 and Tables 2-4; final Wolf et al. article data-availability statement; corresponding-author data page, Table 2 machine-readable mirror; PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Tange2012_lsq_fixdeb.in.",
     "equation": "Final Wolf et al. article, equations 1-6: 300 K Vinet reference isotherm plus reference-subtracted Mie-Gruneisen-Debye thermal pressure",
     "V0": "Final Wolf et al. article, Table 3, 0% Fe column: fitted 162.12(13) angstrom^3 conventional Z=4 cell; prior 162.5 +/- 0.2 angstrom^3",
     "K0": "Final Wolf et al. article, Table 3, 0% Fe column: fitted K0T=262.3(32) GPa",
@@ -1237,6 +1257,7 @@
   },
   {
    "identifier": "bridgmanite_criniti_2021_absolute_bm3",
+   "determination_method": "experimental",
    "label": "Criniti et al. (2021), primary absolute-pressure BM3",
    "record_kind": "published",
    "reference": {
@@ -1286,6 +1307,7 @@
     "bridgmanite_criniti_2021_table1_density"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.3, Equation 3; Table 1; Figshare dataset 10.6084/m9.figshare.14265176.v1.",
     "equation": "Section 3.3, Equation 3: integration of the Reuss isothermal bulk modulus over volume gives the standard third-order Birch-Murnaghan pressure-volume equation.",
     "V0": "Table 1 ambient density 4.1045(10) g/cm3, converted for stoichiometric MgSiO3 and Z=4 with the exact Avogadro constant; V0 is the integration reference rather than a separately reported fit coefficient.",
     "K0": "Section 3.3: K_TR0=254.5(4) GPa from the third-order Birch-Murnaghan fit to the converted K_T-V data.",
@@ -1375,6 +1397,7 @@
   },
   {
    "identifier": "bridgmanite_fiquet_2000_bm3_1",
+   "determination_method": "experimental",
    "label": "Fiquet et al. (2000), post-heating 298 K BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -1435,6 +1458,7 @@
     "molar_mass_g_mol": 100.3875
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental section; Table 1; Section 3.3 and Table 3.",
     "equation": "Section 3.3: third-order Birch-Murnaghan fit to the room-temperature volumes recorded after laser heating.",
     "V0": "Section 3.3: room-pressure conventional-cell volume V0=162.27(1) A^3, fitted.",
     "K0": "Section 3.3: K0=253(9) GPa, fitted.",
@@ -1541,6 +1565,7 @@
   },
   {
    "identifier": "bridgmanite_metsue_2012_static_bm3_1",
+   "determination_method": "theoretical",
    "label": "Metsue and Tsuchiya (2012), pure MgSiO3 static BM3 control",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -1602,6 +1627,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1(c); Section 3.2.",
     "equation": "Section 3.2: third-order Birch-Murnaghan pressure-volume and energy-volume fit with K0' fixed to 3.94.",
     "V0": "Table 1(c): 24.2717 cm3/mol; converted using the exact Avogadro constant to 161.216424307 A3 for Z=4.",
     "K0": "Table 1(c): 258.7857 GPa.",
@@ -1668,6 +1694,7 @@
   },
   {
    "identifier": "bridgmanite_akber_knutson_2005_gga_bm3",
+   "determination_method": "theoretical",
    "label": "Akber-Knutson et al. (2005), pure-MgSiO3 static GGA BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -1731,6 +1758,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Table 1.",
     "equation": "Section 2: internal energy versus volume fitted to the third-order Birch-Murnaghan equation.",
     "V0": "Table 1, perovskite None row: 41.75 A^3 on the normalized five-atom basis; multiplied by four.",
     "K0": "Table 1: 235 GPa.",
@@ -1794,6 +1822,7 @@
   },
   {
    "identifier": "bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3",
+   "determination_method": "theoretical",
    "label": "Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -1853,6 +1882,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Sections II-III; Figure 2; Table I.",
     "equation": "Section III identifies a third-order Birch-Murnaghan fit to F(V,T).",
     "parameters": "Table I, Pv LDA row at 300 K.",
     "volume_conversion": "40.15 A3 per MgSiO3 multiplied by crystallographic Z=4."
@@ -1904,6 +1934,7 @@
   },
   {
    "identifier": "bridgmanite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3",
+   "determination_method": "theoretical",
    "label": "Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -1963,6 +1994,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Sections II-III; Figure 2; Table I.",
     "equation": "Section III identifies a third-order Birch-Murnaghan fit to F(V,T).",
     "parameters": "Table I, Pv PBE row at 300 K.",
     "volume_conversion": "42.44 A3 per MgSiO3 multiplied by crystallographic Z=4."
@@ -2014,6 +2046,7 @@
   },
   {
    "identifier": "bridgmanite_mao_1991_bm2_1",
+   "determination_method": "experimental",
    "label": "Mao et al. (1991), MgSiO3 K0'=4 fit",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -2071,6 +2104,7 @@
     "molar_mass_g_mol": 100.387
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Final article abstract and journal pages 8071-8074; Final article Tables 1-3; Final article equation-of-state fit paragraph and Figure 4.",
     "equation": "The final 298 K isotherms use a Birch equation with K0'=4 fixed; Peritheos stores the algebraically identical BM3 special case.",
     "parameters": "Final-publication Table 1 gives V0=162.49(7) A3 for MgSiO3; the room-temperature fit paragraph gives K0=261(4) GPa with K0'=4.",
     "fit_scope": "The shared elastic coefficient was fitted only to the nine 300 K Fe10 rows in Table 2. The MgSiO3 and Fe20 rows demonstrate indistinguishable compression, while their Table 1 V0 values remain composition specific."
@@ -2191,6 +2225,7 @@
   },
   {
    "identifier": "bridgmanite_holland_2013_mpv_modified_tait",
+   "determination_method": "unknown",
    "label": "Holland et al. (2013), mpv modified Tait",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -2254,6 +2289,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table 1 and the official tc-ds62 endmember block establish the coefficients, but the existing audit does not trace this endmember's individual EOS constraints to measurements versus calculations. Determination remains unknown pending that source tracing; self_consistent is not a determination method.",
     "parameters": "Article Table 1 and official tc-ds62 mpv block.",
     "unit_conversion": "V0=2.445 J/bar/mol =24.45 cm3/mol, converted to A3 and Z=4; K0=2510 kbar; K0''=-0.00160 kbar^-1."
    },
@@ -2307,6 +2343,7 @@
   },
   {
    "identifier": "bridgmanite_li_zeng_2009_gga_bm3",
+   "determination_method": "theoretical",
    "label": "Li and Zeng (2009), GGA BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -2345,6 +2382,7 @@
     "molar_mass_g_mol": 100.387
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Figure 1; Table 1.",
     "equation": "Table 1, third-order Birch-Murnaghan column.",
     "parameters": "Table 1, this-study perovskite row.",
     "volume_basis": "Pnma conventional cell, Z=4."
@@ -2395,6 +2433,7 @@
   },
   {
    "identifier": "bridgmanite_li_zeng_2009_gga_vinet",
+   "determination_method": "theoretical",
    "label": "Li and Zeng (2009), GGA Vinet sensitivity",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -2433,6 +2472,7 @@
     "molar_mass_g_mol": 100.387
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Figure 1; Table 1.",
     "equation": "Table 1, Vinet column.",
     "parameters": "Table 1, this-study perovskite row.",
     "volume_basis": "Pnma conventional cell, Z=4."
@@ -2482,6 +2522,7 @@
   },
   {
    "identifier": "bridgmanite_li_zeng_2009_gga_natural_strain3",
+   "determination_method": "theoretical",
    "label": "Li and Zeng (2009), GGA natural-strain-3 sensitivity",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -2520,6 +2561,7 @@
     "molar_mass_g_mol": 100.387
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Figure 1; Table 1.",
     "equation": "Table 1, third-order natural-strain column.",
     "parameters": "Table 1, this-study perovskite row.",
     "volume_basis": "Pnma conventional cell, Z=4."
@@ -2569,6 +2611,7 @@
   },
   {
    "identifier": "bridgmanite_kiefer_2002_gga_bm3",
+   "determination_method": "theoretical",
    "label": "Kiefer et al. (2002), MgSiO3 GGA BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -2632,6 +2675,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 1 and following paragraph.",
     "equation": "Text following Table 1 identifies values derived from the equation of state; the computational method uses a third-order finite-strain energy expansion equivalent to BM3.",
     "parameters": "Text following Table 1: V0=159.6 A^3, K0=264.3 GPa, K0'=3.94 for x=0.",
     "method": "Variable-cell plane-wave pseudopotential GGA calculation."
@@ -2681,6 +2725,7 @@
   },
   {
    "identifier": "bridgmanite_deng_2006_lda_bm3",
+   "determination_method": "theoretical",
    "label": "Deng et al. (2006), LDA third-order Birch fit",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -2748,6 +2793,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods and EOS equation, page 2335; Table 1, page 2336.",
     "equation": "Equation below the discussion of the E-V fit gives the third-order finite-strain energy expression; Table 1 identifies branch b as the third-order fit.",
     "parameters": "Table 1 theory (0 K), superscript b: V0=161.658 A^3, K0=255.0 GPa, K0'=4.00.",
     "method": "ABINIT plane-wave Troullier-Martins/Teter pseudopotential calculation in Perdew-Wang-92 LDA; 20-atom Pbnm cell."
@@ -2798,6 +2844,7 @@
   },
   {
    "identifier": "bridgmanite_wu_2013_gga_bm3",
+   "determination_method": "theoretical",
    "label": "Wu et al. (2013), MgSiO3 GGA BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -2861,6 +2908,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Equation (10); Section 3 and Table 1.",
     "equation": "Equation (10), third-order Birch-Murnaghan pressure-volume EOS.",
     "parameters": "Table 1 calculation column: V0=162.378 A^3, B0=244 GPa, B0'=4.0.",
     "method": "CASTEP ultrasoft-pseudopotential PBE-GGA static calculation."
@@ -2912,6 +2960,7 @@
   },
   {
    "identifier": "bridgmanite_liu_2011_gga_static_bm3",
+   "determination_method": "theoretical",
    "label": "Liu et al. (2011), static GGA BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -2977,6 +3026,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section II; Table I; Section III.A; Figure 1.",
     "equation": "Section III.A: calculated 0-150 GPa volumes fitted by least squares to third-order Birch-Murnaghan.",
     "parameters": "Table I, this-study GGA column.",
     "method": "PBE-GGA plane-wave pseudopotential calculations, 380 eV cutoff and 5x5x4 k-point mesh."
@@ -3043,6 +3093,7 @@
   },
   {
    "identifier": "bridgmanite_dorogokupets_2015_298k_rydberg_stacey",
+   "determination_method": "experimental",
    "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -3116,6 +3167,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Experimental thermoelastic synthesis of heat capacity, expansion, acoustic and P-V-T measurements; see docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md, What the source optimized.",
     "equation": "Equation (2): P0=3K0*X^(-k)*(1-X)*exp[(3K0_prime/2-k+1/2)*(1-X)], X=(V/V0)^(1/3). This is exactly Rydberg-Stacey with K_infinity_prime=k/3.",
     "V0": "Table 1: 24.45 cm3/mol, converted with exact N_A and Z=4 to 162.4007207696022 A3.",
     "K0": "Table 1: 252.0 GPa.",
@@ -3181,6 +3233,7 @@
   },
   {
    "identifier": "bridgmanite_hamahata_2000_md_300k_bm3",
+   "determination_method": "hybrid",
    "label": "Hamahata et al. (2000), 300 K MD BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -3244,6 +3297,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Hamahata (2000), MD method section and Table 1 (pp. 237-238): the potential is adjusted to measured MgSiO3 compression and expansion, then calculated volumes determine the BM3 coefficients; hybrid. https://doi.org/10.2465/jmps.95.236",
     "equation": "Compression-data subsection, Equation (2): explicit third-order Birch-Murnaghan density form.",
     "V0": "The source reports rho0=4.030 g/cm3. Using M=100.387 g/mol, exact N_A, and Z=4 gives 165.45561819988183 A3.",
     "K0": "Compression-data subsection: calculated K_T0=271 GPa.",

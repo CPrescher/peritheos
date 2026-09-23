@@ -25,6 +25,7 @@
  "notes": "This is a sample-specific effective phase EOS from coexisting KLB-1 products. The source states that phase chemistry changes slightly across P-T; a pure MgSiO3 formula is deliberately not assigned.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "klb1_mg_perovskite_ricolleau_2009_bm2_alphakt",
    "label": "Ricolleau et al. (2009), KLB-1 Mg-perovskite thermal BM2",
    "record_kind": "published",
@@ -156,6 +157,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure; Section 3; Table 1; Supporting Information readme and Table S1.",
     "equation": "Section 3: high-temperature Birch-Murnaghan with K0'=4 fixed, represented by BM2 plus AlphaKT.",
     "parameters": "Table 1, Mg-perovskite row.",
     "thermal_law": "Table 1 alpha0, alpha1 and dK/dT with alpha(T)=alpha0+alpha1*T."

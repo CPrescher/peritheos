@@ -74,6 +74,7 @@
  "notes": "Composition-specific card for the natural cleavage rhomb studied by Redfern et al. The displayed lattice is a volume-consistent conventional-cell representation; the paper reports V0 rather than a complete ambient structural refinement.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg0991fe0008mn0001co3_redfern_1993_bm2_1",
    "label": "Redfern et al. (1993), K0' fixed to 4",
    "record_kind": "published",
@@ -160,6 +161,7 @@
     "molar_mass_g_mol": 84.595953
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental Methods, page 2099; Table 1 and Equation-of-State section, page 2100.",
     "equation": "Equation-of-State section, page 2100: least-squares fit to the reduced Birch equation with K0'=4.",
     "parameters": "Abstract and page 2100: Table 1 ambient V0=279.4(2) A3; the reduced fit gives K0=142(9) GPa with K0'=4. V0 is the measured reference volume used to form V/V0 and is fixed in the reproduction."
    },
@@ -252,6 +254,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg0991fe0008mn0001co3_redfern_1993_bm3_2",
    "label": "Redfern et al. (1993), unconstrained BM3",
    "record_kind": "published",
@@ -341,6 +344,7 @@
     "molar_mass_g_mol": 84.595953
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental Methods, page 2099; Table 1, Equation (2), and Figure 2 caption, page 2100.",
     "equation": "Equation (2) and Figure 2, page 2100: third-order Eulerian finite-strain Birch-Murnaghan analysis for observations with fV>0.01.",
     "parameters": "Abstract, Equation-of-State section, and Figure 2 caption: Table 1 ambient V0=279.4(2) A3; weighted regression gives K0=151(7) GPa and fitted K0'=2.5. V0 defines the reported finite strains and is fixed in the reproduction."
    },

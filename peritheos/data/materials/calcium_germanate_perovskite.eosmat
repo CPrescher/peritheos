@@ -85,6 +85,7 @@
  "notes": "The conventional-cell lattice is the near-ambient measurement of the EOS specimen in Ross and Angel (1999). Fractional coordinates are from the twin-corrected Pbnm refinement of Sasaki et al. (1983). The four occupied Wyckoff orbits give Ca4Ge4O12 (Z=4). The numerical 298 K EOS reference is an operational encoding of the source's qualitative room-temperature statement, not a reported thermometer reading.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "calcium_germanate_perovskite_ross_1999_bm3_1",
    "label": "Ross and Angel (1999), single-crystal BM3",
    "reference": {
@@ -144,6 +145,7 @@
     "molar_mass_g_mol": 160.705
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental methods, journal page 278; Table 1, journal page 278; Results, journal page 279; Figure 1.",
     "equation": "Ross and Angel (1999), Experimental methods and Results, journal pages 278-279: pressure-dependent weighted least-squares fit of a Birch (1947) third-order Birch-Murnaghan EOS; reproduction of the reported residuals and weighted chi-square verifies the standard Eulerian finite-strain convention",
     "V0": "Ross and Angel (1999), abstract and Results, journal page 279: 206.490 +/- 0.017 A^3 conventional Pbnm cell; fitted",
     "K0": "Ross and Angel (1999), abstract and Results, journal page 279: 194.0 +/- 2.1 GPa; fitted",

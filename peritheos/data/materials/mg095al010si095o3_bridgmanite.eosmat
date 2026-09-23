@@ -106,6 +106,7 @@
  "notes": "Composition-specific Fe-free aluminous bridgmanite material. The ideal coupled-substitution formula Mg0.95Al0.10Si0.95O3 is the charge-balanced representation of the paper's 5 mol% Al2O3 label; same-batch EMP data normalize to approximately Mg0.948Al0.099Si0.952O3 and the authors report no likely oxygen deficiency. The 0.37 GPa EOS-specimen lattice is stored because Daniel et al. could not measure this chip at ambient pressure. Its a*b*c product agrees with the printed conventional-cell volume. The Pbnm coordinates are an explicit pure-MgSiO3 topology proxy; Daniel et al. used Le Bail cell refinements and did not publish Al site occupancies or fractional coordinates. The separate fitted zero-pressure volumes and Jackson et al. same-batch ambient volume are not forced to equal the stored finite-pressure lattice.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg095al010si095o3_bridgmanite_daniel_2004_bm2_1",
    "label": "Daniel et al. (2004), Al.05-Pv BM2",
    "record_kind": "published",
@@ -199,6 +200,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13; official Wiley grl18465-sup-0001-README.txt; official Wiley grl18465-sup-0002-TABLE1.txt; Jackson et al. (2004), doi:10.1029/2004GL019918, same-batch sample description and Table 1.",
     "equation": "Article abstract and Results paragraph 8: second-order Birch-Murnaghan room-temperature EOS. Peritheos uses the standard Eulerian BM2 form, for which K0_prime=4 is a structural constraint rather than a stored free parameter.",
     "V0": "Article abstract: fitted conventional-cell V0=163.234(8) A^3; Results rounds this to 163.23(1) A^3.",
     "K0": "Article abstract and Results paragraph 8: fitted KT0=251.5(13) GPa.",
@@ -359,6 +361,7 @@
    "notes": "Preferred second-order Birch-Murnaghan fit. K0_prime=4 is intrinsic to BM2, so V0 and K0 are the only free EOS parameters and fixed_parameters is empty. The one-sigma covariance is reconstructed transparently from the published marginal errors and correlation."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg095al010si095o3_bridgmanite_daniel_2004_bm3_2",
    "label": "Daniel et al. (2004), Al.05-Pv BM3",
    "record_kind": "published",
@@ -438,6 +441,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13; official Wiley grl18465-sup-0001-README.txt; official Wiley grl18465-sup-0002-TABLE1.txt; Jackson et al. (2004), doi:10.1029/2004GL019918, same-batch sample description and Table 1.",
     "equation": "Results paragraph 8: third-order Birch-Murnaghan room-temperature EOS; standard Eulerian BM3 is used.",
     "V0": "Results paragraph 8: fitted conventional-cell V0=163.23(1) A^3.",
     "K0": "Results paragraph 8: fitted KT0=251.5(27) GPa.",

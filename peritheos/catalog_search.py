@@ -14,6 +14,7 @@ from peritheos.materials import EOSRecord, Material
 
 RangeQuery = Union[float, tuple[float, float]]
 RangeSemantics = Literal["contains", "overlaps"]
+DeterminationMethod = Literal["experimental", "theoretical", "hybrid", "unknown"]
 ValidationStatus = Literal[
     "primary_source_validated",
     "pending_primary_source_check",
@@ -188,6 +189,7 @@ def _record_matches(
     formula: str | None,
     phase: str | None,
     model_family: str | None,
+    determination_method: DeterminationMethod | None,
     doi: str | None,
     author: str | None,
     reference: str | None,
@@ -245,6 +247,11 @@ def _record_matches(
         return False
     if not _matches_text(reference, reference_text):
         return False
+    if (
+        determination_method is not None
+        and record.determination_method != determination_method
+    ):
+        return False
     if thermal is not None and record.is_thermal is not thermal:
         return False
     if caloric is not None and _has_caloric_model(record) is not caloric:
@@ -273,11 +280,18 @@ def _prepare_filters(
     caloric: bool | None,
     uncertainty: bool | None,
     validation_status: ValidationStatus | Iterable[ValidationStatus] | None,
+    determination_method: DeterminationMethod | None,
 ) -> tuple[
     tuple[float, float] | None,
     tuple[float, float] | None,
     frozenset[str] | None,
 ]:
+    if determination_method is not None and (
+        not isinstance(determination_method, str)
+        or determination_method
+        not in ("experimental", "theoretical", "hybrid", "unknown")
+    ):
+        raise MaterialError(f"Unknown determination method: {determination_method!r}")
     if range_semantics not in ("contains", "overlaps"):
         raise MaterialError("range_semantics must be 'contains' or 'overlaps'")
     for field, value in (
@@ -302,6 +316,7 @@ def search_eos_records(
     family_id: str | None = None,
     phase: str | None = None,
     model_family: str | None = None,
+    determination_method: DeterminationMethod | None = None,
     doi: str | None = None,
     author: str | None = None,
     reference: str | None = None,
@@ -334,6 +349,7 @@ def search_eos_records(
         caloric=caloric,
         uncertainty=uncertainty,
         validation_status=validation_status,
+        determination_method=determination_method,
     )
     material_by_record = _catalog_index().material_by_record
     return tuple(
@@ -351,6 +367,7 @@ def search_eos_records(
             formula=formula,
             phase=phase,
             model_family=model_family,
+            determination_method=determination_method,
             doi=doi,
             author=author,
             reference=reference,
@@ -375,6 +392,7 @@ def search_materials(
     family_id: str | None = None,
     phase: str | None = None,
     model_family: str | None = None,
+    determination_method: DeterminationMethod | None = None,
     doi: str | None = None,
     author: str | None = None,
     reference: str | None = None,
@@ -402,6 +420,7 @@ def search_materials(
         caloric=caloric,
         uncertainty=uncertainty,
         validation_status=validation_status,
+        determination_method=determination_method,
     )
     results = []
     for material in list_materials(family_id=family_id):
@@ -454,6 +473,7 @@ def search_materials(
                 formula=None,
                 phase=None,
                 model_family=model_family,
+                determination_method=determination_method,
                 doi=doi,
                 author=author,
                 reference=reference,
@@ -473,6 +493,7 @@ def search_materials(
 
 
 __all__ = [
+    "DeterminationMethod",
     "RangeQuery",
     "RangeSemantics",
     "ValidationStatus",

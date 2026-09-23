@@ -31,6 +31,7 @@
  "notes": "This material is separate from mgfe94o_b1 because the article fits the rhombohedral observations with an independent extrapolated V0, K0, and K0-prime. The 300 K EOS is not a spin-resolved parameterization: SMS points lie above the diffraction range and do not supply simultaneous volume observations for high-spin, low-spin, or mixed-spin branches.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1",
    "label": "Dobrosavljevic et al. (2019), Mw94 rhombohedral BM3",
    "record_kind": "published",
@@ -123,6 +124,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: article sections 2.1, 3, and 3.2; article Table 1; official supplement Table S1 and Figure S2.",
     "equation": "Article section 3.2, Table 1, and Supplementary Figure S2: third-order Birch-Murnaghan isothermal EOS fitted with MINUTI 2.0.0.",
     "V0": "Article Table 1 and section 3.2: 9.59(10) A^3/atom, freely fitted and extrapolated; multiplied by two atoms per Mg0.058Fe0.942O formula unit.",
     "K0": "Article section 3.2 and Table 1: K0T=217(19) GPa, freely fitted.",

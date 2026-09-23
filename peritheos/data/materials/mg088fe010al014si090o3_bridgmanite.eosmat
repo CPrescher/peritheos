@@ -120,6 +120,7 @@
  "notes": "Composition-specific record for synthetic run 5K2667. The material formula preserves the article's measured Mg0.88Fe0.10Al0.14Si0.90O3 composition; the site-assigned form is (Mg0.88Fe3+0.065Fe2+0.035Al0.03)(Al0.11Si0.90)O3. The stored diffraction structure is the official deposited 4.2 GPa, 293 K Pbnm refinement with Z=4. Its normalized occupancies give Mg0.88Fe0.09Al0.13Si0.90O3, so it is a refinement model for the same specimen and not a replacement analytical composition. The EOS V0 values are separately fitted zero-pressure conventional-cell extrapolations. The authors report BM2 and BM3 as equally acceptable within uncertainty and do not designate a preferred fit; record ordering follows Table 1 and is not a scientific preference.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1",
    "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM2",
    "reference": {
@@ -198,6 +199,7 @@
     "mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: article Experimental details, pages 873-874; article EOS discussion and Table 1, pages 874-875; official Online Materials Table S1; official deposit AM-24-58969, 8969fu.cif.",
     "equation": "Article pages 874-875 and Table 1: second-order Birch-Murnaghan EOS fitted with EosFit7-GUI; K0_prime=4 is fixed",
     "V0": "Article page 874 and Table 1, unit-cell first row: 163.85(7) A^3, fitted zero-pressure Pbnm conventional-cell volume",
     "K0": "Article page 874 and Table 1, unit-cell first row: KT0=242(3) GPa",
@@ -355,6 +357,7 @@
    "notes": "Standard second-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. K0_prime=4 is fixed by the BM2 model; V0 and K0 were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM2 is co-reported with BM3 and is not designated preferred."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2",
    "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM3",
    "reference": {
@@ -432,6 +435,7 @@
     "mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: article Experimental details, pages 873-874; article EOS discussion and Table 1, pages 874-875; official Online Materials Table S1; official deposit AM-24-58969, 8969fu.cif.",
     "equation": "Article pages 874-875 and Table 1: third-order Birch-Murnaghan EOS fitted with EosFit7-GUI",
     "V0": "Article page 874 and Table 1, unit-cell second row: 164.64(11) A^3, fitted zero-pressure Pbnm conventional-cell volume",
     "K0": "Article page 874 and Table 1, unit-cell second row: KT0=228(5) GPa",
@@ -591,6 +595,7 @@
    "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. V0, K0, and K0_prime were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM3 is co-reported with BM2 and is not designated preferred."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2023_bm2",
    "label": "Fu et al. (2023), Fe10-Al14 bridgmanite BM2",
    "reference": {
@@ -664,6 +669,7 @@
     "mg088fe010al014si090o3_bridgmanite_fu_2023_table_s2_pv"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: main article Table 3; Online Materials Text S1; Online Materials Table S2.",
     "equation": "Online Materials Text S1, Equation 1: second-order Birch-Murnaghan sensitivity fit with K0_prime=4 fixed.",
     "V0": "Text S1: fixed at 163.75 A^3; Table S2 ambient conventional-cell volume is 163.75(1) A^3.",
     "K0": "Text S1 and main-article Table 3: 256(2) GPa.",
@@ -716,6 +722,7 @@
    "notes": "The parenthetical error on V0 is not treated as a fitted parameter uncertainty because Text S1 explicitly fixes V0; the 0.01 A^3 value in Table S2 is the ambient observation uncertainty."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2023_bm3",
    "label": "Fu et al. (2023), Fe10-Al14 bridgmanite BM3 sensitivity fit",
    "reference": {
@@ -790,6 +797,7 @@
     "mg088fe010al014si090o3_bridgmanite_fu_2023_table_s2_pv"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Online Materials Text S1; Online Materials Table S2.",
     "equation": "Online Materials Text S1, Equation 1: third-order Birch-Murnaghan sensitivity fit.",
     "V0": "Text S1: fixed at 163.75 A^3; Table S2 ambient conventional-cell volume is 163.75(1) A^3.",
     "K0": "Text S1: 259(4) GPa.",

@@ -107,6 +107,10 @@
     5.2
    ],
    "notes": "Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 7, P-V data; page 328, Elasticity section, Birch-Murnaghan fit."
+   },
    "identifier": "coesite_levien_1981_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -161,6 +165,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "coesite_i_iii_bykova_2018_300k_bm3",
    "label": "Bykova et al. (2018), combined coesite-I/II/III 300 K BM3",
    "record_kind": "published",
@@ -240,6 +245,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results: Crystal structure of coesite-III; Figure 1 caption; Methods: X-ray diffraction; Supplementary Tables 1-2; Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1.",
     "equation": "Results, Crystal structure of coesite-III: third-order Birch-Murnaghan.",
     "parameters": "Results paragraph and Figure 1 caption; V0/Z is multiplied by Z=16 for this conventional-cell material card.",
     "method": "Combined single-crystal XRD pressure-volume data for coesite-I, II, and III. The exact recoverable subset comprises nine observations from the cited Cernok et al. diffraction work and 15 observations from Supplementary Table 2; current-study coesite-I points remain graphical only."

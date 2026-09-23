@@ -137,6 +137,7 @@
     "protocol_status": "all-row selection and BM3 forms are explicit; residual direction and covariance scaling are inferred by discriminating numerical fits"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Birch-Murnaghan equation and Z normalization, pages 111-112; Table 1, page 112; Table 2, page 112; phase assignment and temperature discussion, pages 110-113.",
     "V0": "Sun et al. (2022), Table 2 fixed-K0' fit: 45.6(2) A^3 at published normalized Z=1, multiplied by 4 for the conventional I4/mcm Z=4 cell",
     "K0": "Sun et al. (2022), Table 2 fixed-K0' fit: 229(4) GPa",
     "K0_prime": "Sun et al. (2022), Table 2: fixed at 4",
@@ -145,6 +146,7 @@
     }
    },
    "notes": "Selected fixed-K0'=4 BM3 fit: the published Z=1 V0=45.6(2) A^3 is stored as 182.4(8) A^3 for the conventional Z=4 I4/mcm cell, while K0=229(4) GPa is unchanged. The direct 300 K P-V data span 21.5-199.2 GPa; routine use is intentionally limited to 30-150 GPa. Table 1 combines 14 Sun et al. (2016) quenched observations reanalyzed on the common Pt scale with nine new 2022 observations. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces both the free- and fixed-K0' Table 2 alternatives after rounding.",
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_tetragonal_sun_2022_bm3_1",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -214,6 +216,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet",
    "label": "Sagatova et al. (2021), tetragonal CaSiO3 LDA 300 K Vinet",
    "record_kind": "published",
@@ -278,6 +281,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 2; Phase relations; Figure 7.",
     "equation": "Vinet EOS, Methods.",
     "parameters": "Table 2, this-work LDA Ca-pv row.",
     "volume_conversion": "44.702 A3 per formula unit multiplied by Z=4."
@@ -328,6 +332,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet",
    "label": "Sagatova et al. (2021), tetragonal CaSiO3 GGA 300 K Vinet",
    "record_kind": "published",
@@ -392,6 +397,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 2; Phase relations; Figure 7.",
     "equation": "Vinet EOS, Methods.",
     "parameters": "Table 2, this-work GGA Ca-pv row.",
     "volume_conversion": "46.828 A3 per formula unit multiplied by Z=4."
@@ -442,6 +448,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_tetragonal_caracas_2005_bm3_1",
    "label": "Caracas et al. (2005), static I4/mcm BM3",
    "reference": {
@@ -506,6 +513,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Table 1; Section 4; Table 2.",
     "equation": "Section 4 and Table 2: third-order Birch-Murnaghan fit.",
     "parameters": "Table 2, I4/mcm column.",
     "volume_basis": "Source V0/Z multiplied by Z=4 for this material card's conventional-cell basis."
@@ -578,6 +586,7 @@
    ]
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_tetragonal_caracas_2005_bm4_2",
    "label": "Caracas et al. (2005), static I4/mcm BM4",
    "reference": {
@@ -644,6 +653,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Table 1; Section 4; Table 2.",
     "equation": "Section 4 and Table 2: fourth-order Birch-Murnaghan fit.",
     "parameters": "Table 2, I4/mcm column.",
     "volume_basis": "Source V0/Z multiplied by Z=4 for this material card's conventional-cell basis."
@@ -716,6 +726,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_tetragonal_chen_2018_vinet",
    "label": "Chen et al. (2018), 300 K Ne-medium Vinet",
    "record_kind": "published",
@@ -788,6 +799,7 @@
     "ca_perovskite_tetragonal_chen_2018_table1_compression"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods, pages 463-464; EOS discussion, page 465; Figure 5, page 466; Tables 1-2, page 467.",
     "equation": "EOS discussion, Figure 5, and Table 2: the pressure-volume data were fitted to the Vinet equation; Table 2 defines the abbreviation V as Vinet.",
     "fit_scope": "The EOS discussion explicitly says the I4/mcm Rietveld results were fitted. All seven I4/mcm rows in Table 1 are retained in source order; no exclusion is reported. The parallel P4/mmm refinements are preserved in the dataset as a diagnostic branch but are not source-fit inputs.",
     "parameters": "EOS discussion and Table 2 report V0=46.3(1) A3 on the one-formula-unit normalized basis and K0=223(6) GPa, with K0'=4.0 fixed.",

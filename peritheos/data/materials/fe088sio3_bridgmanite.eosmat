@@ -25,6 +25,7 @@
  "notes": "The compact formula records the measured total Fe occupancy. Charge state, uncertainties, and A-site vacancies are retained explicitly in cell_contents and record metadata; no stoichiometric FeSiO3 composition is inferred.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "fe088sio3_bridgmanite_ismailova_2016_300k_bm2",
    "label": "Ismailova et al. (2016), Fe-deficient bridgmanite 300 K BM2",
    "record_kind": "published",
@@ -130,6 +131,7 @@
     "statistics": {}
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results; Figure 3; Supplementary Table S2; Supplementary Table S3; Materials and Methods.",
     "equation": "Figure 3 caption and Results: Birch-Murnaghan with K0'=4 fixed, represented by BM2.",
     "V0": "Figure 3 caption and supplementary Table S3: fitted ambient conventional-cell volume V0=178.98(6) A^3.",
     "K0": "Figure 3 caption and supplementary Table S3: K300=190(4) GPa.",

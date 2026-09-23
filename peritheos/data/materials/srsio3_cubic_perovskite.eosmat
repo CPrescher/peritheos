@@ -56,6 +56,7 @@
  "notes": "The experimental lattice parameter a0=3.6638 A is derived in the primary paper from the fitted V0. The ideal Pm-3m atom sites are fixed by symmetry.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "srsio3_cubic_xiao_2013_experimental_bm2_1",
    "label": "Xiao et al. (2013), experimental cubic SrSiO3",
    "record_kind": "published",
@@ -113,6 +114,7 @@
     "molar_mass_g_mol": 163.702
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods; Results; Table 1; Figure 5.",
     "equation": "Results section prints the third-order Birch-Murnaghan pressure equation.",
     "parameters": "Experimental fit: V0=49.18(5) A3, K0=211(3) GPa, K0'=4 fixed.",
     "fit_selection": "Sixteen Table 1 rows from 9.0 to 37.8 GPa; the 6.2 GPa point was excluded because partial amorphization starts below 9 GPa."
@@ -169,6 +171,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "srsio3_cubic_xiao_2013_gga_bm2_2",
    "label": "Xiao et al. (2013), static-GGA cubic SrSiO3",
    "record_kind": "published",
@@ -223,6 +226,7 @@
     "molar_mass_g_mol": 163.702
    },
    "parameter_provenance": {
+    "determination_method": "Xiao (2013), static-GGA cubic calculation: computed compression fit, distinct from the cubic experimental fit.",
     "equation": "Same printed Birch-Murnaghan convention used for calculated P-V results.",
     "parameters": "Static-GGA cubic fit: V0=49.97(1) A3, K0=207.7(4) GPa, K0'=4 fixed."
    },

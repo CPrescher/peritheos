@@ -17,6 +17,7 @@
  "notes": "Phase-specific card created for the hcp-Pb compression fits of Dewaele (2019).",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "lead_hcp_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), Pb MAO-scale Vinet",
    "record_kind": "published",
@@ -83,6 +84,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -131,6 +133,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "lead_hcp_dewaele_2019_dor_vinet",
    "label": "Dewaele (2019), Pb DOR-scale Vinet",
    "record_kind": "published",
@@ -197,6 +200,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -245,6 +249,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "lead_hcp_kuznetsov_2002_bm3_3",
    "label": "Kuznetsov et al. (2002), 296 K hcp BM3 slice",
    "record_kind": "published",
@@ -306,6 +311,7 @@
    },
    "notes": "Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit_fortes_2019_fcc_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Tables 1-2; Figures 2-3.",
     "equation": "Equation 1, third-order Birch-Murnaghan pressure.",
     "reference_state": "Equations 2-3 define tau=T-T0 with T0=296 K.",
     "V0": "Table 2 hcp V0=29.908 A^3/atom, converted to 59.816 A^3 per two-atom hcp cell.",

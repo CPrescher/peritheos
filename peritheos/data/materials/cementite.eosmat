@@ -88,6 +88,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Scott et al. report a weighted third-order Birch-Murnaghan fit to 300 K compression data: V0=155.26+/-0.14 A^3 is the separately measured ambient unit-cell volume, K0T=175.4+/-3.5 GPa, and K0T'=5.1+/-0.3. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum. The paper reports no parameter covariance or confidence convention for the printed +/- values. The 73 GPa envelope is not a thermal validity claim and should not be extrapolated to core pressures.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 1875, Experimental section, ambient lattice parameters and V0; page 1876, weighted least-squares EOS paragraph; Figure 3 and caption, page 1877."
+   },
    "identifier": "cementite_scott_2001_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",

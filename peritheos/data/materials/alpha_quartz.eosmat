@@ -76,6 +76,10 @@
    "fixed_parameters": [],
    "notes": "Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.",
    "identifier": "alpha_quartz_angel_1997_bm3_1",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; third-order Birch-Murnaghan fit."
+   },
    "pressure_calibration": {
     "status": "unresolved",
     "methods": [],
@@ -128,6 +132,7 @@
   },
   {
    "identifier": "alpha_quartz_driver_2010_qmc_300k_vinet",
+   "determination_method": "theoretical",
    "label": "Driver et al. (2010), QMC 300 K Vinet",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -193,6 +198,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1a; Table 1.",
     "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
     "parameters": "Table 1, quartz QMC column.",
     "volume_conversion": "254(2) bohr3 per SiO2 multiplied by (0.529177210903 A/bohr)^3 and Z=3."

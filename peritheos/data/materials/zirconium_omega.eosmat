@@ -81,6 +81,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "The fit constrained V0 to the independently measured decompression value 23.05(3) A^3/atom; volume and uncertainty are tripled for the conventional Z=3 cell.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table I, beta row; Table II, alpha and omega rows."
+   },
    "identifier": "zirconium_omega_mchardy_2026_vinet_1",
    "pressure_calibration": {
     "status": "unresolved",

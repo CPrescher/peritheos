@@ -94,6 +94,7 @@
  "notes": "Shieh et al. synthesized this phase from natural orthopyroxene (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6, normalized here per SiO3. The source establishes Cmcm and Z=4 but does not publish a composition-specific refined coordinate model. Therefore the stored positions are a pure-MgSiO3 topology proxy, and the lattice is a proxy scaled to 164.9 A^3 rather than a recovered ambient structure. The preferred BM2 and the K0'=4.4 BM3 sensitivity fit share the same Figure 2 observations.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1",
    "label": "Shieh et al. (2006), preferred second-order Eulerian finite-strain fit",
    "record_kind": "published",
@@ -176,6 +177,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract; Results and Discussion, pages 3039-3041; Figure 2 and Table 1; Experimental Methods, pages 3041-3043.",
     "equation": "Figure 2 caption and Results, page 3040: second-order Eulerian finite-strain fit, equivalently BM2 with implicit K0'=4.",
     "V0": "Abstract, Results, and Table 1: 164.9(6) A^3 per conventional Cmcm cell.",
     "K0": "Abstract, Results, and Table 1: 219(5) GPa.",
@@ -303,6 +305,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2",
    "label": "Shieh et al. (2006), K0'=4.4 sensitivity BM3",
    "record_kind": "published",
@@ -376,6 +379,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results, page 3040; Figure 2; Table 1.",
     "equation": "Results, page 3040: alternative constrained third-order Birch-Murnaghan parameterization used to illustrate tradeoffs.",
     "V0": "Results: 166.2(7) A^3.",
     "K0": "Results: 198(5) GPa.",

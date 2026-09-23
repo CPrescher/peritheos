@@ -388,6 +388,11 @@ class EOSRecord:
         )
 
     @property
+    def determination_method(self) -> str:
+        """How the parameters were determined; absent legacy metadata is unknown."""
+        return str(self.eosmat_metadata.get("determination_method", "unknown"))
+
+    @property
     def reference_volume(self) -> float:
         """Reference unit-cell volume in ``volume_unit``."""
         reference_eos = (

@@ -72,6 +72,10 @@
     46.0
    ],
    "notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: section 2, ambient lattice constants and pressure methods; section 4.1, pages 2449-2450; Figure 2, Birch-Murnaghan fit through 46 GPa."
+   },
    "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -287,6 +291,7 @@
    ],
    "temperature_ref": 300.0,
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: section 4.1, pages 2449-2450; Figure 2 and caption; docs/literature-reproductions.md.",
     "V0": "Fixed to the measured ambient reference volume used by Haines et al. (2001) for Figure 2 relative volumes.",
     "K0": "Peritheos errors-in-variables refit of all 16 digitized Figure 2 markers.",
     "K0_prime": "Peritheos errors-in-variables refit of all 16 digitized Figure 2 markers.",
@@ -296,6 +301,7 @@
     "molybdenum_carbide_haines_2001_figure2_digitized"
    ],
    "notes": "Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute_sigma=True. The unchanged record molybenum_carbide_mo2c_haines_2001_bm3_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.",
+   "determination_method": "experimental",
    "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_refit",
    "pressure_calibration": {
     "status": "unresolved",

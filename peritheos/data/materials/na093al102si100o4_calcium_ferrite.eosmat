@@ -138,6 +138,7 @@
  "notes": "Composition-specific record for the Fe-free 5K2124 specimen. The stored lattice and coordinates are the official deposited 1.7 GPa, 293(2) K Pbnm refinement. Its idealized occupancies give Na4Al4Si4O16, whereas electron-microprobe analysis gives Na0.93Al1.02Si1.00O4 per nominal formula unit. The refinement therefore supplies a diffraction model for the measured specimen but does not claim crystallographic resolution of the small analytical non-stoichiometry. The EOS reference volume is the separately fitted zero-pressure conventional-cell volume.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "na093al102si100o4_calcium_ferrite_qin_2023_bm3_1",
    "label": "Qin et al. (2023), Fe-free CF BM3",
    "reference": {
@@ -214,6 +215,7 @@
     "na093al102si100o4_qin_2023_table_s3_pv"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: article Materials and methods, pages 2332-2333; article EOS discussion, page 2333; official Online Materials Tables S3 and S5; official deposit AM-23-128432, 8432qin.cif.",
     "equation": "Article pages 2332-2333 and official Online Materials Table S5: third-order Birch-Murnaghan EOS fitted with EosFit7c",
     "V0": "Article abstract and page 2333; Online Materials Table S5, this-study Fe-free column: 241.6(1) A^3 fitted Pbnm conventional-cell volume",
     "K0": "Article abstract and page 2333; Online Materials Table S5, this-study Fe-free column: KT0=220(4) GPa",

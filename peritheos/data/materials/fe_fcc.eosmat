@@ -13,6 +13,7 @@
  "peaks": [],
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "fe_fcc_campbell_2009_bm3_mgd",
    "label": "Campbell et al. (2009), fcc Fe, 295 K BM3-Debye",
    "reference": {
@@ -139,6 +140,7 @@
     "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5.",
     "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
     "V0": "Table 1: 7.076 cm3/mol, fixed from JCPDS, footnote a; source does not identify the card number. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
     "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",

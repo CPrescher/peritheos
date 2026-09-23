@@ -28,6 +28,10 @@
  "peaks": [],
  "eos_records": [
   {
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
+   },
    "identifier": "tungsten_sakai_2025_rydberg_stacey_1",
    "label": "Sakai et al. (2025), W generalized Rydberg-Stacey scale",
    "reference": {
@@ -205,6 +209,10 @@
     153.0
    ],
    "notes": "Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'_R scale. Source-fixed parameters: V0. Published atomic V0 is converted to the material card's conventional-cell basis.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Figure 2 caption; Tables I and II."
+   },
    "identifier": "tungsten_dewaele_2004_vinet_2",
    "pressure_calibration": {
     "status": "resolved",
@@ -325,6 +333,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.8 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
+   },
    "identifier": "tungsten_shen_2026_vinet_3",
    "pressure_calibration": {
     "status": "resolved",
@@ -474,6 +486,10 @@
     "model": "multi_oscillator_gruneisen_thermal_pressure"
    },
    "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Sokolova (2013), Tables 1 and 4: joint synthesis of shock, ultrasonic, diffraction, expansion and thermochemical measurements. The 2016 workbook implements the fit; it does not supply a separate theoretical fit grid."
+   },
    "identifier": "tungsten_sokolova_2013_holzapfel_4",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -607,6 +623,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "tungsten_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), W MAO-scale Vinet",
    "record_kind": "published",
@@ -673,6 +690,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -741,6 +759,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "tungsten_dewaele_2019_dor_vinet",
    "label": "Dewaele (2019), W DOR-scale Vinet",
    "record_kind": "published",
@@ -807,6 +826,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -875,6 +895,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "tungsten_dewaele_2004_mao_ruby_vinet",
    "label": "Dewaele et al. (2004), W mao ruby Vinet",
    "record_kind": "published",
@@ -946,6 +967,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Figure 2 caption; Tables I and II.",
     "V0": "Tables I and II",
     "K0": "Tables I and II",
     "K0_prime": "Tables I and II"

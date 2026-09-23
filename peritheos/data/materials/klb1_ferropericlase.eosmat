@@ -25,6 +25,7 @@
  "notes": "The source resolves separate room-temperature high-spin and low-spin compression branches. The high-temperature data show no resolvable abrupt volume contraction and are parameterized from the high-spin reference branch.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
    "label": "Ricolleau et al. (2009), KLB-1 high-spin ferropericlase thermal BM2",
    "record_kind": "published",
@@ -159,6 +160,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure; Section 3; Table 1; Figure 1; Supporting Information readme and Table S1.",
     "equation": "Section 3: high-temperature Birch-Murnaghan with K0'=4 fixed, represented by BM2 plus AlphaKT.",
     "parameters": "Table 1, high-spin ferropericlase row; K0 fixed to 158 GPa from Fei et al. (2007).",
     "thermal_law": "Table 1 alpha0, alpha1 and dK/dT with alpha(T)=alpha0+alpha1*T."
@@ -233,6 +235,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2",
    "label": "Ricolleau et al. (2009), KLB-1 low-spin ferropericlase 300 K BM2",
    "record_kind": "published",
@@ -339,6 +342,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure; Section 3; Table 1; Figure 1; Supporting Information readme and Table S1.",
     "equation": "Section 3: Birch-Murnaghan with K0'=4 fixed, represented by BM2.",
     "parameters": "Table 1, low-spin ferropericlase row; K0 fixed to 170 GPa from Fei et al. (2007)."
    },

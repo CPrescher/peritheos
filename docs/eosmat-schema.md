@@ -140,6 +140,7 @@ Each item in `eos_records` describes one source parameterization.
 | `volume_basis` | for Hugoniots | Required operational mass basis containing `formula_units` and `molar_mass_g_mol`; these values must be consistent with `V0` and `rho0`. |
 | `branch_domain` | for Hugoniots | Required particle-velocity interval, scientific meaning, and boundary status; record-level evaluation enforces it. |
 | `record_kind` | no | `published`, `refit`, `derived`, or `diagnostic`; omission means `published` for backward compatibility. |
+| `determination_method` | bundled records | `experimental`, `theoretical`, `hybrid`, or `unknown`; omission in external/older files means `unknown`. Describes how the represented EOS parameters were determined. |
 | `derived_from_record` | for dependent refits | Identifier of the published or prior record supplying model choices or fixed parameters. Direct dataset refits may omit it. |
 | `fit_provenance` | for refits | Software/version, dataset, row selection, objective, weights, varied/fixed parameters, and fit statistics. |
 | `derivation` | for derived records | Structured source kind and identifier, transformation method, sampling domain, software, and access/licensing information. |
@@ -158,6 +159,26 @@ Each item in `eos_records` describes one source parameterization.
 | `parameter_covariance` | no | Published or reproducibly derived covariance metadata when available; its origin must be documented. |
 | `scientific_validation` | yes | Validation boundary described below. |
 | `notes` | no | Scientific qualifications that do not fit another field. |
+
+Classify `determination_method` per EOS record, including its fixed parameters
+and any thermal component. `experimental` covers fits, reductions, and
+thermodynamic syntheses constrained by measurements. `theoretical` covers
+analytical theory and calculated states, including DFT, QHA, and molecular
+dynamics. `hybrid` combines both, for example an experimental reference
+isotherm plus a calculated thermal term, or a calculated EOS explicitly
+anchored to experimental coefficients. Use `unknown` when the available
+provenance does not establish the origin; do not guess from the paper title.
+
+An analytical EOS form, fixed model-order convention, or routine measurement
+reduction does not by itself make an experimental fit hybrid. Independent
+experimental comparisons do not make a calculated fit experimental or hybrid.
+The ancestry of a pressure calibrant is recorded separately under
+`pressure_calibration` and is not propagated into the sample's classification.
+This field is independent of `record_kind`, `pressure_range_status`, and
+`scientific_validation`. Record the classification rationale and source
+location under `parameter_provenance.determination_method` for bundled records.
+Python exposes the value as `EOSRecord.determination_method`; preserved record
+metadata carries it through `.eosmat` round trips.
 
 Hugoniots are EOS records, not a parallel material collection. Their `eos`
 component has type `LinearUsUpHugoniot` and parameters `V0`, `rho0`, `c0`, `s`,

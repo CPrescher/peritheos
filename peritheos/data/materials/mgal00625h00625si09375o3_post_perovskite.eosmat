@@ -42,6 +42,7 @@
  "notes": "This is a static model-crystal identity, not a natural composition. No diffraction structure is inferred because the paper does not publish the relaxed coordinates or zero-pressure lattice.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "mgal00625h00625si09375o3_post_perovskite_akber_knutson_2005_gga_bm3",
    "label": "Akber-Knutson et al. (2005), static GGA AlHM BM3",
    "record_kind": "published",
@@ -107,6 +108,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2, paragraphs 6-8; Table 1.",
     "equation": "Section 2: internal energy versus volume fitted to the third-order Birch-Murnaghan equation.",
     "V0": "Table 1 post_perovskite AlHM 3.125 mol.% row: 41.64 A^3 on the normalized approximately five-atom basis; multiplied by four for the executable conventional-cell basis.",
     "K0": "Table 1: 228 GPa.",

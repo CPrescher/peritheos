@@ -82,6 +82,7 @@
  "notes": "Source-owned Marquardt (2009) EPSL HS BM3 and 12 alternative constrained LS BM3 fits coexist with the distinct Solomatova (2016) coupled-fit reference branches. No population mixer is implemented; Table S1 summary rows are not additional EOS records.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_solomatova_2016_hs_bm3_reference_1",
    "label": "Solomatova et al. (2016), hs BM3 reference branch",
    "record_kind": "published",
@@ -153,6 +154,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
     "V0": "Table 7 HS column: 75.55 A^3 per conventional B1 cell.",
     "K0": "Table 7 HS column: 159 GPa.",
@@ -207,6 +209,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_solomatova_2016_ls_bm3_reference_2",
    "label": "Solomatova et al. (2016), ls BM3 reference branch",
    "record_kind": "published",
@@ -280,6 +283,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
     "V0": "Table 7 LS column: 74.59 A^3 per conventional B1 cell.",
     "K0": "Table 7 LS column: 159 GPa.",
@@ -334,6 +338,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_hs_bm3",
    "label": "Marquardt et al. (2009), EPSL high-spin BM3",
    "record_kind": "published",
@@ -416,6 +421,7 @@
     "mixer_implemented": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 2.2 and Section 3.1.1, pp. 346-347: third-order Birch-Murnaghan isothermal EOS.",
     "V0": "Section 3.1.1 and Table 2: 75.62 +/- 0.06 A^3 from ambient single-crystal XRD, used as the reference-volume anchor, not an unconstrained P-V regression coefficient.",
     "K0": "Section 3.1.1: KT0 = 158.2 +/- 2 GPa; room-pressure Brillouin results constrain this isothermal modulus.",
@@ -539,6 +545,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 1",
    "eos": {
@@ -606,6 +613,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 1: 74.85 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.99. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 1: KT0 = 144 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -704,6 +712,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 2",
    "eos": {
@@ -771,6 +780,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 2: 74.10 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.98. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 2: KT0 = 153 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -869,6 +879,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 3",
    "eos": {
@@ -936,6 +947,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 3: 73.34 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.97. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 3: KT0 = 163 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -1034,6 +1046,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 4",
    "eos": {
@@ -1101,6 +1114,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 4: 72.59 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.96. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 4: KT0 = 175 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -1199,6 +1213,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 5",
    "eos": {
@@ -1266,6 +1281,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 5: 74.85 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.99. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 5: KT0 = 156 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -1364,6 +1380,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 6",
    "eos": {
@@ -1431,6 +1448,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 6: 74.10 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.98. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 6: KT0 = 164 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -1529,6 +1547,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 7",
    "eos": {
@@ -1596,6 +1615,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 7: 73.34 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.97. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 7: KT0 = 175 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -1694,6 +1714,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 8",
    "eos": {
@@ -1761,6 +1782,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 8: 72.59 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.96. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 8: KT0 = 186 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -1859,6 +1881,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 9",
    "eos": {
@@ -1926,6 +1949,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 9: 74.85 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.99. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 9: KT0 = 167 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -2024,6 +2048,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 10",
    "eos": {
@@ -2091,6 +2116,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 10: 74.10 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.98. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 10: KT0 = 177 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -2189,6 +2215,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 11",
    "eos": {
@@ -2256,6 +2283,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 11: 73.34 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.97. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 11: KT0 = 187 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
@@ -2354,6 +2382,7 @@
     },
     "audit_date": "2026-09-08"
    },
+   "determination_method": "experimental",
    "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
    "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 12",
    "eos": {
@@ -2421,6 +2450,7 @@
     "summary_rows_are_independent_fits": false
    },
    "parameter_provenance": {
+    "determination_method": "Marquardt (2009), Section 3.1.2, Table 2 and Table S1: XRD/Brillouin constraints and experimental LS sensitivity fits. Assumed V0/K0_prime alternatives are fit constraints, not theoretical observations.",
     "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
     "V0": "Table S1 row 12: 72.59 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.96. Preserve printed V0 rather than recomputing from the rounded ratio.",
     "K0": "Table S1 row 12: KT0 = 199 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",

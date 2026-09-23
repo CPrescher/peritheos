@@ -625,6 +625,10 @@
    ],
    "notes": "Third-order Birch-Murnaghan reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The room-temperature quench-data fit gives K0=221(2) GPa and K0'=3.3(1) with V0=328.4 A^3 fixed; those three reference parameters were then fixed in the P-V-T fit. The official supplement defines T0=298 K, theta0=1425 K, n=5 atoms per B4C formula unit, gamma(V)=gamma0*(V/V0)^q, and theta(V)=theta0*exp[(gamma0-gamma(V))/q]. With a=1, the paper's generalized Tange relation reduces exactly to this integrated constant-q MGD model. The final article reports gamma0=0.8 fixed and q=2.1 varied. At the 41 heated supplementary points' printed V and T, the published parameterization gives a pressure RMSE of 1.39 GPa and chi-squared per observation of 0.961. A Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), so it does not independently recover q=2.1; details and the primary-data transcription are in docs/literature-reproductions.md. The average disordered R-3m structure is diffraction-ready and is reported stable over the experimental range.",
    "identifier": "b4c_somayazulu_2023_bm3_1",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Figure 1 caption; Equations 3.1-3.7; Figure 4 caption; Table 1; official supplementary material, equations 1-9 and Tables 3-4."
+   },
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -795,6 +799,10 @@
    ],
    "notes": "The paper calls this the Berman P-V-T fit. EosFit7 implements the Berman reference volume as the truncated quadratic V0(T)=V0*[1+alpha0*(T-Tr)+0.5*alpha1*(T-Tr)^2], with K0(T)=K0+dK0/dT*(T-Tr). EosFit7c varied alpha0=1.94(16)e-5 K^-1 and dK0/dT=-0.008(3) GPa/K while alpha1=0.0573e-8 K^-2 and the 300 K BM3 parameters were fixed. The article's displayed exponential-integral equation instead describes EosFit's Fei-style exact integration and is inconsistent with its Berman label. The implied BM3 K0''=-0.0166 GPa^-1 is derived rather than an independent parameter. Reproduction diagnostics compare both EosFit effective-variance and Peritheos errors-in-variables objectives.",
    "identifier": "b4c_somayazulu_2023_berman_2",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 3.8-3.9; Table 2; Figure 5 caption; official supplementary material, Table 4."
+   },
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -1018,6 +1026,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 3.8-3.9; Table 2; Figure 5 caption; official supplementary material, Table 4; direct EosFit7c 7.60 reproduction; docs/literature-reproductions.md.",
     "V0": "Fixed to the Somayazulu et al. (2023) 300 K BM3 value.",
     "K0": "Fixed to the Somayazulu et al. (2023) 300 K BM3 value.",
     "K0_prime": "Fixed to the Somayazulu et al. (2023) 300 K BM3 value.",
@@ -1031,6 +1040,7 @@
    ],
    "notes": "Opt-in refit of the public rounded dataset, not a parameter set published by Somayazulu et al. The official EosFit7c 7.60 executable refined alpha0 and dK0/dT against the 41 heated rows using all reported P, V, and T sigmas; reference-isotherm parameters, Tr, and alpha1 were fixed. The covariance matrix is reconstructed from EosFit's rounded standard errors and -95.8% printed correlation after its W-CHI^2 rescaling. Uncertainty in the fixed reference-isotherm parameters was not propagated. The unchanged published record b4c_somayazulu_2023_berman_2 remains the literature parameterization.",
    "identifier": "b4c_somayazulu_2023_berman_refit",
+   "determination_method": "experimental",
    "pressure_calibration": {
     "status": "resolved",
     "methods": [

@@ -31,6 +31,7 @@
  "notes": "Ambient lattice and volume are transcribed from Vanpeteghem et al. Table 1. Atomic coordinates were not added because the EOS paper cites, rather than republishes, the structural refinement.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "delta_alooh_vanpeteghem_2002_bm2_1",
    "label": "Vanpeteghem et al. (2002), K0'=4 fit",
    "record_kind": "published",
@@ -86,6 +87,7 @@
     "molar_mass_g_mol": 59.987539
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Table 2.",
     "equation": "Abstract explicitly identifies a third-order Birch-Murnaghan equation.",
     "parameters": "Abstract and Table 2: K0=252(3) GPa with K0'=4 fixed; Table 1 ambient V0=56.54(9) A3."
    },
@@ -136,6 +138,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "delta_alooh_vanpeteghem_2002_bm3_2",
    "label": "Vanpeteghem et al. (2002), unconstrained BM3",
    "record_kind": "published",
@@ -189,6 +192,7 @@
     "molar_mass_g_mol": 59.987539
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Table 2.",
     "equation": "Same third-order Birch-Murnaghan convention stated in the paper.",
     "parameters": "Table 2 present-work alternative: K0=228(7) GPa and K0'=7(1), with Table 1 V0=56.54(9) A3."
    },

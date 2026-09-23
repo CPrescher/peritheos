@@ -73,6 +73,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Room-temperature bcc fit. The published 23.1394 A^3/atom reference volume is multiplied by two for the conventional bcc cell.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: 300 K EOS section; Vinet fit table for hcp and bcc Mg."
+   },
    "identifier": "magnesium_bcc_stinton_2014_vinet_1",
    "pressure_calibration": {
     "status": "unresolved",

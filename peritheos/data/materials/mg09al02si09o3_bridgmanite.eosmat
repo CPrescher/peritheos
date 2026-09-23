@@ -92,6 +92,7 @@
  "notes": "Composition-specific Fe-free aluminous bridgmanite synthesized from a 90 mol% MgSiO3 plus 10 mol% Al2O3 glass. EPMA confirmed Mg0.9Al0.2Si0.9O3 within analytical error. The source later discusses equal Al occupation of large and small sites only as a hypothetical interpretation, so no site partition is asserted here. The stored lattice is the more precise of two mutually consistent atmospheric measurements. Its rounded a*b*c product is 163.585 A^3 and agrees with the printed 163.6(4) A^3 conventional-cell volume. Pbnm perovskite has Z=4; that cell content is a crystallographic inference because the paper does not explicitly print Z. The positional model is a pure-MgSiO3 topology proxy, not a composition-bearing refinement.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1",
    "label": "Kubo et al. (2000), adopted fixed-derivative BM3",
    "record_kind": "published",
@@ -172,6 +173,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract and Experimental section, pages 103-105; Table I, page 104; EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106.",
     "equation": "Page 106 EOS discussion: all Table I volumes fitted to a third-order Birch-Murnaghan EOS. The paper names but does not explicitly typeset the formula; Peritheos uses the standard Eulerian BM3 convention.",
     "V0": "Table I ap107 atmospheric row: measured conventional-cell V0=163.6(4) A^3. The source fixed V/V0=1 separately at atmospheric pressure for each run rather than fitting one shared V0.",
     "K0": "Abstract and page 106: KT0=225.5+/-1.2 GPa when K'T0=4 is assumed.",
@@ -279,6 +281,7 @@
    "notes": "Preferred source result. K0_prime was fixed rather than fitted. The source calls this a third-order Birch-Murnaghan fit; preserving BM3 plus an explicit fixed parameter avoids changing the published model label."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_2",
    "label": "Kubo et al. (2000), unconstrained BM3",
    "record_kind": "published",
@@ -357,6 +360,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract and Experimental section, pages 103-105; Table I, page 104; EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106.",
     "equation": "Page 106 EOS discussion: all Table I volumes fitted to a third-order Birch-Murnaghan EOS. The paper names but does not explicitly typeset the formula; Peritheos uses the standard Eulerian BM3 convention.",
     "V0": "Table I ap107 atmospheric row: measured conventional-cell V0=163.6(4) A^3. The source fixed V/V0=1 separately at atmospheric pressure for each run rather than fitting one shared V0.",
     "K0": "Page 106: unconstrained KT0=215.4+/-4.4 GPa.",

@@ -54,6 +54,7 @@
  "notes": "The stored lattice is the recovered run-4 MgAl2O4 cell. TEM narrows the symmetry and the source assigns Cmcm using the CaTi2O4 prototype, but it does not refine target Mg/Al/O coordinates, so atom sites are not inferred. The lattice product differs slightly from the separately reported V0 because printed quantities are rounded.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mgal2o4_cati2o4_funamori_1998_bm2_1",
    "label": "Funamori et al. (1998), CaTi2O4-type MgAl2O4 BM2",
    "default": true,
@@ -126,6 +127,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental method; Table 1; Sections 3.2-3.3; Table 2; Figure 4.",
     "equation": "Section 3.3: Birch second-order finite-strain EOS with Eulerian strain and K0'=4.",
     "V0": "Section 3.3 and Table 2: 240.3(4) A3 for the recovered CaTi2O4-type conventional cell, Z=4.",
     "K0": "Section 3.3: 206(+/-3) GPa, calculated as the normalized pressure of the single in-situ run-4 state after holding the separately measured V0 fixed.",
@@ -238,6 +240,7 @@
    "notes": "This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgal2o4_cati2o4_ono_2006_bm2_2",
    "label": "Ono et al. (2006), CaTi2O4-type MgAl2O4 BM2",
    "default": false,
@@ -307,6 +310,7 @@
     "measurement_temperature": "300 K (Table 3 and Figure 4)"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental, p. 201; Results, pp. 202-203; Tables 2-3; Figures 4-5.",
     "equation": "Unnumbered Birch-Murnaghan equation, p. 203; K0-prime fixed to 4 reduces exactly to BM2.",
     "V0": "Results, p. 203: fitted V0=238.9(9) A3 conventional Cmcm cell; the body resolves the abstract notation 238.9(+/-9) as +/-0.9 A3.",
     "K0": "Results, p. 203: 219(6) GPa.",

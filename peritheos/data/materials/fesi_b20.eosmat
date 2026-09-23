@@ -65,6 +65,7 @@
   "notes": "Refined B20 FeSi coordinates and a=4.495(2) A at 298 K from Wartchow et al. (1997), page 320/Table 2; full occupancy. Its separate structural lattice need not match Fischer’s EOS V0.",
   "eos_records": [
     {
+      "determination_method": "experimental",
       "identifier": "fesi_b20_fischer_2014_bm3_1",
       "label": "Fischer et al. (2014), FeSi b20 BM3 at 300 K",
       "default": true,
@@ -127,6 +128,7 @@
       ],
       "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
       "parameter_provenance": {
+       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 2 and Section 4.2; 2014 official Table S2, source worksheet row numbers retained.",
         "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
         "V0": "Table 2 and Section 4.2: 6.803 cm^3/mol atoms; multiply by 8/0.602214076 for this cell. Measured and held fixed.",
         "K0": "Table 2 and Section 4.2: 192.2 GPa. Fitted.",
@@ -225,6 +227,7 @@
       "default_for": "equilibrium"
     },
     {
+      "determination_method": "experimental",
       "identifier": "fesi_b20_fischer_2014_vinet_2",
       "label": "Fischer et al. (2014), FeSi b20 VINET at 300 K",
       "default": false,
@@ -287,6 +290,7 @@
       ],
       "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
       "parameter_provenance": {
+       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table S6 and Text S1, page 2; 2014 official Table S2, source worksheet row numbers retained.",
         "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
         "V0": "Table S6 and Text S1, page 2: 6.803 cm^3/mol atoms; multiply by 8/0.602214076 for this cell. Measured and held fixed.",
         "K0": "Table S6 and Text S1, page 2: 193.1 GPa. Fitted.",

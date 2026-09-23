@@ -2,6 +2,7 @@
 
 from peritheos.acoustics import EulerianFiniteStrainAcoustic
 from peritheos.catalog import (
+    DeterminationMethod,
     MaterialFamily,
     MaterialGroup,
     RangeQuery,
@@ -154,6 +155,7 @@ __all__ = [
     "RubyPressureScaleRecalculation",
     "XrdPressureRecalculation",
     "RangeQuery",
+    "DeterminationMethod",
     "RangeSemantics",
     "PeritheosError",
     "UnsupportedOperationError",

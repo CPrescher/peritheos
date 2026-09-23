@@ -108,6 +108,7 @@
     8.16
    ],
    "notes": "Complete preferred high-temperature BM3 parameterization from Zhao et al. (1997), fitted to the 31 hydrostatic Table 1 P-V-T states. The authors fixed V0=403 A^3 and K0'=5, and varied K0, dK/dT, a, and b. Their alternate K0'=4, K0'=6, and unconstrained-K0' tradeoff solutions remain documented in the source audit rather than being silently combined. The source does not report the regression objective, row weights, parameter covariance, or confidence convention.",
+   "determination_method": "experimental",
    "identifier": "naalsi2o6_zhao_1997_bm3_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -219,6 +220,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Aspects and Table 1, pages 5-6; Equation (1) and thermoelastic fit paragraph, page 6; Discussion and Table 2, page 7.",
     "equation": "Zhao et al. (1997), Equation (1), page 6: third-order Birch-Murnaghan with temperature-dependent V_T and K_T",
     "V0": "Discussion and Table 2, page 7: fixed at 403 A^3 in every tradeoff fit; it is not the Table 1 measurement 403.32(8) A^3",
     "K0": "Preferred K0'=5 column of Table 2: 125(4) GPa; fit prose reports 124.5(4.0) GPa",

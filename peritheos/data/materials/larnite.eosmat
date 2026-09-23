@@ -23,6 +23,7 @@
  "notes": "Crystallographic starting data came from COD; coordinates are not republished in the article.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "larnite_sagatova_2021_gga_300k_vinet",
    "label": "Sagatova et al. (2021), larnite GGA 300 K Vinet",
    "record_kind": "published",
@@ -87,6 +88,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 2; Phase relations.",
     "equation": "Vinet EOS, Methods.",
     "parameters": "Table 2, this-work GGA larnite row.",
     "method": "PBE-GGA quasi-harmonic free-energy calculation at room temperature."

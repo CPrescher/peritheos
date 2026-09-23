@@ -90,6 +90,7 @@
  "notes": "The authors call the specimen nominally (Mg0.22Fe0.78)O or Mw78, then use room-pressure synchrotron Mossbauer spectroscopy to resolve 71.6 mol% high-spin Fe2+, 4.6 mol% high-spin Fe3+, 21.5 mol% Mg, and 2.3 mol% net cation vacancies per O: Mg0.215Fe2+0.716Fe3+0.046□0.023O. The EOS records are attached to that defect-normalized measured composition because both DAC fragments came from the same characterized crystal. The Fm-3m sites are an average diffraction proxy: the final article explicitly says the nominal cubic cell and Bragg peaks do not fully describe the diffuse defect structure, and it does not publish an ordered defect-cluster refinement. Room-pressure Mossbauer data establish high-spin Fe2+ and Fe3+ only at ambient pressure; this study did not measure spin state under compression, so neither EOS record is labeled as a high-spin pressure branch. The neon crystal becomes increasingly hexagonally distorted above about 20 GPa under growing differential stress. That high-pressure indexing-cell fit is documented but excluded from execution because no space group or atomic structure is established.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1",
    "label": "Finkelstein et al. (2017), Mw78 cubic helium BM3",
    "record_kind": "published",
@@ -166,6 +167,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: final article, pages 1709-1713, especially Experimental procedures, Room pressure, Phase stability, Equations of state, and Table 3; official American Mineralogist deposit AM-17-85966, 5966_supp.pdf; official American Mineralogist deposit AM-17-85966, HarvestTable 2.pdf and HarvestTable 2.xlsx.",
     "equation": "Final article, page 1710: explicitly printed third-order Birch-Murnaghan pressure-volume equation in V0/V form; MINUTI version 2.0",
     "V0": "Final article, page 1713 and Table 3: 78.87(6) A^3, conventional cubic unit cell; fitted with ambient-volume prior 78.94 +/- 0.1 A^3",
     "K0": "Final article, abstract, page 1713, and Table 3: K0T=148(3) GPa",
@@ -335,6 +337,7 @@
    "notes": "Canonical equilibrium-oriented record. V0 is fitted under a 78.94 +/- 0.1 A^3 ambient prior rather than fixed; K0 and K0_prime are freely varied. Parenthetical values are the source's 1-sigma fit uncertainties, stored with null confidence because they are standard errors rather than interval half-widths. The 300 K reference is nominal room temperature and no row-wise temperature observations are reported."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2",
    "label": "Finkelstein et al. (2017), Mw78 low-pressure cubic neon BM3",
    "record_kind": "published",
@@ -410,6 +413,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: final article, pages 1710-1713, Experimental procedures, Phase stability, Equations of state, and Table 3; official American Mineralogist deposit AM-17-85966, 5966_supp.pdf; official American Mineralogist deposit AM-17-85966, HarvestTable 2.pdf and HarvestTable 2.xlsx.",
     "equation": "Final article, page 1710: explicitly printed third-order Birch-Murnaghan pressure-volume equation in V0/V form; MINUTI version 2.0",
     "V0": "Final article, page 1713 and Table 3: 78.742(14) A^3 conventional cubic unit cell; fitted with ambient-volume prior 78.94 +/- 0.1 A^3",
     "K0": "Final article, page 1713 and Table 3: K0T=163.0(1.0) GPa",

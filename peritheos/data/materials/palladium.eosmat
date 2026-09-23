@@ -61,6 +61,10 @@
    "temperature_ref": 0.0,
    "pressure_range_status": "theoretical",
    "notes": "Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values and reported as V0=14.6167 A^3/atom, K0=195.0(2.5) GPa, and K0'=5.1(1). The stored conventional-cell volume is four times the atomic value. This is the green curve in Figure 3 and the 'This work' column in supplementary Table S3; it is distinct from the authors' experimental 300 K BM3 fit.",
+   "determination_method": "theoretical",
+   "parameter_provenance": {
+    "determination_method": "Baty (2024), supplementary Table S3: static 0 K DFT P(V) fit; separate from the experimental 300 K Pd record."
+   },
    "identifier": "palladium_baty_2024_bm3_dft_2",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -160,6 +164,10 @@
    "temperature_ref": 300.0,
    "pressure_range_status": "reported_qualitatively",
    "notes": "Room-temperature Vinet fit to pure Pd compressed in neon during the Pd-hydride study. The paper reports V0=14.75(4) A^3/atom, K0=162(2) GPa, and K0'=6.2(9); the stored conventional-cell V0 is multiplied by four. Frost et al. identify 65 GPa as the maximum pressure of the Guigue pure-Pd study; the article title's 100 GPa refers to the broader hydride study, not the pure-Pd EOS range.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods; Pure-Pd compression discussion; Pure-Pd EOS figure."
+   },
    "identifier": "palladium_guigue_2020_vinet_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -275,6 +283,10 @@
    "temperature_ref": 300.0,
    "pressure_range_status": "reported_exactly",
    "notes": "Room-temperature BM3 fit to the 15 pure-Pd Table 1 observations measured with neon as pressure medium and marker. All three BM3 parameters remain free because the source does not state that V0 was fixed. Table 2 prints 58.863(2) A^3, but Table 1, the fit paragraph, and the Figure 1 caption independently agree on 58.868(2) A^3; the repeated value is used here and the source inconsistency is documented.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.1; Table 1; Equation 1; Figure 1; Table 2."
+   },
    "identifier": "palladium_fedotenko_2020_bm3_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -382,6 +394,10 @@
    "temperature_ref": 300.0,
    "pressure_range_status": "reported_exactly",
    "notes": "Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.1; Table 1; Table 2."
+   },
    "identifier": "palladium_fedotenko_2020_bm2_2",
    "pressure_calibration": {
     "status": "resolved",
@@ -484,6 +500,10 @@
    "temperature_ref": 300.0,
    "pressure_range_status": "reported_exactly",
    "notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Methods, page 035901-2; Table I; Figure 1 and caption; Results and discussion; Data availability; Supplementary Section II.A and Tables I-III."
+   },
    "identifier": "palladium_frost_2023_vinet_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -604,6 +624,10 @@
    "temperature_ref": 300.0,
    "pressure_range_status": "reported_exactly",
    "notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3).",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Methods, page 035901-2; Table I; Figure 1 and caption; Results and discussion; Data availability; Supplementary Section II.A and Tables I-III."
+   },
    "identifier": "palladium_frost_2023_bm3_2",
    "pressure_calibration": {
     "status": "resolved",
@@ -722,6 +746,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 1; Figure 3, own 300 K P-V data; Supplementary Table S1; Figure 4."
+   },
    "identifier": "palladium_baty_2024_bm3_1",
    "pressure_calibration": {
     "status": "resolved",

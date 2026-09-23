@@ -66,6 +66,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Table 8 room-temperature fit. Published V0=14.3 A^3/atom is multiplied by two atoms in the hcp cell; V0 is extrapolated because Si-VII was observed only at high pressure.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state discussion; Table 8."
+   },
    "identifier": "silicon_vii_anzellini_2019_vinet_1",
    "pressure_calibration": {
     "status": "resolved",

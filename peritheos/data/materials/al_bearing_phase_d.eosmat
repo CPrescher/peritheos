@@ -63,6 +63,7 @@
  "eos_records": [
   {
    "identifier": "al_bearing_phase_d_xu_2020_bm3_300k",
+   "determination_method": "experimental",
    "label": "Xu et al. (2020), 300 K gold-scale BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -143,6 +144,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Materials and Methods; Section 3.1 and Table 1; Data Availability Statement; EarthChem DOI 10.26022/IEDA/111629, workbook Tables 1-3.",
     "equation": "Final article, Section 3.1 and Table 1: standard third-order Birch-Murnaghan EOS fitted by least squares with EosFit",
     "V0": "Final article, Section 3.1; EarthChem workbook Table 3 first data row: 86.71(2) A^3 conventional-cell volume, fixed in the fit",
     "K0": "Final article, Section 3.1: fitted KT0=143(5) GPa. Table 1 instead prints 143(4) GPa; the narrative uncertainty is stored and the discrepancy is preserved under scientific_validation.reported_inconsistencies",

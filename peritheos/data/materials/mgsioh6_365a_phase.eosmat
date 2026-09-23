@@ -195,6 +195,7 @@
  "notes": "The 3.65 A name refers to the intense (002) diffraction peak, not a cubic lattice parameter. The source describes an A-site-vacant hydroxide perovskite framework of alternating Mg(OH)6 and Si(OH)6 octahedra. Nominal MgSi(OH)6 is retained: electron-microprobe Mg/Si=1.02+/-0.06 and thermogravimetric water=34+/-3 wt.% support the ideal composition. The EOS sample contained traces to about 10% 10 A phase in some illuminated regions. The experimental and GGA reference volumes are intentionally different.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1",
    "label": "Mookherjee et al. (2015), preferred experimental BM3",
    "record_kind": "published",
@@ -282,6 +283,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental and computational methods; Equations 1-3; Table 2; Figure 3.",
     "equation": "Equations 1-3 and Table 2: third-order Birch finite-strain EOS (BM3).",
     "V0": "Table 2: 194.52(2) A3, fixed to the high-precision value measured on the same material by Wunder et al. (2012).",
     "K0": "Table 2: 83(1) GPa.",
@@ -379,6 +381,7 @@
    "notes": "Preferred source fit. Table 2's K0' uncertainty (0.2) is stored instead of the abstract's inconsistent 0.1."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2",
    "label": "Mookherjee et al. (2015), experimental BM4 sensitivity fit",
    "record_kind": "published",
@@ -459,6 +462,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 2; Figure 3d.",
     "equation": "Equations 1-3 and Table 2: fourth-order Birch finite-strain EOS (BM4).",
     "V0": "Table 2: 194.52(2) A3, fixed.",
     "K0": "Table 2: 77(+/-2.0) GPa.",
@@ -528,6 +532,7 @@
    "notes": "Sensitivity record only; intentionally has no default_for. Its K0, K0', and K0'' are strongly covariant and the source does not publish covariance."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3",
    "label": "Mookherjee et al. (2015), static GGA model-crystal BM4",
    "record_kind": "published",
@@ -599,6 +604,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Mookherjee (2015), static GGA model-crystal calculation: computed compression determines this BM4, separately from the two experimental fits in the same paper.",
     "equation": "Table 2 labels the first-principles result fourth-order; Equations 1-3 define the BM4 convention.",
     "V0": "Table 2, first-principles simulation: 202.02 A3.",
     "K0": "Table 2: 80 GPa.",

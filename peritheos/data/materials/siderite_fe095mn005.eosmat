@@ -182,6 +182,7 @@
  },
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "siderite_fe095mn005_litasov_2013_bm3",
    "label": "Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3",
    "reference": {
@@ -232,6 +233,7 @@
     300.0
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Publication-of-record abstract; User-supplied Accepted Manuscript: Section 2, pages 3-4; Section 3, pages 4-5; Tables 1 and 2, pages 12-15.",
     "V0": "Abstract and Section 3: measured ambient mean, fixed during fitting; conventional hexagonal cell.",
     "K0": "Room-temperature abstract (manuscript and publication of record): 120 +/- 1 GPa; Table 1 reports 120(2).",
     "K0_prime": "Abstract and Table 1: 3.57(9).",
@@ -321,6 +323,7 @@
    "notes": "Source-reported 300 K isotherm, preserved without substituting refit coefficients. Natural high-spin R-3c Fe0.95Mn0.05CO3, not pure FeCO3. Pressure is retained on the printed Au scale; its exact realization is unresolved. The high-temperature candidate is withheld because Table 1 and the abstract disagree on a0. All printed cold rows give pressure RMSE 0.230 GPa with published coefficients; the manuscript 0.11-0.17 GPa RMS range is not recovered. Source objective, weights, parameter covariance and confidence convention are not specified. No extension across the cited spin transition near 45 GPa or a numerical decomposition boundary is claimed."
   },
   {
+   "determination_method": "experimental",
    "identifier": "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
    "label": "Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3",
    "reference": {
@@ -592,6 +595,7 @@
     "weighting_description": "equal; reported pressure bound is not treated as a row sigma; volume errors are retained but not used as weights"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Publication-of-record abstract; User-supplied Accepted Manuscript: Section 2, pages 3-4; Section 3, pages 4-5; Tables 1 and 2, pages 12-15.",
     "V0": "Fixed from the published 300 K record, 293.4 A^3. Its reported 0.1 A^3 uncertainty is not propagated in this conditional refit.",
     "Tr": "Fixed at source reference temperature 300 K.",
     "K0": "Joint independent refit of all 111 Table 2 observations; scripts/reproduce_litasov_2013_siderite.py, thermal_joint_refit.",

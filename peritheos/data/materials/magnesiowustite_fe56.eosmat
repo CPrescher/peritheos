@@ -85,6 +85,7 @@
  "notes": "Fe56 is the article's less-stoichiometric magnesiowustite specimen. The average B1 atom-site representation preserves the oxygen-normalized bulk composition from Table 1; it does not claim to resolve the article's refined split of ferric iron between octahedral and interstitial sites. The lattice is the zero-pressure measurement made in the diamond cell without pressure fluid for the exact EOS specimen.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "magnesiowustite_fe56_jacobsen_2002_bm3_1",
    "label": "Jacobsen et al. (2002), Fe56 error-weighted BM3",
    "record_kind": "published",
@@ -151,6 +152,7 @@
     "molar_mass_g_mol": 56.49216
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Paragraphs 23-26; Tables 1 and 4 and 6; Figures 5-6.",
     "equation": "Paragraphs 25-26 and Figure 6: standard third-order Birch-Murnaghan EOS in the Eulerian finite-strain convention, with f=[(V0/V)^(2/3)-1]/2 and F=P/[3f(1+2f)^(5/2)].",
     "V0": "Paragraph 25: freely fitted V0=77.453(4) A^3 for the conventional cubic cell.",
     "K0": "Paragraph 25 and Table 6: freely fitted isothermal K0=155.8(9) GPa.",

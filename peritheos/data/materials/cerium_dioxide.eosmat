@@ -75,6 +75,10 @@
    ],
    "temperature_ref": 298.0,
    "notes": "Room-temperature powder XRD fit of the cubic fluorite phase. The equation fits K0 and K0_prime using measured a0=5.411(1) A; V0=a0^3 and its error is propagated as 3*a0^2*sigma_a.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), pages 57-58; section 4, pages 58-59; Tables 1 and 2; Figure 3."
+   },
    "identifier": "cerium_dioxide_gerward_2005_bm3_1",
    "pressure_calibration": {
     "status": "resolved",

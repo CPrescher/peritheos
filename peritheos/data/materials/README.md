@@ -6,6 +6,25 @@ tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
 <https://github.com/Dioptas/Dioptas>.
 
+Every EOS record has an explicit `determination_method` and a rationale under
+`parameter_provenance.determination_method`. The 2026-09-23 review classifies
+473 records as experimental, 114 as theoretical, 20 as hybrid, and seven as
+unknown. These counts include the two deferred Campbell source records.
+The seven unknowns are the Holland et al. (2013) THERMOCALC modified-Tait
+endmembers: the existing source audit verifies the coefficients but does not
+establish each endmember's measurement-versus-calculation constraints.
+They remain explicitly unknown rather than inferring their origin from the
+paper title or `self_consistent` calibration method.
+
+Classification applies to the represented parameter set, including fixed
+coefficients and thermal terms. Thus Ono's experimental CaSiO3 reference plus
+AIMD thermal term, Oganov's experimentally shifted MgO curves, and Holmes's
+calculated Pt curve with a measured reference volume are hybrid. The
+unshifted calculated MgO curves remain theoretical. A measured compression
+fit retains experimental classification when using a theoretical pressure
+calibrant; calibrant ancestry is recorded separately. See the
+[schema definition](../../../docs/eosmat-schema.md#eos-record).
+
 Dioptas is migration provenance, not a licensor of the underlying scientific
 data. Many entries were assembled earlier in legacy JCPDS collections used in
 GSECARS and related beamline workflows. Dioptas provenance does not establish

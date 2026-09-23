@@ -95,6 +95,7 @@
  "notes": "The diffraction model is the revised and independently confirmed 298 K Cmcm single-crystal refinement of Nakatsuka et al. (2015), archived as COD 2241059 under CC0. The four occupied asymmetric-unit sites have multiplicities 4, 4, 4, and 8, reproducing Ca4Ir4O12 and Z=4. Its 226.75 A^3 lattice volume is distinct from the 2007 fitted EOS V0=226.38 A^3 and is not substituted for it. The Martin et al. (2007) independent room-temperature BM2 fit and its full Table 1a dataset are retained as a second source-specific record.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "cairo3_post_perovskite_boffa_ballaran_2007_bm3_1",
    "label": "Boffa Ballaran et al. (2007), CaIrO3 post-perovskite BM3",
    "reference": {
@@ -163,6 +164,7 @@
     "cairo3_post_perovskite_boffa_ballaran_2007_table1_compression"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental method; Results; Table 1; Table 2; Figures 1-2 and captions.",
     "equation": "Results, page 1761: third-order Birch-Murnaghan EOS fitted with EosFit52; Figure 2 explicitly defines the standard Eulerian finite strain fE=[(V0/V)^(2/3)-1]/2 and normalized stress FE=P/[3 fE (1+2 fE)^(5/2)].",
     "V0": "Abstract and Table 2: 226.38(1) A^3 conventional Cmcm cell; described with K0 and K' as a refined parameter and not marked fixed.",
     "K0": "Abstract and Table 2: 181(3) GPa; refined.",
@@ -292,6 +294,7 @@
    "notes": "This record is limited to the Cmcm CaIrO3 post-perovskite polymorph and must not be used for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero."
   },
   {
+   "determination_method": "experimental",
    "identifier": "cairo3_post_perovskite_martin_2007_bm2",
    "label": "Martin et al. (2007), room-temperature BM2",
    "record_kind": "published",
@@ -365,6 +368,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Chapter 7, Sections 7.3-7.4; Table 7.1 (publication Table 1).",
     "equation": "Methods and Table 1 caption: second-order Birch-Murnaghan, represented as BM3 with K0'=4 fixed.",
     "parameters": "Table 1b: V0=226.632(45) A3 and K0=180.2(28) GPa.",
     "uncertainties": "Parenthesized values are estimated standard uncertainties propagated from the GSAS refinements and fits; the stored confidence 0.6827 is the conventional normal-distribution coverage of one standard deviation.",

@@ -134,6 +134,7 @@
     28.85
    ],
    "notes": "The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a fitted extrapolation because the cubic phase transforms on decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, but this record intentionally implements only the 300 K curve. No fitted-parameter covariance is published.",
+   "determination_method": "experimental",
    "identifier": "sno2_pa_3_at_48gpa_ono_2000_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -207,6 +208,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 621, Table 2, measured cubic-phase P-V-T data; page 621, third-order Birch-Murnaghan equation and 300 K fit; page 621, Table 3 and thermal-expansion discussion.",
     "V0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
     "K0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
     "K0_prime": "Ono et al. (2000), page 621, 300 K BM3 paragraph",

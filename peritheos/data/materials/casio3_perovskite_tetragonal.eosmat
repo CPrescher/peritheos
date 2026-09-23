@@ -22,6 +22,7 @@
  "notes": "Shim et al. (2002) resolve tetragonal splitting above 20 GPa but explicitly leave the exact space group open. No unique atomic model, lattice metric, or ambient structure is inferred.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "casio3_perovskite_tetragonal_shim_2002_bm3_1",
    "label": "Shim et al. (2002), tetragonal CaSiO3 BM3",
    "record_kind": "published",
@@ -88,6 +89,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract; paragraphs 4-10; Figure 2.",
     "equation": "Paragraph 10: Birch-Murnaghan compression fit.",
     "V0": "Paragraph 10: 45.58 A^3 adopted from Wang et al. (1996).",
     "K0": "Abstract and paragraph 10: K0T=255+/-5 GPa.",

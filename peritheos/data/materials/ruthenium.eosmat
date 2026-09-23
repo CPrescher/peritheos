@@ -69,6 +69,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; Table 3."
+   },
    "identifier": "ruthenium_anzellini_2019_bm3_1",
    "pressure_calibration": {
     "status": "partially_resolved",

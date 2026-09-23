@@ -65,6 +65,7 @@
     21.1
    ],
    "notes": "Empirical 298 K Vinet fit jointly spanning bcc and fcc lithium, exactly as defined by the primary paper. It is not a phase-specific bcc EOS: the bcc-fcc transition occurs near 7.5 GPa with a 0.16(3)% volume discontinuity. Public volumes use twice the paper's atomic volume so they remain compatible with this file's two-atom bcc conventional-cell convention, including for fcc observations. V0 was fixed; no V0 error or parameter covariance is published.",
+   "determination_method": "experimental",
    "identifier": "li_hanfland_1999_vinet_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -120,6 +121,7 @@
    "temperature_ref": 298.0,
    "pressure_range_status": "reported_exactly",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 125, Table 1, bcc and fcc P-V observations; page 125, Table 2, experimental Vinet parameters; pages 125-126, combined bcc-fcc fit description and Figure 3.",
     "V0": "Hanfland et al. (1999), Table 2: fixed atomic V0=21.6225 A^3, multiplied by two for the bcc conventional-cell convention",
     "K0": "Hanfland et al. (1999), Table 2, this-work Vinet row",
     "K0_prime": "Hanfland et al. (1999), Table 2, this-work Vinet row",

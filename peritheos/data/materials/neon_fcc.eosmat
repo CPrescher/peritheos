@@ -90,6 +90,10 @@
     110.0
    ],
    "notes": "From the paper's text: BM3 fit to the same data as the Vinet fit, K0=1.43(14) GPa, K0p=8.02(31), with V0 fixed at 4.464^3 = 88.955449344 A^3. The room-temperature fit combined Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and Fei et al.'s new Pt- and Au-scale observations. Fei recalculated the Hemley ruby pressures to the Dewaele et al. (2004) scale. The Hemley and Fei observations are bundled; the Finger rows remain unavailable.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption."
+   },
    "identifier": "neon_fcc_fei_2007_bm3_1",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -252,6 +256,10 @@
      }
     }
    ],
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption."
+   },
    "identifier": "neon_fcc_fei_2007_vinet_2",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -365,6 +373,7 @@
     110.4
    ],
    "notes": "Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Hemley et al. Table I, using the tabulated Mao-ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm^3/mol value converted to the four-atom fcc cell. This direct table-only reference is intentionally distinct from Hemley et al.'s published thermally reduced 0 K fit, which also included the earlier Finger et al. low-pressure data and reported K0=1.097 GPa and K0'=9.23(3).",
+   "determination_method": "experimental",
    "identifier": "neon_fcc_hemley_1989_bm3_refit",
    "pressure_calibration": {
     "status": "resolved",
@@ -428,6 +437,7 @@
    "temperature_ref": 300.0,
    "pressure_range_status": "reported_exactly",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, page 11823; Equation-of-state discussion and Figure 4, pages 11823-11824.",
     "V0": "Hemley et al. (1989), page 11824: fixed low-temperature V0=13.394 cm^3/mol, converted to the four-atom fcc cell",
     "K0": "Peritheos errors-in-variables refit of Hemley et al. (1989), Table I",
     "K0_prime": "Peritheos errors-in-variables refit of Hemley et al. (1989), Table I",

@@ -69,6 +69,7 @@
   "notes": "Ideal fully occupied CsCl-type B2 FeSi, identified in Fischer (2014), Sections 3.2 and 4.2/Figure 5; Pm-3m (No. 221), Fe 1a and Si 1b. Reference a is the measured Table S2 row 70 lattice at 42.7476826557 GPa and 1176.245 K. This compressed diffraction reference is separate from the extrapolated EOS V0. Only explicitly labelled Peritheos refits are executable. The published Fischer B2 coefficients remain in the source audit because their thermal normalization is unresolved.",
   "eos_records": [
     {
+      "determination_method": "experimental",
       "identifier": "fesi_b2_fischer_2014_bm3_refit",
       "label": "Peritheos BM3 + MGD refit of Fischer et al. (2014) B2 FeSi data",
       "default": true,
@@ -155,6 +156,7 @@
       ],
       "notes": "Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.",
       "parameter_provenance": {
+       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 2/S6 fixed assumptions; Official Table S2, all 114 phase=B2 observations; scripts/refit_fischer_2014_b2.py and docs/data/fischer-2014-b2-refits.json.",
         "equation": "Standard BM3 or Vinet plus reference-subtracted Debye thermal pressure, gamma=gamma0*(V/V0)^q and integrated-Gruneisen theta law; physical n=2 per FeSi formula.",
         "V0": "Fischer (2014) Table 2: adopted 6.414 cm3/mol atoms, held fixed; converted with 2/.602214076 to angstrom^3/B2 cell.",
         "K0_prime": "Fischer (2014) Table 2/S6: adopted 4.17, held fixed as a conditional fit assumption.",
@@ -500,6 +502,7 @@
       }
     },
     {
+      "determination_method": "experimental",
       "identifier": "fesi_b2_fischer_2014_vinet_refit",
       "label": "Peritheos VINET + MGD refit of Fischer et al. (2014) B2 FeSi data",
       "default": false,
@@ -586,6 +589,7 @@
       ],
       "notes": "Independent Peritheos refit of source observations, not Fischer's published B2 coefficients and not an established source correction. Physical n=2 per FeSi formula and conventional-cell volume are used consistently. Parameter errors are conditional local 1-sigma estimates for equal, independent pressure residual variance; the full joint covariance is stored. K0-prime and reference choices strongly affect gamma0, so formal errors are not total material-property uncertainty. Use within the measured range; no validated core extrapolation. BM3 is the default only within this explicitly refit-only material; no published default is replaced.",
       "parameter_provenance": {
+       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 2/S6 fixed assumptions; Official Table S2, all 114 phase=B2 observations; scripts/refit_fischer_2014_b2.py and docs/data/fischer-2014-b2-refits.json.",
         "equation": "Standard BM3 or Vinet plus reference-subtracted Debye thermal pressure, gamma=gamma0*(V/V0)^q and integrated-Gruneisen theta law; physical n=2 per FeSi formula.",
         "V0": "Fischer (2014) Table 2: adopted 6.414 cm3/mol atoms, held fixed; converted with 2/.602214076 to angstrom^3/B2 cell.",
         "K0_prime": "Fischer (2014) Table 2/S6: adopted 4.17, held fixed as a conditional fit assumption.",

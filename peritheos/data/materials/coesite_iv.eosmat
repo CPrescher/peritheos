@@ -23,6 +23,7 @@
  "notes": "Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-coordinated Si. The EOS reference volume is a documented one-parameter reconstruction from exact primary Table 10 calculated P-V states because Supplementary Table 11 publishes K0 and K0' but omits V0.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "coesite_iv_bykova_2018_am05_static_bm3_refit",
    "label": "Bykova et al. (2018), coesite-IV static AM05 BM3 reconstruction",
    "record_kind": "derived",
@@ -150,6 +151,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Bykova (2018), Methods: static VASP AM05 E(V) calculations supply the one-parameter BM3 refit; a Peritheos refit of calculated states remains theoretical.",
     "equation": "Methods: calculated E-P-V states fitted with third-order Birch-Murnaghan.",
     "parameters": "K0 and K0' are published in Supplementary Table 11. V0 is reconstructed by least squares from the three unambiguously coesite-IV exact calculated states in Supplementary Table 10, holding the published K0 and K0' fixed.",
     "method": "Static 0 K VASP AM05 calculations; one-parameter reproducible refit."

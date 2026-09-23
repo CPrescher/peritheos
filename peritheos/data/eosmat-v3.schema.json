@@ -1680,6 +1680,15 @@
           },
           "additionalProperties": false
         },
+        "determination_method": {
+          "enum": [
+            "experimental",
+            "theoretical",
+            "hybrid",
+            "unknown"
+          ],
+          "description": "How this record's EOS parameters were determined: measurements, calculations/theory, or both. Classifies the represented parameterization, including fixed parameters and thermal terms, rather than the entire paper. Comparison-only validation and pressure-calibrant lineage do not change the classification. Omission means unknown for backward compatibility."
+        },
         "record_kind": {
           "enum": [
             "published",

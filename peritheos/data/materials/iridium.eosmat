@@ -92,6 +92,7 @@
     5600.0
    ],
    "notes": "Combined BM3 plus Holland-Powell thermal-pressure fit. The 300 K reference data are from Monteseguro et al. (2019), while the thermal contribution is constrained by the present resistive- and laser-heating experiments. Equation 2 uses a fixed 298 K Einstein temperature and the arithmetic mean of upstream/downstream pyrometry. The 122-row supplement contains the exact laser-heating observations but not numerical tables for the Monteseguro 300 K or present 830 K resistive-heating series. Figure 4 does expose 91 and 16 corresponding marker centers as vector paths; these are bundled as explicitly plot-derived coordinates with graphical uncertainty. A source-conditioned fit holds the published BM3 coefficients fixed and tests alpha0 on all exact hot rows. A separate four-parameter reconstruction combines the digitized series with exact hot rows in the stated plus-or-minus 100 K isotherm bands; it is not exact source parity because the original rows, averaging algorithm, weights, and covariance remain unpublished. fcc Ir remained stable to 101 GPa and 5600 K in the present experiments.",
+   "determination_method": "experimental",
    "identifier": "iridium_anzellini_2025_bm3_1",
    "fit_datasets": [
     "iridium_anzellini_2025_tables_s1_s3_pvt",
@@ -164,6 +165,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Model description; Equations 1-3; Table 1, combined experimental fit; Methods, temperature averaging; Figure 4; Supplementary Figure 5.",
     "equation": "Anzellini et al. (2025), Equations 1-3: 300 K BM3 reference pressure plus a volume-independent Holland-Powell Einstein thermal-pressure increment.",
     "V0": "Table 1, experimental BM3 + HP row, A^3 per conventional fcc cell.",
     "K0": "Table 1, experimental BM3 + HP row, GPa.",

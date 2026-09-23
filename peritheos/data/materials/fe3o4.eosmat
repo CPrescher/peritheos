@@ -82,6 +82,7 @@
     32.0
    ],
    "notes": "Room-temperature (23+/-3 degC) magnetite BM3. V0 and its propagated error come from the paper's a0=8.394(3) A sample, not the independent structural lattice in this file. K0'=4+/-0.4 was assumed, and the authors formed the +/-10 GPa K0 uncertainty by adding fit, NaCl pressure-scale, and assumed-K0' contributions; it is not a covariance-derived one-sigma error. The low-pressure spinel reflections persist to 32 GPa, but a high-pressure phase begins to coexist above about 25 GPa.",
+   "determination_method": "experimental",
    "identifier": "fe3o4_mao_1974_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -137,6 +138,7 @@
    "temperature_ref": 296.15,
    "pressure_range_status": "reported_exactly",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 1165, ambient a=8.394(3) A; page 1167, Table 3 and printed Birch-Murnaghan equation; pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget.",
     "V0": "Mao et al. (1974), page 1165: a0=8.394+/-0.003 A; V0=a0^3 and sigma(V0)=3*a0^2*sigma(a0)",
     "K0": "Mao et al. (1974), pages 1167-1168, summed error budget",
     "K0_prime": "Mao et al. (1974), pages 1167-1168: assumed 4+/-0.4",

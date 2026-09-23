@@ -96,6 +96,10 @@
     "model": "mie_gruneisen_debye"
    },
    "notes": "Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Thermal EOS formulation; Table 1, CaCl2 and seifertite rows."
+   },
    "identifier": "silica_cacl2_sun_2019_bm2_1",
    "pressure_calibration": {
     "status": "unresolved",

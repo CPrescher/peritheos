@@ -81,6 +81,10 @@
    "temperature_ref": 300.0,
    "notes": "Single-crystal XRD in neon. The Vinet fit fixed the conventional zinc-blende V0 to 93.2061 A^3; no uncertainty was reported for that fixed value. No phase transition or amorphization was observed to 55 GPa.",
    "identifier": "boron_phosphide_le_godec_2014_vinet_1",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; EOS comparison table; Figure 2."
+   },
    "pressure_calibration": {
     "status": "unresolved",
     "methods": [],

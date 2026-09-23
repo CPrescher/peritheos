@@ -80,6 +80,10 @@
    ],
    "temperature_ref": 298.0,
    "notes": "The published 62.36 A^3/formula-unit V0 is multiplied by four for the conventional B1 cell. The source gives no individual fit uncertainties and fixes K0'=5.5.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table II, KCl/KBr B1 and B2 rows."
+   },
    "identifier": "kcl_b1_dewaele_2012_vinet_1",
    "pressure_calibration": {
     "status": "resolved",

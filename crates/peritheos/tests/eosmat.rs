@@ -1306,3 +1306,34 @@ fn double_debye_bm_reference_survives_eosmat_round_trip() {
         }
     }
 }
+
+#[test]
+fn determination_method_validation_legacy_default_and_round_trip() {
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    let legacy = load_eosmat_str(&document.to_string()).unwrap();
+    assert_eq!(legacy.eos_records[0].determination_method(), "unknown");
+    for method in ["experimental", "theoretical", "hybrid", "unknown"] {
+        document["eos_records"][0]["determination_method"] = method.into();
+        validate_eosmat_document(&document).unwrap();
+        let material = load_eosmat_str(&document.to_string()).unwrap();
+        assert_eq!(material.eos_records[0].determination_method(), method);
+        let exported = material.to_json().unwrap();
+        let reloaded = load_eosmat_str(&exported).unwrap();
+        assert_eq!(reloaded.eos_records[0].determination_method(), method);
+    }
+    for invalid in [
+        serde_json::json!("Experimental"),
+        serde_json::json!("computed"),
+        serde_json::json!(""),
+        serde_json::json!(null),
+        serde_json::json!(true),
+        serde_json::json!(1),
+        serde_json::json!([]),
+        serde_json::json!({}),
+    ] {
+        document["eos_records"][0]["determination_method"] = invalid;
+        let error = validate_eosmat_document(&document).unwrap_err();
+        assert!(error.to_string().contains("determination_method"));
+        assert!(load_eosmat_str(&document.to_string()).is_err());
+    }
+}

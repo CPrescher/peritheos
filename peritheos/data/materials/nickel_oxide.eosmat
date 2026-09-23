@@ -85,11 +85,13 @@
    ],
    "temperature_ref": 300.0,
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Noguchi et al. (1998), page 832, ambient lattice parameter; Noguchi et al. (1998), pages 833-834, Mie-Gruneisen reduction and Murnaghan-Birch fit; Noguchi et al. (1999), journal abstract, final 147.6 GPa isotherm coefficients.",
     "V0": "Derived from the reported pseudo-cubic a0=4.177(1) A as 3a0^3/4 for the Z=3 rhombohedral hexagonal cell.",
     "K0": "Noguchi et al. (1999), abstract and shock-reduced 300 K BM3 curve; independently checked by the executable Debye Mie-Gruneisen reduction documented in scientific_validation.independent_refit.",
     "K0_prime": "Noguchi et al. (1999), abstract and shock-reduced 300 K BM3 curve; independently checked by the executable Debye Mie-Gruneisen reduction documented in scientific_validation.independent_refit."
    },
    "notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.",
+   "determination_method": "experimental",
    "identifier": "nickel_oxide_noguchi_1999_bm3_1",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -204,6 +206,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "nickel_oxide_noguchi_1999_linear_hugoniot_2",
    "label": "Noguchi et al. (1999), derived B1 principal Hugoniot",
    "reference": {
@@ -387,6 +390,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Noguchi et al. (1998), pages 832-834, sample and shock method; Noguchi et al. (1999), Table 1, journal page 510.",
     "V0": "Derived from measured bulk rho0=6.781 g/cm3, three NiO formula units, molar mass 74.6928 g/mol, and the exact Avogadro constant; it is not the equilibrium-EOS V0.",
     "rho0": "Noguchi et al. (1999), experimental section; measured bulk density 6.781(3) g/cm3. The separately reported X-ray density is not used in the jump conditions.",
     "c0": "Peritheos 0.6.0 OLS fit to all eight Table 1 final-state Us-up pairs.",

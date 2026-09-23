@@ -109,6 +109,7 @@
  "notes": "Wolf et al. verify the analyzed EOS specimen as (Mg0.87Fe0.13)SiO3 and constrain ferric iron to less than 3% of total Fe; the record therefore represents the ferrous 13% Fe composition, not the existing 12% Fe perovskite material. The article reports Pbnm bridgmanite diffraction and Z=4 unit-cell volumes but no positional refinement for this specimen. For diffraction readiness only, the lattice is the near-composition (Mg0.88Fe0.12)SiO3 ambient cell reported by Knittle and Jeanloz (1987), and the positional scaffold is the Yagi et al. (1978) MgSiO3 Pbnm refinement with 0.87/0.13 Mg/Fe occupancy on the A site. These proxies are not used by the EOS and are not presented as exact refinements of the Wolf specimen.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1",
    "label": "Wolf et al. (2015), 13% Fe bridgmanite Vinet-MGD",
    "record_kind": "published",
@@ -253,6 +254,7 @@
     "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: final article, sections 2.1-2.3, 3.1-3.4, and 4.2; final article, equations 1-11 and Tables 1, 3, and 4; final article, Appendices A-B and data-availability statement; corresponding-author data page, Table 1 machine-readable mirror; PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Wolf2014_lsq_fixdeb.in.",
     "equation": "Final article, equations 1-6: 300 K Vinet reference isotherm plus reference-subtracted Mie-Gruneisen-Debye thermal pressure",
     "V0": "Final article, Table 3, 13% Fe column: fitted 163.16(19) angstrom^3 conventional Z=4 cell; prior 163.2 +/- 0.2 angstrom^3",
     "K0": "Final article, Table 3, 13% Fe column: fitted K0T=243.8(43) GPa",

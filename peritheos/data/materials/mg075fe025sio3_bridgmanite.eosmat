@@ -42,6 +42,7 @@
  "notes": "Ordered static model crystal at x=0.25, not a claim of a natural homogeneous Fe distribution.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3",
    "label": "Kiefer et al. (2002), Fe25 GGA BM3",
    "record_kind": "published",
@@ -106,6 +107,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 1 and following paragraph.",
     "equation": "Text following Table 1 identifies values derived from the equation of state; the static finite-strain energy form maps to BM3.",
     "parameters": "Text following Table 1: V0=160.5 A^3, K0=270.0 GPa, K0'=3.96 for x=0.25.",
     "method": "Variable-cell plane-wave pseudopotential GGA calculation with one Fe substituted for Mg in the 20-atom cell."
@@ -154,6 +156,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mg075fe025sio3_bridgmanite_wu_2013_gga_bm3",
    "label": "Wu et al. (2013), Fe25 high-spin GGA BM3",
    "record_kind": "published",
@@ -218,6 +221,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Equation (10); Section 3 and Table 1.",
     "equation": "Equation (10), third-order Birch-Murnaghan pressure-volume EOS.",
     "parameters": "Table 1 Fe25 calculation column: V0=164.977 A^3, B0=248 GPa, B0'=4.03.",
     "method": "CASTEP ultrasoft-pseudopotential PBE-GGA static calculation with one high-spin Fe2+ replacing Mg in the 20-atom cell."

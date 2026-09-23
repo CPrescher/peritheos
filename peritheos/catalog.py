@@ -249,6 +249,7 @@ def list_eos_records(*, formula: str | None = None) -> tuple[EOSRecord, ...]:
 # Re-export discovery here for users who naturally look for it beside lookup.
 # The import is deliberately last: catalog_search imports the listing functions.
 from peritheos.catalog_search import (  # noqa: E402, I001
+    DeterminationMethod,
     RangeQuery,
     RangeSemantics,
     ValidationStatus,
@@ -258,6 +259,7 @@ from peritheos.catalog_search import (  # noqa: E402, I001
 
 
 __all__ = [
+    "DeterminationMethod",
     "MaterialFamily",
     "MaterialGroup",
     "RangeQuery",

@@ -75,6 +75,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Recommended finite-strain result from neon-medium single-crystal XRD to 25.3 GPa. Second-order Birch-Murnaghan fixes K0'=4 by definition; the unconstrained alternative was not selected.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; BM2 fit table."
+   },
    "identifier": "fe2o3_schouwink_2011_bm2_1",
    "pressure_calibration": {
     "status": "partially_resolved",

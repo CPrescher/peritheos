@@ -43,6 +43,7 @@
  "eos_records": [
   {
    "identifier": "al2o3_perovskite_akber_knutson_2005_gga_bm3",
+   "determination_method": "theoretical",
    "label": "Akber-Knutson et al. (2005), static GGA CCM BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -107,6 +108,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2, paragraphs 6-8; Table 1.",
     "equation": "Section 2: internal energy versus volume fitted to the third-order Birch-Murnaghan equation.",
     "V0": "Table 1 perovskite CCM 100 mol.% row: 42.83 A^3 on the normalized approximately five-atom basis; multiplied by four for the executable conventional-cell basis.",
     "K0": "Table 1: 205 GPa.",
@@ -177,6 +179,7 @@
   },
   {
    "identifier": "al2o3_perovskite_holland_2013_apv_modified_tait",
+   "determination_method": "unknown",
    "label": "Holland et al. (2013), apv modified Tait",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -240,6 +243,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table 1 and the official tc-ds62 endmember block establish the coefficients, but the existing audit does not trace this endmember's individual EOS constraints to measurements versus calculations. Determination remains unknown pending that source tracing; self_consistent is not a determination method.",
     "parameters": "Article Table 1 and official tc-ds62 apv block.",
     "unit_conversion": "V0=2.540 J/bar/mol, K0=2030 kbar, K0''=-0.00200 kbar^-1; converted to executable units and Z=4."
    },

@@ -110,6 +110,7 @@
  "notes": "The lattice and coordinates are the source's 100 GPa Cmmm structure. The paper reports a low-pressure displacive change to C2/m below about 10.8 GPa; this card and EOS retain the fitted PPv-II lineage but must not be interpreted as proof that Cmmm persists over the entire mathematical fit interval.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1",
    "label": "Cohen and Lin (2014), static GGA+U FeSiO3 PPv-II Vinet",
    "record_kind": "published",
@@ -176,6 +177,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table I; Computational methods; Figure 3; Table III; arXiv v1 Table 2; arXiv v2 source archive.",
     "equation": "Table III: Vinet EOS fitted to static E(V) data.",
     "V0": "Table III: 45.45 A3 per FeSiO3, multiplied by Z=4 to 181.8 A3.",
     "K0": "Table III: 195 GPa.",

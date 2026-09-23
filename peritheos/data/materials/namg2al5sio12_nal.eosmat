@@ -108,6 +108,7 @@
  "notes": "The lattice, coordinates, elements, and occupancies are transcribed without modification from Miura et al.'s CaMg2Al6O12 refinement and are present only as an isostructural topology proxy. They are not NaMg2Al5SiO12 coordinates and do not encode any of Kawai and Tsuchiya's eight ordered Na/vacancy or Al/Si configurations. No target occupancies or averaged coordinates are invented. The executable EOS V0, rather than this proxy lattice, defines the target phase's zero-pressure volume.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "namg2al5sio12_nal_kawai_2012_bm3_1",
    "label": "Kawai and Tsuchiya (2012), NaMg2Al5SiO12 NAL static-LDA BM3",
    "default": true,
@@ -170,6 +171,7 @@
     "namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized"
    ],
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: structure-model discussion, pages 305-307; Figure 2c and caption, page 307; first-principles details and Table 1, page 308.",
     "equation": "Results, page 308: calculated volumes were fitted with a third-order Birch-Murnaghan equation; the formula is not printed, so Peritheos uses the standard Eulerian BM3 convention verified against Figure 2c.",
     "V0": "Table 1: 35.8 cm3/mol. Figure 2c is exactly three times this scale, establishing a silent four-oxygen normalization. Multiplication by three and division by 0.602214076 cm3 mol-1 per A3 gives 178.34189581447112 A3 for the Z=1 12-O conventional cell.",
     "K0": "Table 1, NAL (NaMg2Al5SiO12): B0=217.7 GPa.",

@@ -156,6 +156,15 @@ validated_vinet = search_eos_records(
 )
 ```
 
+Use `determination_method="experimental"`, `"theoretical"`, `"hybrid"`, or
+`"unknown"` to select how the EOS parameters were established. For example,
+`search_eos_records(formula="SrSiO3", determination_method="theoretical")`
+selects the calculated Xiao records while excluding the experimental fit in
+the same paper. Read the value from `record.determination_method`; the detailed
+rationale is in `record.eosmat_metadata["parameter_provenance"]["determination_method"]`
+for bundled records. This is independent of whether the record is published,
+refitted, or source-validated. See the [schema definitions](eosmat-schema.md#eos-record).
+
 Both search functions support these keyword filters:
 
 | Filter | Meaning |
@@ -164,6 +173,7 @@ Both search functions support these keyword filters:
 | `formula` | Case-insensitive exact chemical-formula match. |
 | `phase` | Phase, material name, symmetry, or phase alias text. |
 | `model_family` | Public model discriminator or class name, including either component of a thermal composition. |
+| `determination_method` | `experimental`, `theoretical`, `hybrid`, or `unknown`; `None` leaves parameter origin unrestricted. |
 | `doi` | Exact DOI after removing an optional `doi:` or `https://doi.org/` prefix. |
 | `author`, `reference` | Author text, or broader publication and primary-audit metadata. |
 | `thermal`, `caloric` | Require or exclude temperature-dependent pressure and caloric capability. |

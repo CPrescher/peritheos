@@ -28,6 +28,10 @@
  "peaks": [],
  "eos_records": [
   {
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
+   },
    "identifier": "platinum_sakai_2025_rydberg_stacey_1",
    "label": "Sakai et al. (2025), Pt generalized Rydberg-Stacey scale",
    "reference": {
@@ -231,6 +235,10 @@
     },
     "fixed_parameters": []
    },
+   "determination_method": "hybrid",
+   "parameter_provenance": {
+    "determination_method": "Holmes (1989), Equation (11) and Table IV: calculated LMTO pressure curve uses the experimental V0=101.9 bohr^3/atom. This explicit volume anchor makes the record hybrid; the shock comparisons alone would not. See docs/literature-reproductions/holmes-1989-platinum.md."
+   },
    "identifier": "platinum_holmes_1989_vinet_1",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -425,6 +433,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.5 GPa and K0' +/- 0.02. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
+   },
    "identifier": "platinum_shen_2026_vinet_2",
    "pressure_calibration": {
     "status": "resolved",
@@ -604,6 +616,7 @@
     ]
    },
    "notes": "Complete equations (6)-(14) Pt pressure scale. The published molar V0=9.091 cm^3/mol is converted to the four-atom fcc conventional cell using the exact Avogadro constant. The implementation includes the two generalized-Bose and two Einstein oscillator terms, volume-dependent Gruneisen law, intrinsic anharmonicity, electronic excitation, and vacancy contribution, all referenced to 298.15 K.",
+   "determination_method": "experimental",
    "identifier": "platinum_dorogokupets_oganov_2007_vinet_4",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -629,6 +642,7 @@
     "audit_date": "2026-09-03"
    },
    "parameter_provenance": {
+    "determination_method": "Dorogokupets and Oganov (2007), two-stage optimization and Table I: pressure-independent thermochemical, acoustic and shock measurements plus static compression constrain the semiempirical model. See docs/literature-reproductions/dorogokupets-oganov-2007-platinum.md.",
     "reference_isotherm": {
      "V0": "Table I; 9.091 cm^3/mol",
      "K0": "Table I; 276.07 GPa",
@@ -813,6 +827,10 @@
     "model": "multi_oscillator_gruneisen_thermal_pressure"
    },
    "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Sokolova (2013), Tables 1 and 4: joint synthesis of shock, ultrasonic, diffraction, expansion and thermochemical measurements. The 2016 workbook implements the fit; it does not supply a separate theoretical fit grid."
+   },
    "identifier": "platinum_sokolova_2013_holzapfel_3",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -946,6 +964,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), Pt MAO-scale Vinet",
    "record_kind": "published",
@@ -1012,6 +1031,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -1080,6 +1100,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_dewaele_2019_dor_vinet",
    "label": "Dewaele (2019), Pt DOR-scale Vinet",
    "record_kind": "published",
@@ -1146,6 +1167,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -1214,6 +1236,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_dewaele_2004_mao_ruby_vinet",
    "label": "Dewaele et al. (2004), Pt mao ruby Vinet",
    "record_kind": "published",
@@ -1285,6 +1308,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Figure 2 caption; Tables I and II.",
     "V0": "Tables I and II",
     "K0": "Tables I and II",
     "K0_prime": "Tables I and II"
@@ -1333,6 +1357,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_dewaele_2004_revised_ruby_vinet",
    "label": "Dewaele et al. (2004), Pt revised ruby Vinet",
    "record_kind": "published",
@@ -1405,6 +1430,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Figure 2 caption; Tables I and II.",
     "V0": "Tables I and II",
     "K0": "Tables I and II",
     "K0_prime": "Tables I and II"
@@ -1453,6 +1479,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_dorfman_2012_tange_mgo_k0_fixed_vinet",
    "label": "Dorfman et al. (2012), Pt K0-fixed Vinet",
    "record_kind": "published",
@@ -1539,6 +1566,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1; Equations (2)-(3); Section 3.2; Table 2; auxiliary Tables S1-S6.",
     "V0": "Table 2",
     "K0": "Table 2",
     "K0_prime": "Table 2"
@@ -1634,6 +1662,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_dorfman_2012_tange_mgo_k0_free_vinet",
    "label": "Dorfman et al. (2012), Pt K0-free Vinet",
    "record_kind": "published",
@@ -1719,6 +1748,7 @@
     "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1; Equations (2)-(3); Section 3.2; Table 2; auxiliary Tables S1-S6.",
     "V0": "Table 2",
     "K0": "Table 2",
     "K0_prime": "Table 2"
@@ -1820,6 +1850,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_ye_2017_vinet_300k",
    "label": "Ye et al. (2017), Pt Vinet 300 K co-compression fit",
    "reference": {
@@ -1903,6 +1934,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.3; Table 1; corrected Data Sets S1-S2; erratum.",
     "equation": "Ye et al. (2017), Section 3.3 and Table 1: third-order Vinet EOS.",
     "V0": "Ye (2017) Table 1 prints 60.38 A^3 per fcc conventional cell and states that V0 and K0 were fixed to Dorogokupets-Dewaele (2007); the reproduction uses the source implementation's unrounded 3.9231^3 A^3 anchor.",
     "K0": "Ye (2017) Table 1: fixed at 277.3 GPa.",
@@ -1974,6 +2006,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_zhu_2025_pvt",
    "label": "Zhu et al. (2025), Pt internally consistent P-V-T EOS",
    "reference": {
@@ -2068,6 +2101,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations (2)-(8); Table 1; Mendeley v3 Pt optimizer and property scripts.",
     "reference_isotherm": {
      "V0": "Fixed Ye et al. (2017) 300 K Vinet coefficient used by the released v3 optimizer.",
      "K0": "Fixed Ye et al. (2017) 300 K Vinet coefficient used by the released v3 optimizer.",
@@ -2189,6 +2223,7 @@
    "notes": "This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm."
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_fei_2004_bm3_mgd",
    "label": "Fei et al. (2004), platinum BM3-MGD on Speziale MgO scale",
    "reference": {
@@ -2336,6 +2371,7 @@
     "platinum_fei_2004_table2"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1-3, pages 519-523; Sections 3.1-3.2 and 4.2; Adopted Shim (2002) Equations 1-8 and Table 1.",
     "reference_isotherm": {
      "V0": "Table 3 page 523: Au adopted from Shim (2002); Pt joint fit of Table 2 room and hot data. V0 retained at printed precision, not replaced by ambient a^3.",
      "K0": "Table 3 page 523: Au adopted from Shim (2002); Pt joint fit of Table 2 room and hot data. V0 retained at printed precision, not replaced by ambient a^3.",
@@ -2394,6 +2430,7 @@
    "notes": "fcc conventional cell with four atoms; composition/phase match existing material. No covariance or error confidence reported. Published coefficients remain unchanged; diagnostic refits do not replace this record. See docs/literature-reproductions/fei-2004-pressure-scales.md. The source does not explicitly enumerate V0/theta0 as fixed; holding them fixed is a diagnostic regression choice, not a reported constraint."
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_fei_2004_bm3_300k",
    "label": "Fei et al. (2004), preliminary 300 K Pt BM3",
    "reference": {
@@ -2489,6 +2526,7 @@
     "platinum_fei_2004_table2"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1-3, pages 519-523; Sections 3.1-3.2 and 4.2; Adopted Shim (2002) Equations 1-8 and Table 1.",
     "V0": "Section 3.2 page 522 gives K0 and K0_prime; Table 3 V0 used at fixed printed value. Table 2 footnote b revised Au pressure, consistent with stated Takemura (2001) cold scale.",
     "K0": "Section 3.2 page 522 gives K0 and K0_prime; Table 3 V0 used at fixed printed value. Table 2 footnote b revised Au pressure, consistent with stated Takemura (2001) cold scale.",
     "K0_prime": "Section 3.2 page 522 gives K0 and K0_prime; Table 3 V0 used at fixed printed value. Table 2 footnote b revised Au pressure, consistent with stated Takemura (2001) cold scale."
@@ -2531,6 +2569,7 @@
    "notes": "Section 3.2 page 522 preliminary 300 K fit: K0=290(10), K0_prime=2.7(9). Same Table 3 V0=60.38 A^3; narrow compression range gives an unreliable derivative. Not the preferred Pt pressure scale. Seven Table 2 300 K observations only. The source does not explicitly enumerate V0/theta0 as fixed; holding them fixed is a diagnostic regression choice, not a reported constraint."
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_matsui_2009_vinet_300k",
    "label": "Matsui et al. (2009), Pt Vinet reference isotherm, 300 K",
    "record_kind": "published",
@@ -2593,6 +2632,7 @@
    },
    "notes": "Exact 300 K reference isotherm only, not the full Matsui thermal EOS. Table II V0=60.38 A^3, K0=273 GPa, K0_prime=5.20; uncertainties and covariance not reported for this triplet. The source recommends its complete model up to 300 GPa; shock constraints reach 290 GPa and are not 300 K observations.",
    "parameter_provenance": {
+    "determination_method": "Matsui (2009), Equation (6) and Table II: the 300 K Vinet reference coefficients are inferred from measured shock compression and thermal expansion. This record does not represent a separately simulated thermal EOS.",
     "V0": "Equation (6), Table II (300 K Vinet reference isotherm)",
     "K0": "Equation (6), Table II (300 K Vinet reference isotherm)",
     "K0_prime": "Equation (6), Table II (300 K Vinet reference isotherm)"
@@ -2666,6 +2706,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "platinum_fei_2007_vinet_300k",
    "label": "Fei et al. (2007), Pt Vinet reference isotherm, 300 K",
    "record_kind": "published",
@@ -2728,6 +2769,7 @@
    },
    "notes": "Exact 300 K reference isotherm only, not the full Fei thermal EOS. Table 1 gives the Vinet coefficients 60.38(1), 277, 5.08(2); confidence convention and covariance are unspecified. The same rounded cold coefficients occur in Dewaele (2004), whose catalog reference is 298 K; this record preserves the explicit Fei 300 K convention. V0 and K0 are held fixed in the cold-subset diagnostic. Thermal rows are retained as upstream context, not fitted as isothermal data. The conservative validity envelope is the Dewaele cold subset, not all later use of this pressure scale.",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, Vinet rows and Pt footnote; Results and Discussion, Pt scale; Figure 2.",
     "V0": "Table 1, Vinet rows and Pt footnote",
     "K0": "Table 1, Vinet rows and Pt footnote",
     "K0_prime": "Table 1, Vinet rows and Pt footnote"

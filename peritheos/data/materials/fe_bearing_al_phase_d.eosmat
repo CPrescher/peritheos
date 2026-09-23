@@ -158,6 +158,7 @@
  "notes": "The in-house 293(2) K P63 22 refinement is used because the final article and abstract interpret diffuse scattering as evidence for partial cation ordering and present P63 22 as the structural model. The same deposited CIF also contains a P-31m refinement, and the article reports that Hamilton tests on merged and unmerged intensities give contradictory symmetry preferences; this ambiguity is preserved rather than hidden. Al, Si, and Fe were constrained to the EPMA fractions on each partially occupied cation site. Hydrogen was determined analytically but was not located by X-ray refinement and is therefore absent from atom_sites. The structural cell volume 83.703(6) A^3 and Z=1 are explicit in the deposited CIF. The executable EOS reference volumes are fitted values for this same conventional cell. This composition is distinct from the existing Mg-rich phase_d material.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "fe_bearing_al_phase_d_criniti_2023_bm3_1",
    "label": "Criniti et al. (2023), pre-crossover BM3",
    "record_kind": "published",
@@ -234,6 +235,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: final article, pages 1764-1772, especially Experimental methods, Table 1, Equation of state section, Figure 3, and Table 2; official American Mineralogist Online Materials AM-23-98559, Figures S1-S2; author-provided Figshare CIF, data_AlPhaseD_P6322.",
     "equation": "Final article, Equation of state section and Table 2: standard third-order Birch-Murnaghan EOS fitted with EosFit7c/EosFit7-GUI",
     "V0": "Final article, Table 2, first BM3 row: freely fitted 83.68(2) A^3 conventional cell volume",
     "K0": "Final article, abstract and Table 2, first BM3 row: fitted KT0=166.3(15) GPa",
@@ -357,6 +359,7 @@
    "notes": "Canonical room-temperature record. The first BM3 row of Table 2 freely fits V0, K0, and K0'; neither of the two ambient-volume-fixed alternatives is stored as another executable record. The BM3 choice is justified by the abstract's reported coefficients, Figure 3's exclusive display of BM3 curves, and Table 3's BM comparison across phase-D studies. Parenthetical errors are retained as generic published uncertainties because the source does not state a confidence convention."
   },
   {
+   "determination_method": "experimental",
    "identifier": "fe_bearing_al_phase_d_criniti_2023_vinet_2",
    "label": "Criniti et al. (2023), pre-crossover Vinet alternative",
    "record_kind": "published",
@@ -432,6 +435,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: final article, Equation of state section and Table 2; final article, Table 1; author-provided Figshare CIF, data_AlPhaseD_P6322.",
     "equation": "Final article, Equation of state section and Table 2: standard Vinet EOS fitted with EosFit7c/EosFit7-GUI",
     "V0": "Final article, Table 2, first Vinet row: freely fitted 83.68(2) A^3 conventional cell volume",
     "K0": "Final article, Table 2, first Vinet row: fitted KT0=165.5(15) GPa",

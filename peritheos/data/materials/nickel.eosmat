@@ -64,6 +64,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Quasi-hydrostatic helium-medium fit; published atomic V0=10.954 A^3 is multiplied by four atoms in the conventional fcc cell. Measurements extend to 157 GPa.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table II, Ni and Ag rows."
+   },
    "identifier": "nickel_dewaele_2008_vinet_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -131,6 +135,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "nickel_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), Ni MAO-scale Vinet",
    "record_kind": "published",
@@ -197,6 +202,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -265,6 +271,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "nickel_dewaele_2019_dor_vinet",
    "label": "Dewaele (2019), Ni DOR-scale Vinet",
    "record_kind": "published",
@@ -331,6 +338,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -399,6 +407,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "nickel_campbell_2009_bm3_mgd",
    "label": "Campbell et al. (2009), fcc Ni, 295 K BM3-Debye",
    "reference": {
@@ -524,6 +533,7 @@
     "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5.",
     "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
     "V0": "Table 1: 6.587 cm3/mol, fixed from JCPDS, footnote a; source does not identify the card number. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
     "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",

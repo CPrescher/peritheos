@@ -20,6 +20,7 @@
  "notes": "Phase-unresolved historical Cu isotherm retained because its 25 tabulated points and independent Peritheos refit are bundled. Sun et al. (2010) supplies only the Vinet equation and fixed-V0 fitting convention; no Sun source-author benchmark parameterization is retained.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "cu_sun_2010_low_vn_refit",
    "label": "AIP Handbook Cu low-pressure Vinet m=8 refit",
    "record_kind": "refit",
@@ -138,6 +139,7 @@
     "notes": "The refit uses the handbook's printed pressure values as tabulated."
    },
    "parameter_provenance": {
+    "determination_method": "Kennedy and Keeler (1972), Table 4d-12 and section 4d-2: the refitted isotherm is reduced from compiled shock measurements. Derived handbook rows are not raw observations, but their origin is experimental.",
     "V0": "Fixed to the Cu Table 2 experimental molar volume used by Sun et al., converted with the exact Avogadro constant",
     "K0": "Peritheos refit to the checked AIP Handbook Table 4d-12 Cu rows",
     "K0_prime": "Peritheos refit to the checked AIP Handbook Table 4d-12 Cu rows",

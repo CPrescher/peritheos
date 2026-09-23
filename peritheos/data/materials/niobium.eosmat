@@ -63,6 +63,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Adopted 300 K BM3 fit to the quasihydrostatic helium data through 71.5 GPa: K0=168+/-4 GPa and K0'=3.4+/-0.3. V0 is fixed from a=3.3007(3) A at atmospheric pressure; the parameter errors span the alternative fit using data through 134 GPa.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I; Table II; section III.B, pages 224119-5 to -6."
+   },
    "identifier": "niobium_takemura_2006_bm3_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -238,6 +242,10 @@
     "model": "multi_oscillator_gruneisen_thermal_pressure"
    },
    "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Sokolova (2013), Tables 1 and 4: joint synthesis of shock, ultrasonic, diffraction, expansion and thermochemical measurements. The 2016 workbook implements the fit; it does not supply a separate theoretical fit grid."
+   },
    "identifier": "niobium_sokolova_2013_holzapfel_2",
    "pressure_calibration": {
     "status": "not_applicable",

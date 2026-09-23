@@ -73,6 +73,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Table 1 Mao-ruby-scale fit, selected because that column reports parameter uncertainties. Published V0=16.371(30) A^3 per formula unit is multiplied by Z=4 for the conventional B1 cell. The paper states that parenthesized values are 95% confidence intervals.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table 1, experimental Vinet parameters; Table 4, measured LiF P-V observations; Figure 4."
+   },
    "identifier": "lif_b1_dewaele_2019_vinet_1",
    "pressure_calibration": {
     "status": "resolved",

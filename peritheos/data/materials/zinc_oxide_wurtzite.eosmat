@@ -78,6 +78,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Hanna et al. report V0 = 23.85(6) A^3 per ZnO and K0 = 139(8) GPa with K0' fixed at 4; V0 and its uncertainty are doubled here for the conventional Z=2 cell. The B4-to-B1 transition begins near 8.3 GPa.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Static EOS formulation; wurtzite and rocksalt EOS table."
+   },
    "identifier": "zinc_oxide_wurtzite_hanna_2011_bm2_1",
    "pressure_calibration": {
     "status": "resolved",

@@ -40,6 +40,7 @@
  "notes": "The phase name follows the source's Pv label. A more specific space-group setting and atomic coordinates are not inferred from unstated information. Table III reports volume per FeSiO3; all stored volumes are multiplied by four to match the conventional 20-atom cell basis.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "fesio3_bridgmanite_cohen_lin_2014_vinet_1",
    "label": "Cohen and Lin (2014), static GGA+U FeSiO3 Pv Vinet",
    "record_kind": "published",
@@ -105,6 +106,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Computational methods; Figure 3; Table III; arXiv v1 Table 2; arXiv v2 source archive.",
     "equation": "Table III explicitly identifies a Vinet EOS fitted to the static E(V) data.",
     "V0": "Table III: 44.31 A3 per FeSiO3, multiplied by Z=4 to 177.24 A3 for the executable conventional-cell basis.",
     "K0": "Table III: 225 GPa.",
@@ -212,6 +214,7 @@
    "notes": "Retain as a directly published Vinet parameterization. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations."
   },
   {
+   "determination_method": "unknown",
    "identifier": "fesio3_bridgmanite_holland_2013_fpv_modified_tait",
    "label": "Holland et al. (2013), fpv modified Tait",
    "record_kind": "published",
@@ -276,6 +279,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table 1 and the official tc-ds62 endmember block establish the coefficients, but the existing audit does not trace this endmember's individual EOS constraints to measurements versus calculations. Determination remains unknown pending that source tracing; self_consistent is not a determination method.",
     "parameters": "Article Table 1 and official tc-ds62 fpv block.",
     "unit_conversion": "Primary artifact V0=2.548 J/bar/mol (correcting LitCurate's 2.534 transcription), K0=2810 kbar, K0''=-0.00160 kbar^-1; converted to executable units and Z=4."
    },

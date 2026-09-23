@@ -67,6 +67,7 @@
    ],
    "pressure_range_status": "reported_exactly",
    "notes": "Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative; calculated pressures are insensitive to their exact individual values when the pair is properly balanced. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.",
+   "determination_method": "experimental",
    "identifier": "coo_clendenen_1966_murnaghan_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -123,6 +124,7 @@
     30.8
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), journal page 4226; Tables II, III, and VI, journal pages 4224-4227.",
     "V0": "Table II ambient cubic a0=4.258 A; V0=a0^3 for the four-formula-unit conventional cell",
     "K0": "Table VI B0=1905 kbar; converted to 190.5 GPa",
     "K0_prime": "Table VI dimensionless B0'=3.9"

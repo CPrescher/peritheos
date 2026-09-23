@@ -88,6 +88,7 @@
  "notes": "The diffraction model is the 293(2) K ambient single-crystal refinement in the official Boffa Ballaran et al. (2025) supplement. That article states that this crystal came from the same synthesis run as the different crystal used for the 2007 EOS measurement. The deposited Pbnm symmetry operators give multiplicities 4, 4, 4, and 8 for Ir, Ca, O1, and O2, respectively, reproducing Ca4Ir4O12 and Z=4. Its 229.526 A^3 lattice volume is distinct from the 2007 fitted EOS V0=229.463 A^3 and is not substituted for it.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "cairo3_perovskite_boffa_ballaran_2007_bm3_1",
    "label": "Boffa Ballaran et al. (2007), CaIrO3 perovskite BM3",
    "reference": {
@@ -156,6 +157,7 @@
     "cairo3_perovskite_boffa_ballaran_2007_table1_compression"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental method; Results; Table 1; Table 2; Figures 1-2 and captions.",
     "equation": "Results, page 1761: third-order Birch-Murnaghan EOS fitted with EosFit52; Figure 2 explicitly defines the standard Eulerian finite strain fE=[(V0/V)^(2/3)-1]/2 and normalized stress FE=P/[3 fE (1+2 fE)^(5/2)].",
     "V0": "Abstract and Table 2: 229.463(8) A^3 conventional Pbnm cell; described with K0 and K' as a refined parameter and not marked fixed.",
     "K0": "Abstract and Table 2: 198(3) GPa; refined.",

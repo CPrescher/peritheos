@@ -79,6 +79,7 @@
  "notes": "The executable record is the high-spin BM3 reference branch of a coupled spin-crossover model. The source low-spin branch is held because no independently executable low-spin V0 is reported.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg092fe008o_yang_2015_hs_bm3_reference",
    "label": "Yang et al. (2015), high-spin BM3 reference branch",
    "record_kind": "published",
@@ -147,6 +148,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results and Discussion, page 2; Methods, page 7; Supplementary Equations 1-5 and Figures S1-S3.",
     "equation": "Results and Supplementary Equations 1-5: third-order Eulerian finite-strain/Birch-Murnaghan high-spin reference EOS in a coupled spin model.",
     "V0": "Computed as a^3 from the Methods ambient cubic cell parameter a=4.1996(4) A; the linearized 1-sigma propagation is 3 a^2 sigma_a.",
     "K0": "Results: KT0=152.5(2.4) GPa for the high-spin state.",

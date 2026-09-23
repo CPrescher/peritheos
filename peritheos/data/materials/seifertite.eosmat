@@ -96,6 +96,10 @@
     "model": "mie_gruneisen_debye"
    },
    "notes": "Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Thermal EOS formulation; Table 1, CaCl2 and seifertite rows."
+   },
    "identifier": "seifertite_sun_2019_bm2_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -161,6 +165,7 @@
    ]
   },
   {
+   "determination_method": "theoretical",
    "identifier": "seifertite_driver_2010_qmc_300k_vinet",
    "label": "Driver et al. (2010), QMC 300 K Vinet",
    "record_kind": "published",
@@ -227,6 +232,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1c; Table 1.",
     "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
     "parameters": "Table 1, alpha-PbO2 QMC column.",
     "volume_conversion": "154.8(1) bohr3 per SiO2 converted to A3 and multiplied by Z=4."

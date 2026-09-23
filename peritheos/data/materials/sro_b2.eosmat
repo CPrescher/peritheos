@@ -69,6 +69,7 @@
     59.0
    ],
    "notes": "Room-temperature second-order finite-strain EOS for B2 SrO. The published rho0=6.14+/-0.20 Mg/m^3 converts to V0=28.0224+/-0.9128 A^3 for one SrO per Pm-3m cell; K0=160+/-19 GPa and K0'=4 fixed. B2 reflections were measured from 32 to 59 GPa, with B1-B2 coexistence at 32 and 37 GPa and a transition pressure of 36+/-4 GPa. No covariance is published.",
+   "determination_method": "experimental",
    "identifier": "sro_b2_sato_1981_bm2_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -124,6 +125,7 @@
    "temperature_ref": 300.0,
    "pressure_range_status": "reported_exactly",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 11774, Table 1, B2-SrO density observations; pages 11775-11776, equations (1)-(7), finite-strain derivation; page 11776, second-order fit and Figure 3.",
     "V0": "Sato and Jeanloz (1981), page 11776: rho0=6.14+/-0.20 Mg/m^3, converted to the Z=1 Pm-3m conventional-cell volume",
     "K0": "Sato and Jeanloz (1981), page 11776, second-order fit",
     "equation": "Sato and Jeanloz (1981), equations (1)-(7) and page 11776: second-order Eulerian finite strain with K0'=4"

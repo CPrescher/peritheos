@@ -82,6 +82,10 @@
     134.0
    ],
    "notes": "Room-temperature third-order Birch-Murnaghan fit to 47 P-V measurements through 134 GPa: V0=45.37+/-0.08 A^3, K0=281+/-4 GPa, and K0'=4 assumed.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Author/institution record; primary abstract; 47-point BM3 fit."
+   },
    "identifier": "ca_perovskite_mao_1989_bm3_2",
    "pressure_calibration": {
     "status": "unresolved",
@@ -175,12 +179,14 @@
    "pressure_range_status": "theoretical",
    "temperature_ref": 0.0,
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: section 2, paragraphs 6-7; section 3, Table 1; section 4, equation 1 and paragraphs 11-17; Table 2 and footnote.",
     "V0": "Caracas et al. (2005), Table 2, Pm-3m BM3 row; V0/Z=44.579 A^3 and Z=1 for the primitive cubic cell",
     "K0": "Caracas et al. (2005), Table 2, Pm-3m BM3 row",
     "K0_prime": "Caracas et al. (2005), Table 2, Pm-3m BM3 row",
     "equation": "Caracas et al. (2005), section 4, paragraphs 12 and 17, equation 1 strain definition, and Table 2 footnote; standard Eulerian-strain third-order Birch-Murnaghan EOS"
    },
    "notes": "Static-lattice 0 K DFT parameterization of the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 perovskite branch. The paper finds this branch dynamically unstable at all investigated pressures, so this is a theoretical reference curve and not a stable ambient phase. Table 2 reports V0/Z; Pm-3m has Z=1, so 44.579 A^3 is also the conventional cubic-cell volume (a0=3.54577 A). All three BM3 coefficients were fitted; no parameter uncertainties, covariance, fit weights, or underlying E(V) rows are published. The Table 2 footnote estimates calculation uncertainty as about 20 meV per molecule, an energy-scale estimate rather than an EOS-coefficient error. The distinct Pm-3m BM4 fit and all eight phase-specific low-symmetry BM3/BM4 pairs are now represented as executable sibling records on the appropriate material cards.",
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_caracas_2005_bm3_3",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -461,6 +467,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Abstract; Section 2, pages 2802-2803; Section 4, pages 2803-2805; Figure 1; Table 1; Table 2; Figure 2.",
     "eos.V0": "Abstract and Table 2, preferred FPMD-LDA Vinet column; 46.17 A^3 per formula unit at 1000 K and zero pressure.",
     "eos.K0": "Abstract gives K_T0 at 1000 K as 203.95 GPa; this value independently reproduces the one-decimal Table 1 isochors. The PDF text extraction of Table 2 reads 203.5 GPa and is preserved as a source inconsistency.",
     "eos.K0_prime": "Table 2, preferred FPMD-LDA Vinet column; 4.76.",
@@ -490,6 +497,7 @@
     ]
    },
    "notes": "Preferred Vinet reference isotherm plus a constant-q Mie-Gruneisen-Debye thermal pressure relative to 1000 K. The integrated Debye-temperature law follows equations 4-10 of Tange et al. (2009), which Kawai and Tsuchiya explicitly adopt; n=5 for one CaSiO3 formula unit. V0 is already one cubic Pm-3m conventional cell because Z=1. The input stresses came from LDA-PWSCF NVT FPMD on an 80-atom 2x2x1 tetragonal-supercell representation constrained to cubic metrics, with 50 Ry cutoff, a 2x2x2 k-point grid, 1 fs steps, 1 ps equilibration, and 5 ps production averages. Figure 1 reports a convergence benchmark near 15 GPa and 2000 K: the 2x2x2 sampling gives diagonal stresses 15.3, 15.5, and 15.2 GPa, compared with 16.0, 16.1, and 14.6 GPa at Gamma only; no volume is printed, so this is not an EOS-fit row. No parameter uncertainties or covariance are reported, so missing errors are null rather than zero. The alternate BM3 column is intentionally not added because this contribution is limited to one literature EOS record and the article plots and abstracts the Vinet result. The abstract's K0=203.95 GPa reproduces Table 1 (for example 184.42 GPa rounds to 184.5 GPa at V/V0=0.70 and 4000 K), whereas the PDF-extracted Table 2 value 203.5 GPa predicts 184.06 GPa; the benchmark-consistent abstract value is retained. Section 2's printed 300-1500 K simulation range conflicts with calculated 1000-4000 K points in Figure 2 and cannot be resolved without the raw state table.",
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_kawai_2014_vinet_mgd_3",
    "fit_datasets": [],
    "pressure_calibration": {
@@ -670,6 +678,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 2, pages 25956-25960; Equations 7-12, page 25962; Table 1 and Table 2, page 25963; Figure 7 and accompanying text, page 25964; Figure 8 and accompanying text, page 25965.",
     "eos.V0": "Table 2 and the paragraph following Equation 12: fixed V0=27.45(2) cm^3/mol, converted with the exact Avogadro constant to the one-formula-unit cubic cell",
     "eos.K0": "Table 2 and the paragraph following Equation 12: fixed KT0=236(4) GPa from Shim et al.'s companion 300 K static-compression study",
     "eos.K0_prime": "Table 2 and the paragraph following Equation 12: fixed K'T0=3.9(2) from the companion 300 K static-compression study",
@@ -802,6 +811,7 @@
     }
    ],
    "notes": "Published non-default DAC-only alternative. The authors' selected result is the separate combined DAC+Wang et al. LVP fit (gamma0=1.92(5), q=0.6(3)); it is explicitly excluded because this article does not publish the numerical Wang observations. This record instead preserves the article's independently reported fit to the complete 34-row Table 1 DAC subset: gamma0=2.00(8) and q=0.9(4). The BM3 reference parameters and theta0 were fixed, while gamma0 and q were free. Parenthetical errors are 1 sigma. V0=27.45(2) cm3/mol is converted to 45.5817973939 A3 for the Z=1 cubic Pm-3m cell.",
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_shim_2000_dac_only_bm3_mgd_4"
   },
   {
@@ -841,6 +851,10 @@
     108.0
    ],
    "notes": "Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite: V0=45.58+/-0.05 A^3 (fixed in the Table 2 fit), K0=236+/-4 GPa, and K0'=3.9+/-0.2. Uncertainties are one standard deviation; the published V0 uncertainty is retained despite its fixed fit status. Data extend to 108 GPa.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: section 3; Table 1; Table 2, pages 334-335."
+   },
    "identifier": "ca_perovskite_shim_2000_bm3_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -945,6 +959,7 @@
     "locator": "81-91",
     "doi": "10.1007/s00269-012-0549-1"
    },
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_noguchi_2013_bm2_mgd_1",
    "record_kind": "published",
    "equation_kind": "thermal",
@@ -1028,6 +1043,7 @@
     "temperature_measurement": "spectroradiometry with 10 percent uncertainty for laser heating; R-type thermocouple with less than 15 K uncertainty for external heating"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: experimental procedures, journal pages 82-83; Table 1 and phase-selection discussion, journal pages 84-85; equations (1)-(5), journal page 86; Tables 2-3, journal page 87.",
     "reference_isotherm": {
      "V0": "Noguchi et al. (2013), equation (2) and Table 2 model 1: V700,1bar=46.5(1) A^3 unit-cell volume",
      "K0": "Noguchi et al. (2013), equation (2) and Table 2 model 1: K700,1bar=207(4) GPa",
@@ -1287,6 +1303,7 @@
     "model": "mie_gruneisen_debye"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: experimental phase, Pt pressure standard, and range, pages 4878-4879; equations (1)-(6), pages 4879-4880; Table 1, pages 4880-4881; Table 2 model 1, page 4882.",
     "reference_isotherm": {
      "V0": "Sun et al. (2016), Table 2 model 1: 45.4(1) A^3 per formula unit (the Pm-3m conventional cell has Z=1)",
      "K0": "Sun et al. (2016), Table 2 model 1: 249(4) GPa",
@@ -1304,6 +1321,7 @@
     }
    },
    "notes": "Joint BM3-Mie-Gruneisen-Debye fit for pure cubic Pm-3m CaSiO3 using model 1 in Table 2. The 144 printed fit rows span 21.2-151.8 GPa and 1200-2600 K; 156 GPa is the paper's overall experimental diffraction envelope, not a printed Table 1 pressure. The 300 K V0, K0, and K0' define an extrapolated reference isotherm: cubic CaSiO3 is not quenchable and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces the published parameters and uncertainties after rounding.",
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_sun_2016_bm3_3",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -1373,6 +1391,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_wang_1996_preferred_bm3",
    "label": "Wang et al. (1996), preferred room-temperature BM3",
    "record_kind": "published",
@@ -1446,6 +1465,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1 Run 13; Room Temperature Compression; Table 2.",
     "equation": "Equation (1), third-order Birch-Murnaghan.",
     "V0": "Abstract, room-temperature compression discussion, and Table 2 Isothermal row: 45.58(4) A3.",
     "K0": "Same locations: 232(8) GPa.",
@@ -1516,6 +1536,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_wang_1996_mao_equal_weight_bm3",
    "label": "Wang et al. (1996), equal-weight Mao-data BM3 reanalysis",
    "record_kind": "published",
@@ -1583,6 +1604,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Room Temperature Compression; Figure 4.",
     "equation": "Equation (1), BM3.",
     "parameters": "Room Temperature Compression discussion and Figure 4 dotted curve.",
     "fit_selection": "Mao et al. data above the anomalous sub-1-GPa region, with equal weights."
@@ -1630,6 +1652,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_wang_1996_mao_pressure_weighted_all_bm3",
    "label": "Wang et al. (1996), pressure-weighted all-Mao-data BM3 sensitivity",
    "record_kind": "published",
@@ -1697,6 +1720,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Room Temperature Compression.",
     "equation": "Equation (1), BM3.",
     "parameters": "Room Temperature Compression discussion.",
     "fit_selection": "All Mao et al. data weighted by their printed pressure uncertainties."
@@ -1743,6 +1767,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_wang_1996_mao_pressure_weighted_no_sub1gpa_bm3",
    "label": "Wang et al. (1996), pressure-weighted Mao-data BM3 excluding sub-1-GPa points",
    "record_kind": "published",
@@ -1810,6 +1835,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Room Temperature Compression.",
     "equation": "Equation (1), BM3.",
     "parameters": "Room Temperature Compression discussion.",
     "fit_selection": "Mao et al. data with the lower-volume sub-1-GPa points excluded and the remaining pressures uncertainty-weighted."
@@ -1856,6 +1882,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_chizmeshya_1996_lapw7_static_bm3",
    "label": "Chizmeshya et al. (1996), LAPW(7) static BM3",
    "record_kind": "published",
@@ -1919,6 +1946,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1; EOS discussion.",
     "equation": "Third-order Birch-Murnaghan fit to computed energy-volume results.",
     "parameters": "Table 1, LAPW(7) row.",
     "method": "Seven-point all-electron LAPW static calculation."
@@ -1971,6 +1999,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_chizmeshya_1996_lapw8_static_bm3",
    "label": "Chizmeshya et al. (1996), LAPW(8) static BM3",
    "record_kind": "published",
@@ -2032,6 +2061,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1.",
     "equation": "Third-order Birch-Murnaghan.",
     "parameters": "Table 1, LAPW(8) row.",
     "method": "Eight-point LAPW convergence fit."
@@ -2082,6 +2112,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_chizmeshya_1996_lapw9_static_bm3",
    "label": "Chizmeshya et al. (1996), LAPW(9) static BM3",
    "record_kind": "published",
@@ -2143,6 +2174,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1.",
     "equation": "Third-order Birch-Murnaghan.",
     "parameters": "Table 1, LAPW(9) row.",
     "method": "Final nine-point LAPW static fit."
@@ -2193,6 +2225,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_chizmeshya_1996_lapw9_300k_kp4_bm3",
    "label": "Chizmeshya et al. (1996), thermally corrected LAPW(9) BM3 with K0'=4",
    "record_kind": "published",
@@ -2256,6 +2289,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 2.",
     "equation": "Third-order Birch-Murnaghan.",
     "parameters": "Table 2, LAPW(9)* row.",
     "method": "Static LAPW(9) energy-volume relation corrected to 300 K; star denotes constrained K0'=4."
@@ -2307,6 +2341,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_chizmeshya_1996_lapw9_300k_bm3",
    "label": "Chizmeshya et al. (1996), preferred thermally corrected LAPW(9) 300 K BM3",
    "record_kind": "published",
@@ -2368,6 +2403,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Abstract; Table 2.",
     "equation": "Third-order Birch-Murnaghan.",
     "parameters": "Abstract and Table 2, unconstrained LAPW(9) row.",
     "method": "300 K lattice-vibrational correction applied to the final nine-point static calculation."
@@ -2421,6 +2457,7 @@
    }
   },
   {
+   "determination_method": "unknown",
    "identifier": "ca_perovskite_holland_2013_cpv_modified_tait",
    "label": "Holland et al. (2013), cpv modified Tait",
    "record_kind": "published",
@@ -2485,6 +2522,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table 1 and the official tc-ds62 endmember block establish the coefficients, but the existing audit does not trace this endmember's individual EOS constraints to measurements versus calculations. Determination remains unknown pending that source tracing; self_consistent is not a determination method.",
     "parameters": "Article Table 1 and official tc-ds62 cpv block.",
     "unit_conversion": "V0=2.745 J/bar/mol, K0=2360 kbar, K0''=-0.00160 kbar^-1; converted to A3 for Z=1 and GPa units."
    },
@@ -2537,6 +2575,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_akber_knutson_2002_vibc_pnma_300k_bm3",
    "label": "Akber-Knutson et al. (2002), VIBC Pnma 300 K BM3",
    "record_kind": "published",
@@ -2600,6 +2639,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 2; Methods and discussion.",
     "equation": "Third-order Birch-Murnaghan.",
     "parameters": "Table 2, VIBC Pnma row.",
     "method": "Variational induced breathing plus parameterized Si-O covalent correction; thermally corrected to 300 K."
@@ -2649,6 +2689,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_akber_knutson_2002_vibc_pm3m_300k_bm3",
    "label": "Akber-Knutson et al. (2002), VIBC Pm3m 300 K BM3",
    "record_kind": "published",
@@ -2712,6 +2753,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 2; Methods and discussion.",
     "equation": "Third-order Birch-Murnaghan.",
     "parameters": "Table 2, VIBC Pm3m row.",
     "method": "Variational induced breathing plus parameterized Si-O covalent correction; thermally corrected to 300 K."
@@ -2761,6 +2803,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_akber_knutson_2002_vib_pm3m_300k_bm3",
    "label": "Akber-Knutson et al. (2002), VIB Pm3m 300 K BM3",
    "record_kind": "published",
@@ -2824,6 +2867,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 2; Methods and discussion.",
     "equation": "Third-order Birch-Murnaghan.",
     "parameters": "Table 2, VIB Pm3m row.",
     "method": "Uncorrected variational induced-breathing model, thermally corrected to 300 K."
@@ -2873,6 +2917,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_sherman_1993_basis_b_static_bm3",
    "label": "Sherman (1993), extended-basis static BM3",
    "record_kind": "published",
@@ -2934,6 +2979,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Abstract; EOS results table.",
     "equation": "Third-order Birch-Murnaghan.",
     "parameters": "EOS results for the moderately extended basis set B; K0=301 GPa in the source table and 300 GPa after rounding in the abstract.",
     "method": "Periodic all-electron Hartree-Fock static calculation."
@@ -2982,6 +3028,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_wang_weidner_1994_bm2",
    "label": "Wang and Weidner (1994), room-temperature BM2",
    "record_kind": "published",
@@ -3049,6 +3096,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental section, journal page 895; Figure 3 and caption, journal page 897; Room-temperature compression paragraph, journal page 897; Table 1, journal page 896.",
     "equation": "Second-order Birch-Murnaghan; K0'=4 is fixed by the source and encoded structurally by BM2 rather than stored as a free coefficient.",
     "V0": "Abstract and room-temperature compression paragraph: 45.83(7) A3.",
     "K0": "Abstract and room-temperature compression paragraph: 280(23) GPa.",
@@ -3122,6 +3170,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_caracas_2005_bm4_4",
    "label": "Caracas et al. (2005), static cubic Pm-3m BM4",
    "reference": {
@@ -3188,6 +3237,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Table 1; Section 4; Table 2.",
     "equation": "Section 4 and Table 2: fourth-order Birch-Murnaghan fit.",
     "parameters": "Table 2, Pm-3m column.",
     "volume_basis": "Source V0/Z multiplied by Z=1 for this material card's conventional-cell basis."
@@ -3260,6 +3310,7 @@
    ]
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_liu_2007_lda_static_bm3",
    "label": "Liu et al. (2007), cubic CaSiO3 static LDA BM3",
    "record_kind": "published",
@@ -3326,6 +3377,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Computational method; Table 1; Structural-property section.",
     "equation": "Structural-property section: calculated volume-energy states fitted to third-order Birch-Murnaghan.",
     "parameters": "Table 1, this-work column.",
     "method": "Plane-wave pseudopotential LDA first-principles calculation."
@@ -3390,6 +3442,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_fu_2023_bm3_mgd_refit",
    "label": "Fu et al. (2023), CaSiO3 BM3-MGD literature-data refit",
    "reference": {
@@ -3482,6 +3535,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: main-text Equations 23-28; Online Materials Text S3; Online Materials Figure S3; Online Materials Table S3.",
     "reference_isotherm": {
      "V0": "Online Materials Table S3, CaSiO3 davemaoite row: 45.4 A^3.",
      "K0": "Online Materials Table S3: 248 GPa.",
@@ -3551,6 +3605,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "ca_perovskite_karki_crain_1998_static_bm3",
    "label": "Karki and Crain (1998), static cubic CaSiO3 BM3",
    "record_kind": "published",
@@ -3614,6 +3669,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: article equation-of-state section; authors' repository abstract and bibliographic record.",
     "equation": "Equation-of-state section: third-order finite-strain/Birch-Murnaghan fit to calculated energy-volume states.",
     "parameters": "Source EOS result: V0=45.34 A^3 per CaSiO3, K0=241 GPa, and K0'=4.14.",
     "volume_basis": "The ideal cubic Pm-3m cell contains one CaSiO3 formula unit.",
@@ -3665,6 +3721,7 @@
    "notes": "LitCurate row 186 is retained as the source-owned fit. Rows 187-191 are literature comparisons and are represented, where independently audited, under their own primary publications rather than under this DOI."
   },
   {
+   "determination_method": "hybrid",
    "identifier": "ca_perovskite_ono_2013_bm3_log_thermal",
    "label": "Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure",
    "record_kind": "published",
@@ -3748,6 +3805,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Ono (2013), Table 1 and Equations (8)-(9): experimental Shim (2000) V0, K0 and K0_prime anchor the reference isotherm; AIMD states determine the thermal coefficients.",
     "reference_isotherm": {
      "V0": "Equation (8) and Table 1: 45.58 A^3, adopted from Shim et al. (2000).",
      "K0": "Equation (8) and Table 1: 236 GPa, adopted from Shim et al. (2000).",
@@ -3823,6 +3881,7 @@
    "notes": "This is not a duplicate of the existing Shim 2000 room-temperature BM3: it is Ono's executable high-temperature extension. The source's velocity equations are outside the pressure-volume EOS and are not encoded here."
   },
   {
+   "determination_method": "experimental",
    "identifier": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",
    "label": "Peritheos unweighted joint refit of Fu et al. (2023) candidate CaSiO3 data",
    "reference": {
@@ -3969,6 +4028,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Main-text Equations 17-18 and 23-28; Online Materials Text S3 and Figure S3.",
     "eos.V0": "Unweighted joint refit recorded in docs/data/fu-2023-casio3-refit-audit.json.",
     "eos.K0": "Unweighted joint refit recorded in docs/data/fu-2023-casio3-refit-audit.json.",
     "eos.K0_prime": "Fixed at 4, matching Fu et al. Table S3.",

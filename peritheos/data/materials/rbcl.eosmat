@@ -72,6 +72,7 @@
    "temperature_ref": 298.0,
    "pressure_range_status": "reported_exactly",
    "notes": "Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression observations in Table 1. Campbell and Heinz fixed the non-quenchable phase's hypothetical zero-pressure density at rho02=3.3068(10) Mg/m^3 and report K0=17.9(10) GPa and K0'=5.23(29). Peritheos converts that density to the one-formula-unit reference volume using M(RbCl)=120.9208 g/mol; its uncertainty is propagated from the reported density error.",
+   "determination_method": "experimental",
    "identifier": "rbcl_b2_campbell_1994_bm3_1",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -134,6 +135,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 11767, Table 1, separate RbCl and CsCl compression blocks; page 11767, Figures 2-3 and Eulerian finite-strain fits.",
     "V0": "Derived from Campbell and Heinz (1994), pages 11767-11768: fixed hypothetical rho02=3.3068(10) Mg/m^3 and M(RbCl)=120.9208 g/mol",
     "K0": "Campbell and Heinz (1994), pages 11767-11768 and Figure 3",
     "K0_prime": "Campbell and Heinz (1994), pages 11767-11768 and Figure 3",

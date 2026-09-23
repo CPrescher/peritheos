@@ -82,6 +82,7 @@
  "notes": "Matsui et al. (2012) synthesized a stoichiometric B1-NaCl powder and report its ambient lattice parameter as 4.2427(2) A. The mixed cation sites are the ideal average rocksalt representation; neither EOS study reports an atomic-position refinement. The top-level phase label is deliberately spin-neutral because the record set now includes separately bounded high-spin and low-spin reference branches; each EOS record states its own spin regime.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg075fe025o_matsui_2012_bm3_mgd_1",
    "label": "Matsui et al. (2012), (Mg0.75Fe0.25)O high-spin BM3-MGD",
    "record_kind": "published",
@@ -171,6 +172,7 @@
     "molar_mass_g_mol": 48.189
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiments, page 177; Equations (1)-(6), pages 178-179; Tables 2 and 3, page 179; High-spin to low-spin transition, page 180.",
     "equation": "Equations (1)-(6), pages 178-179: 300 K BM3 plus a Mie-Gruneisen-Debye thermal-pressure increment E_D(V,T)-E_D(V,300 K).",
     "V0": "Table 3: V0=76.372(16) A^3, fitted from the 300 K rows below 47 GPa.",
     "K0": "Table 3 and page 179: K0T=160 GPa, fixed from the MgO literature.",
@@ -261,6 +263,7 @@
    "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg075fe025o_mao_2011_high_spin_bm3_1",
    "label": "Mao et al. (2011), 300 K high-spin reference BM3",
    "record_kind": "published",
@@ -343,6 +346,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: corrected article, Experiments paragraphs 4-5; corrected article, Results paragraphs 6-7; corrected Figure 1; Correction DOI 10.1029/2011GL050814.",
     "equation": "Corrected article, Results paragraph 7: third-order isothermal Birch-Murnaghan EOS fitted to the 300 K P-V data with K0'=4 fixed.",
     "V0": "Corrected article, Results paragraph 7: V0=76.34(+/-0.01) A^3, explicitly marked fixed; conventional Fm-3m cell.",
     "K0": "Corrected article, Results paragraph 7: KT0=162(+/-1) GPa for the high-spin state.",
@@ -445,6 +449,7 @@
    "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg075fe025o_mao_2011_low_spin_bm3_1",
    "label": "Mao et al. (2011), 300 K low-spin reference BM3",
    "record_kind": "published",
@@ -526,6 +531,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: corrected article, Experiments paragraphs 4-5; corrected article, Results paragraphs 6-7; corrected Figure 1; Correction DOI 10.1029/2011GL050814.",
     "equation": "Corrected article, Results paragraph 7: third-order isothermal Birch-Murnaghan EOS fitted to the 300 K P-V data with K0'=4 fixed.",
     "V0": "Corrected article, Results paragraph 7: V0=74.4(+/-0.6) A^3 for the low-spin branch; conventional Fm-3m cell and ambient-pressure extrapolation.",
     "K0": "Corrected article, Results paragraph 7: KT0=166(+/-7) GPa for the low-spin state.",
@@ -629,6 +635,7 @@
    "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mg075fe025o_leonov_2017_hs_bm3_1",
    "label": "Leonov et al. (2017), Mg0.75Fe0.25O high-spin DFT+DMFT BM3",
    "record_kind": "published",
@@ -684,6 +691,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table I.",
     "equation": "Third-order Birch-Murnaghan fit to DFT+DMFT total energies.",
     "V0": "Table I: 133.8 bohr^3/formula unit; converted to conventional Z=4 cell.",
     "K0": "Table I HS: 151 GPa.",
@@ -736,6 +744,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg075fe025o_solomatova_2016_hs_bm3_reference_1",
    "label": "Solomatova et al. (2016), Mao-data high-spin BM3 reference branch",
    "record_kind": "published",
@@ -799,6 +808,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 paired BM3 reference branches.",
     "V0": "Table 7: 76.34 A^3.",
     "K0": "Table 7: 160 GPa.",
@@ -850,6 +860,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg075fe025o_solomatova_2016_ls_bm3_reference_2",
    "label": "Solomatova et al. (2016), Mao-data low-spin BM3 reference branch",
    "record_kind": "published",
@@ -915,6 +926,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 paired BM3 reference branches.",
     "V0": "Table 7: 73.74 A^3.",
     "K0": "Table 7: 174 GPa.",

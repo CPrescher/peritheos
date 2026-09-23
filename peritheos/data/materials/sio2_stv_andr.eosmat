@@ -70,6 +70,10 @@
     53.0
    ],
    "notes": "Andrault et al. report V0 = 46.51(61) A^3, K0 = 309.9(1.1) GPa, and K0' = 4.59(23). The stored V0 retains the more precise ambient lattice product.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1 and 2, journal pages 303-304; EOS discussion and Figure 2, journal page 304."
+   },
    "identifier": "sio2_stv_andr_andrault_2003_bm3_1",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -241,6 +245,7 @@
     1700.0
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-8 and analytical methods, paragraphs 9 and 13-14; Tables 1-3; Experimental procedures, paragraphs 6-8; Discussion, paragraph 24.",
     "V0": "Table 2 and paragraphs 11 and 14; fixed at 46.55 A^3 after rounding the recovered ambient conventional-cell measurement 46.553(19) A^3",
     "K0": "Table 2, Morse-Rydberg (Vinet) column",
     "K0_prime": "Table 2, Morse-Rydberg (Vinet) column",
@@ -251,6 +256,7 @@
     "n": "Equation 5 atom count applied to SiO2 stoichiometry"
    },
    "notes": "This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0*(V/V0)^b and theta(V)=theta0*exp[-gamma0*((V/V0)^b-1)/b]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.",
+   "determination_method": "experimental",
    "identifier": "sio2_stv_andr_wang_2012_vinet_mgd_2",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -321,6 +327,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "sio2_stv_andr_driver_2010_qmc_300k_vinet",
    "label": "Driver et al. (2010), QMC 300 K Vinet",
    "record_kind": "published",
@@ -387,6 +394,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1b; Table 1.",
     "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
     "parameters": "Table 1, stishovite QMC column.",
     "volume_conversion": "159.0(4) bohr3 per SiO2 converted to A3 and multiplied by Z=2."
@@ -438,6 +446,7 @@
    }
   },
   {
+   "determination_method": "unknown",
    "identifier": "sio2_stv_andr_holland_2013_stv_modified_tait",
    "label": "Holland et al. (2013), stv modified Tait",
    "record_kind": "published",
@@ -502,6 +511,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table 1 and the official tc-ds62 endmember block establish the coefficients, but the existing audit does not trace this endmember's individual EOS constraints to measurements versus calculations. Determination remains unknown pending that source tracing; self_consistent is not a determination method.",
     "parameters": "Article Table 1 and official tc-ds62 stv block.",
     "unit_conversion": "V0=1.401 J/bar/mol, K0=3090 kbar, K0''=-0.00150 kbar^-1; converted to executable units and Z=2."
    },
@@ -554,6 +564,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "stishovite_akber_knutson_2002_vibc_300k_bm3",
    "label": "Akber-Knutson et al. (2002), VIBC 300 K BM3",
    "record_kind": "published",
@@ -617,6 +628,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1; Methods.",
     "equation": "Third-order Birch-Murnaghan.",
     "parameters": "Table 1, VIBC row.",
     "method": "Variational induced breathing plus parameterized Si-O covalent correction; thermally corrected to 300 K."
@@ -666,6 +678,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "stishovite_zhang_bukowinski_1991_mpib_bm3",
    "label": "Zhang and Bukowinski (1991), MPIB stishovite",
    "record_kind": "published",
@@ -713,6 +726,7 @@
     "molar_mass_g_mol": 60.083
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section III.C; Figures 9-11; Table VI.",
     "equation": "Section III.C and Figure 11 provide the calculated finite-strain EOS.",
     "parameters": "Table VI: V0=45.54 A3, K0=378 GPa, K0'=6.4+/-3.5.",
     "reference_state": "Table VI does not restate temperature; 300 K follows the paper's Debye EOS and experimental comparison convention and is documented as inferred."
@@ -763,6 +777,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "stishovite_nisr_2017_dry_bm3",
    "label": "Nisr et al. (2017), dry reference stishovite BM3",
    "reference": {
@@ -822,6 +837,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2, 3.1-3.3 and 4.2; Tables 1-4; Figures 2-5; Erratum, page 6983; Supporting Text S1 and Tables S1-S4.",
     "equation": "Section 3.3 cites Birch (1978): P=3K0/2*(eta^7-eta^5)*[1+3/4*(K0_prime-4)*(eta^2-1)], eta=(V0/V)^(1/3). K0_prime=4 reduces exactly to BM2. No thermal term.",
     "V0": "Table 3 and Section 3.3: fixed to source ambient volume; keep final EOS table value despite differing ambient structural tables.",
     "K0": "Table 3",

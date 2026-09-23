@@ -30,6 +30,7 @@
  "notes": "The structure and reference cell are the source's lowest-enthalpy ordered model-1 at static 0 K. Atomic coordinates are not copied because they are provided only in the paper's separate supplementary table.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "phase_h_tsuchiya_mookherjee_2015_gga_static_bm3",
    "label": "Tsuchiya and Mookherjee (2015), ordered phase H static GGA BM3",
    "record_kind": "published",
@@ -95,6 +96,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Results, page 2; Figure 2; Table 1; Methods, page 5.",
     "equation": "Results identify the finite-strain Birch-Murnaghan formulation; freely fitted K0' makes this the third-order form.",
     "parameters": "Results paragraph preceding Figure 2.",
     "method": "Static 0 K GGA variable-cell first-principles calculations over 0-100 GPa."

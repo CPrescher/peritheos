@@ -41,6 +41,10 @@
  "peaks": [],
  "eos_records": [
   {
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
+   },
    "identifier": "mgo_sakai_2025_rydberg_stacey_1",
    "label": "Sakai et al. (2025), MgO generalized Rydberg-Stacey scale",
    "reference": {
@@ -248,6 +252,10 @@
     "mgo_marsh_1980_lasl_single_crystal_hugoniot"
    ],
    "notes": "Fit3-Vinet is one of the two retained pressure-scale-free MgO models. K0 and theta0 are dependent quantities recalculated from the fixed 300 K KS0, alpha0, and CP0 anchors at every trial gamma0; only K0_prime, gamma0, a, and b are independent Fit3 variables. The redistributable 102-row subset validates the coupled thermal, elastic, and shock implementation but is not the complete eight-source global fit. The 2010 correction changes Figure 11 only and does not change these parameters.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Tange (2009), Fit3: joint experimental acoustic, thermal and shock constraints determine the pressure-scale-free EOS. The thermodynamic model form is not an independent calculated input dataset."
+   },
    "identifier": "mgo_b1_tange_2009_vinet",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -353,6 +361,10 @@
     227.0
    ],
    "notes": "Static nonhydrostatic BM3 fit to 227 GPa: K0 = 177 +/- 4 GPa and K0' = 4.0 +/- 0.1. The fixed molar V0 = 11.253 cm^3/mol was converted to the conventional Z=4 B1 cell.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figure 2; page 1372, third-order Birch-Murnaghan fit."
+   },
    "identifier": "mgo_duffy_1995_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -444,6 +456,10 @@
     52.0
    ],
    "notes": "Publication constrained BM3 fit. The imported constant-alpha thermal approximation was not part of this fit and was removed.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; constrained third-order Birch-Murnaghan fit."
+   },
    "identifier": "mgo_speziale_2001_bm3_2",
    "pressure_calibration": {
     "status": "resolved",
@@ -555,11 +571,13 @@
     300.0
    ],
    "temperature_ref": 300.0,
+   "determination_method": "experimental",
    "identifier": "mgo_li_2006_bm3_absolute_acoustic",
    "fit_datasets": [
     "mgo_li_2006_table1_elasticity"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract and Sections 1-2; Table 1 and Equations 1-4 in Section 3; Table 2 and Sections 4-5; Official tab-delimited supplements for Tables 1 and 2.",
     "equation": "Equation 3 uses epsilon=[1-(rho/rho0)^(2/3)]/2=[1-(V0/V)^(2/3)]/2 and P=-3*K0T*epsilon*(1-2*epsilon)^(5/2)*[1+3*(4-K0T')*epsilon/2]. With f=-epsilon, this is exactly the standard third-order Birch-Murnaghan pressure equation used by Peritheos.",
     "V0": "Table 1 footnote reports V0=74.702(26) A^3. Section 3 states that MgO specific volume was refined from five diffraction lines; for B1 MgO this is the conventional cubic Fm-3m cell with Z=4. V0 is an independently measured reference value, not a coefficient varied in a pressure-volume BM3 regression.",
     "K0": "Abstract and Section 4 report the preferred decompression acoustic finite-strain fit K0S=163.5(11) GPa. Equation 4 converts this to K0T=K0S/(1+alpha*gamma*T), using the paper's adopted alpha=3.12e-5 K^-1, gamma=1.54, and T=300 K, giving 161.1767340842165 GPa.",
@@ -773,11 +791,13 @@
     300.0
    ],
    "temperature_ref": 300.0,
+   "determination_method": "experimental",
    "identifier": "mgo_jacobsen_2008_bm3_kcl_mao1978",
    "fit_datasets": [
     "mgo_jacobsen_2008_table2_kcl_compression"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract and introduction, pages 1823-1824; Experimental methods, page 1824; Tables 1-2 and Figure 2, page 1825; BM3 definition and Figure 3, pages 1825-1826.",
     "equation": "Results and discussion, pages 1825-1826, and Figure 3: third-order Birch-Murnaghan EOS with F=P/[3f(1+2f)^(5/2)] and f=[(V0/V)^(2/3)-1]/2.",
     "V0": "Results and discussion, page 1825: preferred three-parameter KCl-medium fit V0=74.698(7) A^3; the experimental ambient anchor is the 74.698(3) A^3 Table 1 value from Jacobsen et al. (2002).",
     "K0": "Results and discussion, page 1825: preferred three-parameter KCl-medium fit KT0=164.1(9) GPa.",
@@ -962,11 +982,13 @@
     300.0
    ],
    "temperature_ref": 300.0,
+   "determination_method": "experimental",
    "identifier": "mgo_jacobsen_2008_bm3_helium_mao1986",
    "fit_datasets": [
     "mgo_jacobsen_2008_table1_helium_compression"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract and introduction, pages 1823-1824; Experimental methods, page 1824; Table 1 and Figure 2, page 1825; BM3 definition, alternative fits, and Figure 3, pages 1825-1826; Ruby-scale derivation and Figure 4, page 1827.",
     "equation": "Results and discussion, pages 1825-1826, and Figure 3: third-order Birch-Murnaghan EOS with F=P/[3f(1+2f)^(5/2)] and f=[(V0/V)^(2/3)-1]/2.",
     "V0": "Results and discussion, page 1826: all-three-runs fit V0=74.687(6) A^3. The abstract instead prints 74.697(6) A^3, while the separately described ruby-only sensitivity fit gives 74.697(7) A^3; this record follows the unambiguous Results value for the all-data fit.",
     "K0": "Abstract, Results, and Figures 2-4: all-data helium fit KT0=159.6(6) GPa.",
@@ -1168,6 +1190,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
+   },
    "identifier": "mgo_shen_2026_vinet_3",
    "pressure_calibration": {
     "status": "resolved",
@@ -1391,6 +1417,7 @@
     "availability": "The Luo and Li rows are bundled. The exact Kono linear-fit coefficients, complete upstream row mask, cross-observable residual implementation, temperature/density uncertainty propagation, and covariance are not published in Luo or Xian; the remaining cited source rows are therefore inventory entries rather than asserted reconstructed fit rows."
    },
    "parameter_provenance": {
+    "determination_method": "Luo (2023), Section III and Appendix B: pressure surrogate of a global fit to shock, acoustic and thermophysical measurements. Evaluating or approximating that fitted model does not change its experimental origin.",
     "reference_isotherm": {
      "V0": "Section III, page 6: V0K = 0.2767 +/- 0.0001 cm^3/g at zero pressure and zero temperature; converted with 40.304 g/mol MgO and Z=4 to the conventional B1 cell",
      "K0": "Section III, page 6: B0 = 169.8 +/- 0.5 GPa at zero pressure and zero temperature",
@@ -1413,6 +1440,7 @@
     "model_unit": "angstrom^3/conventional_unit_cell"
    },
    "notes": "This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; four temperatures span 3088-5676 K and three Eulerian sound velocities are reported. The full quasi-Debye equations and inverse-variance objective are reconstructable from Luo et al. (2023) and Xian et al. (2022), and Peritheos implements that mechanism as SoundVelocityDebyeHelmholtz. The source-author numerical rerun is not reconstructable because the Kono velocity-density coefficients, complete upstream row mask, uncertainty propagation across P-V-T observables, and covariance are not published. A bounded 12-residual fit using only Luo Table I primary rows and a declared Li-2006 velocity-ratio proxy is recorded in the refit ledger; it does not replace this published Appendix-B record. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.",
+   "determination_method": "experimental",
    "identifier": "mgo_b1_luo_2023_vinet_thermal_5",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -1597,6 +1625,10 @@
     "model": "multi_oscillator_gruneisen_thermal_pressure"
    },
    "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The implemented MgO a0 coefficient follows the explicit 2016 correction, so that term has dual 2013/2016 provenance. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Sokolova (2013), Tables 1 and 4: joint synthesis of shock, ultrasonic, diffraction, expansion and thermochemical measurements. The 2016 workbook implements the fit; it does not supply a separate theoretical fit grid."
+   },
    "identifier": "mgo_sokolova_2013_holzapfel_4",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -1818,6 +1850,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental section and Table 2; Equation 1 and Table 3; Equations 2-8, Figure 4, and Tables 4-5; Abstract and conclusion.",
     "V0": "Fixed in the room-temperature fits to the 74.71(3) A^3 average of prior ambient measurements (discussion preceding Table 3).",
     "K0": "Fixed in the preferred BM3 fit to the adopted acoustic value 161(1) GPa (discussion preceding Table 3).",
     "K0_prime": "Fitted to the combined room-temperature diffraction data: the text gives the formal result as 3.94 +/- 0.06 (Table 3 rounds it to 3.94(5)), and pressure-error propagation expands it to 3.94 +/- 0.2, repeated in the abstract. The conclusion instead prints +/-0.3 without explanation. The explicit propagated +/-0.2 value is stored, and K0' is held fixed in the thermal analysis.",
@@ -1831,6 +1864,7 @@
     "mgo_dewaele_2000_table2_pvt"
    ],
    "notes": "Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are preserved separately as nonpreferred room-temperature model-sensitivity records; they are not thermal parameterizations. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled Table 2 contains all 61 new observations from this study. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies the article.",
+   "determination_method": "experimental",
    "identifier": "mgo_dewaele_2000_bm3_mgd_5",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -1904,6 +1938,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgo_dewaele_2000_bm2_sensitivity_1",
    "label": "Dewaele et al. (2000), constrained BM2 sensitivity",
    "reference": {
@@ -1966,6 +2001,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3; Table 3.",
     "V0": "Fixed to the adopted 74.71(3) A^3 ambient average.",
     "K0": "Fitted with K0'=4 implicit in the second-order Birch-Murnaghan model; Table 3 gives 159.0(6) GPa."
    },
@@ -2019,6 +2055,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgo_dewaele_2000_murnaghan_sensitivity_2",
    "label": "Dewaele et al. (2000), Murnaghan sensitivity",
    "reference": {
@@ -2084,6 +2121,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3; Table 3.",
     "V0": "Fixed to the adopted 74.71(3) A^3 ambient average.",
     "K0": "Fixed to the adopted 161(1) GPa acoustic value.",
     "K0_prime": "Fitted; Table 3 gives 3.75(5)."
@@ -2138,6 +2176,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgo_dewaele_2000_vinet_sensitivity_3",
    "label": "Dewaele et al. (2000), Vinet sensitivity",
    "reference": {
@@ -2203,6 +2242,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3; Table 3.",
     "V0": "Fixed to the adopted 74.71(3) A^3 ambient average.",
     "K0": "Fixed to the adopted 161(1) GPa acoustic value.",
     "K0_prime": "Fitted; Table 3 gives 4.01(5)."
@@ -2257,6 +2297,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgo_dewaele_2000_natural_strain3_sensitivity_4",
    "label": "Dewaele et al. (2000), logarithmic-strain sensitivity",
    "reference": {
@@ -2322,6 +2363,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3; Table 3.",
     "V0": "Fixed to the adopted 74.71(3) A^3 ambient average.",
     "K0": "Fixed to the adopted 161(1) GPa acoustic value.",
     "K0_prime": "Fitted; Table 3 gives 4.08(6)."
@@ -2376,6 +2418,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgo_b1_duffy_ahrens_1995_hugoniot_5",
    "label": "Duffy and Ahrens (1995), B1 principal Hugoniot",
    "reference": {
@@ -2524,6 +2567,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 529, abstract, linear relation and 14-133 GPa range; page 530, average bulk density; page 533, Tables 3-4 and least-squares discussion; page 534, Figure 3 and fit identification.",
     "V0": "Derived from rho0=3.562 g/cm3, four MgO formula units, molar mass 40.304 g/mol, and the exact Avogadro constant; it is not the equilibrium-EOS V0.",
     "rho0": "Duffy and Ahrens (1995), page 530 and Table 4, page 533; measured average bulk density 3.562(6) g/cm3.",
     "c0": "Duffy and Ahrens (1995), abstract and Table 4, page 533; quoted linear Us-up fit.",
@@ -2595,6 +2639,7 @@
    "notes": "Constrained principal Hugoniot for the untransformed B1 phase only. This is not the separately plotted equilibrium 300 K isotherm/hydrostat or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_oganov_2003_ecp_large_core_static_bm3",
    "label": "Oganov and Dorogokupets (2003), GGA-ECP large-core static BM3",
    "record_kind": "published",
@@ -2657,6 +2702,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table I: unshifted static GGA energy-volume fit; experimental comparison values are not fit constraints.",
     "equation": "Equation (3), with x=V0/V and xi=3(K0'-4)/4; Table I identifies BM3.",
     "parameters": "Table I, ECP large-core Mg row.",
     "method": "VASP GGA effective-core-potential calculation with a Ne-core Mg pseudopotential."
@@ -2709,6 +2755,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_oganov_2003_ecp_small_core_static_bm3",
    "label": "Oganov and Dorogokupets (2003), GGA-ECP small-core static BM3",
    "record_kind": "published",
@@ -2769,6 +2816,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table I: unshifted static GGA energy-volume fit; experimental comparison values are not fit constraints.",
     "equation": "Equations (3)-(4), BM3.",
     "parameters": "Table I, ECP small-core Mg row.",
     "method": "VASP GGA ECP calculation with Mg 2p treated as semicore."
@@ -2816,6 +2864,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_oganov_2003_paw_large_core_static_bm3",
    "label": "Oganov and Dorogokupets (2003), GGA-PAW large-core static BM3",
    "record_kind": "published",
@@ -2876,6 +2925,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table I: unshifted static GGA energy-volume fit; experimental comparison values are not fit constraints.",
     "equation": "Equations (3)-(4), BM3.",
     "parameters": "Table I, PAW large-core Mg row.",
     "method": "VASP GGA projector-augmented-wave calculation using a Ne-core Mg potential."
@@ -2923,6 +2973,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_oganov_2003_paw_small_core_static_bm3",
    "label": "Oganov and Dorogokupets (2003), GGA-PAW small-core static BM3",
    "record_kind": "published",
@@ -2986,6 +3037,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table I: unshifted static GGA energy-volume fit; experimental comparison values are not fit constraints.",
     "equation": "Equations (3)-(4), BM3.",
     "parameters": "Table I, PAW small-core Mg row.",
     "method": "Most accurate static comparison identified by the source."
@@ -3037,6 +3089,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "mgo_oganov_2003_pressure_corrected_static_bm3",
    "label": "Oganov and Dorogokupets (2003), pressure-corrected static GGA-PAW BM3",
    "record_kind": "published",
@@ -3100,6 +3153,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Section VI, Table V: GGA/phonon calculations shifted by -7.736 GPa to reproduce the measured ambient volume; therefore hybrid.",
     "equation": "Equation (3), BM3.",
     "parameters": "Table V, Static row.",
     "pressure_shift": "Page 224110-7: -7.736 GPa applied to the GGA-PAW static pressure."
@@ -3152,6 +3206,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "mgo_oganov_2003_pressure_corrected_0k_bm3",
    "label": "Oganov and Dorogokupets (2003), pressure-corrected 0 K BM3 with zero-point energy",
    "record_kind": "published",
@@ -3212,6 +3267,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Section VI, Table V: GGA/phonon calculations shifted by -7.736 GPa to reproduce the measured ambient volume; therefore hybrid.",
     "equation": "Equation (3), BM3.",
     "parameters": "Table V, 0 K row.",
     "thermal_model": "Section VI quasiharmonic Debye model at zero temperature."
@@ -3259,6 +3315,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "mgo_oganov_2003_pressure_corrected_298k_bm3",
    "label": "Oganov and Dorogokupets (2003), pressure-corrected 298 K BM3",
    "record_kind": "published",
@@ -3319,6 +3376,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Section VI, Table V: GGA/phonon calculations shifted by -7.736 GPa to reproduce the measured ambient volume; therefore hybrid.",
     "equation": "Equation (3), BM3.",
     "parameters": "Table V, 298 K row."
    },
@@ -3366,6 +3424,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "mgo_oganov_2003_pressure_corrected_1000k_bm3",
    "label": "Oganov and Dorogokupets (2003), pressure-corrected 1000 K BM3",
    "record_kind": "published",
@@ -3426,6 +3485,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Section VI, Table V: GGA/phonon calculations shifted by -7.736 GPa to reproduce the measured ambient volume; therefore hybrid.",
     "equation": "Equation (3), BM3.",
     "parameters": "Table V, 1000 K row."
    },
@@ -3472,6 +3532,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "mgo_oganov_2003_pressure_corrected_2000k_bm3",
    "label": "Oganov and Dorogokupets (2003), pressure-corrected 2000 K BM3",
    "record_kind": "published",
@@ -3532,6 +3593,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Section VI, Table V: GGA/phonon calculations shifted by -7.736 GPa to reproduce the measured ambient volume; therefore hybrid.",
     "equation": "Equation (3), BM3.",
     "parameters": "Table V, 2000 K row."
    },
@@ -3578,6 +3640,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "mgo_oganov_2003_pressure_corrected_3000k_bm3",
    "label": "Oganov and Dorogokupets (2003), pressure-corrected 3000 K BM3",
    "record_kind": "published",
@@ -3638,6 +3701,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Section VI, Table V: GGA/phonon calculations shifted by -7.736 GPa to reproduce the measured ambient volume; therefore hybrid.",
     "equation": "Equation (3), BM3.",
     "parameters": "Table V, 3000 K row."
    },
@@ -3685,6 +3749,7 @@
    }
   },
   {
+   "determination_method": "hybrid",
    "identifier": "mgo_oganov_2003_pressure_corrected_4000k_bm3",
    "label": "Oganov and Dorogokupets (2003), pressure-corrected 4000 K BM3",
    "record_kind": "published",
@@ -3745,6 +3810,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Section VI, Table V: GGA/phonon calculations shifted by -7.736 GPa to reproduce the measured ambient volume; therefore hybrid.",
     "equation": "Equation (3), BM3.",
     "parameters": "Table V, 4000 K row."
    },
@@ -3791,6 +3857,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_lee_wan_2008_lda_static_bm3",
    "label": "Lee and Wan (2008), LDA 0 K BM3",
    "record_kind": "published",
@@ -3853,6 +3920,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section III; Section IV.A; Figures 1 and 4.",
     "equation": "Section IV.A, third-order Birch-Murnaghan EOS.",
     "parameters": "Section IV.A immediately below Figure 1: V0=3782.30 bohr^3 for the 32-formula-unit simulation supercell, K0=177.486 GPa, K0'=4.026.",
     "unit_conversion": "V0 converted to the MgO conventional Z=4 basis using 1 bohr=0.529177210903 angstrom and a factor 4/32.",
@@ -3904,6 +3972,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_lee_wan_2008_gga_static_bm3",
    "label": "Lee and Wan (2008), GGA 0 K BM3",
    "record_kind": "published",
@@ -3966,6 +4035,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section III; Section IV.A; Figures 1 and 4.",
     "equation": "Section IV.A, third-order Birch-Murnaghan EOS.",
     "parameters": "Section IV.A immediately below Figure 1: V0=4046.43 bohr^3 for the 32-formula-unit simulation supercell, K0=149.320 GPa, K0'=4.080.",
     "unit_conversion": "V0 converted to the MgO conventional Z=4 basis using 1 bohr=0.529177210903 angstrom and a factor 4/32.",
@@ -4017,6 +4087,7 @@
    }
   },
   {
+   "determination_method": "unknown",
    "identifier": "mgo_holland_2013_per_modified_tait",
    "label": "Holland et al. (2013), per modified Tait",
    "record_kind": "published",
@@ -4081,6 +4152,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Table 1 and the official tc-ds62 endmember block establish the coefficients, but the existing audit does not trace this endmember's individual EOS constraints to measurements versus calculations. Determination remains unknown pending that source tracing; self_consistent is not a determination method.",
     "parameters": "Article Table 1 and official tc-ds62 per block.",
     "unit_conversion": "V0=1.125 J/bar/mol, K0=1616 kbar, K0''=-0.00240 kbar^-1; converted to executable units and Z=4."
    },
@@ -4133,6 +4205,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_b1_zhang_bukowinski_1991_mpib_bm3",
    "label": "Zhang and Bukowinski (1991), MPIB B1 MgO",
    "record_kind": "published",
@@ -4180,6 +4253,7 @@
     "molar_mass_g_mol": 40.304
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Sections II.D-III.B; Figure 6; Table IV.",
     "equation": "Section III.B states a Birch-Murnaghan fit to the calculated MgO EOS.",
     "parameters": "Table IV B1 room-temperature row: 18.65 A3 per MgO, K0=180 GPa, K0'=4.04; volume multiplied by Z=4."
    },
@@ -4229,6 +4303,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_karki_1997_lda_static_bm4",
    "label": "Karki et al. (1997), LDA static BM4",
    "record_kind": "published",
@@ -4297,6 +4372,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Equation (11); Equation of state subsection; Table 1; Figure 1.",
     "equation": "Equation (11) and the Equation of state subsection explicitly define the fourth-order Birch-Murnaghan fit.",
     "parameters": "Table 1 and the text following Equation (11): a0=4.2506 angstrom, K0=159.7 GPa, K0'=4.26, K0''=-0.026 GPa^-1.",
     "volume_conversion": "V0=(4.2506 angstrom)^3=76.79814209021602 angstrom^3 per conventional B1 cell (Z=4).",
@@ -4349,6 +4425,7 @@
    "notes": "Accepted LitCurate source record litcurate_c2d9fd33177eb390 after resolving its omitted V0 and K0_double_prime directly from the primary paper. This BM4 fit is retained separately from the paper's BM3 sensitivity fit."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_karki_1997_lda_static_bm3",
    "label": "Karki et al. (1997), LDA static BM3 sensitivity fit",
    "record_kind": "published",
@@ -4415,6 +4492,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Equation of state subsection after Equation (11); Table 1; Figure 1.",
     "equation": "The Equation of state subsection explicitly contrasts a third-order fit with Equation (11)'s fourth-order fit.",
     "parameters": "Text following Equation (11): K0=159.4 GPa and K0'=4.28. The common equilibrium a0=4.2506 angstrom is reported in Table 1.",
     "volume_conversion": "V0=(4.2506 angstrom)^3=76.79814209021602 angstrom^3 per conventional B1 cell (Z=4).",
@@ -4466,6 +4544,7 @@
    "notes": "Accepted LitCurate source record litcurate_df447e7b3becd6df. This is a source-reported model-order sensitivity fit, not a duplicate experimental run."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_belmonte_2017_b3lyp_static_bm3",
    "label": "Belmonte (2017), B3LYP static-lattice BM3",
    "record_kind": "published",
@@ -4530,6 +4609,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Sections 2 and 3.3; Tables 1, 2, and 4.",
     "equation": "Section 3.3 identifies the static pressure branch as third-order Birch-Murnaghan.",
     "parameters": "Table 1 gives K0=167.01 GPa, Table 2 gives K0'=3.95, and Table 4 gives V0=75.762 A^3 and eight static pressures.",
     "method": "CRYSTAL14 all-electron B3LYP hybrid-DFT static-lattice calculation.",
@@ -4582,6 +4662,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_hama_suito_1996_qsm_static_vinet",
    "label": "Hama and Suito (1996), QSM static-lattice Vinet comparison",
    "record_kind": "published",
@@ -4648,6 +4729,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 1; Section 2; Table 1; Figure 2b; abstract.",
     "equation": "Section 1, Vinet equation; Section 2 and Figure 2b apply it to MgO using Table 1's theoretical derivatives.",
     "parameters": "Table 1 QSM row: V0=123.747 atomic units, K0=157 GPa, and K0'=4.37.",
     "unit_conversion": "V0 is per MgO formula unit and was converted with 1 bohr=0.529177210903 angstrom, then multiplied by Z=4: 123.747*(0.529177210903)^3*4=73.34965396218291 angstrom^3 per conventional B1 cell.",
@@ -4702,6 +4784,7 @@
    "notes": "Accepted LitCurate source record litcurate_c6a0c7a005a7ff43 after resolving the printed atomic-unit volume basis directly from Table 1."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgo_ye_2017_vinet_300k",
    "label": "Ye et al. (2017), MgO Vinet 300 K co-compression fit",
    "reference": {
@@ -4784,6 +4867,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.3; Table 1; corrected Data Set S1; erratum.",
     "equation": "Ye et al. (2017), Section 3.3 and Table 1: third-order Vinet EOS.",
     "V0": "Ye (2017) Table 1 prints 74.71 A^3 per B1 conventional cell and states that V0 and K0 were fixed to Dorogokupets-Dewaele (2007); the reproduction uses the source implementation's unrounded 74.698 A^3 anchor.",
     "K0": "Ye (2017) Table 1: fixed at 160.3 GPa.",
@@ -4854,6 +4938,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "mgo_zhu_2025_pvt",
    "label": "Zhu et al. (2025), MgO internally consistent P-V-T EOS",
    "reference": {
@@ -4947,6 +5032,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations (2)-(8); Table 1; Mendeley v3 MgO optimizer and property scripts.",
     "reference_isotherm": {
      "V0": "Fixed Ye et al. (2017) 300 K Vinet coefficient used by the released v3 optimizer.",
      "K0": "Fixed Ye et al. (2017) 300 K Vinet coefficient used by the released v3 optimizer.",

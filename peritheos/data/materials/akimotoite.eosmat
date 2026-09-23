@@ -50,6 +50,7 @@
  "eos_records": [
   {
    "identifier": "akimotoite_karki_2002_static_bm4_1",
+   "determination_method": "theoretical",
    "label": "Karki and Wentzcovitch (2002), static LDA BM4",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -111,6 +112,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Section 3.2; Table 3; Figure 3.",
     "equation": "Section 3.2 states that fourth-order finite-strain equations were fitted to calculated free energy versus volume at each temperature; this maps to the Eulerian fourth-order Birch-Murnaghan EOS.",
     "V0": "Table 3: 43.61 A3 per formula unit for the static lattice; stored as 261.66 A3 for the Z=6 conventional hexagonal cell.",
     "K0": "Table 3: KT=210 GPa at zero pressure.",
@@ -172,6 +174,7 @@
   },
   {
    "identifier": "akimotoite_karki_2002_300k_bm4_2",
+   "determination_method": "theoretical",
    "label": "Karki and Wentzcovitch (2002), 300 K QHA BM4",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -237,6 +240,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 3.2; Table 3; Figure 3.",
     "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
     "V0": "Table 3: 44.20 A3 per formula unit at 300 K; stored as 265.20 A3 for Z=6.",
     "K0": "Table 3: KT=201 GPa.",
@@ -294,6 +298,7 @@
   },
   {
    "identifier": "akimotoite_karki_2002_1000k_bm4_3",
+   "determination_method": "theoretical",
    "label": "Karki and Wentzcovitch (2002), 1000 K QHA BM4",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -359,6 +364,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 3.2; Table 3; Figure 3.",
     "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
     "V0": "Table 3: 45.03 A3 per formula unit at 1000 K; stored as 270.18 A3 for Z=6.",
     "K0": "Table 3: KT=182 GPa.",
@@ -416,6 +422,7 @@
   },
   {
    "identifier": "akimotoite_karki_2002_2000k_bm4_4",
+   "determination_method": "theoretical",
    "label": "Karki and Wentzcovitch (2002), 2000 K QHA BM4",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -481,6 +488,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Section 3.2; Table 3; Figure 3.",
     "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
     "V0": "Table 3: 48.59 A3 per formula unit at 2000 K; stored as 291.54 A3 for Z=6.",
     "K0": "Table 3: KT=153 GPa.",
@@ -582,10 +590,12 @@
    ],
    "temperature_ref": 298.0,
    "identifier": "akimotoite_reynard_1996_bm3_ruby_2",
+   "determination_method": "experimental",
    "fit_datasets": [
     "akimotoite_reynard_1996_table1_compression"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract, page 45; Table 1 and experimental methods, page 46; EOS method, page 47; Figure 3e, page 48; EOS discussion, page 49.",
     "equation": "Page 47 states that volumes were fitted to third-order Eulerian finite-strain equations of state; this maps to the standard third-order Birch-Murnaghan pressure-volume form.",
     "V0": "Figure 3e, page 48: fitted V0=262.3(4) A^3.",
     "K0": "Page 49 and Figure 3e: K0=212 GPa fixed to the Brillouin-scattering determination of Weidner and Ito (1985).",
@@ -704,10 +714,12 @@
    ],
    "temperature_ref": 298.0,
    "identifier": "akimotoite_reynard_1996_bm3_ice_vii_3",
+   "determination_method": "experimental",
    "fit_datasets": [
     "akimotoite_reynard_1996_table1_compression"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract, page 45; Table 1 and experimental methods, page 46; EOS method, page 47; Figure 3f, page 48; EOS discussion, page 49.",
     "equation": "Page 47 states that volumes were fitted to third-order Eulerian finite-strain equations of state; this maps to the standard third-order Birch-Murnaghan pressure-volume form.",
     "V0": "Figure 3f, page 48: fitted V0=262.3(4) A^3.",
     "K0": "Page 49 and Figure 3f: K0=212 GPa fixed to the Brillouin-scattering determination of Weidner and Ito (1985).",
@@ -840,6 +852,10 @@
    ],
    "temperature_ref": 298.0,
    "identifier": "akimotoite_siersch_2021_bm3_1",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state discussion; Table 1."
+   },
    "pressure_calibration": {
     "status": "unresolved",
     "methods": [],
@@ -892,6 +908,7 @@
   },
   {
    "identifier": "akimotoite_dorogokupets_2015_298k_rydberg_stacey",
+   "determination_method": "experimental",
    "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -965,6 +982,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Experimental thermoelastic synthesis of heat capacity, expansion, acoustic and P-V-T measurements; see docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md, What the source optimized.",
     "equation": "Equation (2), exactly mapped to Rydberg-Stacey with K_infinity_prime=k/3.",
     "V0": "Table 1: 26.35 cm3/mol, converted with exact N_A and Z=6 to 262.53122652018516 A3.",
     "K0": "Table 1: 215.3 GPa.",
@@ -1033,6 +1051,7 @@
   },
   {
    "identifier": "akimotoite_wang_2004_t0133_bm3",
+   "determination_method": "experimental",
    "label": "Wang et al. (2004), T0133 Au-scale BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -1101,6 +1120,7 @@
     "akimotoite_wang_2004_tables1_2_pvt"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.2, page 61; Table 1, pages 62-63.",
     "equation": "Section 3.2, page 61; Table 1, pages 62-63",
     "parameters": "Section 3.2, page 61; Table 1, pages 62-63",
     "fixed_parameters": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset.",
@@ -1172,6 +1192,7 @@
   },
   {
    "identifier": "akimotoite_wang_2004_t0150_bm3",
+   "determination_method": "experimental",
    "label": "Wang et al. (2004), preferred T0150 NaCl-scale BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -1240,6 +1261,7 @@
     "akimotoite_wang_2004_tables1_2_pvt"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.2, page 61; Table 2, pages 64-65.",
     "equation": "Section 3.2, page 61; Table 2, pages 64-65",
     "parameters": "Section 3.2, page 61; Table 2, pages 64-65",
     "fixed_parameters": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here.",
@@ -1308,6 +1330,7 @@
   },
   {
    "identifier": "akimotoite_zhou_2014_300k_bm3",
+   "determination_method": "experimental",
    "label": "Zhou et al. (2014), 300 K isothermal BM3",
    "record_kind": "published",
    "equation_kind": "isothermal",
@@ -1376,6 +1399,7 @@
     "akimotoite_zhou_2014_table1_elasticity"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101.",
     "equation": "Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101",
     "parameters": "Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101",
     "fixed_parameters": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations.",

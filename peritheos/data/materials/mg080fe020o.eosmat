@@ -81,6 +81,7 @@
  "notes": "The material is the source's polycrystalline Fe20 B1 sample. The mixed cation site is the ideal average rocksalt representation; no atomic-position refinement is reported. The lattice parameter is V0^(1/3), rounded to 4 decimals, from the EOS reference volume rather than an independently refined structure. Fei et al. (2007, GRL) additionally supply separate HS and LS compression EOSs for this composition; the displayed lattice remains tied to the Speziale source.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg080fe020o_speziale_2007_high_spin_bm3_1",
    "label": "Speziale et al. (2007), (Mg0.80Fe0.20)O high-spin BM3",
    "record_kind": "published",
@@ -144,6 +145,7 @@
     "molar_mass_g_mol": 46.612
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiment, section 2; Results, section 3.2, paragraph 9; Table 1; Figures 3-4.",
     "equation": "Section 3.2 and Figures 3-4: Birch-Murnaghan fit of the high-spin measurements below 40 GPa; the three free coefficients identify the third-order form.",
     "V0": "Section 3.2, paragraph 9: V0=76.03(9) A^3, fitted.",
     "K0": "Section 3.2, paragraph 9: KT0=158(3) GPa, fitted.",
@@ -230,6 +232,7 @@
    "notes": "All three EOS coefficients were fitted. Parenthetical errors are preserved exactly; their confidence convention and covariance are not reported."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg080fe020o_fei_2007_hs_b1_bm3",
    "label": "Fei et al. (2007), GRL, mg080fe020o high-spin B1 compression BM3",
    "record_kind": "published",
@@ -312,6 +315,7 @@
     "separate_decompression_fit_published": false
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figures 1-3 captions; paragraphs 6-15; Tables S1-S3.",
     "equation": "Paragraphs 12 and 14 identify third-order Birch-Murnaghan; captions of Figures 1-3 give K0-prime=4. This is algebraically BM2, stored as the source-named BM3 only; no duplicate BM2 entry.",
     "V0": "Figure 1: 76.16 A^3 per conventional B1 cell (Z=4). Measured reference volume; no uncertainty printed.",
     "K0": "Figure 1: 158 GPa. Paragraph 12 uncertainty 3 GPa.",
@@ -423,6 +427,7 @@
    "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg080fe020o_fei_2007_ls_b1_bm3",
    "label": "Fei et al. (2007), GRL, mg080fe020o low-spin B1 compression BM3",
    "record_kind": "published",
@@ -505,6 +510,7 @@
     "separate_decompression_fit_published": false
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figures 1-3 captions; paragraphs 6-15; Tables S1-S3.",
     "equation": "Paragraphs 12 and 14 identify third-order Birch-Murnaghan; captions of Figures 1-3 give K0-prime=4. This is algebraically BM2, stored as the source-named BM3 only; no duplicate BM2 entry.",
     "V0": "Figure 1: 74.2 A^3 per conventional B1 cell (Z=4). Paragraph 14 fitted low-spin zero-pressure volume with uncertainty 0.1 A^3; this is an extrapolated reference volume.",
     "K0": "Figure 1: 170 GPa. Paragraph 14 reports 170(3) GPa for both low-spin compositions.",
@@ -616,6 +622,7 @@
    "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg080fe020o_fei_2007_ls_b1_bm3_refit",
    "label": "Peritheos refit (2026), fp20 low-spin B1, Fei (2007) Table S1, 40-95 GPa",
    "record_kind": "refit",
@@ -715,6 +722,7 @@
     "separate_decompression_fit_published": false
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figures 1-3 captions; paragraphs 6-15; Tables S1-S3.",
     "equation": "BM3 with K0-prime=4, matching the equation convention identified by Fei; coefficients independently refitted by Peritheos.",
     "V0": "Peritheos unweighted pressure-residual fit to the 19 selected Table S1 rows; formal 1-sigma error and joint covariance retained.",
     "K0": "Peritheos unweighted pressure-residual fit jointly with V0; not the published Fei value of 170 GPa.",

@@ -41,6 +41,7 @@
  "notes": "The six records preserve three source-computed Fe configurations for each spin state. They are deliberately model variants rather than six material identities. The authors choose model 1 for subsequent thermodynamics and find high-spin Fe stable through lower-mantle pressures; low-spin records are metastable computational comparisons.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3",
    "label": "Metsue and Tsuchiya (2012), high-spin model 1 static BM3",
    "record_kind": "published",
@@ -104,6 +105,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 1(a); Section 3.2.",
     "equation": "Section 3.2: third-order Birch-Murnaghan pressure-volume and energy-volume fits, with K0' fixed to 3.94.",
     "V0": "Table 1(a): 24.3325 cm3/mol; converted with the exact Avogadro constant to 161.620267408 A3 for Z=4.",
     "K0": "Table 1(a): 259.3412 GPa.",
@@ -166,6 +168,7 @@
    "notes": "Preferred static configuration among the six Table 1 Fe-bearing fits."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3",
    "label": "Metsue and Tsuchiya (2012), high-spin model 2 static BM3",
    "record_kind": "published",
@@ -227,6 +230,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1(a); Section 3.2.",
     "equation": "Section 3.2 BM3; K0' fixed 3.94.",
     "V0": "Table 1(a): 24.3326 cm3/mol, converted to 161.620931624 A3 for Z=4.",
     "K0": "Table 1(a): 259.2916 GPa.",
@@ -279,6 +283,7 @@
    "notes": "Configuration sensitivity, not an independent composition."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3",
    "label": "Metsue and Tsuchiya (2012), high-spin model 3 static BM3",
    "record_kind": "published",
@@ -340,6 +345,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1(a); Section 3.2.",
     "equation": "Section 3.2 BM3; K0' fixed 3.94.",
     "V0": "Table 1(a): 24.3317 cm3/mol, converted to 161.614953683 A3 for Z=4.",
     "K0": "Table 1(a): 259.4608 GPa.",
@@ -392,6 +398,7 @@
    "notes": "Configuration sensitivity, not an independent composition."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3",
    "label": "Metsue and Tsuchiya (2012), low-spin model 1 static BM3",
    "record_kind": "published",
@@ -453,6 +460,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1(b); Sections 3.1-3.3.",
     "equation": "Section 3.2 BM3; K0' fixed 3.94.",
     "V0": "Table 1(b): 24.2583 cm3/mol, converted to 161.127419413 A3 for Z=4.",
     "K0": "Table 1(b): 260.7987 GPa.",
@@ -506,6 +514,7 @@
    "notes": "Do not use as the equilibrium spin branch."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3",
    "label": "Metsue and Tsuchiya (2012), low-spin model 2 static BM3",
    "record_kind": "published",
@@ -567,6 +576,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1(b); Sections 3.1-3.3.",
     "equation": "Section 3.2 BM3; K0' fixed 3.94.",
     "V0": "Table 1(b): 24.2605 cm3/mol, converted to 161.142032157 A3 for Z=4.",
     "K0": "Table 1(b): 260.7980 GPa.",
@@ -620,6 +630,7 @@
    "notes": "Do not use as the equilibrium spin branch."
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3",
    "label": "Metsue and Tsuchiya (2012), low-spin model 3 static BM3",
    "record_kind": "published",
@@ -681,6 +692,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Table 1(b); Sections 3.1-3.3.",
     "equation": "Section 3.2 BM3; K0' fixed 3.94.",
     "V0": "Table 1(b): 24.2596 cm3/mol, converted to 161.136054216 A3 for Z=4.",
     "K0": "Table 1(b): 260.7441 GPa.",

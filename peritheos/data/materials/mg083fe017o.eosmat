@@ -82,6 +82,7 @@
  "notes": "The source synthesized a stoichiometric B1-NaCl powder and reports its ambient lattice parameter as 4.2331(2) A. The mixed cation sites are the ideal average rocksalt representation; the paper does not report an atomic-position refinement.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg083fe017o_matsui_2012_bm3_mgd_1",
    "label": "Matsui et al. (2012), (Mg0.83Fe0.17)O high-spin BM3-MGD",
    "record_kind": "published",
@@ -171,6 +172,7 @@
     "molar_mass_g_mol": 45.6658
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiments, page 177; Equations (1)-(6), pages 178-179; Tables 1 and 3, pages 178-179; High-spin to low-spin transition, page 180.",
     "equation": "Equations (1)-(6), pages 178-179: 300 K BM3 plus a Mie-Gruneisen-Debye thermal-pressure increment E_D(V,T)-E_D(V,300 K).",
     "V0": "Table 3: V0=75.849(11) A^3, fitted from the 300 K rows below 47 GPa.",
     "K0": "Table 3 and page 179: K0T=160 GPa, fixed from the MgO literature.",
@@ -261,6 +263,7 @@
    "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg083fe017o_solomatova_2016_hs_bm3_reference_1",
    "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
    "record_kind": "published",
@@ -324,6 +327,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 paired BM3 reference branches.",
     "V0": "Table 7: 75.94 A^3.",
     "K0": "Table 7: 160 GPa.",
@@ -375,6 +379,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg083fe017o_solomatova_2016_ls_bm3_reference_2",
    "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
    "record_kind": "published",
@@ -440,6 +445,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 paired BM3 reference branches.",
     "V0": "Table 7: 72.29 A^3.",
     "K0": "Table 7: 190 GPa.",

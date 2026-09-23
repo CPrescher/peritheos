@@ -149,6 +149,7 @@
  "notes": "The lattice, coordinates, elements, and occupancies are transcribed without modification from Qin et al.'s deposited ideal NaAlSiO4 refinement and are present only as an isostructural topology proxy. They are not NaMg2Al5SiO12 coordinates and do not encode any of Kawai and Tsuchiya's twelve ordered supercells. No Mg substitution, Al/Si partition, or target occupancy is inferred. The executable EOS V0, rather than this 1.7 GPa proxy lattice, defines the target phase's zero-pressure volume.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "namg2al5sio12_cf_kawai_2012_bm3_1",
    "label": "Kawai and Tsuchiya (2012), NaMg2Al5SiO12 CF static-LDA BM3",
    "default": true,
@@ -211,6 +212,7 @@
     "namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized"
    ],
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: structure-model discussion, pages 305-307; Figure 2d and caption, page 307; first-principles details and Table 1, page 308.",
     "equation": "Results, page 308: calculated volumes were fitted with a third-order Birch-Murnaghan equation; the formula is not printed, so Peritheos uses the standard Eulerian BM3 convention verified against Figure 2d.",
     "V0": "Table 1: 35.2 cm3/mol on a silent O4 basis. Multiplication by four and division by 0.602214076 cm3 mol-1 per A3 gives 233.80390065807762 A3 for the conventional Pbnm cell containing four O4 units.",
     "K0": "Table 1, CF (NaMg2Al5SiO12): B0=213.2 GPa. The printed superscript b has no corresponding table footnote and is retained as an unresolved typesetting defect, not interpreted.",

@@ -82,6 +82,7 @@
  "notes": "The EOS records are paired high-spin and low-spin reference branches from coupled MINUTI spin-crossover fits. The current executable catalog does not implement the population mixer.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg065fe035o_solomatova_2016_hs_bm3_reference_1",
    "label": "Solomatova et al. (2016), hs BM3 reference branch",
    "record_kind": "published",
@@ -153,6 +154,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
     "V0": "Table 7 HS column: 77.1 A^3 per conventional B1 cell.",
     "K0": "Table 7 HS column: 162 GPa.",
@@ -207,6 +209,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg065fe035o_solomatova_2016_ls_bm3_reference_2",
    "label": "Solomatova et al. (2016), ls BM3 reference branch",
    "record_kind": "published",
@@ -280,6 +283,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
     "V0": "Table 7 LS column: 73.77 A^3 per conventional B1 cell.",
     "K0": "Table 7 LS column: 171 GPa.",

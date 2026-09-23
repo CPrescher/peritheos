@@ -123,6 +123,7 @@
    "default": true,
    "notes": "Published model 2 selected in main Table 1 and reused in Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V [E_D(V,T)-E_D(V,300 K)], gamma=gamma0(V/V0)^q, and theta=theta0 exp[-(gamma-gamma0)/q], with n=5 atoms per formula unit. V0=165.2(7) A^3 is the conventional four-formula-unit Pbcn cell, fitted by extrapolation from high-pressure data rather than measured at ambient conditions. K0, V0, theta0, and gamma0 were fitted; K0'=4 and q=1 were fixed. Parenthetical errors are retained as generic published uncertainties because no confidence convention or covariance matrix is given. Table 3 also reports four q-sensitivity fits (q=0.6, 1.4, 1.8, and 2.2); they are documented alternatives, not separate preferred EOS records. The article states a 153 GPa, 3400 K EOS scope. Table S2 nevertheless prints two identical 156.7(4.0) GPa, 3670(370) K Rh2O3(II) volumes at the reported onset of CaIrO3-type Al2O3; they remain in the source dataset with an explicit phase-context flag but do not extend this record's declared validity. At the Table S2 state V=129.8 A^3 and T=300 K, the stored model gives 100.1123 GPa versus 100.0(1.0) GPa. Across all 75 printed rows it gives a 1.1434 GPa pressure RMSE. The independent errors-in-variables refit is reported in docs/literature-reproductions.md and the primary-EOS refit ledger.",
    "identifier": "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
+   "determination_method": "experimental",
    "pressure_calibration": {
     "status": "partially_resolved",
     "methods": [
@@ -192,6 +193,7 @@
     }
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: main text, Equations 1-6, pages 3-4; main text, Table 1, page 4, selected Rh2O3(II) coefficients; main text, Table 3, page 7, five q-sensitivity fits; Supporting Information, Table S2, all Rh2O3(II) P-T-V observations; Supporting Information, Table S3, selected model reproduced downstream.",
     "V0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted extrapolated four-formula-unit Pbcn-cell volume",
     "K0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted",
     "K0_prime": "Shi et al. (2022), main Table 1 and Table 3; fixed at 4",

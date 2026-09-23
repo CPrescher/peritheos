@@ -71,6 +71,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed to the JCPDS 5-0628 value. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.06. The B1 phase data extend to 31 GPa; coexistence-region data near 30-35 GPa were excluded.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
+   },
    "identifier": "nacl_b1_shen_2026_vinet_1",
    "pressure_calibration": {
     "status": "resolved",

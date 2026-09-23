@@ -28,6 +28,10 @@
  "peaks": [],
  "eos_records": [
   {
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
+   },
    "identifier": "rhenium_sakai_2025_rydberg_stacey_1",
    "label": "Sakai et al. (2025), Re generalized Rydberg-Stacey scale",
    "reference": {
@@ -205,6 +209,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Quasi-hydrostatic powder-XRD fit in helium to 144 GPa. The published molar V0=8.8726 cm^3/mol is converted to 14.7333 A^3/atom and multiplied by two atoms in the conventional hcp cell.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 6; Table III, measured pressures and lattice parameters; Table IV, 300 K Vinet fit; Figure 3."
+   },
    "identifier": "rhenium_anzellini_2014_vinet_1",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -302,6 +310,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "rhenium_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), Re MAO-scale Vinet",
    "record_kind": "published",
@@ -367,6 +376,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -435,6 +445,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "rhenium_dewaele_2019_dor_vinet",
    "label": "Dewaele (2019), Re DOR-scale Vinet",
    "record_kind": "published",
@@ -500,6 +511,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -568,6 +580,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "rhenium_sakai_2018_yokoo_pt_vinet",
    "label": "Sakai et al. (2018), Re Vinet on the Yokoo Pt scale",
    "record_kind": "published",
@@ -634,6 +647,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 2 (article p. 4), Re-Pt co-compression; Section 3, Figure 10 and following paragraph (article p. 10); Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure.",
     "V0": "Section 3, paragraph below Figure 10 (article p. 10; final p. 116): fixed conventional hcp cell volume, 29.47 A^3, Z=2.",
     "K0": "Same paragraph: 358(10) GPa, fitted.",
     "K0_prime": "Same paragraph: 4.8(2), fitted.",
@@ -714,6 +728,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "rhenium_zha_2004_bm3_log_thermal",
    "label": "Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure",
    "reference": {
@@ -782,6 +797,7 @@
    ],
    "notes": "Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V>Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations (3)-(6), p. 2410; Table IIa-IIb, p. 2412; Tables III-IV and Figure 5, p. 2414; Table V, p. 2415; Appendix and Table VII, pp. 2416-2418.",
     "V0": "Table III: Va=29.4087 A^3, conventional hcp cell, Z=2; JCPDS 05-0702.",
     "K0": "Table III: 360 GPa, fixed ambient reference.",
     "K0_prime": "Table III: 4.5, fixed ambient reference.",

@@ -138,6 +138,7 @@
  "notes": "Composition-specific record for the Fe-bearing 5K2681 specimen. The article establishes Pbnm, Z=4 and the stored 1.7 GPa lattice for this sample, but the official deposit contains positional refinements only for the Fe-free crystal. The stored coordinates and ideal NaAlSiO4 occupancies are therefore an isostructural topology proxy from the official 1.7 GPa Fe-free CIF, not an exact refinement or an inferred Fe/Al/Si distribution for 5K2681. The proxy intentionally does not claim to reproduce Fe scattering or the analytical non-stoichiometry. The article reports 90% of the iron as ferric from Wu et al. (2017), but site-specific Fe occupancies are not given and are not inferred.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1",
    "label": "Qin et al. (2023), Fe-bearing CF BM3",
    "reference": {
@@ -215,6 +216,7 @@
     "na088al099fe013si094o4_qin_2023_table_s4_pv"
    ],
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: article Materials and methods, pages 2332-2333; article EOS discussion, page 2333; official Online Materials Tables S4 and S5; official deposit AM-23-128432.",
     "equation": "Article pages 2332-2333 and official Online Materials Table S5: third-order Birch-Murnaghan EOS fitted with EosFit7c",
     "V0": "Article abstract and page 2333; Online Materials Table S5, this-study Fe-bearing column: 244.2(2) A^3 fitted Pbnm conventional-cell volume",
     "K0": "Article abstract and page 2333; Online Materials Table S5, this-study Fe-bearing column: KT0=211(6) GPa",

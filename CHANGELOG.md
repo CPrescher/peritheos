@@ -5,6 +5,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+- Classify every bundled EOS with `determination_method` (experimental,
+  theoretical, hybrid, or unknown), preserve the source rationale, validate
+  the field in Python and Rust, and expose it through record accessors and
+  catalog filters. Older files without the field remain supported as unknown.
+
 ## [0.10.0] - 2026-09-21
 
 This release expands the scientific catalog to 612 executable EOS records

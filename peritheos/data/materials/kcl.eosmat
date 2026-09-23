@@ -508,6 +508,7 @@
     56.0
    ],
    "notes": "Explicit composite B2-KCl reference isotherm. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 constrained over 2-56 GPa. The absolute B2 V0 is 0.8483*62.36=52.899988 A^3/formula unit, using the independently published experimental B1-KCl V0 of Dewaele et al. (2012). Its 0.355452 A^3 uncertainty propagates the Campbell ratio error only; Dewaele et al. report no B1 V0 error or covariance. This composite is not presented as a single-paper Campbell parameter set.",
+   "determination_method": "experimental",
    "identifier": "kcl_campbell_1991_bm2_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -561,6 +562,7 @@
    },
    "temperature_ref": 298.0,
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Campbell and Heinz (1991), primary abstract: B2/B1 V0 ratio, K0, fixed K0', and 2-56 GPa range; Dewaele et al. (2012), Table III: experimental B1-KCl V0.",
     "V0": "Campbell and Heinz (1991) V0(B2)/V0(B1)=0.8483+/-0.0057 multiplied by Dewaele et al. (2012) experimental B1-KCl V0=62.36 A^3/formula unit",
     "K0": "Campbell and Heinz (1991) primary abstract: 28.7+/-0.6 GPa",
     "K0_prime": "Campbell and Heinz (1991) primary abstract: fixed at 4.0 (BM2)"
@@ -652,6 +654,10 @@
     "fixed_parameters": [
      "Tr"
     ]
+   },
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation BE1; Table 2; Table 3; B2 KCl Thermal EOS, pages 807-810."
    },
    "identifier": "kcl_walker_2002_bm3_2",
    "pressure_calibration": {
@@ -865,6 +871,7 @@
      "Tr"
     ]
    },
+   "determination_method": "hybrid",
    "identifier": "kcl_b2_dewaele_2012_vinet_3",
    "pressure_calibration": {
     "status": "resolved",
@@ -891,6 +898,7 @@
     "audit_date": "2026-09-03"
    },
    "parameter_provenance": {
+    "determination_method": "Dewaele (2012), Table III: experimental reference Vinet fit; Equation (2) and Table V: ab-initio MD determines the thermal-pressure slope.",
     "reference_isotherm": {
      "V0": "Table III and Table V; 54.5 A^3/formula unit, fixed from the lowest-pressure 2-6 GPa observations",
      "K0": "Table III and Table V; 17.2 GPa",
@@ -1023,6 +1031,10 @@
     ]
    },
    "notes": "Preferred final-publication Tateno fit on the Sokolova Pt scale. The final article reports gamma0=2.3+/-0.2 and q=0.8+/-0.2 and defines theta(V)=theta0*exp[(gamma0-gamma(V))/q], the integrated-Gruneisen Debye law. The accepted manuscript instead printed gamma0=0.58+/-0.05 and q=0.9+/-0.2; those superseded values are not used. Table 1 also gives a Holmes-Pt alternative, which is not represented by this record. All 39 observations come from the official MSA Supplemental Table S1 workbook.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-6; Table 1; pages 721-723 of the final article; MSA deposit AM-19-56779, Supplemental Table S1 workbook."
+   },
    "identifier": "kcl_b2_tateno_2019_vinet_4",
    "pressure_calibration": {
     "status": "resolved",
@@ -1213,6 +1225,10 @@
     ]
    },
    "notes": "The preferred Birch-Murnaghan reference EOS from Table I. Published molar V0=32.0(3) cm^3/mol is converted to one B2 formula unit per conventional cell with the exact Avogadro constant. Chidester et al. fitted the 155 new high-temperature observations simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 observations. Pressures in the author-deposited high-temperature table were calculated from the Dorogokupets-Oganov (2007) Pt EOS. This is an experimental, effective-temperature-calibrated P-V-T pressure scale: KCl volumes and Pt-derived pressures are measured constraints, while the KCl temperature coordinate comes from the authors' gradient model for this laser-heated DAC geometry.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Chidester (2021), Table I and experimental supplement: measured diffraction constrains the EOS; the laser-heating gradient model reduces the temperature coordinate and is not a separate simulated EOS dataset."
+   },
    "identifier": "kcl_b2_chidester_2021_bm3_5",
    "fit_datasets": [
     "kcl_dewaele_2012_table1_compression",

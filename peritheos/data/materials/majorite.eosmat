@@ -781,6 +781,7 @@
     9.72
    ],
    "notes": "Room-temperature MgSiO3 tetragonal-garnet BM3 with the measured one-bar V0=1513.1 A^3 and K0'=4 assumed. The fit gives K0=161.2 GPa. The paper prints no fit error or covariance for V0 or K0, so the migrated +/-4 GPa value is removed rather than inferred from the separate composition-regression uncertainties. The diffraction structure in this file is an independent 1518.5 A^3 cell.",
+   "determination_method": "experimental",
    "identifier": "majorite_yagi_1992_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -836,6 +837,7 @@
    "temperature_ref": 298.0,
    "pressure_range_status": "reported_exactly",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 4, Figure 3 and Birch-Murnaghan fit paragraph; page 4, Table 1 and V0 footnote; page 5, Table 2, this-study 1 bar cell.",
     "V0": "Yagi et al. (1992), Table 1 footnote and Table 2 this-study row",
     "K0": "Yagi et al. (1992), page 4, Figure 3 fit paragraph",
     "K0_prime": "Yagi et al. (1992), page 4: fixed at 4",

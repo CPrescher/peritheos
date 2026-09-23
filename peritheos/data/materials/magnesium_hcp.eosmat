@@ -73,6 +73,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Room-temperature hcp fit; V0 is the two-atom hexagonal cell volume.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: 300 K EOS section; Vinet fit table for hcp and bcc Mg."
+   },
    "identifier": "magnesium_hcp_stinton_2014_vinet_1",
    "pressure_calibration": {
     "status": "unresolved",

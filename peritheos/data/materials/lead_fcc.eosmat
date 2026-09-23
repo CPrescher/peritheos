@@ -70,8 +70,10 @@
    ],
    "temperature_ref": 300.0,
    "notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. The report first constrained V0(T) from thermal expansion and K0(T) from elastic, heat-capacity, and expansivity data. It then varied K0_prime(300 K), dK0_prime/dT, and temperature-invariant K0_double_prime against a compiled 295-788 K compression dataset. The full polynomial surface is independently executable in scripts/audit_fortes_2019_fcc_pb.py, but is not stored as this isothermal record because the current thermal schema cannot represent it.",
+   "determination_method": "experimental",
    "identifier": "lead_fcc_fortes_2019_bm4_1",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-8; sections 2.1-2.3; Tables 1-2, report pages 8-9.",
     "equation": "Fortes (2019), Equations 1-5: fourth-order Eulerian finite-strain pressure with polynomial V0(T), K0(T), and K0_prime(T).",
     "reference_state": "Table 1's polynomial constant terms correspond to Delta T=T-300 K=0 and therefore to 300 K, not absolute zero.",
     "V0": "Table 1 V0(300 K)=121.418(5) A^3 per four-atom fcc conventional cell; fixed in the compression-stage fit after the thermal-expansion stage.",
@@ -285,8 +287,10 @@
     ]
    },
    "notes": "Published 296 K isotherm of the source's temperature-dependent BM3 model. The complete P-V-T surface includes polynomial V0(T), K0(T), and K0_prime(T) terms and is independently executable in scripts/audit_fortes_2019_fcc_pb.py; only its 296 K slice is stored because the current thermal schema cannot represent those polynomials. This is a source-published parameterization, not a Peritheos refit.",
+   "determination_method": "experimental",
    "identifier": "lead_fcc_kuznetsov_2002_bm3_2",
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Table 2; Figures 2-3.",
     "equation": "Kuznetsov et al. (2002), Equation 1, third-order Birch-Murnaghan pressure.",
     "reference_state": "Equations 2-3 define t=T-T0 with T0=296 K; the Table 2 constants therefore give the 296 K reference isotherm.",
     "V0": "Table 2 fcc V0=30.307 A^3/atom, converted to 121.228 A^3 per four-atom conventional fcc cell.",

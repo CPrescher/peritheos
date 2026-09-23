@@ -82,6 +82,7 @@
  "notes": "Solomatova et al. (2016) records are paired MINUTI reference branches without an implemented mixer. Fei et al. (2007, GRL) records are the original separately fitted HS and LS compression EOSs; their coefficients and source ownership are distinct.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1",
    "label": "Solomatova et al. (2016), fei hs BM3 reference branch",
    "record_kind": "published",
@@ -153,6 +154,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
     "V0": "Table 7 HS column: 77.49 A^3 per conventional B1 cell.",
     "K0": "Table 7 HS column: 161 GPa.",
@@ -207,6 +209,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2",
    "label": "Solomatova et al. (2016), fei ls BM3 reference branch",
    "record_kind": "published",
@@ -280,6 +283,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
     "V0": "Table 7 LS column: 74.83 A^3 per conventional B1 cell.",
     "K0": "Table 7 LS column: 162 GPa.",
@@ -334,6 +338,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3",
    "label": "Solomatova et al. (2016), zhuravlev hs BM3 reference branch",
    "record_kind": "published",
@@ -405,6 +410,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
     "V0": "Table 7 HS column: 77.41 A^3 per conventional B1 cell.",
     "K0": "Table 7 HS column: 160 GPa.",
@@ -459,6 +465,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
    "label": "Solomatova et al. (2016), zhuravlev ls BM3 reference branch",
    "record_kind": "published",
@@ -532,6 +539,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
     "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
     "V0": "Table 7 LS column: 73.56 A^3 per conventional B1 cell.",
     "K0": "Table 7 LS column: 170 GPa.",
@@ -586,6 +594,7 @@
    }
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg061fe039o_zhuravlev_2010_high_spin_bm2_5",
    "label": "Zhuravlev et al. (2010), high-spin BM2",
    "record_kind": "published",
@@ -678,6 +687,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental section and Equation 1; Table 5; Table 6; Figure 9.",
     "equation": "Table 6 BM2 row and Figure 9 caption: second-order Birch-Murnaghan EOS fit to compression observations through 70.9 GPa.",
     "V0": "Table 6: 77.4(2) A^3 per conventional B1 cell.",
     "K0": "Table 6: 161(3) GPa.",
@@ -765,6 +775,7 @@
    "notes": "This is Zhuravlev et al.'s source-owned high-spin EOS, distinct from the later Solomatova et al. coupled crossover branches fitted to the full compression trajectory. The paper states that the printed pressure uncertainties describe drift during acquisition and that the true pressure uncertainty is likely closer to 3%; exact EOS-FIT weights and covariance are not published."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg061fe039o_fei_2007_hs_b1_bm3",
    "label": "Fei et al. (2007), GRL, mg061fe039o high-spin B1 compression BM3",
    "record_kind": "published",
@@ -847,6 +858,7 @@
     "separate_decompression_fit_published": false
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figures 1-3 captions; paragraphs 6-15; Tables S1-S3.",
     "equation": "Paragraphs 12 and 14 identify third-order Birch-Murnaghan; captions of Figures 1-3 give K0-prime=4. This is algebraically BM2, stored as the source-named BM3 only; no duplicate BM2 entry.",
     "V0": "Figure 2: 77.48 A^3 per conventional B1 cell (Z=4). Measured reference volume; no uncertainty printed.",
     "K0": "Figure 2: 156 GPa. Paragraph 12 uncertainty 2 GPa.",
@@ -958,6 +970,7 @@
    "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg061fe039o_fei_2007_ls_b1_bm3",
    "label": "Fei et al. (2007), GRL, mg061fe039o low-spin B1 compression BM3",
    "record_kind": "published",
@@ -1040,6 +1053,7 @@
     "separate_decompression_fit_published": false
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figures 1-3 captions; paragraphs 6-15; Tables S1-S3.",
     "equation": "Paragraphs 12 and 14 identify third-order Birch-Murnaghan; captions of Figures 1-3 give K0-prime=4. This is algebraically BM2, stored as the source-named BM3 only; no duplicate BM2 entry.",
     "V0": "Figure 2: 73.6 A^3 per conventional B1 cell (Z=4). Paragraph 14 fitted low-spin zero-pressure volume with uncertainty 0.1 A^3; this is an extrapolated reference volume.",
     "K0": "Figure 2: 170 GPa. Paragraph 14 reports 170(3) GPa for both low-spin compositions.",

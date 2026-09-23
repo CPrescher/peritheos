@@ -21,6 +21,7 @@
  "notes": "A non-crystalline material card. The format's cell-volume unit is used as a one-formula-unit volume basis.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mgsio3_liquid_akins_2004_adiabatic_bm3",
    "label": "Akins et al. (2004), candidate liquid MgSiO3 adiabatic BM3",
    "record_kind": "published",
@@ -90,6 +91,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Akins (2004), paragraph 4 and electronic supplement: candidate reference isentrope constrained by measured shock states under stated thermal assumptions. It is experimentally inferred, not an ab-initio fit; see the existing identifiability qualification.",
     "equation": "Paragraph 4 and the electronic-data-supplement method define candidate Hugoniots as Mie-Gruneisen offsets from third-order Birch-Murnaghan isentropes.",
     "V0": "Paragraph 4 reports rho0=3.68 g/cm3. M/rho0/N_A with M=100.387 g/mol gives 45.29797155879917 A3 per formula unit.",
     "K0": "Paragraph 4: K0S=125 GPa.",

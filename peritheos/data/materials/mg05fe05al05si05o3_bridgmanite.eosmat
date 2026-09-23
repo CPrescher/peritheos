@@ -57,6 +57,7 @@
  "notes": "Zhu et al. synthesized nominal FA50 from two runs whose recovered compositions were (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3. The source does not map those two analyses to the individual XRD grains, so no grain-specific exact formula is inferred. Recovered material is LiNbO3-type at ambient conditions and converts to Pbnm bridgmanite above 18.8 GPa; consequently no ambient bridgmanite lattice or atom coordinates are fabricated here, and every V0 is a high-pressure-branch extrapolation. Sample 1 was stepwise laser annealed and develops a gradual mixed population of A-site high-spin and B-site low-spin Fe3+ through pressure-driven Fe-Al exchange. Sample 2 was cold compressed after its initial synthesis/anneal treatment and is the authors' reference for the original high-spin A-site ordering. The source supports no independently fitted, fully low-spin EOS branch.",
  "eos_records": [
   {
+   "determination_method": "experimental",
    "identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1",
    "label": "Zhu et al. (2020), sample 1 preferred all-observation BM2",
    "record_kind": "published",
@@ -140,6 +141,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: publisher article experimental methods, EOS discussion, Figure 3, and data-availability statement; official Zenodo v2 files latticeparameters.xlsx, EoS-Ffplot-bulkv.xlsx, EPMA.xlsx, and DFTEoS.xlsx.",
     "equation": "Article EOS section and Figure 3: standard second-order Birch-Murnaghan pressure-volume equation, equivalent to fixing K0'=4.",
     "V0": "Article EOS discussion: V0=172.1(4) angstrom^3 for sample 1 using all before- and after-current-step-anneal observations.",
     "K0": "Article EOS discussion: K0=229(4) GPa for sample 1 using all before- and after-current-step-anneal observations.",
@@ -247,6 +249,7 @@
    "notes": "Authors' preferred room-temperature BM2, chosen for denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. This mixed-spin curve is the equilibrium default, but not a pure low-spin branch."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2",
    "label": "Zhu et al. (2020), sample 1 after-current-step-anneal subset BM2",
    "record_kind": "published",
@@ -327,6 +330,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: publisher article EOS discussion and Figure 3; official Zenodo v2 latticeparameters.xlsx.",
     "equation": "Article EOS discussion: standard second-order Birch-Murnaghan pressure-volume equation, with K0'=4 implicit.",
     "V0": "Article EOS discussion: V0=172.0(7) angstrom^3 from sample-1 after-current-step-anneal points only.",
     "K0": "Article EOS discussion: K0=230(6) GPa from sample-1 after-current-step-anneal points only.",
@@ -429,6 +433,7 @@
    "notes": "Non-default fit retained because the authors explicitly report it. It tests the effect of selecting observations collected after each current pressure-step anneal; it is not a separate thermodynamic or fully low-spin branch."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3",
    "label": "Zhu et al. (2020), sample 2 cold-compressed BM2",
    "record_kind": "published",
@@ -509,6 +514,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: publisher article EOS discussion and Figure 3; official Zenodo v2 latticeparameters.xlsx.",
     "equation": "Article EOS discussion: standard second-order Birch-Murnaghan pressure-volume equation, with K0'=4 implicit.",
     "V0": "Article EOS discussion: V0=170.7(3) angstrom^3 for cold-compressed sample 2.",
     "K0": "Article EOS discussion: K0=240(3) GPa for cold-compressed sample 2.",
@@ -611,6 +617,7 @@
    "notes": "Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope."
   },
   {
+   "determination_method": "experimental",
    "identifier": "mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4",
    "label": "Koemets et al. (2023) single-crystal Pnma perovskite BM2",
    "record_kind": "published",
@@ -693,6 +700,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: publisher article Materials and methods and Figure 4 caption; official Supplementary Table S3.",
     "equation": "Article Figure 4 caption and EOS discussion: second-order Birch-Murnaghan pressure-volume equation, equivalent to K0'=4.",
     "V0": "Article Figure 4 caption: V0=171.2+/-0.2 angstrom^3 for the high-pressure Pnma Fe0.5Mg0.5Al0.5Si0.5O3 phase.",
     "K0": "Article Figure 4 caption: K0=221+/-3 GPa for the high-pressure Pnma Fe0.5Mg0.5Al0.5Si0.5O3 phase. A later general discussion prints 212(3) GPa, but the composition-specific figure caption, plotted curve, and independently reproduced Table S3 fit support 221(3) GPa.",

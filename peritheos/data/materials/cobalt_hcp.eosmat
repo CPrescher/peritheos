@@ -62,6 +62,10 @@
     79.0
    ],
    "notes": "Room-temperature hcp-cobalt Vinet fit to 79 GPa: K0=199+/-6 GPa and K0'=3.6+/-0.2. Volumes were normalized to the ambient hcp volume, retained here as the fixed conventional-cell V0.",
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 6, hcp-volume paragraph; Figure 3."
+   },
    "identifier": "cobalt_hcp_fujihisa_1996_vinet_1",
    "pressure_calibration": {
     "status": "resolved",
@@ -131,6 +135,7 @@
    "temperature_ref": 300.0
   },
   {
+   "determination_method": "experimental",
    "identifier": "cobalt_hcp_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), Co MAO-scale Vinet",
    "record_kind": "published",
@@ -197,6 +202,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"
@@ -265,6 +271,7 @@
    ]
   },
   {
+   "determination_method": "experimental",
    "identifier": "cobalt_hcp_dewaele_2019_dor_vinet",
    "label": "Dewaele (2019), Co DOR-scale Vinet",
    "record_kind": "published",
@@ -331,6 +338,7 @@
     "audit_date": "2026-09-06"
    },
    "parameter_provenance": {
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
     "V0": "Table 1",
     "K0": "Table 1",
     "K0_prime": "Table 1"

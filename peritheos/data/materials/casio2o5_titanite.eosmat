@@ -23,6 +23,7 @@
  "notes": "This is the calcium silicate titanite-structure phase, not CaTiSiO5 titanite.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "casio2o5_titanite_sagatova_2021_gga_300k_vinet",
    "label": "Sagatova et al. (2021), CaSi2O5-titanite GGA 300 K Vinet",
    "record_kind": "published",
@@ -87,6 +88,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 2; Phase relations; Conclusions.",
     "equation": "Vinet EOS, Methods.",
     "parameters": "Table 2, this-work GGA CaSi2O5-titanite row.",
     "method": "PBE-GGA quasi-harmonic free-energy calculation at room temperature."

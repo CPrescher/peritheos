@@ -21,6 +21,7 @@
  "notes": "A non-crystalline material card. The format's cell-volume unit is used as a one-formula-unit volume basis.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_liquid_ghosh_karki_2016_3000k_bm3_1",
    "label": "Ghosh and Karki (2016), liquid MgO 3000 K BM3",
    "record_kind": "published",
@@ -82,6 +83,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Equation (2) and following paragraph, page 3; Figure 3; Methods, page 7.",
     "equation": "Equation (2) discussion explicitly defines the T0=3000 K pure-liquid reference term as third-order Birch-Murnaghan.",
     "parameters": "Results, page 3: V0=30.0 A3, K0=16.6 GPa, K0'=6.14.",
     "volume_basis": "The reported volumes are per MgO formula unit; simulations used 64-atom and validation 216-atom supercells.",

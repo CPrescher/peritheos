@@ -49,6 +49,7 @@
  "notes": "The displayed 300 K lattice is V0^(1/3) from the theoretical EOS.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "mgo_b2_zhang_bukowinski_1991_mpib_bm3",
    "label": "Zhang and Bukowinski (1991), MPIB B2 MgO",
    "record_kind": "published",
@@ -96,6 +97,7 @@
     "molar_mass_g_mol": 40.304
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Sections II.D-III.B; Table IV.",
     "equation": "Section III.B cubic-oxide Birch-Murnaghan framework.",
     "parameters": "Table IV B2 room-temperature row: V0=18.07 A3, K0=175 GPa, K0'=4.20."
    },

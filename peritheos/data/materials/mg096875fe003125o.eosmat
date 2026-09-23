@@ -77,6 +77,7 @@
  "notes": "Static 3Fp 64-atom supercell parameterization; the average conventional-cell structure represents one isolated Fe in a 2x2x2 supercell.",
  "eos_records": [
   {
+   "determination_method": "theoretical",
    "identifier": "mg096875fe003125o_marcondes_2020_hs_bm3_1",
    "label": "Marcondes et al. (2020), 3Fp high-spin static BM3",
    "record_kind": "published",
@@ -133,6 +134,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Computational method; Table I.",
     "equation": "Computational methods: energy-volume curve fitted to a third-order finite-strain equation of state.",
     "V0": "Table I: 74.19 A^3 per conventional B1 cell.",
     "K0": "Table I: 170.3 GPa.",
@@ -190,6 +192,7 @@
    }
   },
   {
+   "determination_method": "theoretical",
    "identifier": "mg096875fe003125o_marcondes_2020_ls_bm3_2",
    "label": "Marcondes et al. (2020), 3Fp low-spin static BM3",
    "record_kind": "published",
@@ -245,6 +248,7 @@
     ]
    },
    "parameter_provenance": {
+    "determination_method": "Calculated states/theory determine this EOS; source: Computational method; Table I.",
     "equation": "Computational methods: energy-volume curve fitted to a third-order finite-strain equation of state.",
     "V0": "Table I: 73.66 A^3 per conventional B1 cell.",
     "K0": "Table I: 172.1 GPa.",
