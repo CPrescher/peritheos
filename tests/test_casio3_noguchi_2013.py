@@ -4,10 +4,15 @@ from peritheos import get_material_document
 from peritheos.materials import Material
 from scripts.reproduce_noguchi_2013_casio3 import (
     EXPECTED_EXCLUDED_ORDERS,
+    SOURCE_TABLE_PATH,
     STATIC_SOURCE_ORDERS,
     THERMAL_SOURCE_ORDERS,
+    canonical_digest,
     isothermal_bulk_modulus,
     load_artifact,
+    load_source_table,
+    refit_source_table,
+    verify_against_artifact,
 )
 
 RECORD_ID = "ca_perovskite_noguchi_2013_bm2_mgd_1"
@@ -43,7 +48,7 @@ def test_noguchi_2013_is_one_distinct_nondefault_700_k_record():
     assert source["phase_selection"]["cell_basis"] == (
         "one-formula-unit pseudo-cubic cell (Z=1)"
     )
-    assert source["fit_datasets"] == []
+    assert source["fit_datasets"] == ["ca_perovskite_noguchi_2013_table1_pvt"]
 
     default_record = next(
         item for item in document["eos_records"] if item.get("default", False)
@@ -104,9 +109,7 @@ def test_noguchi_2013_primary_scope_calibration_and_refit_parity():
     )
     assert calibration["recalculation"]["status"] == "ready"
     validation = source["scientific_validation"]
-    assert validation["primary_data_check"]["status"] == (
-        "external_primary_table_refitted"
-    )
+    assert validation["primary_data_check"]["status"] == ("bundled")
     assert validation["independent_refit"]["result"] == "parity"
     assert validation["independent_refit"]["reproducibility_artifact"] == (
         "docs/data/noguchi-2013-casio3-refit.json"
@@ -180,3 +183,40 @@ def test_noguchi_2013_reproduces_published_300_k_extrapolation():
 
     with pytest.raises(ValueError, match="outside the published calibration/data"):
         record.pressure(46.5, 700.0, check_validity=True)
+
+
+def test_bundled_noguchi_table_matches_audited_inputs_and_all_four_refits():
+    import csv
+    import hashlib
+
+    rows = load_source_table(SOURCE_TABLE_PATH)
+    artifact = load_artifact()
+    assert canonical_digest(rows) == artifact["source"]["pvt_sha256"]
+    assert (
+        canonical_digest(rows, include_pt=True)
+        == artifact["source"]["pvt_and_pt_sha256"]
+    )
+    verify_against_artifact(refit_source_table(rows), artifact)
+    document, source, _ = _source_and_record()
+    dataset = next(
+        d for d in document["datasets"] if d["identifier"] == source["fit_datasets"][0]
+    )
+    assert (
+        hashlib.sha256(SOURCE_TABLE_PATH.read_bytes()).hexdigest()
+        == dataset["resource"]["sha256"]
+    )
+    with SOURCE_TABLE_PATH.open() as stream:
+        cells = list(csv.DictReader(stream))
+    assert len(cells) == 54
+    assert [int(r["source_order"]) for r in cells if r["fit_included"] == "0"] == [
+        12,
+        14,
+        20,
+    ]
+    assert cells[0]["pressure_fei_gpa_uncertainty"] == "2.7"
+    assert cells[0]["volume_a3_uncertainty"] == "0.029"
+    assert cells[0]["temperature_k_uncertainty"] == "161.8"
+    assert cells[8]["temperature_k_uncertainty"] == "15"
+    assert cells[0]["nacl_volume_a3"] == ""
+    assert cells[51]["volume_a3_uncertainty"] == "0.000"
+    assert cells[47]["pressure_holmes_gpa"] == "107.2"  # retained source anomaly

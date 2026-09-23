@@ -1244,7 +1244,7 @@ the primary-source and refit ledgers.
 | [Myhill (2022), anisotropic high-P-T EOS](https://doi.org/10.1093/gji/ggac180) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Nisr et al. (2017)](https://doi.org/10.1002/2017jb014055) | Reproduced | 3 | 3 parity | 3 bundled |
 | [Noguchi et al. (1999)](https://doi.org/10.1016/s0022-3697(98)00296-0) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
-| [Noguchi et al. (2013)](https://doi.org/10.1007/s00269-012-0549-1) | Reproduced | 1 | 1 parity | 1 external primary table (refitted; not redistributed) |
+| [Noguchi et al. (2013)](https://doi.org/10.1007/s00269-012-0549-1) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Oganov and Dorogokupets (2003)](https://doi.org/10.1103/physrevb.67.224110) | Partly reproduced | 11 | 2 similar; 9 direct refit unavailable | 2 partial published table/checkpoints; 9 theoretical parameterization only |
 | [Ono (2013)](https://doi.org/10.3390/e15104300) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Ono et al. (2000)](https://doi.org/10.1007/s002690000108) | Coefficient parity not achieved | 2 | 2 parity not achieved | 2 bundled |

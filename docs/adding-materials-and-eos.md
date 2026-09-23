@@ -135,6 +135,14 @@ not a cleaned or pressure-recalculated replacement:
 - record the table, worksheet, figure, or supplement location and the data
   license when known.
 
+Do not treat an unspecified source-data license as automatic grounds for
+omitting recoverable numerical observations, and do not label that source CC0.
+Preserve explicit source terms and attribution. For factual transcriptions,
+CC0 may cover only rights held by Peritheos contributors in transcription,
+normalization, metadata and arrangement; state that scope separately and keep
+unspecified source terms marked as unspecified. Article text, figures and
+publisher files are not covered by this dedication.
+
 Small tables may be embedded in `datasets[].rows`. Larger tables belong in
 `peritheos/data/datasets/` and use a relative resource path, SHA-256 checksum,
 and declared columns. A transcription test should check row count, columns,

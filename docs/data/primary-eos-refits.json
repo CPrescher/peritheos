@@ -4320,7 +4320,7 @@
         }
       },
       "dataset_identifiers": [
-        "docs/data/noguchi-2013-casio3-refit.json"
+        "ca_perovskite_noguchi_2013_table1_pvt"
       ],
       "experimental_pressure_range_gpa": [
         51.3,
@@ -4467,8 +4467,8 @@
           }
         ]
       },
-      "primary_data_finding": "All 54 Table 1 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and the three explicit fit exclusions were independently transcribed and refitted. The copyrighted rows are not redistributed; a committed non-row-level artifact preserves normalized transcription hashes, selections, coefficients, error estimates, residual diagnostics, both calibration checks, and apparent source anomalies.",
-      "primary_data_status": "external_primary_table_refitted",
+      "primary_data_finding": "All 54 Table 1 rows, both pressure scales, reported uncertainties, Pt and NaCl observations, and explicit fit exclusions are bundled. The recovered P\u2013V\u2013T and Pt values match both canonical digests from the earlier audit. The audit artifact retains selections, coefficients, residual diagnostics and source anomalies.",
+      "primary_data_status": "bundled",
       "primary_source": "https://link.springer.com/article/10.1007/s00269-012-0549-1",
       "published_rmse_gpa": 1.2227650669472376,
       "qualification": "The source does not state weights, fitting software, covariance, or the confidence convention for its printed errors. Unweighted pressure residuals are a transparent reproducibility diagnostic; their recovery of both coefficients and error magnitudes for all four source models is strong evidence for, but not proof of, the authors' exact numerical objective.",
@@ -4477,7 +4477,7 @@
       "selection": "9 accepted external-heating rows for the 700 K BM2 stage; all 42 high-temperature rows for the thermal stage; source orders 12, 14, and 20 excluded only as directed by Table 1 footnote e",
       "solver_message": "dedicated Noguchi (2013) staged refit completed",
       "solver_success": true,
-      "source_notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). No open data license, fit covariance, weighting rule, or parameter-error confidence convention is published.",
+      "source_notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). The source data license is unspecified; scoped CC0 covers only contributors\u2019 transcription rights. No fit covariance, weighting rule, or parameter-error confidence convention is published.",
       "source_table_sha256": "f6e599a617516126b898d320bfec9c836aa0dc6b86c68a395e138d12bbbec38a",
       "stages": [
         {

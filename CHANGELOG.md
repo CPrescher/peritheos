@@ -10,6 +10,11 @@ All notable changes to Peritheos are documented here. The project follows
   the field in Python and Rust, and expose it through record accessors and
   catalog filters. Older files without the field remain supported as unknown.
 
+- Bundle all 54 Noguchi (2013) CaSiO3 Table 1 measurements, uncertainties,
+  pressure-marker data and fit exclusions; verify both historical transcription
+  hashes and rerun the staged audit from bundled data. Clarify scoped CC0 for
+  contributors’ factual transcriptions while retaining unspecified source terms.
+
 ### Fixed
 
 - Filled missing hexagonal symmetry and `P63/mmc` (No. 194) space-group

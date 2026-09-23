@@ -116,10 +116,10 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 311 distinct primary datasets with
-22,132 observation rows, represented by
-350 material-document links to
-471 EOS records.
+The current bundle contains 312 distinct primary datasets with
+22,186 observation rows, represented by
+351 material-document links to
+472 EOS records.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,
@@ -134,7 +134,12 @@ uncertainties retain the paper's reported conventions and units, including
 formula-unit volumes, molar volumes, densities, lattice parameters, and
 pressure-calibrant readings.
 
-Dataset-specific reuse terms are recorded in metadata. For the Dorfman et al.
+Dataset-specific reuse terms are recorded in metadata. An unspecified source
+data license is recorded as unspecified, rather than used as an automatic
+exclusion or relabeled CC0. Scoped CC0 applies only to contributors' own rights
+in factual transcriptions, normalization, metadata and arrangement; explicit
+source terms and attribution remain intact. Noguchi (2013) Table 1 is bundled
+with all 54 rows, both pressure scales, errors and the three fit exclusions. For the Dorfman et al.
 co-compression table, CC0 applies only to rights held by Peritheos contributors
 in the factual CSV transcription and arrangement; it does not relicense the
 publisher's article, auxiliary PDF, or third-party rights.

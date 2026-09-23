@@ -331,8 +331,8 @@
   Peritheos uses the preferred Fei-Pt-scale model 1: equations (1)--(5), the
   Table 1 experimental/fit selection, and Tables 2--3. The 700 K BM2 reference
   and cubic phase assignment are retained without mixing any 300 K CaSiO3
-  record; the table itself is not redistributed because no reusable data
-  license is stated.
+  record. All 54 numerical Table 1 rows are bundled with scoped CC0 for
+  contributors’ transcription rights; source data-license status is unspecified.
 - Noguchi, Y., Uchino, M., Hikosaka, H., Kusaba, K., Fukuoka, K., Mashimo, T.
   & Syono, Y. (1998). Shock compression of NiO to 130 GPa. *The Review of
   High Pressure Science and Technology*, 7, 832--834.

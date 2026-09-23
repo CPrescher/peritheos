@@ -4671,7 +4671,7 @@ def _mosenfelder_2009_outcome(record: dict[str, Any]) -> dict[str, Any]:
 
 
 def _noguchi_2013_outcome(record: dict[str, Any]) -> dict[str, Any]:
-    """Translate the row-free, locally reproducible staged audit into the ledger."""
+    """Translate the bundled-table staged audit into the ledger."""
     artifact = json.loads(NOGUCHI_REFIT_JSON.read_text(encoding="utf-8"))
     model = artifact["models"]["model_1_fei_mgd"]
     fitted = {
@@ -4719,7 +4719,7 @@ def _noguchi_2013_outcome(record: dict[str, Any]) -> dict[str, Any]:
     selection = artifact["selection"]
     return {
         "status": "parity",
-        "dataset_identifiers": [str(NOGUCHI_REFIT_JSON.relative_to(ROOT))],
+        "dataset_identifiers": ["ca_perovskite_noguchi_2013_table1_pvt"],
         "source_table_sha256": artifact["source"]["pvt_sha256"],
         "observations": (
             selection["reference_isotherm_observations"]

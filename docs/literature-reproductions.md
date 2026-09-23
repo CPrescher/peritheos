@@ -2156,9 +2156,9 @@ observed pressure extrema. It is a marginal experimental envelope, not a
 rectangular phase-stability claim. The paper does not define the confidence
 level of its printed parameter errors and publishes no covariance matrix.
 
-### Independent refit and redistribution limit
+### Independent refit and bundled observations
 
-A complete local audit transcription of Table 1 contained 54 rows. The staged
+The bundled numerical transcription of Table 1 contains 54 rows. The staged
 source selection leaves source orders 9-11, 13, and 15-19 (nine externally
 heated rows) for the 700 K BM2 fit and all 42 high-temperature rows (orders
 1-8 and 21-54) for the thermal fit. Source orders 12, 14, and 20 are the only
@@ -2191,17 +2191,23 @@ source omissions prevent claiming certainty about the authors' exact code.
 The published model-1 coefficients remain the executable production record;
 no refit record is created.
 
-The subscription article gives no reusable data license. Following the
-repository's redistribution policy, the complete numeric table and local
-audit transcription are not committed. Instead,
+All 54 numerical rows are bundled in
+`peritheos/data/datasets/ca-perovskite-noguchi-2013-table1.csv`, with paired
+pressures, Pt and NaCl observations, expanded coordinate errors, heating groups
+and fit flags. Both canonical digests match the original audit. The source data
+license is unspecified; the accompanying license scopes CC0 to contributors’
+transcription rights without relicensing the article or third-party material.
+The historical audit artifact
 [`docs/data/noguchi-2013-casio3-refit.json`](data/noguchi-2013-casio3-refit.json)
 preserves normalized-transcription SHA-256 digests, exact row selection,
 aggregate residual statistics, all four refits, calibration diagnostics, and
-source-anomaly annotations without exposing the table. The reproduction
-script checks that artifact and the shipped parameterization by default. With
-`--source-table PATH`, it accepts a lawfully obtained local CSV, verifies its
-digest, reruns every fit and both Pt-scale checks, and fails on numerical
-drift. It also checks the exactly zero thermal increment at 700 K and the
+source-anomaly annotations. The reproduction script now verifies the bundled
+table and reruns every fit and both historical Pt-scale checks by default;
+`--source-table PATH` can substitute another transcription. Thermal solver
+coefficients/errors allow 3 ppm numerical variation; data digests remain exact.
+The historical Holmes diagnostic uses the rounded coefficients from revision
+`3e53f26`; later refinements of the production Pt record do not alter this check.
+It also checks the exactly zero thermal increment at 700 K and the
 article's independently reported 300 K extrapolation (`V300 = 45.8 A^3`,
 `K300 = 225 GPa`). Rounded model-1 coefficients give `45.7896 A^3` and
 `226.47 GPa`; the small bulk-modulus difference is consistent with propagating

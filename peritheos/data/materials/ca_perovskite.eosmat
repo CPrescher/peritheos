@@ -1092,7 +1092,7 @@
     ],
     "recalculation": {
      "status": "ready",
-     "notes": "The dedicated Noguchi audit reconstructs the Fei et al. (2004) Pt scale from its published Table 3 BM3-MGD coefficients and also executes the bundled Holmes et al. (1989) alternative. A lawful local Table 1 transcription can rerun both reductions; the subscription-only rows themselves are not bundled. Three apparent source-table inconsistencies are reported without changing any printed value or fit input."
+     "notes": "The dedicated Noguchi audit reconstructs the Fei et al. (2004) Pt scale from its published Table 3 BM3-MGD coefficients and also executes the bundled Holmes et al. (1989) alternative. The bundled Table 1 transcription reruns both reductions. Three apparent source-table inconsistencies are reported without changing any printed value or fit input."
     },
     "audit_date": "2026-09-08"
    },
@@ -1124,16 +1124,19 @@
      "doi": "10.1007/s00269-012-0549-1"
     },
     "primary_data_check": {
-     "status": "external_primary_table_refitted",
-     "audit_date": "2026-09-08",
+     "status": "bundled",
+     "audit_date": "2026-09-23",
      "source_locations": [
       "Table 1, journal pages 84-85"
      ],
-     "finding": "All 54 Table 1 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and the three explicit fit exclusions were independently transcribed and refitted. The copyrighted rows are not redistributed; a committed non-row-level artifact preserves normalized transcription hashes, selections, coefficients, error estimates, residual diagnostics, both calibration checks, and apparent source anomalies."
+     "finding": "All 54 Table 1 rows, both pressure scales, reported uncertainties, Pt and NaCl observations, and explicit fit exclusions are bundled. The recovered P–V–T and Pt values match both canonical digests from the earlier audit. The audit artifact retains selections, coefficients, residual diagnostics and source anomalies.",
+     "dataset_identifiers": [
+      "ca_perovskite_noguchi_2013_table1_pvt"
+     ]
     },
     "independent_refit": {
      "result": "parity",
-     "data": "Local audit transcription of Table 1; 9 accepted external-heating rows for the 700 K BM2 stage and all 42 high-temperature rows for the thermal stage. The three rows footnoted for broad 200 peaks were excluded.",
+     "data": "Bundled transcription of Table 1; 9 accepted external-heating rows for the 700 K BM2 stage and all 42 high-temperature rows for the thermal stage. The three rows footnoted for broad 200 peaks were excluded.",
      "method": "Staged unweighted pressure-residual fits using Peritheos fit_rt_eos and fit_thermal_eos. The paper does not state weights, fitting software, covariance, or the confidence convention for its printed errors. The recovery of coefficients and error magnitudes across all four Table 2 branches strongly supports, but cannot prove, this numerical objective.",
      "reproducibility_artifact": "docs/data/noguchi-2013-casio3-refit.json",
      "reference_isotherm_result": {
@@ -1169,8 +1172,10 @@
      }
     ]
    },
-   "fit_datasets": [],
-   "notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). No open data license, fit covariance, weighting rule, or parameter-error confidence convention is published."
+   "fit_datasets": [
+    "ca_perovskite_noguchi_2013_table1_pvt"
+   ],
+   "notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). The source data license is unspecified; scoped CC0 covers only contributors’ transcription rights. No fit covariance, weighting rule, or parameter-error confidence convention is published."
   },
   {
    "label": "Sun et al. (2016), cubic CaSiO3 BM3-MGD",
@@ -4741,6 +4746,158 @@
    ],
    "license": "No reusable table-data license identified; source rows are intentionally not redistributed.",
    "notes": "This zero-row descriptor preserves resolvable fit lineage without redistributing the external tables. Reproduction requires the checksummed source files accepted by scripts/audit_fu_2023_casio3_refit.py; aggregate fit results are stored in docs/data/fu-2023-casio3-refit-audit.json."
+  },
+  {
+   "identifier": "ca_perovskite_noguchi_2013_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "54 experimental P–V–T measurements from Noguchi et al. (2013) Table 1, including three rows excluded from the published fit.",
+   "reference": {
+    "authors": [
+     "Noguchi",
+     "Komabayashi",
+     "Hirose",
+     "Ohishi"
+    ],
+    "year": 2013,
+    "title": "High-temperature compression experiments of CaSiO3 perovskite to lowermost mantle conditions and its thermal equation of state",
+    "source": "Physics and Chemistry of Minerals",
+    "volume": "40",
+    "locator": "81-91",
+    "doi": "10.1007/s00269-012-0549-1"
+   },
+   "source_location": "Table 1, journal pages 84–85",
+   "source_url": "https://link.springer.com/article/10.1007/s00269-012-0549-1/tables/1",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "heating",
+     "quantity": "heating_method",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_fei_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_fei_gpa_uncertainty",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_fei_gpa"
+    },
+    {
+     "name": "pressure_holmes_gpa",
+     "quantity": "alternative_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_holmes_gpa_uncertainty",
+     "quantity": "alternative_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_holmes_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k_uncertainty",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_uncertainty",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "nacl_volume_a3",
+     "quantity": "calibrant_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "nacl_volume_a3_uncertainty",
+     "quantity": "calibrant_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "nacl_volume_a3"
+    },
+    {
+     "name": "pt_lattice_a",
+     "quantity": "calibrant_lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pt_lattice_a_uncertainty",
+     "quantity": "calibrant_lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "pt_lattice_a"
+    },
+    {
+     "name": "fit_included",
+     "quantity": "published_fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "fit_stage",
+     "quantity": "published_fit_stage",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "used_by_eos_records": [
+    "ca_perovskite_noguchi_2013_bm2_mgd_1"
+   ],
+   "license": "CC0-1.0 applies only to Peritheos contributors' transcription, normalization, metadata and arrangement. Source data license unspecified; article and third-party rights are not relicensed. See datasets/ca-perovskite-noguchi-2013-table1.LICENSE.md.",
+   "notes": "Preferred Fei (2004) Pt pressure scale is plotted; alternative Holmes (1989) pressures and measured Pt lattice parameters are retained. All 54 source rows are preserved. Source rows 12, 14 and 20 were excluded by footnote e for broad 200 peaks. The nine accepted external-heating rows form the reference fit at 700 K; all 42 laser-heated rows form the thermal fit. Printed temperatures 697–704 K are retained although the source fits them at 700 K. Apparent table inconsistencies at source rows 4, 48 and 54 are retained without correction. Dataset linkage does not select rows or reproduce the staged fit automatically.",
+   "resource": {
+    "path": "datasets/ca-perovskite-noguchi-2013-table1.csv",
+    "sha256": "16ca052b502cfb95185cbce4cb69aab9ef029ebdf22dc38431a583994d070a48",
+    "media_type": "text/csv"
+   },
+   "uncertainty": {
+    "source": "Parenthetical coordinate uncertainties expanded at printed precision; confidence level unspecified. Temperature errors follow footnote c: 10% laser heating and 15 K external heating, not assumed to be Gaussian standard deviations. Printed zeros retained; missing NaCl volumes left empty."
+   },
+   "provenance": {
+    "kind": "primary_table_transcription",
+    "accessed": "2026-09-23",
+    "source_data_license": "unspecified",
+    "transcription_license": "CC0-1.0 (contributors’ rights only)",
+    "canonical_pvt_sha256": "f6e599a617516126b898d320bfec9c836aa0dc6b86c68a395e138d12bbbec38a",
+    "canonical_pvt_and_pt_sha256": "2c079998b96d3e7ecf366cc2e9730ff95aa75a01d756728d48d7657305dff142"
+   }
   }
  ]
 }

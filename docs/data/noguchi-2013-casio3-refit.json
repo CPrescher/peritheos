@@ -6,7 +6,7 @@
   "source": {
     "doi": "10.1007/s00269-012-0549-1",
     "location": "Table 1, journal pages 84-85; equations (1)-(5) and Tables 2-3, journal pages 86-87",
-    "redistribution": "The 54 source rows are not included because the subscription article grants no reusable data license. This artifact retains row counts, selection, normalized-transcription digests, aggregate residual diagnostics, and fitted coefficients only.",
+    "redistribution": "All 54 numerical rows are bundled in datasets/ca-perovskite-noguchi-2013-table1.csv. Source data license unspecified; CC0 covers contributors’ transcription rights only. Both canonical digests match the 2026-09-08 audit. This artifact retains the historical refit diagnostics; its Holmes check uses the rounded Pt parameters from library revision 3e53f26 (V0=60.4000884, K0=266, K0_prime=5.81, Tr=300, alpha_KT=0.0069426).",
     "canonical_fields": [
       "source_order",
       "pressure_fei_gpa",
@@ -237,5 +237,5 @@
     ],
     "qualification": "No source value is altered or excluded from the CaSiO3 fits. The anomaly exclusions apply only to the independent Pt-lattice pressure-recalculation diagnostic. The remaining differences are consistent with the three-decimal lattice parameters, rounded temperatures, and published calibrant coefficients."
   },
-  "finding": "The staged unweighted pressure-residual reproduction recovers all four Table 2 model branches within published rounding, including the Fei and Holmes static fits and their printed error magnitudes. Model 1 therefore has direct source-fit parity even though the copyrighted observation table is not redistributed."
+  "finding": "The staged unweighted pressure-residual reproduction recovers all four Table 2 model branches within published rounding, including the Fei and Holmes static fits and their printed error magnitudes. Model 1 therefore has direct source-fit parity with the complete numerical observation table now bundled."
 }
