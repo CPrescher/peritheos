@@ -82,7 +82,7 @@
   anharmonic coefficient from Table I.
 
 - Benedict, L. X., Driver, K. P., Hamel, S., Militzer, B., Qi, T., Correa,
-  A. A., Saul, A. & Schwegler, E. (2014). A multiphase equation of state for
+  A. A., Saul, A. & Schwegler, E. (2014). Multiphase equation of state for
   carbon addressing high pressures and temperatures. *Physical Review B*,
   89, 224109. [doi:10.1103/PhysRevB.89.224109](https://doi.org/10.1103/PhysRevB.89.224109).
   `DoubleDebyeHelmholtz` implements equations 3--7 for the double-Debye solid,

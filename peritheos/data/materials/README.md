@@ -73,6 +73,33 @@ structures. All 100 official supplemental rows are bundled, including the
 12 room-temperature fluorite observations excluded near the volume anomaly.
 Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
 
+## Reference titles
+
+The 2026-09-23 bibliographic review added missing `reference.title` fields to
+185 EOS records citing 115 distinct publications. All 614 records now carry
+an explicit publication title; `reference.source` retains the journal or
+book name. Previously, the catalog fell back to that source name when a
+title was absent.
+
+Titles were checked against publisher-deposited Crossref metadata using
+each reference's DOI (242 of the library's 243 distinct DOIs resolved there).
+Formula markup and spacing were converted to readable plain text. The
+existing Fortes technical-report title, whose DOI is not registered with
+Crossref, and the Kennedy–Keeler handbook-section title were retained.
+The two missing titles without DOIs were transcribed from the MSA originals:
+[Levien and Prewitt (1981)](https://msaweb.org/AmMin/AM66/AM66_324.pdf) and
+[Hazen and Finger (1979)](https://msaweb.org/AmMin/AM64/AM64_196.pdf).
+
+Publisher pages resolve damaged Greek symbols in Crossref's titles for
+[Schouwink (2011)](https://doi.org/10.2138/am.2011.3775),
+[Knorr (2003)](https://doi.org/10.1140/epjb/e2003-00034-6), and
+[Meng (1994)](https://doi.org/10.1007/BF00203299).
+The extra initial “A” in the existing
+[Benedict (2014)](https://doi.org/10.1103/PhysRevB.89.224109) title was also
+removed, including its Python reference constant and documentation citation.
+This review changes bibliographic titles only; EOS identifiers, parameters,
+and scientific-validation status are preserved.
+
 ## Space-group completeness
 
 The 2026-09-22 review checked all 225 material documents, including names,

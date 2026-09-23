@@ -2571,7 +2571,7 @@ _BENEDICT_DIAMOND_REFERENCE = LiteratureReference(
     ),
     year=2014,
     title=(
-        "A multiphase equation of state for carbon addressing high pressures "
+        "Multiphase equation of state for carbon addressing high pressures "
         "and temperatures"
     ),
     doi="10.1103/PhysRevB.89.224109",
