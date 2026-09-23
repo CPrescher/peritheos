@@ -73,6 +73,38 @@ structures. All 100 official supplemental rows are bundled, including the
 12 room-temperature fluorite observations excluded near the volume anomaly.
 Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
 
+## Space-group completeness
+
+The 2026-09-22 review checked all 225 material documents, including names,
+phase labels, and existing structure notes. Three missing assignments were
+recoverable from an explicit elemental hcp phase: `beryllium_hcp`, `lead_hcp`,
+and `zinc_hcp`. These now carry `symmetry: HEXAGONAL`, `space_group: P63/mmc`,
+and `space_group_number: 194`, derived from the
+[A3 hcp prototype](https://aflow.org/p/A_hP2_194_c-001/).
+Each card records the phase citation and prototype mapping under
+`source.space_group_assignment`. This does not supply an experimental lattice
+or refined atomic coordinates.
+
+The remaining nine omissions are intentional:
+
+| Material identifier | Reason no unique space group is assigned |
+| --- | --- |
+| `fesio3_liquid`, `mgo_liquid`, `mgsio3_liquid` | Liquids have no crystallographic space group. |
+| `ca0988mg0918fe0078mn0016c2o6_dolomite_iii` | The source supplies a possible monoclinic indexing cell, with unresolved structure and alternative indexings. |
+| `casio3_perovskite_tetragonal` | The source's P4/mmm pseudocell is a volume/indexing convention; the diffraction data leave the exact tetragonal space group open. |
+| `cu_handbook_1972_legacy` | The historical derived isotherm has unresolved crystallographic phase identity. |
+| `fe093o_rhombohedral`, `mgfe94o_rhombohedral` | Rhombohedral distortion is identified, but the sources do not assign a unique space group. |
+| `fesio3_bridgmanite` | The source identifies orthorhombic Pv and its cell contents without specifying a space-group setting. |
+
+Space-group metadata is curated in the material documents; the loader does
+not guess from names. A crystal-system label alone, an ambiguous indexing cell,
+or a space group mentioned as an alternative is insufficient for an assignment.
+
+The [tetragonal CaSiO3 source review](../../../docs/literature-reproductions/casio3-tetragonal-space-group.md)
+distinguishes the Shim (2002) P4/mmm indexing model, now explicit in
+`source.indexing_model`, from the later I4/mcm material card. It records the
+original papers' evidence and qualifications for both interpretations.
+
 ## Primary observation tables
 
 When a reviewed primary paper prints a recoverable observation table, the

@@ -11,7 +11,7 @@ aluminum,Aluminum,Al,Aluminum,material name plus crystal structure,CUBIC,Fm-3m,4
 aragonite,Aragonite,CaCO3,Aragonite,material name plus crystal structure,ORTHORHOMBIC,Pmcn,4,thermal,1,peritheos/data/materials/aragonite.eosmat
 argon_hcp,Argon,Ar,Argon,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/argon_hcp.eosmat
 b4c,B4C,B4C,rhombohedral B4C,top-level phase field,HEXAGONAL,R-3m,9,thermal,3,peritheos/data/materials/b4c.eosmat
-beryllium_hcp,Beryllium (hcp),Be,hexagonal close-packed beryllium,top-level phase field,,,2,isothermal,2,peritheos/data/materials/beryllium_hcp.eosmat
+beryllium_hcp,Beryllium (hcp),Be,hexagonal close-packed beryllium,top-level phase field,HEXAGONAL,P63/mmc,2,isothermal,2,peritheos/data/materials/beryllium_hcp.eosmat
 boron_nitride,Boron Nitride,BN,cubic zinc-blende,top-level phase field,CUBIC,F-43m,4,isothermal;thermal,2,peritheos/data/materials/boron_nitride.eosmat
 boron_nitride_hexagonal,Boron nitride (hexagonal),BN,Boron nitride (hexagonal),material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/boron_nitride_hexagonal.eosmat
 boron_phosphide,Boron phosphide,BP,Boron phosphide,material name plus crystal structure,CUBIC,F-43m,4,isothermal,1,peritheos/data/materials/boron_phosphide.eosmat
@@ -85,7 +85,7 @@ klb1_ferropericlase,KLB-1 ferropericlase,"(Mg,Fe)O",B1 ferropericlase separated 
 klb1_mg_perovskite,KLB-1 Mg-perovskite,"(Mg,Fe,Al)(Si,Al)O3",orthorhombic bridgmanite separated from KLB-1 pyrolite,top-level phase field,ORTHORHOMBIC,Pbnm,4,thermal,1,peritheos/data/materials/klb1_mg_perovskite.eosmat
 larnite,Larnite,Ca2SiO4,monoclinic beta-Ca2SiO4 larnite,top-level phase field,MONOCLINIC,P21/c,4,isothermal,1,peritheos/data/materials/larnite.eosmat
 lead_fcc,Lead (fcc),Pb,"face-centered cubic lead, ambient-pressure phase",top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/lead_fcc.eosmat
-lead_hcp,Lead (hcp),Pb,"hexagonal close-packed lead, high-pressure phase",top-level phase field,,,2,isothermal,3,peritheos/data/materials/lead_hcp.eosmat
+lead_hcp,Lead (hcp),Pb,"hexagonal close-packed lead, high-pressure phase",top-level phase field,HEXAGONAL,P63/mmc,2,isothermal,3,peritheos/data/materials/lead_hcp.eosmat
 li_bcc,Li,Li,bcc structure; EOS fit spans bcc and fcc Li,top-level phase field,CUBIC,Im-3m,2,isothermal,1,peritheos/data/materials/li_bcc.eosmat
 lif_b1,Lithium fluoride (B1),LiF,Lithium fluoride (B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/lif_b1.eosmat
 magnesiowustite_fe56,Fe56 magnesiowustite,Mg0.423Fe0.541O,"cation-deficient rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/magnesiowustite_fe56.eosmat
@@ -200,7 +200,7 @@ titanium_omega,Titanium (omega),Ti,Titanium (omega),material name plus crystal s
 tungsten,Tungsten,W,Tungsten,material name plus crystal structure,CUBIC,Im-3m,2,isothermal;thermal,7,peritheos/data/materials/tungsten.eosmat
 wadsleyite,Wadsleyite,Mg2SiO4,Wadsleyite,material name plus crystal structure,ORTHORHOMBIC,Imma,8,thermal,1,peritheos/data/materials/wadsleyite.eosmat
 wollastonite,Wollastonite,CaSiO3,triclinic wollastonite,top-level phase field,TRICLINIC,P-1,6,isothermal,1,peritheos/data/materials/wollastonite.eosmat
-zinc_hcp,Zinc (hcp),Zn,hexagonal close-packed zinc,top-level phase field,,,2,isothermal,2,peritheos/data/materials/zinc_hcp.eosmat
+zinc_hcp,Zinc (hcp),Zn,hexagonal close-packed zinc,top-level phase field,HEXAGONAL,P63/mmc,2,isothermal,2,peritheos/data/materials/zinc_hcp.eosmat
 zinc_oxide_rocksalt,Zinc oxide (rocksalt B1),ZnO,Zinc oxide (rocksalt B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/zinc_oxide_rocksalt.eosmat
 zinc_oxide_wurtzite,Zinc oxide (wurtzite B4),ZnO,Zinc oxide (wurtzite B4),material name plus crystal structure,HEXAGONAL,P63mc,2,isothermal,1,peritheos/data/materials/zinc_oxide_wurtzite.eosmat
 zircon,Zircon,ZrSiO4,Zircon,material name plus crystal structure,TETRAGONAL,I41/amd,4,isothermal,1,peritheos/data/materials/zircon.eosmat

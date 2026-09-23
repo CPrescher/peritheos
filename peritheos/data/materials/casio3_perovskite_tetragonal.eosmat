@@ -172,5 +172,31 @@
    "notes": "The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals."
   }
  ],
- "datasets": []
+ "datasets": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Shim",
+    "Jeanloz",
+    "Duffy"
+   ],
+   "year": 2002,
+   "title": "Tetragonal structure of CaSiO3 perovskite above 20 GPa",
+   "source": "Geophysical Research Letters",
+   "volume": "29",
+   "locator": "2166",
+   "doi": "10.1029/2002GL016148"
+  },
+  "article_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_et_al-2002-grl.pdf",
+  "structure_location": "Figures 1-2; paragraphs 13-16 and 19, pp. 19-3 to 19-4.",
+  "indexing_model": {
+   "space_group": "P4/mmm",
+   "formula_units_per_cell": 1,
+   "status": "source_indexing_and_refinement_model_not_unique_space_group",
+   "source_location": "Figures 1-2 and paragraph 15.",
+   "notes": "P4/mmm supplies the published cell indexing and volume basis. Paragraph 15 gives Rwp=6.9% for P4/mmm and 7.1% for I4/mmm; paragraph 19 explicitly calls for further studies to confirm the space-group assignment."
+  },
+  "related_material": "ca_perovskite_tetragonal",
+  "notes": "The separate ca_perovskite_tetragonal card represents the I4/mcm model used by later studies. Chen et al. (2018), DOI 10.2138/am-2018-6087, p. 465, favors octahedral rotation but leaves the exact space group uncertain. Sun et al. (2022), DOI 10.2138/am-2021-7913, p. 113, identifies a 211 reflection favoring I4/mcm among the four tested tetragonal models. Those later observations do not uniquely determine the structure of the Shim (2002) samples, whose pseudocubic c/a is less than one."
+ }
 }

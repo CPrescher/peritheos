@@ -12,8 +12,32 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "formula_units_per_cell": 2,
+ "symmetry": "HEXAGONAL",
+ "space_group": "P63/mmc",
+ "space_group_number": 194,
  "atom_sites": [],
  "peaks": [],
+ "source": {
+  "space_group_assignment": {
+   "basis": "Derived from the explicitly identified elemental hcp phase and its two-atom conventional cell, using the A3 (hP2) structure prototype.",
+   "phase_reference": {
+    "authors": [
+     "Dewaele"
+    ],
+    "year": 2019,
+    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+    "source": "Minerals",
+    "doi": "10.3390/min9110684"
+   },
+   "prototype_reference": {
+    "title": "The AFLOW Library of Crystallographic Prototypes: Part 1",
+    "doi": "10.1016/j.commatsci.2017.01.017",
+    "url": "https://aflow.org/p/A_hP2_194_c-001/",
+    "source_location": "A_hP2_194_c-001: hexagonal close-packed A3 prototype, space group P63/mmc (194)."
+   },
+   "notes": "This supplies symmetry metadata only; no lattice parameters or refined atomic coordinates are inferred from the EOS volume."
+  }
+ },
  "notes": "Phase-specific card created for the hcp-Pb compression fits of Dewaele (2019).",
  "eos_records": [
   {

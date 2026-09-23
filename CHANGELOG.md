@@ -10,6 +10,13 @@ All notable changes to Peritheos are documented here. The project follows
   the field in Python and Rust, and expose it through record accessors and
   catalog filters. Older files without the field remain supported as unknown.
 
+### Fixed
+
+- Filled missing hexagonal symmetry and `P63/mmc` (No. 194) space-group
+  metadata for hcp beryllium, lead, and zinc, with explicit prototype-based
+  provenance. Reviewed all remaining missing assignments and documented their
+  unresolved or non-crystalline status in the material-library README.
+
 ## [0.10.0] - 2026-09-21
 
 This release expands the scientific catalog to 612 executable EOS records
