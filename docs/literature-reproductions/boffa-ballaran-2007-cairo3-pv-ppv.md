@@ -59,3 +59,13 @@ is rejected or held.
 Run `python -m pytest -q tests/test_cairo3_boffa_ballaran_2007.py` to repeat
 the source-table checksum, BM3 curve, normalized-stress, independent-refit,
 phase-identity, and pressure-calibration checks.
+
+## Reference-temperature convention (2026-09-23)
+
+Both records explicitly use nominal `temperature_ref: 298` with
+`temperature_ref_provenance.kind: assumed_room_temperature`. The source reports
+only room temperature; 298 K is an application convention, not a numerical
+measurement. This replaces the Python loader’s implicit 300 K fallback for these
+two records and permits consistent Studio evaluation. EOS coefficients, source
+observations, uncertainty and numerical P–V curves are unchanged. No thermal
+correction or temperature validity interval is inferred.

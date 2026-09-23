@@ -461,6 +461,23 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             raise EosmatError(
                 f"{location}.equation_kind must be {expected_equilibrium_kind!r}"
             )
+        if "temperature_ref_provenance" in record:
+            provenance = record["temperature_ref_provenance"]
+            if (
+                not isinstance(provenance, Mapping)
+                or set(provenance) != {"kind", "reported_condition", "note"}
+                or provenance.get("kind") != "assumed_room_temperature"
+                or provenance.get("reported_condition") != "room temperature"
+                or not isinstance(provenance.get("note"), str)
+                or not provenance["note"].strip()
+                or equation_kind != "isothermal"
+                or record.get("temperature_ref") != 298.0
+            ):
+                raise EosmatError(
+                    f"{location}.temperature_ref_provenance requires an isothermal "
+                    "298 K assumed_room_temperature convention, room temperature "
+                    "reported condition and explanatory note"
+                )
         default_category = "hugoniot" if is_hugoniot else "equilibrium"
         default_for = record.get("default_for")
         if default_for is not None and default_for not in {

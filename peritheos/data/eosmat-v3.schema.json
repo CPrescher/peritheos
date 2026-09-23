@@ -1792,6 +1792,28 @@
         },
         "notes": {
           "type": "string"
+        },
+        "temperature_ref_provenance": {
+          "type": "object",
+          "description": "Explicit nominal room-temperature convention; does not assert a numerical temperature reported by the source.",
+          "required": [
+            "kind",
+            "reported_condition",
+            "note"
+          ],
+          "properties": {
+            "kind": {
+              "const": "assumed_room_temperature"
+            },
+            "reported_condition": {
+              "const": "room temperature"
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
         }
       },
       "allOf": [

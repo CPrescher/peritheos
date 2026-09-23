@@ -153,6 +153,7 @@ Each item in `eos_records` describes one source parameterization.
 | `pressure_range_status` | no | Provenance of the pressure envelope: `reported_exactly`, `reported_qualitatively`, `theoretical`, or `reference_parameterization`. |
 | `experimental_temperature_range_k` | no | Two-element marginal temperature envelope. |
 | `temperature_ref` | no | Record reference/default temperature in K. It is normally the reference isotherm; an explicitly absolute-cold-curve thermal model documents its separate pressure baseline. Zero is allowed only for a static 0 K isothermal record; thermal and Hugoniot records require a positive temperature. |
+| `temperature_ref_provenance` | no | For a source reporting only room temperature, `{kind: "assumed_room_temperature", reported_condition: "room temperature", note: "…"}` explicitly qualifies `temperature_ref: 298` as a nominal convention. Allowed only for an isothermal record. The number is not a measured source temperature and does not enable thermal extrapolation. Missing metadata never implies this convention. |
 | `parameter_provenance` | no | Field-level table, equation, page, or supplement provenance. |
 | `source_lineage` | no | Ordered sources and their roles when a record combines an earlier fit, final parameter table, implementation, correction, or experimental context. |
 | `pressure_calibration` | no | Audited pressure basis of the observations used for the fit, including resolvable links to reference EOS and optical-calibration records. |

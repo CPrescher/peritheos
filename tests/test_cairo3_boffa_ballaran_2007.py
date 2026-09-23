@@ -217,3 +217,42 @@ def test_cairo3_independent_refit_has_parameter_parity(material_identifier, case
 
 def test_cairo3_pressure_calibration_links_resolve_globally():
     validate_pressure_calibration_references()
+
+
+@pytest.mark.parametrize(("material_identifier", "case"), CASES.items())
+def test_room_temperature_convention_is_explicit_and_roundtrips(material_identifier, case):
+    document = get_material_document(material_identifier)
+    raw = document["eos_records"][0]
+    assert raw["temperature_ref"] == 298.0
+    assert raw["temperature_ref_provenance"]["kind"] == "assumed_room_temperature"
+    assert raw["temperature_ref_provenance"]["reported_condition"] == "room temperature"
+    assert "not a measured" in raw["temperature_ref_provenance"]["note"]
+    material = Material.from_eosmat(document)
+    record = material.get_eos_record(case["record"])
+    assert record.reference_temperature == 298.0
+    assert record.pressure(case["high_pressure_volume"], 298.0) == pytest.approx(
+        case["high_pressure_calculated"], abs=5e-7
+    )
+    restored = material.to_eosmat()["eos_records"][0]
+    assert restored["temperature_ref"] == 298.0
+    assert restored["temperature_ref_provenance"] == raw["temperature_ref_provenance"]
+    # A nominal convention does not add thermal extrapolation.
+    with pytest.raises(ValueError, match="isothermal"):
+        record.pressure(case["high_pressure_volume"], 300.0)
+
+
+@pytest.mark.parametrize("change", ["missing_value", "other_value", "unknown_kind", "empty_note"])
+def test_invalid_room_temperature_conventions_are_rejected(change):
+    from peritheos.eosmat import validate_eosmat_document
+    document = get_material_document("cairo3_perovskite")
+    raw = document["eos_records"][0]
+    if change == "missing_value":
+        del raw["temperature_ref"]
+    elif change == "other_value":
+        raw["temperature_ref"] = 300.0
+    elif change == "unknown_kind":
+        raw["temperature_ref_provenance"]["kind"] = "reported"
+    else:
+        raw["temperature_ref_provenance"]["note"] = ""
+    with pytest.raises(ValueError, match="temperature_ref_provenance"):
+        validate_eosmat_document(document)
