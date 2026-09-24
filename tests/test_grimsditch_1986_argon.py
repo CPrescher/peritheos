@@ -45,6 +45,20 @@ def test_eosmat_roundtrip_and_provenance():
     assert restored.pressure(90.0) == pytest.approx(record.pressure(90.0))
     raw = next(r for r in doc["eos_records"] if r["identifier"] == RECORD)
     assert raw["reproduction"]["fit_status"] == "not_reproduced"
+    assert (
+        raw["reproduction"]["summary_status"]
+        == "approximate_internal_consistency_reproduced"
+    )
+    summary = raw["reproduction"]["equal_weight_consistency"]
+    diagnostic = reproduce()["equal_weight_diagnostics"][summary["selected_diagnostic"]]
+    assert summary["included_row_count"] == diagnostic["row_count"] == 74
+    assert summary["excluded_source_rows"] == [98]
+    assert summary["coefficients_c0_to_c3"] == pytest.approx(
+        diagnostic["coefficients_c0_to_c3"]
+    )
+    assert summary["pressure_rms_gpa"] == pytest.approx(diagnostic["pressure_rms_gpa"])
+    assert summary["all_rows_diagnostic_retained"] is True
+    assert summary["published_coefficients_retained"] is True
     assert raw.get("fit_datasets", []) == []
     assert raw["temperature_ref_provenance"]["kind"] == "assumed_room_temperature"
     assert raw["eos"]["parameters"]["c3"] == 0.68

@@ -16,6 +16,13 @@ means the equation and source transcription were checked;
 `reproduction.fit_status=not_reproduced` explicitly records that the original
 regression has not been recovered. No replacement BM/Vinet fit is introduced.
 
+The saved summary is **Approximate internal consistency reproduced with equal
+weighting** (`reproduction.summary_status=approximate_internal_consistency_reproduced`).
+This applies to the 74-row sensitivity fit excluding inconsistent source row 98;
+both that fit and the all-75-row diagnostic are retained. The separate original
+regression status remains explicit, and the executable EOS keeps the published
+coefficients.
+
 ## Equation, normalization and domain
 
 Equations (6)-(7), pp.7193-7194, give
@@ -126,8 +133,9 @@ record as a published density refit, keeping the 298 K assumption and nonzero
 anchor pressure visible in source details. Acoustic and elastic datasets must
 use their own axes; do not feed them to the ordinary measured P-V overlay or
 fit pipeline. `fit_datasets` is deliberately absent. The dataset links mean
-supporting evidence, not EOS fitting input. Keep the source-regression status
-`not_reproduced` visible alongside the checked equation.
+supporting evidence, not EOS fitting input. Display the saved approximate internal consistency summary, including the
+74-row sensitivity exclusion, alongside the distinct source-regression status
+`not_reproduced` and the checked equation.
 
 
 ## Equal-weight sensitivity check

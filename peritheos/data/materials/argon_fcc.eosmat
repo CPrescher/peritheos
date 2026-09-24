@@ -659,7 +659,33 @@
    "reproduction": {
     "fit_status": "not_reproduced",
     "equation_status": "reproduced",
-    "reason": "Source fit used prior diffraction observations (references 17-19) up to 77 GPa, not Table I acoustic states. Exact input rows, weights and covariance are not recovered."
+    "reason": "Original diffraction fit rows were not recovered. An equal-weight sensitivity fit to 74 derived Table I solid densities recovers the published coefficients within 2.4%; source row 98 is excluded only in this diagnostic and retained in the source dataset and all-row fit.",
+    "summary_status": "approximate_internal_consistency_reproduced",
+    "display_label": "Approximate internal consistency reproduced with equal weighting",
+    "equal_weight_consistency": {
+     "status": "approximate_internal_consistency_reproduced",
+     "label": "Approximate internal consistency reproduced with equal weighting",
+     "scope": "Derived Table I solid densities; not an independent refit of the original diffraction observations.",
+     "objective": "Equal weight per row in squared pressure residuals (GPa).",
+     "selected_diagnostic": "sensitivity_without_inconsistent_source_row_98",
+     "included_row_count": 74,
+     "excluded_source_rows": [
+      98
+     ],
+     "exclusion_reason": "Previously identified inconsistency: printed 33.58 GPa and density 3.936 g/cm^3 differ by 1.216 GPa under the published equation. Sensitivity exclusion only; row retained in source data and all-75-row diagnostic.",
+     "coefficients_c0_to_c3": [
+      12.572802585884562,
+      -11.337869696088706,
+      1.4641372750428387,
+      0.6883466408299328
+     ],
+     "pressure_rms_gpa": 0.005402835110718765,
+     "max_relative_coefficient_difference_percent": 2.3908483304774193,
+     "max_curve_difference_from_published_gpa": 0.23021099624520858,
+     "all_rows_diagnostic_retained": true,
+     "report": "docs/data/argon-grimsditch-1986-reproduction.json",
+     "published_coefficients_retained": true
+    }
    },
    "source_fit_pressure_range_gpa": [
     null,

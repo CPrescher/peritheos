@@ -86,7 +86,31 @@
     "reference_temperature": "Room temperature unspecified;298K is explicit library convention",
     "equation_status": "reproduced",
     "source_regression_status": "not_reproduced",
-    "origin": "Published refit of prior X-ray data, references17-19, to77GPa. No independent measured PV data in this study."
+    "origin": "Published refit of prior X-ray data, references17-19, to77GPa. No independent measured PV data in this study.",
+    "consistency_summary": {
+      "status": "approximate_internal_consistency_reproduced",
+      "label": "Approximate internal consistency reproduced with equal weighting",
+      "scope": "Derived Table I solid densities; not an independent refit of the original diffraction observations.",
+      "objective": "Equal weight per row in squared pressure residuals (GPa).",
+      "selected_diagnostic": "sensitivity_without_inconsistent_source_row_98",
+      "included_row_count": 74,
+      "excluded_source_rows": [
+        98
+      ],
+      "exclusion_reason": "Previously identified inconsistency: printed 33.58 GPa and density 3.936 g/cm^3 differ by 1.216 GPa under the published equation. Sensitivity exclusion only; row retained in source data and all-75-row diagnostic.",
+      "coefficients_c0_to_c3": [
+        12.572802585884562,
+        -11.337869696088706,
+        1.4641372750428387,
+        0.6883466408299328
+      ],
+      "pressure_rms_gpa": 0.005402835110718765,
+      "max_relative_coefficient_difference_percent": 2.3908483304774193,
+      "max_curve_difference_from_published_gpa": 0.23021099624520858,
+      "all_rows_diagnostic_retained": true,
+      "report": "docs/data/argon-grimsditch-1986-reproduction.json",
+      "published_coefficients_retained": true
+    }
   },
   "tests": {
     "python": "151 passed: tests/test_eosmat.py tests/test_grimsditch_1986_argon.py tests/test_argon.py",
@@ -103,7 +127,7 @@
     "Rebuild native engine after density_polynomial_3 dispatcher lands. Exact public-volume pressure and bulk-modulus evaluation/inversion supported.",
     "Present published refit separately from independent P-V observations. Both datasets are supporting acoustic/elastic evidence, never standard measured PV overlays or regression inputs.",
     "Show computational V0 anchor is at1.23GPa, not zero pressure; numeric room temperature is assumed.",
-    "Keep fit_status=not_reproduced alongside checked equation and source provenance.",
+    "Display reproduction.display_label: Approximate internal consistency reproduced with equal weighting. Show the 74-row sensitivity exclusion (source row 98), retain both diagnostic fits, and distinguish original source fit_status=not_reproduced from this approximate internal consistency result.",
     "Resolve shared model imports/enum/dispatch/schema conflicts additively with other model commits; regenerate aggregate audits/manifests and combined test counts."
   ],
   "limitations": [
