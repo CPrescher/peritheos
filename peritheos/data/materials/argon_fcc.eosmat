@@ -822,9 +822,10 @@
     "independent_numerical_check": {
      "script": "scripts/reproduce_argon_finger1981.py",
      "report": "docs/data/argon-finger-1981-reproduction.json",
-     "note": "Exact equation agreement and observation residuals, plus objective-sensitive diagnostic refits."
+     "note": "Exact equation agreement and observation residuals. An unweighted refit reproduces both fitted parameters within their published error bars (K0_prime=6.903805 versus 6.97 +/- 0.11; K0_double_prime=-0.336633 versus -0.40 +/- 0.10 GPa^-1). This is consistent with an unweighted original fit, but the paper does not specify its weighting. Exact original weights, covariance and parameter-uncertainty estimates are not reproduced."
     },
-    "fit_reproduction_status": "original_fit_objective_unavailable"
+    "fit_reproduction_status": "parameters_reproduced_within_reported_uncertainties",
+    "fit_reproduction_note": "An unweighted refit reproduces both fitted parameters within their published error bars (K0_prime=6.903805 versus 6.97 +/- 0.11; K0_double_prime=-0.336633 versus -0.40 +/- 0.10 GPa^-1). This is consistent with an unweighted original fit, but the paper does not specify its weighting. Exact original weights, covariance and parameter-uncertainty estimates are not reproduced."
    },
    "notes": "Second-order Murnaghan means quadratic K(P), not BM2. Static P0 offset plus zero-point and absolute Debye terms. V0/K0 are adopted low-temperature constraints, not room-temperature zero-pressure solid values. Eq. (1) has an apparent extra equals sign before PT; additive form follows the described decomposition and Eqs. (2)-(6). Printed P_z0 does not exactly cancel Eq. (2) at V0 with printed gamma1/theta0; retain all source values. Other-temperature isotherms in Fig.2 are predictions, not measured points. No solid-solid transition observed through 8.17 GPa. Uncertainty confidence level and covariance unspecified."
   }

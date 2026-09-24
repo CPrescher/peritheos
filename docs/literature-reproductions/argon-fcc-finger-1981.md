@@ -132,10 +132,18 @@ Diagnostic refits keep every source fixed parameter fixed:
 | Quoted pressure errors | 6.829505 | −0.253168 | 0.097617 |
 | Effective pressure + volume errors | 7.106669 | −0.514831 | 0.103521 |
 
-These are objective-sensitivity diagnostics, **not a recovery of the unpublished
-original weights or covariance**, and do not replace the published curve.
-Equation/parameter transcription and independent equation evaluation are
-validated; exact recovery of the original regression is not claimed.
+**The fitted parameters are reproduced within their published error bars by an
+unweighted refit.** The differences are 0.60 and 0.63 of the quoted error widths
+for K0′ and K0″, respectively. This is consistent with an unweighted original
+fit and makes unweighted fitting a plausible explanation; the paper does not
+state its weighting method, so this remains an inference.
+
+The weighted fits provide sensitivity diagnostics. Neither the exact original
+weights/covariance nor the reported parameter-uncertainty estimates have been
+recovered. The reproduction status therefore means agreement of both fitted
+parameter values within their individual published intervals, not recovery of
+the complete original regression or a joint confidence region. All published
+coefficients remain unchanged.
 
 Tests cover native/reference/fallback equation agreement, zero-point and
 baseline semantics, a pressure derivative check against the analytical bulk

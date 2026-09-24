@@ -65,13 +65,30 @@ def reproduce():
             "pressure_rmse_gpa": rmse(Finger1981Argon(*fit.x).pressure(vm, 293) - p),
             "solver_success": bool(fit.success),
         }
+    unweighted = refits["equal_pressure"]
+    deviations = {
+        "K0_prime": abs(unweighted["K0_prime"] - 6.97) / 0.11,
+        "K0_double_prime": abs(unweighted["K0_double_prime_gpa_inverse"] + 0.40) / 0.10,
+    }
+    within_errors = all(value <= 1 for value in deviations.values())
     temps = np.array([4.0, 77.0, 293.0, 400.0, 500.0])[:, None]
     grids = np.linspace(v.min(), v.max(), 23)[None, :]
     comparisons = np.abs(native.pressure(grids, temps) - model.pressure(grids, temps))
     return {
         "record_identifier": ID,
         "equation_status": "implemented_and_independently_checked",
-        "fit_reproduction_status": "diagnostic_refits_original_weights_unavailable",
+        "fit_reproduction_status": (
+            "parameters_reproduced_within_reported_uncertainties"
+            if within_errors
+            else "parameters_outside_reported_uncertainties"
+        ),
+        "parameter_reproduction": {
+            "objective": "equal_pressure",
+            "both_within_reported_uncertainties": within_errors,
+            "absolute_deviation_in_reported_error_widths": deviations,
+            "weighting_inference": "Consistent with an unweighted original fit; weighting is not specified in the paper.",
+            "limitation": "Original weights, covariance and parameter-uncertainty estimates are not reproduced.",
+        },
         "observations": len(rows),
         "measured_temperature_k": 293,
         "temperature_uncertainty_k": 1,

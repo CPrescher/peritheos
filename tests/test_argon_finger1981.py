@@ -46,6 +46,11 @@ def test_source_transcription_and_reproduction(assert_audit_close):
         )
     audit = reproduce()
     assert_audit_close(audit, json.loads(REPORT.read_text()))
+    assert audit["parameter_reproduction"]["both_within_reported_uncertainties"]
+    assert (
+        audit["fit_reproduction_status"]
+        == "parameters_reproduced_within_reported_uncertainties"
+    )
     assert audit["native_max_abs_difference_gpa"] < 1e-9
     assert audit["published_molar_volume_rmse_gpa"] == pytest.approx(
         0.0953552, abs=1e-7

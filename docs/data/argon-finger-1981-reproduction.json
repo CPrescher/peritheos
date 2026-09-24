@@ -1,7 +1,17 @@
 {
   "record_identifier": "argon_fcc_finger_1981_murnaghan2_debye",
   "equation_status": "implemented_and_independently_checked",
-  "fit_reproduction_status": "diagnostic_refits_original_weights_unavailable",
+  "fit_reproduction_status": "parameters_reproduced_within_reported_uncertainties",
+  "parameter_reproduction": {
+    "objective": "equal_pressure",
+    "both_within_reported_uncertainties": true,
+    "absolute_deviation_in_reported_error_widths": {
+      "K0_prime": 0.6017692595937146,
+      "K0_double_prime": 0.6336704035386836
+    },
+    "weighting_inference": "Consistent with an unweighted original fit; weighting is not specified in the paper.",
+    "limitation": "Original weights, covariance and parameter-uncertainty estimates are not reproduced."
+  },
   "observations": 19,
   "measured_temperature_k": 293,
   "temperature_uncertainty_k": 1,

@@ -36,10 +36,13 @@ Published equation is independently reproduced, not a BM2 or Vinet surrogate.
 Independent adaptive Debye quadrature versus native pressure: max 3.10e-11 GPa.
 Published RMS residual: 0.095355 GPa using printed molar volumes, 0.097220 GPa
 using a^3 cell volumes. Three explicit diagnostic objectives yield different
-K0'/K0'' estimates. Original fit weights, covariance and uncertainty confidence
-level are unpublished; do **not** label the original regression exactly
-reproduced. The record distinguishes equation validation from
-`fit_reproduction_status="original_fit_objective_unavailable"`.
+K0'/K0'' estimates. The unweighted refit reproduces both fitted parameters within
+the published error bars (0.60 and 0.63 quoted error widths from the source).
+This is consistent with an unweighted original fit, but its weighting remains
+unconfirmed. Updated status:
+`fit_reproduction_status="parameters_reproduced_within_reported_uncertainties"`.
+This means parameter-value agreement, not recovery of the unpublished original
+weights, covariance or parameter-uncertainty estimates.
 Printed Pz0 and zero-point pressure leave +0.001570181 GPa at V0 and 0 K;
 coefficients are preserved. Fig.2 non-293 K isotherms are theory, not observations.
 
