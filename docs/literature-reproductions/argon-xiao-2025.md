@@ -82,3 +82,24 @@ No uncertainty was inferred from these residuals. The original global
 multiproperty refit remains **not reproduced**: the consolidated selected
 legacy rows, penalty functions and iterative fitting protocol are unavailable.
 An artificial fit to only the 22 new rows would not reproduce that regression.
+
+## Equal-weight comparison requested during review
+
+The original weights are **published**, not unknown. Section 5, Eq. 62 and
+Table 2 define a relative-residual objective with empirical property weights
+(from 1 for compressed-solid volume to 210 for heat capacity above 12 K),
+reduced weights for selected data, exclusions, and physical penalty terms.
+The numerical weights are transcribed in the
+[fitting-protocol report](../data/argon-xiao-2025-fitting-protocol.json).
+
+The requested alternative uses equal weight per recovered observation in
+squared relative residuals. Relative normalization follows the source and
+avoids combining numerical values with incompatible units. All recovered
+rows are retained and their provenance and coverage are reported explicitly.
+This is an alternate regression assumption; agreement with it would not
+establish that the authors used equal weights.
+
+The official workbook contains sample calculations and fluid-EOS extrapolations,
+not the consolidated experimental inputs summarized in Tables 6–8. Those
+calculated values are not substituted for missing observations. Solid-only
+data also cannot identify the adjustable gas-reference entropy parameter.

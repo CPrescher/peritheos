@@ -306,5 +306,26 @@
     "supplement_attachment_key": "LDVMDX9D",
     "supplement_sha256_verified": true
   },
-  "audit_date": "2026-09-24"
+  "audit_date": "2026-09-24",
+  "identifier": "argon_fcc_maltby_2024",
+  "record_kind": "supporting_study",
+  "material_identifier": "argon_fcc",
+  "formula": "Ar",
+  "label": "Maltby et al. (2024), experimental literal model",
+  "source_audit": {
+    "status": "primary_full_text_verified",
+    "pdf": {
+      "status": "verified_author_manuscript",
+      "local_path": "/Users/clemens/Documents/Argon-EOS-Papers/maltby-2024/author-manuscript.pdf",
+      "sha256": "da12e25c1cfd36917876fc138dcb71b197df3c2ee5c512b56b11c4684214bc4d"
+    }
+  },
+  "reproduction": {
+    "status": "not_reproduced",
+    "reason": "Literal source coefficients give23.89043 rather than23.97cm\u00b3/mol at70K,1MPa. Required lattice cutoff not specified. Experimental implementation available; not promoted to validated EOS catalog.",
+    "observation_dataset_identifiers": [
+      "argon_fcc_dewaele_2021_supplement"
+    ],
+    "eos_record_identifiers": []
+  }
 }

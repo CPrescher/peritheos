@@ -1,0 +1,38 @@
+{
+  "source_location": "Section5, Eq62, Table2; Tables6-8",
+  "published_objective": "Weighted relative property residuals, with empirical property weights, half weights for graph-extracted or less reliable data, explicit exclusions and qualitative physical penalties.",
+  "published_property_weights": {
+    "sublimation_molar_volume": 55,
+    "sublimation_cp_at_or_below_12K": 30,
+    "sublimation_cp_above_12K": 210,
+    "sublimation_thermal_expansivity": 50,
+    "sublimation_isothermal_bulk_modulus": 20,
+    "sublimation_isentropic_bulk_modulus": 30,
+    "sublimation_enthalpy": 25,
+    "sublimation_pressure": 2,
+    "melting_molar_volume": 35,
+    "melting_enthalpy": 2,
+    "melting_pressure_below_500K": 5,
+    "melting_pressure_above_500K": 25,
+    "high_pressure_single_phase_molar_volume": 1,
+    "low_temperature_gruneisen": 3.5
+  },
+  "published_fit_parameter_count": 10,
+  "fixed_molar_volume_cm3_mol": 22.555,
+  "user_requested_diagnostic": {
+    "objective": "Sum of squared relative residuals, equal weight per recovered observation.",
+    "selection": "All recovered cited rows retained; excluded or unavailable source rows identified explicitly.",
+    "source_protocol_reproduction": false,
+    "note": "Equal weights are a user-directed alternative objective, not an assumption about the documented original weights."
+  },
+  "available_original_new_rows": 22,
+  "workbook_contents": [
+    "55-row sample calculation worksheet (theory)",
+    "778-row fluid EOS extrapolation worksheet (theory)"
+  ],
+  "missing_inputs": [
+    "Consolidated legacy experimental row-level measurements summarized in Tables6-8",
+    "Quantitative penalty functions and convergence/iteration recipe"
+  ],
+  "data_policy": "Workbook-generated fluid/theory states must not be substituted for experimental observations."
+}

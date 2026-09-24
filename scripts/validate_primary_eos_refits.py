@@ -1999,6 +1999,65 @@ def _luo_2023_bounded_partial_outcome(
     }
 
 
+def _argon_batch_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Keep independent equation checks separate from incomplete source refits."""
+    from scripts.reproduce_argon_errandonea_2006 import reproduce as errandonea
+    from scripts.reproduce_argon_finger1981 import reproduce as finger
+    from scripts.reproduce_grimsditch_1986_argon import reproduce as grimsditch
+
+    studies = {
+        "argon_fcc_finger_1981_murnaghan2_debye": (
+            finger,
+            19,
+            ["argon_fcc_finger_1981_table1"],
+            "All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.",
+        ),
+        "argon_fcc_errandonea_2006_bm3": (
+            errandonea,
+            8,
+            ["argon_fcc_errandonea_2006_figure5"],
+            "Eight resolved figure observations are retained. The incomplete digitization does not identify the original regression; no replacement coefficients are adopted.",
+        ),
+        "argon_fcc_grimsditch_1986_density_polynomial": (
+            grimsditch,
+            98,
+            ["argon_grimsditch_1986_table1", "argon_fcc_grimsditch_1986_table2"],
+            "Approximate internal consistency is reproduced with equal weighting on 74 derived-density rows, excluding source row 98 only in the sensitivity check. All 75 solid rows and original coefficients remain preserved. This does not reproduce the original X-ray regression, whose independent observations are unavailable.",
+        ),
+    }
+    reproduce, count, datasets, reason = studies[record["identifier"]]
+    is_finger = record["identifier"] == "argon_fcc_finger_1981_murnaghan2_debye"
+    result = reproduce()
+    outcome = {
+        "status": "similar" if is_finger else "not_refittable",
+        "reproduction_status": "parameterization_reproduced",
+        "fit_reproduction_status": (
+            "parameters_reproduced_within_reported_uncertainties"
+            if is_finger
+            else "not_reproduced"
+        ),
+        "dataset_identifiers": datasets,
+        "observations": count,
+        "reason": reason,
+        "reproduction": result,
+    }
+    if not is_finger and "grimsditch" in record["identifier"]:
+        outcome["summary_status"] = "approximate_internal_consistency_reproduced"
+    if is_finger:
+        refit = result["refits"]["equal_pressure"]
+        outcome.update(
+            {
+                "objective": "equal pressure residuals",
+                "fit_kind": "primary_table_diagnostic",
+                "free_parameters": ["K0_prime", "K0_double_prime"],
+                "published_rmse_gpa": result["published_molar_volume_rmse_gpa"],
+                "rmse_gpa": refit["pressure_rmse_gpa"],
+                "parameter_reproduction": result["parameter_reproduction"],
+            }
+        )
+    return outcome
+
+
 def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
@@ -5224,6 +5283,12 @@ def validate_all() -> dict[str, Any]:
                         "tolerance": crichton["curve_tolerance"],
                     },
                 }
+            elif record["identifier"] in {
+                "argon_fcc_finger_1981_murnaghan2_debye",
+                "argon_fcc_errandonea_2006_bm3",
+                "argon_fcc_grimsditch_1986_density_polynomial",
+            }:
+                outcome = _argon_batch_outcome(record)
             elif not identifiers:
                 outcome = {
                     "status": "not_refittable",
