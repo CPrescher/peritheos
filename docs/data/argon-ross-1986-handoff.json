@@ -58,5 +58,35 @@
   ],
   "publisher_pdf_url": "https://pubs.aip.org/aip/jcp/article-pdf/85/2/1028/18959951/1028_1_online.pdf",
   "audit_date": "2026-09-24",
-  "import_instruction": "Import journal metadata if appropriate, but do not label the precursor as full text of DOI 10.1063/1.451346. Keep actual journal PDF request open. Related precursor may be attached with its explicit version title and note."
+  "import_instruction": "Import journal metadata if appropriate, but do not label the precursor as full text of DOI 10.1063/1.451346. Keep actual journal PDF request open. Related precursor may be attached with its explicit version title and note.",
+  "implementation_commit": "3dfa3a973e85319474f9f6718761af8dc0439661",
+  "infrastructure_commit": "beb665c",
+  "material_identifier": "argon_fcc",
+  "changed_eos_record_identifiers": [],
+  "supporting_study_identifier": "argon_ross_1986_supporting_study",
+  "observation_dataset_identifiers": [
+    "argon_ross_1985_precursor_figure1_subset"
+  ],
+  "observation_asset": "peritheos/data/datasets/argon-ross-1985-precursor-figure1-subset.csv",
+  "reproduction_report": "docs/data/argon-ross-1986-reproduction.json",
+  "documentation": "docs/literature-reproductions/argon-ross-1986.md",
+  "fit_status": "not_reproduced; no surrogate EOS; pair-potential audit only",
+  "tests": {
+    "command": "python -m pytest tests/test_argon_ross.py tests/test_argon.py tests/test_supporting_datasets.py tests/test_eosmat.py tests/test_datasets.py -q",
+    "result": "166 passed",
+    "lint": "ruff check scripts/reproduce_argon_ross.py tests/test_argon_ross.py tests/test_supporting_datasets.py passed",
+    "patch_check": "git diff --check passed"
+  },
+  "studio_requirements": [
+    "Display Ross as supporting study with pending journal-full-text badge and no executable Ross curve.",
+    "Show 1985 precursor observations only with explicit incomplete-subset provenance and 293 K.",
+    "Do not use these observations as fitted data for Dewaele or Ono.",
+    "Read material supporting_studies extension; dataset has explicit empty used_by_eos_records.",
+    "Keep journal PDF request unresolved; related precursor PDF is not fulfillment."
+  ],
+  "integration_notes": [
+    "Cherry-pick infrastructure then study commits.",
+    "Rust empty-link guard follow-up owned by Chen task 01a0d25a-0cc5-7b43-9122-17ad053afcf7; coordinate its separate infrastructure commit.",
+    "No Zotero writes, shared Studio changes, push or deployment performed."
+  ]
 }
