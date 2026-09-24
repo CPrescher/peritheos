@@ -1,4 +1,4 @@
-"""Audit Grimsditch's printed equations, never refit derived acoustic densities."""
+"""Audit the printed EOS and explicitly non-independent refit diagnostics."""
 
 from __future__ import annotations
 
@@ -26,6 +26,31 @@ def bulk(rho):
     return rho * (-11.43 + 3.0 * rho + 2.04 * rho**2)
 
 
+def equal_weight_diagnostic(rho, reported, source_rows):
+    """Minimize equal-weight pressure residuals; this is not independent PV data."""
+    coefficients = np.polynomial.polynomial.polyfit(rho, reported, 3)
+    fitted = np.polynomial.polynomial.polyval(rho, coefficients)
+    grid = np.linspace(min(rho), max(rho), 1001)
+    curve_difference = np.polynomial.polynomial.polyval(grid, coefficients) - pressure(
+        grid
+    )
+    return {
+        "status": "non_independent_consistency_refit",
+        "objective": "sum((P_polynomial(rho_i)-P_reported_i)**2); equal weight per printed row",
+        "source_rows": list(map(int, source_rows)),
+        "row_count": len(rho),
+        "coefficients_c0_to_c3": list(map(float, coefficients)),
+        "pressure_rms_gpa": float(np.sqrt(np.mean((fitted - reported) ** 2))),
+        "published_pressure_rms_same_rows_gpa": float(
+            np.sqrt(np.mean((pressure(rho) - reported) ** 2))
+        ),
+        "max_curve_difference_from_published_gpa_on_fitted_density_range": float(
+            abs(curve_difference).max()
+        ),
+        "density_range_g_cm3": [float(min(rho)), float(max(rho))],
+    }
+
+
 def reproduce():
     doc = get_material_document("argon_fcc")
     eos = Material.from_eosmat(doc).get_eos_record(RECORD)
@@ -41,6 +66,16 @@ def reproduce():
     volumes = MASS_FACTOR / rho
     native_error = np.asarray(eos.pressure(volumes)) - calc
     residual = calc - reported
+    source_rows = np.array([int(r["source_row"]) for r in solid])
+    retained = source_rows != 98
+    refits = {
+        "all_75_solid_rows": equal_weight_diagnostic(rho, reported, source_rows),
+        "sensitivity_without_inconsistent_source_row_98": equal_weight_diagnostic(
+            rho[retained], reported[retained], source_rows[retained]
+        ),
+        "exclusion_reason": "Only sensitivity analysis: row98 is retained in the source dataset and primary all-row fit. Its printed density disagrees with the printed equation by1.216GPa.",
+        "interpretation": "No independent regression reproduction: TableI densities were adopted from the prior EOS, and cover only the acoustic range, not the original diffraction data to77GPa.",
+    }
     # Compare printed nv and C against arithmetic, without treating derived C as input.
     shift = np.array([float(r["brillouin_shift_cm_inverse"]) for r in table])
     nv = np.array([float(r["index_times_velocity_km_s"]) for r in table])
@@ -73,7 +108,8 @@ def reproduce():
         "record_identifier": RECORD,
         "equation_status": "reproduced",
         "fit_status": "not_reproduced",
-        "reason": "No independent source X-ray rows/weights; Table I densities and Table II bulk moduli depend on adopted EOS.",
+        "reason": "Original X-ray fit rows not recovered; equal weighting is feasible but Table I densities and Table II bulk moduli depend on adopted EOS.",
+        "equal_weight_diagnostics": refits,
         "table1_count": len(table),
         "liquid_count": len(table) - len(solid),
         "fcc_count": len(solid),

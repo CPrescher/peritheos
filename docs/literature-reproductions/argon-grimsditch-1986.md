@@ -104,7 +104,8 @@ therefore marks calibration `partially_resolved` and recalculation unavailable.
 Run `python -m scripts.reproduce_grimsditch_1986_argon` to regenerate
 [the report](../data/argon-grimsditch-1986-reproduction.json). It checks the
 native EOS against an independent polynomial and analytic derivative, inversion,
-and printed Table II bulk moduli without fitting the adopted Table I densities.
+and printed Table II bulk moduli. Additional equal-weight fits to the adopted
+Table I densities are explicitly non-independent consistency diagnostics.
 Native maximum errors over the 75 solid rows are about 2.2e-14 GPa for pressure,
 7.2e-14 GPa for bulk modulus and 6.4e-13 Å³ for inversion. All eight Table II
 B values agree within their printed errors.
@@ -127,3 +128,47 @@ use their own axes; do not feed them to the ordinary measured P-V overlay or
 fit pipeline. `fit_datasets` is deliberately absent. The dataset links mean
 supporting evidence, not EOS fitting input. Keep the source-regression status
 `not_reproduced` visible alongside the checked equation.
+
+
+## Equal-weight sensitivity check
+
+Equal weighting is a reasonable reproducibility assumption, and missing weights
+alone do not block an approximate refit. The remaining independent-data gap is
+that the exact prior diffraction rows used by the source have not been recovered.
+The source paper Figure 4 plots them, but Table I contains derived densities at
+acoustic measurement pressures and is not the original fitting dataset.
+
+The report now minimizes the sum of squared **pressure residuals** in GPa,
+with equal weight for every printed solid row, including repeated pressures.
+Liquid rows are excluded. This definition matters: equal errors in density
+would specify a different objective.
+
+| Coefficient | Published | All 75 solid rows | 74-row sensitivity |
+|---|---:|---:|---:|
+| c0 | 12.65 | 6.721502 | 12.572803 |
+| c1 | -11.43 | -4.860885 | -11.337870 |
+| c2 | 1.5 | -0.883180 | 1.464137 |
+| c3 | 0.68 | 0.966715 | 0.688347 |
+| Pressure RMS (GPa) | — | 0.097407 | 0.005403 |
+
+The 74-row sensitivity excludes only source row 98, whose 1.216 GPa discrepancy
+was identified before these fits. That row remains in the source CSV and in the
+primary all-75-row diagnostic; it has not been deleted or corrected. This
+sensitivity recovers coefficients within 2.4% of the printed values. Cubic
+coefficients are correlated, so coefficient differences alone are an incomplete
+measure of curve agreement: over each fitted density interval, the maximum
+pressure difference from the printed equation is 0.4901 GPa for all rows and
+0.2302 GPa for the 74-row sensitivity. Neither fit is tested against independent
+high-pressure diffraction points up to 77 GPa.
+
+These are useful partial consistency results, not independent source-regression
+reproduction. They do not replace the published EOS parameters or change its
+`fit_status=not_reproduced`. The all-row least-squares polynomial also lies
+outside the conservative `DensityPolynomial3` constructor restriction c2>=0;
+it is calculated directly with NumPy for this diagnostic, not installed as a
+new executable catalog model.
+
+The follow-up source search located Xu et al. (1984) in the official
+[HTHP archive](https://www.oldcitypublishing.com/journals/hthp-electronic-archive-home/hthp-electronic-archive-issue-contents/hthp-volume-16-number-5-1984/),
+but its full-text endpoint returned an institutional-access denial. No matching
+Zotero title was found. This check did not recover the original diffraction table.

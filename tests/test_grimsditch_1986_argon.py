@@ -80,3 +80,29 @@ def test_stable_expansion_inverse_near_spinodal():
     assert record.volume(record.pressure(volume)) == pytest.approx(volume, rel=1e-10)
     with pytest.raises(ValueError):
         eos.volume(pressure(spinodal) - 1e-8)
+
+
+def test_equal_weight_refits_are_only_derived_data_diagnostics():
+    report = reproduce()
+    fits = report["equal_weight_diagnostics"]
+    all_rows = fits["all_75_solid_rows"]
+    sensitivity = fits["sensitivity_without_inconsistent_source_row_98"]
+    assert all_rows["row_count"] == 75
+    assert sensitivity["row_count"] == 74
+    assert set(all_rows["source_rows"]) - set(sensitivity["source_rows"]) == {98}
+    assert all_rows["coefficients_c0_to_c3"] == pytest.approx(
+        [6.72150182, -4.86088512, -0.88317979, 0.96671525], abs=1e-7
+    )
+    assert sensitivity["coefficients_c0_to_c3"] == pytest.approx(
+        [12.57280259, -11.33786970, 1.46413728, 0.68834664], abs=1e-7
+    )
+    assert sensitivity["pressure_rms_gpa"] < 0.006
+    assert report["fit_status"] == "not_reproduced"
+    doc = get_material_document("argon_fcc")
+    record = next(r for r in doc["eos_records"] if r["identifier"] == RECORD)
+    assert [record["eos"]["parameters"][f"c{i}"] for i in range(4)] == [
+        12.65,
+        -11.43,
+        1.5,
+        0.68,
+    ]
