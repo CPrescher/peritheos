@@ -54,11 +54,10 @@ def equal_weight_diagnostic(rho, reported, source_rows):
 def reproduce():
     doc = get_material_document("argon_fcc")
     eos = Material.from_eosmat(doc).get_eos_record(RECORD)
-    table = list(
-        csv.DictReader(
-            (ROOT / "peritheos/data/datasets/argon-grimsditch-1986-table1.csv").open()
-        )
-    )
+    with (
+        ROOT / "peritheos/data/datasets/argon-grimsditch-1986-table1.csv"
+    ).open() as stream:
+        table = list(csv.DictReader(stream))
     solid = [r for r in table if r["phase"] == "fcc"]
     rho = np.array([float(r["density_g_cm3"]) for r in solid])
     reported = np.array([float(r["pressure_gpa"]) for r in solid])
@@ -84,13 +83,10 @@ def reproduce():
     modulus = np.array([float(r["effective_longitudinal_modulus_gpa"]) for r in table])
     nv_calculated = shift * 514.5e-7 * 299792.458 / 2
     modulus_calculated = density * (nv / index) ** 2
-    elastic = list(
-        csv.DictReader(
-            (
-                ROOT / "peritheos/data/datasets/argon-fcc-grimsditch-1986-table2.csv"
-            ).open()
-        )
-    )
+    with (
+        ROOT / "peritheos/data/datasets/argon-fcc-grimsditch-1986-table2.csv"
+    ).open() as stream:
+        elastic = list(csv.DictReader(stream))
     checks = []
     for r in elastic:
         p = float(r["pressure_gpa"])

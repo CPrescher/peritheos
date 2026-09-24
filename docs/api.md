@@ -362,6 +362,13 @@ specialized numerical form.
 See the [equation reference](equation-reference.md#isothermal-equations) for
 the mathematical definitions and coefficient domains.
 
+The isothermal API also includes `DensityPolynomial3`,
+`SecondOrderMurnaghan` and `OddInversePower`. Their signatures are respectively
+`(V0, rho0, c0, c1, c2, c3)`, `(V0, K0, K0_prime, K0_double_prime, P0=0)`
+and `(V0, C3, C5, C7, C9)`. Their normalization volumes need not
+be zero-pressure roots. The odd inverse-volume family has independent NumPy
+and Rust implementations; its Python class uses the NumPy backend.
+
 ## Thermal equations of state
 
 ```python

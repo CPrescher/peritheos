@@ -17,6 +17,7 @@ from peritheos.eos.rt import (
     NaturalStrain2,
     NaturalStrain3,
     NaturalStrain4,
+    OddInversePower,
     Vinet,
     Vinet3,
 )
@@ -382,11 +383,12 @@ def test_native_multi_oscillator_accepts_a_generic_reference_isotherm():
 def test_every_bundled_material_record_has_an_evaluation_backend():
     for material in list_materials():
         for record in material.eos_records:
-            if isinstance(record.eos, Vinet3):
+            if isinstance(record.eos, (Vinet3, OddInversePower)):
                 volumes = record.eos.V0 * np.array([1.0, 0.9, 0.8])
                 pressures = record.eos.pressure(volumes)
                 assert np.all(np.isfinite(pressures))
-                assert pressures[0] == pytest.approx(0.0, abs=1e-12)
+                if isinstance(record.eos, Vinet3):
+                    assert pressures[0] == pytest.approx(0.0, abs=1e-12)
                 assert np.all(np.diff(pressures) > 0)
                 assert record.eos.volume(pressures) == pytest.approx(volumes)
                 continue

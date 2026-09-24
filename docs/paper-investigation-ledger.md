@@ -29,18 +29,18 @@ produce an executable record.
 
 ## Summary
 
-The register covers **349 primary papers**: **248** support the 616 audited catalog records and **101** were investigated without adding a production record.
+The register covers **354 primary papers**: **253** support the 625 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 165 |
+| Reproduced | 166 |
 | Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 12 |
 | Coefficient parity not achieved | 14 |
-| Direct refit unavailable | 56 |
+| Direct refit unavailable | 60 |
 | Source reconstruction | 1 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 89 |
@@ -866,13 +866,13 @@ are marked as mixed in the complete register.
 |---|---|---|
 | [Anzellini et al. (2019)](https://doi.org/10.1038/s41598-019-51931-1) | `silicon_vii_anzellini_2019_vinet_1` | K0 96.9 -> 4.845 |
 | [Baty et al. (2024)](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_bm3_1` | K0 190 -> 152.057 |
-| [Benedict et al. (2014)](https://doi.org/10.1103/physrevb.89.224109) | `diamond_benedict_2014_double_debye_4` | b_a 0.913 -> -0.0067749; a_b 2.78971 -> 1.65621; b_b 0.429 -> 0.560571; alpha0 3.79e-05 -> 6.09924e-05; Ve 0.348381 -> 0.175475; kappa 0 -> 1 |
+| [Benedict et al. (2014)](https://doi.org/10.1103/physrevb.89.224109) | `diamond_benedict_2014_double_debye_4` | b_a 0.913 -> -0.00768816; a_b 2.78971 -> 1.65486; b_b 0.429 -> 0.559764; alpha0 3.79e-05 -> 6.09832e-05; Ve 0.348381 -> 0.175501; kappa 0 -> 1 |
 | [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | `coesite_i_iii_bykova_2018_300k_bm3` | K0 103 -> 126.328; K0_prime 3.02 -> 1.69514 |
 | [Campbell et al. (2009)](https://doi.org/10.1016/j.epsl.2009.07.022) | `fe_fcc_campbell_2009_bm3_mgd` | published coefficients were not recovered |
 |  | `feo_campbell_2009_bm3_mgd` | published coefficients were not recovered |
 |  | `nickel_oxide_b1_campbell_2009_bm3_mgd` | rt_eos.K0_prime 5.4 -> 4.31613 |
 | [Clendenen and Drickamer (1966)](https://doi.org/10.1063/1.1726610) | `coo_clendenen_1966_murnaghan_1` | K0_prime 3.9 -> 5.1481 |
-| [Correa et al. (2008)](https://doi.org/10.1103/physrevb.78.024101) | `diamond_correa_2008_double_debye_log_moment_5` | Vp 0.335493 -> 0.453158; theta_a0 1887.8 -> 8800.19; a_a -5.2473 -> 0.34053; b_a 0.913 -> -1.69049; theta_b0 1887.8 -> 2882.08; b_b 0.429 -> 0.243306; theta_0_0 1887.8 -> 37756; a_0 2.17531 -> 1.50765; b_0 0.202 -> 0.370766 |
+| [Correa et al. (2008)](https://doi.org/10.1103/physrevb.78.024101) | `diamond_correa_2008_double_debye_log_moment_5` | Vp 0.335493 -> 0.452445; theta_a0 1887.8 -> 8775.11; a_a -5.2473 -> 0.371484; b_a 0.913 -> -1.7005; theta_b0 1887.8 -> 2890.65; b_b 0.429 -> 0.243468; theta_0_0 1887.8 -> 37756; a_0 2.17531 -> 1.50688; b_0 0.202 -> 0.37087 |
 | [Dewaele (2019)](https://doi.org/10.3390/min9110684) | `iron_dewaele_2019_dor_vinet` | V0 22.354 -> 23.5216; K0 168.4 -> 101.058; K0_prime 5.33 -> 6.63486 |
 |  | `iron_dewaele_2019_mao_vinet` | K0 164.5 -> 101.058; K0_prime 4.96 -> 6.63486 |
 |  | `lead_hcp_dewaele_2019_dor_vinet` | K0_prime 4.77 -> 3.30377 |
@@ -888,7 +888,7 @@ are marked as mixed in the complete register.
 | [Dorogokupets et al. (2015)](https://doi.org/10.1016/j.rgg.2015.01.011) | `akimotoite_dorogokupets_2015_298k_rydberg_stacey` | K0 215.3 -> 254.928; K0_prime 4.91 -> 2.29614 |
 |  | `bridgmanite_dorogokupets_2015_298k_rydberg_stacey` | Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair. |
 |  | `mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey` | Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair. |
-| [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | `platinum_fei_2004_bm3_mgd` | K0 273 -> 289.739; K0_prime 4.8 -> 2.63629; gamma0 2.69 -> 2.5594; q 0.5 -> -0.977205 |
+| [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | `platinum_fei_2004_bm3_mgd` | K0 273 -> 289.739; K0_prime 4.8 -> 2.63629; gamma0 2.69 -> 2.5594; q 0.5 -> -0.977206 |
 | [Fei et al. (2007)](https://doi.org/10.1029/2007gl030712) | `mg080fe020o_fei_2007_ls_b1_bm3` | K0 170 -> 144.186 |
 | [Finkelstein et al. (2017)](https://doi.org/10.2138/am-2017-5966) | `mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1` | K0 148 -> 337.791; K0_prime 4.09 -> 9.6577 |
 |  | `mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2` | K0 163 -> 360.366; K0_prime 4.02 -> 9.41478 |
@@ -917,7 +917,7 @@ are marked as mixed in the complete register.
 |  | `fe09ni01_hcp_sakai_2014_type1_thermal` | gamma0 2.169 -> 5.21861; theta0 1162 -> 2214.82 |
 |  | `fe09ni01_hcp_sakai_2014_type2_thermal` | gamma0 2.609 -> 8; beta 1.309 -> 2.21084; theta0 600 -> 1636.98 |
 |  | `fe09ni01_hcp_sakai_2014_type4_1_thermal` | gamma0 2.882 -> 8; gamma_inf 1.087 -> 2.19477; theta0 577 -> 1664.48 |
-|  | `fe09ni01_hcp_sakai_2014_type4_2_thermal` | gamma0 2.883 -> 2.26261; gamma_inf 0.968 -> 8.52105e-22 |
+|  | `fe09ni01_hcp_sakai_2014_type4_2_thermal` | gamma0 2.883 -> 2.26261; gamma_inf 0.968 -> 1.20623e-25 |
 |  | `fe09ni01_hcp_sakai_2014_type4_3_thermal` | beta 1.161 -> 10 |
 |  | `iron_sakai_2014_p1_bm3` | K0 179.6 -> 183.743 |
 |  | `iron_sakai_2014_p1_v0_dewaele_bm3` | V0 22.468 -> 22.5517 |
@@ -941,7 +941,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **60 papers** contain 165 records for which a
+These **64 papers** contain 173 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -953,6 +953,7 @@ Papers not yet listed there remain unassessed for outreach.
 |---|---|---|
 | [Akber-Knutson et al. (2002)](https://doi.org/10.1029/2001gl013523) | `ca_perovskite_akber_knutson_2002_vib_pm3m_300k_bm3`, `ca_perovskite_akber_knutson_2002_vibc_pm3m_300k_bm3`, `ca_perovskite_akber_knutson_2002_vibc_pnma_300k_bm3`, `stishovite_akber_knutson_2002_vibc_300k_bm3` | The paper does not tabulate the calculated energy-volume grid. The paper tabulates coefficients but not the calculated energy-volume grid. |
 | [Akber-Knutson et al. (2005)](https://doi.org/10.1029/2005gl023192) | `al2o3_perovskite_akber_knutson_2005_gga_bm3`, `al2o3_post_perovskite_akber_knutson_2005_gga_bm3`, `bridgmanite_akber_knutson_2005_gga_bm3`, `mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`, `mg09375al0125si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`, `mgal00625h00625si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`, `mgal00625h00625si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`, `mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3`, `mgal0125si0875o29375_post_perovskite_akber_knutson_2005_gga_bm3`, `mgsio3_post_perovskite_akber_knutson_2005_gga_bm3` | The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. The E(V) rows, weights, residuals, and covariance are not tabulated. |
+| [Anderson and Swenson (1975)](https://doi.org/10.1016/0022-3697(75)90004-9) | `argon_fcc_anderson_swenson_1975_20p0k`, `argon_fcc_anderson_swenson_1975_40p0k`, `argon_fcc_anderson_swenson_1975_4p2k`, `argon_fcc_anderson_swenson_1975_60p0k`, `argon_fcc_anderson_swenson_1975_77p0k` | Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed. |
 | [Anderson et al. (1989)](https://doi.org/10.1063/1.342969) | `gold_anderson_1989_bm3_1` | Tables I-IV contain heterogeneous literature properties, separately regressed coefficients, and derived thermodynamic diagnostics, while Table V is output from Equation (29). The source performs staged smoothing, one-dimensional regressions, numerical integrations, and qualitative K0' trials; it does not define a global observation matrix, objective, weights, integration protocol, or covariance that could be reproduced as a direct EOS coefficient refit. |
 | [Baty et al. (2024)](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_bm3_dft_2` | The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes. |
 | [Caracas et al. (2005)](https://doi.org/10.1029/2004gl022144) | `ca_perovskite_caracas_2005_bm3_3`, `ca_perovskite_caracas_2005_bm4_4`, `ca_perovskite_tetragonal_caracas_2005_bm3_1`, `ca_perovskite_tetragonal_caracas_2005_bm4_2` | The article publishes fitted EOS coefficients and relative energies but not the first-principles E(V) observations, fit weights, residuals, or covariance. No supporting-information or official data attachment is listed on the publisher article page or the UCL deposit, so an independent coefficient refit is not possible. Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
@@ -965,12 +966,14 @@ Papers not yet listed there remain unassessed for outreach.
 | [Dorogokupets and Oganov (2007)](https://doi.org/10.1103/physrevb.75.024115) | `platinum_dorogokupets_oganov_2007_vinet_4` | The 36 bundled Dewaele static rows are a recoverable stage-2 subset, and the seven Holmes shots are an independent Equation-15 diagnostic. The published result is nevertheless a two-stage weighted optimization of six metals: the complete observation inventory and weights, selected Shock Wave Database rows, Collard-McLellan Figure 1 K_S(T) coordinates, and platinum-specific thermochemical row mapping are not published. The dedicated audit therefore validates exact calculated outputs and partial source subsets without claiming a numerical reconstruction of the global objective. |
 | [Driver et al. (2010)](https://doi.org/10.1073/pnas.0912130107) | `alpha_quartz_driver_2010_qmc_300k_vinet`, `seifertite_driver_2010_qmc_300k_vinet`, `sio2_stv_andr_driver_2010_qmc_300k_vinet` | The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures. |
 | [Dubrovinsky et al. (2000)](https://doi.org/10.1103/physrevlett.84.1720) | `iron_dubrovinsky_2000_bm3_thermal` | The 188 input P-V-T points are not tabulated in the attached publication. |
+| [Errandonea et al. (2006)](https://doi.org/10.1103/physrevb.73.092106) | `argon_fcc_errandonea_2006_bm3` | Eight resolved figure observations are retained. The incomplete digitization does not identify the original regression; no replacement coefficients are adopted. |
 | [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | `gold_fei_2004_bm3_mgd` | Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise. |
 | [Fei et al. (2016)](https://doi.org/10.1002/2016gl069456) | `iron_fei_2016_bm3`, `iron_fei_2016_bm3_debye_quadratic`, `iron_fei_2016_free_density_bm3` | Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md). |
 | [Fortes (2019)](https://doi.org/10.5286/raltr.2019002) | `lead_fcc_fortes_2019_bm4_1` | The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes audit](literature-reproductions/fortes-2019-fcc-pb.md). |
 | [Fratanduono et al. (2020)](https://doi.org/10.1103/physrevlett.124.015701) | `copper_fratanduono_2020_vinet3_298k` | Table S1 contains reduced-isentrope observations, not 298 K isothermal rows. No numerical 298 K fit dataset, weights, coefficient covariance, or confidence level for the Table I coefficient errors is published in the inspected article and supplement. The upper/lower isotherm rows describe separate envelope fits, not coefficient errors or independent 298 K observations. A refit of the published 298 K EOS is not possible with the current information. Fratanduono explicitly describes the Gruneisen prescription for reducing measured stress to the principal isentrope, but does not explicitly specify the Debye isentrope-to-298 K calculation used in our diagnostic. Applying Kraus (2016) Eq. (16), its Debye caloric model, and theta0=343.5 K is our inference, not a confirmed reproduction of the 2020 reduction. The 53 candidate points also use an unconfirmed graphical Hugoniot input and omit 46 higher-compression rows. Their 1.562 GPa RMS agreement with the published curve does not establish recovery of the original data, coefficient parity, or a superior EOS. |
 | [Funamori et al. (1998)](https://doi.org/10.1029/98jb01575) | `mgal2o4_cafe2o4_funamori_1998_bm2_1`, `mgal2o4_cati2o4_funamori_1998_bm2_1` | The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom. |
 | [Ghosh and Karki (2016)](https://doi.org/10.1038/srep37269) | `mgo_liquid_ghosh_karki_2016_3000k_bm3_1` | The source plots but does not tabulate the pure-liquid P-V simulation states; no graphical pseudo-precision was introduced. |
+| [Grimsditch et al. (1986)](https://doi.org/10.1103/physrevb.33.7192) | `argon_fcc_grimsditch_1986_density_polynomial` | Approximate internal consistency is reproduced with equal weighting on 74 derived-density rows, excluding source row 98 only in the sensitivity check. All 75 solid rows and original coefficients remain preserved. This does not reproduce the original X-ray regression, whose independent observations are unavailable. |
 | [Guigue et al. (2020)](https://doi.org/10.1063/1.5138697) | `palladium_guigue_2020_vinet_1` | The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed. |
 | [Hama and Suito (1996)](https://doi.org/10.1088/0953-8984/8/1/008) | `mgo_hama_suito_1996_qsm_static_vinet` | The theoretical comparison curves are plotted but no pressure-volume calculation table is published; validation uses the exact printed equation and coefficients without inventing pseudo-observations. |
 | [Hamahata et al. (2000)](https://doi.org/10.2465/jmps.95.236) | `bridgmanite_hamahata_2000_md_300k_bm3` | The complete fit coefficients are printed; the simulated 300 K volumes are plotted but not tabulated, so no pseudo-observations were digitized. |
@@ -1008,6 +1011,7 @@ Papers not yet listed there remain unassessed for outreach.
 | [Wittlinger et al. (1997)](https://doi.org/10.1107/s0108768197005739) | `argon_hcp_wittlinger_1997_bm2_1` | NOT REPRODUCED: the available digitization does not establish a source-faithful reproduction of the published fit. Original observations, regression settings and covariance are unavailable; the shared fitted V0 normalization limits independent coefficient recovery. The numerical fits below are diagnostics only. Broad error-bar overlap is not successful reproduction. Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit. |
 | [Wu et al. (2013)](https://doi.org/10.7498/aps.62.049101) | `bridgmanite_wu_2013_gga_bm3`, `mg075fe025sio3_bridgmanite_wu_2013_gga_bm3` | Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated. |
 | [Xiao et al. (2013)](https://doi.org/10.2138/am.2013.4470) | `srsio3_6h_xiao_2013_gga_bm2_1`, `srsio3_cubic_xiao_2013_gga_bm2_2` | Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced. |
+| [Xiao et al. (2025)](https://doi.org/10.1007/s10765-024-03469-2) | `argon_fcc_xiao_2025_helmholtz` | Published parameterization matches official workbook. Equal-weight22volume and27entry diagnostics are available, but do not uniquely recover nine parameters or replace the full global regression. Table2 weights are published; consolidated legacy rows and quantitative penalties remain unavailable. |
 | [Yang et al. (2015)](https://doi.org/10.1038/srep17188) | `mg092fe008o_yang_2015_hs_bm3_reference` | No machine-readable P-V table is published. Analytical BM3 checkpoints and inverse-volume round trips independently verify executable transcription of the source coefficients. |
 | [Zhang and Bukowinski (1991)](https://doi.org/10.1103/physrevb.44.2495) | `mgo_b1_zhang_bukowinski_1991_mpib_bm3`, `mgo_b2_zhang_bukowinski_1991_mpib_bm3`, `stishovite_zhang_bukowinski_1991_mpib_bm3` | Calculated states are plotted but not tabulated. |
 | [Zhang and Wentzcovitch (2022)](https://doi.org/10.1103/physrevb.106.054103) | `bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3`, `bridgmanite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3`, `mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3`, `mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3` | Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited. Five F(V) states per temperature are described and plotted but not numerically deposited. |
@@ -1033,6 +1037,7 @@ the primary-source and refit ledgers.
 | [Akber-Knutson et al. (2005)](https://doi.org/10.1029/2005gl023192) | Direct refit unavailable | 10 | 10 direct refit unavailable | 10 parameterization only |
 | [Akins et al. (2004)](https://doi.org/10.1029/2004gl020237) | Reproduced | 1 | 1 similar | 1 bundled |
 | [ANALYSIS OF THERMAL EXPANSIVITY OF SOLIDS UNDER HIGH PRESSURES (2012)](https://doi.org/10.1142/s0217984912501461) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Anderson and Swenson (1975)](https://doi.org/10.1016/0022-3697(75)90004-9) | Direct refit unavailable | 5 | 5 direct refit unavailable | 5 bundled |
 | [Anderson and Zou (1990), MgO thermodynamic functions](https://doi.org/10.1063/1.555873) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Anderson et al. (1989)](https://doi.org/10.1063/1.342969) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled indirect |
 | [Andrault et al. (2003)](https://doi.org/10.2138/am-2003-2-307) | Reproduced | 1 | 1 parity | 1 bundled |
@@ -1104,6 +1109,7 @@ the primary-source and refit ledgers.
 | [Effect of Pressure on the Composition of the Lower Mantle End Member Fe x O (1993)](https://doi.org/10.1126/science.259.5091.66) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Elastic properties of Fe-bearing Akimotoite at mantle conditions: Implications for composition and temperature in lower mantle transition zone (2022)](https://doi.org/10.1016/j.fmre.2021.12.013) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Equation of State, Phase Stability of (Mg0.92, Fe0.08)SiO3 Perovskite from Shock Wave Study and Its Geophysical Implications (2004)](https://doi.org/10.1063/1.1780510) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Errandonea et al. (2006)](https://doi.org/10.1103/physrevb.73.092106) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Exploring the High-Pressure Equation of State in Earth’s Mantle with a Focus on the MgSiO3−MgO System (2025)](https://doi.org/10.15407/mfint.47.06.0601) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [EXTREME COMPRESSION BEHAVIOUR OF SOLIDS BASED ON THE ROY-ROY INVERTED EQUATION OF STATE (2008)](https://doi.org/10.1142/s0217979208038910) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Faust and Knittle (1994), natural chondrodite](https://doi.org/10.1029/94GL01592) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
@@ -1115,6 +1121,7 @@ the primary-source and refit ledgers.
 | [Fei et al. (2016)](https://doi.org/10.1002/2016gl069456) | Direct refit unavailable | 3 | 3 direct refit unavailable | 3 bundled |
 | [Ferre et al. (2009), dislocations in CaSiO3 perovskite](https://doi.org/10.2138/am.2009.3003) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Finding the isentropic density of perovskite: Implications for iron concentration in the lower mantle (1997)](https://doi.org/10.1029/96gl03951) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Finger et al. (1981)](https://doi.org/10.1063/1.92597) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Finkelstein et al. (2014)](https://doi.org/10.2138/am.2014.4526) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Finkelstein et al. (2017)](https://doi.org/10.2138/am-2017-5966) | Coefficient parity not achieved | 2 | 2 parity not achieved | 2 bundled |
 | [Fiquet et al. (2000)](https://doi.org/10.1029/1999gl008397) | Reproduced | 1 | 1 parity | 1 bundled |
@@ -1135,6 +1142,7 @@ the primary-source and refit ledgers.
 | [Ghosh and Karki (2016)](https://doi.org/10.1038/srep37269) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 theoretical parameterization only |
 | [Gleason et al. (2008)](https://doi.org/10.2138/am.2008.2942) | Mixed: reproduced and discrepant records | 2 | 1 parity; 1 parity not achieved | 2 bundled |
 | [Gong et al. (2004)](https://doi.org/10.1029/2003gl019132) | Coefficient parity not achieved | 1 | 1 parity not achieved | 1 bundled |
+| [Grimsditch et al. (1986)](https://doi.org/10.1103/physrevb.33.7192) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Guigue et al. (2020)](https://doi.org/10.1063/1.5138697) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 plot only/digitized |
 | [Haavik et al. (2000), defect-clustered wuestite](https://doi.org/10.1039/B006026G) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Haines et al. (2001)](https://doi.org/10.1088/0953-8984/13/11/303) | Reproduced | 2 | 1 parity; 1 similar | 2 plot only/digitized |
@@ -1355,6 +1363,7 @@ the primary-source and refit ledgers.
 | [Wu et al. (2016), Fe-Al phase D elasticity](https://doi.org/10.1002/2016JB013209) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Xian et al. (2022), rhenium thermal pressure scale](https://doi.org/10.1063/5.0089292) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Xiao et al. (2013)](https://doi.org/10.2138/am.2013.4470) | Partly reproduced | 3 | 1 similar; 2 direct refit unavailable | 1 bundled |
+| [Xiao et al. (2025)](https://doi.org/10.1007/s10765-024-03469-2) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Xu et al. (2020)](https://doi.org/10.1029/2020gl088877) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Xu et al. (2024), Al-bearing superhydrous phase B](https://doi.org/10.1029/2023GL107818) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
 | [Yagi et al. (1992)](https://doi.org/10.1016/0031-9201(92)90063-2) | Reproduced | 1 | 1 similar | 1 bundled |

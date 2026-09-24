@@ -509,7 +509,8 @@
     "K0": "Page 3: 6.5(5) GPa.",
     "K0_prime": "Page 3: 5.1(3).",
     "reference_state": "BM3 zero-pressure extrapolation at room temperature. Figure 4 explicitly labels RT as 300 K. V0 is not a measured stable ambient solid.",
-    "pressure_range": "34.9 GPa is the lowest explicitly identified new-study diffraction pattern; maximum 114 GPa. Full raw fit selection is not supplied."
+    "pressure_range": "34.9 GPa is the lowest explicitly identified new-study diffraction pattern; maximum 114 GPa. Full raw fit selection is not supplied.",
+    "determination_method": "BM3 parameters fitted to experimental fcc X-ray diffraction volumes and ruby pressures; fcc data include phase coexistence."
    },
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -614,7 +615,8 @@
     "c0": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^0. No uncertainty/covariance reported.",
     "c1": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^1. No uncertainty/covariance reported.",
     "c2": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^2. No uncertainty/covariance reported.",
-    "c3": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^3. No uncertainty/covariance reported."
+    "c3": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^3. No uncertainty/covariance reported.",
+    "determination_method": "Published regression of earlier experimental X-ray density measurements. The acoustic table densities are derived from this equation, not independent fit observations."
    },
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -805,15 +807,17 @@
     "electronic_e": "Zero: no electronic contribution in Eqs. (1)-(6).",
     "anharmonic_m": "Inactive exponent of zero coefficient.",
     "electronic_g": "Inactive exponent of zero coefficient.",
-    "n": "One atom per Ar formula unit."
+    "n": "One atom per Ar formula unit.",
+    "determination_method": "Cold-curve derivative parameters fitted to experimental 293 K diffraction and ruby-pressure observations with source-adopted Debye thermal terms."
    },
    "pressure_calibration": {
-    "status": "resolved",
+    "status": "partially_resolved",
     "methods": [
      {
       "kind": "ruby_fluorescence",
       "reference": "Piermarini, Block, Barnett and Forman (1975), J. Appl. Phys. 46, 2774, doi:10.1063/1.321957",
-      "source_location": "p.892 ruby R1 wavelength shift; reference 5 on p.894"
+      "source_location": "p.892 ruby R1 wavelength shift; reference 5 on p.894",
+      "notes": "Exact source calibration citation identified; its 1975 scale is not an executable bundled ruby calibration. Raw wavelength shifts unavailable."
      }
     ],
     "recalculation": {
@@ -911,7 +915,8 @@
     "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
-    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
    },
    "pressure_calibration": {
     "status": "resolved",
@@ -937,7 +942,9 @@
      "locations": [
       "Equation (2), Table 1, Sections 2-3"
      ],
-     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf",
+     "access_url": "https://doi.org/10.1016/0022-3697(75)90004-9",
+     "access_note": "Article identity URL; full text was supplied by the user. Original download URL unknown."
     },
     "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
     "primary_data_check": {
@@ -1007,7 +1014,8 @@
     "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
-    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
    },
    "pressure_calibration": {
     "status": "resolved",
@@ -1033,7 +1041,9 @@
      "locations": [
       "Equation (2), Table 1, Sections 2-3"
      ],
-     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf",
+     "access_url": "https://doi.org/10.1016/0022-3697(75)90004-9",
+     "access_note": "Article identity URL; full text was supplied by the user. Original download URL unknown."
     },
     "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
     "primary_data_check": {
@@ -1103,7 +1113,8 @@
     "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
-    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
    },
    "pressure_calibration": {
     "status": "resolved",
@@ -1129,7 +1140,9 @@
      "locations": [
       "Equation (2), Table 1, Sections 2-3"
      ],
-     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf",
+     "access_url": "https://doi.org/10.1016/0022-3697(75)90004-9",
+     "access_note": "Article identity URL; full text was supplied by the user. Original download URL unknown."
     },
     "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
     "primary_data_check": {
@@ -1199,7 +1212,8 @@
     "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
-    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
    },
    "pressure_calibration": {
     "status": "resolved",
@@ -1225,7 +1239,9 @@
      "locations": [
       "Equation (2), Table 1, Sections 2-3"
      ],
-     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf",
+     "access_url": "https://doi.org/10.1016/0022-3697(75)90004-9",
+     "access_note": "Article identity URL; full text was supplied by the user. Original download URL unknown."
     },
     "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
     "primary_data_check": {
@@ -1295,7 +1311,8 @@
     "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
     "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
-    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
    },
    "pressure_calibration": {
     "status": "resolved",
@@ -1321,7 +1338,9 @@
      "locations": [
       "Equation (2), Table 1, Sections 2-3"
      ],
-     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf",
+     "access_url": "https://doi.org/10.1016/0022-3697(75)90004-9",
+     "access_note": "Article identity URL; full text was supplied by the user. Original download URL unknown."
     },
     "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
     "primary_data_check": {
