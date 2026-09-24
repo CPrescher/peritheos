@@ -1,0 +1,86 @@
+{
+  "study_id": "argon_errandonea_2006",
+  "reference": {
+    "authors": [
+      "Errandonea",
+      "Boehler",
+      "Japel",
+      "Mezouar",
+      "Benedetti"
+    ],
+    "year": 2006,
+    "title": "Structural transformation of compressed solid Ar: An x-ray diffraction study to 114 GPa",
+    "source": "Physical Review B",
+    "volume": "73",
+    "locator": "092106",
+    "doi": "10.1103/PhysRevB.73.092106"
+  },
+  "pdf": {
+    "path": "/Users/clemens/Documents/Peritheos/literature/errandonea-2006/errandonea-2006.pdf",
+    "origin_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.092106/fulltext",
+    "sha256": "1f5de50839e25af8adabd5e57e0f56d068c198eb344e0a91198f6e2a1971eced",
+    "pages": 4,
+    "identity_verified": "First page title, all five authors, DOI and journal 73/092106; four pages 092106-1 through 092106-4 visually/text checked.",
+    "retrieved_on": "2026-09-24"
+  },
+  "zotero": {
+    "existing_item_key": null,
+    "existing_attachment_key": null,
+    "lookup": "Read-only exact-title search returned no items; integration task must deduplicate DOI before import.",
+    "destination": "My Library > Methods > EOS Library (C18)",
+    "writes_performed": false
+  },
+  "record_ids": [
+    "argon_fcc_errandonea_2006_bm3"
+  ],
+  "dataset_ids": [
+    "argon_fcc_errandonea_2006_figure5"
+  ],
+  "supporting_phase_asset": {
+    "path": "peritheos/data/datasets/argon-errandonea-2006-phase-observations.csv",
+    "sha256": "5156bb1668bcfac5805fb0a1ed1401531526363984ad087cbbb8d0ec447c0d25",
+    "status": "supporting_observations_only",
+    "phases": [
+      "fcc",
+      "hcp"
+    ],
+    "used_in_eos_fit": false,
+    "notes": "No independent hcp EOS. Standalone asset because material dataset schema requires a linked EOS; linking to Wittlinger would be false."
+  },
+  "observation_asset": "peritheos/data/datasets/argon-fcc-errandonea-2006-figure5-digitized.csv",
+  "fit_status": "not_reproduced",
+  "equation_status": "independently_verified_by_script",
+  "limitations": [
+    "Partial digitization only; no original numerical table or independent hcp fit",
+    "Unspecified uncertainty confidence and covariance",
+    "Prose incorrectly calls 143 A^3 atomic; stored as conventional fcc cell",
+    "No raw ruby or W calibrant observations"
+  ],
+  "studio_requirements": [
+    "Add published BM3 record and fcc observation dataset with generic pressure_gpa/volume_a3 adapter",
+    "Keep two-pixel digitization bounds separate from experimental error bars",
+    "Expose standalone phase observations as supporting study; never as hcp P-V or Wittlinger fit data",
+    "Display reference 300 K; no thermal EOS",
+    "Regenerate common ledgers centrally"
+  ],
+  "bibliographic_creators": [
+    "D. Errandonea",
+    "R. Boehler",
+    "S. Japel",
+    "M. Mezouar",
+    "L. R. Benedetti"
+  ],
+  "publication_date": "2006-03-28",
+  "validation": {
+    "command": ".venv/bin/python -m pytest tests/test_argon_errandonea_2006.py tests/test_argon.py -q",
+    "result": "7 passed",
+    "native_max_difference_gpa": 1.2789769243681803e-13,
+    "published_partial_data_rmse_gpa": 1.9171853148230855,
+    "refit_limitation": "V0 reaches analyst-imposed 300 A^3 upper bound; exact fit not reproduced."
+  },
+  "reproduction_document": "docs/literature-reproductions/argon-errandonea-2006.md",
+  "reproduction_script": "scripts/reproduce_argon_errandonea_2006.py",
+  "reproduction_report": "docs/data/argon-errandonea-2006-reproduction.json",
+  "final_handoff_with_commit_hash": "/Users/clemens/Documents/Peritheos/literature/errandonea-2006/handoff.json",
+  "ris_path": "/Users/clemens/Documents/Peritheos/literature/errandonea-2006/errandonea-2006.ris"
+}

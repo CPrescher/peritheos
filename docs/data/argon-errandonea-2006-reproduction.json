@@ -1,0 +1,80 @@
+{
+  "record_id": "argon_fcc_errandonea_2006_bm3",
+  "equation_status": "verified",
+  "reproduction_status": "not_reproduced",
+  "reason": "Partial figure observations; full raw data, fit weights and covariance unavailable.",
+  "observation_count": 8,
+  "published_parameters": {
+    "V0": 143.0,
+    "K0": 6.5,
+    "K0_prime": 5.1
+  },
+  "native_max_difference_gpa": 1.2789769243681803e-13,
+  "basis_invariance_max_difference_gpa": 0.0,
+  "published_partial_data_rmse_gpa": 1.9171853148230855,
+  "diagnostic_equal_pressure_weight_refit": {
+    "parameters": [
+      299.99999999999994,
+      0.07838390816443441,
+      14.483654632361027
+    ],
+    "rmse_gpa": 0.8861639786289082,
+    "solver_success": true,
+    "active_bound_mask": [
+      1,
+      0,
+      0
+    ],
+    "note": "Eight digitized points only; V0 reaches the analyst's 300 A^3 bound. Poorly constrained, not a reproduction or replacement of source coefficients."
+  },
+  "observations": [
+    {
+      "pressure_gpa": 34.8745,
+      "volume_a3": 67.7249,
+      "calculated_pressure_gpa": 33.54392567994408,
+      "residual_gpa": -1.3305743200559164
+    },
+    {
+      "pressure_gpa": 55.0066,
+      "volume_a3": 59.0476,
+      "calculated_pressure_gpa": 56.88420865826416,
+      "residual_gpa": 1.8776086582641582
+    },
+    {
+      "pressure_gpa": 65.3104,
+      "volume_a3": 56.9312,
+      "calculated_pressure_gpa": 65.20067553773839,
+      "residual_gpa": -0.10972446226161026
+    },
+    {
+      "pressure_gpa": 68.0053,
+      "volume_a3": 56.2963,
+      "calculated_pressure_gpa": 67.9718714496281,
+      "residual_gpa": -0.03342855037190873
+    },
+    {
+      "pressure_gpa": 76.8824,
+      "volume_a3": 53.9683,
+      "calculated_pressure_gpa": 79.4125686787043,
+      "residual_gpa": 2.5301686787042996
+    },
+    {
+      "pressure_gpa": 101.1361,
+      "volume_a3": 50.1587,
+      "calculated_pressure_gpa": 103.57180286866138,
+      "residual_gpa": 2.43570286866138
+    },
+    {
+      "pressure_gpa": 105.0991,
+      "volume_a3": 49.7354,
+      "calculated_pressure_gpa": 106.77372352859625,
+      "residual_gpa": 1.6746235285962427
+    },
+    {
+      "pressure_gpa": 114.1347,
+      "volume_a3": 48.4656,
+      "calculated_pressure_gpa": 117.12752994187396,
+      "residual_gpa": 2.992829941873964
+    }
+  ]
+}

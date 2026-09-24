@@ -448,6 +448,110 @@
     }
    },
    "notes": "0 K cold curve includes zero-point energy; Debye thermal term excludes it. Marginal model/fit envelope 0-760 K and up to 6.3 GPa is not a rectangular solid-stability region; use solid branch below melting. New data cover 7.96-50.02 K only. Volume uncertainties estimated k=1: 0.1% sublimation, 0.5% melting/compressed; coefficient covariance/errors not published. Gas reference entropy 130.37 J/mol/K belongs to coupled fluid equilibrium model and does not enter solid pressure. No fluid fugacity/phase-equilibrium solver supplied. Complete global refit cannot be reconstructed from available files; workbook reference calculations are theory, not observations. The author workbook gas constant R=8.31451 J/mol/K is retained explicitly for published numerical parity. Record temperature_ref=70 K selects the evaluation/reporting temperature; it is not the cold-curve reference temperature, which is 0 K."
+  },
+  {
+   "identifier": "argon_fcc_errandonea_2006_bm3",
+   "label": "Errandonea et al. (2006), laser-annealed fcc BM3",
+   "reference": {
+    "authors": [
+     "Errandonea",
+     "Boehler",
+     "Japel",
+     "Mezouar",
+     "Benedetti"
+    ],
+    "year": 2006,
+    "title": "Structural transformation of compressed solid Ar: An x-ray diffraction study to 114 GPa",
+    "source": "Physical Review B",
+    "volume": "73",
+    "locator": "092106",
+    "doi": "10.1103/PhysRevB.73.092106"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 143.0,
+     "K0": 6.5,
+     "K0_prime": 5.1
+    }
+   },
+   "parameter_errors": {
+    "V0": 11.0,
+    "K0": 0.5,
+    "K0_prime": 0.3
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    34.9,
+    114.0
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "determination_method": "experimental",
+   "fit_datasets": [
+    "argon_fcc_errandonea_2006_figure5"
+   ],
+   "parameter_provenance": {
+    "V0": "Page 3: 143(11) A^3. Prose says atomic volume, but Fig. 5 scale and prior fcc data require a four-atom conventional cell; atomic equivalent is 35.75(2.75) A^3.",
+    "K0": "Page 3: 6.5(5) GPa.",
+    "K0_prime": "Page 3: 5.1(3).",
+    "reference_state": "BM3 zero-pressure extrapolation at room temperature. Figure 4 explicitly labels RT as 300 K. V0 is not a measured stable ambient solid.",
+    "pressure_range": "34.9 GPa is the lowest explicitly identified new-study diffraction pattern; maximum 114 GPa. Full raw fit selection is not supplied."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1986",
+      "source_location": "Page 1 and reference 17",
+      "reference": "Mao, Xu and Bell (1986), J. Geophys. Res. 91, 4673; doi:10.1029/JB091iB05p04673"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "W",
+      "source_location": "Page 1 and reference 18",
+      "reference": "Ruoff, Xia and Xia (1992), Rev. Sci. Instrum. 63, 4342",
+      "notes": "Tungsten gasket EOS cross-check; exact W coefficients and raw diffraction observations not supplied."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Ruby signals and W lattice data absent; published pressures retained."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "reproduction_status": "not_reproduced",
+    "note": "Published BM3 coefficients and phase checked. Native equation independently verified; exact published fit not reproduced because only partial figure data and no fit weights/covariance are available. See study-specific report.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.092106/fulltext",
+     "doi": "10.1103/PhysRevB.73.092106",
+     "locations": [
+      "Pages 1, 3-4; Figures 4-5"
+     ]
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_argon_errandonea_2006.py",
+     "report": "docs/data/argon-errandonea-2006-reproduction.json",
+     "status": "equation_verified_fit_not_reproduced"
+    }
+   },
+   "notes": "Fcc-specific BM3 fit, including fcc reflections in fcc+hcp coexistence from 49.6 to 114 GPa; not a combined-phase fit. Hcp atomic volumes are stated equal within accuracy, but no independent hcp EOS or hcp volume table is supplied. Uncertainty confidence and covariance are unspecified. Annealing above 2000 K is sample preparation, not the EOS temperature. Figure 5 inset caption says fcc(220), while main text says non-overlapping fcc(200); retain this inconsistency. Exact fit selection and weights unavailable. Supporting phase asset: datasets/argon-errandonea-2006-phase-observations.csv."
   }
  ],
  "datasets": [
@@ -675,6 +779,86 @@
     "license_url": "https://creativecommons.org/licenses/by/4.0/"
    },
    "license": "CC-BY-4.0"
+  },
+  {
+   "identifier": "argon_fcc_errandonea_2006_figure5",
+   "kind": "pressure_volume",
+   "description": "Partial recovery: eight resolved new-study fcc observations from Fig. 5; no theory or fitted-curve samples.",
+   "reference": {
+    "authors": [
+     "Errandonea",
+     "Boehler",
+     "Japel",
+     "Mezouar",
+     "Benedetti"
+    ],
+    "year": 2006,
+    "title": "Structural transformation of compressed solid Ar: An x-ray diffraction study to 114 GPa",
+    "source": "Physical Review B",
+    "volume": "73",
+    "locator": "092106",
+    "doi": "10.1103/PhysRevB.73.092106"
+   },
+   "source_location": "Figure 5 main panel, filled circles, page 092106-3",
+   "source_url": "https://doi.org/10.1103/PhysRevB.73.092106",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_bound_gpa",
+     "quantity": "digitization_resolution",
+     "unit": "GPa",
+     "role": "bound"
+    },
+    {
+     "name": "volume_digitization_bound_a3",
+     "quantity": "digitization_resolution",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "bound"
+    },
+    {
+     "name": "figure_x_pixel",
+     "quantity": "pixel_coordinate",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "figure_y_pixel",
+     "quantity": "pixel_coordinate",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-fcc-errandonea-2006-figure5-digitized.csv",
+    "sha256": "c729966f8fe77a4c055ee8281129a93c6d26560465e3f6d4f4dfe39c4cb6e91f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_fcc_errandonea_2006_bm3"
+   ],
+   "provenance": {
+    "type": "digitized_primary_figure",
+    "source_pdf_sha256": "1f5de50839e25af8adabd5e57e0f56d068c198eb344e0a91198f6e2a1971eced",
+    "transcribed_on": "2026-09-24",
+    "notes": "Eight isolated filled-circle centers in Fig. 5; overlapping filled marks near 50 GPa omitted. Open Ross circles, Anderson diamond, solid fit and inset excluded. Coordinates refer to embedded 895x668 bitmap; x=117 at 0 GPa and x=874 at 120 GPa; y=578 at 40 A^3 and y=11 at 160 A^3. Two-pixel digitization bounds are analyst resolution estimates, not experimental standard deviations. Partial dataset; original observations and fit weights unavailable."
+   }
   }
  ],
  "supporting_studies": [
