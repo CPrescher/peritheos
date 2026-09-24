@@ -5,6 +5,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+- Add explicit dataset pressure-column calibration provenance and per-EOS
+  pressure reductions, with Python/Rust validation and the metadata-driven
+  `resolve_dataset_pressure` API. Migrate six Dewaele (2004) metal tables and
+  their 22 direct 2004/2019 reductions without changing source observations or
+  EOS coefficients; preserve unresolved model links and scale qualifications.
+
 - Classify every bundled EOS with `determination_method` (experimental,
   theoretical, hybrid, or unknown), preserve the source rationale, validate
   the field in Python and Rust, and expose it through record accessors and

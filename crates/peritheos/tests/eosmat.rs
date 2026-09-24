@@ -1337,3 +1337,53 @@ fn determination_method_validation_legacy_default_and_round_trip() {
         assert!(load_eosmat_str(&document.to_string()).is_err());
     }
 }
+
+#[test]
+fn dataset_pressure_metadata_shared_validation_and_roundtrip() {
+    let fixture: serde_json::Value =
+        serde_json::from_str(include_str!("data/dataset-pressure.json")).unwrap();
+    let document = &fixture["document"];
+    validate_eosmat_document(document).unwrap();
+    let serialized = serialize_eosmat(document).unwrap();
+    assert_eq!(load_eosmat_str(&serialized).unwrap().document, *document);
+    for case in fixture["invalid_cases"].as_array().unwrap() {
+        let mut invalid = document.clone();
+        let path = case["path"].as_str().unwrap();
+        // Support both replacement and an extra field absent in the base fixture.
+        let (parent, key) = path.rsplit_once('/').unwrap();
+        if let Some(object) = invalid.pointer_mut(parent).unwrap().as_object_mut() {
+            object.insert(key.to_string(), case["value"].clone());
+        } else {
+            *invalid.pointer_mut(path).unwrap() = case["value"].clone();
+        }
+        assert!(
+            validate_eosmat_document(&invalid).is_err(),
+            "{}",
+            case["name"]
+        );
+    }
+    let mut legacy = document.clone();
+    legacy["datasets"][0]
+        .as_object_mut()
+        .unwrap()
+        .remove("pressure_reductions");
+    legacy["datasets"][0]["columns"][0]
+        .as_object_mut()
+        .unwrap()
+        .remove("pressure_scale");
+    validate_eosmat_document(&legacy).unwrap();
+}
+
+#[test]
+fn migrated_pressure_coordinates_survive_rust_exports() {
+    for metal in [
+        "aluminum", "copper", "gold", "platinum", "tantalum", "tungsten",
+    ] {
+        let Some(material) = load_bundled_material(&format!("{metal}.eosmat")) else {
+            continue;
+        };
+        let serialized = serialize_eosmat(&material.document).unwrap();
+        let reloaded = load_eosmat_str(&serialized).unwrap();
+        assert_eq!(material.document["datasets"], reloaded.document["datasets"]);
+    }
+}

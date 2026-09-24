@@ -97,6 +97,14 @@ from peritheos import (
 )
 ```
 
+`resolve_dataset_pressure(document, eos_record, dataset_identifier, *,
+resource_root=None, check_validity=False) -> DatasetPressure` resolves an explicit
+per-EOS pressure coordinate. It retains original pressures, row identities,
+calibration provenance and validity flags, and delegates ruby conversion to the
+existing calibration API. Missing reductions remain unresolved. See
+[Dataset pressure reductions](dataset-pressure-reductions.md) for the result
+contract, uncertainty/temperature qualifications, and a consumption example.
+
 `Material.get_dataset(identifier) -> Dataset` loads an observation table from
 embedded rows or a checksummed packaged CSV. `Material.datasets` continues to
 expose raw metadata mappings for discovery and serialization. For external

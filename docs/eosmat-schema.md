@@ -625,3 +625,12 @@ NaturalStrain3, SunMorse3, SunMorse4, Vinet). Other families reject a nonzero
 coefficient. Nonpositive state compressibility is rejected. These choices
 are preserved across Python/Rust loading, serialization, and native fitting.
 See the [Hirose gold audit](literature-reproductions/hirose-2008-gold.md).
+
+## Dataset pressure coordinates
+
+Format 3 optionally supports `columns[].pressure_scale` with a calibration ID
+and scientific provenance, and `datasets[].pressure_reductions` with explicit
+per-EOS `as_reported`, `transformed`, or `unresolved` coordinates. These fields
+are additive; absence is unresolved. See [Dataset pressure provenance and EOS
+reductions](dataset-pressure-reductions.md) for the normative field semantics,
+validation rules, supported transformation convention, and migration scope.

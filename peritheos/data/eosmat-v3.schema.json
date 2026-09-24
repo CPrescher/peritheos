@@ -291,6 +291,9 @@
         },
         "of": {
           "$ref": "#/$defs/identifier"
+        },
+        "pressure_scale": {
+          "$ref": "#/$defs/dataset_pressure_scale"
         }
       },
       "additionalProperties": true
@@ -387,6 +390,13 @@
         },
         "notes": {
           "type": "string"
+        },
+        "pressure_reductions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dataset_pressure_reduction"
+          },
+          "description": "Explicit pressure coordinates for linked EOS records. One declaration per EOS per dataset. Absence is unresolved; all reductions share the dataset observations."
         }
       },
       "oneOf": [
@@ -1979,6 +1989,147 @@
         }
       ],
       "additionalProperties": true
+    },
+    "dataset_pressure_scale": {
+      "type": "object",
+      "required": [
+        "calibration_record",
+        "reference",
+        "source_location"
+      ],
+      "properties": {
+        "calibration_record": {
+          "$ref": "#/$defs/identifier"
+        },
+        "reference": {
+          "$ref": "#/$defs/reference"
+        },
+        "source_location": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "dataset_pressure_reduction": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "eos_record": {
+              "$ref": "#/$defs/identifier"
+            },
+            "reference": {
+              "$ref": "#/$defs/reference"
+            },
+            "source_location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "notes": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "const": "as_reported"
+            },
+            "pressure_column": {
+              "$ref": "#/$defs/identifier"
+            },
+            "target_calibration_record": {
+              "$ref": "#/$defs/identifier"
+            },
+            "row_scope": {
+              "const": "all_rows"
+            }
+          },
+          "required": [
+            "eos_record",
+            "status",
+            "reference",
+            "source_location",
+            "pressure_column",
+            "target_calibration_record",
+            "row_scope"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "eos_record": {
+              "$ref": "#/$defs/identifier"
+            },
+            "reference": {
+              "$ref": "#/$defs/reference"
+            },
+            "source_location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "notes": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "const": "transformed"
+            },
+            "pressure_column": {
+              "$ref": "#/$defs/identifier"
+            },
+            "target_calibration_record": {
+              "$ref": "#/$defs/identifier"
+            },
+            "row_scope": {
+              "const": "all_rows"
+            },
+            "convention": {
+              "const": "same_corrected_ruby_r1_ratio"
+            }
+          },
+          "required": [
+            "eos_record",
+            "status",
+            "reference",
+            "source_location",
+            "pressure_column",
+            "target_calibration_record",
+            "row_scope",
+            "convention"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "eos_record": {
+              "$ref": "#/$defs/identifier"
+            },
+            "reference": {
+              "$ref": "#/$defs/reference"
+            },
+            "source_location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "notes": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "const": "unresolved"
+            }
+          },
+          "required": [
+            "eos_record",
+            "status",
+            "reference",
+            "source_location",
+            "notes"
+          ],
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }

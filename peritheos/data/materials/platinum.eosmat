@@ -3111,13 +3111,45 @@
      "name": "ruby_pressure_classical_gpa",
      "quantity": "pressure",
      "unit": "GPa",
-     "role": "value"
+     "role": "value",
+     "pressure_scale": {
+      "calibration_record": "ruby_mao_1986",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "volume": "70",
+       "locator": "094112",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Table I classical P_R; Equation (1), A=1904 GPa, B=7.665"
+     }
     },
     {
      "name": "ruby_pressure_revised_gpa",
      "quantity": "pressure",
      "unit": "GPa",
-     "role": "value"
+     "role": "value",
+     "pressure_scale": {
+      "calibration_record": "ruby_dewaele_2004",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "volume": "70",
+       "locator": "094112",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Table I revised P'_R; Equation (1), A=1904 GPa, B=9.5"
+     }
     },
     {
      "name": "atomic_volume_a3",
@@ -3157,7 +3189,126 @@
    },
    "license": "No explicit open data-reuse license is stated. APS copyright applies to the article; this factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
    "notes": "Table I groups Cu/W/Al in the first two runs and Au/Pt/Ta in the last three runs. Blank metal cells are omitted rather than imputed. P_R is the classical Mao et al. (1986) reduction (A=1904 GPa, B=7.665); P'_R is the Dewaele et al. revision (A=1904 GPa, B=9.5). The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but prints neither row-wise pressure errors nor raw R1 wavelengths.",
-   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext"
+   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+   "pressure_reductions": [
+    {
+     "eos_record": "platinum_dewaele_2004_mao_ruby_vinet",
+     "reference": {
+      "authors": [
+       "Dewaele",
+       "Loubeyre",
+       "Mezouar"
+      ],
+      "year": 2004,
+      "title": "Equations of state of six metals above 94 GPa",
+      "source": "Physical Review B",
+      "doi": "10.1103/PhysRevB.70.094112"
+     },
+     "status": "as_reported",
+     "pressure_column": "ruby_pressure_classical_gpa",
+     "target_calibration_record": "ruby_mao_1986",
+     "row_scope": "all_rows",
+     "source_location": "Table I and Equation (1)",
+     "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+    },
+    {
+     "eos_record": "platinum_dewaele_2004_revised_ruby_vinet",
+     "reference": {
+      "authors": [
+       "Dewaele",
+       "Loubeyre",
+       "Mezouar"
+      ],
+      "year": 2004,
+      "title": "Equations of state of six metals above 94 GPa",
+      "source": "Physical Review B",
+      "doi": "10.1103/PhysRevB.70.094112"
+     },
+     "status": "as_reported",
+     "pressure_column": "ruby_pressure_revised_gpa",
+     "target_calibration_record": "ruby_dewaele_2004",
+     "row_scope": "all_rows",
+     "source_location": "Table I and Equation (1)",
+     "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+    },
+    {
+     "eos_record": "platinum_dorogokupets_oganov_2007_vinet_4",
+     "reference": {
+      "authors": [
+       "Dorogokupets",
+       "Oganov"
+      ],
+      "year": 2007,
+      "title": "Ruby, metals, and MgO as alternative pressure scales: A semiempirical description of shock-wave, ultrasonic, x-ray, and thermochemical data at high temperatures and pressures",
+      "source": "Phys. Rev. B",
+      "volume": "75",
+      "locator": "024115",
+      "doi": "10.1103/PhysRevB.75.024115"
+     },
+     "status": "unresolved",
+     "source_location": "Equations 6-14, Table I, and Table VI; semiempirical multiphase pressure-scale optimization",
+     "notes": "The dataset link documents input to a reference-model optimization; it does not establish a simple all-row experimental pressure reduction for this EOS. Do not infer a reduction from the link or the model name."
+    },
+    {
+     "eos_record": "platinum_dewaele_2019_mao_vinet",
+     "reference": {
+      "authors": [
+       "Dewaele"
+      ],
+      "year": 2019,
+      "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+      "source": "Minerals",
+      "doi": "10.3390/min9110684"
+     },
+     "status": "as_reported",
+     "pressure_column": "ruby_pressure_classical_gpa",
+     "target_calibration_record": "ruby_mao_1986",
+     "row_scope": "all_rows",
+     "source_location": "Table 1 and Sections 2-4; source rows: Dewaele et al. (2004), Table I; reproduced in scripts/audit_dewaele_2019_static_dac.py",
+     "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+    },
+    {
+     "eos_record": "platinum_dewaele_2019_dor_vinet",
+     "reference": {
+      "authors": [
+       "Dewaele"
+      ],
+      "year": 2019,
+      "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+      "source": "Minerals",
+      "doi": "10.3390/min9110684"
+     },
+     "status": "transformed",
+     "pressure_column": "ruby_pressure_classical_gpa",
+     "target_calibration_record": "ruby_dorogokupets_oganov_2007",
+     "row_scope": "all_rows",
+     "convention": "same_corrected_ruby_r1_ratio",
+     "source_location": "Table 1 and Sections 2-4; source rows: Dewaele et al. (2004), Table I; reproduced in scripts/audit_dewaele_2019_static_dac.py",
+     "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+    },
+    {
+     "eos_record": "platinum_fei_2007_vinet_300k",
+     "reference": {
+      "authors": [
+       "Fei",
+       "Ricolleau",
+       "Frank",
+       "Mibe",
+       "Shen",
+       "Prakapenka"
+      ],
+      "year": 2007,
+      "title": "Toward an internally consistent pressure scale",
+      "source": "Proceedings of the National Academy of Sciences",
+      "volume": "104",
+      "locator": "9182-9186",
+      "doi": "10.1073/pnas.0609013104"
+     },
+     "status": "unresolved",
+     "source_location": "Results and Discussion and Figure 2, Dewaele (2004) static subset",
+     "notes": "The dataset link documents input to a reference-model optimization; it does not establish a simple all-row experimental pressure reduction for this EOS. Do not infer a reduction from the link or the model name."
+    }
+   ]
   },
   {
    "identifier": "ye_2017_data_s1_au_mgo_300k",

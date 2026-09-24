@@ -18,6 +18,7 @@ from peritheos.catalog import (
     search_eos_records,
     search_materials,
 )
+from peritheos.dataset_pressure import DatasetPressure, resolve_dataset_pressure
 from peritheos.datasets import (
     Dataset,
     DatasetColumn,
@@ -117,6 +118,7 @@ __all__ = [
     "DatasetColumn",
     "DatasetError",
     "DatasetLookupError",
+    "DatasetPressure",
     "DatasetResource",
     "EOSMAT_FORMAT",
     "EOSMAT_FORMAT_VERSION",
@@ -195,6 +197,7 @@ __all__ = [
     "recalculate_ruby_to_xrd_pressure",
     "recalculate_ruby_with_measured_xrd_standard",
     "recalculate_xrd_pressure_scale",
+    "resolve_dataset_pressure",
     "save_eosmat",
     "search_eos_records",
     "search_materials",
