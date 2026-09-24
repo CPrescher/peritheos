@@ -85,6 +85,9 @@ verification, unit conversion, and uncertainty handling, and the
 
 Each dataset declares a stable `identifier`, `kind`, primary `reference`, exact
 `source_location`, typed `columns`, and the `used_by_eos_records` identifiers.
+An explicit empty `used_by_eos_records` array represents a standalone supporting
+dataset with no executable EOS. Such datasets survive material loading and
+record selection; they must not be presented as fitted observations.
 Uncertainty columns explicitly identify the value column to which they apply.
 The record should state whether the source reports standard deviations,
 standard errors, bounds, and covariance information; absence of covariance

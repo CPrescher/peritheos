@@ -2297,7 +2297,7 @@ def _material_from_eosmat(
             for identifier in dataset.get("used_by_eos_records", ())
             if identifier in selected_record_identifiers
         ]
-        if used_by:
+        if used_by or not dataset.get("used_by_eos_records"):
             dataset["used_by_eos_records"] = used_by
             selected_datasets.append(dataset)
 

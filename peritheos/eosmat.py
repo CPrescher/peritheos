@@ -318,9 +318,9 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 )
 
         used_by = dataset.get("used_by_eos_records")
-        if not isinstance(used_by, list) or not used_by:
+        if not isinstance(used_by, list):
             raise EosmatError(
-                f"{location}.used_by_eos_records must be a non-empty array"
+                f"{location}.used_by_eos_records must be an array"
             )
         for record_identifier in used_by:
             if not isinstance(record_identifier, str) or not record_identifier:

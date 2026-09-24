@@ -377,7 +377,7 @@
         },
         "used_by_eos_records": {
           "type": "array",
-          "minItems": 1,
+          "description": "Records using these observations; empty for a standalone supporting dataset without an executable EOS.",
           "items": {
             "$ref": "#/$defs/identifier"
           }
