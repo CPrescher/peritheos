@@ -992,7 +992,7 @@ Anzellini et al. (2025) do with BM3 for iridium.
 
 `Dewaele2006` implements Equations (1)--(2) of
 [Dewaele et al. (2006)](https://doi.org/10.1103/PhysRevLett.97.215504).
-The supplied `rt_eos` is the complete reference isotherm at $T_r$, and every
+By default, `rt_eos` is the complete reference isotherm at $T_r$, and every
 thermal term is subtracted at that temperature:
 
 \[
@@ -1020,6 +1020,14 @@ P_{\mathrm{th}}=
 `anharmonic_a` and `electronic_e` are passed directly in K$^{-1}$, matching
 the Dewaele equation. This differs from the micro-K$^{-1}$ parameter convention
 used by `DorogokupetsOganov2007`.
+
+With `thermal_pressure_reference="absolute_zero"`, `rt_eos` is instead a
+0 K curve and the unreferenced thermal pressure is added without zero-point
+pressure. `Tr` remains the positive-temperature anchor for
+`thermal_pressure_increment`; it is not subtracted from total pressure.
+This represents [Dewaele et al. (2021) fcc argon](literature-reproductions/argon-fcc.md)
+exactly with gamma0=2.7, gamma_inf=0.5, beta=1 and zero quadratic terms.
+The reference-isentrope option is unsupported for this model.
 
 ### Dorogokupets--Oganov 2007 four-oscillator model
 

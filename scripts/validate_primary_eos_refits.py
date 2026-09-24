@@ -2003,6 +2003,10 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if record_id.startswith("argon_"):
+        from scripts.reproduce_argon import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id.startswith("nacl_b2_sakai_2011_"):
         from scripts.reproduce_sakai_2011_nacl_b2 import ledger_outcome
 

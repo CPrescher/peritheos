@@ -1337,3 +1337,28 @@ fn determination_method_validation_legacy_default_and_round_trip() {
         assert!(load_eosmat_str(&document.to_string()).is_err());
     }
 }
+
+#[test]
+fn bundled_argon_fcc_retains_absolute_cold_curve_and_volume_basis() {
+    let Some(material) = load_bundled_material("argon_fcc.eosmat") else {
+        return;
+    };
+    let record = material.record("argon_fcc_dewaele_2021_vinet_mgd").unwrap();
+    assert_close(record.reference_volume(), 152.0, 1e-14);
+    assert_close(
+        record.pressure(131.608_127_337_796_87, 296.0).unwrap(),
+        1.396_999_258_050_067_6,
+        1e-11,
+    );
+    assert_close(
+        record.thermal_pressure_increment(100.0, 296.0).unwrap(),
+        0.0,
+        1e-14,
+    );
+    let ono = material.record("argon_fcc_ono_2020_vinet").unwrap();
+    assert_close(
+        ono.pressure(47.26, 300.0).unwrap(),
+        135.465_048_984_257_38,
+        1e-12,
+    );
+}

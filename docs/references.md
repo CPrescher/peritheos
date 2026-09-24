@@ -1,5 +1,18 @@
 # References
 
+- Dewaele, A., Rosa, A. D., Guignot, N., Andrault, D., Rodrigues, F. &
+  Garbarino, G. (2021). Stability and equation of state of face-centered cubic
+  and hexagonal close packed phases of argon under pressure.
+  *Scientific Reports*, 11, 15192.
+  [doi:10.1038/s41598-021-93995-y](https://doi.org/10.1038/s41598-021-93995-y).
+  The fcc cold curve, absolute Debye pressure and all 288 supplementary rows
+  are included; see the [argon audit](literature-reproductions/argon-fcc.md).
+- Ono, S. (2020). Fate of subducted argon in the deep mantle.
+  *Scientific Reports*, 10, 1393.
+  [doi:10.1038/s41598-020-58252-8](https://doi.org/10.1038/s41598-020-58252-8).
+  The experimental 300 K Vinet fit and all 19 supplementary observations are
+  included. The separate AIMD thermal extension remains outside this record.
+
 - Effenberger, H., Mereiter, K. & Zemann, J. (1981). Crystal structure
   refinements of magnesite, calcite, rhodochrosite, siderite, smithonite, and
   dolomite, with discussion of some aspects of the stereochemistry of calcite

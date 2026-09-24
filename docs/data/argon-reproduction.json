@@ -1,0 +1,182 @@
+{
+  "dewaele_2021": {
+    "benchmarks": [
+      {
+        "calculated_pressure_gpa": 1.3969992580500676,
+        "sample": "run1_001",
+        "source_pressure_gpa": 1.3463738,
+        "temperature_k": 296,
+        "tolerance_gpa": 0.15,
+        "volume_a3": 131.60812733779687
+      },
+      {
+        "calculated_pressure_gpa": 12.980693916621036,
+        "sample": "ArNe12_015",
+        "source_pressure_gpa": 12.945745,
+        "temperature_k": 296,
+        "tolerance_gpa": 0.32364362500000005,
+        "volume_a3": 83.39617540899998
+      },
+      {
+        "calculated_pressure_gpa": 63.970587124367796,
+        "sample": "ArNe12_047",
+        "source_pressure_gpa": 64.599632,
+        "temperature_k": 296,
+        "tolerance_gpa": 1.6149908000000002,
+        "volume_a3": 56.795802798519006
+      }
+    ],
+    "low_temperature_native_max_difference_gpa": 2.842170943040401e-14,
+    "low_temperature_rmse_gpa": 0.47320020955079833,
+    "low_temperature_rows": 62,
+    "native_max_difference_gpa": 9.237055564881302e-14,
+    "published_rmse_gpa": 0.34144299130983014,
+    "qualification": "95 selected rows; run 5 is independent validation. Equal-pressure weights are a diagnostic assumption: the publication supplies no objective, weights, coordinate uncertainties or covariance. Both 296 K (Methods) and 300 K (fit prose) evaluated. Missing pressures and duplicate rows retained in bundle.",
+    "refits": {
+      "296": {
+        "parameters": [
+          152.3842901654245,
+          7.4143791697887975
+        ],
+        "pressure_rmse_gpa": 0.27875374509339046,
+        "solver_success": true
+      },
+      "300": {
+        "parameters": [
+          152.31492457142969,
+          7.418261923231376
+        ],
+        "pressure_rmse_gpa": 0.27787657585501513,
+        "solver_success": true
+      }
+    },
+    "run_counts": {
+      "1": 88,
+      "2": 34,
+      "3": 35,
+      "4": 62,
+      "5": 69
+    },
+    "selected_rows": 95,
+    "total_rows": 288
+  },
+  "ono_2020": {
+    "benchmarks": [
+      {
+        "calculated_pressure_gpa": 3.66653423046301,
+        "source_pressure_gpa": 4.44,
+        "tolerance_gpa": 2.0,
+        "volume_a3": 110.74
+      },
+      {
+        "calculated_pressure_gpa": 54.71520735259061,
+        "source_pressure_gpa": 55.9,
+        "tolerance_gpa": 2.0,
+        "volume_a3": 60.6
+      },
+      {
+        "calculated_pressure_gpa": 135.46504898425738,
+        "source_pressure_gpa": 136.7,
+        "tolerance_gpa": 2.0,
+        "volume_a3": 47.26
+      }
+    ],
+    "native_max_difference_gpa": 9.947598300641403e-14,
+    "published_rmse_gpa": 0.8474923941002821,
+    "qualification": "All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed.",
+    "refits": {
+      "effective_errors": {
+        "parameters": [
+          211.74492423778685,
+          0.4584437466877124,
+          8.664677487846673
+        ],
+        "pressure_rmse_gpa": 0.8531818076185209,
+        "solver_success": true
+      },
+      "equal_pressure": {
+        "parameters": [
+          184.3297432279854,
+          1.0750571601999548,
+          8.014167761307066
+        ],
+        "pressure_rmse_gpa": 0.8400864389010199,
+        "solver_success": true
+      }
+    },
+    "total_rows": 19
+  },
+  "wittlinger_1997": {
+    "equal_pressure_refit": {
+      "parameters": [
+        74.61212963830538,
+        7.094884087471241
+      ],
+      "pressure_rmse_gpa": 0.44014278329574763,
+      "solver_success": true
+    },
+    "errors_in_variables": {
+      "adjusted_coordinate_rmse_gpa": 0.012199115157540831,
+      "original_coordinate_rmse_gpa": 0.4510113341777895,
+      "parameters": [
+        72.78172096898437,
+        8.060302736427957
+      ],
+      "reduced_chi_square": 0.20254793447243688
+    },
+    "fcc_comparison": [
+      {
+        "atomic_volume_a3": 30.571866513376392,
+        "fcc_pressure_gpa": 2.0,
+        "relative_pressure_difference": 0.28917309812581715,
+        "within_wittlinger_pressure_range": true,
+        "wittlinger_pressure_gpa": 2.5783461962516343
+      },
+      {
+        "atomic_volume_a3": 25.482394345454793,
+        "fcc_pressure_gpa": 5.0,
+        "relative_pressure_difference": 0.30023742109871226,
+        "within_wittlinger_pressure_range": true,
+        "wittlinger_pressure_gpa": 6.501187105493561
+      },
+      {
+        "atomic_volume_a3": 22.84142428701406,
+        "fcc_pressure_gpa": 8.5,
+        "relative_pressure_difference": 0.1989995703881086,
+        "within_wittlinger_pressure_range": false,
+        "wittlinger_pressure_gpa": 10.191496348298923
+      },
+      {
+        "atomic_volume_a3": 18.91270366290435,
+        "fcc_pressure_gpa": 20.0,
+        "relative_pressure_difference": 0.009915325858361435,
+        "within_wittlinger_pressure_range": false,
+        "wittlinger_pressure_gpa": 20.19830651716723
+      },
+      {
+        "atomic_volume_a3": 15.136125600427853,
+        "fcc_pressure_gpa": 50.0,
+        "relative_pressure_difference": -0.16951038890696707,
+        "within_wittlinger_pressure_range": false,
+        "wittlinger_pressure_gpa": 41.524480554651646
+      },
+      {
+        "atomic_volume_a3": 12.587293960204263,
+        "fcc_pressure_gpa": 100.0,
+        "relative_pressure_difference": -0.2775147113745193,
+        "within_wittlinger_pressure_range": false,
+        "wittlinger_pressure_gpa": 72.24852886254807
+      }
+    ],
+    "published_max_abs_residual_gpa": 1.3082085570168207,
+    "published_parameters": {
+      "K0": 6.5,
+      "V0": 78.0
+    },
+    "published_reduced_chi_square": 0.4839971932935046,
+    "published_rmse_gpa": 0.7722620448085159,
+    "qualification": "Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit.",
+    "reproduction_status": "not_reproduced",
+    "total_rows": 9
+  }
+}

@@ -625,3 +625,8 @@ NaturalStrain3, SunMorse3, SunMorse4, Vinet). Other families reject a nonzero
 coefficient. Nonpositive state compressibility is rejected. These choices
 are preserved across Python/Rust loading, serialization, and native fitting.
 See the [Hirose gold audit](literature-reproductions/hirose-2008-gold.md).
+
+`Dewaele2006` also accepts `thermal_pressure_reference` as
+`reference_temperature` (default) or `absolute_zero`. In the latter mode
+its reference curve is at 0 K and `Tr` anchors pressure increments only;
+see the [argon audit](literature-reproductions/argon-fcc.md).

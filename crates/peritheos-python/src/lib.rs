@@ -775,6 +775,7 @@ impl PyThermalEos {
 
     #[staticmethod]
     #[allow(clippy::too_many_arguments)]
+    #[pyo3(signature = (rt_eos, tr, theta0, gamma0, gamma_inf, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n, thermal_pressure_reference="reference_temperature"))]
     fn dewaele_2006(
         rt_eos: PyRef<'_, PyRtEos>,
         tr: f64,
@@ -787,7 +788,17 @@ impl PyThermalEos {
         electronic_e: f64,
         electronic_g: f64,
         n: f64,
+        thermal_pressure_reference: &str,
     ) -> PyResult<Self> {
+        let baseline = match thermal_pressure_reference {
+            "reference_temperature" => ThermalPressureReference::ReferenceTemperature,
+            "absolute_zero" => ThermalPressureReference::AbsoluteZero,
+            _ => {
+                return Err(pyo3::exceptions::PyValueError::new_err(
+                    "invalid Dewaele2006 thermal_pressure_reference",
+                ))
+            }
+        };
         Ok(Self {
             model: ThermalModel::Dewaele2006(
                 Dewaele2006::new(
@@ -803,6 +814,7 @@ impl PyThermalEos {
                     electronic_g,
                     n,
                 )
+                .and_then(|model| model.with_thermal_pressure_reference(baseline))
                 .map_err(to_python_error)?,
             ),
         })

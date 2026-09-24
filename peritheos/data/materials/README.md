@@ -1,14 +1,14 @@
 # Bundled material library
 
-This directory contains 225 curated material documents with 614 EOS records. The
+This directory contains 226 curated material documents with 616 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
 <https://github.com/Dioptas/Dioptas>.
 
 Every EOS record has an explicit `determination_method` and a rationale under
-`parameter_provenance.determination_method`. The 2026-09-23 review classifies
-473 records as experimental, 114 as theoretical, 20 as hybrid, and seven as
+`parameter_provenance.determination_method`. The 2026-09-24 review classifies
+474 records as experimental, 114 as theoretical, 21 as hybrid, and seven as
 unknown. These counts include the two deferred Campbell source records.
 The seven unknowns are the Holland et al. (2013) THERMOCALC modified-Tait
 endmembers: the existing source audit verifies the coefficients but does not
@@ -36,7 +36,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-20 classifies 612 of 614 bundled records as
+dated 2026-09-24 classifies 614 of 616 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
 discrepancies; they are not exposed by the executable catalog. The complete
@@ -76,7 +76,7 @@ Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to
-185 EOS records citing 115 distinct publications. All 614 records now carry
+185 EOS records citing 115 distinct publications. All 616 records now carry
 an explicit publication title; `reference.source` retains the journal or
 book name. Previously, the catalog fell back to that source name when a
 title was absent.
@@ -143,10 +143,10 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 313 distinct primary datasets with
-22,394 observation rows, represented by
-352 material-document links to
-473 EOS records.
+The current bundle contains 315 distinct primary datasets with
+22,701 observation rows, represented by
+354 material-document links to
+475 EOS records.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,
@@ -262,3 +262,12 @@ An omitted `thermal_expansion_law` means `constant`; the explicit
 relation `V0(T)=V0(Tr)*[1+alpha0*(T-Tr)]` used by the staged aragonite record.
 `berman` applies EosFit7's truncated quadratic
 `V0(T)=V0(Tr)*[1+alpha0*(T-Tr)+0.5*alpha1*(T-Tr)^2]`.
+
+## Argon
+
+The fcc card supplies Dewaele (2021) Vinet-MGD and Ono (2020) Vinet,
+with 307 supplementary observations. Wittlinger remains a separate hcp-only
+historical fit, qualified against use as a general pressure standard.
+The [argon reproduction](../../../docs/literature-reproductions/argon-fcc.md)
+documents the cold-curve convention, phase separation, refits, and correction
+of the old Wittlinger adjusted-coordinate residual comparison.

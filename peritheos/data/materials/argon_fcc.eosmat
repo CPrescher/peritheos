@@ -1,0 +1,479 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "argon_fcc",
+ "name": "Argon (fcc)",
+ "formula": "Ar",
+ "phase": "fcc",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 5.0868,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Ar",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "peaks": [],
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "source": {
+  "reference": {
+   "authors": [
+    "Finger",
+    "Hazen",
+    "Zou",
+    "Mao",
+    "Bell"
+   ],
+   "year": 1981,
+   "title": "Structure and compression of crystalline argon and neon at high pressure and room temperature",
+   "source": "Applied Physics Letters",
+   "volume": "39",
+   "locator": "892-894",
+   "doi": "10.1063/1.92597"
+  },
+  "source_location": "Page 892, Table I and diffraction structure identification: Fm-3m, Z=4; a=5.0868(20) A at 12.8(6) kbar and 293 K.",
+  "access_url": "https://hazen.carnegiescience.edu/sites/hazen.gl.ciw.edu/files/061-argon-1981.pdf"
+ },
+ "notes": "Reference diffraction cell is measured at 1.28 GPa and 293 K, not ambient pressure. The fully occupied 4a site is the monatomic fcc structural model identified by Finger et al. EOS volumes refer to four-atom conventional cells. fcc/hcp coexistence is not a sharp equilibrium boundary.",
+ "eos_records": [
+  {
+   "identifier": "argon_fcc_dewaele_2021_vinet_mgd",
+   "label": "Dewaele et al. (2021), quasi-hydrostatic Vinet-MGD",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Rosa",
+     "Guignot",
+     "Andrault",
+     "Rodrigues",
+     "Garbarino"
+    ],
+    "year": 2021,
+    "title": "Stability and equation of state of face-centered cubic and hexagonal close packed phases of argon under pressure",
+    "source": "Scientific Reports",
+    "volume": "11",
+    "locator": "15192",
+    "doi": "10.1038/s41598-021-93995-y"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 152.0,
+     "K0": 2.65,
+     "K0_prime": 7.423
+    }
+   },
+   "parameter_errors": {},
+   "fixed_parameters": [
+    "K0"
+   ],
+   "temperature_ref": 296.0,
+   "experimental_pressure_range_gpa": [
+    1.3463738,
+    64.599632
+   ],
+   "experimental_temperature_range_k": [
+    10.0,
+    296.0
+   ],
+   "determination_method": "hybrid",
+   "fit_datasets": [
+    "argon_fcc_dewaele_2021_supplement"
+   ],
+   "parameter_provenance": {
+    "determination_method": "Experimental compression fit and adopted low-temperature constraints combined with an assumed theoretical infinite-compression Gruneisen limit of 0.5.",
+    "V0": "Table 2: 38.0 A^3/atom multiplied by four atoms per conventional fcc cell; 0 K cold-curve parameter.",
+    "K0": "Table 2 and adjacent prose: fixed 2.65 GPa at 0 K.",
+    "K0_prime": "Table 2: fitted 7.423, uncertainty not reported.",
+    "Tr": "296 K measured room temperature, Methods; increment anchor only, not a subtraction from total pressure.",
+    "theta0": "Table 2 and Eq. (5), 93.3 K.",
+    "gamma0": "Table 2, 2.7.",
+    "gamma_inf": "Eq. (4), assumed infinite-compression limit 0.5.",
+    "beta": "Eq. (4): linear volume ratio, exponent one.",
+    "n": "Monatomic Ar, one atom per formula unit.",
+    "anharmonic_a": "Zero: no anharmonic term in Eq. (3).",
+    "electronic_e": "Zero: no electronic term in Eq. (3).",
+    "anharmonic_m": "One: arbitrary inactive exponent of the zero anharmonic coefficient.",
+    "electronic_g": "One: arbitrary inactive exponent of the zero electronic coefficient."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference_eos_record": "gold_takemura_2008_vinet_6",
+      "source_location": "Table 1 and Methods, reference 28",
+      "reference": "Takemura and Dewaele (2008), Phys. Rev. B 78, 104119, doi:10.1103/PhysRevB.78.104119"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_dewaele_2008",
+      "source_location": "Run 5, Methods and references 38-39",
+      "notes": "Cryogenic pressures additionally use Syassen 2008 temperature correction; raw ruby observations not supplied."
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Au lattice parameters supplied for runs 1-4. Run 5 uses Dewaele 2008 ruby with Syassen 2008 temperature correction; raw wavelengths are absent.",
+     "dataset_identifiers": [
+      "argon_fcc_dewaele_2021_supplement"
+     ]
+    },
+    "audit_date": "2026-09-24",
+    "notes": "Au scale in Table 1 is explicit; raw ruby wavelengths and the numerical temperature-correction procedure for run 5 cannot be reconstructed from the supplementary columns."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "note": "Primary equations, coefficients and supplementary observations checked; independent equation implementation and diagnostic refits documented in docs/literature-reproductions/argon-fcc.md.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1038/s41598-021-93995-y",
+     "doi": "10.1038/s41598-021-93995-y",
+     "locations": [
+      "Equations (2)-(5), Table 2, Methods and supplementary runs 1-5"
+     ]
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-24",
+     "dataset_identifiers": [
+      "argon_fcc_dewaele_2021_supplement"
+     ],
+     "source_locations": [
+      "Official supplementary tables"
+     ],
+     "finding": "Complete recoverable tabulated observations retained; independent refit objective sensitivities documented."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_argon.py",
+     "report": "docs/data/argon-reproduction.json",
+     "note": "Native evaluation matches independent equation and Debye quadrature; diagnostic refits retain source coefficients."
+    }
+   },
+   "default": true,
+   "thermal": {
+    "type": "Dewaele2006",
+    "model": "dewaele_2006",
+    "thermal_pressure_reference": "absolute_zero",
+    "parameters": {
+     "Tr": 296.0,
+     "theta0": 93.3,
+     "gamma0": 2.7,
+     "gamma_inf": 0.5,
+     "beta": 1.0,
+     "anharmonic_a": 0.0,
+     "anharmonic_m": 1.0,
+     "electronic_e": 0.0,
+     "electronic_g": 1.0,
+     "n": 1.0
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "gamma_inf",
+     "beta",
+     "anharmonic_a",
+     "anharmonic_m",
+     "electronic_e",
+     "electronic_g",
+     "n"
+    ]
+   },
+   "notes": "Cold curve is at 0 K; Tr=296 K anchors thermal-pressure increments only. Absolute Debye thermal pressure excludes zero-point pressure. Gamma=0.5+2.2*(V/V0). Fit coverage is quasi-hydrostatic runs 2-3 plus pure argon below 5 GPa; pure-Ar compression to 114 GPa is a separate comparison. Low-temperature validation is below about 20 GPa, not the full P-T rectangle. Paper says 300 K in fitting prose although Methods report 296 K; both are audited. No fitted parameter errors or covariance reported. Supplement contains 5.5 K and 300 K rows beyond the headline 10-296 K range."
+  },
+  {
+   "identifier": "argon_fcc_ono_2020_vinet",
+   "label": "Ono (2020), 300 K Vinet",
+   "reference": {
+    "authors": [
+     "Ono"
+    ],
+    "year": 2020,
+    "title": "Fate of subducted argon in the deep mantle",
+    "source": "Scientific Reports",
+    "volume": "10",
+    "locator": "1393",
+    "doi": "10.1038/s41598-020-58252-8"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 184.5,
+     "K0": 1.07,
+     "K0_prime": 8.02
+    }
+   },
+   "parameter_errors": {
+    "V0": 38.5,
+    "K0": 1.33,
+    "K0_prime": 0.95
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    4.44,
+    136.7
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "determination_method": "experimental",
+   "fit_datasets": [
+    "argon_fcc_ono_2020_table1"
+   ],
+   "parameter_provenance": {
+    "determination_method": "Vinet fit of laser-annealed experimental room-temperature diffraction observations; no AIMD thermal coefficients included.",
+    "V0": "Supplementary Table 2: fitted 300 K extrapolated conventional-cell volume, 184.5(38.5) A^3.",
+    "K0": "Supplementary Table 2: 1.07(1.33) GPa.",
+    "K0_prime": "Supplementary Table 2: 8.02(0.95)."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": "Dorogokupets and Dewaele (2007), High Pressure Research 27, 431-446, doi:10.1080/08957950701659700",
+      "source_location": "Methods, reference 26: Dorogokupets and Dewaele (2007)"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No Au volumes accompany Table 1; reported Ar pressures retained."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "note": "Primary equations, coefficients and supplementary observations checked; independent equation implementation and diagnostic refits documented in docs/literature-reproductions/argon-fcc.md.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1038/s41598-020-58252-8",
+     "doi": "10.1038/s41598-020-58252-8",
+     "locations": [
+      "Equation (4), Figure 1, Methods, Supplementary Tables 1-2"
+     ]
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-24",
+     "dataset_identifiers": [
+      "argon_fcc_ono_2020_table1"
+     ],
+     "source_locations": [
+      "Official supplementary tables"
+     ],
+     "finding": "Complete recoverable tabulated observations retained; independent refit objective sensitivities documented."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_argon.py",
+     "report": "docs/data/argon-reproduction.json",
+     "note": "Native evaluation matches independent equation and Debye quadrature; diagnostic refits retain source coefficients."
+    }
+   },
+   "notes": "Conventional fcc cell, Z=4. V0 is an extrapolated fit parameter, not a measured ambient solid volume. Source one-sigma errors retained; covariance and exact fit weights are unavailable. Only the experimental 300 K Vinet curve is represented. The separate AIMD thermal extension is not included."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "argon_fcc_dewaele_2021_supplement",
+   "kind": "pressure_volume_temperature",
+   "description": "All 288 printed rows from runs 1-5, including missing-pressure rows, repeated observations, and paired Au/ArNe2 lattice parameters. Selection flag implements runs 2-3 plus pure-Ar rows at P<=5 GPa; run 5 validates thermal behavior.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Rosa",
+     "Guignot",
+     "Andrault",
+     "Rodrigues",
+     "Garbarino"
+    ],
+    "year": 2021,
+    "title": "Stability and equation of state of face-centered cubic and hexagonal close packed phases of argon under pressure",
+    "source": "Scientific Reports",
+    "volume": "11",
+    "locator": "15192",
+    "doi": "10.1038/s41598-021-93995-y"
+   },
+   "source_location": "Supplement, Ar Fcc EoS data points, runs 1-5",
+   "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-021-93995-y/MediaObjects/41598_2021_93995_MOESM1_ESM.pdf",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "sample",
+     "quantity": "sample",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "argon_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "gold_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "arne2_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "selected_for_room_temperature_fit",
+     "quantity": "selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_note",
+     "quantity": "note",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-fcc-dewaele-2021-supplement.csv",
+    "sha256": "51dd6f93f3f4beb9203eab7a9c5b90d035b1d1c7fe01902da477fd325c3d8359",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_fcc_dewaele_2021_vinet_mgd"
+   ],
+   "provenance": {
+    "type": "transcribed_primary_table",
+    "source_pdf_sha256": "d220a33b58f5024e3957110ce406db84111785d8e506bb042c74143992907b1b",
+    "transcribed_on": "2026-09-24",
+    "notes": "Original printed quantities retained. No uncertainty inferred. Dewaele runs 1-4 assigned the measured 296 K from Methods; run 5 temperatures copied verbatim, including 5.5 K and 300 K.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "license": "CC-BY-4.0"
+  },
+  {
+   "identifier": "argon_fcc_ono_2020_table1",
+   "kind": "pressure_volume",
+   "description": "All 19 observations, with printed 1-sigma pressure and conventional-cell-volume uncertainties.",
+   "reference": {
+    "authors": [
+     "Ono"
+    ],
+    "year": 2020,
+    "title": "Fate of subducted argon in the deep mantle",
+    "source": "Scientific Reports",
+    "volume": "10",
+    "locator": "1393",
+    "doi": "10.1038/s41598-020-58252-8"
+   },
+   "source_location": "Supplementary Table 1, page 2",
+   "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-020-58252-8/MediaObjects/41598_2020_58252_MOESM1_ESM.pdf",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-fcc-ono-2020-table1.csv",
+    "sha256": "da2da4f723b0d32a025f18cb7a5f436f65743fbcc6456d2025afe9a2cc93d6cf",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_fcc_ono_2020_vinet"
+   ],
+   "provenance": {
+    "type": "transcribed_primary_table",
+    "source_pdf_sha256": "e31dae88561ac6ea715ed50ddd142e77952aeb21f93672aaa2c5f8572aae89b2",
+    "transcribed_on": "2026-09-24",
+    "notes": "Parentheses transcribed as standard deviations; column blocks read down then across.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "license": "CC-BY-4.0"
+  }
+ ]
+}

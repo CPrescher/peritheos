@@ -23,7 +23,7 @@ from typing import Any
 
 AUDIT_DATE = "2026-09-01"
 CATALOG_AUDIT_DATE = "2026-09-03"
-REPORT_AUDIT_DATE = "2026-09-20"
+REPORT_AUDIT_DATE = "2026-09-24"
 AGGREGATE_AUDIT_DATE = "2026-09-08"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
@@ -3780,6 +3780,8 @@ def main() -> None:
             }
             if "usage_recommendation" in check:
                 entry["usage_recommendation"] = check["usage_recommendation"]
+            if "reproduction_status" in check:
+                entry["reproduction_status"] = check["reproduction_status"]
             entries.append(entry)
         document["eos_records"] = records
         path.write_text(
@@ -3879,6 +3881,8 @@ def aggregate_existing_audits() -> None:
             }
             if "usage_recommendation" in check:
                 entry["usage_recommendation"] = check["usage_recommendation"]
+            if "reproduction_status" in check:
+                entry["reproduction_status"] = check["reproduction_status"]
             entries.append(entry)
             pressure_calibrations.append(record["pressure_calibration"])
 

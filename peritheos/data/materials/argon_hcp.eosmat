@@ -1,6 +1,7 @@
 {
  "format_version": 3,
- "name": "Argon",
+ "name": "Argon (hcp)",
+ "phase": "hcp",
  "formula": "Ar",
  "symmetry": "HEXAGONAL",
  "lattice": {
@@ -28,7 +29,7 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "Wittlinger et al. (1997)",
+   "label": "Wittlinger et al. (1997), hcp argon",
    "reference": {
     "authors": [
      "Wittlinger",
@@ -61,7 +62,7 @@
     1.2,
     8.5
    ],
-   "notes": "The publication reports V0=78(3) A^3 and K0=6.5(1.3) GPa; K0_prime is fixed at 4 by BM2. V0 is a fitted reference volume because ambient hcp argon could not be measured directly.",
+   "notes": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. The publication reports V0=78(3) A^3 and K0=6.5(1.3) GPa; K0_prime is fixed at 4 by BM2. V0 is a fitted reference volume because ambient hcp argon could not be measured directly. Historical hcp-only fit over 1.2-8.5 GPa; not recommended as a general argon pressure standard or for high-pressure extrapolation. The published curve has 0.772 GPa RMS residual on the nine digitized observations. An errors-in-variables diagnostic has about 0.451 GPa RMS at the original observations, versus 0.012 GPa at adjusted coordinates; these metrics must not be compared as equivalent improvements.",
    "identifier": "argon_hcp_wittlinger_1997_bm2_1",
    "determination_method": "experimental",
    "parameter_provenance": {
@@ -85,7 +86,7 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "note": "Primary-source validation covers transcription of the equation and coefficients, not reproduction of the fit. NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. ",
     "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
@@ -120,7 +121,16 @@
       "Figure 3; Section 3.2; journal pages 747-748"
      ],
      "finding": "The hcp-argon relative-volume observations used for the Birch-Murnaghan fit are published graphically in Figure 3. Nine experimental markers and their asymmetric vertical error bars were digitized. The plotted fitted reference point at P=0 and V/V0=1 was excluded because the paper explicitly states that ambient hcp volume was not measured."
-    }
+    },
+    "usage_recommendation": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
+    "independent_numerical_check": {
+     "audit_date": "2026-09-24",
+     "script": "scripts/reproduce_argon.py",
+     "report": "docs/data/argon-reproduction.json",
+     "finding": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Published transcription preserved. Large digitized volume errors admit the source curve, but coefficient identification is weak. Raw-observation residuals do not support the old 60-fold improvement claim from adjusted-coordinate RMSE. A fresh full-text check was blocked by institutional access; this diagnostic uses previously audited source values and stored digitization.",
+     "status": "not_reproduced"
+    },
+    "reproduction_status": "not_reproduced"
    }
   }
  ],
@@ -243,7 +253,7 @@
     },
     "quality_control": {
      "published_bm2_rms_pressure_residual_gpa": 0.7723,
-     "published_bm2_max_abs_pressure_residual_gpa": 1.3077
+     "published_bm2_max_abs_pressure_residual_gpa": 1.3082
     },
     "digitized_on": "2026-09-03"
    }

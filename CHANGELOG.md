@@ -5,6 +5,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+- Add diffraction-ready fcc argon with Dewaele (2021) thermal and Ono (2020)
+  isothermal EOS records, all 307 supplementary observations, and independent
+  reproductions. Support an absolute-zero thermal baseline in `Dewaele2006`
+  in Python, Rust and material interchange.
+- Qualify the historical Wittlinger hcp argon fit and correct its refit audit
+  to compare residuals at original observations rather than adjusted coordinates.
+  Flag the published fit as not reproduced and exclude it from reproduced totals;
+  its digitized-data refits are diagnostics only.
+
 - Classify every bundled EOS with `determination_method` (experimental,
   theoretical, hybrid, or unknown), preserve the source rationale, validate
   the field in Python and Rust, and expose it through record accessors and

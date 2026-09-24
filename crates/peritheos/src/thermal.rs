@@ -1310,12 +1310,15 @@ impl<R: IsothermalEos> CaloricEos for AsymptoticPowerLawMieGruneisenDebye<R> {
 /// Dewaele et al. (2006) hcp-Fe thermal pressure scale.
 ///
 /// This is the single-Debye specialization of the Dorogokupets--Oganov
-/// formalism used in equations (1)--(2) of Dewaele et al. The reference EOS
-/// is a complete isotherm at [`Self::tr`]. The vibrational, intrinsic
-/// anharmonic, and electronic pressures are therefore all rebased to zero at
-/// that temperature.
+/// formalism used in equations (1)--(2) of Dewaele et al. By default the reference
+/// EOS is a complete isotherm at [`Self::tr`], and thermal pressures are rebased
+/// to zero there. The absolute-zero option instead adds thermal pressure to a
+/// 0 K cold curve, omitting zero-point pressure (Dewaele et al. 2021, argon).
+/// Pressure increments remain anchored to [`Self::tr`] in either mode.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Dewaele2006<R> {
+    /// Pressure baseline; absolute zero omits zero-point pressure.
+    pub thermal_pressure_reference: ThermalPressureReference,
     /// Reference isotherm.
     pub rt_eos: R,
     /// Reference temperature in kelvin.
@@ -1370,6 +1373,7 @@ impl<R: IsothermalEos> Dewaele2006<R> {
             });
         }
         Ok(Self {
+            thermal_pressure_reference: ThermalPressureReference::ReferenceTemperature,
             rt_eos,
             tr: positive_parameter(tr, "Tr")?,
             theta0: positive_parameter(theta0, "theta0")?,
@@ -1382,6 +1386,24 @@ impl<R: IsothermalEos> Dewaele2006<R> {
             electronic_g: positive_parameter(electronic_g, "electronic_g")?,
             n: positive_parameter(n, "n")?,
         })
+    }
+
+    /// Configure a reference-isotherm or absolute-zero pressure baseline.
+    ///
+    /// # Errors
+    /// Returns an error for the unsupported reference-isentrope convention.
+    pub fn with_thermal_pressure_reference(
+        mut self,
+        baseline: ThermalPressureReference,
+    ) -> EosResult<Self> {
+        if baseline == ThermalPressureReference::ReferenceIsentrope {
+            return Err(EosError::InvalidParameter {
+                name: "thermal_pressure_reference",
+                reason: "reference_isentrope is unsupported for Dewaele2006",
+            });
+        }
+        self.thermal_pressure_reference = baseline;
+        Ok(self)
     }
 
     /// Volume-dependent Gruneisen parameter.
@@ -1424,8 +1446,13 @@ impl<R: IsothermalEos> Dewaele2006<R> {
     /// Returns an error for invalid state variables or non-finite evaluation.
     pub fn vibrational_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
-        let energy_difference = self.vibrational_energy(volume, temperature)?
-            - self.vibrational_energy(volume, self.tr)?;
+        let reference_energy =
+            if self.thermal_pressure_reference == ThermalPressureReference::AbsoluteZero {
+                0.0
+            } else {
+                self.vibrational_energy(volume, self.tr)?
+            };
+        let energy_difference = self.vibrational_energy(volume, temperature)? - reference_energy;
         finite_result(self.volume_gruneisen_parameter(volume)? * energy_difference / volume / 1.0e4)
     }
 
@@ -1439,13 +1466,19 @@ impl<R: IsothermalEos> Dewaele2006<R> {
         let volume = positive_state(volume, "volume")?;
         let temperature = positive_state(temperature, "temperature")?;
         let ratio = volume / self.rt_eos.reference_volume();
+        let baseline = if self.thermal_pressure_reference == ThermalPressureReference::AbsoluteZero
+        {
+            0.0
+        } else {
+            self.tr
+        };
         finite_result(
             1.5 * self.n
                 * GAS_CONSTANT
                 * coefficient
                 * exponent
                 * ratio.powf(exponent)
-                * (temperature * temperature - self.tr * self.tr)
+                * (temperature * temperature - baseline * baseline)
                 / volume
                 / 1.0e4,
         )
@@ -1479,6 +1512,17 @@ impl<R: IsothermalEos> ThermalEos for Dewaele2006<R> {
 
     fn reference_temperature(&self) -> f64 {
         self.tr
+    }
+
+    fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        if self.thermal_pressure_reference == ThermalPressureReference::AbsoluteZero {
+            finite_result(
+                self.thermal_pressure(volume, temperature)?
+                    - self.thermal_pressure(volume, self.tr)?,
+            )
+        } else {
+            self.thermal_pressure(volume, temperature)
+        }
     }
 
     fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {

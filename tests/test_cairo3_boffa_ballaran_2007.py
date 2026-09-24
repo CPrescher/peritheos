@@ -220,7 +220,9 @@ def test_cairo3_pressure_calibration_links_resolve_globally():
 
 
 @pytest.mark.parametrize(("material_identifier", "case"), CASES.items())
-def test_room_temperature_convention_is_explicit_and_roundtrips(material_identifier, case):
+def test_room_temperature_convention_is_explicit_and_roundtrips(
+    material_identifier, case
+):
     document = get_material_document(material_identifier)
     raw = document["eos_records"][0]
     assert raw["temperature_ref"] == 298.0
@@ -241,9 +243,12 @@ def test_room_temperature_convention_is_explicit_and_roundtrips(material_identif
         record.pressure(case["high_pressure_volume"], 300.0)
 
 
-@pytest.mark.parametrize("change", ["missing_value", "other_value", "unknown_kind", "empty_note"])
+@pytest.mark.parametrize(
+    "change", ["missing_value", "other_value", "unknown_kind", "empty_note"]
+)
 def test_invalid_room_temperature_conventions_are_rejected(change):
     from peritheos.eosmat import validate_eosmat_document
+
     document = get_material_document("cairo3_perovskite")
     raw = document["eos_records"][0]
     if change == "missing_value":

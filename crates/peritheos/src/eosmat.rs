@@ -2909,6 +2909,17 @@ fn build_thermal(
         }
         "dewaele_2006" => {
             check_type(component, "Dewaele2006")?;
+            let baseline = match configuration(component, "thermal_pressure_reference")
+                .unwrap_or("reference_temperature")
+            {
+                "reference_temperature" => ThermalPressureReference::ReferenceTemperature,
+                "absolute_zero" => ThermalPressureReference::AbsoluteZero,
+                value => {
+                    return Err(format!(
+                        "unknown Dewaele2006 thermal_pressure_reference {value:?}"
+                    ))
+                }
+            };
             Dewaele2006::new(
                 reference,
                 p("Tr")?,
@@ -2922,6 +2933,7 @@ fn build_thermal(
                 p("electronic_g")?,
                 p("n")?,
             )
+            .and_then(|model| model.with_thermal_pressure_reference(baseline))
             .map(ThermalModel::Dewaele2006)
         }
         "dorogokupets_oganov_2007" => {

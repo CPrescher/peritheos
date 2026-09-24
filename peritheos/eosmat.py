@@ -788,6 +788,15 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     f"{location}.thermal.debye_temperature_law requires "
                     "MieGruneisenDebye"
                 )
+            elif thermal_type == "Dewaele2006":
+                if (
+                    thermal_pressure_reference is not None
+                    and thermal_pressure_reference
+                    not in ("reference_temperature", "absolute_zero")
+                ):
+                    raise EosmatError(
+                        f"{location}.thermal.thermal_pressure_reference is invalid"
+                    )
             elif thermal_pressure_reference is not None:
                 raise EosmatError(
                     f"{location}.thermal.thermal_pressure_reference requires "

@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-20",
+  "audit_date": "2026-09-24",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,9 +9,9 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 614,
+    "records": 616,
     "deferred": 2,
-    "primary_source_validated": 612
+    "primary_source_validated": 614
   },
   "records": [
     {
@@ -524,13 +524,45 @@
       }
     },
     {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_dewaele_2021_vinet_mgd",
+      "label": "Dewaele et al. (2021), quasi-hydrostatic Vinet-MGD",
+      "doi": "10.1038/s41598-021-93995-y",
+      "status": "primary_source_validated",
+      "note": "Primary equations, coefficients and supplementary observations checked; independent equation implementation and diagnostic refits documented in docs/literature-reproductions/argon-fcc.md.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1038/s41598-021-93995-y",
+        "doi": "10.1038/s41598-021-93995-y",
+        "locations": [
+          "Equations (2)-(5), Table 2, Methods and supplementary runs 1-5"
+        ]
+      }
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_ono_2020_vinet",
+      "label": "Ono (2020), 300 K Vinet",
+      "doi": "10.1038/s41598-020-58252-8",
+      "status": "primary_source_validated",
+      "note": "Primary equations, coefficients and supplementary observations checked; independent equation implementation and diagnostic refits documented in docs/literature-reproductions/argon-fcc.md.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1038/s41598-020-58252-8",
+        "doi": "10.1038/s41598-020-58252-8",
+        "locations": [
+          "Equation (4), Figure 1, Methods, Supplementary Tables 1-2"
+        ]
+      }
+    },
+    {
       "material": "argon_hcp",
       "file": "argon_hcp.eosmat",
       "record": "argon_hcp_wittlinger_1997_bm2_1",
-      "label": "Wittlinger et al. (1997)",
+      "label": "Wittlinger et al. (1997), hcp argon",
       "doi": "10.1107/s0108768197005739",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Primary-source validation covers transcription of the equation and coefficients, not reproduction of the fit. NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. ",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1107/S0108768197005739",
         "locations": [
@@ -538,7 +570,9 @@
           "hcp Ar EOS fit and reported uncertainty"
         ],
         "doi": "10.1107/s0108768197005739"
-      }
+      },
+      "usage_recommendation": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
+      "reproduction_status": "not_reproduced"
     },
     {
       "material": "b4c",

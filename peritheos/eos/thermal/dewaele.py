@@ -35,7 +35,13 @@ class Dewaele2006(ThermalEOS):
     ``electronic_e`` coefficients are supplied in K^-1, matching Dewaele's
     printed equation rather than the ``10^-6 K^-1`` table convention used by
     :class:`DorogokupetsOganov2007`.
+
+    ``thermal_pressure_reference="absolute_zero"`` adds these terms to a
+    0 K cold curve, omitting zero-point pressure. ``Tr`` then anchors pressure
+    increments only (Dewaele et al. 2021, argon equations 2-5).
     """
+
+    _constructor_configuration_names = ("thermal_pressure_reference",)
 
     def __init__(
         self,
@@ -50,6 +56,7 @@ class Dewaele2006(ThermalEOS):
         electronic_e: float,
         electronic_g: float,
         n: float,
+        thermal_pressure_reference: str = "reference_temperature",
     ) -> None:
         if not isinstance(rt_eos, EosBase):
             raise ConfigurationError("rt_eos must be an equation of state")
@@ -72,6 +79,11 @@ class Dewaele2006(ThermalEOS):
             raise EosValidationError("electronic_e must not be negative")
         self.electronic_g = validate_positive_scalar(electronic_g, "electronic_g")
         self.n = validate_positive_scalar(n, "n")
+        if thermal_pressure_reference not in ("reference_temperature", "absolute_zero"):
+            raise EosValidationError(
+                "thermal_pressure_reference must be 'reference_temperature' or 'absolute_zero'"
+            )
+        self.thermal_pressure_reference = thermal_pressure_reference
         reference_native = _native_for_exact_model(rt_eos)
         if reference_native is not None and type(self) is Dewaele2006:
             from peritheos import _rust
@@ -88,7 +100,19 @@ class Dewaele2006(ThermalEOS):
                 self.electronic_e,
                 self.electronic_g,
                 self.n,
+                self.thermal_pressure_reference,
             )
+
+    def configuration_values(self) -> dict[str, str | float]:
+        if self.thermal_pressure_reference == "reference_temperature":
+            return {}
+        return {"thermal_pressure_reference": self.thermal_pressure_reference}
+
+    def thermal_pressure_increment(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the pressure change from ``Tr`` at fixed volume, in GPa."""
+        if self.thermal_pressure_reference == "reference_temperature":
+            return self.thermal_pressure(V, T)
+        return self.thermal_pressure(V, T) - self.thermal_pressure(V, self.Tr)
 
     def gruneisen_parameter(
         self, V: NumericType, T: NumericType | None = None
@@ -149,7 +173,11 @@ class Dewaele2006(ThermalEOS):
             )
         energy_difference = np.asarray(
             self._vibrational_energy(volumes, temperatures), dtype=float
-        ) - np.asarray(self._vibrational_energy(volumes, self.Tr), dtype=float)
+        )
+        if self.thermal_pressure_reference == "reference_temperature":
+            energy_difference -= np.asarray(
+                self._vibrational_energy(volumes, self.Tr), dtype=float
+            )
         result = self.gruneisen_parameter(volumes) * energy_difference / volumes / 1.0e4
         return self._scalar_or_array(np.asarray(result, dtype=float))
 
@@ -162,6 +190,11 @@ class Dewaele2006(ThermalEOS):
     ) -> NumericType:
         volumes, temperatures = self._broadcast_state(V, T)
         ratio = volumes / self.rt_eos.V0
+        baseline = (
+            self.Tr
+            if self.thermal_pressure_reference == "reference_temperature"
+            else 0.0
+        )
         result = (
             1.5
             * self.n
@@ -169,7 +202,7 @@ class Dewaele2006(ThermalEOS):
             * coefficient
             * exponent
             * ratio**exponent
-            * (temperatures**2 - self.Tr**2)
+            * (temperatures**2 - baseline**2)
             / volumes
             / 1.0e4
         )
@@ -208,7 +241,7 @@ class Dewaele2006(ThermalEOS):
         )
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
-        """Return total pressure above the reference-temperature isotherm."""
+        """Return thermal pressure relative to the configured baseline, in GPa."""
         volumes, temperatures = self._broadcast_state(V, T)
         if hasattr(self, "_native"):
             return _native_thermal_evaluate(

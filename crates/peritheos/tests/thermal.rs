@@ -1245,3 +1245,46 @@ fn double_debye_birch_murnaghan_references_preserve_energy_pressure_consistency(
     check_double_debye_reference(BM3::new(1.1, 160.0, 4.6).unwrap());
     check_double_debye_reference(BM4::new(1.1, 160.0, 4.6, -0.02).unwrap());
 }
+
+#[test]
+fn dewaele_absolute_zero_matches_argon_and_rebases_increments() {
+    use peritheos::thermal::ThermalPressureReference;
+    let v0 = 38.0 * 0.060_221_407_6;
+    let model = Dewaele2006::new(
+        Vinet::new(v0, 2.65, 7.423).unwrap(),
+        296.0,
+        93.3,
+        2.7,
+        0.5,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+    )
+    .unwrap()
+    .with_thermal_pressure_reference(ThermalPressureReference::AbsoluteZero)
+    .unwrap();
+    let volume = 131.608_127_337_796_87 / 4.0 * 0.060_221_407_6;
+    // Independent quadrature of Dewaele (2021), Eqs. (2)-(5).
+    assert_close(
+        model.pressure(volume, 296.0).unwrap(),
+        1.396_999_258_050_067_6,
+        1e-11,
+    );
+    assert_close(
+        model.thermal_pressure_increment(volume, 296.0).unwrap(),
+        0.0,
+        1e-14,
+    );
+    assert!(model.thermal_pressure(volume, 296.0).unwrap() > 0.0);
+    for temperature in [10.0, 150.0, 296.0] {
+        let volume = model.volume(20.0, temperature).unwrap();
+        assert_close(model.pressure(volume, temperature).unwrap(), 20.0, 1e-10);
+    }
+    assert!(model
+        .with_thermal_pressure_reference(ThermalPressureReference::ReferenceIsentrope)
+        .is_err());
+    assert!(model.pressure(volume, 0.0).is_err());
+}
