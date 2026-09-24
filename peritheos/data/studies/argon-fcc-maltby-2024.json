@@ -322,10 +322,19 @@
   },
   "reproduction": {
     "status": "not_reproduced",
-    "reason": "Literal source coefficients give23.89043 rather than23.97cm\u00b3/mol at70K,1MPa. Required lattice cutoff not specified. Experimental implementation available; not promoted to validated EOS catalog.",
+    "reason": "Literal source coefficients give23.89043 rather than23.97cm\u00b3/mol at70K,1MPa. Required lattice cutoff not specified. Experimental implementation available; not promoted to validated EOS catalog. Coefficient sensitivity and constrained two-parameter refit do not resolve source table mismatch; refit worsens independent checks and stays experimental. Official SI shell at squared distance14 conflicts with fcc geometry.",
     "observation_dataset_identifiers": [
       "argon_fcc_dewaele_2021_supplement"
     ],
     "eos_record_identifiers": []
+  },
+  "followup_audit": {
+    "documentation": "docs/literature-reproductions/argon-maltby-2024-refit.md",
+    "report": "docs/data/argon-maltby-2024-refit.json",
+    "refit_identifier": "argon_fcc_maltby_2024_diagnostic_refit",
+    "status": "diagnostic_refit_not_promoted",
+    "source_discrepancy": "Official SI.1 includes 48 neighbours at squared distance14; geometric fcc count is0. Literal SI list worsens sample-volume mismatch.",
+    "author_request": "docs/author-requests/maltby-2024.md",
+    "contact_status": "not_contacted"
   }
 }

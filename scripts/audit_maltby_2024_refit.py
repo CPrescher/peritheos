@@ -204,8 +204,10 @@ def rounding_audit():
         )
     # A one-point match is a diagnostic only, never a fitting observation.
     rmin = brentq(
-        lambda x: Maltby2024Trial(64, replace(PUBLISHED, rmin_a=x)).pressure(2.397, 70)
-        - 0.001,
+        lambda x: (
+            Maltby2024Trial(64, replace(PUBLISHED, rmin_a=x)).pressure(2.397, 70)
+            - 0.001
+        ),
         3.78,
         3.83,
     )
