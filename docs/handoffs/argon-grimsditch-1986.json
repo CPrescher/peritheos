@@ -1,0 +1,117 @@
+{
+  "study": "Grimsditch, Loubeyre and Polian (1986)",
+  "implementation_commit": "43c22e093a5a074491b838cf44ad330da0267d93",
+  "worktree": "/Users/clemens/.codex/worktrees/1b67/peritheos",
+  "coordinator_task_id": "01a0d259-4995-7a63-a9e4-af02c28c36cc",
+  "bibliography": {
+    "title": "Brillouin scattering and three-body forces in argon at high pressures",
+    "authors": [
+      {
+        "family": "Grimsditch",
+        "given": "M."
+      },
+      {
+        "family": "Loubeyre",
+        "given": "P."
+      },
+      {
+        "family": "Polian",
+        "given": "A."
+      }
+    ],
+    "journal": "Physical Review B",
+    "volume": "33",
+    "issue": "10",
+    "pages": "7192-7200",
+    "date": "1986-05-15",
+    "doi": "10.1103/PhysRevB.33.7192",
+    "url": "https://doi.org/10.1103/PhysRevB.33.7192",
+    "ris_path": "/Users/clemens/Documents/Peritheos/literature/argon/grimsditch-1986/grimsditch-1986.ris"
+  },
+  "pdf": {
+    "path": "/Users/clemens/Documents/Peritheos/literature/argon/grimsditch-1986/grimsditch-1986.pdf",
+    "origin_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.33.7192/fulltext",
+    "retrieved_on": "2026-09-24",
+    "sha256": "3bd0e12705ebafd084ce72b1f2debb7ac47b5be37017f7e26be4c7bffc8c3729",
+    "bytes": 623836,
+    "page_count": 9,
+    "identity_verification": "Publisher title, three authors, journal/volume/date, pages7192-7200 and TablesI-II checked against rendered PDF. Full article, not abstract or a citing paper.",
+    "copyright": "APS1986. Stored outside git."
+  },
+  "zotero": {
+    "destination": "My Library > Methods > EOS Library",
+    "destination_connector_target": "C18",
+    "status": "pending_coordinator_import",
+    "existing_item_key": null,
+    "existing_attachment_key": null,
+    "read_only_searches": [
+      "Grimsditch",
+      "10.1103/PhysRevB.33.7192"
+    ],
+    "search_result": "No matching items returned; API and connector healthy.",
+    "writes_performed": false,
+    "access_blocker": null
+  },
+  "records": [
+    "argon_fcc_grimsditch_1986_density_polynomial"
+  ],
+  "datasets": [
+    {
+      "path": "peritheos/data/datasets/argon-grimsditch-1986-table1.csv",
+      "sha256": "f3b87428672847fbddbd87f0541489c1be4daeaa07288d4a86870c1d2c9a4932",
+      "rows": 98,
+      "kind": "23liquid+75fcc acoustic rows; derived density"
+    },
+    {
+      "path": "peritheos/data/datasets/argon-fcc-grimsditch-1986-table2.csv",
+      "sha256": "7c4907a9b030c2f8ddb9c7d23840ce36dcdf2606d8d0659cd3430a6bbc66b0e4",
+      "rows": 8,
+      "kind": "elastic bounds with printed errors"
+    }
+  ],
+  "equation": {
+    "type": "DensityPolynomial3",
+    "model": "density_polynomial_3",
+    "formula": "P=c0+c1*rho+c2*rho^2+c3*rho^3; rho=rho0*V0/V",
+    "coefficients": {
+      "V0": 132.67042931092166,
+      "rho0": 2.0,
+      "c0": 12.65,
+      "c1": -11.43,
+      "c2": 1.5,
+      "c3": 0.68
+    },
+    "units": "GPa; rho g/cm^3; V angstrom^3 per four-atom fcc conventional cell",
+    "reference_pressure_gpa": 1.23,
+    "reference_temperature": "Room temperature unspecified;298K is explicit library convention",
+    "equation_status": "reproduced",
+    "source_regression_status": "not_reproduced",
+    "origin": "Published refit of prior X-ray data, references17-19, to77GPa. No independent measured PV data in this study."
+  },
+  "tests": {
+    "python": "151 passed: tests/test_eosmat.py tests/test_grimsditch_1986_argon.py tests/test_argon.py",
+    "rust": "33 passed: cargo test -p peritheos --test grimsditch_1986_argon --test eosmat",
+    "clippy": "cargo clippy --workspace -- -D warnings passed",
+    "ruff": "Changed Python modules/scripts and dedicated test passed",
+    "diff_check": "git diff --check passed"
+  },
+  "reports": [
+    "docs/literature-reproductions/argon-grimsditch-1986.md",
+    "docs/data/argon-grimsditch-1986-reproduction.json"
+  ],
+  "studio_requirements": [
+    "Rebuild native engine after density_polynomial_3 dispatcher lands. Exact public-volume pressure and bulk-modulus evaluation/inversion supported.",
+    "Present published refit separately from independent P-V observations. Both datasets are supporting acoustic/elastic evidence, never standard measured PV overlays or regression inputs.",
+    "Show computational V0 anchor is at1.23GPa, not zero pressure; numeric room temperature is assumed.",
+    "Keep fit_status=not_reproduced alongside checked equation and source provenance.",
+    "Resolve shared model imports/enum/dispatch/schema conflicts additively with other model commits; regenerate aggregate audits/manifests and combined test counts."
+  ],
+  "limitations": [
+    "Original X-ray rows, exact objective/weights and covariance not recovered; no independent source regression.",
+    "Raw ruby wavelengths absent. Acoustic Mao1978 scale explicit but prior X-ray scales partially unresolved.",
+    "TableI last row33.58GPa/rho3.936 implies32.363949GPa under printed equation; retained unchanged.",
+    "Adiabatic/isothermal equivalence only a source approximation away from melting.",
+    "Pair-potential theory curves not implemented as this empirical refit.",
+    "No pushes, Studio writes or Zotero writes performed. Wittlinger hcp unchanged."
+  ]
+}
