@@ -257,6 +257,10 @@ macro_rules! dispatch_isothermal {
 }
 
 impl IsothermalEos for IsothermalModel {
+    fn volume(&self, pressure: f64) -> EosResult<f64> {
+        dispatch_isothermal!(self, model => model.volume(pressure))
+    }
+
     fn reference_volume(&self) -> f64 {
         dispatch_isothermal!(self, model => model.reference_volume())
     }

@@ -3,7 +3,7 @@ use peritheos::{load_eosmat_str, IsothermalEos};
 
 #[test]
 fn density_polynomial_reproduces_source_bulk_modulus_and_roundtrip() {
-    let eos = DensityPolynomial3::new(132.67042931092166, 2.0, 12.65, -11.43, 1.5, 0.68).unwrap();
+    let eos = DensityPolynomial3::new(132.670_429_310_921_66, 2.0, 12.65, -11.43, 1.5, 0.68).unwrap();
     assert!((eos.pressure(eos.v0).unwrap() - 1.23).abs() < 1e-12);
     for rho in [2.017, 2.5, 3.0, 4.0, 4.8] {
         let v = eos.v0 * eos.rho0 / rho;
@@ -33,4 +33,15 @@ fn native_material_loader_accepts_published_density_refit() {
         record.document["reproduction"]["fit_status"],
         "not_reproduced"
     );
+}
+
+#[test]
+fn expansion_roots_remain_on_stable_density_branch() {
+    let eos = DensityPolynomial3::new(100.0, 2.0, 12.65, -11.43, 1.5, 0.68).unwrap();
+    for density in [1.7436, 1.76, 1.8, 1.9] {
+        let volume = 200.0 / density;
+        let pressure = eos.pressure(volume).unwrap();
+        assert!((eos.volume(pressure).unwrap() - volume).abs() < 1e-8);
+    }
+    assert!(eos.volume(0.885).is_err());
 }

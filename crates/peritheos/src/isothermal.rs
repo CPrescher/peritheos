@@ -1090,6 +1090,41 @@ impl DensityPolynomial3 {
 }
 
 impl IsothermalEos for DensityPolynomial3 {
+    fn volume(&self, pressure: f64) -> EosResult<f64> {
+        let pressure = crate::validation::finite_state(pressure, "pressure")?;
+        let [c0, c1, c2, c3] = self.coefficients;
+        // Stable positive-density branch starts at dP/drho=0 (or rho=0).
+        // Rationalized quadratic root avoids cancellation when c1 is small.
+        let mut lower = if c1 < 0.0 {
+            -2.0 * c1 / (2.0 * c2 + (4.0 * c2 * c2 - 12.0 * c3 * c1).sqrt())
+        } else {
+            0.0
+        };
+        let polynomial = |rho: f64| c0 + rho * (c1 + rho * (c2 + rho * c3));
+        if pressure <= polynomial(lower) {
+            return Err(EosError::OutsideInvertibleRange);
+        }
+        let mut upper = self.rho0;
+        while polynomial(upper) < pressure {
+            upper *= 2.0;
+            if !upper.is_finite() {
+                return Err(EosError::BracketingFailed);
+            }
+        }
+        for _ in 0..256 {
+            let density = lower + 0.5 * (upper - lower);
+            if upper - lower <= 16.0 * f64::EPSILON * density {
+                return finite_result(self.rho0 * self.v0 / density);
+            }
+            if polynomial(density) < pressure {
+                lower = density;
+            } else {
+                upper = density;
+            }
+        }
+        Err(EosError::ConvergenceFailed)
+    }
+
     fn reference_volume(&self) -> f64 {
         self.v0
     }

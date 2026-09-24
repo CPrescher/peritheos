@@ -9,9 +9,9 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 617,
+    "records": 619,
     "deferred": 2,
-    "primary_source_validated": 615
+    "primary_source_validated": 617
   },
   "records": [
     {
@@ -554,6 +554,40 @@
           "Equation (4), Figure 1, Methods, Supplementary Tables 1-2"
         ]
       }
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_xiao_2025_helmholtz",
+      "label": "Xiao et al. (2025), Debye-anharmonic Helmholtz",
+      "doi": "10.1007/s10765-024-03469-2",
+      "status": "primary_source_validated",
+      "note": "Author manuscript equations and Table 4 checked against official publisher calculation workbook. Supplementary DOCX Table S1 has initial guesses despite optimized caption; it is not the fitted parameter authority.",
+      "primary_source_check": {
+        "access_url": "https://www.researchsquare.com/article/rs-5370077/v1",
+        "doi": "10.1007/s10765-024-03469-2",
+        "locations": [
+          "Equations 18-25, 38-40; Tables 4-5; sections 3, 5-6",
+          "Official publisher XLSM sample calculation worksheet"
+        ]
+      }
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_errandonea_2006_bm3",
+      "label": "Errandonea et al. (2006), laser-annealed fcc BM3",
+      "doi": "10.1103/physrevb.73.092106",
+      "status": "primary_source_validated",
+      "note": "Published BM3 coefficients and phase checked. Native equation independently verified; exact published fit not reproduced because only partial figure data and no fit weights/covariance are available. See study-specific report.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.092106/fulltext",
+        "doi": "10.1103/PhysRevB.73.092106",
+        "locations": [
+          "Pages 1, 3-4; Figures 4-5"
+        ]
+      },
+      "reproduction_status": "not_reproduced"
     },
     {
       "material": "argon_fcc",

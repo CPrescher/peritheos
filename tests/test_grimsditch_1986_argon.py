@@ -66,3 +66,17 @@ def test_source_table_consistency_with_honest_outlier():
             abs(row["equation_bulk_gpa"] - row["printed_bulk_gpa"])
             < row["printed_bulk_error_gpa"]
         )
+
+
+def test_stable_expansion_inverse_near_spinodal():
+    eos = DensityPolynomial3(MASS_FACTOR / 2, 2, 12.65, -11.43, 1.5, 0.68)
+    spinodal = (-3 + np.sqrt(9 + 4 * 2.04 * 11.43)) / (2 * 2.04)
+    density = np.array([spinodal * 1.0001, spinodal * 1.01, 1.8, 1.9])
+    volume = MASS_FACTOR / density
+    assert eos.volume(eos.pressure(volume)) == pytest.approx(volume, rel=1e-10)
+    record = Material.from_eosmat(get_material_document("argon_fcc")).get_eos_record(
+        RECORD
+    )
+    assert record.volume(record.pressure(volume)) == pytest.approx(volume, rel=1e-10)
+    with pytest.raises(ValueError):
+        eos.volume(pressure(spinodal) - 1e-8)

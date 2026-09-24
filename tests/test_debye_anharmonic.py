@@ -111,3 +111,74 @@ def test_eosmat_round_trip():
         assert item.eos_records[0].eos.pressure(2.3, 70) == pytest.approx(
             0.0783517375843629
         )
+
+
+def test_caloric_limits_and_zero_anharmonic_reduction():
+    from peritheos.eos.thermal import MieGruneisenDebye
+
+    eos = model()
+    volume = eos.rt_eos.V0
+    gas_constant = 8.31451
+    # Third-law coefficient includes both Debye and the published T^4 term.
+    low_temperature = 0.01
+    cubic_cv = (
+        12 * np.pi**4 * gas_constant / (5 * eos.theta0**3)
+        - 12 * eos.b1 * gas_constant / eos.theta0**3
+    )
+    assert eos.molar_heat_capacity_v(
+        volume, low_temperature
+    ) / low_temperature**3 == pytest.approx(cubic_cv, rel=1e-8)
+    assert eos.entropy(volume, low_temperature) / low_temperature**3 == pytest.approx(
+        cubic_cv / 3, rel=1e-8
+    )
+    # Mathematical high-T asymptote, outside the empirical validity envelope.
+    # The anharmonic Cv grows linearly negative; it must not be silently clipped.
+    high_temperature = 1e10
+    slope = -2 * eos.b1 * gas_constant / (eos.b2 * eos.theta0)
+    assert eos.molar_heat_capacity_v(
+        volume, high_temperature
+    ) / high_temperature == pytest.approx(slope, rel=1e-6)
+    harmonic = DebyeAnharmonicHelmholtz(
+        eos.rt_eos, 300, eos.theta0, eos.gamma0, 0, 0, eos.b2, eos.b3
+    )
+    debye = MieGruneisenDebye(
+        eos.rt_eos,
+        300,
+        eos.theta0,
+        eos.gamma0,
+        0,
+        1,
+        Cvmax=3 * gas_constant,
+        thermal_pressure_reference="absolute_zero",
+    )
+    v = np.array([1.6, 2.0, 2.3])
+    t = np.array([600.0, 200.0, 70.0])
+    assert harmonic.pressure(v, t) == pytest.approx(debye.pressure(v, t), rel=1e-12)
+    assert harmonic.molar_heat_capacity_v(v, t) == pytest.approx(
+        debye.molar_heat_capacity_v(v, t), rel=1e-8
+    )
+    rebased = DebyeAnharmonicHelmholtz(
+        eos.rt_eos, 300, eos.theta0, eos.gamma0, eos.q, eos.b1, eos.b2, eos.b3
+    )
+    assert rebased.pressure(v, t) == pytest.approx(eos.pressure(v, t), rel=1e-12)
+
+
+def test_schema_model_pair_is_explicit():
+    import copy
+
+    from jsonschema import Draft202012Validator, ValidationError
+
+    from peritheos import eosmat_schema
+
+    document = get_material_document("argon_fcc")
+    validator = Draft202012Validator(eosmat_schema())
+    validator.validate(document)
+    changed = copy.deepcopy(document)
+    record = next(
+        record
+        for record in changed["eos_records"]
+        if record.get("thermal", {}).get("type") == "DebyeAnharmonicHelmholtz"
+    )
+    record["thermal"]["model"] = "mie_gruneisen_debye"
+    with pytest.raises(ValidationError):
+        validator.validate(changed)

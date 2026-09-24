@@ -119,6 +119,27 @@ impl IsothermalEos for RtModel {
         }
     }
 
+    fn volume(&self, pressure: f64) -> EosResult<f64> {
+        match self {
+            Self::Baonza(model) => model.volume(pressure),
+            Self::DensityPolynomial3(model) => model.volume(pressure),
+            Self::BM2(model) => model.volume(pressure),
+            Self::BM3(model) => model.volume(pressure),
+            Self::BM4(model) => model.volume(pressure),
+            Self::Morse3(model) => model.volume(pressure),
+            Self::Murnaghan(model) => model.volume(pressure),
+            Self::ModifiedTait(model) => model.volume(pressure),
+            Self::NaturalStrain2(model) => model.volume(pressure),
+            Self::NaturalStrain3(model) => model.volume(pressure),
+            Self::NaturalStrain4(model) => model.volume(pressure),
+            Self::RydbergStacey(model) => model.volume(pressure),
+            Self::SunMorse3(model) => model.volume(pressure),
+            Self::SunMorse4(model) => model.volume(pressure),
+            Self::Vinet(model) => model.volume(pressure),
+            Self::Holzapfel(model) => model.volume(pressure),
+        }
+    }
+
     fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
         match self {
             Self::Baonza(model) => model.bulk_modulus(volume),
