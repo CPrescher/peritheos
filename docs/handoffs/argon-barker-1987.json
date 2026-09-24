@@ -1,0 +1,124 @@
+{
+  "study_identifier": "argon_barker_1987",
+  "study_commit": "2136d191e8c7a0a1614ff28cf85fc402ead59909",
+  "integration_thread_id": "01a0d259-4995-7a63-a9e4-af02c28c36cc",
+  "worktree": "/Users/clemens/.codex/worktrees/d3f4/peritheos",
+  "reference": {
+    "authors": [
+      "Barker"
+    ],
+    "year": 1987,
+    "title": "High pressure equation of state for solid argon from interatomic potentials",
+    "source": "The Journal of Chemical Physics",
+    "volume": "86",
+    "issue": "3",
+    "locator": "1509-1511",
+    "doi": "10.1063/1.452187"
+  },
+  "bibliographic_creator": {
+    "given": "J. A.",
+    "family": "Barker"
+  },
+  "publication_date": "1987-02-01",
+  "changed_records": [
+    "peritheos/data/studies/argon-barker-1987.json"
+  ],
+  "observation_assets": [],
+  "eos_record_identifiers": [],
+  "fit_status": "not_reproduced",
+  "outcome": "supporting_study_fulltext_access_blocked",
+  "independent_eos_availability": "undetermined_without_full_text",
+  "reproduction_doc": "docs/literature-reproductions/argon-barker-1987.md",
+  "ris_file": "docs/handoffs/argon-barker-1987.ris",
+  "pdf": {
+    "status": "unavailable_access_blocked",
+    "publisher_url": "https://pubs.aip.org/aip/jcp/article-pdf/86/3/1509/18963166/1509_1_online.pdf",
+    "local_path": null,
+    "sha256": null,
+    "identity_verified": false,
+    "blocker": "Publisher browser page says no current access, and following its PDF link returns the abstract with redirectedFrom=PDF. Direct request returns HTTP 403. IBM author-affiliation page links only to the DOI. OpenAlex and Semantic Scholar report closed access with no repository PDF. No matching local Zotero item found."
+  },
+  "non_pdf_source_captures": [
+    {
+      "path": "/Users/clemens/Documents/Peritheos/argon-sources/barker-1987/crossref.json",
+      "sha256": "2b3c05a4a98028c79a18b47ddd4d20a718f885184b1dc35115abf61ca24d69a9",
+      "bytes": 5256,
+      "is_full_text_pdf": false
+    },
+    {
+      "path": "/Users/clemens/Documents/Peritheos/argon-sources/barker-1987/ibm.html",
+      "sha256": "81cf225d56499f8b1b3ba8e1211f299db055321d9501321933aade53fe6f4d70",
+      "bytes": 28855,
+      "is_full_text_pdf": false
+    },
+    {
+      "path": "/Users/clemens/Documents/Peritheos/argon-sources/barker-1987/openalex.json",
+      "sha256": "cf8f8c4899b86263095cc4479ce0632b2f06f13c8c8597dc4cec5ed432e93093",
+      "bytes": 11098,
+      "is_full_text_pdf": false
+    },
+    {
+      "path": "/Users/clemens/Documents/Peritheos/argon-sources/barker-1987/publisher-minimal.html",
+      "sha256": "c06e235617d4e0d8aaff1155840f982196337634b7a6bafb45ab21cf165b0a3f",
+      "bytes": 35144,
+      "is_full_text_pdf": false
+    },
+    {
+      "path": "/Users/clemens/Documents/Peritheos/argon-sources/barker-1987/semantic-scholar.json",
+      "sha256": "884365ddbd185c5be92018f069f18911a191f1153713349aaa80319000f947c3",
+      "bytes": 300,
+      "is_full_text_pdf": false
+    }
+  ],
+  "zotero": {
+    "destination": "My Library > Methods > EOS Library",
+    "destination_collection": "C18",
+    "matching_item_keys": [],
+    "matching_attachment_keys": [],
+    "writes_performed": false,
+    "pdf_import_request_satisfied": false,
+    "coordinator_action": "If importing RIS metadata, explicitly report absent PDF; do not present metadata-only import as completion."
+  },
+  "tests": [
+    {
+      "check": "Study JSON parsing and cross-check title, DOI, volume, page range against retrieved Crossref metadata",
+      "result": "passed"
+    },
+    {
+      "check": "800 kbar = 80 GPa, missing PDF and reproduction status remain explicit",
+      "result": "passed"
+    },
+    {
+      "check": "Draft202012Validator for unchanged argon_fcc and argon_hcp materials; hcp identity retained",
+      "result": "passed"
+    },
+    {
+      "check": "SHA256 of all five non-PDF source captures",
+      "result": "passed"
+    },
+    {
+      "check": "git diff --check",
+      "result": "passed"
+    },
+    {
+      "check": "pytest tests/test_argon.py -q",
+      "result": "collection_blocked",
+      "detail": "Fresh worktree has no compiled peritheos._rust extension. No numerical EOS code changed; no numerical reproduction claimed."
+    }
+  ],
+  "studio_requirements": [
+    "Expose as supporting theoretical study, not as selectable EOS.",
+    "data/studies/ is a packaged standalone artifact; existing material/EOS loader does not automatically ingest it. Integrator must wire supporting-study presentation explicitly.",
+    "Display 298 K as simulation isotherm. Do not infer reference pressure, normalization, phase, or V0/K0 coefficients.",
+    "Display fulltext_access_blocked and not_reproduced, with no validation badge or plot.",
+    "Do not relabel Ross measurements or modeled curves as Barker experimental observations."
+  ],
+  "remaining_limitations": [
+    "Actual matching PDF not obtained after publisher/browser, author-affiliation, repository index, web and local Zotero searches.",
+    "Cannot verify original equations, coefficient conventions, phase, volume normalization, numerical sampling/tail/quantum corrections or source table/figure values.",
+    "Exact pressure scale of experimental comparisons unresolved.",
+    "No proof that paper has no independent EOS; access limitation is distinct from model nonexistence."
+  ],
+  "no_push": true,
+  "shared_checkouts_modified": false
+}
