@@ -2,7 +2,61 @@
   "study_identifier": "argon_ross_1986_supporting_study",
   "requested_doi": "10.1063/1.451346",
   "reproduction_status": "not_reproduced",
-  "matching_journal_pdf_obtained": false,
+  "matching_journal_pdf_obtained": true,
+  "primary_source_status": "primary_full_text_verified",
+  "journal_tables": {
+    "table1": {
+      "dataset_identifier": "argon_ross_1986_table1",
+      "dataset_sha256": "e47aa9f982e33e6e9fd34f59e88a52223c2bc3163d7f246c4a5880866f8abd7b",
+      "rows": 42,
+      "category": "static_measurements",
+      "conversion_max_absolute_roundoff": 4.742446435557213e-09,
+      "temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "pressure_range_gpa": [
+        1.6,
+        80.6
+      ]
+    },
+    "table2": {
+      "dataset_identifier": "argon_ross_1986_table2",
+      "dataset_sha256": "86dd3cf8a5c7dc5659b6013eec1e54802260dbb2f167deca1673d2d667315799",
+      "rows": 6,
+      "category": "published_calculated_liquid_hugoniot",
+      "conversion_max_absolute_roundoff": 4.778485163114965e-09,
+      "temperature_range_k": [
+        87.0,
+        11963.0
+      ],
+      "pressure_range_gpa": [
+        0.0,
+        34.6
+      ]
+    },
+    "table3": {
+      "dataset_identifier": "argon_ross_1986_table3",
+      "dataset_sha256": "b2da59f0057973073e4ae316bca3f42163c9dd441a1fd126a1224a1717bb435a",
+      "rows": 16,
+      "category": "published_calculated_solid_isotherm",
+      "conversion_max_absolute_roundoff": 4.78765116440627e-09,
+      "temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "pressure_range_gpa": [
+        1.6,
+        689.2
+      ]
+    }
+  },
+  "published_pair_potential_verified": true,
+  "temperature_note": "Table I:298 K. Table III isotherm:293 K; gamma:298 K in prose. Table II:variable liquid shock T.",
+  "printed_anomalies_preserved": [
+    "Table I row17:247(13) kbar at9.98 cm3/mol; nonmonotonic pressure.",
+    "Table I row32:lattice a3.685 A inconsistent with printed V8.83 cm3/mol."
+  ],
   "source_report": "UCRL-93030 (1985), a distinct conference precursor",
   "dataset_identifier": "argon_ross_1985_precursor_figure1_subset",
   "dataset_sha256": "58a7741cc3ed6bff59e919dce75b1008d2b519c78c7b12e46987f89248d5866c",
@@ -34,5 +88,5 @@
   ],
   "eos_fit_performed": false,
   "pressure_residual_rmse_gpa": null,
-  "reason": "Journal full text unavailable; precursor Monte Carlo EOS not reproduced. No surrogate EOS fitted."
+  "reason": "Primary journal tables and exact pair potential recovered. Independent finite-temperature Monte Carlo pressure EOS not yet implemented or validated. No surrogate EOS fitted. Remaining flat digitization fields describe the distinct precursor subset only."
 }

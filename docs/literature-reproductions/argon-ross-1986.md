@@ -1,116 +1,119 @@
-# Ross et al. (1986): supporting study, EOS not reproduced
+# Ross et al. (1986): published tables recovered; Monte Carlo reproduction pending
 
-Requested publication: M. Ross, H. K. Mao, P. M. Bell and J. A. Xu,
+M. Ross, H. K. Mao, P. M. Bell and J. A. Xu,
 *The equation of state of dense argon: A comparison of shock and static studies*,
-J. Chem. Phys. **85**(2), 1028-1033 (15 July 1986),
+J. Chem. Phys. **85**(2), 1028-1033 (1986),
 [doi:10.1063/1.451346](https://doi.org/10.1063/1.451346).
 
-**Outcome: supporting study pending primary full text, `not_reproduced`.**
-No executable Ross EOS is registered. This does not establish that the journal
-paper lacks a reproducible EOS: its full text was not accessible in this audit.
-The paper's abstract confirms static room-temperature measurements to 800 kbar
-(80 GPa), comparison with a theoretical reduction of shock data, and a proposed
-pressure-standard extrapolation to 3-4 Mbar. The latter is not measured coverage.
+**Primary full text verified.** The earlier access blocker is resolved by the
+user-supplied journal PDF. The `not_reproduced` status means that an independent
+finite-temperature Monte Carlo EOS has not yet been implemented and validated;
+it does not mean the published work has been shown to be irreproducible.
+No executable Ross EOS or substitute Birch-Murnaghan/Vinet fit is registered.
 
-## Source identity and remaining PDF blocker
+## Verified primary source and Zotero
 
-The full text retrieved is the **distinct July 1985 conference precursor**,
-[UCRL-93030 / CONF-850736-45](https://www.osti.gov/biblio/5471606), prepared
-for the APS Spokane meeting of July 22-25, 1985. Its cover, title, authors,
-equations and figures were visually checked after Poppler rendering. The
-seven-page PDF is not the six-page 1986 journal article. The journal has 22
-references on its publisher page; the precursor has 12. Do not assign the
-journal DOI to this PDF or claim that the requested journal PDF was obtained.
+The original PDF is `/Users/clemens/Downloads/1028_1_online.pdf`; the stable copy
+is `/Users/clemens/Documents/Peritheos-sources/argon-ross-1986/ross-1986-jcp.pdf`.
+It has seven PDF pages: publisher cover plus journal pages 1028-1033, 869034 bytes,
+SHA256 `8f5f50ab785adb5f03c3d5769d1c3b91a0ec7c3e5eb3a1374faa273112aaf9c3`.
+Title, authors, DOI, tables and page numbers were checked against the PDF.
+The file is outside git. Local paths and checksums are in the
+[handoff manifest](../data/argon-ross-1986-handoff.json).
 
-The AIP browser page explicitly reported no current access and offered purchase.
-The Crossref version-of-record PDF URL returned HTTP 403. OSTI journal record
-5817597 has no full-text link and its purl returned 404. OpenAlex provided only
-the closed publisher location; Semantic Scholar reported CLOSED without a PDF
-URL. Local Zotero searches for the title and argon found no Ross item. Focused
-author/repository searches located the precursor only; the historical
-`mao.gl.ciw.edu` author website timed out. No purchase, author contact or Zotero
-write was performed. The exact journal PDF request remains open.
+Zotero: **My Library > Methods > EOS Library**, collection `JT8V6LUL`,
+parent `QWLP4V5H`, PDF `8FAK8WKL`. The stored attachment's SHA256 matches the
+source. Older metadata-only item `TJWGXSZR` remains a duplicate; its historical
+access-blocker note is obsolete. No merge or deletion was performed.
 
-Related PDF, outside git:
-`/Users/clemens/Documents/Peritheos-sources/argon-ross-1986/precursor.pdf`.
-Origin: <https://www.osti.gov/servlets/purl/5471606>.
-SHA256: `fbc357ed1cd980fd495f26b22932adb3540d3d36d9c10349b32899fc42800302`.
-Size: 194349 bytes; seven pages. The [handoff manifest](../data/argon-ross-1986-handoff.json)
-records journal metadata, source identity, access blockers and import guidance.
+## Journal datasets
 
-## What the precursor actually supplies
+| Dataset | Source and interpretation | Temperature |
+| --- | --- | --- |
+| `argon_ross_1986_table1` | All 42 Table I static measurements, page 1029; pressure, parenthetical error, lattice edge and molar volume | 298 K |
+| `argon_ross_1986_table3` | All 16 Table III published calculated isotherm states, page 1030; pressure and Gruneisen gamma; alpha=13.2 | Isotherm 293 K; gamma 298 K per prose |
+| `argon_ross_1986_table2` | All six Table II calculated liquid Hugoniot states, including initial state; alpha=13.2 | 87-11963 K |
 
-The following findings refer to **UCRL-93030**, not unverified journal content:
+The three CSV assets are in `peritheos/data/datasets/argon-ross-1986-table*.csv`.
+Each has a checksum, DOI and source-PDF checksum. Theory datasets are explicitly
+marked theoretical and are not experimental observations. All have empty
+`used_by_eos_records`; none were used to fit Dewaele or Ono.
 
-| Quantity | Verified convention |
-| --- | --- |
-| Static phase and temperature | fcc solid, 293 K (introduction; Figs. 1-3); no hcp fit |
-| Static measurements | DAC diffraction and ruby pressure; headline maximum 800 kbar |
-| Figure 1 volume | cm3/mol of Ar atoms; not atomic A3 or conventional-cell A3 |
-| Package normalization | Four atoms per fcc conventional cell: `Vcell = Vmolar * 4e24 / NA` |
-| Pressure conversion | 1 kbar = 0.1 GPa; 1 Mbar = 100 GPa |
-| Ruby scale, Eq. (1) | `P(Mbar)=19.04/7.665*((1+delta_lambda/lambda0)^7.665-1)`; lambda0 at one bar |
-| Pressure recalculation | Original ruby wavelengths absent; reported pressures retained |
-| Potential, Eq. (2) | exponential-six, epsilon/kB=122 K, r*=3.85 A, alpha=13.2 and 13.0 |
-| Theoretical method | Monte Carlo pressure and energy; pair correlation functions matter |
-| Shock selection | Liquid shock data below 400 kbar used to constrain the potential; higher-temperature electronic excitation discussed separately |
-| Reference state | No verified journal P0/V0/K0 set; precursor isotherm is at 293 K, not a zero-K cold curve |
-| Uncertainty | No individual errors recovered; alpha alternatives and an approximately 10% discussion are not parameter standard deviations |
+Pressure conversion is 1 kbar = 0.1 GPa. Source volumes are cm3/mol of atoms.
+`volume_a3 = Vmolar * 4e24 / NA` uses four atoms per conventional fcc cell.
+For the liquid only this is an equivalent four-atom normalization, not a crystal
+cell. Printed molar volumes determine the converted volumes; they are not
+recomputed from rounded lattice edges. Extra converted decimals preserve
+arithmetic and do not imply experimental precision.
 
-The pair potential is
+Table I covers 1.6-80.6 GPa. Parenthetical pressure errors are preserved as
+**generic uncertainties**, because the paper does not specify a confidence
+level. No volume uncertainty is invented. Repeated and anomalous rows remain:
+
+- Row 17 prints 247(13) kbar, a=4.047 A, V=9.98 cm3/mol, a nonmonotonic pressure.
+- Row 32 prints a=3.685 A at 568(17) kbar and V=8.83 cm3/mol. The lattice edge
+  is inconsistent with the printed volume. Both printed values are preserved.
+
+These flags identify conspicuous source issues, not an exhaustive error model.
+Table I temperature is 298 K; Table III's heading and the discussion on page
+1032 specify 293 K for the calculated isotherm. Page 1030 explicitly gives 298 K
+for gamma. Separate columns preserve these source statements without silently
+harmonizing them. Table II initial pressure is 0 as printed, although the prose
+also reports a model initial pressure of -28 bar for alpha=13.2 including quantum
+corrections. The table and prose values are not silently substituted.
+
+The ruby pressure scale, Eq. (1), is
+`P(Mbar)=19.04/7.665*((1+delta_lambda/lambda0)^7.665-1)`.
+Original ruby wavelengths are not provided, so reported pressures are retained.
+
+## Model availability and reproduction boundary
+
+Journal Eq. (2) prints the complete effective exp-6 pair potential:
 
 ```text
 phi(r)/kB = 122/(alpha-6) *
             [6*exp(alpha*(1-r/3.85)) - alpha*(3.85/r)^6].
 ```
 
-`precursor_exp6_energy_kelvin` implements only this verified pair energy in the
-audit script, on separations at least 2 A. Its minimum is -122 K at 3.85 A.
-This is **not a pressure EOS**. Replacing the Monte Carlo calculation by an
-unrelaxed static lattice sum, a Birch-Murnaghan fit or a Vinet fit would not
-reproduce the published finite-temperature calculation. No such replacement
-is made, and no fit residual or parameter covariance is claimed.
+Distances are A; epsilon/kB=122 K, r*=3.85 A. The preferred alpha is 13.2;
+13.0 is a comparison, not a statistical parameter uncertainty. The audit script
+implements this pair energy on the discussed r>=2 A interval and verifies its
+minimum. The short-distance exp-6 catastrophe is outside that audit domain.
 
-Fig. 1 separately labels a liquid Hugoniot with calculated temperatures
-(4633, 12000 and 16600 K). These are not 293 K solid observations.
-Fig. 2 gives calculated pair correlations; Fig. 3 gives calculated 293 K
-isotherms to 5 Mbar. Neither figure supplies new experimental P-V points.
+Pressure and energy were calculated by Monte Carlo; Eq. (3) defines the shock
+Hugoniot relation and the temperature iteration is described on page 1030.
+Evaluating a pair energy alone does not provide the finite-temperature pressure
+EOS. A full independent reproduction still requires implementing the statistical
+mechanics calculation and resolving numerical conventions, including the cited
+methodology and quantum corrections. This work does not claim those steps were
+completed or that the study is irreproducible.
 
-## Recoverable static observations
+Table III can already be plotted directly. Interpolation between its states
+would represent the published tabulation, not an independently regenerated Monte
+Carlo calculation. A conventional fit to Table I would be a new fit. Neither is
+added here. Table III's high pressures are theoretical extrapolation beyond the
+80.6 GPa measured range; the paper proposes use as a standard to about 3-4 Mbar.
 
-`argon_ross_1985_precursor_figure1_subset` retains **19 clearly resolved DAC
-triangle symbols** from precursor Fig. 1, roughly 1.81-57.66 GPa. It is an
-explicitly incomplete digitization, not the complete 80 GPa dataset and not a
-journal-table transcription. Overlapping high-pressure triangles were omitted;
-the subset is unsuitable for claiming a reproduction of the original fit.
-Calculated lines, shock symbols and figure-2 example states are excluded.
+## Distinct 1985 precursor retained
 
-The CSV preserves selected pixel coordinates, source molar volume, converted
-cell volume, pressure and 293 K. The affine calibration is reproducible from
-the metadata: render PDF page 4 at 240 dpi, crop `(580,170,1280,1140)`, use
-`x=60,620` for `V=8,19 cm3/mol` and `y=920,125` for `P=0,80 GPa`.
-Manual coordinate bounds of +/-10 pixels correspond to approximately
-0.20 cm3/mol and 1.01 GPa. These conservative reading bounds are **not**
-published measurement uncertainties or one-sigma errors. Stored decimals
-preserve conversion arithmetic and do not indicate experimental precision.
+The [UCRL-93030 conference precursor](https://www.osti.gov/biblio/5471606)
+remains a separate source, not the journal article. Its PDF checksum is
+`fbc357ed1cd980fd495f26b22932adb3540d3d36d9c10349b32899fc42800302`.
+`argon_ross_1985_precursor_figure1_subset` retains the previous 19 digitized
+293 K static triangles, about 1.81-57.66 GPa, with their original pixel
+coordinates and calibration. The subset is incomplete and has no journal DOI.
+Its conservative coordinate-reading bounds are not experimental uncertainties.
+Do not relabel these points 298 K or replace their version provenance.
 
-The dataset has `used_by_eos_records=[]`; its observations were not used to fit
-either Dewaele or Ono. The `argon_fcc.supporting_studies` extension identifies
-the requested 1986 paper and explicitly relates the separate precursor dataset.
-Wittlinger's hcp identity and `not_reproduced` status are unchanged.
+## Validation and display
 
-## Audit and Studio integration
+Run `python -m scripts.reproduce_argon_ross` to regenerate the
+[audit report](../data/argon-ross-1986-reproduction.json). It checks table counts,
+unit conversions, precursor digitization arithmetic and pair potential values;
+fit residuals remain null. Tests also check dataset loading, schema, temperature
+separation, printed anomalies and generic uncertainty semantics.
 
-Run `python -m scripts.reproduce_argon_ross` to regenerate
-[the audit report](../data/argon-ross-1986-reproduction.json). It checks the
-coordinate conversions and audits the precursor pair energy; it deliberately
-reports no EOS fit and a null pressure residual. Tests cover source/version
-separation, checksum, 293 K, conventional-cell normalization, absent fabricated
-uncertainties, metadata round-trip and the pair-potential minimum/derivative.
-
-Studio should list Ross as a supporting study with a pending journal-source
-badge, offer the distinctly labeled precursor subset as historical comparison
-observations, and show no Ross EOS curve. It must not place the precursor
-dataset in another paper's fitted-data selection. All local paths and the
-related-PDF SHA256 are in the handoff manifest; imports are serialized by the
-integration task. Obtaining the actual journal PDF remains a required follow-up.
+Studio should show primary source verified and published tables recovered,
+with independent Monte Carlo reproduction pending. It should distinguish
+measurements, calculated solid isotherm, calculated liquid Hugoniot and the older
+precursor subset. No Ross executable EOS curve is supplied by this change.

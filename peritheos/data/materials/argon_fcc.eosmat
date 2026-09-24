@@ -2560,6 +2560,274 @@
     ],
     "note": "Table printed assignments preserved. Applying them literally does not reproduce the published RMS; do not silently swap sample assignments. Other holder corrections are zero."
    }
+  },
+  {
+   "identifier": "argon_ross_1986_table1",
+   "kind": "pressure_volume_temperature",
+   "description": "42 printed static measurements at 298 K, including parenthetical pressure errors and two flagged printed anomalies.",
+   "reference": {
+    "authors": [
+     "Ross",
+     "Mao",
+     "Bell",
+     "Xu"
+    ],
+    "year": 1986,
+    "title": "The equation of state of dense argon: A comparison of shock and static studies",
+    "source": "The Journal of Chemical Physics",
+    "volume": "85",
+    "issue": "2",
+    "locator": "1028-1033",
+    "doi": "10.1063/1.451346"
+   },
+   "source_location": "Table I, journal page 1029",
+   "source_url": "https://doi.org/10.1063/1.451346",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "source_pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "source_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_kbar",
+     "quantity": "source_pressure_error",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "source_note",
+     "quantity": "note",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-ross-1986-table1.csv",
+    "sha256": "e47aa9f982e33e6e9fd34f59e88a52223c2bc3163d7f246c4a5880866f8abd7b",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [],
+   "determination_method": "experimental",
+   "phase": "fcc solid",
+   "provenance": {
+    "type": "transcribed_primary_table",
+    "source_pdf_sha256": "8f5f50ab785adb5f03c3d5769d1c3b91a0ec7c3e5eb3a1374faa273112aaf9c3",
+    "transcribed_on": "2026-09-24",
+    "source_is_requested_journal_article": true,
+    "table_values_are_calculated": false,
+    "notes": "Visually checked against user-supplied publisher PDF. Original row order, precision and printed anomalies retained. No refit or Monte Carlo run."
+   },
+   "notes": "Pressure error confidence level is not specified; retain as generic uncertainty, not one sigma. Volume uses printed molar volume converted to four-atom fcc cell, not lattice_a cubed. No lattice/volume errors published. Ruby scale Eq. (1): A=19.04 Mbar, B=7.665; original ruby wavelengths absent."
+  },
+  {
+   "identifier": "argon_ross_1986_table3",
+   "kind": "pressure_volume_temperature",
+   "description": "16 published calculated isotherm states, exp-6 alpha=13.2; not experimental observations or an independent reproduction.",
+   "reference": {
+    "authors": [
+     "Ross",
+     "Mao",
+     "Bell",
+     "Xu"
+    ],
+    "year": 1986,
+    "title": "The equation of state of dense argon: A comparison of shock and static studies",
+    "source": "The Journal of Chemical Physics",
+    "volume": "85",
+    "issue": "2",
+    "locator": "1028-1033",
+    "doi": "10.1063/1.451346"
+   },
+   "source_location": "Table III, journal page 1030",
+   "source_url": "https://doi.org/10.1063/1.451346",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "source_pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "source_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "gruneisen_gamma",
+     "quantity": "gruneisen_parameter",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "gamma_temperature_k",
+     "quantity": "gamma_temperature",
+     "unit": "K",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-ross-1986-table3.csv",
+    "sha256": "b2da59f0057973073e4ae316bca3f42163c9dd441a1fd126a1224a1717bb435a",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [],
+   "determination_method": "theoretical",
+   "phase": "fcc solid",
+   "provenance": {
+    "type": "transcribed_primary_table",
+    "source_pdf_sha256": "8f5f50ab785adb5f03c3d5769d1c3b91a0ec7c3e5eb3a1374faa273112aaf9c3",
+    "transcribed_on": "2026-09-24",
+    "source_is_requested_journal_article": true,
+    "table_values_are_calculated": true,
+    "notes": "Visually checked against user-supplied publisher PDF. Original row order, precision and printed anomalies retained. No refit or Monte Carlo run."
+   },
+   "notes": "Table III and discussion label isotherm 293 K. Page 1030 prose specifies gamma at 298 K. Both source temperatures retained separately. Predictions extend beyond measured coverage; no experimental validity implied."
+  },
+  {
+   "identifier": "argon_ross_1986_table2",
+   "kind": "pressure_volume_temperature",
+   "description": "Six published calculated liquid Hugoniot states including the initial state, exp-6 alpha=13.2; not experimental observations.",
+   "reference": {
+    "authors": [
+     "Ross",
+     "Mao",
+     "Bell",
+     "Xu"
+    ],
+    "year": 1986,
+    "title": "The equation of state of dense argon: A comparison of shock and static studies",
+    "source": "The Journal of Chemical Physics",
+    "volume": "85",
+    "issue": "2",
+    "locator": "1028-1033",
+    "doi": "10.1063/1.451346"
+   },
+   "source_location": "Table II, journal page 1030",
+   "source_url": "https://doi.org/10.1063/1.451346",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "source_pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "source_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-ross-1986-table2.csv",
+    "sha256": "86dd3cf8a5c7dc5659b6013eec1e54802260dbb2f167deca1673d2d667315799",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [],
+   "determination_method": "theoretical",
+   "phase": "liquid",
+   "provenance": {
+    "type": "transcribed_primary_table",
+    "source_pdf_sha256": "8f5f50ab785adb5f03c3d5769d1c3b91a0ec7c3e5eb3a1374faa273112aaf9c3",
+    "transcribed_on": "2026-09-24",
+    "source_is_requested_journal_article": true,
+    "table_values_are_calculated": true,
+    "notes": "Visually checked against user-supplied publisher PDF. Original row order, precision and printed anomalies retained. No refit or Monte Carlo run."
+   },
+   "notes": "Liquid shock states, never a room-temperature fcc isotherm. volume_a3 is a four-atom equivalent normalization only, not an actual liquid unit cell. Initial state 87 K,28.64 cm3/mol,P=0 as printed in Table II; prose separately gives model initial pressure -28 bar including quantum corrections for alpha13.2."
   }
  ],
  "supporting_studies": [
@@ -2631,14 +2899,17 @@
     "locator": "1028-1033",
     "doi": "10.1063/1.451346"
    },
-   "outcome": "supporting_study_pending_primary_full_text",
+   "outcome": "supporting_study_with_published_tables",
    "determination_method": "hybrid",
    "reproduction_status": "not_reproduced",
    "eos_record_identifiers": [],
    "related_dataset_identifiers": [
-    "argon_ross_1985_precursor_figure1_subset"
+    "argon_ross_1985_precursor_figure1_subset",
+    "argon_ross_1986_table1",
+    "argon_ross_1986_table3",
+    "argon_ross_1986_table2"
    ],
-   "requested_publication_pdf_status": "not_obtained",
+   "requested_publication_pdf_status": "primary_full_text_verified",
    "related_source_reference": {
     "authors": [
      "Ross",
@@ -2652,15 +2923,35 @@
     "locator": "Figure 1, printed page 3 (PDF page 4)"
    },
    "related_source_pdf_sha256": "fbc357ed1cd980fd495f26b22932adb3540d3d36d9c10349b32899fc42800302",
-   "temperature_convention": "Journal abstract: room temperature; distinct 1985 precursor explicitly 293 K for DAC solid and calculated isotherm. Shock Hugoniot temperature varies. Do not silently label these observations 300 K.",
+   "temperature_convention": "Table I measurements:298 K. Table III calculated isotherm and discussion:293 K; associated gamma is explicitly calculated at298 K in prose. Table II liquid Hugoniot has variable T. Distinct precursor subset remains293 K.",
    "experimental_pressure_range_gpa": [
-    null,
-    80.0
+    1.6,
+    80.6
    ],
-   "experimental_pressure_range_note": "Upper extent from journal abstract; lower limit not verified from journal full text. Precursor digitized subset covers a narrower interval.",
-   "phase": "fcc for precursor static solid; shocked fluid is separate",
-   "fit_status": "No journal EOS coefficients or observation tables verified; no independent EOS registered and no surrogate fit performed. The precursor gives an exp-6 pair potential and Monte Carlo curves, not a closed P(V,T) evaluator.",
-   "documentation": "docs/literature-reproductions/argon-ross-1986.md"
+   "experimental_pressure_range_note": "Full Table I, including printed anomalies; not theory extrapolation range.",
+   "phase": "fcc static solid; liquid shock states separately labeled",
+   "fit_status": "Published tables and exact exp-6 pair potential recovered. Independent finite-temperature Monte Carlo EOS not yet implemented or validated; no surrogate fit or executable Ross EOS registered.",
+   "documentation": "docs/literature-reproductions/argon-ross-1986.md",
+   "primary_dataset_identifiers": [
+    "argon_ross_1986_table1",
+    "argon_ross_1986_table3",
+    "argon_ross_1986_table2"
+   ],
+   "primary_source_pdf_sha256": "8f5f50ab785adb5f03c3d5769d1c3b91a0ec7c3e5eb3a1374faa273112aaf9c3",
+   "pair_potential": {
+    "equation": "epsilon/(alpha-6) * [6*exp(alpha*(1-r/r_star))-alpha*(r_star/r)^6]",
+    "epsilon_over_kb_kelvin": 122,
+    "r_star_angstrom": 3.85,
+    "alpha_best_fit": 13.2,
+    "alpha_comparison": 13.0,
+    "source_location": "Equation (2), journal page1029",
+    "status": "primary_source_verified"
+   },
+   "zotero": {
+    "parent_key": "QWLP4V5H",
+    "attachment_key": "8FAK8WKL",
+    "prior_metadata_only_duplicate": "TJWGXSZR"
+   }
   }
  ]
 }

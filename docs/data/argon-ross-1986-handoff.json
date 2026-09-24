@@ -35,10 +35,24 @@
   ],
   "publication_date": "1986-07-15",
   "zotero_destination": "My Library > Methods > EOS Library (C18)",
-  "zotero_existing_item_key": null,
-  "zotero_existing_attachment_key": null,
-  "journal_pdf": null,
-  "pdf_request_satisfied": false,
+  "zotero_existing_item_key": "QWLP4V5H",
+  "zotero_existing_attachment_key": "8FAK8WKL",
+  "journal_pdf": {
+    "doi": "10.1063/1.451346",
+    "source": "User supplied /Users/clemens/Downloads/1028_1_online.pdf",
+    "stable_copy": "/Users/clemens/Documents/Peritheos-sources/argon-ross-1986/ross-1986-jcp.pdf",
+    "sha256": "8f5f50ab785adb5f03c3d5769d1c3b91a0ec7c3e5eb3a1374faa273112aaf9c3",
+    "size_bytes": 869034,
+    "pages": 7,
+    "identity_verified": "Publisher cover plus JCP article pages1028-1033; title authors DOI match. Journal introduction specifies298K.",
+    "zotero_parent_key": "QWLP4V5H",
+    "collection_key": "JT8V6LUL",
+    "attachment_status": "verified",
+    "zotero_attachment_key": "8FAK8WKL",
+    "zotero_file": "/Users/clemens/Zotero/storage/8FAK8WKL/Ross et al. - 1986 - The equation of state of dense argon A comparison of shock and static studies.pdf",
+    "prior_metadata_only_item_key": "TJWGXSZR"
+  },
+  "pdf_request_satisfied": true,
   "related_pdf": {
     "path": "/Users/clemens/Documents/Peritheos-sources/argon-ross-1986/precursor.pdf",
     "origin_url": "https://www.osti.gov/servlets/purl/5471606",
@@ -48,45 +62,52 @@
     "identity": "1985 conference precursor UCRL-93030 / CONF-850736-45, prepared for APS Spokane July 22-25 1985; cover and contents inspected. NOT the 1986 JCP article.",
     "attachment_title": "Related 1985 conference precursor (UCRL-93030), not the 1986 journal article"
   },
-  "access_blockers": [
-    "AIP page visibly says no current access; purchase offered and not attempted.",
-    "Exact Crossref version-of-record PDF URL returns HTTP 403.",
-    "OSTI journal record 5817597 only has citation metadata; purl returns 404.",
-    "OpenAlex lists only the closed publisher location; Semantic Scholar reports CLOSED with empty PDF URL.",
-    "Local Zotero title and argon searches found no Ross item.",
-    "Original Mao author website mao.gl.ciw.edu timed out; focused web/author-repository searches found only the 1985 precursor."
-  ],
+  "access_blockers": [],
   "publisher_pdf_url": "https://pubs.aip.org/aip/jcp/article-pdf/85/2/1028/18959951/1028_1_online.pdf",
   "audit_date": "2026-09-24",
-  "import_instruction": "Import journal metadata if appropriate, but do not label the precursor as full text of DOI 10.1063/1.451346. Keep actual journal PDF request open. Related precursor may be attached with its explicit version title and note.",
+  "import_instruction": "Verified full text already attached to QWLP4V5H as8FAK8WKL. Older metadata-only TJWGXSZR remains duplicate; no further import needed.",
   "implementation_commit": "3dfa3a973e85319474f9f6718761af8dc0439661",
   "infrastructure_commit": "beb665c",
   "material_identifier": "argon_fcc",
   "changed_eos_record_identifiers": [],
   "supporting_study_identifier": "argon_ross_1986_supporting_study",
   "observation_dataset_identifiers": [
+    "argon_ross_1986_table1",
     "argon_ross_1985_precursor_figure1_subset"
   ],
-  "observation_asset": "peritheos/data/datasets/argon-ross-1985-precursor-figure1-subset.csv",
   "reproduction_report": "docs/data/argon-ross-1986-reproduction.json",
   "documentation": "docs/literature-reproductions/argon-ross-1986.md",
-  "fit_status": "not_reproduced; no surrogate EOS; pair-potential audit only",
+  "fit_status": "Published tables and exact exp-6 pair potential recovered. Independent finite-temperature Monte Carlo EOS not yet implemented or validated; no surrogate fit or executable Ross EOS registered.",
   "tests": {
     "command": "python -m pytest tests/test_argon_ross.py tests/test_argon.py tests/test_supporting_datasets.py tests/test_eosmat.py tests/test_datasets.py -q",
-    "result": "166 passed",
-    "lint": "ruff check scripts/reproduce_argon_ross.py tests/test_argon_ross.py tests/test_supporting_datasets.py passed",
-    "patch_check": "git diff --check passed"
+    "result": "167 passed",
+    "lint": "ruff check scripts/reproduce_argon_ross.py tests/test_argon_ross.py passed",
+    "patch_check": "git diff --check passed",
+    "scope": "Journal data, metadata, documentation and audit only; no Monte Carlo simulation or new EOS fit."
   },
   "studio_requirements": [
-    "Display Ross as supporting study with pending journal-full-text badge and no executable Ross curve.",
-    "Show 1985 precursor observations only with explicit incomplete-subset provenance and 293 K.",
-    "Do not use these observations as fitted data for Dewaele or Ono.",
-    "Read material supporting_studies extension; dataset has explicit empty used_by_eos_records.",
-    "Keep journal PDF request unresolved; related precursor PDF is not fulfillment."
+    "Show primary full text verified and published tables recovered; independent Monte Carlo reproduction pending.",
+    "Table I is measured298K; Table III is calculated293K with gamma298K; Table II is calculated liquid shock states.",
+    "Keep precursor subset distinctly labeled1985/293K and incomplete.",
+    "No Ross executable curve, no automatic assignment to Dewaele/Ono fits, no treatment of theory states as experimental data."
   ],
   "integration_notes": [
-    "Cherry-pick infrastructure then study commits.",
-    "Rust empty-link guard follow-up owned by Chen task 01a0d25a-0cc5-7b43-9122-17ad053afcf7; coordinate its separate infrastructure commit.",
-    "No Zotero writes, shared Studio changes, push or deployment performed."
+    "Apply this source update after prior Ross commits.",
+    "PDF attachment verified by SHA256; metadata-only duplicate remains in Zotero."
+  ],
+  "rust_infrastructure_commit": "ca818c09a31649c844883ec0a94489d5e31bf60c",
+  "rust_infrastructure_equivalent_original_commit": "e6206c2",
+  "zotero_metadata_only_duplicate_key": "TJWGXSZR",
+  "published_theory_dataset_identifiers": [
+    "argon_ross_1986_table3",
+    "argon_ross_1986_table2"
+  ],
+  "observation_assets": [
+    "peritheos/data/datasets/argon-ross-1986-table1.csv",
+    "peritheos/data/datasets/argon-ross-1985-precursor-figure1-subset.csv"
+  ],
+  "published_theory_assets": [
+    "peritheos/data/datasets/argon-ross-1986-table3.csv",
+    "peritheos/data/datasets/argon-ross-1986-table2.csv"
   ]
 }
