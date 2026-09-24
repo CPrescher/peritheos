@@ -961,6 +961,276 @@
     "notes": "Reading bounds are conservative digitization estimates, not published error bars or one-sigma errors. Low-resolution overlapping symbols prevent a complete dataset. The decimals preserve conversion arithmetic, not measurement precision."
    },
    "notes": "fcc monatomic argon; Vcell=4*1e24*Vmolar/NA. Ruby pressure scale printed in precursor Eq. (1): A=19.04 Mbar, B=7.665, lambda0 at one bar. No original ruby wavelengths or individual experimental uncertainties recovered. Values are reported pressures, not recalibrated."
+  },
+  {
+   "identifier": "argon_fcc_chen_2010_figure5_brillouin",
+   "kind": "pressure_volume",
+   "description": "80 distinct vector marker positions: Brillouin-integrated density, not XRD. Rendering repetitions are not independent observations.",
+   "reference": {
+    "authors": [
+     "Chen",
+     "Gleason",
+     "Yan",
+     "Koski",
+     "Clark",
+     "Jeanloz"
+    ],
+    "year": 2010,
+    "title": "Elasticity, strength, and refractive index of argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "81",
+    "locator": "144110",
+    "doi": "10.1103/PhysRevB.81.144110"
+   },
+   "source_location": "Page 144110-3, Figure 5",
+   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_plot_halfwidth_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "density_plot_halfwidth_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "uncertainty",
+     "of": "density_g_cm3"
+    },
+    {
+     "name": "pdf_x_pt",
+     "quantity": "figure_coordinate",
+     "unit": "pt",
+     "role": "value"
+    },
+    {
+     "name": "pdf_y_pt",
+     "quantity": "figure_coordinate",
+     "unit": "pt",
+     "role": "value"
+    },
+    {
+     "name": "pdf_render_count",
+     "quantity": "pdf_render_count",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pdf_first_path_index",
+     "quantity": "pdf_first_path_index",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-fcc-chen-2010-figure5-brillouin.csv",
+    "sha256": "fc7c9eda97466e12c8318341d87d5d931cf03dc09cdaddfd2f32dcf7a22caacf",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [],
+   "study_identifier": "argon_fcc_chen_2010",
+   "provenance": {
+    "type": "digitized_primary_figure",
+    "source_pdf_sha256": "17a0bcd30604bd81f125894a18a45a91255b235fb80643cddd4bcbc6e5bd01f1",
+    "script": "scripts/digitize_chen_2010_argon.py",
+    "source_data_license": "unspecified; article copyright American Physical Society 2010",
+    "transcription_license": "CC0-1.0 applies only to contributor-held rights in factual transcription and arrangement; not source article or figure",
+    "temperature_note": "290 K from Table I; text says room temperature and later calls strength300 K. No temperature correction applied."
+   },
+   "notes": "Supporting-study dataset; no executable Chen EOS record. See docs/literature-reproductions/chen-2010-argon.md.",
+   "uncertainty": {
+    "type": "digitized_plot_errorbar",
+    "confidence_convention": "not specified in source",
+    "digitization_pressure_bound_gpa": 0.05,
+    "digitization_density_bound_g_cm3": 0.01,
+    "notes": "Matched drawn bar halfwidths are retained separately from conservative digitization bounds. Errors and density integration correlations must not be treated as independent without evidence."
+   }
+  },
+  {
+   "identifier": "argon_fcc_chen_2010_figure5_curve",
+   "kind": "published_fit_curve",
+   "description": "262 vertices of the published fitted line, not measured observations or theory data.",
+   "reference": {
+    "authors": [
+     "Chen",
+     "Gleason",
+     "Yan",
+     "Koski",
+     "Clark",
+     "Jeanloz"
+    ],
+    "year": 2010,
+    "title": "Elasticity, strength, and refractive index of argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "81",
+    "locator": "144110",
+    "doi": "10.1103/PhysRevB.81.144110"
+   },
+   "source_location": "Page 144110-3, Figure 5",
+   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pdf_x_pt",
+     "quantity": "figure_coordinate",
+     "unit": "pt",
+     "role": "value"
+    },
+    {
+     "name": "pdf_y_pt",
+     "quantity": "figure_coordinate",
+     "unit": "pt",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-fcc-chen-2010-figure5-curve.csv",
+    "sha256": "7c12f60651c5ceeb0e7650e95c2fc2cc49548ef29e182d89150051bd46baa8a1",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [],
+   "study_identifier": "argon_fcc_chen_2010",
+   "provenance": {
+    "type": "digitized_primary_figure",
+    "source_pdf_sha256": "17a0bcd30604bd81f125894a18a45a91255b235fb80643cddd4bcbc6e5bd01f1",
+    "script": "scripts/digitize_chen_2010_argon.py",
+    "source_data_license": "unspecified; article copyright American Physical Society 2010",
+    "transcription_license": "CC0-1.0 applies only to contributor-held rights in factual transcription and arrangement; not source article or figure",
+    "temperature_note": "290 K from Table I; text says room temperature and later calls strength300 K. No temperature correction applied."
+   },
+   "notes": "Supporting-study dataset; no executable Chen EOS record. See docs/literature-reproductions/chen-2010-argon.md."
+  },
+  {
+   "identifier": "argon_fcc_chen_2010_reported_values",
+   "kind": "reported_elastic_properties",
+   "description": "14 own-study printed values from Table I, captions and prose. Approximate velocities, integration anchor, extrapolation, fitted constants and derived constants are explicitly distinguished.",
+   "reference": {
+    "authors": [
+     "Chen",
+     "Gleason",
+     "Yan",
+     "Koski",
+     "Clark",
+     "Jeanloz"
+    ],
+    "year": 2010,
+    "title": "Elasticity, strength, and refractive index of argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "81",
+    "locator": "144110",
+    "doi": "10.1103/PhysRevB.81.144110"
+   },
+   "source_location": "Pages 144110-3 and 144110-4, Table I and adjacent prose/captions",
+   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+   "columns": [
+    {
+     "name": "quantity",
+     "quantity": "quantity",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "value",
+     "quantity": "reported_quantity",
+     "unit": "row_specific",
+     "role": "value"
+    },
+    {
+     "name": "reported_uncertainty",
+     "quantity": "reported_uncertainty",
+     "unit": "row_specific",
+     "role": "value"
+    },
+    {
+     "name": "unit",
+     "quantity": "unit",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "source",
+     "quantity": "source",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-fcc-chen-2010-reported-values.csv",
+    "sha256": "bea432c04bb0eda36649f767e2dc5fe6c20ce4159c657a7e1fa76da72536e047",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [],
+   "study_identifier": "argon_fcc_chen_2010",
+   "provenance": {
+    "type": "transcribed_primary_values",
+    "source_pdf_sha256": "17a0bcd30604bd81f125894a18a45a91255b235fb80643cddd4bcbc6e5bd01f1",
+    "script": null,
+    "source_data_license": "unspecified; article copyright American Physical Society 2010",
+    "transcription_license": "CC0-1.0 applies only to contributor-held rights in factual transcription and arrangement; not source article or figure",
+    "temperature_note": "290 K from Table I; text says room temperature and later calls strength300 K. No temperature correction applied."
+   },
+   "notes": "Supporting-study dataset; no executable Chen EOS record. See docs/literature-reproductions/chen-2010-argon.md."
   }
  ],
  "supporting_studies": [

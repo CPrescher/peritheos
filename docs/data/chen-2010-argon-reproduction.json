@@ -1,0 +1,55 @@
+{
+  "study": "Chen et al. (2010), doi:10.1103/PhysRevB.81.144110",
+  "reproduction_status": "not_reproduced",
+  "outcome": "supporting_study_with_digitized_density_and_separate_curve",
+  "reference_state": {
+    "pressure_gpa": 2,
+    "temperature_k": 290,
+    "density_g_cm3": 2.18
+  },
+  "standard_bm3_local_constraint_diagnostic": {
+    "density_polynomial_coefficients_gpa": [
+      32.532500000000006,
+      -47.415000000000006,
+      16.882499999999997
+    ],
+    "derived_zero_pressure_parameters_not_published": {
+      "V0": 158.4458086182256,
+      "K0": 2.579673179843727,
+      "K0_prime": 9.081604622279848
+    },
+    "predicted_rho0_g_cm3": 1.6746473821922345,
+    "printed_rho0_g_cm3": 1.52,
+    "printed_rho0_uncertainty_g_cm3": 0.05,
+    "rho0_difference_divided_by_printed_uncertainty": 3.09294764384469,
+    "predicted_rho_at_1_3_gpa": 2.0663886101177016,
+    "printed_integration_anchor_rho_g_cm3": 2.02,
+    "predicted_K_Ksecond_at_2gpa": -5.703635025754238,
+    "printed_K_Ksecond_at_2gpa": -7.3,
+    "printed_K_Ksecond_uncertainty": 1.2,
+    "native_pressure_max_difference_gpa": 7.815970093361102e-14,
+    "density_marker_pressure_rms_gpa": 6.880361102691378,
+    "density_marker_pressure_max_abs_gpa": 19.068218177687267
+  },
+  "figure5_curve_diagnostic": {
+    "rows": 262,
+    "rho_at_2_gpa_g_cm3": 2.1801686132031586,
+    "local_cubic_1_to_3_gpa_bulk_modulus_at_2_gpa": 11.156956378124951,
+    "note": "Derivative of digitized fitted line; not an independent measured elastic constant."
+  },
+  "brillouin_density_markers": {
+    "distinct_pdf_positions": 80,
+    "pressure_range_gpa": [
+      1.23188372,
+      26.06236454
+    ],
+    "rows_with_matched_pressure_errorbar": 80,
+    "rows_with_matched_density_errorbar": 80,
+    "note": "PDF render multiplicities are not sample counts; integrated densities, not XRD observations."
+  },
+  "equation4_check": {
+    "Cp_over_Cv_at_2gpa": 1.168588514060111,
+    "drho_dP_from_printed_figure4_velocities": 0.1351369531610182
+  },
+  "limitation": "No unrounded EOS coefficients, original velocity/density table, covariance or integration weights supplied. Rounded-constraint inconsistency is not a significance test; errors are correlated and confidence convention is unspecified. No executable Chen EOS record is bundled."
+}

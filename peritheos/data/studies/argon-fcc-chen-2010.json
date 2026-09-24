@@ -1,0 +1,277 @@
+{
+  "identifier": "argon_fcc_chen_2010",
+  "material_identifier": "argon_fcc",
+  "record_kind": "supporting_study",
+  "status": "supporting_study",
+  "reproduction_status": "not_reproduced",
+  "reference": {
+    "authors": [
+      "Chen",
+      "Gleason",
+      "Yan",
+      "Koski",
+      "Clark",
+      "Jeanloz"
+    ],
+    "year": 2010,
+    "title": "Elasticity, strength, and refractive index of argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "81",
+    "locator": "144110",
+    "doi": "10.1103/PhysRevB.81.144110"
+  },
+  "full_authors": [
+    "Bin Chen",
+    "A. E. Gleason",
+    "J. Y. Yan",
+    "K. J. Koski",
+    "Simon Clark",
+    "Raymond Jeanloz"
+  ],
+  "published": "2010-04-14",
+  "phase": "fcc",
+  "determination_method": "experimental",
+  "dataset_identifiers": [
+    "argon_fcc_chen_2010_figure5_brillouin",
+    "argon_fcc_chen_2010_figure5_curve",
+    "argon_fcc_chen_2010_reported_values"
+  ],
+  "eos_record_identifiers": [],
+  "reported_values": [
+    {
+      "quantity": "density",
+      "value": "2.18",
+      "reported_uncertainty": "0.06",
+      "unit": "g/cm^3",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "page3_text"
+    },
+    {
+      "quantity": "density",
+      "value": "1.52",
+      "reported_uncertainty": "0.05",
+      "unit": "g/cm^3",
+      "pressure_gpa": "0",
+      "temperature_k": "290",
+      "source": "page3_text_extrapolation"
+    },
+    {
+      "quantity": "integration_anchor_density",
+      "value": "2.02",
+      "reported_uncertainty": "",
+      "unit": "g/cm^3",
+      "pressure_gpa": "1.3",
+      "temperature_k": "290",
+      "source": "figure5_caption"
+    },
+    {
+      "quantity": "adiabatic_bulk_modulus",
+      "value": "17.6",
+      "reported_uncertainty": "1.4",
+      "unit": "GPa",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "table1_this_study"
+    },
+    {
+      "quantity": "adiabatic_bulk_modulus_pressure_derivative",
+      "value": "5.1",
+      "reported_uncertainty": "0.3",
+      "unit": "1",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "table1_this_study"
+    },
+    {
+      "quantity": "shear_modulus",
+      "value": "4.1",
+      "reported_uncertainty": "0.4",
+      "unit": "GPa",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "table1_this_study"
+    },
+    {
+      "quantity": "shear_modulus_pressure_derivative",
+      "value": "0.6",
+      "reported_uncertainty": "0.05",
+      "unit": "1",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "table1_this_study"
+    },
+    {
+      "quantity": "isothermal_bulk_modulus",
+      "value": "15.1",
+      "reported_uncertainty": "1.1",
+      "unit": "GPa",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "table1_this_study"
+    },
+    {
+      "quantity": "isothermal_bulk_modulus_pressure_derivative",
+      "value": "5.4",
+      "reported_uncertainty": "0.3",
+      "unit": "1",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "table1_this_study"
+    },
+    {
+      "quantity": "bulk_modulus_times_second_pressure_derivative",
+      "value": "-7.3",
+      "reported_uncertainty": "1.2",
+      "unit": "1",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "page4_text"
+    },
+    {
+      "quantity": "longitudinal_velocity_approximate",
+      "value": "3.228",
+      "reported_uncertainty": "",
+      "unit": "km/s",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "figure4_caption"
+    },
+    {
+      "quantity": "transverse_velocity_approximate",
+      "value": "1.153",
+      "reported_uncertainty": "",
+      "unit": "km/s",
+      "pressure_gpa": "2",
+      "temperature_k": "290",
+      "source": "figure4_caption"
+    },
+    {
+      "quantity": "heat_capacity_ratio_amplitude",
+      "value": "0.25",
+      "reported_uncertainty": "0.11",
+      "unit": "1",
+      "pressure_gpa": "",
+      "temperature_k": "290",
+      "source": "page3_after_equation4"
+    },
+    {
+      "quantity": "heat_capacity_ratio_decay",
+      "value": "0.197",
+      "reported_uncertainty": "0.041",
+      "unit": "1/GPa",
+      "pressure_gpa": "",
+      "temperature_k": "290",
+      "source": "page3_after_equation4"
+    }
+  ],
+  "experimental_pressure_range_gpa": [
+    1.3,
+    30
+  ],
+  "reference_temperature_k": 290,
+  "reference_pressure_gpa": 2,
+  "volume_normalization": {
+    "formula_units_per_conventional_cell": 4,
+    "molar_mass_g_mol": 39.948,
+    "avogadro_mol_inverse": 6.02214076e+23,
+    "formula": "V_cell[A^3] = 4*39.948/(0.602214076*rho[g/cm^3])"
+  },
+  "equation": {
+    "published": "d rho/dP = (Cp/Cv)/(Vp^2 - 4 Vs^2/3)",
+    "location": "Eq. (4), page144110-3",
+    "heat_capacity_ratio": "1 + 0.25 exp(-0.197 P[GPa])",
+    "eos_description": "Third-order Eulerian finite-strain/Birch-Murnaghan, citing Birch1977 and1978; no explicit pressure equation or unrounded EOS coefficients printed.",
+    "implementation": "scripts/reproduce_chen_2010_argon.py"
+  },
+  "pressure_calibration": {
+    "status": "resolved",
+    "method": "ruby_fluorescence",
+    "reference": "Mao, Bell, Shaner and Steinberg (1978), J. Appl. Phys.49,3276",
+    "reference_calibration_record": "ruby_mao_1978",
+    "source_location": "Experimental section reference14; distinguish unused reference13 Mao1986",
+    "recalculation_status": "missing_calibrant_observations",
+    "notes": "Ruby wavelengths and individual pressure-calibration reductions not supplied."
+  },
+  "pdf": {
+    "path": "/Users/clemens/Documents/Peritheos/papers/chen-2010/chen-2010.pdf",
+    "origin_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+    "sha256": "17a0bcd30604bd81f125894a18a45a91255b235fb80643cddd4bcbc6e5bd01f1",
+    "pages": 5,
+    "identity_verified": [
+      "title",
+      "all six authors",
+      "DOI",
+      "journal volume/article",
+      "page144110-1 through144110-5"
+    ],
+    "downloaded_on": "2026-09-24",
+    "version": "publisher version of record",
+    "existing_zotero_item_key": null,
+    "existing_zotero_attachment_key": null,
+    "ris_path": "/Users/clemens/Documents/Peritheos/papers/chen-2010/chen-2010.ris"
+  },
+  "diagnostics_report": "docs/data/chen-2010-argon-reproduction.json",
+  "documentation": "docs/literature-reproductions/chen-2010-argon.md",
+  "limitations": [
+    "No unrounded EOS coefficient set, density/velocity source table, fit weighting or covariance is supplied.",
+    "Standard BM3 with true nonzero-pressure local constraints fails the published density curve and zero-pressure density; a constant pressure offset is not a valid resolution.",
+    "Graphical points are integrated Brillouin densities; gray Ross XRD crosses and Shimizu triangles are excluded.",
+    "The symbol extraction deduplicates rendering commands; original sample/run counts cannot be inferred.",
+    "290 K table versus room-temperature text and300 K strength wording retained as source ambiguity."
+  ],
+  "studio_requirements": {
+    "browse_as": "supporting_study",
+    "display_fit_status": "not_reproduced",
+    "observations": "argon_fcc_chen_2010_figure5_brillouin",
+    "published_curve": "argon_fcc_chen_2010_figure5_curve",
+    "source_constants": "argon_fcc_chen_2010_reported_values",
+    "curve_style": "line labelled published fitted curve, not measurement",
+    "observation_style": "markers labelled Brillouin-derived density (digitized)",
+    "do_not_create_eos_record": true
+  },
+  "notes": "The separate published curve is a fitted experimental EOS line, not an ab initio theory curve and never a measured-point dataset.",
+  "bibliographic_metadata": {
+    "itemType": "journalArticle",
+    "title": "Elasticity, strength, and refractive index of argon at high pressures",
+    "creators": [
+      {
+        "creatorType": "author",
+        "firstName": "Bin",
+        "lastName": "Chen"
+      },
+      {
+        "creatorType": "author",
+        "firstName": "A. E.",
+        "lastName": "Gleason"
+      },
+      {
+        "creatorType": "author",
+        "firstName": "J. Y.",
+        "lastName": "Yan"
+      },
+      {
+        "creatorType": "author",
+        "firstName": "K. J.",
+        "lastName": "Koski"
+      },
+      {
+        "creatorType": "author",
+        "firstName": "Simon",
+        "lastName": "Clark"
+      },
+      {
+        "creatorType": "author",
+        "firstName": "Raymond",
+        "lastName": "Jeanloz"
+      }
+    ],
+    "publicationTitle": "Physical Review B",
+    "volume": "81",
+    "issue": "14",
+    "pages": "144110",
+    "date": "2010-04-14",
+    "DOI": "10.1103/PhysRevB.81.144110",
+    "url": "https://doi.org/10.1103/PhysRevB.81.144110"
+  }
+}

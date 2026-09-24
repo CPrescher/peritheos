@@ -143,10 +143,14 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 315 distinct primary datasets with
-22,701 observation rows, represented by
-354 material-document links to
+The current bundle contains 318 distinct primary datasets with
+23,057 observation rows, represented by
+357 material-document links to
 475 EOS records.
+Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
+identified published-fit curve vertices, and 14 reported constants. These
+supporting assets have no executable Chen EOS; curve vertices and constants
+are not independent measured observations.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,
