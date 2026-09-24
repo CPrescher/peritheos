@@ -1,0 +1,2174 @@
+{
+  "status": "alternate_equal_weight_diagnostic",
+  "source_objective_reproduced": false,
+  "objective": "Minimize sum_i ((calculated_i-observed_i)/observed_i)^2; every recovered input entry has weight one. No uncertainty weights, per-property balancing, original empirical weights, or original penalties.",
+  "data_scope": "22 Xiao Table5 neutron volume observations, and separately all five Anderson-Swenson Table1 extrapolated K0 estimates. This is not the complete legacy dataset cited by Xiao.",
+  "data_sources": [
+    {
+      "path": "peritheos/data/datasets/argon-fcc-xiao-2025-table5.csv",
+      "sha256": "264e50f393c19f8ffea5eca5f3df1a412f49bafd37f977e97a60095dd1f186dd",
+      "doi": "10.1007/s10765-024-03469-2",
+      "source_location": "Table5",
+      "kind": "measured_neutron_volume",
+      "pressure_assumption": "P=0 approximation; source actual pressures slightly above sublimation and unreported"
+    },
+    {
+      "path": "peritheos/data/datasets/argon-anderson-swenson-1975-table1.csv",
+      "sha256": "5f0a293e4641396dd0d92c399fb667ae50e8c0b4ad84c83bb3c1935a4e4a43b3",
+      "doi": "10.1016/0022-3697(75)90004-9",
+      "source_location": "Table1 K0 column",
+      "kind": "published_extrapolated_isothermal_bulk_modulus_estimates",
+      "note": "Five published summary estimates from isotherm fits, not direct independent zero-pressure measurements. Xiao used two in its original regression; all five retained for this user-directed objective. Correlations and uncertainties unavailable."
+    }
+  ],
+  "fixed_v00_cm3_mol": 22.555,
+  "excluded_parameter": "Gas-phase triple-point entropy is not constrained by these solid-only properties and is not fitted.",
+  "published_parameters": {
+    "c1_mpa": 2656.5,
+    "c2_mpa": 7298.0,
+    "c3_mpa": 10.0,
+    "theta0_k": 86.44,
+    "gamma0": 2.68,
+    "q": 0.0024,
+    "b1": 0.0128,
+    "b2": 0.388,
+    "b3": 7.85
+  },
+  "search_bounds": {
+    "c1_mpa": [
+      500.0,
+      6000.0
+    ],
+    "c2_mpa": [
+      100.0,
+      30000.0
+    ],
+    "c3_mpa": [
+      0.1,
+      100000.0
+    ],
+    "theta0_k": [
+      20.0,
+      300.0
+    ],
+    "gamma0": [
+      0.1,
+      10.0
+    ],
+    "q": [
+      1e-06,
+      5.0
+    ],
+    "b1": [
+      1e-06,
+      1.0
+    ],
+    "b2": [
+      0.0001,
+      10.0
+    ],
+    "b3": [
+      0.1,
+      30.0
+    ]
+  },
+  "bounds_provenance": "Chosen numerical diagnostic limits with positive parameters, not published limits or confidence intervals. Failed/out-of-domain model states return a large residual. Bound hits and alternate minima are reported, never interpreted as parameter recovery.",
+  "parameter_uncertainties": null,
+  "parameter_uncertainty_note": "No statistical errors asserted: correlated source summary estimates, incomplete property coverage, practical rank deficiency and search-bound dependence.",
+  "cases": {
+    "22_neutron_volumes": {
+      "input_entries": 22,
+      "published_metrics": {
+        "all": {
+          "count": 22,
+          "sum_squared_relative_residuals": 1.9928731263965525e-05,
+          "relative_rms_percent": 0.09517622713100904,
+          "relative_aad_percent": 0.08072857771766281
+        },
+        "volume": {
+          "count": 22,
+          "sum_squared_relative_residuals": 1.9928731263965525e-05,
+          "relative_rms_percent": 0.09517622713100904,
+          "relative_aad_percent": 0.08072857771766281
+        }
+      },
+      "published_full_nine_parameter_sensitivity": {
+        "parameter_coordinates": "ln(parameter / published_parameter)",
+        "singular_values": [
+          0.14548270278055353,
+          0.015282826991280363,
+          0.0006412723472511373,
+          1.2116177239755686e-05,
+          2.3088975203581365e-06,
+          3.873666376650241e-08,
+          1.4034535707387001e-09,
+          1.8795151398195387e-11,
+          1.4195072170071974e-11
+        ],
+        "condition_number": 10248817409.134445,
+        "rank_at_relative_singular_value_threshold": {
+          "0.0001": 3,
+          "1e-06": 5,
+          "1e-08": 6
+        },
+        "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+      },
+      "full_nine_parameter_fit": {
+        "free_parameters": [
+          "c1_mpa",
+          "c2_mpa",
+          "c3_mpa",
+          "theta0_k",
+          "gamma0",
+          "q",
+          "b1",
+          "b2",
+          "b3"
+        ],
+        "fixed_parameters": {},
+        "starts": 5,
+        "seed": 20250903,
+        "max_function_evaluations_per_start": 300,
+        "best_start_index": 3,
+        "best_parameters": {
+          "c1_mpa": 500.0000000065119,
+          "c2_mpa": 125.5385499979546,
+          "c3_mpa": 0.1147336907503444,
+          "theta0_k": 97.83138798775192,
+          "gamma0": 0.66714929283928,
+          "q": 4.999999703419885,
+          "b1": 0.9999999999999996,
+          "b2": 6.311607587832908,
+          "b3": 4.301706036020593
+        },
+        "best_metrics": {
+          "all": {
+            "count": 22,
+            "sum_squared_relative_residuals": 2.271991031807291e-06,
+            "relative_rms_percent": 0.03213601089550539,
+            "relative_aad_percent": 0.024285476709273376
+          },
+          "volume": {
+            "count": 22,
+            "sum_squared_relative_residuals": 2.271991031807291e-06,
+            "relative_rms_percent": 0.03213601089550539,
+            "relative_aad_percent": 0.024285476709273376
+          }
+        },
+        "best_parameters_at_search_bounds": [
+          "c1_mpa",
+          "q",
+          "b1"
+        ],
+        "multistart_parameter_ranges": {
+          "c1_mpa": [
+            500.0000000065119,
+            500.000085818548
+          ],
+          "c2_mpa": [
+            125.5385499979546,
+            1501.4124913131845
+          ],
+          "c3_mpa": [
+            0.10389481698056931,
+            0.5172818931946723
+          ],
+          "theta0_k": [
+            97.59093486530482,
+            97.83138798775192
+          ],
+          "gamma0": [
+            0.6366081948069195,
+            0.66714929283928
+          ],
+          "q": [
+            2.3331597007782326e-05,
+            4.999999703419885
+          ],
+          "b1": [
+            0.9999928032046792,
+            0.9999999999999996
+          ],
+          "b2": [
+            6.311607587832908,
+            7.908529079631943
+          ],
+          "b3": [
+            2.696192835253203,
+            4.301706036020593
+          ]
+        },
+        "solutions": [
+          {
+            "start_index": 0,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 86.44,
+              "gamma0": 2.68,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 500.00000843423436,
+              "c2_mpa": 1500.6149725901091,
+              "c3_mpa": 0.2000851682037799,
+              "theta0_k": 97.59218469129057,
+              "gamma0": 0.6366081948069195,
+              "q": 6.995159620734556e-05,
+              "b1": 0.9999928032046792,
+              "b2": 7.906156885039273,
+              "b3": 2.696192835253203
+            },
+            "optimizer_success": true,
+            "optimizer_status": 1,
+            "optimizer_message": "`gtol` termination condition is satisfied.",
+            "function_evaluations": 77,
+            "optimality": 4.0369145932053417e-11,
+            "parameters_at_search_bounds": [
+              "c1_mpa",
+              "b1"
+            ],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.286273276544877e-06,
+                "relative_rms_percent": 0.03223685973698767,
+                "relative_aad_percent": 0.02448524069108526
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.286273276544877e-06,
+                "relative_rms_percent": 0.03223685973698767,
+                "relative_aad_percent": 0.02448524069108526
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.13889343555924624,
+                0.0167393071065914,
+                0.0008351444752212912,
+                1.1264328746090403e-05,
+                5.509428395288876e-06,
+                4.138754085021535e-07,
+                6.94153485938119e-08,
+                1.3301951915094359e-11,
+                7.60382528200186e-12
+              ],
+              "condition_number": 18266258154.03793,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 3,
+                "1e-06": 6,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 1.0010984396144957,
+              "minimum_bulk_gpa": 0.39815642498275405,
+              "minimum_thermal_expansivity_per_k": 5.5252026058611546e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 1,
+            "starting_parameters": {
+              "c1_mpa": 3034.829566794854,
+              "c2_mpa": 6625.762145266576,
+              "c3_mpa": 10.331510640134402,
+              "theta0_k": 74.85996832726127,
+              "gamma0": 2.3285892584349184,
+              "q": 0.002322570812252914,
+              "b1": 0.01535000604432129,
+              "b2": 0.4999816250076844,
+              "b3": 6.041533388350095
+            },
+            "parameters": {
+              "c1_mpa": 500.0000008145461,
+              "c2_mpa": 1501.3485458627636,
+              "c3_mpa": 0.10443757208749653,
+              "theta0_k": 97.5915101995545,
+              "gamma0": 0.6366164627608416,
+              "q": 7.534486373246766e-05,
+              "b1": 0.9999996620540077,
+              "b2": 7.906392354215043,
+              "b3": 2.6971880760471003
+            },
+            "optimizer_success": true,
+            "optimizer_status": 1,
+            "optimizer_message": "`gtol` termination condition is satisfied.",
+            "function_evaluations": 110,
+            "optimality": 2.1927560799567908e-11,
+            "parameters_at_search_bounds": [
+              "c1_mpa",
+              "b1"
+            ],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.2862728522846207e-06,
+                "relative_rms_percent": 0.03223685674591501,
+                "relative_aad_percent": 0.024485032340644645
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.2862728522846207e-06,
+                "relative_rms_percent": 0.03223685674591501,
+                "relative_aad_percent": 0.024485032340644645
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.13890202029453946,
+                0.016741643637236406,
+                0.0008355329480593362,
+                1.1268387291826753e-05,
+                5.51320292936205e-06,
+                4.1425324774463245e-07,
+                6.942238071130014e-08,
+                1.2732610553087686e-11,
+                5.094299186112149e-12
+              ],
+              "condition_number": 27266168558.220524,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 3,
+                "1e-06": 6,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 1.0011187567473967,
+              "minimum_bulk_gpa": 0.39811893773160356,
+              "minimum_thermal_expansivity_per_k": 5.5252447148604336e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 2,
+            "starting_parameters": {
+              "c1_mpa": 2938.249550836413,
+              "c2_mpa": 7503.547643126033,
+              "c3_mpa": 12.425194076883784,
+              "theta0_k": 111.14419864971302,
+              "gamma0": 3.4626912109356094,
+              "q": 0.002226630438263737,
+              "b1": 0.013428866632404371,
+              "b2": 0.3979998057347575,
+              "b3": 7.1770823956314915
+            },
+            "parameters": {
+              "c1_mpa": 500.000085818548,
+              "c2_mpa": 1500.8918515434589,
+              "c3_mpa": 0.5172818931946723,
+              "theta0_k": 97.59153887831336,
+              "gamma0": 0.6366138910523678,
+              "q": 2.3331597007782326e-05,
+              "b1": 0.9999999998266367,
+              "b2": 7.908529079631943,
+              "b3": 2.697110403639018
+            },
+            "optimizer_success": true,
+            "optimizer_status": 1,
+            "optimizer_message": "`gtol` termination condition is satisfied.",
+            "function_evaluations": 103,
+            "optimality": 2.3831712970994573e-11,
+            "parameters_at_search_bounds": [
+              "c1_mpa",
+              "b1"
+            ],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.286274261260111e-06,
+                "relative_rms_percent": 0.03223686667931687,
+                "relative_aad_percent": 0.024485097687934908
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.286274261260111e-06,
+                "relative_rms_percent": 0.03223686667931687,
+                "relative_aad_percent": 0.024485097687934908
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.13889684696589347,
+                0.01673984747206684,
+                0.0008352699842626771,
+                1.126604594848956e-05,
+                5.513112007556366e-06,
+                4.145702263509431e-07,
+                6.938671322695343e-08,
+                1.102252662965666e-11,
+                9.737648913999806e-12
+              ],
+              "condition_number": 14263899653.04681,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 3,
+                "1e-06": 6,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 1.0011194593469452,
+              "minimum_bulk_gpa": 0.39814561961920575,
+              "minimum_thermal_expansivity_per_k": 5.525233276326201e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 3,
+            "starting_parameters": {
+              "c1_mpa": 2550.7488487291544,
+              "c2_mpa": 7682.569578421843,
+              "c3_mpa": 9.90571752293974,
+              "theta0_k": 83.25115316471451,
+              "gamma0": 2.8482044717275703,
+              "q": 0.0024148496485673996,
+              "b1": 0.012273141216248987,
+              "b2": 0.3793353416795196,
+              "b3": 8.680385724120422
+            },
+            "parameters": {
+              "c1_mpa": 500.0000000065119,
+              "c2_mpa": 125.5385499979546,
+              "c3_mpa": 0.1147336907503444,
+              "theta0_k": 97.83138798775192,
+              "gamma0": 0.66714929283928,
+              "q": 4.999999703419885,
+              "b1": 0.9999999999999996,
+              "b2": 6.311607587832908,
+              "b3": 4.301706036020593
+            },
+            "optimizer_success": false,
+            "optimizer_status": 0,
+            "optimizer_message": "The maximum number of function evaluations is exceeded.",
+            "function_evaluations": 300,
+            "optimality": 2.8052801610022384e-08,
+            "parameters_at_search_bounds": [
+              "c1_mpa",
+              "q",
+              "b1"
+            ],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.271991031807291e-06,
+                "relative_rms_percent": 0.03213601089550539,
+                "relative_aad_percent": 0.024285476709273376
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.271991031807291e-06,
+                "relative_rms_percent": 0.03213601089550539,
+                "relative_aad_percent": 0.024285476709273376
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.15089108044953234,
+                0.020928814394882225,
+                0.0015928498958371893,
+                3.373579125364436e-05,
+                8.809634908437992e-06,
+                3.1429779198483746e-07,
+                3.4212079472947706e-08,
+                1.6337862525003973e-09,
+                8.98124351219583e-12
+              ],
+              "condition_number": 16800689152.302128,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 4,
+                "1e-06": 6,
+                "1e-08": 8
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 0.9926788940261001,
+              "minimum_bulk_gpa": 0.3950163107793725,
+              "minimum_thermal_expansivity_per_k": 5.524656376949524e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 4,
+            "starting_parameters": {
+              "c1_mpa": 2562.7464511690764,
+              "c2_mpa": 7220.792344681117,
+              "c3_mpa": 9.048712777009719,
+              "theta0_k": 70.55806950514065,
+              "gamma0": 2.8646199294308476,
+              "q": 0.0023734647744187314,
+              "b1": 0.013600610505130192,
+              "b2": 0.3289720355758193,
+              "b3": 6.362304182027318
+            },
+            "parameters": {
+              "c1_mpa": 500.00007910388985,
+              "c2_mpa": 1501.4124913131845,
+              "c3_mpa": 0.10389481698056931,
+              "theta0_k": 97.59093486530482,
+              "gamma0": 0.6366143395060319,
+              "q": 0.0005559625455652111,
+              "b1": 0.9999996289976758,
+              "b2": 7.906127881034782,
+              "b3": 2.697423124824625
+            },
+            "optimizer_success": true,
+            "optimizer_status": 1,
+            "optimizer_message": "`gtol` termination condition is satisfied.",
+            "function_evaluations": 87,
+            "optimality": 8.865175588888618e-11,
+            "parameters_at_search_bounds": [
+              "c1_mpa",
+              "b1"
+            ],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.286272996414066e-06,
+                "relative_rms_percent": 0.03223685776204049,
+                "relative_aad_percent": 0.024484852105424667
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.286272996414066e-06,
+                "relative_rms_percent": 0.03223685776204049,
+                "relative_aad_percent": 0.024484852105424667
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.13890459233617494,
+                0.01674230594480054,
+                0.000835629272693703,
+                1.1270269709055822e-05,
+                5.513896707201642e-06,
+                4.142396809957441e-07,
+                6.943581983984286e-08,
+                1.2251719706195733e-11,
+                8.06066948512158e-12
+              ],
+              "condition_number": 17232389020.85809,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 3,
+                "1e-06": 6,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 1.001136022096242,
+              "minimum_bulk_gpa": 0.3981092331663272,
+              "minimum_thermal_expansivity_per_k": 5.525285302946381e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          }
+        ],
+        "selection_note": "Best means lowest attained objective, including iteration-limited candidates; optimizer_success is reported separately. No unique optimum is asserted.",
+        "best_optimizer_success": false,
+        "converged_starts": 4,
+        "best_converged_start_index": 1,
+        "jacobian_log_parameter_step": 0.0001,
+        "sensitivity_log_parameter_step": 0.001,
+        "best_thermodynamic_diagnostics": {
+          "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+          "minimum_cv_j_mol_k": 0.9926788940261001,
+          "minimum_bulk_gpa": 0.3950163107793725,
+          "minimum_thermal_expansivity_per_k": 5.524656376949524e-05,
+          "passes_sampled_positive_cv_and_bulk": true,
+          "negative_cv_temperatures_k": [],
+          "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+        }
+      },
+      "two_parameter_sensitivity_fit": {
+        "free_parameters": [
+          "theta0_k",
+          "gamma0"
+        ],
+        "fixed_parameters": {
+          "c1_mpa": 2656.5,
+          "c2_mpa": 7298.0,
+          "c3_mpa": 10.0,
+          "q": 0.0024,
+          "b1": 0.0128,
+          "b2": 0.388,
+          "b3": 7.85
+        },
+        "starts": 5,
+        "seed": 20250903,
+        "max_function_evaluations_per_start": 300,
+        "best_start_index": 2,
+        "best_parameters": {
+          "c1_mpa": 2656.5,
+          "c2_mpa": 7298.0,
+          "c3_mpa": 10.0,
+          "theta0_k": 87.46961638955631,
+          "gamma0": 2.5775048204526327,
+          "q": 0.0024,
+          "b1": 0.0128,
+          "b2": 0.388,
+          "b3": 7.85
+        },
+        "best_metrics": {
+          "all": {
+            "count": 22,
+            "sum_squared_relative_residuals": 2.54198778675037e-06,
+            "relative_rms_percent": 0.03399189600445143,
+            "relative_aad_percent": 0.02438772794137149
+          },
+          "volume": {
+            "count": 22,
+            "sum_squared_relative_residuals": 2.54198778675037e-06,
+            "relative_rms_percent": 0.03399189600445143,
+            "relative_aad_percent": 0.02438772794137149
+          }
+        },
+        "best_parameters_at_search_bounds": [],
+        "multistart_parameter_ranges": {
+          "c1_mpa": [
+            2656.5,
+            2656.5
+          ],
+          "c2_mpa": [
+            7298.0,
+            7298.0
+          ],
+          "c3_mpa": [
+            10.0,
+            10.0
+          ],
+          "theta0_k": [
+            87.46960281257365,
+            87.46963698916586
+          ],
+          "gamma0": [
+            2.5775044988598643,
+            2.577505311712454
+          ],
+          "q": [
+            0.0024,
+            0.0024
+          ],
+          "b1": [
+            0.0128,
+            0.0128
+          ],
+          "b2": [
+            0.388,
+            0.388
+          ],
+          "b3": [
+            7.85,
+            7.85
+          ]
+        },
+        "solutions": [
+          {
+            "start_index": 0,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 86.44,
+              "gamma0": 2.68,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 87.46961774167784,
+              "gamma0": 2.57750485249103,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 1,
+            "optimizer_message": "`gtol` termination condition is satisfied.",
+            "function_evaluations": 5,
+            "optimality": 1.2893990515381414e-11,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.5419877867797196e-06,
+                "relative_rms_percent": 0.03399189600464766,
+                "relative_aad_percent": 0.024387727718890855
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.5419877867797196e-06,
+                "relative_rms_percent": 0.03399189600464766,
+                "relative_aad_percent": 0.024387727718890855
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.1360560647282613,
+                0.014257578885355334,
+                0.0005583137278341874,
+                1.0533322607490381e-05,
+                2.0591634262588137e-06,
+                3.44579699824414e-08,
+                1.1723851377550097e-09,
+                2.2014841585772552e-11,
+                1.7391169833909646e-11
+              ],
+              "condition_number": 7823284231.459604,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 3,
+                "1e-06": 5,
+                "1e-08": 6
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 1.4447125925373832,
+              "minimum_bulk_gpa": 2.023087380009781,
+              "minimum_thermal_expansivity_per_k": 6.22494911599817e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 1,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 98.75048663796242,
+              "gamma0": 2.433138195302059,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 87.46961205286229,
+              "gamma0": 2.5775047177200197,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 1,
+            "optimizer_message": "`gtol` termination condition is satisfied.",
+            "function_evaluations": 6,
+            "optimality": 7.929066884069648e-12,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.541987786769141e-06,
+                "relative_rms_percent": 0.03399189600457693,
+                "relative_aad_percent": 0.02438772865800372
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.541987786769141e-06,
+                "relative_rms_percent": 0.03399189600457693,
+                "relative_aad_percent": 0.02438772865800372
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.13605606131799022,
+                0.014257578585871586,
+                0.0005583137211825499,
+                1.0533316927726325e-05,
+                2.0591727112683713e-06,
+                3.4449716564929785e-08,
+                1.1685474339310687e-09,
+                1.723821101228001e-11,
+                1.1585830944099135e-11
+              ],
+              "condition_number": 11743314914.092194,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 3,
+                "1e-06": 5,
+                "1e-08": 6
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 1.4447128645828737,
+              "minimum_bulk_gpa": 2.023087403504875,
+              "minimum_thermal_expansivity_per_k": 6.224949963865493e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 2,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 89.30557797332177,
+              "gamma0": 2.320970790340817,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 87.46961638955631,
+              "gamma0": 2.5775048204526327,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 1,
+            "optimizer_message": "`gtol` termination condition is satisfied.",
+            "function_evaluations": 6,
+            "optimality": 7.548411534442132e-12,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.54198778675037e-06,
+                "relative_rms_percent": 0.03399189600445143,
+                "relative_aad_percent": 0.02438772794137149
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.54198778675037e-06,
+                "relative_rms_percent": 0.03399189600445143,
+                "relative_aad_percent": 0.02438772794137149
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.13605606391146532,
+                0.014257578821610644,
+                0.0005583137159833009,
+                1.0533322125138125e-05,
+                2.0591652576270176e-06,
+                3.4454512539943643e-08,
+                1.1726730131925652e-09,
+                1.9401144990060734e-11,
+                1.4487461461119553e-11
+              ],
+              "condition_number": 9391297728.494614,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 3,
+                "1e-06": 5,
+                "1e-08": 6
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 1.4447126571972093,
+              "minimum_bulk_gpa": 2.023087385796818,
+              "minimum_thermal_expansivity_per_k": 6.224949317819082e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 3,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 75.1056923504158,
+              "gamma0": 2.5935374070157544,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 87.46960281257365,
+              "gamma0": 2.5775044988598643,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 1,
+            "optimizer_message": "`gtol` termination condition is satisfied.",
+            "function_evaluations": 6,
+            "optimality": 3.79476941033998e-11,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.541987786807954e-06,
+                "relative_rms_percent": 0.03399189600483644,
+                "relative_aad_percent": 0.02438773018940026
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.541987786807954e-06,
+                "relative_rms_percent": 0.03399189600483644,
+                "relative_aad_percent": 0.02438773018940026
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.13605605578829827,
+                0.014257578109112481,
+                0.0005583137105256889,
+                1.0533322387735688e-05,
+                2.0591709340659647e-06,
+                3.445533457322402e-08,
+                1.1702716386665842e-09,
+                1.9799912852558274e-11,
+                1.4883927965431095e-11
+              ],
+              "condition_number": 9141139093.409847,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 3,
+                "1e-06": 5,
+                "1e-08": 6
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 1.4447133064636952,
+              "minimum_bulk_gpa": 2.023087441793692,
+              "minimum_thermal_expansivity_per_k": 6.224951341147975e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 4,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 103.66050956805721,
+              "gamma0": 3.4534813273726654,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 87.46963698916586,
+              "gamma0": 2.577505311712454,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 1,
+            "optimizer_message": "`gtol` termination condition is satisfied.",
+            "function_evaluations": 6,
+            "optimality": 7.759876488151676e-11,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.541987786774747e-06,
+                "relative_rms_percent": 0.03399189600461442,
+                "relative_aad_percent": 0.02438772493687346
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 2.541987786774747e-06,
+                "relative_rms_percent": 0.03399189600461442,
+                "relative_aad_percent": 0.02438772493687346
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                0.13605607648042478,
+                0.01425757992139164,
+                0.0005583137292669052,
+                1.0533321584698767e-05,
+                2.059168326760965e-06,
+                3.4447342752723836e-08,
+                1.1713977282626446e-09,
+                1.9170668788786544e-11,
+                1.1070604119920626e-11
+              ],
+              "condition_number": 12289851123.44531,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 3,
+                "1e-06": 5,
+                "1e-08": 6
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 1.4447116721052138,
+              "minimum_bulk_gpa": 2.023087299518611,
+              "minimum_thermal_expansivity_per_k": 6.224946256268495e-05,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          }
+        ],
+        "selection_note": "Best means lowest attained objective, including iteration-limited candidates; optimizer_success is reported separately. No unique optimum is asserted.",
+        "best_optimizer_success": true,
+        "converged_starts": 5,
+        "best_converged_start_index": 2,
+        "jacobian_log_parameter_step": 0.0001,
+        "sensitivity_log_parameter_step": 0.001,
+        "best_thermodynamic_diagnostics": {
+          "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+          "minimum_cv_j_mol_k": 1.4447126571972093,
+          "minimum_bulk_gpa": 2.023087385796818,
+          "minimum_thermal_expansivity_per_k": 6.224949317819082e-05,
+          "passes_sampled_positive_cv_and_bulk": true,
+          "negative_cv_temperatures_k": [],
+          "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+        }
+      }
+    },
+    "22_volumes_plus_5_published_k0_estimates": {
+      "input_entries": 27,
+      "published_metrics": {
+        "all": {
+          "count": 27,
+          "sum_squared_relative_residuals": 0.02023380864664961,
+          "relative_rms_percent": 2.7375177081551128,
+          "relative_aad_percent": 1.2209505715009727
+        },
+        "volume": {
+          "count": 22,
+          "sum_squared_relative_residuals": 1.9928731263965525e-05,
+          "relative_rms_percent": 0.09517622713100904,
+          "relative_aad_percent": 0.08072857771766281
+        },
+        "bulk": {
+          "count": 5,
+          "sum_squared_relative_residuals": 0.020213879915385646,
+          "relative_rms_percent": 6.358282773734689,
+          "relative_aad_percent": 6.237927344147535
+        }
+      },
+      "published_full_nine_parameter_sensitivity": {
+        "parameter_coordinates": "ln(parameter / published_parameter)",
+        "singular_values": [
+          4.492820145358542,
+          0.6449215745871557,
+          0.12232786244055853,
+          0.014679842251865308,
+          0.012637309618137124,
+          0.00018294005091552186,
+          8.769680702326124e-06,
+          1.2532767892264013e-07,
+          1.498505500395304e-08
+        ],
+        "condition_number": 299820063.6683243,
+        "rank_at_relative_singular_value_threshold": {
+          "0.0001": 5,
+          "1e-06": 7,
+          "1e-08": 8
+        },
+        "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+      },
+      "full_nine_parameter_fit": {
+        "free_parameters": [
+          "c1_mpa",
+          "c2_mpa",
+          "c3_mpa",
+          "theta0_k",
+          "gamma0",
+          "q",
+          "b1",
+          "b2",
+          "b3"
+        ],
+        "fixed_parameters": {},
+        "starts": 5,
+        "seed": 20250903,
+        "max_function_evaluations_per_start": 300,
+        "best_start_index": 0,
+        "best_parameters": {
+          "c1_mpa": 2863.5898382907103,
+          "c2_mpa": 7216.572868201938,
+          "c3_mpa": 1.2074624836913939,
+          "theta0_k": 101.7769101840112,
+          "gamma0": 3.189944769727108,
+          "q": 0.33515798774785155,
+          "b1": 0.9999559086036305,
+          "b2": 0.32810155189774615,
+          "b3": 1.1213287248926103
+        },
+        "best_metrics": {
+          "all": {
+            "count": 27,
+            "sum_squared_relative_residuals": 1.1320551026659863e-05,
+            "relative_rms_percent": 0.06475180828780529,
+            "relative_aad_percent": 0.054331399344352604
+          },
+          "volume": {
+            "count": 22,
+            "sum_squared_relative_residuals": 7.923516737063747e-06,
+            "relative_rms_percent": 0.060013319495318344,
+            "relative_aad_percent": 0.05334076527968014
+          },
+          "bulk": {
+            "count": 5,
+            "sum_squared_relative_residuals": 3.3970342895961147e-06,
+            "relative_rms_percent": 0.08242614014493356,
+            "relative_aad_percent": 0.058690189228911525
+          }
+        },
+        "best_parameters_at_search_bounds": [
+          "b1"
+        ],
+        "multistart_parameter_ranges": {
+          "c1_mpa": [
+            2863.5898382907103,
+            2863.6033648107023
+          ],
+          "c2_mpa": [
+            7216.572868201938,
+            7700.2821699009455
+          ],
+          "c3_mpa": [
+            0.11769637175054731,
+            1.2074624836913939
+          ],
+          "theta0_k": [
+            101.7769101840112,
+            102.09491440375461
+          ],
+          "gamma0": [
+            3.189944769727108,
+            3.2011810536994183
+          ],
+          "q": [
+            0.0007585306573754682,
+            0.33515798774785155
+          ],
+          "b1": [
+            0.9998728866798369,
+            0.9999975864718802
+          ],
+          "b2": [
+            0.14970848747542512,
+            0.32810155189774615
+          ],
+          "b3": [
+            0.9517229315835483,
+            1.1213287248926103
+          ]
+        },
+        "solutions": [
+          {
+            "start_index": 0,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 86.44,
+              "gamma0": 2.68,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2863.5898382907103,
+              "c2_mpa": 7216.572868201938,
+              "c3_mpa": 1.2074624836913939,
+              "theta0_k": 101.7769101840112,
+              "gamma0": 3.189944769727108,
+              "q": 0.33515798774785155,
+              "b1": 0.9999559086036305,
+              "b2": 0.32810155189774615,
+              "b3": 1.1213287248926103
+            },
+            "optimizer_success": false,
+            "optimizer_status": 0,
+            "optimizer_message": "The maximum number of function evaluations is exceeded.",
+            "function_evaluations": 300,
+            "optimality": 1.6552171499854794e-05,
+            "parameters_at_search_bounds": [
+              "b1"
+            ],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 1.1320551026659863e-05,
+                "relative_rms_percent": 0.06475180828780529,
+                "relative_aad_percent": 0.054331399344352604
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 7.923516737063747e-06,
+                "relative_rms_percent": 0.060013319495318344,
+                "relative_aad_percent": 0.05334076527968014
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 3.3970342895961147e-06,
+                "relative_rms_percent": 0.08242614014493356,
+                "relative_aad_percent": 0.058690189228911525
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.84051826459167,
+                0.7538090543449032,
+                0.16581356079982376,
+                0.01775195956261187,
+                0.01202722641566935,
+                0.0003988017303216009,
+                1.4144865162959898e-05,
+                8.262029742142429e-06,
+                7.791304897172968e-10
+              ],
+              "condition_number": 6212718316.73283,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 8,
+                "1e-08": 8
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": -7.234361205683644,
+              "minimum_bulk_gpa": 1.410012854891063,
+              "minimum_thermal_expansivity_per_k": 6.7071102784365124e-06,
+              "passes_sampled_positive_cv_and_bulk": false,
+              "negative_cv_temperatures_k": [
+                77.0
+              ],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 1,
+            "starting_parameters": {
+              "c1_mpa": 3034.829566794854,
+              "c2_mpa": 6625.762145266576,
+              "c3_mpa": 10.331510640134402,
+              "theta0_k": 74.85996832726127,
+              "gamma0": 2.3285892584349184,
+              "q": 0.002322570812252914,
+              "b1": 0.01535000604432129,
+              "b2": 0.4999816250076844,
+              "b3": 6.041533388350095
+            },
+            "parameters": {
+              "c1_mpa": 2863.6033648107023,
+              "c2_mpa": 7700.2821699009455,
+              "c3_mpa": 0.11769637175054731,
+              "theta0_k": 102.09491440375461,
+              "gamma0": 3.2011810536994183,
+              "q": 0.0007585306573754682,
+              "b1": 0.9999231882340129,
+              "b2": 0.14970848747542512,
+              "b3": 0.9517229315835483
+            },
+            "optimizer_success": true,
+            "optimizer_status": 3,
+            "optimizer_message": "`xtol` termination condition is satisfied.",
+            "function_evaluations": 124,
+            "optimality": 7.96283539431391e-09,
+            "parameters_at_search_bounds": [
+              "b1"
+            ],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 1.1346452531774443e-05,
+                "relative_rms_percent": 0.06482584227438258,
+                "relative_aad_percent": 0.05426851018432251
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 8.004049925910641e-06,
+                "relative_rms_percent": 0.060317530716845195,
+                "relative_aad_percent": 0.053569050449098946
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 3.342402605863801e-06,
+                "relative_rms_percent": 0.08176065809255453,
+                "relative_aad_percent": 0.05734613301930614
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.903394197477203,
+                0.7482494253966901,
+                0.16798013626704864,
+                0.01715496635010082,
+                0.011968996956589338,
+                0.0001798466605218098,
+                9.347464196475011e-06,
+                2.985890182581349e-08,
+                7.438923694724207e-11
+              ],
+              "condition_number": 65915371614.23987,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 7,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": -13.94710714400918,
+              "minimum_bulk_gpa": 1.4100110751064099,
+              "minimum_thermal_expansivity_per_k": 6.6741894390071006e-06,
+              "passes_sampled_positive_cv_and_bulk": false,
+              "negative_cv_temperatures_k": [
+                77.0
+              ],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 2,
+            "starting_parameters": {
+              "c1_mpa": 2938.249550836413,
+              "c2_mpa": 7503.547643126033,
+              "c3_mpa": 12.425194076883784,
+              "theta0_k": 111.14419864971302,
+              "gamma0": 3.4626912109356094,
+              "q": 0.002226630438263737,
+              "b1": 0.013428866632404371,
+              "b2": 0.3979998057347575,
+              "b3": 7.1770823956314915
+            },
+            "parameters": {
+              "c1_mpa": 2863.592133005067,
+              "c2_mpa": 7328.660452672564,
+              "c3_mpa": 0.23902350847036663,
+              "theta0_k": 101.8477115988203,
+              "gamma0": 3.192326616023197,
+              "q": 0.2581487185086314,
+              "b1": 0.9999604444797977,
+              "b2": 0.28559632038836996,
+              "b3": 1.079104369461953
+            },
+            "optimizer_success": false,
+            "optimizer_status": 0,
+            "optimizer_message": "The maximum number of function evaluations is exceeded.",
+            "function_evaluations": 300,
+            "optimality": 1.3832134794317493e-05,
+            "parameters_at_search_bounds": [
+              "b1"
+            ],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 1.1326277640744887e-05,
+                "relative_rms_percent": 0.06476818389240452,
+                "relative_aad_percent": 0.05432028989880007
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 7.94264041235695e-06,
+                "relative_rms_percent": 0.06008569793657961,
+                "relative_aad_percent": 0.05339640836821686
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 3.3836372283879356e-06,
+                "relative_rms_percent": 0.08226344544678318,
+                "relative_aad_percent": 0.058385368633366075
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.854445444708863,
+                0.7521744733559013,
+                0.16624057980219,
+                0.017569357095470032,
+                0.012029155814595308,
+                0.0003437204977515932,
+                1.2932972024751576e-05,
+                6.82793454075719e-06,
+                3.6041846397593103e-11
+              ],
+              "condition_number": 134689144145.31897,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 8,
+                "1e-08": 8
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": -8.651330557823865,
+              "minimum_bulk_gpa": 1.4100122668753157,
+              "minimum_thermal_expansivity_per_k": 6.699669588279675e-06,
+              "passes_sampled_positive_cv_and_bulk": false,
+              "negative_cv_temperatures_k": [
+                77.0
+              ],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 3,
+            "starting_parameters": {
+              "c1_mpa": 2550.7488487291544,
+              "c2_mpa": 7682.569578421843,
+              "c3_mpa": 9.90571752293974,
+              "theta0_k": 83.25115316471451,
+              "gamma0": 2.8482044717275703,
+              "q": 0.0024148496485673996,
+              "b1": 0.012273141216248987,
+              "b2": 0.3793353416795196,
+              "b3": 8.680385724120422
+            },
+            "parameters": {
+              "c1_mpa": 2863.6030740196024,
+              "c2_mpa": 7693.417220165358,
+              "c3_mpa": 0.32399776967103894,
+              "theta0_k": 102.08905652751697,
+              "gamma0": 3.2009639561986023,
+              "q": 0.005582815136048232,
+              "b1": 0.9998728866798369,
+              "b2": 0.1517378603906686,
+              "b3": 0.9536658596141605
+            },
+            "optimizer_success": true,
+            "optimizer_status": 3,
+            "optimizer_message": "`xtol` termination condition is satisfied.",
+            "function_evaluations": 124,
+            "optimality": 5.209919794831174e-09,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 1.1346087433751373e-05,
+                "relative_rms_percent": 0.06482479930623081,
+                "relative_aad_percent": 0.05427043620331835
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 8.002288367477851e-06,
+                "relative_rms_percent": 0.060310892908321485,
+                "relative_aad_percent": 0.05356405719331857
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 3.343799066273523e-06,
+                "relative_rms_percent": 0.08177773616667953,
+                "relative_aad_percent": 0.057378503847317366
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.902439187152101,
+                0.7482979419157056,
+                0.1679485117258126,
+                0.017160331865177545,
+                0.011969534683041055,
+                0.0001816779599465436,
+                9.39645858436356e-06,
+                1.998618733537905e-07,
+                2.5845578927786085e-10
+              ],
+              "condition_number": 18968192590.499813,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 7,
+                "1e-08": 8
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": -13.858499898997025,
+              "minimum_bulk_gpa": 1.4100111628417844,
+              "minimum_thermal_expansivity_per_k": 6.674816589577722e-06,
+              "passes_sampled_positive_cv_and_bulk": false,
+              "negative_cv_temperatures_k": [
+                77.0
+              ],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 4,
+            "starting_parameters": {
+              "c1_mpa": 2562.7464511690764,
+              "c2_mpa": 7220.792344681117,
+              "c3_mpa": 9.048712777009719,
+              "theta0_k": 70.55806950514065,
+              "gamma0": 2.8646199294308476,
+              "q": 0.0023734647744187314,
+              "b1": 0.013600610505130192,
+              "b2": 0.3289720355758193,
+              "b3": 6.362304182027318
+            },
+            "parameters": {
+              "c1_mpa": 2863.602868834469,
+              "c2_mpa": 7692.887727710197,
+              "c3_mpa": 0.2713233246546208,
+              "theta0_k": 102.08810744026279,
+              "gamma0": 3.2009269231535984,
+              "q": 0.005957217730570469,
+              "b1": 0.9999975864718802,
+              "b2": 0.15148793628953658,
+              "b3": 0.9534667468656445
+            },
+            "optimizer_success": true,
+            "optimizer_status": 3,
+            "optimizer_message": "`xtol` termination condition is satisfied.",
+            "function_evaluations": 116,
+            "optimality": 2.8814102578962566e-09,
+            "parameters_at_search_bounds": [
+              "b1"
+            ],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 1.1346045145329377e-05,
+                "relative_rms_percent": 0.06482467850066503,
+                "relative_aad_percent": 0.054272254802741136
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 8.001884080369103e-06,
+                "relative_rms_percent": 0.06030936939258618,
+                "relative_aad_percent": 0.05356288983315124
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 3.344161064960273e-06,
+                "relative_rms_percent": 0.08178216266350839,
+                "relative_aad_percent": 0.05739346066893667
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.902363172783312,
+                0.7482997163084772,
+                0.16795224954311272,
+                0.017161662847621592,
+                0.011967864598683545,
+                0.0001815585609457793,
+                9.40139699387822e-06,
+                2.1808728484215627e-07,
+                7.94446964076725e-11
+              ],
+              "condition_number": 61707872198.6262,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 7,
+                "1e-08": 8
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": -13.87551967791082,
+              "minimum_bulk_gpa": 1.4100112528253606,
+              "minimum_thermal_expansivity_per_k": 6.674928491067282e-06,
+              "passes_sampled_positive_cv_and_bulk": false,
+              "negative_cv_temperatures_k": [
+                77.0
+              ],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          }
+        ],
+        "selection_note": "Best means lowest attained objective, including iteration-limited candidates; optimizer_success is reported separately. No unique optimum is asserted.",
+        "best_optimizer_success": false,
+        "converged_starts": 3,
+        "best_converged_start_index": 4,
+        "jacobian_log_parameter_step": 0.0001,
+        "sensitivity_log_parameter_step": 0.001,
+        "best_thermodynamic_diagnostics": {
+          "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+          "minimum_cv_j_mol_k": -7.234361205683644,
+          "minimum_bulk_gpa": 1.410012854891063,
+          "minimum_thermal_expansivity_per_k": 6.7071102784365124e-06,
+          "passes_sampled_positive_cv_and_bulk": false,
+          "negative_cv_temperatures_k": [
+            77.0
+          ],
+          "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+        }
+      },
+      "two_parameter_sensitivity_fit": {
+        "free_parameters": [
+          "theta0_k",
+          "gamma0"
+        ],
+        "fixed_parameters": {
+          "c1_mpa": 2656.5,
+          "c2_mpa": 7298.0,
+          "c3_mpa": 10.0,
+          "q": 0.0024,
+          "b1": 0.0128,
+          "b2": 0.388,
+          "b3": 7.85
+        },
+        "starts": 5,
+        "seed": 20250903,
+        "max_function_evaluations_per_start": 300,
+        "best_start_index": 4,
+        "best_parameters": {
+          "c1_mpa": 2656.5,
+          "c2_mpa": 7298.0,
+          "c3_mpa": 10.0,
+          "theta0_k": 153.4946537007389,
+          "gamma0": 3.072461409460885,
+          "q": 0.0024,
+          "b1": 0.0128,
+          "b2": 0.388,
+          "b3": 7.85
+        },
+        "best_metrics": {
+          "all": {
+            "count": 27,
+            "sum_squared_relative_residuals": 0.00886582941525467,
+            "relative_rms_percent": 1.8120818204949787,
+            "relative_aad_percent": 0.9574364396262334
+          },
+          "volume": {
+            "count": 22,
+            "sum_squared_relative_residuals": 0.0008259404932941151,
+            "relative_rms_percent": 0.6127213860735323,
+            "relative_aad_percent": 0.5090038638881142
+          },
+          "bulk": {
+            "count": 5,
+            "sum_squared_relative_residuals": 0.008039888921960555,
+            "relative_rms_percent": 4.009959830711663,
+            "relative_aad_percent": 2.9305397728739573
+          }
+        },
+        "best_parameters_at_search_bounds": [],
+        "multistart_parameter_ranges": {
+          "c1_mpa": [
+            2656.5,
+            2656.5
+          ],
+          "c2_mpa": [
+            7298.0,
+            7298.0
+          ],
+          "c3_mpa": [
+            10.0,
+            10.0
+          ],
+          "theta0_k": [
+            153.4946537007389,
+            153.49767036259746
+          ],
+          "gamma0": [
+            3.072461409460885,
+            3.072487385563696
+          ],
+          "q": [
+            0.0024,
+            0.0024
+          ],
+          "b1": [
+            0.0128,
+            0.0128
+          ],
+          "b2": [
+            0.388,
+            0.388
+          ],
+          "b3": [
+            7.85,
+            7.85
+          ]
+        },
+        "solutions": [
+          {
+            "start_index": 0,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 86.44,
+              "gamma0": 2.68,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 153.49491053276643,
+              "gamma0": 3.0724635975101435,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 2,
+            "optimizer_message": "`ftol` termination condition is satisfied.",
+            "function_evaluations": 25,
+            "optimality": 1.675350987453942e-07,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 0.008865829418776016,
+                "relative_rms_percent": 1.8120818208548415,
+                "relative_aad_percent": 0.9574374756019974
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 0.0008259451467191207,
+                "relative_rms_percent": 0.6127231121355347,
+                "relative_aad_percent": 0.5090052186285192
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 0.008039884272056895,
+                "relative_rms_percent": 4.009958671122908,
+                "relative_aad_percent": 2.9305394062853005
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.234660977513774,
+                0.7035433083380692,
+                0.12462405457941571,
+                0.013140113078407838,
+                0.000770898134686073,
+                1.6824277817114803e-05,
+                3.1711262240382306e-07,
+                9.406771886767366e-09,
+                9.170124276642133e-10
+              ],
+              "condition_number": 4617888318.373368,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 6,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 0.03979574823260812,
+              "minimum_bulk_gpa": 1.40504094521543,
+              "minimum_thermal_expansivity_per_k": 2.0409234674086946e-06,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 1,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 98.75048663796242,
+              "gamma0": 2.433138195302059,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 153.4970608482665,
+              "gamma0": 3.072482073953554,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 3,
+            "optimizer_message": "`xtol` termination condition is satisfied.",
+            "function_evaluations": 21,
+            "optimality": 2.1501989587620858e-08,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 0.008865829421979991,
+                "relative_rms_percent": 1.8120818211822705,
+                "relative_aad_percent": 0.9574463135830106
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 0.0008259839697438251,
+                "relative_rms_percent": 0.6127375122958165,
+                "relative_aad_percent": 0.5090165236679053
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 0.008039845452236167,
+                "relative_rms_percent": 4.009948990258146,
+                "relative_aad_percent": 2.9305373892094746
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.234659781076182,
+                0.7035469395029202,
+                0.12462454905876652,
+                0.01314010964311897,
+                0.0007708550492950334,
+                1.6836334552676834e-05,
+                3.1544593766654427e-07,
+                1.648509585935174e-08,
+                1.207575054576051e-09
+              ],
+              "condition_number": 3506746653.161748,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 6,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 0.039794075755332885,
+              "minimum_bulk_gpa": 1.405040062948948,
+              "minimum_thermal_expansivity_per_k": 2.0408499721549338e-06,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 2,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 89.30557797332177,
+              "gamma0": 2.320970790340817,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 153.49745075513945,
+              "gamma0": 3.0724854508176462,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 3,
+            "optimizer_message": "`xtol` termination condition is satisfied.",
+            "function_evaluations": 18,
+            "optimality": 1.3559911907302184e-07,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 0.008865829424355908,
+                "relative_rms_percent": 1.8120818214250773,
+                "relative_aad_percent": 0.9574479448138886
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 0.0008259909860381595,
+                "relative_rms_percent": 0.6127401147298612,
+                "relative_aad_percent": 0.509018567208379
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 0.008039838438317749,
+                "relative_rms_percent": 4.009947241128678,
+                "relative_aad_percent": 2.9305372062781316
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.234659471180585,
+                0.7035476140811326,
+                0.12462470838249855,
+                0.013140167578187813,
+                0.0007708634128209891,
+                1.6795782821498512e-05,
+                3.0213700964572904e-07,
+                1.6153753892106768e-08,
+                2.784972962041762e-10
+              ],
+              "condition_number": 15205388091.365908,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 6,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 0.039793772502725554,
+              "minimum_bulk_gpa": 1.4050398853271417,
+              "minimum_thermal_expansivity_per_k": 2.0408366636795162e-06,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 3,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 75.1056923504158,
+              "gamma0": 2.5935374070157544,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 153.49767036259746,
+              "gamma0": 3.072487385563696,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 3,
+            "optimizer_message": "`xtol` termination condition is satisfied.",
+            "function_evaluations": 21,
+            "optimality": 8.765351165786042e-08,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 0.008865829422535993,
+                "relative_rms_percent": 1.8120818212390917,
+                "relative_aad_percent": 0.9574488976054497
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 0.0008259949090801985,
+                "relative_rms_percent": 0.6127415698319236,
+                "relative_aad_percent": 0.5090197103936661
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 0.008039834513455794,
+                "relative_rms_percent": 4.009946262347115,
+                "relative_aad_percent": 2.930537321337299
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.234659523368726,
+                0.7035480084890486,
+                0.12462478189707697,
+                0.013140126416153641,
+                0.0007708372438741741,
+                1.691307861905516e-05,
+                3.0273137694135073e-07,
+                1.5207632869830443e-08,
+                8.623880419469327e-10
+              ],
+              "condition_number": 4910387571.943289,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 6,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 0.03979360170297253,
+              "minimum_bulk_gpa": 1.4050397636466982,
+              "minimum_thermal_expansivity_per_k": 2.040829189672505e-06,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          },
+          {
+            "start_index": 4,
+            "starting_parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 103.66050956805721,
+              "gamma0": 3.4534813273726654,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "parameters": {
+              "c1_mpa": 2656.5,
+              "c2_mpa": 7298.0,
+              "c3_mpa": 10.0,
+              "theta0_k": 153.4946537007389,
+              "gamma0": 3.072461409460885,
+              "q": 0.0024,
+              "b1": 0.0128,
+              "b2": 0.388,
+              "b3": 7.85
+            },
+            "optimizer_success": true,
+            "optimizer_status": 3,
+            "optimizer_message": "`xtol` termination condition is satisfied.",
+            "function_evaluations": 25,
+            "optimality": 2.1747055113387982e-07,
+            "parameters_at_search_bounds": [],
+            "metrics": {
+              "all": {
+                "count": 27,
+                "sum_squared_relative_residuals": 0.00886582941525467,
+                "relative_rms_percent": 1.8120818204949787,
+                "relative_aad_percent": 0.9574364396262334
+              },
+              "volume": {
+                "count": 22,
+                "sum_squared_relative_residuals": 0.0008259404932941151,
+                "relative_rms_percent": 0.6127213860735323,
+                "relative_aad_percent": 0.5090038638881142
+              },
+              "bulk": {
+                "count": 5,
+                "sum_squared_relative_residuals": 0.008039888921960555,
+                "relative_rms_percent": 4.009959830711663,
+                "relative_aad_percent": 2.9305397728739573
+              }
+            },
+            "full_nine_parameter_sensitivity": {
+              "parameter_coordinates": "ln(parameter / published_parameter)",
+              "singular_values": [
+                4.234661155027667,
+                0.7035429638840669,
+                0.12462396110845624,
+                0.013140064953190514,
+                0.0007709250413992647,
+                1.687002811713824e-05,
+                3.2217997027189714e-07,
+                1.5647722938664597e-08,
+                5.115694605551108e-10
+              ],
+              "condition_number": 8277783334.510587,
+              "rank_at_relative_singular_value_threshold": {
+                "0.0001": 5,
+                "1e-06": 6,
+                "1e-08": 7
+              },
+              "interpretation": "Sensitivity conditioning only, not statistical confidence or proof of identifiability. Near-null directions and bound hits preclude unique coefficient recovery from these data."
+            },
+            "thermodynamic_diagnostics": {
+              "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+              "minimum_cv_j_mol_k": 0.0397959479982823,
+              "minimum_bulk_gpa": 1.4050410381827305,
+              "minimum_thermal_expansivity_per_k": 2.0409322583579258e-06,
+              "passes_sampled_positive_cv_and_bulk": true,
+              "negative_cv_temperatures_k": [],
+              "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+            }
+          }
+        ],
+        "selection_note": "Best means lowest attained objective, including iteration-limited candidates; optimizer_success is reported separately. No unique optimum is asserted.",
+        "best_optimizer_success": true,
+        "converged_starts": 5,
+        "best_converged_start_index": 4,
+        "jacobian_log_parameter_step": 0.0001,
+        "sensitivity_log_parameter_step": 0.001,
+        "best_thermodynamic_diagnostics": {
+          "scope": "Sampled P=0 states at input temperatures only; no global stability claim.",
+          "minimum_cv_j_mol_k": 0.0397959479982823,
+          "minimum_bulk_gpa": 1.4050410381827305,
+          "minimum_thermal_expansivity_per_k": 2.0409322583579258e-06,
+          "passes_sampled_positive_cv_and_bulk": true,
+          "negative_cv_temperatures_k": [],
+          "note": "No original physical penalties were applied to the alternate equal-weight objective. A negative heat capacity makes a candidate physically unacceptable even when its fitted residuals are small."
+        }
+      }
+    }
+  }
+}

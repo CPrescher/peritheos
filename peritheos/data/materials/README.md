@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 226 curated material documents with 616 EOS records. The
+This directory contains 226 curated material documents with 625 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -8,7 +8,7 @@ tag commit
 
 Every EOS record has an explicit `determination_method` and a rationale under
 `parameter_provenance.determination_method`. The 2026-09-24 review classifies
-474 records as experimental, 114 as theoretical, 21 as hybrid, and seven as
+483 records as experimental, 114 as theoretical, 21 as hybrid, and seven as
 unknown. These counts include the two deferred Campbell source records.
 The seven unknowns are the Holland et al. (2013) THERMOCALC modified-Tait
 endmembers: the existing source audit verifies the coefficients but does not
@@ -36,7 +36,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-24 classifies 614 of 616 bundled records as
+dated 2026-09-24 classifies 623 of 625 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
 discrepancies; they are not exposed by the executable catalog. The complete
@@ -76,7 +76,7 @@ Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to
-185 EOS records citing 115 distinct publications. All 616 records now carry
+185 EOS records citing 115 distinct publications. All 625 records now carry
 an explicit publication title; `reference.source` retains the journal or
 book name. Previously, the catalog fell back to that source name when a
 title was absent.
@@ -102,7 +102,7 @@ and scientific-validation status are preserved.
 
 ## Space-group completeness
 
-The 2026-09-22 review checked all 225 material documents, including names,
+The 2026-09-22 review checked all 226 material documents, including names,
 phase labels, and existing structure notes. Three missing assignments were
 recoverable from an explicit elemental hcp phase: `beryllium_hcp`, `lead_hcp`,
 and `zinc_hcp`. These now carry `symmetry: HEXAGONAL`, `space_group: P63/mmc`,
@@ -143,10 +143,10 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 318 distinct primary datasets with
-23,057 observation rows, represented by
-357 material-document links to
-475 EOS records.
+The current bundle contains 329 distinct primary datasets with
+23,694 observation rows, represented by
+368 material-document links to
+484 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets have no executable Chen EOS; curve vertices and constants

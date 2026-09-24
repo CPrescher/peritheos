@@ -9,7 +9,7 @@ pages were visually inspected. The PDF has four pages including its publisher
 cover. The earlier full-text access blocker is **resolved**. The paper remains
 **theoretical**, **not_reproduced**, and a **supporting-study/data outcome**, because
 it does not print a self-contained numerical EOS or the potential coefficients.
-The [packaged study](../../peritheos/data/studies/argon-barker-1987.json) now includes
+The `peritheos/data/studies/argon-barker-1987.json` now includes
 checksummed numerical assets rather than an abstract-only record.
 
 ## Actual calculation and reference state
@@ -59,7 +59,7 @@ every point. Raw ruby shifts and a pointwise scale/recalibration recipe are abse
 
 ## Numerical assets and honest diagnostics
 
-[Table I CSV](../../peritheos/data/datasets/argon-barker-1987-table1-liquid.csv)
+`peritheos/data/datasets/argon-barker-1987-table1-liquid.csv`
 transcribes all seven rows at **100 K and 27.04 cm³/mol, liquid argon**. The two
 source quantities are dimensionless pV/NkT and U/NkT. One row is labeled
 Experiment, and six rows are theoretical BFW/AC/KMA with/without AT. The caption
@@ -67,7 +67,7 @@ says the tabulated values include quantum corrections; no uncertainty columns
 or explicit source for the experimental row are supplied. The table must not be
 shown as a solid isotherm or counted as seven experimental measurements.
 
-[Figure 5 CSV](../../peritheos/data/datasets/argon-barker-1987-figure5-selected.csv)
+`peritheos/data/datasets/argon-barker-1987-figure5-selected.csv`
 contains **21 samples of the solid BFW+AT theoretical curve and 11 selected,
 visually separable Ross experimental circles**. This is deliberately incomplete:
 merged or ambiguous symbols were omitted, and the figure covers only the enlarged

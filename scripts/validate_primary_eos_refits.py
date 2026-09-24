@@ -2070,7 +2070,7 @@ def _fit_record(
             "reproduction_status": "parameterization_reproduced",
             "dataset_identifiers": record["fit_datasets"],
             "observations": 22,
-            "reason": "Published parameterization matches official workbook; full global multiproperty fit inputs and penalty protocol are unavailable. A 22-row-only fit is not the published regression.",
+            "reason": "Published parameterization matches official workbook. Equal-weight22volume and27entry diagnostics are available, but do not uniquely recover nine parameters or replace the full global regression. Table2 weights are published; consolidated legacy rows and quantitative penalties remain unavailable.",
             "reproduction": reproduce(),
         }
     if record_id in {
@@ -5282,6 +5282,25 @@ def validate_all() -> dict[str, Any]:
                         ],
                         "tolerance": crichton["curve_tolerance"],
                     },
+                }
+            elif "anderson_swenson_1975" in record["identifier"]:
+                from scripts.reproduce_anderson_swenson_1975 import (
+                    reproduce as anderson,
+                )
+
+                report = anderson()
+                check_row = next(
+                    x
+                    for x in report["isotherms"]
+                    if x["record_id"] == record["identifier"]
+                )
+                outcome = {
+                    "status": "not_refittable",
+                    "reproduction_status": "parameterization_reproduced",
+                    "dataset_identifiers": identifiers,
+                    "observations": check_row["comparison_point_count"],
+                    "reason": report["diagnostic_note"],
+                    "reproduction": check_row,
                 }
             elif record["identifier"] in {
                 "argon_fcc_finger_1981_murnaghan2_debye",

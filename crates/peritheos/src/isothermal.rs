@@ -1210,7 +1210,7 @@ impl IsothermalEos for DensityPolynomial3 {
     }
 }
 
-/// Odd inverse-volume polynomial: P = sum C_n (V0/V)^n, n=3,5,7,9.
+/// Odd inverse-volume polynomial: P = sum `C_n` (V0/V)^n, n=3,5,7,9.
 /// V0 is a normalization volume and need not be the exact P=0 root.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OddInversePower {

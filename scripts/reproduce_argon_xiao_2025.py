@@ -110,9 +110,15 @@ def reproduce():
             relative_volume_aad_percent=float(np.mean(np.abs(diffs)) * 100),
             relative_volume_rms_percent=float(np.sqrt(np.mean(np.square(diffs))) * 100),
         ),
+        equal_weight_diagnostic=dict(
+            script="scripts/refit_argon_xiao_2025.py",
+            report="docs/data/argon-xiao-2025-equal-weight-refit.json",
+            objective="Equal weight per relative property residual across all entries in each recovered-data case",
+            published_parameters_replaced=False,
+        ),
         global_refit=dict(
             status="not_reproduced",
-            reason="Complete legacy multiproperty input selection, penalty terms and iteration protocol unavailable; no substitute single-table fit performed.",
+            reason="The original empirical property weights are published in Table2. Complete legacy row selection and quantitative penalties/iteration protocol remain unavailable. A separate user-directed equal-relative-weight recovered-data diagnostic is performed; it is not the original regression.",
         ),
     )
     return out

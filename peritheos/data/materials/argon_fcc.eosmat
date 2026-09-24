@@ -452,7 +452,10 @@
     "equation_status": "parameterization_reproduced",
     "fit_status": "not_reproduced",
     "fitting_protocol_report": "docs/data/argon-xiao-2025-fitting-protocol.json",
-    "equal_weight_diagnostic": "User requests equal relative-residual weights on all recovered observations. Published empirical property weights are available in Table2; missing consolidated legacy observations limit source-fit coverage."
+    "equal_weight_diagnostic": "All22 neutron volumes and a separate27entry comparison including5 Anderson-Swenson extrapolated K0 estimates use equal squared relative residuals. The complete legacy multiproperty collection remains unavailable. Full9parameter fits are weakly constrained and hit numerical bounds; no replacement coefficients or unique recovery claimed.",
+    "summary_status": "published_equation_verified_equal_weight_subset_checked",
+    "display_label": "Published equation verified; equal-weight subset refit checked",
+    "equal_weight_diagnostic_report": "docs/data/argon-xiao-2025-equal-weight-refit.json"
    }
   },
   {

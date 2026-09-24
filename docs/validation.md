@@ -5,15 +5,15 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 225 bundled material documents and 614 EOS records pass the
-format-3 validator; 223 documents construct executable materials. The
+separate. All 226 bundled material documents and 625 EOS records pass the
+format-3 validator; 224 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe source card do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 614 bundled records: 612 are
+The primary-source audit covers all 625 bundled records: 623 are
 `primary_source_validated` and two Campbell Fe/FeO records are `deferred`
 because substantial combined-data refit discrepancies remain unresolved.
 The deferred records preserve source parameters for inspection and are
@@ -36,10 +36,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 616
+fit for every record with sufficient direct observations and documents all 625
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 220 parity matches and 148 additional numerically similar results.
+diagnostics. The current campaign finds 220 parity matches and 149 additional numerically similar results.
 For the opt-in Litasov siderite thermal refit, parity means reproducing the
 stored Peritheos fit, not resolving the two conflicting published thermal
 parameter sets, which remain non-executable source evidence.
@@ -49,7 +49,7 @@ confidence convention. Sakai (2011) contributes eight conditional fixed-V0
 parity matches within printed error widths, with weighting and marker-averaging
 qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
 [70 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 165 records cannot be
+recover at least one published coefficient, while 173 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Two further records are composite reconstructions, and eleven share a source-level
 calibration reconstruction. There are no unresolved extraction or solver failures. The

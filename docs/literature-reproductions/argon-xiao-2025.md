@@ -103,3 +103,24 @@ The official workbook contains sample calculations and fluid-EOS extrapolations,
 not the consolidated experimental inputs summarized in Tables 6–8. Those
 calculated values are not substituted for missing observations. Solid-only
 data also cannot identify the adjustable gas-reference entropy parameter.
+
+The [equal-weight diagnostic](../data/argon-xiao-2025-equal-weight-refit.json)
+now records five starting points for each full nine-parameter and restricted
+(two thermal parameters) fit. For all 22 neutron volumes, the published
+volume RMS is 0.09518%; the best converged full fit gives 0.03224%, while
+fitting only theta0 and gamma0 gives 0.03399%. The full fit's nearly singular
+sensitivity matrix and parameter-bound hits prevent unique coefficient recovery.
+
+A separate 27-entry case includes all five Anderson–Swenson Table 1 K0
+estimates, clearly labeled extrapolated isotherm-fit summaries rather than
+independent zero-pressure measurements. Its best converged full fit has about
+0.06482% combined relative RMS, but remains poorly constrained and bound-dependent.
+Xiao originally selected two of these five estimates; the alternate comparison
+retains all five as requested. Every numerical candidate, convergence flag,
+chosen bound and source hash is retained. Published catalog coefficients remain
+unchanged; the missing full experimental collection is not replaced with theory.
+
+The lowest-residual full nine-parameter 27-entry candidate also gives negative
+isochoric heat capacity at some sampled states. Its small residual is therefore
+not evidence of a physically acceptable replacement EOS. Every solution now
+includes sampled heat-capacity and bulk-modulus admissibility flags.

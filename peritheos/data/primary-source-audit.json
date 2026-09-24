@@ -9,9 +9,9 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 619,
+    "records": 625,
     "deferred": 2,
-    "primary_source_validated": 617
+    "primary_source_validated": 623
   },
   "records": [
     {
@@ -605,6 +605,107 @@
         ],
         "pdf_sha256": "3bd0e12705ebafd084ce72b1f2debb7ac47b5be37017f7e26be4c7bffc8c3729"
       }
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_finger_1981_murnaghan2_debye",
+      "label": "Finger et al. (1981), second-order Murnaghan + zero-point/Debye",
+      "doi": "10.1063/1.92597",
+      "status": "primary_source_validated",
+      "note": "All three original pages visually verified. Exact native/Python equation checked independently against adaptive Debye quadrature. Published coefficients preserved; diagnostic refits do not certify original fitting objective.",
+      "primary_source_check": {
+        "access_url": "https://hazen.carnegiescience.edu/sites/default/files/061-argon-1981.pdf",
+        "doi": "10.1063/1.92597",
+        "locations": [
+          "p.892 Table I; p.893 Eqs. (1)-(6) and Table II; p.894 reference 5"
+        ]
+      }
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_anderson_swenson_1975_4p2k",
+      "label": "Anderson and Swenson (1975), 4.2 K inverse-volume series",
+      "doi": "10.1016/0022-3697(75)90004-9",
+      "status": "primary_source_validated",
+      "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+      "primary_source_check": {
+        "doi": "10.1016/0022-3697(75)90004-9",
+        "locations": [
+          "Equation (2), Table 1, Sections 2-3"
+        ],
+        "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+      },
+      "reproduction_status": "equation_reproduced"
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_anderson_swenson_1975_20p0k",
+      "label": "Anderson and Swenson (1975), 20 K inverse-volume series",
+      "doi": "10.1016/0022-3697(75)90004-9",
+      "status": "primary_source_validated",
+      "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+      "primary_source_check": {
+        "doi": "10.1016/0022-3697(75)90004-9",
+        "locations": [
+          "Equation (2), Table 1, Sections 2-3"
+        ],
+        "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+      },
+      "reproduction_status": "equation_reproduced"
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_anderson_swenson_1975_40p0k",
+      "label": "Anderson and Swenson (1975), 40 K inverse-volume series",
+      "doi": "10.1016/0022-3697(75)90004-9",
+      "status": "primary_source_validated",
+      "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+      "primary_source_check": {
+        "doi": "10.1016/0022-3697(75)90004-9",
+        "locations": [
+          "Equation (2), Table 1, Sections 2-3"
+        ],
+        "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+      },
+      "reproduction_status": "equation_reproduced"
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_anderson_swenson_1975_60p0k",
+      "label": "Anderson and Swenson (1975), 60 K inverse-volume series",
+      "doi": "10.1016/0022-3697(75)90004-9",
+      "status": "primary_source_validated",
+      "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+      "primary_source_check": {
+        "doi": "10.1016/0022-3697(75)90004-9",
+        "locations": [
+          "Equation (2), Table 1, Sections 2-3"
+        ],
+        "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+      },
+      "reproduction_status": "equation_reproduced"
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_anderson_swenson_1975_77p0k",
+      "label": "Anderson and Swenson (1975), 77 K inverse-volume series",
+      "doi": "10.1016/0022-3697(75)90004-9",
+      "status": "primary_source_validated",
+      "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+      "primary_source_check": {
+        "doi": "10.1016/0022-3697(75)90004-9",
+        "locations": [
+          "Equation (2), Table 1, Sections 2-3"
+        ],
+        "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+      },
+      "reproduction_status": "equation_reproduced"
     },
     {
       "material": "argon_hcp",

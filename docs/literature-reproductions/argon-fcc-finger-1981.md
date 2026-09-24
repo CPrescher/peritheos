@@ -8,7 +8,7 @@ was downloaded and all pages visually inspected. Its title, authors, journal,
 year and page numbering match. The older `/sites/hazen.gl.ciw.edu/files/` URL
 in the structural citation returned HTTP 404; that citation now uses the working
 URL. PDF provenance and Zotero keys are in
-[`argon-fcc-finger-1981-sources.json`](../../peritheos/data/datasets/argon-fcc-finger-1981-sources.json).
+`peritheos/data/datasets/argon-fcc-finger-1981-sources.json`.
 The copyrighted PDF is outside git.
 
 ## Published equation and reference state
@@ -78,7 +78,7 @@ neither the offset nor the reference volume was adjusted to force cancellation.
 ## Observations, phase, scale and ranges
 
 All 19 argon rows of Table I are retained in
-[`argon-fcc-finger-1981-table1.csv`](../../peritheos/data/datasets/argon-fcc-finger-1981-table1.csv).
+`peritheos/data/datasets/argon-fcc-finger-1981-table1.csv`.
 They are **measured single-crystal diffraction points**, at 293 ± 1 K and
 1.28–8.17 GPa, identified as fcc Fm-3m, Z=4. No solid-solid transition was
 observed in that interval. The separate crystal/liquid coexistence observation

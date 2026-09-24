@@ -37,6 +37,7 @@ class OddInversePower(EosBase):
                 c * (n if derivative else 1) * x**n
                 for n, c in ((3, self.C3), (5, self.C5), (7, self.C7), (9, self.C9))
             )
+        result = np.asarray(result)
         if not np.all(np.isfinite(result)):
             raise EosNumericalError("Odd inverse-volume series overflow")
         return float(result) if result.ndim == 0 else result

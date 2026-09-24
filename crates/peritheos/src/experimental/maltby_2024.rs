@@ -241,10 +241,12 @@ mod tests {
     fn independent_quadrature_and_thermodynamic_identity() {
         let model = Maltby2024Published::new(64).unwrap();
         // SciPy direct quadrature of source Helmholtz equations, not Table 8.
-        assert!((model.pressure(2.397, 70.0).unwrap() + 0.00422597965).abs() < 2e-9);
-        assert!((model.pressure(1.8, 300.0).unwrap() - 2.21438377236).abs() < 8e-9);
-        assert!((model.pressure(1.2, 0.0).unwrap() - 16.50973820028).abs() < 8e-9);
-        assert!((model.molar_helmholtz_energy(2.397, 70.0).unwrap() + 9059.06647911).abs() < 1e-6);
+        assert!((model.pressure(2.397, 70.0).unwrap() + 0.004_225_979_65).abs() < 2e-9);
+        assert!((model.pressure(1.8, 300.0).unwrap() - 2.214_383_772_36).abs() < 8e-9);
+        assert!((model.pressure(1.2, 0.0).unwrap() - 16.509_738_200_28).abs() < 8e-9);
+        assert!(
+            (model.molar_helmholtz_energy(2.397, 70.0).unwrap() + 9_059.066_479_11).abs() < 1e-6
+        );
         for v in [1.2, 1.8, 2.397] {
             for t in [0.0, 5.0, 70.0, 300.0] {
                 let h = v * 1e-5;
@@ -257,7 +259,7 @@ mod tests {
                 assert!((model.volume(p, t).unwrap() - v).abs() < 1e-10);
             }
         }
-        assert_eq!(model.thermal_pressure_increment(2.0, 300.0).unwrap(), 0.0);
+        assert!(model.thermal_pressure_increment(2.0, 300.0).unwrap().abs() < f64::EPSILON);
     }
 
     #[test]
