@@ -21,6 +21,7 @@ experimental observations.
 | [Chen et al. (2010), fcc argon](literature-reproductions/chen-2010-argon.md) | Original coefficients and data needed to resolve source inconsistency | Reconcile the 2 GPa elastic constants with Figure 5 and the extrapolated density; reproduce integration and fit | Not contacted; user requested no outreach | 2026-09-24 |
 | [Crichton et al. (2016), bcc vanadium](#crichton-et-al-2016-bcc-vanadium) | Contact authors; high priority for original-fit verification | Refit the complete 62-state experiment; resolve the two incomplete fixed-K′ alternatives | Not contacted; historical contact route available | 2026-09-19 |
 | [Nisr et al. (2017), hydrous silica](#nisr-et-al-2017-hydrous-silica) | Optional follow-up for exact regression and calibration replay; published coefficients already reproduced | Resolve the original fit objective, weights and Au pressure reduction | Not contacted | 2026-09-19 |
+| [Maltby et al. (2024), fcc argon](#maltby-et-al-2024-fcc-argon) | Contact authors for sample-state and neighbour-table clarification | Reproduce Table 8 and the original multiproperty fit before promoting a replacement | Not contacted; precise request drafted | 2026-09-24 |
 
 ### Crichton et al. (2016): bcc vanadium
 
@@ -102,6 +103,42 @@ supporting information were inspected; their versions and checksums are in the
 audit. No author has been contacted, no current contact route has been verified,
 and no additional data or sharing permission has been received. This optional
 request remains open.
+
+### Maltby et al. (2024): fcc argon
+
+Paper: *Equation of State for Solid Argon Valid for Temperatures up to 300 K
+and Pressures up to 16 GPa*, [DOI 10.1063/5.0237497](https://doi.org/10.1063/5.0237497).
+Study: `argon_fcc_maltby_2024`; no validated executable EOSMAT record.
+Evidence: [source audit](literature-reproductions/argon-maltby-2024.md) and
+[rounding/constrained-refit investigation](literature-reproductions/argon-maltby-2024-refit.md).
+
+**Why contact is worthwhile.** The printed equations and geometric fcc sum do
+not reproduce Table 8's sample volume. Tested coefficient-rounding intervals,
+cutoffs and derivative alternatives do not resolve the difference. Official
+Table SI.1 additionally includes an impossible fcc shell at squared distance
+14. A constrained pressure refit improves grouped errors on a screened subset
+but worsens low-pressure and external checks; it is not a replacement for
+understanding the published implementation.
+
+**Minimum request:** full-precision final coefficients; numerical cutoff and
+neighbour list; executable Table 8 calculation, including explicit potential
+density dependence and tail differentiation; clarification of SI.1 shell 14.
+
+**For the complete refit:** exact selected primary data, especially the 38
+Dewaele rows, plus caloric, expansivity and compressibility observations;
+coordinate uncertainties, weights, fixed/free coefficients, staging and
+covariance where available. Request attribution/redistribution terms or a
+public deposit for supplied material. The unreported complete objective
+cannot be reconstructed from the currently bundled compression data alone.
+
+**Access and contact status.** The NVA accepted manuscript and official AIP
+supplement were checked, including rendered equations and the neighbour table.
+Title/DOI/correction searches, GitHub repository searches and accessible
+ThermoPack main source did not yield an author implementation or correction.
+The publisher page lists corresponding author Øivind Wilhelmsen at
+`oivind.wilhelmsen@ntnu.no`. A [specific draft request](author-requests/maltby-2024.md)
+is prepared. No message has been sent, and no additional data or permissions
+have been received. This request remains open.
 
 ## Maintaining the list
 

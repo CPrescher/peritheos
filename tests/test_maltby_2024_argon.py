@@ -11,7 +11,7 @@ from peritheos.eos.experimental.maltby_2024 import Maltby2024Published, fcc_shel
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_coordination_shells_match_official_supplement():
+def test_geometric_coordination_shells_and_confirmed_source_entries():
     squared, population = fcc_shells(64)
     shells = dict(zip(squared, population))
     assert [shells[m] for m in [1, 2, 3, 4, 5, 6, 7, 8]] == [
@@ -26,6 +26,9 @@ def test_coordination_shells_match_official_supplement():
     ]
     assert shells[49] == 108
     assert shells[64] == 12
+    # SI.1 incorrectly lists 48 at m=14. No integer three-square sum equals
+    # 2*m=28, so that entry is not part of the geometric fcc lattice.
+    assert 14 not in shells
     assert 30 not in shells and 46 not in shells and 56 not in shells
 
 

@@ -16,6 +16,11 @@ All notable changes to Peritheos are documented here. The project follows
   Brillouin density positions, a separate published-fit curve, reported elastic
   constants and a reproducible audit of the unresolved EOS inconsistency.
   No unverified Chen parameterization is added to the executable catalog.
+- Audit Maltby argon coefficient rounding and the full neighbour table, and
+  add reproducible constrained-refit diagnostics with entire runs held out.
+  Preserve the published coefficients and keep refits experimental after
+  low-pressure and external checks deteriorate.
+
 - Add experimental Python/Rust transcription and reproduction diagnostics for
   the Maltby (2024) fcc argon Helmholtz model, with explicit lattice cutoff
   and verified source/PDF provenance. Keep the candidate out of EOSMAT pending

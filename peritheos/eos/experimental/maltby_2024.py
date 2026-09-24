@@ -14,6 +14,7 @@ are not included. They do not affect pressure or heat capacities.
 from __future__ import annotations
 
 from collections import Counter
+from dataclasses import dataclass, fields
 from functools import lru_cache
 
 import numpy as np
@@ -22,10 +23,87 @@ from scipy.optimize import brentq
 
 R = 8.314462618
 N_A_ANGSTROM = 0.602214076  # number density in A^-3 for v=1 cm^3/mol
-V_REF = 22.56
-WEIGHTS = np.array([0.0261, 0.03784, 0.04512])
-EINSTEIN_THETA = np.array([77.81, 550.0, 45.36])
-EINSTEIN_GAMMA = np.array([6.221, 1.617e-6, 3.127])
+
+
+@dataclass(frozen=True)
+class Maltby2024Parameters:
+    """Tables 1 and 3; explicit trial changes do not modify published defaults.
+
+    No parameter covariance is available. Construction validates numerical
+    domains, not physical accuracy or phase stability. Fluid-reference offsets
+    are excluded because they do not affect the evaluated derivatives.
+    """
+
+    epsilon_k: float = 134.7
+    alpha_r: float = 14.19
+    rmin_a: float = 3.802
+    lambda_k_a9: float = 3.202e5
+    z1_k: float = 140.0
+    z2: float = 2.34
+    z3: float = 0.683
+    z4_cm3: float = 19.7
+    vref_cm3: float = 22.56
+    theta_d0_k: float = 92.0
+    a_d_k: float = 10.4
+    b_d: float = 0.02503
+    c_d: float = 0.0001568
+    gamma_d0: float = 2.563
+    q_d: float = 0.2874
+    b1: float = -0.0004475
+    b2: float = 2.041e-6
+    b3: float = 5.75e-7
+    c1_k: float = 0.7204
+    c2: float = -1.614
+    c3_k: float = -0.01943
+    c4: float = -27.64
+    a0: float = 0.0261
+    a1: float = 0.03784
+    a2: float = 0.04512
+    theta0_k: float = 77.81
+    theta1_k: float = 550.0
+    theta2_k: float = 45.36
+    gamma0: float = 6.221
+    gamma1: float = 1.617e-6
+    gamma2: float = 3.127
+
+    def __post_init__(self):
+        if not all(np.isfinite(getattr(self, f.name)) for f in fields(self)):
+            raise ValueError("all trial coefficients must be finite")
+        positive = (
+            "epsilon_k",
+            "rmin_a",
+            "z1_k",
+            "z2",
+            "z3",
+            "z4_cm3",
+            "vref_cm3",
+            "theta_d0_k",
+            "gamma_d0",
+            "q_d",
+            "theta0_k",
+            "theta1_k",
+            "theta2_k",
+            "gamma0",
+            "gamma1",
+            "gamma2",
+        )
+        if any(getattr(self, name) <= 0 for name in positive):
+            raise ValueError("length, temperature and exponent scales must be positive")
+        if self.alpha_r <= 6 or self.lambda_k_a9 < 0:
+            raise ValueError(
+                "trial Buckingham potential requires alpha_r > 6 and lambda >= 0"
+            )
+        if self.alpha_r - 6 + 7 * np.log(6 / self.alpha_r) <= 0:
+            raise ValueError("trial Buckingham potential has no outer zero")
+        if (
+            not 0 <= self.a_d_k < self.theta_d0_k
+            or min(self.b_d, self.c_d, self.b2) < 0
+        ):
+            raise ValueError("invalid Debye temperature or anharmonic denominator")
+        if min(self.a0, self.a1, self.a2) < 0 or self.a0 + self.a1 + self.a2 >= 1:
+            raise ValueError(
+                "vibrational weights must be nonnegative and sum to less than one"
+            )
 
 
 @lru_cache(maxsize=32)
@@ -69,14 +147,23 @@ class Maltby2024Published:
     this is a numerical search interval, not a claim of phase stability.
     """
 
+    _parameters = Maltby2024Parameters()
+
+    @property
+    def parameters(self) -> Maltby2024Parameters:
+        return self._parameters
+
     def __init__(self, shell_cutoff_squared: int):
         self.shell_cutoff_squared = shell_cutoff_squared
         self._shells, self._populations = fcc_shells(shell_cutoff_squared)
         # Outer physical zero of Eq. (15); the Buckingham catastrophe's inner
         # zero is excluded. This is a derived quantity, not a fitted coefficient.
-        self.sigma_angstrom = 3.802 * brentq(
-            lambda x: 6 * np.exp(14.19 * (1 - x)) - 14.19 / x**6,
-            0.8,
+        p = self.parameters
+        # The maximum of log(repulsion/attraction) is at x=6/alpha.
+        # This bracket isolates the outer zero for every allowed alpha.
+        self.sigma_angstrom = p.rmin_a * brentq(
+            lambda x: np.log(6 / p.alpha_r) + p.alpha_r * (1 - x) + 6 * np.log(x),
+            6 / p.alpha_r,
             1.0,
             xtol=1e-14,
         )
@@ -92,10 +179,11 @@ class Maltby2024Published:
     def _energy_and_dv(self, volume: float, temperature: float) -> tuple[float, float]:
         """Return A and dA/dv for v in cm^3/mol; derivative includes density."""
         v, t = self._state(volume, temperature)
+        p = self.parameters
         rnn = (np.sqrt(2) * v / N_A_ANGSTROM) ** (1 / 3)
         radii = np.sqrt(self._shells) * rnn
         rc = np.sqrt(self.shell_cutoff_squared) * rnn
-        eps, steepness, rmin = 134.7, 14.19, 3.802
+        eps, steepness, rmin = p.epsilon_k, p.alpha_r, p.rmin_a
         decay = steepness / rmin
         rep = eps * 6 / (steepness - 6) * np.exp(steepness - decay * radii)
         att = eps * steepness / (steepness - 6) * (rmin / radii) ** 6
@@ -122,40 +210,46 @@ class Maltby2024Published:
         )
         pair += tail
         pair_dv += tail_dv
-        correction = 3.202e5 * N_A_ANGSTROM / (eps * self.sigma_angstrom**6)
+        correction = p.lambda_k_a9 * N_A_ANGSTROM / (eps * self.sigma_angstrom**6)
         energy = pair * (1 - correction / v)
         derivative = pair_dv * (1 - correction / v) + pair * correction / v**2
-        zpv = 140 * np.exp(2.34 / 0.683 * (1 - (v / 19.7) ** 0.683))
+        zpv = p.z1_k * np.exp(p.z2 / p.z3 * (1 - (v / p.z4_cm3) ** p.z3))
         energy += zpv
-        derivative -= zpv * 2.34 * (v / 19.7) ** 0.683 / v
-        cold1 = 0.7204 * np.exp(-1.614 * (1 - v / V_REF))
-        cold2 = -0.01943 * V_REF / v * np.exp(-27.64 * (1 - v / V_REF))
+        derivative -= zpv * p.z2 * (v / p.z4_cm3) ** p.z3 / v
+        cold1 = p.c1_k * np.exp(p.c2 * (1 - v / p.vref_cm3))
+        cold2 = p.c3_k * p.vref_cm3 / v * np.exp(p.c4 * (1 - v / p.vref_cm3))
         energy += cold1 + cold2
-        derivative += cold1 * 1.614 / V_REF + cold2 * (-1 / v + 27.64 / V_REF)
+        derivative += -cold1 * p.c2 / p.vref_cm3 + cold2 * (-1 / v - p.c4 / p.vref_cm3)
         if t > 0:
-            theta_t = 92 + 10.4 * np.expm1(-0.02503 * t**2 - 0.0001568 * t**3)
-            gamma_d = 2.563 * (v / V_REF) ** 0.2874
-            theta = theta_t * np.exp(2.563 / 0.2874 * (1 - (v / V_REF) ** 0.2874))
+            theta_t = p.theta_d0_k + p.a_d_k * np.expm1(-p.b_d * t**2 - p.c_d * t**3)
+            gamma_d = p.gamma_d0 * (v / p.vref_cm3) ** p.q_d
+            theta = theta_t * np.exp(
+                p.gamma_d0 / p.q_d * (1 - (v / p.vref_cm3) ** p.q_d)
+            )
             x = theta / t
             d3 = _debye_integral(x)
-            weight = 1 - WEIGHTS.sum()
+            weight = 1 - p.a0 - p.a1 - p.a2
             energy += 3 * weight * t * (np.log(-np.expm1(-x)) - d3)
             derivative -= 9 * weight * t * gamma_d * d3 / v
-            for w, theta0, gamma0 in zip(WEIGHTS, EINSTEIN_THETA, EINSTEIN_GAMMA):
-                theta_i = theta0 * np.exp(gamma0 * (1 - v / V_REF))
+            for w, theta0, gamma0 in [
+                (p.a0, p.theta0_k, p.gamma0),
+                (p.a1, p.theta1_k, p.gamma1),
+                (p.a2, p.theta2_k, p.gamma2),
+            ]:
+                theta_i = theta0 * np.exp(gamma0 * (1 - v / p.vref_cm3))
                 y = theta_i / t
                 energy += 3 * w * t * np.log(-np.expm1(-y))
                 occupation = 0 if y > 700 else 1 / np.expm1(y)
-                derivative -= 3 * w * theta_i * occupation * gamma0 / V_REF
+                derivative -= 3 * w * theta_i * occupation * gamma0 / p.vref_cm3
             anh = (
-                -0.0004475
+                p.b1
                 * theta_t
-                * (t / 92) ** 4
-                / (1 + 2.041e-6 * (t / 92) ** 2)
-                * np.exp(5.75e-7 * (v / V_REF - 1))
+                * (t / p.theta_d0_k) ** 4
+                / (1 + p.b2 * (t / p.theta_d0_k) ** 2)
+                * np.exp(p.b3 * (v / p.vref_cm3 - 1))
             )
             energy += anh
-            derivative += anh * 5.75e-7 / V_REF
+            derivative += anh * p.b3 / p.vref_cm3
         result = R * energy, R * derivative
         if not all(np.isfinite(result)):
             raise ValueError("nonfinite Maltby model result")
@@ -206,4 +300,20 @@ class Maltby2024Published:
             raise ValueError(
                 "no stable root in numerical 8--26 cm^3/mol search interval"
             )
-        return min(roots, key=lambda v: abs(np.log(v / (V_REF / 10))))
+        return min(
+            roots, key=lambda v: abs(np.log(v / (self.parameters.vref_cm3 / 10)))
+        )
+
+
+class Maltby2024Trial(Maltby2024Published):
+    """Explicit research-only parameter trial; not a published or validated EOS.
+
+    Use separate provenance for every fitted parameter set. This class is not
+    exposed through EOSMAT and has no native dispatcher or default fitted values.
+    """
+
+    def __init__(self, shell_cutoff_squared: int, parameters: Maltby2024Parameters):
+        if not isinstance(parameters, Maltby2024Parameters):
+            raise TypeError("parameters must be Maltby2024Parameters")
+        self._parameters = parameters
+        super().__init__(shell_cutoff_squared)

@@ -306,5 +306,14 @@
     "supplement_attachment_key": "LDVMDX9D",
     "supplement_sha256_verified": true
   },
-  "audit_date": "2026-09-24"
+  "audit_date": "2026-09-24",
+  "followup_audit": {
+    "documentation": "docs/literature-reproductions/argon-maltby-2024-refit.md",
+    "report": "docs/data/argon-maltby-2024-refit.json",
+    "refit_identifier": "argon_fcc_maltby_2024_diagnostic_refit",
+    "status": "diagnostic_refit_not_promoted",
+    "source_discrepancy": "Official SI.1 includes 48 neighbours at squared distance14; geometric fcc count is0. Literal SI list worsens sample-volume mismatch.",
+    "author_request": "docs/author-requests/maltby-2024.md",
+    "contact_status": "not_contacted"
+  }
 }

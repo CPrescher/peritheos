@@ -92,7 +92,10 @@ supplement's FCC shell table extends to (r/r_NN)^2=64; that is evidence for the
 available shell list, not evidence that the authors used that cutoff. Both
 constructors require an explicit `shell_cutoff_squared` argument. The audit
 uses 64 and tests 16, 36, 100, 144 and 256 separately. Shells are generated from
-integer fcc coordinates and checked against Table SI.1.
+integer fcc coordinates. A complete follow-up comparison finds that Table SI.1
+incorrectly includes 48 neighbours at squared distance 14, where fcc geometry
+has none; every other entry through 64 matches. Using that literal table
+worsens the discrepancy. See the [rounding and refit audit](argon-maltby-2024-refit.md).
 
 At the Table 8 state T=70 K, v=23.97 cm3/mol, the candidate gives:
 
@@ -179,3 +182,12 @@ No EOSMAT dispatch/schema entry or Studio executable record is added while the
 source reproduction is unresolved. Studio should expose the study's pending
 status and source PDFs if it has a supporting-study view, with no selectable
 validated pressure curve and no measured-point label on Table 8.
+
+## Follow-up rounding and refit audit
+
+The [constrained-refit study](argon-maltby-2024-refit.md) checks all printed
+coefficient rounding intervals, all occupied cutoffs through squared distance
+256, the complete SI shell table, five held-out experimental runs and external
+Ono observations. It improves pressure errors on a source-informed subset but
+worsens low-pressure and external checks; neither the published candidate nor
+the diagnostic refit is promoted to validated EOSMAT.
