@@ -1966,11 +1966,6 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
                 })?,
                 &format!("{location}.used_by_eos_records"),
             )?;
-            if used_by.is_empty() {
-                return Err(invalid_document(format!(
-                    "{location}.used_by_eos_records must be non-empty"
-                )));
-            }
             for value in used_by {
                 let record_identifier = value
                     .as_str()

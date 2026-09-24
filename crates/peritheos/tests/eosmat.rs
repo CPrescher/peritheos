@@ -1129,6 +1129,27 @@ fn cubic_vinet_and_excess_debye_catalog_records_match_python() {
 }
 
 #[test]
+fn supporting_datasets_allow_empty_record_links_but_reject_dangling_links() {
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    document["datasets"] = serde_json::json!([{
+        "identifier": "supporting_observations",
+        "kind": "pressure_volume",
+        "source_location": "Synthetic supporting table",
+        "used_by_eos_records": [],
+        "reference": "Test observations",
+        "columns": [{"name": "pressure", "quantity": "pressure", "unit": "GPa", "role": "value"}],
+        "rows": [[2.0]]
+    }]);
+    validate_eosmat_document(&document).unwrap();
+    let material = load_eosmat_str(&document.to_string()).unwrap();
+    assert_eq!(material.eos_records.len(), 1);
+    document["datasets"][0]["used_by_eos_records"] = serde_json::json!(["missing_record"]);
+    assert!(validate_eosmat_document(&document).is_err());
+    document["datasets"][0]["used_by_eos_records"] = serde_json::Value::Null;
+    assert!(validate_eosmat_document(&document).is_err());
+}
+
+#[test]
 fn source_data_refit_does_not_require_a_parent_eos_record() {
     let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
     document["eos_records"][0]["record_kind"] = "refit".into();
