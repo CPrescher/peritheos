@@ -346,6 +346,7 @@ Thermal `type` and `model` must likewise match:
 | `LogVolumeThermalPressure` | `log_volume_thermal_pressure` | `Tr`, `alpha_KT_ref`, `dK_dT_V` |
 | `MieGruneisenDebye` | `mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `DebyeQuadraticThermalPressure` | `debye_quadratic_thermal_pressure` | `Tr`, `theta0`, `gamma0`, `q`, `n`, `A` (GPa/K²), `m` |
+| `DebyeAnharmonicHelmholtz` | `debye_anharmonic_helmholtz` | `Tr`, `theta0`, `gamma0`, `q`, `b1`, `b2`, `b3`; intrinsic absolute-zero thermal baseline; monatomic |
 | `MieGruneisenEinstein` | `mie_gruneisen_einstein` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `AsymptoticPowerLawMieGruneisenDebye` | `asymptotic_power_law_mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` |
 | `Dewaele2006` | `dewaele_2006` | `Tr`, `theta0`, `gamma0`, `gamma_inf`, `beta`, anharmonic and electronic terms, `n` |

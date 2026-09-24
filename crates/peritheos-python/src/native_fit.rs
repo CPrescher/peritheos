@@ -10,11 +10,12 @@ use peritheos::isothermal::{
     NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DebyeQuadraticThermalPressure, Dewaele2006,
-    DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, HollandPowellThermalPressure,
-    LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
-    MultiOscillatorGruneisen, SecondOrderTaylorThermalPressure, SokolovaParameters,
-    ThermalModifiedTait, ThermalReferenceState,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
+    Dewaele2006, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
+    HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
+    SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalModifiedTait,
+    ThermalReferenceState,
 };
 use peritheos::{EosError, EosResult, ThermalEos};
 use pyo3::prelude::*;
@@ -251,6 +252,7 @@ impl ThermalModel {
             Self::DorogokupetsOganov2007(model) => model.pressure(volume, temperature),
             Self::LinearThermalPressure(model) => model.pressure(volume, temperature),
             Self::DebyeQuadraticThermalPressure(model) => model.pressure(volume, temperature),
+            Self::DebyeAnharmonicHelmholtz(model) => model.pressure(volume, temperature),
             Self::LogVolumeThermalPressure(model) => model.pressure(volume, temperature),
             Self::SecondOrderTaylorThermalPressure(model) => model.pressure(volume, temperature),
             Self::MieGruneisenDebye(model) => model.pressure(volume, temperature),
@@ -399,6 +401,29 @@ impl ThermalModel {
                         reference,
                         value(names, values, "Tr", model.tr),
                         value(names, values, "alpha_KT", model.alpha_kt),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::DebyeAnharmonicHelmholtz(model) => {
+                ensure_names(
+                    names,
+                    &["Tr", "theta0", "gamma0", "q", "b1", "b2", "b3"],
+                    true,
+                )?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::DebyeAnharmonicHelmholtz(
+                    DebyeAnharmonicHelmholtz::new(
+                        reference,
+                        value(names, values, "Tr", model.debye.tr),
+                        value(names, values, "theta0", model.debye.theta0),
+                        value(names, values, "gamma0", model.debye.gamma0),
+                        value(names, values, "q", model.debye.q),
+                        value(names, values, "b1", model.b1),
+                        value(names, values, "b2", model.b2),
+                        value(names, values, "b3", model.b3),
                     )
                     .map_err(FitError::from)?,
                 )

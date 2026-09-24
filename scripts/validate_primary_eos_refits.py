@@ -2003,7 +2003,22 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
-    if record_id.startswith("argon_"):
+    if record_id == "argon_fcc_xiao_2025_helmholtz":
+        from scripts.reproduce_argon_xiao_2025 import reproduce
+
+        return {
+            "status": "not_refittable",
+            "reproduction_status": "parameterization_reproduced",
+            "dataset_identifiers": record["fit_datasets"],
+            "observations": 22,
+            "reason": "Published parameterization matches official workbook; full global multiproperty fit inputs and penalty protocol are unavailable. A 22-row-only fit is not the published regression.",
+            "reproduction": reproduce(),
+        }
+    if record_id in {
+        "argon_fcc_dewaele_2021_vinet_mgd",
+        "argon_fcc_ono_2020_vinet",
+        "argon_hcp_wittlinger_1997_bm2_1",
+    }:
         from scripts.reproduce_argon import ledger_outcome
 
         return ledger_outcome(record)

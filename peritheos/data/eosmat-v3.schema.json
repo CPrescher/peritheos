@@ -746,7 +746,8 @@
             "SoundVelocityDebyeHelmholtz",
             "Dewaele2006",
             "HollandPowellThermalPressure",
-            "DebyeQuadraticThermalPressure"
+            "DebyeQuadraticThermalPressure",
+            "DebyeAnharmonicHelmholtz"
           ]
         },
         "model": {
@@ -767,7 +768,8 @@
             "sound_velocity_debye_helmholtz",
             "dewaele_2006",
             "holland_powell_thermal_pressure",
-            "debye_quadratic_thermal_pressure"
+            "debye_quadratic_thermal_pressure",
+            "debye_anharmonic_helmholtz"
           ]
         },
         "debye_temperature_law": {
@@ -1024,6 +1026,16 @@
                 },
                 "model": {
                   "const": "debye_quadratic_thermal_pressure"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "DebyeAnharmonicHelmholtz"
+                },
+                "model": {
+                  "const": "debye_anharmonic_helmholtz"
                 }
               }
             }

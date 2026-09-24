@@ -5,6 +5,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+- Add Xiao et al. (2025) fcc argon Helmholtz EOS with exact Debye and
+  anharmonic terms, native/Python caloric support, 22 neutron observations,
+  and independent publisher-workbook reproduction.
+
 - Add diffraction-ready fcc argon with Dewaele (2021) thermal and Ono (2020)
   isothermal EOS records, all 307 supplementary observations, and independent
   reproductions. Support an absolute-zero thermal baseline in `Dewaele2006`

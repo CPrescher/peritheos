@@ -1,0 +1,64 @@
+{
+  "reference": "10.1007/s10765-024-03469-2",
+  "workbook_checkpoint": {
+    "temperature_k": 70,
+    "volume_cm3_mol": 23,
+    "expected": {
+      "A": -998.2296606304144,
+      "U": 1098.2008906760243,
+      "S": 29.949007875806267,
+      "P": 78.3517375843629,
+      "Cv": 22.854917560882143,
+      "K": 2247.940903627391
+    },
+    "independent": {
+      "A": -998.2296606304145,
+      "U": 1098.2008906760257,
+      "S": 29.949007875806288,
+      "P": 78.35173758436284,
+      "Cv": 22.854917560882157,
+      "K": 2247.9409036273896
+    },
+    "relative_differences": {
+      "A": 1.1388845894422642e-16,
+      "U": 1.2422518177157914e-15,
+      "S": 7.117525282038794e-16,
+      "P": -7.254902139164885e-16,
+      "Cv": 6.217854287746335e-16,
+      "K": -6.068851945609346e-16
+    }
+  },
+  "workbook_inversions": [
+    {
+      "temperature_k": 70.0,
+      "pressure_mpa": 10.0,
+      "source_volume_cm3_mol": 23.827471251113984,
+      "calculated_volume_cm3_mol": 23.827471251114027,
+      "relative_difference": 1.7892189941730747e-15
+    },
+    {
+      "temperature_k": 83.806,
+      "pressure_mpa": 0.068891,
+      "source_volume_cm3_mol": 24.604805616824237,
+      "calculated_volume_cm3_mol": 24.6048056168241,
+      "relative_difference": -5.631250887772836e-15
+    },
+    {
+      "temperature_k": 60.0,
+      "pressure_mpa": 0.0006965135426981063,
+      "source_volume_cm3_mol": 23.608512889347836,
+      "calculated_volume_cm3_mol": 23.608512889347725,
+      "relative_difference": -4.665017426510929e-15
+    }
+  ],
+  "neutron_table5": {
+    "rows": 22,
+    "pressure_assumption": "P=0 approximation only; source pressure unreported and slightly above sublimation",
+    "relative_volume_aad_percent": 0.08072857771746507,
+    "relative_volume_rms_percent": 0.09517622713123948
+  },
+  "global_refit": {
+    "status": "not_reproduced",
+    "reason": "Complete legacy multiproperty input selection, penalty terms and iteration protocol unavailable; no substitute single-table fit performed."
+  }
+}

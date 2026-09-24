@@ -3205,3 +3205,171 @@ impl<R: IsothermalEos> ThermalEos for AsymptoticPowerLawMieGruneisenDebyeExcess<
         finite_result(debye + excess)
     }
 }
+
+/// Molar gas constant used in the Xiao et al. authors’ supplementary workbook.
+pub const XIAO_GAS_CONSTANT: f64 = 8.31451;
+
+/// Monatomic Debye Helmholtz energy with the rational-temperature anharmonic
+/// term of Xiao et al. (2025), doi:10.1007/s10765-024-03469-2, equations 19–25.
+/// The reference EOS is the 0 K cold curve. Volumes are J/bar/mol;
+/// energies are J/mol. `tr` controls increments only, never pressure subtraction.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DebyeAnharmonicHelmholtz<R> {
+    pub rt_eos: R,
+    pub debye: MieGruneisenDebye<R>,
+    pub b1: f64,
+    pub b2: f64,
+    pub b3: f64,
+}
+
+impl<R: IsothermalEos + Copy> DebyeAnharmonicHelmholtz<R> {
+    /// Construct the absolute-zero-referenced thermal model.
+    ///
+    /// # Errors
+    /// Returns an error for nonfinite parameters, nonpositive temperatures,
+    /// or negative b2 (which would introduce a positive-temperature pole).
+    #[allow(clippy::too_many_arguments)]
+    pub fn new(
+        rt_eos: R,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        q: f64,
+        b1: f64,
+        b2: f64,
+        b3: f64,
+    ) -> EosResult<Self> {
+        let b2 = finite_parameter(b2, "b2")?;
+        if b2 < 0.0 {
+            return Err(EosError::InvalidParameter {
+                name: "b2",
+                reason: "must be nonnegative",
+            });
+        }
+        Ok(Self {
+            rt_eos,
+            debye: MieGruneisenDebye::new_with_heat_capacity(
+                rt_eos,
+                tr,
+                theta0,
+                gamma0,
+                q,
+                1.0,
+                Some(3.0 * XIAO_GAS_CONSTANT),
+                DebyeTemperatureLaw::IntegratedGruneisen,
+                ThermalPressureReference::AbsoluteZero,
+            )?,
+            b1: finite_parameter(b1, "b1")?,
+            b2,
+            b3: finite_parameter(b3, "b3")?,
+        })
+    }
+}
+
+impl<R: IsothermalEos> DebyeAnharmonicHelmholtz<R> {
+    /// Anharmonic Helmholtz energy (equation 25).
+    /// # Errors
+    /// Returns an error for invalid states or nonfinite energy.
+    pub fn anharmonic_helmholtz_free_energy(
+        &self,
+        volume: f64,
+        temperature: f64,
+    ) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let temperature = positive_state(temperature, "temperature")?;
+        let t = temperature / self.debye.theta0;
+        finite_result(
+            self.b1 * XIAO_GAS_CONSTANT * self.debye.theta0 * t.powi(4) / (1.0 + self.b2 * t * t)
+                * (self.b3 * (volume / self.rt_eos.reference_volume() - 1.0)).exp(),
+        )
+    }
+
+    /// Debye plus anharmonic Helmholtz energy, without cold energy or zero point.
+    /// # Errors
+    /// Returns an error for invalid states or quadrature failure.
+    pub fn thermal_helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.debye
+                .thermal_helmholtz_free_energy(volume, temperature)?
+                + self.anharmonic_helmholtz_free_energy(volume, temperature)?,
+        )
+    }
+
+    /// Molar entropy; the cold curve contributes zero.
+    /// # Errors
+    /// Returns an error for invalid states or quadrature failure.
+    pub fn entropy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let a = self.anharmonic_helmholtz_free_energy(volume, temperature)?;
+        let y = self.b2 * (temperature / self.debye.theta0).powi(2);
+        finite_result(
+            self.debye.thermal_entropy(volume, temperature)?
+                - a / temperature * (4.0 + 2.0 * y) / (1.0 + y),
+        )
+    }
+
+    /// Total Helmholtz energy, with cold energy zero at V0.
+    /// # Errors
+    /// Returns an error for invalid states or quadrature failure.
+    pub fn helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        positive_state(volume, "volume")?;
+        let cold = -1.0e4
+            * integrate(
+                |v| self.rt_eos.pressure(v),
+                self.rt_eos.reference_volume(),
+                volume,
+            )?;
+        finite_result(cold + self.thermal_helmholtz_free_energy(volume, temperature)?)
+    }
+
+    /// Total internal energy on the same cold-energy zero as Helmholtz energy.
+    /// # Errors
+    /// Returns an error for invalid states or quadrature failure.
+    pub fn internal_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.helmholtz_free_energy(volume, temperature)?
+                + temperature * self.entropy(volume, temperature)?,
+        )
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for DebyeAnharmonicHelmholtz<R> {
+    type Reference = R;
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+    fn reference_temperature(&self) -> f64 {
+        self.debye.tr
+    }
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.debye.thermal_pressure(volume, temperature)?
+                - self.b3 / self.rt_eos.reference_volume() / 1.0e4
+                    * self.anharmonic_helmholtz_free_energy(volume, temperature)?,
+        )
+    }
+    fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_pressure(volume, temperature)?
+                - self.thermal_pressure(volume, self.debye.tr)?,
+        )
+    }
+}
+
+impl<R: IsothermalEos> CaloricEos for DebyeAnharmonicHelmholtz<R> {
+    fn molar_heat_capacity_v(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let a = self.anharmonic_helmholtz_free_energy(volume, temperature)?;
+        let y = self.b2 * (temperature / self.debye.theta0).powi(2);
+        // T² A_TT/A = (12 + 6y + 2y²)/(1+y)².
+        let ratio = self.debye.characteristic_temperature(volume)? / temperature;
+        let occupation = if ratio > 700.0 {
+            0.0
+        } else {
+            ratio / ratio.exp_m1()
+        };
+        let cv_debye =
+            3.0 * XIAO_GAS_CONSTANT * (4.0 * debye_function_3(ratio)? - 3.0 * occupation);
+        finite_result(
+            cv_debye - a / temperature * (12.0 + 6.0 * y + 2.0 * y * y) / (1.0 + y).powi(2),
+        )
+    }
+}

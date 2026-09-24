@@ -376,6 +376,7 @@ from peritheos.eos.thermal import (
     LinearThermalPressure,
     LogVolumeThermalPressure,
     DebyeQuadraticThermalPressure,
+    DebyeAnharmonicHelmholtz,
     MieGruneisenDebye,
     MieGruneisenEinstein,
     MultiOscillatorGruneisenThermalEOS,
@@ -402,6 +403,7 @@ Thermal constructor signatures are:
 | `SoundVelocityDebyeHelmholtz` | `Tr, molar_mass_g_mol, n, longitudinal_intercept, longitudinal_slope, shear_intercept, shear_slope` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
 | `DebyeQuadraticThermalPressure` | `Tr, theta0, gamma0, q, n, A, m` |
+| `DebyeAnharmonicHelmholtz` | `Tr, theta0, gamma0, q, b1, b2, b3` (monatomic; absolute-zero thermal baseline; gas constant 8.31451 J/mol/K) |
 | `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity", bulk_modulus_law="linear_temperature", beta1=0, beta2=0, beta3=0, kprime_log_coefficient=0`; volume laws also include `linear_temperature` and `berman` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen", thermal_pressure_reference="reference_temperature", Cvmax=None` |
 | `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |

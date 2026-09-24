@@ -41,6 +41,7 @@ from peritheos.eos.rt import (
 )
 from peritheos.eos.thermal import (
     AsymptoticPowerLawMieGruneisenDebyeExcess,
+    DebyeAnharmonicHelmholtz,
     DebyeQuadraticThermalPressure,
     Dewaele2006,
     DorogokupetsOganov2007,
@@ -1273,6 +1274,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "HollandPowellThermalPressure": "holland_powell_thermal_pressure",
         "LinearThermalPressure": "linear_thermal_pressure",
         "DebyeQuadraticThermalPressure": "debye_quadratic_thermal_pressure",
+        "DebyeAnharmonicHelmholtz": "debye_anharmonic_helmholtz",
         "LogVolumeThermalPressure": "log_volume_thermal_pressure",
         "SecondOrderTaylorThermalPressure": ("second_order_taylor_thermal_pressure"),
         "SoundVelocityDebyeHelmholtz": "sound_velocity_debye_helmholtz",
@@ -1318,6 +1320,7 @@ _MODEL_CLASSES = MappingProxyType(
             HollandPowellThermalPressure,
             LinearThermalPressure,
             DebyeQuadraticThermalPressure,
+            DebyeAnharmonicHelmholtz,
             LogVolumeThermalPressure,
             SecondOrderTaylorThermalPressure,
             SoundVelocityDebyeHelmholtz,
@@ -1358,6 +1361,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "holland_powell_thermal_pressure": "HollandPowellThermalPressure",
         "linear_thermal_pressure": "LinearThermalPressure",
         "debye_quadratic_thermal_pressure": "DebyeQuadraticThermalPressure",
+        "debye_anharmonic_helmholtz": "DebyeAnharmonicHelmholtz",
         "log_volume_thermal_pressure": "LogVolumeThermalPressure",
         "second_order_taylor_thermal_pressure": ("SecondOrderTaylorThermalPressure"),
         "sound_velocity_debye_helmholtz": "SoundVelocityDebyeHelmholtz",
@@ -1379,6 +1383,7 @@ _EOSMAT_TYPES = MappingProxyType(
 _MOLAR_VOLUME_THERMAL_MODELS = frozenset(
     {
         "debye_quadratic_thermal_pressure",
+        "debye_anharmonic_helmholtz",
         "mie_gruneisen_debye",
         "sound_velocity_debye_helmholtz",
         "double_debye_helmholtz",

@@ -948,6 +948,7 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                 .pointer("/thermal/thermal_pressure_reference")
                 .and_then(serde_json::Value::as_str)
                 == Some("absolute_zero")
+                || record.eos.thermal_model_identifier() == Some("debye_anharmonic_helmholtz")
             {
                 assert!(pressure.is_finite());
                 assert!(pressure > 0.0);

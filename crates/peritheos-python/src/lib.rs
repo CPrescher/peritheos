@@ -16,8 +16,8 @@ use peritheos::isothermal::{
     Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DebyeQuadraticThermalPressure, DebyeTemperatureLaw,
-    Dewaele2006, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
+    DebyeTemperatureLaw, Dewaele2006, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
     HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
     ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
@@ -525,6 +525,7 @@ enum ThermalModel {
     DorogokupetsOganov2007(DorogokupetsOganov2007<RtModel>),
     LinearThermalPressure(LinearThermalPressure<RtModel>),
     DebyeQuadraticThermalPressure(DebyeQuadraticThermalPressure<RtModel>),
+    DebyeAnharmonicHelmholtz(DebyeAnharmonicHelmholtz<RtModel>),
     LogVolumeThermalPressure(LogVolumeThermalPressure<RtModel>),
     SecondOrderTaylorThermalPressure(SecondOrderTaylorThermalPressure<RtModel>),
     MieGruneisenDebye(MieGruneisenDebye<RtModel>),
@@ -543,6 +544,7 @@ impl ThermalModel {
             Self::DorogokupetsOganov2007(_) => "DorogokupetsOganov2007",
             Self::LinearThermalPressure(_) => "LinearThermalPressure",
             Self::DebyeQuadraticThermalPressure(_) => "DebyeQuadraticThermalPressure",
+            Self::DebyeAnharmonicHelmholtz(_) => "DebyeAnharmonicHelmholtz",
             Self::LogVolumeThermalPressure(_) => "LogVolumeThermalPressure",
             Self::SecondOrderTaylorThermalPressure(_) => "SecondOrderTaylorThermalPressure",
             Self::MieGruneisenDebye(_) => "MieGruneisenDebye",
@@ -568,6 +570,19 @@ impl ThermalModel {
             Self::LinearThermalPressure(model) => {
                 evaluate_thermal_quantity(&model, quantity, first, second)
             }
+            Self::DebyeAnharmonicHelmholtz(model) => match quantity {
+                "helmholtz_free_energy" => model
+                    .helmholtz_free_energy(first, second)
+                    .map_err(to_python_error),
+                "internal_energy" => model
+                    .internal_energy(first, second)
+                    .map_err(to_python_error),
+                "entropy" => model.entropy(first, second).map_err(to_python_error),
+                "thermal_helmholtz_free_energy" => model
+                    .thermal_helmholtz_free_energy(first, second)
+                    .map_err(to_python_error),
+                _ => evaluate_caloric_quantity(&model, quantity, first, second),
+            },
             Self::DebyeQuadraticThermalPressure(model) => {
                 evaluate_thermal_quantity(&model, quantity, first, second)
             }
@@ -613,6 +628,9 @@ impl ThermalModel {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::LinearThermalPressure(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::DebyeAnharmonicHelmholtz(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::DebyeQuadraticThermalPressure(model) => {
@@ -661,6 +679,26 @@ struct PyThermalEos {
 
 #[pymethods]
 impl PyThermalEos {
+    #[staticmethod]
+    #[allow(clippy::too_many_arguments)]
+    fn debye_anharmonic_helmholtz(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        q: f64,
+        b1: f64,
+        b2: f64,
+        b3: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::DebyeAnharmonicHelmholtz(
+                DebyeAnharmonicHelmholtz::new(rt_eos.model, tr, theta0, gamma0, q, b1, b2, b3)
+                    .map_err(to_python_error)?,
+            ),
+        })
+    }
+
     #[staticmethod]
     #[allow(clippy::too_many_arguments)]
     fn debye_quadratic_thermal_pressure(

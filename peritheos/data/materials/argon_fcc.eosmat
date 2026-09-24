@@ -315,6 +315,139 @@
     }
    },
    "notes": "Conventional fcc cell, Z=4. V0 is an extrapolated fit parameter, not a measured ambient solid volume. Source one-sigma errors retained; covariance and exact fit weights are unavailable. Only the experimental 300 K Vinet curve is represented. The separate AIMD thermal extension is not included."
+  },
+  {
+   "identifier": "argon_fcc_xiao_2025_helmholtz",
+   "label": "Xiao et al. (2025), Debye-anharmonic Helmholtz",
+   "reference": {
+    "authors": [
+     "Xiao",
+     "Sriskandaruban",
+     "Maynard-Casely",
+     "Thol",
+     "Falloon",
+     "Span",
+     "May"
+    ],
+    "year": 2025,
+    "title": "Equation of State for Solid Argon Valid for Temperatures up to 760 K and Pressures up to 6300 MPa",
+    "source": "International Journal of Thermophysics",
+    "volume": "46",
+    "locator": "14",
+    "doi": "10.1007/s10765-024-03469-2"
+   },
+   "eos": {
+    "type": "NaturalStrain4",
+    "model": "natural_strain_4",
+    "parameters": {
+     "V0": 149.81383464042446,
+     "K0": 2.6565,
+     "K0_prime": 7.494447581404104,
+     "K0_double_prime": -13.800419987449228
+    }
+   },
+   "parameter_errors": {},
+   "fixed_parameters": [
+    "V0"
+   ],
+   "thermal": {
+    "type": "DebyeAnharmonicHelmholtz",
+    "model": "debye_anharmonic_helmholtz",
+    "parameters": {
+     "Tr": 70.0,
+     "theta0": 86.44,
+     "gamma0": 2.68,
+     "q": 0.0024,
+     "b1": 0.0128,
+     "b2": 0.388,
+     "b3": 7.85
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "temperature_ref": 70.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    6.3
+   ],
+   "experimental_temperature_range_k": [
+    0.0,
+    760.0
+   ],
+   "determination_method": "experimental",
+   "fit_datasets": [
+    "argon_fcc_xiao_2025_table5"
+   ],
+   "parameter_provenance": {
+    "determination_method": "Simultaneous empirical fit to experimental thermodynamic properties; simulated properties excluded (section 6). Debye and logarithmic strain functional forms provide physical constraints.",
+    "V0": "Section 5: fixed zero-temperature/zero-pressure molar volume 22.555 cm3/mol. Conventional fcc volume is 4*22.555/0.602214076 A3.",
+    "K0": "Table 4: c1=2656.5 MPa, converted to 2.6565 GPa.",
+    "K0_prime": "Eq.18/38 exact natural-strain mapping: Kprime=2+2*c2/c1 with c2=7298 MPa.",
+    "K0_double_prime": "Exact fourth-order natural-strain mapping: Kdoubleprime=(6*c3/c1-1-d-d^2)/K0, d=Kprime-2, c3=10 MPa; units GPa^-1.",
+    "Tr": "70 K is workbook checkpoint/increment reporting anchor only; absolute Debye and anharmonic terms vanish at 0 K.",
+    "theta0": "Table 4, 86.44 K.",
+    "gamma0": "Table 4, 2.68.",
+    "q": "Table 4, 0.0024; integrated power law Eq.24, not theta=theta0*(V/V0)^-gamma(V).",
+    "b1": "Table 4, 0.0128, dimensionless.",
+    "b2": "Table 4, 0.388, dimensionless.",
+    "b3": "Table 4, 7.85, dimensionless."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Sections 3, 5-6; Table 5 and literature-data summaries",
+      "notes": "New neutron data were slightly above sublimation pressure, not at a measured fixed pressure; pressure effect negligible per source. The multiproperty fit incorporates heterogeneous legacy experiments, with no single common calibrated pressure scale."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Original pressure-marker readings and complete combined regression input table are unavailable."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "note": "Author manuscript equations and Table 4 checked against official publisher calculation workbook. Supplementary DOCX Table S1 has initial guesses despite optimized caption; it is not the fitted parameter authority.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.researchsquare.com/article/rs-5370077/v1",
+     "doi": "10.1007/s10765-024-03469-2",
+     "locations": [
+      "Equations 18-25, 38-40; Tables 4-5; sections 3, 5-6",
+      "Official publisher XLSM sample calculation worksheet"
+     ]
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-24",
+     "dataset_identifiers": [
+      "argon_fcc_xiao_2025_table5"
+     ],
+     "source_locations": [
+      "Table 5"
+     ],
+     "finding": "All 22 new neutron observations retained with stated k=1 temperature and volume uncertainties. Earlier studies entering global fit summarized but no consolidated row-level fit input supplied."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_argon_xiao_2025.py",
+     "report": "docs/data/argon-xiao-2025-reproduction.json",
+     "note": "Official workbook values and independent SciPy quadrature; published coefficients retained."
+    }
+   },
+   "notes": "0 K cold curve includes zero-point energy; Debye thermal term excludes it. Marginal model/fit envelope 0-760 K and up to 6.3 GPa is not a rectangular solid-stability region; use solid branch below melting. New data cover 7.96-50.02 K only. Volume uncertainties estimated k=1: 0.1% sublimation, 0.5% melting/compressed; coefficient covariance/errors not published. Gas reference entropy 130.37 J/mol/K belongs to coupled fluid equilibrium model and does not enter solid pressure. No fluid fugacity/phase-equilibrium solver supplied. Complete global refit cannot be reconstructed from available files; workbook reference calculations are theory, not observations. The author workbook gas constant R=8.31451 J/mol/K is retained explicitly for published numerical parity. Record temperature_ref=70 K selects the evaluation/reporting temperature; it is not the cold-curve reference temperature, which is 0 K."
   }
  ],
  "datasets": [
@@ -471,6 +604,74 @@
     "source_pdf_sha256": "e31dae88561ac6ea715ed50ddd142e77952aeb21f93672aaa2c5f8572aae89b2",
     "transcribed_on": "2026-09-24",
     "notes": "Parentheses transcribed as standard deviations; column blocks read down then across.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "license": "CC-BY-4.0"
+  },
+  {
+   "identifier": "argon_fcc_xiao_2025_table5",
+   "kind": "temperature_volume",
+   "description": "All 22 neutron-diffraction observations from Table 5; measured molar volume (not conventional-cell A3). Pressure was slightly above sublimation and not tabulated. Relative volume uncertainties are k=1 fractions.",
+   "reference": {
+    "authors": [
+     "Xiao",
+     "Sriskandaruban",
+     "Maynard-Casely",
+     "Thol",
+     "Falloon",
+     "Span",
+     "May"
+    ],
+    "year": 2025,
+    "title": "Equation of State for Solid Argon Valid for Temperatures up to 760 K and Pressures up to 6300 MPa",
+    "source": "International Journal of Thermophysics",
+    "volume": "46",
+    "locator": "14",
+    "doi": "10.1007/s10765-024-03469-2"
+   },
+   "source_location": "Table 5, manuscript page 19; experimental conditions section 3",
+   "source_url": "https://www.researchsquare.com/article/rs-5370077/v1.pdf",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "temperature_sigma_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "molar_volume_relative_sigma",
+     "quantity": "volume",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_mol"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-fcc-xiao-2025-table5.csv",
+    "sha256": "745989e310c2e9e8c2a2c52b99cc4cbdbc96f95ddf614a714ec4cbf8e25e1c89",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_fcc_xiao_2025_helmholtz"
+   ],
+   "provenance": {
+    "type": "transcribed_primary_table",
+    "source_pdf_sha256": "dfb784a2e271bea3a6bce99be9af548b83fe847bab1148e6df46810800905238",
+    "transcribed_on": "2026-09-24",
+    "notes": "Original tabulated molar volumes preserved. No measured pressure invented. Source manuscript CC BY 4.0.",
     "license_url": "https://creativecommons.org/licenses/by/4.0/"
    },
    "license": "CC-BY-4.0"

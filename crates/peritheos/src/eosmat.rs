@@ -24,12 +24,12 @@ use crate::isothermal::{
 };
 use crate::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, AsymptoticPowerLawMieGruneisenDebyeExcess,
-    DebyeQuadraticThermalPressure, DebyeTemperatureLaw, Dewaele2006, DorogokupetsOganov2007,
-    DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz, DoubleDebyeLogMomentHelmholtz,
-    HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
-    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
-    ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
-    ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
+    DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure, DebyeTemperatureLaw, Dewaele2006,
+    DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
+    DoubleDebyeLogMomentHelmholtz, HollandPowellThermalPressure, LinearThermalPressure,
+    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
+    ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters,
+    ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -613,6 +613,7 @@ pub enum ThermalModel {
     /// Logarithmic-volume thermal pressure.
     /// Debye plus empirical quadratic-temperature pressure.
     DebyeQuadraticThermalPressure(DebyeQuadraticThermalPressure<IsothermalModel>),
+    DebyeAnharmonicHelmholtz(DebyeAnharmonicHelmholtz<IsothermalModel>),
     LogVolumeThermalPressure(LogVolumeThermalPressure<IsothermalModel>),
     /// Absolute bivariate second-order Taylor thermal pressure.
     SecondOrderTaylorThermalPressure(SecondOrderTaylorThermalPressure<IsothermalModel>),
@@ -641,6 +642,7 @@ macro_rules! dispatch_thermal {
             ThermalModel::DorogokupetsOganov2007($model) => $expression,
             ThermalModel::LinearThermalPressure($model) => $expression,
             ThermalModel::DebyeQuadraticThermalPressure($model) => $expression,
+            ThermalModel::DebyeAnharmonicHelmholtz($model) => $expression,
             ThermalModel::LogVolumeThermalPressure($model) => $expression,
             ThermalModel::SecondOrderTaylorThermalPressure($model) => $expression,
             ThermalModel::MieGruneisenDebye($model) => $expression,
@@ -670,6 +672,7 @@ impl ThermalModel {
             Self::DorogokupetsOganov2007(_) => "dorogokupets_oganov_2007",
             Self::LinearThermalPressure(_) => "linear_thermal_pressure",
             Self::DebyeQuadraticThermalPressure(_) => "debye_quadratic_thermal_pressure",
+            Self::DebyeAnharmonicHelmholtz(_) => "debye_anharmonic_helmholtz",
             Self::LogVolumeThermalPressure(_) => "log_volume_thermal_pressure",
             Self::SecondOrderTaylorThermalPressure(_) => "second_order_taylor_thermal_pressure",
             Self::MieGruneisenDebye(_) => "mie_gruneisen_debye",
@@ -779,6 +782,7 @@ impl LoadedEos {
                 ThermalModel::Dewaele2006(value) => value.rt_eos.model_identifier(),
                 ThermalModel::DorogokupetsOganov2007(value) => value.rt_eos.model_identifier(),
                 ThermalModel::LinearThermalPressure(value) => value.rt_eos.model_identifier(),
+                ThermalModel::DebyeAnharmonicHelmholtz(value) => value.rt_eos.model_identifier(),
                 ThermalModel::DebyeQuadraticThermalPressure(value) => {
                     value.rt_eos.model_identifier()
                 }
@@ -2631,6 +2635,7 @@ fn is_molar_volume_model(model: &str) -> bool {
     matches!(
         model,
         "debye_quadratic_thermal_pressure"
+            | "debye_anharmonic_helmholtz"
             | "mie_gruneisen_debye"
             | "mie_gruneisen_einstein"
             | "asymptotic_power_law_mie_gruneisen_debye"
@@ -2676,6 +2681,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "DorogokupetsOganov2007" => "dorogokupets_oganov_2007",
             "LinearThermalPressure" => "linear_thermal_pressure",
             "DebyeQuadraticThermalPressure" => "debye_quadratic_thermal_pressure",
+            "DebyeAnharmonicHelmholtz" => "debye_anharmonic_helmholtz",
             "LogVolumeThermalPressure" => "log_volume_thermal_pressure",
             "SecondOrderTaylorThermalPressure" => "second_order_taylor_thermal_pressure",
             "MieGruneisenDebye" => "mie_gruneisen_debye",
@@ -2967,6 +2973,20 @@ fn build_thermal(
             check_type(component, "LinearThermalPressure")?;
             LinearThermalPressure::new(reference, p("Tr")?, p("alpha_KT")?)
                 .map(ThermalModel::LinearThermalPressure)
+        }
+        "debye_anharmonic_helmholtz" => {
+            check_type(component, "DebyeAnharmonicHelmholtz")?;
+            DebyeAnharmonicHelmholtz::new(
+                reference,
+                p("Tr")?,
+                p("theta0")?,
+                p("gamma0")?,
+                p("q")?,
+                p("b1")?,
+                p("b2")?,
+                p("b3")?,
+            )
+            .map(ThermalModel::DebyeAnharmonicHelmholtz)
         }
         "debye_quadratic_thermal_pressure" => {
             check_type(component, "DebyeQuadraticThermalPressure")?;
