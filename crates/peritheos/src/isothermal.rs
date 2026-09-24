@@ -1209,3 +1209,59 @@ impl IsothermalEos for DensityPolynomial3 {
         finite_result(rho * self.derivative(rho))
     }
 }
+
+/// Odd inverse-volume polynomial: P = sum C_n (V0/V)^n, n=3,5,7,9.
+/// V0 is a normalization volume and need not be the exact P=0 root.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OddInversePower {
+    /// Volume normalization.
+    pub v0: f64,
+    /// Pressure coefficients, ordered C3, C5, C7, C9.
+    pub coefficients: [f64; 4],
+}
+
+impl OddInversePower {
+    /// Construct the series without constraining its rounded pressure baseline.
+    ///
+    /// # Errors
+    /// Rejects nonpositive V0 or nonfinite coefficients.
+    pub fn new(v0: f64, c3: f64, c5: f64, c7: f64, c9: f64) -> EosResult<Self> {
+        Ok(Self {
+            v0: positive_parameter(v0, "V0")?,
+            coefficients: [
+                finite_parameter(c3, "C3")?,
+                finite_parameter(c5, "C5")?,
+                finite_parameter(c7, "C7")?,
+                finite_parameter(c9, "C9")?,
+            ],
+        })
+    }
+}
+
+impl IsothermalEos for OddInversePower {
+    fn reference_volume(&self) -> f64 {
+        self.v0
+    }
+
+    fn pressure(&self, volume: f64) -> EosResult<f64> {
+        let x = self.v0 / positive_state(volume, "volume")?;
+        finite_result(
+            self.coefficients
+                .iter()
+                .zip([3, 5, 7, 9])
+                .map(|(c, n)| c * x.powi(n))
+                .sum(),
+        )
+    }
+
+    fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
+        let x = self.v0 / positive_state(volume, "volume")?;
+        finite_result(
+            self.coefficients
+                .iter()
+                .zip([3, 5, 7, 9])
+                .map(|(c, n)| f64::from(n) * c * x.powi(n))
+                .sum(),
+        )
+    }
+}

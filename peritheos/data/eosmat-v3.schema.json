@@ -480,7 +480,8 @@
             "Vinet3",
             "LinearUsUpHugoniot",
             "SecondOrderMurnaghan",
-            "DensityPolynomial3"
+            "DensityPolynomial3",
+            "OddInversePower"
           ]
         },
         "model": {
@@ -503,7 +504,8 @@
             "vinet_3",
             "linear_us_up_hugoniot",
             "second_order_murnaghan",
-            "density_polynomial_3"
+            "density_polynomial_3",
+            "odd_inverse_power"
           ]
         },
         "parameters": {
@@ -736,6 +738,25 @@
                 },
                 "model": {
                   "const": "density_polynomial_3"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "OddInversePower"
+                },
+                "model": {
+                  "const": "odd_inverse_power"
+                },
+                "parameters": {
+                  "required": [
+                    "V0",
+                    "C3",
+                    "C5",
+                    "C7",
+                    "C9"
+                  ]
                 }
               }
             }

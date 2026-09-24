@@ -327,6 +327,7 @@ stable mechanism-oriented Peritheos identifier. They must be paired exactly:
 | `BM4` | `birch_murnaghan_4` | `V0`, `K0`, `K0_prime`, `K0_prime_prime` |
 | `Vinet` | `vinet` | `V0`, `K0`, `K0_prime` |
 | `Murnaghan` | `murnaghan` | `V0`, `K0`, `K0_prime` |
+| `OddInversePower` | `odd_inverse_power` | `V0`, `C3`, `C5`, `C7`, `C9` |
 | `Holzapfel` | `holzapfel` | `V0`, `K0`, `K0_prime`, `n`, `Z` |
 | `ModifiedTait` | `modified_tait` | `V0`, `K0`, `K0_prime`, `K0_double_prime` |
 | `NaturalStrain2` | `natural_strain_2` | `V0`, `K0` |
@@ -335,6 +336,14 @@ stable mechanism-oriented Peritheos identifier. They must be paired exactly:
 
 The complete definitions and domains are in the
 [equation reference](equation-reference.md#isothermal-equations).
+
+`OddInversePower` evaluates `P = sum(Cn * (V0/V)^n)` for n = 3, 5, 7, 9.
+The coefficients have pressure units and `V0` is a volume normalization.
+The Anderson–Swenson argon records normalize at the numerical zero-pressure
+root of the published rounded polynomial, preserving its curve exactly.
+They represent five discrete isotherms, valid only in their recorded pressure
+ranges. See the [source audit](literature-reproductions/argon-anderson-swenson-1975.md)
+for the original molar coefficients and unresolved raw-data fit corrections.
 
 ## Thermal equations
 

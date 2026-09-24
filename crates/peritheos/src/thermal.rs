@@ -2,8 +2,8 @@
 
 use crate::isothermal::{
     Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
-    NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SecondOrderMurnaghan, SunMorse3, SunMorse4,
-    Vinet, Vinet3, BM2, BM3, BM4,
+    NaturalStrain4, OddInversePower, ReferenceEnergyEos, RydbergStacey, SecondOrderMurnaghan,
+    SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
 };
 use crate::quadrature::integrate;
 use crate::root::solve_temperature_function;
@@ -3431,5 +3431,22 @@ impl<R: IsothermalEos> CaloricEos for DebyeAnharmonicHelmholtz<R> {
         finite_result(
             cv_debye - a / temperature * (12.0 + 6.0 * y + 2.0 * y * y) / (1.0 + y).powi(2),
         )
+    }
+}
+
+impl ReferenceStateEos for OddInversePower {
+    fn reference_bulk_modulus(&self) -> f64 {
+        self.coefficients
+            .iter()
+            .zip([3, 5, 7, 9])
+            .map(|(c, n)| f64::from(n) * c)
+            .sum()
+    }
+
+    fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
+        let scale = positive_parameter(bulk_modulus, "K0")?
+            / positive_parameter(self.reference_bulk_modulus(), "reference K0")?;
+        let c = self.coefficients.map(|value| value * scale);
+        Self::new(volume, c[0], c[1], c[2], c[3])
     }
 }

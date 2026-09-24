@@ -860,6 +860,486 @@
     "fit_reproduction_note": "An unweighted refit reproduces both fitted parameters within their published error bars (K0_prime=6.903805 versus 6.97 +/- 0.11; K0_double_prime=-0.336633 versus -0.40 +/- 0.10 GPa^-1). This is consistent with an unweighted original fit, but the paper does not specify its weighting. Exact original weights, covariance and parameter-uncertainty estimates are not reproduced."
    },
    "notes": "Second-order Murnaghan means quadratic K(P), not BM2. Static P0 offset plus zero-point and absolute Debye terms. V0/K0 are adopted low-temperature constraints, not room-temperature zero-pressure solid values. Eq. (1) has an apparent extra equals sign before PT; additive form follows the described decomposition and Eqs. (2)-(6). Printed P_z0 does not exactly cancel Eq. (2) at V0 with printed gamma1/theta0; retain all source values. Other-temperature isotherms in Fig.2 are predictions, not measured points. No solid-solid transition observed through 8.17 GPa. Uncertainty confidence level and covariance unspecified."
+  },
+  {
+   "identifier": "argon_fcc_anderson_swenson_1975_4p2k",
+   "label": "Anderson and Swenson (1975), 4.2 K inverse-volume series",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Swenson"
+    ],
+    "year": 1975,
+    "title": "Experimental equations of state for the rare gas solids",
+    "source": "Journal of Physics and Chemistry of Solids",
+    "volume": "36",
+    "issue": "3",
+    "locator": "145-162",
+    "doi": "10.1016/0022-3697(75)90004-9"
+   },
+   "eos": {
+    "type": "OddInversePower",
+    "model": "odd_inverse_power",
+    "parameters": {
+     "V0": 149.82761293818365,
+     "C3": -1.5847490812853133,
+     "C5": 1.7376671916449358,
+     "C7": -0.15291811035962288,
+     "C9": 0.0
+    }
+   },
+   "parameter_errors": {},
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 4.2,
+   "reference_pressure_gpa": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.075,
+    2.0
+   ],
+   "experimental_temperature_range_k": [
+    4.2,
+    4.2
+   ],
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "V0": "Numerical P=0 root of the published rounded Table 1 polynomial, converted by 4e24/N_A to the conventional four-atom cell. Pure normalization change, not a refit or baseline subtraction; printed V0 retained in fit-summary dataset.",
+    "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Section 2, pp. 147-148",
+      "notes": "Hydraulic ram force set using a deadweight pressure balance, converted through piston area. Increasing/decreasing pressure values at the same displacement averaged for friction; holder deformation calibrated with indium samples."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Pressure/displacement cycle and indium correction readings unavailable in journal tables."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "reproduction_status": "equation_reproduced",
+    "primary_source_check": {
+     "doi": "10.1016/0022-3697(75)90004-9",
+     "locations": [
+      "Equation (2), Table 1, Sections 2-3"
+     ],
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+    },
+    "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "argon_anderson_1972_appendix_a"
+     ],
+     "finding": "Original thesis observations; not exact adjusted inputs to the journal fits."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_anderson_swenson_1975.py",
+     "report": "docs/data/argon-anderson-swenson-1975-reproduction.json",
+     "status": "equation_reproduced",
+     "independent_refit_status": "not_reproduced",
+     "note": "Direct molar evaluation, analytic bulk modulus, source zero-pressure bulk moduli and inversion checked in Python and Rust. Raw-data residuals reveal unresolved small-holder normalization; no claim to reproduce original least-squares fit."
+    }
+   },
+   "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+   "comparison_datasets": [
+    "argon_anderson_1972_appendix_a"
+   ]
+  },
+  {
+   "identifier": "argon_fcc_anderson_swenson_1975_20p0k",
+   "label": "Anderson and Swenson (1975), 20 K inverse-volume series",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Swenson"
+    ],
+    "year": 1975,
+    "title": "Experimental equations of state for the rare gas solids",
+    "source": "Journal of Physics and Chemistry of Solids",
+    "volume": "36",
+    "issue": "3",
+    "locator": "145-162",
+    "doi": "10.1016/0022-3697(75)90004-9"
+   },
+   "eos": {
+    "type": "OddInversePower",
+    "model": "odd_inverse_power",
+    "parameters": {
+     "V0": 150.39019201630825,
+     "C3": -1.5049147837580361,
+     "C5": 1.6322376031710293,
+     "C7": -0.12732281941299328,
+     "C9": 0.0
+    }
+   },
+   "parameter_errors": {},
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 20.0,
+   "reference_pressure_gpa": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.05,
+    2.0
+   ],
+   "experimental_temperature_range_k": [
+    20.0,
+    20.0
+   ],
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "V0": "Numerical P=0 root of the published rounded Table 1 polynomial, converted by 4e24/N_A to the conventional four-atom cell. Pure normalization change, not a refit or baseline subtraction; printed V0 retained in fit-summary dataset.",
+    "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Section 2, pp. 147-148",
+      "notes": "Hydraulic ram force set using a deadweight pressure balance, converted through piston area. Increasing/decreasing pressure values at the same displacement averaged for friction; holder deformation calibrated with indium samples."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Pressure/displacement cycle and indium correction readings unavailable in journal tables."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "reproduction_status": "equation_reproduced",
+    "primary_source_check": {
+     "doi": "10.1016/0022-3697(75)90004-9",
+     "locations": [
+      "Equation (2), Table 1, Sections 2-3"
+     ],
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+    },
+    "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "argon_anderson_1972_appendix_a"
+     ],
+     "finding": "Original thesis observations; not exact adjusted inputs to the journal fits."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_anderson_swenson_1975.py",
+     "report": "docs/data/argon-anderson-swenson-1975-reproduction.json",
+     "status": "equation_reproduced",
+     "independent_refit_status": "not_reproduced",
+     "note": "Direct molar evaluation, analytic bulk modulus, source zero-pressure bulk moduli and inversion checked in Python and Rust. Raw-data residuals reveal unresolved small-holder normalization; no claim to reproduce original least-squares fit."
+    }
+   },
+   "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+   "comparison_datasets": [
+    "argon_anderson_1972_appendix_a"
+   ]
+  },
+  {
+   "identifier": "argon_fcc_anderson_swenson_1975_40p0k",
+   "label": "Anderson and Swenson (1975), 40 K inverse-volume series",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Swenson"
+    ],
+    "year": 1975,
+    "title": "Experimental equations of state for the rare gas solids",
+    "source": "Journal of Physics and Chemistry of Solids",
+    "volume": "36",
+    "issue": "3",
+    "locator": "145-162",
+    "doi": "10.1016/0022-3697(75)90004-9"
+   },
+   "eos": {
+    "type": "OddInversePower",
+    "model": "odd_inverse_power",
+    "parameters": {
+     "V0": 153.00153863191386,
+     "C3": -1.235589867036941,
+     "C5": 1.2941163600152639,
+     "C7": -0.05852649297832283,
+     "C9": 0.0
+    }
+   },
+   "parameter_errors": {},
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 40.0,
+   "reference_pressure_gpa": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.025,
+    2.0
+   ],
+   "experimental_temperature_range_k": [
+    40.0,
+    40.0
+   ],
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "V0": "Numerical P=0 root of the published rounded Table 1 polynomial, converted by 4e24/N_A to the conventional four-atom cell. Pure normalization change, not a refit or baseline subtraction; printed V0 retained in fit-summary dataset.",
+    "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Section 2, pp. 147-148",
+      "notes": "Hydraulic ram force set using a deadweight pressure balance, converted through piston area. Increasing/decreasing pressure values at the same displacement averaged for friction; holder deformation calibrated with indium samples."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Pressure/displacement cycle and indium correction readings unavailable in journal tables."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "reproduction_status": "equation_reproduced",
+    "primary_source_check": {
+     "doi": "10.1016/0022-3697(75)90004-9",
+     "locations": [
+      "Equation (2), Table 1, Sections 2-3"
+     ],
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+    },
+    "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "argon_anderson_1972_appendix_a"
+     ],
+     "finding": "Original thesis observations; not exact adjusted inputs to the journal fits."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_anderson_swenson_1975.py",
+     "report": "docs/data/argon-anderson-swenson-1975-reproduction.json",
+     "status": "equation_reproduced",
+     "independent_refit_status": "not_reproduced",
+     "note": "Direct molar evaluation, analytic bulk modulus, source zero-pressure bulk moduli and inversion checked in Python and Rust. Raw-data residuals reveal unresolved small-holder normalization; no claim to reproduce original least-squares fit."
+    }
+   },
+   "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+   "comparison_datasets": [
+    "argon_anderson_1972_appendix_a"
+   ]
+  },
+  {
+   "identifier": "argon_fcc_anderson_swenson_1975_60p0k",
+   "label": "Anderson and Swenson (1975), 60 K inverse-volume series",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Swenson"
+    ],
+    "year": 1975,
+    "title": "Experimental equations of state for the rare gas solids",
+    "source": "Journal of Physics and Chemistry of Solids",
+    "volume": "36",
+    "issue": "3",
+    "locator": "145-162",
+    "doi": "10.1016/0022-3697(75)90004-9"
+   },
+   "eos": {
+    "type": "OddInversePower",
+    "model": "odd_inverse_power",
+    "parameters": {
+     "V0": 156.93622047853083,
+     "C3": -0.8915138398785595,
+     "C5": 0.8538058834757535,
+     "C7": 0.0377079564028061,
+     "C9": 0.0
+    }
+   },
+   "parameter_errors": {},
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 60.0,
+   "reference_pressure_gpa": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.025,
+    2.0
+   ],
+   "experimental_temperature_range_k": [
+    60.0,
+    60.0
+   ],
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "V0": "Numerical P=0 root of the published rounded Table 1 polynomial, converted by 4e24/N_A to the conventional four-atom cell. Pure normalization change, not a refit or baseline subtraction; printed V0 retained in fit-summary dataset.",
+    "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Section 2, pp. 147-148",
+      "notes": "Hydraulic ram force set using a deadweight pressure balance, converted through piston area. Increasing/decreasing pressure values at the same displacement averaged for friction; holder deformation calibrated with indium samples."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Pressure/displacement cycle and indium correction readings unavailable in journal tables."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "reproduction_status": "equation_reproduced",
+    "primary_source_check": {
+     "doi": "10.1016/0022-3697(75)90004-9",
+     "locations": [
+      "Equation (2), Table 1, Sections 2-3"
+     ],
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+    },
+    "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "argon_anderson_1972_appendix_a"
+     ],
+     "finding": "Original thesis observations; not exact adjusted inputs to the journal fits."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_anderson_swenson_1975.py",
+     "report": "docs/data/argon-anderson-swenson-1975-reproduction.json",
+     "status": "equation_reproduced",
+     "independent_refit_status": "not_reproduced",
+     "note": "Direct molar evaluation, analytic bulk modulus, source zero-pressure bulk moduli and inversion checked in Python and Rust. Raw-data residuals reveal unresolved small-holder normalization; no claim to reproduce original least-squares fit."
+    }
+   },
+   "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+   "comparison_datasets": [
+    "argon_anderson_1972_appendix_a"
+   ]
+  },
+  {
+   "identifier": "argon_fcc_anderson_swenson_1975_77p0k",
+   "label": "Anderson and Swenson (1975), 77 K inverse-volume series",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Swenson"
+    ],
+    "year": 1975,
+    "title": "Experimental equations of state for the rare gas solids",
+    "source": "Journal of Physics and Chemistry of Solids",
+    "volume": "36",
+    "issue": "3",
+    "locator": "145-162",
+    "doi": "10.1016/0022-3697(75)90004-9"
+   },
+   "eos": {
+    "type": "OddInversePower",
+    "model": "odd_inverse_power",
+    "parameters": {
+     "V0": 161.29649642869728,
+     "C3": -0.3981802158270529,
+     "C5": -0.01417473423256415,
+     "C7": 0.5191184111762208,
+     "C9": -0.10676346111660394
+    }
+   },
+   "parameter_errors": {},
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 77.0,
+   "reference_pressure_gpa": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.025,
+    2.0
+   ],
+   "experimental_temperature_range_k": [
+    77.0,
+    77.0
+   ],
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "V0": "Numerical P=0 root of the published rounded Table 1 polynomial, converted by 4e24/N_A to the conventional four-atom cell. Pure normalization change, not a refit or baseline subtraction; printed V0 retained in fit-summary dataset.",
+    "C3": "Table 1 A3 divided by 10*V0_molar^3, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C5": "Table 1 A5 divided by 10*V0_molar^5, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C7": "Table 1 A7 divided by 10*V0_molar^7, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
+    "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Section 2, pp. 147-148",
+      "notes": "Hydraulic ram force set using a deadweight pressure balance, converted through piston area. Increasing/decreasing pressure values at the same displacement averaged for friction; holder deformation calibrated with indium samples."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Pressure/displacement cycle and indium correction readings unavailable in journal tables."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "reproduction_status": "equation_reproduced",
+    "primary_source_check": {
+     "doi": "10.1016/0022-3697(75)90004-9",
+     "locations": [
+      "Equation (2), Table 1, Sections 2-3"
+     ],
+     "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf"
+    },
+    "note": "Published equation implemented directly; coefficient rounding and independent tabulated bulk-modulus checks in study reproduction report. Published RMS not independently refitted.",
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "argon_anderson_1972_appendix_a"
+     ],
+     "finding": "Original thesis observations; not exact adjusted inputs to the journal fits."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_anderson_swenson_1975.py",
+     "report": "docs/data/argon-anderson-swenson-1975-reproduction.json",
+     "status": "equation_reproduced",
+     "independent_refit_status": "not_reproduced",
+     "note": "Direct molar evaluation, analytic bulk modulus, source zero-pressure bulk moduli and inversion checked in Python and Rust. Raw-data residuals reveal unresolved small-holder normalization; no claim to reproduce original least-squares fit."
+    }
+   },
+   "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+   "comparison_datasets": [
+    "argon_anderson_1972_appendix_a"
+   ]
   }
  ],
  "datasets": [
@@ -1834,6 +2314,252 @@
     "transcribed_on": "2026-09-24",
     "notes": "Visually transcribed all 19 measured rows. Crystal/liquid coexistence at 11.5(5) kbar has no volume and is documented separately, excluded from pressure-volume fit. Parentheses retained as printed uncertainty, confidence level unspecified. Modern cell volume uses a^3; source molar-volume rounding is preserved separately."
    }
+  },
+  {
+   "identifier": "argon_anderson_swenson_1975_table1",
+   "kind": "fit_parameter_summary",
+   "description": "Published fitted coefficients and extrapolated diagnostics; NOT measured P-V observations. Peterson comparison volumes are cited external measurements.",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Swenson"
+    ],
+    "year": 1975,
+    "title": "Experimental equations of state for the rare gas solids",
+    "source": "Journal of Physics and Chemistry of Solids",
+    "volume": "36",
+    "issue": "3",
+    "locator": "145-162",
+    "doi": "10.1016/0022-3697(75)90004-9"
+   },
+   "source_location": "Table 1 p.151, argon rows; section 2 identifies nominal 4 K as 4.2 K",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "fit_summary",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "printed_temperature_k",
+     "quantity": "fit_summary",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "a3_kbar_cm9_mol3",
+     "quantity": "fit_summary",
+     "unit": "kbar*(cm^3/mol)^3",
+     "role": "value"
+    },
+    {
+     "name": "a5_kbar_cm15_mol5",
+     "quantity": "fit_summary",
+     "unit": "kbar*(cm^3/mol)^5",
+     "role": "value"
+    },
+    {
+     "name": "a7_kbar_cm21_mol7",
+     "quantity": "fit_summary",
+     "unit": "kbar*(cm^3/mol)^7",
+     "role": "value"
+    },
+    {
+     "name": "a9_kbar_cm27_mol9",
+     "quantity": "fit_summary",
+     "unit": "kbar*(cm^3/mol)^9",
+     "role": "value"
+    },
+    {
+     "name": "volume_fit_rms_cm3_mol",
+     "quantity": "fit_summary",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "v0_cm3_mol",
+     "quantity": "fit_summary",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "v0_peterson_cm3_mol",
+     "quantity": "fit_summary",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "k0_kbar",
+     "quantity": "fit_summary",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "k0_prime",
+     "quantity": "fit_summary",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "kprime_at_17kbar",
+     "quantity": "fit_summary",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "cold_bulk_at_v0_kbar",
+     "quantity": "fit_summary",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "cold_pressure_at_v0_kbar",
+     "quantity": "fit_summary",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "gamma",
+     "quantity": "fit_summary",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "gamma_is_adopted",
+     "quantity": "fit_summary",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-anderson-swenson-1975-table1.csv",
+    "sha256": "5f0a293e4641396dd0d92c399fb667ae50e8c0b4ad84c83bb3c1935a4e4a43b3",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_fcc_anderson_swenson_1975_4p2k",
+    "argon_fcc_anderson_swenson_1975_20p0k",
+    "argon_fcc_anderson_swenson_1975_40p0k",
+    "argon_fcc_anderson_swenson_1975_60p0k",
+    "argon_fcc_anderson_swenson_1975_77p0k"
+   ],
+   "provenance": {
+    "type": "transcribed_primary_fit_summary",
+    "source_pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf",
+    "notes": "A3/A5/A7/A9 column scaling undone exactly. 4.2 K gamma in parentheses is adopted, not a fit result."
+   }
+  },
+  {
+   "identifier": "argon_anderson_1972_appendix_a",
+   "kind": "pressure_volume_temperature",
+   "description": "All 394 printed argon cells in thesis Appendix A, pp.93-97; 379 valid observations plus 15 unreliable zero sentinels. Original sample-length normalization retained; NOT the final adjusted isotherm fit data.",
+   "reference": {
+    "authors": [
+     "Anderson"
+    ],
+    "year": 1972,
+    "title": "Experimental equations of state for solid neon, argon, krypton, and xenon",
+    "source": "Ames Laboratory / Iowa State University MS thesis",
+    "locator": "IS-T-537",
+    "doi": "10.2172/4658659"
+   },
+   "source_location": "Appendix A pp.93-97 (PDF pp.101-105); interpretation p.89; additive corrections separately in Table 11 p.115",
+   "source_url": "https://www.osti.gov/servlets/purl/4658659",
+   "columns": [
+    {
+     "name": "source_page",
+     "quantity": "page",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "holder_diameter_inch",
+     "quantity": "sample_holder_diameter",
+     "unit": "inch",
+     "role": "value"
+    },
+    {
+     "name": "sample",
+     "quantity": "sample",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "run_column",
+     "quantity": "run",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "reported_volume_cm3_mol",
+     "quantity": "reported_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "usable",
+     "quantity": "selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-anderson-1972-appendix-a.csv",
+    "sha256": "c310adb96f534f3c8bb218576e4bead0b99a857538415d923a027cac88cad852",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_fcc_anderson_swenson_1975_4p2k",
+    "argon_fcc_anderson_swenson_1975_20p0k",
+    "argon_fcc_anderson_swenson_1975_40p0k",
+    "argon_fcc_anderson_swenson_1975_60p0k",
+    "argon_fcc_anderson_swenson_1975_77p0k"
+   ],
+   "provenance": {
+    "type": "transcribed_primary_table",
+    "source_pdf_sha256": "12fb53f4855419ca03b76900240a60bab4ada9523d128c876c07df260e5040f8",
+    "notes": "Visually transcribed all five argon pages. Printed zero means unreliable: retained in reported_volume_cm3_mol with usable=0 and blank volume_a3. Vcell=Vm*4e24/N_A. Source actual temperatures retained; no common-temperature corrections or additive corrections applied."
+   },
+   "uncertainty": {
+    "reported_as": "not_reported",
+    "notes": "No rowwise error bars. Source overall systematic volume accuracy is not per-point Gaussian sigma."
+   },
+   "sample_length_corrections": {
+    "source_location": "Table 11 p.115",
+    "operation": "add to original molar volume, before common-temperature reduction",
+    "unit": "cm^3/mol",
+    "rows": [
+     {
+      "holder_diameter_inch": 0.25,
+      "sample": 1,
+      "correction": 0.253
+     },
+     {
+      "holder_diameter_inch": 0.25,
+      "sample": 2,
+      "correction": 0.449
+     }
+    ],
+    "note": "Table printed assignments preserved. Applying them literally does not reproduce the published RMS; do not silently swap sample assignments. Other holder corrections are zero."
+   }
   }
  ],
  "supporting_studies": [
@@ -1854,51 +2580,39 @@
     "doi": "10.1016/0022-3697(75)90004-9"
    },
    "study_type": "experimental",
-   "outcome": "source_access_blocked",
-   "reproduction_status": "not_reproduced",
-   "executable_eos_record_ids": [],
-   "dataset_identifiers": [],
+   "outcome": "published_isotherms_implemented",
+   "reproduction_status": "equation_reproduced",
+   "executable_eos_record_ids": [
+    "argon_fcc_anderson_swenson_1975_4p2k",
+    "argon_fcc_anderson_swenson_1975_20p0k",
+    "argon_fcc_anderson_swenson_1975_40p0k",
+    "argon_fcc_anderson_swenson_1975_60p0k",
+    "argon_fcc_anderson_swenson_1975_77p0k"
+   ],
+   "dataset_identifiers": [
+    "argon_anderson_swenson_1975_table1",
+    "argon_anderson_1972_appendix_a"
+   ],
    "material_association": {
     "identifier": "argon_fcc",
-    "status": "provisional",
-    "note": "Argon scope; low-pressure solid fcc association is contextual, not primary-source crystallographic validation. No EOS or observations are assigned a verified phase."
-   },
-   "verified_scope": {
-    "evidence_level": "publisher_indexed_abstract",
-    "technique": "piston displacement",
-    "reported_maximum_pressure_kbar": 20,
-    "maximum_pressure_gpa": 2.0,
-    "reported_minimum_temperature_k": 4.2,
-    "reported_upper_temperature": "triple point",
-    "reported_volume_accuracy_percent": 0.1,
-    "accuracy_note": "Approximate overall V(P,T) accuracy claimed in abstract; not a one-sigma uncertainty on individual measurements or coefficients.",
-    "equation_description": "Individual isotherms represented by P(V) relations suggested by a Lennard-Jones potential; full equation and coefficients not recovered."
+    "status": "contextual_phase_assignment",
+    "note": "Low-pressure solid argon assigned to fcc; piston displacement study does not determine structure by diffraction."
    },
    "unresolved_fields": [
-    "original_equation",
-    "coefficients",
-    "coefficient_uncertainties",
-    "volume_normalization",
-    "reference_pressure",
-    "reference_temperature",
-    "argon_specific_fit_ranges",
-    "pressure_calibration",
-    "primary_phase_identification",
-    "tabulated_observations"
+    "exact_common_temperature_reduction",
+    "small_holder_correction_consistency",
+    "coefficient_covariance"
    ],
    "source_access": {
-    "status": "full_text_unavailable",
+    "status": "primary_pdf_verified",
     "audit_date": "2026-09-24",
     "doi_url": "https://doi.org/10.1016/0022-3697(75)90004-9",
-    "publisher_url": "https://www.sciencedirect.com/science/article/pii/0022369775900049",
-    "abstract_evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/0375960173905689",
-    "abstract_evidence_location": "Recommended article abstract for Anderson and Swenson 1975, indexed by web search; not the host 1973 article.",
-    "pdf_obtained": false,
-    "pdf_sha256": null,
-    "note": "No matching Zotero item; publisher browser requires CAPTCHA; Elsevier full XML unauthorized and PDF unavailable; OpenAlex and Semantic Scholar provide no open full text. See reproduction document for search details."
+    "pdf_obtained": true,
+    "pdf_sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf",
+    "provenance": "User supplied 1-s2.0-0022369775900049-main.pdf; title, authors, journal volume, pages 145-162 and 18-page extent verified. Actual download URL unknown."
    },
    "reproduction_document": "docs/literature-reproductions/argon-anderson-swenson-1975.md",
-   "notes": "This preserves a requested study whose primary full text could not be obtained, not a finding that it lacks an independent EOS. No later BM/Vinet refit or generated curve is attributed to the authors. No primary measured points recovered."
+   "notes": "User-supplied primary paper resolves source access. Equation (2) and all five Table 1 argon isotherms implemented; no continuous thermal interpolation. Journal plot markers are curve-derived. Original thesis observations now bundled; exact final fit inputs remain unresolved because of temperature reduction and small-holder normalization."
   },
   {
    "identifier": "argon_ross_1986_supporting_study",

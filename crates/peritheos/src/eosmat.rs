@@ -19,8 +19,8 @@ use serde_json::Value;
 use crate::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use crate::isothermal::{
     Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2,
-    NaturalStrain3, NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SecondOrderMurnaghan,
-    SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
+    NaturalStrain3, NaturalStrain4, OddInversePower, ReferenceEnergyEos, RydbergStacey,
+    SecondOrderMurnaghan, SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
 };
 use crate::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, AsymptoticPowerLawMieGruneisenDebyeExcess,
@@ -164,6 +164,8 @@ pub enum IsothermalModel {
     Murnaghan(Murnaghan),
     /// Second-order Murnaghan cold curve with static offset.
     SecondOrderMurnaghan(SecondOrderMurnaghan),
+    /// Odd inverse-volume polynomial.
+    OddInversePower(OddInversePower),
     /// Three-dimensional Morse-potential EOS.
     Morse3(Morse3),
     /// Second-order natural-strain EOS.
@@ -198,6 +200,7 @@ impl IsothermalModel {
             Self::ModifiedTait(_) => "modified_tait",
             Self::Murnaghan(_) => "murnaghan",
             Self::SecondOrderMurnaghan(_) => "second_order_murnaghan",
+            Self::OddInversePower(_) => "odd_inverse_power",
             Self::Morse3(_) => "morse_3",
             Self::NaturalStrain2(_) => "natural_strain_2",
             Self::NaturalStrain3(_) => "natural_strain_3",
@@ -223,6 +226,7 @@ impl IsothermalModel {
             Self::ModifiedTait(_) => "ModifiedTait",
             Self::Murnaghan(_) => "Murnaghan",
             Self::SecondOrderMurnaghan(_) => "SecondOrderMurnaghan",
+            Self::OddInversePower(_) => "OddInversePower",
             Self::Morse3(_) => "Morse3",
             Self::NaturalStrain2(_) => "NaturalStrain2",
             Self::NaturalStrain3(_) => "NaturalStrain3",
@@ -248,6 +252,7 @@ macro_rules! dispatch_isothermal {
             IsothermalModel::ModifiedTait($model) => $expression,
             IsothermalModel::Murnaghan($model) => $expression,
             IsothermalModel::SecondOrderMurnaghan($model) => $expression,
+            IsothermalModel::OddInversePower($model) => $expression,
             IsothermalModel::Morse3($model) => $expression,
             IsothermalModel::NaturalStrain2($model) => $expression,
             IsothermalModel::NaturalStrain3($model) => $expression,
@@ -360,6 +365,9 @@ impl ReferenceStateEos for IsothermalModel {
             Self::SecondOrderMurnaghan(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::SecondOrderMurnaghan),
+            Self::OddInversePower(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::OddInversePower),
             Self::Morse3(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::Morse3),
@@ -2719,6 +2727,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "ModifiedTait" => "modified_tait",
             "Murnaghan" => "murnaghan",
             "SecondOrderMurnaghan" => "second_order_murnaghan",
+            "OddInversePower" => "odd_inverse_power",
             "Morse3" => "morse_3",
             "NaturalStrain2" => "natural_strain_2",
             "NaturalStrain3" => "natural_strain_3",
@@ -2794,6 +2803,11 @@ fn build_isothermal(
             check_type(component, "ModifiedTait")?;
             ModifiedTait::new(v0, p("K0")?, p("K0_prime")?, p("K0_double_prime")?)
                 .map(IsothermalModel::ModifiedTait)
+        }
+        "odd_inverse_power" => {
+            check_type(component, "OddInversePower")?;
+            OddInversePower::new(v0, p("C3")?, p("C5")?, p("C7")?, p("C9")?)
+                .map(IsothermalModel::OddInversePower)
         }
         "murnaghan" => {
             check_type(component, "Murnaghan")?;
