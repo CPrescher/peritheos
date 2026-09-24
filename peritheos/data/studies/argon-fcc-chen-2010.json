@@ -215,7 +215,7 @@
   "documentation": "docs/literature-reproductions/chen-2010-argon.md",
   "limitations": [
     "No unrounded EOS coefficient set, density/velocity source table, fit weighting or covariance is supplied.",
-    "Standard BM3 with true nonzero-pressure local constraints fails the published density curve and zero-pressure density; a constant pressure offset is not a valid resolution.",
+    "Both standard zero-pressure BM3 reconstructed from local constraints and a 2 GPa pressure-increment BM3 fail Figure 5. The shifted version matches printed KKsecond; its pressure convention remains unresolved.",
     "Graphical points are integrated Brillouin densities; gray Ross XRD crosses and Shimizu triangles are excluded.",
     "The symbol extraction deduplicates rendering commands; original sample/run counts cannot be inferred.",
     "290 K table versus room-temperature text and300 K strength wording retained as source ambiguity."

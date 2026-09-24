@@ -62,6 +62,10 @@ def test_published_nonzero_reference_is_not_relabelled_zero_pressure():
     assert audit["native_pressure_max_difference_gpa"] < 2e-12
     assert audit["predicted_rho0_g_cm3"] == pytest.approx(1.6746473822)
     assert audit["density_marker_pressure_rms_gpa"] > 6
+    shifted = result["shifted_bm3_at_2gpa_alternative_not_published_fit"]
+    assert shifted["predicted_K_Ksecond_at_2gpa"] == pytest.approx(-7.3, abs=0.06)
+    assert shifted["predicted_rho0_g_cm3"] == pytest.approx(1.6337365859)
+    assert shifted["density_marker_pressure_rms_gpa"] > 6
     curve = result["figure5_curve_diagnostic"]
     assert curve["rho_at_2_gpa_g_cm3"] == pytest.approx(2.18, abs=0.01)
     assert 10.8 < curve["local_cubic_1_to_3_gpa_bulk_modulus_at_2_gpa"] < 11.5

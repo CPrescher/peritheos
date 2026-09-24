@@ -83,6 +83,13 @@ def reproduce():
     p_obs = np.array([float(r["pressure_gpa"]) for r in obs])
     rho_obs = np.array([float(r["density_g_cm3"]) for r in obs])
     residual = polynomial_pressure(rho_obs, c) - p_obs
+    # Alternative: interpret local constants as BM3 for P-P_ref. This
+    # reproduces the printed KK'' but still misses the density observations.
+    shifted = BM3(MASS_PER_CELL / 2.18, 15.1, 5.4)
+    shifted_residual = 2 + shifted.pressure(MASS_PER_CELL / rho_obs) - p_obs
+    shifted_rho0 = brentq(
+        lambda rho: 2 + shifted.pressure(MASS_PER_CELL / rho), 1.6, 2.18
+    )
     return {
         "study": "Chen et al. (2010), doi:10.1103/PhysRevB.81.144110",
         "reproduction_status": "not_reproduced",
@@ -112,6 +119,18 @@ def reproduce():
             "native_pressure_max_difference_gpa": float(np.max(np.abs(native_delta))),
             "density_marker_pressure_rms_gpa": float(np.sqrt(np.mean(residual**2))),
             "density_marker_pressure_max_abs_gpa": float(np.max(np.abs(residual))),
+        },
+        "shifted_bm3_at_2gpa_alternative_not_published_fit": {
+            "equation": "P = 2 GPa + BM3(V; Vref=Mcell/2.18, Kref=15.1, Kprime_ref=5.4)",
+            "predicted_rho0_g_cm3": shifted_rho0,
+            "predicted_K_Ksecond_at_2gpa": -(5.4 - 4) * (5.4 - 3) - 35 / 9,
+            "density_marker_pressure_rms_gpa": float(
+                np.sqrt(np.mean(shifted_residual**2))
+            ),
+            "density_marker_pressure_max_abs_gpa": float(
+                np.max(np.abs(shifted_residual))
+            ),
+            "note": "KKsecond agrees with the printed rounded value, but the curve and zero-pressure density do not. Reference convention remains unresolved.",
         },
         "figure5_curve_diagnostic": {
             "rows": len(curve),

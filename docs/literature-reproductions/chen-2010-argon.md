@@ -147,8 +147,18 @@ The published line itself gives ρ(2 GPa) ≈ **2.18017 g/cm³**, agreeing with
 the text. A local cubic interpolation over 1–3 GPa gives K(2 GPa) ≈
 **11.157 GPa**, which differs substantially from the table's 15.1 GPa.
 This derivative is only a diagnostic of the drawn line, not an independently
-measured modulus. A constant pressure offset added to a BM3 referenced to
-2 GPa is a different equation and does not resolve these inconsistencies.
+measured modulus.
+
+We also explicitly tested the alternative convention
+P = 2 GPa + BM3(V; Vref = Mcell/2.18, Kref = 15.1, K′ref = 5.4).
+This pressure-increment formulation gives KK″ = **−7.248889** at 2 GPa,
+consistent with the rounded printed −7.3. Thus the second-derivative result
+suggests that this alternative reference convention may have been used.
+However, it still predicts ρ₀ = **1.633737 g/cm³** and misses the plotted
+densities by **6.251 GPa RMS**, with maximum pressure error **16.972 GPa**.
+The paper does not print the pressure expression needed to resolve its
+convention. Neither interpretation recovers the source density curve; the
+alternative is recorded as a diagnostic, not silently adopted as a solution.
 
 We therefore do not export the diagnostic coefficients as a Chen EOS or
 silently choose a different equation. The study status is **not_reproduced**.
