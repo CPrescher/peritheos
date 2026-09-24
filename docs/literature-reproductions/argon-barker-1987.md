@@ -88,3 +88,13 @@ points, successful reproduction badge or inferred reference state. The packaged
 loader does not automatically index this new supporting-study directory.
 The integrator must wire it into Studio's study/outcome presentation if desired.
 Existing fcc EOS records and Wittlinger's hcp/not_reproduced result are untouched.
+
+## ResearchGate follow-up
+
+The exact [Barker publication page](https://www.researchgate.net/publication/254001099_High_pressure_equation_of_state_for_solid_argon_from_interatomic_potentials)
+was additionally checked on 24 September 2026 in the existing signed-in browser
+session. It matches the title and DOI but offers only **Request full-text**.
+The public page explicitly says no full text is available. An institutional
+publishing-fee coverage notice does not establish reading access; no download
+button was available for this paper. No author request was sent. The PDF and
+reproduction statuses therefore remain unchanged.
