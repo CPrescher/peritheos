@@ -32,9 +32,7 @@ def test_standalone_dataset_survives_material_and_record_selection():
     observation_only["eos_records"] = []
     observation_only["datasets"] = [supporting]
     validate_eosmat_document(observation_only)
-    assert not list(
-        Draft202012Validator(eosmat_schema()).iter_errors(observation_only)
-    )
+    assert not list(Draft202012Validator(eosmat_schema()).iter_errors(observation_only))
     # Observation-only documents remain non-executable by design.
     with pytest.raises(ValueError, match="at least one EOS record"):
         Material.from_eosmat(observation_only)

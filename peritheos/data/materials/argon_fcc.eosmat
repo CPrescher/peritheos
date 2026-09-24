@@ -859,6 +859,108 @@
     "transcribed_on": "2026-09-24",
     "notes": "Eight isolated filled-circle centers in Fig. 5; overlapping filled marks near 50 GPa omitted. Open Ross circles, Anderson diamond, solid fit and inset excluded. Coordinates refer to embedded 895x668 bitmap; x=117 at 0 GPa and x=874 at 120 GPa; y=578 at 40 A^3 and y=11 at 160 A^3. Two-pixel digitization bounds are analyst resolution estimates, not experimental standard deviations. Partial dataset; original observations and fit weights unavailable."
    }
+  },
+  {
+   "identifier": "argon_ross_1985_precursor_figure1_subset",
+   "kind": "pressure_volume",
+   "description": "19 manually digitized, clearly resolved DAC triangle symbols at 293 K from the 1985 conference precursor. Incomplete subset; overlapping high-pressure markers excluded. Neither theory lines nor shock symbols are included. This is not a transcription of the 1986 journal article.",
+   "reference": {
+    "authors": [
+     "Ross",
+     "Mao",
+     "Bell",
+     "Xu"
+    ],
+    "year": 1985,
+    "title": "The equation of state of dense argon; a comparison of shock and static studies",
+    "source": "Lawrence Livermore National Laboratory, conference preprint UCRL-93030",
+    "locator": "Figure 1, printed page 3 (PDF page 4)"
+   },
+   "source_location": "UCRL-93030, Figure 1, printed page 3 (PDF page 4)",
+   "source_url": "https://www.osti.gov/servlets/purl/5471606",
+   "columns": [
+    {
+     "name": "point_id",
+     "quantity": "identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pixel_x",
+     "quantity": "pixel_coordinate",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "pixel_y",
+     "quantity": "pixel_coordinate",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "source_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-ross-1985-precursor-figure1-subset.csv",
+    "sha256": "58a7741cc3ed6bff59e919dce75b1008d2b519c78c7b12e46987f89248d5866c",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [],
+   "provenance": {
+    "type": "digitized_primary_figure_subset",
+    "source_pdf_sha256": "fbc357ed1cd980fd495f26b22932adb3540d3d36d9c10349b32899fc42800302",
+    "digitized_on": "2026-09-24",
+    "source_is_requested_journal_article": false,
+    "related_journal_doi": "10.1063/1.451346",
+    "rendering": "pdftoppm -f 4 -l 4 -r 240 -png precursor.pdf detail; crop rectangle (580,170,1280,1140). Coordinates are relative to this crop.",
+    "calibration": {
+     "volume_axis": {
+      "pixel_x": [
+       60,
+       620
+      ],
+      "cm3_mol": [
+       8,
+       19
+      ]
+     },
+     "pressure_axis": {
+      "pixel_y": [
+       920,
+       125
+      ],
+      "gpa": [
+       0,
+       80
+      ]
+     }
+    },
+    "coordinate_reading_bound_pixels": 10,
+    "notes": "Reading bounds are conservative digitization estimates, not published error bars or one-sigma errors. Low-resolution overlapping symbols prevent a complete dataset. The decimals preserve conversion arithmetic, not measurement precision."
+   },
+   "notes": "fcc monatomic argon; Vcell=4*1e24*Vmolar/NA. Ruby pressure scale printed in precursor Eq. (1): A=19.04 Mbar, B=7.665, lambda0 at one bar. No original ruby wavelengths or individual experimental uncertainties recovered. Values are reported pressures, not recalibrated."
   }
  ],
  "supporting_studies": [
@@ -924,6 +1026,54 @@
    },
    "reproduction_document": "docs/literature-reproductions/argon-anderson-swenson-1975.md",
    "notes": "This preserves a requested study whose primary full text could not be obtained, not a finding that it lacks an independent EOS. No later BM/Vinet refit or generated curve is attributed to the authors. No primary measured points recovered."
+  },
+  {
+   "identifier": "argon_ross_1986_supporting_study",
+   "reference": {
+    "authors": [
+     "Ross",
+     "Mao",
+     "Bell",
+     "Xu"
+    ],
+    "year": 1986,
+    "title": "The equation of state of dense argon: A comparison of shock and static studies",
+    "source": "The Journal of Chemical Physics",
+    "volume": "85",
+    "issue": "2",
+    "locator": "1028-1033",
+    "doi": "10.1063/1.451346"
+   },
+   "outcome": "supporting_study_pending_primary_full_text",
+   "determination_method": "hybrid",
+   "reproduction_status": "not_reproduced",
+   "eos_record_identifiers": [],
+   "related_dataset_identifiers": [
+    "argon_ross_1985_precursor_figure1_subset"
+   ],
+   "requested_publication_pdf_status": "not_obtained",
+   "related_source_reference": {
+    "authors": [
+     "Ross",
+     "Mao",
+     "Bell",
+     "Xu"
+    ],
+    "year": 1985,
+    "title": "The equation of state of dense argon; a comparison of shock and static studies",
+    "source": "Lawrence Livermore National Laboratory, conference preprint UCRL-93030",
+    "locator": "Figure 1, printed page 3 (PDF page 4)"
+   },
+   "related_source_pdf_sha256": "fbc357ed1cd980fd495f26b22932adb3540d3d36d9c10349b32899fc42800302",
+   "temperature_convention": "Journal abstract: room temperature; distinct 1985 precursor explicitly 293 K for DAC solid and calculated isotherm. Shock Hugoniot temperature varies. Do not silently label these observations 300 K.",
+   "experimental_pressure_range_gpa": [
+    null,
+    80.0
+   ],
+   "experimental_pressure_range_note": "Upper extent from journal abstract; lower limit not verified from journal full text. Precursor digitized subset covers a narrower interval.",
+   "phase": "fcc for precursor static solid; shocked fluid is separate",
+   "fit_status": "No journal EOS coefficients or observation tables verified; no independent EOS registered and no surrogate fit performed. The precursor gives an exp-6 pair potential and Monte Carlo curves, not a closed P(V,T) evaluator.",
+   "documentation": "docs/literature-reproductions/argon-ross-1986.md"
   }
  ]
 }

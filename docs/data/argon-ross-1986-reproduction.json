@@ -1,0 +1,38 @@
+{
+  "study_identifier": "argon_ross_1986_supporting_study",
+  "requested_doi": "10.1063/1.451346",
+  "reproduction_status": "not_reproduced",
+  "matching_journal_pdf_obtained": false,
+  "source_report": "UCRL-93030 (1985), a distinct conference precursor",
+  "dataset_identifier": "argon_ross_1985_precursor_figure1_subset",
+  "dataset_sha256": "58a7741cc3ed6bff59e919dce75b1008d2b519c78c7b12e46987f89248d5866c",
+  "digitized_static_points": 19,
+  "complete_dataset": false,
+  "temperature_k": 293.0,
+  "pressure_range_gpa": [
+    1.8113,
+    57.6604
+  ],
+  "conversion_max_absolute_roundoff": 4.905660377296783e-05,
+  "coordinate_reading_bound_pixels": 10,
+  "pressure_reading_bound_gpa": 1.0062893081761006,
+  "molar_volume_reading_bound_cm3_mol": 0.19642857142857142,
+  "reading_bounds_are_experimental_uncertainties": false,
+  "precursor_pair_potential_checks": [
+    {
+      "alpha": 13.2,
+      "minimum_radius_angstrom": 3.85,
+      "energy_at_minimum_kelvin": -122.0,
+      "energy_at_2_angstrom_kelvin": 46408.03046138248
+    },
+    {
+      "alpha": 13.0,
+      "minimum_radius_angstrom": 3.85,
+      "energy_at_minimum_kelvin": -121.99999999999999,
+      "energy_at_2_angstrom_kelvin": 42464.80737726954
+    }
+  ],
+  "eos_fit_performed": false,
+  "pressure_residual_rmse_gpa": null,
+  "reason": "Journal full text unavailable; precursor Monte Carlo EOS not reproduced. No surrogate EOS fitted."
+}
