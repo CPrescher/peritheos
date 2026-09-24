@@ -16,14 +16,14 @@
   },
   "determination_method": "theoretical",
   "model_description": "Monte Carlo pressure-volume isotherm using the Barker-Fisher-Watts pair potential and the Axilrod-Teller three-body interaction.",
-  "model_description_source": "Primary abstract; no full-text equation or coefficients verified.",
+  "model_description_source": "Primary full text, Section II (p. 1509), Figures 3\u20135; numerical method and potentials delegated to cited earlier papers.",
   "temperature_k": 298.0,
   "temperature_role": "simulation_isotherm",
   "phase": null,
-  "phase_status": "Solid argon verified; precise simulated crystal structure not verified from full text.",
+  "phase_status": "Solid argon verified in full text; no explicit fcc or hcp identification in this paper.",
   "reference_pressure_gpa": null,
   "reference_volume": null,
-  "volume_normalization": null,
+  "volume_normalization": "cm^3/mol (Figures 3\u20135); derived atomic A^3 uses 1e24/N_A, no conventional-cell multiplier.",
   "parameter_uncertainties": null,
   "simulation_pressure_range_gpa": null,
   "simulation_volume_range": null,
@@ -41,8 +41,16 @@
       "unit": "kbar"
     },
     "maximum_pressure_gpa": 80.0,
-    "pressure_scale": null,
-    "note": "The abstract's 800 kbar limit describes the experimental comparison; it is not an independently verified simulation or fitted validity range. No observations from Ross are relabeled as Barker measurements."
+    "pressure_scale": {
+      "method": "ruby_fluorescence",
+      "cited_calibration_dois": [
+        "10.1063/1.325277",
+        "10.1063/1.1135966"
+      ],
+      "status": "partially_resolved",
+      "note": "Section II cites Mao 1978/1979 and possible 10% calibration uncertainty; no raw shifts or complete pointwise recalibration recipe."
+    },
+    "note": "Ross 1986 measurements replotted in Figures 4\u20135, not new Barker observations. Maximum experimental pressure 800 kbar; not a fitted model validity bound."
   },
   "comparisons": [
     "Aziz-Chen pair potential",
@@ -51,30 +59,42 @@
   ],
   "reproduction": {
     "status": "not_reproduced",
-    "reason": "fulltext_access_blocked",
+    "reason": "cited_potential_and_monte_carlo_protocol_not_reconstructed",
     "equation_verified": false,
     "coefficients_verified": false,
     "numerical_reproduction_performed": false,
-    "independent_eos_availability": "undetermined_without_full_text",
+    "independent_eos_availability": "no_self_contained_numerical_equation_in_this_paper",
     "eos_record_identifiers": [],
-    "observation_dataset_identifiers": [],
-    "note": "Supporting-study outcome only. No surrogate fit, potential coefficients, model curves, measured points or uncertainties have been invented. This does not establish that the original calculation is irreproducible."
+    "observation_dataset_identifiers": [
+      "argon_barker_1987_table1_liquid",
+      "argon_barker_1987_figure5_selected"
+    ],
+    "note": "Full text verified. Table I transcribed and selected Figure 5 curve/circles digitized. No standalone potential equations/coefficients or complete simulation protocol printed; not an independent Monte Carlo reproduction.",
+    "diagnostic_script": "scripts/reproduce_argon_barker_1987.py",
+    "diagnostic_report": "docs/data/argon-barker-1987-reproduction.json"
   },
   "source_audit": {
     "audit_date": "2026-09-24",
-    "status": "primary_abstract_and_bibliography_verified",
+    "status": "primary_full_text_verified",
     "primary_sources": [
       "https://pubs.aip.org/jcp/article/86/3/1509/660425/High-pressure-equation-of-state-for-solid-argon",
       "https://research.ibm.com/publications/high-pressure-equation-of-state-for-solid-argon-from-interatomic-potentials",
       "https://api.crossref.org/works/10.1063/1.452187"
     ],
     "pdf": {
-      "status": "unavailable_access_blocked",
+      "status": "available_user_supplied",
       "publisher_url": "https://pubs.aip.org/aip/jcp/article-pdf/86/3/1509/18963166/1509_1_online.pdf",
-      "local_path": null,
-      "sha256": null,
-      "identity_verified": false,
-      "blocker": "Publisher browser page says no current access, and following its PDF link returns the abstract with redirectedFrom=PDF. Direct request returns HTTP 403. IBM author-affiliation page links only to the DOI. OpenAlex and Semantic Scholar report closed access with no repository PDF. No matching local Zotero item found."
+      "local_path": "/Users/clemens/Documents/Peritheos/argon-sources/barker-1987/barker-1987.pdf",
+      "sha256": "d8a43b6186bdfbeaa00b8113e5275efe396bf44bab2fc4664fa6a68c2d6a6b98",
+      "identity_verified": true,
+      "blocker": null,
+      "provenance_type": "user_supplied",
+      "original_path": "/Users/clemens/Downloads/1.452187.pdf",
+      "origin_url": null,
+      "pdf_pages": 4,
+      "article_pages": "1509\u20131511",
+      "received_on": "2026-09-24",
+      "identity_evidence": "Matching cover DOI, article title, J. A. Barker, journal volume 86 and all three printed article pages. Publisher URL is a locator, not a verified acquisition origin."
     },
     "zotero": {
       "search_queries": [
@@ -83,7 +103,8 @@
       ],
       "matching_item_keys": [],
       "matching_attachment_keys": [],
-      "writes_performed": false
+      "writes_performed": false,
+      "note": "Empty searches predate coordinator import; current item/attachment keys are owned by integration task."
     },
     "documentation": "docs/literature-reproductions/argon-barker-1987.md",
     "researchgate_followup": {
@@ -93,7 +114,110 @@
       "result": "request_full_text_only",
       "download_available": false,
       "author_request_sent": false,
-      "note": "Exact title and DOI match; public page says no full text available, existing signed-in browser session offers Request full-text only. Institutional publishing-fee coverage notice does not provide article reading access."
+      "note": "Exact title and DOI match; public page says no full text available, existing signed-in browser session offers Request full-text only. Institutional publishing-fee coverage notice does not provide article reading access.",
+      "historical": true
+    },
+    "verified_locations": [
+      "PDF cover",
+      "pp. 1509\u20131511",
+      "Table I",
+      "Figures 1\u20135",
+      "references 1\u201316"
+    ]
+  },
+  "additional_isotherms_k": [
+    0.0
+  ],
+  "parameter_uncertainties_status": "No coefficient table or fitted uncertainties supplied. Mentioned 10% is a possible overall ruby-scale uncertainty, not pointwise one-sigma.",
+  "plot_axes": [
+    {
+      "figure": 3,
+      "temperature_k": 0,
+      "volume_cm3_mol": [
+        16,
+        23
+      ],
+      "pressure_kbar": [
+        0,
+        20
+      ]
+    },
+    {
+      "figure": 4,
+      "temperature_k": 298,
+      "volume_cm3_mol": [
+        5,
+        20
+      ],
+      "pressure_kbar": [
+        0,
+        900
+      ]
+    },
+    {
+      "figure": 5,
+      "temperature_k": 298,
+      "volume_cm3_mol": [
+        8,
+        22
+      ],
+      "pressure_kbar": [
+        0,
+        450
+      ]
     }
-  }
+  ],
+  "datasets": [
+    {
+      "identifier": "argon_barker_1987_table1_liquid",
+      "phase": "liquid",
+      "kind": "dimensionless_thermodynamic_comparison",
+      "description": "All seven Table I rows, 100 K, 27.04 cm^3/mol; one experimental reference row and six theory rows; all include quantum corrections per caption.",
+      "source_location": "Table I, p. 1510",
+      "source_pdf_sha256": "d8a43b6186bdfbeaa00b8113e5275efe396bf44bab2fc4664fa6a68c2d6a6b98",
+      "resource": {
+        "path": "datasets/argon-barker-1987-table1-liquid.csv",
+        "sha256": "903909b3c54e10ff7550c70270cb3f3db7ee19af9e3af15b456de04c4d096dd1",
+        "media_type": "text/csv"
+      }
+    },
+    {
+      "identifier": "argon_barker_1987_figure5_selected",
+      "phase": "solid_unspecified",
+      "kind": "digitized_pressure_volume_comparison",
+      "description": "21 selected BFW+AT theoretical curve samples and 11 unambiguous Ross 1986 experimental circles; incomplete subset, 298 K. No experimental uncertainties provided.",
+      "source_location": "Figure 5, p. 1511",
+      "source_pdf_sha256": "d8a43b6186bdfbeaa00b8113e5275efe396bf44bab2fc4664fa6a68c2d6a6b98",
+      "resource": {
+        "path": "datasets/argon-barker-1987-figure5-selected.csv",
+        "sha256": "6dfa3a7eb89cec8f8228e19433b410fb37fcbbe9441689ba02972255ad1f880b",
+        "media_type": "text/csv"
+      },
+      "digitization": {
+        "render_command": "pdftoppm -f 4 -l 4 -r 300 -x 120 -y 120 -W 1080 -H 1120 -singlefile -png INPUT figure5-detail",
+        "axis_calibration": {
+          "x_pixels": [
+            150,
+            958
+          ],
+          "volume_cm3_mol": [
+            8,
+            22
+          ],
+          "y_pixels": [
+            918,
+            114
+          ],
+          "pressure_kbar": [
+            0,
+            450
+          ]
+        },
+        "picking_bound_pixels": 3,
+        "bound_interpretation": "conservative digitization bound, not statistical or experimental error",
+        "coverage": "selected visually separable circles; merged symbols omitted",
+        "experimental_origin_doi": "10.1063/1.451346"
+      }
+    }
+  ]
 }

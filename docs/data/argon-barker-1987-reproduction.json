@@ -1,0 +1,129 @@
+{
+  "study_identifier": "argon_barker_1987",
+  "status": "not_reproduced",
+  "diagnostic_kind": "published_table_and_digitized_figure_comparison",
+  "independent_model_reproduction": false,
+  "fit_performed": false,
+  "liquid_table": [
+    {
+      "label": "Experiment",
+      "determination_method": "experimental",
+      "pressure_gpa": 0.06610981741504979,
+      "molar_internal_energy_j_mol": -5994.727547688485,
+      "relative_pressure_difference_percent": 0.0
+    },
+    {
+      "label": "BFW without AT",
+      "determination_method": "theoretical",
+      "pressure_gpa": 0.027673877057462708,
+      "molar_internal_energy_j_mol": -6352.2494402690745,
+      "relative_pressure_difference_percent": -58.13953488372092
+    },
+    {
+      "label": "BFW with AT",
+      "determination_method": "theoretical",
+      "pressure_gpa": 0.06426489227788562,
+      "molar_internal_energy_j_mol": -5994.727547688485,
+      "relative_pressure_difference_percent": -2.7906976744186074
+    },
+    {
+      "label": "AC without AT",
+      "determination_method": "theoretical",
+      "pressure_gpa": 0.023676539260273646,
+      "molar_internal_energy_j_mol": -6352.2494402690745,
+      "relative_pressure_difference_percent": -64.18604651162791
+    },
+    {
+      "label": "AC with AT",
+      "determination_method": "theoretical",
+      "pressure_gpa": 0.059960066957835866,
+      "molar_internal_energy_j_mol": -5994.727547688485,
+      "relative_pressure_difference_percent": -9.302325581395344
+    },
+    {
+      "label": "KMA without AT",
+      "determination_method": "theoretical",
+      "pressure_gpa": 0.021831614123109466,
+      "molar_internal_energy_j_mol": -6335.620515032769,
+      "relative_pressure_difference_percent": -66.97674418604652
+    },
+    {
+      "label": "KMA with AT",
+      "determination_method": "theoretical",
+      "pressure_gpa": 0.05811514182067168,
+      "molar_internal_energy_j_mol": -5986.413085070332,
+      "relative_pressure_difference_percent": -12.09302325581395
+    }
+  ],
+  "figure5": {
+    "theory_sample_count": 21,
+    "selected_experimental_point_count": 11,
+    "experimental_points_outside_sampled_curve": 2,
+    "comparisons": [
+      {
+        "point_id": "E03",
+        "molar_volume_cm3_mol": 9.957921,
+        "digitized_experiment_pressure_gpa": 34.701493,
+        "interpolated_digitized_theory_pressure_gpa": 38.803770587844674,
+        "theory_minus_experiment_gpa": 4.102277587844675
+      },
+      {
+        "point_id": "E04",
+        "molar_volume_cm3_mol": 10.616337,
+        "digitized_experiment_pressure_gpa": 28.320896,
+        "interpolated_digitized_theory_pressure_gpa": 30.05863099328313,
+        "theory_minus_experiment_gpa": 1.73773499328313
+      },
+      {
+        "point_id": "E05",
+        "molar_volume_cm3_mol": 12.45297,
+        "digitized_experiment_pressure_gpa": 14.83209,
+        "interpolated_digitized_theory_pressure_gpa": 15.093285051054728,
+        "theory_minus_experiment_gpa": 0.2611950510547274
+      },
+      {
+        "point_id": "E06",
+        "molar_volume_cm3_mol": 12.695545,
+        "digitized_experiment_pressure_gpa": 12.537313,
+        "interpolated_digitized_theory_pressure_gpa": 13.7873104876796,
+        "theory_minus_experiment_gpa": 1.2499974876796003
+      },
+      {
+        "point_id": "E07",
+        "molar_volume_cm3_mol": 12.938119,
+        "digitized_experiment_pressure_gpa": 12.089552,
+        "interpolated_digitized_theory_pressure_gpa": 12.637869178634382,
+        "theory_minus_experiment_gpa": 0.5483171786343828
+      },
+      {
+        "point_id": "E08",
+        "molar_volume_cm3_mol": 13.35396,
+        "digitized_experiment_pressure_gpa": 11.641791,
+        "interpolated_digitized_theory_pressure_gpa": 10.898797567651634,
+        "theory_minus_experiment_gpa": -0.7429934323483653
+      },
+      {
+        "point_id": "E09",
+        "molar_volume_cm3_mol": 14.792079,
+        "digitized_experiment_pressure_gpa": 5.541045,
+        "interpolated_digitized_theory_pressure_gpa": 6.565877358813157,
+        "theory_minus_experiment_gpa": 1.024832358813157
+      },
+      {
+        "point_id": "E10",
+        "molar_volume_cm3_mol": 15.623762,
+        "digitized_experiment_pressure_gpa": 4.477612,
+        "interpolated_digitized_theory_pressure_gpa": 4.9598172380369325,
+        "theory_minus_experiment_gpa": 0.4822052380369328
+      },
+      {
+        "point_id": "E11",
+        "molar_volume_cm3_mol": 18.950495,
+        "digitized_experiment_pressure_gpa": 1.623134,
+        "interpolated_digitized_theory_pressure_gpa": 1.824627113402367,
+        "theory_minus_experiment_gpa": 0.20149311340236697
+      }
+    ],
+    "note": "Selected visually separable circles only, not a complete dataset. Linear interpolation of digitized published theory is a graphical diagnostic, not independent EOS evaluation. Pixel bounds are not experimental error bars or Monte Carlo sampling uncertainties."
+  }
+}
