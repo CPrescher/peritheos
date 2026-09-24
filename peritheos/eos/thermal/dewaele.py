@@ -39,9 +39,15 @@ class Dewaele2006(ThermalEOS):
     ``thermal_pressure_reference="absolute_zero"`` adds these terms to a
     0 K cold curve, omitting zero-point pressure. ``Tr`` then anchors pressure
     increments only (Dewaele et al. 2021, argon equations 2-5).
+    ``zero_point_pressure="included"`` additionally includes 9*n*R*gamma*theta/(8*V)
+    for a static-lattice reference, as in Finger et al. (1981), Eq. (2).
+    It requires the absolute-zero baseline; the default remains omitted.
     """
 
-    _constructor_configuration_names = ("thermal_pressure_reference",)
+    _constructor_configuration_names = (
+        "thermal_pressure_reference",
+        "zero_point_pressure",
+    )
 
     def __init__(
         self,
@@ -57,6 +63,7 @@ class Dewaele2006(ThermalEOS):
         electronic_g: float,
         n: float,
         thermal_pressure_reference: str = "reference_temperature",
+        zero_point_pressure: str = "omitted",
     ) -> None:
         if not isinstance(rt_eos, EosBase):
             raise ConfigurationError("rt_eos must be an equation of state")
@@ -83,6 +90,14 @@ class Dewaele2006(ThermalEOS):
             raise EosValidationError(
                 "thermal_pressure_reference must be 'reference_temperature' or 'absolute_zero'"
             )
+        if zero_point_pressure not in ("omitted", "included") or (
+            zero_point_pressure == "included"
+            and thermal_pressure_reference != "absolute_zero"
+        ):
+            raise EosValidationError(
+                "zero_point_pressure inclusion requires absolute_zero"
+            )
+        self.zero_point_pressure = zero_point_pressure
         self.thermal_pressure_reference = thermal_pressure_reference
         reference_native = _native_for_exact_model(rt_eos)
         if reference_native is not None and type(self) is Dewaele2006:
@@ -101,12 +116,18 @@ class Dewaele2006(ThermalEOS):
                 self.electronic_g,
                 self.n,
                 self.thermal_pressure_reference,
+                self.zero_point_pressure,
             )
 
     def configuration_values(self) -> dict[str, str | float]:
-        if self.thermal_pressure_reference == "reference_temperature":
-            return {}
-        return {"thermal_pressure_reference": self.thermal_pressure_reference}
+        configuration = {}
+        if self.thermal_pressure_reference != "reference_temperature":
+            configuration["thermal_pressure_reference"] = (
+                self.thermal_pressure_reference
+            )
+        if self.zero_point_pressure != "omitted":
+            configuration["zero_point_pressure"] = self.zero_point_pressure
+        return configuration
 
     def thermal_pressure_increment(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the pressure change from ``Tr`` at fixed volume, in GPa."""
@@ -258,4 +279,15 @@ class Dewaele2006(ThermalEOS):
                 self.electronic_pressure_increment(volumes, temperatures), dtype=float
             )
         )
+        if self.zero_point_pressure == "included":
+            result += (
+                9
+                / 8
+                * self.n
+                * R
+                * self.gruneisen_parameter(volumes)
+                * self.characteristic_temperature(volumes)
+                / volumes
+                / 1e4
+            )
         return self._scalar_or_array(result)

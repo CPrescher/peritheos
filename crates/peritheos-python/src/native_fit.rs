@@ -7,7 +7,8 @@ use peritheos::fit::{
 };
 use peritheos::isothermal::{
     Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2,
-    NaturalStrain3, NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
+    NaturalStrain3, NaturalStrain4, RydbergStacey, SecondOrderMurnaghan, SunMorse3, SunMorse4,
+    Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
@@ -136,6 +137,23 @@ impl RtModel {
                         value(names, values, "V0", model.v0),
                         value(names, values, "K0", model.k0),
                         value(names, values, "K0_prime", model.k0_prime),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::SecondOrderMurnaghan(model) => {
+                ensure_names(
+                    names,
+                    &["V0", "K0", "K0_prime", "K0_double_prime", "P0"],
+                    false,
+                )?;
+                Self::SecondOrderMurnaghan(
+                    SecondOrderMurnaghan::new(
+                        value(names, values, "V0", model.v0),
+                        value(names, values, "K0", model.k0),
+                        value(names, values, "K0_prime", model.k0_prime),
+                        value(names, values, "K0_double_prime", model.k0_double_prime),
+                        value(names, values, "P0", model.p0),
                     )
                     .map_err(FitError::from)?,
                 )
@@ -340,6 +358,10 @@ impl ThermalModel {
                         value(names, values, "electronic_g", model.electronic_g),
                         value(names, values, "n", model.n),
                     )
+                    .and_then(|new| {
+                        new.with_thermal_pressure_reference(model.thermal_pressure_reference)
+                    })
+                    .and_then(|new| new.with_zero_point_pressure(model.include_zero_point))
                     .map_err(FitError::from)?,
                 )
             }

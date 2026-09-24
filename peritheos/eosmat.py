@@ -37,6 +37,7 @@ _RT_TYPES = {
     "Holzapfel",
     "ModifiedTait",
     "Murnaghan",
+    "SecondOrderMurnaghan",
     "Morse3",
     "NaturalStrain2",
     "NaturalStrain3",
@@ -78,6 +79,7 @@ _RT_MODELS = {
     "Holzapfel": "holzapfel",
     "ModifiedTait": "modified_tait",
     "Murnaghan": "murnaghan",
+    "SecondOrderMurnaghan": "second_order_murnaghan",
     "Morse3": "morse_3",
     "NaturalStrain2": "natural_strain_2",
     "NaturalStrain3": "natural_strain_3",
@@ -805,6 +807,26 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 raise EosmatError(
                     f"{location}.thermal.thermal_pressure_reference requires "
                     "MieGruneisenDebye"
+                )
+            zero_point = thermal.get(
+                "zero_point_pressure",
+                thermal.get("configuration", {}).get("zero_point_pressure", "omitted"),
+            )
+            if zero_point not in ("included", "omitted") or (
+                zero_point == "included"
+                and (
+                    thermal_type != "Dewaele2006"
+                    or thermal.get(
+                        "thermal_pressure_reference",
+                        thermal.get("configuration", {}).get(
+                            "thermal_pressure_reference"
+                        ),
+                    )
+                    != "absolute_zero"
+                )
+            ):
+                raise EosmatError(
+                    f"{location}.thermal.zero_point_pressure requires Dewaele2006 absolute_zero"
                 )
             bulk_modulus_law = thermal.get(
                 "bulk_modulus_law",

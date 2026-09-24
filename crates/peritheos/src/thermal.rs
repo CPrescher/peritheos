@@ -2,8 +2,8 @@
 
 use crate::isothermal::{
     Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
-    NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SunMorse3, SunMorse4, Vinet, Vinet3, BM2,
-    BM3, BM4,
+    NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SecondOrderMurnaghan, SunMorse3, SunMorse4,
+    Vinet, Vinet3, BM2, BM3, BM4,
 };
 use crate::quadrature::integrate;
 use crate::root::solve_temperature_function;
@@ -690,6 +690,21 @@ macro_rules! impl_four_parameter_reference_state {
     };
 }
 
+impl ReferenceStateEos for SecondOrderMurnaghan {
+    fn reference_bulk_modulus(&self) -> f64 {
+        self.k0
+    }
+    fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
+        Self::new(
+            volume,
+            bulk_modulus,
+            self.k0_prime,
+            self.k0_double_prime,
+            self.p0,
+        )
+    }
+}
+
 impl_two_parameter_reference_state!(BM2, BM2::new);
 impl_two_parameter_reference_state!(NaturalStrain2, NaturalStrain2::new);
 impl_three_parameter_reference_state!(BM3, BM3::new);
@@ -1314,10 +1329,13 @@ impl<R: IsothermalEos> CaloricEos for AsymptoticPowerLawMieGruneisenDebye<R> {
 /// EOS is a complete isotherm at [`Self::tr`], and thermal pressures are rebased
 /// to zero there. The absolute-zero option instead adds thermal pressure to a
 /// 0 K cold curve, omitting zero-point pressure (Dewaele et al. 2021, argon).
+/// Zero-point pressure can explicitly be included for a static-lattice reference.
 /// Pressure increments remain anchored to [`Self::tr`] in either mode.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Dewaele2006<R> {
-    /// Pressure baseline; absolute zero omits zero-point pressure.
+    /// Include zero-point pressure with an absolute-zero static lattice baseline.
+    pub include_zero_point: bool,
+    /// Pressure baseline; absolute zero omits zero-point pressure by default.
     pub thermal_pressure_reference: ThermalPressureReference,
     /// Reference isotherm.
     pub rt_eos: R,
@@ -1373,6 +1391,7 @@ impl<R: IsothermalEos> Dewaele2006<R> {
             });
         }
         Ok(Self {
+            include_zero_point: false,
             thermal_pressure_reference: ThermalPressureReference::ReferenceTemperature,
             rt_eos,
             tr: positive_parameter(tr, "Tr")?,
@@ -1402,8 +1421,44 @@ impl<R: IsothermalEos> Dewaele2006<R> {
                 reason: "reference_isentrope is unsupported for Dewaele2006",
             });
         }
+        if self.include_zero_point && baseline != ThermalPressureReference::AbsoluteZero {
+            return Err(EosError::InvalidParameter {
+                name: "zero_point_pressure",
+                reason: "inclusion requires absolute_zero",
+            });
+        }
         self.thermal_pressure_reference = baseline;
         Ok(self)
+    }
+
+    /// Include or omit zero-point pressure (Finger 1981, Eq. 2).
+    /// # Errors
+    /// Inclusion requires an absolute-zero static-lattice reference curve.
+    pub fn with_zero_point_pressure(mut self, included: bool) -> EosResult<Self> {
+        if included && self.thermal_pressure_reference != ThermalPressureReference::AbsoluteZero {
+            return Err(EosError::InvalidParameter {
+                name: "zero_point_pressure",
+                reason: "inclusion requires absolute_zero",
+            });
+        }
+        self.include_zero_point = included;
+        Ok(self)
+    }
+
+    /// Zero-point pressure in `GPa`; independent of temperature.
+    /// # Errors
+    /// Rejects invalid volume or a nonfinite result.
+    pub fn zero_point_pressure(&self, volume: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        finite_result(
+            1.125
+                * self.n
+                * GAS_CONSTANT
+                * self.volume_gruneisen_parameter(volume)?
+                * self.characteristic_temperature(volume)?
+                / volume
+                / 1.0e4,
+        )
     }
 
     /// Volume-dependent Gruneisen parameter.
@@ -1529,7 +1584,12 @@ impl<R: IsothermalEos> ThermalEos for Dewaele2006<R> {
         finite_result(
             self.vibrational_pressure_increment(volume, temperature)?
                 + self.anharmonic_pressure_increment(volume, temperature)?
-                + self.electronic_pressure_increment(volume, temperature)?,
+                + self.electronic_pressure_increment(volume, temperature)?
+                + if self.include_zero_point {
+                    self.zero_point_pressure(volume)?
+                } else {
+                    0.0
+                },
         )
     }
 }

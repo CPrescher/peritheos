@@ -3,7 +3,8 @@ use peritheos::{load_eosmat_str, IsothermalEos};
 
 #[test]
 fn density_polynomial_reproduces_source_bulk_modulus_and_roundtrip() {
-    let eos = DensityPolynomial3::new(132.670_429_310_921_66, 2.0, 12.65, -11.43, 1.5, 0.68).unwrap();
+    let eos =
+        DensityPolynomial3::new(132.670_429_310_921_66, 2.0, 12.65, -11.43, 1.5, 0.68).unwrap();
     assert!((eos.pressure(eos.v0).unwrap() - 1.23).abs() < 1e-12);
     for rho in [2.017, 2.5, 3.0, 4.0, 4.8] {
         let v = eos.v0 * eos.rho0 / rho;

@@ -13,7 +13,7 @@ use peritheos::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use peritheos::isothermal::{
     holzapfel_bulk_modulus_derivative_analytical, Baonza, DensityPolynomial3, Holzapfel,
     ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, RydbergStacey,
-    SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
+    SecondOrderMurnaghan, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
@@ -42,6 +42,8 @@ enum RtModel {
     BM4(BM4),
     Morse3(Morse3),
     Murnaghan(Murnaghan),
+    /// Second-order Murnaghan cold curve with static offset.
+    SecondOrderMurnaghan(SecondOrderMurnaghan),
     ModifiedTait(ModifiedTait),
     NaturalStrain2(NaturalStrain2),
     NaturalStrain3(NaturalStrain3),
@@ -63,6 +65,7 @@ impl RtModel {
             Self::BM4(_) => "BM4",
             Self::Morse3(_) => "Morse3",
             Self::Murnaghan(_) => "Murnaghan",
+            Self::SecondOrderMurnaghan(_) => "SecondOrderMurnaghan",
             Self::ModifiedTait(_) => "ModifiedTait",
             Self::NaturalStrain2(_) => "NaturalStrain2",
             Self::NaturalStrain3(_) => "NaturalStrain3",
@@ -86,6 +89,7 @@ impl IsothermalEos for RtModel {
             Self::BM4(model) => model.reference_volume(),
             Self::Morse3(model) => model.reference_volume(),
             Self::Murnaghan(model) => model.reference_volume(),
+            Self::SecondOrderMurnaghan(model) => model.reference_volume(),
             Self::ModifiedTait(model) => model.reference_volume(),
             Self::NaturalStrain2(model) => model.reference_volume(),
             Self::NaturalStrain3(model) => model.reference_volume(),
@@ -107,6 +111,7 @@ impl IsothermalEos for RtModel {
             Self::BM4(model) => model.pressure(volume),
             Self::Morse3(model) => model.pressure(volume),
             Self::Murnaghan(model) => model.pressure(volume),
+            Self::SecondOrderMurnaghan(model) => model.pressure(volume),
             Self::ModifiedTait(model) => model.pressure(volume),
             Self::NaturalStrain2(model) => model.pressure(volume),
             Self::NaturalStrain3(model) => model.pressure(volume),
@@ -128,6 +133,7 @@ impl IsothermalEos for RtModel {
             Self::BM4(model) => model.volume(pressure),
             Self::Morse3(model) => model.volume(pressure),
             Self::Murnaghan(model) => model.volume(pressure),
+            Self::SecondOrderMurnaghan(model) => model.volume(pressure),
             Self::ModifiedTait(model) => model.volume(pressure),
             Self::NaturalStrain2(model) => model.volume(pressure),
             Self::NaturalStrain3(model) => model.volume(pressure),
@@ -149,6 +155,7 @@ impl IsothermalEos for RtModel {
             Self::BM4(model) => model.bulk_modulus(volume),
             Self::Morse3(model) => model.bulk_modulus(volume),
             Self::Murnaghan(model) => model.bulk_modulus(volume),
+            Self::SecondOrderMurnaghan(model) => model.bulk_modulus(volume),
             Self::ModifiedTait(model) => model.bulk_modulus(volume),
             Self::NaturalStrain2(model) => model.bulk_modulus(volume),
             Self::NaturalStrain3(model) => model.bulk_modulus(volume),
@@ -204,6 +211,7 @@ impl ReferenceStateEos for RtModel {
             Self::BM4(model) => model.k0,
             Self::Morse3(model) => model.k0,
             Self::Murnaghan(model) => model.k0,
+            Self::SecondOrderMurnaghan(model) => model.k0,
             Self::ModifiedTait(model) => model.k0,
             Self::NaturalStrain2(model) => model.k0,
             Self::NaturalStrain3(model) => model.k0,
@@ -235,6 +243,14 @@ impl ReferenceStateEos for RtModel {
             Self::Murnaghan(model) => {
                 Murnaghan::new(volume, bulk_modulus, model.k0_prime).map(Self::Murnaghan)
             }
+            Self::SecondOrderMurnaghan(model) => SecondOrderMurnaghan::new(
+                volume,
+                bulk_modulus,
+                model.k0_prime,
+                model.k0_double_prime,
+                model.p0,
+            )
+            .map(Self::SecondOrderMurnaghan),
             Self::ModifiedTait(model) => {
                 ModifiedTait::new(volume, bulk_modulus, model.k0_prime, model.k0_double_prime)
                     .map(Self::ModifiedTait)
@@ -396,6 +412,22 @@ impl PyRtEos {
     fn sun_morse4(v0: f64, k0: f64, k0_prime: f64) -> PyResult<Self> {
         Ok(Self {
             model: RtModel::SunMorse4(SunMorse4::new(v0, k0, k0_prime).map_err(to_python_error)?),
+        })
+    }
+
+    #[staticmethod]
+    fn second_order_murnaghan(
+        v0: f64,
+        k0: f64,
+        k0_prime: f64,
+        k0_double_prime: f64,
+        p0: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: RtModel::SecondOrderMurnaghan(
+                SecondOrderMurnaghan::new(v0, k0, k0_prime, k0_double_prime, p0)
+                    .map_err(to_python_error)?,
+            ),
         })
     }
 
@@ -859,7 +891,7 @@ impl PyThermalEos {
 
     #[staticmethod]
     #[allow(clippy::too_many_arguments)]
-    #[pyo3(signature = (rt_eos, tr, theta0, gamma0, gamma_inf, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n, thermal_pressure_reference="reference_temperature"))]
+    #[pyo3(signature = (rt_eos, tr, theta0, gamma0, gamma_inf, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n, thermal_pressure_reference="reference_temperature", zero_point_pressure="omitted"))]
     fn dewaele_2006(
         rt_eos: PyRef<'_, PyRtEos>,
         tr: f64,
@@ -873,6 +905,7 @@ impl PyThermalEos {
         electronic_g: f64,
         n: f64,
         thermal_pressure_reference: &str,
+        zero_point_pressure: &str,
     ) -> PyResult<Self> {
         let baseline = match thermal_pressure_reference {
             "reference_temperature" => ThermalPressureReference::ReferenceTemperature,
@@ -880,6 +913,15 @@ impl PyThermalEos {
             _ => {
                 return Err(pyo3::exceptions::PyValueError::new_err(
                     "invalid Dewaele2006 thermal_pressure_reference",
+                ))
+            }
+        };
+        let include_zero_point = match zero_point_pressure {
+            "included" => true,
+            "omitted" => false,
+            _ => {
+                return Err(pyo3::exceptions::PyValueError::new_err(
+                    "invalid zero_point_pressure",
                 ))
             }
         };
@@ -899,6 +941,7 @@ impl PyThermalEos {
                     n,
                 )
                 .and_then(|model| model.with_thermal_pressure_reference(baseline))
+                .and_then(|model| model.with_zero_point_pressure(include_zero_point))
                 .map_err(to_python_error)?,
             ),
         })

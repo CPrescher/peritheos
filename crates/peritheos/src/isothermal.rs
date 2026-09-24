@@ -213,6 +213,60 @@ impl IsothermalEos for Murnaghan {
     }
 }
 
+/// Second-order Murnaghan cold curve, Finger et al. (1981), Eq. (6).
+/// `K(P-P0) = K0 + K0_prime*(P-P0) + K0_double_prime*(P-P0)^2/2`.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SecondOrderMurnaghan {
+    /// Reference volume.
+    pub v0: f64,
+    /// Reference bulk modulus, `GPa`.
+    pub k0: f64,
+    /// First pressure derivative.
+    pub k0_prime: f64,
+    /// Second pressure derivative, GPa^-1.
+    pub k0_double_prime: f64,
+    /// Static pressure at reference volume, `GPa`.
+    pub p0: f64,
+}
+
+impl SecondOrderMurnaghan {
+    /// Construct the real-q branch of the second-order Murnaghan EOS.
+    /// # Errors
+    /// Rejects invalid parameters and nonpositive q squared.
+    pub fn new(v0: f64, k0: f64, k0_prime: f64, k0_double_prime: f64, p0: f64) -> EosResult<Self> {
+        let model = Self {
+            v0: positive_parameter(v0, "V0")?,
+            k0: positive_parameter(k0, "K0")?,
+            k0_prime: finite_parameter(k0_prime, "K0_prime")?,
+            k0_double_prime: finite_parameter(k0_double_prime, "K0_double_prime")?,
+            p0: finite_parameter(p0, "P0")?,
+        };
+        positive_parameter(
+            k0_prime * k0_prime - 2.0 * k0 * k0_double_prime,
+            "q_squared",
+        )?;
+        Ok(model)
+    }
+}
+
+impl IsothermalEos for SecondOrderMurnaghan {
+    fn reference_volume(&self) -> f64 {
+        self.v0
+    }
+    fn pressure(&self, volume: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let q = (self.k0_prime * self.k0_prime - 2.0 * self.k0 * self.k0_double_prime).sqrt();
+        let y = (q * (self.v0 / volume).ln()).exp_m1();
+        let denominator = q * (y + 2.0) - self.k0_prime * y;
+        positive_state(denominator, "Murnaghan denominator")?;
+        finite_result(self.p0 + 2.0 * self.k0 * y / denominator)
+    }
+    fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
+        let delta = self.pressure(volume)? - self.p0;
+        finite_result(self.k0 + self.k0_prime * delta + 0.5 * self.k0_double_prime * delta * delta)
+    }
+}
+
 fn morse3_terms(v0: f64, k0: f64, k0_prime: f64, volume: f64) -> EosResult<(f64, f64)> {
     let volume = positive_state(volume, "volume")?;
     let x = (volume / v0).cbrt();

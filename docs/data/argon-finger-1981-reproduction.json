@@ -1,0 +1,99 @@
+{
+  "record_identifier": "argon_fcc_finger_1981_murnaghan2_debye",
+  "equation_status": "implemented_and_independently_checked",
+  "fit_reproduction_status": "diagnostic_refits_original_weights_unavailable",
+  "observations": 19,
+  "measured_temperature_k": 293,
+  "temperature_uncertainty_k": 1,
+  "measured_pressure_range_gpa": [
+    1.28,
+    8.17
+  ],
+  "published_parameters": {
+    "V0": 149.82711895296183,
+    "K0": 2.3701,
+    "K0_prime": 6.97,
+    "K0_double_prime": -0.4,
+    "P_static_offset": -0.10289,
+    "theta0": 93.3,
+    "gamma1": 2.2
+  },
+  "published_molar_volume_rmse_gpa": 0.09535520774523343,
+  "published_cell_edge_rmse_gpa": 0.09722004057531364,
+  "published_max_abs_residual_gpa": 0.18037792679538445,
+  "native_max_abs_difference_gpa": 3.099742684753437e-11,
+  "static_offset_plus_zero_point_at_v0_gpa": 0.0015701814453574492,
+  "max_molar_volume_vs_cell_edge_difference_cm3_mol": 0.007032559645635317,
+  "refits": {
+    "equal_pressure": {
+      "K0_prime": 6.903805381444691,
+      "K0_double_prime_gpa_inverse": -0.33663295964613166,
+      "pressure_rmse_gpa": 0.09412675921023864,
+      "solver_success": true
+    },
+    "quoted_pressure_uncertainty": {
+      "K0_prime": 6.829504695558096,
+      "K0_double_prime_gpa_inverse": -0.2531684132742353,
+      "pressure_rmse_gpa": 0.09761668574398683,
+      "solver_success": true
+    },
+    "effective_pressure_and_volume_uncertainty": {
+      "K0_prime": 7.106669250953562,
+      "K0_double_prime_gpa_inverse": -0.5148307347350295,
+      "pressure_rmse_gpa": 0.10352084189493237,
+      "solver_success": true
+    }
+  },
+  "benchmarks": [
+    {
+      "pressure_observed_gpa": 1.28,
+      "molar_volume_cm3_mol": 19.819,
+      "pressure_calculated_gpa": 1.2989801674962185,
+      "residual_gpa": 0.018980167496218447,
+      "components": {
+        "static_gpa": 0.39299601156308756,
+        "zero_point_gpa": 0.14927777060750833,
+        "thermal_gpa": 0.7567063853256227
+      }
+    },
+    {
+      "pressure_observed_gpa": 3.33,
+      "molar_volume_cm3_mol": 16.6,
+      "pressure_calculated_gpa": 3.2831819826929127,
+      "residual_gpa": -0.046818017307087345,
+      "components": {
+        "static_gpa": 2.329818436654914,
+        "zero_point_gpa": 0.23216713032607503,
+        "thermal_gpa": 0.7211964157119242
+      }
+    },
+    {
+      "pressure_observed_gpa": 4.77,
+      "molar_volume_cm3_mol": 15.468,
+      "pressure_calculated_gpa": 4.890319316318887,
+      "residual_gpa": 0.12031931631888781,
+      "components": {
+        "static_gpa": 3.9135075230248924,
+        "zero_point_gpa": 0.2732255932036303,
+        "thermal_gpa": 0.7035862000903639
+      }
+    },
+    {
+      "pressure_observed_gpa": 8.17,
+      "molar_volume_cm3_mol": 14.127999999999998,
+      "pressure_calculated_gpa": 8.03294756971421,
+      "residual_gpa": -0.13705243028578984,
+      "components": {
+        "static_gpa": 7.0211957232746025,
+        "zero_point_gpa": 0.3334964072738121,
+        "thermal_gpa": 0.6782554391657957
+      }
+    }
+  ],
+  "notes": [
+    "Only 293 +/- 1 K values are measured. Other isotherms are predictions.",
+    "Fit covariance, weighting and uncertainty confidence level are not specified.",
+    "Published P_z0 and Eq. (2) do not exactly cancel at V0. No coefficient adjusted.",
+    "Native public interface evaluated against all 19 observations and five theory temperatures."
+  ]
+}

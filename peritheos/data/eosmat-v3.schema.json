@@ -479,6 +479,7 @@
             "Vinet",
             "Vinet3",
             "LinearUsUpHugoniot",
+            "SecondOrderMurnaghan",
             "DensityPolynomial3"
           ]
         },
@@ -501,6 +502,7 @@
             "vinet",
             "vinet_3",
             "linear_us_up_hugoniot",
+            "second_order_murnaghan",
             "density_polynomial_3"
           ]
         },
@@ -720,6 +722,16 @@
             {
               "properties": {
                 "type": {
+                  "const": "SecondOrderMurnaghan"
+                },
+                "model": {
+                  "const": "second_order_murnaghan"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
                   "const": "DensityPolynomial3"
                 },
                 "model": {
@@ -855,6 +867,13 @@
           ],
           "default": "linear_temperature",
           "description": "AlphaKT reference modulus: linear slope or reference-anchored reciprocal cubic with beta1, beta2, beta3 and dK_dT=0."
+        },
+        "zero_point_pressure": {
+          "enum": [
+            "omitted",
+            "included"
+          ],
+          "description": "Dewaele2006 absolute_zero only: add zero-point pressure to a static lattice curve (Finger 1981 Eq. 2). Default omitted."
         }
       },
       "additionalProperties": true,

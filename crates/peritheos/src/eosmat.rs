@@ -19,8 +19,8 @@ use serde_json::Value;
 use crate::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use crate::isothermal::{
     Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2,
-    NaturalStrain3, NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SunMorse3, SunMorse4, Vinet,
-    Vinet3, BM2, BM3, BM4,
+    NaturalStrain3, NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SecondOrderMurnaghan,
+    SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
 };
 use crate::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, AsymptoticPowerLawMieGruneisenDebyeExcess,
@@ -162,6 +162,8 @@ pub enum IsothermalModel {
     ModifiedTait(ModifiedTait),
     /// Murnaghan EOS.
     Murnaghan(Murnaghan),
+    /// Second-order Murnaghan cold curve with static offset.
+    SecondOrderMurnaghan(SecondOrderMurnaghan),
     /// Three-dimensional Morse-potential EOS.
     Morse3(Morse3),
     /// Second-order natural-strain EOS.
@@ -195,6 +197,7 @@ impl IsothermalModel {
             Self::Holzapfel(_) => "holzapfel",
             Self::ModifiedTait(_) => "modified_tait",
             Self::Murnaghan(_) => "murnaghan",
+            Self::SecondOrderMurnaghan(_) => "second_order_murnaghan",
             Self::Morse3(_) => "morse_3",
             Self::NaturalStrain2(_) => "natural_strain_2",
             Self::NaturalStrain3(_) => "natural_strain_3",
@@ -219,6 +222,7 @@ impl IsothermalModel {
             Self::Holzapfel(_) => "Holzapfel",
             Self::ModifiedTait(_) => "ModifiedTait",
             Self::Murnaghan(_) => "Murnaghan",
+            Self::SecondOrderMurnaghan(_) => "SecondOrderMurnaghan",
             Self::Morse3(_) => "Morse3",
             Self::NaturalStrain2(_) => "NaturalStrain2",
             Self::NaturalStrain3(_) => "NaturalStrain3",
@@ -243,6 +247,7 @@ macro_rules! dispatch_isothermal {
             IsothermalModel::Holzapfel($model) => $expression,
             IsothermalModel::ModifiedTait($model) => $expression,
             IsothermalModel::Murnaghan($model) => $expression,
+            IsothermalModel::SecondOrderMurnaghan($model) => $expression,
             IsothermalModel::Morse3($model) => $expression,
             IsothermalModel::NaturalStrain2($model) => $expression,
             IsothermalModel::NaturalStrain3($model) => $expression,
@@ -352,6 +357,9 @@ impl ReferenceStateEos for IsothermalModel {
             Self::Murnaghan(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::Murnaghan),
+            Self::SecondOrderMurnaghan(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::SecondOrderMurnaghan),
             Self::Morse3(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::Morse3),
@@ -1315,6 +1323,7 @@ struct RawComponent {
     parameters: HashMap<String, Option<f64>>,
     debye_temperature_law: Option<String>,
     thermal_pressure_reference: Option<String>,
+    zero_point_pressure: Option<String>,
     thermal_expansion_law: Option<String>,
     reference_volume_law: Option<String>,
     bulk_modulus_law: Option<String>,
@@ -2709,6 +2718,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "Holzapfel" => "holzapfel",
             "ModifiedTait" => "modified_tait",
             "Murnaghan" => "murnaghan",
+            "SecondOrderMurnaghan" => "second_order_murnaghan",
             "Morse3" => "morse_3",
             "NaturalStrain2" => "natural_strain_2",
             "NaturalStrain3" => "natural_strain_3",
@@ -2789,6 +2799,17 @@ fn build_isothermal(
             check_type(component, "Murnaghan")?;
             Murnaghan::new(v0, p("K0")?, p("K0_prime")?).map(IsothermalModel::Murnaghan)
         }
+        "second_order_murnaghan" => {
+            check_type(component, "SecondOrderMurnaghan")?;
+            SecondOrderMurnaghan::new(
+                v0,
+                p("K0")?,
+                p("K0_prime")?,
+                p("K0_double_prime")?,
+                p("P0")?,
+            )
+            .map(IsothermalModel::SecondOrderMurnaghan)
+        }
         "morse_3" => {
             check_type(component, "Morse3")?;
             Morse3::new(v0, p("K0")?, p("K0_prime")?).map(IsothermalModel::Morse3)
@@ -2847,6 +2868,7 @@ fn configuration<'a>(component: &'a RawComponent, name: &str) -> Option<&'a str>
     match name {
         "debye_temperature_law" => component.debye_temperature_law.as_deref(),
         "thermal_pressure_reference" => component.thermal_pressure_reference.as_deref(),
+        "zero_point_pressure" => component.zero_point_pressure.as_deref(),
         "thermal_expansion_law" => component.thermal_expansion_law.as_deref(),
         "reference_volume_law" => component.reference_volume_law.as_deref(),
         "bulk_modulus_law" => component.bulk_modulus_law.as_deref(),
@@ -2940,6 +2962,12 @@ fn build_thermal(
                     ))
                 }
             };
+            let include_zero_point =
+                match configuration(component, "zero_point_pressure").unwrap_or("omitted") {
+                    "included" => true,
+                    "omitted" => false,
+                    value => return Err(format!("unknown zero_point_pressure {value:?}")),
+                };
             Dewaele2006::new(
                 reference,
                 p("Tr")?,
@@ -2954,6 +2982,7 @@ fn build_thermal(
                 p("n")?,
             )
             .and_then(|model| model.with_thermal_pressure_reference(baseline))
+            .and_then(|model| model.with_zero_point_pressure(include_zero_point))
             .map(ThermalModel::Dewaele2006)
         }
         "dorogokupets_oganov_2007" => {
