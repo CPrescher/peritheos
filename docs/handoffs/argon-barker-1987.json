@@ -1,6 +1,6 @@
 {
   "study_identifier": "argon_barker_1987",
-  "study_commit": "2136d191e8c7a0a1614ff28cf85fc402ead59909",
+  "study_commit": "a112749f90b36c479704002dcdd97ce4bf4eb8fd",
   "integration_thread_id": "01a0d259-4995-7a63-a9e4-af02c28c36cc",
   "worktree": "/Users/clemens/.codex/worktrees/d3f4/peritheos",
   "reference": {
@@ -23,20 +23,30 @@
   "changed_records": [
     "peritheos/data/studies/argon-barker-1987.json"
   ],
-  "observation_assets": [],
+  "observation_assets": [
+    "datasets/argon-barker-1987-table1-liquid.csv",
+    "datasets/argon-barker-1987-figure5-selected.csv"
+  ],
   "eos_record_identifiers": [],
   "fit_status": "not_reproduced",
-  "outcome": "supporting_study_fulltext_access_blocked",
-  "independent_eos_availability": "undetermined_without_full_text",
+  "outcome": "supporting_study_with_verified_pdf_and_published_comparison_data",
+  "independent_eos_availability": "no_self_contained_numerical_equation_in_this_paper",
   "reproduction_doc": "docs/literature-reproductions/argon-barker-1987.md",
   "ris_file": "docs/handoffs/argon-barker-1987.ris",
   "pdf": {
-    "status": "unavailable_access_blocked",
+    "status": "available_user_supplied",
     "publisher_url": "https://pubs.aip.org/aip/jcp/article-pdf/86/3/1509/18963166/1509_1_online.pdf",
-    "local_path": null,
-    "sha256": null,
-    "identity_verified": false,
-    "blocker": "Publisher browser page says no current access, and following its PDF link returns the abstract with redirectedFrom=PDF. Direct request returns HTTP 403. IBM author-affiliation page links only to the DOI. OpenAlex and Semantic Scholar report closed access with no repository PDF. No matching local Zotero item found."
+    "local_path": "/Users/clemens/Documents/Peritheos/argon-sources/barker-1987/barker-1987.pdf",
+    "sha256": "d8a43b6186bdfbeaa00b8113e5275efe396bf44bab2fc4664fa6a68c2d6a6b98",
+    "identity_verified": true,
+    "blocker": null,
+    "provenance_type": "user_supplied",
+    "original_path": "/Users/clemens/Downloads/1.452187.pdf",
+    "origin_url": null,
+    "pdf_pages": 4,
+    "article_pages": "1509\u20131511",
+    "received_on": "2026-09-24",
+    "identity_evidence": "Matching cover DOI, article title, J. A. Barker, journal volume 86 and all three printed article pages. Publisher URL is a locator, not a verified acquisition origin."
   },
   "non_pdf_source_captures": [
     {
@@ -77,47 +87,49 @@
     "matching_attachment_keys": [],
     "writes_performed": false,
     "pdf_import_request_satisfied": false,
-    "coordinator_action": "If importing RIS metadata, explicitly report absent PDF; do not present metadata-only import as completion."
+    "coordinator_action": "Attach verified user-supplied PDF to matching Barker DOI item, preserve user-supplied provenance and hash, and report resulting item/attachment keys. PDF is ready; attachment confirmation remains coordinator-owned."
   },
   "tests": [
     {
-      "check": "Study JSON parsing and cross-check title, DOI, volume, page range against retrieved Crossref metadata",
+      "check": "pytest tests/test_argon_barker_1987.py -q",
+      "result": "passed",
+      "count": 4
+    },
+    {
+      "check": "ruff check and format for new script/tests",
       "result": "passed"
     },
     {
-      "check": "800 kbar = 80 GPa, missing PDF and reproduction status remain explicit",
-      "result": "passed"
+      "check": "python -m scripts.reproduce_argon_barker_1987",
+      "result": "passed",
+      "detail": "Deterministic graphical diagnostics, no independent potential/MC reproduction."
     },
     {
-      "check": "Draft202012Validator for unchanged argon_fcc and argon_hcp materials; hcp identity retained",
-      "result": "passed"
-    },
-    {
-      "check": "SHA256 of all five non-PDF source captures",
+      "check": "All three article pages and digitized overlay visually inspected",
       "result": "passed"
     },
     {
       "check": "git diff --check",
       "result": "passed"
-    },
-    {
-      "check": "pytest tests/test_argon.py -q",
-      "result": "collection_blocked",
-      "detail": "Fresh worktree has no compiled peritheos._rust extension. No numerical EOS code changed; no numerical reproduction claimed."
     }
   ],
   "studio_requirements": [
-    "Expose as supporting theoretical study, not as selectable EOS.",
-    "data/studies/ is a packaged standalone artifact; existing material/EOS loader does not automatically ingest it. Integrator must wire supporting-study presentation explicitly.",
-    "Display 298 K as simulation isotherm. Do not infer reference pressure, normalization, phase, or V0/K0 coefficients.",
-    "Display fulltext_access_blocked and not_reproduced, with no validation badge or plot.",
-    "Do not relabel Ross measurements or modeled curves as Barker experimental observations."
+    "Expose as supporting theoretical study, not selectable EOS; no independent reproduction badge.",
+    "Display 21 BFW+AT curve samples as digitized published theory, not model evaluation or measurements.",
+    "Display 11 selected Ross 1986 circles as an incomplete experimental comparison subset, not new Barker measurements.",
+    "Display Table I separately as liquid at 100 K and 27.04 cm^3/mol; one experimental row plus six theory rows.",
+    "Use per-atom A^3 from figure CSV, or explicit four-atom conversion only if choosing fcc presentation; source itself does not explicitly identify fcc/hcp.",
+    "Digitization bounds are not statistical/measurement error bars.",
+    "298 K and 0 K are distinct source isotherms, not a rectangular validity range.",
+    "Standalone data/studies requires explicit adapter."
   ],
   "remaining_limitations": [
-    "Actual matching PDF not obtained after publisher/browser, author-affiliation, repository index, web and local Zotero searches.",
-    "Cannot verify original equations, coefficient conventions, phase, volume normalization, numerical sampling/tail/quantum corrections or source table/figure values.",
-    "Exact pressure scale of experimental comparisons unresolved.",
-    "No proof that paper has no independent EOS; access limitation is distinct from model nonexistence."
+    "No equations/potential coefficients or complete numerical protocol printed in this paper; earlier cited potential/method sources required to implement Monte Carlo independently.",
+    "Only selected Figure 5 samples digitized; overlapping circles, remaining high-pressure Figure 4 portion and 0 K Figure 3 are not numerically transcribed.",
+    "Crystal structure not explicitly identified; reference pressure, V0/K0 fit and parameter uncertainties not supplied.",
+    "Ruby calibration references verified, but raw shifts and pointwise recalibration unavailable.",
+    "User acquisition URL not supplied; publisher PDF URL is a bibliographic locator, not download provenance.",
+    "Zotero attachment write and confirmation belong to coordinator."
   ],
   "no_push": true,
   "shared_checkouts_modified": false,
@@ -128,6 +140,63 @@
     "result": "request_full_text_only",
     "download_available": false,
     "author_request_sent": false,
-    "note": "Exact title and DOI match; public page says no full text available, existing signed-in browser session offers Request full-text only. Institutional publishing-fee coverage notice does not provide article reading access."
-  }
+    "note": "Exact title and DOI match; public page says no full text available, existing signed-in browser session offers Request full-text only. Institutional publishing-fee coverage notice does not provide article reading access.",
+    "historical": true
+  },
+  "datasets": [
+    {
+      "identifier": "argon_barker_1987_table1_liquid",
+      "phase": "liquid",
+      "kind": "dimensionless_thermodynamic_comparison",
+      "description": "All seven Table I rows, 100 K, 27.04 cm^3/mol; one experimental reference row and six theory rows; all include quantum corrections per caption.",
+      "source_location": "Table I, p. 1510",
+      "source_pdf_sha256": "d8a43b6186bdfbeaa00b8113e5275efe396bf44bab2fc4664fa6a68c2d6a6b98",
+      "resource": {
+        "path": "datasets/argon-barker-1987-table1-liquid.csv",
+        "sha256": "903909b3c54e10ff7550c70270cb3f3db7ee19af9e3af15b456de04c4d096dd1",
+        "media_type": "text/csv"
+      }
+    },
+    {
+      "identifier": "argon_barker_1987_figure5_selected",
+      "phase": "solid_unspecified",
+      "kind": "digitized_pressure_volume_comparison",
+      "description": "21 selected BFW+AT theoretical curve samples and 11 unambiguous Ross 1986 experimental circles; incomplete subset, 298 K. No experimental uncertainties provided.",
+      "source_location": "Figure 5, p. 1511",
+      "source_pdf_sha256": "d8a43b6186bdfbeaa00b8113e5275efe396bf44bab2fc4664fa6a68c2d6a6b98",
+      "resource": {
+        "path": "datasets/argon-barker-1987-figure5-selected.csv",
+        "sha256": "6dfa3a7eb89cec8f8228e19433b410fb37fcbbe9441689ba02972255ad1f880b",
+        "media_type": "text/csv"
+      },
+      "digitization": {
+        "render_command": "pdftoppm -f 4 -l 4 -r 300 -x 120 -y 120 -W 1080 -H 1120 -singlefile -png INPUT figure5-detail",
+        "axis_calibration": {
+          "x_pixels": [
+            150,
+            958
+          ],
+          "volume_cm3_mol": [
+            8,
+            22
+          ],
+          "y_pixels": [
+            918,
+            114
+          ],
+          "pressure_kbar": [
+            0,
+            450
+          ]
+        },
+        "picking_bound_pixels": 3,
+        "bound_interpretation": "conservative digitization bound, not statistical or experimental error",
+        "coverage": "selected visually separable circles; merged symbols omitted",
+        "experimental_origin_doi": "10.1063/1.451346"
+      }
+    }
+  ],
+  "diagnostic_script": "scripts/reproduce_argon_barker_1987.py",
+  "diagnostic_report": "docs/data/argon-barker-1987-reproduction.json",
+  "supersedes": "Prior access-blocked result superseded by matching user-supplied PDF on 2026-09-24; numerical model still not_reproduced."
 }
