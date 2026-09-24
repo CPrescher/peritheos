@@ -676,5 +676,70 @@
    },
    "license": "CC-BY-4.0"
   }
+ ],
+ "supporting_studies": [
+  {
+   "identifier": "argon_anderson_swenson_1975",
+   "label": "Anderson and Swenson (1975), cryogenic piston-displacement study",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Swenson"
+    ],
+    "year": 1975,
+    "title": "Experimental equations of state for the rare gas solids",
+    "source": "Journal of Physics and Chemistry of Solids",
+    "volume": "36",
+    "issue": "3",
+    "locator": "145-162",
+    "doi": "10.1016/0022-3697(75)90004-9"
+   },
+   "study_type": "experimental",
+   "outcome": "source_access_blocked",
+   "reproduction_status": "not_reproduced",
+   "executable_eos_record_ids": [],
+   "dataset_identifiers": [],
+   "material_association": {
+    "identifier": "argon_fcc",
+    "status": "provisional",
+    "note": "Argon scope; low-pressure solid fcc association is contextual, not primary-source crystallographic validation. No EOS or observations are assigned a verified phase."
+   },
+   "verified_scope": {
+    "evidence_level": "publisher_indexed_abstract",
+    "technique": "piston displacement",
+    "reported_maximum_pressure_kbar": 20,
+    "maximum_pressure_gpa": 2.0,
+    "reported_minimum_temperature_k": 4.2,
+    "reported_upper_temperature": "triple point",
+    "reported_volume_accuracy_percent": 0.1,
+    "accuracy_note": "Approximate overall V(P,T) accuracy claimed in abstract; not a one-sigma uncertainty on individual measurements or coefficients.",
+    "equation_description": "Individual isotherms represented by P(V) relations suggested by a Lennard-Jones potential; full equation and coefficients not recovered."
+   },
+   "unresolved_fields": [
+    "original_equation",
+    "coefficients",
+    "coefficient_uncertainties",
+    "volume_normalization",
+    "reference_pressure",
+    "reference_temperature",
+    "argon_specific_fit_ranges",
+    "pressure_calibration",
+    "primary_phase_identification",
+    "tabulated_observations"
+   ],
+   "source_access": {
+    "status": "full_text_unavailable",
+    "audit_date": "2026-09-24",
+    "doi_url": "https://doi.org/10.1016/0022-3697(75)90004-9",
+    "publisher_url": "https://www.sciencedirect.com/science/article/pii/0022369775900049",
+    "abstract_evidence_url": "https://www.sciencedirect.com/science/article/abs/pii/0375960173905689",
+    "abstract_evidence_location": "Recommended article abstract for Anderson and Swenson 1975, indexed by web search; not the host 1973 article.",
+    "pdf_obtained": false,
+    "pdf_sha256": null,
+    "note": "No matching Zotero item; publisher browser requires CAPTCHA; Elsevier full XML unauthorized and PDF unavailable; OpenAlex and Semantic Scholar provide no open full text. See reproduction document for search details."
+   },
+   "reproduction_document": "docs/literature-reproductions/argon-anderson-swenson-1975.md",
+   "notes": "This preserves a requested study whose primary full text could not be obtained, not a finding that it lacks an independent EOS. No later BM/Vinet refit or generated curve is attributed to the authors. No primary measured points recovered."
+  }
  ]
 }
