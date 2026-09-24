@@ -12,6 +12,10 @@ All notable changes to Peritheos are documented here. The project follows
   Brillouin density positions, a separate published-fit curve, reported elastic
   constants and a reproducible audit of the unresolved EOS inconsistency.
   No unverified Chen parameterization is added to the executable catalog.
+- Add experimental Python/Rust transcription and reproduction diagnostics for
+  the Maltby (2024) fcc argon Helmholtz model, with explicit lattice cutoff
+  and verified source/PDF provenance. Keep the candidate out of EOSMAT pending
+  resolution of its published sample-volume discrepancy.
 
 - Add diffraction-ready fcc argon with Dewaele (2021) thermal and Ono (2020)
   isothermal EOS records, all 307 supplementary observations, and independent

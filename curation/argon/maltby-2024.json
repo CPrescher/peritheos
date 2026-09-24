@@ -1,0 +1,308 @@
+{
+  "study_identifier": "argon_fcc_maltby_2024",
+  "reference": {
+    "authors": [
+      "Tage W. Maltby",
+      "Morten Hammer",
+      "Øivind Wilhelmsen"
+    ],
+    "year": 2024,
+    "title": "Equation of State for Solid Argon Valid for Temperatures up to 300 K and Pressures up to 16 GPa",
+    "source": "Journal of Physical and Chemical Reference Data",
+    "volume": "53",
+    "issue": "4",
+    "locator": "043102",
+    "doi": "10.1063/5.0237497",
+    "published_online": "2024-12-19"
+  },
+  "phase": "fcc",
+  "determination_method": "hybrid",
+  "outcome": "independent_eos_candidate_not_reproduced",
+  "scientific_validation_status": "not_reproduced",
+  "executable_eos_record_identifiers": [],
+  "experimental_implementation": "Maltby2024Published",
+  "source_equations": "4,7-19; Tables1,3; SI.1",
+  "source_table1": {
+    "z1_K": 140,
+    "z2": 2.34,
+    "z3": 0.683,
+    "z4_cm3_mol": 19.7
+  },
+  "source_table3": {
+    "epsilon_over_kb_K": 134.7,
+    "alpha_r": 14.19,
+    "rmin_angstrom": 3.802,
+    "lambda_over_kb_angstrom9_K": 320200.0,
+    "aD_K": 10.4,
+    "bD_K_minus2": 0.02503,
+    "cD_K_minus3": 0.0001568,
+    "v0_cm3_mol": 22.56,
+    "thetaD0_K": 92,
+    "gammaD0": 2.563,
+    "qD": 0.2874,
+    "b1": -0.0004475,
+    "b2": 2.041e-06,
+    "b3": 5.75e-07,
+    "delta_s_melt_tr_J_mol_K": 14.3,
+    "c1_K": 0.7204,
+    "c2": -1.614,
+    "c3_K": -0.01943,
+    "c4": -27.64,
+    "a0": 0.0261,
+    "a1": 0.03784,
+    "a2": 0.04512,
+    "theta0_K": 77.81,
+    "theta1_K": 550,
+    "theta2_K": 45.36,
+    "gamma0": 6.221,
+    "gamma1": 1.617e-06,
+    "gamma2": 3.127
+  },
+  "source_parameter_errors": null,
+  "source_covariance": null,
+  "source_table2_primary_data_summary": [
+    {
+      "property": "v",
+      "author": "Peterson",
+      "year": 1966,
+      "temperature_range_k": [
+        4,
+        83
+      ],
+      "count": 20
+    },
+    {
+      "property": "p",
+      "author": "Cheng",
+      "year": 1973,
+      "temperature_range_k": [
+        156.39,
+        253.49
+      ],
+      "count": 4
+    },
+    {
+      "property": "p",
+      "author": "Finger",
+      "year": 1981,
+      "temperature_range_k": [
+        293,
+        293
+      ],
+      "count": 11
+    },
+    {
+      "property": "p",
+      "author": "Macrander",
+      "year": 1980,
+      "temperature_range_k": [
+        86.52,
+        121.51
+      ],
+      "count": 5
+    },
+    {
+      "property": "p",
+      "author": "Lewis",
+      "year": 1974,
+      "temperature_range_k": [
+        10,
+        210
+      ],
+      "count": 64
+    },
+    {
+      "property": "p",
+      "author": "Dewaele",
+      "year": 2021,
+      "temperature_range_k": [
+        10,
+        300
+      ],
+      "count": 38
+    },
+    {
+      "property": "p",
+      "author": "Crawford and Daniels",
+      "year": 1968,
+      "temperature_range_k": [
+        94.73,
+        120.85
+      ],
+      "count": 3
+    },
+    {
+      "property": "chi_T",
+      "author": "Peterson",
+      "year": 1966,
+      "temperature_range_k": [
+        4,
+        83
+      ],
+      "count": 20
+    },
+    {
+      "property": "Cp",
+      "author": "Flubacher",
+      "year": 1961,
+      "temperature_range_k": [
+        4,
+        83
+      ],
+      "count": 20
+    },
+    {
+      "property": "Cp",
+      "author": "Figgins",
+      "year": 1960,
+      "temperature_range_k": [
+        16.53,
+        34.07
+      ],
+      "count": 26
+    },
+    {
+      "property": "alpha",
+      "author": "Peterson",
+      "year": 1966,
+      "temperature_range_k": [
+        4,
+        83
+      ],
+      "count": 20
+    },
+    {
+      "property": "alpha",
+      "author": "Tilford and Swenson",
+      "year": 1972,
+      "temperature_range_k": [
+        4,
+        35
+      ],
+      "count": 24
+    },
+    {
+      "property": "p_melt",
+      "author": "Hardy",
+      "year": 1971,
+      "temperature_range_k": [
+        97.795,
+        260.646
+      ],
+      "count": 81
+    },
+    {
+      "property": "p_melt",
+      "author": "Cheng",
+      "year": 1973,
+      "temperature_range_k": [
+        156.39,
+        253.49
+      ],
+      "count": 4
+    },
+    {
+      "property": "p_sub",
+      "author": "Leming and Pollack",
+      "year": 1970,
+      "temperature_range_k": [
+        36.803,
+        73.138
+      ],
+      "count": 44
+    },
+    {
+      "property": "p_sub",
+      "author": "Chen",
+      "year": 1978,
+      "temperature_range_k": [
+        74.653,
+        83.804
+      ],
+      "count": 39
+    },
+    {
+      "property": "delta_h_sub",
+      "author": "Crawford",
+      "year": 1977,
+      "temperature_range_k": [
+        83.8058,
+        83.8058
+      ],
+      "count": 1
+    },
+    {
+      "property": "delta_h_sub",
+      "author": "Schwalbe",
+      "year": 1977,
+      "temperature_range_k": [
+        83.8058,
+        83.8058
+      ],
+      "count": 1
+    },
+    {
+      "property": "delta_h_sub",
+      "author": "Horton",
+      "year": 1986,
+      "temperature_range_k": [
+        83.8058,
+        83.8058
+      ],
+      "count": 1
+    }
+  ],
+  "source_table8_kind": "calculated_theory_checks_not_observations",
+  "source_table8": {
+    "temperature_k": 70,
+    "volume_cm3_mol": 23.97,
+    "pressure_mpa": 1,
+    "A_j_mol": -9009,
+    "Cp_j_mol_k": 30.35,
+    "Cv_j_mol_k": 22.93,
+    "g_j_mol": -8985,
+    "s_j_mol_k": 32.97,
+    "alpha_mk_inverse": 1.684,
+    "gamma": 2.745,
+    "chi_T_gpa_inverse": 0.6412,
+    "chi_S_gpa_inverse": 0.4844
+  },
+  "comparison_observation_dataset_identifiers": [
+    "argon_fcc_dewaele_2021_supplement"
+  ],
+  "fit_reproduced": false,
+  "cutoff_status": "not specified by article; explicit caller choice required",
+  "report": "docs/data/argon-maltby-2024-reproduction.json",
+  "documentation": "docs/literature-reproductions/argon-maltby-2024.md",
+  "pdf_files": [
+    {
+      "path": "/Users/clemens/Documents/Argon-EOS-Papers/maltby-2024/author-manuscript.pdf",
+      "version": "AcceptedVersion, dated 2025-01-03",
+      "origin_url": "https://api.nva.unit.no/publication/0198cc531207-be3c0dc3-6af4-4953-97be-777a88a705a8/filelink/b4a4e90d-77d9-4854-a2cb-af09e365233e",
+      "sha256": "da12e25c1cfd36917876fc138dcb71b197df3c2ee5c512b56b11c4684214bc4d",
+      "bytes": 1292435
+    },
+    {
+      "path": "/Users/clemens/Documents/Argon-EOS-Papers/maltby-2024/supplement.pdf",
+      "version": "Official supplement",
+      "origin_url": "https://ndownloader.figshare.com/files/50603193",
+      "sha256": "08986ed607d464ed16565b6007c0f83ce080f326daa84ddd5260b5c92e086229",
+      "bytes": 215281
+    }
+  ],
+  "zotero": {
+    "existing_item_key": null,
+    "existing_attachment_keys": [],
+    "read_only_search": "Maltby returned no items",
+    "import_owner_thread": "01a0d259-4995-7a63-a9e4-af02c28c36cc",
+    "destination": "My Library > Methods > EOS Library",
+    "destination_collection": "C18",
+    "status": "main_pdf_verified_imported_supplement_pending",
+    "item_key": "CGV58DF9",
+    "main_pdf_attachment_key": "IDGZPNCM",
+    "main_pdf_sha256_verified": true,
+    "verification_reported_by": "01a0d259-4995-7a63-a9e4-af02c28c36cc",
+    "writes_performed_by_this_task": false
+  },
+  "audit_date": "2026-09-24"
+}

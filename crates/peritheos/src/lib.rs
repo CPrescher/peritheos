@@ -109,6 +109,7 @@ mod validation;
 
 pub mod batch;
 pub mod eosmat;
+pub mod experimental;
 pub mod fit;
 pub mod hugoniot;
 pub mod isothermal;

@@ -1,0 +1,134 @@
+{
+  "status": "not_reproduced",
+  "equations": "Literal Eqs.4,7-19; Tables1,3; explicit CSM cutoff squared64",
+  "sigma_angstrom": 3.3842491091093843,
+  "published_table8": {
+    "pressure_gpa": 0.001,
+    "volume_at_1mpa_cm3_mol": 23.97,
+    "cv_j_mol_k": 22.93,
+    "cp_j_mol_k": 30.35,
+    "alpha_mk_inverse": 1.684,
+    "gamma": 2.745,
+    "chi_t_gpa_inverse": 0.6412,
+    "chi_s_gpa_inverse": 0.4844
+  },
+  "candidate_table8": {
+    "pressure_gpa": -0.004225979767987841,
+    "volume_at_1mpa_cm3_mol": 23.890427534201194,
+    "unshifted_helmholtz_j_mol": -9059.066479111507,
+    "cv_j_mol_k": 22.91770033480134,
+    "cp_j_mol_k": 30.395892014789574,
+    "alpha_mk_inverse": 1.6974389967113135,
+    "gamma": 2.7462074496967372,
+    "chi_t_gpa_inverse": 0.646484076173391,
+    "chi_s_gpa_inverse": 0.4874319306620035
+  },
+  "relative_volume_discrepancy_percent": -0.33196689945267366,
+  "independent_si_quadrature": [
+    {
+      "volume_cm3_mol": 23.97,
+      "temperature_k": 70,
+      "pressure_gpa": -0.004225979493630791,
+      "analytic_minus_quadrature_gpa": -2.7435705009931644e-10
+    },
+    {
+      "volume_cm3_mol": 18,
+      "temperature_k": 300,
+      "pressure_gpa": 2.2143837723585116,
+      "analytic_minus_quadrature_gpa": -1.2850382979934238e-09
+    },
+    {
+      "volume_cm3_mol": 12,
+      "temperature_k": 0,
+      "pressure_gpa": 16.50973820034475,
+      "analytic_minus_quadrature_gpa": -7.796568723961173e-09
+    }
+  ],
+  "cutoff_sensitivity": [
+    {
+      "cutoff_squared": 16,
+      "pressure_gpa": -0.004288390423906065,
+      "volume_at_1mpa_cm3_mol": 23.889484554084937,
+      "unshifted_helmholtz_j_mol": -9059.8302807544,
+      "cv_j_mol_k": 22.91770033480134,
+      "cp_j_mol_k": 30.39677816636788,
+      "alpha_mk_inverse": 1.6976401400238126,
+      "gamma": 2.746207449696737,
+      "chi_t_gpa_inverse": 0.6465606833143908,
+      "chi_s_gpa_inverse": 0.48747547872880914
+    },
+    {
+      "cutoff_squared": 36,
+      "pressure_gpa": -0.004231485351716325,
+      "volume_at_1mpa_cm3_mol": 23.890344341973012,
+      "unshifted_helmholtz_j_mol": -9059.133858212641,
+      "cv_j_mol_k": 22.917702881386504,
+      "cp_j_mol_k": 30.395972725181842,
+      "alpha_mk_inverse": 1.697456738740401,
+      "gamma": 2.746207144541758,
+      "chi_t_gpa_inverse": 0.6464908333760393,
+      "chi_s_gpa_inverse": 0.4874357852866965
+    },
+    {
+      "cutoff_squared": 64,
+      "pressure_gpa": -0.004225979767987841,
+      "volume_at_1mpa_cm3_mol": 23.890427534201194,
+      "unshifted_helmholtz_j_mol": -9059.066479111507,
+      "cv_j_mol_k": 22.91770033480134,
+      "cp_j_mol_k": 30.395892014789574,
+      "alpha_mk_inverse": 1.6974389967113135,
+      "gamma": 2.7462074496967372,
+      "chi_t_gpa_inverse": 0.646484076173391,
+      "chi_s_gpa_inverse": 0.4874319306620035
+    },
+    {
+      "cutoff_squared": 100,
+      "pressure_gpa": -0.004223121460328803,
+      "volume_at_1mpa_cm3_mol": 23.890470725234152,
+      "unshifted_helmholtz_j_mol": -9059.031498224773,
+      "cv_j_mol_k": 22.917702881386504,
+      "cp_j_mol_k": 30.395853982071383,
+      "alpha_mk_inverse": 1.697429785809115,
+      "gamma": 2.7462071445418026,
+      "chi_t_gpa_inverse": 0.6464805681229526,
+      "chi_s_gpa_inverse": 0.4874299497415246
+    },
+    {
+      "cutoff_squared": 144,
+      "pressure_gpa": -0.004218061212263269,
+      "volume_at_1mpa_cm3_mol": 23.89054719000287,
+      "unshifted_helmholtz_j_mol": -9058.969569284447,
+      "cv_j_mol_k": 22.917702881386504,
+      "cp_j_mol_k": 30.395782143027866,
+      "alpha_mk_inverse": 1.697413479407921,
+      "gamma": 2.746207144541758,
+      "chi_t_gpa_inverse": 0.646474357691406,
+      "chi_s_gpa_inverse": 0.48742641924104024
+    },
+    {
+      "cutoff_squared": 256,
+      "pressure_gpa": -0.004219471126832365,
+      "volume_at_1mpa_cm3_mol": 23.890525884850057,
+      "unshifted_helmholtz_j_mol": -9058.986824271573,
+      "cv_j_mol_k": 22.91770033480134,
+      "cp_j_mol_k": 30.395799612499303,
+      "alpha_mk_inverse": 1.6974180227569668,
+      "gamma": 2.746207449696737,
+      "chi_t_gpa_inverse": 0.6464760880645248,
+      "chi_s_gpa_inverse": 0.4874273895984272
+    }
+  ],
+  "experimental_comparison": {
+    "dataset": "argon_fcc_dewaele_2021_supplement",
+    "selection": "Every finite pressure in (0,16] GPa and T in [0,300] K; all runs, repeated rows retained. Not the published fit selection.",
+    "count": 130,
+    "rms_pressure_gpa": 0.48718837994664155,
+    "mean_absolute_relative_pressure_percent": 4.8298562561666305
+  },
+  "limitations": [
+    "No independent refit: full weighted primary property observations not supplied in this paper/supplement.",
+    "Numerical lattice cutoff unspecified; explicit sensitivity cases do not repair Table8.",
+    "Fluid-reference Gibbs/entropy offsets not evaluated; source A,g,s cannot directly validate unshifted energy.",
+    "No active EOSMAT or Studio curve until the sample-volume discrepancy is resolved."
+  ]
+}
