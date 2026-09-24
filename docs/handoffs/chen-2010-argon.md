@@ -2,7 +2,9 @@
 
 Study ID: `argon_fcc_chen_2010`.
 DOI: `10.1103/PhysRevB.81.144110`.
-Outcome: **supporting study, `not_reproduced`**, with no executable Chen EOS.
+Original-source outcome: **supporting study, `not_reproduced`**. A later,
+explicitly requested independent Peritheos refit is described in the addendum
+below; it does not turn the source-author parameterization into a validated EOS.
 Material: existing `argon_fcc`, conventional cell Z = 4. Wittlinger hcp is
 untouched and remains `not_reproduced`.
 
@@ -112,3 +114,58 @@ author contact was made.
   this study, the shared dataset semantics, all EOSMAT tests and the existing
   argon regressions. Full-suite verification can be performed once on the
   integrated nine-study result.
+
+## User-requested independent refit addendum
+
+After reviewing the source discrepancy, the user explicitly agreed to trying
+our own separate digitized-data refit. This adds one executable, nondefault
+`record_kind: refit` record: `argon_fcc_chen_2010_bm3_digitized_refit`. Its BM3
+model uses the existing `birch_murnaghan_3` adapter. The source study remains
+`not_reproduced` and its `eos_record_identifiers` stays empty; the new record is
+listed separately in `peritheos_refit_record_identifiers`.
+
+Primary regression: all 80 black-square positions, P/rho errors-in-variables
+with graphical coordinate halfwidths as relative scales, three free EOS
+parameters and 80 latent densities. No PDF rendering multiplicities, source
+curve vertices, printed moduli or extrapolated density constrain the fit.
+Use the unchanged source points for plotted measurements; latent coordinates
+are diagnostics in the JSON report only.
+
+- V0 = 157.054399126 Å³/four-atom fcc cell, K0 = 4.398863939 GPa,
+  K0prime = 4.621762004; zero-pressure extrapolated parameters.
+- Original-coordinate pressure RMS = 0.111199 GPa, maximum = 0.209913 GPa.
+- Weighting/bin-spacing sensitivity: at most 0.617% in-range volume change.
+- Common digitization offsets: at most 0.522% volume change.
+- Omit each 1 GPa pressure bin: at most 1.673% volume change and worst
+  withheld-bin pressure RMS 0.271 GPa. K0/V0 extrapolations are less stable.
+- Qualified range = 1.23188372–26.06236454 GPa at nominal 290 K.
+- Parameter errors/covariance are explicitly null. Unknown integration
+  covariance and unspecified graphical confidence levels preclude statistical
+  uncertainty claims. Sensitivity ranges must not be rendered as confidence
+  intervals.
+
+Reproduce: `python -m scripts.refit_chen_2010_argon --plot`. Report and figure:
+`docs/data/chen-2010-argon-refit.json` and `.png`. Detailed provenance and bounds
+are embedded in `fit_provenance`; the source audit has a new refit section.
+Tests: `tests/test_chen_2010_argon_refit.py` plus updated original Chen tests.
+
+Studio should expose the record with its **Peritheos refit** label and fitted
+source dataset, keeping the original source discrepancy and published-curve
+comparison separate. The 80-point dataset now links to this refit; the other
+two Chen datasets remain unlinked. No new equation class is needed.
+
+Per the coordinator's request, global manifests, counts, primary-source/refit
+ledgers and the final Studio source pin are coordinated centrally. This adds
+one experimental validated *Peritheos refit* record, not one reproduced
+source-author fit, and one additional dataset-to-EOS link. The new refit must
+not be sent through the old Chen source-parameter failure diagnostic as though
+it were a published coefficient record.
+
+Refit validation: 27 focused Python tests passed; the added positive-bulk
+modulus and inversion check was rerun separately. Ruff and diff checks passed.
+The Rust EOSMAT run passed 31 tests; its sole failure is the centrally owned
+hard-coded inventory assertion (617 actual versus 616 expected in this
+isolated checkout, `crates/peritheos/tests/eosmat.rs:995`). All records loaded
+and round-tripped before that assertion. Update the integrated total rather
+than copying this worktree's count. The original completed Rust run above
+predates this additional refit record.

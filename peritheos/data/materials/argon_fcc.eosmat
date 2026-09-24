@@ -1362,6 +1362,249 @@
    "comparison_datasets": [
     "argon_anderson_1972_appendix_a"
    ]
+  },
+  {
+   "identifier": "argon_fcc_chen_2010_bm3_digitized_refit",
+   "label": "Chen (2010) \u2014 Peritheos BM3 refit of digitized Brillouin densities",
+   "record_kind": "refit",
+   "reference": {
+    "authors": [
+     "Chen",
+     "Gleason",
+     "Yan",
+     "Koski",
+     "Clark",
+     "Jeanloz"
+    ],
+    "year": 2010,
+    "title": "Elasticity, strength, and refractive index of argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "81",
+    "locator": "144110",
+    "doi": "10.1103/PhysRevB.81.144110"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 157.05439912614554,
+     "K0": 4.398863938924779,
+     "K0_prime": 4.621762004158216
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 290.0,
+   "reference_pressure_gpa": 0.0,
+   "experimental_pressure_range_gpa": [
+    1.23188372,
+    26.06236454
+   ],
+   "experimental_temperature_range_k": [
+    290,
+    290
+   ],
+   "determination_method": "experimental",
+   "fit_datasets": [
+    "argon_fcc_chen_2010_figure5_brillouin"
+   ],
+   "default": false,
+   "validity": {
+    "pressure_gpa": [
+     1.23188372,
+     26.06236454
+    ],
+    "temperature_k": [
+     290,
+     290
+    ],
+    "notes": [
+     "Digitized room-temperature observations;290K from TableI. No thermal extension.",
+     "Curve stability assessed only in the fitted pressure interval; zero-pressure coefficients are extrapolations."
+    ]
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos audit using scipy.optimize.least_squares",
+     "version": "1.13.1"
+    },
+    "dataset": "argon_fcc_chen_2010_figure5_brillouin",
+    "selection": {
+     "predicate": "All80 distinct black-square Figure5 positions; source fitted curve and printed constants excluded",
+     "included_rows": 80,
+     "excluded_rows": 0,
+     "pdf_render_multiplicity_ignored": true
+    },
+    "objective": "sum_i[((P_BM3(rho_adjusted_i)-P_observed_i)/P_plot_halfwidth_i)^2+((rho_adjusted_i-rho_observed_i)/rho_plot_halfwidth_i)^2]",
+    "weights": [
+     "pressure_plot_halfwidth_gpa",
+     "density_plot_halfwidth_g_cm3"
+    ],
+    "refined_parameters": [
+     "V0",
+     "K0",
+     "K0_prime"
+    ],
+    "fixed_parameters": [],
+    "latent_coordinates": "One adjusted density per source position, with original coordinates preserved in dataset",
+    "covariance_scaling": "No parameter covariance or standard errors exported: confidence convention and cross-row density-integration correlations unknown. Graphical halfwidths are relative weighting scales.",
+    "statistics": {
+     "objective": 0.8465836542710468,
+     "pressure_rms_original_coordinates_gpa": 0.11119857518049753,
+     "pressure_max_abs_original_coordinates_gpa": 0.2099130749516931,
+     "pressure_rms_adjusted_coordinates_gpa": 0.018595905282064368
+    },
+    "reproduction": {
+     "script": "scripts/refit_chen_2010_argon.py",
+     "report": "docs/data/chen-2010-argon-refit.json",
+     "solver": "scipy.optimize.least_squares(method=trf), x_scale=jac, ftol=xtol=gtol=1e-11, max_nfev=800",
+     "fitted_coordinates": [
+      "rho0_g_cm3",
+      "K0_gpa",
+      "K0_prime"
+     ],
+     "bounds": {
+      "rho0_g_cm3": [
+       0.5,
+       1.99
+      ],
+      "K0_gpa": [
+       0.001,
+       50
+      ],
+      "K0_prime": [
+       1,
+       20
+      ],
+      "latent_density_g_cm3": [
+       1,
+       6
+      ]
+     },
+     "starting_points": [
+      [
+       1.4,
+       2,
+       8
+      ],
+      [
+       1.65,
+       4,
+       5
+      ],
+      [
+       1.85,
+       8,
+       4
+      ]
+     ],
+     "density_to_volume": "V_cell=4*39.948/(0.602214076*rho)",
+     "weighting_sensitivity": {
+      "parameter_min": {
+       "V0": 156.39706998946636,
+       "K0": 4.01460376045097,
+       "K0_prime": 4.527991090133802
+      },
+      "parameter_max": {
+       "V0": 159.78982759337597,
+       "K0": 4.600950586454276,
+       "K0_prime": 4.687911138238274
+      },
+      "max_volume_difference_from_primary_percent": 0.616677209975447
+     },
+     "coordinate_shift_sensitivity": {
+      "parameter_min": {
+       "V0": 155.42643383802465,
+       "K0": 4.203701052709369,
+       "K0_prime": 4.602872195785007
+      },
+      "parameter_max": {
+       "V0": 158.76653744326325,
+       "K0": 4.594661137922255,
+       "K0_prime": 4.641388569254822
+      },
+      "max_volume_difference_from_primary_percent": 0.5218051846656246
+     },
+     "deletion_sensitivity": {
+      "parameter_min": {
+       "V0": 148.3953646018146,
+       "K0": 4.128084488328198,
+       "K0_prime": 4.18099370529783
+      },
+      "parameter_max": {
+       "V0": 159.14835049935036,
+       "K0": 6.37290886296429,
+       "K0_prime": 4.688893098045726
+      },
+      "max_volume_difference_from_primary_percent": 1.6726551518666866
+     }
+    }
+   },
+   "parameter_provenance": {
+    "determination_method": "Peritheos refit to80 digitized experimental Brillouin-integrated density positions; not source-author EOS coefficients.",
+    "V0": "Free fitted rho0 converted using39.948g/mol and four atoms/cell; extrapolated zero-pressure volume.",
+    "K0": "Free Peritheos BM3 fit, not the15.1GPa modulus at2GPa reported by Chen.",
+    "K0_prime": "Free Peritheos BM3 fit, not the5.4 derivative at2GPa reported by Chen.",
+    "temperature_ref": "TableI290K; text room-temperature and strength300K wording retained as source ambiguity."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1978",
+      "source_location": "Chen2010 Experimental section reference14",
+      "reference": "Mao, Bell, Shaner and Steinberg (1978), J. Appl. Phys.49,3276"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No ruby wavelengths supplied; refit preserves reported pressures."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "reproduction_status": "independent_digitized_data_refit",
+    "original_publication_reproduction_status": "not_reproduced",
+    "note": "Validation applies only to traceable source observations and reproducible Peritheos refit. Chen source-author parameterization remains unresolved.",
+    "verified_fields": [
+     "equation",
+     "units",
+     "phase",
+     "source_observations",
+     "numerical_refit",
+     "reference_state",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1103/PhysRevB.81.144110",
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+     "locations": [
+      "Figure5 black squares and caption, TableI temperature; no published fit-line vertices in regression"
+     ]
+    },
+    "primary_data_check": {
+     "status": "digitized",
+     "dataset_identifiers": [
+      "argon_fcc_chen_2010_figure5_brillouin"
+     ],
+     "finding": "80 distinct vector marker positions with graphical coordinate errorbar halfwidths; not original experimental tables."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/refit_chen_2010_argon.py",
+     "report": "docs/data/chen-2010-argon-refit.json",
+     "native_pressure_max_difference_gpa": 4.263256414560601e-14
+    }
+   },
+   "notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent."
   }
  ],
  "datasets": [
@@ -1863,7 +2106,9 @@
     "sha256": "fc7c9eda97466e12c8318341d87d5d931cf03dc09cdaddfd2f32dcf7a22caacf",
     "media_type": "text/csv"
    },
-   "used_by_eos_records": [],
+   "used_by_eos_records": [
+    "argon_fcc_chen_2010_bm3_digitized_refit"
+   ],
    "study_identifier": "argon_fcc_chen_2010",
    "provenance": {
     "type": "digitized_primary_figure",
@@ -1873,7 +2118,7 @@
     "transcription_license": "CC0-1.0 applies only to contributor-held rights in factual transcription and arrangement; not source article or figure",
     "temperature_note": "290 K from Table I; text says room temperature and later calls strength300 K. No temperature correction applied."
    },
-   "notes": "Supporting-study dataset; no executable Chen EOS record. See docs/literature-reproductions/chen-2010-argon.md.",
+   "notes": "Source-author EOS unresolved; linked only to explicitly separate Peritheos digitized-data refit. See source audit and refit report.",
    "uncertainty": {
     "type": "digitized_plot_errorbar",
     "confidence_convention": "not specified in source",

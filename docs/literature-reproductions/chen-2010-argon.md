@@ -1,8 +1,9 @@
 # Chen et al. (2010): fcc argon supporting study
 
 **Outcome: supporting study; published EOS not reproduced.** The paper and
-its useful density observations are included, but no executable Chen EOS record
-is added. Substituting its 2 GPa elastic constants for zero-pressure BM3
+its useful density observations are included, but no executable source-author
+parameterization is added. A separately labeled Peritheos refit is documented
+below. Substituting its 2 GPa elastic constants for zero-pressure BM3
 parameters would be incorrect. The standard BM3 reconstructed from those
 local constants also fails the source curve. This is an unresolved source
 parameterization problem, not a claim that the experiment is invalid.
@@ -181,5 +182,78 @@ velocity/density data and fitting procedure, would resolve the ambiguity.
 No authors were contacted and no purchase was made.
 
 Packaged supporting-study metadata: `peritheos/data/studies/argon-fcc-chen-2010.json`.
-All datasets have empty `used_by_eos_records`; they are retained for comparison
-and future audit, without attaching them to unrelated Dewaele or Ono fits.
+The source constants and published curve have empty `used_by_eos_records`.
+The black-square density dataset is linked only to the separate Peritheos
+refit below, never to unrelated Dewaele or Ono fits.
+
+## Independent Peritheos refit of the digitized density points
+
+At the user's request, a separate opt-in record is now included:
+`argon_fcc_chen_2010_bm3_digitized_refit`, labeled **Chen (2010) — Peritheos BM3
+refit of digitized Brillouin densities**. Its `record_kind` is `refit`. This
+does not validate or replace the source-author coefficients; the publication's
+reproduction status remains `not_reproduced`.
+
+All 80 distinct black-square positions enter once. The 262 published curve
+vertices, PDF rendering multiplicities, zero-pressure density and reported
+elastic constants are excluded from the regression. No point is fixed as an
+anchor. The fitted parameters are rho0, K0 and K0prime; rho0 is converted to
+four-atom cell V0 after fitting. An independent Python BM3 expression is used
+for fitting and checked against the native Peritheos evaluator.
+
+The primary objective is an errors-in-variables least-squares fit:
+
+\[
+\sum_i\left[\left(\frac{P_{BM3}(\widetilde\rho_i)-P_i}{s_{P,i}}\right)^2
++\left(\frac{\widetilde\rho_i-\rho_i}{s_{\rho,i}}\right)^2\right].
+\]
+
+The 80 adjusted densities are latent fitting coordinates; the stored source
+coordinates remain unchanged. The graphical errorbar halfwidths sP and srho
+are used as relative coordinate scales, **not asserted to be independent
+one-sigma errors**. No reduced chi-square, statistical parameter uncertainties
+or covariance is exported. The report preserves the adjusted densities and
+reports residuals at both adjusted and original coordinates.
+
+| Parameter or diagnostic | Result |
+|---|---:|
+| V0, four-atom fcc cell | 157.0544 Å³ |
+| K0 | 4.39886 GPa |
+| K0prime | 4.62176 |
+| Extrapolated rho0 | 1.68948 g/cm³ |
+| Pressure RMS, original coordinates | 0.11120 GPa |
+| Maximum pressure residual, original coordinates | 0.20991 GPa |
+| Pressure RMS, adjusted coordinates | 0.01860 GPa |
+| At 2 GPa: rho, KT, KTprime | 2.17475 g/cm³, 12.61763 GPa, 3.84591 |
+
+The smaller adjusted-coordinate residual must not be advertised as the fit's
+agreement with the unadjusted observations. Residual structure remains visible
+in the comparison below: a good approximation within plotted error bars is
+not proof that BM3 is the exact underlying density relation.
+
+![Independent refit and original-coordinate residuals](../data/chen-2010-argon-refit.png)
+
+Three distinct initial parameter sets converge to the same solution within
+8×10⁻⁸ in fitted density-coordinate parameters, with no active parameter bound.
+Parameters are free within broad documented bounds, and no reported Chen
+constant is imposed. Sensitivity checks give:
+
+- Equal-pressure regression and four error-in-variables variants with each
+  occupied 0.5, 1 or 2 GPa bin receiving unit total weight (including a shifted
+  1 GPa grid): maximum predicted volume change **0.617%** in the observed range.
+- Common coordinate-reading shifts of ±0.05 GPa or ±0.01 g/cm³ applied to all
+  points: maximum volume change **0.522%**.
+- Refit after omitting each occupied 1 GPa pressure bin: maximum in-range
+  volume change **1.673%**, worst withheld-bin pressure RMS **0.271 GPa**.
+
+These are sensitivity envelopes, not confidence intervals. In particular, the
+zero-pressure parameters are less stable: deleting pressure bins moves K0
+between 4.13 and 6.37 GPa and V0 between 148.40 and 159.15 Å³. The executable
+refit is therefore qualified for the digitized interval **1.2319–26.0624 GPa**
+at nominal **290 K**; no ambient-pressure solid or extrapolation accuracy is
+claimed. Unknown integration correlations remain an important limitation.
+
+Reproduce with `python -m scripts.refit_chen_2010_argon --plot` (Matplotlib is
+optional unless plotting). The full numerical report is
+`docs/data/chen-2010-argon-refit.json`; solver, bounds, starts, selection and
+objective are also embedded in the record's `fit_provenance`.

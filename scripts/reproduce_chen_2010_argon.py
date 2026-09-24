@@ -155,7 +155,7 @@ def reproduce():
                 density_pressure_derivative(2, 3.228, 1.153)
             ),
         },
-        "limitation": "No unrounded EOS coefficients, original velocity/density table, covariance or integration weights supplied. Rounded-constraint inconsistency is not a significance test; errors are correlated and confidence convention is unspecified. No executable Chen EOS record is bundled.",
+        "limitation": "No unrounded EOS coefficients, original velocity/density table, covariance or integration weights supplied. Rounded-constraint inconsistency is not a significance test; errors are correlated and confidence convention is unspecified. No executable source-author Chen EOS is bundled; the separate Peritheos digitized-data refit does not resolve this source discrepancy.",
     }
 
 

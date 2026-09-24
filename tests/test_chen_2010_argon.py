@@ -25,12 +25,20 @@ def test_supporting_study_datasets_load_without_an_invented_eos():
     doc = get_material_document("argon_fcc")
     schema = json.loads((ROOT / "peritheos/data/eosmat-v3.schema.json").read_text())
     assert not list(Draft202012Validator(schema).iter_errors(doc))
-    assert not any("chen_2010" in r["identifier"] for r in doc["eos_records"])
+    assert all(
+        r.get("record_kind") == "refit"
+        for r in doc["eos_records"]
+        if "chen_2010" in r["identifier"]
+    )
     material = get_material("argon_fcc")
     datasets = [d for d in doc["datasets"] if "chen_2010" in d["identifier"]]
     assert len(datasets) == 3
     for dataset in datasets:
-        assert dataset["used_by_eos_records"] == []
+        assert dataset["used_by_eos_records"] == (
+            ["argon_fcc_chen_2010_bm3_digitized_refit"]
+            if dataset["identifier"].endswith("figure5_brillouin")
+            else []
+        )
         path = ROOT / "peritheos/data" / dataset["resource"]["path"]
         assert (
             hashlib.sha256(path.read_bytes()).hexdigest()
