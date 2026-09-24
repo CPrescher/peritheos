@@ -9,9 +9,9 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 625,
+    "records": 626,
     "deferred": 2,
-    "primary_source_validated": 623
+    "primary_source_validated": 624
   },
   "records": [
     {
@@ -716,6 +716,23 @@
         "access_note": "Article identity URL; full text was supplied by the user. Original download URL unknown."
       },
       "reproduction_status": "equation_reproduced"
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_chen_2010_bm3_digitized_refit",
+      "label": "Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities",
+      "doi": "10.1103/physrevb.81.144110",
+      "status": "primary_source_validated",
+      "note": "Validation applies only to traceable source observations and reproducible Peritheos refit. Chen source-author parameterization remains unresolved.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.81.144110",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+        "locations": [
+          "Figure5 black squares and caption, TableI temperature; no published fit-line vertices in regression"
+        ]
+      },
+      "reproduction_status": "independent_digitized_data_refit"
     },
     {
       "material": "argon_hcp",

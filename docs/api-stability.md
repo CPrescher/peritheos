@@ -47,7 +47,7 @@ remain supported as explicit compatibility lookups, preserving their prior
 parameters and numerical results when a primary-source audit found that the
 new canonical record is not identical. They are intentionally omitted from
 `list_materials()`, `list_eos_records()`, and search results, whose deterministic
-contents are exactly the bundled 224-executable-material/623-record collection.
+contents are exactly the bundled 224-executable-material/624-record collection.
 The document API separately exposes all 226 material cards, including cards
 with no executable EOS.
 

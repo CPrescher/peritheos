@@ -25,7 +25,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 625
+    assert len(identifiers) == len(set(identifiers)) == 626
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -33,12 +33,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 625, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 626, **dict(sorted(statuses.items()))}
     assert statuses == {
         "not_refittable": 173,
         "parity": 220,
         "parity_not_achieved": 70,
-        "similar": 149,
+        "similar": 150,
         "source_reconstruction": 13,
     }
     assert all(
@@ -721,3 +721,15 @@ def test_shen_smith_cu_pressure_reconstruction_and_all_fixed_v0_refits():
             "psi": 1.65,
         }
         assert "no pressure weights" in result["qualification"]
+
+
+def test_chen_independent_refit_does_not_promote_source_author_coefficients():
+    row = next(
+        item
+        for item in load_ledger()["records"]
+        if item["record_identifier"] == "argon_fcc_chen_2010_bm3_digitized_refit"
+    )
+    assert row["reproduction_status"] == "independent_digitized_data_refit_reproduced"
+    assert row["original_publication_reproduction_status"] == "not_reproduced"
+    assert row["observations"] == 80
+    assert row["refit"]["pressure_rms_original_coordinates_gpa"] < 0.12

@@ -2062,6 +2062,24 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if record_id == "argon_fcc_chen_2010_bm3_digitized_refit":
+        from scripts.refit_chen_2010_argon import fit, observations
+
+        result = fit(observations())
+        published = record["eos"]["parameters"]
+        reproduced = all(
+            np.isclose(value, published[key], rtol=1e-7, atol=1e-9)
+            for key, value in result["parameters"].items()
+        )
+        return {
+            "status": "similar" if reproduced else "parity_not_achieved",
+            "reproduction_status": "independent_digitized_data_refit_reproduced",
+            "original_publication_reproduction_status": "not_reproduced",
+            "dataset_identifiers": record["fit_datasets"],
+            "observations": 80,
+            "reason": "Numerically reproduced independent Peritheos errors-in-variables BM3 refit. This does not reproduce the source-author coefficients. Statistical parameter errors are unavailable because graphical halfwidth confidence and cross-row correlations are unknown.",
+            "refit": result,
+        }
     if record_id == "argon_fcc_xiao_2025_helmholtz":
         from scripts.reproduce_argon_xiao_2025 import reproduce
 
