@@ -1,0 +1,115 @@
+{
+  "study_id": "argon_anderson_swenson_1975",
+  "worktree": "/Users/clemens/.codex/worktrees/2b89/peritheos",
+  "implementation_commit": "671416f0e5477516639c712cfa7d22a7cbe52038",
+  "reference": {
+    "authors": [
+      "Anderson",
+      "Swenson"
+    ],
+    "year": 1975,
+    "title": "Experimental equations of state for the rare gas solids",
+    "source": "Journal of Physics and Chemistry of Solids",
+    "volume": "36",
+    "issue": "3",
+    "locator": "145-162",
+    "doi": "10.1016/0022-3697(75)90004-9"
+  },
+  "creators": [
+    {
+      "firstName": "M. S.",
+      "lastName": "Anderson",
+      "creatorType": "author"
+    },
+    {
+      "firstName": "C. A.",
+      "lastName": "Swenson",
+      "creatorType": "author"
+    }
+  ],
+  "changed_records": [
+    "argon_fcc.supporting_studies.argon_anderson_swenson_1975"
+  ],
+  "eos_record_ids": [],
+  "observation_assets": [],
+  "fit_status": "not_reproduced",
+  "outcome": "source_access_blocked",
+  "full_text_missing": true,
+  "pdf": {
+    "path": null,
+    "origin_url": null,
+    "sha256": null,
+    "identity_verified": false,
+    "blocker": "No matching existing Zotero paper/attachment. ScienceDirect CAPTCHA; Elsevier full XML HTTP401 and PDF HTTP406. No OA PDF in OpenAlex/Semantic Scholar or targeted repository search."
+  },
+  "metadata_assets": [
+    {
+      "path": "/Users/clemens/Documents/Peritheos Sources/argon/anderson-swenson-1975/crossref-metadata.json",
+      "origin_url": "https://api.crossref.org/works/10.1016/0022-3697(75)90004-9",
+      "sha256": "363a5df43b903f50026d830d1344bb1d3be7c91f5685cda4346148249fcdd0e0",
+      "kind": "metadata_not_pdf"
+    },
+    {
+      "path": "/Users/clemens/Documents/Peritheos Sources/argon/anderson-swenson-1975/openalex-metadata.json",
+      "origin_url": "https://api.openalex.org/works/https://doi.org/10.1016/0022-3697(75)90004-9",
+      "sha256": "b2e4515922db77d3edf3fd5efede17cacac80520ecf42f9b194eddb6d2c07864",
+      "kind": "metadata_not_pdf"
+    },
+    {
+      "path": "/Users/clemens/Documents/Peritheos Sources/argon/anderson-swenson-1975/semantic-scholar-metadata.json",
+      "origin_url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1016/0022-3697(75)90004-9?fields=title,openAccessPdf",
+      "sha256": "15d8e326ecd01af748cefcc4dbfa0ac68fadd4d722f7213a9fdbea48ed514cc0",
+      "kind": "metadata_not_pdf"
+    }
+  ],
+  "zotero": {
+    "existing_item_key": null,
+    "existing_attachment_key": null,
+    "destination_collection_id": "C18",
+    "destination": "My Library > Methods > EOS Library",
+    "writes_performed": false,
+    "action": "Coordinator may import bibliographic metadata but must explicitly report PDF attachment still missing."
+  },
+  "tests": [
+    {
+      "command": "/Users/clemens/Programming/peritheos/.venv/bin/python -m pytest tests/test_argon.py -q",
+      "result": "5 passed in 0.77s"
+    },
+    {
+      "check": "JSON Schema Draft202012Validator",
+      "result": "pass"
+    },
+    {
+      "check": "Material.from_eosmat(document).to_eosmat() retains supporting_studies",
+      "result": "pass"
+    },
+    {
+      "check": "Existing fcc eos_records and datasets identical to baseline; hcp file untouched",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "test_environment": "Existing Python 3.9 environment and native extension read from the main checkout via ignored worktree symlink; no writes to shared checkouts. Metadata-only change; no native build required.",
+  "studio_requirements": [
+    "Show a non-executable supporting-study entry with source_access_blocked / not_reproduced.",
+    "Do not show a fitted curve or observed-point toggle: zero EOS records or primary observations were recovered.",
+    "Do not treat abstract accuracy as point sigma or infer 0 K/300 K reference state."
+  ],
+  "remaining_limitations": [
+    "original_equation",
+    "coefficients",
+    "coefficient_uncertainties",
+    "volume_normalization",
+    "reference_pressure",
+    "reference_temperature",
+    "argon_specific_fit_ranges",
+    "pressure_calibration",
+    "primary_phase_identification",
+    "tabulated_observations",
+    "matching_primary_pdf"
+  ],
+  "documentation": "docs/literature-reproductions/argon-anderson-swenson-1975.md"
+}
