@@ -43,6 +43,7 @@ def _native_evaluation_types() -> tuple[type, ...]:
         BM3,
         BM4,
         Baonza,
+    DensityPolynomial3,
         Holzapfel,
         ModifiedTait,
         Morse3,
@@ -74,6 +75,7 @@ def _native_evaluation_types() -> tuple[type, ...]:
 
     return (
         Baonza,
+    DensityPolynomial3,
         BM2,
         BM3,
         BM4,

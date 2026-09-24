@@ -1,0 +1,76 @@
+{
+  "record_identifier": "argon_fcc_grimsditch_1986_density_polynomial",
+  "equation_status": "reproduced",
+  "fit_status": "not_reproduced",
+  "reason": "No independent source X-ray rows/weights; Table I densities and Table II bulk moduli depend on adopted EOS.",
+  "table1_count": 98,
+  "liquid_count": 23,
+  "fcc_count": 75,
+  "table2_count": 8,
+  "native_max_abs_pressure_error_gpa": 2.1316282072803006e-14,
+  "native_max_abs_bulk_error_gpa": 7.105427357601002e-14,
+  "native_volume_roundtrip_max_abs_a3": 6.394884621840902e-13,
+  "derived_density_consistency_rms_gpa": 0.1759426849934655,
+  "derived_density_consistency_max_abs_gpa": 1.2160508979199918,
+  "largest_density_discrepancy": {
+    "source_row": 98,
+    "note": "Retain source values and coefficients; do not repair through a refit."
+  },
+  "nv_arithmetic_max_abs_km_s": 0.012865263619850964,
+  "modulus_arithmetic_max_abs_gpa": 0.18658917243769224,
+  "table2_checks": [
+    {
+      "pressure_gpa": 2.0,
+      "equation_bulk_gpa": 11.067023516024717,
+      "printed_bulk_gpa": 11.0,
+      "printed_bulk_error_gpa": 1.0
+    },
+    {
+      "pressure_gpa": 4.0,
+      "equation_bulk_gpa": 21.693436798466625,
+      "printed_bulk_gpa": 21.6,
+      "printed_bulk_error_gpa": 0.5
+    },
+    {
+      "pressure_gpa": 6.0,
+      "equation_bulk_gpa": 30.697387755776127,
+      "printed_bulk_gpa": 30.6,
+      "printed_bulk_error_gpa": 0.5
+    },
+    {
+      "pressure_gpa": 10.0,
+      "equation_bulk_gpa": 46.937017771359095,
+      "printed_bulk_gpa": 46.9,
+      "printed_bulk_error_gpa": 0.5
+    },
+    {
+      "pressure_gpa": 15.0,
+      "equation_bulk_gpa": 65.70456403513593,
+      "printed_bulk_gpa": 65.6,
+      "printed_bulk_error_gpa": 0.6
+    },
+    {
+      "pressure_gpa": 20.0,
+      "equation_bulk_gpa": 83.59478406714065,
+      "printed_bulk_gpa": 83.5,
+      "printed_bulk_error_gpa": 0.8
+    },
+    {
+      "pressure_gpa": 25.0,
+      "equation_bulk_gpa": 100.9521435405293,
+      "printed_bulk_gpa": 101.0,
+      "printed_bulk_error_gpa": 1.0
+    },
+    {
+      "pressure_gpa": 30.0,
+      "equation_bulk_gpa": 117.94460483132326,
+      "printed_bulk_gpa": 118.0,
+      "printed_bulk_error_gpa": 1.0
+    }
+  ],
+  "reference_density_g_cm3": 2.0,
+  "reference_pressure_gpa": 1.2300000000000013,
+  "reference_volume_a3": 132.67042931092166,
+  "reference_temperature": "room temperature; numeric 298 K is library convention only",
+  "independent_observed_pv_count": 0
+}

@@ -6,8 +6,8 @@ use peritheos::fit::{
     StructuredLayout, ThermalObservations,
 };
 use peritheos::isothermal::{
-    Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
-    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
+    Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2,
+    NaturalStrain3, NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
@@ -59,6 +59,21 @@ impl RtModel {
             ));
         }
         let model = match self {
+            Self::DensityPolynomial3(model) => {
+                ensure_names(names, &["V0", "rho0", "c0", "c1", "c2", "c3"], false)?;
+                Self::DensityPolynomial3(
+                    DensityPolynomial3::new(
+                        value(names, values, "V0", model.v0),
+                        value(names, values, "rho0", model.rho0),
+                        value(names, values, "c0", model.coefficients[0]),
+                        value(names, values, "c1", model.coefficients[1]),
+                        value(names, values, "c2", model.coefficients[2]),
+                        value(names, values, "c3", model.coefficients[3]),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+
             Self::Baonza(model) => {
                 ensure_names(names, &["V0", "K0", "K0_prime"], false)?;
                 Self::Baonza(

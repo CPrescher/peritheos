@@ -18,9 +18,9 @@ use serde_json::Value;
 
 use crate::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use crate::isothermal::{
-    Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
-    NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SunMorse3, SunMorse4, Vinet, Vinet3, BM2,
-    BM3, BM4,
+    Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2,
+    NaturalStrain3, NaturalStrain4, ReferenceEnergyEos, RydbergStacey, SunMorse3, SunMorse4, Vinet,
+    Vinet3, BM2, BM3, BM4,
 };
 use crate::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, AsymptoticPowerLawMieGruneisenDebyeExcess,
@@ -148,6 +148,8 @@ impl From<serde_json::Error> for EosmatError {
 pub enum IsothermalModel {
     /// Baonza pseudospinodal EOS (beta = 0.85).
     Baonza(Baonza),
+    /// Cubic polynomial in mass density.
+    DensityPolynomial3(DensityPolynomial3),
     /// Second-order Birch--Murnaghan EOS.
     BM2(BM2),
     /// Third-order Birch--Murnaghan EOS.
@@ -186,6 +188,7 @@ impl IsothermalModel {
     pub const fn model_identifier(&self) -> &'static str {
         match self {
             Self::Baonza(_) => "baonza",
+            Self::DensityPolynomial3(_) => "density_polynomial_3",
             Self::BM2(_) => "birch_murnaghan_2",
             Self::BM3(_) => "birch_murnaghan_3",
             Self::BM4(_) => "birch_murnaghan_4",
@@ -209,6 +212,7 @@ impl IsothermalModel {
     pub const fn model_name(&self) -> &'static str {
         match self {
             Self::Baonza(_) => "Baonza",
+            Self::DensityPolynomial3(_) => "DensityPolynomial3",
             Self::BM2(_) => "BM2",
             Self::BM3(_) => "BM3",
             Self::BM4(_) => "BM4",
@@ -232,6 +236,7 @@ macro_rules! dispatch_isothermal {
     ($self:expr, $model:ident => $expression:expr) => {
         match $self {
             IsothermalModel::Baonza($model) => $expression,
+            IsothermalModel::DensityPolynomial3($model) => $expression,
             IsothermalModel::BM2($model) => $expression,
             IsothermalModel::BM3($model) => $expression,
             IsothermalModel::BM4($model) => $expression,
@@ -319,6 +324,9 @@ impl ReferenceStateEos for IsothermalModel {
 
     fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
         match self {
+            Self::DensityPolynomial3(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::DensityPolynomial3),
             Self::Baonza(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::Baonza),
@@ -2665,6 +2673,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
     let identifier = if thermal {
         match model_type {
             "Baonza" => "baonza",
+            "DensityPolynomial3" => "density_polynomial_3",
             "AlphaKT" => "thermal_reference_state",
             "AsymptoticPowerLawMieGruneisenDebye" => "asymptotic_power_law_mie_gruneisen_debye",
             "AsymptoticPowerLawMieGruneisenDebyeExcess" => {
@@ -2740,6 +2749,12 @@ fn build_isothermal(
     let p = |name| parameter(component, name);
     let v0 = p("V0")? * volume_scale;
     let built = match model {
+        "density_polynomial_3" => {
+            check_type(component, "DensityPolynomial3")?;
+            DensityPolynomial3::new(v0, p("rho0")?, p("c0")?, p("c1")?, p("c2")?, p("c3")?)
+                .map(IsothermalModel::DensityPolynomial3)
+        }
+
         "baonza" => {
             check_type(component, "Baonza")?;
             Baonza::new(v0, p("K0")?, p("K0_prime")?).map(IsothermalModel::Baonza)

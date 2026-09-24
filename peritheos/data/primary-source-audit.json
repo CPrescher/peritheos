@@ -9,9 +9,9 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 616,
+    "records": 617,
     "deferred": 2,
-    "primary_source_validated": 614
+    "primary_source_validated": 615
   },
   "records": [
     {
@@ -553,6 +553,23 @@
         "locations": [
           "Equation (4), Figure 1, Methods, Supplementary Tables 1-2"
         ]
+      }
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_grimsditch_1986_density_polynomial",
+      "label": "Grimsditch et al. (1986), published refit of earlier X-ray density data",
+      "doi": "10.1103/physrevb.33.7192",
+      "status": "primary_source_validated",
+      "note": "The printed equation, coefficients and tables are verified; source regression is NOT independently reproduced. Table I densities are derived from earlier EOS data, not independent measured P-V observations.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.33.7192",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.33.7192/fulltext",
+        "locations": [
+          "Equations (1)-(12), Tables I-II, Figures 4 and 9, references 12 and 17-19"
+        ],
+        "pdf_sha256": "3bd0e12705ebafd084ce72b1f2debb7ac47b5be37017f7e26be4c7bffc8c3729"
       }
     },
     {

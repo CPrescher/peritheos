@@ -26,6 +26,7 @@ from peritheos.eos.rt import (
     BM3,
     BM4,
     Baonza,
+    DensityPolynomial3,
     Holzapfel,
     ModifiedTait,
     Morse3,
@@ -1252,6 +1253,7 @@ class Material:
 _MODEL_IDENTIFIERS = MappingProxyType(
     {
         "Baonza": "baonza",
+        "DensityPolynomial3": "density_polynomial_3",
         "BM2": "birch_murnaghan_2",
         "BM3": "birch_murnaghan_3",
         "BM4": "birch_murnaghan_4",
@@ -1298,6 +1300,7 @@ _MODEL_CLASSES = MappingProxyType(
         _MODEL_IDENTIFIERS[model.__name__]: model
         for model in (
             Baonza,
+    DensityPolynomial3,
             BM2,
             BM3,
             BM4,
@@ -1339,6 +1342,7 @@ _MODEL_CLASSES = MappingProxyType(
 _EOSMAT_TYPES = MappingProxyType(
     {
         "baonza": "Baonza",
+        "density_polynomial_3": "DensityPolynomial3",
         "birch_murnaghan_2": "BM2",
         "birch_murnaghan_3": "BM3",
         "birch_murnaghan_4": "BM4",

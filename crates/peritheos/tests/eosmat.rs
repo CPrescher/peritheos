@@ -981,6 +981,9 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                 ) => {
                     assert_close(pressure, 0.785_335_88, 1.0e-8);
                 }
+                ("argon_fcc_grimsditch_1986_density_polynomial", None) => {
+                    assert_close(pressure, 1.23, 1.0e-12);
+                }
                 (_, _) => {
                     assert!(pressure.abs() < 1.0e-8, "reference pressure was {pressure}");
                 }

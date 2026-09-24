@@ -4,6 +4,7 @@ This module contains the room temperature equations of state (EOS) implementatio
 
 from .baonza import Baonza
 from .bm import BM2, BM3, BM4
+from .density_polynomial import DensityPolynomial3
 from .holzapfel import Holzapfel
 from .murnaghan import Murnaghan
 from .natural_strain import NaturalStrain2, NaturalStrain3, NaturalStrain4
@@ -18,6 +19,7 @@ __all__ = [
     "BM3",
     "BM4",
     "Baonza",
+    "DensityPolynomial3",
     "Holzapfel",
     "ModifiedTait",
     "Murnaghan",

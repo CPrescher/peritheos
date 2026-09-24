@@ -552,6 +552,127 @@
     }
    },
    "notes": "Fcc-specific BM3 fit, including fcc reflections in fcc+hcp coexistence from 49.6 to 114 GPa; not a combined-phase fit. Hcp atomic volumes are stated equal within accuracy, but no independent hcp EOS or hcp volume table is supplied. Uncertainty confidence and covariance are unspecified. Annealing above 2000 K is sample preparation, not the EOS temperature. Figure 5 inset caption says fcc(220), while main text says non-overlapping fcc(200); retain this inconsistency. Exact fit selection and weights unavailable. Supporting phase asset: datasets/argon-errandonea-2006-phase-observations.csv."
+  },
+  {
+   "identifier": "argon_fcc_grimsditch_1986_density_polynomial",
+   "label": "Grimsditch et al. (1986), published refit of earlier X-ray density data",
+   "reference": {
+    "authors": [
+     "Grimsditch",
+     "Loubeyre",
+     "Polian"
+    ],
+    "year": 1986,
+    "title": "Brillouin scattering and three-body forces in argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "33",
+    "locator": "7192-7200",
+    "doi": "10.1103/PhysRevB.33.7192"
+   },
+   "eos": {
+    "type": "DensityPolynomial3",
+    "model": "density_polynomial_3",
+    "parameters": {
+     "V0": 132.67042931092166,
+     "rho0": 2.0,
+     "c0": 12.65,
+     "c1": -11.43,
+     "c2": 1.5,
+     "c3": 0.68
+    }
+   },
+   "parameter_errors": {},
+   "fixed_parameters": [
+    "V0",
+    "rho0"
+   ],
+   "temperature_ref": 298.0,
+   "temperature_ref_provenance": {
+    "kind": "assumed_room_temperature",
+    "reported_condition": "room temperature",
+    "note": "The article reports room temperature without a numeric value. 298 K is the library display convention, not a measured temperature or thermal correction."
+   },
+   "determination_method": "experimental",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "experimental_pressure_range_gpa": [
+    1.31,
+    33.58
+   ],
+   "parameter_provenance": {
+    "V0": "Computational density normalization only: four Ar atoms, molar mass 39.948 g/mol, Avogadro constant 6.02214076e23 mol^-1 and rho0=2 g/cm^3. Not a fitted V0 or a zero-pressure volume.",
+    "rho0": "Chosen unit-conversion anchor 2 g/cm^3; P(rho0)=1.23 GPa. V0*rho0 is the mass of a conventional four-atom fcc cell in compatible units.",
+    "c0": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^0. No uncertainty/covariance reported.",
+    "c1": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^1. No uncertainty/covariance reported.",
+    "c2": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^2. No uncertainty/covariance reported.",
+    "c3": "Equation (6), p.7194 coefficient list. Units GPa/(g/cm^3)^3. No uncertainty/covariance reported."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1978",
+      "source_location": "Equation (2), reference 12",
+      "notes": "Acoustic experiment uses P=380.8*((lambda/lambda0)^5-1) GPa. Raw wavelengths absent. This does not independently verify pressure scales of the earlier diffraction data fitted in Eq.(6)."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No raw ruby wavelengths. Original x-ray observations from references 17-19 are not tabulated in this paper."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-24",
+    "note": "The printed equation, coefficients and tables are verified; source regression is NOT independently reproduced. Table I densities are derived from earlier EOS data, not independent measured P-V observations.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "phase",
+     "published_uncertainties"
+    ],
+    "primary_source_check": {
+     "doi": "10.1103/PhysRevB.33.7192",
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.33.7192/fulltext",
+     "locations": [
+      "Equations (1)-(12), Tables I-II, Figures 4 and 9, references 12 and 17-19"
+     ],
+     "pdf_sha256": "3bd0e12705ebafd084ce72b1f2debb7ac47b5be37017f7e26be4c7bffc8c3729"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "argon_grimsditch_1986_table1",
+      "argon_fcc_grimsditch_1986_table2"
+     ],
+     "finding": "98 acoustic rows and eight elastic-bound rows retained. No independent raw diffraction dataset or source-regression residuals are supplied."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_grimsditch_1986_argon.py",
+     "report": "docs/data/argon-grimsditch-1986-reproduction.json",
+     "note": "Native equation is checked against an independent polynomial; printed derived densities/moduli are consistency diagnostics, not independent EOS validation."
+    }
+   },
+   "reproduction": {
+    "fit_status": "not_reproduced",
+    "equation_status": "reproduced",
+    "reason": "Source fit used prior diffraction observations (references 17-19) up to 77 GPa, not Table I acoustic states. Exact input rows, weights and covariance are not recovered."
+   },
+   "source_fit_pressure_range_gpa": [
+    null,
+    77.0
+   ],
+   "notes": "Published cubic fit to earlier X-ray densities, not an independent Brillouin EOS. No zero-pressure reference is implied. Figure 9 triangles are Eq.(6) values, with open triangles extrapolated, not measured observations. The source uses B_T=rho*dP/drho and approximates B_S=B_T except near melting. Tables II-III are elastic bounds dependent on Eq.(6). Do not convert longitudinal modulus C=rho*v^2 into solid bulk modulus. Coefficient error/covariance, precise room temperature and low-pressure diffraction fit cutoff are unspecified. Ref.17 Hazen et al.(1980), Carnegie Yearb.79,348; ref.18 Zou et al.(1982), Yearb.81,392; ref.19 Xu et al.(1984), High Temp.High Pressures16,495. Theory pair-potential curves are separate and are not this fit.",
+   "reference_state": {
+    "pressure_gpa": 1.23,
+    "density_g_cm3": 2.0,
+    "volume_a3": 132.67042931092166,
+    "role": "computational_density_normalization",
+    "note": "Not a measured reference state or zero-pressure EOS volume."
+   }
   }
  ],
  "datasets": [
@@ -1231,6 +1352,199 @@
     "temperature_note": "290 K from Table I; text says room temperature and later calls strength300 K. No temperature correction applied."
    },
    "notes": "Supporting-study dataset; no executable Chen EOS record. See docs/literature-reproductions/chen-2010-argon.md."
+  },
+  {
+   "identifier": "argon_grimsditch_1986_table1",
+   "kind": "brillouin_scattering",
+   "description": "98 printed acoustic rows: 23 liquid and 75 fcc. P and Brillouin shifts are observations; nv is derived, density is adopted/derived, refractive index measured in liquid and calculated in solid, C is derived. These are not diffraction P-V points.",
+   "reference": {
+    "authors": [
+     "Grimsditch",
+     "Loubeyre",
+     "Polian"
+    ],
+    "year": 1986,
+    "title": "Brillouin scattering and three-body forces in argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "33",
+    "locator": "7192-7200",
+    "doi": "10.1103/PhysRevB.33.7192"
+   },
+   "source_location": "Table I, p.7194",
+   "source_url": "https://doi.org/10.1103/PhysRevB.33.7192",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "brillouin_shift_cm_inverse",
+     "quantity": "brillouin_shift_cm_inverse",
+     "unit": "cm^-1",
+     "role": "value"
+    },
+    {
+     "name": "index_times_velocity_km_s",
+     "quantity": "index_times_velocity_km_s",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density_g_cm3",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "refractive_index",
+     "quantity": "refractive_index",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "effective_longitudinal_modulus_gpa",
+     "quantity": "effective_longitudinal_modulus_gpa",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-grimsditch-1986-table1.csv",
+    "sha256": "f3b87428672847fbddbd87f0541489c1be4daeaa07288d4a86870c1d2c9a4932",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_fcc_grimsditch_1986_density_polynomial"
+   ],
+   "provenance": {
+    "type": "transcribed_primary_table",
+    "source_pdf_sha256": "3bd0e12705ebafd084ce72b1f2debb7ac47b5be37017f7e26be4c7bffc8c3729",
+    "transcribed_on": "2026-09-24",
+    "notes": "Visually checked publisher PDF. Phase follows printed table groups, including 1.36 GPa liquid and 1.31 GPa solid. Table I caption has equation-number typos; body correctly cites Eq.(3)-(4) for solid refractive index. Printed errors retained without assigning a confidence level. No observation errors invented."
+   },
+   "license": "Numerical facts transcribed from the primary paper; article copyright APS 1986."
+  },
+  {
+   "identifier": "argon_fcc_grimsditch_1986_table2",
+   "kind": "elastic_constraints",
+   "description": "Eight elastic rows combining acoustic envelopes with the adopted diffraction EOS. C11 is an upper bound and C12 a lower bound. B is isothermal, approximated as adiabatic away from melting. Cstar is treated inconsistently as a correct envelope value (p.7195) and lower bound (p.7199); retain as an envelope constraint.",
+   "reference": {
+    "authors": [
+     "Grimsditch",
+     "Loubeyre",
+     "Polian"
+    ],
+    "year": 1986,
+    "title": "Brillouin scattering and three-body forces in argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "33",
+    "locator": "7192-7200",
+    "doi": "10.1103/PhysRevB.33.7192"
+   },
+   "source_location": "Table II, p.7196",
+   "source_url": "https://doi.org/10.1103/PhysRevB.33.7192",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "bulk_modulus_gpa",
+     "quantity": "bulk_modulus_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "bulk_modulus_error_gpa",
+     "quantity": "bulk_modulus_error_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "bulk_modulus_gpa"
+    },
+    {
+     "name": "cstar_gpa",
+     "quantity": "cstar_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "cstar_error_gpa",
+     "quantity": "cstar_error_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "cstar_gpa"
+    },
+    {
+     "name": "c11_upper_bound_gpa",
+     "quantity": "c11_upper_bound_gpa",
+     "unit": "GPa",
+     "role": "bound"
+    },
+    {
+     "name": "c11_error_gpa",
+     "quantity": "c11_error_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "c11_upper_bound_gpa"
+    },
+    {
+     "name": "c44_gpa",
+     "quantity": "c44_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "c44_error_gpa",
+     "quantity": "c44_error_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "c44_gpa"
+    },
+    {
+     "name": "c12_lower_bound_gpa",
+     "quantity": "c12_lower_bound_gpa",
+     "unit": "GPa",
+     "role": "bound"
+    },
+    {
+     "name": "c12_error_gpa",
+     "quantity": "c12_error_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "c12_lower_bound_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-fcc-grimsditch-1986-table2.csv",
+    "sha256": "7c4907a9b030c2f8ddb9c7d23840ce36dcdf2606d8d0659cd3430a6bbc66b0e4",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_fcc_grimsditch_1986_density_polynomial"
+   ],
+   "provenance": {
+    "type": "transcribed_primary_table",
+    "source_pdf_sha256": "3bd0e12705ebafd084ce72b1f2debb7ac47b5be37017f7e26be4c7bffc8c3729",
+    "transcribed_on": "2026-09-24",
+    "notes": "Visually checked publisher PDF. Phase follows printed table groups, including 1.36 GPa liquid and 1.31 GPa solid. Table I caption has equation-number typos; body correctly cites Eq.(3)-(4) for solid refractive index. Printed errors retained without assigning a confidence level. No observation errors invented."
+   },
+   "license": "Numerical facts transcribed from the primary paper; article copyright APS 1986."
   }
  ],
  "supporting_studies": [

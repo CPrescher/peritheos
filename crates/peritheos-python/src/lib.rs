@@ -11,9 +11,9 @@ use peritheos::fit::{
 };
 use peritheos::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use peritheos::isothermal::{
-    holzapfel_bulk_modulus_derivative_analytical, Baonza, Holzapfel, ModifiedTait, Morse3,
-    Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4,
-    Vinet, BM2, BM3, BM4,
+    holzapfel_bulk_modulus_derivative_analytical, Baonza, DensityPolynomial3, Holzapfel,
+    ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, RydbergStacey,
+    SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
@@ -36,6 +36,7 @@ const PARALLEL_THERMAL_THRESHOLD: usize = 2_048;
 #[derive(Clone, Copy, Debug, PartialEq)]
 enum RtModel {
     Baonza(Baonza),
+    DensityPolynomial3(DensityPolynomial3),
     BM2(BM2),
     BM3(BM3),
     BM4(BM4),
@@ -56,6 +57,7 @@ impl RtModel {
     fn name(self) -> &'static str {
         match self {
             Self::Baonza(_) => "Baonza",
+            Self::DensityPolynomial3(_) => "DensityPolynomial3",
             Self::BM2(_) => "BM2",
             Self::BM3(_) => "BM3",
             Self::BM4(_) => "BM4",
@@ -78,6 +80,7 @@ impl IsothermalEos for RtModel {
     fn reference_volume(&self) -> f64 {
         match self {
             Self::Baonza(model) => model.reference_volume(),
+            Self::DensityPolynomial3(model) => model.reference_volume(),
             Self::BM2(model) => model.reference_volume(),
             Self::BM3(model) => model.reference_volume(),
             Self::BM4(model) => model.reference_volume(),
@@ -98,6 +101,7 @@ impl IsothermalEos for RtModel {
     fn pressure(&self, volume: f64) -> EosResult<f64> {
         match self {
             Self::Baonza(model) => model.pressure(volume),
+            Self::DensityPolynomial3(model) => model.pressure(volume),
             Self::BM2(model) => model.pressure(volume),
             Self::BM3(model) => model.pressure(volume),
             Self::BM4(model) => model.pressure(volume),
@@ -118,6 +122,7 @@ impl IsothermalEos for RtModel {
     fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
         match self {
             Self::Baonza(model) => model.bulk_modulus(volume),
+            Self::DensityPolynomial3(model) => model.bulk_modulus(volume),
             Self::BM2(model) => model.bulk_modulus(volume),
             Self::BM3(model) => model.bulk_modulus(volume),
             Self::BM4(model) => model.bulk_modulus(volume),
@@ -172,6 +177,7 @@ impl ReferenceStateEos for RtModel {
     fn reference_bulk_modulus(&self) -> f64 {
         match self {
             Self::Baonza(model) => model.k0,
+            Self::DensityPolynomial3(model) => model.reference_bulk_modulus(),
             Self::BM2(model) => model.k0,
             Self::BM3(model) => model.k0,
             Self::BM4(model) => model.k0,
@@ -191,6 +197,9 @@ impl ReferenceStateEos for RtModel {
 
     fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
         match self {
+            Self::DensityPolynomial3(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::DensityPolynomial3),
             Self::Baonza(model) => {
                 Baonza::new(volume, bulk_modulus, model.k0_prime).map(Self::Baonza)
             }
@@ -252,6 +261,22 @@ struct PyRtEos {
 
 #[pymethods]
 impl PyRtEos {
+    #[staticmethod]
+    fn density_polynomial_3(
+        v0: f64,
+        rho0: f64,
+        c0: f64,
+        c1: f64,
+        c2: f64,
+        c3: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: RtModel::DensityPolynomial3(
+                DensityPolynomial3::new(v0, rho0, c0, c1, c2, c3).map_err(to_python_error)?,
+            ),
+        })
+    }
+
     #[staticmethod]
     fn baonza(v0: f64, k0: f64, k0_prime: f64) -> PyResult<Self> {
         Ok(Self {

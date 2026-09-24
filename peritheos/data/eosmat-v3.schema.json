@@ -478,7 +478,8 @@
             "SunMorse4",
             "Vinet",
             "Vinet3",
-            "LinearUsUpHugoniot"
+            "LinearUsUpHugoniot",
+            "DensityPolynomial3"
           ]
         },
         "model": {
@@ -499,7 +500,8 @@
             "sun_morse_4",
             "vinet",
             "vinet_3",
-            "linear_us_up_hugoniot"
+            "linear_us_up_hugoniot",
+            "density_polynomial_3"
           ]
         },
         "parameters": {
@@ -712,6 +714,16 @@
                 },
                 "model": {
                   "const": "linear_us_up_hugoniot"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "DensityPolynomial3"
+                },
+                "model": {
+                  "const": "density_polynomial_3"
                 }
               }
             }

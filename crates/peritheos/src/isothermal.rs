@@ -1020,3 +1020,88 @@ impl ReferenceEnergyEos for Vinet {
         finite_result(4.0 * self.v0 * self.k0 * 1.0e4 * reduced)
     }
 }
+
+/// Cubic pressure polynomial in mass density, P = c0 + c1*rho + c2*rho^2 + c3*rho^3.
+/// Density is `rho0 * v0 / volume`; `v0` is a normalization anchor, not P=0.
+/// Only the mechanically stable branch (positive dP/drho) is evaluated.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DensityPolynomial3 {
+    /// Volume at the density normalization anchor.
+    pub v0: f64,
+    /// Mass density at the volume anchor (g/cm^3).
+    pub rho0: f64,
+    /// Polynomial coefficients; output pressure is `GPa`.
+    pub coefficients: [f64; 4],
+}
+
+impl DensityPolynomial3 {
+    /// Construct a cubic density polynomial on its high-density stable branch.
+    ///
+    /// # Errors
+    /// Rejects nonfinite values, nonpositive anchors, c2<0, c3<=0, or an unstable anchor.
+    pub fn new(v0: f64, rho0: f64, c0: f64, c1: f64, c2: f64, c3: f64) -> EosResult<Self> {
+        let model = Self {
+            v0: positive_parameter(v0, "V0")?,
+            rho0: positive_parameter(rho0, "rho0")?,
+            coefficients: [
+                finite_parameter(c0, "c0")?,
+                finite_parameter(c1, "c1")?,
+                finite_parameter(c2, "c2")?,
+                positive_parameter(c3, "c3")?,
+            ],
+        };
+        if c2 < 0.0 || model.derivative(rho0) <= 0.0 {
+            return Err(EosError::InvalidParameter {
+                name: "density polynomial",
+                reason: "requires c2>=0 and a stable density anchor",
+            });
+        }
+        Ok(model)
+    }
+
+    fn derivative(&self, rho: f64) -> f64 {
+        self.coefficients[1] + rho * (2.0 * self.coefficients[2] + 3.0 * self.coefficients[3] * rho)
+    }
+
+    fn density(&self, volume: f64) -> EosResult<f64> {
+        let rho = self.rho0 * self.v0 / positive_state(volume, "volume")?;
+        if self.derivative(rho) <= 0.0 {
+            return Err(EosError::OutsideInvertibleRange);
+        }
+        finite_result(rho)
+    }
+
+    /// Bulk modulus at the normalization anchor, which need not be at zero pressure.
+    #[must_use]
+    pub fn reference_bulk_modulus(&self) -> f64 {
+        self.rho0 * self.derivative(self.rho0)
+    }
+
+    /// Density polynomials have no supported thermal reference-state shift.
+    ///
+    /// # Errors
+    /// Always returns an error; coefficients refer to absolute mass density.
+    pub fn with_reference_state(&self, _volume: f64, _bulk_modulus: f64) -> EosResult<Self> {
+        Err(EosError::InvalidParameter {
+            name: "rt_eos",
+            reason: "density polynomial does not support shifting its reference state",
+        })
+    }
+}
+
+impl IsothermalEos for DensityPolynomial3 {
+    fn reference_volume(&self) -> f64 {
+        self.v0
+    }
+
+    fn pressure(&self, volume: f64) -> EosResult<f64> {
+        let rho = self.density(volume)?;
+        let [c0, c1, c2, c3] = self.coefficients;
+        finite_result(c0 + rho * (c1 + rho * (c2 + rho * c3)))
+    }
+
+    fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
+        let rho = self.density(volume)?;
+        finite_result(rho * self.derivative(rho))
+    }
+}
