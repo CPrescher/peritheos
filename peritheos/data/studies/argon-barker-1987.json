@@ -1,0 +1,73 @@
+{
+  "identifier": "argon_barker_1987",
+  "record_kind": "supporting_study",
+  "formula": "Ar",
+  "reference": {
+    "authors": ["Barker"],
+    "year": 1987,
+    "title": "High pressure equation of state for solid argon from interatomic potentials",
+    "source": "The Journal of Chemical Physics",
+    "volume": "86",
+    "issue": "3",
+    "locator": "1509-1511",
+    "doi": "10.1063/1.452187"
+  },
+  "determination_method": "theoretical",
+  "model_description": "Monte Carlo pressure-volume isotherm using the Barker-Fisher-Watts pair potential and the Axilrod-Teller three-body interaction.",
+  "model_description_source": "Primary abstract; no full-text equation or coefficients verified.",
+  "temperature_k": 298.0,
+  "temperature_role": "simulation_isotherm",
+  "phase": null,
+  "phase_status": "Solid argon verified; precise simulated crystal structure not verified from full text.",
+  "reference_pressure_gpa": null,
+  "reference_volume": null,
+  "volume_normalization": null,
+  "parameter_uncertainties": null,
+  "simulation_pressure_range_gpa": null,
+  "simulation_volume_range": null,
+  "experimental_comparison": {
+    "reference_doi": "10.1063/1.451346",
+    "authors": ["Ross", "Mao", "Bell", "Xu"],
+    "year": 1986,
+    "maximum_pressure_as_reported": {"value": 800, "unit": "kbar"},
+    "maximum_pressure_gpa": 80.0,
+    "pressure_scale": null,
+    "note": "The abstract's 800 kbar limit describes the experimental comparison; it is not an independently verified simulation or fitted validity range. No observations from Ross are relabeled as Barker measurements."
+  },
+  "comparisons": ["Aziz-Chen pair potential", "Koide-Meath-Allnatt pair potential", "Ross effective exp-6 pair potential"],
+  "reproduction": {
+    "status": "not_reproduced",
+    "reason": "fulltext_access_blocked",
+    "equation_verified": false,
+    "coefficients_verified": false,
+    "numerical_reproduction_performed": false,
+    "independent_eos_availability": "undetermined_without_full_text",
+    "eos_record_identifiers": [],
+    "observation_dataset_identifiers": [],
+    "note": "Supporting-study outcome only. No surrogate fit, potential coefficients, model curves, measured points or uncertainties have been invented. This does not establish that the original calculation is irreproducible."
+  },
+  "source_audit": {
+    "audit_date": "2026-09-24",
+    "status": "primary_abstract_and_bibliography_verified",
+    "primary_sources": [
+      "https://pubs.aip.org/jcp/article/86/3/1509/660425/High-pressure-equation-of-state-for-solid-argon",
+      "https://research.ibm.com/publications/high-pressure-equation-of-state-for-solid-argon-from-interatomic-potentials",
+      "https://api.crossref.org/works/10.1063/1.452187"
+    ],
+    "pdf": {
+      "status": "unavailable_access_blocked",
+      "publisher_url": "https://pubs.aip.org/aip/jcp/article-pdf/86/3/1509/18963166/1509_1_online.pdf",
+      "local_path": null,
+      "sha256": null,
+      "identity_verified": false,
+      "blocker": "Publisher browser page says no current access, and following its PDF link returns the abstract with redirectedFrom=PDF. Direct request returns HTTP 403. IBM author-affiliation page links only to the DOI. OpenAlex and Semantic Scholar report closed access with no repository PDF. No matching local Zotero item found."
+    },
+    "zotero": {
+      "search_queries": ["Barker", "1.452187"],
+      "matching_item_keys": [],
+      "matching_attachment_keys": [],
+      "writes_performed": false
+    },
+    "documentation": "docs/literature-reproductions/argon-barker-1987.md"
+  }
+}
