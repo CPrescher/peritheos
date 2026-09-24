@@ -1,7 +1,7 @@
 {
   "study_id": "argon_anderson_swenson_1975",
   "worktree": "/Users/clemens/.codex/worktrees/2b89/peritheos",
-  "implementation_commit": "671416f0e5477516639c712cfa7d22a7cbe52038",
+  "implementation_commit": "8a4705bacd4cece9bb5ec906dea8a85b717056ef",
   "reference": {
     "authors": [
       "Anderson",
@@ -28,19 +28,33 @@
     }
   ],
   "changed_records": [
+    "argon_fcc_anderson_swenson_1975_4p2k",
+    "argon_fcc_anderson_swenson_1975_20p0k",
+    "argon_fcc_anderson_swenson_1975_40p0k",
+    "argon_fcc_anderson_swenson_1975_60p0k",
+    "argon_fcc_anderson_swenson_1975_77p0k",
     "argon_fcc.supporting_studies.argon_anderson_swenson_1975"
   ],
-  "eos_record_ids": [],
-  "observation_assets": [],
+  "eos_record_ids": [
+    "argon_fcc_anderson_swenson_1975_4p2k",
+    "argon_fcc_anderson_swenson_1975_20p0k",
+    "argon_fcc_anderson_swenson_1975_40p0k",
+    "argon_fcc_anderson_swenson_1975_60p0k",
+    "argon_fcc_anderson_swenson_1975_77p0k"
+  ],
+  "observation_assets": [
+    "peritheos/data/datasets/argon-anderson-1972-appendix-a.csv"
+  ],
   "fit_status": "not_reproduced",
-  "outcome": "source_access_blocked",
-  "full_text_missing": true,
+  "outcome": "published_isotherms_implemented",
+  "full_text_missing": false,
   "pdf": {
-    "path": null,
+    "path": "/Users/clemens/Documents/Peritheos Sources/argon/anderson-swenson-1975/anderson-swenson-1975.pdf",
     "origin_url": null,
-    "sha256": null,
-    "identity_verified": false,
-    "blocker": "No matching existing Zotero paper/attachment. ScienceDirect CAPTCHA; Elsevier full XML HTTP401 and PDF HTTP406. No OA PDF in OpenAlex/Semantic Scholar or targeted repository search."
+    "doi_url": "https://doi.org/10.1016/0022-3697(75)90004-9",
+    "provenance": "User supplied /Users/clemens/Downloads/1-s2.0-0022369775900049-main.pdf; actual download URL unknown.",
+    "sha256": "904c5a9a67a29c48c5b93027b3f8a002db43829683c98cd71e61d9305007fddf",
+    "identity_verified": true
   },
   "metadata_assets": [
     {
@@ -68,23 +82,23 @@
     "destination_collection_id": "C18",
     "destination": "My Library > Methods > EOS Library",
     "writes_performed": false,
-    "action": "Coordinator may import bibliographic metadata but must explicitly report PDF attachment still missing."
+    "action": "Integration task should attach verified journal PDF to the existing DOI-matched item. Thesis is a separate primary-source item/PDF if imported. No Zotero writes in this task; attachment confirmation pending from integration."
   },
   "tests": [
     {
-      "command": "/Users/clemens/Programming/peritheos/.venv/bin/python -m pytest tests/test_argon.py -q",
-      "result": "5 passed in 0.77s"
+      "command": "/Users/clemens/Programming/peritheos/.venv/bin/python -m pytest tests/test_anderson_swenson_1975.py tests/test_argon.py tests/test_eosmat.py -q",
+      "result": "154 passed in 6.57s"
     },
     {
-      "check": "JSON Schema Draft202012Validator",
+      "command": "cargo test -p peritheos --lib --test eosmat --test anderson_swenson_1975",
+      "result": "23 library +31 EOSMAT +1 source polynomial tests passed"
+    },
+    {
+      "check": "JSON Schema Draft202012Validator, CSV SHA256, original EOS/datasets unchanged",
       "result": "pass"
     },
     {
-      "check": "Material.from_eosmat(document).to_eosmat() retains supporting_studies",
-      "result": "pass"
-    },
-    {
-      "check": "Existing fcc eos_records and datasets identical to baseline; hcp file untouched",
+      "command": "ruff check peritheos/eos/rt/odd_inverse_power.py scripts/reproduce_anderson_swenson_1975.py tests/test_anderson_swenson_1975.py",
       "result": "pass"
     },
     {
@@ -92,24 +106,40 @@
       "result": "pass"
     }
   ],
-  "test_environment": "Existing Python 3.9 environment and native extension read from the main checkout via ignored worktree symlink; no writes to shared checkouts. Metadata-only change; no native build required.",
+  "test_environment": "Isolated worktree Rust build; Python 3.9 environment/native extension read from main checkout via ignored symlink. No shared checkout or Studio writes. New Python family evaluates independently with NumPy; native Rust family is separately tested.",
   "studio_requirements": [
-    "Show a non-executable supporting-study entry with source_access_blocked / not_reproduced.",
-    "Do not show a fitted curve or observed-point toggle: zero EOS records or primary observations were recovered.",
-    "Do not treat abstract accuracy as point sigma or infer 0 K/300 K reference state."
+    "Expose five isotherms at 4.2,20,40,60,77 K with new model/type odd_inverse_power/OddInversePower. No continuous temperature interpolation or extrapolation above 2 GPa.",
+    "The table1 dataset is a fit_parameter_summary, not measured observations.",
+    "Raw thesis dataset has 394 cells, 379 usable; filter usable=0 and retain actual temperatures and original sample-length normalization.",
+    "Comparison raw observations are not exact adjusted fit inputs; show unresolved temperature/sample-length reduction and independent fit not_reproduced.",
+    "Use fixed V0 normalization; C3,C5,C7,C9 in GPa. No published coefficient uncertainties or per-row Gaussian sigma.",
+    "Reconcile tests/test_eosmat.py catalog count literals and schema family count with the combined integration catalog. Regenerate aggregate audit instead of applying optional aggregate commit when other records are present."
   ],
   "remaining_limitations": [
-    "original_equation",
-    "coefficients",
-    "coefficient_uncertainties",
-    "volume_normalization",
-    "reference_pressure",
-    "reference_temperature",
-    "argon_specific_fit_ranges",
-    "pressure_calibration",
-    "primary_phase_identification",
-    "tabulated_observations",
-    "matching_primary_pdf"
+    "exact_common_temperature_reduction",
+    "small_holder_correction_consistency",
+    "coefficient_covariance",
+    "primary_phase_identification_not_measured_by_diffraction",
+    "zotero_attachment_confirmation_owned_by_integrator"
   ],
-  "documentation": "docs/literature-reproductions/argon-anderson-swenson-1975.md"
+  "documentation": "docs/literature-reproductions/argon-anderson-swenson-1975.md",
+  "aggregate_commit": "de5fc4c4de8619b27745362b22272114f711abfc",
+  "fit_summary_assets": [
+    "peritheos/data/datasets/argon-anderson-swenson-1975-table1.csv"
+  ],
+  "equation_status": "equation_reproduced",
+  "supplemental_primary_source": {
+    "title": "Experimental equations of state for solid neon, argon, krypton, and xenon",
+    "author": "Marvin Sydney Anderson",
+    "year": 1972,
+    "report_number": "IS-T-537",
+    "doi": "10.2172/4658659",
+    "metadata_verified_at": "https://www.osti.gov/api/v1/records?osti_id=4658659",
+    "path": "/Users/clemens/Documents/Peritheos Sources/argon/anderson-swenson-1975/anderson-1972-thesis-IS-T-537.pdf",
+    "origin_url": "https://www.osti.gov/servlets/purl/4658659",
+    "sha256": "12fb53f4855419ca03b76900240a60bab4ada9523d128c876c07df260e5040f8",
+    "identity_verified": true,
+    "purpose": "Original observations referenced by journal paper; distinct thesis, not the journal PDF."
+  },
+  "reproduction_report": "docs/data/argon-anderson-swenson-1975-reproduction.json"
 }
