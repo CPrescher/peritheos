@@ -250,6 +250,21 @@ impl SecondOrderMurnaghan {
 }
 
 impl IsothermalEos for SecondOrderMurnaghan {
+    fn volume(&self, pressure: f64) -> EosResult<f64> {
+        let pressure = crate::validation::finite_state(pressure, "pressure")?;
+        let delta = pressure - self.p0;
+        let q = (self.k0_prime * self.k0_prime - 2.0 * self.k0 * self.k0_double_prime).sqrt();
+        let numerator_term = (self.k0_prime + q) * delta / (2.0 * self.k0);
+        let denominator_term = (self.k0_prime - q) * delta / (2.0 * self.k0);
+        if numerator_term <= -1.0 || denominator_term <= -1.0 {
+            return Err(EosError::OutsideInvertibleRange);
+        }
+        // Invert the rational exponential directly; generic volume steps can
+        // cross the compression pole before bracketing an otherwise valid root.
+        let logarithm = (numerator_term.ln_1p() - denominator_term.ln_1p()) / q;
+        positive_state(self.v0 * (-logarithm).exp(), "volume")
+    }
+
     fn reference_volume(&self) -> f64 {
         self.v0
     }

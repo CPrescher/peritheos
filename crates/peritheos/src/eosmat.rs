@@ -2893,6 +2893,18 @@ fn build_thermal(
         ));
     }
     let model = component_model_identifier(component, true)?;
+    if let Some(zero_point) = configuration(component, "zero_point_pressure") {
+        if !matches!(zero_point, "included" | "omitted")
+            || (zero_point == "included"
+                && (model != "dewaele_2006"
+                    || configuration(component, "thermal_pressure_reference")
+                        != Some("absolute_zero")))
+        {
+            return Err(
+                "zero_point_pressure inclusion requires Dewaele2006 absolute_zero".to_owned(),
+            );
+        }
+    }
     let p = |name| parameter(component, name);
     let built = match model {
         "double_debye_helmholtz" => {

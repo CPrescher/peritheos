@@ -2722,8 +2722,14 @@ def test_normative_schema_is_bundled():
         "linear_temperature",
         "berman",
     ]
-    assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 18
-    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 18
+    for component in ("equation", "thermal"):
+        definition = schema["$defs"][component]
+        pairs = definition["allOf"][0]["oneOf"]
+        types = [pair["properties"]["type"]["const"] for pair in pairs]
+        models = {pair["properties"]["model"]["const"] for pair in pairs}
+        assert len(types) == len(set(types))
+        assert set(types) == set(definition["properties"]["type"]["enum"])
+        assert models == set(definition["properties"]["model"]["enum"])
 
 
 def test_normative_schema_validates_every_bundled_document():

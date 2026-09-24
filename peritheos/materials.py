@@ -1302,7 +1302,7 @@ _MODEL_CLASSES = MappingProxyType(
         _MODEL_IDENTIFIERS[model.__name__]: model
         for model in (
             Baonza,
-    DensityPolynomial3,
+            DensityPolynomial3,
             BM2,
             BM3,
             BM4,

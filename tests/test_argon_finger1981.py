@@ -133,3 +133,87 @@ def test_native_fit_preserves_absolute_and_zero_point_configuration():
     )
     assert result.model.theta0 == pytest.approx(93.3, abs=1e-4)
     assert result.model.pressure(v, t) == pytest.approx(model.pressure(v, t), abs=1e-7)
+
+
+def test_zero_point_pressure_is_static_and_not_rebased():
+    from scipy.constants import R
+
+    eos = record().eos
+    parameters = eos.parameter_values(include_reference=False)
+    no_zero = Dewaele2006(
+        eos.rt_eos, **parameters, thermal_pressure_reference="absolute_zero"
+    )
+    v = np.array([1.5, 1.9, 2.2557])
+    zp = (
+        9
+        / 8
+        * eos.n
+        * R
+        * eos.gruneisen_parameter(v)
+        * eos.characteristic_temperature(v)
+        / v
+        / 1e4
+    )
+    for temperature in [0.001, 77.0, 293.0, 500.0]:
+        assert eos.pressure(v, temperature) - no_zero.pressure(
+            v, temperature
+        ) == pytest.approx(zp, abs=1e-12)
+    assert eos.pressure(v, 0.001) == pytest.approx(
+        eos.rt_eos.pressure(v) + zp, abs=1e-12
+    )
+    # Adding zero-point pressure does not add temperature-dependent heat capacity.
+    assert eos.thermal_pressure_increment(v, 500.0) == pytest.approx(
+        no_zero.thermal_pressure_increment(v, 500.0), abs=1e-12
+    )
+    parameters["Tr"] = 77.0
+    rebased = Dewaele2006(
+        eos.rt_eos,
+        **parameters,
+        thermal_pressure_reference="absolute_zero",
+        zero_point_pressure="included",
+    )
+    assert rebased.pressure(v, 293.0) == pytest.approx(
+        eos.pressure(v, 293.0), abs=1e-12
+    )
+
+
+def test_schema_zero_point_requires_static_lattice_baseline():
+    import copy
+
+    from jsonschema import Draft202012Validator, ValidationError
+
+    from peritheos import eosmat_schema
+
+    original = get_material_document("argon_fcc")
+    validator = Draft202012Validator(eosmat_schema())
+    validator.validate(original)
+    for configuration in [False, True]:
+        document = copy.deepcopy(original)
+        thermal = next(
+            r["thermal"] for r in document["eos_records"] if r["identifier"] == ID
+        )
+        if configuration:
+            thermal["configuration"] = {
+                key: thermal.pop(key)
+                for key in ["zero_point_pressure", "thermal_pressure_reference"]
+            }
+            target = thermal["configuration"]
+        else:
+            target = thermal
+        validator.validate(document)
+        target["thermal_pressure_reference"] = "reference_temperature"
+        with pytest.raises(ValidationError):
+            validator.validate(document)
+
+
+def test_second_order_murnaghan_inverse_respects_regular_branch():
+    # This generic positive-K'' case has a finite-volume compression pole.
+    eos = SecondOrderMurnaghan(10.0, 2.0, 4.0, 1.0, 0.2)
+    volumes = np.array([5.0, 7.0, 9.0, 10.0, 12.0])
+    assert eos.volume(eos.pressure(volumes)) == pytest.approx(volumes, rel=1e-12)
+    with pytest.raises(EosValidationError):
+        eos.volume(-1.0)
+    # Finger's negative-K'' case has an upper pressure limit on its static curve.
+    finger = SecondOrderMurnaghan(22.557, 2.3701, 6.97, -0.4, -0.10289)
+    with pytest.raises(EosValidationError):
+        finger.volume(100.0)

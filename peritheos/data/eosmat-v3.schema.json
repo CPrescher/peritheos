@@ -1221,6 +1221,103 @@
               }
             }
           }
+        },
+        {
+          "if": {
+            "anyOf": [
+              {
+                "required": [
+                  "zero_point_pressure"
+                ],
+                "properties": {
+                  "zero_point_pressure": {
+                    "const": "included"
+                  }
+                }
+              },
+              {
+                "allOf": [
+                  {
+                    "not": {
+                      "required": [
+                        "zero_point_pressure"
+                      ]
+                    }
+                  },
+                  {
+                    "required": [
+                      "configuration"
+                    ],
+                    "properties": {
+                      "configuration": {
+                        "required": [
+                          "zero_point_pressure"
+                        ],
+                        "properties": {
+                          "zero_point_pressure": {
+                            "const": "included"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "then": {
+            "allOf": [
+              {
+                "properties": {
+                  "type": {
+                    "const": "Dewaele2006"
+                  }
+                }
+              },
+              {
+                "anyOf": [
+                  {
+                    "required": [
+                      "thermal_pressure_reference"
+                    ],
+                    "properties": {
+                      "thermal_pressure_reference": {
+                        "const": "absolute_zero"
+                      }
+                    }
+                  },
+                  {
+                    "allOf": [
+                      {
+                        "not": {
+                          "required": [
+                            "thermal_pressure_reference"
+                          ]
+                        }
+                      },
+                      {
+                        "required": [
+                          "configuration"
+                        ],
+                        "properties": {
+                          "configuration": {
+                            "required": [
+                              "thermal_pressure_reference"
+                            ],
+                            "properties": {
+                              "thermal_pressure_reference": {
+                                "const": "absolute_zero"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
         }
       ]
     },

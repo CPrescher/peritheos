@@ -120,7 +120,7 @@ class Dewaele2006(ThermalEOS):
             )
 
     def configuration_values(self) -> dict[str, str | float]:
-        configuration = {}
+        configuration: dict[str, str | float] = {}
         if self.thermal_pressure_reference != "reference_temperature":
             configuration["thermal_pressure_reference"] = (
                 self.thermal_pressure_reference
