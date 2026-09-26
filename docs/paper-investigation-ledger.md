@@ -24,19 +24,22 @@ produce an executable record.
 - **Source reconstruction:** a source calculation or composition of audited
   equations is reproduced without independently fitting the complete EOS.
   Component refits and remaining source-input gaps are documented separately.
+- **Original unreproduced; independent refit available:** the original source EOS
+  remains unresolved even when a separate Peritheos refit can be reproduced numerically.
 - **Withheld/deferred:** investigation did not pass the executable-record
   acceptance gate, so no production EOS was added.
 
 ## Summary
 
-The register covers **356 primary papers**: **255** support the 627 audited catalog records and **101** were investigated without adding a production record.
+The register covers **356 primary papers**: **255** support the 628 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 167 |
+| Original unreproduced; independent refit available | 1 |
+| Reproduced | 166 |
 | Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 12 |
 | Coefficient parity not achieved | 14 |
@@ -44,6 +47,31 @@ refits, or acceptance-gate holds.
 | Source reconstruction | 1 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 89 |
+
+## Chen 2010: original-constant reconstruction and independent refit
+
+**Original-constant reconstruction: DO NOT USE for scientific predictions or pressure calibration.** The record `argon_fcc_chen_2010_bm3_reported_constants` is retained for explicit diagnostic inspection. It is not a verified author equation: standard BM3 is reconstructed from the rounded P = 2 GPa, density = 2.18 g/cm³, KT = 15.1 GPa and KT′ = 5.4 constraints.
+
+The separate `argon_fcc_chen_2010_bm3_digitized_refit` fits all 80 distinct digitized Brillouin-integrated density positions. It does not use the published fitted-line vertices or printed elastic constants. This numerical refit does **not** reproduce the original EOS.
+
+![Chen published curve, printed-constant reconstruction and independent refit](data/chen-2010-argon-comparison.png)
+
+| At the same pressure | Published plotted curve: volume difference from refit | Printed-constant reconstruction: volume difference from refit |
+|---|---:|---:|
+| 2 GPa | -0.21% | -0.24% |
+| 5 GPa | +0.27% | +3.14% |
+| 10 GPa | +0.09% | +6.82% |
+| 20 GPa | -0.28% | +11.15% |
+| 26 GPa | -0.04% | +12.90% |
+
+Differences are 100 × (Vcomparison / Vrefit − 1). The printed-constant reconstruction has 6.880 GPa pressure RMS error at the original marker coordinates; the refit has 0.111 GPa. The paper's drawn curve closely follows the refit, with a maximum volume difference of 1.40% over 1.23–26.06 GPa. The alternative pressure-offset convention also fails the density comparison.
+
+The 2 GPa constants are not zero-pressure coefficients. The density integration instead starts at 1.3 GPa. At 2 GPa the drawn curve's slope implies KT ≈ 11 GPa, the refit gives 12.62 GPa, and the paper prints 15.1 GPa. The cause is unresolved: **no error in Chen's pressure calibration or adiabatic-to-isothermal correction has been established**.
+
+The refit is provisional and qualified only within the digitized interval at nominal 290 K. Its extrapolated rho0 = 1.6895 g/cm³ is higher than Chen's 1.52 ± 0.05 and the 1.564 room-temperature estimate Chen attributes to low-temperature measurements in ref. 22. We have not independently verified that temperature extrapolation. Parameter covariance and statistical uncertainties are unavailable; numerical reproducibility is not independent physical validation.
+
+[Full source audit, equations, fit method and limitations](literature-reproductions/chen-2010-argon.md) · [Comparison data](data/chen-2010-argon-comparison.json) · [Refit report](data/chen-2010-argon-refit.json).
+
 
 ## Withheld or deferred papers
 
@@ -941,7 +969,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **65 papers** contain 174 records for which a
+These **66 papers** contain 175 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -957,6 +985,7 @@ Papers not yet listed there remain unassessed for outreach.
 | [Anderson et al. (1989)](https://doi.org/10.1063/1.342969) | `gold_anderson_1989_bm3_1` | Tables I-IV contain heterogeneous literature properties, separately regressed coefficients, and derived thermodynamic diagnostics, while Table V is output from Equation (29). The source performs staged smoothing, one-dimensional regressions, numerical integrations, and qualitative K0' trials; it does not define a global observation matrix, objective, weights, integration protocol, or covariance that could be reproduced as a direct EOS coefficient refit. |
 | [Baty et al. (2024)](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_bm3_dft_2` | The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes. |
 | [Caracas et al. (2005)](https://doi.org/10.1029/2004gl022144) | `ca_perovskite_caracas_2005_bm3_3`, `ca_perovskite_caracas_2005_bm4_4`, `ca_perovskite_tetragonal_caracas_2005_bm3_1`, `ca_perovskite_tetragonal_caracas_2005_bm4_2` | The article publishes fitted EOS coefficients and relative energies but not the first-principles E(V) observations, fit weights, residuals, or covariance. No supporting-information or official data attachment is listed on the publisher article page or the UCL deposit, so an independent coefficient refit is not possible. Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
+| [Chen (2010)](https://doi.org/10.1103/physrevb.81.144110) | `argon_fcc_chen_2010_bm3_reported_constants` | DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md. |
 | [Chizmeshya et al. (1996)](https://doi.org/10.1029/96gl02624) | `ca_perovskite_chizmeshya_1996_lapw7_static_bm3`, `ca_perovskite_chizmeshya_1996_lapw8_static_bm3`, `ca_perovskite_chizmeshya_1996_lapw9_300k_bm3`, `ca_perovskite_chizmeshya_1996_lapw9_300k_kp4_bm3`, `ca_perovskite_chizmeshya_1996_lapw9_static_bm3` | Coefficients are tabulated; energy-volume points and weights are unavailable. No E-V grid is published. The coefficients are complete but the corrected E-V grid is not published. Thermally corrected E-V points are not published. |
 | [Cohen and Lin (2014)](https://doi.org/10.1103/physrevb.90.140102) | `fesio3_bridgmanite_cohen_lin_2014_vinet_1`, `fesio3_post_perovskite_cohen_lin_2014_vinet_1`, `fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1` | The eight energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=34.27 A3/FeSiO3, K100=597 GPa, and K100'=3.34; the stored curve is within 0.0108 A3/FeSiO3, 0.110 GPa, and 0.00114, respectively. The energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=33.98 A3/FeSiO3, K100=579 GPa, and K100'=3.47; the Table I lattice product gives 33.9343 A3/FeSiO3. The energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=34.49 A3/FeSiO3, K100=580 GPa, and K100'=3.44; the Table I lattice product gives 34.4492 A3/FeSiO3. |
 | [Crichton et al. (2016)](https://doi.org/10.1080/08957959.2015.1123256) | `vanadium_bcc_crichton_2016_bm3_thermal` | Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization. |
@@ -1067,7 +1096,7 @@ the primary-source and refit ledgers.
 | [Caracas and Cohen (2005), MgSiO3-FeSiO3-Al2O3 pv/ppv chemistry](https://doi.org/10.1029/2005GL023164) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Caracas et al. (2005)](https://doi.org/10.1029/2004gl022144) | Direct refit unavailable | 4 | 4 direct refit unavailable | 4 theoretical parameterization only |
 | [Chantel et al. (2012), bridgmanite acoustic velocities](https://doi.org/10.1029/2012GL053075) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Chen (2010)](https://doi.org/10.1103/physrevb.81.144110) | Reproduced | 1 | 1 similar |  |
+| [Chen (2010)](https://doi.org/10.1103/physrevb.81.144110) | Original unreproduced; independent refit available | 2 | 1 similar; 1 direct refit unavailable; DO NOT USE the original-constant reconstruction. Separate Peritheos density refit; [comparison and explanation](#chen-2010-original-constant-reconstruction-and-independent-refit). | 2 digitized |
 | [Chen et al. (2018)](https://doi.org/10.2138/am-2018-6087) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Chen et al. (2024), stishovite velocities](https://doi.org/10.1029/2023GL107700) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Chidester et al. (2018)](https://doi.org/10.2138/am-2018-6212) | Reproduced | 2 | 2 similar | 2 bundled |

@@ -46,7 +46,7 @@ The documentation is organized around scientific workflows:
 - [Calculation uncertainty](uncertainty.md) propagates fitted or published
   parameter errors into EOS predictions.
 - [Dioptas and `.eosmat`](dioptas-integration.md) defines the shared material
-  ownership and bundled 226-material-document/626-record EOS library.
+  ownership and bundled 226-material-document/628-record EOS library.
 - [`.eosmat` schema reference](eosmat-schema.md) documents every exchange
   field, model discriminator, default, unit, and compatibility rule.
 - [Advanced DAC analysis](dac-thermal-pressure.md) documents the optional

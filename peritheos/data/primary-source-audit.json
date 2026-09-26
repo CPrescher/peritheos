@@ -9,9 +9,9 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 627,
+    "records": 628,
     "deferred": 2,
-    "not_reproduced": 1,
+    "not_reproduced": 2,
     "primary_source_validated": 624
   },
   "records": [
@@ -721,11 +721,29 @@
     {
       "material": "argon_fcc",
       "file": "argon_fcc.eosmat",
+      "record": "argon_fcc_chen_2010_bm3_reported_constants",
+      "label": "Chen (2010) — original-constant BM3 reconstruction — DO NOT USE",
+      "doi": "10.1103/physrevb.81.144110",
+      "status": "not_reproduced",
+      "note": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.81.144110",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+        "locations": [
+          "Table I and page 3 text: rounded density, KT and KTprime at2 GPa; Figure5 is a separate comparison, not verified by these coefficients."
+        ]
+      },
+      "usage_recommendation": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
+      "reproduction_status": "not_reproduced"
+    },
+    {
+      "material": "argon_fcc",
+      "file": "argon_fcc.eosmat",
       "record": "argon_fcc_chen_2010_bm3_digitized_refit",
       "label": "Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities",
       "doi": "10.1103/physrevb.81.144110",
       "status": "primary_source_validated",
-      "note": "Validation applies only to traceable source observations and reproducible Peritheos refit. Chen source-author parameterization remains unresolved.",
+      "note": "Validation covers source-data traceability and numerical reproducibility of this separate Peritheos fit only. Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed.",
       "primary_source_check": {
         "doi": "10.1103/PhysRevB.81.144110",
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
@@ -733,7 +751,8 @@
           "Figure5 black squares and caption, TableI temperature; no published fit-line vertices in regression"
         ]
       },
-      "reproduction_status": "independent_digitized_data_refit"
+      "reproduction_status": "independent_digitized_data_refit",
+      "usage_recommendation": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
     },
     {
       "material": "argon_fcc",

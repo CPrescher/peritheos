@@ -5,6 +5,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+- Retain Chen (2010) printed-constant BM3 reconstruction as an explicit-selection
+  diagnostic marked DO NOT USE, alongside the separate Peritheos refit. Both
+  records link to a visual comparison and explanation; ledgers keep original
+  EOS non-reproduction separate from numerical reproducibility of the refit.
+
 - Add Xiao et al. (2025) fcc argon Helmholtz EOS with exact Debye and
   anharmonic terms, native/Python caloric support, 22 neutron observations,
   and independent publisher-workbook reproduction.
@@ -15,7 +20,7 @@ All notable changes to Peritheos are documented here. The project follows
 - Add Chen (2010) fcc argon as a supporting study with 80 digitized
   Brillouin density positions, a separate published-fit curve, reported elastic
   constants and a reproducible audit of the unresolved EOS inconsistency.
-  No unverified Chen parameterization is added to the executable catalog.
+  No Chen reconstruction is presented as a verified source-author EOS.
 - Audit Maltby argon coefficient rounding and the full neighbour table, and
   add reproducible constrained-refit diagnostics with entire runs held out.
   Preserve the published coefficients and keep refits experimental after

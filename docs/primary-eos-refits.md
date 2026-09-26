@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **627** EOS records. **220** achieve uncertainty parity, **150** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[70](#parity-not-achieved)** do not achieve parity, **174** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **628** EOS records. **220** achieve uncertainty parity, **150** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[70](#parity-not-achieved)** do not achieve parity, **175** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -92,6 +92,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`argon_fcc_anderson_swenson_1975_40p0k`](https://doi.org/10.1016/0022-3697(75)90004-9) | `argon_anderson_1972_appendix_a` | 69 | — | —/— | not_refittable — Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed. |
 | [`argon_fcc_anderson_swenson_1975_60p0k`](https://doi.org/10.1016/0022-3697(75)90004-9) | `argon_anderson_1972_appendix_a` | 80 | — | —/— | not_refittable — Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed. |
 | [`argon_fcc_anderson_swenson_1975_77p0k`](https://doi.org/10.1016/0022-3697(75)90004-9) | `argon_anderson_1972_appendix_a` | 81 | — | —/— | not_refittable — Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed. |
+| [`argon_fcc_chen_2010_bm3_reported_constants`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext) | `argon_fcc_chen_2010_figure5_brillouin` | 80 | — | —/— | not_refittable — DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md. |
 | [`argon_fcc_chen_2010_bm3_digitized_refit`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext) | `argon_fcc_chen_2010_figure5_brillouin` | 80 | — | —/— | [similar](#investigation-argon_fcc_chen_2010_bm3_digitized_refit) — Numerically reproduced independent Peritheos errors-in-variables BM3 refit. This does not reproduce the source-author coefficients. Statistical parameter errors are unavailable because graphical halfwidth confidence and cross-row correlations are unknown. |
 | [`argon_fcc_maltby_2024_published`](https://api.nva.unit.no/publication/0198cc531207-be3c0dc3-6af4-4953-97be-777a88a705a8/filelink/b4a4e90d-77d9-4854-a2cb-af09e365233e) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction. |
 | [`argon_hcp_wittlinger_1997_bm2_1`](https://doi.org/10.1107/S0108768197005739) | `argon_hcp_wittlinger_1997_figure3_digitized` | 9 | `V0` 78 → 72.7817; `K0` 6.5 → 8.0603 | 0.772262/0.451011 | not_refittable — NOT REPRODUCED: the available digitization does not establish a source-faithful reproduction of the published fit. Original observations, regression settings and covariance are unavailable; the shared fitted V0 normalization limits independent coefficient recovery. The numerical fits below are diagnostics only. Broad error-bar overlap is not successful reproduction. Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit. |
@@ -1087,7 +1088,7 @@ the missing source fit detail is recovered.
 
 **Source/data scope.** 80 distinct vector marker positions with graphical coordinate errorbar halfwidths; not original experimental tables.
 
-**Registered source-fit note.** Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent.
+**Registered source-fit note.** Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent. Comparison and source discrepancy: docs/literature-reproductions/chen-2010-argon.md.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
@@ -5487,6 +5488,7 @@ the missing source fit detail is recovered.
 - `argon_fcc_anderson_swenson_1975_40p0k`: Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.
 - `argon_fcc_anderson_swenson_1975_60p0k`: Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.
 - `argon_fcc_anderson_swenson_1975_77p0k`: Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.
+- `argon_fcc_chen_2010_bm3_reported_constants`: DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md.
 - `argon_fcc_maltby_2024_published`: Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.
 - `argon_hcp_wittlinger_1997_bm2_1`: NOT REPRODUCED: the available digitization does not establish a source-faithful reproduction of the published fit. Original observations, regression settings and covariance are unavailable; the shared fitted V0 normalization limits independent coefficient recovery. The numerical fits below are diagnostics only. Broad error-bar overlap is not successful reproduction. Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit.
 - `beryllium_hcp_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
@@ -5650,3 +5652,28 @@ The complete machine-readable diagnostics, including selected columns,
 fit objective, coefficient errors, relative differences, solver status,
 and reduced chi-square, are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
+
+
+## Chen 2010: original-constant reconstruction and independent refit
+
+**Original-constant reconstruction: DO NOT USE for scientific predictions or pressure calibration.** The record `argon_fcc_chen_2010_bm3_reported_constants` is retained for explicit diagnostic inspection. It is not a verified author equation: standard BM3 is reconstructed from the rounded P = 2 GPa, density = 2.18 g/cm³, KT = 15.1 GPa and KT′ = 5.4 constraints.
+
+The separate `argon_fcc_chen_2010_bm3_digitized_refit` fits all 80 distinct digitized Brillouin-integrated density positions. It does not use the published fitted-line vertices or printed elastic constants. This numerical refit does **not** reproduce the original EOS.
+
+![Chen published curve, printed-constant reconstruction and independent refit](data/chen-2010-argon-comparison.png)
+
+| At the same pressure | Published plotted curve: volume difference from refit | Printed-constant reconstruction: volume difference from refit |
+|---|---:|---:|
+| 2 GPa | -0.21% | -0.24% |
+| 5 GPa | +0.27% | +3.14% |
+| 10 GPa | +0.09% | +6.82% |
+| 20 GPa | -0.28% | +11.15% |
+| 26 GPa | -0.04% | +12.90% |
+
+Differences are 100 × (Vcomparison / Vrefit − 1). The printed-constant reconstruction has 6.880 GPa pressure RMS error at the original marker coordinates; the refit has 0.111 GPa. The paper's drawn curve closely follows the refit, with a maximum volume difference of 1.40% over 1.23–26.06 GPa. The alternative pressure-offset convention also fails the density comparison.
+
+The 2 GPa constants are not zero-pressure coefficients. The density integration instead starts at 1.3 GPa. At 2 GPa the drawn curve's slope implies KT ≈ 11 GPa, the refit gives 12.62 GPa, and the paper prints 15.1 GPa. The cause is unresolved: **no error in Chen's pressure calibration or adiabatic-to-isothermal correction has been established**.
+
+The refit is provisional and qualified only within the digitized interval at nominal 290 K. Its extrapolated rho0 = 1.6895 g/cm³ is higher than Chen's 1.52 ± 0.05 and the 1.564 room-temperature estimate Chen attributes to low-temperature measurements in ref. 22. We have not independently verified that temperature extrapolation. Parameter covariance and statistical uncertainties are unavailable; numerical reproducibility is not independent physical validation.
+
+[Full source audit, equations, fit method and limitations](literature-reproductions/chen-2010-argon.md) · [Comparison data](data/chen-2010-argon-comparison.json) · [Refit report](data/chen-2010-argon-refit.json).

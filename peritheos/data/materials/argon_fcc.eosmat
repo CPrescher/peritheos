@@ -1364,6 +1364,151 @@
    ]
   },
   {
+   "identifier": "argon_fcc_chen_2010_bm3_reported_constants",
+   "label": "Chen (2010) — original-constant BM3 reconstruction — DO NOT USE",
+   "record_kind": "diagnostic",
+   "reference": {
+    "authors": [
+     "Chen",
+     "Gleason",
+     "Yan",
+     "Koski",
+     "Clark",
+     "Jeanloz"
+    ],
+    "year": 2010,
+    "title": "Elasticity, strength, and refractive index of argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "81",
+    "locator": "144110",
+    "doi": "10.1103/PhysRevB.81.144110"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 158.4458086182256,
+     "K0": 2.579673179843727,
+     "K0_prime": 9.081604622279848
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "temperature_ref": 290.0,
+   "reference_pressure_gpa": 0.0,
+   "determination_method": "experimental",
+   "fit_datasets": [],
+   "diagnostic_datasets": [
+    "argon_fcc_chen_2010_figure5_brillouin",
+    "argon_fcc_chen_2010_figure5_curve",
+    "argon_fcc_chen_2010_reported_values"
+   ],
+   "default": false,
+   "catalog_access": "explicit_selection",
+   "experimental_pressure_range_gpa": [
+    1.23188372,
+    26.06236454
+   ],
+   "experimental_temperature_range_k": [
+    290,
+    290
+   ],
+   "validity": {
+    "pressure_gpa": [
+     1.23188372,
+     26.06236454
+    ],
+    "temperature_k": [
+     290,
+     290
+    ],
+    "notes": [
+     "Comparison interval only, not a validated prediction range.",
+     "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established."
+    ]
+   },
+   "parameter_provenance": {
+    "determination_method": "Diagnostic reconstruction from printed experimental elastic constants, not a fit to density observations.",
+    "V0": "Derived zero-pressure branch of standard BM3 constrained at rho=2.18 g/cm3, P=2 GPa; not the published zero-pressure density1.52 g/cm3.",
+    "K0": "Derived zero-pressure value; the source reports KT=15.1 GPa at2 GPa, not at zero pressure.",
+    "K0_prime": "Derived zero-pressure value; the source reports KTprime=5.4 at2 GPa.",
+    "source_constraints": {
+     "pressure_gpa": 2,
+     "density_g_cm3": 2.18,
+     "bulk_modulus_gpa": 15.1,
+     "bulk_modulus_pressure_derivative": 5.4
+    },
+    "derivation": "P(x)=32.5325*x^3-47.415*x^(7/3)+16.8825*x^(5/3), x=rho/2.18. With D=x*d/dx, impose P=2, DP=15.1, D^2P=15.1*5.4 at x=1. Select mechanically stable zero-pressure branch.",
+    "reported_parameter_uncertainties": "Source uncertainties retained in reported-values dataset. Covariance and uncertainty propagation to reconstructed coefficients are unavailable."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1978",
+      "source_location": "Chen2010 Experimental section reference14",
+      "reference": "Mao, Bell, Shaner and Steinberg (1978), J. Appl. Phys.49,3276"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No ruby wavelengths supplied; refit preserves reported pressures."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "not_reproduced",
+    "audit_date": "2026-09-26",
+    "reproduction_status": "not_reproduced",
+    "note": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
+    "usage_recommendation": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
+    "primary_source_check": {
+     "doi": "10.1103/PhysRevB.81.144110",
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+     "locations": [
+      "Table I and page 3 text: rounded density, KT and KTprime at2 GPa; Figure5 is a separate comparison, not verified by these coefficients."
+     ]
+    },
+    "primary_data_check": {
+     "status": "digitized",
+     "dataset_identifiers": [
+      "argon_fcc_chen_2010_figure5_brillouin"
+     ],
+     "finding": "Printed-constant reconstruction fails the drawn observations. These rows are for comparison, not fit inputs to this record."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_chen_2010_argon.py",
+     "report": "docs/data/chen-2010-argon-reproduction.json"
+    }
+   },
+   "reproduction": {
+    "documentation": "docs/literature-reproductions/chen-2010-argon.md",
+    "comparison_report": "docs/data/chen-2010-argon-comparison.json",
+    "comparison_figure": "docs/data/chen-2010-argon-comparison.png",
+    "related_record_identifiers": [
+     "argon_fcc_chen_2010_bm3_reported_constants",
+     "argon_fcc_chen_2010_bm3_digitized_refit"
+    ],
+    "summary_status": "not_reproduced",
+    "status": "not_reproduced",
+    "display_label": "DO NOT USE — original-constant reconstruction",
+    "reason": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
+    "do_not_use": true
+   },
+   "notes": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established. See docs/literature-reproductions/chen-2010-argon.md for the curve comparison, reference-state conventions and independent refit."
+  },
+  {
    "identifier": "argon_fcc_chen_2010_bm3_digitized_refit",
    "label": "Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities",
    "record_kind": "refit",
@@ -1574,7 +1719,7 @@
     "audit_date": "2026-09-24",
     "reproduction_status": "independent_digitized_data_refit",
     "original_publication_reproduction_status": "not_reproduced",
-    "note": "Validation applies only to traceable source observations and reproducible Peritheos refit. Chen source-author parameterization remains unresolved.",
+    "note": "Validation covers source-data traceability and numerical reproducibility of this separate Peritheos fit only. Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed.",
     "verified_fields": [
      "equation",
      "units",
@@ -1602,9 +1747,23 @@
      "script": "scripts/refit_chen_2010_argon.py",
      "report": "docs/data/chen-2010-argon-refit.json",
      "native_pressure_max_difference_gpa": 4.263256414560601e-14
-    }
+    },
+    "usage_recommendation": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
    },
-   "notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent."
+   "notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent. Comparison and source discrepancy: docs/literature-reproductions/chen-2010-argon.md.",
+   "reproduction": {
+    "documentation": "docs/literature-reproductions/chen-2010-argon.md",
+    "comparison_report": "docs/data/chen-2010-argon-comparison.json",
+    "comparison_figure": "docs/data/chen-2010-argon-comparison.png",
+    "related_record_identifiers": [
+     "argon_fcc_chen_2010_bm3_reported_constants",
+     "argon_fcc_chen_2010_bm3_digitized_refit"
+    ],
+    "summary_status": "independent_digitized_data_refit",
+    "original_publication_reproduction_status": "not_reproduced",
+    "display_label": "Independent Peritheos refit — provisional",
+    "reason": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
+   }
   },
   {
    "identifier": "argon_fcc_maltby_2024_published",

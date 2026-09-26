@@ -25,6 +25,7 @@ STATUS_LABELS = {
 }
 
 OUTCOME_LABELS = {
+    "unreproduced_original_with_independent_refit": "Original unreproduced; independent refit available",
     "reproduced": "Reproduced",
     "partial_reproduction": "Partly reproduced",
     "mixed_reproduction": "Mixed: reproduced and discrepant records",
@@ -47,6 +48,10 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1103/physrevb.81.144110": (
+        "DO NOT USE the original-constant reconstruction. Separate Peritheos density refit; "
+        "[comparison and explanation](#chen-2010-original-constant-reconstruction-and-independent-refit)."
+    ),
     "10.1002/2013jb010898": (
         "Two published B2 FeSi candidates withheld: unresolved thermal normalization; two independent Peritheos refits added; "
         "see [source audit](literature-reproductions/fischer-2014-fesi.md)."
@@ -177,7 +182,17 @@ def build_papers() -> tuple[list[dict[str, Any]], dict[str, int]]:
                 "citation": citation or citation_from_labels(labels),
                 "doi": doi,
                 "access_url": access_url,
-                "outcome": classify(statuses),
+                "outcome": (
+                    "unreproduced_original_with_independent_refit"
+                    if any(
+                        row.get("original_publication_reproduction_status")
+                        == "not_reproduced"
+                        and row.get("reproduction_status")
+                        == "independent_digitized_data_refit_reproduced"
+                        for row in records
+                    )
+                    else classify(statuses)
+                ),
                 "statuses": statuses,
                 "data_statuses": data_statuses,
                 "records": sorted(records, key=lambda row: row["record_identifier"]),
@@ -195,6 +210,60 @@ def build_papers() -> tuple[list[dict[str, Any]], dict[str, int]]:
     papers.sort(key=lambda row: row["citation"].casefold())
     outcome_counts = Counter(paper["outcome"] for paper in papers)
     return papers, dict(outcome_counts)
+
+
+def chen_comparison_section() -> str:
+    """Keep both ledgers explicit about the separate meanings of the curves."""
+    report = load_json(ROOT / "docs/data/chen-2010-argon-comparison.json")
+    rows = [
+        "## Chen 2010: original-constant reconstruction and independent refit",
+        "",
+        "**Original-constant reconstruction: DO NOT USE for scientific predictions or pressure calibration.** "
+        "The record `argon_fcc_chen_2010_bm3_reported_constants` is retained for explicit diagnostic inspection. "
+        "It is not a verified author equation: standard BM3 is reconstructed from the rounded "
+        "P = 2 GPa, density = 2.18 g/cm³, KT = 15.1 GPa and KT′ = 5.4 constraints.",
+        "",
+        "The separate `argon_fcc_chen_2010_bm3_digitized_refit` fits all 80 distinct digitized "
+        "Brillouin-integrated density positions. It does not use the published fitted-line vertices "
+        "or printed elastic constants. This numerical refit does **not** reproduce the original EOS.",
+        "",
+        "![Chen published curve, printed-constant reconstruction and independent refit](data/chen-2010-argon-comparison.png)",
+        "",
+        "| At the same pressure | Published plotted curve: volume difference from refit | Printed-constant reconstruction: volume difference from refit |",
+        "|---|---:|---:|",
+    ]
+    for row in report["checkpoints"]:
+        delta = row["volume_difference_from_refit_percent"]
+        rows.append(
+            f"| {row['pressure_gpa']} GPa | {delta['published_curve']:+.2f}% | {delta['reported_constants']:+.2f}% |"
+        )
+    rows.extend(
+        [
+            "",
+            "Differences are 100 × (Vcomparison / Vrefit − 1). The printed-constant reconstruction "
+            "has 6.880 GPa pressure RMS error at the original marker coordinates; the refit has "
+            "0.111 GPa. The paper's drawn curve closely follows the refit, with a maximum volume "
+            "difference of 1.40% over 1.23–26.06 GPa. The alternative pressure-offset convention "
+            "also fails the density comparison.",
+            "",
+            "The 2 GPa constants are not zero-pressure coefficients. The density integration instead "
+            "starts at 1.3 GPa. At 2 GPa the drawn curve's slope implies KT ≈ 11 GPa, the refit gives "
+            "12.62 GPa, and the paper prints 15.1 GPa. The cause is unresolved: **no error in Chen's "
+            "pressure calibration or adiabatic-to-isothermal correction has been established**.",
+            "",
+            "The refit is provisional and qualified only within the digitized interval at nominal 290 K. "
+            "Its extrapolated rho0 = 1.6895 g/cm³ is higher than Chen's 1.52 ± 0.05 and the 1.564 "
+            "room-temperature estimate Chen attributes to low-temperature measurements in ref. 22. "
+            "We have not independently verified that temperature extrapolation. Parameter covariance "
+            "and statistical uncertainties are unavailable; numerical reproducibility is not independent physical validation.",
+            "",
+            "[Full source audit, equations, fit method and limitations](literature-reproductions/chen-2010-argon.md) · "
+            "[Comparison data](data/chen-2010-argon-comparison.json) · "
+            "[Refit report](data/chen-2010-argon-refit.json).",
+            "",
+        ]
+    )
+    return "\n".join(rows)
 
 
 def render() -> str:
@@ -250,6 +319,8 @@ def render() -> str:
         "- **Source reconstruction:** a source calculation or composition of audited",
         "  equations is reproduced without independently fitting the complete EOS.",
         "  Component refits and remaining source-input gaps are documented separately.",
+        "- **Original unreproduced; independent refit available:** the original source EOS",
+        "  remains unresolved even when a separate Peritheos refit can be reproduced numerically.",
         "- **Withheld/deferred:** investigation did not pass the executable-record",
         "  acceptance gate, so no production EOS was added.",
         "",
@@ -269,6 +340,8 @@ def render() -> str:
         count = outcome_counts.get(outcome, 0)
         if count:
             lines.append(f"| {OUTCOME_LABELS[outcome]} | {count} |")
+
+    lines.extend(["", chen_comparison_section()])
 
     lines.extend(
         [
@@ -376,6 +449,7 @@ def render() -> str:
         ]
     )
     data_labels = {
+        "digitized": "digitized",
         "partial_published_table": "partial published table/checkpoints",
         "bundled": "bundled",
         "bundled_indirect": "bundled indirect",

@@ -2922,6 +2922,100 @@
       "dataset_identifiers": [
         "argon_fcc_chen_2010_figure5_brillouin"
       ],
+      "documentation": "literature-reproductions/chen-2010-argon.md",
+      "experimental_pressure_range_gpa": [
+        1.23188372,
+        26.06236454
+      ],
+      "experimental_temperature_range_k": [
+        290,
+        290
+      ],
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Chen (2010) \u2014 original-constant BM3 reconstruction \u2014 DO NOT USE",
+      "material_identifier": "argon_fcc",
+      "model": "BM3",
+      "observations": 80,
+      "primary_data_finding": "Printed-constant reconstruction fails the drawn observations. These rows are for comparison, not fit inputs to this record.",
+      "primary_data_status": "digitized",
+      "primary_source": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+      "reason": "DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md.",
+      "record_identifier": "argon_fcc_chen_2010_bm3_reported_constants",
+      "reproduction": {
+        "brillouin_density_markers": {
+          "distinct_pdf_positions": 80,
+          "note": "PDF render multiplicities are not sample counts; integrated densities, not XRD observations.",
+          "pressure_range_gpa": [
+            1.23188372,
+            26.06236454
+          ],
+          "rows_with_matched_density_errorbar": 80,
+          "rows_with_matched_pressure_errorbar": 80
+        },
+        "equation4_check": {
+          "Cp_over_Cv_at_2gpa": 1.168588514060111,
+          "drho_dP_from_printed_figure4_velocities": 0.1351369531610182
+        },
+        "figure5_curve_diagnostic": {
+          "local_cubic_1_to_3_gpa_bulk_modulus_at_2_gpa": 11.156956378124951,
+          "note": "Derivative of digitized fitted line; not an independent measured elastic constant.",
+          "rho_at_2_gpa_g_cm3": 2.1801686132031586,
+          "rows": 262
+        },
+        "limitation": "No unrounded EOS coefficients, original velocity/density table, covariance or integration weights supplied. Rounded-constraint inconsistency is not a significance test; errors are correlated and confidence convention is unspecified. No executable source-author Chen EOS is bundled; the separate Peritheos digitized-data refit does not resolve this source discrepancy.",
+        "outcome": "supporting_study_with_digitized_density_and_separate_curve",
+        "reference_state": {
+          "density_g_cm3": 2.18,
+          "pressure_gpa": 2,
+          "temperature_k": 290
+        },
+        "reproduction_status": "not_reproduced",
+        "shifted_bm3_at_2gpa_alternative_not_published_fit": {
+          "density_marker_pressure_max_abs_gpa": 16.971941505231424,
+          "density_marker_pressure_rms_gpa": 6.250901859284658,
+          "equation": "P = 2 GPa + BM3(V; Vref=Mcell/2.18, Kref=15.1, Kprime_ref=5.4)",
+          "note": "KKsecond agrees with the printed rounded value, but the curve and zero-pressure density do not. Reference convention remains unresolved.",
+          "predicted_K_Ksecond_at_2gpa": -7.2488888888888905,
+          "predicted_rho0_g_cm3": 1.6337365859482398
+        },
+        "standard_bm3_local_constraint_diagnostic": {
+          "density_marker_pressure_max_abs_gpa": 19.068218177687267,
+          "density_marker_pressure_rms_gpa": 6.880361102691378,
+          "density_polynomial_coefficients_gpa": [
+            32.532500000000006,
+            -47.415000000000006,
+            16.882499999999997
+          ],
+          "derived_zero_pressure_parameters_not_published": {
+            "K0": 2.579673179843727,
+            "K0_prime": 9.081604622279848,
+            "V0": 158.4458086182256
+          },
+          "native_pressure_max_difference_gpa": 7.815970093361102e-14,
+          "predicted_K_Ksecond_at_2gpa": -5.703635025754238,
+          "predicted_rho0_g_cm3": 1.6746473821922345,
+          "predicted_rho_at_1_3_gpa": 2.0663886101177016,
+          "printed_K_Ksecond_at_2gpa": -7.3,
+          "printed_K_Ksecond_uncertainty": 1.2,
+          "printed_integration_anchor_rho_g_cm3": 2.02,
+          "printed_rho0_g_cm3": 1.52,
+          "printed_rho0_uncertainty_g_cm3": 0.05,
+          "rho0_difference_divided_by_printed_uncertainty": 3.09294764384469
+        },
+        "study": "Chen et al. (2010), doi:10.1103/PhysRevB.81.144110"
+      },
+      "reproduction_status": "not_reproduced",
+      "source_notes": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established. See docs/literature-reproductions/chen-2010-argon.md for the curve comparison, reference-state conventions and independent refit.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [
+        "argon_fcc_chen_2010_figure5_brillouin"
+      ],
       "experimental_pressure_range_gpa": [
         1.23188372,
         26.06236454
@@ -3124,7 +3218,7 @@
         ]
       },
       "reproduction_status": "independent_digitized_data_refit_reproduced",
-      "source_notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent.",
+      "source_notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent. Comparison and source discrepancy: docs/literature-reproductions/chen-2010-argon.md.",
       "status": "similar"
     },
     {
@@ -44850,11 +44944,11 @@
     }
   ],
   "summary": {
-    "not_refittable": 174,
+    "not_refittable": 175,
     "parity": 220,
     "parity_not_achieved": 70,
     "similar": 150,
     "source_reconstruction": 13,
-    "total": 627
+    "total": 628
   }
 }
