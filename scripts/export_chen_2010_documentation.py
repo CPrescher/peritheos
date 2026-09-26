@@ -51,7 +51,11 @@ All 80 distinct black-square positions in Figure 5 enter once. An errors-in-vari
 least-squares objective permits density adjustment and uses the graphical pressure
 and density halfwidths as relative coordinate weights. Original observations are
 preserved. The paper's fitted curve, extrapolated zero-pressure density and printed
-elastic constants do not enter this regression. The uncertainty convention and
+elastic constants do not enter this regression. Older measurements from other
+studies are also excluded: this is a Chen-only fit, not a combined argon EOS.
+Chen used older X-ray results as an independent comparison, rather than a
+constraint on the Brillouin density reduction. Combining low-temperature and
+room-temperature observations requires an explicit thermal model. The uncertainty convention and
 cross-row correlations of the integrated densities are unknown, so no parameter
 covariance, confidence interval or statistical standard errors are asserted.
 

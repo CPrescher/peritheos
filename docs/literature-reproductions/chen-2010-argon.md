@@ -250,7 +250,11 @@ reproduction status remains `not_reproduced`.
 All 80 distinct black-square positions enter once. The 262 published curve
 vertices, PDF rendering multiplicities, zero-pressure density and reported
 elastic constants are excluded from the regression. No point is fixed as an
-anchor. The fitted parameters are rho0, K0 and K0prime; rho0 is converted to
+anchor. This is a Chen-only fit, not a combined argon EOS. Older Ross
+X-ray measurements and low-temperature observations from other studies are
+not additional fit inputs. Chen explicitly used the X-ray results as an
+independent comparison rather than a constraint on the Brillouin density
+reduction; combining temperatures would require an explicit thermal model. The fitted parameters are rho0, K0 and K0prime; rho0 is converted to
 four-atom cell V0 after fitting. An independent Python BM3 expression is used
 for fitting and checked against the native Peritheos evaluator.
 
