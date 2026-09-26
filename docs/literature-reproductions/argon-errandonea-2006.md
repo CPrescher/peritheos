@@ -158,3 +158,16 @@ sensitivity to the suspicious Ross row prevent a unique inference.
 No source pressure was corrected, no catalog parameters were replaced, and
 the original fit remains unresolved. The safe result is a clearly labeled
 **diagnostic combined fit**, not a newly validated 300 K EOS.
+
+Following the user's source-quality decision, the **preferred diagnostic now
+excludes Ross Table I row 17** (247(13) kbar, 4.047 Å, 9.98 cm³/mol).
+Its pressure is suspected to be a printing error because the neighboring
+near-identical volume is reported at 347 kbar. The intended pressure is not
+established: no correction to 34.7 or 42.7 GPa is applied. The archived source
+row remains unchanged, and the report marks it excluded with this reason.
+The unfiltered fits above remain explicit sensitivity comparisons.
+
+The preferred 49-point, equal-pressure-weight fit therefore gives
+**V0=138.833 Å³/cell, K0=7.3277 GPa, K0'=5.0186**, with pressure RMS
+**1.203 GPa**. The cryogenic diamond remains excluded as well. These are
+diagnostic coefficients; the published catalog equation is unchanged.

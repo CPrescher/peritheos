@@ -18,6 +18,7 @@ REPORT = ROOT / "docs/data/argon-errandonea-2006-combined-fit.json"
 FIGURE = ROOT / "docs/data/argon-errandonea-2006-combined-fit.png"
 PUBLISHED = np.array([143.0, 6.5, 5.1])
 ERRORS = np.array([11.0, 0.5, 0.3])
+PREFERRED = "room_temperature_without_ross_row17"
 
 
 def observations():
@@ -57,6 +58,18 @@ def observations():
             temperature_k=None,
         )
     )
+    for row in result:
+        suspect = row["source"] == "ross_1986" and row["source_row"] == 17
+        row["included_in_preferred_fit"] = (
+            not suspect and row["temperature_k"] is not None
+        )
+        row["exclusion_reason"] = (
+            "Suspected printed pressure error (247 kbar); adjacent near-identical volume is at 347 kbar. User requested exclusion; no replacement value asserted."
+            if suspect
+            else "Cryogenic marker, not room-temperature data."
+            if row["temperature_k"] is None
+            else None
+        )
     return result
 
 
@@ -117,15 +130,13 @@ def calculate():
         "errandonea_only": [r for r in rows if r["source"] == "errandonea_2006"],
         "room_temperature_union": [r for r in rows if r["temperature_k"] is not None],
         "all_including_cryogenic_marker": rows,
-        "room_temperature_without_ross_row17": [
-            r
-            for r in rows
-            if r["temperature_k"] is not None
-            and not (r["source"] == "ross_1986" and r["source_row"] == 17)
-        ],
+        PREFERRED: [r for r in rows if r["included_in_preferred_fit"]],
     }
     return dict(
         status="diagnostic_combined_fit_not_original_fit_reproduction",
+        preferred_fit=dict(
+            subset=PREFERRED, objective="pressure", excluded_ross_rows=[17]
+        ),
         source_counts={
             s: sum(r["source"] == s for r in rows)
             for s in ("errandonea_2006", "ross_1986", "anderson_swenson_1975")
@@ -134,7 +145,7 @@ def calculate():
         fit_bounds=dict(lower=[80, 0.01, 4], upper=[300, 50, 15]),
         qualifications=[
             "Eight recoverable Errandonea markers, not its full unavailable raw dataset.",
-            "All 42 Ross Table I rows retained, including printed row17 P=24.7 GPa; omission tested separately, never silently corrected.",
+            "All 42 Ross Table I rows archived unchanged. Preferred fit excludes row17 (suspected printed pressure error); unfiltered fits retained as sensitivity checks.",
             "298 K Ross and 300 K Errandonea are pooled without a 2 K thermal correction.",
             "The Anderson–Swenson diamond is cryogenic; including it is a mixed-temperature sensitivity, not a valid 300 K isotherm.",
             "No experimental weighting or covariance reconstructed; equal-pressure and equal-volume objectives compared.",
@@ -158,29 +169,49 @@ def plot(report):
 
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.5), layout="constrained")
     rows = report["observations"]
-    rt = list(
+    rt = list(report["fits"][PREFERRED]["pressure"]["parameters"].values())
+    unfiltered = list(
         report["fits"]["room_temperature_union"]["pressure"]["parameters"].values()
-    )
-    mixed = list(
-        report["fits"]["all_including_cryogenic_marker"]["pressure"][
-            "parameters"
-        ].values()
     )
     for source, label, color, marker in [
         ("errandonea_2006", "Errandonea: 8 digitized, 300 K", "#d65a31", "o"),
-        ("ross_1986", "Ross: 42 tabulated, 298 K", "#2374ab", "o"),
+        ("ross_1986", "Ross: 41 included, 298 K", "#2374ab", "o"),
         ("anderson_swenson_1975", "Anderson–Swenson: cryogenic", "#923c91", "D"),
     ]:
-        selected = [r for r in rows if r["source"] == source]
+        selected = [
+            r
+            for r in rows
+            if r["source"] == source
+            and not (source == "ross_1986" and r["source_row"] == 17)
+        ]
         p = np.array([r["pressure_gpa"] for r in selected])
         v = np.array([r["volume_a3"] for r in selected])
         axes[0].scatter(p, v, s=24, color=color, marker=marker, label=label, zorder=3)
         axes[1].scatter(p, bm3(v, *rt) - p, s=24, color=color, marker=marker)
+    excluded = next(
+        r for r in rows if r["source"] == "ross_1986" and r["source_row"] == 17
+    )
+    axes[0].scatter(
+        excluded["pressure_gpa"],
+        excluded["volume_a3"],
+        s=50,
+        color="0.45",
+        marker="x",
+        label="Ross row 17: excluded",
+        zorder=4,
+    )
+    axes[1].scatter(
+        excluded["pressure_gpa"],
+        bm3(excluded["volume_a3"], *rt) - excluded["pressure_gpa"],
+        s=50,
+        color="0.45",
+        marker="x",
+    )
     p = np.linspace(0, 120, 301)
     for pars, label, style, color in [
         (PUBLISHED, "Published BM3", "--", "black"),
-        (rt, "298/300 K union fit", "-", "#24824f"),
-        (mixed, "Fit including cryogenic marker", ":", "#923c91"),
+        (rt, "Preferred fit: row 17 excluded", "-", "#24824f"),
+        (unfiltered, "Unfiltered RT fit (comparison)", ":", "#923c91"),
     ]:
         axes[0].plot(p, inverse(p, pars), style, color=color, lw=1.6, label=label)
     axes[0].set(xlabel="Pressure (GPa)", ylabel="Fcc cell volume (Å³)", xlim=(-2, 120))
@@ -191,7 +222,7 @@ def plot(report):
         ylabel="298/300 K fit − reported pressure (GPa)",
     )
     axes[1].annotate(
-        "Ross row 17: printed 24.7 GPa",
+        "Ross row 17: excluded, source retained",
         xy=(24.7, float(bm3(66.28871956, *rt) - 24.7)),
         xytext=(36, 7),
         arrowprops=dict(arrowstyle="->"),

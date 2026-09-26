@@ -1,5 +1,12 @@
 {
   "status": "diagnostic_combined_fit_not_original_fit_reproduction",
+  "preferred_fit": {
+    "subset": "room_temperature_without_ross_row17",
+    "objective": "pressure",
+    "excluded_ross_rows": [
+      17
+    ]
+  },
   "source_counts": {
     "errandonea_2006": 8,
     "ross_1986": 42,
@@ -24,7 +31,7 @@
   },
   "qualifications": [
     "Eight recoverable Errandonea markers, not its full unavailable raw dataset.",
-    "All 42 Ross Table I rows retained, including printed row17 P=24.7 GPa; omission tested separately, never silently corrected.",
+    "All 42 Ross Table I rows archived unchanged. Preferred fit excludes row17 (suspected printed pressure error); unfiltered fits retained as sensitivity checks.",
     "298 K Ross and 300 K Errandonea are pooled without a 2 K thermal correction.",
     "The Anderson\u2013Swenson diamond is cryogenic; including it is a mixed-temperature sensitivity, not a valid 300 K isotherm.",
     "No experimental weighting or covariance reconstructed; equal-pressure and equal-volume objectives compared.",
@@ -206,357 +213,459 @@
       "source_row": 1,
       "pressure_gpa": 34.8745,
       "volume_a3": 67.7249,
-      "temperature_k": 300
+      "temperature_k": 300,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "errandonea_2006",
       "source_row": 2,
       "pressure_gpa": 55.0066,
       "volume_a3": 59.0476,
-      "temperature_k": 300
+      "temperature_k": 300,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "errandonea_2006",
       "source_row": 3,
       "pressure_gpa": 65.3104,
       "volume_a3": 56.9312,
-      "temperature_k": 300
+      "temperature_k": 300,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "errandonea_2006",
       "source_row": 4,
       "pressure_gpa": 68.0053,
       "volume_a3": 56.2963,
-      "temperature_k": 300
+      "temperature_k": 300,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "errandonea_2006",
       "source_row": 5,
       "pressure_gpa": 76.8824,
       "volume_a3": 53.9683,
-      "temperature_k": 300
+      "temperature_k": 300,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "errandonea_2006",
       "source_row": 6,
       "pressure_gpa": 101.1361,
       "volume_a3": 50.1587,
-      "temperature_k": 300
+      "temperature_k": 300,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "errandonea_2006",
       "source_row": 7,
       "pressure_gpa": 105.0991,
       "volume_a3": 49.7354,
-      "temperature_k": 300
+      "temperature_k": 300,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "errandonea_2006",
       "source_row": 8,
       "pressure_gpa": 114.1347,
       "volume_a3": 48.4656,
-      "temperature_k": 300
+      "temperature_k": 300,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 1,
       "pressure_gpa": 1.6,
       "volume_a3": 125.86886129,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 2,
       "pressure_gpa": 4.3,
       "volume_a3": 106.40734342,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 3,
       "pressure_gpa": 4.6,
       "volume_a3": 103.61763779,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 4,
       "pressure_gpa": 5.5,
       "volume_a3": 98.03822653,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 5,
       "pressure_gpa": 5.5,
       "volume_a3": 98.30391278,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 6,
       "pressure_gpa": 7.8,
       "volume_a3": 92.06028588,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 7,
       "pressure_gpa": 8.5,
       "volume_a3": 93.18945245,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 8,
       "pressure_gpa": 8.5,
       "volume_a3": 92.25955057,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 9,
       "pressure_gpa": 11.7,
       "volume_a3": 88.80562931,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 10,
       "pressure_gpa": 12.1,
       "volume_a3": 85.75023743,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 11,
       "pressure_gpa": 12.6,
       "volume_a3": 84.5546493,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 12,
       "pressure_gpa": 14.8,
       "volume_a3": 82.69484555,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 13,
       "pressure_gpa": 25.2,
       "volume_a3": 72.2666602,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 14,
       "pressure_gpa": 25.2,
       "volume_a3": 70.40685645,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 15,
       "pressure_gpa": 25.3,
       "volume_a3": 70.93822895,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 16,
       "pressure_gpa": 28.3,
       "volume_a3": 70.73896426,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 17,
       "pressure_gpa": 24.7,
       "volume_a3": 66.28871956,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": false,
+      "exclusion_reason": "Suspected printed pressure error (247 kbar); adjacent near-identical volume is at 347 kbar. User requested exclusion; no replacement value asserted."
     },
     {
       "source": "ross_1986",
       "source_row": 18,
       "pressure_gpa": 34.7,
       "volume_a3": 66.08945487,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 19,
       "pressure_gpa": 39.3,
       "volume_a3": 63.69827862,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 20,
       "pressure_gpa": 40.1,
       "volume_a3": 64.22965112,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 21,
       "pressure_gpa": 42.4,
       "volume_a3": 63.23332768,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 22,
       "pressure_gpa": 42.5,
       "volume_a3": 63.69827862,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 23,
       "pressure_gpa": 45.1,
       "volume_a3": 62.43626893,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 24,
       "pressure_gpa": 46.0,
       "volume_a3": 61.90489642,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 25,
       "pressure_gpa": 46.9,
       "volume_a3": 61.63921017,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 26,
       "pressure_gpa": 47.4,
       "volume_a3": 61.70563174,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 27,
       "pressure_gpa": 52.7,
       "volume_a3": 59.91224954,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 28,
       "pressure_gpa": 52.7,
       "volume_a3": 59.84582798,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 29,
       "pressure_gpa": 54.6,
       "volume_a3": 59.58014173,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 30,
       "pressure_gpa": 54.9,
       "volume_a3": 59.04876923,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 31,
       "pressure_gpa": 56.8,
       "volume_a3": 58.9159261,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 32,
       "pressure_gpa": 56.8,
       "volume_a3": 58.65023985,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 33,
       "pressure_gpa": 57.7,
       "volume_a3": 58.58381829,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 34,
       "pressure_gpa": 61.3,
       "volume_a3": 58.31813204,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 35,
       "pressure_gpa": 62.8,
       "volume_a3": 57.58749485,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 36,
       "pressure_gpa": 63.5,
       "volume_a3": 56.7904361,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 37,
       "pressure_gpa": 64.6,
       "volume_a3": 56.59117141,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 38,
       "pressure_gpa": 64.6,
       "volume_a3": 56.7904361,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 39,
       "pressure_gpa": 64.6,
       "volume_a3": 56.72401453,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 40,
       "pressure_gpa": 74.3,
       "volume_a3": 55.19631859,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 41,
       "pressure_gpa": 78.8,
       "volume_a3": 54.00073046,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "ross_1986",
       "source_row": 42,
       "pressure_gpa": 80.6,
       "volume_a3": 52.8715639,
-      "temperature_k": 298
+      "temperature_k": 298,
+      "included_in_preferred_fit": true,
+      "exclusion_reason": null
     },
     {
       "source": "anderson_swenson_1975",
       "source_row": 1,
       "pressure_gpa": 0.0,
       "volume_a3": 149.62962962962962,
-      "temperature_k": null
+      "temperature_k": null,
+      "included_in_preferred_fit": false,
+      "exclusion_reason": "Cryogenic marker, not room-temperature data."
     }
   ]
 }
