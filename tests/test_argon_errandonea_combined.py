@@ -1,5 +1,7 @@
 """Combined-source diagnostics must preserve temperature and source anomalies."""
 
+import csv
+import hashlib
 import json
 
 import numpy as np
@@ -12,6 +14,53 @@ from scripts.fit_argon_errandonea_combined import (
     observations,
 )
 from scripts.reproduce_argon_errandonea_2006 import bm3
+
+
+def test_registered_refit_preserves_defaults_and_selected_observations():
+    from jsonschema import Draft202012Validator
+
+    from peritheos import Material, get_material_document
+    from scripts.fit_argon_errandonea_combined import PREFERRED, REPORT
+    from scripts.register_argon_combined_refit import DATASET_ID, RECORD_ID
+    from scripts.reproduce_argon_errandonea_2006 import ROOT
+
+    doc = get_material_document("argon_fcc")
+    Draft202012Validator(
+        json.loads((ROOT / "peritheos/data/eosmat-v3.schema.json").read_text())
+    ).validate(doc)
+    record = next(r for r in doc["eos_records"] if r["identifier"] == RECORD_ID)
+    assert record["record_kind"] == "refit"
+    assert record["default"] is False
+    assert [r["identifier"] for r in doc["eos_records"] if r.get("default")] == [
+        "argon_fcc_dewaele_2021_vinet_mgd"
+    ]
+    assert (
+        record["eos"]["parameters"]
+        == json.loads(REPORT.read_text())["fits"][PREFERRED]["pressure"]["parameters"]
+    )
+    dataset = next(d for d in doc["datasets"] if d["identifier"] == DATASET_ID)
+    path = ROOT / "peritheos/data" / dataset["resource"]["path"]
+    assert (
+        hashlib.sha256(path.read_bytes()).hexdigest() == dataset["resource"]["sha256"]
+    )
+    with path.open() as stream:
+        rows = list(csv.DictReader(stream))
+    assert len(rows) == 49
+    assert sum(r["source"] == "ross_1986" for r in rows) == 41
+    assert not any(r["source"] == "ross_1986" and r["source_row"] == "17" for r in rows)
+    model = Material.from_eosmat(doc).get_eos_record(RECORD_ID)
+    volumes = np.array([float(r["volume_a3"]) for r in rows])
+    parameters = record["eos"]["parameters"]
+    assert model.pressure(volumes, 300) == pytest.approx(
+        bm3(volumes, parameters["V0"], parameters["K0"], parameters["K0_prime"]),
+        abs=1e-10,
+    )
+    restored = Material.from_eosmat(
+        Material.from_eosmat(doc).to_eosmat()
+    ).get_eos_record(RECORD_ID)
+    assert restored.pressure(volumes, 300) == pytest.approx(
+        model.pressure(volumes, 300), abs=1e-10
+    )
 
 
 def test_combined_source_selection_and_units():

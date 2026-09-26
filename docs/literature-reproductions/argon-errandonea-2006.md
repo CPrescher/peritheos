@@ -171,3 +171,29 @@ The preferred 49-point, equal-pressure-weight fit therefore gives
 **V0=138.833 Å³/cell, K0=7.3277 GPa, K0'=5.0186**, with pressure RMS
 **1.203 GPa**. The cryogenic diamond remains excluded as well. These are
 diagnostic coefficients; the published catalog equation is unchanged.
+
+## Registered provisional refit
+
+At the user's request, this selected-data analysis is also available as a
+separate executable catalog record:
+`argon_fcc_ross_1986_errandonea_2006_bm3_refit`, with `record_kind=refit`
+and `default=false`. The original published records and Dewaele default are
+unchanged. This new record represents our analysis, not coefficients
+attributed to Ross or Errandonea. Both papers appear in its source lineage.
+
+`argon_fcc_ross_errandonea_selected49` links the exact 49 selected observations,
+including source identity, original source row, pressure, conventional-cell
+volume, and actual source temperature. Its checksummed CSV is
+`argon-fcc-ross-errandonea-selected49.csv`. Exclusion reasons, objective,
+bounds, software, and fit statistics are in `fit_provenance`; excluded
+values remain in the original input archive. No parameter errors or
+covariance are asserted. The nominal reference is 300 K, explicitly pooling
+298 K and 300 K without a thermal correction. Use only as a provisional
+refit over the selected data span (1.6–114.1347 GPa), not a general pressure
+standard or thermal equation.
+
+Regenerate the diagnostic with `python -m scripts.fit_argon_errandonea_combined`,
+then regenerate the registered record and selected CSV with
+`python -m scripts.register_argon_combined_refit`. Tests check the exact
+source selection, retained default, JSON schema, CSV checksum, native
+evaluation and serialization of the new record, and existing argon behavior.
