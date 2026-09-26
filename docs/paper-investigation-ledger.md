@@ -29,7 +29,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **355 primary papers**: **254** support the 626 audited catalog records and **101** were investigated without adding a production record.
+The register covers **356 primary papers**: **255** support the 627 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -40,7 +40,7 @@ refits, or acceptance-gate holds.
 | Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 12 |
 | Coefficient parity not achieved | 14 |
-| Direct refit unavailable | 60 |
+| Direct refit unavailable | 61 |
 | Source reconstruction | 1 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 89 |
@@ -941,7 +941,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **64 papers** contain 173 records for which a
+These **65 papers** contain 174 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -993,6 +993,7 @@ Papers not yet listed there remain unassessed for outreach.
 | [Liu et al. (2010)](https://doi.org/10.1142/s0217984910022391) | `mgsio3_post_perovskite_liu_2010_lda_static_bm3` | Figure 1 plots the EOS, but the underlying calculated E-V points and regression covariance are not tabulated; validation uses the exact printed equation and coefficients. |
 | [Liu et al. (2011)](https://doi.org/10.1088/1674-0068/24/06/703-710) | `bridgmanite_liu_2011_gga_static_bm3` | The calculated 0-150 GPa volume series is plotted in Figure 1 but not tabulated; Table I provides the complete fitted coefficients. |
 | [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | `mgo_b1_luo_2023_vinet_thermal_5` | A 12-residual primary-row sensitivity fit is executable, but it is not the source global refit: Kono's exact velocity-density regressions, the selected upstream shock/PVT rows, temperature/density error propagation, cross-observable normalization, and covariance are still unavailable. Tables II-III are excluded because they are derived EOS output. |
+| [Maltby et al. (2024)](https://doi.org/10.1063/5.0237497) | `argon_fcc_maltby_2024_published` | Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction. |
 | [Marcondes et al. (2020)](https://doi.org/10.1103/physrevb.102.104112) | `mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1`, `mg09375fe00625o_marcondes_2020_11nn_ls_bm3_2`, `mg09375fe00625o_marcondes_2020_11nn_ms_bm3_3`, `mg09375fe00625o_marcondes_2020_2nn_hs_bm3_4`, `mg09375fe00625o_marcondes_2020_2nn_ls_bm3_5`, `mg09375fe00625o_marcondes_2020_2nn_ms_bm3_6`, `mg096875fe003125o_marcondes_2020_hs_bm3_1`, `mg096875fe003125o_marcondes_2020_ls_bm3_2` | The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve. |
 | [Marquardt et al. (2009)](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009b_hs_bm3` | EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective. |
 | [Matsui et al. (2009)](https://doi.org/10.1063/1.3054331) | `platinum_matsui_2009_vinet_300k` | The 300 K Vinet branch is an exact projection of the published thermal model. Its shock-Hugoniot and thermal-expansion optimization cannot be refitted as static 300 K observations. The seven bundled Holmes shots retain recoverable upstream constraints; Table III and Sakai (2011) marker reductions independently check the executable reference isotherm. |
@@ -1218,6 +1219,7 @@ the primary-source and refit ledgers.
 | [Lv et al. (2016)](https://doi.org/10.1007/s00269-015-0794-1) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Lv et al. (2020)](https://doi.org/10.2138/am-2020-7279) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Magad-Weiss et al. (2021)](https://doi.org/10.1103/physrevb.103.014101) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
+| [Maltby et al. (2024)](https://doi.org/10.1063/5.0237497) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Mao et al. (1974)](https://doi.org/10.1029/jb079i008p01165) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Mao et al. (1989)](https://doi.org/10.1029/jb094ib12p17889) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Mao et al. (1990)](https://doi.org/10.1029/jb095ib13p21737) | Reproduced | 1 | 1 similar | 1 bundled |

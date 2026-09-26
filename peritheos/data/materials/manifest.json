@@ -8,15 +8,16 @@
     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a"
   },
   "materials": 226,
-  "eos_records": 626,
+  "eos_records": 627,
   "scientific_validation": {
     "audit_date": "2026-09-24",
     "report": "../primary-source-audit.json",
     "counts": {
       "deferred": 2,
+      "not_reproduced": 1,
       "primary_source_validated": 624
     },
-    "policy": "Only primary_source_validated records are executable; deferred records remain available for lossless catalog interchange."
+    "policy": "Primary-source-validated records and explicitly marked nondefault not-reproduced implementations are executable. Their scientific status is retained; deferred records remain available for lossless interchange."
   },
   "pressure_calibration": {
     "audit_date": "2026-09-24",
@@ -24,10 +25,10 @@
       "resolved": 211,
       "partially_resolved": 168,
       "not_applicable": 160,
-      "unresolved": 87
+      "unresolved": 88
     },
     "recalculation_counts": {
-      "missing_calibrant_observations": 181,
+      "missing_calibrant_observations": 182,
       "not_applicable": 157,
       "not_possible": 119,
       "ready": 113,

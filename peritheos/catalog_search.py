@@ -19,6 +19,7 @@ ValidationStatus = Literal[
     "primary_source_validated",
     "pending_primary_source_check",
     "deferred",
+    "not_reproduced",
 ]
 
 
@@ -60,7 +61,7 @@ def _record_reference_text(record: EOSRecord) -> tuple[str, ...]:
 
 def _record_models(record: EOSRecord) -> tuple[str, ...]:
     values = [type(record.eos).__name__]
-    if record.is_thermal:
+    if isinstance(record.eos, ThermalEOS):
         values.append(type(record.eos.rt_eos).__name__)
     for component_name in ("eos", "thermal"):
         component = record.eosmat_metadata.get(component_name)
@@ -154,6 +155,7 @@ def _validation_statuses(
         "primary_source_validated",
         "pending_primary_source_check",
         "deferred",
+        "not_reproduced",
     }
     invalid = statuses - allowed
     if invalid:

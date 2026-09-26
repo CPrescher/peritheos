@@ -1,3 +1,13 @@
+## Executable unvalidated option (2026-09-26)
+
+User requested a selectable EOS despite unresolved reproduction. Record
+`argon_fcc_maltby_2024_published` uses fixed published coefficients, explicit
+assumed squared cutoff 64, and geometric fcc shells. It is nondefault and marked
+`not_reproduced`; the diagnostic refit is not used. Python and native EOSMAT
+execute it, retaining the Table 8 discrepancy and exported qualification.
+The source-law characteristic volume is not a zero-pressure volume. Dewaele
+remains the default. See the updated reproduction documentation.
+
 # Maltby 2024 integration handoff
 
 Implementation commit: `37ac5b490c2894f7e056087547ef64a21016b923`.

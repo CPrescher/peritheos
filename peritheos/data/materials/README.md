@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 226 curated material documents with 626 EOS records. The
+This directory contains 226 curated material documents with 627 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -146,7 +146,7 @@ branches, separately from the Al-bearing Xu (2024) investigation.
 The current bundle contains 329 distinct primary datasets with
 23,694 observation rows, represented by
 368 material-document links to
-484 EOS records.
+485 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets have no executable Chen EOS; curve vertices and constants
@@ -275,3 +275,7 @@ historical fit, qualified against use as a general pressure standard.
 The [argon reproduction](../../../docs/literature-reproductions/argon-fcc.md)
 documents the cold-curve convention, phase separation, refits, and correction
 of the old Wittlinger adjusted-coordinate residual comparison.
+
+Maltby (2024) is available as a nondefault, explicitly unvalidated full Helmholtz
+EOS. Its `not_reproduced` status, Table 8 mismatch and assumed squared cutoff 64
+remain visible in its label and metadata; the diagnostic refit is not used.

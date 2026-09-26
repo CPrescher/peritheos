@@ -395,6 +395,12 @@ def test_every_bundled_material_record_has_an_evaluation_backend():
             if isinstance(record.eos, DoubleDebyeHelmholtz):
                 assert record.eos.pressure(record.eos.rt_eos.V0, 300.0) > 0.0
                 continue
+            if type(record.eos).__name__ == "Maltby2024":
+                # Python quadrature is independent of the tested native EOSMAT backend.
+                assert record.eos.pressure(2.397, 70) == pytest.approx(
+                    -0.00422597965, abs=1e-9
+                )
+                continue
             assert hasattr(record.eos, "_native"), (
                 material.identifier,
                 record.identifier,

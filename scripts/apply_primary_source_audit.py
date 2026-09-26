@@ -3833,8 +3833,9 @@ def main() -> None:
         "report": "../primary-source-audit.json",
         "counts": dict(sorted(counts.items())),
         "policy": (
-            "Only primary_source_validated records are executable; deferred records "
-            "remain available for lossless catalog interchange."
+            "Primary-source-validated records and explicitly marked nondefault "
+            "not-reproduced implementations are executable. Their scientific status "
+            "is retained; deferred records remain available for lossless interchange."
         ),
     }
     manifest_path.write_text(
@@ -3926,8 +3927,9 @@ def aggregate_existing_audits() -> None:
         "report": "../primary-source-audit.json",
         "counts": dict(sorted(counts.items())),
         "policy": (
-            "Only primary_source_validated records are executable; deferred records "
-            "remain available for lossless catalog interchange."
+            "Primary-source-validated records and explicitly marked nondefault "
+            "not-reproduced implementations are executable. Their scientific status "
+            "is retained; deferred records remain available for lossless interchange."
         ),
     }
     pressure_statuses = Counter(

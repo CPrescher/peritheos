@@ -4,6 +4,8 @@
 //! The Table 8 volume is not reproduced. See the study reproduction documentation.
 //! Volume uses J/bar/mol, pressure `GPa`, and unshifted molar energy J/mol.
 
+use std::sync::LazyLock;
+
 use crate::thermal::debye_function_3;
 use crate::validation::{finite_result, finite_state, positive_state};
 use crate::{EosError, EosResult};
@@ -12,14 +14,42 @@ const R: f64 = 8.314_462_618;
 const NA: f64 = 0.602_214_076;
 const VREF: f64 = 22.56;
 
-/// Experimental literal coefficient implementation, excluded from EOSMAT.
-#[derive(Clone, Debug, PartialEq)]
+// Enumerate exact geometric fcc shells once, including on the WASM target.
+// Coordinates and indices are bounded by the maximum supported cutoff (256).
+#[allow(
+    clippy::cast_possible_truncation,
+    clippy::cast_possible_wrap,
+    clippy::cast_sign_loss,
+    clippy::cast_precision_loss
+)]
+static FCC_SHELLS: LazyLock<Vec<(u32, u32)>> = LazyLock::new(|| {
+    let extent = (2.0 * f64::from(256_u32)).sqrt().ceil() as i32;
+    let mut counts = vec![0_u32; 256_u32 as usize + 1];
+    for i in -extent..=extent {
+        for j in -extent..=extent {
+            for k in -extent..=extent {
+                let squared = i * i + j * j + k * k;
+                if (i + j + k) % 2 == 0 && squared > 0 && squared <= 2 * 256_u32 as i32 {
+                    counts[(squared / 2) as usize] += 1;
+                }
+            }
+        }
+    }
+    counts
+        .into_iter()
+        .enumerate()
+        .filter(|(_, n)| *n > 0)
+        .map(|(m, n)| (m as u32, n))
+        .collect()
+});
+
+/// Literal published coefficients; executable but scientifically unvalidated.
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Maltby2024Published {
     /// Squared cutoff radius in units of the nearest-neighbor distance.
     shell_cutoff_squared: u32,
     /// Outer zero of the Buckingham potential, in angstroms.
     sigma_angstrom: f64,
-    shells: Vec<(f64, f64)>,
 }
 
 impl Maltby2024Published {
@@ -41,33 +71,12 @@ impl Maltby2024Published {
                 reason: "must lie in [1, 256]",
             });
         }
-        let extent = (2.0 * f64::from(shell_cutoff_squared)).sqrt().ceil() as i32;
-        let mut counts = vec![0_u32; shell_cutoff_squared as usize + 1];
-        for i in -extent..=extent {
-            for j in -extent..=extent {
-                for k in -extent..=extent {
-                    let squared = i * i + j * j + k * k;
-                    if (i + j + k) % 2 == 0
-                        && squared > 0
-                        && squared <= 2 * shell_cutoff_squared as i32
-                    {
-                        counts[(squared / 2) as usize] += 1;
-                    }
-                }
-            }
-        }
-        if counts[shell_cutoff_squared as usize] == 0 {
+        if !FCC_SHELLS.iter().any(|(m, _)| *m == shell_cutoff_squared) {
             return Err(EosError::InvalidParameter {
                 name: "shell_cutoff_squared",
                 reason: "must be an occupied fcc shell",
             });
         }
-        let shells = counts
-            .iter()
-            .enumerate()
-            .filter(|(_, count)| **count > 0)
-            .map(|(m, n)| (m as f64, f64::from(*n)))
-            .collect();
         let (mut lo, mut hi): (f64, f64) = (0.8, 1.0);
         for _ in 0..64 {
             let mid = (lo + hi) / 2.0;
@@ -80,7 +89,6 @@ impl Maltby2024Published {
         Ok(Self {
             shell_cutoff_squared,
             sigma_angstrom: 3.802 * (lo + hi) / 2.0,
-            shells,
         })
     }
 
@@ -99,7 +107,12 @@ impl Maltby2024Published {
         let (eps, steepness, rmin) = (134.7, 14.19, 3.802_f64);
         let decay = steepness / rmin;
         let (mut pair, mut pair_dv) = (0.0, 0.0);
-        for (m, n) in &self.shells {
+        for &(m, n) in FCC_SHELLS
+            .iter()
+            .take_while(|(m, _)| *m <= self.shell_cutoff_squared)
+        {
+            let m = f64::from(m);
+            let n = f64::from(n);
             let radius = m.sqrt() * rnn;
             let rep = eps * 6.0 / (steepness - 6.0) * (steepness - decay * radius).exp();
             let att = eps * steepness / (steepness - 6.0) * (rmin / radius).powi(6);

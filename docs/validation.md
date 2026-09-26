@@ -36,10 +36,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 626
+fit for every record with sufficient direct observations and documents all 627
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 220 parity matches and 149 additional numerically similar results.
+diagnostics. The current campaign finds 220 parity matches and 150 additional numerically similar results.
 For the opt-in Litasov siderite thermal refit, parity means reproducing the
 stored Peritheos fit, not resolving the two conflicting published thermal
 parameter sets, which remain non-executable source evidence.
@@ -49,7 +49,7 @@ confidence convention. Sakai (2011) contributes eight conditional fixed-V0
 parity matches within printed error widths, with weighting and marker-averaging
 qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
 [70 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 173 records cannot be
+recover at least one published coefficient, while 174 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Two further records are composite reconstructions, and eleven share a source-level
 calibration reconstruction. There are no unresolved extraction or solver failures. The
@@ -439,3 +439,8 @@ accepted correction. Two separate Peritheos B2 refits reproduce the observations
 with physical normalization and retain full conditional covariance and sensitivity
 limits; their ledger parity refers to stored-refit reproduction. All three aggregate and eight computational candidates
 have explicit exclusions.
+
+The nondefault Maltby (2024) argon record is selectable with status
+`not_reproduced`. It preserves the published coefficients and an explicitly
+assumed lattice cutoff; its Table 8 discrepancy is retained. Executability,
+numerical consistency and source traceability do not establish validation.

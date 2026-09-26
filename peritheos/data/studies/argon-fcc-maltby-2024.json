@@ -4,7 +4,7 @@
     "authors": [
       "Tage W. Maltby",
       "Morten Hammer",
-      "\u00d8ivind Wilhelmsen"
+      "Øivind Wilhelmsen"
     ],
     "year": 2024,
     "title": "Equation of State for Solid Argon Valid for Temperatures up to 300 K and Pressures up to 16 GPa",
@@ -17,9 +17,11 @@
   },
   "phase": "fcc",
   "determination_method": "hybrid",
-  "outcome": "independent_eos_candidate_not_reproduced",
+  "outcome": "unvalidated_executable_published_eos",
   "scientific_validation_status": "not_reproduced",
-  "executable_eos_record_identifiers": [],
+  "executable_eos_record_identifiers": [
+    "argon_fcc_maltby_2024_published"
+  ],
   "experimental_implementation": "Maltby2024Published",
   "source_equations": "4,7-19; Tables1,3; SI.1",
   "source_table1": {
@@ -322,11 +324,13 @@
   },
   "reproduction": {
     "status": "not_reproduced",
-    "reason": "Literal source coefficients give23.89043 rather than23.97cm\u00b3/mol at70K,1MPa. Required lattice cutoff not specified. Experimental implementation available; not promoted to validated EOS catalog. Coefficient sensitivity and constrained two-parameter refit do not resolve source table mismatch; refit worsens independent checks and stays experimental. Official SI shell at squared distance14 conflicts with fcc geometry.",
+    "reason": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. The diagnostic refit remains experimental.",
     "observation_dataset_identifiers": [
       "argon_fcc_dewaele_2021_supplement"
     ],
-    "eos_record_identifiers": []
+    "eos_record_identifiers": [
+      "argon_fcc_maltby_2024_published"
+    ]
   },
   "followup_audit": {
     "documentation": "docs/literature-reproductions/argon-maltby-2024-refit.md",

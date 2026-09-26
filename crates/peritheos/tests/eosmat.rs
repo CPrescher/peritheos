@@ -908,6 +908,7 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                 record
                     .get("thermal")
                     .is_some_and(serde_json::Value::is_object)
+                    || record["equation_kind"] == "thermal"
             })
             .count();
         records += material.eos_records.len();
@@ -948,7 +949,10 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                 .pointer("/thermal/thermal_pressure_reference")
                 .and_then(serde_json::Value::as_str)
                 == Some("absolute_zero")
-                || record.eos.thermal_model_identifier() == Some("debye_anharmonic_helmholtz")
+                || matches!(
+                    record.eos.thermal_model_identifier(),
+                    Some("debye_anharmonic_helmholtz" | "maltby_2024_published")
+                )
             {
                 assert!(pressure.is_finite());
                 assert!(pressure > 0.0);
@@ -1386,4 +1390,36 @@ fn bundled_argon_fcc_retains_absolute_cold_curve_and_volume_basis() {
         135.465_048_984_257_38,
         1e-12,
     );
+}
+
+#[test]
+fn maltby_published_is_executable_without_claiming_reproduction() {
+    let Some(material) = load_bundled_material("argon_fcc.eosmat") else {
+        return;
+    };
+    let record = material
+        .eos_records
+        .iter()
+        .find(|r| r.identifier == "argon_fcc_maltby_2024_published")
+        .unwrap();
+    let scale = 0.060_221_407_6 / 4.0;
+    assert!(record.eos.is_thermal());
+    assert_eq!(record.eos.model_identifier(), "maltby_2024_published");
+    assert!((record.pressure(2.397 / scale, 70.0).unwrap() + 0.004_225_979_65).abs() < 2e-9);
+    assert!((record.volume(0.001, 70.0).unwrap() * scale * 10.0 - 23.890_427_534_2).abs() < 1e-7);
+    assert!(
+        record
+            .thermal_pressure_increment(2.0 / scale, 300.0)
+            .unwrap()
+            .abs()
+            < f64::EPSILON
+    );
+    let raw = material.document["eos_records"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|r| r["identifier"] == record.identifier)
+        .unwrap();
+    assert_eq!(raw["scientific_validation"]["status"], "not_reproduced");
+    assert_eq!(raw["default"], false);
 }

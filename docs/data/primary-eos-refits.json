@@ -3128,6 +3128,30 @@
       "status": "similar"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        0,
+        16
+      ],
+      "experimental_temperature_range_k": [
+        0,
+        300
+      ],
+      "fixed_parameters": [
+        "shell_cutoff_squared"
+      ],
+      "label": "Maltby et al. (2024) \u2014 unvalidated published EOS",
+      "material_identifier": "argon_fcc",
+      "model": "Maltby2024",
+      "primary_data_finding": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://api.nva.unit.no/publication/0198cc531207-be3c0dc3-6af4-4953-97be-777a88a705a8/filelink/b4a4e90d-77d9-4854-a2cb-af09e365233e",
+      "reason": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
+      "record_identifier": "argon_fcc_maltby_2024_published",
+      "source_notes": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm\u00b3/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. Published coefficients are fixed. No parameter uncertainty, DAC confinement or fluid-reference free-energy offsets are provided. The diagnostic refit is not used.",
+      "status": "not_refittable"
+    },
+    {
       "adjusted_coordinate_rmse_gpa": 0.012199115073171524,
       "dataset_identifiers": [
         "argon_hcp_wittlinger_1997_figure3_digitized"
@@ -44826,11 +44850,11 @@
     }
   ],
   "summary": {
-    "not_refittable": 173,
+    "not_refittable": 174,
     "parity": 220,
     "parity_not_achieved": 70,
     "similar": 150,
     "source_reconstruction": 13,
-    "total": 626
+    "total": 627
   }
 }

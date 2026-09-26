@@ -1365,7 +1365,7 @@
   },
   {
    "identifier": "argon_fcc_chen_2010_bm3_digitized_refit",
-   "label": "Chen (2010) \u2014 Peritheos BM3 refit of digitized Brillouin densities",
+   "label": "Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities",
    "record_kind": "refit",
    "reference": {
     "authors": [
@@ -1605,6 +1605,117 @@
     }
    },
    "notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent."
+  },
+  {
+   "identifier": "argon_fcc_maltby_2024_published",
+   "label": "Maltby et al. (2024) — unvalidated published EOS",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Tage W. Maltby",
+     "Morten Hammer",
+     "Øivind Wilhelmsen"
+    ],
+    "year": 2024,
+    "title": "Equation of State for Solid Argon Valid for Temperatures up to 300 K and Pressures up to 16 GPa",
+    "source": "Journal of Physical and Chemical Reference Data",
+    "volume": "53",
+    "issue": "4",
+    "locator": "043102",
+    "doi": "10.1063/5.0237497",
+    "published_online": "2024-12-19"
+   },
+   "eos": {
+    "type": "Maltby2024",
+    "model": "maltby_2024_published",
+    "parameters": {
+     "shell_cutoff_squared": 64
+    }
+   },
+   "temperature_ref": 300.0,
+   "volume": {
+    "reference_value": 149.84704542176792,
+    "model_unit": "J bar^-1 mol^-1",
+    "public_to_model_scale": 0.0150553519,
+    "reference_meaning": "Characteristic volume 22.56 cm³/mol in source laws, not a zero-pressure volume."
+   },
+   "parameter_errors": {
+    "shell_cutoff_squared": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "shell_cutoff_squared"
+   ],
+   "determination_method": "hybrid",
+   "default": false,
+   "catalog_access": "explicit_selection",
+   "validity": {
+    "pressure_gpa": [
+     0,
+     16
+    ],
+    "temperature_k": [
+     0,
+     300
+    ],
+    "notes": [
+     "Source model envelope, not a validated prediction range or a solid-phase stability boundary.",
+     "Numerical inverse search: 8–26 cm³/mol."
+    ]
+   },
+   "parameter_provenance": {
+    "shell_cutoff_squared": "Explicit implementation assumption: 64, endpoint of SI.1. The paper does not specify its cutoff; geometric fcc shells replace the inconsistent SI.1 entry at squared distance 14.",
+    "published_coefficients": "Fixed Tables 1 and 3, equations 4 and 7–19; no diagnostic refit coefficients substituted.",
+    "determination_method": "Hybrid Helmholtz model: quantum zero-point energy and coefficients fitted to existing experimental literature; no new measured data table."
+   },
+   "pressure_calibration": {
+    "status": "unresolved",
+    "notes": "Model fitted to heterogeneous literature measurements; underlying pressure calibrations are not harmonized.",
+    "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No harmonization attempted."
+    },
+    "audit_date": "2026-09-26"
+   },
+   "scientific_validation": {
+    "status": "not_reproduced",
+    "audit_date": "2026-09-26",
+    "note": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells.",
+    "primary_source_check": {
+     "doi": "10.1063/5.0237497",
+     "locations": [
+      "Equations 4 and 7–19; Tables 1, 3 and 8; supplement SI.1"
+     ],
+     "access_url": "https://api.nva.unit.no/publication/0198cc531207-be3c0dc3-6af4-4953-97be-777a88a705a8/filelink/b4a4e90d-77d9-4854-a2cb-af09e365233e"
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_maltby_2024_argon.py",
+     "report": "docs/data/argon-maltby-2024-reproduction.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "finding": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
+     "dataset_identifiers": []
+    }
+   },
+   "reproduction": {
+    "summary_status": "not_reproduced",
+    "status": "not_reproduced",
+    "display_label": "Unvalidated — published sample not reproduced",
+    "reason": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells."
+   },
+   "notes": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. Published coefficients are fixed. No parameter uncertainty, DAC confinement or fluid-reference free-energy offsets are provided. The diagnostic refit is not used.",
+   "experimental_temperature_range_k": [
+    0,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    0,
+    16
+   ]
   }
  ],
  "datasets": [

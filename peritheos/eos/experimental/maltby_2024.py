@@ -4,7 +4,7 @@ DOI 10.1063/5.0237497, equations 4 and 7--19, Tables 1 and 3.
 The numerical CSM cutoff is not specified by the article, so the caller must
 supply it. Table SI.1 extends to squared nearest-neighbor distance 64.
 See docs/literature-reproductions/argon-maltby-2024.md for the unresolved
-Table 8 discrepancy. This class is deliberately absent from EOSMAT dispatch.
+Table 8 discrepancy. The EOSMAT adapter preserves this status and requires an explicit cutoff.
 
 Public volume: J/bar/mol (10 cm^3/mol); pressure: GPa; energy: J/mol.
 The energy is unshifted: the fluid-reference adjustments in equations 21--23
