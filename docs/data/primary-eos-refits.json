@@ -2051,7 +2051,7 @@
       "primary_data_finding": "All 22 new neutron observations retained with stated k=1 temperature and volume uncertainties. Earlier studies entering global fit summarized but no consolidated row-level fit input supplied.",
       "primary_data_status": "bundled",
       "primary_source": "https://www.researchsquare.com/article/rs-5370077/v1",
-      "reason": "Published parameterization matches official workbook. Equal-weight22volume and27entry diagnostics are available, but do not uniquely recover nine parameters or replace the full global regression. Table2 weights are published; consolidated legacy rows and quantitative penalties remain unavailable.",
+      "reason": "Published parameterization matches the official workbook; the complete global fit remains unreproduced. With equal weights on relative residuals, the best converged nine-parameter 22-volume refit lowers volume RMS from 0.0952% to 0.0322%, but gives a much too low bulk modulus and poorly constrained, bound-dependent parameters. The best converged 27-entry refit gives 0.0603% volume RMS and 0.0818% bulk-modulus RMS, but Cv = -13.88 J/mol/K at 77 K is physically unacceptable. Neither diagnostic replaces the published coefficients. Table 2 weights are published; complete legacy rows and quantitative penalties remain unavailable. Next: recover the remaining multiproperty inputs, then refit with physical constraints and assess parameter stability. [Detailed comparison and scope](literature-reproductions/argon-xiao-2025.md#review-conclusion-2026-09-27).",
       "record_identifier": "argon_fcc_xiao_2025_helmholtz",
       "reproduction": {
         "equal_weight_diagnostic": {

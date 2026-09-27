@@ -2104,7 +2104,7 @@ def _fit_record(
             "reproduction_status": "parameterization_reproduced",
             "dataset_identifiers": record["fit_datasets"],
             "observations": 22,
-            "reason": "Published parameterization matches official workbook. Equal-weight22volume and27entry diagnostics are available, but do not uniquely recover nine parameters or replace the full global regression. Table2 weights are published; consolidated legacy rows and quantitative penalties remain unavailable.",
+            "reason": "Published parameterization matches the official workbook; the complete global fit remains unreproduced. With equal weights on relative residuals, the best converged nine-parameter 22-volume refit lowers volume RMS from 0.0952% to 0.0322%, but gives a much too low bulk modulus and poorly constrained, bound-dependent parameters. The best converged 27-entry refit gives 0.0603% volume RMS and 0.0818% bulk-modulus RMS, but Cv = -13.88 J/mol/K at 77 K is physically unacceptable. Neither diagnostic replaces the published coefficients. Table 2 weights are published; complete legacy rows and quantitative penalties remain unavailable. Next: recover the remaining multiproperty inputs, then refit with physical constraints and assess parameter stability. [Detailed comparison and scope](literature-reproductions/argon-xiao-2025.md#review-conclusion-2026-09-27).",
             "reproduction": reproduce(),
         }
     if record_id in {
