@@ -22,7 +22,7 @@ fn density_polynomial_reproduces_source_bulk_modulus_and_roundtrip() {
 #[test]
 fn native_material_loader_accepts_published_density_refit() {
     let material = load_eosmat_str(include_str!(
-        "../../../peritheos/data/materials/argon_fcc.eosmat"
+        "data/grimsditch_1986_argon.eosmat"
     ))
     .unwrap();
     let record = material

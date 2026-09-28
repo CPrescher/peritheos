@@ -120,3 +120,20 @@ def test_equal_weight_refits_are_only_derived_data_diagnostics():
         1.5,
         0.68,
     ]
+
+
+def test_packaged_rust_fixture_preserves_current_catalog_record():
+    import json
+    from pathlib import Path
+
+    fixture = json.loads(
+        (
+            Path(__file__).resolve().parents[1]
+            / "crates/peritheos/tests/data/grimsditch_1986_argon.eosmat"
+        ).read_text(encoding="utf-8")
+    )
+    source = get_material_document("argon_fcc")
+    record = next(r for r in source["eos_records"] if r["identifier"] == RECORD)
+    assert fixture["eos_records"] == [record]
+    for key in ("identifier", "units", "formula_units_per_cell"):
+        assert fixture[key] == source[key]
