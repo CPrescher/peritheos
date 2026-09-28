@@ -136,7 +136,12 @@ def test_refit_report_predictions_are_at_original_observations_without_run_leaka
         test_union = []
         for row in rows:
             for key, value in by_id[row["row_id"]].items():
-                assert row[key] == value
+                if isinstance(value, float):
+                    # Derived observation coordinates can differ by one or two
+                    # ULPs across platforms; source bytes and row IDs stay exact.
+                    assert row[key] == pytest.approx(value, rel=1e-14, abs=1e-14)
+                else:
+                    assert row[key] == value
         for fold in experiment["folds"]:
             train_ids, test_ids = set(fold["train_rows"]), set(fold["test_rows"])
             assert not train_ids & test_ids
