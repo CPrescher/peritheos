@@ -39,7 +39,7 @@ Primary-source traceability is complemented by the independent
 fit for every record with sufficient direct observations and documents all 626
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 220 parity matches and 149 additional numerically similar results.
+diagnostics. The current campaign finds 220 parity matches and 150 additional numerically similar results.
 For the opt-in Litasov siderite thermal refit, parity means reproducing the
 stored Peritheos fit, not resolving the two conflicting published thermal
 parameter sets, which remain non-executable source evidence.

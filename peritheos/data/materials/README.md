@@ -146,11 +146,13 @@ branches, separately from the Al-bearing Xu (2024) investigation.
 The current bundle contains 329 distinct primary datasets with
 23,694 observation rows, represented by
 368 material-document links to
-484 EOS records.
+485 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
-supporting assets have no executable Chen EOS; curve vertices and constants
-are not independent measured observations.
+supporting assets do not validate the source-author Chen EOS. A separate
+Peritheos BM3 refit uses the digitized density observations with documented
+weighting and measured-range limits; curve vertices and constants are not
+independent measured observations.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,
