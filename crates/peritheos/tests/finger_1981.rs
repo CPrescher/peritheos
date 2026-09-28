@@ -11,11 +11,7 @@ fn finger_native_material_and_quadratic_bulk_modulus() {
     let numerical =
         -v * (eos.pressure(v + step).unwrap() - eos.pressure(v - step).unwrap()) / (2.0 * step);
     assert!((eos.bulk_modulus(v).unwrap() - numerical).abs() < 1e-7);
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../peritheos/data/materials/argon_fcc.eosmat");
-    if !path.is_file() {
-        return;
-    }
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/argon_fcc.eosmat");
     let material = load_eosmat(path).unwrap();
     let record = material
         .record("argon_fcc_finger_1981_murnaghan2_debye")
@@ -27,11 +23,7 @@ fn finger_native_material_and_quadratic_bulk_modulus() {
 
 #[test]
 fn zero_point_configuration_cannot_be_silently_ignored_by_other_models() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../peritheos/data/materials/argon_fcc.eosmat");
-    if !path.is_file() {
-        return;
-    }
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/argon_fcc.eosmat");
     let mut document: serde_json::Value =
         serde_json::from_str(&std::fs::read_to_string(path).unwrap()).unwrap();
     let records = document["eos_records"].as_array_mut().unwrap();

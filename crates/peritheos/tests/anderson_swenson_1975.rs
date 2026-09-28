@@ -5,7 +5,7 @@ fn published_argon_series_matches_molar_equation_and_inverts() {
     let factor = 4.0e24 / 6.022_140_76e23;
     let material = load_eosmat(concat!(
         env!("CARGO_MANIFEST_DIR"),
-        "/../../peritheos/data/materials/argon_fcc.eosmat"
+        "/tests/data/argon_fcc.eosmat"
     ))
     .unwrap();
     let table = [

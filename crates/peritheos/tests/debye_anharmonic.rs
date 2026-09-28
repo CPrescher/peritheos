@@ -65,11 +65,7 @@ fn invalid_states_and_parameters() {
 
 #[test]
 fn native_eosmat_roundtrip_converts_cell_volume() {
-    let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../peritheos/data/materials/argon_fcc.eosmat");
-    if !path.is_file() {
-        return;
-    }
+    let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/argon_fcc.eosmat");
     let material = peritheos::load_eosmat(path).unwrap();
     let record = material.record("argon_fcc_xiao_2025_helmholtz").unwrap();
     // Four monatomic formula units per conventional fcc cell.
