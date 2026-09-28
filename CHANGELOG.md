@@ -5,6 +5,23 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-09-28
+
+This release expands the argon catalog with source observations, new Python
+and Rust EOS models, and reproducible scientific audits. Published models,
+independent refits, and experimental candidates retain their distinct status
+and documented limitations.
+
+### Added
+
+- Add Finger (1981) Murnaghan-Debye, Grimsditch (1986) density-polynomial,
+  Anderson and Swenson (1975) isotherm, and Errandonea (2006) argon records,
+  with source observations and qualified reproduction diagnostics.
+- Preserve Barker (1987) and Ross (1986) supporting evidence, recovered tables,
+  source provenance, and a combined argon investigation ledger.
+- Support standalone observation datasets without an executable EOS link in
+  Python and Rust material validation.
+
 - Add Xiao et al. (2025) fcc argon Helmholtz EOS with exact Debye and
   anharmonic terms, native/Python caloric support, 22 neutron observations,
   and independent publisher-workbook reproduction.
@@ -48,6 +65,9 @@ All notable changes to Peritheos are documented here. The project follows
 - Bundle and link the 174 reconstructed Fu (2023) CaSiO3 candidate observations, preserving source measurements, uncertainties, row provenance, and scoped CC0 transcription rights; allow the audit to run from bundled inputs.
 
 ### Fixed
+
+- Bound the observed Windows numerical drift in the Noguchi thermal-refit
+  q audit while retaining the other parameter, residual, and source checks.
 
 - Added residual-scaled standard errors and joint-fit covariance to the Fu
   (2023) candidate-data CaSiO3 refit, with explicit equal scalar residual
@@ -995,7 +1015,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/CPrescher/peritheos/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/CPrescher/peritheos/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/CPrescher/peritheos/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/CPrescher/peritheos/compare/v0.7.0...v0.8.0

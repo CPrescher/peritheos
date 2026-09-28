@@ -220,3 +220,25 @@ def test_bundled_noguchi_table_matches_audited_inputs_and_all_four_refits():
     assert cells[0]["nacl_volume_a3"] == ""
     assert cells[51]["volume_a3_uncertainty"] == "0.000"
     assert cells[47]["pressure_holmes_gpa"] == "107.2"  # retained source anomaly
+
+
+@pytest.mark.parametrize(
+    ("q", "accepted"),
+    [(1.2646234990789957, True), (1.2646275685423243 * (1 + 1e-5), False)],
+)
+def test_noguchi_refit_accepts_observed_windows_drift_but_rejects_larger_drift(
+    q, accepted
+):
+    from copy import deepcopy
+
+    artifact = load_artifact()
+    result = {
+        "canonical_transcription_sha256": artifact["source"]["pvt_sha256"],
+        "models": deepcopy(artifact["models"]),
+    }
+    result["models"]["model_1_fei_mgd"]["thermal_refit"]["parameters"]["q"] = q
+    if accepted:
+        verify_against_artifact(result, artifact)
+    else:
+        with pytest.raises(AssertionError, match="thermal_refit.parameters.q"):
+            verify_against_artifact(result, artifact)

@@ -136,7 +136,9 @@ def test_native_fit_preserves_absolute_and_zero_point_configuration():
 
 
 def test_zero_point_pressure_is_static_and_not_rebased():
-    from scipy.constants import R
+    # Exact SI k_B * N_A, also used by Rust. Older SciPy rounds R to
+    # 8.314462618, which is too coarse for this zero-point identity check.
+    R = 1.380649e-23 * 6.02214076e23
 
     eos = record().eos
     parameters = eos.parameter_values(include_reference=False)
