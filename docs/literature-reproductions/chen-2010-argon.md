@@ -1,12 +1,64 @@
-# Chen et al. (2010): fcc argon supporting study
+# Chen et al. (2010): original-constant reconstruction and independent refit
 
-**Outcome: supporting study; published EOS not reproduced.** The paper and
-its useful density observations are included, but no executable source-author
-parameterization is added. A separately labeled Peritheos refit is documented
-below. Substituting its 2 GPa elastic constants for zero-pressure BM3
+**Outcome: original EOS not reproduced; separate Peritheos refit available.**
+The paper, density observations and drawn fit line are preserved. At the user's
+request, a diagnostic reconstruction of the original printed constants is also
+retained for explicit inspection, with a **DO NOT USE** warning. It is not a
+verified source-author equation. Substituting its 2 GPa constants for zero-pressure BM3
 parameters would be incorrect. The standard BM3 reconstructed from those
 local constants also fails the source curve. This is an unresolved source
 parameterization problem, not a claim that the experiment is invalid.
+
+## Which record to use
+
+| Record | Meaning | Use |
+|---|---|---|
+| `argon_fcc_chen_2010_bm3_reported_constants` | Standard BM3 reconstructed from the rounded constants at 2 GPa; `diagnostic`, `not_reproduced` | **DO NOT USE for scientific predictions or pressure calibration.** Explicit inspection/comparison only; never the default. |
+| `argon_fcc_chen_2010_bm3_digitized_refit` | Independent Peritheos BM3 fit to 80 digitized density positions; `refit` | Provisional approximation over 1.23–26.06 GPa at nominal 290 K; not an independently validated elastic EOS. |
+
+The diagnostic's stored V0, K0 and K0prime are **derived zero-pressure
+coefficients**, not values printed by Chen. The original constraints remain
+explicitly recorded at 2 GPa. The paper's drawn Figure 5 curve is preserved as
+a third, separate object, not silently replaced by either record.
+
+![Published curve, original-constant reconstruction and Peritheos refit](../data/chen-2010-argon-comparison.png)
+
+At 20 GPa, the printed-constant reconstruction predicts **11.15% more volume**
+than the refit, while the published drawn curve differs by **−0.28%**. Across
+the digitized interval the drawn curve differs from the refit by at most
+**1.40%**. Volume differences compare the same pressure and use
+100 × (Vcomparison / Vrefit − 1). The refit has **0.111 GPa** RMS pressure
+residual on the original marker coordinates, versus **6.880 GPa** for the
+printed-constant reconstruction.
+
+The density integration starts at **1.3 GPa**, while the reported elastic
+constants refer to **2 GPa**. Both a standard BM3 satisfying the local
+constraints and an alternative pressure-offset convention were tested. Neither
+resolves the mismatch. The local slope of the plotted curve implies KT about
+11 GPa at 2 GPa; the refit gives 12.62 GPa and the paper prints 15.1 GPa.
+Close density curves therefore do not establish agreement of elastic properties.
+
+**The cause remains unresolved.** A pressure-calibration error, incorrect
+adiabatic correction, reporting/plotting error, or undocumented convention has
+not been established. The numerical comparison must not be presented as proof
+that the authors used a wrong pressure correction.
+
+The refit's zero-pressure density is **1.6895 g/cm³**, 8.0% above the
+**1.564 g/cm³** comparison estimate quoted by Chen and 11.2% above Chen's
+**1.52 ± 0.05 g/cm³** extrapolation. Chen describes 1.564 as a room-temperature
+estimate based on low-temperature measurements in reference 22 (Smith and
+Pings, Physica 29, 555, 1963). We have not independently recovered that thermal
+extrapolation. Heating normally lowers solid density at fixed pressure; it
+does not by itself reconcile a higher room-temperature density. Ambient-pressure
+solid argon at 290 K is an extrapolated branch, not an equilibrium solid state.
+The unconstrained fit does not establish reliable zero-pressure density,
+modulus or derivative, and no statistical parameter uncertainties are claimed.
+
+The [paper ledger](../paper-investigation-ledger.md#chen-2010-original-constant-reconstruction-and-independent-refit)
+and [record ledger](../primary-eos-refits.md#chen-2010-original-constant-reconstruction-and-independent-refit)
+show the same comparison. Regenerate it with
+`python -m scripts.compare_chen_2010_argon --plot`; the full numerical comparison
+is [available as JSON](../data/chen-2010-argon-comparison.json).
 
 ## Source and physical interpretation
 
@@ -161,8 +213,9 @@ The paper does not print the pressure expression needed to resolve its
 convention. Neither interpretation recovers the source density curve; the
 alternative is recorded as a diagnostic, not silently adopted as a solution.
 
-We therefore do not export the diagnostic coefficients as a Chen EOS or
-silently choose a different equation. The study status is **not_reproduced**.
+We therefore do not describe the diagnostic coefficients as a verified Chen EOS
+or silently choose a different equation. They are retained only in the explicitly
+marked **DO NOT USE** diagnostic record. The study status is **not_reproduced**.
 No full original-data refit or validated parameter covariance is claimed.
 
 ## Reproduction and missing inputs
@@ -197,7 +250,11 @@ reproduction status remains `not_reproduced`.
 All 80 distinct black-square positions enter once. The 262 published curve
 vertices, PDF rendering multiplicities, zero-pressure density and reported
 elastic constants are excluded from the regression. No point is fixed as an
-anchor. The fitted parameters are rho0, K0 and K0prime; rho0 is converted to
+anchor. This is a Chen-only fit, not a combined argon EOS. Older Ross
+X-ray measurements and low-temperature observations from other studies are
+not additional fit inputs. Chen explicitly used the X-ray results as an
+independent comparison rather than a constraint on the Brillouin density
+reduction; combining temperatures would require an explicit thermal model. The fitted parameters are rho0, K0 and K0prime; rho0 is converted to
 four-atom cell V0 after fitting. An independent Python BM3 expression is used
 for fitting and checked against the native Peritheos evaluator.
 

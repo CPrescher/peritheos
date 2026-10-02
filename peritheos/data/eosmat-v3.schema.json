@@ -481,7 +481,8 @@
             "LinearUsUpHugoniot",
             "SecondOrderMurnaghan",
             "DensityPolynomial3",
-            "OddInversePower"
+            "OddInversePower",
+            "Maltby2024"
           ]
         },
         "model": {
@@ -505,14 +506,12 @@
             "linear_us_up_hugoniot",
             "second_order_murnaghan",
             "density_polynomial_3",
-            "odd_inverse_power"
+            "odd_inverse_power",
+            "maltby_2024_published"
           ]
         },
         "parameters": {
           "type": "object",
-          "required": [
-            "V0"
-          ],
           "additionalProperties": {
             "type": "number"
           }
@@ -759,8 +758,53 @@
                   ]
                 }
               }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "Maltby2024"
+                },
+                "model": {
+                  "const": "maltby_2024_published"
+                }
+              }
             }
           ]
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "Maltby2024"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "required": [
+                  "shell_cutoff_squared"
+                ],
+                "properties": {
+                  "shell_cutoff_squared": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 256
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "parameters": {
+                "required": [
+                  "V0"
+                ]
+              }
+            }
+          }
         }
       ]
     },
@@ -1395,6 +1439,9 @@
         },
         "model_unit": {
           "type": "string"
+        },
+        "reference_meaning": {
+          "type": "string"
         }
       },
       "additionalProperties": false
@@ -1562,7 +1609,8 @@
           "enum": [
             "primary_source_validated",
             "pending_primary_source_check",
-            "deferred"
+            "deferred",
+            "not_reproduced"
           ]
         },
         "note": {
@@ -2092,6 +2140,18 @@
             "properties": {
               "equation_kind": {
                 "const": "thermal"
+              },
+              "eos": {
+                "not": {
+                  "properties": {
+                    "model": {
+                      "const": "maltby_2024_published"
+                    }
+                  },
+                  "required": [
+                    "model"
+                  ]
+                }
               }
             },
             "required": [

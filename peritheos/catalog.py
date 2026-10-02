@@ -86,17 +86,27 @@ def _catalog_index() -> _CatalogIndex:
                 f"Bundled material {document_identifier!r} references unknown "
                 f"family {document['family_id']!r}"
             )
-        # Deferred source records remain inspectable through the document API,
-        # but must not become executable or prevent other validated records in
-        # the same material from loading.
+        # Deferred records remain document-only. An explicitly marked, nondefault
+        # not-reproduced implementation can be selected for exploration; its
+        # validation status is preserved. It cannot replace the default EOS.
         executable_ids = [
             record["identifier"]
             for record in document["eos_records"]
             if record["scientific_validation"]["status"] == "primary_source_validated"
+            or (
+                record["scientific_validation"]["status"] == "not_reproduced"
+                and record.get("catalog_access") == "explicit_selection"
+                and record.get("default") is not True
+                and record.get("default_for") is None
+            )
         ]
         if not executable_ids:
             continue
-        material = Material.from_eosmat(document, record_identifiers=executable_ids)
+        material = Material.from_eosmat(
+            document,
+            record_identifiers=executable_ids,
+            require_primary_validation=False,
+        )
         if material.identifier != document_identifier:
             raise MaterialError(
                 f"Bundled material file {document_identifier!r} contains identifier "

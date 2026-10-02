@@ -69,7 +69,7 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 624
+    assert len(records) == 626
     assert len(materials) == 224
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
@@ -186,7 +186,15 @@ def test_material_rejects_empty_duplicate_or_incompatible_records():
 @pytest.mark.parametrize("material", list_materials())
 def test_material_document_json_round_trip_reconstructs_catalog_material(material):
     payload = json.loads(json.dumps(material.to_dict(), allow_nan=False))
-    loaded = Material.from_dict(payload)
+    if any(
+        r.scientific_validation_status != "primary_source_validated"
+        for r in material.eos_records
+    ):
+        with pytest.raises(ValueError, match="not_reproduced"):
+            Material.from_dict(payload)
+        loaded = Material.from_eosmat(payload, require_primary_validation=False)
+    else:
+        loaded = Material.from_dict(payload)
 
     assert loaded.identifier == material.identifier
     assert loaded.formula == material.formula

@@ -21,6 +21,7 @@ from scipy.special import ndtri
 
 from peritheos.catalog_families import _valid_family_id
 from peritheos.eos import EosBase, EquationOfState, NumericType, ThermalEOS
+from peritheos.eos.maltby2024 import Maltby2024
 from peritheos.eos.rt import (
     BM2,
     BM3,
@@ -339,6 +340,7 @@ class EOSRecord:
             "primary_source_validated",
             "pending_primary_source_check",
             "deferred",
+            "not_reproduced",
         }
         if self.scientific_validation_status not in allowed:
             raise MaterialError(
@@ -354,7 +356,7 @@ class EOSRecord:
             "hugoniot"
             if isinstance(self.eos, HugoniotBase)
             else "thermal"
-            if isinstance(self.eos, ThermalEOS)
+            if isinstance(self.eos, (ThermalEOS, Maltby2024))
             else "isothermal"
         )
         if inferred_kind == "hugoniot" and not isinstance(self, HugoniotRecord):
@@ -399,6 +401,8 @@ class EOSRecord:
     @property
     def reference_volume(self) -> float:
         """Reference unit-cell volume in ``volume_unit``."""
+        if isinstance(self.eos, Maltby2024):
+            return self.eos.reference_volume / self.volume_scale
         reference_eos = (
             self.eos.rt_eos if isinstance(self.eos, ThermalEOS) else self.eos
         )
@@ -407,7 +411,7 @@ class EOSRecord:
     @property
     def is_thermal(self) -> bool:
         """Whether temperature contributes to the pressure equation."""
-        return isinstance(self.eos, ThermalEOS)
+        return isinstance(self.eos, (ThermalEOS, Maltby2024))
 
     @property
     def is_isothermal(self) -> bool:
@@ -423,7 +427,9 @@ class EOSRecord:
         if temperature is None:
             temperature = self.reference_temperature
         values = np.asarray(temperature, dtype=float)
-        if self.is_thermal or self.is_hugoniot:
+        if (
+            self.is_thermal and not isinstance(self.eos, Maltby2024)
+        ) or self.is_hugoniot:
             invalid_minimum = values <= 0.0
         else:
             invalid_minimum = values < 0.0
@@ -467,7 +473,7 @@ class EOSRecord:
         """Calculate pressure in GPa from unit-cell volume and temperature."""
         temperatures = self._temperature(temperature)
         internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
-        if isinstance(self.eos, ThermalEOS):
+        if isinstance(self.eos, (ThermalEOS, Maltby2024)):
             result = self.eos.pressure(internal_volume, temperatures)
         else:
             result = self.eos.pressure(internal_volume)
@@ -484,7 +490,7 @@ class EOSRecord:
     ) -> NumericType:
         """Invert unit-cell volume from pressure in GPa and temperature."""
         temperatures = self._temperature(temperature)
-        if isinstance(self.eos, ThermalEOS):
+        if isinstance(self.eos, (ThermalEOS, Maltby2024)):
             internal_volume = self.eos.volume(pressure, temperatures)
         else:
             internal_volume = self.eos.volume(pressure)
@@ -508,7 +514,7 @@ class EOSRecord:
         Unlike an absolute free-energy model's raw thermal contribution, this
         increment is zero at the record's reference temperature.
         """
-        if not isinstance(self.eos, ThermalEOS):
+        if not isinstance(self.eos, (ThermalEOS, Maltby2024)):
             record_kind = "a Hugoniot record" if self.is_hugoniot else "isothermal"
             raise MaterialError(
                 f"{self.identifier} is {record_kind} and has no thermal pressure"
@@ -530,7 +536,7 @@ class EOSRecord:
         check_validity: bool = False,
     ) -> NumericType:
         """Retained DAC pressure increment in GPa at a heated state."""
-        if not isinstance(self.eos, ThermalEOS):
+        if not isinstance(self.eos, (ThermalEOS, Maltby2024)):
             record_kind = "a Hugoniot record" if self.is_hugoniot else "isothermal"
             raise MaterialError(
                 f"{self.identifier} is {record_kind} and has no thermal pressure"
@@ -557,7 +563,7 @@ class EOSRecord:
         reference temperature. The returned volume uses the record's public
         conventional-cell volume unit.
         """
-        if not isinstance(self.eos, ThermalEOS):
+        if not isinstance(self.eos, (ThermalEOS, Maltby2024)):
             record_kind = "a Hugoniot record" if self.is_hugoniot else "isothermal"
             raise MaterialError(
                 f"{self.identifier} is {record_kind} and cannot apply DAC confinement"
@@ -591,7 +597,7 @@ class EOSRecord:
         above the reference-temperature pressure. See the underlying thermal
         EOS :meth:`temperature_from_volumes` method for model-specific details.
         """
-        if not isinstance(self.eos, ThermalEOS):
+        if not isinstance(self.eos, (ThermalEOS, Maltby2024)):
             record_kind = "a Hugoniot record" if self.is_hugoniot else "isothermal"
             raise MaterialError(
                 f"{self.identifier} is {record_kind} and cannot invert temperature"
@@ -1242,7 +1248,9 @@ class Material:
         """Construct an executable material from canonical ``.eosmat`` data.
 
         By default every record must have been checked against its primary
-        source. Pass ``require_primary_validation=False`` only when explicitly
+        source. Nondefault records marked ``catalog_access=explicit_selection``
+        and ``not_reproduced`` are omitted unless selected explicitly.
+        Pass ``require_primary_validation=False`` only when explicitly
         accepting migrated or otherwise unaudited parameters.
         """
         return _material_from_eosmat(
@@ -1254,6 +1262,7 @@ class Material:
 
 _MODEL_IDENTIFIERS = MappingProxyType(
     {
+        "Maltby2024": "maltby_2024_published",
         "Baonza": "baonza",
         "DensityPolynomial3": "density_polynomial_3",
         "BM2": "birch_murnaghan_2",
@@ -1303,6 +1312,7 @@ _MODEL_CLASSES = MappingProxyType(
     {
         _MODEL_IDENTIFIERS[model.__name__]: model
         for model in (
+            Maltby2024,
             Baonza,
             DensityPolynomial3,
             BM2,
@@ -1347,6 +1357,7 @@ _MODEL_CLASSES = MappingProxyType(
 
 _EOSMAT_TYPES = MappingProxyType(
     {
+        "maltby_2024_published": "Maltby2024",
         "baonza": "Baonza",
         "density_polynomial_3": "DensityPolynomial3",
         "birch_murnaghan_2": "BM2",
@@ -1510,7 +1521,7 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
     reference_eos = (
         record.eos.rt_eos if isinstance(record.eos, ThermalEOS) else record.eos
     )
-    thermal_eos = record.eos if record.is_thermal else None
+    thermal_eos = record.eos if isinstance(record.eos, ThermalEOS) else None
     reference_errors, thermal_errors, _ = _component_parameter_mapping(
         record, record.parameter_errors
     )
@@ -1525,7 +1536,8 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
     reference_component = _merge_eosmat_component(
         result.get("eos"), _eosmat_component(reference_eos)
     )
-    reference_component["parameters"]["V0"] = record.reference_volume
+    if not isinstance(record.eos, Maltby2024):
+        reference_component["parameters"]["V0"] = record.reference_volume
     stored_errors = result.get("parameter_errors")
     merged_errors = (
         _plain_data(stored_errors) if isinstance(stored_errors, Mapping) else {}
@@ -1781,7 +1793,7 @@ def _eos_record_dict(record: EOSRecord) -> dict[str, Any]:
     reference_eos = (
         record.eos.rt_eos if isinstance(record.eos, ThermalEOS) else record.eos
     )
-    thermal_eos = record.eos if record.is_thermal else None
+    thermal_eos = record.eos if isinstance(record.eos, ThermalEOS) else None
     reference_provenance, thermal_provenance, additional_provenance = (
         _component_parameter_mapping(record, record.parameter_provenance)
     )
@@ -1810,7 +1822,8 @@ def _eos_record_dict(record: EOSRecord) -> dict[str, Any]:
             ),
             "combination": {
                 "status": "source_parameterization",
-                "validated_as_composed": True,
+                "validated_as_composed": record.scientific_validation_status
+                == "primary_source_validated",
                 "note": (
                     "The catalog record pins the component combination reported by "
                     "the cited primary source. Substituting either component creates "
@@ -1845,6 +1858,10 @@ def _eos_record_dict(record: EOSRecord) -> dict[str, Any]:
             "error_confidence": record.parameter_error_confidence,
         },
         "notes": record.notes,
+        "scientific_validation": {
+            "status": record.scientific_validation_status,
+            "note": record.scientific_validation_note,
+        },
     }
 
 
@@ -2057,6 +2074,22 @@ def _material_from_eosmat(
             raise MaterialError(
                 "record_identifiers must select at least one EOS record"
             )
+    if require_primary_validation and record_identifiers is None:
+        # Explicit-selection candidates must not break loading validated siblings.
+        records_data = [
+            r
+            for r in records_data
+            if not (
+                r.get("scientific_validation", {}).get("status") == "not_reproduced"
+                and r.get("catalog_access") == "explicit_selection"
+                and r.get("default") is not True
+                and r.get("default_for") is None
+            )
+        ]
+        if not records_data:
+            raise MaterialError(
+                "No primary-validated records selected; pass require_primary_validation=False to include explicit-selection candidates"
+            )
     units = document.get("units", {})
     volume_unit = str(units.get("volume", "angstrom^3/conventional_unit_cell"))
     formula = str(document["formula"])
@@ -2095,7 +2128,10 @@ def _material_from_eosmat(
                 and "public_to_model_scale" in volume_data
             ):
                 volume_scale = float(volume_data["public_to_model_scale"])
-            elif thermal_model in _MOLAR_VOLUME_THERMAL_MODELS:
+            elif (
+                thermal_model in _MOLAR_VOLUME_THERMAL_MODELS
+                or raw_record["eos"].get("model") == "maltby_2024_published"
+            ):
                 if formula_units is None:
                     raise MaterialError(
                         "formula_units_per_cell or volume.public_to_model_scale is "
@@ -2106,7 +2142,7 @@ def _material_from_eosmat(
                 volume_scale = 1.0
 
             eos_data = _plain_data(raw_record["eos"])
-            if volume_scale != 1.0:
+            if volume_scale != 1.0 and "V0" in eos_data["parameters"]:
                 eos_data["parameters"]["V0"] *= volume_scale
             reference_eos = _load_component(eos_data)
             if thermal_data is None:
@@ -2366,6 +2402,9 @@ def material_from_dict(document: Mapping[str, Any]) -> Material:
         return _material_from_eosmat(
             document,
             require_primary_validation=True,
+            record_identifiers=[
+                r["identifier"] for r in document.get("eos_records", [])
+            ],
         )
     if document.get("format") != "peritheos.material-snapshot":
         raise MaterialError("Not a Peritheos executable material snapshot")
@@ -2481,6 +2520,12 @@ def material_from_dict(document: Mapping[str, Any]) -> Material:
                 notes=tuple(record.get("notes", ())),
                 volume_unit=volume_unit,
                 volume_scale=volume_scale,
+                scientific_validation_status=record.get(
+                    "scientific_validation", {}
+                ).get("status", "primary_source_validated"),
+                scientific_validation_note=record.get("scientific_validation", {}).get(
+                    "note", ""
+                ),
             )
             if not np.isclose(
                 eos_record.reference_volume,

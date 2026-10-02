@@ -5,6 +5,18 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Expose the published Maltby (2024) argon EOS only through explicit selection,
+  retaining its not-reproduced status and documented reproduction limits.
+- Retain the Chen (2010) printed-constant BM3 reconstruction as an explicit-selection
+  diagnostic marked DO NOT USE, alongside the separate Peritheos refit and a
+  visual comparison explaining the unresolved source-author EOS mismatch.
+- Add the provisional, non-default Ross (1986) and Errandonea (2006) combined-data
+  argon BM3 refit with 49 selected observations and complete selection provenance.
+- Document Xiao (2025) equal-weight refit findings separately from reproduction
+  of the reported parameters and source-author weighting.
+
 ## [0.11.0] - 2026-09-28
 
 This release expands the argon catalog with source observations, new Python

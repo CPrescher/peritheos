@@ -26,7 +26,7 @@ def test_supporting_study_datasets_load_without_an_invented_eos():
     schema = json.loads((ROOT / "peritheos/data/eosmat-v3.schema.json").read_text())
     assert not list(Draft202012Validator(schema).iter_errors(doc))
     assert all(
-        r.get("record_kind") == "refit"
+        r.get("record_kind") in {"refit", "diagnostic"}
         for r in doc["eos_records"]
         if "chen_2010" in r["identifier"]
     )

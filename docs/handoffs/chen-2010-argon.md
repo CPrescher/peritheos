@@ -86,8 +86,9 @@ versus printed 1.52 ± 0.05, and 6.880 GPa RMS residual against drawn densities.
 The alternative P = 2 + BM3 convention reproduces printed KKsecond (−7.248889
 versus −7.3) but still gives rho0 = 1.633737 and 6.251 GPa RMS residual.
 The drawn curve itself has rho(2) = 2.18017 but local KT(2) about 11.157 GPa.
-Both interpretations are diagnostic and must remain excluded from the
-executable catalog and reproduced-fit totals.
+Both interpretations are diagnostic and excluded from reproduced-fit totals.
+The later user-requested inspection record below explicitly retains the standard
+BM3 reconstruction with a DO NOT USE warning.
 
 The paper does not print an unrounded EOS coefficient set or explicit BM
 pressure equation. Original velocity/density tables, interpolation/integration
@@ -169,3 +170,19 @@ isolated checkout, `crates/peritheos/tests/eosmat.rs:995`). All records loaded
 and round-tripped before that assertion. Update the integrated total rather
 than copying this worktree's count. The original completed Rust run above
 predates this additional refit record.
+
+## Original-constant comparison requested 2026-09-26
+
+The user explicitly requested both versions in the catalog and a visual ledger
+comparison. `argon_fcc_chen_2010_bm3_reported_constants` now preserves the standard
+BM3 reconstruction with `record_kind: diagnostic`, scientific status
+`not_reproduced`, `catalog_access: explicit_selection`, and DO NOT USE warnings.
+It is not a verified author equation. Source constraints remain at2 GPa; stored
+BM3 coefficients are derived at zero pressure. Default EOS and refit coefficients
+are unchanged. Both records link to the comparison documentation and each other.
+
+The comparison script/report/figure and both ledgers distinguish the drawn source
+curve, printed-constant reconstruction and independent refit. No pressure-correction
+error is asserted. Zero-pressure density mismatch and missing statistical
+uncertainties qualify the refit. Library changes build on Maltby's explicit
+unvalidated-record support (106cb379).

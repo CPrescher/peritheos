@@ -2058,6 +2058,22 @@ def _argon_batch_outcome(record: dict[str, Any]) -> dict[str, Any]:
     return outcome
 
 
+def _chen_reported_constants_outcome() -> dict[str, Any]:
+    """Preserve the diagnostic without claiming recovery of the author EOS."""
+    from scripts.reproduce_chen_2010_argon import reproduce
+
+    result = reproduce()
+    return {
+        "status": "not_refittable",
+        "reproduction_status": "not_reproduced",
+        "dataset_identifiers": ["argon_fcc_chen_2010_figure5_brillouin"],
+        "observations": 80,
+        "reason": "DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md.",
+        "documentation": "literature-reproductions/chen-2010-argon.md",
+        "reproduction": result,
+    }
+
+
 def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
@@ -2088,7 +2104,7 @@ def _fit_record(
             "reproduction_status": "parameterization_reproduced",
             "dataset_identifiers": record["fit_datasets"],
             "observations": 22,
-            "reason": "Published parameterization matches official workbook. Equal-weight22volume and27entry diagnostics are available, but do not uniquely recover nine parameters or replace the full global regression. Table2 weights are published; consolidated legacy rows and quantitative penalties remain unavailable.",
+            "reason": "Published parameterization matches the official workbook; the complete global fit remains unreproduced. With equal weights on relative residuals, the best converged nine-parameter 22-volume refit lowers volume RMS from 0.0952% to 0.0322%, but gives a much too low bulk modulus and poorly constrained, bound-dependent parameters. The best converged 27-entry refit gives 0.0603% volume RMS and 0.0818% bulk-modulus RMS, but Cv = -13.88 J/mol/K at 77 K is physically unacceptable. Neither diagnostic replaces the published coefficients. Table 2 weights are published; complete legacy rows and quantitative penalties remain unavailable. Next: recover the remaining multiproperty inputs, then refit with physical constraints and assess parameter stability. [Detailed comparison and scope](literature-reproductions/argon-xiao-2025.md#review-conclusion-2026-09-27).",
             "reproduction": reproduce(),
         }
     if record_id in {
@@ -5151,7 +5167,9 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if record["identifier"] in CAMPBELL_RECORDS.values():
+            if record["identifier"] == "argon_fcc_chen_2010_bm3_reported_constants":
+                outcome = _chen_reported_constants_outcome()
+            elif record["identifier"] in CAMPBELL_RECORDS.values():
                 outcome = _campbell_2009_outcome(material_id, record)
             elif record["identifier"] in SOLOMATOVA_RECORD_SOURCES:
                 outcome = _solomatova_outcome(record)
@@ -5916,6 +5934,9 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             "",
         ]
     )
+    from scripts.generate_paper_investigation_ledger import chen_comparison_section
+
+    lines.extend(["", chen_comparison_section()])
     return "\n".join(line.rstrip() for line in lines)
 
 

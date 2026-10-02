@@ -29,6 +29,7 @@ _AVOGADRO = 6.022_140_76e23
 _HUGONIOT_MASS_BASIS_RTOL = 1.0e-3
 _MATERIAL_PACKAGE = "peritheos.data.materials"
 _RT_TYPES = {
+    "Maltby2024",
     "Baonza",
     "DensityPolynomial3",
     "BM2",
@@ -72,6 +73,7 @@ _THERMAL_TYPES = {
     "ThermalModifiedTait",
 }
 _RT_MODELS = {
+    "Maltby2024": "maltby_2024_published",
     "Baonza": "baonza",
     "DensityPolynomial3": "density_polynomial_3",
     "BM2": "birch_murnaghan_2",
@@ -445,12 +447,38 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
         )
         for name, value in parameters.items():
             _finite_number(value, f"{location}.eos.parameters.{name}")
-        if "V0" not in parameters:
+        is_maltby = eos_type == "Maltby2024"
+        if is_maltby:
+            cutoff = parameters.get("shell_cutoff_squared")
+            if (
+                set(parameters) != {"shell_cutoff_squared"}
+                or isinstance(cutoff, bool)
+                or not isinstance(cutoff, (int, float))
+                or not 1 <= cutoff <= 256
+                or cutoff != int(cutoff)
+            ):
+                raise EosmatError(
+                    f"{location}: Maltby2024 requires only an integer shell_cutoff_squared in [1, 256]"
+                )
+            from peritheos.eos.experimental.maltby_2024 import fcc_shells
+
+            try:
+                fcc_shells(int(cutoff))
+            except ValueError as error:
+                raise EosmatError(str(error)) from error
+            if (
+                record.get("thermal") is not None
+                or record.get("temperature_ref") != 300
+            ):
+                raise EosmatError(
+                    f"{location}: Maltby2024 requires temperature_ref 300 and no separate thermal component"
+                )
+        if not is_maltby and "V0" not in parameters:
             raise EosmatError(f"{location}.eos.parameters requires V0")
         equation_kind = record.get(
             "equation_kind",
             "thermal"
-            if record.get("thermal") is not None
+            if record.get("thermal") is not None or is_maltby
             else "hugoniot"
             if eos_type == "LinearUsUpHugoniot"
             else "isothermal",
@@ -461,7 +489,9 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
         if (equation_kind == "hugoniot") != is_hugoniot:
             raise EosmatError(f"{location}.equation_kind does not match eos.type")
         expected_equilibrium_kind = (
-            "thermal" if record.get("thermal") is not None else "isothermal"
+            "thermal"
+            if record.get("thermal") is not None or is_maltby
+            else "isothermal"
         )
         if not is_hugoniot and equation_kind != expected_equilibrium_kind:
             raise EosmatError(
@@ -1065,6 +1095,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if validation.get("status") not in {
                 "primary_source_validated",
                 "pending_primary_source_check",
+                "not_reproduced",
                 "deferred",
             }:
                 raise EosmatError(f"{location}.scientific_validation.status is invalid")

@@ -1,0 +1,31 @@
+{
+  "record_id": "argon_fcc_ross_1986_errandonea_2006_bm3_refit",
+  "dataset_id": "argon_fcc_ross_errandonea_selected49",
+  "record_kind": "refit",
+  "status": "provisional",
+  "default": false,
+  "source_dois": [
+    "10.1063/1.451346",
+    "10.1103/PhysRevB.73.092106"
+  ],
+  "selection": "41 Ross Table I rows plus 8 digitized Errandonea fcc points; exclude Ross row17 suspected printed pressure error, retain archived 24.7 GPa; exclude cryogenic diamond.",
+  "parameters": {
+    "V0": 138.83326594378107,
+    "K0": 7.3276753422964385,
+    "K0_prime": 5.018612278319878
+  },
+  "temperature_note": "298/300 K pooled; nominal 300 K ref, no thermal correction.",
+  "software_and_objective": "SciPy least_squares, equal pressure residual weights; full provenance in record.",
+  "uncertainty": "No calibrated parameter errors/covariance; strong objective sensitivity.",
+  "tests": "10 tests passed; ruff and diff checks pass; registration idempotence verified.",
+  "studio_requirements": [
+    "Import new non-default refit record and checksummed selected49 dataset.",
+    "Preserve refit/provisional labeling and both source citations.",
+    "Generic pressure_gpa / volume_a3 mapping; source and source_row identify the fit inputs.",
+    "Original published EOS and default unchanged."
+  ],
+  "regeneration": [
+    "python -m scripts.fit_argon_errandonea_combined",
+    "python -m scripts.register_argon_combined_refit"
+  ]
+}

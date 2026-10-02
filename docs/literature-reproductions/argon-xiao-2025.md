@@ -124,3 +124,53 @@ The lowest-residual full nine-parameter 27-entry candidate also gives negative
 isochoric heat capacity at some sampled states. Its small residual is therefore
 not evidence of a physically acceptable replacement EOS. Every solution now
 includes sampled heat-capacity and bulk-modulus admissibility flags.
+
+
+## Review conclusion (2026-09-27)
+
+**The published parameterization is reproduced against the author workbook;
+the complete original global fit is not reproduced.** Keep the published Xiao
+coefficients unchanged. Neither recovered-data refit is a suitable replacement.
+A lower residual for this subset does not establish an error in the published
+coefficients or validate the refitted EOS.
+
+For the comparison below, select the **best converged** full nine-parameter run
+in each archived case: start 1 for the 22 volumes and start 4 for the 27 entries
+(zero-based indices in the diagnostic JSON). These are distinct from the
+lowest-residual, iteration-limited candidates reported earlier. All calculations
+use the stated P = 0 approximation; the volume observations have no tabulated
+measured pressures.
+
+| Model / diagnostic | Volume relative RMS (%) | Bulk-modulus relative RMS (%) | Assessment |
+|---|---:|---:|---|
+| Published Xiao coefficients | 0.0952 | 6.3583 | Workbook parameterization verified; original global fit unavailable |
+| Equal weights, 22 volumes only | 0.0322 | Not fitted | Bulk modulus becomes much too low; parameters poorly constrained |
+| Equal weights, 22 volumes + 5 bulk estimates | 0.0603 | 0.0818 | Negative isochoric heat capacity at 77 K; physically unacceptable |
+
+Every included observation has weight one on its squared **relative** residual;
+there is no balancing between properties and no original physical penalty.
+The five bulk-modulus values are extrapolated isotherm-fit estimates, not five
+independent direct measurements. These 27 entries are only the recovered subset,
+not the complete set of data used by Xiao.
+
+The volume-only fit lowers c1 from 2656.5 to 500 MPa (the imposed lower bound)
+and raises b1 from 0.0128 to approximately 1 (the upper bound). Its sampled bulk
+modulus is only about 0.4–0.5 GPa over the fitted temperature interval. These
+large coefficient changes despite nearly overlapping volume curves illustrate
+the lack of unique parameter recovery. The combined fit also reaches the b1
+upper bound and predicts Cv = -13.8755 J/mol/K at 77 K, versus +23.0559 J/mol/K
+for the published model at the same P = 0 state. Optimizer convergence therefore
+does not resolve the physical failure. No calibrated parameter uncertainties
+are inferred from these residuals or sensitivity matrices.
+
+**Next steps:** recover the remaining selected legacy observations, especially
+heat capacity and broader pressure–volume–temperature coverage, together with
+the original reduction and penalty definitions where possible. Then evaluate a
+fit with explicit physical constraints and test parameter stability across
+starting points, data subsets and objective choices. Another unrestricted
+nine-parameter fit to this small subset is unlikely to resolve the ambiguity.
+If constraints or input selections remain analyst choices, retain that result
+as a qualified alternative, not a reproduction of the original regression.
+
+The separately approved provisional Ross–Errandonea BM3 fit and the broader
+argon pressure-scale audit do not change this Xiao assessment.

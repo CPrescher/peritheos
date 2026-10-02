@@ -4,7 +4,7 @@
     "authors": [
       "Tage W. Maltby",
       "Morten Hammer",
-      "\u00d8ivind Wilhelmsen"
+      "Øivind Wilhelmsen"
     ],
     "year": 2024,
     "title": "Equation of State for Solid Argon Valid for Temperatures up to 300 K and Pressures up to 16 GPa",
@@ -17,9 +17,11 @@
   },
   "phase": "fcc",
   "determination_method": "hybrid",
-  "outcome": "independent_eos_candidate_not_reproduced",
+  "outcome": "unvalidated_executable_published_eos",
   "scientific_validation_status": "not_reproduced",
-  "executable_eos_record_identifiers": [],
+  "executable_eos_record_identifiers": [
+    "argon_fcc_maltby_2024_published"
+  ],
   "experimental_implementation": "Maltby2024Published",
   "source_equations": "4,7-19; Tables1,3; SI.1",
   "source_table1": {

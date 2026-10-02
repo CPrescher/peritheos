@@ -6,6 +6,8 @@
 //! [`EosRecord::document`], while equation construction is restricted to the
 //! built-in model registry.
 
+use crate::experimental::maltby_2024::Maltby2024Published;
+
 use std::collections::HashMap;
 use std::error::Error;
 use std::fmt::{self, Display, Formatter};
@@ -760,6 +762,8 @@ pub enum LoadedEos {
     Isothermal(IsothermalModel),
     /// Composed reference isotherm and thermal correction.
     Thermal(ThermalModel),
+    /// Complete published Helmholtz model, with unresolved reproduction.
+    Maltby2024(Maltby2024Published),
     /// One-dimensional pressure-volume shock path.
     Hugoniot(HugoniotModel),
 }
@@ -768,7 +772,7 @@ impl LoadedEos {
     /// Whether the record has a thermal correction.
     #[must_use]
     pub const fn is_thermal(&self) -> bool {
-        matches!(self, Self::Thermal(_))
+        matches!(self, Self::Thermal(_) | Self::Maltby2024(_))
     }
 
     /// Whether the record describes a shock Hugoniot path.
@@ -783,6 +787,7 @@ impl LoadedEos {
         match self {
             Self::Isothermal(model) => model.model_identifier(),
             Self::Thermal(model) => model.model_identifier(),
+            Self::Maltby2024(_) => "maltby_2024_published",
             Self::Hugoniot(model) => model.model_identifier(),
         }
     }
@@ -827,6 +832,7 @@ impl LoadedEos {
                 ThermalModel::ThermalModifiedTait(_) => "modified_tait",
                 ThermalModel::ThermalReferenceState(value) => value.rt_eos.model_identifier(),
             },
+            Self::Maltby2024(_) => "maltby_2024_published",
             Self::Hugoniot(model) => model.model_identifier(),
         }
     }
@@ -836,6 +842,7 @@ impl LoadedEos {
     pub const fn thermal_model_identifier(&self) -> Option<&'static str> {
         match self {
             Self::Thermal(model) => Some(model.model_identifier()),
+            Self::Maltby2024(_) => Some("maltby_2024_published"),
             Self::Isothermal(_) | Self::Hugoniot(_) => None,
         }
     }
@@ -874,7 +881,7 @@ impl HugoniotRecord<'_> {
     fn model(&self) -> HugoniotModel {
         match self.record.eos {
             LoadedEos::Hugoniot(model) => model,
-            LoadedEos::Isothermal(_) | LoadedEos::Thermal(_) => {
+            LoadedEos::Isothermal(_) | LoadedEos::Thermal(_) | LoadedEos::Maltby2024(_) => {
                 unreachable!("typed Hugoniot record must contain a Hugoniot model")
             }
         }
@@ -997,6 +1004,7 @@ impl EosRecord {
         let model_volume = match self.eos {
             LoadedEos::Isothermal(model) => model.reference_volume(),
             LoadedEos::Thermal(model) => model.reference_volume(),
+            LoadedEos::Maltby2024(_) => 2.256, // characteristic volume, not P=0
             LoadedEos::Hugoniot(model) => model.reference_volume(),
         };
         model_volume / self.volume_scale
@@ -1015,6 +1023,7 @@ impl EosRecord {
         match self.eos {
             LoadedEos::Isothermal(model) => model.pressure(volume),
             LoadedEos::Thermal(model) => model.pressure(volume, temperature),
+            LoadedEos::Maltby2024(model) => model.pressure(volume, temperature),
             LoadedEos::Hugoniot(model) => {
                 self.validate_hugoniot_temperature(temperature)?;
                 self.as_hugoniot()
@@ -1038,6 +1047,7 @@ impl EosRecord {
         match self.eos {
             LoadedEos::Isothermal(model) => model.bulk_modulus(volume),
             LoadedEos::Thermal(model) => model.bulk_modulus(volume, temperature),
+            LoadedEos::Maltby2024(model) => model.bulk_modulus(volume, temperature, 1e-5),
             LoadedEos::Hugoniot(_) => Err(EosError::InvalidState {
                 name: "eos",
                 reason: "must be an equilibrium isothermal or thermal EOS",
@@ -1054,6 +1064,7 @@ impl EosRecord {
         let model_volume = match self.eos {
             LoadedEos::Isothermal(model) => model.volume(pressure)?,
             LoadedEos::Thermal(model) => model.volume(pressure, temperature)?,
+            LoadedEos::Maltby2024(model) => model.volume(pressure, temperature)?,
             LoadedEos::Hugoniot(model) => {
                 self.validate_hugoniot_temperature(temperature)?;
                 let volume = model.volume(pressure)?;
@@ -1092,6 +1103,7 @@ impl EosRecord {
         let volume = volume * self.volume_scale;
         match self.eos {
             LoadedEos::Thermal(model) => model.thermal_pressure_increment(volume, temperature),
+            LoadedEos::Maltby2024(model) => model.thermal_pressure_increment(volume, temperature),
             LoadedEos::Isothermal(_) | LoadedEos::Hugoniot(_) => Err(EosError::InvalidState {
                 name: "eos",
                 reason: "must be thermal",
@@ -1113,6 +1125,10 @@ impl EosRecord {
     ) -> EosResult<f64> {
         let volume = volume * self.volume_scale;
         match self.eos {
+            LoadedEos::Maltby2024(_) => Err(EosError::InvalidState {
+                name: "eos",
+                reason: "DAC confinement is not supported for Maltby2024",
+            }),
             LoadedEos::Thermal(model) => model.dac_thermal_pressure(volume, temperature, f_dac),
             LoadedEos::Isothermal(_) | LoadedEos::Hugoniot(_) => Err(EosError::InvalidState {
                 name: "eos",
@@ -1134,6 +1150,12 @@ impl EosRecord {
         f_dac: f64,
     ) -> EosResult<f64> {
         let model_volume = match self.eos {
+            LoadedEos::Maltby2024(_) => {
+                return Err(EosError::InvalidState {
+                    name: "eos",
+                    reason: "DAC confinement is not supported for Maltby2024",
+                })
+            }
             LoadedEos::Thermal(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)?
             }
@@ -2256,7 +2278,12 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
             )?;
             if !matches!(
                 validation.get("status").and_then(Value::as_str),
-                Some("primary_source_validated" | "pending_primary_source_check" | "deferred")
+                Some(
+                    "primary_source_validated"
+                        | "pending_primary_source_check"
+                        | "deferred"
+                        | "not_reproduced"
+                )
             ) {
                 return Err(invalid_document(format!(
                     "{location}.scientific_validation.status is invalid"
@@ -2399,7 +2426,9 @@ fn build_record(
             return Err("volume.public_to_model_scale must be positive and finite".to_owned());
         }
         scale
-    } else if thermal_identifier.is_some_and(is_molar_volume_model) {
+    } else if thermal_identifier.is_some_and(is_molar_volume_model)
+        || reference_identifier == "maltby_2024_published"
+    {
         let formula_units = formula_units_per_cell.ok_or_else(|| {
             "formula_units_per_cell or volume.public_to_model_scale is required for molar-volume thermal EOS".to_owned()
         })?;
@@ -2587,6 +2616,29 @@ fn build_record(
             },
         });
         LoadedEos::Hugoniot(model)
+    } else if reference_identifier == "maltby_2024_published" {
+        if raw.equation_kind.as_deref() != Some("thermal")
+            || raw.thermal.is_some()
+            || raw.temperature_ref != Some(300.0)
+        {
+            return Err("Maltby2024 requires equation_kind thermal, temperature_ref 300, and no separate thermal component".to_owned());
+        }
+        if reference_component.parameters.len() != 1 {
+            return Err(
+                "Maltby2024 accepts only shell_cutoff_squared; published coefficients are fixed"
+                    .to_owned(),
+            );
+        }
+        let cutoff = reference_component
+            .parameters
+            .get("shell_cutoff_squared")
+            .copied()
+            .flatten()
+            .ok_or("Maltby2024 requires shell_cutoff_squared")?;
+        let cutoff = (1_u32..=256)
+            .find(|n| f64::from(*n).to_bits() == cutoff.to_bits())
+            .ok_or("shell_cutoff_squared must be an integer in [1, 256]")?;
+        LoadedEos::Maltby2024(Maltby2024Published::new(cutoff).map_err(|e| e.to_string())?)
     } else {
         let expected_kind = if raw.thermal.is_some() {
             "thermal"
@@ -2609,7 +2661,7 @@ fn build_record(
         }
     };
     let reference_temperature = raw.temperature_ref.unwrap_or_else(|| match eos {
-        LoadedEos::Isothermal(_) => 300.0,
+        LoadedEos::Isothermal(_) | LoadedEos::Maltby2024(_) => 300.0,
         LoadedEos::Thermal(model) => model.reference_temperature(),
         LoadedEos::Hugoniot(_) => raw
             .initial_state
@@ -2720,6 +2772,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
         }
     } else {
         match model_type {
+            "Maltby2024" => "maltby_2024_published",
             "BM2" => "birch_murnaghan_2",
             "BM3" => "birch_murnaghan_3",
             "BM4" => "birch_murnaghan_4",

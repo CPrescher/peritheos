@@ -109,3 +109,91 @@ Validation: `python -m pytest tests/test_argon_errandonea_2006.py
 tests/test_argon.py -q` passes 7 tests, covering schema/resource hashes,
 published parameters, native equation agreement, normalization, inversion,
 round trip, source phase distinctions, and existing argon regressions.
+
+## Combined-data test (26 September 2026)
+
+The user requested fitting all the data after questioning whether the authors
+also used the older measurements. The complete Ross (1986) Table I is now
+available from the verified primary journal PDF. Its 42 measurements are
+used directly instead of redigitizing overlapping open circles. Together
+with the eight recoverable Errandonea points, this gives a 50-point union.
+This is not a claim to recover Errandonea's full raw data or exact Figure 5
+selection. Ross row 17 is printed as 247 kbar, although its volume lies near
+the adjacent 347 kbar row; retain 24.7 GPa and test omission separately.
+
+Ross's Table I explicitly reports **298 K**. Anderson and Swenson (1975)
+report cryogenic argon isotherms at **4.2–77 K**, not room temperature.
+Their diamond in Errandonea's Figure 5 is approximately (0 GPa, 149.63 Å³),
+consistent with the original 4.2 K zero-pressure molar volume of 22.56
+cm³/mol, but the 2006 caption does not specify its temperature. Pooling that
+point into a 300 K isotherm is physically inconsistent without a thermal
+correction. It is included only as the requested all-marker sensitivity.
+The 298/300 K union also neglects a 2 K thermal correction, explicitly.
+
+Run `python -m scripts.fit_argon_errandonea_combined` to regenerate the
+[report](../data/argon-errandonea-2006-combined-fit.json) and
+[comparison plot](../data/argon-errandonea-2006-combined-fit.png).
+The [input snapshot](../data/argon-errandonea-2006-combined-inputs.json)
+retains all Ross table fields, primary PDF hashes, units, and the diamond's
+pixel coordinates. Source pressure uncertainties are preserved but not used
+as cross-study weights, because the Errandonea uncertainties and common
+covariance are unavailable. Both objectives give each observation equal
+weight, not each study equal weight. Bounds and solver status are reported.
+
+| Data / objective | N | V0 (Å³/cell) | K0 (GPa) | K0′ | Pressure RMS (GPa) |
+|---|---:|---:|---:|---:|---:|
+| Published parameters | — | 143(11) | 6.5(5) | 5.1(3) | — |
+| Ross + Errandonea / pressure residuals | 50 | 141.693 | 6.1975 | 5.2591 | 1.934 |
+| Above + cryogenic diamond / pressure residuals | 51 | 142.633 | 5.9787 | 5.2903 | 1.916 |
+| Ross + Errandonea, omit Ross row 17 / pressure residuals | 49 | 138.833 | 7.3277 | 5.0186 | 1.203 |
+| Ross + Errandonea / volume residuals | 50 | 184.444 | 0.9025 | 9.1532 | 2.069 |
+| Above + cryogenic diamond / volume residuals | 51 | 150.282 | 4.5186 | 5.5162 | 1.935 |
+
+The 50-point pressure-residual fit lies inside each published parameter-error
+interval. The 51-point fit is close, but K0 is just below the printed lower
+interval endpoint of 6.0 GPa. This agreement supports the plausibility of a
+combined-data interpretation; it does not establish the authors' selection
+or weighting. The substantially different volume-residual solution and the
+sensitivity to the suspicious Ross row prevent a unique inference.
+No source pressure was corrected, no catalog parameters were replaced, and
+the original fit remains unresolved. The safe result is a clearly labeled
+**diagnostic combined fit**, not a newly validated 300 K EOS.
+
+Following the user's source-quality decision, the **preferred diagnostic now
+excludes Ross Table I row 17** (247(13) kbar, 4.047 Å, 9.98 cm³/mol).
+Its pressure is suspected to be a printing error because the neighboring
+near-identical volume is reported at 347 kbar. The intended pressure is not
+established: no correction to 34.7 or 42.7 GPa is applied. The archived source
+row remains unchanged, and the report marks it excluded with this reason.
+The unfiltered fits above remain explicit sensitivity comparisons.
+
+The preferred 49-point, equal-pressure-weight fit therefore gives
+**V0=138.833 Å³/cell, K0=7.3277 GPa, K0'=5.0186**, with pressure RMS
+**1.203 GPa**. The cryogenic diamond remains excluded as well. These are
+diagnostic coefficients; the published catalog equation is unchanged.
+
+## Registered provisional refit
+
+At the user's request, this selected-data analysis is also available as a
+separate executable catalog record:
+`argon_fcc_ross_1986_errandonea_2006_bm3_refit`, with `record_kind=refit`
+and `default=false`. The original published records and Dewaele default are
+unchanged. This new record represents our analysis, not coefficients
+attributed to Ross or Errandonea. Both papers appear in its source lineage.
+
+`argon_fcc_ross_errandonea_selected49` links the exact 49 selected observations,
+including source identity, original source row, pressure, conventional-cell
+volume, and actual source temperature. Its checksummed CSV is
+`argon-fcc-ross-errandonea-selected49.csv`. Exclusion reasons, objective,
+bounds, software, and fit statistics are in `fit_provenance`; excluded
+values remain in the original input archive. No parameter errors or
+covariance are asserted. The nominal reference is 300 K, explicitly pooling
+298 K and 300 K without a thermal correction. Use only as a provisional
+refit over the selected data span (1.6–114.1347 GPa), not a general pressure
+standard or thermal equation.
+
+Regenerate the diagnostic with `python -m scripts.fit_argon_errandonea_combined`,
+then regenerate the registered record and selected CSV with
+`python -m scripts.register_argon_combined_refit`. Tests check the exact
+source selection, retained default, JSON schema, CSV checksum, native
+evaluation and serialization of the new record, and existing argon behavior.

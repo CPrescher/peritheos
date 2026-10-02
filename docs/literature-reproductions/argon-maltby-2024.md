@@ -1,6 +1,14 @@
 # Maltby, Hammer and Wilhelmsen (2024): fcc argon Helmholtz EOS
 
-Status: **not_reproduced; experimental implementation, no bundled executable EOS record**.
+Status: **not_reproduced; selectable unvalidated published EOS**.
+
+The nondefault record `argon_fcc_maltby_2024_published` evaluates the published
+coefficients with an explicit assumed squared cutoff of 64 and geometric fcc
+shells. Its label and exports retain **Unvalidated — published sample not
+reproduced**. Our implementation has not reproduced Table 8; this does not
+establish that all predictions are invalid or that validation is impossible.
+The characteristic volume in the source laws is not a zero-pressure volume.
+The diagnostic refit is not substituted, and Dewaele remains the default.
 This is an independent EOS publication, not merely a supporting measurement study.
 The literal published equations are implemented in Python and Rust, but numerical
 reproduction of the reported 70 K sample state is unresolved. Do not present this
@@ -178,10 +186,12 @@ an explicit numerical interval, not a claim of physical validity everywhere.
 Run `PYTHONPATH=. python scripts/reproduce_maltby_2024_argon.py`,
 `pytest tests/test_maltby_2024_argon.py tests/test_argon.py`, and
 `cargo test -p peritheos experimental::maltby_2024 --lib`.
-No EOSMAT dispatch/schema entry or Studio executable record is added while the
-source reproduction is unresolved. Studio should expose the study's pending
-status and source PDFs if it has a supporting-study view, with no selectable
-validated pressure curve and no measured-point label on Table 8.
+EOSMAT dispatch and the catalog expose the original published implementation
+for explicit selection with its unresolved reproduction warning. Python
+`Material.from_eosmat` still requires `require_primary_validation=False` for
+external imports containing this record. Table 8 remains a model calculation,
+not a measured observation. DAC confinement and parameter uncertainty are not
+supported for this model.
 
 ## Follow-up rounding and refit audit
 

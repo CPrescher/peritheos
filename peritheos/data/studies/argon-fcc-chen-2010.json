@@ -230,9 +230,11 @@
     "observation_style": "markers labelled Brillouin-derived density (digitized)",
     "peritheos_refit_record": "argon_fcc_chen_2010_bm3_digitized_refit",
     "do_not_create_published_parameter_eos_record": true,
-    "refit_label": "Peritheos BM3 refit of digitized Brillouin densities"
+    "refit_label": "Peritheos BM3 refit of digitized Brillouin densities",
+    "original_constant_reconstruction_record": "argon_fcc_chen_2010_bm3_reported_constants",
+    "original_constant_reconstruction_warning": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established."
   },
-  "notes": "The separate published curve is a fitted experimental EOS line, not an ab initio theory curve and never a measured-point dataset.",
+  "notes": "The separate published curve is a fitted experimental EOS line, not an ab initio theory curve and never a measured-point dataset. A separate diagnostic record preserves the printed-constant reconstruction for inspection only and is marked DO NOT USE; it is not a verified source-author EOS.",
   "bibliographic_metadata": {
     "itemType": "journalArticle",
     "title": "Elasticity, strength, and refractive index of argon at high pressures",
@@ -279,5 +281,10 @@
   "peritheos_refit_record_identifiers": [
     "argon_fcc_chen_2010_bm3_digitized_refit"
   ],
-  "refit_report": "docs/data/chen-2010-argon-refit.json"
+  "refit_report": "docs/data/chen-2010-argon-refit.json",
+  "diagnostic_eos_record_identifiers": [
+    "argon_fcc_chen_2010_bm3_reported_constants"
+  ],
+  "comparison_report": "docs/data/chen-2010-argon-comparison.json",
+  "comparison_figure": "docs/data/chen-2010-argon-comparison.png"
 }
