@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Add explicit dataset pressure-column calibration provenance and per-EOS
+  pressure reductions, with Python/Rust validation and the metadata-driven
+  `resolve_dataset_pressure` API. Migrate six Dewaele (2004) metal tables and
+  their 22 direct 2004/2019 reductions without changing source observations or
+  EOS coefficients; preserve unresolved model links and scale qualifications.
 - Expose the published Maltby (2024) argon EOS only through explicit selection,
   retaining its not-reproduced status and documented reproduction limits.
 - Retain the Chen (2010) printed-constant BM3 reconstruction as an explicit-selection

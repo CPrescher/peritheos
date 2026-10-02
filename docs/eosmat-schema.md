@@ -643,3 +643,12 @@ See the [Hirose gold audit](literature-reproductions/hirose-2008-gold.md).
 `reference_temperature` (default) or `absolute_zero`. In the latter mode
 its reference curve is at 0 K and `Tr` anchors pressure increments only;
 see the [argon audit](literature-reproductions/argon-fcc.md).
+
+## Dataset pressure coordinates
+
+Format 3 optionally supports `columns[].pressure_scale` with a calibration ID
+and scientific provenance, and `datasets[].pressure_reductions` with explicit
+per-EOS `as_reported`, `transformed`, or `unresolved` coordinates. These fields
+are additive; absence is unresolved. See [Dataset pressure provenance and EOS
+reductions](dataset-pressure-reductions.md) for the normative field semantics,
+validation rules, supported transformation convention, and migration scope.

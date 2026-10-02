@@ -2349,6 +2349,12 @@ def _material_from_eosmat(
         ]
         if used_by or not dataset.get("used_by_eos_records"):
             dataset["used_by_eos_records"] = used_by
+            if "pressure_reductions" in dataset:
+                dataset["pressure_reductions"] = [
+                    reduction
+                    for reduction in dataset["pressure_reductions"]
+                    if reduction["eos_record"] in selected_record_identifiers
+                ]
             selected_datasets.append(dataset)
 
     return Material(

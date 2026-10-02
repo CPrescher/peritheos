@@ -212,3 +212,10 @@ from peritheos import (
     PressureVolumeData,
 )
 ```
+
+## Resolve the pressure coordinate used by an EOS
+
+For datasets with alternative pressure scales, use
+[`resolve_dataset_pressure`](dataset-pressure-reductions.md) to select the
+explicit per-EOS coordinate. `as_pressure_volume()` remains a view of reported
+columns and never infers an EOS reduction or transforms its pressure scale.

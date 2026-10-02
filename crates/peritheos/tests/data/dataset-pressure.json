@@ -1,0 +1,323 @@
+{
+  "document": {
+    "format": "peritheos.material",
+    "format_version": 3,
+    "identifier": "test_material",
+    "name": "Test",
+    "formula": "X",
+    "units": {
+      "pressure": "GPa",
+      "temperature": "K",
+      "volume": "angstrom^3/conventional_unit_cell"
+    },
+    "eos_records": [
+      {
+        "identifier": "test_eos",
+        "label": "Test EOS",
+        "default": true,
+        "reference": "Synthetic",
+        "temperature_ref": 300.0,
+        "eos": {
+          "type": "BM3",
+          "model": "birch_murnaghan_3",
+          "parameters": {
+            "V0": 10.0,
+            "K0": 160.0,
+            "K0_prime": 4.0
+          }
+        },
+        "parameter_errors": {},
+        "fixed_parameters": [],
+        "pressure_calibration": {
+          "status": "resolved",
+          "methods": [
+            {
+              "kind": "ruby_fluorescence",
+              "reference_calibration_record": "ruby_dorogokupets_oganov_2007",
+              "source_location": "synthetic"
+            }
+          ],
+          "recalculation": {
+            "status": "ready"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated"
+        }
+      }
+    ],
+    "datasets": [
+      {
+        "identifier": "observations",
+        "kind": "pressure_volume",
+        "reference": "Synthetic regression fixture",
+        "source_location": "synthetic",
+        "columns": [
+          {
+            "name": "p",
+            "quantity": "pressure",
+            "unit": "GPa",
+            "role": "value",
+            "pressure_scale": {
+              "calibration_record": "ruby_mao_1986",
+              "reference": "Synthetic regression fixture",
+              "source_location": "synthetic"
+            }
+          },
+          {
+            "name": "v",
+            "quantity": "volume",
+            "unit": "angstrom^3",
+            "role": "value"
+          }
+        ],
+        "rows": [
+          [
+            1,
+            9
+          ],
+          [
+            100,
+            7
+          ]
+        ],
+        "used_by_eos_records": [
+          "test_eos"
+        ],
+        "pressure_reductions": [
+          {
+            "eos_record": "test_eos",
+            "status": "transformed",
+            "pressure_column": "p",
+            "target_calibration_record": "ruby_dorogokupets_oganov_2007",
+            "row_scope": "all_rows",
+            "convention": "same_corrected_ruby_r1_ratio",
+            "reference": "Synthetic regression fixture",
+            "source_location": "synthetic"
+          }
+        ]
+      }
+    ]
+  },
+  "invalid_cases": [
+    {
+      "name": "status-unknown",
+      "path": "/datasets/0/pressure_reductions/0/status",
+      "value": "unknown"
+    },
+    {
+      "name": "status-[]",
+      "path": "/datasets/0/pressure_reductions/0/status",
+      "value": []
+    },
+    {
+      "name": "eos_record-missing",
+      "path": "/datasets/0/pressure_reductions/0/eos_record",
+      "value": "missing"
+    },
+    {
+      "name": "pressure_column-missing",
+      "path": "/datasets/0/pressure_reductions/0/pressure_column",
+      "value": "missing"
+    },
+    {
+      "name": "pressure_column-v",
+      "path": "/datasets/0/pressure_reductions/0/pressure_column",
+      "value": "v"
+    },
+    {
+      "name": "target_calibration_record-missing",
+      "path": "/datasets/0/pressure_reductions/0/target_calibration_record",
+      "value": "missing"
+    },
+    {
+      "name": "target_calibration_record-ruby_mao_1986",
+      "path": "/datasets/0/pressure_reductions/0/target_calibration_record",
+      "value": "ruby_mao_1986"
+    },
+    {
+      "name": "row_scope-some_rows",
+      "path": "/datasets/0/pressure_reductions/0/row_scope",
+      "value": "some_rows"
+    },
+    {
+      "name": "convention-interpolate",
+      "path": "/datasets/0/pressure_reductions/0/convention",
+      "value": "interpolate"
+    },
+    {
+      "name": "reference-None",
+      "path": "/datasets/0/pressure_reductions/0/reference",
+      "value": null
+    },
+    {
+      "name": "source_location-",
+      "path": "/datasets/0/pressure_reductions/0/source_location",
+      "value": ""
+    },
+    {
+      "name": "notes-3",
+      "path": "/datasets/0/pressure_reductions/0/notes",
+      "value": 3
+    },
+    {
+      "name": "surprise-1",
+      "path": "/datasets/0/pressure_reductions/0/surprise",
+      "value": 1
+    },
+    {
+      "name": "same scales",
+      "path": "/datasets/0/columns/0/pressure_scale/calibration_record",
+      "value": "ruby_dorogokupets_oganov_2007"
+    },
+    {
+      "name": "unknown source",
+      "path": "/datasets/0/columns/0/pressure_scale/calibration_record",
+      "value": "missing"
+    },
+    {
+      "name": "missing source",
+      "path": "/datasets/0/columns/0/pressure_scale",
+      "value": null
+    },
+    {
+      "name": "source missing provenance",
+      "path": "/datasets/0/columns/0/pressure_scale",
+      "value": {
+        "calibration_record": "ruby_mao_1986"
+      }
+    },
+    {
+      "name": "invalid source provenance",
+      "path": "/datasets/0/columns/0/pressure_scale/reference",
+      "value": null
+    },
+    {
+      "name": "source invalid unit",
+      "path": "/datasets/0/columns/0/unit",
+      "value": "K"
+    },
+    {
+      "name": "source nonpressure",
+      "path": "/datasets/0/columns/0/quantity",
+      "value": "volume"
+    },
+    {
+      "name": "source nonvalue",
+      "path": "/datasets/0/columns/0/role",
+      "value": "flag"
+    },
+    {
+      "name": "duplicate",
+      "path": "/datasets/0/pressure_reductions",
+      "value": [
+        {
+          "eos_record": "test_eos",
+          "status": "transformed",
+          "pressure_column": "p",
+          "target_calibration_record": "ruby_dorogokupets_oganov_2007",
+          "row_scope": "all_rows",
+          "convention": "same_corrected_ruby_r1_ratio",
+          "reference": "Synthetic regression fixture",
+          "source_location": "synthetic"
+        },
+        {
+          "eos_record": "test_eos",
+          "status": "transformed",
+          "pressure_column": "p",
+          "target_calibration_record": "ruby_dorogokupets_oganov_2007",
+          "row_scope": "all_rows",
+          "convention": "same_corrected_ruby_r1_ratio",
+          "reference": "Synthetic regression fixture",
+          "source_location": "synthetic"
+        }
+      ]
+    },
+    {
+      "name": "nonarray",
+      "path": "/datasets/0/pressure_reductions",
+      "value": {}
+    },
+    {
+      "name": "nonobject",
+      "path": "/datasets/0/pressure_reductions",
+      "value": [
+        null
+      ]
+    },
+    {
+      "name": "not linked",
+      "path": "/datasets/0/used_by_eos_records",
+      "value": []
+    },
+    {
+      "name": "ambiguous methods",
+      "path": "/eos_records/0/pressure_calibration/methods",
+      "value": [
+        {
+          "kind": "ruby_fluorescence",
+          "reference_calibration_record": "ruby_dorogokupets_oganov_2007",
+          "source_location": "synthetic"
+        },
+        {
+          "kind": "ruby_fluorescence",
+          "reference_calibration_record": "ruby_dorogokupets_oganov_2007",
+          "source_location": "synthetic"
+        }
+      ]
+    },
+    {
+      "name": "unresolved EOS",
+      "path": "/eos_records/0/pressure_calibration/status",
+      "value": "partially_resolved"
+    },
+    {
+      "name": "as reported different scales",
+      "path": "/datasets/0/pressure_reductions/0",
+      "value": {
+        "eos_record": "test_eos",
+        "status": "as_reported",
+        "pressure_column": "p",
+        "target_calibration_record": "ruby_dorogokupets_oganov_2007",
+        "row_scope": "all_rows",
+        "reference": "Synthetic regression fixture",
+        "source_location": "synthetic"
+      }
+    },
+    {
+      "name": "unresolved with coordinates",
+      "path": "/datasets/0/pressure_reductions/0",
+      "value": {
+        "eos_record": "test_eos",
+        "status": "unresolved",
+        "pressure_column": "p",
+        "target_calibration_record": "ruby_dorogokupets_oganov_2007",
+        "row_scope": "all_rows",
+        "convention": "same_corrected_ruby_r1_ratio",
+        "reference": "Synthetic regression fixture",
+        "source_location": "synthetic",
+        "notes": "unresolved"
+      }
+    },
+    {
+      "name": "unresolved no reason",
+      "path": "/datasets/0/pressure_reductions/0",
+      "value": {
+        "eos_record": "test_eos",
+        "status": "unresolved",
+        "reference": "Synthetic regression fixture",
+        "source_location": "synthetic"
+      }
+    },
+    {
+      "name": "blank reference",
+      "path": "/datasets/0/pressure_reductions/0/reference",
+      "value": "  "
+    },
+    {
+      "name": "null EOS calibration",
+      "path": "/eos_records/0/pressure_calibration",
+      "value": null
+    }
+  ]
+}

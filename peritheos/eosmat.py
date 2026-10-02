@@ -1128,6 +1128,10 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 f"dataset {dataset_identifier!r}"
             )
 
+    from peritheos.dataset_pressure import validate_dataset_pressure_metadata
+
+    validate_dataset_pressure_metadata(document)
+
 
 def load_eosmat(path: str | Path) -> dict[str, Any]:
     """Load and structurally validate a Peritheos or Dioptas `.eosmat` file."""

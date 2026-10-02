@@ -1784,6 +1784,191 @@ fn validate_pressure_calibration(value: &Value, location: &str) -> Result<(), Eo
 }
 
 #[allow(clippy::too_many_lines)]
+fn validate_dataset_pressure_metadata(
+    document: &serde_json::Map<String, Value>,
+) -> Result<(), EosmatError> {
+    use crate::pressure_calibration::{diamond_raman_calibration, ruby_calibration};
+
+    fn nonempty(value: &Value) -> bool {
+        value.as_str().is_some_and(|s| !s.trim().is_empty())
+    }
+    fn provenance(value: &Value) -> Result<(), EosmatError> {
+        if !(nonempty(&value["reference"])
+            || value["reference"]
+                .as_object()
+                .is_some_and(|o| !o.is_empty()))
+            || !nonempty(&value["source_location"])
+        {
+            return Err(invalid_document(
+                "pressure provenance requires reference and source_location",
+            ));
+        }
+        Ok(())
+    }
+    fn calibration(value: &Value) -> Result<&str, EosmatError> {
+        value
+            .as_str()
+            .filter(|id| ruby_calibration(id).is_some() || diamond_raman_calibration(id).is_some())
+            .ok_or_else(|| invalid_document("unknown pressure calibration"))
+    }
+
+    let Some(datasets) = document.get("datasets").and_then(Value::as_array) else {
+        return Ok(());
+    };
+    for dataset in datasets {
+        // Base document validation has already checked these containers.
+        let columns = dataset["columns"].as_array().unwrap();
+        for column in columns {
+            if let Some(scale) = column.get("pressure_scale") {
+                let object = object_at(scale, "pressure_scale")?;
+                if object.len() != 3
+                    || object.keys().any(|k| {
+                        !["calibration_record", "reference", "source_location"]
+                            .contains(&k.as_str())
+                    })
+                {
+                    return Err(invalid_document(
+                        "pressure_scale requires calibration and provenance",
+                    ));
+                }
+                if column["role"] != "value"
+                    || ![
+                        "pressure",
+                        "hugoniot_pressure",
+                        "shock_pressure",
+                        "reported_pressure",
+                        "calculated_pressure",
+                        "source_pressure",
+                        "static_pressure",
+                    ]
+                    .contains(&column["quantity"].as_str().unwrap_or(""))
+                    || !["Pa", "kPa", "MPa", "GPa", "bar", "kbar", "Mbar"]
+                        .contains(&column["unit"].as_str().unwrap_or(""))
+                {
+                    return Err(invalid_document(
+                        "pressure_scale requires a pressure value column",
+                    ));
+                }
+                calibration(&scale["calibration_record"])?;
+                provenance(scale)?;
+            }
+        }
+        let Some(reductions) = dataset.get("pressure_reductions") else {
+            continue;
+        };
+        let reductions = array_at(reductions, "pressure_reductions")?;
+        let mut seen = std::collections::HashSet::new();
+        for reduction in reductions {
+            let object = object_at(reduction, "pressure reduction")?;
+            let id = reduction["eos_record"]
+                .as_str()
+                .ok_or_else(|| invalid_document("pressure reduction requires eos_record"))?;
+            let record = document["eos_records"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .find(|r| r["identifier"] == id)
+                .ok_or_else(|| invalid_document("unknown pressure reduction EOS record"))?;
+            if !dataset["used_by_eos_records"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .any(|v| v == id)
+            {
+                return Err(invalid_document(
+                    "pressure reduction EOS must be linked to dataset",
+                ));
+            }
+            if !seen.insert(id) {
+                return Err(invalid_document(
+                    "duplicate/ambiguous pressure reduction for EOS record",
+                ));
+            }
+            if reduction.get("notes").is_some_and(|v| !nonempty(v)) {
+                return Err(invalid_document(
+                    "pressure reduction notes must be a non-empty string",
+                ));
+            }
+            let status = reduction["status"].as_str().unwrap_or("");
+            let mut keys = vec![
+                "eos_record",
+                "status",
+                "reference",
+                "source_location",
+                "notes",
+            ];
+            if ["as_reported", "transformed"].contains(&status) {
+                keys.extend(["pressure_column", "target_calibration_record", "row_scope"]);
+                if reduction["row_scope"] != "all_rows" {
+                    return Err(invalid_document(
+                        "pressure reduction row_scope must be all_rows",
+                    ));
+                }
+            }
+            if status == "transformed" {
+                keys.push("convention");
+            }
+            if object.keys().any(|k| !keys.contains(&k.as_str())) {
+                return Err(invalid_document(
+                    "unexpected or conflicting pressure reduction fields",
+                ));
+            }
+            provenance(reduction)?;
+            if status == "unresolved" {
+                if !nonempty(&reduction["notes"]) {
+                    return Err(invalid_document(
+                        "unresolved pressure reduction requires notes",
+                    ));
+                }
+                continue;
+            }
+            if !["as_reported", "transformed"].contains(&status) {
+                return Err(invalid_document("invalid pressure reduction status"));
+            }
+            let column = columns
+                .iter()
+                .find(|c| c["name"] == reduction["pressure_column"])
+                .ok_or_else(|| invalid_document("unknown pressure column"))?;
+            let source = calibration(&column["pressure_scale"]["calibration_record"])?;
+            let target = calibration(&reduction["target_calibration_record"])?;
+            let methods = record["pressure_calibration"]["methods"].as_array();
+            if record["pressure_calibration"]["status"] != "resolved"
+                || !methods.is_some_and(|m| {
+                    m.len() == 1
+                        && m[0]["reference_calibration_record"] == target
+                        && m[0]["kind"]
+                            == if ruby_calibration(target).is_some() {
+                                "ruby_fluorescence"
+                            } else {
+                                "diamond_raman"
+                            }
+                })
+            {
+                return Err(invalid_document(
+                    "reduction conflicts with EOS pressure_calibration",
+                ));
+            }
+            if status == "as_reported" && source != target {
+                return Err(invalid_document(
+                    "as_reported requires identical source and target scales",
+                ));
+            }
+            if status == "transformed"
+                && (source == target
+                    || reduction["convention"] != "same_corrected_ruby_r1_ratio"
+                    || ruby_calibration(source).is_none()
+                    || ruby_calibration(target).is_none())
+            {
+                return Err(invalid_document(
+                    "invalid ruby pressure transformation convention or scales",
+                ));
+            }
+        }
+    }
+    Ok(())
+}
+
+#[allow(clippy::too_many_lines)]
 fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
     let document = object_at(document, "document")?;
     let format = document.get("format").and_then(Value::as_str);
@@ -2324,7 +2509,7 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
             )));
         }
     }
-    Ok(())
+    validate_dataset_pressure_metadata(document)
 }
 
 fn required_string(value: Option<String>, field: &str) -> Result<String, EosmatError> {
