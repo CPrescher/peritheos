@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **629** EOS records. **221** achieve uncertainty parity, **150** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[70](#parity-not-achieved)** do not achieve parity, **175** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **633** EOS records. **222** achieve uncertainty parity, **150** are numerically similar, **13** have a source reconstruction without an independent EOS refit, **[73](#parity-not-achieved)** do not achieve parity, **175** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -683,6 +683,10 @@ use `--check` in continuous integration to detect stale generated files.
 | [`zirconium_alpha_mchardy_2026_vinet_1`](https://doi.org/10.1103/zp3m-kjpc) | `zirconium_alpha_mchardy_2026_table_s6_compression` | 66 | `K0` 113.7 → 114.476 | 0.198053/0.124688 | parity |
 | [`zirconium_beta_mchardy_2026_vinet_1`](https://doi.org/10.1103/zp3m-kjpc) | `zirconium_beta_mchardy_2026_table_s8_compression` | 71 | `K0` 83 → 82.9249; `K0_prime` 3.91 → 3.90845 | 1.09962/0.448825 | parity |
 | [`zirconium_omega_mchardy_2026_vinet_1`](https://doi.org/10.1103/zp3m-kjpc) | `zirconium_omega_mchardy_2026_table_s7_compression` | 41 | `K0` 98 → 98.1333; `K0_prime` 3.6 → 3.57075 | 0.440459/0.411512 | parity |
+| [`iron_miozzi_2020_bm3`](https://doi.org/10.3390/min10020100) | `iron_miozzi_2020_he_pvt, iron_miozzi_2020_mgo_pvt` | 35 | `V0` 22.8 → 22.4715; `K0` 129 → 163.357; `K0_prime` 6.2 → 5.49869 | —/— | [parity_not_achieved](#investigation-iron_miozzi_2020_bm3) — Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. See literature-reproductions/miozzi-2020-iron.md. |
+| [`iron_miozzi_2020_vinet`](https://doi.org/10.3390/min10020100) | `iron_miozzi_2020_he_pvt, iron_miozzi_2020_mgo_pvt` | 35 | `V0` 22.81 → 22.5185; `K0` 125 → 156.193; `K0_prime` 6.5 → 5.94292 | —/— | [parity_not_achieved](#investigation-iron_miozzi_2020_vinet) — Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. See literature-reproductions/miozzi-2020-iron.md. |
+| [`iron_miozzi_2020_bm3_mgd`](https://doi.org/10.3390/min10020100) | `iron_miozzi_2020_he_pvt, iron_miozzi_2020_mgo_pvt` | 131 | `K0` 129 → 132.997; `K0_prime` 6.24 → 6.33509; `gamma0` 1.11 → 2.21755; `q` 0.3 → 1.11705 | —/— | [parity_not_achieved](#investigation-iron_miozzi_2020_bm3_mgd) — Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. See literature-reproductions/miozzi-2020-iron.md. |
+| [`iron_miozzi_2020_tange_2009_bm3_mgd_refit`](https://doi.org/10.3390/min10020100) | `iron_miozzi_2020_tange_2009_vinet_pvt` | 131 | `V0` 22.5783 → 22.5783; `K0` 150.485 → 150.485; `K0_prime` 5.8015 → 5.8015; `gamma0` 1.98934 → 1.98934; `q` 0.643085 → 0.643085 | —/0.984468 | parity — Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation. |
 
 ## Composite reconstructions
 
@@ -791,6 +795,9 @@ Exact source-equation reconstruction with no composite coefficient optimization:
 - [`sno2_cubic_27gpa_ono_2000_bm3_1`](#investigation-sno2_cubic_27gpa_ono_2000_bm3_1): outside similarity limits (K0 252 → 379.59; K0_prime 3.5 → 0)
 - [`sno2_pa_3_at_48gpa_ono_2000_bm3_1`](#investigation-sno2_pa_3_at_48gpa_ono_2000_bm3_1): outside similarity limits (K0 252 → 379.59; K0_prime 3.5 → 0)
 - [`wadsleyite_katsura_2009_bm3_1`](#investigation-wadsleyite_katsura_2009_bm3_1): outside similarity limits (gamma0 1.64 → 1.12567)
+- [`iron_miozzi_2020_bm3`](#investigation-iron_miozzi_2020_bm3): outside similarity limits (K0 129 → 163.357; K0_prime 6.2 → 5.49869)
+- [`iron_miozzi_2020_vinet`](#investigation-iron_miozzi_2020_vinet): outside similarity limits (K0 125 → 156.193; K0_prime 6.5 → 5.94292)
+- [`iron_miozzi_2020_bm3_mgd`](#investigation-iron_miozzi_2020_bm3_mgd): outside similarity limits (gamma0 1.11 → 2.21755; q 0.3 → 1.11705)
 
 ## Corrections found during investigation
 
@@ -865,7 +872,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **220** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **223** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests or a dedicated partial-source reconstruction does
@@ -5470,6 +5477,70 @@ the missing source fit detail is recovered.
 - The point estimate exceeds the numerical limit for `K0`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
 - The observations are digitized from a plot. Marker resolution, overlap, axis calibration, and unavailable source regression weights limit the strength of any coefficient-level conclusion.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-iron_miozzi_2020_bm3"></a>
+
+### `iron_miozzi_2020_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `iron_miozzi_2020_he_pvt, iron_miozzi_2020_mgo_pvt` with 35 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.8 | 22.4715 ± 0.157715 | 1.44% | — | yes |
+| `K0` | 129 | 163.357 ± 14.4345 | 26.63% | — | no |
+| `K0_prime` | 6.2 | 5.49869 ± 0.352662 | 11.31% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 10.7-117.832 GPa; fit kind: `conditional_effective_coordinate_errors`; objective: `—`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: ``; source-fixed parameters: `none`.
+
+**Source/data scope.** All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified.
+
+**Registered source-fit note.** Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_miozzi_2020_vinet"></a>
+
+### `iron_miozzi_2020_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `iron_miozzi_2020_he_pvt, iron_miozzi_2020_mgo_pvt` with 35 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.81 | 22.5185 ± 0.160929 | 1.28% | — | yes |
+| `K0` | 125 | 156.193 ± 13.8691 | 24.95% | — | no |
+| `K0_prime` | 6.5 | 5.94292 ± 0.325149 | 8.57% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 10.7-117.832 GPa; fit kind: `conditional_effective_coordinate_errors`; objective: `—`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: ``; source-fixed parameters: `none`.
+
+**Source/data scope.** All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified.
+
+**Registered source-fit note.** Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-iron_miozzi_2020_bm3_mgd"></a>
+
+### `iron_miozzi_2020_bm3_mgd`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `iron_miozzi_2020_he_pvt, iron_miozzi_2020_mgo_pvt` with 131 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 129 | 132.997 ± 1.06356 | 3.10% | — | yes |
+| `K0_prime` | 6.24 | 6.33509 ± 0.0756469 | 1.52% | — | yes |
+| `gamma0` | 1.11 | 2.21755 ± 0.384261 | 99.78% | — | no |
+| `q` | 0.3 | 1.11705 ± 0.665446 | 272.35% | — | no |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 10.7-127.974 GPa; fit kind: `conditional_effective_coordinate_errors`; objective: `—`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: ``; source-fixed parameters: `V0, Tr, theta0, n`.
+
+**Source/data scope.** All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified.
+
+**Registered source-fit note.** Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
 
 ## Direct refit unavailable
 

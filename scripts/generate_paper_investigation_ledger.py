@@ -188,7 +188,10 @@ def build_papers() -> tuple[list[dict[str, Any]], dict[str, int]]:
                         row.get("original_publication_reproduction_status")
                         == "not_reproduced"
                         and row.get("reproduction_status")
-                        == "independent_digitized_data_refit_reproduced"
+                        in {
+                            "independent_digitized_data_refit_reproduced",
+                            "independent_refit_reproduced",
+                        }
                         for row in records
                     )
                     else classify(statuses)

@@ -1,0 +1,192 @@
+{
+  "source_revision": "5bb3630d684387230065fa7c5933af2d81d19645",
+  "source_files": {
+    "eos": {
+      "path": "Src/CFML_EoS_Mod.f90",
+      "sha256": "d882ed861c0174df20d70820e3533815367b5b56874ac582bbc258b1dea93143"
+    },
+    "math": {
+      "path": "Src/CFML_Math_Gen.f90",
+      "sha256": "a3cbef3d406f312eb6436ad7b3464d83daacb2754b00b4eabc1a9a5923c9a3d8"
+    }
+  },
+  "scope": "Unmodified thermal routines in a restricted calculation harness, not an EosFit console fit; double precision. All 131 original observations and published coefficients remain unchanged.",
+  "thermal_equation_comparison": {
+    "observations": 131,
+    "max_difference_gpa": 0.0007814752378862977,
+    "max_difference_after_R_harmonization_gpa": 3.979039320256561e-13,
+    "compiled_source_vs_printed_pressure_rmse_gpa": 6.983010315991308,
+    "independent_vs_printed_pressure_rmse_gpa": 6.982609076352464
+  },
+  "cold_mgo_pressure_comparison": {
+    "observations": 21,
+    "qualification": "Room-temperature equations only. Closeness does not prove which scale generated the supplied column; no pressures are replaced.",
+    "standards": {
+      "Speziale_2001_BM3": {
+        "parameters": [
+          74.71,
+          160.2,
+          3.99
+        ],
+        "rmse_gpa": 4.093030938042887
+      },
+      "Tange_2009_Fit3_BM3": {
+        "parameters": [
+          74.698,
+          160.64,
+          4.221
+        ],
+        "rmse_gpa": 0.4491536768977457
+      }
+    },
+    "rows": [
+      {
+        "source_row": 1,
+        "mgo_volume_a3": 62.625,
+        "printed_pressure_gpa": 41.5691,
+        "Speziale_2001_BM3": 40.21501658110703,
+        "Tange_2009_Fit3_BM3": 41.14683053075062
+      },
+      {
+        "source_row": 3,
+        "mgo_volume_a3": 62.586,
+        "printed_pressure_gpa": 41.7757,
+        "Speziale_2001_BM3": 40.40732932101222,
+        "Tange_2009_Fit3_BM3": 41.34701339105121
+      },
+      {
+        "source_row": 6,
+        "mgo_volume_a3": 61.748,
+        "printed_pressure_gpa": 46.2589,
+        "Speziale_2001_BM3": 44.672379780433566,
+        "Tange_2009_Fit3_BM3": 45.7930713657318
+      },
+      {
+        "source_row": 14,
+        "mgo_volume_a3": 61.386,
+        "printed_pressure_gpa": 48.3045,
+        "Speziale_2001_BM3": 46.59595335806695,
+        "Tange_2009_Fit3_BM3": 47.80223559665138
+      },
+      {
+        "source_row": 27,
+        "mgo_volume_a3": 57.302,
+        "printed_pressure_gpa": 75.4026,
+        "Speziale_2001_BM3": 72.22999716134491,
+        "Tange_2009_Fit3_BM3": 74.78840747560405
+      },
+      {
+        "source_row": 43,
+        "mgo_volume_a3": 55.861,
+        "printed_pressure_gpa": 87.1354,
+        "Speziale_2001_BM3": 83.31073161195381,
+        "Tange_2009_Fit3_BM3": 86.56259725952042
+      },
+      {
+        "source_row": 64,
+        "mgo_volume_a3": 53.006,
+        "printed_pressure_gpa": 114.5921,
+        "Speziale_2001_BM3": 109.25393361009448,
+        "Tange_2009_Fit3_BM3": 114.35022626003646
+      },
+      {
+        "source_row": 69,
+        "mgo_volume_a3": 52.984,
+        "printed_pressure_gpa": 114.8058,
+        "Speziale_2001_BM3": 109.47723204705026,
+        "Tange_2009_Fit3_BM3": 114.59064276360127
+      },
+      {
+        "source_row": 72,
+        "mgo_volume_a3": 52.706,
+        "printed_pressure_gpa": 117.8332,
+        "Speziale_2001_BM3": 112.3327637283118,
+        "Tange_2009_Fit3_BM3": 117.66684777339958
+      },
+      {
+        "source_row": 73,
+        "mgo_volume_a3": 52.709,
+        "printed_pressure_gpa": 117.7603,
+        "Speziale_2001_BM3": 112.3016107048429,
+        "Tange_2009_Fit3_BM3": 117.6332696685094
+      },
+      {
+        "source_row": 74,
+        "mgo_volume_a3": 56.82,
+        "printed_pressure_gpa": 79.154,
+        "Speziale_2001_BM3": 75.80236572917319,
+        "Tange_2009_Fit3_BM3": 78.57770216601656
+      },
+      {
+        "source_row": 75,
+        "mgo_volume_a3": 56.653,
+        "printed_pressure_gpa": 80.4887,
+        "Speziale_2001_BM3": 77.07079920197552,
+        "Tange_2009_Fit3_BM3": 79.92470214545507
+      },
+      {
+        "source_row": 90,
+        "mgo_volume_a3": 55.993,
+        "printed_pressure_gpa": 85.9993,
+        "Speziale_2001_BM3": 82.2443812164904,
+        "Tange_2009_Fit3_BM3": 85.42690912886789
+      },
+      {
+        "source_row": 91,
+        "mgo_volume_a3": 55.763,
+        "printed_pressure_gpa": 87.9374,
+        "Speziale_2001_BM3": 84.10941547499213,
+        "Tange_2009_Fit3_BM3": 87.4135673960741
+      },
+      {
+        "source_row": 92,
+        "mgo_volume_a3": 55.443,
+        "printed_pressure_gpa": 90.7903,
+        "Speziale_2001_BM3": 86.7595775894629,
+        "Tange_2009_Fit3_BM3": 90.23936866176868
+      },
+      {
+        "source_row": 99,
+        "mgo_volume_a3": 55.708,
+        "printed_pressure_gpa": 88.4561,
+        "Speziale_2001_BM3": 84.56029151352695,
+        "Tange_2009_Fit3_BM3": 87.89409314230413
+      },
+      {
+        "source_row": 103,
+        "mgo_volume_a3": 55.111,
+        "printed_pressure_gpa": 93.7755,
+        "Speziale_2001_BM3": 89.57896682522451,
+        "Tange_2009_Fit3_BM3": 93.2491813930792
+      },
+      {
+        "source_row": 104,
+        "mgo_volume_a3": 53.958,
+        "printed_pressure_gpa": 104.714,
+        "Speziale_2001_BM3": 99.95348876552427,
+        "Tange_2009_Fit3_BM3": 104.35503443090766
+      },
+      {
+        "source_row": 105,
+        "mgo_volume_a3": 53.757,
+        "printed_pressure_gpa": 106.7789,
+        "Speziale_2001_BM3": 101.85952984735934,
+        "Tange_2009_Fit3_BM3": 106.40051578160288
+      },
+      {
+        "source_row": 110,
+        "mgo_volume_a3": 53.266,
+        "printed_pressure_gpa": 111.7739,
+        "Speziale_2001_BM3": 106.6442050243966,
+        "Tange_2009_Fit3_BM3": 111.54193815836251
+      },
+      {
+        "source_row": 115,
+        "mgo_volume_a3": 53.218,
+        "printed_pressure_gpa": 112.3329,
+        "Speziale_2001_BM3": 107.12197009131481,
+        "Tange_2009_Fit3_BM3": 112.0558457976318
+      }
+    ]
+  }
+}

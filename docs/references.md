@@ -1,5 +1,13 @@
 # References
 
+- Miozzi, F., Matas, J., Guignot, N., Badro, J., Siebert, J. & Fiquet, G.
+  (2020). A New Reference for the Thermal Equation of State of Iron.
+  *Minerals*, **10**, 100.
+  [doi:10.3390/min10020100](https://doi.org/10.3390/min10020100).
+  Three published hcp-Fe parameterizations and all 131 supplementary rows are
+  retained; the EOS records require explicit selection with not-reproduced
+  status. See the [source audit](literature-reproductions/miozzi-2020-iron.md).
+
 - Dewaele, A., Rosa, A. D., Guignot, N., Andrault, D., Rodrigues, F. &
   Garbarino, G. (2021). Stability and equation of state of face-centered cubic
   and hexagonal close packed phases of argon under pressure.

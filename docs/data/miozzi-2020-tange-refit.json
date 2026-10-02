@@ -1,0 +1,870 @@
+{
+  "calibration_parameters": {
+    "bm3": {
+      "K0": 160.64,
+      "K0_prime": 4.221,
+      "V0": 74.698,
+      "a": 0.29,
+      "b": 3.5,
+      "gamma0": 1.431,
+      "theta0": 761
+    },
+    "vinet": {
+      "K0": 160.63,
+      "K0_prime": 4.367,
+      "V0": 74.698,
+      "a": 0.138,
+      "b": 5.4,
+      "gamma0": 1.442,
+      "theta0": 761
+    }
+  },
+  "calibration_record_identifier": "mgo_b1_tange_2009_vinet",
+  "calibration_record_sha256": "bf7aedadb20d013283b30a8ec51a68cb12a8578dd2b3ab05c19df346755ca2a8",
+  "dataset_identifier": "iron_miozzi_2020_tange_2009_vinet_pvt",
+  "derived_csv_sha256": "5f0e7513c7eb6158748d7c9d9d8c96a0fb25621ba67ff5d22c7da665d5584a5a",
+  "fit_bounds": {
+    "K0": [
+      20.0,
+      400.0
+    ],
+    "K0_prime": [
+      1.0,
+      10.0
+    ],
+    "V0": [
+      20.0,
+      25.0
+    ],
+    "gamma0": [
+      0.1,
+      5.0
+    ],
+    "q": [
+      -5.0,
+      10.0
+    ]
+  },
+  "fixed_fe_parameters": {
+    "Tr": 300,
+    "formula_units_per_cell": 2,
+    "n": 1,
+    "theta0": 420
+  },
+  "format": "peritheos.miozzi-2020-tange-refit",
+  "format_version": 1,
+  "independent_native_calibration_max_difference_gpa": 2.2737367544323206e-13,
+  "multistart": [
+    {
+      "active_bounds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "covariance": [
+        [
+          0.008485361669554827,
+          -0.7703092990803794,
+          0.022018420823521886,
+          0.0028820838726981656,
+          0.0030111149249914364
+        ],
+        [
+          -0.7703092990803794,
+          74.45558148821732,
+          -2.246105633398089,
+          -0.4396064354335685,
+          -0.5818149857694142
+        ],
+        [
+          0.02201842082352189,
+          -2.2461056333980896,
+          0.07097180704694216,
+          0.01767152925630131,
+          0.026390451968114154
+        ],
+        [
+          0.0028820838726981656,
+          -0.4396064354335685,
+          0.01767152925630131,
+          0.015204185158984444,
+          0.028342524534079778
+        ],
+        [
+          0.003011114924991436,
+          -0.5818149857694142,
+          0.026390451968114154,
+          0.028342524534079778,
+          0.056636047817887905
+        ]
+      ],
+      "covariance_scale": 1.0076357661777213,
+      "degrees_of_freedom": 126,
+      "excluded_combined_row_numbers": [],
+      "fit_row_metrics": {
+        "residual_range_gpa": [
+          -2.7407182396082845,
+          3.2752617013164382
+        ],
+        "rmse_gpa": 0.9844675646202158,
+        "row_count": 131
+      },
+      "free_parameter_names": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "jacobian_condition_number": 1622.4022246649183,
+      "parameters": {
+        "K0": 150.4848524718789,
+        "K0_prime": 5.8015013399864745,
+        "V0": 22.57831938530995,
+        "gamma0": 1.9893451192828076,
+        "q": 0.6430854876222994
+      },
+      "reduced_objective": 1.0076357661777213,
+      "scaled_parameter_change": 0.35691451237770055,
+      "selection_metrics": {
+        "residual_range_gpa": [
+          -2.7407182396082845,
+          3.2752617013164382
+        ],
+        "rmse_gpa": 0.9844675646202158,
+        "row_count": 131
+      },
+      "solver_success": true,
+      "standard_errors": {
+        "K0": 8.628764771867253,
+        "K0_prime": 0.2664053435029826,
+        "V0": 0.09211602287091442,
+        "gamma0": 0.12330525195215508,
+        "q": 0.23798329314867442
+      },
+      "weight_cycles": 1
+    },
+    {
+      "active_bounds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "covariance": [
+        [
+          0.008485358532938471,
+          -0.77030906838026,
+          0.022018409855677108,
+          0.0028820808291110467,
+          0.003011110828020492
+        ],
+        [
+          -0.77030906838026,
+          74.45556521707375,
+          -2.246104724777408,
+          -0.43960613782870384,
+          -0.5818146099433896
+        ],
+        [
+          0.022018409855677108,
+          -2.246104724777408,
+          0.07097176611579466,
+          0.017671516645051854,
+          0.026390436506618025
+        ],
+        [
+          0.0028820808291110467,
+          -0.43960613782870384,
+          0.017671516645051854,
+          0.015204180628367524,
+          0.028342521781929447
+        ],
+        [
+          0.003011110828020492,
+          -0.5818146099433896,
+          0.026390436506618025,
+          0.028342521781929447,
+          0.05663605362325757
+        ]
+      ],
+      "covariance_scale": 1.0076357661776985,
+      "degrees_of_freedom": 126,
+      "excluded_combined_row_numbers": [],
+      "fit_row_metrics": {
+        "residual_range_gpa": [
+          -2.7407180285250092,
+          3.2752617930867274
+        ],
+        "rmse_gpa": 0.9844675646202046,
+        "row_count": 131
+      },
+      "free_parameter_names": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "jacobian_condition_number": 1622.4022235594796,
+      "parameters": {
+        "K0": 150.48486861466327,
+        "K0_prime": 5.801500799432543,
+        "V0": 22.578319238322734,
+        "gamma0": 1.98934487345514,
+        "q": 0.6430850626383015
+      },
+      "reduced_objective": 1.0076357661776985,
+      "scaled_parameter_change": 1.1430850626383013,
+      "selection_metrics": {
+        "residual_range_gpa": [
+          -2.7407180285250092,
+          3.2752617930867274
+        ],
+        "rmse_gpa": 0.9844675646202046,
+        "row_count": 131
+      },
+      "solver_success": true,
+      "standard_errors": {
+        "K0": 8.628763829024049,
+        "K0_prime": 0.26640526668178816,
+        "V0": 0.0921160058455558,
+        "gamma0": 0.12330523358060486,
+        "q": 0.23798330534568504
+      },
+      "weight_cycles": 1
+    },
+    {
+      "active_bounds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "covariance": [
+        [
+          0.008485360233167177,
+          -0.7703092279413323,
+          0.022018415260544644,
+          0.002882081959044518,
+          0.0030111129638510275
+        ],
+        [
+          -0.7703092279413323,
+          74.45558038658021,
+          -2.2461052439871168,
+          -0.4396062140986064,
+          -0.5818147387218265
+        ],
+        [
+          0.022018415260544644,
+          -2.2461052439871168,
+          0.07097178371986079,
+          0.01767151825698087,
+          0.026390438381939597
+        ],
+        [
+          0.0028820819590445186,
+          -0.4396062140986064,
+          0.01767151825698087,
+          0.015204174308539849,
+          0.028342507747061093
+        ],
+        [
+          0.0030111129638510275,
+          -0.5818147387218265,
+          0.026390438381939597,
+          0.028342507747061093,
+          0.056636022550787896
+        ]
+      ],
+      "covariance_scale": 1.007635766177729,
+      "degrees_of_freedom": 126,
+      "excluded_combined_row_numbers": [],
+      "fit_row_metrics": {
+        "residual_range_gpa": [
+          -2.7407180605816563,
+          3.275261801903312
+        ],
+        "rmse_gpa": 0.9844675646202194,
+        "row_count": 131
+      },
+      "free_parameter_names": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "jacobian_condition_number": 1622.401820553498,
+      "parameters": {
+        "K0": 150.48486671993192,
+        "K0_prime": 5.80150086108799,
+        "V0": 22.578319255202512,
+        "gamma0": 1.9893448877050308,
+        "q": 0.6430850750311766
+      },
+      "reduced_objective": 1.007635766177729,
+      "scaled_parameter_change": 2.3569149249688235,
+      "selection_metrics": {
+        "residual_range_gpa": [
+          -2.7407180605816563,
+          3.275261801903312
+        ],
+        "rmse_gpa": 0.9844675646202194,
+        "row_count": 131
+      },
+      "solver_success": true,
+      "standard_errors": {
+        "K0": 8.628764708032095,
+        "K0_prime": 0.26640529972179755,
+        "V0": 0.09211601507429193,
+        "gamma0": 0.12330520795384049,
+        "q": 0.23798324006279917
+      },
+      "weight_cycles": 1
+    }
+  ],
+  "observed_ranges": {
+    "pressure_gpa": [
+      10.7,
+      129.3071497589813
+    ],
+    "temperature_k": [
+      298.0,
+      3399.0
+    ],
+    "volume_a3": [
+      16.512,
+      21.313
+    ]
+  },
+  "original_csv_sha256": {
+    "peritheos/data/datasets/iron-miozzi-2020-he-pvt.csv": "15a5a62d61ae0023fb2ebc0dcca31d4c026ba0a8e1580356a61f3d0717b994b0",
+    "peritheos/data/datasets/iron-miozzi-2020-mgo-pvt.csv": "a227bc39ad49f5c9be148e38aa44b7973543de51acda7ef8b04b7f4fbc9b648d"
+  },
+  "pressure_recalculation_metrics": {
+    "residual_range_gpa": [
+      -1.6934488547635453,
+      10.312489678612096
+    ],
+    "rmse_gpa": 1.2039213514347804,
+    "row_count": 116
+  },
+  "primary": {
+    "active_bounds": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "covariance": [
+      [
+        0.00848535922117199,
+        -0.7703091434054365,
+        0.022018412502350038,
+        0.0028820814612464294,
+        0.003011111027288461
+      ],
+      [
+        -0.7703091434054365,
+        74.45557313742233,
+        -2.246104995495949,
+        -0.43960616687851833,
+        -0.581814533417011
+      ],
+      [
+        0.022018412502350034,
+        -2.2461049954959487,
+        0.07097177505050906,
+        0.017671516515059525,
+        0.026390431194532642
+      ],
+      [
+        0.0028820814612464285,
+        -0.43960616687851833,
+        0.01767151651505952,
+        0.015204175404420156,
+        0.0283425080106209
+      ],
+      [
+        0.0030111110272884618,
+        -0.5818145334170111,
+        0.026390431194532642,
+        0.0283425080106209,
+        0.05663602021309514
+      ]
+    ],
+    "covariance_scale": 1.0076357661777144,
+    "degrees_of_freedom": 126,
+    "excluded_combined_row_numbers": [],
+    "fit_row_metrics": {
+      "residual_range_gpa": [
+        -2.7407180411597665,
+        3.275261746746068
+      ],
+      "rmse_gpa": 0.9844675646202123,
+      "row_count": 131
+    },
+    "free_parameter_names": [
+      "V0",
+      "K0",
+      "K0_prime",
+      "gamma0",
+      "q"
+    ],
+    "jacobian_condition_number": 1622.4017905175144,
+    "parameters": {
+      "K0": 150.48486842978744,
+      "K0_prime": 5.801500847494674,
+      "V0": 22.57831922472848,
+      "gamma0": 1.9893449948870714,
+      "q": 0.6430853066402854
+    },
+    "reduced_objective": 1.0076357661777144,
+    "scaled_parameter_change": 0.8793449948870713,
+    "selection_metrics": {
+      "residual_range_gpa": [
+        -2.7407180411597665,
+        3.275261746746068
+      ],
+      "rmse_gpa": 0.9844675646202123,
+      "row_count": 131
+    },
+    "solver_success": true,
+    "standard_errors": {
+      "K0": 8.628764287974398,
+      "K0_prime": 0.26640528345081493,
+      "V0": 0.09211600958124483,
+      "gamma0": 0.12330521239761179,
+      "q": 0.23798323515133402
+    },
+    "weight_cycles": 1
+  },
+  "qualification": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.",
+  "record_identifier": "iron_miozzi_2020_tange_2009_bm3_mgd_refit",
+  "sensitivity": {
+    "K0_160_gpa_fixed": {
+      "active_bounds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "covariance": [
+        [
+          0.000477603846931492,
+          -0.0011004930561442183,
+          -0.0015574484546773246,
+          -0.0029276678898126278
+        ],
+        [
+          -0.0011004930561442183,
+          0.0028529100424582407,
+          0.004029607276630865,
+          0.008454151585448086
+        ],
+        [
+          -0.0015574484546773246,
+          0.004029607276630864,
+          0.011812811604909525,
+          0.024346017527100187
+        ],
+        [
+          -0.0029276678898126278,
+          0.008454151585448084,
+          0.024346017527100187,
+          0.05320546506458138
+        ]
+      ],
+      "covariance_scale": 1.00976262802436,
+      "degrees_of_freedom": 127,
+      "excluded_combined_row_numbers": [],
+      "fit_row_metrics": {
+        "residual_range_gpa": [
+          -2.636210832008885,
+          3.3015131595781213
+        ],
+        "rmse_gpa": 0.989409006107751,
+        "row_count": 131
+      },
+      "free_parameter_names": [
+        "V0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "jacobian_condition_number": 1523.6459104367837,
+      "parameters": {
+        "K0": 160.0,
+        "K0_prime": 5.525211072804883,
+        "V0": 22.48313808875077,
+        "gamma0": 1.9336474696518176,
+        "q": 0.5668588955892675
+      },
+      "reduced_objective": 1.00976262802436,
+      "scaled_parameter_change": 0.8236474696518175,
+      "selection_metrics": {
+        "residual_range_gpa": [
+          -2.636210832008885,
+          3.3015131595781213
+        ],
+        "rmse_gpa": 0.989409006107751,
+        "row_count": 131
+      },
+      "solver_success": true,
+      "standard_errors": {
+        "K0_prime": 0.05341263935117081,
+        "V0": 0.02185414942136829,
+        "gamma0": 0.10868675910574169,
+        "q": 0.23066309861913625
+      },
+      "weight_cycles": 1
+    },
+    "heated_only_fixed_V0": {
+      "active_bounds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "covariance": [
+        [
+          21.125281104002614,
+          -1.1956160996425969,
+          -0.8751308462831922,
+          -1.860169589090053
+        ],
+        [
+          -1.1956160996425969,
+          0.06981394932355532,
+          0.05232434483366896,
+          0.1172716553990154
+        ],
+        [
+          -0.8751308462831922,
+          0.052324344833668955,
+          0.0460643956685038,
+          0.10648750981761229
+        ],
+        [
+          -1.860169589090053,
+          0.1172716553990154,
+          0.10648750981761228,
+          0.2625973266938832
+        ]
+      ],
+      "covariance_scale": 1.046865618162418,
+      "degrees_of_freedom": 91,
+      "excluded_combined_row_numbers": [],
+      "fit_row_metrics": {
+        "residual_range_gpa": [
+          -2.1899721225647113,
+          3.18131909332169
+        ],
+        "rmse_gpa": 1.001392563293106,
+        "row_count": 95
+      },
+      "free_parameter_names": [
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "jacobian_condition_number": 400.2030386611611,
+      "parameters": {
+        "K0": 143.52638102551137,
+        "K0_prime": 5.737052385590107,
+        "V0": 22.81,
+        "gamma0": 1.6562558659183664,
+        "q": 0.2097865909349583
+      },
+      "reduced_objective": 1.046865618162418,
+      "scaled_parameter_change": 0.5462558659183663,
+      "selection_metrics": {
+        "residual_range_gpa": [
+          -2.1899721225647113,
+          3.18131909332169
+        ],
+        "rmse_gpa": 1.001392563293106,
+        "row_count": 95
+      },
+      "solver_success": true,
+      "standard_errors": {
+        "K0": 4.5962246576949015,
+        "K0_prime": 0.2642232944377829,
+        "gamma0": 0.2146261765687117,
+        "q": 0.512442510623273
+      },
+      "weight_cycles": 1
+    },
+    "published_V0_fixed": {
+      "active_bounds": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "covariance": [
+        [
+          4.178524396280619,
+          -0.27528300610980005,
+          -0.18221132216170638,
+          -0.2945740888875405
+        ],
+        [
+          -0.27528300610980005,
+          0.018508549198880713,
+          0.012552006780255852,
+          0.021230267933980106
+        ],
+        [
+          -0.18221132216170638,
+          0.012552006780255852,
+          0.016440718250102366,
+          0.02934398270020767
+        ],
+        [
+          -0.2945740888875405,
+          0.021230267933980106,
+          0.029343982700207667,
+          0.05527611682826443
+        ]
+      ],
+      "covariance_scale": 1.0401396054209828,
+      "degrees_of_freedom": 127,
+      "excluded_combined_row_numbers": [],
+      "fit_row_metrics": {
+        "residual_range_gpa": [
+          -2.941573774771271,
+          3.2291057712235585
+        ],
+        "rmse_gpa": 1.0041810680694976,
+        "row_count": 131
+      },
+      "free_parameter_names": [
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "jacobian_condition_number": 221.87128255383394,
+      "parameters": {
+        "K0": 130.8007380300731,
+        "K0_prime": 6.419570517772703,
+        "V0": 22.81,
+        "gamma0": 2.0673134973413787,
+        "q": 0.7211339583308561
+      },
+      "reduced_objective": 1.0401396054209828,
+      "scaled_parameter_change": 0.9573134973413786,
+      "selection_metrics": {
+        "residual_range_gpa": [
+          -2.941573774771271,
+          3.2291057712235585
+        ],
+        "rmse_gpa": 1.0041810680694976,
+        "row_count": 131
+      },
+      "solver_success": true,
+      "standard_errors": {
+        "K0": 2.044143927486668,
+        "K0_prime": 0.13604612893750676,
+        "gamma0": 0.12822136424988764,
+        "q": 0.23510873405355326
+      },
+      "weight_cycles": 1
+    },
+    "shared_temperature_effective_errors": {
+      "active_bounds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "covariance": [
+        [
+          0.014986792273149708,
+          -1.2744907740975808,
+          0.03170324739459754,
+          -6.0696051076694126e-05,
+          -0.003320468597670146
+        ],
+        [
+          -1.2744907740975808,
+          110.75381664454086,
+          -2.82162925724792,
+          -0.08917950661502873,
+          0.10192923988844763
+        ],
+        [
+          0.03170324739459754,
+          -2.82162925724792,
+          0.07395363864974186,
+          0.00517350752803417,
+          0.0037729363428897237
+        ],
+        [
+          -6.069605107669391e-05,
+          -0.08917950661502873,
+          0.005173507528034171,
+          0.009347746366545768,
+          0.019603666697527958
+        ],
+        [
+          -0.003320468597670146,
+          0.1019292398884476,
+          0.0037729363428897237,
+          0.019603666697527958,
+          0.04447661709575924
+        ]
+      ],
+      "covariance_scale": 62.7037815510248,
+      "degrees_of_freedom": 124,
+      "excluded_combined_row_numbers": [
+        42,
+        91
+      ],
+      "fit_row_metrics": {
+        "residual_range_gpa": [
+          -2.5236000529945812,
+          3.327687002920783
+        ],
+        "rmse_gpa": 0.9779601820674059,
+        "row_count": 129
+      },
+      "free_parameter_names": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "jacobian_condition_number": 1393.8191791660386,
+      "parameters": {
+        "K0": 155.0813748940782,
+        "K0_prime": 5.5951896653813336,
+        "V0": 22.565879734476074,
+        "gamma0": 1.9066654018100515,
+        "q": 0.5209751696929429
+      },
+      "reduced_objective": 62.7037815510248,
+      "scaled_parameter_change": 5.30999910708374e-10,
+      "selection_metrics": {
+        "residual_range_gpa": [
+          -2.5236000529945812,
+          3.327687002920783
+        ],
+        "rmse_gpa": 0.9977028364175898,
+        "row_count": 131
+      },
+      "solver_success": true,
+      "standard_errors": {
+        "K0": 10.523963922616842,
+        "K0_prime": 0.27194418296728073,
+        "V0": 0.12242055494544088,
+        "gamma0": 0.0966837440656172,
+        "q": 0.21089480101642913
+      },
+      "weight_cycles": 7
+    },
+    "tange_bm3_calibration": {
+      "active_bounds": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "covariance": [
+        [
+          0.011071336697303355,
+          -0.9404546763951593,
+          0.030978730247744873,
+          0.003922514938355587,
+          0.00353393763280344
+        ],
+        [
+          -0.9404546763951593,
+          84.2482564940568,
+          -2.904993895199495,
+          -0.522433577533188,
+          -0.6205564505915871
+        ],
+        [
+          0.030978730247744873,
+          -2.904993895199495,
+          0.10420011282995399,
+          0.023418702850135323,
+          0.031995039543694426
+        ],
+        [
+          0.003922514938355586,
+          -0.522433577533188,
+          0.023418702850135323,
+          0.018541592061074808,
+          0.03359781108632973
+        ],
+        [
+          0.0035339376328034394,
+          -0.6205564505915871,
+          0.031995039543694426,
+          0.03359781108632973,
+          0.06573031628631758
+        ]
+      ],
+      "covariance_scale": 1.0276379981926118,
+      "degrees_of_freedom": 126,
+      "excluded_combined_row_numbers": [],
+      "fit_row_metrics": {
+        "residual_range_gpa": [
+          -2.7793665120272237,
+          3.360944206846767
+        ],
+        "rmse_gpa": 0.9941907130093879,
+        "row_count": 131
+      },
+      "free_parameter_names": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "jacobian_condition_number": 1765.9957049019692,
+      "parameters": {
+        "K0": 138.1567378617437,
+        "K0_prime": 6.3501576841051435,
+        "V0": 22.68051465959811,
+        "gamma0": 2.0064476605826838,
+        "q": 0.9832249289472335
+      },
+      "reduced_objective": 1.0276379981926118,
+      "scaled_parameter_change": 0.8964476605826837,
+      "selection_metrics": {
+        "residual_range_gpa": [
+          -2.7793665120272237,
+          3.360944206846767
+        ],
+        "rmse_gpa": 0.9941907130093879,
+        "row_count": 131
+      },
+      "solver_success": true,
+      "standard_errors": {
+        "K0": 9.178684900030985,
+        "K0_prime": 0.3228004225987847,
+        "V0": 0.10522041958338388,
+        "gamma0": 0.13616751470550825,
+        "q": 0.25637924308788645
+      },
+      "weight_cycles": 1
+    }
+  },
+  "sensitivity_qualification": "Sensitivity fits are alternatives, not an uncertainty distribution or separately registered EOS. Effective errors include shared MgO/Fe T covariance, require complete coordinate errors, and assume printed widths are standard deviations; other coordinate/inter-row covariance and calibration uncertainty are unavailable."
+}

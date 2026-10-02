@@ -31,14 +31,14 @@ produce an executable record.
 
 ## Summary
 
-The register covers **356 primary papers**: **255** support the 629 audited catalog records and **101** were investigated without adding a production record.
+The register covers **357 primary papers**: **256** support the 633 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Original unreproduced; independent refit available | 1 |
+| Original unreproduced; independent refit available | 2 |
 | Reproduced | 166 |
 | Partly reproduced | 7 |
 | Mixed: reproduced and discrepant records | 12 |
@@ -886,7 +886,7 @@ Evidence: [literature-reproductions/tranche-c-zero-yield-audits.md](literature-r
 
 ## Papers with coefficient discrepancies
 
-These **26 papers** account for all 70 records
+These **27 papers** account for all 73 records
 classified as `parity_not_achieved`. Papers with other successful records
 are marked as mixed in the complete register.
 
@@ -929,6 +929,9 @@ are marked as mixed in the complete register.
 | [Jacobsen et al. (2005)](https://doi.org/10.1107/s0909049505022326) | `fe093o_b1_jacobsen_2005_bm3_1` | V0 79.41 -> 59.7395 |
 |  | `mg073fe027o_jacobsen_2005_bm3_1` | V0 77.3 -> 57.963; K0_prime 4 -> 2.38146 |
 | [Katsura et al. (2009)](https://doi.org/10.1029/2009gl038107) | `wadsleyite_katsura_2009_bm3_1` | gamma0 1.64 -> 1.12567 |
+| [Miozzi et al. (2020)](https://doi.org/10.3390/min10020100) | `iron_miozzi_2020_bm3` | K0 129 -> 163.357; K0_prime 6.2 -> 5.49869 |
+|  | `iron_miozzi_2020_bm3_mgd` | gamma0 1.11 -> 2.21755; q 0.3 -> 1.11705 |
+|  | `iron_miozzi_2020_vinet` | K0 125 -> 156.193; K0_prime 6.5 -> 5.94292 |
 | [Ono et al. (2000)](https://doi.org/10.1007/s002690000108) | `sno2_cubic_27gpa_ono_2000_bm3_1` | K0 252 -> 379.59 |
 |  | `sno2_pa_3_at_48gpa_ono_2000_bm3_1` | K0 252 -> 379.59 |
 | [Sakai et al. (2014)](https://doi.org/10.1016/j.pepi.2013.12.010) | `fe09ni01_hcp_sakai_2014_p1_bm3` | K0 195.3 -> 200.034; K0_prime 4.37 -> 4.22433 |
@@ -1275,6 +1278,7 @@ the primary-source and refit ledgers.
 | [MgSiO3 molecular-dynamics compression study (2006)](https://doi.org/10.1360/CJCP2006.19(4).311.4) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Milani et al. (2015)](https://doi.org/10.1016/j.lithos.2015.03.017) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Miozzi et al. (2018)](https://doi.org/10.1029/2018je005582) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
+| [Miozzi et al. (2020)](https://doi.org/10.3390/min10020100) | Original unreproduced; independent refit available | 4 | 1 parity; 3 parity not achieved | 4 bundled |
 | [Miyajima et al. (2025), electron diffraction of a dense hydrous magnesium silicate](https://doi.org/10.1029/2025GL115280) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Mookherjee et al. (2015)](https://doi.org/10.2138/am-2015-5312) | Partly reproduced | 3 | 1 parity; 1 similar; 1 direct refit unavailable |  |
 | [Mookherjee et al. (2019)](https://doi.org/10.2138/am-2019-6694) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |

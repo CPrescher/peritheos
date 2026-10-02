@@ -1,0 +1,306 @@
+{
+  "iron_miozzi_2020_bm3": {
+    "fits": {
+      "effective_errors": {
+        "covariance": [
+          [
+            0.02487412710210328,
+            -2.263616978515779,
+            0.054148919475421206
+          ],
+          [
+            -2.2636169785157794,
+            208.35537008978685,
+            -5.048981923025192
+          ],
+          [
+            0.05414891947542122,
+            -5.048981923025192,
+            0.12437080467516223
+          ]
+        ],
+        "degrees_of_freedom": 32,
+        "free_parameter_names": [
+          "V0",
+          "K0",
+          "K0_prime"
+        ],
+        "parameters": [
+          22.471548782131517,
+          163.35711117068155,
+          5.498690139773811
+        ],
+        "rmse_gpa": 0.9618378806841033,
+        "row_count": 35,
+        "solver_success": true,
+        "standard_errors": [
+          0.15771533565922902,
+          14.434520085191155,
+          0.3526624514676353
+        ]
+      },
+      "unweighted": {
+        "covariance": [
+          [
+            0.010980260303544608,
+            -0.9851494949930416,
+            0.03522547823751707
+          ],
+          [
+            -0.9851494949930414,
+            92.00010118152885,
+            -3.3925498818938977
+          ],
+          [
+            0.035225478237517066,
+            -3.3925498818938973,
+            0.12820230318091108
+          ]
+        ],
+        "degrees_of_freedom": 33,
+        "free_parameter_names": [
+          "V0",
+          "K0",
+          "K0_prime"
+        ],
+        "parameters": [
+          22.690552021667592,
+          136.1640090776493,
+          6.464842717235363
+        ],
+        "rmse_gpa": 0.7766203971498747,
+        "row_count": 36,
+        "solver_success": true,
+        "standard_errors": [
+          0.10478673725021029,
+          9.591668321075788,
+          0.3580534920663546
+        ]
+      }
+    },
+    "published_parameters": [
+      22.8,
+      129.0,
+      6.2
+    ],
+    "published_residual_range_gpa": [
+      -7.759112756787232,
+      0.5179430108621474
+    ],
+    "published_rmse_gpa": 3.7536167053248253,
+    "qualification": "Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. See literature-reproductions/miozzi-2020-iron.md.",
+    "row_count": 36
+  },
+  "iron_miozzi_2020_bm3_mgd": {
+    "fits": {
+      "effective_errors": {
+        "covariance": [
+          [
+            1.131160456136766,
+            -0.08035319033699626,
+            -0.07128398560558451,
+            -0.12696772338754894
+          ],
+          [
+            -0.08035319033699626,
+            0.005722452667308737,
+            0.005086498601496156,
+            0.009095707991449799
+          ],
+          [
+            -0.0712839856055841,
+            0.005086498601496128,
+            0.14765647254723352,
+            0.2524537871499489
+          ],
+          [
+            -0.12696772338754822,
+            0.009095707991449747,
+            0.252453787149949,
+            0.4428177409879761
+          ]
+        ],
+        "degrees_of_freedom": 127,
+        "free_parameter_names": [
+          "K0",
+          "K0_prime",
+          "gamma0",
+          "q"
+        ],
+        "parameters": [
+          22.81,
+          132.99673222115524,
+          6.33509384901153,
+          2.2175460810064407,
+          1.1170467059939924
+        ],
+        "rmse_gpa": 1.4436661456502247,
+        "row_count": 131,
+        "solver_success": true,
+        "standard_errors": [
+          1.063560273861696,
+          0.07564689463096774,
+          0.3842609433018577,
+          0.6654455206761678
+        ]
+      },
+      "unweighted": {
+        "covariance": [
+          [
+            6.749941414323474,
+            -0.4598156018991207,
+            -0.34178159255129803,
+            -0.48750576546989344
+          ],
+          [
+            -0.4598156018991207,
+            0.031949538993391924,
+            0.024524687376277426,
+            0.03676132360652922
+          ],
+          [
+            -0.3417815925513022,
+            0.024524687376277703,
+            0.03808597266045959,
+            0.06130354860393863
+          ],
+          [
+            -0.4875057654699007,
+            0.0367613236065297,
+            0.06130354860393868,
+            0.10466407362038038
+          ]
+        ],
+        "degrees_of_freedom": 127,
+        "free_parameter_names": [
+          "K0",
+          "K0_prime",
+          "gamma0",
+          "q"
+        ],
+        "parameters": [
+          22.81,
+          129.33393662345722,
+          6.626364714171507,
+          2.323983874609398,
+          1.5670461492201047
+        ],
+        "rmse_gpa": 1.2897483640368903,
+        "row_count": 131,
+        "solver_success": true,
+        "standard_errors": [
+          2.598064936510147,
+          0.17874433975203782,
+          0.19515627753280085,
+          0.3235182740130461
+        ]
+      }
+    },
+    "published_parameters": [
+      22.81,
+      129.0,
+      6.24,
+      1.11,
+      0.3
+    ],
+    "published_residual_range_gpa": [
+      -11.283181199733235,
+      1.6789735246000959
+    ],
+    "published_rmse_gpa": 6.982609076352464,
+    "qualification": "Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. See literature-reproductions/miozzi-2020-iron.md.",
+    "row_count": 131
+  },
+  "iron_miozzi_2020_vinet": {
+    "fits": {
+      "effective_errors": {
+        "covariance": [
+          [
+            0.02589804415025874,
+            -2.220298430116597,
+            0.051023939186332676
+          ],
+          [
+            -2.2202984301165967,
+            192.35234282778936,
+            -4.4741384894874505
+          ],
+          [
+            0.05102393918633267,
+            -4.4741384894874505,
+            0.10572216318469572
+          ]
+        ],
+        "degrees_of_freedom": 32,
+        "free_parameter_names": [
+          "V0",
+          "K0",
+          "K0_prime"
+        ],
+        "parameters": [
+          22.51847239335071,
+          156.19310777182258,
+          5.942915914496525
+        ],
+        "rmse_gpa": 0.9620941445622235,
+        "row_count": 35,
+        "solver_success": true,
+        "standard_errors": [
+          0.16092869275010824,
+          13.869114709590853,
+          0.32514944746177216
+        ]
+      },
+      "unweighted": {
+        "covariance": [
+          [
+            0.009342157661967032,
+            -0.7663211526912638,
+            0.021968398668123484
+          ],
+          [
+            -0.7663211526912638,
+            65.60792260553401,
+            -1.9509605601128575
+          ],
+          [
+            0.02196839866812348,
+            -1.9509605601128572,
+            0.05992115472353879
+          ]
+        ],
+        "degrees_of_freedom": 33,
+        "free_parameter_names": [
+          "V0",
+          "K0",
+          "K0_prime"
+        ],
+        "parameters": [
+          22.714240319069273,
+          132.9660795289326,
+          6.68470471575091
+        ],
+        "rmse_gpa": 0.7728368900158067,
+        "row_count": 36,
+        "solver_success": true,
+        "standard_errors": [
+          0.09665483775769856,
+          8.099871764758626,
+          0.24478797912385075
+        ]
+      }
+    },
+    "published_parameters": [
+      22.81,
+      125.0,
+      6.5
+    ],
+    "published_residual_range_gpa": [
+      -8.38226312430426,
+      0.2166509109481609
+    ],
+    "published_rmse_gpa": 4.176386026911479,
+    "qualification": "Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. See literature-reproductions/miozzi-2020-iron.md.",
+    "row_count": 36
+  }
+}

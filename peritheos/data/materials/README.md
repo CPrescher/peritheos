@@ -1,14 +1,14 @@
 # Bundled material library
 
-This directory contains 226 curated material documents with 629 EOS records. The
+This directory contains 226 curated material documents with 633 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
 <https://github.com/Dioptas/Dioptas>.
 
 Every EOS record has an explicit `determination_method` and a rationale under
-`parameter_provenance.determination_method`. The 2026-09-24 review classifies
-484 records as experimental, 114 as theoretical, 21 as hybrid, and seven as
+`parameter_provenance.determination_method`. The current collection classifies
+490 records as experimental, 114 as theoretical, 22 as hybrid, and seven as
 unknown. These counts include the two deferred Campbell source records.
 The seven unknowns are the Holland et al. (2013) THERMOCALC modified-Tait
 endmembers: the existing source audit verifies the coefficients but does not
@@ -36,11 +36,19 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-24 classifies 625 of 629 bundled records as
+with additions through 2026-10-02 classifies 626 of 633 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
-discrepancies; they are not exposed by the executable catalog. Maltby and the Chen printed-constant diagnostic are explicit-selection
-`not_reproduced` records; the Chen diagnostic is marked DO NOT USE. The complete
+discrepancies; they are not exposed by the executable catalog. Maltby, the Chen
+printed-constant diagnostic, and the three Miozzi (2020) hcp-Fe parameterizations
+are explicit-selection `not_reproduced` records; the Chen diagnostic is marked
+DO NOT USE. The Miozzi source coefficients and all 131 official supplementary
+observations are preserved, with unresolved source-fit discrepancies documented
+in the [iron audit](../../../docs/literature-reproductions/miozzi-2020-iron.md).
+The separate nondefault Tange-calibrated Peritheos refit is selectable with
+conditional parameter errors and covariance; its validation concerns the
+independent refit only, not reproduction of Miozzi's published EOS.
+The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
 Additional records native to Peritheos have no invented Dioptas migration
@@ -77,7 +85,7 @@ Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to
-185 EOS records citing 115 distinct publications. All 629 records now carry
+185 EOS records citing 115 distinct publications. All 633 records now carry
 an explicit publication title; `reference.source` retains the journal or
 book name. Previously, the catalog fell back to that source name when a
 title was absent.
@@ -144,10 +152,10 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 330 distinct primary datasets with
-23,743 observation rows, represented by
-369 material-document links to
-486 EOS records.
+The current bundle contains 333 distinct primary datasets with
+24,005 observation rows, represented by
+372 material-document links to
+490 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate

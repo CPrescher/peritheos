@@ -40,6 +40,8 @@ from peritheos.fitting import (
     fit_rt_eos,
 )
 from peritheos.materials import Material
+from scripts.refit_miozzi_2020_tange import RECORD_ID as MIOZZI_TANGE_REFIT_ID
+from scripts.refit_miozzi_2020_tange import ledger_outcome as miozzi_tange_refit_outcome
 from scripts.reproduce_akins_2004_mgsio3_liquid import (
     reproduce as reproduce_akins_2004_mgsio3_liquid,
 )
@@ -64,6 +66,7 @@ from scripts.reproduce_campbell_2009_buffers import (
 from scripts.reproduce_diamond_thermal_composites import (
     reproduce as reproduce_diamond_composites,
 )
+from scripts.reproduce_miozzi_2020_iron import ledger_outcome as miozzi_2020_outcome
 from scripts.reproduce_noguchi_1999_nio import fit_journal_isotherm
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -5210,6 +5213,10 @@ def validate_all() -> dict[str, Any]:
                 outcome = _argon_combined_registered_refit_outcome(record)
             elif record["identifier"] == "argon_fcc_chen_2010_bm3_reported_constants":
                 outcome = _chen_reported_constants_outcome()
+            elif record["identifier"] == MIOZZI_TANGE_REFIT_ID:
+                outcome = miozzi_tange_refit_outcome(record)
+            elif record["identifier"].startswith("iron_miozzi_2020_"):
+                outcome = miozzi_2020_outcome(record)
             elif record["identifier"] in CAMPBELL_RECORDS.values():
                 outcome = _campbell_2009_outcome(material_id, record)
             elif record["identifier"] in SOLOMATOVA_RECORD_SOURCES:

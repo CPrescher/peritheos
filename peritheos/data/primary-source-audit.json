@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 629,
+    "records": 633,
     "deferred": 2,
-    "not_reproduced": 2,
-    "primary_source_validated": 625
+    "not_reproduced": 5,
+    "primary_source_validated": 626
   },
   "records": [
     {
@@ -5194,6 +5194,131 @@
         ],
         "finding": "Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS."
       }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_miozzi_2020_bm3",
+      "label": "Miozzi et al. (2020), 300 K BM3 (not reproduced)",
+      "doi": "10.3390/min10020100",
+      "status": "not_reproduced",
+      "note": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.3390/min10020100",
+        "doi": "10.3390/min10020100",
+        "locations": [
+          "Section 2.5, pressure gauges",
+          "Section 2.6, Equations (3)–(8)",
+          "Table 1, page 7",
+          "Section 3.3, pages 8–9",
+          "Official supplementary datasets"
+        ],
+        "finding": "Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "dataset_identifiers": [
+          "iron_miozzi_2020_he_pvt",
+          "iron_miozzi_2020_mgo_pvt"
+        ],
+        "source_locations": [
+          "Official supplementary Dataset_hcp Fe_He.pdf",
+          "Official supplementary dataset_hcpFe and MgO.pdf"
+        ],
+        "finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified."
+      },
+      "usage_recommendation": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "reproduction_status": "not_reproduced"
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_miozzi_2020_vinet",
+      "label": "Miozzi et al. (2020), 300 K Vinet (not reproduced)",
+      "doi": "10.3390/min10020100",
+      "status": "not_reproduced",
+      "note": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.3390/min10020100",
+        "doi": "10.3390/min10020100",
+        "locations": [
+          "Section 2.5, pressure gauges",
+          "Section 2.6, Equations (3)–(8)",
+          "Table 1, page 7",
+          "Section 3.3, pages 8–9",
+          "Official supplementary datasets"
+        ],
+        "finding": "Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "dataset_identifiers": [
+          "iron_miozzi_2020_he_pvt",
+          "iron_miozzi_2020_mgo_pvt"
+        ],
+        "source_locations": [
+          "Official supplementary Dataset_hcp Fe_He.pdf",
+          "Official supplementary dataset_hcpFe and MgO.pdf"
+        ],
+        "finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified."
+      },
+      "usage_recommendation": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "reproduction_status": "not_reproduced"
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_miozzi_2020_bm3_mgd",
+      "label": "Miozzi et al. (2020), preferred BM3–MGD thermal EOS (not reproduced)",
+      "doi": "10.3390/min10020100",
+      "status": "not_reproduced",
+      "note": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.3390/min10020100",
+        "doi": "10.3390/min10020100",
+        "locations": [
+          "Section 2.5, pressure gauges",
+          "Section 2.6, Equations (3)–(8)",
+          "Table 1, page 7",
+          "Section 3.3, pages 8–9",
+          "Official supplementary datasets"
+        ],
+        "finding": "Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "dataset_identifiers": [
+          "iron_miozzi_2020_he_pvt",
+          "iron_miozzi_2020_mgo_pvt"
+        ],
+        "source_locations": [
+          "Official supplementary Dataset_hcp Fe_He.pdf",
+          "Official supplementary dataset_hcpFe and MgO.pdf"
+        ],
+        "finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified."
+      },
+      "usage_recommendation": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "reproduction_status": "not_reproduced"
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_miozzi_2020_tange_2009_bm3_mgd_refit",
+      "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights",
+      "doi": "10.3390/min10020100",
+      "status": "primary_source_validated",
+      "note": "Validation concerns source-observation traceability, exact Tange calculation and numerical reproduction of this separate Peritheos fit. It does not reproduce Miozzi's published fit or establish independent predictive validity. Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.",
+      "primary_source_check": {
+        "doi": "10.3390/min10020100",
+        "access_url": "https://doi.org/10.3390/min10020100",
+        "locations": [
+          "Miozzi official supplementary Fe-He and Fe-MgO observations",
+          "Miozzi Section 3.3 adopted theta0",
+          "Tange Table 4 Fit3-Vinet and Eqs. 2-5"
+        ],
+        "finding": "Data and fixed assumptions are primary-source traced; fitted coefficients and pressure calibration choice belong to the independent Peritheos refit."
+      },
+      "reproduction_status": "independent_refit_reproduced"
     },
     {
       "material": "iron_carbide_fe7c3",

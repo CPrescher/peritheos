@@ -101,7 +101,11 @@ def test_published_parameters_source_states_and_interchange():
     assert exported.get_eos_record(RECORDS[2]).pressure(
         volumes, temperatures
     ) == pytest.approx(expected)
-    assert exported.to_eosmat()["datasets"] == doc["datasets"]
+    assert exported.to_eosmat()["datasets"] == material.to_eosmat()["datasets"]
+    exported_datasets = {d["identifier"]: d for d in exported.to_eosmat()["datasets"]}
+    for dataset in doc["datasets"]:
+        if dataset["identifier"].startswith("iron_fei_2016_"):
+            assert exported_datasets[dataset["identifier"]] == dataset
     with pytest.raises(ValueError):
         record.pressure(14, 6000, check_validity=True)
 

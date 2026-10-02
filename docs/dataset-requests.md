@@ -18,6 +18,7 @@ experimental observations.
 
 | Paper / material | Recommendation | What additional data would enable | Outreach status | Last reviewed |
 |---|---|---|---|---|
+| [Miozzi et al. (2020), hcp iron](#miozzi-et-al-2020-hcp-iron) | Author clarification would resolve a substantial source-fit discrepancy | Replay the actual pressure reduction and EosFit-7c objective; verify thermal normalization | Not contacted | 2026-10-02 |
 | [Chen et al. (2010), fcc argon](literature-reproductions/chen-2010-argon.md) | Original coefficients and data needed to resolve source inconsistency | Reconcile the 2 GPa elastic constants with Figure 5 and the extrapolated density; reproduce integration and fit | Not contacted; user requested no outreach | 2026-09-24 |
 | [Crichton et al. (2016), bcc vanadium](#crichton-et-al-2016-bcc-vanadium) | Contact authors; high priority for original-fit verification | Refit the complete 62-state experiment; resolve the two incomplete fixed-K′ alternatives | Not contacted; historical contact route available | 2026-09-19 |
 | [Nisr et al. (2017), hydrous silica](#nisr-et-al-2017-hydrous-silica) | Optional follow-up for exact regression and calibration replay; published coefficients already reproduced | Resolve the original fit objective, weights and Au pressure reduction | Not contacted | 2026-09-19 |
@@ -156,3 +157,26 @@ when known. Receipt of a file does not establish parity: preserve its provenance
 rerun the reproduction, and update the scientific ledgers before marking the
 gap resolved. Keep unresolved secondary requests visible if only part of the
 requested data arrives.
+
+### Miozzi et al. (2020): hcp iron
+
+Paper: *A New Reference for the Thermal Equation of State of Iron*,
+[DOI 10.3390/min10020100](https://doi.org/10.3390/min10020100).
+Evidence: [source audit and reproduction](literature-reproductions/miozzi-2020-iron.md).
+
+All 131 published supplementary rows, reported coordinate errors and paired MgO
+volumes are bundled. The preferred thermal coefficients give 6.98 GPa RMS
+pressure residual under standard MGD normalization, exceeding the stated
+−3 to +3 GPa interval; both printed room-temperature fits also miss the supplied
+MgO-series pressures. Three records retain explicit-selection not-reproduced
+status. This finding does not establish a mistake in the authors' measurements.
+
+**Minimum clarification:** the actual EosFit-7c input files with original row
+selection, the exact Speziale MgO pressure coefficients/implementation, the
+intended energy/molar-volume normalization, and the preferred thermal reference
+volume (22.80 versus 22.81 A³ versus 6.87 cm³/mol).
+
+**Additional useful inputs:** original regression weights and error handling,
+parameter covariance/confidence definitions, and paired ruby/Sr gauge readings
+for the helium series. The nonpreferred joint fits additionally need their
+Dewaele (2006) row selection. No author contact has been made.

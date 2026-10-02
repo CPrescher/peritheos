@@ -1,0 +1,2533 @@
+{
+  "attribution": "Derived from Miozzi et al. (2020), DOI 10.3390/min10020100, supplementary observations, CC BY 4.0",
+  "calibration_models": {
+    "dorogokupets_2010_fit2_einstein": {
+      "K0_gpa": 160.2,
+      "K0_prime": 3.99,
+      "V0_a3": 74.71097371028571,
+      "V0_cm3_mol": 11.248,
+      "beta": 11.8,
+      "equations": "Dorogokupets 2010 Eqs. 1 and 5, Table 1 Fit #2",
+      "gamma0": 1.524,
+      "gamma_inf": 1.325,
+      "gas_constant": 8.31451,
+      "oscillator": "Einstein",
+      "reference_temperature_k": 298.15,
+      "source": "https://doi.org/10.1007/s00269-010-0367-2",
+      "theta0_k": 599.0
+    },
+    "speziale_constant_q_debye": {
+      "K0_gpa": 160.2,
+      "K0_prime": 3.99,
+      "V0_a3": 74.71,
+      "equations": "Speziale 2001 Eqs. 1-4; constant thermodynamic q sensitivity",
+      "gamma0": 1.524,
+      "gas_constant": 8.31446261815324,
+      "oscillator": "Debye",
+      "q": 1.65,
+      "reference_temperature_k": 300.0,
+      "source": "https://doi.org/10.1029/2000JB900318",
+      "theta0_k": 773.0
+    },
+    "speziale_variable_q_debye": {
+      "K0_gpa": 160.2,
+      "K0_prime": 3.99,
+      "V0_a3": 74.71,
+      "equations": "Speziale 2001 Eqs. 10-11; theta numerically integrated from gamma",
+      "gamma0": 1.524,
+      "gas_constant": 8.31446261815324,
+      "oscillator": "Debye",
+      "q0": 1.65,
+      "q1": 11.8,
+      "reference_temperature_k": 300.0,
+      "source": "https://doi.org/10.1029/2000JB900318",
+      "theta0_k": 773.0
+    }
+  },
+  "calibration_normalization": {
+    "atoms_per_formula_unit": 2,
+    "formula_units_per_cell": 4
+  },
+  "fixed_fe_thermal": {
+    "V0_a3": 22.81,
+    "atoms_per_formula_unit": 1,
+    "formula_units_per_cell": 2,
+    "reference_temperature_k": 300,
+    "theta0_k": 420
+  },
+  "original_csv_sha256": {
+    "peritheos/data/datasets/iron-miozzi-2020-he-pvt.csv": "15a5a62d61ae0023fb2ebc0dcca31d4c026ba0a8e1580356a61f3d0717b994b0",
+    "peritheos/data/datasets/iron-miozzi-2020-mgo-pvt.csv": "a227bc39ad49f5c9be148e38aa44b7973543de51acda7ef8b04b7f4fbc9b648d"
+  },
+  "qualification": [
+    "The exact Speziale thermal implementation, original fit input selection and error semantics are unknown. These three documented models are sensitivity scenarios, not identified original pressures.",
+    "He pressures unchanged. Missing coordinate errors exclude rows only from weighted fits; all rows remain in unweighted diagnostics. Printed zero errors remain zero.",
+    "After reconstruction, printed pressure errors are retained as source metadata but not reused. Residual variance uses MgO/Fe volume errors and (dP_Fe/dT-dP_MgO/dT)^2*sigma_T^2, accounting for shared temperature. Other coordinate errors are assumed independent.",
+    "Printed-input control assumes independent P,V,T errors because its calibration covariance is unavailable. Objective and complete-error row selections therefore differ from reconstructed controls.",
+    "Printed error widths provisionally treated as standard deviations; calibration parameter uncertainty, inter-row correlations, fixed-parameter uncertainty and source confidence definitions are not propagated.",
+    "Initial thermal-only fit holds cold coefficients fixed; final fit varies K0,K0_prime,gamma0,q, updating effective weights between solves. This is not an exact replay of the EosFit console or unspecified authors' iteration sequence.",
+    "Covariance is local at final weights, SVD-based; weighted covariance scales by max(1,reduced chi-square), unweighted by RSS/dof. Conditional errors are not reported publication uncertainties.",
+    "All-row and heated-only thermal selections are retained to expose original-selection ambiguity. No inferred EOS record is added and published coefficients are unchanged."
+  ],
+  "results": {
+    "dorogokupets_2010_fit2_einstein": {
+      "doubled_fe_energy_hypothesis": {
+        "published_coefficients": {
+          "residual_range_gpa": [
+            -2.091411304629858,
+            6.355806548712991
+          ],
+          "rmse_gpa": 2.45654888571349,
+          "row_count": 131
+        },
+        "qualification": "Deliberate normalization sensitivity only: doubles vibrational energy at unchanged gamma/theta and molar Fe volume. This is not the physical n=1 normalization and is not an adopted correction or evidence of authors' settings."
+      },
+      "fits": {
+        "cold": {
+          "effective_errors": {
+            "covariance": [
+              [
+                0.020211917226079335,
+                -1.6265305444324643,
+                0.043206556164019805
+              ],
+              [
+                -1.6265305444324643,
+                132.9629067337234,
+                -3.592587962714524
+              ],
+              [
+                0.043206556164019805,
+                -3.592587962714523,
+                0.09903585472390054
+              ]
+            ],
+            "covariance_scale": 54.45391792433694,
+            "degrees_of_freedom": 32,
+            "excluded_combined_row_numbers": [
+              42
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -1.9013322212766752,
+                1.4484883234018753
+              ],
+              "rmse_gpa": 0.7367397286155599,
+              "row_count": 35
+            },
+            "free_parameter_names": [
+              "V0",
+              "K0",
+              "K0_prime"
+            ],
+            "initial_thermal_stage": [],
+            "jacobian_condition_number": 514.473492384742,
+            "parameters": [
+              22.640294837581518,
+              146.3267576257305,
+              5.624183850971325
+            ],
+            "reduced_objective": 54.45391792433694,
+            "scaled_parameter_change": 5.665532487597602e-10,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -1.9013322212766752,
+                1.4484883234018753
+              ],
+              "rmse_gpa": 0.7379821269799786,
+              "row_count": 36
+            },
+            "solver_success": true,
+            "standard_errors": [
+              0.14216862250890433,
+              11.530954285475396,
+              0.3146996261896422
+            ],
+            "weight_cycles": 4,
+            "weighted_row_count": 35
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                0.009513906164297583,
+                -0.7775985112137762,
+                0.02812321709569382
+              ],
+              [
+                -0.7775985112137762,
+                65.94858405255083,
+                -2.4559381261208784
+              ],
+              [
+                0.028123217095693813,
+                -2.4559381261208784,
+                0.09368012387496255
+              ]
+            ],
+            "covariance_scale": 0.4634728384723724,
+            "degrees_of_freedom": 33,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -1.9888895634441326,
+                1.0780227455195188
+              ],
+              "rmse_gpa": 0.6518052638119824,
+              "row_count": 36
+            },
+            "free_parameter_names": [
+              "V0",
+              "K0",
+              "K0_prime"
+            ],
+            "initial_thermal_stage": [],
+            "jacobian_condition_number": 420.01962535133606,
+            "parameters": [
+              22.80461991881186,
+              128.66143722554364,
+              6.282073407055941
+            ],
+            "reduced_objective": 0.4634728384723724,
+            "scaled_parameter_change": 0.016414681411188292,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -1.9888895634441326,
+                1.0780227455195188
+              ],
+              "rmse_gpa": 0.6518052638119824,
+              "row_count": 36
+            },
+            "solver_success": true,
+            "standard_errors": [
+              0.09753925447888959,
+              8.120873355283337,
+              0.3060720893432829
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 36
+          }
+        },
+        "thermal_all": {
+          "effective_errors": {
+            "covariance": [
+              [
+                1.9988056553319933,
+                -0.12447669158999845,
+                -0.08447797916319578,
+                -0.15840673533470848
+              ],
+              [
+                -0.12447669158999845,
+                0.007991449469317987,
+                0.005548457538371203,
+                0.010994551888413725
+              ],
+              [
+                -0.08447797916319578,
+                0.005548457538371204,
+                0.00863944566496123,
+                0.017599297583618077
+              ],
+              [
+                -0.15840673533470848,
+                0.010994551888413723,
+                0.017599297583618077,
+                0.038008731000207324
+              ]
+            ],
+            "covariance_scale": 62.30373299731083,
+            "degrees_of_freedom": 125,
+            "excluded_combined_row_numbers": [
+              42,
+              91
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.4668319781353034,
+                3.1880252031357372
+              ],
+              "rmse_gpa": 0.9238352513150855,
+              "row_count": 129
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.017817179888509303,
+                    0.03300402550658126
+                  ],
+                  [
+                    0.03300402550658126,
+                    0.06312176890525047
+                  ]
+                ],
+                "covariance_scale": 38.203926294568824,
+                "degrees_of_freedom": 127,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.9944576223977717,
+                  0.3556646022957943
+                ],
+                "jacobian_condition_number": 13.532418443538752,
+                "reduced_objective": 38.203926294568824,
+                "standard_errors": [
+                  0.1334810094676741,
+                  0.25124046032685593
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 181.16041293958435,
+            "parameters": [
+              22.81,
+              134.06302376798064,
+              5.952533347228285,
+              1.886402716423415,
+              0.3591103539629054
+            ],
+            "reduced_objective": 62.30373299731083,
+            "scaled_parameter_change": 6.217174813860638e-08,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.4668319781353034,
+                3.1880252031357372
+              ],
+              "rmse_gpa": 0.9436300936415937,
+              "row_count": 131
+            },
+            "solver_success": true,
+            "standard_errors": [
+              1.4137912347061687,
+              0.08939490740147331,
+              0.09294861841340747,
+              0.1949582801529787
+            ],
+            "weight_cycles": 7,
+            "weighted_row_count": 129
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                3.613118021444296,
+                -0.23038586821307788,
+                -0.15094899053449284,
+                -0.2567792583792799
+              ],
+              [
+                -0.23038586821307788,
+                0.015010695851031314,
+                0.010054812784896245,
+                0.017892873318925057
+              ],
+              [
+                -0.15094899053449284,
+                0.010054812784896245,
+                0.012840326279296726,
+                0.02397736688012217
+              ],
+              [
+                -0.25677925837927995,
+                0.017892873318925057,
+                0.02397736688012217,
+                0.047184066630180516
+              ]
+            ],
+            "covariance_scale": 0.8937993270809473,
+            "degrees_of_freedom": 127,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.6559933493683303,
+                3.1479292209430128
+              ],
+              "rmse_gpa": 0.9308639774825638,
+              "row_count": 131
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.006041702211012972,
+                    0.01137008225663146
+                  ],
+                  [
+                    0.01137008225663146,
+                    0.022029384751931353
+                  ]
+                ],
+                "covariance_scale": 0.9703277862622847,
+                "degrees_of_freedom": 129,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.9649206286044587,
+                  0.3261246452578003
+                ],
+                "jacobian_condition_number": 14.299611845245801,
+                "reduced_objective": 0.9703277862622847,
+                "standard_errors": [
+                  0.07772838742063913,
+                  0.14842299266599954
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 214.78701770899508,
+            "parameters": [
+              22.81,
+              130.85715677418366,
+              6.1429931302169605,
+              1.9695306534736565,
+              0.4838903667282078
+            ],
+            "reduced_objective": 0.8937993270809473,
+            "scaled_parameter_change": 0.15776572147040746,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.6559933493683303,
+                3.1479292209430128
+              ],
+              "rmse_gpa": 0.9308639774825638,
+              "row_count": 131
+            },
+            "solver_success": true,
+            "standard_errors": [
+              1.9008203548584743,
+              0.12251814498690108,
+              0.11331516350116927,
+              0.21721893708924303
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 131
+          }
+        },
+        "thermal_heated": {
+          "effective_errors": {
+            "covariance": [
+              [
+                18.904385287630642,
+                -1.1395464001234186,
+                -0.8206203814409316,
+                -1.74822908256652
+              ],
+              [
+                -1.1395464001234186,
+                0.07212795123061679,
+                0.053884045607099376,
+                0.12370619739618752
+              ],
+              [
+                -0.8206203814409319,
+                0.053884045607099376,
+                0.04579065943410623,
+                0.10962860129942113
+              ],
+              [
+                -1.74822908256652,
+                0.12370619739618752,
+                0.10962860129942113,
+                0.2836501494577828
+              ]
+            ],
+            "covariance_scale": 86.70005010229978,
+            "degrees_of_freedom": 90,
+            "excluded_combined_row_numbers": [
+              91
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.007258379365652,
+                3.033212287118289
+              ],
+              "rmse_gpa": 0.9579962846683334,
+              "row_count": 94
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.007232574062570091,
+                    0.013397628190501444
+                  ],
+                  [
+                    0.013397628190501443,
+                    0.025624012129503708
+                  ]
+                ],
+                "covariance_scale": 15.508579954756746,
+                "degrees_of_freedom": 92,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.9944242058541362,
+                  0.35560602600292
+                ],
+                "jacobian_condition_number": 13.532599974309987,
+                "reduced_objective": 15.508579954756746,
+                "standard_errors": [
+                  0.08504454163889703,
+                  0.16007502031704918
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 341.70381567427216,
+            "parameters": [
+              22.81,
+              139.83954051704475,
+              5.713156755219071,
+              1.7845760967321598,
+              0.4493140385257773
+            ],
+            "reduced_objective": 86.70005010229978,
+            "scaled_parameter_change": 3.376033969049175e-08,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.007258379365652,
+                3.033212287118289
+              ],
+              "rmse_gpa": 0.974238329713397,
+              "row_count": 95
+            },
+            "solver_success": true,
+            "standard_errors": [
+              4.347917350597943,
+              0.2685664745097883,
+              0.21398752167849935,
+              0.5325881612069336
+            ],
+            "weight_cycles": 9,
+            "weighted_row_count": 94
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                19.737994883940505,
+                -1.1452894584584823,
+                -0.8202057111932478,
+                -1.6788130935062835
+              ],
+              [
+                -1.1452894584584823,
+                0.06858468323353764,
+                0.050311654289239595,
+                0.10863232455642677
+              ],
+              [
+                -0.8202057111932478,
+                0.050311654289239595,
+                0.04338971515369821,
+                0.09666270581498229
+              ],
+              [
+                -1.6788130935062835,
+                0.10863232455642677,
+                0.09666270581498229,
+                0.22977809025586993
+              ]
+            ],
+            "covariance_scale": 0.9824697300991283,
+            "degrees_of_freedom": 91,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.0967023659945596,
+                3.08963816799762
+              ],
+              "rmse_gpa": 0.9701044188996557,
+              "row_count": 95
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.007010343603195475,
+                    0.013193137352666884
+                  ],
+                  [
+                    0.013193137352666884,
+                    0.025561790142628445
+                  ]
+                ],
+                "covariance_scale": 1.1259133289104006,
+                "degrees_of_freedom": 93,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.9648996929308014,
+                  0.32608712511018617
+                ],
+                "jacobian_condition_number": 14.299734644043156,
+                "reduced_objective": 1.1259133289104006,
+                "standard_errors": [
+                  0.08372779468728096,
+                  0.15988054960697515
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 383.1687925721696,
+            "parameters": [
+              22.81,
+              139.42864198374673,
+              5.703407998283411,
+              1.7187840968465855,
+              0.2241852737313413
+            ],
+            "reduced_objective": 0.9824697300991283,
+            "scaled_parameter_change": 0.24611559608421585,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.0967023659945596,
+                3.08963816799762
+              ],
+              "rmse_gpa": 0.9701044188996557,
+              "row_count": 95
+            },
+            "solver_success": true,
+            "standard_errors": [
+              4.4427463222583965,
+              0.2618867755988027,
+              0.20830198067636854,
+              0.4793517395982515
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 95
+          }
+        }
+      },
+      "mgo_pressure_shift": {
+        "residual_range_gpa": [
+          -5.486400440173412,
+          7.911599048789768
+        ],
+        "rmse_gpa": 2.5275054786101374,
+        "row_count": 116
+      },
+      "published_fe": {
+        "all": {
+          "residual_range_gpa": [
+            -10.692123933662103,
+            1.023892317121664
+          ],
+          "rmse_gpa": 5.443118687222411,
+          "row_count": 131
+        },
+        "cold_bm3": {
+          "residual_range_gpa": [
+            -2.8534753568344087,
+            0.5179430108621474
+          ],
+          "rmse_gpa": 0.8637209639632981,
+          "row_count": 36
+        },
+        "heated": {
+          "residual_range_gpa": [
+            -10.692123933662103,
+            -2.7613235091858
+          ],
+          "rmse_gpa": 6.379010406053955,
+          "row_count": 95
+        }
+      }
+    },
+    "printed": {
+      "doubled_fe_energy_hypothesis": {
+        "published_coefficients": {
+          "residual_range_gpa": [
+            -6.9970487045826815,
+            9.477581992970528
+          ],
+          "rmse_gpa": 2.4988584007212182,
+          "row_count": 131
+        },
+        "qualification": "Deliberate normalization sensitivity only: doubles vibrational energy at unchanged gamma/theta and molar Fe volume. This is not the physical n=1 normalization and is not an adopted correction or evidence of authors' settings."
+      },
+      "fits": {
+        "cold": {
+          "effective_errors": {
+            "covariance": [
+              [
+                0.01938240521228786,
+                -1.7501841784961156,
+                0.041526443839957905
+              ],
+              [
+                -1.7501841784961156,
+                160.40455103007793,
+                -3.868753945303612
+              ],
+              [
+                0.041526443839957905,
+                -3.868753945303612,
+                0.09516852539025424
+              ]
+            ],
+            "covariance_scale": 74.47383014671979,
+            "degrees_of_freedom": 31,
+            "excluded_combined_row_numbers": [
+              16,
+              42
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -1.925693598143539,
+                2.183673447984173
+              ],
+              "rmse_gpa": 1.0163823796327913,
+              "row_count": 34
+            },
+            "free_parameter_names": [
+              "V0",
+              "K0",
+              "K0_prime"
+            ],
+            "initial_thermal_stage": [],
+            "jacobian_condition_number": 566.998997875049,
+            "parameters": [
+              22.491117279785442,
+              163.19923163465327,
+              5.464656563409119
+            ],
+            "reduced_objective": 74.47383014671979,
+            "scaled_parameter_change": 1.4243912715983242e-09,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -1.925693598143539,
+                2.183673447984173
+              ],
+              "rmse_gpa": 1.0184546933083336,
+              "row_count": 36
+            },
+            "solver_success": true,
+            "standard_errors": [
+              0.13922070683733745,
+              12.665091828726625,
+              0.3084939632962925
+            ],
+            "weight_cycles": 4,
+            "weighted_row_count": 34
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                0.010980260744683288,
+                -0.9851495957918969,
+                0.03522547958412621
+              ],
+              [
+                -0.9851495957918969,
+                92.00011602576083,
+                -3.3925502029618717
+              ],
+              [
+                0.03522547958412621,
+                -3.3925502029618717,
+                0.1282023064939651
+              ]
+            ],
+            "covariance_scale": 0.6579700813845879,
+            "degrees_of_freedom": 33,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.1245661139702463,
+                1.273444252213249
+              ],
+              "rmse_gpa": 0.7766203971498595,
+              "row_count": 36
+            },
+            "free_parameter_names": [
+              "V0",
+              "K0",
+              "K0_prime"
+            ],
+            "initial_thermal_stage": [],
+            "jacobian_condition_number": 442.6843109923341,
+            "parameters": [
+              22.69055194533601,
+              136.16401625807515,
+              6.4648424504692255
+            ],
+            "reduced_objective": 0.6579700813845879,
+            "scaled_parameter_change": 0.07164016258075145,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.1245661139702463,
+                1.273444252213249
+              ],
+              "rmse_gpa": 0.7766203971498595,
+              "row_count": 36
+            },
+            "solver_success": true,
+            "standard_errors": [
+              0.10478673935514593,
+              9.591669094884416,
+              0.35805349669283376
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 36
+          }
+        },
+        "thermal_all": {
+          "effective_errors": {
+            "covariance": [
+              [
+                0.7082446026060429,
+                -0.044480262508148,
+                -0.03930139752546585,
+                -0.06860026809067313
+              ],
+              [
+                -0.044480262508147995,
+                0.002872122904434563,
+                0.0026067065321116237,
+                0.004788324503866918
+              ],
+              [
+                -0.03930139752546585,
+                0.002606706532111624,
+                0.11803037138221328,
+                0.2189056330171338
+              ],
+              [
+                -0.06860026809067313,
+                0.004788324503866918,
+                0.2189056330171338,
+                0.41735551511532704
+              ]
+            ],
+            "covariance_scale": 24.283678697724003,
+            "degrees_of_freedom": 124,
+            "excluded_combined_row_numbers": [
+              16,
+              42,
+              91
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.7058736648526462,
+                9.139056360712345
+              ],
+              "rmse_gpa": 1.3226987942523205,
+              "row_count": 128
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.7996690329858221,
+                    1.6352722535186008
+                  ],
+                  [
+                    1.635272253518601,
+                    3.4333890429208735
+                  ]
+                ],
+                "covariance_scale": 623.4798175200198,
+                "degrees_of_freedom": 126,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.8162749410032568,
+                  -0.3780607243604969
+                ],
+                "jacobian_condition_number": 15.771814981665397,
+                "reduced_objective": 623.4798175200198,
+                "standard_errors": [
+                  0.8942421556747491,
+                  1.8529406474360892
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 684.8028264847584,
+            "parameters": [
+              22.81,
+              136.7788231530253,
+              6.165852933416771,
+              2.0144867367288506,
+              1.1515624635916086
+            ],
+            "reduced_objective": 24.283678697724003,
+            "scaled_parameter_change": 1.732019994094003e-08,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.728976651642114,
+                9.139056360712345
+              ],
+              "rmse_gpa": 1.3340571066355034,
+              "row_count": 131
+            },
+            "solver_success": true,
+            "standard_errors": [
+              0.8415726959722748,
+              0.05359219070381955,
+              0.3435554851580939,
+              0.646030583730621
+            ],
+            "weight_cycles": 7,
+            "weighted_row_count": 128
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                6.749941991749625,
+                -0.45981566337540675,
+                -0.34178171741053187,
+                -0.48750589411777884
+              ],
+              [
+                -0.4598156633754068,
+                0.03194954473874951,
+                0.024524697684649818,
+                0.03676133486492226
+              ],
+              [
+                -0.341781717410532,
+                0.024524697684649818,
+                0.03808599515586023,
+                0.061303577127026276
+              ],
+              [
+                -0.4875058941177789,
+                0.03676133486492226,
+                0.061303577127026276,
+                0.10466410712549577
+              ]
+            ],
+            "covariance_scale": 1.71584299505668,
+            "degrees_of_freedom": 127,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -3.0814442093628713,
+                8.982660639910975
+              ],
+              "rmse_gpa": 1.289748364036902,
+              "row_count": 131
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.025756997576506426,
+                    0.05454259295814744
+                  ],
+                  [
+                    0.05454259295814745,
+                    0.11866794154249265
+                  ]
+                ],
+                "covariance_scale": 5.93810481373084,
+                "degrees_of_freedom": 129,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.731170551783947,
+                  -0.5017128472873492
+                ],
+                "jacobian_condition_number": 15.921832231561082,
+                "reduced_objective": 5.93810481373084,
+                "standard_errors": [
+                  0.1604898675197485,
+                  0.34448213530238786
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 245.8018295160572,
+            "parameters": [
+              22.81,
+              129.3339342054342,
+              6.626364896460207,
+              2.3239842051777577,
+              1.567046709356134
+            ],
+            "reduced_objective": 1.71584299505668,
+            "scaled_parameter_change": 2.0687595566434833,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -3.0814442093628713,
+                8.982660639910975
+              ],
+              "rmse_gpa": 1.289748364036902,
+              "row_count": 131
+            },
+            "solver_success": true,
+            "standard_errors": [
+              2.5980650476363416,
+              0.1787443558234763,
+              0.1951563351671173,
+              0.3235183257954575
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 131
+          }
+        },
+        "thermal_heated": {
+          "effective_errors": {
+            "covariance": [
+              [
+                58.68746657818825,
+                -3.256265803711356,
+                -3.032438866176995,
+                -5.541491851668004
+              ],
+              [
+                -3.256265803711356,
+                0.18571910189145147,
+                0.17725449213704766,
+                0.34270720355308254
+              ],
+              [
+                -3.0324388661769954,
+                0.17725449213704766,
+                0.1964833309830382,
+                0.3985916297885321
+              ],
+              [
+                -5.541491851668004,
+                0.34270720355308254,
+                0.3985916297885321,
+                0.8749227607885929
+              ]
+            ],
+            "covariance_scale": 6.034206544657515,
+            "degrees_of_freedom": 90,
+            "excluded_combined_row_numbers": [
+              91
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.28916086665231,
+                9.300172462880411
+              ],
+              "rmse_gpa": 1.3839660269347824,
+              "row_count": 94
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.01910013384224606,
+                    0.03906079369699995
+                  ],
+                  [
+                    0.03906079369699995,
+                    0.08201598792496945
+                  ]
+                ],
+                "covariance_scale": 14.893068047397815,
+                "degrees_of_freedom": 92,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.8161686184983385,
+                  -0.3782688627197611
+                ],
+                "jacobian_condition_number": 15.772620935680978,
+                "reduced_objective": 14.893068047397815,
+                "standard_errors": [
+                  0.13820323383425606,
+                  0.28638433603283797
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 516.5852780605607,
+            "parameters": [
+              22.81,
+              143.91411309916313,
+              5.840414673038473,
+              1.8010310252831216,
+              1.0952847224172473
+            ],
+            "reduced_objective": 6.034206544657515,
+            "scaled_parameter_change": 3.377702717521913e-08,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.28916086665231,
+                9.300172462880411
+              ],
+              "rmse_gpa": 1.3962181517266647,
+              "row_count": 95
+            },
+            "solver_success": true,
+            "standard_errors": [
+              7.660774541662759,
+              0.43095139156458406,
+              0.44326440301815145,
+              0.9353730596871993
+            ],
+            "weight_cycles": 7,
+            "weighted_row_count": 94
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                35.716072407618206,
+                -2.112640388089684,
+                -1.7376925982650206,
+                -3.0844969171931966
+              ],
+              [
+                -2.1126403880896834,
+                0.12914296264756644,
+                0.11050503736432266,
+                0.20950989647017448
+              ],
+              [
+                -1.7376925982650206,
+                0.11050503736432266,
+                0.11690496066741358,
+                0.23514082423059368
+              ],
+              [
+                -3.0844969171931966,
+                0.20950989647017448,
+                0.23514082423059368,
+                0.5117311969402211
+              ]
+            ],
+            "covariance_scale": 2.009349638172541,
+            "degrees_of_freedom": 91,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.4514225368959615,
+                9.266111236592138
+              ],
+              "rmse_gpa": 1.387351953500288,
+              "row_count": 95
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.014311926839630802,
+                    0.030307000695965678
+                  ],
+                  [
+                    0.030307000695965678,
+                    0.06593937657469881
+                  ]
+                ],
+                "covariance_scale": 3.299568096977946,
+                "degrees_of_freedom": 93,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.7311528997246817,
+                  -0.5017486968194732
+                ],
+                "jacobian_condition_number": 15.921973489707497,
+                "reduced_objective": 3.299568096977946,
+                "standard_errors": [
+                  0.11963246565891218,
+                  0.25678663628526077
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 413.9783400844522,
+            "parameters": [
+              22.81,
+              140.26435250154663,
+              6.012379441649962,
+              1.933535089852165,
+              1.186046144305453
+            ],
+            "reduced_objective": 2.009349638172541,
+            "scaled_parameter_change": 1.6877948411249264,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.4514225368959615,
+                9.266111236592138
+              ],
+              "rmse_gpa": 1.387351953500288,
+              "row_count": 95
+            },
+            "solver_success": true,
+            "standard_errors": [
+              5.976292530291519,
+              0.3593646652741007,
+              0.3419136742913532,
+              0.7153538962920528
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 95
+          }
+        }
+      },
+      "mgo_pressure_shift": {
+        "residual_range_gpa": [
+          0.0,
+          0.0
+        ],
+        "rmse_gpa": 0.0,
+        "row_count": 116
+      },
+      "published_fe": {
+        "all": {
+          "residual_range_gpa": [
+            -11.283181199733235,
+            1.6789735246000959
+          ],
+          "rmse_gpa": 6.982609076352464,
+          "row_count": 131
+        },
+        "cold_bm3": {
+          "residual_range_gpa": [
+            -7.759112756787232,
+            0.5179430108621474
+          ],
+          "rmse_gpa": 3.7536167053248253,
+          "row_count": 36
+        },
+        "heated": {
+          "residual_range_gpa": [
+            -11.283181199733235,
+            1.6789735246000959
+          ],
+          "rmse_gpa": 7.950155553447368,
+          "row_count": 95
+        }
+      }
+    },
+    "speziale_constant_q_debye": {
+      "doubled_fe_energy_hypothesis": {
+        "published_coefficients": {
+          "residual_range_gpa": [
+            -2.0776785519420287,
+            11.821007209464995
+          ],
+          "rmse_gpa": 5.489465830465356,
+          "row_count": 131
+        },
+        "qualification": "Deliberate normalization sensitivity only: doubles vibrational energy at unchanged gamma/theta and molar Fe volume. This is not the physical n=1 normalization and is not an adopted correction or evidence of authors' settings."
+      },
+      "fits": {
+        "cold": {
+          "effective_errors": {
+            "covariance": [
+              [
+                0.020276349599069418,
+                -1.6296341300817634,
+                0.04337562123288319
+              ],
+              [
+                -1.6296341300817634,
+                133.04172164723516,
+                -3.601766954471066
+              ],
+              [
+                0.04337562123288319,
+                -3.601766954471066,
+                0.09947876733906755
+              ]
+            ],
+            "covariance_scale": 54.40519698213102,
+            "degrees_of_freedom": 32,
+            "excluded_combined_row_numbers": [
+              42
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -1.9017848141083675,
+                1.4466362660920424
+              ],
+              "rmse_gpa": 0.7352911745995958,
+              "row_count": 35
+            },
+            "free_parameter_names": [
+              "V0",
+              "K0",
+              "K0_prime"
+            ],
+            "initial_thermal_stage": [],
+            "jacobian_condition_number": 515.0376382463633,
+            "parameters": [
+              22.6420718279077,
+              146.11822688530947,
+              5.630360266292852
+            ],
+            "reduced_objective": 54.40519698213102,
+            "scaled_parameter_change": 1.842301711185712e-08,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -1.9017848141083675,
+                1.4466362660920424
+              ],
+              "rmse_gpa": 0.7365109036942727,
+              "row_count": 36
+            },
+            "solver_success": true,
+            "standard_errors": [
+              0.1423950476634262,
+              11.534371315647643,
+              0.3154025480858827
+            ],
+            "weight_cycles": 4,
+            "weighted_row_count": 35
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                0.009529360432562735,
+                -0.7779280008859571,
+                0.028178119315919455
+              ],
+              [
+                -0.777928000885957,
+                65.8922357591608,
+                -2.457446669907168
+              ],
+              [
+                0.028178119315919455,
+                -2.4574466699071684,
+                0.0938713431390301
+              ]
+            ],
+            "covariance_scale": 0.4625102242488342,
+            "degrees_of_freedom": 33,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -1.9891381962192298,
+                1.077863858305875
+              ],
+              "rmse_gpa": 0.6511280254768883,
+              "row_count": 36
+            },
+            "free_parameter_names": [
+              "V0",
+              "K0",
+              "K0_prime"
+            ],
+            "initial_thermal_stage": [],
+            "jacobian_condition_number": 420.4373125292509,
+            "parameters": [
+              22.80627707528716,
+              128.50938911557043,
+              6.286870151143017
+            ],
+            "reduced_objective": 0.4625102242488342,
+            "scaled_parameter_change": 0.0173740302286034,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -1.9891381962192298,
+                1.077863858305875
+              ],
+              "rmse_gpa": 0.6511280254768883,
+              "row_count": 36
+            },
+            "solver_success": true,
+            "standard_errors": [
+              0.09761844309638797,
+              8.117403264539762,
+              0.3063843062871042
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 36
+          }
+        },
+        "thermal_all": {
+          "effective_errors": {
+            "covariance": [
+              [
+                1.9048439052102433,
+                -0.11832339836793114,
+                -0.10870313725520832,
+                -0.18001051050092742
+              ],
+              [
+                -0.11832339836793114,
+                0.007581069851983427,
+                0.007251240737582397,
+                0.01279085381809278
+              ],
+              [
+                -0.10870313725520833,
+                0.007251240737582397,
+                0.01630487753627919,
+                0.030323932469709502
+              ],
+              [
+                -0.18001051050092745,
+                0.012790853818092779,
+                0.0303239324697095,
+                0.06006505556213787
+              ]
+            ],
+            "covariance_scale": 60.5529350652532,
+            "degrees_of_freedom": 125,
+            "excluded_combined_row_numbers": [
+              42,
+              91
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.5299584767285808,
+                3.047383322830541
+              ],
+              "rmse_gpa": 0.9011048044576297,
+              "row_count": 129
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.019020324186848375,
+                    0.03021082421841248
+                  ],
+                  [
+                    0.03021082421841248,
+                    0.049528708713254696
+                  ]
+                ],
+                "covariance_scale": 58.70716515880746,
+                "degrees_of_freedom": 127,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  2.31643113453729,
+                  1.9702205165431614
+                ],
+                "jacobian_condition_number": 12.571800378720953,
+                "reduced_objective": 58.70716515880746,
+                "standard_errors": [
+                  0.1379141913903293,
+                  0.22255046329597855
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 235.85372998503104,
+            "parameters": [
+              22.81,
+              134.10209118754065,
+              5.950575002098621,
+              2.137310553935774,
+              1.9464306432922134
+            ],
+            "reduced_objective": 60.5529350652532,
+            "scaled_parameter_change": 8.248594962623201e-08,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.5299584767285808,
+                3.047383322830541
+              ],
+              "rmse_gpa": 0.923079753797014,
+              "row_count": 131
+            },
+            "solver_success": true,
+            "standard_errors": [
+              1.3801608258497424,
+              0.08706933933356464,
+              0.12769055382556374,
+              0.24508173241214423
+            ],
+            "weight_cycles": 7,
+            "weighted_row_count": 129
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                3.35051097015771,
+                -0.21163046590545898,
+                -0.18553197528846407,
+                -0.2726069261667797
+              ],
+              [
+                -0.21163046590545898,
+                0.013671471969670074,
+                0.012449384933349546,
+                0.01934477554188256
+              ],
+              [
+                -0.18553197528846407,
+                0.012449384933349546,
+                0.023514547551376098,
+                0.03953361463345721
+              ],
+              [
+                -0.2726069261667797,
+                0.01934477554188256,
+                0.03953361463345721,
+                0.0706683476601034
+              ]
+            ],
+            "covariance_scale": 0.8606908887138613,
+            "degrees_of_freedom": 127,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.6877090480257095,
+                3.023797018074916
+              ],
+              "rmse_gpa": 0.9134605907703612,
+              "row_count": 131
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.011358116642697959,
+                    0.0192269503382994
+                  ],
+                  [
+                    0.019226950338299395,
+                    0.033621773251636504
+                  ]
+                ],
+                "covariance_scale": 0.9441866284804897,
+                "degrees_of_freedom": 129,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  2.229348371196708,
+                  1.8497197448465208
+                ],
+                "jacobian_condition_number": 12.797239994658923,
+                "reduced_objective": 0.9441866284804897,
+                "standard_errors": [
+                  0.10657446524706544,
+                  0.18336240959268751
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 272.6478765907185,
+            "parameters": [
+              22.81,
+              131.27137931800632,
+              6.1178883770670245,
+              2.2504908205112506,
+              2.0916203060988536
+            ],
+            "reduced_objective": 0.8606908887138613,
+            "scaled_parameter_change": 0.24190056125233284,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.6877090480257095,
+                3.023797018074916
+              ],
+              "rmse_gpa": 0.9134605907703612,
+              "row_count": 131
+            },
+            "solver_success": true,
+            "standard_errors": [
+              1.830440102859886,
+              0.11692506989380025,
+              0.15334453870737,
+              0.2658351889048991
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 131
+          }
+        },
+        "thermal_heated": {
+          "effective_errors": {
+            "covariance": [
+              [
+                14.299330912758165,
+                -0.8371858091998445,
+                -0.8538514362846722,
+                -1.4671809138298444
+              ],
+              [
+                -0.8371858091998443,
+                0.05195616195098535,
+                0.057823054801291116,
+                0.11086627701299079
+              ],
+              [
+                -0.8538514362846722,
+                0.05782305480129113,
+                0.08156629742754046,
+                0.17352862279570355
+              ],
+              [
+                -1.4671809138298442,
+                0.11086627701299079,
+                0.17352862279570352,
+                0.4032860702055932
+              ]
+            ],
+            "covariance_scale": 85.71921498934574,
+            "degrees_of_freedom": 90,
+            "excluded_combined_row_numbers": [
+              91
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -1.9976387121653971,
+                2.8596422185837156
+              ],
+              "rmse_gpa": 0.9173071297269028,
+              "row_count": 94
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.014408691679906816,
+                    0.022886132976441632
+                  ],
+                  [
+                    0.022886132976441632,
+                    0.03752061957600167
+                  ]
+                ],
+                "covariance_scale": 44.47359445948002,
+                "degrees_of_freedom": 92,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  2.3164134520109574,
+                  1.9701939457817634
+                ],
+                "jacobian_condition_number": 12.571867790738208,
+                "reduced_objective": 44.47359445948002,
+                "standard_errors": [
+                  0.12003620986980061,
+                  0.19370239951018073
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 428.8957465124792,
+            "parameters": [
+              22.81,
+              140.19199354099948,
+              5.7170728533816995,
+              2.1274750733386942,
+              2.419920257246554
+            ],
+            "reduced_objective": 85.71921498934574,
+            "scaled_parameter_change": 3.684739446896401e-08,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -1.9976387121653971,
+                2.8596422185837156
+              ],
+              "rmse_gpa": 0.9343711860134547,
+              "row_count": 95
+            },
+            "solver_success": true,
+            "standard_errors": [
+              3.781445611503379,
+              0.22793894347167915,
+              0.28559813974803905,
+              0.635048084955457
+            ],
+            "weight_cycles": 10,
+            "weighted_row_count": 94
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                14.775762175301566,
+                -0.8248776969071461,
+                -0.8086251481486544,
+                -1.371429619227099
+              ],
+              [
+                -0.824877696907146,
+                0.04786492508408733,
+                0.049614365801055035,
+                0.0915479308826337
+              ],
+              [
+                -0.8086251481486544,
+                0.049614365801055035,
+                0.06678032201576019,
+                0.13416686167904257
+              ],
+              [
+                -1.3714296192270987,
+                0.0915479308826337,
+                0.13416686167904257,
+                0.29522072691428913
+              ]
+            ],
+            "covariance_scale": 0.9027109920115585,
+            "degrees_of_freedom": 91,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.0452652036246093,
+                2.942284418860325
+              ],
+              "rmse_gpa": 0.9298936004389898,
+              "row_count": 95
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.013143843562446174,
+                    0.02225011399015061
+                  ],
+                  [
+                    0.02225011399015061,
+                    0.0389088270383049
+                  ]
+                ],
+                "covariance_scale": 1.0926532250038485,
+                "degrees_of_freedom": 93,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  2.2293177181375627,
+                  1.8496708045809156
+                ],
+                "jacobian_condition_number": 12.797365586341437,
+                "reduced_objective": 1.0926532250038485,
+                "standard_errors": [
+                  0.11464660292588776,
+                  0.19725320539424676
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 455.91189223672995,
+            "parameters": [
+              22.81,
+              140.56408734698604,
+              5.659874508299727,
+              1.9671029218734242,
+              1.9965728415102313
+            ],
+            "reduced_objective": 0.9027109920115585,
+            "scaled_parameter_change": 0.26221479626413857,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.0452652036246093,
+                2.942284418860325
+              ],
+              "rmse_gpa": 0.9298936004389898,
+              "row_count": 95
+            },
+            "solver_success": true,
+            "standard_errors": [
+              3.843925360266711,
+              0.2187805409173479,
+              0.25841888865901463,
+              0.5433421821599066
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 95
+          }
+        }
+      },
+      "mgo_pressure_shift": {
+        "residual_range_gpa": [
+          -8.418469854308768,
+          4.596398426082814
+        ],
+        "rmse_gpa": 5.188518769597104,
+        "row_count": 116
+      },
+      "published_fe": {
+        "all": {
+          "residual_range_gpa": [
+            -6.07824115341181,
+            1.0371154440517358
+          ],
+          "rmse_gpa": 2.588273541858648,
+          "row_count": 131
+        },
+        "cold_bm3": {
+          "residual_range_gpa": [
+            -2.839742604146579,
+            0.5179430108621474
+          ],
+          "rmse_gpa": 0.8569694796140926,
+          "row_count": 36
+        },
+        "heated": {
+          "residual_range_gpa": [
+            -6.07824115341181,
+            0.39720828682777665
+          ],
+          "rmse_gpa": 3.0125404335931125,
+          "row_count": 95
+        }
+      }
+    },
+    "speziale_variable_q_debye": {
+      "doubled_fe_energy_hypothesis": {
+        "published_coefficients": {
+          "residual_range_gpa": [
+            -2.0776785519420287,
+            6.341795845039741
+          ],
+          "rmse_gpa": 2.447703715316454,
+          "row_count": 131
+        },
+        "qualification": "Deliberate normalization sensitivity only: doubles vibrational energy at unchanged gamma/theta and molar Fe volume. This is not the physical n=1 normalization and is not an adopted correction or evidence of authors' settings."
+      },
+      "fits": {
+        "cold": {
+          "effective_errors": {
+            "covariance": [
+              [
+                0.020276349599069418,
+                -1.6296341300817634,
+                0.04337562123288319
+              ],
+              [
+                -1.6296341300817634,
+                133.04172164723516,
+                -3.601766954471066
+              ],
+              [
+                0.04337562123288319,
+                -3.601766954471066,
+                0.09947876733906755
+              ]
+            ],
+            "covariance_scale": 54.40519698213102,
+            "degrees_of_freedom": 32,
+            "excluded_combined_row_numbers": [
+              42
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -1.9017848141083675,
+                1.4466362660920424
+              ],
+              "rmse_gpa": 0.7352911745995958,
+              "row_count": 35
+            },
+            "free_parameter_names": [
+              "V0",
+              "K0",
+              "K0_prime"
+            ],
+            "initial_thermal_stage": [],
+            "jacobian_condition_number": 515.0376382463633,
+            "parameters": [
+              22.6420718279077,
+              146.11822688530947,
+              5.630360266292852
+            ],
+            "reduced_objective": 54.40519698213102,
+            "scaled_parameter_change": 1.842301711185712e-08,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -1.9017848141083675,
+                1.4466362660920424
+              ],
+              "rmse_gpa": 0.7365109036942727,
+              "row_count": 36
+            },
+            "solver_success": true,
+            "standard_errors": [
+              0.1423950476634262,
+              11.534371315647643,
+              0.3154025480858827
+            ],
+            "weight_cycles": 4,
+            "weighted_row_count": 35
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                0.009529360432562735,
+                -0.7779280008859571,
+                0.028178119315919455
+              ],
+              [
+                -0.777928000885957,
+                65.8922357591608,
+                -2.457446669907168
+              ],
+              [
+                0.028178119315919455,
+                -2.4574466699071684,
+                0.0938713431390301
+              ]
+            ],
+            "covariance_scale": 0.4625102242488342,
+            "degrees_of_freedom": 33,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -1.9891381962192298,
+                1.077863858305875
+              ],
+              "rmse_gpa": 0.6511280254768883,
+              "row_count": 36
+            },
+            "free_parameter_names": [
+              "V0",
+              "K0",
+              "K0_prime"
+            ],
+            "initial_thermal_stage": [],
+            "jacobian_condition_number": 420.4373125292509,
+            "parameters": [
+              22.80627707528716,
+              128.50938911557043,
+              6.286870151143017
+            ],
+            "reduced_objective": 0.4625102242488342,
+            "scaled_parameter_change": 0.0173740302286034,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -1.9891381962192298,
+                1.077863858305875
+              ],
+              "rmse_gpa": 0.6511280254768883,
+              "row_count": 36
+            },
+            "solver_success": true,
+            "standard_errors": [
+              0.09761844309638797,
+              8.117403264539762,
+              0.3063843062871042
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 36
+          }
+        },
+        "thermal_all": {
+          "effective_errors": {
+            "covariance": [
+              [
+                1.9910222011190872,
+                -0.12408518077249221,
+                -0.08402187605033537,
+                -0.15790734261455155
+              ],
+              [
+                -0.12408518077249221,
+                0.007972055952389754,
+                0.005521162515310507,
+                0.010963382526563484
+              ],
+              [
+                -0.08402187605033537,
+                0.005521162515310507,
+                0.0086142349048293,
+                0.017572926235198762
+              ],
+              [
+                -0.15790734261455155,
+                0.010963382526563484,
+                0.017572926235198762,
+                0.03799566019303999
+              ]
+            ],
+            "covariance_scale": 62.006574843364575,
+            "degrees_of_freedom": 125,
+            "excluded_combined_row_numbers": [
+              42,
+              91
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.477928409943587,
+                3.193435957067294
+              ],
+              "rmse_gpa": 0.9244312018349868,
+              "row_count": 129
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.017462258345857216,
+                    0.03244010120282586
+                  ],
+                  [
+                    0.032440101202825866,
+                    0.0622233918507133
+                  ]
+                ],
+                "covariance_scale": 37.777507571527394,
+                "degrees_of_freedom": 127,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.9888376130839838,
+                  0.3420984810882191
+                ],
+                "jacobian_condition_number": 13.552014005050863,
+                "reduced_objective": 37.777507571527394,
+                "standard_errors": [
+                  0.13214483851387165,
+                  0.24944617024663518
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 181.17587410941175,
+            "parameters": [
+              22.81,
+              134.00369749443627,
+              5.955080204473057,
+              1.8821044754045138,
+              0.344387349689378
+            ],
+            "reduced_objective": 62.006574843364575,
+            "scaled_parameter_change": 4.485606125426145e-08,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.477928409943587,
+                3.193435957067294
+              ],
+              "rmse_gpa": 0.9444254415882954,
+              "row_count": 131
+            },
+            "solver_success": true,
+            "standard_errors": [
+              1.4110358610322726,
+              0.08928637047382851,
+              0.09281290268507553,
+              0.19492475520836236
+            ],
+            "weight_cycles": 7,
+            "weighted_row_count": 129
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                3.6241525836333817,
+                -0.2310829381104769,
+                -0.15092021111610532,
+                -0.25767718605680034
+              ],
+              [
+                -0.2310829381104769,
+                0.015055593192820599,
+                0.010050873484891759,
+                0.017949921419037604
+              ],
+              [
+                -0.15092021111610532,
+                0.010050873484891759,
+                0.012781317600639096,
+                0.0239452283255361
+              ],
+              [
+                -0.2576771860568003,
+                0.017949921419037604,
+                0.0239452283255361,
+                0.04726966395368425
+              ]
+            ],
+            "covariance_scale": 0.8961117173368625,
+            "degrees_of_freedom": 127,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.664347028442805,
+                3.1524921166475366
+              ],
+              "rmse_gpa": 0.9320673406436444,
+              "row_count": 131
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.006006693695376552,
+                    0.011335905291082415
+                  ],
+                  [
+                    0.011335905291082415,
+                    0.022023928206750212
+                  ]
+                ],
+                "covariance_scale": 0.9705793733150889,
+                "degrees_of_freedom": 129,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.9591755380224185,
+                  0.3122441322324126
+                ],
+                "jacobian_condition_number": 14.331929689660228,
+                "reduced_objective": 0.9705793733150889,
+                "standard_errors": [
+                  0.07750286249795263,
+                  0.14840460978942066
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 214.56056607414584,
+            "parameters": [
+              22.81,
+              130.85504452102705,
+              6.14237683356158,
+              1.9626297170532703,
+              0.4660366133106538
+            ],
+            "reduced_objective": 0.8961117173368625,
+            "scaled_parameter_change": 0.15379248107824123,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.664347028442805,
+                3.1524921166475366
+              ],
+              "rmse_gpa": 0.9320673406436444,
+              "row_count": 131
+            },
+            "solver_success": true,
+            "standard_errors": [
+              1.9037207210180231,
+              0.12270123549834613,
+              0.11305448952005,
+              0.2174158778785125
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 131
+          }
+        },
+        "thermal_heated": {
+          "effective_errors": {
+            "covariance": [
+              [
+                18.939303282975498,
+                -1.1415208245803692,
+                -0.8206612857067195,
+                -1.753521584460943
+              ],
+              [
+                -1.1415208245803696,
+                0.07224053773991075,
+                0.05386521619134065,
+                0.12401267548988794
+              ],
+              [
+                -0.8206612857067195,
+                0.053865216191340645,
+                0.0456686826475326,
+                0.10961486538727484
+              ],
+              [
+                -1.753521584460943,
+                0.12401267548988792,
+                0.10961486538727482,
+                0.2843158811823828
+              ]
+            ],
+            "covariance_scale": 86.69956546668458,
+            "degrees_of_freedom": 90,
+            "excluded_combined_row_numbers": [
+              91
+            ],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.008951599428258,
+                3.034723563076298
+              ],
+              "rmse_gpa": 0.9583352987296673,
+              "row_count": 94
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.007201836023170378,
+                    0.013379259484231888
+                  ],
+                  [
+                    0.013379259484231888,
+                    0.025663181265246946
+                  ]
+                ],
+                "covariance_scale": 15.580668892635755,
+                "degrees_of_freedom": 92,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.988804339489559,
+                  0.3420399805723954
+                ],
+                "jacobian_condition_number": 13.552197516837081,
+                "reduced_objective": 15.580668892635755,
+                "standard_errors": [
+                  0.08486363192304686,
+                  0.1601973197817209
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 341.96631319850746,
+            "parameters": [
+              22.81,
+              139.86540738833457,
+              5.713132345439147,
+              1.77945329823017,
+              0.4390996382876291
+            ],
+            "reduced_objective": 86.69956546668458,
+            "scaled_parameter_change": 3.226890976648633e-09,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.008951599428258,
+                3.034723563076298
+              ],
+              "rmse_gpa": 0.9745942399327738,
+              "row_count": 95
+            },
+            "solver_success": true,
+            "standard_errors": [
+              4.351930983250481,
+              0.26877599918874967,
+              0.21370232251319263,
+              0.5332127916529974
+            ],
+            "weight_cycles": 10,
+            "weighted_row_count": 94
+          },
+          "unweighted": {
+            "covariance": [
+              [
+                19.78229867889788,
+                -1.1477015287363448,
+                -0.8206415847174705,
+                -1.6848425434516576
+              ],
+              [
+                -1.1477015287363448,
+                0.06871690831116889,
+                0.05032204521767507,
+                0.10897267482951721
+              ],
+              [
+                -0.8206415847174707,
+                0.05032204521767508,
+                0.043305628631662214,
+                0.09673574454405391
+              ],
+              [
+                -1.6848425434516576,
+                0.10897267482951721,
+                0.09673574454405391,
+                0.23054038289943252
+              ]
+            ],
+            "covariance_scale": 0.9832455414071107,
+            "degrees_of_freedom": 91,
+            "excluded_combined_row_numbers": [],
+            "fit_row_metrics": {
+              "residual_range_gpa": [
+                -2.097516796680665,
+                3.0908903904681324
+              ],
+              "rmse_gpa": 0.9704873668097579,
+              "row_count": 95
+            },
+            "free_parameter_names": [
+              "K0",
+              "K0_prime",
+              "gamma0",
+              "q"
+            ],
+            "initial_thermal_stage": [
+              {
+                "covariance": [
+                  [
+                    0.006988918626103548,
+                    0.013189708513081728
+                  ],
+                  [
+                    0.013189708513081728,
+                    0.025625845184458273
+                  ]
+                ],
+                "covariance_scale": 1.129307383503458,
+                "degrees_of_freedom": 93,
+                "fixed_cold_parameters": [
+                  22.81,
+                  129.0,
+                  6.2
+                ],
+                "free_parameter_names": [
+                  "gamma0",
+                  "q"
+                ],
+                "gamma0_q": [
+                  1.9591546591002251,
+                  0.31220660562536406
+                ],
+                "jacobian_condition_number": 14.332051373407614,
+                "reduced_objective": 1.129307383503458,
+                "standard_errors": [
+                  0.08359975254809997,
+                  0.16008074582678042
+                ],
+                "weighting": "Initial-stage weights frozen at starting coefficients"
+              }
+            ],
+            "jacobian_condition_number": 383.543207032247,
+            "parameters": [
+              22.81,
+              139.45942426115576,
+              5.703203790756978,
+              1.7139264209849465,
+              0.21443379756711833
+            ],
+            "reduced_objective": 0.9832455414071107,
+            "scaled_parameter_change": 0.2452282381152786,
+            "selection_metrics": {
+              "residual_range_gpa": [
+                -2.097516796680665,
+                3.0908903904681324
+              ],
+              "rmse_gpa": 0.9704873668097579,
+              "row_count": 95
+            },
+            "solver_success": true,
+            "standard_errors": [
+              4.447729609463448,
+              0.2621391010726345,
+              0.20810004476612257,
+              0.480146209918846
+            ],
+            "weight_cycles": 1,
+            "weighted_row_count": 95
+          }
+        }
+      },
+      "mgo_pressure_shift": {
+        "residual_range_gpa": [
+          -5.500436271688201,
+          7.926553834854317
+        ],
+        "rmse_gpa": 2.523444780534935,
+        "row_count": 116
+      },
+      "published_fe": {
+        "all": {
+          "residual_range_gpa": [
+            -10.705207532922529,
+            1.0371154440517358
+          ],
+          "rmse_gpa": 5.452236645833564,
+          "row_count": 131
+        },
+        "cold_bm3": {
+          "residual_range_gpa": [
+            -2.839742604146579,
+            0.5179430108621474
+          ],
+          "rmse_gpa": 0.8569694796140926,
+          "row_count": 36
+        },
+        "heated": {
+          "residual_range_gpa": [
+            -10.705207532922529,
+            -2.777683644342389
+          ],
+          "rmse_gpa": 6.389790292668697,
+          "row_count": 95
+        }
+      }
+    }
+  },
+  "status": "conditional_reconstruction_not_original_fit_recovered"
+}

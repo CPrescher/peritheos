@@ -7,6 +7,17 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Add a separate, nondefault Peritheos BM3–MGD refit of all 131 Miozzi (2020)
+  hcp-Fe observations using Tange (2009) Fit3-Vinet MgO pressures. Bundle derived
+  inputs alongside unchanged originals, conditional errors and full covariance
+  for all five fitted coefficients, and calibration/weighting sensitivity checks.
+
+- Add Miozzi et al. (2020) hcp-Fe BM3, Vinet, and BM3–MGD source
+  parameterizations with all 131 supplementary observations, calibrant volumes,
+  reported errors, source hashes, and independent conditional refit diagnostics.
+  Preserve their not-reproduced status and require explicit selection because
+  the supplied observations do not reproduce the reported coefficients.
+
 - Add explicit dataset pressure-column calibration provenance and per-EOS
   pressure reductions, with Python/Rust validation and the metadata-driven
   `resolve_dataset_pressure` API. Migrate six Dewaele (2004) metal tables and

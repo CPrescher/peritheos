@@ -45007,14 +45007,343 @@
       "solver_success": true,
       "source_notes": "The fit constrained V0 to the independently measured decompression value 23.05(3) A^3/atom; volume and uncertainty are tripled for the conventional Z=3 cell.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "iron_miozzi_2020_he_pvt",
+        "iron_miozzi_2020_mgo_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        10.7,
+        117.8322
+      ],
+      "experimental_temperature_range_k": [
+        298,
+        300
+      ],
+      "fit_kind": "conditional_effective_coordinate_errors",
+      "fixed_parameters": [],
+      "label": "Miozzi et al. (2020), 300 K BM3 (not reproduced)",
+      "material_identifier": "iron",
+      "model": "BM3",
+      "observations": 35,
+      "parameters": [
+        {
+          "difference": -0.3284512178684835,
+          "parameter": "V0",
+          "published": 22.8,
+          "published_error": 0.02,
+          "refit": 22.471548782131517,
+          "refit_error": 0.15771533565922902,
+          "relative_difference": 0.014405755169670329,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        },
+        {
+          "difference": 34.35711117068155,
+          "parameter": "K0",
+          "published": 129.0,
+          "published_error": 6,
+          "refit": 163.35711117068155,
+          "refit_error": 14.434520085191155,
+          "relative_difference": 0.26633419512156237,
+          "similar": false,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        },
+        {
+          "difference": -0.7013098602261891,
+          "parameter": "K0_prime",
+          "published": 6.2,
+          "published_error": 0.2,
+          "refit": 5.498690139773811,
+          "refit_error": 0.3526624514676353,
+          "relative_difference": 0.1131144935848692,
+          "similar": false,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        }
+      ],
+      "primary_data_finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.3390/min10020100",
+      "qualification": "Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. See literature-reproductions/miozzi-2020-iron.md.",
+      "record_identifier": "iron_miozzi_2020_bm3",
+      "rmse_pressure_gpa": 0.9618378806841033,
+      "selection": "All 131 rows for thermal; 35 of 36 room-temperature rows for the effective-error isothermal diagnostic (one lacks positive effective error).",
+      "solver_success": true,
+      "source_notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors\u2019 experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "dataset_identifiers": [
+        "iron_miozzi_2020_he_pvt",
+        "iron_miozzi_2020_mgo_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        10.7,
+        117.8322
+      ],
+      "experimental_temperature_range_k": [
+        298,
+        300
+      ],
+      "fit_kind": "conditional_effective_coordinate_errors",
+      "fixed_parameters": [],
+      "label": "Miozzi et al. (2020), 300 K Vinet (not reproduced)",
+      "material_identifier": "iron",
+      "model": "Vinet",
+      "observations": 35,
+      "parameters": [
+        {
+          "difference": -0.29152760664928934,
+          "parameter": "V0",
+          "published": 22.81,
+          "published_error": null,
+          "refit": 22.51847239335071,
+          "refit_error": 0.16092869275010824,
+          "relative_difference": 0.012780692970157359,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": null
+        },
+        {
+          "difference": 31.193107771822582,
+          "parameter": "K0",
+          "published": 125.0,
+          "published_error": 5,
+          "refit": 156.19310777182258,
+          "refit_error": 13.869114709590853,
+          "relative_difference": 0.24954486217458066,
+          "similar": false,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        },
+        {
+          "difference": -0.5570840855034751,
+          "parameter": "K0_prime",
+          "published": 6.5,
+          "published_error": 0.2,
+          "refit": 5.942915914496525,
+          "refit_error": 0.32514944746177216,
+          "relative_difference": 0.08570524392361155,
+          "similar": false,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        }
+      ],
+      "primary_data_finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.3390/min10020100",
+      "qualification": "Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. See literature-reproductions/miozzi-2020-iron.md.",
+      "record_identifier": "iron_miozzi_2020_vinet",
+      "rmse_pressure_gpa": 0.9620941445622235,
+      "selection": "All 131 rows for thermal; 35 of 36 room-temperature rows for the effective-error isothermal diagnostic (one lacks positive effective error).",
+      "solver_success": true,
+      "source_notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors\u2019 experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "dataset_identifiers": [
+        "iron_miozzi_2020_he_pvt",
+        "iron_miozzi_2020_mgo_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        10.7,
+        127.9736
+      ],
+      "experimental_temperature_range_k": [
+        298,
+        3399
+      ],
+      "fit_kind": "conditional_effective_coordinate_errors",
+      "fixed_parameters": [
+        "V0",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "label": "Miozzi et al. (2020), preferred BM3\u2013MGD thermal EOS (not reproduced)",
+      "material_identifier": "iron",
+      "model": "BM3",
+      "observations": 131,
+      "parameters": [
+        {
+          "difference": 3.9967322211552414,
+          "parameter": "K0",
+          "published": 129.0,
+          "published_error": 1,
+          "refit": 132.99673222115524,
+          "refit_error": 1.063560273861696,
+          "relative_difference": 0.03098242031903288,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        },
+        {
+          "difference": 0.09509384901152984,
+          "parameter": "K0_prime",
+          "published": 6.24,
+          "published_error": 0.04,
+          "refit": 6.33509384901153,
+          "refit_error": 0.07564689463096774,
+          "relative_difference": 0.015239398880052858,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        },
+        {
+          "difference": 1.1075460810064406,
+          "parameter": "gamma0",
+          "published": 1.11,
+          "published_error": 0.01,
+          "refit": 2.2175460810064407,
+          "refit_error": 0.3842609433018577,
+          "relative_difference": 0.9977892621679644,
+          "similar": false,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        },
+        {
+          "difference": 0.8170467059939923,
+          "parameter": "q",
+          "published": 0.3,
+          "published_error": 0.3,
+          "refit": 1.1170467059939924,
+          "refit_error": 0.6654455206761678,
+          "relative_difference": 2.7234890199799744,
+          "similar": false,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        }
+      ],
+      "primary_data_finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.3390/min10020100",
+      "qualification": "Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. See literature-reproductions/miozzi-2020-iron.md.",
+      "record_identifier": "iron_miozzi_2020_bm3_mgd",
+      "rmse_pressure_gpa": 1.4436661456502247,
+      "selection": "All 131 rows for thermal; 35 of 36 room-temperature rows for the effective-error isothermal diagnostic (one lacks positive effective error).",
+      "solver_success": true,
+      "source_notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors\u2019 experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": false,
+      "dataset_identifiers": [
+        "iron_miozzi_2020_tange_2009_vinet_pvt"
+      ],
+      "degrees_of_freedom": 126,
+      "experimental_pressure_range_gpa": [
+        10.7,
+        129.3071497589813
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        3399.0
+      ],
+      "fit_kind": "stored_refit_reproduction",
+      "fixed_parameters": [
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "label": "Peritheos refit of Miozzi (2020) hcp-Fe \u2014 Tange (2009) MgO pressures, equal weights",
+      "material_identifier": "iron",
+      "model": "BM3",
+      "objective": "equal_weight_pressure_residuals",
+      "observations": 131,
+      "original_publication_reproduction_status": "not_reproduced",
+      "parameters": [
+        {
+          "difference": 0.0,
+          "parameter": "V0",
+          "published": 22.57831922472848,
+          "published_error": 0.09211600958124483,
+          "refit": 22.57831922472848,
+          "refit_error": 0.09211600958124483,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": true,
+          "within_reported_error": true
+        },
+        {
+          "difference": 0.0,
+          "parameter": "K0",
+          "published": 150.48486842978744,
+          "published_error": 8.628764287974398,
+          "refit": 150.48486842978744,
+          "refit_error": 8.628764287974398,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": true,
+          "within_reported_error": true
+        },
+        {
+          "difference": 0.0,
+          "parameter": "K0_prime",
+          "published": 5.801500847494674,
+          "published_error": 0.26640528345081493,
+          "refit": 5.801500847494674,
+          "refit_error": 0.26640528345081493,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": true,
+          "within_reported_error": true
+        },
+        {
+          "difference": 0.0,
+          "parameter": "gamma0",
+          "published": 1.9893449948870714,
+          "published_error": 0.12330521239761179,
+          "refit": 1.9893449948870714,
+          "refit_error": 0.12330521239761179,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": true,
+          "within_reported_error": true
+        },
+        {
+          "difference": 0.0,
+          "parameter": "q",
+          "published": 0.6430853066402854,
+          "published_error": 0.23798323515133402,
+          "refit": 0.6430853066402854,
+          "refit_error": 0.23798323515133402,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": true,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "registered_peritheos_refit_reproduced",
+      "primary_data_finding": "All source rows preserved with per-medium/source-row identity, original P/errors, paired calibrant volumes, conditional recalculated P/errors and available P-T covariance. Equal weights use every central coordinate.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.3390/min10020100",
+      "qualification": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.",
+      "record_identifier": "iron_miozzi_2020_tange_2009_bm3_mgd_refit",
+      "reproduction_status": "independent_refit_reproduced",
+      "rmse_gpa": 0.9844675646202123,
+      "selection": "All 131 source observations; 116 Tange Fit3-Vinet MgO pressures plus 15 unchanged He pressures",
+      "solver_success": true,
+      "source_notes": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.",
+      "status": "parity"
     }
   ],
   "summary": {
     "not_refittable": 175,
-    "parity": 221,
-    "parity_not_achieved": 70,
+    "parity": 222,
+    "parity_not_achieved": 73,
     "similar": 150,
     "source_reconstruction": 13,
-    "total": 629
+    "total": 633
   }
 }

@@ -5396,6 +5396,839 @@
     "q": -0.038,
     "shock_velocity_rmse_km_s": 0.039
    }
+  },
+  {
+   "identifier": "iron_miozzi_2020_bm3",
+   "label": "Miozzi et al. (2020), 300 K BM3 (not reproduced)",
+   "record_kind": "published",
+   "reference": {
+    "authors": [
+     "Miozzi",
+     "Matas",
+     "Guignot",
+     "Badro",
+     "Siebert",
+     "Fiquet"
+    ],
+    "year": 2020,
+    "title": "A New Reference for the Thermal Equation of State of Iron",
+    "source": "Minerals",
+    "volume": "10",
+    "locator": "100",
+    "doi": "10.3390/min10020100"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.8,
+     "K0": 129,
+     "K0_prime": 6.2
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.02,
+    "K0": 6,
+    "K0_prime": 0.2
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "reference_pressure_gpa": 0,
+   "determination_method": "experimental",
+   "default": false,
+   "catalog_access": "explicit_selection",
+   "fit_datasets": [
+    "iron_miozzi_2020_he_pvt",
+    "iron_miozzi_2020_mgo_pvt"
+   ],
+   "notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+   "parameter_provenance": {
+    "determination_method": "Experimental DAC diffraction P-V-T fits; theta0=420 K is adopted and fixed. Measured low-pressure helium observations constrain the extrapolated hcp reference volume.",
+    "equation": "BM3 Equation (3), or current-study Vinet alternative in Table 1; thermal Equations (4), (6), (8) use integrated Gruneisen MGD. Equation (5) has gamma instead of V in its denominator and a comma instead of subtraction; Equation (7) omits the cube on T/theta and prints theta0/T as integration limit although theta is volume-dependent. Standard vibrational MGD mapping is explicit and remains unvalidated against the authors’ fit.",
+    "V0": "Table 1: BM3 22.80(2) A^3, Vinet 22.81 A^3 (no error). Section 3.3: thermal 6.87(2) cm^3/mol of Fe, parenthetically 22.81 A^3. Preserve the printed cell central value; convert the molar uncertainty to the Z=2 cell. The central molar number converts to 22.815807 A^3, and Section 3.3 says V0 was fixed at the room-temperature value.",
+    "K0": "Table 1 for isothermal records; Section 3.3 for final thermal 129(1) GPa.",
+    "K0_prime": "Table 1 for isothermal records; Section 3.3 for final thermal 6.24(4).",
+    "volume_basis": "Equation (3) and dataset headings specify the conventional hcp unit cell with two Fe atoms. Thermal energy is per mole of Fe atoms (n=1); molar cm^3/mol = V_cell*N_A/(2e24).",
+    "uncertainties": "Parenthesized reported errors, unspecified confidence; missing Vinet V0 error is null. Fixed thermal V0 retains independent reference-volume error. No author covariance."
+   },
+   "experimental_pressure_range_gpa": [
+    10.7,
+    117.8322
+   ],
+   "experimental_temperature_range_k": [
+    298,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "range_provenance": {
+    "notes": "Actual marginal ranges of the supplied hcp rows; no rectangular phase-stability guarantee. Article prose rounds thermal coverage to 45–135 GPa and 1300–3300 K, abstract to 140 GPa/3500 K. Extrapolated 300+ GPa core curves are not measured coverage."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-10-02",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Speziale",
+        "Zha",
+        "Duffy",
+        "Hemley",
+        "Mao"
+       ],
+       "year": 2001,
+       "doi": "10.1029/2000JB900318",
+       "source": "J. Geophys. Res."
+      },
+      "source_location": "Section 2.5 and Supplementary Figure S1",
+      "scope": "MgO-series pressures; source states the full Speziale thermal scale, not the bundled isothermal-only fit."
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1986",
+      "source_location": "Section 2.5",
+      "scope": "Low-pressure He observations; hydrostatic exponent 7.665."
+     },
+     {
+      "kind": "other_optical_gauge",
+      "reference": {
+       "authors": [
+        "Datchi",
+        "LeToullec",
+        "Loubeyre"
+       ],
+       "year": 1997,
+       "doi": "10.1063/1.365009",
+       "source": "J. Appl. Phys."
+      },
+      "source_location": "Section 2.5",
+      "scope": "Companion SrB4O7:Sm2+ gauge for He series; individual readings/combination are not supplied."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Paired MgO volumes/errors are bundled, but the full cited Speziale thermal pressure model is not an executable catalog record. The existing Speziale record is isothermal only. Ruby/Sr gauge observations and their combination are missing. Printed pressures remain unchanged; their exact coefficient implementation is not established."
+    }
+   },
+   "scientific_validation": {
+    "status": "not_reproduced",
+    "reproduction_status": "not_reproduced",
+    "audit_date": "2026-10-02",
+    "note": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+    "usage_recommendation": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+    "verified_fields": [
+     "phase",
+     "source_parameters",
+     "published_uncertainties",
+     "source_observations"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.3390/min10020100",
+     "doi": "10.3390/min10020100",
+     "locations": [
+      "Section 2.5, pressure gauges",
+      "Section 2.6, Equations (3)–(8)",
+      "Table 1, page 7",
+      "Section 3.3, pages 8–9",
+      "Official supplementary datasets"
+     ],
+     "finding": "Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "iron_miozzi_2020_he_pvt",
+      "iron_miozzi_2020_mgo_pvt"
+     ],
+     "source_locations": [
+      "Official supplementary Dataset_hcp Fe_He.pdf",
+      "Official supplementary dataset_hcpFe and MgO.pdf"
+     ],
+     "finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_miozzi_2020_iron.py",
+     "report": "docs/data/miozzi-2020-iron-reproduction.json"
+    }
+   },
+   "reproduction": {
+    "status": "not_reproduced",
+    "summary_status": "not_reproduced",
+    "documentation": "docs/literature-reproductions/miozzi-2020-iron.md",
+    "reason": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md."
+   }
+  },
+  {
+   "identifier": "iron_miozzi_2020_vinet",
+   "label": "Miozzi et al. (2020), 300 K Vinet (not reproduced)",
+   "record_kind": "published",
+   "reference": {
+    "authors": [
+     "Miozzi",
+     "Matas",
+     "Guignot",
+     "Badro",
+     "Siebert",
+     "Fiquet"
+    ],
+    "year": 2020,
+    "title": "A New Reference for the Thermal Equation of State of Iron",
+    "source": "Minerals",
+    "volume": "10",
+    "locator": "100",
+    "doi": "10.3390/min10020100"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.81,
+     "K0": 125,
+     "K0_prime": 6.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 5,
+    "K0_prime": 0.2
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "reference_pressure_gpa": 0,
+   "determination_method": "experimental",
+   "default": false,
+   "catalog_access": "explicit_selection",
+   "fit_datasets": [
+    "iron_miozzi_2020_he_pvt",
+    "iron_miozzi_2020_mgo_pvt"
+   ],
+   "notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+   "parameter_provenance": {
+    "determination_method": "Experimental DAC diffraction P-V-T fits; theta0=420 K is adopted and fixed. Measured low-pressure helium observations constrain the extrapolated hcp reference volume.",
+    "equation": "BM3 Equation (3), or current-study Vinet alternative in Table 1; thermal Equations (4), (6), (8) use integrated Gruneisen MGD. Equation (5) has gamma instead of V in its denominator and a comma instead of subtraction; Equation (7) omits the cube on T/theta and prints theta0/T as integration limit although theta is volume-dependent. Standard vibrational MGD mapping is explicit and remains unvalidated against the authors’ fit.",
+    "V0": "Table 1: BM3 22.80(2) A^3, Vinet 22.81 A^3 (no error). Section 3.3: thermal 6.87(2) cm^3/mol of Fe, parenthetically 22.81 A^3. Preserve the printed cell central value; convert the molar uncertainty to the Z=2 cell. The central molar number converts to 22.815807 A^3, and Section 3.3 says V0 was fixed at the room-temperature value.",
+    "K0": "Table 1 for isothermal records; Section 3.3 for final thermal 129(1) GPa.",
+    "K0_prime": "Table 1 for isothermal records; Section 3.3 for final thermal 6.24(4).",
+    "volume_basis": "Equation (3) and dataset headings specify the conventional hcp unit cell with two Fe atoms. Thermal energy is per mole of Fe atoms (n=1); molar cm^3/mol = V_cell*N_A/(2e24).",
+    "uncertainties": "Parenthesized reported errors, unspecified confidence; missing Vinet V0 error is null. Fixed thermal V0 retains independent reference-volume error. No author covariance."
+   },
+   "experimental_pressure_range_gpa": [
+    10.7,
+    117.8322
+   ],
+   "experimental_temperature_range_k": [
+    298,
+    300
+   ],
+   "pressure_range_status": "reported_exactly",
+   "range_provenance": {
+    "notes": "Actual marginal ranges of the supplied hcp rows; no rectangular phase-stability guarantee. Article prose rounds thermal coverage to 45–135 GPa and 1300–3300 K, abstract to 140 GPa/3500 K. Extrapolated 300+ GPa core curves are not measured coverage."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-10-02",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Speziale",
+        "Zha",
+        "Duffy",
+        "Hemley",
+        "Mao"
+       ],
+       "year": 2001,
+       "doi": "10.1029/2000JB900318",
+       "source": "J. Geophys. Res."
+      },
+      "source_location": "Section 2.5 and Supplementary Figure S1",
+      "scope": "MgO-series pressures; source states the full Speziale thermal scale, not the bundled isothermal-only fit."
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1986",
+      "source_location": "Section 2.5",
+      "scope": "Low-pressure He observations; hydrostatic exponent 7.665."
+     },
+     {
+      "kind": "other_optical_gauge",
+      "reference": {
+       "authors": [
+        "Datchi",
+        "LeToullec",
+        "Loubeyre"
+       ],
+       "year": 1997,
+       "doi": "10.1063/1.365009",
+       "source": "J. Appl. Phys."
+      },
+      "source_location": "Section 2.5",
+      "scope": "Companion SrB4O7:Sm2+ gauge for He series; individual readings/combination are not supplied."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Paired MgO volumes/errors are bundled, but the full cited Speziale thermal pressure model is not an executable catalog record. The existing Speziale record is isothermal only. Ruby/Sr gauge observations and their combination are missing. Printed pressures remain unchanged; their exact coefficient implementation is not established."
+    }
+   },
+   "scientific_validation": {
+    "status": "not_reproduced",
+    "reproduction_status": "not_reproduced",
+    "audit_date": "2026-10-02",
+    "note": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+    "usage_recommendation": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+    "verified_fields": [
+     "phase",
+     "source_parameters",
+     "published_uncertainties",
+     "source_observations"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.3390/min10020100",
+     "doi": "10.3390/min10020100",
+     "locations": [
+      "Section 2.5, pressure gauges",
+      "Section 2.6, Equations (3)–(8)",
+      "Table 1, page 7",
+      "Section 3.3, pages 8–9",
+      "Official supplementary datasets"
+     ],
+     "finding": "Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "iron_miozzi_2020_he_pvt",
+      "iron_miozzi_2020_mgo_pvt"
+     ],
+     "source_locations": [
+      "Official supplementary Dataset_hcp Fe_He.pdf",
+      "Official supplementary dataset_hcpFe and MgO.pdf"
+     ],
+     "finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_miozzi_2020_iron.py",
+     "report": "docs/data/miozzi-2020-iron-reproduction.json"
+    }
+   },
+   "reproduction": {
+    "status": "not_reproduced",
+    "summary_status": "not_reproduced",
+    "documentation": "docs/literature-reproductions/miozzi-2020-iron.md",
+    "reason": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md."
+   }
+  },
+  {
+   "identifier": "iron_miozzi_2020_bm3_mgd",
+   "label": "Miozzi et al. (2020), preferred BM3–MGD thermal EOS (not reproduced)",
+   "record_kind": "published",
+   "reference": {
+    "authors": [
+     "Miozzi",
+     "Matas",
+     "Guignot",
+     "Badro",
+     "Siebert",
+     "Fiquet"
+    ],
+    "year": 2020,
+    "title": "A New Reference for the Thermal Equation of State of Iron",
+    "source": "Minerals",
+    "volume": "10",
+    "locator": "100",
+    "doi": "10.3390/min10020100"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.81,
+     "K0": 129,
+     "K0_prime": 6.24
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.06642156268695387,
+    "K0": 1,
+    "K0_prime": 0.04
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "reference_pressure_gpa": 0,
+   "determination_method": "experimental",
+   "default": false,
+   "catalog_access": "explicit_selection",
+   "fit_datasets": [
+    "iron_miozzi_2020_he_pvt",
+    "iron_miozzi_2020_mgo_pvt"
+   ],
+   "notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+   "parameter_provenance": {
+    "determination_method": "Experimental DAC diffraction P-V-T fits; theta0=420 K is adopted and fixed. Measured low-pressure helium observations constrain the extrapolated hcp reference volume.",
+    "equation": "BM3 Equation (3), or current-study Vinet alternative in Table 1; thermal Equations (4), (6), (8) use integrated Gruneisen MGD. Equation (5) has gamma instead of V in its denominator and a comma instead of subtraction; Equation (7) omits the cube on T/theta and prints theta0/T as integration limit although theta is volume-dependent. Standard vibrational MGD mapping is explicit and remains unvalidated against the authors’ fit.",
+    "V0": "Table 1: BM3 22.80(2) A^3, Vinet 22.81 A^3 (no error). Section 3.3: thermal 6.87(2) cm^3/mol of Fe, parenthetically 22.81 A^3. Preserve the printed cell central value; convert the molar uncertainty to the Z=2 cell. The central molar number converts to 22.815807 A^3, and Section 3.3 says V0 was fixed at the room-temperature value. Figure 4 inset instead repeats V0=22.80(2) A^3; the represented thermal central value follows the Section 3.3 prose explicitly.",
+    "K0": "Table 1 for isothermal records; Section 3.3 for final thermal 129(1) GPa.",
+    "K0_prime": "Table 1 for isothermal records; Section 3.3 for final thermal 6.24(4).",
+    "volume_basis": "Equation (3) and dataset headings specify the conventional hcp unit cell with two Fe atoms. Thermal energy is per mole of Fe atoms (n=1); molar cm^3/mol = V_cell*N_A/(2e24).",
+    "uncertainties": "Parenthesized reported errors, unspecified confidence; missing Vinet V0 error is null. Fixed thermal V0 retains independent reference-volume error. No author covariance."
+   },
+   "experimental_pressure_range_gpa": [
+    10.7,
+    127.9736
+   ],
+   "experimental_temperature_range_k": [
+    298,
+    3399
+   ],
+   "pressure_range_status": "reported_exactly",
+   "range_provenance": {
+    "notes": "Actual marginal ranges of the supplied hcp rows; no rectangular phase-stability guarantee. Article prose rounds thermal coverage to 45–135 GPa and 1300–3300 K, abstract to 140 GPa/3500 K. Extrapolated 300+ GPa core curves are not measured coverage."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-10-02",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Speziale",
+        "Zha",
+        "Duffy",
+        "Hemley",
+        "Mao"
+       ],
+       "year": 2001,
+       "doi": "10.1029/2000JB900318",
+       "source": "J. Geophys. Res."
+      },
+      "source_location": "Section 2.5 and Supplementary Figure S1",
+      "scope": "MgO-series pressures; source states the full Speziale thermal scale, not the bundled isothermal-only fit."
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1986",
+      "source_location": "Section 2.5",
+      "scope": "Low-pressure He observations; hydrostatic exponent 7.665."
+     },
+     {
+      "kind": "other_optical_gauge",
+      "reference": {
+       "authors": [
+        "Datchi",
+        "LeToullec",
+        "Loubeyre"
+       ],
+       "year": 1997,
+       "doi": "10.1063/1.365009",
+       "source": "J. Appl. Phys."
+      },
+      "source_location": "Section 2.5",
+      "scope": "Companion SrB4O7:Sm2+ gauge for He series; individual readings/combination are not supplied."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Paired MgO volumes/errors are bundled, but the full cited Speziale thermal pressure model is not an executable catalog record. The existing Speziale record is isothermal only. Ruby/Sr gauge observations and their combination are missing. Printed pressures remain unchanged; their exact coefficient implementation is not established."
+    }
+   },
+   "scientific_validation": {
+    "status": "not_reproduced",
+    "reproduction_status": "not_reproduced",
+    "audit_date": "2026-10-02",
+    "note": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+    "usage_recommendation": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+    "verified_fields": [
+     "phase",
+     "source_parameters",
+     "published_uncertainties",
+     "source_observations"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.3390/min10020100",
+     "doi": "10.3390/min10020100",
+     "locations": [
+      "Section 2.5, pressure gauges",
+      "Section 2.6, Equations (3)–(8)",
+      "Table 1, page 7",
+      "Section 3.3, pages 8–9",
+      "Official supplementary datasets"
+     ],
+     "finding": "Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "iron_miozzi_2020_he_pvt",
+      "iron_miozzi_2020_mgo_pvt"
+     ],
+     "source_locations": [
+      "Official supplementary Dataset_hcp Fe_He.pdf",
+      "Official supplementary dataset_hcpFe and MgO.pdf"
+     ],
+     "finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_miozzi_2020_iron.py",
+     "report": "docs/data/miozzi-2020-iron-reproduction.json"
+    }
+   },
+   "reproduction": {
+    "status": "not_reproduced",
+    "summary_status": "not_reproduced",
+    "documentation": "docs/literature-reproductions/miozzi-2020-iron.md",
+    "reason": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md."
+   },
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "parameters": {
+     "Tr": 300,
+     "theta0": 420,
+     "gamma0": 1.11,
+     "q": 0.3,
+     "n": 1
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.01,
+     "q": 0.3,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ],
+    "debye_temperature_law": "integrated_gruneisen"
+   }
+  },
+  {
+   "identifier": "iron_miozzi_2020_tange_2009_bm3_mgd_refit",
+   "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights",
+   "record_kind": "refit",
+   "determination_method": "experimental",
+   "default": false,
+   "reference": {
+    "authors": [
+     "Miozzi",
+     "Matas",
+     "Guignot",
+     "Badro",
+     "Siebert",
+     "Fiquet"
+    ],
+    "year": 2020,
+    "title": "A New Reference for the Thermal Equation of State of Iron",
+    "source": "Minerals",
+    "volume": "10",
+    "locator": "100",
+    "doi": "10.3390/min10020100"
+   },
+   "supporting_references": [
+    {
+     "authors": [
+      "Tange",
+      "Nishihara",
+      "Tsuchiya"
+     ],
+     "year": 2009,
+     "title": "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments",
+     "source": "J. Geophys. Res. Solid Earth",
+     "volume": "114",
+     "locator": "B03208",
+     "doi": "10.1029/2008JB005813"
+    }
+   ],
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.57831922472848,
+     "K0": 150.48486842978744,
+     "K0_prime": 5.801500847494674
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.09211600958124483,
+    "K0": 8.628764287974398,
+    "K0_prime": 0.26640528345081493
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": {
+    "parameter_order": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "rt_eos.K0_prime",
+     "gamma0",
+     "q"
+    ],
+    "matrix": [
+     [
+      0.00848535922117199,
+      -0.7703091434054365,
+      0.022018412502350038,
+      0.0028820814612464294,
+      0.003011111027288461
+     ],
+     [
+      -0.7703091434054365,
+      74.45557313742233,
+      -2.246104995495949,
+      -0.43960616687851833,
+      -0.581814533417011
+     ],
+     [
+      0.022018412502350034,
+      -2.2461049954959487,
+      0.07097177505050906,
+      0.017671516515059525,
+      0.026390431194532642
+     ],
+     [
+      0.0028820814612464285,
+      -0.43960616687851833,
+      0.01767151651505952,
+      0.015204175404420156,
+      0.0283425080106209
+     ],
+     [
+      0.0030111110272884618,
+      -0.5818145334170111,
+      0.026390431194532642,
+      0.0283425080106209,
+      0.05663602021309514
+     ]
+    ]
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "reference_pressure_gpa": 0,
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 300,
+     "theta0": 420,
+     "gamma0": 1.9893449948870714,
+     "q": 0.6430853066402854,
+     "n": 1
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.12330521239761179,
+     "q": 0.23798323515133402,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    10.7,
+    129.3071497589813
+   ],
+   "experimental_temperature_range_k": [
+    298.0,
+    3399.0
+   ],
+   "pressure_range_status": "reference_parameterization",
+   "range_provenance": {
+    "notes": "Actual extrema after explicit MgO pressure recalculation; not the supplied pressure bounds or a rectangular stability domain."
+   },
+   "fit_datasets": [
+    "iron_miozzi_2020_tange_2009_vinet_pvt"
+   ],
+   "notes": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.",
+   "validity": {
+    "pressure_gpa": [
+     10.7,
+     129.3071497589813
+    ],
+    "temperature_k": [
+     298.0,
+     3399.0
+    ],
+    "notes": [
+     "Marginal observation ranges only; zero-pressure coefficients extrapolated from compressed hcp Fe.",
+     "No independent experimental validation or validated core extrapolation."
+    ]
+   },
+   "parameter_provenance": {
+    "determination_method": "Independent Peritheos regression of Miozzi experimental observations with Tange recalibration; reference DOI attributes data, not authorship of these coefficients.",
+    "V0": "Jointly fitted to all 131 recalibrated/source Fe observations; conditional equal-pressure-weight standard error and full covariance retained.",
+    "K0": "Jointly fitted to all 131 recalibrated/source Fe observations; conditional equal-pressure-weight standard error and full covariance retained.",
+    "K0_prime": "Jointly fitted to all 131 recalibrated/source Fe observations; conditional equal-pressure-weight standard error and full covariance retained.",
+    "gamma0": "Jointly fitted to all 131 recalibrated/source Fe observations; conditional equal-pressure-weight standard error and full covariance retained.",
+    "q": "Jointly fitted to all 131 recalibrated/source Fe observations; conditional equal-pressure-weight standard error and full covariance retained.",
+    "theta0": "420 K fixed, adopted from Miozzi Section 3.3; its uncertainty is not propagated.",
+    "volume_basis": "Conventional hcp cell with two Fe atoms; n=1 per Fe formula, molar volume=V_cell*N_A/(2e24).",
+    "uncertainties": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation."
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos independent SciPy least_squares audit",
+     "version": "1.13.1",
+     "version_date": "2026-10-02"
+    },
+    "dataset": "iron_miozzi_2020_tange_2009_vinet_pvt",
+    "selection": {
+     "predicate": "All 15 He and 116 MgO rows; no exclusions or replacements of original coordinates",
+     "included_rows": 131,
+     "excluded_rows": 0
+    },
+    "objective": "sum_i[(P_Fe(V_Fe_i,T_i)-P_target_i)^2] with equal pressure weights. P_target is Tange Fit3-Vinet MgO pressure for MgO rows and unchanged source pressure for He rows.",
+    "refined_parameters": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "rt_eos.K0_prime",
+     "gamma0",
+     "q"
+    ],
+    "fixed_parameters": [
+     "theta0",
+     "Tr",
+     "n"
+    ],
+    "covariance_scaling": "SVD inverse of J.T J multiplied by RSS/(131-5); conditional local standard errors, not a complete uncertainty budget.",
+    "statistics": {
+     "observations": 131,
+     "degrees_of_freedom": 126,
+     "pressure_rmse_gpa": 0.9844675646202123,
+     "solver_success": true,
+     "jacobian_condition_number": 1622.4017905175144
+    },
+    "reproduction": {
+     "script": "scripts/refit_miozzi_2020_tange.py",
+     "report": "docs/data/miozzi-2020-tange-refit.json",
+     "original_csv_sha256": {
+      "peritheos/data/datasets/iron-miozzi-2020-he-pvt.csv": "15a5a62d61ae0023fb2ebc0dcca31d4c026ba0a8e1580356a61f3d0717b994b0",
+      "peritheos/data/datasets/iron-miozzi-2020-mgo-pvt.csv": "a227bc39ad49f5c9be148e38aa44b7973543de51acda7ef8b04b7f4fbc9b648d"
+     },
+     "calibration_record": "mgo_b1_tange_2009_vinet",
+     "calibration_record_sha256": "bf7aedadb20d013283b30a8ec51a68cb12a8578dd2b3ab05c19df346755ca2a8",
+     "derived_csv_sha256": "5f0e7513c7eb6158748d7c9d9d8c96a0fb25621ba67ff5d22c7da665d5584a5a"
+    }
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-10-02",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference_eos_record": "mgo_b1_tange_2009_vinet",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "title": "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments",
+       "source": "J. Geophys. Res. Solid Earth",
+       "volume": "114",
+       "locator": "B03208",
+       "doi": "10.1029/2008JB005813"
+      },
+      "source_location": "Tange Table 4 Fit3-Vinet; paired MgO V,T in Miozzi supplementary table",
+      "scope": "All 116 MgO-series pressures explicitly recalculated by Peritheos; not the calibration selected in Miozzi's paper."
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1986",
+      "source_location": "Section 2.5",
+      "scope": "Low-pressure He observations; hydrostatic exponent 7.665."
+     },
+     {
+      "kind": "other_optical_gauge",
+      "reference": {
+       "authors": [
+        "Datchi",
+        "LeToullec",
+        "Loubeyre"
+       ],
+       "year": 1997,
+       "doi": "10.1063/1.365009",
+       "source": "J. Appl. Phys."
+      },
+      "source_location": "Section 2.5",
+      "scope": "Companion SrB4O7:Sm2+ gauge for He series; individual readings/combination are not supplied."
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "MgO pressures explicitly recalculated using the exact bundled Tange model; derived rows and code bundled. He source pressures retained; their raw optical readings and combination remain unavailable."
+    },
+    "notes": "Analyst-selected Tange calibration, not inferred authors' settings. He provenance remains partial. No source pressure column overwritten."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-02",
+    "refit_status": "conditional",
+    "reproduction_status": "independent_refit_reproduced",
+    "original_publication_reproduction_status": "not_reproduced",
+    "note": "Validation concerns source-observation traceability, exact Tange calculation and numerical reproduction of this separate Peritheos fit. It does not reproduce Miozzi's published fit or establish independent predictive validity. Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.",
+    "verified_fields": [
+     "phase",
+     "source_observations",
+     "equation",
+     "units",
+     "reference_state",
+     "fixed_parameters",
+     "pressure_recalculation",
+     "refit_parameters",
+     "refit_covariance",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "doi": "10.3390/min10020100",
+     "access_url": "https://doi.org/10.3390/min10020100",
+     "locations": [
+      "Miozzi official supplementary Fe-He and Fe-MgO observations",
+      "Miozzi Section 3.3 adopted theta0",
+      "Tange Table 4 Fit3-Vinet and Eqs. 2-5"
+     ],
+     "finding": "Data and fixed assumptions are primary-source traced; fitted coefficients and pressure calibration choice belong to the independent Peritheos refit."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "iron_miozzi_2020_tange_2009_vinet_pvt"
+     ],
+     "source_locations": [
+      "All 131 Miozzi supplementary rows, retained in derived Tange input table"
+     ],
+     "finding": "All source rows preserved with per-medium/source-row identity, original P/errors, paired calibrant volumes, conditional recalculated P/errors and available P-T covariance. Equal weights use every central coordinate."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/refit_miozzi_2020_tange.py",
+     "report": "docs/data/miozzi-2020-tange-refit.json",
+     "native_calibration_max_difference_gpa": 2.2737367544323206e-13
+    }
+   },
+   "reproduction": {
+    "documentation": "docs/literature-reproductions/miozzi-2020-iron.md",
+    "summary_status": "independent_refit_reproduced",
+    "original_publication_reproduction_status": "not_reproduced",
+    "display_label": "Independent Peritheos refit — Tange MgO scale",
+    "reason": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation."
+   }
   }
  ],
  "format": "peritheos.material",
@@ -6713,6 +7546,488 @@
      "rows": 37
     }
    }
+  },
+  {
+   "identifier": "iron_miozzi_2020_he_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 15 hcp-Fe observations from the official he supplement, in original printed order.",
+   "reference": {
+    "authors": [
+     "Miozzi",
+     "Matas",
+     "Guignot",
+     "Badro",
+     "Siebert",
+     "Fiquet"
+    ],
+    "year": 2020,
+    "title": "A New Reference for the Thermal Equation of State of Iron",
+    "source": "Minerals",
+    "volume": "10",
+    "locator": "100",
+    "doi": "10.3390/min10020100"
+   },
+   "source_location": "Dataset_hcp Fe_He.pdf, page 1",
+   "source_url": "https://www.mdpi.com/2075-163X/10/2/100/s1",
+   "license": "Article: CC BY 4.0. Supplementary PDFs do not state separate licensing terms; attribution to Miozzi et al. (2020) is retained.",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_page",
+     "quantity": "source_page",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_error_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_error_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iron-miozzi-2020-he-pvt.csv",
+    "sha256": "15a5a62d61ae0023fb2ebc0dcca31d4c026ba0a8e1580356a61f3d0717b994b0",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_miozzi_2020_bm3",
+    "iron_miozzi_2020_vinet",
+    "iron_miozzi_2020_bm3_mgd"
+   ],
+   "uncertainty": {
+    "type": "reported coordinate errors; confidence convention unspecified",
+    "notes": "Blank errors remain missing; printed zero errors remain zero. No covariance reported."
+   },
+   "notes": "All 15 rows are at the reported 298 K. The article describes these as room temperature and fits a nominal 300 K reference EOS. Section 2.5 cites the Mao (1986) hydrostatic ruby gauge and Datchi (1997) SrB4O7:Sm2+ gauge; individual gauge readings are unavailable.",
+   "pressure_reductions": [
+    {
+     "eos_record": "iron_miozzi_2020_bm3",
+     "status": "unresolved",
+     "reference": {
+      "authors": [
+       "Miozzi",
+       "Matas",
+       "Guignot",
+       "Badro",
+       "Siebert",
+       "Fiquet"
+      ],
+      "year": 2020,
+      "title": "A New Reference for the Thermal Equation of State of Iron",
+      "source": "Minerals",
+      "volume": "10",
+      "locator": "100",
+      "doi": "10.3390/min10020100"
+     },
+     "source_location": "Section 2.5 and official supplementary pressure column",
+     "notes": "Preserve pressure_gpa as printed. The exact source pressure reduction and calibrant coefficient implementation are not established; no approximate catalog calibration is substituted."
+    },
+    {
+     "eos_record": "iron_miozzi_2020_vinet",
+     "status": "unresolved",
+     "reference": {
+      "authors": [
+       "Miozzi",
+       "Matas",
+       "Guignot",
+       "Badro",
+       "Siebert",
+       "Fiquet"
+      ],
+      "year": 2020,
+      "title": "A New Reference for the Thermal Equation of State of Iron",
+      "source": "Minerals",
+      "volume": "10",
+      "locator": "100",
+      "doi": "10.3390/min10020100"
+     },
+     "source_location": "Section 2.5 and official supplementary pressure column",
+     "notes": "Preserve pressure_gpa as printed. The exact source pressure reduction and calibrant coefficient implementation are not established; no approximate catalog calibration is substituted."
+    },
+    {
+     "eos_record": "iron_miozzi_2020_bm3_mgd",
+     "status": "unresolved",
+     "reference": {
+      "authors": [
+       "Miozzi",
+       "Matas",
+       "Guignot",
+       "Badro",
+       "Siebert",
+       "Fiquet"
+      ],
+      "year": 2020,
+      "title": "A New Reference for the Thermal Equation of State of Iron",
+      "source": "Minerals",
+      "volume": "10",
+      "locator": "100",
+      "doi": "10.3390/min10020100"
+     },
+     "source_location": "Section 2.5 and official supplementary pressure column",
+     "notes": "Preserve pressure_gpa as printed. The exact source pressure reduction and calibrant coefficient implementation are not established; no approximate catalog calibration is substituted."
+    }
+   ]
+  },
+  {
+   "identifier": "iron_miozzi_2020_mgo_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 116 hcp-Fe observations from the official mgo supplement, in original printed order.",
+   "reference": {
+    "authors": [
+     "Miozzi",
+     "Matas",
+     "Guignot",
+     "Badro",
+     "Siebert",
+     "Fiquet"
+    ],
+    "year": 2020,
+    "title": "A New Reference for the Thermal Equation of State of Iron",
+    "source": "Minerals",
+    "volume": "10",
+    "locator": "100",
+    "doi": "10.3390/min10020100"
+   },
+   "source_location": "dataset_hcpFe and MgO.pdf, pages 1–3",
+   "source_url": "https://www.mdpi.com/2075-163X/10/2/100/s1",
+   "license": "Article: CC BY 4.0. Supplementary PDFs do not state separate licensing terms; attribution to Miozzi et al. (2020) is retained.",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_page",
+     "quantity": "source_page",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_error_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_error_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "mgo_volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "mgo_volume_error_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "mgo_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iron-miozzi-2020-mgo-pvt.csv",
+    "sha256": "a227bc39ad49f5c9be148e38aa44b7973543de51acda7ef8b04b7f4fbc9b648d",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_miozzi_2020_bm3",
+    "iron_miozzi_2020_vinet",
+    "iron_miozzi_2020_bm3_mgd"
+   ],
+   "uncertainty": {
+    "type": "reported coordinate errors; confidence convention unspecified",
+    "notes": "Blank errors remain missing; printed zero errors remain zero. No covariance reported."
+   },
+   "notes": "All original quantities retained; no recalibration or temperature correction. Blank separator lines containing only an isolated dP=0 are not observations. The first MgO-series pressure error, row 27 Fe volume error and row 76 temperature error are blank. The MgO volumes belong to the conventional cubic Z=4 cell; iron volumes belong to the conventional hexagonal Z=2 cell.",
+   "pressure_reductions": [
+    {
+     "eos_record": "iron_miozzi_2020_bm3",
+     "status": "unresolved",
+     "reference": {
+      "authors": [
+       "Miozzi",
+       "Matas",
+       "Guignot",
+       "Badro",
+       "Siebert",
+       "Fiquet"
+      ],
+      "year": 2020,
+      "title": "A New Reference for the Thermal Equation of State of Iron",
+      "source": "Minerals",
+      "volume": "10",
+      "locator": "100",
+      "doi": "10.3390/min10020100"
+     },
+     "source_location": "Section 2.5 and official supplementary pressure column",
+     "notes": "Preserve pressure_gpa as printed. The exact source pressure reduction and calibrant coefficient implementation are not established; no approximate catalog calibration is substituted."
+    },
+    {
+     "eos_record": "iron_miozzi_2020_vinet",
+     "status": "unresolved",
+     "reference": {
+      "authors": [
+       "Miozzi",
+       "Matas",
+       "Guignot",
+       "Badro",
+       "Siebert",
+       "Fiquet"
+      ],
+      "year": 2020,
+      "title": "A New Reference for the Thermal Equation of State of Iron",
+      "source": "Minerals",
+      "volume": "10",
+      "locator": "100",
+      "doi": "10.3390/min10020100"
+     },
+     "source_location": "Section 2.5 and official supplementary pressure column",
+     "notes": "Preserve pressure_gpa as printed. The exact source pressure reduction and calibrant coefficient implementation are not established; no approximate catalog calibration is substituted."
+    },
+    {
+     "eos_record": "iron_miozzi_2020_bm3_mgd",
+     "status": "unresolved",
+     "reference": {
+      "authors": [
+       "Miozzi",
+       "Matas",
+       "Guignot",
+       "Badro",
+       "Siebert",
+       "Fiquet"
+      ],
+      "year": 2020,
+      "title": "A New Reference for the Thermal Equation of State of Iron",
+      "source": "Minerals",
+      "volume": "10",
+      "locator": "100",
+      "doi": "10.3390/min10020100"
+     },
+     "source_location": "Section 2.5 and official supplementary pressure column",
+     "notes": "Preserve pressure_gpa as printed. The exact source pressure reduction and calibrant coefficient implementation are not established; no approximate catalog calibration is substituted."
+    }
+   ]
+  },
+  {
+   "identifier": "iron_miozzi_2020_tange_2009_vinet_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "Independent Peritheos Tange-calibrated inputs from all 131 Miozzi Fe observations; originals retained separately.",
+   "reference": {
+    "authors": [
+     "Miozzi",
+     "Matas",
+     "Guignot",
+     "Badro",
+     "Siebert",
+     "Fiquet"
+    ],
+    "year": 2020,
+    "title": "A New Reference for the Thermal Equation of State of Iron",
+    "source": "Minerals",
+    "volume": "10",
+    "locator": "100",
+    "doi": "10.3390/min10020100"
+   },
+   "source_location": "All rows in the official Miozzi supplementary Fe-He and Fe-MgO tables; derived Tange pressures by scripts/refit_miozzi_2020_tange.py",
+   "source_url": "https://www.mdpi.com/2075-163X/10/2/100/s1",
+   "license": "Derived from Miozzi (2020) supplementary observations; attribution retained, article CC BY 4.0. Source PDFs are not redistributed.",
+   "columns": [
+    {
+     "name": "source_medium",
+     "quantity": "source_medium",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_page",
+     "quantity": "source_page",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "printed_pressure_gpa",
+     "quantity": "source_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "printed_pressure_error_gpa",
+     "quantity": "source_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "printed_pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_error_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_error_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "mgo_volume_a3",
+     "quantity": "calibrant_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "mgo_volume_error_a3",
+     "quantity": "calibrant_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "mgo_volume_a3"
+    },
+    {
+     "name": "conditional_pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "pressure_temperature_covariance_gpa_k",
+     "quantity": "pressure_temperature_covariance",
+     "unit": "GPa*K",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iron-miozzi-2020-tange-2009-vinet-pvt.csv",
+    "sha256": "5f0e7513c7eb6158748d7c9d9d8c96a0fb25621ba67ff5d22c7da665d5584a5a",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_miozzi_2020_tange_2009_bm3_mgd_refit"
+   ],
+   "source_lineage": [
+    {
+     "dataset": "iron_miozzi_2020_he_pvt",
+     "resource_path": "peritheos/data/datasets/iron-miozzi-2020-he-pvt.csv",
+     "sha256": "15a5a62d61ae0023fb2ebc0dcca31d4c026ba0a8e1580356a61f3d0717b994b0"
+    },
+    {
+     "dataset": "iron_miozzi_2020_mgo_pvt",
+     "resource_path": "peritheos/data/datasets/iron-miozzi-2020-mgo-pvt.csv",
+     "sha256": "a227bc39ad49f5c9be148e38aa44b7973543de51acda7ef8b04b7f4fbc9b648d"
+    }
+   ],
+   "pressure_reconstruction": {
+    "scope": "source_medium == mgo",
+    "calibration_record": "mgo_b1_tange_2009_vinet",
+    "equation": "P_target=P_Tange(V_MgO,T); same measured T as Fe",
+    "source_pressure_column": "printed_pressure_gpa",
+    "target_pressure_column": "pressure_gpa",
+    "unchanged_scope": "source_medium == he",
+    "calibration_record_sha256": "bf7aedadb20d013283b30a8ec51a68cb12a8578dd2b3ab05c19df346755ca2a8"
+   },
+   "uncertainty": {
+    "type": "Original coordinate errors plus conditional MgO pressure propagation; source confidence unspecified",
+    "notes": "Equal-weight refit does not use coordinate errors. Derived MgO pressure error omits calibration uncertainty; P-T covariance retained. He P-T covariance unknown and blank. Missing errors stay blank, original zeros remain zero."
+   },
+   "notes": "The canonical pressure_gpa is the explicit fit coordinate: recalculated for MgO and unchanged for He. printed_pressure_gpa always retains the source value. This is a derived table, not an author-supplied Tange-pressure column. The typed pressure_reductions contract currently supports optical-scale transformations only; EOS recalculation provenance is retained in pressure_reconstruction and the record metadata."
   }
  ]
 }
