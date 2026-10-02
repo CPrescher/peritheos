@@ -529,7 +529,7 @@ mod tests {
             assert_eq!(error.code(), code);
             assert_eq!(error.field(), field);
             assert_eq!(error.is_validation(), validation);
-            assert!(!error.to_string().is_empty());
+            assert_ne!(error.to_string(), "");
         }
     }
 }

@@ -16,9 +16,10 @@ fn isothermal_batches_match_ordered_scalar_evaluation_and_round_trip() {
 
     assert_eq!(pressures, expected);
     assert_eq!(model.bulk_moduli(&volumes).unwrap().len(), volumes.len());
-    assert!(IsothermalEosBatch::pressures(&model, &[])
-        .unwrap()
-        .is_empty());
+    assert_eq!(
+        IsothermalEosBatch::pressures(&model, &[]).unwrap(),
+        Vec::<f64>::new()
+    );
     for (recovered, expected) in model.volumes(&pressures).unwrap().iter().zip(volumes) {
         assert!((recovered - expected).abs() < 1.0e-9);
     }

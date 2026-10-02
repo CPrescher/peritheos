@@ -2048,7 +2048,7 @@ mod tests {
             assert_eq!(error.kind(), kind);
             assert_eq!(error.code(), code);
             assert!(error.source().is_none());
-            assert!(!error.to_string().is_empty());
+            assert_ne!(error.to_string(), "");
         }
     }
     #[test]

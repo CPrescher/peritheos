@@ -24,6 +24,8 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
+- Keep descriptive-error test assertions compatible with Rust 1.99 Clippy.
+
 - Reconcile merged argon catalog inventories, source/refit audit coverage,
   packaged Rust fixtures and installed-wheel checks. Qualify registered
   Peritheos refit reproducibility separately from source-author fit parity.
