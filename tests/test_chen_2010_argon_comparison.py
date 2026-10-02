@@ -59,7 +59,7 @@ def test_both_records_link_explanation_and_preserve_distinct_status():
 
 def test_comparison_uses_fixed_pressure_and_reproduces_saved_report():
     actual = compare()
-    expected = json.loads(REPORT.read_text())
+    expected = json.loads(REPORT.read_text(encoding="utf-8"))
     assert actual["pressure_range_gpa"] == expected["pressure_range_gpa"]
     for name, values in actual["plot"]["density_g_cm3"].items():
         np.testing.assert_allclose(
@@ -86,7 +86,7 @@ def test_paper_outcome_never_promotes_independent_refit_to_original_reproduction
     )
     assert chen["outcome"] == "unreproduced_original_with_independent_refit"
     assert {r["record_identifier"] for r in chen["records"]} == {ORIGINAL, REFIT}
-    ledger = (ROOT / "docs/paper-investigation-ledger.md").read_text()
+    ledger = (ROOT / "docs/paper-investigation-ledger.md").read_text(encoding="utf-8")
     assert "data/chen-2010-argon-comparison.png" in ledger
     assert "DO NOT USE" in ledger
     assert "no error in Chen's" in ledger
