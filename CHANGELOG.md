@@ -22,6 +22,12 @@ All notable changes to Peritheos are documented here. The project follows
 - Document Xiao (2025) equal-weight refit findings separately from reproduction
   of the reported parameters and source-author weighting.
 
+### Fixed
+
+- Reconcile merged argon catalog inventories, source/refit audit coverage,
+  packaged Rust fixtures and installed-wheel checks. Qualify registered
+  Peritheos refit reproducibility separately from source-author fit parity.
+
 ## [0.11.0] - 2026-09-28
 
 This release expands the argon catalog with source observations, new Python

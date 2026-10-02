@@ -4,7 +4,7 @@
   "generated_with": "scripts/validate_primary_eos_refits.py",
   "policy": {
     "not_refittable": "Available observations or source reduction/calibration details are insufficient for an independent full refit. A qualified subset or proxy calculation may still be available as a diagnostic.",
-    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered.",
+    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered. For explicitly registered Peritheos refits, parity verifies the stored coefficients under the documented selection and objective; it does not imply reproduction of source-author coefficients.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria, or a dedicated partial-source audit cannot reproduce the published coefficient pair.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold.",
     "source_reconstruction": "A source calculation or composition of audited source equations is reproduced without independently fitting the complete EOS coefficients. Component refits and remaining source-input gaps are documented separately."
@@ -3244,6 +3244,72 @@
       "record_identifier": "argon_fcc_maltby_2024_published",
       "source_notes": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm\u00b3/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. Published coefficients are fixed. No parameter uncertainty, DAC confinement or fluid-reference free-energy offsets are provided. The diagnostic refit is not used.",
       "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": false,
+      "dataset_identifiers": [
+        "argon_fcc_ross_errandonea_selected49"
+      ],
+      "experimental_pressure_range_gpa": [
+        1.6,
+        114.1347
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        300.0
+      ],
+      "fit_kind": "selected_multi_source_bm3",
+      "fixed_parameters": [],
+      "label": "Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)",
+      "material_identifier": "argon_fcc",
+      "model": "BM3",
+      "objective": "equal pressure weights",
+      "observations": 49,
+      "parameters": [
+        {
+          "difference": -3.434845240235518e-06,
+          "parameter": "V0",
+          "published": 138.83326594378107,
+          "published_error": null,
+          "refit": 138.83326250893583,
+          "refit_error": null,
+          "relative_difference": -2.474079405166784e-08,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 9.432909040540949e-07,
+          "parameter": "K0",
+          "published": 7.3276753422964385,
+          "published_error": null,
+          "refit": 7.3276762855873425,
+          "refit_error": null,
+          "relative_difference": 1.2872989863637635e-07,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -9.640146814149375e-08,
+          "parameter": "K0_prime",
+          "published": 5.018612278319878,
+          "published_error": null,
+          "refit": 5.01861218191841,
+          "refit_error": null,
+          "relative_difference": -1.9208789760058303e-08,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "parity_basis": "registered_peritheos_refit_reproduced",
+      "primary_data_finding": "Exact 49 selected observations bundled with source-row identities; 41 Ross rows and eight resolved Errandonea markers. Row17 excluded without correction, no thermal correction or source weights recovered.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.092106/fulltext",
+      "qualification": "Selected-data refit is reproducible; this is not reproduction of the original Errandonea fit or validation as a pressure standard. Source table and digitized points checked; weighting, temperature pooling, and partial recovery remain limitations.",
+      "record_identifier": "argon_fcc_ross_1986_errandonea_2006_bm3_refit",
+      "rmse_gpa": 1.2028193647740388,
+      "solver_success": true,
+      "source_notes": "Provisional combined-data refit; not a default EOS or a reproduction of published coefficients. 41 Ross Table I observations at 298 K and 8 resolved Errandonea Fig.5 fcc markers at 300 K. Ross row17 (24.7 GPa) excluded as a suspected source error, retained in source archive. Cryogenic diamond excluded. Equal pressure weights; volume errors and covariance omitted. Strong objective sensitivity; parameter uncertainties not established. Fcc reflections retained through fcc/hcp coexistence. No independent hcp fit and no thermal EOS. Reference DOI identifies an input study, not authorship of these refitted coefficients.",
+      "status": "parity"
     },
     {
       "adjusted_coordinate_rmse_gpa": 0.012199115073171524,
@@ -44945,10 +45011,10 @@
   ],
   "summary": {
     "not_refittable": 175,
-    "parity": 220,
+    "parity": 221,
     "parity_not_achieved": 70,
     "similar": 150,
     "source_reconstruction": 13,
-    "total": 628
+    "total": 629
   }
 }

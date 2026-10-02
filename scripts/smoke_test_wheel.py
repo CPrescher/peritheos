@@ -48,12 +48,18 @@ def main():
             record["identifier"]
             for record in document["eos_records"]
             if record["scientific_validation"]["status"] == "primary_source_validated"
+            or (
+                record["scientific_validation"]["status"] == "not_reproduced"
+                and record.get("catalog_access") == "explicit_selection"
+                and record.get("default") is not True
+                and record.get("default_for") is None
+            )
         }
         if identifiers:
             expected[document["identifier"]] = identifiers
 
     # Check identities per material so a deferred record cannot replace an
-    # accepted one, or cause accepted records in the same material to disappear.
+    # eligible one, or cause eligible records in the same material to disappear.
     materials = list_materials()
     assert {
         material.identifier: {record.identifier for record in material.eos_records}
@@ -61,9 +67,8 @@ def main():
     } == expected
     executable_ids = {identifier for ids in expected.values() for identifier in ids}
     assert {record.identifier for record in list_eos_records()} == executable_ids
-    assert (
-        sum(len(material.eos_records) for material in materials)
-        == (manifest["scientific_validation"]["counts"]["primary_source_validated"])
+    assert sum(len(material.eos_records) for material in materials) == len(
+        executable_ids
     )
     assert sum(len(group.materials) for group in group_materials(materials)) == len(
         materials

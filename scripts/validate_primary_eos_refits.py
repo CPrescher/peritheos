@@ -5111,6 +5111,45 @@ def _campbell_2009_outcome(material_id, record):
     }
 
 
+def _argon_combined_registered_refit_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Reproduce the analyst-selected fit without claiming source-fit parity."""
+    from scripts.fit_argon_errandonea_combined import fit, observations
+
+    rows = [row for row in observations() if row["included_in_preferred_fit"]]
+    result = fit(rows, "pressure")
+    comparisons = []
+    for name, stored in record["eos"]["parameters"].items():
+        fitted = result["parameters"][name]
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": stored,
+                "published_error": None,
+                "refit": fitted,
+                "refit_error": None,
+                "difference": fitted - stored,
+                "relative_difference": (fitted - stored) / stored,
+                "within_combined_2sigma": None,
+                "similar": math.isclose(stored, fitted, rel_tol=1e-6),
+            }
+        )
+    if not result["solver_success"] or not all(p["similar"] for p in comparisons):
+        raise AssertionError("Registered combined argon refit is stale")
+    return {
+        "status": "parity",
+        "parity_basis": "registered_peritheos_refit_reproduced",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": result["count"],
+        "fit_kind": "selected_multi_source_bm3",
+        "objective": "equal pressure weights",
+        "absolute_sigma": False,
+        "parameters": comparisons,
+        "rmse_gpa": result["pressure_rmse_gpa"],
+        "solver_success": result["solver_success"],
+        "qualification": record["scientific_validation"]["note"],
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
     dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text())["row_level_refits"]
@@ -5167,7 +5206,9 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if record["identifier"] == "argon_fcc_chen_2010_bm3_reported_constants":
+            if record["identifier"] == "argon_fcc_ross_1986_errandonea_2006_bm3_refit":
+                outcome = _argon_combined_registered_refit_outcome(record)
+            elif record["identifier"] == "argon_fcc_chen_2010_bm3_reported_constants":
                 outcome = _chen_reported_constants_outcome()
             elif record["identifier"] in CAMPBELL_RECORDS.values():
                 outcome = _campbell_2009_outcome(material_id, record)
@@ -5385,6 +5426,9 @@ def validate_all() -> dict[str, Any]:
                 "Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within "
                 "printed error widths, without claiming the unspecified source "
                 "weights, marker averaging or error confidence were recovered."
+                " For explicitly registered Peritheos refits, parity verifies the "
+                "stored coefficients under the documented selection and objective; "
+                "it does not imply reproduction of source-author coefficients."
             ),
             "similar": (
                 "Every fitted parameter either agrees within combined 2-sigma or "

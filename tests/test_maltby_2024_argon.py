@@ -131,9 +131,10 @@ def test_unvalidated_catalog_execution_and_export_preserve_qualification():
             get_material_document("argon_fcc"), record_identifiers=[identifier]
         )
     restored = Material.from_eosmat(exported, require_primary_validation=False)
-    assert restored.eos_records[-1].pressure(volumes, temperatures) == pytest.approx(
-        pressures
+    restored_record = next(
+        r for r in restored.eos_records if r.identifier == identifier
     )
+    assert restored_record.pressure(volumes, temperatures) == pytest.approx(pressures)
 
 
 def test_legacy_snapshot_does_not_upgrade_unvalidated_record():
@@ -142,8 +143,13 @@ def test_legacy_snapshot_does_not_upgrade_unvalidated_record():
 
     material = get_material("argon_fcc")
     snapshot = material.to_snapshot_dict()
-    row = snapshot["eos_records"][-1]
+    row = next(
+        r
+        for r in snapshot["eos_records"]
+        if r["identifier"] == "argon_fcc_maltby_2024_published"
+    )
     assert row["scientific_validation"]["status"] == "not_reproduced"
     assert "Unvalidated" in row["scientific_validation"]["note"]
+    snapshot["eos_records"] = [row]
     with pytest.raises(ValueError, match="argon_fcc_maltby_2024_published"):
         Material.from_dict(snapshot)

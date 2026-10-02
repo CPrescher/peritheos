@@ -1422,7 +1422,6 @@ fn maltby_published_is_executable_without_claiming_reproduction() {
         .unwrap();
     assert_eq!(raw["scientific_validation"]["status"], "not_reproduced");
     assert_eq!(raw["default"], false);
-
 }
 
 #[test]

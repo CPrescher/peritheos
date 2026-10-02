@@ -26,7 +26,11 @@ def test_ross_supporting_study_does_not_fabricate_a_journal_eos():
     assert study["requested_publication_pdf_status"] == "primary_full_text_verified"
     assert study["outcome"] == "supporting_study_with_published_tables"
     assert study["eos_record_identifiers"] == []
-    assert not any("ross" in r["identifier"] for r in document["eos_records"])
+    ross_records = [r for r in document["eos_records"] if "ross" in r["identifier"]]
+    assert [r["identifier"] for r in ross_records] == [
+        "argon_fcc_ross_1986_errandonea_2006_bm3_refit"
+    ]
+    assert all(r["record_kind"] == "refit" and not r["default"] for r in ross_records)
     material = Material.from_eosmat(document)
     assert material.to_eosmat()["supporting_studies"] == document["supporting_studies"]
     table = material.get_dataset("argon_ross_1985_precursor_figure1_subset")

@@ -1364,6 +1364,151 @@
    ]
   },
   {
+   "identifier": "argon_fcc_chen_2010_bm3_reported_constants",
+   "label": "Chen (2010) \u2014 original-constant BM3 reconstruction \u2014 DO NOT USE",
+   "record_kind": "diagnostic",
+   "reference": {
+    "authors": [
+     "Chen",
+     "Gleason",
+     "Yan",
+     "Koski",
+     "Clark",
+     "Jeanloz"
+    ],
+    "year": 2010,
+    "title": "Elasticity, strength, and refractive index of argon at high pressures",
+    "source": "Physical Review B",
+    "volume": "81",
+    "locator": "144110",
+    "doi": "10.1103/PhysRevB.81.144110"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 158.4458086182256,
+     "K0": 2.579673179843727,
+     "K0_prime": 9.081604622279848
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "temperature_ref": 290.0,
+   "reference_pressure_gpa": 0.0,
+   "determination_method": "experimental",
+   "fit_datasets": [],
+   "diagnostic_datasets": [
+    "argon_fcc_chen_2010_figure5_brillouin",
+    "argon_fcc_chen_2010_figure5_curve",
+    "argon_fcc_chen_2010_reported_values"
+   ],
+   "default": false,
+   "catalog_access": "explicit_selection",
+   "experimental_pressure_range_gpa": [
+    1.23188372,
+    26.06236454
+   ],
+   "experimental_temperature_range_k": [
+    290,
+    290
+   ],
+   "validity": {
+    "pressure_gpa": [
+     1.23188372,
+     26.06236454
+    ],
+    "temperature_k": [
+     290,
+     290
+    ],
+    "notes": [
+     "Comparison interval only, not a validated prediction range.",
+     "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established."
+    ]
+   },
+   "parameter_provenance": {
+    "determination_method": "Diagnostic reconstruction from printed experimental elastic constants, not a fit to density observations.",
+    "V0": "Derived zero-pressure branch of standard BM3 constrained at rho=2.18 g/cm3, P=2 GPa; not the published zero-pressure density1.52 g/cm3.",
+    "K0": "Derived zero-pressure value; the source reports KT=15.1 GPa at2 GPa, not at zero pressure.",
+    "K0_prime": "Derived zero-pressure value; the source reports KTprime=5.4 at2 GPa.",
+    "source_constraints": {
+     "pressure_gpa": 2,
+     "density_g_cm3": 2.18,
+     "bulk_modulus_gpa": 15.1,
+     "bulk_modulus_pressure_derivative": 5.4
+    },
+    "derivation": "P(x)=32.5325*x^3-47.415*x^(7/3)+16.8825*x^(5/3), x=rho/2.18. With D=x*d/dx, impose P=2, DP=15.1, D^2P=15.1*5.4 at x=1. Select mechanically stable zero-pressure branch.",
+    "reported_parameter_uncertainties": "Source uncertainties retained in reported-values dataset. Covariance and uncertainty propagation to reconstructed coefficients are unavailable."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1978",
+      "source_location": "Chen2010 Experimental section reference14",
+      "reference": "Mao, Bell, Shaner and Steinberg (1978), J. Appl. Phys.49,3276"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No ruby wavelengths supplied; refit preserves reported pressures."
+    },
+    "audit_date": "2026-09-24"
+   },
+   "scientific_validation": {
+    "status": "not_reproduced",
+    "audit_date": "2026-09-26",
+    "reproduction_status": "not_reproduced",
+    "note": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
+    "usage_recommendation": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
+    "primary_source_check": {
+     "doi": "10.1103/PhysRevB.81.144110",
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.81.144110/fulltext",
+     "locations": [
+      "Table I and page 3 text: rounded density, KT and KTprime at2 GPa; Figure5 is a separate comparison, not verified by these coefficients."
+     ]
+    },
+    "primary_data_check": {
+     "status": "digitized",
+     "dataset_identifiers": [
+      "argon_fcc_chen_2010_figure5_brillouin"
+     ],
+     "finding": "Printed-constant reconstruction fails the drawn observations. These rows are for comparison, not fit inputs to this record."
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_chen_2010_argon.py",
+     "report": "docs/data/chen-2010-argon-reproduction.json"
+    }
+   },
+   "reproduction": {
+    "documentation": "docs/literature-reproductions/chen-2010-argon.md",
+    "comparison_report": "docs/data/chen-2010-argon-comparison.json",
+    "comparison_figure": "docs/data/chen-2010-argon-comparison.png",
+    "related_record_identifiers": [
+     "argon_fcc_chen_2010_bm3_reported_constants",
+     "argon_fcc_chen_2010_bm3_digitized_refit"
+    ],
+    "summary_status": "not_reproduced",
+    "status": "not_reproduced",
+    "display_label": "DO NOT USE \u2014 original-constant reconstruction",
+    "reason": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
+    "do_not_use": true
+   },
+   "notes": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established. See docs/literature-reproductions/chen-2010-argon.md for the curve comparison, reference-state conventions and independent refit."
+  },
+  {
    "identifier": "argon_fcc_chen_2010_bm3_digitized_refit",
    "label": "Chen (2010) \u2014 Peritheos BM3 refit of digitized Brillouin densities",
    "record_kind": "refit",
@@ -1574,7 +1719,7 @@
     "audit_date": "2026-09-24",
     "reproduction_status": "independent_digitized_data_refit",
     "original_publication_reproduction_status": "not_reproduced",
-    "note": "Validation applies only to traceable source observations and reproducible Peritheos refit. Chen source-author parameterization remains unresolved.",
+    "note": "Validation covers source-data traceability and numerical reproducibility of this separate Peritheos fit only. Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23\u201326.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52\u00b10.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed.",
     "verified_fields": [
      "equation",
      "units",
@@ -1602,9 +1747,303 @@
      "script": "scripts/refit_chen_2010_argon.py",
      "report": "docs/data/chen-2010-argon-refit.json",
      "native_pressure_max_difference_gpa": 4.263256414560601e-14
+    },
+    "usage_recommendation": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23\u201326.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52\u00b10.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
+   },
+   "notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent. Comparison and source discrepancy: docs/literature-reproductions/chen-2010-argon.md.",
+   "reproduction": {
+    "documentation": "docs/literature-reproductions/chen-2010-argon.md",
+    "comparison_report": "docs/data/chen-2010-argon-comparison.json",
+    "comparison_figure": "docs/data/chen-2010-argon-comparison.png",
+    "related_record_identifiers": [
+     "argon_fcc_chen_2010_bm3_reported_constants",
+     "argon_fcc_chen_2010_bm3_digitized_refit"
+    ],
+    "summary_status": "independent_digitized_data_refit",
+    "original_publication_reproduction_status": "not_reproduced",
+    "display_label": "Independent Peritheos refit \u2014 provisional",
+    "reason": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23\u201326.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52\u00b10.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
+   }
+  },
+  {
+   "identifier": "argon_fcc_maltby_2024_published",
+   "label": "Maltby et al. (2024) \u2014 unvalidated published EOS",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Tage W. Maltby",
+     "Morten Hammer",
+     "\u00d8ivind Wilhelmsen"
+    ],
+    "year": 2024,
+    "title": "Equation of State for Solid Argon Valid for Temperatures up to 300 K and Pressures up to 16 GPa",
+    "source": "Journal of Physical and Chemical Reference Data",
+    "volume": "53",
+    "issue": "4",
+    "locator": "043102",
+    "doi": "10.1063/5.0237497",
+    "published_online": "2024-12-19"
+   },
+   "eos": {
+    "type": "Maltby2024",
+    "model": "maltby_2024_published",
+    "parameters": {
+     "shell_cutoff_squared": 64
     }
    },
-   "notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent."
+   "temperature_ref": 300.0,
+   "volume": {
+    "reference_value": 149.84704542176792,
+    "model_unit": "J bar^-1 mol^-1",
+    "public_to_model_scale": 0.0150553519,
+    "reference_meaning": "Characteristic volume 22.56 cm\u00b3/mol in source laws, not a zero-pressure volume."
+   },
+   "parameter_errors": {
+    "shell_cutoff_squared": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "shell_cutoff_squared"
+   ],
+   "determination_method": "hybrid",
+   "default": false,
+   "catalog_access": "explicit_selection",
+   "validity": {
+    "pressure_gpa": [
+     0,
+     16
+    ],
+    "temperature_k": [
+     0,
+     300
+    ],
+    "notes": [
+     "Source model envelope, not a validated prediction range or a solid-phase stability boundary.",
+     "Numerical inverse search: 8\u201326 cm\u00b3/mol."
+    ]
+   },
+   "parameter_provenance": {
+    "shell_cutoff_squared": "Explicit implementation assumption: 64, endpoint of SI.1. The paper does not specify its cutoff; geometric fcc shells replace the inconsistent SI.1 entry at squared distance 14.",
+    "published_coefficients": "Fixed Tables 1 and 3, equations 4 and 7\u201319; no diagnostic refit coefficients substituted.",
+    "determination_method": "Hybrid Helmholtz model: quantum zero-point energy and coefficients fitted to existing experimental literature; no new measured data table."
+   },
+   "pressure_calibration": {
+    "status": "unresolved",
+    "notes": "Model fitted to heterogeneous literature measurements; underlying pressure calibrations are not harmonized.",
+    "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No harmonization attempted."
+    },
+    "audit_date": "2026-09-26"
+   },
+   "scientific_validation": {
+    "status": "not_reproduced",
+    "audit_date": "2026-09-26",
+    "note": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm\u00b3/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells.",
+    "primary_source_check": {
+     "doi": "10.1063/5.0237497",
+     "locations": [
+      "Equations 4 and 7\u201319; Tables 1, 3 and 8; supplement SI.1"
+     ],
+     "access_url": "https://api.nva.unit.no/publication/0198cc531207-be3c0dc3-6af4-4953-97be-777a88a705a8/filelink/b4a4e90d-77d9-4854-a2cb-af09e365233e"
+    },
+    "independent_numerical_check": {
+     "script": "scripts/reproduce_maltby_2024_argon.py",
+     "report": "docs/data/argon-maltby-2024-reproduction.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "finding": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
+     "dataset_identifiers": []
+    }
+   },
+   "reproduction": {
+    "summary_status": "not_reproduced",
+    "status": "not_reproduced",
+    "display_label": "Unvalidated \u2014 published sample not reproduced",
+    "reason": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm\u00b3/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells."
+   },
+   "notes": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm\u00b3/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. Published coefficients are fixed. No parameter uncertainty, DAC confinement or fluid-reference free-energy offsets are provided. The diagnostic refit is not used.",
+   "experimental_temperature_range_k": [
+    0,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    0,
+    16
+   ]
+  },
+  {
+   "identifier": "argon_fcc_ross_1986_errandonea_2006_bm3_refit",
+   "label": "Provisional Peritheos BM3 refit: Ross (1986) + Errandonea (2006)",
+   "record_kind": "refit",
+   "default": false,
+   "determination_method": "experimental",
+   "reference": {
+    "authors": [
+     "Errandonea",
+     "Boehler",
+     "Japel",
+     "Mezouar",
+     "Benedetti"
+    ],
+    "year": 2006,
+    "title": "Structural transformation of compressed solid Ar: An x-ray diffraction study to 114 GPa",
+    "source": "Physical Review B",
+    "volume": "73",
+    "locator": "092106",
+    "doi": "10.1103/PhysRevB.73.092106"
+   },
+   "source_lineage": [
+    {
+     "role": "experimental_data",
+     "citation": "Ross et al. (1986), JCP 85, 1028\u20131033, Table I (298 K)",
+     "doi": "10.1063/1.451346"
+    },
+    {
+     "role": "experimental_data",
+     "citation": "Errandonea et al. (2006), PRB 73, 092106, Figure 5 (300 K)",
+     "doi": "10.1103/PhysRevB.73.092106"
+    }
+   ],
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 138.83326594378107,
+     "K0": 7.3276753422964385,
+     "K0_prime": 5.018612278319878
+    }
+   },
+   "parameter_errors": {},
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    1.6,
+    114.1347
+   ],
+   "experimental_temperature_range_k": [
+    298.0,
+    300.0
+   ],
+   "fit_datasets": [
+    "argon_fcc_ross_errandonea_selected49"
+   ],
+   "fit_provenance": {
+    "software": {
+     "name": "SciPy least_squares / Peritheos diagnostic scripts",
+     "version": "1.17.1",
+     "version_date": "2026-09-26"
+    },
+    "dataset": "argon_fcc_ross_errandonea_selected49",
+    "selection": {
+     "count": 49,
+     "ross_rows": 41,
+     "errandonea_rows": 8,
+     "excluded": [
+      {
+       "source": "Ross Table I",
+       "source_row": 17,
+       "original_pressure_gpa": 24.7,
+       "reason": "Suspected printed pressure error; user-requested exclusion, no corrected value asserted."
+      },
+      {
+       "source": "Anderson\u2013Swenson Figure 5 diamond",
+       "reason": "Cryogenic reference, not room-temperature data."
+      }
+     ],
+     "note": "Errandonea points are a partial digitization; unresolved overlapping markers are absent. Source archive preserved in docs/data/argon-errandonea-2006-combined-inputs.json."
+    },
+    "objective": "Minimize sum of squared pressure residuals at the observed volumes, with equal weight per observation.",
+    "refined_parameters": [
+     "V0",
+     "K0",
+     "K0_prime"
+    ],
+    "fixed_parameters": [],
+    "bounds": {
+     "lower": [
+      80,
+      0.01,
+      4
+     ],
+     "upper": [
+      300,
+      50,
+      15
+     ]
+    },
+    "statistics": {
+     "count": 49,
+     "pressure_rmse_gpa": 1.2028193647740313,
+     "volume_rmse_a3": 1.2211630272604523,
+     "solver_success": true
+    },
+    "reproduction": {
+     "script": "scripts/fit_argon_errandonea_combined.py",
+     "report": "docs/data/argon-errandonea-2006-combined-fit.json",
+     "subset": "room_temperature_without_ross_row17",
+     "objective": "pressure"
+    },
+    "uncertainty_note": "No calibrated parameter uncertainties or covariance assigned; equal weights are an analyst choice, and fits depend strongly on the residual objective."
+   },
+   "parameter_provenance": {
+    "determination_method": "Peritheos refit of the explicitly selected 49 experimental observations; these are not published source coefficients.",
+    "V0": "Fitted zero-pressure extrapolated volume in A^3 per four-atom fcc cell.",
+    "K0": "Fitted bulk modulus in GPa.",
+    "K0_prime": "Fitted dimensionless pressure derivative.",
+    "reference_state": "Nominal 300 K; 298 K Ross and 300 K Errandonea pooled without thermal correction. P=0 at extrapolated V0."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_mao_1986",
+      "source_location": "Page 1 and reference 17",
+      "reference": "Mao, Xu and Bell (1986), J. Geophys. Res. 91, 4673; doi:10.1029/JB091iB05p04673"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "W",
+      "source_location": "Page 1 and reference 18",
+      "reference": "Ruoff, Xia and Xia (1992), Rev. Sci. Instrum. 63, 4342",
+      "notes": "Tungsten gasket EOS cross-check; exact W coefficients and raw diffraction observations not supplied."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Ruby signals and W lattice data absent; published pressures retained."
+    },
+    "audit_date": "2026-09-24",
+    "notes": "Original reported pressures retained. Ross Table I uses ruby A=19.04 Mbar, B=7.665 (Eq.1); Errandonea cites Mao1986 ruby with W cross-check. No raw calibrant readings or pressure recalibration."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-26",
+    "refit_status": "provisional",
+    "reproduction_status": "refit_reproduced",
+    "note": "Selected-data refit is reproducible; this is not reproduction of the original Errandonea fit or validation as a pressure standard. Source table and digitized points checked; weighting, temperature pooling, and partial recovery remain limitations.",
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.092106/fulltext",
+     "doi": "10.1103/PhysRevB.73.092106",
+     "locations": [
+      "Pages 1, 3-4; Figures 4-5"
+     ],
+     "finding": "Input observations traced to Ross Table I and Errandonea Figure 5 through source_lineage; coefficients are the provisional Peritheos refit, not published source coefficients."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "argon_fcc_ross_errandonea_selected49"
+     ],
+     "finding": "Exact 49 selected observations bundled with source-row identities; 41 Ross rows and eight resolved Errandonea markers. Row17 excluded without correction, no thermal correction or source weights recovered."
+    }
+   },
+   "notes": "Provisional combined-data refit; not a default EOS or a reproduction of published coefficients. 41 Ross Table I observations at 298 K and 8 resolved Errandonea Fig.5 fcc markers at 300 K. Ross row17 (24.7 GPa) excluded as a suspected source error, retained in source archive. Cryogenic diamond excluded. Equal pressure weights; volume errors and covariance omitted. Strong objective sensitivity; parameter uncertainties not established. Fcc reflections retained through fcc/hcp coexistence. No independent hcp fit and no thermal EOS. Reference DOI identifies an input study, not authorship of these refitted coefficients."
   }
  ],
  "datasets": [
@@ -3095,6 +3534,85 @@
     "notes": "Visually checked against user-supplied publisher PDF. Original row order, precision and printed anomalies retained. No refit or Monte Carlo run."
    },
    "notes": "Liquid shock states, never a room-temperature fcc isotherm. volume_a3 is a four-atom equivalent normalization only, not an actual liquid unit cell. Initial state 87 K,28.64 cm3/mol,P=0 as printed in Table II; prose separately gives model initial pressure -28 bar including quantum corrections for alpha13.2."
+  },
+  {
+   "identifier": "argon_fcc_ross_errandonea_selected49",
+   "kind": "pressure_volume_temperature",
+   "description": "Exact 49 selected rows for the provisional combined BM3 refit; source and source-row identities retained.",
+   "reference": {
+    "authors": [
+     "Errandonea",
+     "Boehler",
+     "Japel",
+     "Mezouar",
+     "Benedetti"
+    ],
+    "year": 2006,
+    "title": "Structural transformation of compressed solid Ar: An x-ray diffraction study to 114 GPa",
+    "source": "Physical Review B",
+    "volume": "73",
+    "locator": "092106",
+    "doi": "10.1103/PhysRevB.73.092106"
+   },
+   "source_lineage": [
+    {
+     "role": "experimental_data",
+     "citation": "Ross et al. (1986), JCP 85, 1028\u20131033, Table I (298 K)",
+     "doi": "10.1063/1.451346"
+    },
+    {
+     "role": "experimental_data",
+     "citation": "Errandonea et al. (2006), PRB 73, 092106, Figure 5 (300 K)",
+     "doi": "10.1103/PhysRevB.73.092106"
+    }
+   ],
+   "source_location": "Ross (1986) Table I excluding row17; Errandonea (2006) Figure 5 eight resolved filled markers.",
+   "columns": [
+    {
+     "name": "source",
+     "quantity": "source",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/argon-fcc-ross-errandonea-selected49.csv",
+    "sha256": "c272fec79e3c63fd31fa1ec76baffae93ad385a51be19578c91206b7c22fe272",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_fcc_ross_1986_errandonea_2006_bm3_refit"
+   ],
+   "provenance": {
+    "type": "selected_multi_source_observations",
+    "source_archive": "docs/data/argon-errandonea-2006-combined-inputs.json",
+    "selection_script": "scripts/register_argon_combined_refit.py",
+    "notes": "Original excluded values remain in the archive; no fitted-curve or theory samples included."
+   }
   }
  ],
  "supporting_studies": [

@@ -126,6 +126,17 @@ def register():
             audit_date="2026-09-26",
             refit_status="provisional",
             reproduction_status="refit_reproduced",
+            primary_source_check=dict(
+                **copy.deepcopy(
+                    published["scientific_validation"]["primary_source_check"]
+                ),
+                finding="Input observations traced to Ross Table I and Errandonea Figure 5 through source_lineage; coefficients are the provisional Peritheos refit, not published source coefficients.",
+            ),
+            primary_data_check=dict(
+                status="bundled",
+                dataset_identifiers=[DATASET_ID],
+                finding="Exact 49 selected observations bundled with source-row identities; 41 Ross rows and eight resolved Errandonea markers. Row17 excluded without correction, no thermal correction or source weights recovered.",
+            ),
             note="Selected-data refit is reproducible; this is not reproduction of the original Errandonea fit or validation as a pressure standard. Source table and digitized points checked; weighting, temperature pooling, and partial recovery remain limitations.",
         ),
         notes="Provisional combined-data refit; not a default EOS or a reproduction of published coefficients. 41 Ross Table I observations at 298 K and 8 resolved Errandonea Fig.5 fcc markers at 300 K. Ross row17 (24.7 GPa) excluded as a suspected source error, retained in source archive. Cryogenic diamond excluded. Equal pressure weights; volume errors and covariance omitted. Strong objective sensitivity; parameter uncertainties not established. Fcc reflections retained through fcc/hcp coexistence. No independent hcp fit and no thermal EOS. Reference DOI identifies an input study, not authorship of these refitted coefficients.",

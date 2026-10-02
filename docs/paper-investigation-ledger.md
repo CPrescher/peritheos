@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **356 primary papers**: **255** support the 628 audited catalog records and **101** were investigated without adding a production record.
+The register covers **356 primary papers**: **255** support the 629 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -40,10 +40,10 @@ refits, or acceptance-gate holds.
 |---|---:|
 | Original unreproduced; independent refit available | 1 |
 | Reproduced | 166 |
-| Partly reproduced | 6 |
+| Partly reproduced | 7 |
 | Mixed: reproduced and discrepant records | 12 |
 | Coefficient parity not achieved | 14 |
-| Direct refit unavailable | 61 |
+| Direct refit unavailable | 60 |
 | Source reconstruction | 1 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 89 |
@@ -1140,7 +1140,7 @@ the primary-source and refit ledgers.
 | [Effect of Pressure on the Composition of the Lower Mantle End Member Fe x O (1993)](https://doi.org/10.1126/science.259.5091.66) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Elastic properties of Fe-bearing Akimotoite at mantle conditions: Implications for composition and temperature in lower mantle transition zone (2022)](https://doi.org/10.1016/j.fmre.2021.12.013) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Equation of State, Phase Stability of (Mg0.92, Fe0.08)SiO3 Perovskite from Shock Wave Study and Its Geophysical Implications (2004)](https://doi.org/10.1063/1.1780510) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Errandonea et al. (2006)](https://doi.org/10.1103/physrevb.73.092106) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
+| [Errandonea et al. (2006)](https://doi.org/10.1103/physrevb.73.092106) | Partly reproduced | 2 | 1 parity; 1 direct refit unavailable | 1 bundled; 1 parameterization only |
 | [Exploring the High-Pressure Equation of State in Earth’s Mantle with a Focus on the MgSiO3−MgO System (2025)](https://doi.org/10.15407/mfint.47.06.0601) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [EXTREME COMPRESSION BEHAVIOUR OF SOLIDS BASED ON THE ROY-ROY INVERTED EQUATION OF STATE (2008)](https://doi.org/10.1142/s0217979208038910) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Faust and Knittle (1994), natural chondrodite](https://doi.org/10.1029/94GL01592) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
