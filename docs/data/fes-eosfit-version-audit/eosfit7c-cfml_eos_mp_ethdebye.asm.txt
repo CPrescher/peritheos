@@ -1,0 +1,49 @@
+pushq	%r15
+subq	$UNROLLED_LIMIT, %rsp
+movq	%rdx, %r15
+movss	USE_REG(%rdi), %xmm1
+movss	<address>(%rip), %xmm0
+comiss	%xmm1, %xmm0
+jbe	<address>
+xorps	%xmm2, %xmm2
+jmp	<address>
+movss	USE_REG(%rsi), %xmm0
+leaq	<address>(%rsp), %rsi
+divss	%xmm1, %xmm0
+cvtss2sd	%xmm0, %xmm0
+leaq	__NLITPACK_3.0.12(%rip), %rdi
+movsd	%xmm0, USE_REG(%rsi)
+movss	%xmm1, USE_REG(%rsp)
+callq	_cfml_math_general_mp_debye_dp_
+movss	USE_REG(%rsp), %xmm1
+movss	<address>(%rip), %xmm2
+mulss	USE_REG(%r15), %xmm2
+cvtsd2ss	%xmm0, %xmm0
+mulss	<address>(%rip), %xmm2
+mulss	%xmm1, %xmm2
+mulss	%xmm0, %xmm2
+leaq	_cfml_math_general_mp_err_mathgen_(%rip), %rax
+testb	$<address>, USE_REG(%rax)
+je	<address>
+movl	$<address>, %esi
+leaq	USE_REG(%rsp), %rdi
+movq	%rsi, %rcx
+leaq	_cfml_math_general_mp_err_mathgen_mess_(%rip), %rdx
+movl	$<address>, _cfml_eos_mp_err_eos_(%rip) ## imm = 0xFFFFFFFF
+movss	%xmm2, <address>(%rdi)
+callq	_for_trim
+movss	<address>(%rsp), %xmm2
+movslq	%eax, %rax
+leaq	_cfml_eos_mp_err_eos_mess_(%rip), %rdi
+movl	$<address>, %esi                    ## imm = <address>
+leaq	USE_REG(%rsp), %rdx
+movq	%rax, %rcx
+xorl	%r8d, %r8d
+movss	%xmm2, <address>(%rdx)
+callq	_for_cpystr
+movss	<address>(%rsp), %xmm2
+movaps	%xmm2, %xmm0
+addq	$UNROLLED_LIMIT, %rsp
+popq	%r15
+retq
+nopl	(%rax)

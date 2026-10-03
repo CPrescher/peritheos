@@ -4,12 +4,16 @@ Miozzi, F., Matas, J., Guignot, N., Badro, J., Siebert, J., and Fiquet, G.
 (2020), *A New Reference for the Thermal Equation of State of Iron*,
 Minerals **10**, 100, [doi:10.3390/min10020100](https://doi.org/10.3390/min10020100).
 
-Three current-study parameterizations are retained in `iron.eosmat`, all with
+Three published current-study parameterizations are retained in `iron.eosmat`, all with
 `scientific_validation.status: not_reproduced`, `default: false`, and
 `catalog_access: explicit_selection`. These preserve source coefficients for
 inspection; they are not validated pressure standards or core predictions.
-The existing iron default is retained. No diagnostic refit is registered as
-another executable record.
+The preferred thermal record uses **n=2 with volume per mole Fe**, as used in
+the paper according to personal communication with Miozzi et al., relayed by
+the user and recorded on 2026-10-03. Its printed coefficients are preserved.
+Separate, nondefault **n=1** Peritheos refits are available on the reconstructed
+Speziale (2001) variable-q Debye and Tange (2009) Fit3-Vinet MgO scales.
+The existing iron default is retained.
 
 ## Sources and observations
 
@@ -47,7 +51,7 @@ The paper's rounded ranges (140 GPa/3500 K in the abstract, 45–135 GPa and
 |---|---:|---:|---:|---|---|
 | `iron_miozzi_2020_bm3` | 22.80(2) | 129(6) | 6.2(2) | none | Table 1, current study |
 | `iron_miozzi_2020_vinet` | 22.81 | 125(5) | 6.5(2) | none | Table 1, current study |
-| `iron_miozzi_2020_bm3_mgd` | 22.81, fixed | 129(1) | 6.24(4) | theta0=420 K fixed; gamma0=1.11(1); q=0.3(3) | Section 3.3, preferred solution |
+| `iron_miozzi_2020_bm3_mgd` | 22.81 | 129(1) | 6.24(4) | theta0=420 K fixed; gamma0=1.11(1); q=0.3(3); n=2 | Section 3.3 coefficients; n from personal communication |
 
 Parentheses retain the authors' error notation without assigning a confidence
 level. The Vinet reference-volume error is missing, not zero or implicitly fixed.
@@ -57,7 +61,9 @@ prints 6.87(2) cm³/mol and 22.81 A³; converting the central molar value gives
 22.81580678 A³. Section 3.3 says V0 is fixed to the room-temperature result,
 where Table 1 and the Figure 4 inset print 22.80(2) A³. The thermal record follows the explicitly
 printed thermal cell value, with the discrepancy documented; it does not borrow
-the tighter Table 1 error.
+the tighter Table 1 error. Personal communication clarifies that V0 was free
+in the final fitting stage, despite the article's fixed-V0 wording; the
+record retains that discrepancy in its parameter provenance.
 
 The source also prints two combined current-study + Dewaele (2006) cold fits:
 (22.75(1), 134(5), 6.1(2)) with pressure errors and
@@ -76,9 +82,13 @@ The 300 K pressure receives a vibrational thermal increment with
 `gamma(V)=gamma0*(V/V0)^q` and
 `theta(V)=theta0*exp((gamma0-gamma(V))/q)` (Equations 4, 6, 8).
 The implementation uses `debye_temperature_law: integrated_gruneisen`, with
-zero thermal increment at 300 K. For Fe, n=1 atom per formula unit. The
-conventional P63/mmc cell has Z=2, so molar cm³/mol of Fe is
-`V_cell*N_A/(2e24)`. Existing iron crystallography remains unchanged.
+zero thermal increment at 300 K. The conventional P63/mmc cell has Z=2, so
+molar cm³/mol of Fe is `V_cell*N_A/(2e24)`. The published record now uses
+the author-reported **n=2** at that per-Fe volume, based on personal
+communication recorded on 2026-10-03. The independent refits use the
+physically consistent **n=1** per-Fe basis. A consistent whole-cell basis
+would instead use n=2 with doubled molar volumes. These settings are distinct;
+see [the normalization explanation](../units.md#atom-count-and-molar-volume-basis).
 
 The supplied PDF has apparent typesetting defects: Equation (5) prints gamma
 rather than volume in the denominator and a comma between the energies;
@@ -87,8 +97,9 @@ limit despite the volume-dependent theta in Equation (8). The represented
 candidate uses the standard physical MGD expression, `gamma/V_molar` times
 the difference in Debye vibrational energies, integrated to theta(V)/T.
 Zero-point energy cancels at fixed volume. This interpretation is explicit,
-and its failure to reproduce the reported fit remains unresolved. No empirical
-factor-of-two correction or change to the published gamma is introduced.
+and its failure to reproduce the complete reported fit remains unresolved.
+The published gamma is retained; the atom-count setting is attributed to
+personal communication rather than introduced as an empirical correction.
 
 ## Pressure calibration
 
@@ -120,9 +131,11 @@ unvalidated records.
 |---|---:|---:|---:|
 | BM3 at 298/300 K | 36 | 3.7536 | −7.7591 to +0.5179 |
 | Vinet at 298/300 K | 36 | 4.1764 | −8.3823 to +0.2167 |
-| Preferred BM3–MGD | 131 | 6.9826 | −11.2832 to +1.6790 |
+| Preferred BM3–MGD, author-reported n=2 | 131 | 2.4989 | −6.9970 to +9.4776 |
 
-The thermal residuals exceed Section 3.3's reported −3 to +3 GPa interval.
+The thermal residuals still exceed Section 3.3's reported −3 to +3 GPa interval.
+The earlier n=1 interpretation gave RMS 6.9826 GPa; the n=2 author setting
+substantially reduces that discrepancy without changing the printed coefficients.
 The helium series alone lies within approximately 0.52 GPa of the printed BM3
 curve, while larger discrepancies occur in the supplied MgO-series rows.
 The 0.01 A³ reference-volume rounding difference is too small to explain them.
@@ -139,8 +152,9 @@ Every varied coefficient has conditional standard errors and covariance; thermal
 V0, theta0, Tr, and n remain fixed. The original fitting files are not supplied;
 the authors' exact weight selection, iteration settings, and treatment of
 missing/zero errors have not been established. The thermal diagnostic fits all
-four free coefficients simultaneously rather than replaying the reported
-stepwise procedure.
+four free coefficients simultaneously with V0 fixed rather than replaying the
+reported stepwise procedure. It is distinct from the registered five-parameter
+Speziale refit below, whose final V0 is free.
 
 EosFit's documented effective-variance method updates weights every
 least-squares cycle ([Angel et al., 2014, p. 418](https://www.rossangel.com/Download/2014_Angel_etal_EosFit7.pdf)).
@@ -199,13 +213,13 @@ the supplied pressures, versus our **6.9826 GPa**. Thus the large mismatch
 cannot be attributed to the normal MGD equation implementation under these
 settings.
 
-This is a calculation comparison, not an EosFit refinement replay. The public
+This initial audit is a calculation comparison, not an EosFit refinement replay. The public
 library provides pressure/parameter derivatives; the original console
 least-squares driver and the authors' input/session files were not located.
 The downloaded macOS console executable could not run because its XQuartz
 libraries are absent. It was extracted in a temporary directory; no system
-installation was performed. Fitting protocol and weighting choices remain
-qualified as above.
+installation was performed. A later direct console replay is documented below;
+the original author input/session and numerical weights remain unavailable.
 
 ### Pressure-column evidence
 
@@ -524,3 +538,257 @@ pressure_gpa = refit.pressure(18.0, 2000.0)
 
 Installed downstream applications using pinned catalog snapshots require their
 normal snapshot refresh to display this new library selection.
+
+## Author-described three-stage EosFit replay (2026-10-03)
+
+On 2026-10-03 the user relayed an in-person conversation with Miozzi:
+
+1. Fit only the room-temperature observations.
+2. Fit all observations with the room-temperature coefficients fixed.
+3. Use stage two as the starting point and release the fitted coefficients.
+
+The user subsequently clarified that **V0 is free in the final stage and
+theta0 remains fixed at 420 K**. This is user-reported author clarification,
+not a recovered author input file or a published correction. It supersedes
+the earlier uncertainty about this sequence. The paper's sentence describing
+fixed V0 remains preserved as a source discrepancy rather than silently edited.
+
+`scripts/replay_miozzi_2020_staged.py` implements these three stages in the
+unmodified official EosFit7c 7.60 executable, carrying each fitted result
+forward within one process. Stage one fits V0, K0 and K′ to all 36 observations
+at 298/300 K. Stage two fits gamma0 and q to all 131 observations with that cold
+curve fixed. Stage three releases V0, K0, K′, gamma0 and q. Full MGD uses
+theta0=420 K, Tr=300 K, n=1 and cm³/mol Fe throughout; q-compromise is disabled.
+
+All three stages converge in every calibration case below. These are
+**equal-pressure-weight diagnostics**; the original numerical weights and
+handling of incomplete errors are still unknown. Canonical observations and
+source coefficients are unchanged. Recalculated MgO pressures are separate
+inputs, and the 15 He pressures stay unchanged in all cases.
+
+| Pressure input | Stage-one K0 (GPa) | Final V0 (Å³) | Final K0 (GPa) | Final K′ | Final gamma0 | Final q | Final RMS (GPa) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Original printed pressures | 136.163 | 22.60259 | 146.810 | 6.05344 | 2.23572 | 1.51423 | 1.27798 |
+| Tange Fit3-Vinet recalculation | 136.573 | 22.57832 | 150.486 | 5.80147 | 1.98945 | 0.64308 | 0.98447 |
+| Speziale variable-q Debye reconstruction | 128.509 | 22.70312 | 139.419 | 5.86997 | 1.93069 | 0.42959 | 0.92813 |
+
+The Tange result reproduces the registered independent refit, including its
+conditional errors and covariance, within console rounding and gas-constant
+precision. Thus following the clarified sequence does not materially change
+that selection. The Speziale reconstruction recovers the published cold K0
+near 129 GPa in stage one, but its final gamma0 still differs substantially
+from the published 1.11. The sequence alone does not recover the source thermal
+coefficients or establish that our assumed pressure reconstruction and weights
+match the authors' actual input.
+
+The [direct-run report](../data/miozzi-2020-eosfit-staged/report.json) retains
+each stage's parameters, EosFit conditional errors/covariance, warnings, input
+hashes, and executable hash. Each case also retains the input files, complete
+macro, stdout/log and three saved EOS files. Stage-two errors condition on the
+cold coefficients; they do not propagate stage-one uncertainty. RMS values
+here are recomputed from the console's printed coefficients with our gas
+constant, and are subject to that output precision. This evidence changes the
+documented protocol, while the source-author fit remains not reproduced.
+
+The [full comparison tables](../data/miozzi-2020-eosfit-staged/comparison.md)
+include reported/refitted parameter errors, signed absolute and percentage
+differences, the cold and thermal-only stages, and residual comparisons on
+each pressure input.
+
+## GUI q-compromise diagnostic (2026-10-03)
+
+The user subsequently asked whether the GUI's q-compromise MGD estimation
+could explain the discrepancy. The bundled EosFit 7.6 manual
+(`EoSFitanddisplay.html`) confirms that the GUI estimates MGD in q-compromise
+form for stability and allows switching to the general model after refinement.
+This concerns initial estimation, not proof of the authors' final model.
+The current manual identifies this model as a v7.6 addition, while the source
+paper dates from January 2020 and reports a fitted q. The historical GUI
+settings remain unestablished.
+
+Q-compromise holds theta(V)=theta0 and gamma(V)/V=gamma0/V0, so thermal
+pressure depends only on temperature. There is no adjustable q. It differs
+from full MGD with q fixed to either zero or one. The official console was
+rerun with this approximation in both thermal stages, using the same cold
+stage, 131 rows, unit pressure weights, theta0=420 K, n=1 and Tr=300 K.
+Stage two releases gamma0 only; stage three releases V0,K0,Kprime,gamma0.
+
+| Pressure input | Final V0 (Å³/cell) | Final K0 (GPa) | Final Kprime | Final gamma0 | RMS (GPa) |
+|---|---:|---:|---:|---:|---:|
+| Supplementary printed pressures | 22.58353 ± 0.11879 | 151.288 ± 10.847 | 5.82850 ± 0.31650 | 1.93913 ± 0.04477 | 1.28915 |
+| Tange Fit3-Vinet MgO pressures | 22.60233 ± 0.09375 | 146.697 ± 8.346 | 5.95921 ± 0.25453 | 2.14302 ± 0.03465 | 0.97958 |
+| Speziale variable-q Debye MgO reconstruction | 22.74796 ± 0.10415 | 133.059 ± 8.280 | 6.16139 ± 0.27767 | 2.20012 ± 0.03422 | 0.93549 |
+
+Errors are conditional local EosFit standard errors, with complete covariance
+retained; they exclude pressure calibration and fixed-parameter uncertainty.
+All nine fits converged. The Speziale result has K0 closer to the published
+129 GPa but does not recover gamma0=1.11.
+
+A second set of nine converged fits switches from q-compromise to full MGD
+before the final stage, retaining the preceding cold curve and gamma0 in
+memory and starting q at 0.3. This returns the previous full-MGD optimum
+within console convergence and printing precision. For Speziale, the final
+values are K0=139.41826 GPa, gamma0=1.93066 and q=0.42951, with RMS
+0.928128 GPa. The GUI's starting approximation therefore does not explain
+the discrepancy under the tested inputs and equal weights.
+
+The [full q-compromise comparison](../data/miozzi-2020-eosfit-q-compromise/comparison.md)
+retains all tables and replay commands. The
+[q-compromise report](../data/miozzi-2020-eosfit-q-compromise/report.json) and
+[q-compromise-to-full report](../data/miozzi-2020-eosfit-q-compromise-start/report.json)
+retain console files, saved-model flags, source hashes and conditional
+covariance. Independent pressure calculations match the console within
+0.0025 GPa, allowing for gas-constant and output rounding; independent
+four-parameter least-squares fits reproduce q-compromise RMS within 1e-6 GPa.
+The published EOS and selectable Tange full-MGD refit remain unchanged.
+
+## Author-confirmed full MGD with n=2 (2026-10-03)
+
+The user then relayed two further confirmations from Miozzi: the author model
+was **full MGD, not q-compromise**, and EosFit used **n=2 with V0 approximately
+6.87 cm³/mol**. This updates the author-reconstruction target. The preceding
+n=1 tests used the standard per-mole-Fe normalization and were not faithful
+replays of this newly confirmed author setting. The q-compromise tests remain
+diagnostic experiments, not an explanation of the authors' final model.
+This provenance is a user-relayed in-person account; the original session,
+weights and pressure column have not been recovered.
+
+With EosFit's definition of Natom, the consistent per-mole-Fe convention is
+n=1 and V0 approximately 6.87 cm³/mol. The two-atom hcp cell has Z=2, so a
+per-mole-cell convention requires n=2 and V0 approximately 13.74 cm³/mol.
+The Debye energy is proportional to n, while thermal pressure divides by
+the molar volume. At fixed gamma and theta, using n=2 with the per-mole-Fe
+volume doubles the thermal-pressure amplitude. A reported author setting
+can be reconstructed without identifying it as the standard physical
+normalization. In full MGD, changing n alone does not give an exact
+half-gamma transformation because gamma also controls theta(V).
+
+Both conventions were replayed with the unmodified official console. The
+author-setting run holds n=2 and retains the original molar volumes. All
+nine stages converged, with the same 36 RT/131 total rows, unit pressure
+weights, free final V0,K0,Kprime,gamma0,q, theta0=420 K and Tr=300 K.
+
+| Pressure input | Final V0 (Å³/cell) | Final K0 (GPa) | Final Kprime | Final gamma0 | Final q | RMS (GPa) |
+|---|---:|---:|---:|---:|---:|---:|
+| Supplementary printed pressures | 22.60890 ± 0.12411 | 146.082 ± 11.387 | 6.07796 ± 0.37080 | 1.12654 ± 0.09609 | 1.58039 ± 0.32995 | 1.27445 |
+| Tange Fit3-Vinet MgO pressures | 22.58426 ± 0.09239 | 149.777 ± 8.626 | 5.82394 ± 0.26808 | 1.00371 ± 0.06204 | 0.71483 ± 0.23857 | 0.97879 |
+| Speziale variable-q Debye MgO reconstruction | 22.70980 ± 0.09880 | 138.716 ± 8.367 | 5.89337 ± 0.27576 | 0.97443 ± 0.05756 | 0.50272 ± 0.22274 | 0.92278 |
+
+The errors are conditional local standard errors, with covariance retained;
+pressure-calibration and fixed-parameter uncertainties are excluded. The
+change explains the dominant near-factor-of-two gamma discrepancy, but does
+not recover the full published fit. Evaluating the unchanged published
+coefficients with n=2 reduces RMS from 6.98261 to 2.49886 GPa on the printed
+pressures and from 5.45224 to 2.44770 GPa on the Speziale reconstruction.
+Remaining pressure-input, weighting and K0/q differences are unresolved.
+
+A separate nine-stage control sets n=2 and doubles every molar volume,
+volume error and initial V0. It returns the earlier n=1 full-MGD optimum
+within console convergence/printing precision. Independent calculations
+verify the normalization equivalence, all console pressures within 0.0025
+GPa, and the author-setting five-parameter optimum and conditional covariance.
+The [full n=2 comparison](../data/miozzi-2020-eosfit-n2-author-volume/comparison.md),
+[author-setting report](../data/miozzi-2020-eosfit-n2-author-volume/report.json),
+and [doubled-volume control](../data/miozzi-2020-eosfit-n2-double-volume-control/report.json)
+retain the evidence and replay commands. Existing library records and the
+selectable n=1 Tange refit are unchanged by these diagnostic runs.
+
+## Whole-hcp-cell refit with Peritheos (2026-10-03)
+
+At the user's request, fresh fits were performed using Peritheos's own fitting
+APIs, with the entire two-atom hcp cell as the molar entity and **n=2**.
+The cell volumes remain the measured coordinates in Å³; inside MGD they are
+converted to volume per mole of whole cells, rather than per mole of Fe.
+For 22.81 Å³/cell the whole-cell starting reference volume is 13.73650 cm³/mol,
+or 1.373650 J/bar/mol. Both observed volumes and V0 are twice their per-Fe
+molar values. This is distinct from the author-reported n=2 with 6.87 cm³/mol.
+
+Each pressure input was fitted independently on both molar bases, using the
+36 RT rows first, all 131 rows with the cold coefficients fixed second, then
+all 131 rows with V0,K0,Kprime,gamma0,q free. Theta0=420 K and Tr=300 K remain
+fixed. Equal pressure-residual weights and bounds expressed on the same
+physical cell basis were used in both runs. All 18 stages converged.
+
+| Pressure input | Whole-cell V0 (Å³/cell) | K0 (GPa) | Kprime | gamma0 | q | RMS (GPa) |
+|---|---:|---:|---:|---:|---:|---:|
+| Original printed pressures | 22.602632 | 146.806469 | 6.053557 | 2.235644 | 1.514293 | 1.27798169 |
+| Tange Fit3-Vinet recalculation | 22.578319 | 150.484853 | 5.801501 | 1.989345 | 0.643085 | 0.98446756 |
+| Speziale variable-q Debye reconstruction | 22.703126 | 139.419572 | 5.869960 | 1.930567 | 0.429554 | 0.92812717 |
+
+The independently optimized n=1 and n=2 pressure surfaces differ by at most
+6.36e-7 GPa on the 131 observations. The same fitted coefficients under
+matching n/volume scaling give identical pressures within numerical precision.
+A separate direct whole-cell calculation using n=2, kB and volume in m³/cell
+agrees with the Peritheos molar calculation to better than 4.39e-10 GPa.
+Thus the physically consistent whole-cell convention reproduces the existing
+per-Fe fit; it does not halve gamma0 or resolve the original-publication
+discrepancy. Library records and default selections are unchanged.
+
+The [comparison with conditional errors](../data/miozzi-2020-cell-basis/comparison.md)
+and [complete fit report](../data/miozzi-2020-cell-basis/report.json) retain
+the six fits, all stages, residuals, covariance, source/code fingerprints,
+and independent normalization checks. Errors are conditional local standard
+errors, excluding calibration, predictor, fixed-theta and inter-row covariance
+uncertainties. Reproduce with
+`python -m scripts.refit_miozzi_2020_cell_basis`.
+
+## Registered published n=2 record and Speziale n=1 refit (2026-10-03)
+
+The executable `iron_miozzi_2020_bm3_mgd` record now retains the published
+coefficients with **n=2** and V0 corresponding to approximately **6.87 cm³/mol**.
+This was the setting used in the paper according to **personal communication
+with Miozzi et al.**, relayed by the user and recorded on 2026-10-03. The
+communication also confirms full MGD, theta0=420 K fixed and final V0 free;
+the article's fixed-V0 wording remains documented. No printed coefficient or
+reported uncertainty is replaced by a refit. The record remains explicitly
+selected and `not_reproduced`: this setting improves the residuals but does
+not recover the complete original fit or establish physical normalization.
+
+The separate `iron_miozzi_2020_speziale_2001_bm3_mgd_refit` record uses the
+consistent **n=1 per mole Fe** basis. The 116 MgO-series pressures are
+recalculated with the Speziale (2001) variable-q Debye calibration described
+above; the 15 source He pressures remain unchanged. The calibration is a
+documented thermal reconstruction, not the isothermal-only Speziale catalog
+record and not a recovered author input file. All 131 central observations
+are fitted with equal pressure-residual weights in the three-stage sequence.
+V0,K0,Kprime,gamma0,q are free in the last stage; theta0=420 K and Tr=300 K
+remain fixed. The resulting coefficients are:
+
+| Parameter | Published record, n=2 | Independent Speziale refit, n=1 |
+|---|---:|---:|
+| V0 (Å³/cell) | 22.81; printed molar error maps to ±0.06642 | 22.703126 ± 0.098420 |
+| K0 (GPa) | 129 ± 1 | 139.419575 ± 8.365237 |
+| Kprime | 6.24 ± 0.04 | 5.869960 ± 0.273780 |
+| gamma0 | 1.11 ± 0.01 | 1.930567 ± 0.114262 |
+| q | 0.3 ± 0.3 | 0.429554 ± 0.221943 |
+| theta0 (K) | 420, fixed | 420, fixed |
+| Tr (K) | 300 | 300 |
+| n | 2, author-reported | 1, normalized per Fe |
+| RMS on reconstructed Speziale input (GPa) | 2.447704 | 0.928127 |
+
+Published error confidence is unspecified. Refit errors are conditional local
+standard errors; the complete five-parameter covariance includes cold/thermal
+cross-correlations but excludes calibration, fixed-theta, predictor and inter-row
+uncertainties. The refit is labeled `independent_refit_reproduced`, referring to
+its documented numerical procedure, while
+`original_publication_reproduction_status` remains `not_reproduced`.
+
+The derived dataset `iron_miozzi_2020_speziale_2001_variable_q_pvt` retains original
+pressures/errors alongside recalculated pressures, all original coordinates,
+conditional propagated MgO errors and available P-T covariance. Missing errors
+remain missing. Equal weights do not use these conditional errors as fit weights.
+The [refit report](../data/miozzi-2020-speziale-refit.json) retains each stage,
+residuals, covariance, calibration coefficients, bounds and source/code hashes.
+Neither independent refit changes the existing iron default.
+
+```python
+from peritheos import get_eos_record
+
+published = get_eos_record("iron_miozzi_2020_bm3_mgd")
+refit = get_eos_record("iron_miozzi_2020_speziale_2001_bm3_mgd_refit")
+# Both record wrappers accept measured hcp cell volumes in Å³.
+# Internally, both use volume per mole Fe: published n=2 versus refit n=1.
+```
+
+Reproduce and check with
+`python -m scripts.refit_miozzi_2020_speziale --check`.

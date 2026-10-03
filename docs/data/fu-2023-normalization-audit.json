@@ -1,0 +1,169 @@
+{
+  "record": "ca_perovskite_fu_2023_bm3_mgd_refit",
+  "status": "normalization_consistent_cause_of_published_parameter_mismatch_unresolved",
+  "sources": {
+    "published_coefficients": "Fu et al. (2023), supplement Table S3",
+    "equations": "Fu et al. (2023), main text Equations 23–28; standard dimensionally correct CV in Equation 27",
+    "observations": "140 Sun (2016) Table 1 rows at 1200–2200 K and 34 cubic Gréaux (2019) Figure 3b rows; exact Fu selection undisclosed",
+    "greaux_pressure": "Measured PNaCl; derived PFS is not treated as an independent measurement"
+  },
+  "normalization": {
+    "n": 5.0,
+    "formula_units": 1.0,
+    "V0_a3": 45.4,
+    "V0_cm3_per_mol": 27.340519050399998,
+    "heat_capacity_limit_j_per_mol_k": 124.71693927229859,
+    "conversion": "1 A^3 per CaSiO3 formula = 0.602214076 cm^3 per mol CaSiO3 = 0.0602214076 J/bar per mol CaSiO3"
+  },
+  "normalization_checks": {
+    "public_a3_to_model_j_per_bar_per_mol": 0.0602214076,
+    "expected_public_a3_to_model_scale": 0.0602214076,
+    "max_atomic_vs_molar_pressure_difference_gpa": 2.842170943040401e-14,
+    "max_loaded_vs_independent_atomic_pressure_difference_gpa": 1.6503065580764087e-10,
+    "consistent_basis_changes": [
+      {
+        "formula_units": 2.0,
+        "n": 10.0,
+        "V0_a3": 90.8,
+        "max_output_difference_gpa": 0.0
+      },
+      {
+        "formula_units": 4.0,
+        "n": 20.0,
+        "V0_a3": 181.6,
+        "max_output_difference_gpa": 0.0
+      }
+    ]
+  },
+  "fixed_coefficient_n_diagnostics": [
+    {
+      "n": 1.0,
+      "volume_formula_units": 1.0,
+      "physical_stoichiometry": false,
+      "sun_pressure_rmse_gpa": 10.6821159949686,
+      "sun_2200k_pressure_rmse_gpa": 14.009612421096527,
+      "greaux_pressure_rmse_gpa": 5.283117234763645,
+      "greaux_bulk_modulus_rmse_gpa": 5.7042539795767615,
+      "greaux_shear_modulus_rmse_gpa": 3.5742069364998335
+    },
+    {
+      "n": 2.0,
+      "volume_formula_units": 1.0,
+      "physical_stoichiometry": false,
+      "sun_pressure_rmse_gpa": 9.476283619976655,
+      "sun_2200k_pressure_rmse_gpa": 12.4764492529882,
+      "greaux_pressure_rmse_gpa": 4.3447169943475785,
+      "greaux_bulk_modulus_rmse_gpa": 4.0938331304297,
+      "greaux_shear_modulus_rmse_gpa": 2.4506277633976508
+    },
+    {
+      "n": 5.0,
+      "volume_formula_units": 1.0,
+      "physical_stoichiometry": true,
+      "sun_pressure_rmse_gpa": 5.917303475333408,
+      "sun_2200k_pressure_rmse_gpa": 7.893016877023295,
+      "greaux_pressure_rmse_gpa": 1.5380611869860783,
+      "greaux_bulk_modulus_rmse_gpa": 3.1030273292576,
+      "greaux_shear_modulus_rmse_gpa": 1.2499049928139827
+    },
+    {
+      "n": 10.0,
+      "volume_formula_units": 1.0,
+      "physical_stoichiometry": false,
+      "sun_pressure_rmse_gpa": 2.040498743255929,
+      "sun_2200k_pressure_rmse_gpa": 1.250561867090322,
+      "greaux_pressure_rmse_gpa": 3.1872533688828106,
+      "greaux_bulk_modulus_rmse_gpa": 11.478926812852844,
+      "greaux_shear_modulus_rmse_gpa": 6.85853342009592
+    },
+    {
+      "n": 20.0,
+      "volume_formula_units": 1.0,
+      "physical_stoichiometry": false,
+      "sun_pressure_rmse_gpa": 13.006939199018674,
+      "sun_2200k_pressure_rmse_gpa": 15.357276316174348,
+      "greaux_pressure_rmse_gpa": 12.576223267735944,
+      "greaux_bulk_modulus_rmse_gpa": 29.641528765913137,
+      "greaux_shear_modulus_rmse_gpa": 18.338598566349763
+    },
+    {
+      "n": 9.54113309204242,
+      "volume_formula_units": 1.0,
+      "physical_stoichiometry": false,
+      "sun_pressure_rmse_gpa": 1.9609652031485096,
+      "sun_2200k_pressure_rmse_gpa": 1.4818109163126492,
+      "greaux_pressure_rmse_gpa": 2.757514155326188,
+      "greaux_bulk_modulus_rmse_gpa": 10.657160502670134,
+      "greaux_shear_modulus_rmse_gpa": 6.333323636731337
+    }
+  ],
+  "optimal_amplitudes_by_observable": {
+    "sun_pressure": {
+      "outputs": 140,
+      "effective_n": 9.54113309204242,
+      "thermal_scale_relative_to_n5": 1.9082266184084842,
+      "rmse_gpa": 1.9609652031485088,
+      "interpretation": "Unweighted scalar-output amplitude diagnostic; other coefficients fixed. Not a physical atom count or a new EOS."
+    },
+    "greaux_pressure": {
+      "outputs": 34,
+      "effective_n": 6.617225416020766,
+      "thermal_scale_relative_to_n5": 1.323445083204153,
+      "rmse_gpa": 0.2383173220322355,
+      "interpretation": "Unweighted scalar-output amplitude diagnostic; other coefficients fixed. Not a physical atom count or a new EOS."
+    },
+    "greaux_bulk_modulus": {
+      "outputs": 34,
+      "effective_n": 3.8547039259713163,
+      "thermal_scale_relative_to_n5": 0.7709407851942632,
+      "rmse_gpa": 2.28776512379126,
+      "interpretation": "Unweighted scalar-output amplitude diagnostic; other coefficients fixed. Not a physical atom count or a new EOS."
+    },
+    "greaux_shear_modulus": {
+      "outputs": 34,
+      "effective_n": 4.060146697405546,
+      "thermal_scale_relative_to_n5": 0.8120293394811093,
+      "rmse_gpa": 0.6280504114656892,
+      "interpretation": "Unweighted scalar-output amplitude diagnostic; other coefficients fixed. Not a physical atom count or a new EOS."
+    },
+    "joint_equal_scalar_gpa_weights": {
+      "outputs": 242,
+      "effective_n": 7.089318827369681,
+      "thermal_scale_relative_to_n5": 1.417863765473936,
+      "rmse_gpa": 3.864827022860023,
+      "interpretation": "Unweighted scalar-output amplitude diagnostic; other coefficients fixed. Not a physical atom count or a new EOS."
+    }
+  },
+  "conditional_thermal_pair_diagnostic": {
+    "scope": "Unweighted pressure-only fit to 140 Sun rows, n=5 and all reference/shear/theta parameters fixed; not a replacement EOS or original-fit reconstruction",
+    "gamma0": 1.8785034931958768,
+    "q": 0.404614107825161,
+    "sun_pressure_rmse_gpa": 1.0087797631847812,
+    "greaux_pressure_rmse_gpa": 0.6959647862423706,
+    "greaux_bulk_modulus_rmse_gpa": 8.461758462708408,
+    "greaux_shear_modulus_rmse_gpa": 1.2211602449068708,
+    "gamma_at_38_5_a3": {
+      "published": 0.9174053479853939,
+      "pressure_only_diagnostic": 1.7572906975355207
+    }
+  },
+  "2200k_checkpoint": [
+    {
+      "volume_a3": 38.5,
+      "temperature_k": 2200.0,
+      "observed_pressure_gpa": 72.8,
+      "n": 5.0,
+      "pressure_gpa": 65.39739067222588,
+      "thermal_increment_gpa": 8.517388408762116
+    },
+    {
+      "volume_a3": 38.5,
+      "temperature_k": 2200.0,
+      "observed_pressure_gpa": 72.8,
+      "n": 10.0,
+      "pressure_gpa": 73.91477908098801,
+      "thermal_increment_gpa": 17.034776817524246
+    }
+  ],
+  "conclusion": "A consistent change of volume/formula basis leaves all outputs unchanged. Doubling n alone improves Sun pressure but worsens Greaux elastic moduli. No single atom-count/volume-density scaling reconciles the joint observations with the fixed published coefficients. The checks do not determine which normalization or model the authors actually used."
+}

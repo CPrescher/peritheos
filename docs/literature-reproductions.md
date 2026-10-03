@@ -548,11 +548,11 @@ covariance or explicit data-reuse license is stated. Section IV prints
   `n = 5`, and the integrated constant-`q`
   relations
 
-  \[
-  \gamma(V)=\gamma_0(V/V_0)^q,
-  \qquad
-  \theta(V)=\theta_0\exp[(\gamma_0-\gamma(V))/q].
-  \]
+\[
+\gamma(V)=\gamma_0(V/V_0)^q,
+\qquad
+\theta(V)=\theta_0\exp[(\gamma_0-\gamma(V))/q].
+\]
 
 The paper's generalized Tange form has `a = 1` and is therefore exactly the
 `integrated_gruneisen` model implemented by `MieGruneisenDebye`.

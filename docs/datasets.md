@@ -41,6 +41,46 @@ notes, EOS-record links, resource metadata, and unrecognized extension
 metadata. An unknown identifier raises `DatasetLookupError` and reports the
 available identifiers, with close-match suggestions when possible.
 
+### FeS reference data and author input variants
+
+The `fes_vi` source document preserves Table S1 and its paired KCl markers,
+plus these separately accessible source datasets:
+
+| Dataset identifier | Rows | Source version |
+|---|---:|---|
+| `fes_morard_2026_author_without_additional_cold_pvt` | 167 | Author input excluding the 11 additional cold observations |
+| `fes_morard_2026_author_literature_cold_pv` | 21 | Sata/Ohfuji reference observations as supplied in the author input |
+| `fes_sata_2010_table1_vi_pv` | 13 | Sata (2010) numerical re-report with original table errors |
+
+The EOS is deferred, but its observation tables can be loaded directly without
+enabling the source equation:
+
+```python
+from peritheos import Dataset, get_material_document
+
+document = get_material_document("fes_vi")
+identifier = "fes_morard_2026_author_literature_cold_pv"
+metadata = next(d for d in document["datasets"] if d["identifier"] == identifier)
+dataset = Dataset.from_mapping(metadata)
+pv = dataset.as_pressure_volume()
+print(len(dataset), pv.pressure_unit, pv.volume_unit)  # 21 GPa cm^3/mol
+```
+
+The author datasets preserve cm³/mol, assigned fit errors and original input
+row indices. Their shared `observation_id` identifies overlap between the input
+and subsets; concatenating these tables would count measurements repeatedly.
+Their thermal rows also overlap Table S1. Original Sata cell volumes and error
+tokens remain separate, including 101.1 GPa where the author input uses 101.2.
+Thirteen cold cell volumes match the Sata re-report; individual original-study
+attribution for the remaining eight is unresolved. None of these uncertainty
+columns is silently declared a standard deviation. The 167-row selection is confirmed
+by user-reported personal communication from Guillaume Morard: the 11 unsuitable
+quenched observations are excluded. Neither that subset nor the 178-row variant
+containing it is exposed in the database. Original files and historical comparisons
+remain in the audit archive outside the package. See the
+[author-source audit](literature-reproductions/fes-eosfit-direct.md#author-input-follow-up-2026-10-03)
+for EOS-file versus paper coefficients and replay results.
+
 ## Pressure-volume convenience view
 
 `as_pressure_volume()` locates pressure, volume, and associated uncertainty

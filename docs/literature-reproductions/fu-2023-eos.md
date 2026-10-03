@@ -14,7 +14,7 @@ Online Materials Text S1 and Table S2 resolve an ambiguity in the main article: 
 
 Text S3, main-text Equations 17–18 and 23–28, and Table S3 additionally publish a source-owned CaSiO3 composite coefficient set: BM3 `V0=45.4 Å³`, `K0=248 GPa`, fixed `K0'=4`; MGD `theta0=1000 K`, `gamma0=1.42`, and `q0=2.65`; and shear terms `mu0=126 GPa`, `mu0'=1.6`, and `etaS0=1.54`. The pressure-volume thermal branch is executable in Peritheos; the shear terms are retained in the audit but remain outside the EOS record's public model surface.
 
-The catalog labels this source-owned record **published CaSiO3 BM3-MGD parameters**. Its historical identifier ends in `_refit` because Fu fitted earlier literature data; it is not the independent Peritheos candidate-data refit. The published coefficients were not reproduced by the candidate-data audit, while the exact source selection and weights remain undisclosed.
+The catalog labels this record **Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)**. Sun and Gréaux are credited for the experimental data, and Fu for the published joint-fit coefficients. Its historical identifier ends in `_refit` because Fu fitted earlier literature data; it is not the independent Peritheos candidate-data refit. That separate record is labeled **Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data**. The published coefficients were not reproduced by the candidate-data audit, while the exact source selection and weights remain undisclosed.
 
 The official ZIP contains only `8435_supp1.pdf` and `8435fu.cif`: it has no row table, workbook, covariance, weights, or fitting code. Recovering the upstream studies changes the correct status from “no direct refit possible” to **completed refit attempt, coefficient parity not achieved**. It does not justify pretending that Fu's undisclosed regression protocol is known.
 
@@ -66,7 +66,38 @@ The full seven-parameter covariance is calculated from the residual Jacobian as 
 
 These errors assume independent residuals with common variance in the chosen objective and condition on the fixed parameters. They do not include uncertainty in input coordinates, shared measurement correlations, systematic errors, or sensitivity to choosing different weights. The sensitivity fits also report residual-scaled covariance in their respective objectives; printed sigmas are treated as relative weights for those error estimates.
 
-All optimizations converge, but none reproduces Table S3; `gamma0`, `q`, and `etaS0` are especially protocol-sensitive. The propagated P-V diagnostic includes printed pressure and volume errors but cannot include temperature uncertainty because Sun reports only a 50–100 K range, not row-level values. Choosing the derived Gréaux `PFS` column instead of measured `PNaCl`, or fitting only pressure, also fails to recover the published thermal pair. The bounded conclusion is therefore non-parity caused by an underdetermined source protocol, not evidence that the published curve is numerically unusable.
+All optimizations converge, but none reproduces Table S3; `gamma0`, `q`, and `etaS0` are especially protocol-sensitive. The propagated P-V diagnostic includes printed pressure and volume errors but cannot include temperature uncertainty because Sun reports only a 50–100 K range, not row-level values. Choosing the derived Gréaux `PFS` column instead of measured `PNaCl`, or fitting only pressure, also fails to recover the published thermal pair. The published coefficients give a systematic high-temperature pressure mismatch against the reconstructed Sun observations. Its cause is unresolved; the undisclosed source protocol does not establish that weighting caused the discrepancy.
+
+## Volume and atom-count normalization audit (2026-10-03)
+
+The official supplement was checked again: Table S3 reports `V0=45.4 Å³`, `gamma0=1.42`, and `q0=2.65`; its footnote attributes the CaSiO3 fit to Sun and Gréaux data. Main-text Equation 26 defines `n` as atoms in the mineral formula, giving **five atoms per CaSiO3 formula**, consistent with the stored one-formula-unit volume basis. No coefficient or atom count has been changed by this investigation.
+
+[`fu-2023-normalization-audit.json`](../data/fu-2023-normalization-audit.json) records an independent SI check using Boltzmann's constant and energy per formula unit divided by volume in m³. It agrees with the molar-energy audit to `2.84e-14 GPa` and with the loaded catalog model to `1.65e-10 GPa` across all 174 candidate states. The public-volume conversion is exactly `0.0602214076 J/bar/mol` per `Å³/formula`, equivalent to `0.602214076 cm³/mol`; thus `V0=45.4 Å³/formula` is `27.34051905 cm³/mol`. The `n=5` high-temperature heat-capacity limit is `15R=124.71694 J/mol/K`.
+
+Consistent conversions to bases representing two or four formula units multiply **both** `V`, `V0`, and `n` by two or four. Pressure and both elastic moduli remain identical. Changing `n` alone, or scaling `V` and `V0` without the corresponding atom count, changes the thermal energy density and is a deliberately inconsistent diagnostic rather than a unit conversion.
+
+With all published coefficients held fixed:
+
+| Observable | RMSE at physical `n=5` (GPa) | RMSE at diagnostic `n=10` (GPa) | Best diagnostic effective `n` |
+|---|---:|---:|---:|
+| 140 Sun pressures | 5.917 | 2.040 | 9.541 |
+| 34 Gréaux measured pressures | 1.538 | 3.187 | 6.617 |
+| 34 Gréaux adiabatic bulk moduli | 3.103 | 11.479 | 3.855 |
+| 34 Gréaux shear moduli | 1.250 | 6.859 | 4.060 |
+
+Each best effective `n` minimizes the unweighted residuals for that observable separately, with every other parameter fixed; these are not physical stoichiometries or newly registered EOS fits. The 14 Sun rows at 2200 K improve from `7.893` to `1.251 GPa` pressure RMSE when `n` alone is doubled, but the elastic predictions deteriorate. At `V=38.50 Å³` and `T=2200 K`, pressure rises from `65.397` to `73.915 GPa`, compared with `72.8 GPa` observed. This explains the apparent factor-of-two clue, but a single global thermal normalization cannot reconcile all four observables.
+
+The same pressure deficit can be reduced while retaining physical `n=5`: fitting only `gamma0` and `q` to the 140 Sun pressures, with all other coefficients fixed, gives the conditional diagnostic `gamma0=1.87850`, `q=0.40461`, and pressure RMSE `1.009 GPa`. It worsens the Gréaux bulk-modulus RMSE to `8.462 GPa`. At `V=38.50 Å³`, the published power law reduces gamma to `0.91741`, whereas this pressure-only diagnostic gives `1.75729`. Thus the observed low thermal pressure also reflects the published Grüneisen parameter and its strong decline with compression; it does not uniquely identify a wrong atom count.
+
+Equation 27 prints an extra temperature factor in the heat-capacity prefactor. The existing audit uses the dimensionally correct Debye heat capacity, as stated above. This printed issue affects interpretation of the bulk-modulus equation, not the pressure calculation in Equations 23 and 26. Figure S3's caption explicitly identifies the fitted solid curves in panels a and b; it does not unambiguously establish that every density curve in panel c was evaluated from the complete Table S3 coefficient set. Visual agreement in that panel therefore cannot establish the authors' hidden normalization or fitting implementation.
+
+The supported conclusion is that **Peritheos's formula/molar conversion is consistent**, while **a single global atom-count or energy-density factor does not fix the published joint model**. An author-side normalization error, different conventions between observable groups, a parameter-table mistake, or a different implemented thermal model remain hypotheses requiring the original calculation or clarification from the authors.
+
+Reproduce the checks and optionally generate the four-panel residual plot:
+
+```bash
+uv run python scripts/audit_fu_2023_normalization.py --plot /tmp/fu-2023-normalization.png
+```
 
 ## Redistribution boundary
 

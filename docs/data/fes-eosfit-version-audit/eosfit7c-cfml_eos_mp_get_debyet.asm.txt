@@ -1,0 +1,169 @@
+pushq	%r12
+pushq	%r13
+pushq	%rbp
+subq	$<address>, %rsp
+movq	%rsi, %r12
+movss	<address>(%r12), %xmm3
+testb	$<address>, <address>(%r12)
+je	<address>
+movss	<address>(%r12), %xmm6
+movss	USE_REG(%rdi), %xmm2
+movaps	%xmm6, %xmm0
+movl	<address>(%r12), %esi
+divss	%xmm2, %xmm0
+andl	$<address>, %esi
+je	<address>
+movaps	%xmm0, %xmm1
+mulss	%xmm0, %xmm1
+mulss	%xmm1, %xmm0
+testq	%rdx, %rdx
+je	<address>
+movl	USE_REG(%rdx), %edx
+leal	-<address>(%rdx), %eax
+cmpl	$<address>, %eax
+ja	<address>
+testl	%edx, %edx
+je	<address>
+movslq	%edx, %rax
+cmpl	$<address>, <address>(%r12,%rax,4)
+je	<address>
+movss	<address>(%rip), %xmm4
+leaq	USE_REG(%rax,%rax,4), %rbp
+movss	<address>(%r12,%rbp,4), %xmm1
+comiss	%xmm4, %xmm1
+jbe	<address>
+movss	<address>(%r12,%rbp,4), %xmm3
+jmp	<address>
+movss	<address>(%r12,%rbp,4), %xmm3
+movaps	%xmm3, %xmm1
+movss	<address>(%rip), %xmm5
+andps	<address>(%rip), %xmm1
+comiss	%xmm1, %xmm5
+ja	<address>
+decl	%edx
+xorl	%ecx, %ecx
+xorps	%xmm7, %xmm7
+cmpl	$<address>, %edx
+ja	<address>
+divss	%xmm6, %xmm2
+movq	%rax, %rcx
+testl	%esi, %esi
+jne	<address>
+jmp	<address>
+divss	%xmm6, %xmm2
+testl	%esi, %esi
+je	<address>
+movaps	%xmm2, %xmm1
+mulss	%xmm2, %xmm1
+mulss	%xmm1, %xmm2
+testq	%rcx, %rcx
+je	<address>
+cmpl	$<address>, <address>(%r12,%rcx,4)
+jle	<address>
+leaq	USE_REG(%rcx,%rcx,4), %r13
+movss	<address>(%r12,%r13,4), %xmm1
+comiss	%xmm4, %xmm1
+jbe	<address>
+movaps	%xmm2, %xmm7
+mulss	<address>(%r12,%r13,4), %xmm7
+jmp	<address>
+movss	<address>(%r12,%r13,4), %xmm1
+movaps	%xmm1, %xmm4
+andps	<address>(%rip), %xmm4
+comiss	%xmm5, %xmm4
+jbe	<address>
+movaps	%xmm2, %xmm0
+movss	%xmm3, USE_REG(%rsp)
+callq	_powf
+movss	USE_REG(%rsp), %xmm3
+movaps	%xmm0, %xmm7
+mulss	<address>(%r12,%r13,4), %xmm7
+jmp	<address>
+movl	<address>(%r12), %eax
+addl	$-<address>, %eax
+cmpl	$<address>, %eax
+ja	<address>
+movss	<address>(%r12), %xmm1
+comiss	%xmm4, %xmm1
+jbe	<address>
+movaps	%xmm2, %xmm7
+mulss	<address>(%r12), %xmm7
+jmp	<address>
+movss	<address>(%r12), %xmm1
+movaps	%xmm1, %xmm4
+andps	<address>(%rip), %xmm4
+comiss	<address>(%rip), %xmm4
+jbe	<address>
+movaps	%xmm2, %xmm0
+movss	%xmm3, USE_REG(%rsp)
+callq	_powf
+movss	USE_REG(%rsp), %xmm3
+movaps	%xmm0, %xmm7
+jmp	<address>
+movss	<address>(%rip), %xmm7
+mulss	<address>(%r12), %xmm7
+movss	<address>(%r12,%rbp,4), %xmm0
+subss	%xmm7, %xmm0
+divss	%xmm3, %xmm0
+callq	_expf
+movaps	%xmm0, %xmm3
+mulss	<address>(%r12,%rbp,4), %xmm3
+jmp	<address>
+movss	<address>(%rip), %xmm5
+movss	<address>(%r12), %xmm4
+comiss	%xmm5, %xmm4
+jbe	<address>
+movss	<address>(%r12), %xmm3
+jmp	<address>
+movss	<address>(%r12), %xmm1
+movaps	%xmm1, %xmm7
+andps	<address>(%rip), %xmm7
+movss	<address>(%rip), %xmm3
+comiss	%xmm7, %xmm3
+ja	<address>
+divss	%xmm6, %xmm2
+testl	%esi, %esi
+je	<address>
+movaps	%xmm2, %xmm3
+mulss	%xmm2, %xmm3
+mulss	%xmm3, %xmm2
+movl	<address>(%r12), %eax
+addl	$-<address>, %eax
+cmpl	$<address>, %eax
+ja	<address>
+comiss	%xmm5, %xmm4
+ja	<address>
+comiss	<address>(%rip), %xmm7
+jbe	<address>
+movaps	%xmm2, %xmm0
+movss	%xmm1, USE_REG(%rsp)
+callq	_powf
+movss	USE_REG(%rsp), %xmm1
+movaps	%xmm0, %xmm2
+jmp	<address>
+movss	<address>(%rip), %xmm2
+movss	<address>(%r12), %xmm0
+mulss	%xmm0, %xmm2
+subss	%xmm2, %xmm0
+divss	%xmm1, %xmm0
+callq	_expf
+movaps	%xmm0, %xmm3
+mulss	<address>(%r12), %xmm3
+movaps	%xmm3, %xmm0
+addq	$<address>, %rsp
+popq	%rbp
+popq	%r13
+popq	%r12
+retq
+movss	<address>(%rip), %xmm7
+jmp	<address>
+movss	<address>(%r12,%rbp,4), %xmm1
+callq	_powf
+movaps	%xmm0, %xmm3
+mulss	<address>(%r12,%rbp,4), %xmm3
+jmp	<address>
+movss	<address>(%r12), %xmm1
+callq	_powf
+jmp	<address>
+nopl	USE_REG(%rax)
+nopl	USE_REG(%rax)

@@ -1,0 +1,819 @@
+pushq	%rbp
+movq	%rsp, %rbp
+pushq	%r12
+pushq	%r13
+pushq	%r14
+pushq	%r15
+pushq	%rbx
+subq	$<address>, %rsp                    ## imm = <address>F8
+leaq	_cfml_eos_mp_pthermal_$EV.0.94(%rip), %rbx
+movq	%rsi, -<address>(%rbp)
+movq	%rdx, %r12
+pxor	%xmm0, %xmm0
+movl	$<address>, %eax
+movq	%rdi, -<address>(%rbp)
+movq	%xmm0, <address>(%rbx)
+movd	%xmm0, <address>(%rbx)
+movdqu	%xmm0, -<address>(%rbx,%rax)
+movdqu	%xmm0, -<address>(%rbx,%rax)
+movdqu	%xmm0, -<address>(%rbx,%rax)
+movdqu	%xmm0, -<address>(%rbx,%rax)
+movdqu	%xmm0, -<address>(%rbx,%rax)
+movdqu	%xmm0, -<address>(%rbx,%rax)
+movdqu	%xmm0, -<address>(%rbx,%rax)
+subq	$<address>, %rax
+jne	<address>
+leaq	<address>(%rip), %rdi
+movq	<address>(%r12), %rax
+movq	%rax, -<address>(%rdi)
+movl	$<address>, %eax
+movl	<address>(%r12), %ebx
+movl	%ebx, USE_REG(%rdi)
+movups	<address>(%r12,%rax), %xmm0
+movups	%xmm0, -<address>(%rdi,%rax)
+movups	<address>(%r12,%rax), %xmm1
+movups	%xmm1, -<address>(%rdi,%rax)
+movups	<address>(%r12,%rax), %xmm2
+movups	%xmm2, -<address>(%rdi,%rax)
+movups	<address>(%r12,%rax), %xmm3
+movups	%xmm3, -<address>(%rdi,%rax)
+movups	<address>(%r12,%rax), %xmm4
+movups	%xmm4, -<address>(%rdi,%rax)
+movups	<address>(%r12,%rax), %xmm5
+movups	%xmm5, -<address>(%rdi,%rax)
+movups	<address>(%r12,%rax), %xmm6
+movups	%xmm6, -<address>(%rdi,%rax)
+subq	$<address>, %rax
+jne	<address>
+movl	<address>(%r12), %r13d
+andl	$<address>, %r13d
+je	<address>
+movups	<address>(%rip), %xmm2
+rcpps	%xmm2, %xmm3
+mulps	%xmm3, %xmm2
+mulps	%xmm3, %xmm2
+addps	%xmm3, %xmm3
+movsd	<address>(%r12), %xmm4
+subps	%xmm2, %xmm3
+movss	<address>(%r12), %xmm5
+mulps	%xmm3, %xmm4
+movss	<address>(%rip), %xmm3
+divss	%xmm3, %xmm5
+movss	<address>(%r12), %xmm0
+movaps	%xmm0, %xmm1
+mulss	%xmm0, %xmm1
+mulss	%xmm0, %xmm1
+movl	<address>(%r12), %eax
+movss	%xmm1, _cfml_eos_mp_pthermal_$EV.0.94(%rip)
+movlps	%xmm4, <address>(%rip)
+movss	%xmm5, <address>(%rip)
+cmpl	$<address>, %eax
+jne	<address>
+movss	<address>(%r12), %xmm0
+divss	%xmm3, %xmm0
+movss	%xmm0, <address>(%rip)
+jmp	<address>
+cmpl	$<address>, %eax
+jne	<address>
+movl	<address>(%r12), %eax
+movl	<address>(%r12), %ebx
+movl	%eax, <address>(%rip)
+movl	%ebx, <address>(%rip)
+movl	<address>(%r12), %ebx
+movslq	%ebx, %rdi
+leaq	-<address>(%rdi), %rax
+cmpq	$<address>, %rax
+jbe	<address>
+leaq	-<address>(%rdi), %rax
+cmpq	$<address>, %rax
+jbe	<address>
+cmpq	$<address>, %rdi
+jne	<address>
+movss	<address>(%r12), %xmm0
+mulss	%xmm0, %xmm3
+movl	<address>(%r12), %eax
+movss	%xmm3, <address>(%rip)
+movl	%eax, <address>(%rip)
+jmp	<address>
+movss	<address>(%r12), %xmm0
+movss	<address>(%r12), %xmm1
+movss	<address>(%r12), %xmm2
+mulss	%xmm3, %xmm0
+mulss	%xmm3, %xmm1
+mulss	%xmm2, %xmm3
+movss	%xmm0, <address>(%rip)
+movss	%xmm1, <address>(%rip)
+movss	%xmm3, <address>(%rip)
+jmp	<address>
+movl	<address>(%r12), %ebx
+movq	$USE_NOT_INITED, %r14
+testq	%rcx, %rcx
+je	<address>
+movl	USE_REG(%rcx), %eax
+movslq	%eax, %rax
+cmpl	$<address>, %eax
+cmovbeq	%rax, %r14
+movl	$USE_REG, _cfml_eos_mp_pthermal_$PTHP.0.94(%rip)
+movl	$USE_REG, <address>(%rip)
+movl	$USE_REG, <address>(%rip)
+cmpl	$<address>, %ebx
+je	<address>
+cmpl	$<address>, %ebx
+jne	<address>
+movq	%r12, %rsi
+xorl	%edx, %edx
+movq	-<address>(%rbp), %rdi
+callq	_cfml_eos_mp_get_debyet_..0
+movq	-<address>(%rbp), %rax
+movss	%xmm0, -<address>(%rbp)
+movss	USE_REG(%rax), %xmm2
+movss	%xmm2, -<address>(%rbp)
+divss	<address>(%r12), %xmm2
+testl	%r13d, %r13d
+je	<address>
+movaps	%xmm2, %xmm1
+mulss	%xmm2, %xmm1
+mulss	%xmm1, %xmm2
+leal	-<address>(%rbx), %eax
+cmpl	$<address>, %eax
+ja	<address>
+movss	<address>(%r12), %xmm1
+comiss	<address>(%rip), %xmm1
+ja	<address>
+movss	<address>(%r12), %xmm1
+movaps	%xmm1, %xmm3
+andps	<address>(%rip), %xmm3
+comiss	<address>(%rip), %xmm3
+jbe	<address>
+movaps	%xmm2, %xmm0
+callq	_powf
+movaps	%xmm0, %xmm2
+jmp	<address>
+movss	<address>(%rip), %xmm2
+mulss	<address>(%r12), %xmm2
+movq	-<address>(%rbp), %rax
+movss	<address>(%rip), %xmm1
+movss	USE_REG(%rax), %xmm3
+comiss	%xmm3, %xmm1
+jbe	<address>
+xorps	%xmm1, %xmm1
+movss	%xmm1, -<address>(%rbp)
+jmp	<address>
+movss	-<address>(%rbp), %xmm1
+leaq	-<address>(%rbp), %rsi
+divss	%xmm3, %xmm1
+cvtss2sd	%xmm1, %xmm1
+leaq	__NLITPACK_3.0.12(%rip), %rdi
+movsd	%xmm1, USE_REG(%rsi)
+movss	%xmm3, -<address>(%rsi)
+movss	%xmm2, -<address>(%rsi)
+callq	_cfml_math_general_mp_debye_dp_
+movss	-<address>(%rbp), %xmm2
+movss	-<address>(%rbp), %xmm3
+movss	<address>(%rip), %xmm1
+mulss	<address>(%r12), %xmm1
+cvtsd2ss	%xmm0, %xmm0
+mulss	%xmm3, %xmm1
+mulss	%xmm0, %xmm1
+movss	%xmm1, -<address>(%rbp)
+leaq	_cfml_math_general_mp_err_mathgen_(%rip), %r15
+testb	$<address>, USE_REG(%r15)
+je	<address>
+movl	$<address>, %esi
+leaq	-<address>(%rbp), %rdi
+movq	%rsi, %rcx
+leaq	_cfml_math_general_mp_err_mathgen_mess_(%rip), %rdx
+movl	$<address>, _cfml_eos_mp_err_eos_(%rip) ## imm = 0xFFFFFFFF
+movss	%xmm2, -<address>(%rbp)
+callq	_for_trim
+movss	-<address>(%rbp), %xmm2
+movslq	%eax, %rax
+leaq	_cfml_eos_mp_err_eos_mess_(%rip), %rdi
+movl	$<address>, %esi                    ## imm = <address>
+leaq	-<address>(%rbp), %rdx
+movq	%rax, %rcx
+xorl	%r8d, %r8d
+movss	%xmm2, -<address>(%rbp)
+callq	_for_cpystr
+movss	-<address>(%rbp), %xmm2
+movss	<address>(%r12), %xmm3
+movss	<address>(%rip), %xmm1
+comiss	%xmm3, %xmm1
+jbe	<address>
+xorps	%xmm1, %xmm1
+jmp	<address>
+movss	-<address>(%rbp), %xmm1
+leaq	-<address>(%rbp), %rsi
+divss	%xmm3, %xmm1
+cvtss2sd	%xmm1, %xmm1
+leaq	__NLITPACK_3.0.12(%rip), %rdi
+movsd	%xmm1, USE_REG(%rsi)
+movss	%xmm2, -<address>(%rbp)
+callq	_cfml_math_general_mp_debye_dp_
+movss	-<address>(%rbp), %xmm2
+movss	<address>(%rip), %xmm1
+mulss	<address>(%r12), %xmm1
+cvtsd2ss	%xmm0, %xmm0
+mulss	<address>(%r12), %xmm1
+mulss	%xmm0, %xmm1
+testb	$<address>, USE_REG(%r15)
+je	<address>
+movl	$<address>, %esi
+leaq	-<address>(%rbp), %rdi
+movq	%rsi, %rcx
+leaq	_cfml_math_general_mp_err_mathgen_mess_(%rip), %rdx
+movl	$<address>, _cfml_eos_mp_err_eos_(%rip) ## imm = 0xFFFFFFFF
+movss	%xmm1, -<address>(%rbp)
+movss	%xmm2, -<address>(%rbp)
+callq	_for_trim
+movss	-<address>(%rbp), %xmm2
+movss	-<address>(%rbp), %xmm1
+movslq	%eax, %rax
+leaq	_cfml_eos_mp_err_eos_mess_(%rip), %rdi
+movl	$<address>, %esi                    ## imm = <address>
+leaq	-<address>(%rbp), %rdx
+movq	%rax, %rcx
+xorl	%r8d, %r8d
+movss	%xmm1, -<address>(%rbp)
+movss	%xmm2, -<address>(%rbp)
+callq	_for_cpystr
+movss	-<address>(%rbp), %xmm2
+movss	-<address>(%rbp), %xmm1
+divss	-<address>(%rbp), %xmm2
+movss	-<address>(%rbp), %xmm3
+subss	%xmm1, %xmm3
+mulss	%xmm3, %xmm2
+movss	%xmm2, _cfml_eos_mp_pthermal_$PTHP.0.94(%rip)
+jmp	<address>
+cmpl	$<address>, %ebx
+jne	<address>
+movq	-<address>(%rbp), %rax
+movss	USE_REG(%rax), %xmm2
+movss	%xmm2, -<address>(%rbp)
+divss	<address>(%r12), %xmm2
+testl	%r13d, %r13d
+je	<address>
+movaps	%xmm2, %xmm1
+mulss	%xmm2, %xmm1
+mulss	%xmm1, %xmm2
+leal	-<address>(%rbx), %eax
+cmpl	$<address>, %eax
+ja	<address>
+movss	<address>(%r12), %xmm1
+comiss	<address>(%rip), %xmm1
+ja	<address>
+movss	<address>(%r12), %xmm1
+movaps	%xmm1, %xmm3
+andps	<address>(%rip), %xmm3
+comiss	<address>(%rip), %xmm3
+jbe	<address>
+movaps	%xmm2, %xmm0
+callq	_powf
+movaps	%xmm0, %xmm2
+jmp	<address>
+movss	<address>(%rip), %xmm2
+mulss	<address>(%r12), %xmm2
+movq	%r12, %rsi
+xorl	%edx, %edx
+movq	-<address>(%rbp), %rdi
+movss	%xmm2, -<address>(%rbp)
+callq	_cfml_eos_mp_get_debyet_..0
+movq	-<address>(%rbp), %rax
+movss	<address>(%rip), %xmm3
+movss	-<address>(%rbp), %xmm2
+movss	USE_REG(%rax), %xmm1
+movss	%xmm0, -<address>(%rbp)
+comiss	%xmm1, %xmm3
+jbe	<address>
+xorps	%xmm4, %xmm4
+jmp	<address>
+divss	%xmm1, %xmm0
+movss	%xmm2, -<address>(%rbp)
+callq	_expf
+movss	<address>(%rip), %xmm4
+mulss	<address>(%r12), %xmm4
+subss	<address>(%rip), %xmm0
+mulss	-<address>(%rbp), %xmm4
+movss	-<address>(%rbp), %xmm2
+movss	<address>(%rip), %xmm3
+divss	%xmm0, %xmm4
+movss	<address>(%r12), %xmm1
+comiss	%xmm1, %xmm3
+jbe	<address>
+xorps	%xmm1, %xmm1
+jmp	<address>
+movss	-<address>(%rbp), %xmm0
+divss	%xmm1, %xmm0
+movss	%xmm4, -<address>(%rbp)
+movss	%xmm2, -<address>(%rbp)
+callq	_expf
+movss	<address>(%rip), %xmm1
+mulss	<address>(%r12), %xmm1
+subss	<address>(%rip), %xmm0
+mulss	-<address>(%rbp), %xmm1
+movss	-<address>(%rbp), %xmm2
+movss	-<address>(%rbp), %xmm4
+divss	%xmm0, %xmm1
+divss	-<address>(%rbp), %xmm2
+subss	%xmm1, %xmm4
+mulss	%xmm4, %xmm2
+movss	%xmm2, _cfml_eos_mp_pthermal_$PTHP.0.94(%rip)
+jmp	<address>
+xorl	%eax, %eax
+movl	%eax, _cfml_eos_mp_pthermal_$PTHP.0.94(%rip)
+xorps	%xmm2, %xmm2
+jmp	<address>
+movss	<address>(%rip), %xmm0
+movss	%xmm0, -<address>(%rbp)
+divss	<address>(%r12), %xmm0
+movss	%xmm0, -<address>(%rbp)
+callq	_expf
+movq	-<address>(%rbp), %rax
+movaps	%xmm0, %xmm3
+movss	%xmm0, -<address>(%rbp)
+movss	-<address>(%rbp), %xmm0
+divss	USE_REG(%rax), %xmm0
+movss	<address>(%rip), %xmm1
+movss	%xmm1, -<address>(%rbp)
+subss	%xmm1, %xmm3
+movss	%xmm3, -<address>(%rbp)
+callq	_expf
+movss	-<address>(%rbp), %xmm1
+movss	-<address>(%rbp), %xmm3
+movaps	%xmm1, %xmm2
+movss	-<address>(%rbp), %xmm4
+subss	%xmm1, %xmm0
+divss	%xmm3, %xmm1
+divss	%xmm0, %xmm2
+mulss	%xmm3, %xmm3
+subss	%xmm1, %xmm2
+movss	-<address>(%rbp), %xmm1
+mulss	%xmm1, %xmm4
+mulss	%xmm1, %xmm4
+divss	%xmm3, %xmm4
+movss	<address>(%rip), %xmm5
+mulss	<address>(%rip), %xmm5
+mulss	-<address>(%rbp), %xmm5
+divss	%xmm4, %xmm5
+mulss	%xmm5, %xmm2
+movss	%xmm2, _cfml_eos_mp_pthermal_$PTHP.0.94(%rip)
+movl	<address>(%r12), %eax
+addl	<address>(%r12), %eax
+testb	$<address>, <address>(%r12)
+je	<address>
+testl	%eax, %eax
+jle	<address>
+movss	<address>(%rip), %xmm1
+movl	$USE_MMX, %r15d
+movq	%r14, -<address>(%rbp)
+movl	%ebx, %r9d
+movl	%r13d, -<address>(%rbp)
+movq	-<address>(%rbp), %rbx
+subss	<address>(%r12), %xmm1
+subss	<address>(%r12), %xmm1
+mulss	%xmm2, %xmm1
+movss	%xmm1, _cfml_eos_mp_pthermal_$PTHP.0.94(%rip)
+movslq	%r15d, %r13
+movl	<address>(%r12,%r13,4), %eax
+testl	%eax, %eax
+jne	<address>
+incl	%r15d
+cmpl	$<address>, %r15d
+jle	<address>
+movq	-<address>(%rbp), %r14
+movl	%r9d, %ebx
+movl	%r15d, -<address>(%rbp)
+movslq	%ebx, %rbx
+addq	$-<address>, %rbx
+cmpq	$<address>, %rbx
+ja	<address>
+movl	$<address>, %eax
+movq	%rsp, -<address>(%rbp)
+movq	%rsp, %r13
+movq	$<address>, %rax
+subq	%rax, %rsp
+movq	%rsp, %rax
+movq	%rax, %rbx
+leaq	<address>(%r12), %r15
+movl	$<address>, %esi
+movq	%rbx, %rdi
+movq	%r15, %rdx
+movq	%rsi, %rcx
+callq	_cfml_string_utilities_mp_u_case_
+movq	%rbx, %rdi
+movl	$<address>, %esi
+leaq	__STRLITPACK_1710(%rip), %rdx   ## literal pool for: "GPA"
+movl	$<address>, %ecx
+xorl	%r8d, %r8d
+callq	_for_f90_index
+movl	%eax, %ebx
+movq	%r13, %rax
+movq	%rax, %rsp
+movl	$<address>, %eax
+movq	%rsp, -<address>(%rbp)
+movq	$<address>, %rax
+subq	%rax, %rsp
+movq	%rsp, %rax
+movq	%rax, %r13
+movl	$<address>, %esi
+movq	%r13, %rdi
+movq	%r15, %rdx
+movq	%rsi, %rcx
+callq	_cfml_string_utilities_mp_u_case_
+movq	%r13, %rdi
+movl	$<address>, %esi
+leaq	__STRLITPACK_1709(%rip), %rdx   ## literal pool for: "KBAR"
+movl	$<address>, %ecx
+xorl	%r8d, %r8d
+callq	_for_f90_index
+movl	%eax, %ecx
+movq	-<address>(%rbp), %rax
+movq	%rax, %rsp
+testl	%ebx, %ebx
+movss	<address>(%rip), %xmm0
+movq	%rsp, %r13
+jg	<address>
+movss	<address>(%rip), %xmm0
+movl	$<address>, %eax
+testl	%ecx, %ecx
+jle	<address>
+movss	<address>(%rip), %xmm0
+movss	%xmm0, -<address>(%rbp)
+movq	$<address>, %rax
+subq	%rax, %rsp
+movq	%rsp, %rax
+movq	%rax, %rbx
+addq	$<address>, %r12                    ## imm = 0xDA2
+movl	$<address>, %esi
+movq	%rbx, %rdi
+movq	%r12, %rdx
+movq	%rsi, %rcx
+callq	_cfml_string_utilities_mp_u_case_
+movl	$<address>, %esi
+leaq	-<address>(%rbp), %rdi
+movq	%rbx, %rdx
+movq	%rsi, %rcx
+callq	_for_adjustl
+leaq	_cfml_eos_mp_epthermal_factor_$VNAME.0.11(%rip), %rdi
+leaq	-<address>(%rbp), %rsi
+movl	$<address>, %edx
+callq	<address>                     ## symbol stub for: _memmove
+movq	%r13, %rax
+movq	%rax, %rsp
+leaq	_cfml_eos_mp_epthermal_factor_$VNAME.0.11(%rip), %rdi
+movl	$<address>, %esi
+callq	_for_len_trim
+testl	%eax, %eax
+je	<address>
+leaq	_cfml_eos_mp_epthermal_factor_$VNAME.0.11(%rip), %rdi
+movl	$<address>, %esi
+leaq	__STRLITPACK_1708(%rip), %rdx   ## literal pool for: "CM"
+movl	$USE_SSE2, %ecx
+xorl	%r8d, %r8d
+callq	_for_f90_index
+leaq	_cfml_eos_mp_epthermal_factor_$VNAME.0.11(%rip), %rdi
+movl	$<address>, %esi
+leaq	__STRLITPACK_1707(%rip), %rdx   ## literal pool for: "3"
+movl	$USE_MMX, %ecx
+xorl	%r8d, %r8d
+movl	%eax, %ebx
+callq	_for_f90_index
+leaq	_cfml_eos_mp_epthermal_factor_$VNAME.0.11(%rip), %rdi
+movl	$<address>, %esi
+leaq	__STRLITPACK_1706(%rip), %rdx   ## literal pool for: "MOL"
+movl	$<address>, %ecx
+xorl	%r8d, %r8d
+movl	%eax, %r12d
+callq	_for_f90_index
+testl	%ebx, %ebx
+jle	<address>
+testl	%r12d, %r12d
+jle	<address>
+testl	%eax, %eax
+jle	<address>
+movss	-<address>(%rbp), %xmm0
+mulss	<address>(%rip), %xmm0
+movss	%xmm0, -<address>(%rbp)
+movq	-<address>(%rbp), %rax
+movq	%rax, %rsp
+movss	_cfml_eos_mp_pthermal_$PTHP.0.94(%rip), %xmm0
+movss	<address>(%rip), %xmm1
+movss	-<address>(%rbp), %xmm2
+mulss	%xmm2, %xmm0
+mulss	%xmm2, %xmm1
+mulss	<address>(%rip), %xmm2
+movss	%xmm0, _cfml_eos_mp_pthermal_$PTHP.0.94(%rip)
+movss	%xmm1, <address>(%rip)
+movss	%xmm2, <address>(%rip)
+cmpq	$-<address>, %r14
+je	<address>
+leaq	_cfml_eos_mp_pthermal_$PTHP.0.94(%rip), %rax
+movss	USE_REG(%rax,%r14,4), %xmm0
+leaq	-<address>(%rbp), %rsp
+popq	%rbx
+popq	%r15
+popq	%r14
+popq	%r13
+popq	%r12
+popq	%rbp
+retq
+movss	_cfml_eos_mp_pthermal_$PTHP.0.94(%rip), %xmm0
+addss	<address>(%rip), %xmm0
+addss	<address>(%rip), %xmm0
+jmp	<address>
+cmpl	$<address>, %eax
+jne	<address>
+movq	%r12, %rsi
+leaq	-<address>(%rbp), %rdx
+movq	-<address>(%rbp), %rdi
+movl	%r15d, USE_REG(%rdx)
+movl	%r9d, -<address>(%rbp)
+callq	_cfml_eos_mp_get_debyet_
+movq	-<address>(%rbp), %rax
+decl	%r15d
+movss	%xmm0, -<address>(%rbp)
+xorl	%edx, %edx
+xorps	%xmm0, %xmm0
+movss	USE_REG(%rax), %xmm1
+movss	%xmm1, -<address>(%rbp)
+movl	-<address>(%rbp), %r9d
+movss	%xmm0, -<address>(%rbp)
+movss	<address>(%r12), %xmm1
+cmpl	$<address>, %r15d
+ja	<address>
+movss	-<address>(%rbp), %xmm0
+movq	%r13, %rdx
+divss	%xmm1, %xmm0
+cmpl	$<address>, -<address>(%rbp)
+jne	<address>
+jmp	<address>
+movss	-<address>(%rbp), %xmm0
+divss	%xmm1, %xmm0
+cmpl	$<address>, -<address>(%rbp)
+je	<address>
+movaps	%xmm0, %xmm1
+mulss	%xmm0, %xmm1
+mulss	%xmm1, %xmm0
+testq	%rdx, %rdx
+je	<address>
+cmpl	$<address>, <address>(%r12,%rdx,4)
+jle	<address>
+leaq	USE_REG(%rdx,%rdx,4), %r13
+movss	<address>(%r12,%r13,4), %xmm1
+comiss	<address>(%rip), %xmm1
+ja	<address>
+movss	<address>(%r12,%r13,4), %xmm1
+movaps	%xmm1, %xmm2
+andps	<address>(%rip), %xmm2
+comiss	<address>(%rip), %xmm2
+jbe	<address>
+movl	%r9d, -<address>(%rbp)
+callq	_powf
+movl	-<address>(%rbp), %r9d
+movss	%xmm0, -<address>(%rbp)
+mulss	<address>(%r12,%r13,4), %xmm0
+movss	%xmm0, -<address>(%rbp)
+jmp	<address>
+leal	-<address>(%r9), %eax
+cmpl	$<address>, %eax
+ja	<address>
+movss	<address>(%r12), %xmm1
+comiss	<address>(%rip), %xmm1
+ja	<address>
+movss	<address>(%r12), %xmm1
+movaps	%xmm1, %xmm2
+andps	<address>(%rip), %xmm2
+comiss	<address>(%rip), %xmm2
+jbe	<address>
+movl	%r9d, -<address>(%rbp)
+callq	_powf
+movl	-<address>(%rbp), %r9d
+movss	%xmm0, -<address>(%rbp)
+jmp	<address>
+movss	<address>(%rip), %xmm0
+movss	%xmm0, -<address>(%rbp)
+mulss	<address>(%r12), %xmm0
+movss	%xmm0, -<address>(%rbp)
+movss	USE_REG(%rbx), %xmm1
+movss	<address>(%rip), %xmm0
+movss	%xmm1, -<address>(%rbp)
+comiss	%xmm1, %xmm0
+jbe	<address>
+xorps	%xmm0, %xmm0
+movss	%xmm0, -<address>(%rbp)
+jmp	<address>
+movss	-<address>(%rbp), %xmm0
+leaq	-<address>(%rbp), %rsi
+divss	<address>(%rsi), %xmm0
+cvtss2sd	%xmm0, %xmm0
+leaq	__NLITPACK_3.0.12(%rip), %rdi
+movsd	%xmm0, USE_REG(%rsi)
+movl	%r9d, <address>(%rsi)
+callq	_cfml_math_general_mp_debye_dp_
+movl	-<address>(%rbp), %r9d
+movaps	%xmm0, %xmm2
+movss	<address>(%rip), %xmm0
+movaps	%xmm0, %xmm1
+xorps	%xmm0, %xmm0
+mulss	<address>(%r12), %xmm1
+cvtsd2ss	%xmm2, %xmm0
+mulss	-<address>(%rbp), %xmm1
+mulss	%xmm0, %xmm1
+movss	%xmm1, -<address>(%rbp)
+leaq	_cfml_math_general_mp_err_mathgen_(%rip), %r14
+testb	$<address>, USE_REG(%r14)
+je	<address>
+movl	$<address>, %esi
+leaq	-<address>(%rbp), %r13
+movq	%r13, %rdi
+movq	%rsi, %rcx
+leaq	_cfml_math_general_mp_err_mathgen_mess_(%rip), %rdx
+movl	$<address>, _cfml_eos_mp_err_eos_(%rip) ## imm = 0xFFFFFFFF
+movl	%r9d, -<address>(%r13)
+callq	_for_trim
+movl	-<address>(%rbp), %r9d
+movslq	%eax, %rcx
+leaq	_cfml_eos_mp_err_eos_mess_(%rip), %rdi
+movl	$<address>, %esi                    ## imm = <address>
+movq	%r13, %rdx
+xorl	%r8d, %r8d
+movl	%r9d, -<address>(%rbp)
+callq	_for_cpystr
+movl	-<address>(%rbp), %r9d
+movss	<address>(%r12), %xmm1
+movss	<address>(%rip), %xmm0
+comiss	%xmm1, %xmm0
+jbe	<address>
+xorps	%xmm0, %xmm0
+movss	%xmm0, -<address>(%rbp)
+jmp	<address>
+movss	-<address>(%rbp), %xmm0
+leaq	-<address>(%rbp), %rsi
+divss	%xmm1, %xmm0
+cvtss2sd	%xmm0, %xmm0
+leaq	__NLITPACK_3.0.12(%rip), %rdi
+movsd	%xmm0, USE_REG(%rsi)
+movl	%r9d, <address>(%rsi)
+callq	_cfml_math_general_mp_debye_dp_
+movl	-<address>(%rbp), %r9d
+movss	<address>(%rip), %xmm1
+leaq	<address>(%r12), %rax
+mulss	USE_REG(%rax), %xmm1
+cvtsd2ss	%xmm0, %xmm0
+mulss	<address>(%rax), %xmm1
+mulss	%xmm0, %xmm1
+movss	%xmm1, -<address>(%rbp)
+testb	$<address>, USE_REG(%r14)
+je	<address>
+movl	$<address>, %esi
+leaq	-<address>(%rbp), %r13
+movq	%r13, %rdi
+movq	%rsi, %rcx
+leaq	_cfml_math_general_mp_err_mathgen_mess_(%rip), %rdx
+movl	$<address>, _cfml_eos_mp_err_eos_(%rip) ## imm = 0xFFFFFFFF
+movl	%r9d, -<address>(%rbp)
+callq	_for_trim
+movl	-<address>(%rbp), %r9d
+movslq	%eax, %rcx
+leaq	_cfml_eos_mp_err_eos_mess_(%rip), %rdi
+movl	$<address>, %esi                    ## imm = <address>
+movq	%r13, %rdx
+xorl	%r8d, %r8d
+movl	%r9d, -<address>(%rbp)
+callq	_for_cpystr
+movl	-<address>(%rbp), %r9d
+movss	-<address>(%rbp), %xmm1
+leaq	_cfml_eos_mp_pthermal_$PTHP.0.94(%rip), %rdx
+movss	-<address>(%rbp), %xmm0
+movl	-<address>(%rbp), %r15d
+divss	-<address>(%rbp), %xmm1
+movslq	%r15d, %r15
+subss	-<address>(%rbp), %xmm0
+mulss	%xmm0, %xmm1
+leaq	USE_REG(%r15,%r15,4), %rax
+mulss	<address>(%r12,%rax,4), %xmm1
+movss	%xmm1, USE_REG(%rdx,%r15,4)
+jmp	<address>
+cmpl	$<address>, %eax
+jne	<address>
+movq	-<address>(%rbp), %rax
+leal	-<address>(%r15), %edx
+movl	%r15d, -<address>(%rbp)
+xorl	%ecx, %ecx
+xorps	%xmm0, %xmm0
+movss	USE_REG(%rax), %xmm1
+movss	%xmm0, -<address>(%rbp)
+movss	%xmm1, -<address>(%rbp)
+cmpl	$<address>, %edx
+ja	<address>
+movaps	%xmm1, %xmm0
+movq	%r13, %rcx
+divss	<address>(%r12), %xmm0
+cmpl	$<address>, -<address>(%rbp)
+jne	<address>
+jmp	<address>
+movaps	%xmm1, %xmm0
+divss	<address>(%r12), %xmm0
+cmpl	$<address>, -<address>(%rbp)
+je	<address>
+movaps	%xmm0, %xmm1
+mulss	%xmm0, %xmm1
+mulss	%xmm1, %xmm0
+testq	%rcx, %rcx
+je	<address>
+cmpl	$<address>, <address>(%r12,%rcx,4)
+jle	<address>
+leaq	USE_REG(%rcx,%rcx,4), %r14
+movss	<address>(%r12,%r14,4), %xmm1
+comiss	<address>(%rip), %xmm1
+ja	<address>
+movss	<address>(%r12,%r14,4), %xmm1
+movaps	%xmm1, %xmm2
+andps	<address>(%rip), %xmm2
+comiss	<address>(%rip), %xmm2
+jbe	<address>
+movl	%r9d, -<address>(%rbp)
+callq	_powf
+movl	-<address>(%rbp), %r9d
+movss	%xmm0, -<address>(%rbp)
+mulss	<address>(%r12,%r14,4), %xmm0
+movss	%xmm0, -<address>(%rbp)
+jmp	<address>
+leal	-<address>(%r9), %eax
+cmpl	$<address>, %eax
+ja	<address>
+movss	<address>(%r12), %xmm1
+comiss	<address>(%rip), %xmm1
+ja	<address>
+movss	<address>(%r12), %xmm1
+movaps	%xmm1, %xmm2
+andps	<address>(%rip), %xmm2
+comiss	<address>(%rip), %xmm2
+jbe	<address>
+movl	%r9d, -<address>(%rbp)
+callq	_powf
+movl	-<address>(%rbp), %r9d
+movss	%xmm0, -<address>(%rbp)
+jmp	<address>
+movss	<address>(%rip), %xmm0
+movss	%xmm0, -<address>(%rbp)
+mulss	<address>(%r12), %xmm0
+movss	%xmm0, -<address>(%rbp)
+movq	%r12, %rsi
+leaq	-<address>(%rbp), %rdx
+movq	-<address>(%rbp), %rdi
+movl	%r9d, -<address>(%rbp)
+callq	_cfml_eos_mp_get_debyet_
+movss	%xmm0, -<address>(%rbp)
+movss	USE_REG(%rbx), %xmm1
+movss	<address>(%rip), %xmm0
+movl	-<address>(%rbp), %r9d
+comiss	%xmm1, %xmm0
+jbe	<address>
+xorps	%xmm0, %xmm0
+movss	%xmm0, -<address>(%rbp)
+jmp	<address>
+movss	-<address>(%rbp), %xmm0
+divss	%xmm1, %xmm0
+movl	%r9d, -<address>(%rbp)
+callq	_expf
+movss	<address>(%rip), %xmm1
+mulss	<address>(%r12), %xmm1
+subss	<address>(%rip), %xmm0
+mulss	-<address>(%rbp), %xmm1
+divss	%xmm0, %xmm1
+movl	-<address>(%rbp), %r9d
+movss	%xmm1, -<address>(%rbp)
+movss	<address>(%r12), %xmm1
+movss	<address>(%rip), %xmm0
+comiss	%xmm1, %xmm0
+jbe	<address>
+xorps	%xmm0, %xmm0
+movaps	%xmm0, %xmm3
+jmp	<address>
+movss	-<address>(%rbp), %xmm0
+divss	%xmm1, %xmm0
+movl	%r9d, -<address>(%rbp)
+callq	_expf
+movss	<address>(%rip), %xmm3
+mulss	<address>(%r12), %xmm3
+subss	<address>(%rip), %xmm0
+mulss	-<address>(%rbp), %xmm3
+movl	-<address>(%rbp), %r9d
+divss	%xmm0, %xmm3
+movss	-<address>(%rbp), %xmm2
+leaq	(%r13,%r13,4), %rax
+divss	-<address>(%rbp), %xmm2
+movss	-<address>(%rbp), %xmm1
+leaq	_cfml_eos_mp_pthermal_$PTHP.0.94(%rip), %rdx
+mulss	<address>(%r12,%rax,4), %xmm2
+subss	%xmm3, %xmm1
+mulss	%xmm1, %xmm2
+movss	%xmm2, USE_REG(%rdx,%r13,4)
+jmp	<address>
+movss	<address>(%rip), %xmm0
+movss	%xmm0, -<address>(%rbp)
+jmp	<address>
+movss	<address>(%rip), %xmm0
+movss	%xmm0, -<address>(%rbp)
+jmp	<address>

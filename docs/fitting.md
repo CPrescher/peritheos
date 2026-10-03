@@ -269,6 +269,29 @@ result = fit_rt_eos(
 
 ## Thermal fitting
 
+The low-level `fit_thermal_eos` and `fit_joint_eos` functions pass volume
+coordinates to the model without a unit conversion. For MGD, convert observed
+cell volumes, their uncertainties, and the starting/reference volume to
+J/bar/mol before fitting. The chosen molar entity determines `n`:
+
+```python
+from peritheos.units import cell_volume_to_molar_volume
+
+# A whole two-atom hcp cell is the molar entity in this example.
+V_cells = cell_volume_to_molar_volume(V_cell_a3, formula_units_per_cell=1)
+V0_cells = cell_volume_to_molar_volume(22.81, formula_units_per_cell=1)
+# Supply V_cells and V0_cells to the thermal fit with fixed n=2.
+# Per-mole-Fe bookkeeping instead divides these volumes by two and uses n=1.
+```
+
+Here `formula_units_per_cell=1` treats one entire cell as the counted entity;
+ordinary hcp Fe still has two Fe chemical formula units per cell. Material
+library records can accept public cell volumes and convert them to their
+internal basis automatically. The normalization inside the thermal model,
+rather than the public input unit, determines the appropriate atom count.
+See [atom count and molar-volume basis](units.md#atom-count-and-molar-volume-basis)
+and the [Miozzi whole-cell fit experiment](literature-reproductions/miozzi-2020-iron.md#whole-hcp-cell-refit-with-peritheos-2026-10-03).
+
 The reference EOS is deliberately held fixed so the thermal and reference
 isotherm regressions remain inspectable:
 

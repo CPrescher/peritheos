@@ -140,7 +140,7 @@ def audit(checkout: Path, compiler: str) -> dict:
         )
     calculated = np.loadtxt(result.stdout.splitlines())
     independent = source_pressure(
-        volume, temperature, RECORDS["iron_miozzi_2020_bm3_mgd"]
+        volume, temperature, RECORDS["iron_miozzi_2020_bm3_mgd"], n=1
     )
     # Upstream uses default-real literals for R and the unit factor. Account
     # for their float32 representation before comparing only the equations.

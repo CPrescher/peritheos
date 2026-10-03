@@ -1,0 +1,42 @@
+{
+  "source": "https://www.rossangel.com/Download/EoSFit7installer_MacOS.dmg",
+  "website": "https://www.rossangel.com/text_eosfit.htm",
+  "installer_sha256": "f4668d3e8127e1cfec72d77c77f4a9aa54ff841c9f2be8b8128d7c7c04cd7596",
+  "inspection_date": "2026-10-03",
+  "manual_files_sha256": {
+    "MGD.html": "924cb66803d3d346936453302bbff79110954d964da22eebe30aaa6bb2f1be1b",
+    "ThermalPressure.html": "c97cc064df566932938e890c89dfdf03849b90544ab248e9b6c44cd72cea2b54",
+    "Highpressureandtemperaturedatase.html": "ff8b20e5290c0d4c02e58b31dc36c2f8b879413fdaa338f74d52afc53b785812",
+    "lib/NewItem221.png": "368c903996d2295a7a593de782e752903f86c202ff18cb5e2b9d5173f95d2320",
+    "lib/NewItem222.png": "26210125ae1cd2eda5253a5e3ae6e6c6f9e4d6479cce5dd2a9a2a7c2f7771445",
+    "lib/NewItem231.png": "ba4c238aa503727b49ef4fabd8b7c65ec633d164c8dd2bf4c4f70f15a9274321",
+    "EoSFitanddisplay.html": "24d227570579e36b4ededbedae07376f257f686764072f57999d0acee2eada6b",
+    "InputCommand.html": "e6c2ea666a742d0d76e6f69a5321b58eb583891ab7d9155672c17ed15855c999",
+    "DataHandlingandFitting.html": "83c9e506e5e7e7519b9bf43b20dc49cb7a587abfebe1cd4f746568c884c0a166",
+    "Datasetscaling.html": "28e60309e4381b76f3c64c8f1f6c64ee2b85a4939a8209c4bc93164b743f404e",
+    "EquationsofState.html": "b17021e7db09233a8db0fd88963dfa14f2aec0f2df90f0e6706dd790ed217ff0",
+    "BirchMurnaghan.html": "4ab443574b749ceda8fe08df08ebe56154b10c39389bc5eedf79456e6f260fe9"
+  },
+  "full_mgd": {
+    "gamma_law": "gamma(V)=gamma0*(V/V0)^q",
+    "theta_law": "theta(V)=theta0*exp((gamma0-gamma(V))/q), with q->0 limiting power law",
+    "thermal_pressure": "3*n*R*gamma(V)/V * [T*D3(theta(V)/T)-Tr*D3(theta(V)/Tr)]",
+    "q_compromise_prompt_default": "N",
+    "formula_atoms_for_fes": 2,
+    "formula_images_visually_inspected": true
+  },
+  "q_compromise": {
+    "description": "Separate approximation: theta independent of V and gamma/V constant; no refineable q."
+  },
+  "qualification": "Manual defaults describe EosFit, not the authors exact selected settings. Direct official executable runs and saved model files are retained separately in fes-eosfit7c.",
+  "gui_estimation": {
+    "mgd_and_einstein": "Manual states GUI parameter estimation always uses q-compromise for stability; user can switch to general model after refinement.",
+    "qualification": "This concerns the estimation workflow, not proof of the authors final fit model."
+  },
+  "other_choices": {
+    "compression": "Murnaghan, Tait, Birch-Murnaghan, Natural Strain, Vinet, APL, Kumar; order where supported. Morard explicitly reports BM3.",
+    "refinement": "Each refinable parameter may be fixed or released; supplied P/V/T errors can be included in weighting; use/omit/group commands control row selection.",
+    "data_scale_factors": "Console v7.6 can refine up to ten group scale factors. For volume data Vdata=scale*Veos; scales default to one and do not apply to ordinary calculations outside fitting/list.",
+    "reference_and_normalization": "Tr, theta0, n, volume/pressure unit labels, and linear versus volume representation must match the parameter and observation conventions."
+  }
+}

@@ -1,0 +1,821 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "fes_vi",
+ "name": "Iron sulfide FeS-VI",
+ "formula": "FeS",
+ "phase": "nonmagnetic MnP-type FeS-VI",
+ "aliases": [
+  "FeS VI",
+  "FeS-VI"
+ ],
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "formula_units_per_cell": 4,
+ "space_group": "Pnma",
+ "space_group_number": 62,
+ "lattice": {
+  "a": 4.9371,
+  "b": 3.0844,
+  "c": 5.1576,
+  "alpha": 90,
+  "beta": 90,
+  "gamma": 90
+ },
+ "atom_sites": [
+  {
+   "element": "Fe",
+   "wyckoff": "4c",
+   "multiplicity": 4,
+   "x": 0.0051,
+   "y": 0.25,
+   "z": 0.2001,
+   "occupancy": 1
+  },
+  {
+   "element": "S",
+   "wyckoff": "4c",
+   "multiplicity": 4,
+   "x": 0.2085,
+   "y": 0.25,
+   "z": 0.58,
+   "occupancy": 1
+  }
+ ],
+ "peaks": [],
+ "cell_contents": "Four stoichiometric FeS formula units, eight atoms, in conventional Pnma cell. Both occupied sites are 4c.",
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Ono",
+    "Oganov",
+    "Brodholt",
+    "Vočadlo",
+    "Wood",
+    "Lyakhov",
+    "Glass",
+    "Côté",
+    "Price"
+   ],
+   "year": 2008,
+   "title": "High-pressure phase transformations of FeS: Novel phases at conditions of planetary cores",
+   "source": "Earth and Planetary Science Letters",
+   "volume": "272",
+   "locator": "481-487",
+   "doi": "10.1016/j.epsl.2008.05.017"
+  },
+  "structure_location": "Table 1, page 483: experimental Rietveld refinement at 56 GPa and 300 K, not calculated Table 2 columns.",
+  "structure_url": "https://uspex-team.org/static/file/FeS-EPSL-paper-2008.pdf",
+  "structure_file_sha256": "285e755c44c8fc32d0de2506ca3a536fe125be42164b7cfc5b51ba923d94eaf1",
+  "structure_reference_pressure_gpa": 56,
+  "structure_reference_temperature_k": 300,
+  "structure_volume_angstrom3": 78.54,
+  "eos_source_manifest": "../datasets/morard_2026_sources/manifest.json"
+ },
+ "notes": "Experimental FeS-VI structure is independent of the Morard EOS. Fixed coordinates are a reference diffraction model and are not a refinement of all hot FeS polymorphs. The source EOS is deferred after unsuccessful source replay; no validated default is supplied.",
+ "eos_records": [
+  {
+   "identifier": "fes_vi_morard_2026_bm3_mgd",
+   "label": "Morard et al. (2026), FeS BM3-MGD, source replay unresolved",
+   "determination_method": "experimental",
+   "reference": {
+    "authors": [
+     "Morard",
+     "Antonangeli",
+     "Miozzi",
+     "Baron",
+     "Edmund",
+     "Cerantola",
+     "Mezouar"
+    ],
+    "year": 2026,
+    "title": "FeS phase diagram and thermal Equation of State under high pressure",
+    "source": "Physical Review Materials",
+    "volume": "10",
+    "locator": "063605",
+    "doi": "10.1103/h4pj-rvxx"
+   },
+   "default": false,
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 102.28920653790895,
+     "K0": 115.5,
+     "K0_prime": 4.99
+    }
+   },
+   "parameter_errors": {
+    "V0": 2.988970320912924,
+    "K0": 27.91,
+    "K0_prime": 0.51
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 300,
+     "theta0": 417,
+     "gamma0": 2.42,
+     "q": 1,
+     "n": 2
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.03,
+     "q": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "q",
+     "n"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    29.59643816464321,
+    149.9480701694589
+   ],
+   "experimental_temperature_range_k": [
+    300,
+    2590.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "range_provenance": {
+    "source_location": "Table S1, Sheet1 A3:M148; Section III.D and Figure 6",
+    "notes": "Marginal source coverage, not a rectangular phase-stability field. Thermal observations span 29.5964-149.9481 GPa and 1220-2590 K; 300 K denotes the separately fitted literature reference isotherm. The paper describes a 40-150 GPa model range. All supplied rows are retained; neither FeS-VI stability nor common-model applicability below 40 GPa is asserted."
+   },
+   "fit_datasets": [
+    "fes_morard_2026_table_s1_pvt"
+   ],
+   "parameter_provenance": {
+    "V0": "Section III.D, page 063605-6: 15.40 +/-0.45 cm3/mol of FeS; multiply both value and error by Z*1e24/NA, with Z=4 and exact SI NA.",
+    "K0": "Section III.D: 115.5 +/-27.91 GPa, fitted to Sata (2008) and Ohfuji (2007) cold observations.",
+    "K0_prime": "Section III.D: 4.99 +/-0.51, fitted cold coefficient.",
+    "Tr": "Figure 6: 300 K reference isotherm.",
+    "theta0": "Section III.D, page 063605-7: fixed 417 K, adopted hcp-Fe value from Dewaele et al. (2006).",
+    "gamma0": "Section III.D: 2.42 +/-0.03, sole refined thermal coefficient.",
+    "q": "Section III.D: assumed q=1.",
+    "n": "Two atoms per FeS formula unit; Z=4 handled by the public-to-molar volume conversion, not by changing n to 8.",
+    "determination_method": "Experimental cold compression and LH-DAC PVT fits; fixed Debye temperature adopted from measured hcp-Fe EOS, fixed q is an analytical model choice. Section III.D.",
+    "debye_temperature_law": "Full integrated MGD confirmed for the supplied March 2024 FeS6.eos (Thermal=7, Param14=0, q=1). The printed source coefficients and 300 K reference are retained; the supplied author-used file has different V0, gamma0 and Tref. The user confirms these are the complete author-used inputs; numerical publication parity remains unresolved."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-10-02",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Belonoshko",
+        "Garbarino",
+        "Occelli",
+        "Bouvier",
+        "Hanfland",
+        "Mezouar"
+       ],
+       "year": 2012,
+       "title": "High-pressure-high-temperature equation of state of KCl and KBr",
+       "source": "Physical Review B",
+       "doi": "10.1103/PhysRevB.85.214105"
+      },
+      "source_location": "Section II and references 33-34,38: KCl marker; marker temperature averaged between cold diamond contact and hot FeS surface.",
+      "reference_eos_record": "kcl_b2_dewaele_2012_vinet_3"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "All 146 supplied Table S1 pressures are independently reconstructed from exact FeS-lattice-matched public GSAS KCl markers, the bundled Dewaele (2012) EOS, and T_KCl=0.75*T_FeS+0.25*295 K; max residual 1.3e-13 GPa. This temperature law is numerically reconstructed, not explicitly printed in the article. The earlier public PT workbook contains different marker refinements. Calibration of the separately fitted legacy cold rows remains unresolved."
+    }
+   },
+   "scientific_validation": {
+    "status": "deferred",
+    "reproduction_status": "similar",
+    "audit_date": "2026-10-03",
+    "note": "Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.",
+    "usage_recommendation": "Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved.",
+    "unresolved": [
+     "printed publication coefficients versus the supplied author-used saved model",
+     "published +/-3 GPa residual bound versus 5.058 GPa with supplied author files",
+     "GUI versus console regression controls, weighting and selected groups",
+     "individual provenance and pressure calibration of all 21 literature cold rows"
+    ],
+    "verified_fields": [
+     "printed_parameters",
+     "units",
+     "reference_temperature",
+     "published_uncertainties",
+     "phase",
+     "primary_table_transcription"
+    ],
+    "primary_source_check": {
+     "doi": "10.1103/h4pj-rvxx",
+     "access_url": "https://doi.org/10.1103/h4pj-rvxx",
+     "locations": [
+      "Section II",
+      "Section III.B",
+      "Section III.D, pages 063605-6 to 063605-7",
+      "Figure 6",
+      "Table S1, Sheet1 A3:M148",
+      "Author-supplied FeS6.eos",
+      "Both FeS6EOSfittot-SataOhfuji input variants",
+      "Supplementary_Materials_Rev_140526.docx, Figures S1-S5"
+     ],
+     "finding": "Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-10-03",
+     "dataset_identifiers": [
+      "fes_morard_2026_table_s1_pvt",
+      "fes_morard_2026_paired_kcl",
+      "fes_morard_2026_author_without_additional_cold_pvt",
+      "fes_morard_2026_author_literature_cold_pv",
+      "fes_sata_2010_table1_vi_pv"
+     ],
+     "source_locations": [
+      "Table S1, Sheet1 A3:M148"
+     ],
+     "finding": "Table S1, the selected 167-row author input, its 21 literature cold rows, and the 13-row Sata VI transcription are bundled separately with original uncertainty semantics. The 11 unsuitable quenched rows and the 178-row variant containing them are excluded from database datasets, based on user-reported author personal communication."
+    },
+    "reproduction": {
+     "report": "docs/data/morard-2026-fes-audit.json",
+     "script": "scripts/audit_morard_2026_fes.py",
+     "source_audit": "docs/literature-reproductions/morard-2026-fes.md"
+    },
+    "residual_claim_reproduction_status": "not_reproduced"
+   },
+   "notes": "One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. The deferred integrated-MGD implementation is available only by explicitly loading this record with require_primary_validation=False; it is excluded from the normal catalog.",
+   "author_input_followup": {
+    "manifest": "datasets/morard_2026_author_sources/manifest.json",
+    "audit_report": "docs/data/fes-author-eosfit/manifest.json",
+    "source_model_resource": "datasets/morard_2026_author_sources/FeS6.eos",
+    "saved_author_parameters": {
+     "V0_cm3_mol": 15.37,
+     "K0_gpa": 115.49,
+     "K0_prime": 4.99,
+     "gamma0": 2.41671,
+     "Tr_k": 298,
+     "theta0_k": 417,
+     "q": 1,
+     "n": 2,
+     "q_compromise": false
+    },
+    "dataset_identifiers": [
+     "fes_morard_2026_author_without_additional_cold_pvt",
+     "fes_morard_2026_author_literature_cold_pv",
+     "fes_sata_2010_table1_vi_pv"
+    ],
+    "publication_fit_mask_confirmed": true,
+    "author_used_inputs_confirmed": true,
+    "author_used_inputs_confirmation": "User confirms the supplied data and EOS files are all inputs used by Guillaume Morard; recorded 2026-10-03. These are treated as the author-used inputs, not missing-data candidates.",
+    "publication_selection_provenance": "User-reported personal communication from Guillaume Morard confirms exclusion of the 11 unsuitable quenched observations; recorded 2026-10-03.",
+    "staged_audit_report": "docs/data/fes-author-staged/manifest.json",
+    "parameter_comparison_report": "docs/data/fes-author-staged/parameter-comparison.json",
+    "parameter_reproduction_assessment": "Similar within reported uncertainties for reproduced-cold staged fits: all cold coefficients lie within published error widths; equal-weight gamma0 lies within the published width and weighted gamma0 intervals overlap. Printed-cold-fixed gamma0 refit differs beyond overlapping error intervals. The residual-envelope discrepancy is a separate source-output claim, not evidence that the data cannot be fitted.",
+    "cold_row_attribution": "Figure 6 and Section III.D identify the paper's cold data/fit as Sata (2008) and Ohfuji (2007) literature data. The eleven additional 300 K points match the GSAS deposit but are not individually attributed in the paper; original-study authorship remains unconfirmed.",
+    "reference_temperature_qualification": "The paper shows a 300 K isotherm and uses ambient-temperature literature data; it does not explicitly state the EosFit Tref setting. The printed-coefficient source record uses 300 K as its declared audit interpretation, whereas the supplied saved file explicitly sets Tref=298 K."
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "fes_morard_2026_table_s1_pvt",
+   "kind": "observations",
+   "reference": {
+    "authors": [
+     "Morard",
+     "Antonangeli",
+     "Miozzi",
+     "Baron",
+     "Edmund",
+     "Cerantola",
+     "Mezouar"
+    ],
+    "year": 2026,
+    "title": "FeS phase diagram and thermal Equation of State under high pressure",
+    "source": "Physical Review Materials",
+    "volume": "10",
+    "locator": "063605",
+    "doi": "10.1103/h4pj-rvxx"
+   },
+   "source_location": "User-supplied Table S1.xlsx, Sheet1 A3:M148",
+   "source_url": "https://doi.org/10.1103/h4pj-rvxx",
+   "used_by_eos_records": [
+    "fes_vi_morard_2026_bm3_mgd"
+   ],
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "sigma_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "sigma_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "b_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "sigma_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "sigma_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "sigma_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_angstrom3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "sigma_volume_angstrom3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_angstrom3"
+    },
+    {
+     "name": "order_parameter_c",
+     "quantity": "source_order_parameter",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/fes-morard-2026-table-s1.csv",
+    "format": "csv",
+    "sha256": "1594df8d1fde22c15445b78916fdee9df4909d8a90e1b3073cf3d4d554d0345f",
+    "row_count": 146,
+    "media_type": "text/csv"
+   },
+   "uncertainty": {
+    "type": "unspecified",
+    "confidence_level": null,
+    "notes": "err_a/b/c confidence unknown. dT=150 K and dP retained as supplied. dV equals V*(err_a/a+err_b/b+err_c/c), a linear bound-style propagation, not quadrature or a documented standard deviation. sigma-prefixed CSV names identify uncertainty columns, not an established one-sigma confidence."
+   },
+   "license": "unspecified",
+   "notes": "V=a*b*c exactly. C column equals c/(sqrt(3)*b), reciprocal of the main article Figure 5 definition. Both original values and source contradictions are preserved; C is not used to assign individual phases. All rows retained without assuming the author fit mask. No calibrant values from an earlier deposit are substituted."
+  },
+  {
+   "identifier": "fes_morard_2026_paired_kcl",
+   "kind": "observations",
+   "reference": {
+    "authors": [
+     "Morard"
+    ],
+    "year": 2025,
+    "title": "FeS XRD Data",
+    "source": "Figshare",
+    "doi": "10.6084/m9.figshare.28143683.v1"
+   },
+   "source_location": "Figshare FeS-GSAS.csv, uniquely matched FeS lattice and temperature blocks; identical duplicate blocks retain all line locations in the audit JSON.",
+   "source_url": "https://figshare.com/articles/dataset/FeS_XRD_Data/28143683",
+   "license": "CC BY 4.0",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "gsas_source_line",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "marker_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "marker_a_error_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "marker_a_angstrom"
+    },
+    {
+     "name": "marker_volume_angstrom3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "derived_marker_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "replayed_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/fes-morard-2026-paired-kcl.csv",
+    "media_type": "text/csv",
+    "sha256": "7cd46004e3df3205260b5bf7f9e070ebd1b3b7bc4972c14e92ffa75d3ae4ae65"
+   },
+   "used_by_eos_records": [
+    "fes_vi_morard_2026_bm3_mgd"
+   ],
+   "notes": "Observed KCl edge/error are original GSAS values. Marker volume=a^3; marker temperature and replayed pressure are derived audit quantities. T_KCl=0.75*T_FeS+0.25*295 K exactly reproduces Table S1 using the cited Dewaele (2012) calibration. It is not a measured marker temperature. Audit JSON retains matched scan labels and every duplicate source-line location."
+  },
+  {
+   "identifier": "fes_morard_2026_author_without_additional_cold_pvt",
+   "kind": "observations",
+   "description": "Morard author EosFit input: 167 rows without additional cold data",
+   "reference": {
+    "authors": [
+     "Morard",
+     "Antonangeli",
+     "Miozzi",
+     "Baron",
+     "Edmund",
+     "Cerantola",
+     "Mezouar"
+    ],
+    "year": 2026,
+    "title": "FeS phase diagram and thermal Equation of State under high pressure",
+    "source": "Physical Review Materials",
+    "volume": "10",
+    "locator": "063605",
+    "doi": "10.1103/h4pj-rvxx"
+   },
+   "source_location": "Author-supplied FeS6EOSfittot-SataOhfuji-300K.dat; original data rows (header excluded), retrieved 2026-10-03.",
+   "source_url": "https://doi.org/10.1103/h4pj-rvxx",
+   "license": "unspecified",
+   "used_by_eos_records": [],
+   "related_eos_records": [
+    "fes_vi_morard_2026_bm3_mgd"
+   ],
+   "columns": [
+    {
+     "name": "author_input_row",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "observation_id",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_group",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "matched_sata2010_row",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_uncertainty_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_mol"
+    }
+   ],
+   "resource": {
+    "path": "datasets/fes-morard-2026-author-without-additional-cold.csv",
+    "media_type": "text/csv",
+    "sha256": "190cc615d5b601675fa7c99ae9e3869aedc16f7a9baea05433cd610620f10742",
+    "row_count": 167
+   },
+   "uncertainty": {
+    "type": "unspecified",
+    "confidence_level": null,
+    "notes": "Author-assigned EosFit uncertainty columns, preserved without an established one-sigma confidence. Literature cold rows use 1% P, 0.5% V and 5 K. Thermal errors match Table S1 apart from rounded volume conversion; dV uses linear lattice-error addition."
+   },
+   "provenance": {
+    "source_resource": "datasets/morard_2026_author_sources/FeS6EOSfittot-SataOhfuji-300K.dat",
+    "source_sha256": "463b97a3e39c32c4457ad5c37b2f93f56c92f13b878ff9c017b9c1b0e6014f8e",
+    "manifest": "datasets/morard_2026_author_sources/manifest.json",
+    "observation_id_semantics": "Shared across the selected input and literature subset. Overlapping observations and the duplicate thermal rows are not independent additional measurements.",
+    "final_author_fit_selection_confirmed": true,
+    "selection_provenance": "User-reported personal communication from Guillaume Morard confirms exclusion of the 11 unsuitable quenched observations; recorded 2026-10-03."
+   },
+   "notes": "The -300K filename removes the 11 additional 300 K rows; this is not a cold-only dataset. All 146 thermal and 21 literature cold rows remain. Associated with the Morard source audit; the 167-row selection is confirmed by user-reported author personal communication. The author files do not label each cold row's original study. matched_sata2010_row indicates a cell-volume match, not an independently verified original-study assignment."
+  },
+  {
+   "identifier": "fes_morard_2026_author_literature_cold_pv",
+   "kind": "observations",
+   "description": "Sata/Ohfuji combined cold reference data as used in Morard's author input",
+   "reference": {
+    "authors": [
+     "Morard",
+     "Antonangeli",
+     "Miozzi",
+     "Baron",
+     "Edmund",
+     "Cerantola",
+     "Mezouar"
+    ],
+    "year": 2026,
+    "title": "FeS phase diagram and thermal Equation of State under high pressure",
+    "source": "Physical Review Materials",
+    "volume": "10",
+    "locator": "063605",
+    "doi": "10.1103/h4pj-rvxx"
+   },
+   "source_location": "Author-supplied FeS6EOSfittot-SataOhfuji-300K.dat; original data rows (header excluded), retrieved 2026-10-03.",
+   "source_url": "https://doi.org/10.1103/h4pj-rvxx",
+   "license": "unspecified",
+   "used_by_eos_records": [],
+   "related_eos_records": [
+    "fes_vi_morard_2026_bm3_mgd"
+   ],
+   "columns": [
+    {
+     "name": "author_input_row",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "observation_id",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_group",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "matched_sata2010_row",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_uncertainty_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_mol"
+    }
+   ],
+   "resource": {
+    "path": "datasets/fes-morard-2026-author-literature-cold.csv",
+    "media_type": "text/csv",
+    "sha256": "9471b47aae3add1819d470d63094411c28101f4a4b64ee04928ea5e86ba1453c",
+    "row_count": 21
+   },
+   "uncertainty": {
+    "type": "unspecified",
+    "confidence_level": null,
+    "notes": "Author-assigned EosFit uncertainty columns, preserved without an established one-sigma confidence. Literature cold rows use 1% P, 0.5% V and 5 K. Thermal errors match Table S1 apart from rounded volume conversion; dV uses linear lattice-error addition."
+   },
+   "provenance": {
+    "source_resource": "datasets/morard_2026_author_sources/FeS6EOSfittot-SataOhfuji-300K.dat",
+    "source_sha256": "463b97a3e39c32c4457ad5c37b2f93f56c92f13b878ff9c017b9c1b0e6014f8e",
+    "manifest": "datasets/morard_2026_author_sources/manifest.json",
+    "observation_id_semantics": "Shared across the selected input and literature subset. Overlapping observations and the duplicate thermal rows are not independent additional measurements.",
+    "final_author_fit_selection_confirmed": true,
+    "selection_provenance": "User-reported personal communication from Guillaume Morard confirms exclusion of the 11 unsuitable quenched observations; recorded 2026-10-03."
+   },
+   "notes": "21 literature cold observations at 300 K. Thirteen match the Sata (2010) re-reported VI cell volumes; eight further source assignments are unresolved. One matched P is 101.2 GPa here versus 101.1 GPa in the Sata table. Assigned author fit errors differ from the published table errors. Associated with the Morard source audit; the 167-row selection is confirmed by user-reported author personal communication. The author files do not label each cold row's original study. matched_sata2010_row indicates a cell-volume match, not an independently verified original-study assignment."
+  },
+  {
+   "identifier": "fes_sata_2010_table1_vi_pv",
+   "kind": "observations",
+   "description": "Sata (2010) Table 1 re-reported FeS-VI cold observations with original table errors",
+   "reference": {
+    "authors": [
+     "Sata"
+    ],
+    "year": 2010,
+    "doi": "10.1029/2009JB006975",
+    "source": "Journal of Geophysical Research",
+    "locator": "B09204"
+   },
+   "source_location": "Sata (2010), Table 1 FeS-VI rows, factual transcription from publisher HTML; original parenthesized errors and run IDs retained.",
+   "source_url": "https://doi.org/10.1029/2009JB006975",
+   "license": "unspecified",
+   "used_by_eos_records": [],
+   "related_eos_records": [
+    "fes_vi_morard_2026_bm3_mgd"
+   ],
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_angstrom3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_angstrom3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_angstrom3"
+    },
+    {
+     "name": "pressure_raw",
+     "quantity": "source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_raw",
+     "quantity": "source_token",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/fes-sata-2010-table1-vi.csv",
+    "media_type": "text/csv",
+    "sha256": "acd1e46ad930dc6745c272a8fef1759830c95c40cbd9479b4eccd60bf82fbd59",
+    "row_count": 13
+   },
+   "uncertainty": {
+    "type": "unspecified",
+    "confidence_level": null,
+    "notes": "Errors in last digits decoded from original tokens; confidence and cross-row covariance unknown. Temperature is the 300 K isotherm with no quoted uncertainty, not a measured zero-error temperature."
+   },
+   "provenance": {
+    "source_resource": "datasets/morard_2026_author_sources/fes-sata-2010-table1.csv",
+    "manifest": "datasets/morard_2026_author_sources/manifest.json",
+    "selection": "All 13 phase-labelled VI rows; six VII rows excluded. No rows excluded by pressure."
+   },
+   "notes": "Separate from the 21-row Morard literature input and its assigned relative errors. Table 1 re-reports earlier Ohfuji (2007)/Sata (2008) data; complete original-study identity and per-row pressure-marker data remain unresolved. Z=4 cell volumes preserved. Coexisting VI measurements at high pressure retained."
+  }
+ ]
+}

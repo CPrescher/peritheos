@@ -7,3 +7,12 @@ peritheos/data/datasets/klb1-ricolleau-2009-table-s1.tsv text eol=lf whitespace=
 peritheos/data/datasets/chidester_2018_sources/*.csv -text
 # Crystallographic source archives also have byte-level provenance hashes.
 *.cif -text
+# FeS table resources and official source archives have byte-level hashes.
+peritheos/data/datasets/fes-morard-2026-table-s1.csv -text whitespace=cr-at-eol
+peritheos/data/datasets/fes-morard-2026-paired-kcl.csv -text whitespace=cr-at-eol
+peritheos/data/datasets/morard_2026_sources/*.csv -text whitespace=cr-at-eol
+peritheos/data/datasets/morard_2026_author_sources/** -text whitespace=-blank-at-eol,-blank-at-eof
+# Preserve EosFit inputs, outputs and manual evidence without reformatting.
+docs/data/fes-author-*/** -text whitespace=-blank-at-eol,-blank-at-eof
+docs/data/fes-eosfit*/** -text whitespace=-blank-at-eol,-blank-at-eof
+docs/data/miozzi-2020-eosfit*/** -text whitespace=-blank-at-eol,-blank-at-eof

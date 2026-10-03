@@ -1,0 +1,123 @@
+{
+  "audit_date": "2026-10-03",
+  "published_parameters": {
+    "V0": {
+      "value": 15.4,
+      "reported_error": 0.45
+    },
+    "K0": {
+      "value": 115.5,
+      "reported_error": 27.91
+    },
+    "Kp": {
+      "value": 4.99,
+      "reported_error": 0.51
+    },
+    "Gamm0": {
+      "value": 2.42,
+      "reported_error": 0.03
+    }
+  },
+  "qualification": "Reported error widths and conditional EosFit esds are compared numerically. Both fits use overlapping/source-identical observations; combined-error ratios assume independence and are descriptive only, not formal significance tests. Source uncertainty confidence and cold/thermal covariance propagation are not established. Parameter compatibility and the literal residual-bound claim are evaluated separately.",
+  "cases": {
+    "reproduced-errors-tr300": {
+      "parameters": {
+        "Gamm0": {
+          "refitted_value": 2.46418,
+          "conditional_esd": 0.03953,
+          "absolute_difference": 0.044179999999999886,
+          "difference_over_published_error": 1.472666666666663,
+          "difference_over_quadrature_errors_descriptive_only": 0.8902806435309346,
+          "refitted_value_inside_published_interval": false,
+          "reported_intervals_overlap": true
+        },
+        "V0": {
+          "refitted_value": 15.3708,
+          "conditional_esd": 0.52385,
+          "absolute_difference": 0.029200000000001225,
+          "difference_over_published_error": 0.0648888888888916,
+          "difference_over_quadrature_errors_descriptive_only": 0.042282496338995924,
+          "refitted_value_inside_published_interval": true,
+          "reported_intervals_overlap": true
+        },
+        "K0": {
+          "refitted_value": 115.4389,
+          "conditional_esd": 34.78351,
+          "absolute_difference": 0.06109999999999616,
+          "difference_over_published_error": 0.0021891795055534275,
+          "difference_over_quadrature_errors_descriptive_only": 0.0013700582451419549,
+          "refitted_value_inside_published_interval": true,
+          "reported_intervals_overlap": true
+        },
+        "Kp": {
+          "refitted_value": 4.9917,
+          "conditional_esd": 0.67891,
+          "absolute_difference": 0.0016999999999995907,
+          "difference_over_published_error": 0.003333333333332531,
+          "difference_over_quadrature_errors_descriptive_only": 0.002002053277916276,
+          "refitted_value_inside_published_interval": true,
+          "reported_intervals_overlap": true
+        }
+      },
+      "eosfit_weighted_chi2_per_dof": 0.6274,
+      "thermal_max_abs_residual_gpa": 5.2858
+    },
+    "reproduced-unit-tr300": {
+      "parameters": {
+        "Gamm0": {
+          "refitted_value": 2.44884,
+          "conditional_esd": 0.02904,
+          "absolute_difference": 0.0288400000000002,
+          "difference_over_published_error": 0.96133333333334,
+          "difference_over_quadrature_errors_descriptive_only": 0.6907271079655962,
+          "refitted_value_inside_published_interval": true,
+          "reported_intervals_overlap": true
+        },
+        "V0": {
+          "refitted_value": 15.40339,
+          "conditional_esd": 0.45392,
+          "absolute_difference": 0.00338999999999956,
+          "difference_over_published_error": 0.007533333333332355,
+          "difference_over_quadrature_errors_descriptive_only": 0.005303720346642704,
+          "refitted_value_inside_published_interval": true,
+          "reported_intervals_overlap": true
+        },
+        "K0": {
+          "refitted_value": 113.26873,
+          "conditional_esd": 27.82267,
+          "absolute_difference": 2.231269999999995,
+          "difference_over_published_error": 0.07994518093873146,
+          "difference_over_quadrature_errors_descriptive_only": 0.05661828908357558,
+          "refitted_value_inside_published_interval": true,
+          "reported_intervals_overlap": true
+        },
+        "Kp": {
+          "refitted_value": 5.0352,
+          "conditional_esd": 0.5065,
+          "absolute_difference": 0.04519999999999946,
+          "difference_over_published_error": 0.0886274509803911,
+          "difference_over_quadrature_errors_descriptive_only": 0.06288448018204441,
+          "refitted_value_inside_published_interval": true,
+          "reported_intervals_overlap": true
+        }
+      },
+      "eosfit_weighted_chi2_per_dof": null,
+      "thermal_max_abs_residual_gpa": 5.1461
+    },
+    "published-errors-tr300": {
+      "parameters": {
+        "Gamm0": {
+          "refitted_value": 2.29252,
+          "conditional_esd": 0.03829,
+          "absolute_difference": 0.12747999999999982,
+          "difference_over_published_error": 4.249333333333327,
+          "difference_over_quadrature_errors_descriptive_only": 2.6207361255760597,
+          "refitted_value_inside_published_interval": false,
+          "reported_intervals_overlap": false
+        }
+      },
+      "eosfit_weighted_chi2_per_dof": 0.8029,
+      "thermal_max_abs_residual_gpa": 5.5598
+    }
+  }
+}

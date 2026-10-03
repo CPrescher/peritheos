@@ -1,0 +1,3295 @@
+{
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "cold_source_sha256": "1d0128d2e19bc10f04f7099b0164bf08bb46c22e77f548880fb864adce2ccf07",
+  "thermal_source_sha256": "1594df8d1fde22c15445b78916fdee9df4909d8a90e1b3073cf3d4d554d0345f",
+  "procedure": "Same-process cold three-parameter BM3 fit, then gamma-only full MGD fit on all 159 rows with the cold solution fixed.",
+  "qualification": "Recovered 13 cold VI observations are the Sata 2010 re-report, not proven complete original author inputs. Theta=417 K, n=2, q=1 and Tr=300 K fixed. Gamma errors are conditional on the fitted cold curve, not propagated cold uncertainty. Cold temperature errors are unavailable; all-data weighted run retains the isotherm assumption and EosFit warning.",
+  "cases": {
+    "unit": {
+      "cold_stage": {
+        "converged": true,
+        "refined_parameters_final_cycle": {
+          "V0": {
+            "value": 14.89429,
+            "esd": 0.42194
+          },
+          "K0": {
+            "value": 148.57274,
+            "esd": 34.40418
+          },
+          "Kp": {
+            "value": 4.52367,
+            "esd": 0.45847
+          }
+        },
+        "eosfit_weighted_chi2_per_dof": null,
+        "eosfit_max_delta_pressure_gpa": -4.43,
+        "eosfit_residual_sign": "Pobserved-Pcalculated",
+        "warnings": [],
+        "initial_source_replay": {
+          "rows": [
+            {
+              "row": 1,
+              "residual_gpa": -1.47427
+            },
+            {
+              "row": 2,
+              "residual_gpa": 1.6953
+            },
+            {
+              "row": 3,
+              "residual_gpa": 1.6413
+            },
+            {
+              "row": 4,
+              "residual_gpa": -0.15033
+            },
+            {
+              "row": 5,
+              "residual_gpa": 0.1538
+            },
+            {
+              "row": 6,
+              "residual_gpa": -0.55955
+            },
+            {
+              "row": 7,
+              "residual_gpa": 1.4347
+            },
+            {
+              "row": 8,
+              "residual_gpa": -1.74959
+            },
+            {
+              "row": 9,
+              "residual_gpa": -1.96753
+            },
+            {
+              "row": 10,
+              "residual_gpa": -3.7746
+            },
+            {
+              "row": 11,
+              "residual_gpa": 4.2348
+            },
+            {
+              "row": 12,
+              "residual_gpa": 0.2128
+            },
+            {
+              "row": 13,
+              "residual_gpa": -1.39949
+            }
+          ],
+          "rmse_gpa": 1.9860344218761474,
+          "min_gpa": -3.7746,
+          "max_gpa": 4.2348,
+          "rows_exceeding_3_gpa": [
+            10,
+            11
+          ],
+          "sign": "Pcalculated-Pobserved",
+          "precision": "As printed by EosFit, not full internal precision"
+        },
+        "fitted_replay": {
+          "rows": [
+            {
+              "row": 1,
+              "residual_gpa": -1.3954
+            },
+            {
+              "row": 2,
+              "residual_gpa": 1.7989
+            },
+            {
+              "row": 3,
+              "residual_gpa": 1.7639
+            },
+            {
+              "row": 4,
+              "residual_gpa": -0.06767
+            },
+            {
+              "row": 5,
+              "residual_gpa": 0.1892
+            },
+            {
+              "row": 6,
+              "residual_gpa": -0.51638
+            },
+            {
+              "row": 7,
+              "residual_gpa": 1.5687
+            },
+            {
+              "row": 8,
+              "residual_gpa": -1.60085
+            },
+            {
+              "row": 9,
+              "residual_gpa": -1.80347
+            },
+            {
+              "row": 10,
+              "residual_gpa": -3.59485
+            },
+            {
+              "row": 11,
+              "residual_gpa": 4.4299
+            },
+            {
+              "row": 12,
+              "residual_gpa": 0.4132
+            },
+            {
+              "row": 13,
+              "residual_gpa": -1.19115
+            }
+          ],
+          "rmse_gpa": 1.9809501857927443,
+          "min_gpa": -3.59485,
+          "max_gpa": 4.4299,
+          "rows_exceeding_3_gpa": [
+            10,
+            11
+          ],
+          "sign": "Pcalculated-Pobserved",
+          "precision": "As printed by EosFit, not full internal precision"
+        },
+        "covariance_parameter_order": [
+          "V0_cm3_per_mol_fes",
+          "K0_gpa",
+          "Kprime"
+        ],
+        "saved_refined_parameter_covariance": [
+          [
+            0.17803,
+            -14.4,
+            0.1848
+          ],
+          [
+            -14.4,
+            1183.6,
+            -15.529
+          ],
+          [
+            0.1848,
+            -15.529,
+            0.2102
+          ]
+        ]
+      },
+      "thermal_stage": {
+        "converged": true,
+        "refined_parameters_final_cycle": {
+          "Gamm0": {
+            "value": 2.44764,
+            "esd": 0.04153
+          }
+        },
+        "eosfit_weighted_chi2_per_dof": null,
+        "eosfit_max_delta_pressure_gpa": 6.531,
+        "eosfit_residual_sign": "Pobserved-Pcalculated",
+        "warnings": [],
+        "initial_source_replay": {
+          "rows": [
+            {
+              "row": 1,
+              "residual_gpa": -5.39791
+            },
+            {
+              "row": 2,
+              "residual_gpa": -5.67536
+            },
+            {
+              "row": 3,
+              "residual_gpa": -5.84261
+            },
+            {
+              "row": 4,
+              "residual_gpa": -6.6577
+            },
+            {
+              "row": 5,
+              "residual_gpa": -5.14816
+            },
+            {
+              "row": 6,
+              "residual_gpa": -5.07623
+            },
+            {
+              "row": 7,
+              "residual_gpa": -5.28672
+            },
+            {
+              "row": 8,
+              "residual_gpa": -5.28672
+            },
+            {
+              "row": 9,
+              "residual_gpa": -3.0047
+            },
+            {
+              "row": 10,
+              "residual_gpa": -2.75957
+            },
+            {
+              "row": 11,
+              "residual_gpa": -2.58307
+            },
+            {
+              "row": 12,
+              "residual_gpa": -3.28622
+            },
+            {
+              "row": 13,
+              "residual_gpa": -3.32964
+            },
+            {
+              "row": 14,
+              "residual_gpa": -3.36856
+            },
+            {
+              "row": 15,
+              "residual_gpa": -3.46298
+            },
+            {
+              "row": 16,
+              "residual_gpa": -3.43689
+            },
+            {
+              "row": 17,
+              "residual_gpa": -2.29527
+            },
+            {
+              "row": 18,
+              "residual_gpa": -2.30139
+            },
+            {
+              "row": 19,
+              "residual_gpa": -2.19629
+            },
+            {
+              "row": 20,
+              "residual_gpa": -3.06367
+            },
+            {
+              "row": 21,
+              "residual_gpa": -2.48811
+            },
+            {
+              "row": 22,
+              "residual_gpa": -2.93077
+            },
+            {
+              "row": 23,
+              "residual_gpa": -3.49078
+            },
+            {
+              "row": 24,
+              "residual_gpa": -3.35596
+            },
+            {
+              "row": 25,
+              "residual_gpa": -3.77583
+            },
+            {
+              "row": 26,
+              "residual_gpa": -3.77227
+            },
+            {
+              "row": 27,
+              "residual_gpa": -4.86218
+            },
+            {
+              "row": 28,
+              "residual_gpa": -4.45537
+            },
+            {
+              "row": 29,
+              "residual_gpa": -0.92057
+            },
+            {
+              "row": 30,
+              "residual_gpa": -1.03541
+            },
+            {
+              "row": 31,
+              "residual_gpa": -0.96328
+            },
+            {
+              "row": 32,
+              "residual_gpa": -0.81777
+            },
+            {
+              "row": 33,
+              "residual_gpa": -1.20107
+            },
+            {
+              "row": 34,
+              "residual_gpa": -1.22219
+            },
+            {
+              "row": 35,
+              "residual_gpa": -1.51665
+            },
+            {
+              "row": 36,
+              "residual_gpa": -1.72104
+            },
+            {
+              "row": 37,
+              "residual_gpa": -1.71592
+            },
+            {
+              "row": 38,
+              "residual_gpa": -2.01051
+            },
+            {
+              "row": 39,
+              "residual_gpa": -1.79999
+            },
+            {
+              "row": 40,
+              "residual_gpa": -1.74734
+            },
+            {
+              "row": 41,
+              "residual_gpa": -2.18019
+            },
+            {
+              "row": 42,
+              "residual_gpa": -2.58178
+            },
+            {
+              "row": 43,
+              "residual_gpa": -0.43401
+            },
+            {
+              "row": 44,
+              "residual_gpa": -0.4999
+            },
+            {
+              "row": 45,
+              "residual_gpa": 0.2172
+            },
+            {
+              "row": 46,
+              "residual_gpa": 0.2746
+            },
+            {
+              "row": 47,
+              "residual_gpa": 0.6474
+            },
+            {
+              "row": 48,
+              "residual_gpa": 0.942
+            },
+            {
+              "row": 49,
+              "residual_gpa": 0.6948
+            },
+            {
+              "row": 50,
+              "residual_gpa": -0.29414
+            },
+            {
+              "row": 51,
+              "residual_gpa": -0.16412
+            },
+            {
+              "row": 52,
+              "residual_gpa": 0.1424
+            },
+            {
+              "row": 53,
+              "residual_gpa": 0.2168
+            },
+            {
+              "row": 54,
+              "residual_gpa": 0.7432
+            },
+            {
+              "row": 55,
+              "residual_gpa": 0.4811
+            },
+            {
+              "row": 56,
+              "residual_gpa": 0.6722
+            },
+            {
+              "row": 57,
+              "residual_gpa": -1.56623
+            },
+            {
+              "row": 58,
+              "residual_gpa": -1.41241
+            },
+            {
+              "row": 59,
+              "residual_gpa": -0.85627
+            },
+            {
+              "row": 60,
+              "residual_gpa": -0.41908
+            },
+            {
+              "row": 61,
+              "residual_gpa": 0.0165
+            },
+            {
+              "row": 62,
+              "residual_gpa": 0.4518
+            },
+            {
+              "row": 63,
+              "residual_gpa": 0.6184
+            },
+            {
+              "row": 64,
+              "residual_gpa": 0.6191
+            },
+            {
+              "row": 65,
+              "residual_gpa": 0.5278
+            },
+            {
+              "row": 66,
+              "residual_gpa": 0.4087
+            },
+            {
+              "row": 67,
+              "residual_gpa": 0.4417
+            },
+            {
+              "row": 68,
+              "residual_gpa": 0.173
+            },
+            {
+              "row": 69,
+              "residual_gpa": 0.2859
+            },
+            {
+              "row": 70,
+              "residual_gpa": 0.329
+            },
+            {
+              "row": 71,
+              "residual_gpa": 0.2406
+            },
+            {
+              "row": 72,
+              "residual_gpa": -0.25024
+            },
+            {
+              "row": 73,
+              "residual_gpa": -0.67085
+            },
+            {
+              "row": 74,
+              "residual_gpa": -0.87794
+            },
+            {
+              "row": 75,
+              "residual_gpa": 0.5367
+            },
+            {
+              "row": 76,
+              "residual_gpa": 0.6732
+            },
+            {
+              "row": 77,
+              "residual_gpa": -0.36303
+            },
+            {
+              "row": 78,
+              "residual_gpa": 0.1235
+            },
+            {
+              "row": 79,
+              "residual_gpa": -0.03323
+            },
+            {
+              "row": 80,
+              "residual_gpa": -0.32832
+            },
+            {
+              "row": 81,
+              "residual_gpa": -0.68493
+            },
+            {
+              "row": 82,
+              "residual_gpa": -1.14055
+            },
+            {
+              "row": 83,
+              "residual_gpa": -1.22894
+            },
+            {
+              "row": 84,
+              "residual_gpa": -1.22441
+            },
+            {
+              "row": 85,
+              "residual_gpa": -0.24341
+            },
+            {
+              "row": 86,
+              "residual_gpa": 0.3706
+            },
+            {
+              "row": 87,
+              "residual_gpa": -0.41558
+            },
+            {
+              "row": 88,
+              "residual_gpa": -0.1595
+            },
+            {
+              "row": 89,
+              "residual_gpa": -2.2507
+            },
+            {
+              "row": 90,
+              "residual_gpa": -0.55714
+            },
+            {
+              "row": 91,
+              "residual_gpa": 0.3196
+            },
+            {
+              "row": 92,
+              "residual_gpa": 0.4368
+            },
+            {
+              "row": 93,
+              "residual_gpa": 0.3812
+            },
+            {
+              "row": 94,
+              "residual_gpa": 0.9031
+            },
+            {
+              "row": 95,
+              "residual_gpa": 0.9564
+            },
+            {
+              "row": 96,
+              "residual_gpa": 0.7047
+            },
+            {
+              "row": 97,
+              "residual_gpa": 0.4309
+            },
+            {
+              "row": 98,
+              "residual_gpa": 0.2127
+            },
+            {
+              "row": 99,
+              "residual_gpa": 0.3376
+            },
+            {
+              "row": 100,
+              "residual_gpa": -0.7709
+            },
+            {
+              "row": 101,
+              "residual_gpa": -0.4545
+            },
+            {
+              "row": 102,
+              "residual_gpa": 2.5818
+            },
+            {
+              "row": 103,
+              "residual_gpa": 2.7707
+            },
+            {
+              "row": 104,
+              "residual_gpa": 2.6876
+            },
+            {
+              "row": 105,
+              "residual_gpa": 1.4102
+            },
+            {
+              "row": 106,
+              "residual_gpa": 1.0283
+            },
+            {
+              "row": 107,
+              "residual_gpa": 0.9199
+            },
+            {
+              "row": 108,
+              "residual_gpa": 0.704
+            },
+            {
+              "row": 109,
+              "residual_gpa": 0.3985
+            },
+            {
+              "row": 110,
+              "residual_gpa": 0.4398
+            },
+            {
+              "row": 111,
+              "residual_gpa": 1.4429
+            },
+            {
+              "row": 112,
+              "residual_gpa": 1.6719
+            },
+            {
+              "row": 113,
+              "residual_gpa": 1.7996
+            },
+            {
+              "row": 114,
+              "residual_gpa": 2.0689
+            },
+            {
+              "row": 115,
+              "residual_gpa": 1.91
+            },
+            {
+              "row": 116,
+              "residual_gpa": 1.2334
+            },
+            {
+              "row": 117,
+              "residual_gpa": 0.9767
+            },
+            {
+              "row": 118,
+              "residual_gpa": 1.0264
+            },
+            {
+              "row": 119,
+              "residual_gpa": 0.7924
+            },
+            {
+              "row": 120,
+              "residual_gpa": -0.37983
+            },
+            {
+              "row": 121,
+              "residual_gpa": -0.81065
+            },
+            {
+              "row": 122,
+              "residual_gpa": 5.44
+            },
+            {
+              "row": 123,
+              "residual_gpa": 6.0665
+            },
+            {
+              "row": 124,
+              "residual_gpa": 6.1723
+            },
+            {
+              "row": 125,
+              "residual_gpa": 4.7191
+            },
+            {
+              "row": 126,
+              "residual_gpa": 4.6243
+            },
+            {
+              "row": 127,
+              "residual_gpa": 2.3118
+            },
+            {
+              "row": 128,
+              "residual_gpa": 2.5396
+            },
+            {
+              "row": 129,
+              "residual_gpa": 3.5458
+            },
+            {
+              "row": 130,
+              "residual_gpa": 3.6681
+            },
+            {
+              "row": 131,
+              "residual_gpa": 3.1879
+            },
+            {
+              "row": 132,
+              "residual_gpa": 2.6147
+            },
+            {
+              "row": 133,
+              "residual_gpa": 2.4546
+            },
+            {
+              "row": 134,
+              "residual_gpa": 1.0463
+            },
+            {
+              "row": 135,
+              "residual_gpa": 0.027
+            },
+            {
+              "row": 136,
+              "residual_gpa": 0.7232
+            },
+            {
+              "row": 137,
+              "residual_gpa": 1.5655
+            },
+            {
+              "row": 138,
+              "residual_gpa": 2.2779
+            },
+            {
+              "row": 139,
+              "residual_gpa": 3.1872
+            },
+            {
+              "row": 140,
+              "residual_gpa": 3.7506
+            },
+            {
+              "row": 141,
+              "residual_gpa": 2.9763
+            },
+            {
+              "row": 142,
+              "residual_gpa": 1.8772
+            },
+            {
+              "row": 143,
+              "residual_gpa": 1.7806
+            },
+            {
+              "row": 144,
+              "residual_gpa": 2.949
+            },
+            {
+              "row": 145,
+              "residual_gpa": 3.5889
+            },
+            {
+              "row": 146,
+              "residual_gpa": 4.4174
+            },
+            {
+              "row": 147,
+              "residual_gpa": -1.3954
+            },
+            {
+              "row": 148,
+              "residual_gpa": 1.7989
+            },
+            {
+              "row": 149,
+              "residual_gpa": 1.7639
+            },
+            {
+              "row": 150,
+              "residual_gpa": -0.06767
+            },
+            {
+              "row": 151,
+              "residual_gpa": 0.1892
+            },
+            {
+              "row": 152,
+              "residual_gpa": -0.51638
+            },
+            {
+              "row": 153,
+              "residual_gpa": 1.5687
+            },
+            {
+              "row": 154,
+              "residual_gpa": -1.60085
+            },
+            {
+              "row": 155,
+              "residual_gpa": -1.80347
+            },
+            {
+              "row": 156,
+              "residual_gpa": -3.59485
+            },
+            {
+              "row": 157,
+              "residual_gpa": 4.4299
+            },
+            {
+              "row": 158,
+              "residual_gpa": 0.4132
+            },
+            {
+              "row": 159,
+              "residual_gpa": -1.19115
+            }
+          ],
+          "rmse_gpa": 2.411739054717375,
+          "min_gpa": -6.6577,
+          "max_gpa": 6.1723,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            12,
+            13,
+            14,
+            15,
+            16,
+            20,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            122,
+            123,
+            124,
+            125,
+            126,
+            129,
+            130,
+            131,
+            139,
+            140,
+            145,
+            146,
+            156,
+            157
+          ],
+          "sign": "Pcalculated-Pobserved",
+          "precision": "As printed by EosFit, not full internal precision",
+          "thermal_rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            12,
+            13,
+            14,
+            15,
+            16,
+            20,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            122,
+            123,
+            124,
+            125,
+            126,
+            129,
+            130,
+            131,
+            139,
+            140,
+            145,
+            146
+          ],
+          "thermal_rows_rmse_gpa": 2.4464218073981048
+        },
+        "fitted_replay": {
+          "rows": [
+            {
+              "row": 1,
+              "residual_gpa": -5.29562
+            },
+            {
+              "row": 2,
+              "residual_gpa": -5.56559
+            },
+            {
+              "row": 3,
+              "residual_gpa": -5.72537
+            },
+            {
+              "row": 4,
+              "residual_gpa": -6.53106
+            },
+            {
+              "row": 5,
+              "residual_gpa": -5.0631
+            },
+            {
+              "row": 6,
+              "residual_gpa": -4.98378
+            },
+            {
+              "row": 7,
+              "residual_gpa": -5.18313
+            },
+            {
+              "row": 8,
+              "residual_gpa": -5.18313
+            },
+            {
+              "row": 9,
+              "residual_gpa": -2.92574
+            },
+            {
+              "row": 10,
+              "residual_gpa": -2.67053
+            },
+            {
+              "row": 11,
+              "residual_gpa": -2.48573
+            },
+            {
+              "row": 12,
+              "residual_gpa": -3.18047
+            },
+            {
+              "row": 13,
+              "residual_gpa": -3.21738
+            },
+            {
+              "row": 14,
+              "residual_gpa": -3.25074
+            },
+            {
+              "row": 15,
+              "residual_gpa": -3.33496
+            },
+            {
+              "row": 16,
+              "residual_gpa": -3.29592
+            },
+            {
+              "row": 17,
+              "residual_gpa": -2.21414
+            },
+            {
+              "row": 18,
+              "residual_gpa": -2.21195
+            },
+            {
+              "row": 19,
+              "residual_gpa": -2.10041
+            },
+            {
+              "row": 20,
+              "residual_gpa": -2.95655
+            },
+            {
+              "row": 21,
+              "residual_gpa": -2.36902
+            },
+            {
+              "row": 22,
+              "residual_gpa": -2.80233
+            },
+            {
+              "row": 23,
+              "residual_gpa": -3.35388
+            },
+            {
+              "row": 24,
+              "residual_gpa": -3.21071
+            },
+            {
+              "row": 25,
+              "residual_gpa": -3.62493
+            },
+            {
+              "row": 26,
+              "residual_gpa": -3.61206
+            },
+            {
+              "row": 27,
+              "residual_gpa": -4.6934
+            },
+            {
+              "row": 28,
+              "residual_gpa": -4.27732
+            },
+            {
+              "row": 29,
+              "residual_gpa": -0.84364
+            },
+            {
+              "row": 30,
+              "residual_gpa": -0.95482
+            },
+            {
+              "row": 31,
+              "residual_gpa": -0.87537
+            },
+            {
+              "row": 32,
+              "residual_gpa": -0.7216
+            },
+            {
+              "row": 33,
+              "residual_gpa": -1.10022
+            },
+            {
+              "row": 34,
+              "residual_gpa": -1.11211
+            },
+            {
+              "row": 35,
+              "residual_gpa": -1.39729
+            },
+            {
+              "row": 36,
+              "residual_gpa": -1.59515
+            },
+            {
+              "row": 37,
+              "residual_gpa": -1.58447
+            },
+            {
+              "row": 38,
+              "residual_gpa": -1.87251
+            },
+            {
+              "row": 39,
+              "residual_gpa": -1.65644
+            },
+            {
+              "row": 40,
+              "residual_gpa": -1.59636
+            },
+            {
+              "row": 41,
+              "residual_gpa": -2.01983
+            },
+            {
+              "row": 42,
+              "residual_gpa": -2.41389
+            },
+            {
+              "row": 43,
+              "residual_gpa": -0.35037
+            },
+            {
+              "row": 44,
+              "residual_gpa": -0.40618
+            },
+            {
+              "row": 45,
+              "residual_gpa": 0.3155
+            },
+            {
+              "row": 46,
+              "residual_gpa": 0.3783
+            },
+            {
+              "row": 47,
+              "residual_gpa": 0.7612
+            },
+            {
+              "row": 48,
+              "residual_gpa": 1.0622
+            },
+            {
+              "row": 49,
+              "residual_gpa": 0.8215
+            },
+            {
+              "row": 50,
+              "residual_gpa": -0.15989
+            },
+            {
+              "row": 51,
+              "residual_gpa": -0.02248
+            },
+            {
+              "row": 52,
+              "residual_gpa": 0.2914
+            },
+            {
+              "row": 53,
+              "residual_gpa": 0.3714
+            },
+            {
+              "row": 54,
+              "residual_gpa": 0.9079
+            },
+            {
+              "row": 55,
+              "residual_gpa": 0.6524
+            },
+            {
+              "row": 56,
+              "residual_gpa": 0.8508
+            },
+            {
+              "row": 57,
+              "residual_gpa": -1.48324
+            },
+            {
+              "row": 58,
+              "residual_gpa": -1.32576
+            },
+            {
+              "row": 59,
+              "residual_gpa": -0.76236
+            },
+            {
+              "row": 60,
+              "residual_gpa": -0.31971
+            },
+            {
+              "row": 61,
+              "residual_gpa": 0.1223
+            },
+            {
+              "row": 62,
+              "residual_gpa": 0.5648
+            },
+            {
+              "row": 63,
+              "residual_gpa": 0.736
+            },
+            {
+              "row": 64,
+              "residual_gpa": 0.7442
+            },
+            {
+              "row": 65,
+              "residual_gpa": 0.6593
+            },
+            {
+              "row": 66,
+              "residual_gpa": 0.5468
+            },
+            {
+              "row": 67,
+              "residual_gpa": 0.5872
+            },
+            {
+              "row": 68,
+              "residual_gpa": 0.3259
+            },
+            {
+              "row": 69,
+              "residual_gpa": 0.4499
+            },
+            {
+              "row": 70,
+              "residual_gpa": 0.5023
+            },
+            {
+              "row": 71,
+              "residual_gpa": 0.4223
+            },
+            {
+              "row": 72,
+              "residual_gpa": -0.06384
+            },
+            {
+              "row": 73,
+              "residual_gpa": -0.47599
+            },
+            {
+              "row": 74,
+              "residual_gpa": -0.68023
+            },
+            {
+              "row": 75,
+              "residual_gpa": 0.6275
+            },
+            {
+              "row": 76,
+              "residual_gpa": 0.7704
+            },
+            {
+              "row": 77,
+              "residual_gpa": -0.25933
+            },
+            {
+              "row": 78,
+              "residual_gpa": 0.238
+            },
+            {
+              "row": 79,
+              "residual_gpa": 0.0869
+            },
+            {
+              "row": 80,
+              "residual_gpa": -0.20174
+            },
+            {
+              "row": 81,
+              "residual_gpa": -0.55183
+            },
+            {
+              "row": 82,
+              "residual_gpa": -0.99998
+            },
+            {
+              "row": 83,
+              "residual_gpa": -1.07911
+            },
+            {
+              "row": 84,
+              "residual_gpa": -1.06438
+            },
+            {
+              "row": 85,
+              "residual_gpa": -0.07703
+            },
+            {
+              "row": 86,
+              "residual_gpa": 0.5453
+            },
+            {
+              "row": 87,
+              "residual_gpa": -0.23063
+            },
+            {
+              "row": 88,
+              "residual_gpa": 0.0319
+            },
+            {
+              "row": 89,
+              "residual_gpa": -2.14338
+            },
+            {
+              "row": 90,
+              "residual_gpa": -0.43172
+            },
+            {
+              "row": 91,
+              "residual_gpa": 0.4541
+            },
+            {
+              "row": 92,
+              "residual_gpa": 0.5519
+            },
+            {
+              "row": 93,
+              "residual_gpa": 0.4872
+            },
+            {
+              "row": 94,
+              "residual_gpa": 1.0328
+            },
+            {
+              "row": 95,
+              "residual_gpa": 1.0935
+            },
+            {
+              "row": 96,
+              "residual_gpa": 0.851
+            },
+            {
+              "row": 97,
+              "residual_gpa": 0.5846
+            },
+            {
+              "row": 98,
+              "residual_gpa": 0.3766
+            },
+            {
+              "row": 99,
+              "residual_gpa": 0.5162
+            },
+            {
+              "row": 100,
+              "residual_gpa": -0.58369
+            },
+            {
+              "row": 101,
+              "residual_gpa": -0.26086
+            },
+            {
+              "row": 102,
+              "residual_gpa": 2.6971
+            },
+            {
+              "row": 103,
+              "residual_gpa": 2.8923
+            },
+            {
+              "row": 104,
+              "residual_gpa": 2.8248
+            },
+            {
+              "row": 105,
+              "residual_gpa": 1.5265
+            },
+            {
+              "row": 106,
+              "residual_gpa": 1.1346
+            },
+            {
+              "row": 107,
+              "residual_gpa": 1.018
+            },
+            {
+              "row": 108,
+              "residual_gpa": 0.7932
+            },
+            {
+              "row": 109,
+              "residual_gpa": 0.4787
+            },
+            {
+              "row": 110,
+              "residual_gpa": 0.52
+            },
+            {
+              "row": 111,
+              "residual_gpa": 1.5555
+            },
+            {
+              "row": 112,
+              "residual_gpa": 1.7935
+            },
+            {
+              "row": 113,
+              "residual_gpa": 1.9258
+            },
+            {
+              "row": 114,
+              "residual_gpa": 2.2079
+            },
+            {
+              "row": 115,
+              "residual_gpa": 2.0564
+            },
+            {
+              "row": 116,
+              "residual_gpa": 1.3882
+            },
+            {
+              "row": 117,
+              "residual_gpa": 1.1398
+            },
+            {
+              "row": 118,
+              "residual_gpa": 1.1959
+            },
+            {
+              "row": 119,
+              "residual_gpa": 0.9702
+            },
+            {
+              "row": 120,
+              "residual_gpa": -0.19159
+            },
+            {
+              "row": 121,
+              "residual_gpa": -0.61589
+            },
+            {
+              "row": 122,
+              "residual_gpa": 5.5621
+            },
+            {
+              "row": 123,
+              "residual_gpa": 6.1894
+            },
+            {
+              "row": 124,
+              "residual_gpa": 6.3107
+            },
+            {
+              "row": 125,
+              "residual_gpa": 4.8631
+            },
+            {
+              "row": 126,
+              "residual_gpa": 4.7811
+            },
+            {
+              "row": 127,
+              "residual_gpa": 2.4827
+            },
+            {
+              "row": 128,
+              "residual_gpa": 2.7178
+            },
+            {
+              "row": 129,
+              "residual_gpa": 3.6842
+            },
+            {
+              "row": 130,
+              "residual_gpa": 3.7974
+            },
+            {
+              "row": 131,
+              "residual_gpa": 3.3081
+            },
+            {
+              "row": 132,
+              "residual_gpa": 2.7258
+            },
+            {
+              "row": 133,
+              "residual_gpa": 2.5567
+            },
+            {
+              "row": 134,
+              "residual_gpa": 1.1306
+            },
+            {
+              "row": 135,
+              "residual_gpa": 0.1039
+            },
+            {
+              "row": 136,
+              "residual_gpa": 0.8142
+            },
+            {
+              "row": 137,
+              "residual_gpa": 1.6717
+            },
+            {
+              "row": 138,
+              "residual_gpa": 2.3957
+            },
+            {
+              "row": 139,
+              "residual_gpa": 3.3167
+            },
+            {
+              "row": 140,
+              "residual_gpa": 3.8965
+            },
+            {
+              "row": 141,
+              "residual_gpa": 3.135
+            },
+            {
+              "row": 142,
+              "residual_gpa": 2.0543
+            },
+            {
+              "row": 143,
+              "residual_gpa": 1.8583
+            },
+            {
+              "row": 144,
+              "residual_gpa": 3.0443
+            },
+            {
+              "row": 145,
+              "residual_gpa": 3.6985
+            },
+            {
+              "row": 146,
+              "residual_gpa": 4.5422
+            },
+            {
+              "row": 147,
+              "residual_gpa": -1.3954
+            },
+            {
+              "row": 148,
+              "residual_gpa": 1.7989
+            },
+            {
+              "row": 149,
+              "residual_gpa": 1.7639
+            },
+            {
+              "row": 150,
+              "residual_gpa": -0.06767
+            },
+            {
+              "row": 151,
+              "residual_gpa": 0.1892
+            },
+            {
+              "row": 152,
+              "residual_gpa": -0.51638
+            },
+            {
+              "row": 153,
+              "residual_gpa": 1.5687
+            },
+            {
+              "row": 154,
+              "residual_gpa": -1.60085
+            },
+            {
+              "row": 155,
+              "residual_gpa": -1.80347
+            },
+            {
+              "row": 156,
+              "residual_gpa": -3.59485
+            },
+            {
+              "row": 157,
+              "residual_gpa": 4.4299
+            },
+            {
+              "row": 158,
+              "residual_gpa": 0.4132
+            },
+            {
+              "row": 159,
+              "residual_gpa": -1.19115
+            }
+          ],
+          "rmse_gpa": 2.408408161358345,
+          "min_gpa": -6.53106,
+          "max_gpa": 6.3107,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            12,
+            13,
+            14,
+            15,
+            16,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            122,
+            123,
+            124,
+            125,
+            126,
+            129,
+            130,
+            131,
+            139,
+            140,
+            141,
+            144,
+            145,
+            146,
+            156,
+            157
+          ],
+          "sign": "Pcalculated-Pobserved",
+          "precision": "As printed by EosFit, not full internal precision",
+          "thermal_rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            12,
+            13,
+            14,
+            15,
+            16,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            122,
+            123,
+            124,
+            125,
+            126,
+            129,
+            130,
+            131,
+            139,
+            140,
+            141,
+            144,
+            145,
+            146
+          ],
+          "thermal_rows_rmse_gpa": 2.4428456097910374
+        },
+        "saved_refined_parameter_covariance": [
+          [
+            0.0017249
+          ]
+        ],
+        "covariance_parameter_order": [
+          "Gamm0"
+        ],
+        "covariance_qualification": "The actual saved EosFit covariance, with the program's esd scaling. Conditional on the input errors, model and selected rows; no inter-study calibration covariance or physical validation.",
+        "fixed_cold_parameters": {
+          "V0": {
+            "value": 14.89429,
+            "esd": 0.42194
+          },
+          "K0": {
+            "value": 148.57274,
+            "esd": 34.40418
+          },
+          "Kp": {
+            "value": 4.52367,
+            "esd": 0.45847
+          }
+        }
+      },
+      "files_sha256": {
+        "all.dat": "a436a14123da75a20e94d359d64c30637d053d96e5773d7db0bc014d536efe36",
+        "cold-fitted.eos": "a9f49c09ddf4cdf02c76ffef357a0dd08bb2a26a9c1221d23e1eb35f2064ed62",
+        "cold-initial.eos": "16f50ac78a96bee2cccb323ebfe30aed96fc1bbd8f06458e9129dd22e27f0a67",
+        "cold.dat": "ff461884aa05dc8be9aa52af5720d848796f1ccc64037c03b5c9cdf178f07639",
+        "fitted.eos": "aa71189bf3e0be1499078141bc91aa64b369883d5891413bcf2911db9fb564b7",
+        "run.log": "52b9fb7d2bc263844e83d89be80e29fc5c6cfd496582f5272c25cbed3569120d",
+        "run.mcr": "6276b27309622e4541511e67e287f4eeb425198a45e8f1a58f64a285124cb7cc",
+        "stderr.txt": "e7864e01ce1d4df4fc9776e0a26a41fe33e1286a8cd20548869ba3c55ef261fe",
+        "stdout.txt": "2e347d307f6467296f4ed52e6848de2a1a17b3a6d4fff11e37915398a8094519",
+        "thermal-initial.eos": "32ee7e3404f630baa8de03e76be277217400ea5eabd166ea9caa99e4154c6c2d"
+      }
+    },
+    "errors": {
+      "cold_stage": {
+        "converged": true,
+        "refined_parameters_final_cycle": {
+          "V0": {
+            "value": 15.01981,
+            "esd": 0.19732
+          },
+          "K0": {
+            "value": 138.00906,
+            "esd": 16.68608
+          },
+          "Kp": {
+            "value": 4.67274,
+            "esd": 0.28837
+          }
+        },
+        "eosfit_weighted_chi2_per_dof": 12.2021,
+        "eosfit_max_delta_pressure_gpa": -4.201,
+        "eosfit_residual_sign": "Pobserved-Pcalculated",
+        "warnings": [],
+        "initial_source_replay": {
+          "rows": [
+            {
+              "row": 1,
+              "residual_gpa": -1.47427
+            },
+            {
+              "row": 2,
+              "residual_gpa": 1.6953
+            },
+            {
+              "row": 3,
+              "residual_gpa": 1.6413
+            },
+            {
+              "row": 4,
+              "residual_gpa": -0.15033
+            },
+            {
+              "row": 5,
+              "residual_gpa": 0.1538
+            },
+            {
+              "row": 6,
+              "residual_gpa": -0.55955
+            },
+            {
+              "row": 7,
+              "residual_gpa": 1.4347
+            },
+            {
+              "row": 8,
+              "residual_gpa": -1.74959
+            },
+            {
+              "row": 9,
+              "residual_gpa": -1.96753
+            },
+            {
+              "row": 10,
+              "residual_gpa": -3.7746
+            },
+            {
+              "row": 11,
+              "residual_gpa": 4.2348
+            },
+            {
+              "row": 12,
+              "residual_gpa": 0.2128
+            },
+            {
+              "row": 13,
+              "residual_gpa": -1.39949
+            }
+          ],
+          "rmse_gpa": 1.9860344218761474,
+          "min_gpa": -3.7746,
+          "max_gpa": 4.2348,
+          "rows_exceeding_3_gpa": [
+            10,
+            11
+          ],
+          "sign": "Pcalculated-Pobserved",
+          "precision": "As printed by EosFit, not full internal precision"
+        },
+        "fitted_replay": {
+          "rows": [
+            {
+              "row": 1,
+              "residual_gpa": -1.54972
+            },
+            {
+              "row": 2,
+              "residual_gpa": 1.487
+            },
+            {
+              "row": 3,
+              "residual_gpa": 1.3689
+            },
+            {
+              "row": 4,
+              "residual_gpa": -0.24884
+            },
+            {
+              "row": 5,
+              "residual_gpa": 0.4148
+            },
+            {
+              "row": 6,
+              "residual_gpa": -0.36627
+            },
+            {
+              "row": 7,
+              "residual_gpa": 1.1412
+            },
+            {
+              "row": 8,
+              "residual_gpa": -2.0446
+            },
+            {
+              "row": 9,
+              "residual_gpa": -2.22844
+            },
+            {
+              "row": 10,
+              "residual_gpa": -3.95326
+            },
+            {
+              "row": 11,
+              "residual_gpa": 4.2007
+            },
+            {
+              "row": 12,
+              "residual_gpa": 0.2462
+            },
+            {
+              "row": 13,
+              "residual_gpa": -1.23718
+            }
+          ],
+          "rmse_gpa": 2.003244824134853,
+          "min_gpa": -3.95326,
+          "max_gpa": 4.2007,
+          "rows_exceeding_3_gpa": [
+            10,
+            11
+          ],
+          "sign": "Pcalculated-Pobserved",
+          "precision": "As printed by EosFit, not full internal precision"
+        },
+        "covariance_parameter_order": [
+          "V0_cm3_per_mol_fes",
+          "K0_gpa",
+          "Kprime"
+        ],
+        "saved_refined_parameter_covariance": [
+          [
+            0.038936,
+            -3.2708,
+            0.054452
+          ],
+          [
+            -3.2708,
+            278.43,
+            -4.7281
+          ],
+          [
+            0.054452,
+            -4.7281,
+            0.083158
+          ]
+        ]
+      },
+      "thermal_stage": {
+        "converged": true,
+        "refined_parameters_final_cycle": {
+          "Gamm0": {
+            "value": 2.52046,
+            "esd": 0.0519
+          }
+        },
+        "eosfit_weighted_chi2_per_dof": 1.7804,
+        "eosfit_max_delta_pressure_gpa": -6.121,
+        "eosfit_residual_sign": "Pobserved-Pcalculated",
+        "warnings": [
+          "*****WARNING:     T  has some esds=0: This may make weights and LS results invalid"
+        ],
+        "initial_source_replay": {
+          "rows": [
+            {
+              "row": 1,
+              "residual_gpa": -4.75032
+            },
+            {
+              "row": 2,
+              "residual_gpa": -5.00968
+            },
+            {
+              "row": 3,
+              "residual_gpa": -5.1626
+            },
+            {
+              "row": 4,
+              "residual_gpa": -5.94669
+            },
+            {
+              "row": 5,
+              "residual_gpa": -4.61767
+            },
+            {
+              "row": 6,
+              "residual_gpa": -4.54018
+            },
+            {
+              "row": 7,
+              "residual_gpa": -4.73516
+            },
+            {
+              "row": 8,
+              "residual_gpa": -4.73516
+            },
+            {
+              "row": 9,
+              "residual_gpa": -2.7096
+            },
+            {
+              "row": 10,
+              "residual_gpa": -2.46191
+            },
+            {
+              "row": 11,
+              "residual_gpa": -2.27887
+            },
+            {
+              "row": 12,
+              "residual_gpa": -2.9646
+            },
+            {
+              "row": 13,
+              "residual_gpa": -2.99781
+            },
+            {
+              "row": 14,
+              "residual_gpa": -3.0324
+            },
+            {
+              "row": 15,
+              "residual_gpa": -3.11979
+            },
+            {
+              "row": 16,
+              "residual_gpa": -3.08957
+            },
+            {
+              "row": 17,
+              "residual_gpa": -2.07786
+            },
+            {
+              "row": 18,
+              "residual_gpa": -2.07368
+            },
+            {
+              "row": 19,
+              "residual_gpa": -1.96474
+            },
+            {
+              "row": 20,
+              "residual_gpa": -2.80383
+            },
+            {
+              "row": 21,
+              "residual_gpa": -2.22721
+            },
+            {
+              "row": 22,
+              "residual_gpa": -2.65311
+            },
+            {
+              "row": 23,
+              "residual_gpa": -3.19397
+            },
+            {
+              "row": 24,
+              "residual_gpa": -3.05453
+            },
+            {
+              "row": 25,
+              "residual_gpa": -3.46111
+            },
+            {
+              "row": 26,
+              "residual_gpa": -3.45024
+            },
+            {
+              "row": 27,
+              "residual_gpa": -4.5082
+            },
+            {
+              "row": 28,
+              "residual_gpa": -4.10159
+            },
+            {
+              "row": 29,
+              "residual_gpa": -0.87921
+            },
+            {
+              "row": 30,
+              "residual_gpa": -0.99155
+            },
+            {
+              "row": 31,
+              "residual_gpa": -0.91667
+            },
+            {
+              "row": 32,
+              "residual_gpa": -0.76738
+            },
+            {
+              "row": 33,
+              "residual_gpa": -1.14034
+            },
+            {
+              "row": 34,
+              "residual_gpa": -1.15564
+            },
+            {
+              "row": 35,
+              "residual_gpa": -1.43998
+            },
+            {
+              "row": 36,
+              "residual_gpa": -1.63649
+            },
+            {
+              "row": 37,
+              "residual_gpa": -1.62743
+            },
+            {
+              "row": 38,
+              "residual_gpa": -1.9127
+            },
+            {
+              "row": 39,
+              "residual_gpa": -1.70145
+            },
+            {
+              "row": 40,
+              "residual_gpa": -1.64416
+            },
+            {
+              "row": 41,
+              "residual_gpa": -2.0631
+            },
+            {
+              "row": 42,
+              "residual_gpa": -2.4504
+            },
+            {
+              "row": 43,
+              "residual_gpa": -0.45228
+            },
+            {
+              "row": 44,
+              "residual_gpa": -0.51315
+            },
+            {
+              "row": 45,
+              "residual_gpa": 0.1955
+            },
+            {
+              "row": 46,
+              "residual_gpa": 0.2542
+            },
+            {
+              "row": 47,
+              "residual_gpa": 0.6253
+            },
+            {
+              "row": 48,
+              "residual_gpa": 0.9179
+            },
+            {
+              "row": 49,
+              "residual_gpa": 0.6744
+            },
+            {
+              "row": 50,
+              "residual_gpa": -0.2973
+            },
+            {
+              "row": 51,
+              "residual_gpa": -0.16701
+            },
+            {
+              "row": 52,
+              "residual_gpa": 0.139
+            },
+            {
+              "row": 53,
+              "residual_gpa": 0.2139
+            },
+            {
+              "row": 54,
+              "residual_gpa": 0.7354
+            },
+            {
+              "row": 55,
+              "residual_gpa": 0.4788
+            },
+            {
+              "row": 56,
+              "residual_gpa": 0.67
+            },
+            {
+              "row": 57,
+              "residual_gpa": -1.64815
+            },
+            {
+              "row": 58,
+              "residual_gpa": -1.49272
+            },
+            {
+              "row": 59,
+              "residual_gpa": -0.93949
+            },
+            {
+              "row": 60,
+              "residual_gpa": -0.5053
+            },
+            {
+              "row": 61,
+              "residual_gpa": -0.07277
+            },
+            {
+              "row": 62,
+              "residual_gpa": 0.359
+            },
+            {
+              "row": 63,
+              "residual_gpa": 0.5252
+            },
+            {
+              "row": 64,
+              "residual_gpa": 0.5295
+            },
+            {
+              "row": 65,
+              "residual_gpa": 0.4423
+            },
+            {
+              "row": 66,
+              "residual_gpa": 0.3275
+            },
+            {
+              "row": 67,
+              "residual_gpa": 0.3639
+            },
+            {
+              "row": 68,
+              "residual_gpa": 0.1011
+            },
+            {
+              "row": 69,
+              "residual_gpa": 0.2152
+            },
+            {
+              "row": 70,
+              "residual_gpa": 0.2611
+            },
+            {
+              "row": 71,
+              "residual_gpa": 0.1778
+            },
+            {
+              "row": 72,
+              "residual_gpa": -0.30788
+            },
+            {
+              "row": 73,
+              "residual_gpa": -0.7177
+            },
+            {
+              "row": 74,
+              "residual_gpa": -0.91754
+            },
+            {
+              "row": 75,
+              "residual_gpa": 0.219
+            },
+            {
+              "row": 76,
+              "residual_gpa": 0.3536
+            },
+            {
+              "row": 77,
+              "residual_gpa": -0.67432
+            },
+            {
+              "row": 78,
+              "residual_gpa": -0.19496
+            },
+            {
+              "row": 79,
+              "residual_gpa": -0.35133
+            },
+            {
+              "row": 80,
+              "residual_gpa": -0.64394
+            },
+            {
+              "row": 81,
+              "residual_gpa": -0.99699
+            },
+            {
+              "row": 82,
+              "residual_gpa": -1.44762
+            },
+            {
+              "row": 83,
+              "residual_gpa": -1.53424
+            },
+            {
+              "row": 84,
+              "residual_gpa": -1.52767
+            },
+            {
+              "row": 85,
+              "residual_gpa": -0.55537
+            },
+            {
+              "row": 86,
+              "residual_gpa": 0.0537
+            },
+            {
+              "row": 87,
+              "residual_gpa": -0.72662
+            },
+            {
+              "row": 88,
+              "residual_gpa": -0.47157
+            },
+            {
+              "row": 89,
+              "residual_gpa": -2.61708
+            },
+            {
+              "row": 90,
+              "residual_gpa": -0.93813
+            },
+            {
+              "row": 91,
+              "residual_gpa": -0.07193
+            },
+            {
+              "row": 92,
+              "residual_gpa": 0.0464
+            },
+            {
+              "row": 93,
+              "residual_gpa": -0.00745
+            },
+            {
+              "row": 94,
+              "residual_gpa": 0.5057
+            },
+            {
+              "row": 95,
+              "residual_gpa": 0.5564
+            },
+            {
+              "row": 96,
+              "residual_gpa": 0.304
+            },
+            {
+              "row": 97,
+              "residual_gpa": 0.0309
+            },
+            {
+              "row": 98,
+              "residual_gpa": -0.18714
+            },
+            {
+              "row": 99,
+              "residual_gpa": -0.06609
+            },
+            {
+              "row": 100,
+              "residual_gpa": -1.16552
+            },
+            {
+              "row": 101,
+              "residual_gpa": -0.85396
+            },
+            {
+              "row": 102,
+              "residual_gpa": 2.0895
+            },
+            {
+              "row": 103,
+              "residual_gpa": 2.2739
+            },
+            {
+              "row": 104,
+              "residual_gpa": 2.1831
+            },
+            {
+              "row": 105,
+              "residual_gpa": 0.918
+            },
+            {
+              "row": 106,
+              "residual_gpa": 0.5419
+            },
+            {
+              "row": 107,
+              "residual_gpa": 0.4374
+            },
+            {
+              "row": 108,
+              "residual_gpa": 0.2264
+            },
+            {
+              "row": 109,
+              "residual_gpa": -0.07359
+            },
+            {
+              "row": 110,
+              "residual_gpa": -0.03275
+            },
+            {
+              "row": 111,
+              "residual_gpa": 0.9513
+            },
+            {
+              "row": 112,
+              "residual_gpa": 1.1752
+            },
+            {
+              "row": 113,
+              "residual_gpa": 1.3
+            },
+            {
+              "row": 114,
+              "residual_gpa": 1.5625
+            },
+            {
+              "row": 115,
+              "residual_gpa": 1.4013
+            },
+            {
+              "row": 116,
+              "residual_gpa": 0.7243
+            },
+            {
+              "row": 117,
+              "residual_gpa": 0.4658
+            },
+            {
+              "row": 118,
+              "residual_gpa": 0.512
+            },
+            {
+              "row": 119,
+              "residual_gpa": 0.2755
+            },
+            {
+              "row": 120,
+              "residual_gpa": -0.89323
+            },
+            {
+              "row": 121,
+              "residual_gpa": -1.32461
+            },
+            {
+              "row": 122,
+              "residual_gpa": 4.9072
+            },
+            {
+              "row": 123,
+              "residual_gpa": 5.5302
+            },
+            {
+              "row": 124,
+              "residual_gpa": 5.6265
+            },
+            {
+              "row": 125,
+              "residual_gpa": 4.1728
+            },
+            {
+              "row": 126,
+              "residual_gpa": 4.0706
+            },
+            {
+              "row": 127,
+              "residual_gpa": 1.7573
+            },
+            {
+              "row": 128,
+              "residual_gpa": 1.9797
+            },
+            {
+              "row": 129,
+              "residual_gpa": 3.0023
+            },
+            {
+              "row": 130,
+              "residual_gpa": 3.129
+            },
+            {
+              "row": 131,
+              "residual_gpa": 2.6549
+            },
+            {
+              "row": 132,
+              "residual_gpa": 2.0883
+            },
+            {
+              "row": 133,
+              "residual_gpa": 1.9335
+            },
+            {
+              "row": 134,
+              "residual_gpa": 0.5392
+            },
+            {
+              "row": 135,
+              "residual_gpa": -0.49373
+            },
+            {
+              "row": 136,
+              "residual_gpa": 0.1914
+            },
+            {
+              "row": 137,
+              "residual_gpa": 1.022
+            },
+            {
+              "row": 138,
+              "residual_gpa": 1.7251
+            },
+            {
+              "row": 139,
+              "residual_gpa": 2.6253
+            },
+            {
+              "row": 140,
+              "residual_gpa": 3.1764
+            },
+            {
+              "row": 141,
+              "residual_gpa": 2.3938
+            },
+            {
+              "row": 142,
+              "residual_gpa": 1.2835
+            },
+            {
+              "row": 143,
+              "residual_gpa": 1.2625
+            },
+            {
+              "row": 144,
+              "residual_gpa": 2.4168
+            },
+            {
+              "row": 145,
+              "residual_gpa": 3.0453
+            },
+            {
+              "row": 146,
+              "residual_gpa": 3.8621
+            },
+            {
+              "row": 147,
+              "residual_gpa": -1.54972
+            },
+            {
+              "row": 148,
+              "residual_gpa": 1.487
+            },
+            {
+              "row": 149,
+              "residual_gpa": 1.3689
+            },
+            {
+              "row": 150,
+              "residual_gpa": -0.24884
+            },
+            {
+              "row": 151,
+              "residual_gpa": 0.4148
+            },
+            {
+              "row": 152,
+              "residual_gpa": -0.36627
+            },
+            {
+              "row": 153,
+              "residual_gpa": 1.1412
+            },
+            {
+              "row": 154,
+              "residual_gpa": -2.0446
+            },
+            {
+              "row": 155,
+              "residual_gpa": -2.22844
+            },
+            {
+              "row": 156,
+              "residual_gpa": -3.95326
+            },
+            {
+              "row": 157,
+              "residual_gpa": 4.2007
+            },
+            {
+              "row": 158,
+              "residual_gpa": 0.2462
+            },
+            {
+              "row": 159,
+              "residual_gpa": -1.23718
+            }
+          ],
+          "rmse_gpa": 2.159798949443002,
+          "min_gpa": -5.94669,
+          "max_gpa": 5.6265,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            14,
+            15,
+            16,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            122,
+            123,
+            124,
+            125,
+            126,
+            129,
+            130,
+            140,
+            145,
+            146,
+            156,
+            157
+          ],
+          "sign": "Pcalculated-Pobserved",
+          "precision": "As printed by EosFit, not full internal precision",
+          "thermal_rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            14,
+            15,
+            16,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            122,
+            123,
+            124,
+            125,
+            126,
+            129,
+            130,
+            140,
+            145,
+            146
+          ],
+          "thermal_rows_rmse_gpa": 2.173191960029371
+        },
+        "fitted_replay": {
+          "rows": [
+            {
+              "row": 1,
+              "residual_gpa": -4.38275
+            },
+            {
+              "row": 2,
+              "residual_gpa": -4.61514
+            },
+            {
+              "row": 3,
+              "residual_gpa": -4.74116
+            },
+            {
+              "row": 4,
+              "residual_gpa": -5.4913
+            },
+            {
+              "row": 5,
+              "residual_gpa": -4.31233
+            },
+            {
+              "row": 6,
+              "residual_gpa": -4.20824
+            },
+            {
+              "row": 7,
+              "residual_gpa": -4.36309
+            },
+            {
+              "row": 8,
+              "residual_gpa": -4.36309
+            },
+            {
+              "row": 9,
+              "residual_gpa": -2.42658
+            },
+            {
+              "row": 10,
+              "residual_gpa": -2.14259
+            },
+            {
+              "row": 11,
+              "residual_gpa": -1.92965
+            },
+            {
+              "row": 12,
+              "residual_gpa": -2.5851
+            },
+            {
+              "row": 13,
+              "residual_gpa": -2.59482
+            },
+            {
+              "row": 14,
+              "residual_gpa": -2.60937
+            },
+            {
+              "row": 15,
+              "residual_gpa": -2.66001
+            },
+            {
+              "row": 16,
+              "residual_gpa": -2.58307
+            },
+            {
+              "row": 17,
+              "residual_gpa": -1.78717
+            },
+            {
+              "row": 18,
+              "residual_gpa": -1.75308
+            },
+            {
+              "row": 19,
+              "residual_gpa": -1.62093
+            },
+            {
+              "row": 20,
+              "residual_gpa": -2.41948
+            },
+            {
+              "row": 21,
+              "residual_gpa": -1.79972
+            },
+            {
+              "row": 22,
+              "residual_gpa": -2.1919
+            },
+            {
+              "row": 23,
+              "residual_gpa": -2.70226
+            },
+            {
+              "row": 24,
+              "residual_gpa": -2.53271
+            },
+            {
+              "row": 25,
+              "residual_gpa": -2.9189
+            },
+            {
+              "row": 26,
+              "residual_gpa": -2.87448
+            },
+            {
+              "row": 27,
+              "residual_gpa": -3.9015
+            },
+            {
+              "row": 28,
+              "residual_gpa": -3.46151
+            },
+            {
+              "row": 29,
+              "residual_gpa": -0.60397
+            },
+            {
+              "row": 30,
+              "residual_gpa": -0.70313
+            },
+            {
+              "row": 31,
+              "residual_gpa": -0.60191
+            },
+            {
+              "row": 32,
+              "residual_gpa": -0.42287
+            },
+            {
+              "row": 33,
+              "residual_gpa": -0.77898
+            },
+            {
+              "row": 34,
+              "residual_gpa": -0.76102
+            },
+            {
+              "row": 35,
+              "residual_gpa": -1.01188
+            },
+            {
+              "row": 36,
+              "residual_gpa": -1.18488
+            },
+            {
+              "row": 37,
+              "residual_gpa": -1.15576
+            },
+            {
+              "row": 38,
+              "residual_gpa": -1.41742
+            },
+            {
+              "row": 39,
+              "residual_gpa": -1.18618
+            },
+            {
+              "row": 40,
+              "residual_gpa": -1.10209
+            },
+            {
+              "row": 41,
+              "residual_gpa": -1.48722
+            },
+            {
+              "row": 42,
+              "residual_gpa": -1.84734
+            },
+            {
+              "row": 43,
+              "residual_gpa": -0.15302
+            },
+            {
+              "row": 44,
+              "residual_gpa": -0.17758
+            },
+            {
+              "row": 45,
+              "residual_gpa": 0.5472
+            },
+            {
+              "row": 46,
+              "residual_gpa": 0.6258
+            },
+            {
+              "row": 47,
+              "residual_gpa": 1.0331
+            },
+            {
+              "row": 48,
+              "residual_gpa": 1.3489
+            },
+            {
+              "row": 49,
+              "residual_gpa": 1.1287
+            },
+            {
+              "row": 50,
+              "residual_gpa": 0.1842
+            },
+            {
+              "row": 51,
+              "residual_gpa": 0.3411
+            },
+            {
+              "row": 52,
+              "residual_gpa": 0.6737
+            },
+            {
+              "row": 53,
+              "residual_gpa": 0.7686
+            },
+            {
+              "row": 54,
+              "residual_gpa": 1.3266
+            },
+            {
+              "row": 55,
+              "residual_gpa": 1.0936
+            },
+            {
+              "row": 56,
+              "residual_gpa": 1.3115
+            },
+            {
+              "row": 57,
+              "residual_gpa": -1.35139
+            },
+            {
+              "row": 58,
+              "residual_gpa": -1.18279
+            },
+            {
+              "row": 59,
+              "residual_gpa": -0.60342
+            },
+            {
+              "row": 60,
+              "residual_gpa": -0.14962
+            },
+            {
+              "row": 61,
+              "residual_gpa": 0.3059
+            },
+            {
+              "row": 62,
+              "residual_gpa": 0.764
+            },
+            {
+              "row": 63,
+              "residual_gpa": 0.9467
+            },
+            {
+              "row": 64,
+              "residual_gpa": 0.9776
+            },
+            {
+              "row": 65,
+              "residual_gpa": 0.9138
+            },
+            {
+              "row": 66,
+              "residual_gpa": 0.8224
+            },
+            {
+              "row": 67,
+              "residual_gpa": 0.8856
+            },
+            {
+              "row": 68,
+              "residual_gpa": 0.6497
+            },
+            {
+              "row": 69,
+              "residual_gpa": 0.8038
+            },
+            {
+              "row": 70,
+              "residual_gpa": 0.8833
+            },
+            {
+              "row": 71,
+              "residual_gpa": 0.8301
+            },
+            {
+              "row": 72,
+              "residual_gpa": 0.3614
+            },
+            {
+              "row": 73,
+              "residual_gpa": -0.01787
+            },
+            {
+              "row": 74,
+              "residual_gpa": -0.20737
+            },
+            {
+              "row": 75,
+              "residual_gpa": 0.5432
+            },
+            {
+              "row": 76,
+              "residual_gpa": 0.7007
+            },
+            {
+              "row": 77,
+              "residual_gpa": -0.30367
+            },
+            {
+              "row": 78,
+              "residual_gpa": 0.2149
+            },
+            {
+              "row": 79,
+              "residual_gpa": 0.0784
+            },
+            {
+              "row": 80,
+              "residual_gpa": -0.1909
+            },
+            {
+              "row": 81,
+              "residual_gpa": -0.52049
+            },
+            {
+              "row": 82,
+              "residual_gpa": -0.94422
+            },
+            {
+              "row": 83,
+              "residual_gpa": -0.99744
+            },
+            {
+              "row": 84,
+              "residual_gpa": -0.95407
+            },
+            {
+              "row": 85,
+              "residual_gpa": 0.0411
+            },
+            {
+              "row": 86,
+              "residual_gpa": 0.6799
+            },
+            {
+              "row": 87,
+              "residual_gpa": -0.06328
+            },
+            {
+              "row": 88,
+              "residual_gpa": 0.2151
+            },
+            {
+              "row": 89,
+              "residual_gpa": -2.23361
+            },
+            {
+              "row": 90,
+              "residual_gpa": -0.48952
+            },
+            {
+              "row": 91,
+              "residual_gpa": 0.4091
+            },
+            {
+              "row": 92,
+              "residual_gpa": 0.4579
+            },
+            {
+              "row": 93,
+              "residual_gpa": 0.3711
+            },
+            {
+              "row": 94,
+              "residual_gpa": 0.9697
+            },
+            {
+              "row": 95,
+              "residual_gpa": 1.0468
+            },
+            {
+              "row": 96,
+              "residual_gpa": 0.8277
+            },
+            {
+              "row": 97,
+              "residual_gpa": 0.5813
+            },
+            {
+              "row": 98,
+              "residual_gpa": 0.4
+            },
+            {
+              "row": 99,
+              "residual_gpa": 0.5743
+            },
+            {
+              "row": 100,
+              "residual_gpa": -0.49429
+            },
+            {
+              "row": 101,
+              "residual_gpa": -0.15961
+            },
+            {
+              "row": 102,
+              "residual_gpa": 2.5011
+            },
+            {
+              "row": 103,
+              "residual_gpa": 2.7083
+            },
+            {
+              "row": 104,
+              "residual_gpa": 2.6734
+            },
+            {
+              "row": 105,
+              "residual_gpa": 1.3329
+            },
+            {
+              "row": 106,
+              "residual_gpa": 0.921
+            },
+            {
+              "row": 107,
+              "residual_gpa": 0.7872
+            },
+            {
+              "row": 108,
+              "residual_gpa": 0.5438
+            },
+            {
+              "row": 109,
+              "residual_gpa": 0.2117
+            },
+            {
+              "row": 110,
+              "residual_gpa": 0.2525
+            },
+            {
+              "row": 111,
+              "residual_gpa": 1.353
+            },
+            {
+              "row": 112,
+              "residual_gpa": 1.6097
+            },
+            {
+              "row": 113,
+              "residual_gpa": 1.7508
+            },
+            {
+              "row": 114,
+              "residual_gpa": 2.0593
+            },
+            {
+              "row": 115,
+              "residual_gpa": 1.9247
+            },
+            {
+              "row": 116,
+              "residual_gpa": 1.2778
+            },
+            {
+              "row": 117,
+              "residual_gpa": 1.0494
+            },
+            {
+              "row": 118,
+              "residual_gpa": 1.1187
+            },
+            {
+              "row": 119,
+              "residual_gpa": 0.9123
+            },
+            {
+              "row": 120,
+              "residual_gpa": -0.21893
+            },
+            {
+              "row": 121,
+              "residual_gpa": -0.62678
+            },
+            {
+              "row": 122,
+              "residual_gpa": 5.3428
+            },
+            {
+              "row": 123,
+              "residual_gpa": 5.9684
+            },
+            {
+              "row": 124,
+              "residual_gpa": 6.1206
+            },
+            {
+              "row": 125,
+              "residual_gpa": 4.6871
+            },
+            {
+              "row": 126,
+              "residual_gpa": 4.6312
+            },
+            {
+              "row": 127,
+              "residual_gpa": 2.3687
+            },
+            {
+              "row": 128,
+              "residual_gpa": 2.6175
+            },
+            {
+              "row": 129,
+              "residual_gpa": 3.4968
+            },
+            {
+              "row": 130,
+              "residual_gpa": 3.5905
+            },
+            {
+              "row": 131,
+              "residual_gpa": 3.0837
+            },
+            {
+              "row": 132,
+              "residual_gpa": 2.4847
+            },
+            {
+              "row": 133,
+              "residual_gpa": 2.2973
+            },
+            {
+              "row": 134,
+              "residual_gpa": 0.8389
+            },
+            {
+              "row": 135,
+              "residual_gpa": -0.22108
+            },
+            {
+              "row": 136,
+              "residual_gpa": 0.515
+            },
+            {
+              "row": 137,
+              "residual_gpa": 1.4002
+            },
+            {
+              "row": 138,
+              "residual_gpa": 2.145
+            },
+            {
+              "row": 139,
+              "residual_gpa": 3.0873
+            },
+            {
+              "row": 140,
+              "residual_gpa": 3.697
+            },
+            {
+              "row": 141,
+              "residual_gpa": 2.9608
+            },
+            {
+              "row": 142,
+              "residual_gpa": 1.9171
+            },
+            {
+              "row": 143,
+              "residual_gpa": 1.5378
+            },
+            {
+              "row": 144,
+              "residual_gpa": 2.7554
+            },
+            {
+              "row": 145,
+              "residual_gpa": 3.4351
+            },
+            {
+              "row": 146,
+              "residual_gpa": 4.3065
+            },
+            {
+              "row": 147,
+              "residual_gpa": -1.54972
+            },
+            {
+              "row": 148,
+              "residual_gpa": 1.487
+            },
+            {
+              "row": 149,
+              "residual_gpa": 1.3689
+            },
+            {
+              "row": 150,
+              "residual_gpa": -0.24884
+            },
+            {
+              "row": 151,
+              "residual_gpa": 0.4148
+            },
+            {
+              "row": 152,
+              "residual_gpa": -0.36627
+            },
+            {
+              "row": 153,
+              "residual_gpa": 1.1412
+            },
+            {
+              "row": 154,
+              "residual_gpa": -2.0446
+            },
+            {
+              "row": 155,
+              "residual_gpa": -2.22844
+            },
+            {
+              "row": 156,
+              "residual_gpa": -3.95326
+            },
+            {
+              "row": 157,
+              "residual_gpa": 4.2007
+            },
+            {
+              "row": 158,
+              "residual_gpa": 0.2462
+            },
+            {
+              "row": 159,
+              "residual_gpa": -1.23718
+            }
+          ],
+          "rmse_gpa": 2.147381718980131,
+          "min_gpa": -5.4913,
+          "max_gpa": 6.1206,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            27,
+            28,
+            122,
+            123,
+            124,
+            125,
+            126,
+            129,
+            130,
+            131,
+            139,
+            140,
+            145,
+            146,
+            156,
+            157
+          ],
+          "sign": "Pcalculated-Pobserved",
+          "precision": "As printed by EosFit, not full internal precision",
+          "thermal_rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            27,
+            28,
+            122,
+            123,
+            124,
+            125,
+            126,
+            129,
+            130,
+            131,
+            139,
+            140,
+            145,
+            146
+          ],
+          "thermal_rows_rmse_gpa": 2.1597494837350544
+        },
+        "saved_refined_parameter_covariance": [
+          [
+            0.0026937
+          ]
+        ],
+        "covariance_parameter_order": [
+          "Gamm0"
+        ],
+        "covariance_qualification": "The actual saved EosFit covariance, with the program's esd scaling. Conditional on the input errors, model and selected rows; no inter-study calibration covariance or physical validation.",
+        "fixed_cold_parameters": {
+          "V0": {
+            "value": 15.01981,
+            "esd": 0.19732
+          },
+          "K0": {
+            "value": 138.00906,
+            "esd": 16.68608
+          },
+          "Kp": {
+            "value": 4.67274,
+            "esd": 0.28837
+          }
+        }
+      },
+      "files_sha256": {
+        "all.dat": "a436a14123da75a20e94d359d64c30637d053d96e5773d7db0bc014d536efe36",
+        "cold-fitted.eos": "fddc78ebf6c38425188c586cf539278b9f75597e5f0890509767355615dfd82d",
+        "cold-initial.eos": "16f50ac78a96bee2cccb323ebfe30aed96fc1bbd8f06458e9129dd22e27f0a67",
+        "cold.dat": "ff461884aa05dc8be9aa52af5720d848796f1ccc64037c03b5c9cdf178f07639",
+        "fitted.eos": "d55014e785a0a82572c23e598253e9a533c7a561697ff66da95c33c851ac8e3d",
+        "run.log": "205d837e00844c1e26c8444a846cfa6301179683ed1691383921485cd46e617b",
+        "run.mcr": "765acb7330a99fb74ee14a74bcedab226674e12bd6286842c952bde257e940b0",
+        "stderr.txt": "e7864e01ce1d4df4fc9776e0a26a41fe33e1286a8cd20548869ba3c55ef261fe",
+        "stdout.txt": "5dbbaeb53af03459ea413361aca215f98a5710ae1a21af5076c18139e313a420",
+        "thermal-initial.eos": "7a50b59f05a5d194f539391b736b541f95037fe786c9daf006987c99fab12e09"
+      }
+    }
+  }
+}

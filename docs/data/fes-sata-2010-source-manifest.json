@@ -1,0 +1,54 @@
+{
+  "doi": "10.1029/2009JB006975",
+  "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009JB006975",
+  "table": "Table 1 FeS subsections",
+  "reference_coefficients": "Section 3.4 paragraph 23 and Table 6",
+  "retrieved": "2026-10-03",
+  "transcription": "Numerical factual transcription from rendered publisher HTML; preserves last-digit error tokens and source order. Equation 1 visually inspected. Full article not bundled.",
+  "table_sha256": "1d0128d2e19bc10f04f7099b0164bf08bb46c22e77f548880fb864adce2ccf07",
+  "table_license": "No explicit permissive data license identified; factual numerical transcription only.",
+  "rows": {
+    "VI": 13,
+    "VII": 6
+  },
+  "earlier_sources": [
+    {
+      "doi": "10.1007/s00269-007-0151-0",
+      "year": 2007,
+      "author": "Ohfuji et al.",
+      "full_original_fit_data_retrieved": false
+    },
+    {
+      "doi": "10.2138/am.2008.2762",
+      "year": 2008,
+      "author": "Sata et al.",
+      "full_original_fit_data_retrieved": false
+    }
+  ],
+  "error_semantics": "Table footnote: errors in last digits. Confidence level and cross-row covariance unavailable. Missing errors remain null.",
+  "pressure_calibration": {
+    "markers": [
+      "MgO",
+      "Ar"
+    ],
+    "row_assignment": "not supplied in the FeS subtable",
+    "marker_volumes": "not supplied in the FeS subtable",
+    "recalibration_status": "not independently reproducible",
+    "mgO_source": "Speziale et al. (2001) in text; table footnote labels 2000",
+    "mgO_eos": {
+      "model": "BM3",
+      "V0_angstrom3_per_cell": 74.71,
+      "K0_gpa": 160.2,
+      "Kprime": 3.99
+    },
+    "ar_source": "Jephcoat (1998)",
+    "ar_eos": {
+      "model": "Vinet",
+      "V0_angstrom3_per_cell": 149.8,
+      "K0_gpa": 3.3,
+      "Kprime": 7.24
+    }
+  },
+  "temperature": "Measurements at 300 K after annealing; not in-situ hot volumes.",
+  "phase_selection": "Retain all VI rows including coexisting VI measurements above 180 GPa. Exclude VII by phase, not arbitrary pressure cutoff."
+}

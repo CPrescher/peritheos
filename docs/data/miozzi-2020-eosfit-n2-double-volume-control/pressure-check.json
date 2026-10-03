@@ -1,0 +1,74 @@
+{
+  "qualification": "Independent full-MGD pressure evaluation of console coefficients. R=8.314462618; console R=8.314. Published-coefficient comparisons use volumes per mole Fe and vary n only, exactly testing the confirmed author volume convention. No original weights/input-file recovery claim.",
+  "checks": {
+    "printed-unit-theta_fixed": {
+      "stage_max_pressure_difference_vs_console_gpa": [
+        0.0004324052135302736,
+        0.001498060358429143,
+        0.0014611975986156267
+      ],
+      "published_coefficients_on_same_pressure_input": {
+        "1": {
+          "rms_gpa": 6.982609076352464,
+          "residual_range_gpa": [
+            -11.283181199733235,
+            1.6789735246000959
+          ]
+        },
+        "2": {
+          "rms_gpa": 2.4988584007212173,
+          "residual_range_gpa": [
+            -6.9970487045826815,
+            9.477581992970528
+          ]
+        }
+      }
+    },
+    "tange_vinet-unit-theta_fixed": {
+      "stage_max_pressure_difference_vs_console_gpa": [
+        0.000548072700468083,
+        0.0015986918763815083,
+        0.0016717997999364798
+      ],
+      "published_coefficients_on_same_pressure_input": {
+        "1": {
+          "rms_gpa": 7.310480936646053,
+          "residual_range_gpa": [
+            -12.75692799776455,
+            0.710457711584116
+          ]
+        },
+        "2": {
+          "rms_gpa": 1.805278737958349,
+          "residual_range_gpa": [
+            -5.525635016892892,
+            4.112224914795675
+          ]
+        }
+      }
+    },
+    "speziale_variable_q_debye-unit-theta_fixed": {
+      "stage_max_pressure_difference_vs_console_gpa": [
+        0.0006097754180274251,
+        0.0017246436587328162,
+        0.0014067345683344001
+      ],
+      "published_coefficients_on_same_pressure_input": {
+        "1": {
+          "rms_gpa": 5.4522366458335645,
+          "residual_range_gpa": [
+            -10.705207532922529,
+            1.0371154440517358
+          ]
+        },
+        "2": {
+          "rms_gpa": 2.4477037153164543,
+          "residual_range_gpa": [
+            -2.0776785519420287,
+            6.341795845039741
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,726 @@
+{
+  "audit_id": "sata_2010_fes_vi_cold_mbm3",
+  "reference_doi": "10.1029/2009JB006975",
+  "dataset_sha256": "1d0128d2e19bc10f04f7099b0164bf08bb46c22e77f548880fb864adce2ccf07",
+  "disposition": "approximate_coefficient_reproduction_protocol_unresolved",
+  "qualification": "All 13 FeS-VI rows re-reported in Sata (2010) Table 1 are included; six FeS-VII rows are retained but excluded by phase. The original 2007/2008 full fit inputs and author weighting are not available. Approximate coefficient parity is not exact protocol reproduction or independent physical/calibration validation. No refit is promoted.",
+  "source_rows": [
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "1-38",
+      "volume_raw": "76.71(3)",
+      "pressure_raw": "68.9(4)",
+      "vs_vfe_raw": "1.1572(8)",
+      "table_fes_row": 1,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 76.71,
+      "error_volume_angstrom3": 0.03,
+      "pressure_gpa": 68.9,
+      "error_pressure_gpa": 0.4,
+      "vs_vfe": 1.1572,
+      "error_vs_vfe": 0.0008,
+      "molar_volume_cm3_per_mol_fes": 11.54896044249
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "1-69",
+      "volume_raw": "73.56(3)",
+      "pressure_raw": "84.8(4)",
+      "vs_vfe_raw": "1.1312(9)",
+      "table_fes_row": 2,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 73.56,
+      "error_volume_angstrom3": 0.03,
+      "pressure_gpa": 84.8,
+      "error_pressure_gpa": 0.4,
+      "vs_vfe": 1.1312,
+      "error_vs_vfe": 0.0009000000000000001,
+      "molar_volume_cm3_per_mol_fes": 11.07471685764
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "2-40",
+      "volume_raw": "71.30(3)",
+      "pressure_raw": "101.1(2)",
+      "vs_vfe_raw": "1.1219(9)",
+      "table_fes_row": 3,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 71.3,
+      "error_volume_angstrom3": 0.03,
+      "pressure_gpa": 101.1,
+      "error_pressure_gpa": 0.2,
+      "vs_vfe": 1.1219,
+      "error_vs_vfe": 0.0009000000000000001,
+      "molar_volume_cm3_per_mol_fes": 10.7344659047
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "2-62",
+      "volume_raw": "76.22(2)",
+      "pressure_raw": "70.3(1)",
+      "vs_vfe_raw": "1.1495(6)",
+      "table_fes_row": 4,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 76.22,
+      "error_volume_angstrom3": 0.02,
+      "pressure_gpa": 70.3,
+      "error_pressure_gpa": 0.1,
+      "vs_vfe": 1.1495,
+      "error_vs_vfe": 0.0006000000000000001,
+      "molar_volume_cm3_per_mol_fes": 11.47518921818
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "3-108",
+      "volume_raw": "82.92(3)",
+      "pressure_raw": "39.0(1)",
+      "vs_vfe_raw": "1.1736(8)",
+      "table_fes_row": 5,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 82.92,
+      "error_volume_angstrom3": 0.03,
+      "pressure_gpa": 39.0,
+      "error_pressure_gpa": 0.1,
+      "vs_vfe": 1.1736,
+      "error_vs_vfe": 0.0008,
+      "molar_volume_cm3_per_mol_fes": 12.48389779548
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "3-140",
+      "volume_raw": "81.74(3)",
+      "pressure_raw": "44.3(1)",
+      "vs_vfe_raw": "1.1735(8)",
+      "table_fes_row": 6,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 81.74,
+      "error_volume_angstrom3": 0.03,
+      "pressure_gpa": 44.3,
+      "error_pressure_gpa": 0.1,
+      "vs_vfe": 1.1735,
+      "error_vs_vfe": 0.0008,
+      "molar_volume_cm3_per_mol_fes": 12.306244643059998
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "4-51",
+      "volume_raw": "69.94(6)",
+      "pressure_raw": "112.3(5)",
+      "vs_vfe_raw": "1.1166(18)",
+      "table_fes_row": 7,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 69.94,
+      "error_volume_angstrom3": 0.06,
+      "pressure_gpa": 112.3,
+      "error_pressure_gpa": 0.5,
+      "vs_vfe": 1.1166,
+      "error_vs_vfe": 0.0018000000000000002,
+      "molar_volume_cm3_per_mol_fes": 10.529713118859998
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "4-63",
+      "volume_raw": "68.25(6)",
+      "pressure_raw": "130.6(5)",
+      "vs_vfe_raw": "1.1179(16)",
+      "table_fes_row": 8,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 68.25,
+      "error_volume_angstrom3": 0.06,
+      "pressure_gpa": 130.6,
+      "error_pressure_gpa": 0.5,
+      "vs_vfe": 1.1179,
+      "error_vs_vfe": 0.0016,
+      "molar_volume_cm3_per_mol_fes": 10.27527767175
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "4-73",
+      "volume_raw": "66.49(5)",
+      "pressure_raw": "148.5(6)",
+      "vs_vfe_raw": "1.1095(16)",
+      "table_fes_row": 9,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 66.49,
+      "error_volume_angstrom3": 0.05,
+      "pressure_gpa": 148.5,
+      "error_pressure_gpa": 0.6000000000000001,
+      "vs_vfe": 1.1095,
+      "error_vs_vfe": 0.0016,
+      "molar_volume_cm3_per_mol_fes": 10.010303478309998
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "4-84",
+      "volume_raw": "64.71(5)",
+      "pressure_raw": "170.5(6)",
+      "vs_vfe_raw": "1.1039(16)",
+      "table_fes_row": 10,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 64.71,
+      "error_volume_angstrom3": 0.05,
+      "pressure_gpa": 170.5,
+      "error_pressure_gpa": 0.6000000000000001,
+      "vs_vfe": 1.1039,
+      "error_vs_vfe": 0.0016,
+      "molar_volume_cm3_per_mol_fes": 9.74231821449
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "4-100",
+      "volume_raw": "62.92(5)",
+      "pressure_raw": "185.5(6)",
+      "vs_vfe_raw": "1.0774(17)",
+      "table_fes_row": 11,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 62.92,
+      "error_volume_angstrom3": 0.05,
+      "pressure_gpa": 185.5,
+      "error_pressure_gpa": 0.6000000000000001,
+      "vs_vfe": 1.0774,
+      "error_vs_vfe": 0.0017000000000000001,
+      "molar_volume_cm3_per_mol_fes": 9.472827415480001
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "4-119",
+      "volume_raw": "62.30(5)",
+      "pressure_raw": "198.2(6)",
+      "vs_vfe_raw": "1.0825(17)",
+      "table_fes_row": 12,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 62.3,
+      "error_volume_angstrom3": 0.05,
+      "pressure_gpa": 198.2,
+      "error_pressure_gpa": 0.6000000000000001,
+      "vs_vfe": 1.0825,
+      "error_vs_vfe": 0.0017000000000000001,
+      "molar_volume_cm3_per_mol_fes": 9.3794842337
+    },
+    {
+      "phase": "VI",
+      "z": 4,
+      "run": "4-139",
+      "volume_raw": "61.31(5)",
+      "pressure_raw": "214.5(6)",
+      "vs_vfe_raw": "1.0801(17)",
+      "table_fes_row": 13,
+      "included": true,
+      "temperature_k": 300,
+      "volume_angstrom3": 61.31,
+      "error_volume_angstrom3": 0.05,
+      "pressure_gpa": 214.5,
+      "error_pressure_gpa": 0.6000000000000001,
+      "vs_vfe": 1.0801,
+      "error_vs_vfe": 0.0017000000000000001,
+      "molar_volume_cm3_per_mol_fes": 9.23043624989
+    },
+    {
+      "phase": "VII",
+      "z": 1,
+      "run": "4-100",
+      "volume_raw": "15.193",
+      "pressure_raw": "185.5(6)",
+      "vs_vfe_raw": "1.0065",
+      "table_fes_row": 14,
+      "included": false,
+      "temperature_k": 300,
+      "volume_angstrom3": 15.193,
+      "error_volume_angstrom3": null,
+      "pressure_gpa": 185.5,
+      "error_pressure_gpa": 0.6000000000000001,
+      "vs_vfe": 1.0065,
+      "error_vs_vfe": null,
+      "molar_volume_cm3_per_mol_fes": 9.149438456668
+    },
+    {
+      "phase": "VII",
+      "z": 1,
+      "run": "4-119",
+      "volume_raw": "15.051",
+      "pressure_raw": "198.2(6)",
+      "vs_vfe_raw": "1.0124",
+      "table_fes_row": 15,
+      "included": false,
+      "temperature_k": 300,
+      "volume_angstrom3": 15.051,
+      "error_volume_angstrom3": null,
+      "pressure_gpa": 198.2,
+      "error_pressure_gpa": 0.6000000000000001,
+      "vs_vfe": 1.0124,
+      "error_vs_vfe": null,
+      "molar_volume_cm3_per_mol_fes": 9.063924057876001
+    },
+    {
+      "phase": "VII",
+      "z": 1,
+      "run": "4-139",
+      "volume_raw": "14.825",
+      "pressure_raw": "214.5(6)",
+      "vs_vfe_raw": "1.0119",
+      "table_fes_row": 16,
+      "included": false,
+      "temperature_k": 300,
+      "volume_angstrom3": 14.825,
+      "error_volume_angstrom3": null,
+      "pressure_gpa": 214.5,
+      "error_pressure_gpa": 0.6000000000000001,
+      "vs_vfe": 1.0119,
+      "error_vs_vfe": null,
+      "molar_volume_cm3_per_mol_fes": 8.9278236767
+    },
+    {
+      "phase": "VII",
+      "z": 1,
+      "run": "4-141",
+      "volume_raw": "13.97",
+      "pressure_raw": "270.4(8)",
+      "vs_vfe_raw": "0.9836",
+      "table_fes_row": 17,
+      "included": false,
+      "temperature_k": 300,
+      "volume_angstrom3": 13.97,
+      "error_volume_angstrom3": null,
+      "pressure_gpa": 270.4,
+      "error_pressure_gpa": 0.8,
+      "vs_vfe": 0.9836,
+      "error_vs_vfe": null,
+      "molar_volume_cm3_per_mol_fes": 8.41293064172
+    },
+    {
+      "phase": "VII",
+      "z": 1,
+      "run": "4-145",
+      "volume_raw": "14.4971(67)",
+      "pressure_raw": "232.7(7)",
+      "vs_vfe_raw": "0.9985(9)",
+      "table_fes_row": 18,
+      "included": false,
+      "temperature_k": 300,
+      "volume_angstrom3": 14.4971,
+      "error_volume_angstrom3": 0.0067,
+      "pressure_gpa": 232.7,
+      "error_pressure_gpa": 0.7000000000000001,
+      "vs_vfe": 0.9985,
+      "error_vs_vfe": 0.0009000000000000001,
+      "molar_volume_cm3_per_mol_fes": 8.7303576811796
+    },
+    {
+      "phase": "VII",
+      "z": 1,
+      "run": "4-164",
+      "volume_raw": "14.4195(67)",
+      "pressure_raw": "236.6(7)",
+      "vs_vfe_raw": "0.9943(9)",
+      "table_fes_row": 19,
+      "included": false,
+      "temperature_k": 300,
+      "volume_angstrom3": 14.4195,
+      "error_volume_angstrom3": 0.0067,
+      "pressure_gpa": 236.6,
+      "error_pressure_gpa": 0.7000000000000001,
+      "vs_vfe": 0.9943,
+      "error_vs_vfe": 0.0009000000000000001,
+      "molar_volume_cm3_per_mol_fes": 8.683625868881998
+    }
+  ],
+  "included_runs": [
+    "1-38",
+    "1-69",
+    "2-40",
+    "2-62",
+    "3-108",
+    "3-140",
+    "4-51",
+    "4-63",
+    "4-73",
+    "4-84",
+    "4-100",
+    "4-119",
+    "4-139"
+  ],
+  "source_temperature_k": 300,
+  "measurement_range": {
+    "pressure_gpa": [
+      39.0,
+      214.5
+    ],
+    "volume_angstrom3": [
+      61.31,
+      82.92
+    ]
+  },
+  "published_reference": {
+    "volume_angstrom3_per_atom": 12.37,
+    "volume_angstrom3_per_cell": 98.96,
+    "molar_volume_cm3_per_mol_fes": 14.898776240239998,
+    "fixed_volume_error": null,
+    "parameter_order": [
+      "Pr_gpa",
+      "Kr_gpa",
+      "Kr_prime"
+    ],
+    "parameters": [
+      0.0,
+      148.0,
+      4.53
+    ],
+    "quoted_errors": [
+      4.2,
+      16.0,
+      0.34
+    ],
+    "parameter_covariance": null,
+    "weighting": "not recovered"
+  },
+  "published_replay": {
+    "rmse_gpa": 1.9860371659094813,
+    "mean_gpa": -0.13102008132624723,
+    "min_gpa": -3.774723909629131,
+    "max_gpa": 4.2347064581381915,
+    "residuals_gpa": [
+      -1.474251425269614,
+      1.6951786030697207,
+      1.6413449174952461,
+      -0.1503160179178593,
+      0.15376008606946812,
+      -0.5594970769469327,
+      1.4345855888879129,
+      -1.7495936604972542,
+      -1.967519932148889,
+      -3.774723909629131,
+      4.2347064581381915,
+      0.21281962049957315,
+      -1.3997543089916462
+    ],
+    "sum_squared_residual_over_pressure_error": 261.01217690474107,
+    "sum_squared_residual_over_effective_error": 128.35299939354445
+  },
+  "conditional_refits": {
+    "unweighted_pressure": {
+      "objective": "unweighted_pressure",
+      "parameter_order": [
+        "Pr_gpa",
+        "Kr_gpa",
+        "Kr_prime"
+      ],
+      "parameters": [
+        -0.04423032039930741,
+        148.36882730334946,
+        4.525118432398614
+      ],
+      "difference_over_quoted_parameter_error": [
+        -0.010531028666501763,
+        0.023051706459341403,
+        -0.01435755176878374
+      ],
+      "fixed_reference_volume_angstrom3": 98.96,
+      "rank": 3,
+      "singular_values": [
+        4.425219785557729,
+        0.5462384572325858,
+        0.08069861835155834
+      ],
+      "degrees_of_freedom": 10,
+      "objective_sum": 51.01337023927706,
+      "objective_sum_per_dof": 5.101337023927706,
+      "covariance_unscaled": [
+        [
+          3.480254876082452,
+          -12.456052216359021,
+          0.2521973272244486
+        ],
+        [
+          -12.456052216359021,
+          48.28249892506628,
+          -1.0166171008359337
+        ],
+        [
+          0.2521973272244486,
+          -1.0166171008359337,
+          0.021878404332507765
+        ]
+      ],
+      "covariance_residual_scaled": [
+        [
+          17.75395305206434,
+          -63.54252034328904,
+          1.2865435627056905
+        ],
+        [
+          -63.54252034328904,
+          246.30529937419027,
+          -5.186106455652395
+        ],
+        [
+          1.2865435627056905,
+          -5.186106455652395,
+          0.11160911404588218
+        ]
+      ],
+      "standard_errors_residual_scaled": [
+        4.2135440014392085,
+        15.694116712137395,
+        0.33407950258266694
+      ],
+      "covariance_qualification": "Local conditional Jacobian covariance. Residual-scaled matrix uses objective_sum/(N-3); unscaled matrix uses the declared scales. Quoted source errors have unspecified confidence. Neither matrix includes calibration covariance, fixed-Vr uncertainty, rounding or cross-row systematics; neither is an author covariance.",
+      "converged": true,
+      "at_bound": false,
+      "function_evaluations": null,
+      "algorithm": "linear SVD in (Pr, Kr, Kr*Kprime), transformed to physical parameters",
+      "rmse_gpa": 1.9809354868398195,
+      "mean_gpa": -0.0004490191476258168,
+      "min_gpa": -3.594893354531081,
+      "max_gpa": 4.4299591066013875,
+      "residuals_gpa": [
+        -1.3953460069453456,
+        1.7988261785122432,
+        1.7637471603471084,
+        -0.06767819987149437,
+        0.18932423375154173,
+        -0.516269177715067,
+        1.568606644896903,
+        -1.600875427862917,
+        -1.8033230446947073,
+        -3.594893354531081,
+        4.4299591066013875,
+        0.4132789455844659,
+        -1.1911943069921733
+      ]
+    },
+    "quoted_pressure_errors": {
+      "objective": "quoted_pressure_errors",
+      "parameter_order": [
+        "Pr_gpa",
+        "Kr_gpa",
+        "Kr_prime"
+      ],
+      "parameters": [
+        1.164762090120967,
+        143.22034105236662,
+        4.633162585164107
+      ],
+      "difference_over_quoted_parameter_error": [
+        0.2773243071716588,
+        -0.2987286842270862,
+        0.3034193681297256
+      ],
+      "fixed_reference_volume_angstrom3": 98.96,
+      "rank": 3,
+      "singular_values": [
+        20.302398095120154,
+        1.3805681709544368,
+        0.4337996371954238
+      ],
+      "degrees_of_freedom": 10,
+      "objective_sum": 244.97410642665326,
+      "objective_sum_per_dof": 24.497410642665326,
+      "covariance_unscaled": [
+        [
+          0.11116717575444272,
+          -0.5192740335066672,
+          0.01308661392999518
+        ],
+        [
+          -0.5192740335066672,
+          2.563883621158989,
+          -0.06671631686952768
+        ],
+        [
+          0.01308661392999518,
+          -0.06671631686952768,
+          0.0017877376227140342
+        ]
+      ],
+      "covariance_residual_scaled": [
+        [
+          2.723307954441932,
+          -12.720869234885981,
+          0.32058815536511626
+        ],
+        [
+          -12.720869234885981,
+          62.80850990753553,
+          -1.6343770109189997
+        ],
+        [
+          0.32058815536511626,
+          -1.6343770109189997,
+          0.04379494266496799
+        ]
+      ],
+      "standard_errors_residual_scaled": [
+        1.6502448165172137,
+        7.9251820110036295,
+        0.20927241257501664
+      ],
+      "covariance_qualification": "Local conditional Jacobian covariance. Residual-scaled matrix uses objective_sum/(N-3); unscaled matrix uses the declared scales. Quoted source errors have unspecified confidence. Neither matrix includes calibration covariance, fixed-Vr uncertainty, rounding or cross-row systematics; neither is an author covariance.",
+      "converged": true,
+      "at_bound": false,
+      "function_evaluations": null,
+      "algorithm": "linear SVD in (Pr, Kr, Kr*Kprime), transformed to physical parameters",
+      "rmse_gpa": 2.0079777028080077,
+      "mean_gpa": -0.24433862566869144,
+      "min_gpa": -4.0051156263644145,
+      "max_gpa": 4.139586088272836,
+      "residuals_gpa": [
+        -1.557898670423242,
+        1.4697490488773042,
+        1.3442804567024496,
+        -0.25839989935438723,
+        0.42061402647617285,
+        -0.36278691896657733,
+        1.1117612011771882,
+        -2.0806994022867116,
+        -2.271898702521014,
+        -4.0051156263644145,
+        4.139586088272836,
+        0.1817214134375149,
+        -1.3073151487201073
+      ]
+    },
+    "effective_variance": {
+      "objective": "effective_variance",
+      "parameter_order": [
+        "Pr_gpa",
+        "Kr_gpa",
+        "Kr_prime"
+      ],
+      "parameters": [
+        1.1767423182939503,
+        143.046219346672,
+        4.641385549395333
+      ],
+      "difference_over_quoted_parameter_error": [
+        0.28017674245094054,
+        -0.30961129083300065,
+        0.3276045570450972
+      ],
+      "fixed_reference_volume_angstrom3": 98.96,
+      "rank": 3,
+      "singular_values": [
+        144.49229795879123,
+        8.656277943419822,
+        0.4089462715736089
+      ],
+      "degrees_of_freedom": 10,
+      "objective_sum": 121.80761781683795,
+      "objective_sum_per_dof": 12.180761781683795,
+      "covariance_unscaled": [
+        [
+          0.2488845188054934,
+          -1.1616084577635974,
+          0.02955977128954628
+        ],
+        [
+          -1.1616084577635974,
+          5.739952200385288,
+          -0.151001451287039
+        ],
+        [
+          0.02955977128954628,
+          -0.151001451287039,
+          0.004092887698386994
+        ]
+      ],
+      "covariance_residual_scaled": [
+        [
+          3.0316030347187155,
+          -14.149275907607484,
+          0.36006053239901925
+        ],
+        [
+          -14.149275907607484,
+          69.91699039114492,
+          -1.8393127068159523
+        ],
+        [
+          0.36006053239901925,
+          -1.8393127068159523,
+          0.04985449005323604
+        ]
+      ],
+      "standard_errors_residual_scaled": [
+        1.7411499173588458,
+        8.361638020815354,
+        0.22328119054957593
+      ],
+      "covariance_qualification": "Local conditional Jacobian covariance. Residual-scaled matrix uses objective_sum/(N-3); unscaled matrix uses the declared scales. Quoted source errors have unspecified confidence. Neither matrix includes calibration covariance, fixed-Vr uncertainty, rounding or cross-row systematics; neither is an author covariance.",
+      "converged": true,
+      "at_bound": false,
+      "function_evaluations": 7,
+      "algorithm": "nonlinear least_squares, with parameter-dependent effective scale",
+      "rmse_gpa": 2.0007663121226713,
+      "mean_gpa": -0.1852289503639273,
+      "min_gpa": -3.901961900442757,
+      "max_gpa": 4.277511098359412,
+      "residuals_gpa": [
+        -1.5564174819145933,
+        1.4831333354706544,
+        1.3711333963538976,
+        -0.2555036146453915,
+        0.4141000416908156,
+        -0.3689292533461881,
+        1.1492523517531055,
+        -2.026770791178592,
+        -2.196327095740571,
+        -3.901961900442757,
+        4.277511098359412,
+        0.3336097410427783,
+        -1.1308061821336253
+      ]
+    }
+  },
+  "finite_reference_check": {
+    "printed_2007_reference_volume_unit": "12.615 cm3/atom",
+    "conditional_interpretation": "12.615 cm3/mol of FeS",
+    "qualification": "The 2010 HTML prints a dimensionally implausible unit. This diagnostic assumes cm3/mol FeS; the original Ohfuji paper has not been inspected, so no authoritative unit correction or original-source validation is claimed.",
+    "conditional_reference_volume_angstrom3": 83.79080132959231,
+    "quoted_parameters": [
+      36.0,
+      306.0,
+      3.81
+    ],
+    "quoted_errors": [
+      1.7,
+      17.0,
+      0.28
+    ],
+    "sata_curve_transformed_parameters": [
+      35.96988577026095,
+      298.5120698677716,
+      3.964277756483852
+    ],
+    "max_reference_transform_pressure_difference_gpa": 1.5631940186722204e-13,
+    "conditional_2007_replay": {
+      "rmse_gpa": 2.0379140150712054,
+      "mean_gpa": 0.25962982829466885,
+      "min_gpa": -3.39868746297293,
+      "max_gpa": 4.264672839740001
+    }
+  }
+}

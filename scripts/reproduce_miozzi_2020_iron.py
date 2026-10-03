@@ -29,6 +29,10 @@ QUALIFICATION = (
     "coefficients remain "
     "unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives "
     "22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. "
+    "The thermal source replay now uses n=2 with volume per mole Fe, as "
+    "confirmed in user-relayed personal communication with Miozzi, recorded "
+    "2026-10-03. This diagnostic fixes V0 even though the author clarified "
+    "that V0 was free in the final stage. "
     "See literature-reproductions/miozzi-2020-iron.md."
 )
 
@@ -56,11 +60,13 @@ def observations():
 _NODES, _WEIGHTS = np.polynomial.legendre.leggauss(64)
 
 
-def source_pressure(volume, temperature, parameters, *, vinet=False):
-    """Standard physical MGD mapping of Eqs. 3–8, independent of Peritheos.
+def source_pressure(volume, temperature, parameters, *, vinet=False, n=2):
+    """Author-reported MGD setup, independent of Peritheos.
 
     Eq. 5's denominator and comma, and Eq. 7's missing cube/integration limit,
     are documented typographical errors. Cell V contains two Fe atoms.
+    Thermal volume is per mole Fe; n=2 reproduces the personal-communication
+    setting. Pass n=1 explicitly for a physically normalized per-Fe model.
     """
     v0, k0, kp = parameters[:3]
     volume, temperature = np.broadcast_arrays(volume, temperature)
@@ -80,7 +86,7 @@ def source_pressure(volume, temperature, parameters, *, vinet=False):
         limit = theta / temp
         z = limit[..., None] * (_NODES + 1) / 2
         integral = limit / 2 * np.sum(_WEIGHTS * z**3 / np.expm1(z), axis=-1)
-        return 9 * 8.31446261815324 * temp * integral / limit**3
+        return 9 * n * 8.31446261815324 * temp * integral / limit**3
 
     # J/mol -> GPa using molar cm^3/mol = V_cell*N_A/2e24.
     thermal = gamma * (energy(temperature) - energy(np.full_like(temperature, 300)))
@@ -205,7 +211,7 @@ def ledger_outcome(record):
             "similar": abs(f - p) <= 0.05 * abs(p),
         }
         for n, p, f in zip(names, result["published_parameters"], fitted)
-        if n not in record.get("fixed_parameters", [])
+        if n not in (record.get("fixed_parameters", []) + (["V0"] if thermal else []))
     ]
     return {
         "status": "similar"

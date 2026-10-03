@@ -47,6 +47,49 @@ coefficient printed in $\mathrm{\AA^{-3}}$ is divided by `0.0602214076` for
 use with a molar volume. For a formula unit containing `n` atoms, use its
 molar formula-unit volume and set `n` accordingly.
 
+## Atom count and molar-volume basis
+
+In Debye and Einstein thermal models, `n` counts atoms in the entity that
+defines one mole of energy and volume. The crystallographic $Z$ counts those
+formula units in the measured unit cell. They are distinct:
+
+\[
+V_{m,\mathrm{formula}}[\mathrm{cm^3/mol}]
+=\frac{N_A V_{\mathrm{cell}}[\mathrm{\AA^3}]\,10^{-24}}{Z},
+\qquad n_{\mathrm{cell}}=Zn_{\mathrm{formula}}.
+\]
+
+| Material and basis | `n` | $Z$ for conversion from the conventional cell |
+|---|---:|---:|
+| hcp Fe, per mole of Fe | 1 | 2 |
+| hcp Fe, per mole of two-atom cells | 2 | 1 |
+| B1 MgO, per mole of MgO | 2 | 4 |
+| B1 MgO, per mole of eight-atom cells | 8 | 1 |
+
+The $Z=1$ rows treat the entire crystallographic cell as the molar entity;
+they do not redefine the material's ordinary chemical formula or crystallography.
+
+For hcp Fe with $V_{0,\mathrm{cell}}=22.81$ Å$^3$:
+
+| Basis | $V_0$ in cm$^3$/mol (EosFit input) | $V_0$ in J/bar/mol (Peritheos thermal input) | `n` |
+|---|---:|---:|---:|
+| Mole of Fe atoms | 6.86825 | 0.686825 | 1 |
+| Mole of two-atom cells | 13.73650 | 1.373650 | 2 |
+
+Both describe the same physical full-MGD pressure surface when all molar
+volumes, reference volumes and molar energies use the matching basis.
+Doubling only `n` at unchanged $V$ doubles the Debye thermal-pressure
+amplitude at fixed $\gamma$ and $\Theta$. In a full-MGD refit, halving
+$\gamma_0$ does not exactly undo this change because $\gamma$ also determines
+$\Theta(V)$. A source-reproduction setting therefore needs its own explicit
+normalization provenance; agreement with author coefficients alone does
+not verify physical normalization. See the
+[Miozzi normalization replay](literature-reproductions/miozzi-2020-iron.md#author-confirmed-full-mgd-with-n2-2026-10-03).
+
+If `Cvmax` replaces the usual $3nR$ heat-capacity limit, scale it with the
+chosen molar entity as well. For example, a consistent per-cell Fe model has
+twice the molar `Cvmax` of the per-Fe model.
+
 ## Conversion helpers
 
 ```python

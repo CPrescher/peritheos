@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 633,
-    "deferred": 2,
+    "records": 635,
+    "deferred": 3,
     "not_reproduced": 5,
-    "primary_source_validated": 626
+    "primary_source_validated": 627
   },
   "records": [
     {
@@ -1964,7 +1964,7 @@
       "material": "ca_perovskite",
       "file": "ca_perovskite.eosmat",
       "record": "ca_perovskite_fu_2023_bm3_mgd_refit",
-      "label": "Fu et al. (2023), published CaSiO3 BM3-MGD parameters",
+      "label": "Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)",
       "doi": "10.2138/am-2022-8435",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -2021,7 +2021,7 @@
       "material": "ca_perovskite",
       "file": "ca_perovskite.eosmat",
       "record": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",
-      "label": "Peritheos unweighted joint refit of Fu et al. (2023) candidate CaSiO3 data",
+      "label": "Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data",
       "doi": "10.2138/am-2022-8435",
       "status": "primary_source_validated",
       "note": "Primary observations and equation conventions were audited; the coefficients are an explicitly labeled Peritheos refit.",
@@ -3825,6 +3825,33 @@
       }
     },
     {
+      "material": "fes_vi",
+      "file": "fes_vi.eosmat",
+      "record": "fes_vi_morard_2026_bm3_mgd",
+      "label": "Morard et al. (2026), FeS BM3-MGD, source replay unresolved",
+      "doi": "10.1103/h4pj-rvxx",
+      "status": "deferred",
+      "note": "Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.",
+      "primary_source_check": {
+        "doi": "10.1103/h4pj-rvxx",
+        "access_url": "https://doi.org/10.1103/h4pj-rvxx",
+        "locations": [
+          "Section II",
+          "Section III.B",
+          "Section III.D, pages 063605-6 to 063605-7",
+          "Figure 6",
+          "Table S1, Sheet1 A3:M148",
+          "Author-supplied FeS6.eos",
+          "Both FeS6EOSfittot-SataOhfuji input variants",
+          "Supplementary_Materials_Rev_140526.docx, Figures S1-S5"
+        ],
+        "finding": "Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md."
+      },
+      "usage_recommendation": "Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved.",
+      "reproduction_status": "similar",
+      "residual_claim_reproduction_status": "not_reproduced"
+    },
+    {
       "material": "fesi_b2",
       "file": "fesi_b2.eosmat",
       "record": "fesi_b2_fischer_2014_bm3_refit",
@@ -5269,10 +5296,10 @@
       "material": "iron",
       "file": "iron.eosmat",
       "record": "iron_miozzi_2020_bm3_mgd",
-      "label": "Miozzi et al. (2020), preferred BM3–MGD thermal EOS (not reproduced)",
+      "label": "Miozzi et al. (2020), published BM3–MGD — author-reported n=2",
       "doi": "10.3390/min10020100",
       "status": "not_reproduced",
-      "note": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "note": "Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.3390/min10020100",
         "doi": "10.3390/min10020100",
@@ -5283,7 +5310,7 @@
           "Section 3.3, pages 8–9",
           "Official supplementary datasets"
         ],
-        "finding": "Three current-study parameterizations transcribed from primary sources. Table 1 and Section 3.3 thermal reference volumes differ by printed rounding; malformed thermal equations are mapped to standard physical MGD explicitly. Independent refits and source residuals do not reproduce the published fits."
+        "finding": "Printed preferred thermal coefficients and their uncertainties are preserved. Full MGD, n=2 with V0 approximately 6.87 cm3/mol and the final free V0 are attributed to recorded personal communication, rather than inferred from the printed equations. The author-setting replay improves residuals but does not recover the full original fit."
       },
       "primary_data_check": {
         "status": "bundled",
@@ -5297,7 +5324,7 @@
         ],
         "finding": "All 131 rows transcribed: 15 helium and 116 MgO-series observations. Original pressure/temperature/volume errors and MgO calibrant volumes retained, including blanks and zeros. Original EosFit-7c weights and covariance are unspecified."
       },
-      "usage_recommendation": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "usage_recommendation": "Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.",
       "reproduction_status": "not_reproduced"
     },
     {
@@ -5317,6 +5344,25 @@
           "Tange Table 4 Fit3-Vinet and Eqs. 2-5"
         ],
         "finding": "Data and fixed assumptions are primary-source traced; fitted coefficients and pressure calibration choice belong to the independent Peritheos refit."
+      },
+      "reproduction_status": "independent_refit_reproduced"
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_miozzi_2020_speziale_2001_bm3_mgd_refit",
+      "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1",
+      "doi": "10.3390/min10020100",
+      "status": "primary_source_validated",
+      "note": "Independent Peritheos refit, not Miozzi's published coefficients. All 116 MgO-series pressures are recalculated with the Speziale (2001) variable-q Debye model; the 15 He pressures remain unchanged. Equal pressure-residual weights; 36 RT rows first, all rows with cold coefficients fixed second, then V0,K0,K0_prime,gamma0,q free. theta0=420 K, Tr=300 K, n=1 per mole Fe fixed. Local errors/covariance are conditional on this calibration, objective and fixed parameters, excluding calibrant systematics, predictor and inter-row covariance and fixed-theta uncertainty. Original author weights and exact pressure reduction remain unavailable; numerical reproducibility does not establish independent physical accuracy.",
+      "primary_source_check": {
+        "doi": "10.3390/min10020100",
+        "access_url": "https://doi.org/10.3390/min10020100",
+        "locations": [
+          "Miozzi supplementary observations",
+          "Speziale Sections 2.1 and 5.4"
+        ],
+        "finding": "Source observations and calibration equations traced to primary papers; fitted Fe coefficients belong to the independent Peritheos refit."
       },
       "reproduction_status": "independent_refit_reproduced"
     },

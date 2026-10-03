@@ -3452,7 +3452,7 @@
   {
    "determination_method": "experimental",
    "identifier": "ca_perovskite_fu_2023_bm3_mgd_refit",
-   "label": "Fu et al. (2023), published CaSiO3 BM3-MGD parameters",
+   "label": "Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)",
    "reference": {
     "authors": [
      "Fu",
@@ -3537,7 +3537,7 @@
      2200.0
     ],
     "notes": [
-     "This source-owned composite refit is not a new experimental run. Fu Figure S3 shows Gréaux et al. (2019) measurements and Sun et al. (2016) P-V-T rows as observations, Kawai and Tsuchiya (2015) and Li et al. (2006) as analytical comparison curves, and Thomson et al. (2019) as explicitly excluded open symbols.",
+     "Joint fit to Sun et al. (2016) and Gréaux et al. (2019) experimental data; the published coefficients are from Fu et al. (2023). Fu Figure S3 shows Gréaux et al. (2019) measurements and Sun et al. (2016) P-V-T rows as observations, Kawai and Tsuchiya (2015) and Li et al. (2006) as analytical comparison curves, and Thomson et al. (2019) as explicitly excluded open symbols.",
      "An independent audit recovered 34 cubic Gréaux rows and 144 Sun Table 1 rows; the 140 Sun rows at 1200-2200 K match the Figure S3 legend. The inferred 174-row selection is not source-declared, and Fu et al. do not publish the regression objective, weights, covariance, or code.",
      "Cubic CaSiO3 is not quenchable at ambient conditions; the 300 K zero-pressure state is a model reference rather than an ambient-stability claim."
     ]
@@ -3897,7 +3897,7 @@
   {
    "determination_method": "experimental",
    "identifier": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",
-   "label": "Peritheos unweighted joint refit of Fu et al. (2023) candidate CaSiO3 data",
+   "label": "Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data",
    "reference": {
     "authors": [
      "Fu",

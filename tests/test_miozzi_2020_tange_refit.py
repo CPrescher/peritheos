@@ -117,7 +117,9 @@ def test_refit_is_selectable_with_errors_covariance_and_lossless_export():
     assert exported["datasets"][0]["identifier"] == DATASET_ID
     assert (
         exported["datasets"][0]["pressure_reconstruction"]
-        == document["datasets"][-1]["pressure_reconstruction"]
+        == next(d for d in document["datasets"] if d["identifier"] == DATASET_ID)[
+            "pressure_reconstruction"
+        ]
     )
     covariance = np.array(raw["parameter_covariance"]["matrix"])
     errors = {**raw["parameter_errors"], **raw["thermal"]["parameter_errors"]}

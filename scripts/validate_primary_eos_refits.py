@@ -40,6 +40,10 @@ from peritheos.fitting import (
     fit_rt_eos,
 )
 from peritheos.materials import Material
+from scripts.refit_miozzi_2020_speziale import RECORD_ID as MIOZZI_SPEZIALE_REFIT_ID
+from scripts.refit_miozzi_2020_speziale import (
+    ledger_outcome as miozzi_speziale_refit_outcome,
+)
 from scripts.refit_miozzi_2020_tange import RECORD_ID as MIOZZI_TANGE_REFIT_ID
 from scripts.refit_miozzi_2020_tange import ledger_outcome as miozzi_tange_refit_outcome
 from scripts.reproduce_akins_2004_mgsio3_liquid import (
@@ -303,6 +307,7 @@ QUALIFIED_STATUS_OVERRIDES = {
 # and uncertainty criteria. These are deliberately phrased as diagnoses or
 # bounded hypotheses; unresolved source-method details are not presented as fact.
 INVESTIGATION_NOTES = {
+    "fes_vi_morard_2026_bm3_mgd": "Staged coefficient reproduction is classified similar, with overlapping reported parameter intervals and an equal-weight control inside all published error widths. The literal +/-3 GPa residual envelope remains an independent reporting discrepancy; it does not turn this into an unavailable or failed fit. Source error confidence and cross-fit covariance are unknown, and thermal errors are conditional on fixed cold coefficients.",
     "feo_b8_2_fischer_2011_bm3_1": "B8 V0 is extrapolated from observations beginning above 131 GPa and is strongly correlated with K0 and gamma0. The missing Ozawa rows and undocumented source weighting therefore have much greater leverage than the three explicitly restored +/-0.1 cm^3/mol fallback errors. The current-study-only result is a bounded subset diagnostic, not evidence for replacing the published coefficients.",
     "b4c_somayazulu_2023_bm3_1": "The reference isotherm and gamma0 are fixed, leaving q as the only free coefficient. The published curve and the refit have similar pressure residuals, but q moves from 2.1 to about 1.05. This points to weak q identifiability and sensitivity to the source's exact effective-variance objective, rather than an equation-evaluation error. The existing B4C literature reproduction documents that distinction in detail.",
     "coo_clendenen_1966_murnaghan_1": "Decimal rounding alone is ruled out: four printed rows cannot lie on the published curve even within both displayed rounding intervals. The input is a nine-point smoothed table rather than the numerical Figure 2 observations, and the source gives no weights or exact regression objective. The free K0 and K0' estimates are strongly anticorrelated (correlation -0.971); fixing either published coefficient recovers the other closely, so the large derivative shift follows a shallow objective valley rather than a comparably large curve discrepancy. Exact parity requires the source observations and fit protocol. See the [dedicated CoO reproduction](literature-reproductions.md#coo-clendenen-1966).",
@@ -2081,6 +2086,10 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if record_id == "fes_vi_morard_2026_bm3_mgd":
+        from scripts.audit_morard_2026_fes import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id == "argon_fcc_chen_2010_bm3_digitized_refit":
         from scripts.refit_chen_2010_argon import fit, observations
 
@@ -5215,6 +5224,8 @@ def validate_all() -> dict[str, Any]:
                 outcome = _chen_reported_constants_outcome()
             elif record["identifier"] == MIOZZI_TANGE_REFIT_ID:
                 outcome = miozzi_tange_refit_outcome(record)
+            elif record["identifier"] == MIOZZI_SPEZIALE_REFIT_ID:
+                outcome = miozzi_speziale_refit_outcome(record)
             elif record["identifier"].startswith("iron_miozzi_2020_"):
                 outcome = miozzi_2020_outcome(record)
             elif record["identifier"] in CAMPBELL_RECORDS.values():

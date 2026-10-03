@@ -18,11 +18,47 @@ experimental observations.
 
 | Paper / material | Recommendation | What additional data would enable | Outreach status | Last reviewed |
 |---|---|---|---|---|
+| [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Reconcile GUI regression controls with supplied author-used files | Resolve the remaining ±3 GPa discrepancy after exact author-input replay | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |
 | [Miozzi et al. (2020), hcp iron](#miozzi-et-al-2020-hcp-iron) | Author clarification would resolve a substantial source-fit discrepancy | Replay the actual pressure reduction and EosFit-7c objective; verify thermal normalization | Not contacted | 2026-10-02 |
 | [Chen et al. (2010), fcc argon](literature-reproductions/chen-2010-argon.md) | Original coefficients and data needed to resolve source inconsistency | Reconcile the 2 GPa elastic constants with Figure 5 and the extrapolated density; reproduce integration and fit | Not contacted; user requested no outreach | 2026-09-24 |
 | [Crichton et al. (2016), bcc vanadium](#crichton-et-al-2016-bcc-vanadium) | Contact authors; high priority for original-fit verification | Refit the complete 62-state experiment; resolve the two incomplete fixed-K′ alternatives | Not contacted; historical contact route available | 2026-09-19 |
 | [Nisr et al. (2017), hydrous silica](#nisr-et-al-2017-hydrous-silica) | Optional follow-up for exact regression and calibration replay; published coefficients already reproduced | Resolve the original fit objective, weights and Au pressure reduction | Not contacted | 2026-09-19 |
 | [Maltby et al. (2024), fcc argon](#maltby-et-al-2024-fcc-argon) | Contact authors for sample-state and neighbour-table clarification | Reproduce Table 8 and the original multiproperty fit before promoting a replacement | Not contacted; precise request drafted | 2026-09-24 |
+
+### Morard et al. (2026): FeS
+
+Paper: [FeS phase diagram and thermal Equation of State under high pressure](https://doi.org/10.1103/h4pj-rvxx).
+Record: `fes_vi_morard_2026_bm3_mgd` (deferred).
+Evidence: [source audit](literature-reproductions/morard-2026-fes.md).
+
+All 146 supplied Table S1 observations are bundled. Standard integrated MGD
+replay gives pressure RMS 1.911 GPa and a maximum absolute residual 6.149 GPa;
+15 rows exceed the article's ±3 GPa bound, including 13 above 40 GPa.
+The variable-exponent alternative also fails. The public Figshare PT workbook
+and supplied Table S1 have different pressures and remain separate sources.
+Exact GSAS lattice matching recovers all final-table KCl markers; an independent
+calibration replay reproduces every supplied pressure within 1.3×10⁻¹³ GPa.
+Table S1 C is reciprocal to the printed definition, and its dV uses linear
+lattice-error addition. Those values are preserved unchanged.
+
+On 2026-10-03 the user supplied the figures supplement (including S5 but no
+Table S2), `FeS6.eos`, and both combined author input variants. These recover
+21 literature cold rows. User-reported author personal communication confirms
+that the 11 unsuitable quenched rows were excluded. Three additional typed datasets
+preserve the selected 167-row input, its literature cold subset and the original
+Sata table errors; the 11 rows and the 178-row variant are not database datasets. The saved March 2024 EOS confirms full MGD; its
+reference temperature and several coefficients differ from the article.
+Actual EosFit replay has thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows
+outside ±3 GPa. See the [author-input follow-up](literature-reproductions/fes-eosfit-direct.md#author-input-follow-up-2026-10-03).
+
+The user subsequently confirmed that the supplied files are all inputs used by
+Guillaume Morard. They are therefore treated as the complete author-used inputs;
+a new request for the same data/EOS files is not the next step. The remaining
+numerical task is an empirical GUI replay with those files and controlled
+weighting, groups and cold/thermal selections. The original 20210609 GUI itself
+has not been run. Exact publication coefficient/residual parity remains
+unresolved, despite verified pressure evaluation and converged console fits.
+This audit has not contacted the author; the user supplied the personal communication.
 
 ### Crichton et al. (2016): bcc vanadium
 

@@ -645,8 +645,11 @@ Both Mie-Gruneisen models use
 \]
 
 Here `Tr` is $T_r$, `theta0` is $\Theta_0$, `gamma0` is $\gamma_0$,
-`q` controls their volume dependence, and `n` scales the number of
-vibrational degrees of freedom per formula unit.
+`q` controls their volume dependence, and `n` is the number of atoms in
+the formula unit used for the molar volume. It sets $3n$ vibrational degrees
+of freedom per formula unit; it is not the crystallographic number of formula
+units per cell, $Z$. Energy and volume must use the same molar basis; see
+[Atom count and molar-volume basis](units.md#atom-count-and-molar-volume-basis).
 
 `MieGruneisenDebye.debye_temperature_law` selects the characteristic-temperature
 relation. If it is omitted, the default is `integrated_gruneisen`:
@@ -711,6 +714,32 @@ D_3(y)=\frac{3}{y^3}\int_0^y\frac{z^3}{e^z-1}\,dz,
 E_D(V,T)=3nRTD_3\!\left(\frac{\Theta(V)}{T}\right).
 \]
 
+Substituting this energy makes the atom count explicit in the default
+reference-temperature MGD pressure:
+
+\[
+\boxed{\displaystyle
+\Delta P_{\mathrm{th}}(V,T)
+=10^{-4}\frac{3nR\gamma(V)}{V}
+\left[
+T D_3\!\left(\frac{\Theta(V)}{T}\right)
+-T_r D_3\!\left(\frac{\Theta(V)}{T_r}\right)
+\right].}
+\]
+
+Here $V$ is in J bar$^{-1}$ mol$^{-1}$, energy is in J mol$^{-1}$, and the
+result is in GPa. For volume in cm$^3$ mol$^{-1}$, the prefactor is $10^{-3}$
+instead. If `Cvmax` is supplied, replace $3nR$ by `Cvmax`; its molar basis
+must still match $V$.
+
+For elemental hcp Fe, use `n=1` with volume per mole of Fe atoms. The two-atom
+cell enters through $Z=2$ when converting cell volume to molar Fe volume.
+An equivalent per-mole-cell model uses `n=2` and doubles both $V$ and $V_0$.
+This leaves $V/V_0$, $\gamma(V)$, $\Theta(V)$ and $n/V$ unchanged. Changing
+only `n` doubles the thermal pressure at fixed other coefficients; it does
+not double the reference-isotherm pressure. The high-temperature vibrational
+heat-capacity limit $C_V\to3nR$ provides a separate normalization check.
+
 The Einstein energy is
 
 \[
@@ -756,7 +785,7 @@ Integrating $\gamma=-\partial\ln\Theta/\partial\ln V$ gives the paper's
 equation 16 in an explicit form:
 
 \[
-\Theta(V)=\Theta_0\exp\left[-\gamma_0\left{
+\Theta(V)=\Theta_0\exp\left[-\gamma_0\left\{
 (1-a)\ln x+\frac{a}{b}(x^b-1)
 \right\}\right], \qquad b\ne0.
 \]
@@ -1250,6 +1279,7 @@ equations (19)–(25). With $x=V/V_0$, $t=T/\theta_0$:
 \theta=\theta_0\exp[-\gamma_0(x^q-1)/q],\quad
 A_D=RT\{3\ln[1-e^{-\theta/T}]-D_3(\theta/T)\},
 \]
+
 \[
 A_a=b_1R\theta_0\frac{t^4}{1+b_2t^2}\exp[b_3(x-1)],\qquad
 P_{\rm th}=\frac{\gamma U_D}{10^4V}-\frac{b_3A_a}{10^4V_0}.

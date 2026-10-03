@@ -7,6 +7,21 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Preserve Miozzi (2020) published hcp-Fe BM3–MGD coefficients with the
+  author-reported n=2 and ~6.87 cm³/mol volume convention, attributed to
+  personal communication with Miozzi et al. Add a separate nondefault n=1
+  refit on the Speziale (2001) variable-q Debye MgO scale, with derived inputs,
+  the three-stage fitting protocol, conditional parameter errors and covariance.
+
+- Add the Morard et al. (2026) FeS BM3–MGD source record, an independently
+  sourced experimental FeS-VI Pnma structure, all 146 supplied Table S1 rows,
+  public source-file hashes, and a reproducible audit. Preserve the published
+  coefficients and classify the author-input cold-then-thermal fit reproduction
+  as similar. Bundle the selected 167-row input and literature cold datasets;
+  exclude the 11 unsuitable quenched points. Keep the ±3 GPa residual-bound
+  discrepancy separate and retain the source EOS as deferred. Document EosFit
+  version checks, Peritheos pressure agreement, and source-table conventions.
+
 - Add a separate, nondefault Peritheos BM3–MGD refit of all 131 Miozzi (2020)
   hcp-Fe observations using Tange (2009) Fit3-Vinet MgO pressures. Bundle derived
   inputs alongside unchanged originals, conditional errors and full covariance
@@ -35,11 +50,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
-- Keep descriptive-error test assertions compatible with Rust 1.99 Clippy.
-
 - Reconcile merged argon catalog inventories, source/refit audit coverage,
   packaged Rust fixtures and installed-wheel checks. Qualify registered
   Peritheos refit reproducibility separately from source-author fit parity.
+- Keep descriptive-error test assertions compatible with Rust 1.99 Clippy.
 
 ## [0.11.0] - 2026-09-28
 

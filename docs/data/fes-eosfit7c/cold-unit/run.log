@@ -1,0 +1,440 @@
+
+
+***********************************************************************************************************************
+*                                                                                                                     *
+*                                                     EOSFIT7c                                                        *
+*                                                                                                                     *
+*             Authors: RJ ANGEL, J GONZALEZ-PLATAS, M ALVARO, ML MAZZUCCHELLI                                         *
+*        Version date: 13-May-2021                                                                                    *
+*             Version:  7.60                                                                                          *
+*                                                                                                                     *
+*                                                                                                                     *
+*        INCLUDING LEAST SQUARES BY I.G. WOOD & J. PIPER AND USING THE CrysFML EOS MODULE.                            *
+*                                                                                                                     *
+*        EosFit7c: Angel, Gonzalez-Platas, Alvaro (2014) Zeitschrift fuer Kristallographie, 229:405-419.              *
+*        Phase Transitions: Angel et al (2017) Contribs Min Pet, DOI:10.1007/s00410-017-1349-x                        *
+*        Fitting Moduli: Milani et al. (2017) Amer Min, DOI:10.2138/am-2017-5855                                      *
+*                                                                                                                     *
+*        Development currently supported by ERC grant 714936, TrueDepths to M. Alvaro, and                            *
+*                          Agencia Estatal de Investigacion under                                                     *
+*        National Program of Sciences and Technological Materials (PID2019-106383GB-C44) to J. Gonzalez-Platas        *
+*        For more information see the help system                                                                     *
+*                                                                                                                     *
+*                                                                                                                     *
+*        Current date and time:  3-OCT-2026 10:35                                                                     *
+*                                                                                                                     *
+***********************************************************************************************************************
+
+EOSFIT-7.6>read /Users/clemens/Programming/peritheos/docs/data/fes-eosfit7c/cold-unit/input.dat
+
+
+
+
+
+        The title on the file is: FeS audit cold unchanged observations
+             The data in the file is for:T  ,P  ,V
+               with esds in the file for:P  ,V
+
+Only data available is for V: This will be selected
+
+           The title on the data file is:  FeS audit cold unchanged observations
+
+  THE  13 LOADED DATA ARE AS FOLLOWS:
+<-------------------Observed Values--------------------->
+  N USE         P      esdP      T(K)       V      esd(V)
+              GPA                        A^3/CELL
+  1  1    68.9000   0.40000   300.000   76.7100   0.03000
+  2  1    84.8000   0.40000   300.000   73.5600   0.03000
+  3  1    101.100   0.20000   300.000   71.3000   0.03000
+  4  1    70.3000   0.10000   300.000   76.2200   0.02000
+  5  1    39.0000   0.10000   300.000   82.9200   0.03000
+  6  1    44.3000   0.10000   300.000   81.7400   0.03000
+  7  1    112.300   0.50000   300.000   69.9400   0.06000
+  8  1    130.600   0.50000   300.000   68.2500   0.06000
+  9  1    148.500   0.60000   300.000   66.4900   0.05000
+ 10  1    170.500   0.60000   300.000   64.7100   0.05000
+ 11  1    185.500   0.60000   300.000   62.9200   0.05000
+ 12  1    198.200   0.60000   300.000   62.3000   0.05000
+ 13  1    214.500   0.60000   300.000   61.3100   0.05000
+
+       Esds available for all data points for:  P, V
+
+EOSFIT-7.6>input
+
+*************************************Commands to input or change EoS parameters ***************************************
+
+
+   Type HELP for a list of commands to change EoS types or parameters
+
+
+INPUT EOS>pr
+
+     Available equations of state are:
+     1=Murnaghan, 2=Birch-Murnaghan, 3=Vinet, 4=Natural Strain, 5=Tait, 6=APL, 7=Kumar,
+
+     Input choice (0 for none, space for no change):2
+
+INPUT ORDER OF EOS (2,3,4):3
+
+
+INPUT EOS PARAMETERS, <CR> FOR NO CHANGE:
+          VALUE OF V0    (     1.000):98.96
+          VALUE OF K0    (    10.000):148
+          VALUE OF Kp    (     4.000):4.53
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 
+ 
+   System: 
+    Class: Volume
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  98.9600           :Reference pressure volume: units as volume data
+      K0:  148.000           :Bulk modulus: same units as pressure data
+      Kp:  4.53000           :dK/dP: dimensionless
+     Kpp: -0.0318            :d2K/dP2: inverse pressure units [IMPLIED VALUE]
+ 
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+INPUT EOS>pscale
+
+     This command allows you to label the output parameters with the pressure scale name (e.g. 'GPa')
+     It does not change the parameter values or the P values in the dataset!
+
+     No pressure scale name has been set
+
+     Input name of pressure scale, blank for no change, or 'none':GPa
+
+     The pressure scale name is: GPa
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  98.9600           :Reference pressure volume: units as volume data
+      K0:  148.000           :Bulk modulus: units are GPa
+      Kp:  4.53000           :dK/dP: dimensionless
+     Kpp: -0.0318            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+INPUT EOS>vscale
+
+     This command allows you to label the output parameters with the volume scale name (e.g. 'cm3/mol')
+     For linear data and Eos, use this for the name of the linear units (e.g. 'A')
+     It does not change the parameter values or the values of the data!
+
+     No volume/linear scale name has been set
+
+     Input name of volume scale, blank for no change, or 'none':A^3/cell
+
+     The volume scale name is: A^3/cell
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: A^3/cell
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  98.9600           :Reference pressure volume: units are A^3/cell
+      K0:  148.000           :Bulk modulus: units are GPa
+      Kp:  4.53000           :dK/dP: dimensionless
+     Kpp: -0.0318            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+INPUT EOS>x
+
+*************************************************Exiting from INPUT ***************************************************
+
+
+EOSFIT-7.6>save /Users/clemens/Programming/peritheos/docs/data/fes-eosfit7c/cold-unit/initial.eos
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: A^3/cell
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  98.9600           :Reference pressure volume: units are A^3/cell
+      K0:  148.000           :Bulk modulus: units are GPa
+      Kp:  4.53000           :dK/dP: dimensionless
+     Kpp: -0.0318            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+      Do you want to save this EoS to file (Y/N) <Y>?y
+
+
+
+
+     Eos parameters written to file /Users/clemens/Programming/peritheos/docs/data/fes-eosfit7c/cold-unit/initial.eos
+
+
+EOSFIT-7.6>list
+
+           The title on the data file is:  FeS audit cold unchanged observations
+           The calculated values are from:
+
+  THE  13 LOADED DATA ARE AS FOLLOWS:
+<--------------------Observed Values----------------------><----------------Calculated Values ----------------------->
+  N USE         P      esdP      T(K)       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd
+              GPA                        A^3/CELL               GPa                       A^3/cell
+  1  1    68.9000   0.40000   300.000   76.7100   0.03000   67.4257   1.47427   3.68567   76.4429   0.26706   8.90198
+  2  1    84.8000   0.40000   300.000   73.5600   0.03000   86.4952   -1.6952   4.23792   73.8159   -0.2559   8.53094
+  3  1    101.100   0.20000   300.000   71.3000   0.03000   102.741   -1.6413   8.20675   71.5139   -0.2139   7.12916
+  4  1    70.3000   0.10000   300.000   76.2200   0.02000   70.1496   0.15036   1.50360   76.1934   0.02661   1.33057
+  5  1    39.0000   0.10000   300.000   82.9200   0.03000   39.1538   -0.1538   1.53793   82.9610   -0.0410   1.36770
+  6  1    44.3000   0.10000   300.000   81.7400   0.03000   43.7405   0.55948   5.59483   81.6016   0.13840   4.61324
+  7  1    112.300   0.50000   300.000   69.9400   0.06000   113.735   -1.4347   2.86932   70.1107   -0.1707   2.84513
+  8  1    130.600   0.50000   300.000   68.2500   0.06000   128.850   1.74959   3.49918   68.0662   0.18382   3.06358
+  9  1    148.500   0.60000   300.000   66.4900   0.05000   146.532   1.96753   3.27922   66.3066   0.18340   3.66791
+ 10  1    170.500   0.60000   300.000   64.7100   0.05000   166.725   3.77466   6.29110   64.4004   0.30959   6.19186
+ 11  1    185.500   0.60000   300.000   62.9200   0.05000   189.735   -4.2348   7.05793   63.2328   -0.3128   6.25664
+ 12  1    198.200   0.60000   300.000   62.3000   0.05000   198.413   -0.2128   0.35469   62.3149   -0.0149   0.29762
+ 13  1    214.500   0.60000   300.000   61.3100   0.05000   213.100   1.39983   2.33304   61.2193   0.09073   1.81465
+
+EOSFIT-7.6>fit
+      13 data for V will be used in least-squares
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved:  3-OCT-2026 at 10:35
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: A^3/cell
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  98.9600           :Reference pressure volume: units are A^3/cell
+      K0:  148.000           :Bulk modulus: units are GPa
+      Kp:  4.53000           :dK/dP: dimensionless
+     Kpp: -0.0318            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+    Do you want to change these EoS parameters or the EoS type? (Y/N) <N>?n
+
+ SELECT PARAMETERS TO REFINE IN LEAST-SQUARES FIT:
+           REFINE V0     (Y/N)?y
+           REFINE K0     (Y/N)?y
+           REFINE Kp     (Y/N)?y
+
+ SELECT WEIGHTING SCHEME:
+     SIGMAS FOR P   PRESENT, USE IN WEIGHTS (Y/N)?n
+     SIGMAS FOR V   PRESENT, USE IN WEIGHTS (Y/N)?n
+
+     EQUATION FITTED WITH UNIT WEIGHTS FOR ALL DATA
+
+
+
+
+   RESULTS FROM CYCLE  1
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      1        98.93084         -0.02916          2.82462          -0.01
+ K0      1       148.56403          0.56403         34.53158           0.02
+ Kp      1         4.52377         -0.00623          0.46212          -0.01
+ Kpp     0        -0.03155  [IMPLIED VALUE]
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  UNIT WEIGHTS USED: NO W-CHI^2 CALCULATED
+
+
+   RESULTS FROM CYCLE  2
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      1        98.93066         -0.00018          2.80286          -0.00
+ K0      1       148.56732          0.00329         34.40257           0.00
+ Kp      1         4.52374         -0.00003          0.45851          -0.00
+ Kpp     0        -0.03155  [IMPLIED VALUE]
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  UNIT WEIGHTS USED: NO W-CHI^2 CALCULATED
+
+
+***********************MESSAGE FROM LEAST SQUARES***********************
+Least Squares converged, indicated by small shift/esd
+************************************************************************
+
+
+
+   RESULTS AFTER FINAL REFINEMENT CYCLE
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      1        98.93066         -0.00018          2.80286          -0.00
+ K0      1       148.56732          0.00329         34.40257           0.00
+ Kp      1         4.52374         -0.00003          0.45851          -0.00
+ Kpp     0        -0.03155  [IMPLIED VALUE]
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  UNIT WEIGHTS USED: NO W-CHI^2 CALCULATED
+
+ INPUT <CR> TO CONTINUE
+
+  THE  13 LOADED DATA ARE AS FOLLOWS:
+<--------------------Observed Values----------------------><----------------Calculated Values -------------------------------->
+  N USE         P      esdP      T(K)       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd       Wt
+              GPA                        A^3/CELL               GPa                       A^3/cell
+  1  1    68.9000   0.40000   300.000   76.7100   0.03000   67.5047   1.39532   3.48829   76.4575   0.25253   8.41751   1.0000000
+  2  1    84.8000   0.40000   300.000   73.5600   0.03000   86.5988   -1.7988   4.49705   73.8314   -0.2714   9.04566   1.0000000
+  3  1    101.100   0.20000   300.000   71.3000   0.03000   102.864   -1.7638   8.81897   71.5297   -0.2297   7.65635   1.0000000
+  4  1    70.3000   0.10000   300.000   76.2200   0.02000   70.2323   0.06765   0.67650   76.2080   0.01197   0.59853   1.0000000
+  5  1    39.0000   0.10000   300.000   82.9200   0.03000   39.1894   -0.1894   1.89411   82.9705   -0.0505   1.68254   1.0000000
+  6  1    44.3000   0.10000   300.000   81.7400   0.03000   43.7838   0.51622   5.16220   81.6125   0.12751   4.25034   1.0000000
+  7  1    112.300   0.50000   300.000   69.9400   0.06000   113.869   -1.5686   3.13722   70.1266   -0.1866   3.10949   1.0000000
+  8  1    130.600   0.50000   300.000   68.2500   0.06000   128.999   1.60089   3.20178   68.0819   0.16813   2.80215   1.0000000
+  9  1    148.500   0.60000   300.000   66.4900   0.05000   146.697   1.80339   3.00565   66.3220   0.16805   3.36105   1.0000000
+ 10  1    170.500   0.60000   300.000   64.7100   0.05000   166.905   3.59479   5.99131   64.4152   0.29478   5.89569   1.0000000
+ 11  1    185.500   0.60000   300.000   62.9200   0.05000   189.930   -4.4299   7.38322   63.2472   -0.3272   6.54450   1.0000000
+ 12  1    198.200   0.60000   300.000   62.3000   0.05000   198.613   -0.4133   0.68891   62.3289   -0.0289   0.57808   1.0000000
+ 13  1    214.500   0.60000   300.000   61.3100   0.05000   213.309   1.19118   1.98530   61.2328   0.07721   1.54419   1.0000000
+
+  FITTING STATISTICS FOR 3 PARAMETERS FITTED TO  13 DATA:
+      MAXIMUM DELTA-PRESSURE=-4.430
+
+
+CORRELATION COEFFICIENTS (IN %)
+  VARIABLE      V0        K0        Kp
+    V0   :     100.0     -99.2      95.5
+    K0   :     -99.2     100.0     -98.5
+    Kp   :      95.5     -98.5     100.0
+
+
+  VARIANCE-COVARIANCE MATRIX RESCALED
+  VARIABLE     V0        K0        Kp
+    V0   :   7.85600 -95.65153   1.22766
+    K0   : -95.651531183.53699 -15.52962
+    Kp   :   1.22766 -15.52962   0.21023
+
+ UPDATE EOS PARAMETERS (Y/N)?y
+                                       FURTHER CALCULATIONS (Y/N)?n
+
+EOSFIT-7.6>save /Users/clemens/Programming/peritheos/docs/data/fes-eosfit7c/cold-unit/fitted.eos
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved:  3-OCT-2026 at 10:35
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: A^3/cell
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  99(3)             :Reference pressure volume: units are A^3/cell
+      K0:  149(34)           :Bulk modulus: units are GPa
+      Kp:  4.5(5)            :dK/dP: dimensionless
+     Kpp: -0.0315            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+      Do you want to save this EoS to file (Y/N) <Y>?y
+
+
+
+
+     Eos parameters written to file /Users/clemens/Programming/peritheos/docs/data/fes-eosfit7c/cold-unit/fitted.eos
+
+
+***** Macro completed
+EOSFIT-7.6>
+
+EOSFIT-7.6>exit

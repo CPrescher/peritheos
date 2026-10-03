@@ -1,0 +1,141 @@
+﻿
+
+<html>
+	
+<head>
+	<title>EoS Fit and display</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Standard Edition 7.7.0.519">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "EoSFit7.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("EoSFitanddisplay");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">EoS Fit and display</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Eosfit7GUI.html">Eosfit7 GUI</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Eosfit7GUI.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Datainputandcontrol.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Plottingandpreferences.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts36"><br/></span></p>
+<p class="rvps2"><span class="rvts36">All of the </span><span class="rvts54">data fitting tabs</span><span class="rvts36"> (Volume, a, b, c, UVW/hkl) have the same functions.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts36"><br/></span></p>
+<p class="rvps2"><span class="rvts36">All that differs is which data they handle. If the data is not present in your dataset, then the corresponding tabs will be inactive.</span></p>
+<p class="rvps2"><span class="rvts36"><br/></span></p>
+<p class="rvps2"><span class="rvts36">In each data-fitting tab you can fit up to three different EoS. Select them with the EoS buttons.</span></p>
+<p class="rvps2"><span class="rvts36"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><img width="1670" height="979" alt="" style="padding : 1px;" src="lib/fittab_gui.jpg"></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20">The release of 2021 has an improved </span><span class="rvts91">Estimation procedure</span><span class="rvts20"> that is faster, more reliable, and allows the user to control which parameters are estimated:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">If you know the values of some parameters, write the values into the boxes and tick the corresponding refinement box. This keeps the value of the parameter fixed while the other parameters are estimated.</span></li>
+ <li class="rvps2"><span class="rvts20">For the MGD and Einstein EoS it is important to set the value of Natom correctly to get meaningful estimates of the other parameters. See the page on</span><a class="rvts22" href="ThermalPressure.html"> thermal-pressure models</a><span class="rvts20"> to understand the role of Natom.</span></li>
+ <li class="rvps2"><span class="rvts20">To improve stability, the MGD and Einstein EoS are always estimated for the </span><a class="rvts22" href="ThermalPressure.html">q-compromise model</a><span class="rvts20">. You can always switch to the general model after refining the q-compromise model.</span></li>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps20"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts36">The</span><span class="rvts54"> normalized parameters tab</span><span class="rvts36"> does not &nbsp;perform any fitting, it is only a display feature that allows for quick comparisons among different lattice parameters and crystallographic directions.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts36"><br/></span></p>
+<p class="rvps2"><img width="1213" height="796" alt="" style="padding : 1px;" src="lib/normtab_gui1.jpg"></p>
+<p class="rvps20"><span class="rvts36"><br/></span></p>
+<p class="rvps20"><span class="rvts109"><br/></span></p>
+<p class="rvps20"><span class="rvts109"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 2013-2021 by RJA-JGP-MA-MLM. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

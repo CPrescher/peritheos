@@ -1,0 +1,54 @@
+{
+  "format": "peritheos.primary-source-manifest",
+  "audit_date": "2026-10-02",
+  "sources": [
+    {
+      "filename": "Morard_FeS phase diagram.pdf",
+      "role": "user-supplied final publication",
+      "doi": "10.1103/h4pj-rvxx",
+      "sha256": "1d513fd3d624d24b483eca1b1cd62f0b2789f6f9638d574725c6fd89a1cd8a4d",
+      "bundled": false
+    },
+    {
+      "filename": "Table S1.xlsx",
+      "role": "user-supplied supplementary table",
+      "worksheet": "Sheet1",
+      "range": "A3:M148",
+      "sha256": "bd4fb08b1a84560ff4c6252615af82b198a61b3394dbd650de81858d5660af12",
+      "bundled": false,
+      "normalized_resource": "../fes-morard-2026-table-s1.csv",
+      "normalized_sha256": "1594df8d1fde22c15445b78916fdee9df4909d8a90e1b3073cf3d4d554d0345f",
+      "license": "unspecified"
+    },
+    {
+      "filename": "ono-2008.pdf",
+      "role": "independent experimental structure source; Table 1, page 483",
+      "url": "https://uspex-team.org/static/file/FeS-EPSL-paper-2008.pdf",
+      "doi": "10.1016/j.epsl.2008.05.017",
+      "sha256": "285e755c44c8fc32d0de2506ca3a536fe125be42164b7cfc5b51ba923d94eaf1",
+      "bundled": false
+    },
+    {
+      "filename": "FeS-GSAS.csv",
+      "role": "public source deposit, preserved separately from final Table S1",
+      "url": "https://ndownloader.figshare.com/files/51501728",
+      "doi": "10.6084/m9.figshare.28143683.v1",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "sha256": "bd594431940398b45228aca78391132cd743ccdadc3d98826b8059b55a2b955b",
+      "bundled": true
+    },
+    {
+      "filename": "FeS_PTconditions.xlsx",
+      "role": "public source deposit, preserved separately from final Table S1",
+      "url": "https://ndownloader.figshare.com/files/51502235",
+      "doi": "10.6084/m9.figshare.28143683.v1",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "sha256": "418224611c247f5a3458d7249c79a6cbf7e4e37f22967976586d7fea1fc8823b",
+      "bundled": true
+    }
+  ],
+  "supplement_access": "APS supplemental landing page requires subscription; Table S2 and Figure S5 were not available in the supplied files.",
+  "notes": "The public deposit and final supplied workbook are separate source versions. Public PT workbook pressures are not silently substituted for Table S1. Diffraction-pattern files remain at Figshare; the numerical fit/reduction files are preserved here. All final Table S1 markers were subsequently matched in FeS-GSAS.csv; the final pressures reproduce exactly. The earlier public PT workbook has different marker refinements."
+}

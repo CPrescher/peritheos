@@ -1,0 +1,420 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Version Info</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Standard Edition 7.7.0.519">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "EoSFit7.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("VersionInfo");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Version Info</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduction.html">Introduction</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Introduction.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Introduction.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="History.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts29">Version 7.6: Released Summer 2021</span></p>
+<p class="rvps2"><span class="rvts32"><br/></span></p>
+<p class="rvps2"><span class="rvts33">There were two significant bug fixes to the EoS calculation code. Apart from these, this version will return the same results as previous versions. There are several new EoS types in all programs and several new utilities in the EosFit7c program.</span></p>
+<p class="rvps2"><span class="rvts33"><br/></span></p>
+<p class="rvps2"><span class="rvts33">Eos files created with the previous version (7.5) will be read correctly by software of this new version. &nbsp;Some .eos files from earlier versions may not be read completely correctly, so please check the listed parameter values carefully. If necessary (e.g. with very old .eos files for PVT) use the </span><a class="rvts40" href="InputCommand.html">input</a><span class="rvts33"> utility to input new parameter values.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts33"><br/></span></p>
+<p class="rvps2"><span class="rvts33">After release it was found that a bug in the graphics library could cause the Mac version of EosFit-GUI to crash. A new version for Mac was released in November 2021, but is identical to the summer 2021 versions apart from this bug fix. See the </span><a class="rvts40" href="MacOSXinstallationandrunning.html">Mac installation page</a><span class="rvts42"> </span><span class="rvts33">for details.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts33"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><span class="rvts21">all programs</span><span class="rvts20">:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Fixed bug that resulted in the refined value of </span><span class="rvts28">M''</span><span class="rvts39">0T </span><span class="rvts20">in 4th-order linear EoS to be incorrect by a factor of 3.</span></li>
+  <li class="rvps2"><span class="rvts20">Fixed bug that resulted in incorrect EoS parameters when refining thermal-pressure EoS to only T-V data.</span></li>
+  <li class="rvps2"><span class="rvts20">Introduced a new more reliable and more precise algorithm for calculating V from P for non-invertible EoS (i.e. where P can only be expressed as a function of V and not vice-versa).&nbsp;</span></li>
+  <li class="rvps2"><span class="rvts20">Introduction of the </span><a class="rvts22" href="Kumar.html">Kumar</a><span class="rvts20"> PV EoS.</span></li>
+  <li class="rvps2"><span class="rvts20">Extension of the </span><a class="rvts22" href="APL.html">APL EoS</a><span class="rvts20"> from 3rd to 4th order.</span></li>
+  <li class="rvps2"><span class="rvts20">New thermal-pressure EoS based on one</span><a class="rvts22" href="Einstein.html"> Einstein oscillator</a><span class="rvts20"> to define heat capacity.</span></li>
+  <li class="rvps2"><span class="rvts20">Introduction of </span><a class="rvts26" href="ThermalPressure.html">q-compromise</a><span class="rvts20"> versions of MGD and Einstein oscillator EoSs.&nbsp;</span></li>
+  <li class="rvps2"><span class="rvts20">Calculation of heat capacities from parameters of </span><a class="rvts22" href="PVTEquationsofState.html">PVT EoS</a><span class="rvts20">.</span></li>
+  <li class="rvps2"><span class="rvts20">Internal changes to how Holland-Powell thermal pressure EoS is handled. See </span><a class="rvts22" href="Holland-Powell.html">here</a><span class="rvts20"> for details.</span></li>
+  <li class="rvps2"><span class="rvts20">Improvements in how least-squares refinement is terminated, which means that refined parameter values may differ by a small fraction of an esd from those in the previous versions of the programs.</span></li>
+  <li class="rvps2"><span class="rvts20">Crystal system and linear directions can now be specified in eos files. See </span><a class="rvts22" href="InputCommand.html">INPUT</a></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><a class="rvts38" href="Eosfit7GUI.html">Eosfit7 GUI</a><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Improved and faster estimation procedure.</span></li>
+  <li class="rvps2"><span class="rvts20">Plotting of heat capacities</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><a class="rvts38" href="Eosfit7Calculator.html">EosFit7-calculator</a></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Output of heat capacities from PVT EoS.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in the console program </span><a class="rvts38" href="Eosfit7cConsoleprogram.html">EosFit7c</a><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Introduction of </span><a class="rvts22" href="Datasetscaling.html">scale factors</a><span class="rvts20"> for refinements.</span></li>
+  <li class="rvps2"><a class="rvts22" href="Cellutility.html">CELL</a><span class="rvts20"> utility expanded to handle monoclinic and triclinic cells. The host-inclusion calculations that were previously in CELL have been moved to the HOST-INCLUSION utility.</span></li>
+  <li class="rvps2"><span class="rvts20">Data editing expanded, and consolidated in a new</span><a class="rvts22" href="Editutility.html"> EDIT</a><span class="rvts20"> utility.</span></li>
+  <li class="rvps2"><span class="rvts20">New </span><a class="rvts22" href="Mphaseutility.html">MPHASE</a><span class="rvts20"> utility to calculate properties of mixtures of phases from their EoS.</span></li>
+  <li class="rvps2"><span class="rvts20">New </span><a class="rvts22" href="Host_Inclusionutility.html">HOST-INCLUSION</a><span class="rvts20"> utility for calculations with anisotropic hosts and inclusions.</span></li>
+  <li class="rvps2"><span class="rvts20">Improved handling of multiple EoS in one eos file.</span></li>
+  <li class="rvps2"><span class="rvts20">New commands:&nbsp;</span></li>
+  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: square;">
+   <li class="rvps2"><a class="rvts22" href="DataHandlingandFitting.html">CLEAR</a><span class="rvts20"> to delete all data.</span></li>
+   <li class="rvps2"><a class="rvts22" href="GeneralCommands.html">MODE</a><span class="rvts20"> to set levels of detail in output.</span></li>
+  </ul>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><a class="rvts38" href="Eosfit7Pinc.html">Eosfit7-Pinc</a><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Improved algorithms to calculate isomekes to handle previous problems with sharply-curved isomekes (e.g. with quartz near its </span><span class="rvts41">α−β</span><span class="rvts20"> phase transition).</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts29"><br/></span></p>
+<p class="rvps2"><span class="rvts29"><br/></span></p>
+<p class="rvps2"><span class="rvts29">Version 7.5: Released August 2019</span></p>
+<p class="rvps2"><span class="rvts32"><br/></span></p>
+<p class="rvps2"><span class="rvts33">There were no significant bug fixes to the EoS calculation code, so this version will return the same results as previous versions, except for extremes of P and T where new tests have been introduced to stop calculations where the EoS becomes physically invalid.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts33"><br/></span></p>
+<p class="rvps2"><span class="rvts33">Eos files created with the previous version (7.4) will be read correctly by software of this new version.</span></p>
+<p class="rvps2"><span class="rvts33"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><span class="rvts21">all programs</span><span class="rvts20">:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Stops calculations when V &gt;&gt; V</span><span class="rvts37">0</span><span class="rvts20"> and big enough that compressional EoS not valid. This especially affects </span><a class="rvts22" href="ThermalPressure.html">thermal-pressure EoS.</a></li>
+  <li class="rvps2"><span class="rvts20">Fixed bug that gave incorrect parameter esd's when no weights used in least-squares.</span></li>
+  <li class="rvps2"><span class="rvts20">Fixed bug that reported thermal expansion as zero, when it is really negative.</span></li>
+  <li class="rvps2"><span class="rvts20">Increased number of comment lines allowed in eos files.</span></li>
+  <li class="rvps2"><span class="rvts20">Added pscale, vscale and lscale keywords to</span><span class="rvts28"> .dat</span><span class="rvts20"> files to define units of the data. These are checked for consistency with the units used for the EoS.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><a class="rvts38" href="Eosfit7Calculator.html">EosFit7-calculator</a></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Added calculation and display of esd's if esd's of parameters read in from eos file.</span></li>
+  <li class="rvps2"><span class="rvts20">Fixed bug in PVT panel that prevented MGD EoS parameters being changed.</span></li>
+  <li class="rvps2"><span class="rvts20">Fixed graphics bugs that sometimes prevented input of V or P.</span></li>
+  <li class="rvps2"><span class="rvts20">Fixed bugs in writing wrong parameters to eos files for MGD.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in the console program </span><a class="rvts38" href="Eosfit7cConsoleprogram.html">EosFit7c</a><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">CELL utility to calculate unit cell parameters and volumes so they are internally consistent</span></li>
+  <li class="rvps2"><span class="rvts20">STRAIN utility to calculate strain and property tensors from unit-cell data</span></li>
+  <li class="rvps2"><span class="rvts20">New commands:&nbsp;</span></li>
+  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: square;">
+   <li class="rvps2"><span class="rvts20">DELETE to delete data points.</span></li>
+   <li class="rvps2"><span class="rvts20">PVFILE to calculate V from EoS at PT points listed in a file.</span></li>
+   <li class="rvps2"><span class="rvts20">VdP to perform VdP integrals for Gibbs free energy calculations.</span></li>
+   <li class="rvps2"><span class="rvts20">TRANSFORM to transform unit-cells to new settings.</span></li>
+  </ul>
+  <li class="rvps2"><span class="rvts20">Fixed bugs that caused program to loop indefinitely when K' or M' is negative.</span></li>
+  <li class="rvps2"><span class="rvts20">Fixed crash when more than 7 parameters refined.</span></li>
+  <li class="rvps2"><span class="rvts20">Improved calculation of isomeke lines when slope changes significantly.</span></li>
+  <li class="rvps2"><span class="rvts20">Changed location of ini file in Windows to</span><span class="rvts35"> </span><span class="rvts20">%LocalAppData%.</span></li>
+  <li class="rvps2"><span class="rvts20">Allow weights to be used in least-squares when some esd's are zero.</span></li>
+  <li class="rvps2"><span class="rvts20">'X' alone now works as an exit command.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><a class="rvts38" href="Eosfit7GUI.html">Eosfit7 GUI</a><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Fixed bugs in GUI that prevented MGD EoS being fit correctly.</span></li>
+  <li class="rvps2"><span class="rvts20">Fixed bugs with fF plots when strains very large.</span></li>
+  <li class="rvps2"><span class="rvts20">User can now input esd(Vo) for fF plots.&nbsp;</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><a class="rvts38" href="Eosfit7Pinc.html">Eosfit7-Pinc</a><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts36">Improved the output listed to the GUI, including better error, warning and information messages.</span></li>
+  <li class="rvps2"><span class="rvts36">Added a log file for all output and results.</span></li>
+  <li class="rvps2"><span class="rvts36">Using the improved algorithms (see above) to calculate isomekes when </span><span class="rvts20">dT/dP </span><span class="rvts34">≈</span><span class="rvts20"> 0.</span></li>
+  <li class="rvps2"><span class="rvts20">Ptrap calculations can now be done from Pthermo or Pinc.</span></li>
+  <li class="rvps2"><span class="rvts36">Ptrap calculations can be done from values in a text file.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts29"><br/></span></p>
+<p class="rvps2"><span class="rvts29">Version 7.4: Released June 2017</span></p>
+<p class="rvps2"><span class="rvts32"><br/></span></p>
+<p class="rvps2"><span class="rvts33">There were no significant bug fixes to the EoS calculation code, so this version will return the same results as version 7.2 and 7.3</span></p>
+<p class="rvps2"><span class="rvts33"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><span class="rvts21">EosFit7c,</span><span class="rvts20"> </span><span class="rvts21">Eosfit7 GUI and EosFit7-calculator</span><span class="rvts20">:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">APL pressure equation of state</span></li>
+  <li class="rvps2"><span class="rvts20">Mie-Gruneisen-Debye thermal-pressure EoS</span></li>
+  <li class="rvps2"><span class="rvts20">New Hellfrich-Connolly model for P-T cross terms in isothermal EoS</span></li>
+  <li class="rvps2"><span class="rvts20">Fixed bug which resulted in wrong crystal system being guessed from cell parameters in some triclinic cases.</span></li>
+  <li class="rvps2"><span class="rvts20">Trapped crashes with Tait EoS when pressures large and negative.</span></li>
+  <li class="rvps2"><span class="rvts20">Fixed problems with reading eos files between programs.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in the console program </span><span class="rvts21">EosFit7c</span><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Introduction of density calculation at P,T</span></li>
+  <li class="rvps2"><span class="rvts20">Introduction of import of PVT from tables</span></li>
+  <li class="rvps2"><span class="rvts20">Re-organisation of handling of adiabatic-isothermal conversions with Gruneisen parameter. &nbsp;</span><span class="rvts28">Note that this means .eos files with the Gruneisen and q parameters from previous versions will need editing with the INPUT utility prior to use.</span></li>
+  <li class="rvps2"><span class="rvts20">Shear moduli now stored in eos files, for use in isomeke utility</span><span class="rvts28">.&nbsp;</span></li>
+  <li class="rvps2"><span class="rvts20">Minor changes to input/output of commands, command names change in isomeke utility.</span></li>
+  <li class="rvps2"><span class="rvts20">Improved least-squares procedures to make fitting of EoS with phase transitions more stable.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><span class="rvts21">Eosfit7 GUI</span><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">More options for hkl/UVW fits and plots.</span></li>
+  <li class="rvps2"><span class="rvts20">Small bug fixes in graphics handling.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New program </span><span class="rvts21">Eosfit7-Pinc</span><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">GUI program for Windows only to perform host-inclusion calculations for isotropic systems. This program duplicates the features in the </span><span class="rvts28">isomeke</span><span class="rvts20"> utility in EosFit7c.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts33"><br/></span></p>
+<p class="rvps2"><span class="rvts29">Version 7.3: Released May 2016</span></p>
+<p class="rvps2"><span class="rvts29"><br/></span></p>
+<p class="rvps2"><span class="rvts33">Combined &nbsp;installation package for each operating system, which contains &nbsp;</span><span class="rvts21">EosFit7c,&nbsp;</span><span class="rvts33"> </span><span class="rvts21">Eosfit7 GUI</span><span class="rvts20"> and the </span><span class="rvts21">Eosfit7-calculator</span><span class="rvts20">. During the installation you can choose which programs to install.</span></p>
+<p class="rvps2"><span class="rvts33"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in the console program </span><span class="rvts21">EosFit7c</span><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Now available for MAC-OS.</span></li>
+  <li class="rvps2"><span class="rvts20">Fitting of EoS to elastic moduli as well as cell parameters.</span></li>
+  <li class="rvps2"><span class="rvts20">Improved convergence tests and information messages from the least-squares fit.</span></li>
+  <li class="rvps2"><span class="rvts20">More than one dataset can be read into the program simultaneously.</span></li>
+  <li class="rvps2"><span class="rvts20">Improved formatting of LIST output to provide more information to the user.</span></li>
+  <li class="rvps2"><span class="rvts20">Introduction of GROUPs to improve data management by the user.</span></li>
+  <li class="rvps2"><span class="rvts20">Phase transitions can now be described with curved phase boundaries. </span><span class="rvts28">Note that this means .eos files with phase transitions from previous versions will need editing with the INPUT utility prior to use.</span></li>
+  <li class="rvps2"><span class="rvts20">Introduction of VSCALE to document the volume scale on an EoS.</span></li>
+  <li class="rvps2"><span class="rvts20">New options to calculate ISOCHORs.</span></li>
+  <li class="rvps2"><span class="rvts20">Small bug fixes to the user interface.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><span class="rvts21">Eosfit7 GUI</span><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Now available for MAC-OS.</span></li>
+  <li class="rvps2"><span class="rvts20">Small bug fixes in graphics handling.</span></li>
+  <li class="rvps2"><span class="rvts20">New options for plots, including plotting data as a function of data collection order.</span></li>
+  <li class="rvps2"><span class="rvts20">Variance-covariance plots selected by % confidence level.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts31">Important:</span><span class="rvts20"> with the exception of the change to phase transitions, all .eos files from old versions will work with this version of EosFit7.</span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts29"><br/></span></p>
+<p class="rvps2"><span class="rvts29"><br/></span></p>
+<p class="rvps2"><span class="rvts29">Version 7.2: Released March 2015</span></p>
+<p class="rvps2"><span class="rvts32"><br/></span></p>
+<p class="rvps2"><span class="rvts33">This version provides new and improved user facilities to the console and GUI programs:</span></p>
+<p class="rvps2"><span class="rvts33"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in the console program </span><span class="rvts21">EosFit7c</span><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Handling of Landau-type structural phase transitions in P-T space, including a simple model for softening in the high-symmetry phase.</span></li>
+  <li class="rvps2"><span class="rvts20">User interface and all exported files can be set to work with Celsius as the temperature scale, instead of Kelvin.</span></li>
+  <li class="rvps2"><span class="rvts20">Direct import of EoS parameters from Thermocalc datasets (Holland and Powell, 2011).</span></li>
+  <li class="rvps2"><span class="rvts20">Additional relaxation models in the host/inclusion relaxation calculations.</span></li>
+  <li class="rvps2"><span class="rvts20">Improved formatting of output .cal files.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">New features in </span><span class="rvts21">Eosfit7 GUI</span><span class="rvts20"> :</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Improved plotting for PVT datasets and EoS.</span></li>
+  <li class="rvps2"><span class="rvts20">Improved layout for the GUI.</span></li>
+  <li class="rvps2"><span class="rvts20">EoS calculator now available as a stand-alone program.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts29"><br/></span></p>
+<p class="rvps2"><span class="rvts29">Versions 7.0 and 7.1</span></p>
+<p class="rvps2"><span class="rvts29"><br/></span></p>
+<p class="rvps2"><span class="rvts30">This is a significant development beyond the previous EosFit v5.2 (Angel, 2000a):</span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">There is a new console program </span><span class="rvts21">EosFit7c</span><span class="rvts20"> as the successor to EosFit v5.2:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Command names have been changed and simplified.</span></li>
+  <li class="rvps2"><span class="rvts20">Direct access to the operating system, and a file browser (Windows only).</span></li>
+  <li class="rvps2"><span class="rvts20">Full logging is implemented.</span></li>
+  <li class="rvps2"><span class="rvts20">New file open routines, default extensions provided by program.</span></li>
+  <li class="rvps2"><span class="rvts20">You can put all of your cell parameter data in one </span><a class="rvts22" href="Datafileformat.html">datafile</a></li>
+  <li class="rvps2"><span class="rvts20">You can use or omit individual data.&nbsp;</span></li>
+  <li class="rvps2"><span class="rvts20">Input data can be sorted.</span></li>
+  <li class="rvps2"><span class="rvts20">Save and read in EoS parameters with a new 'eos' file type.</span></li>
+  <li class="rvps2"><span class="rvts20">New output routines: pvcal, tvcal and isochor to produce calculated eos data in text files.</span></li>
+  <li class="rvps2"><span class="rvts20">You can fit the a, b, or c unit cell parameters, V, and any direction specified by (</span><span class="rvts28">hkl</span><span class="rvts20">) or [UVW].</span></li>
+  <li class="rvps2"><span class="rvts20">The Tait isothermal equation has been added.</span></li>
+  <li class="rvps2"><span class="rvts20">Five thermal expansion equations and a thermal pressure model have been added.</span></li>
+  <li class="rvps2"><span class="rvts20">Isomekes (for two EoS) and calculations for host/inclusion systems.</span></li>
+  <li class="rvps2"><span class="rvts20">There is a </span><a class="rvts22" href="SystemMacroCommands.html">macro facility</a><span class="rvts20"> to record your command input, so that you can repeat calculations automatically.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts31"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">There is a new </span><span class="rvts21">Eosfit7 GUI</span><span class="rvts20"> program:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">Full graphics support to plot P-V, K-P, K-V, f-F, covariance etc etc</span></li>
+  <li class="rvps2"><span class="rvts20">Handling of multiple sub-sets of data</span></li>
+  <li class="rvps2"><span class="rvts20">Handles and displays several EoS simultaneously....great for teaching EoS theory!!</span></li>
+  <li class="rvps2"><span class="rvts20">You can put all of your cell parameter data in one </span><a class="rvts22" href="Datafileformat.html">datafile</a></li>
+  <li class="rvps2"><span class="rvts20">Fitting and analysis of the unit cell parameters, V, and any direction specified by (</span><span class="rvts28">hkl</span><span class="rvts20">) or [UVW].</span></li>
+  <li class="rvps2"><span class="rvts20">The Tait isothermal equation has been added</span></li>
+  <li class="rvps2"><span class="rvts20">Full support added for thermal expansion and P-V-T including &nbsp;a thermal pressure model.</span></li>
+  <li class="rvps2"><span class="rvts20">Save and read in EoS parameters with a new 'eos' file type.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps2"><span class="rvts20">The subroutines have been made in to a </span><a class="rvts22" href="cfmleosmodule.html">Fortran module</a><span class="rvts20"> available as part of the CrysFML library:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps2"><span class="rvts20">The subroutines have been completely re-validated.</span></li>
+ </ul>
+</ul>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts31"><br/></span></p>
+<p class="rvps2"><span class="rvts31">Important:</span><span class="rvts20"> the definition of the parameters of linear EoS has changed from EoSFit v5.2! The definition of the finite strain for the </span><a class="rvts22" href="Vinet.html">Vinet</a><span class="rvts20"> and </span><a class="rvts22" href="NaturalStrain.html">Natural strain</a><span class="rvts20"> EoS has also been changed from EoSFit v5.2! See the </span><a class="rvts22" href="EosParameters.html">'</a><a class="rvts22" href="EosParameters.html">theory</a><a class="rvts22" href="EosParameters.html">'</a><span class="rvts20"> section for details!&nbsp;</span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts20"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2" style="page-break-before: always;"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 2013-2021 by RJA-JGP-MA-MLM. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

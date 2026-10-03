@@ -1,0 +1,378 @@
+
+
+***********************************************************************************************************************
+*                                                                                                                     *
+*                                                     EOSFIT7c                                                        *
+*                                                                                                                     *
+*             Authors: RJ ANGEL, J GONZALEZ-PLATAS, M ALVARO, ML MAZZUCCHELLI                                         *
+*        Version date: 13-May-2021                                                                                    *
+*             Version:  7.60                                                                                          *
+*                                                                                                                     *
+*                                                                                                                     *
+*        INCLUDING LEAST SQUARES BY I.G. WOOD & J. PIPER AND USING THE CrysFML EOS MODULE.                            *
+*                                                                                                                     *
+*        EosFit7c: Angel, Gonzalez-Platas, Alvaro (2014) Zeitschrift fuer Kristallographie, 229:405-419.              *
+*        Phase Transitions: Angel et al (2017) Contribs Min Pet, DOI:10.1007/s00410-017-1349-x                        *
+*        Fitting Moduli: Milani et al. (2017) Amer Min, DOI:10.2138/am-2017-5855                                      *
+*                                                                                                                     *
+*        Development currently supported by ERC grant 714936, TrueDepths to M. Alvaro, and                            *
+*                          Agencia Estatal de Investigacion under                                                     *
+*        National Program of Sciences and Technological Materials (PID2019-106383GB-C44) to J. Gonzalez-Platas        *
+*        For more information see the help system                                                                     *
+*                                                                                                                     *
+*                                                                                                                     *
+*        Current date and time:  3-OCT-2026 13:52                                                                     *
+*                                                                                                                     *
+***********************************************************************************************************************
+
+EOSFIT-7.6>input
+
+*************************************Commands to input or change EoS parameters ***************************************
+
+
+   Type HELP for a list of commands to change EoS types or parameters
+
+
+INPUT EOS>load /Users/clemens/Programming/peritheos/docs/data/fes-author-eosfit/sources/FeS6.eos
+
+
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 12-mars-2024 at 18:44
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  15.3700           :Reference pressure volume: units are cm^3/mol
+      K0:  115.490           :Bulk modulus: units are GPa
+      Kp:  4.99000           :dK/dP: dimensionless
+     Kpp: -0.0507            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+ 
+   Temperature of reference:   298.00 K
+ 
+   ThMGD:  417.000           :Debye temperature in K
+   Natom:  2.00000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  2.42(4)           :Gruneisen parameter at Tref,Pref
+       q:  1.00000           :Gruneisen power law in V/V0
+ 
+
+INPUT EOS>th
+
+     Available thermal expansion equations are:
+       1=Berman 1988,  2=Fei 1995,  3=Modified HP1998,  4=Kroll,  5=Salje low-T,
+     Available thermal-pressure EoS are:
+       6=HP Thermal Pressure,  7=Mie-Gruneisen-Debye,  8=Einstein Oscillator,
+
+     Input choice (0 for none, space for no change):0
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 12-mars-2024 at 18:44
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  15.3700           :Reference pressure volume: units are cm^3/mol
+      K0:  115.490           :Bulk modulus: units are GPa
+      Kp:  4.99000           :dK/dP: dimensionless
+     Kpp: -0.0507            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+
+INPUT EOS>x
+
+*************************************************Exiting from INPUT ***************************************************
+
+
+EOSFIT-7.6>read /Users/clemens/Programming/peritheos/docs/data/fes-author-eosfit/sources/all-author-rows-derived-cold.dat
+
+
+
+
+
+        The title on the file is:
+             The data in the file is for:T  ,P  ,V
+               with esds in the file for:T  ,P  ,V
+
+Only data available is for V: This will be selected
+
+           The title on the data file is:
+           The calculated values are from:
+
+  THE  32 LOADED DATA ARE AS FOLLOWS:
+
+     **********Scale factors in use: Calculated values have been scaled to observed values**********
+<-------------------------Observed Values---------------------------><----------------Calculated Values ----------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd
+                                                                          GPa                       cm^3/mol
+  1  1    62.2692   0.00560   300.000   5.00000   11.8284   0.00423   58.3814   3.88781   694.252   11.7075   0.12097   28.6265
+  2  1    63.9256   0.00560   300.000   5.00000   11.7776   0.00327   59.9900   3.93564   702.793   11.6578   0.11984   36.6488
+  3  1    64.1117   0.00560   300.000   5.00000   11.7685   0.00337   60.2841   3.82756   683.494   11.6523   0.11618   34.4901
+  4  1    66.7763   0.00560   300.000   5.00000   11.7099   0.00374   62.1889   4.58739   819.176   11.5747   0.13521   36.1266
+  5  1    117.627   0.00560   300.000   5.00000   10.5203   0.00793   113.711   3.91599   699.283   10.4514   0.06888   8.68609
+  6  1    118.231   0.00560   300.000   5.00000   10.5106   0.00645   114.254   3.97754   710.275   10.4410   0.06963   10.8017
+  7  1    122.968   0.00560   300.000   5.00000   10.4226   0.00636   119.304   3.66425   654.331   10.3609   0.06170   9.69581
+  8  1    123.164   0.00560   300.000   5.00000   10.4201   0.00776   119.449   3.71558   663.496   10.3576   0.06248   8.04658
+  9  1    126.236   0.00560   300.000   5.00000   10.3842   0.00674   121.571   4.66552   833.128   10.3073   0.07689   11.4018
+ 10  1    146.495   0.00560   300.000   5.00000   10.0622   0.00479   142.287   4.20811   751.449   10.0024   0.05981   12.4944
+ 11  1    146.468   0.00560   300.000   5.00000   10.0611   0.00504   142.362   4.10585   733.188   10.0028   0.05835   11.5710
+ 12  1    39.0000   0.39000   300.000   5.00000   12.4836   0.06242   40.4689   -1.4689   3.76641   12.5463   -0.0626   1.00367
+ 13  1    44.3000   0.44300   300.000   5.00000   12.3060   0.06153   44.8489   -0.5489   1.23897   12.3275   -0.0216   0.35027
+ 14  1    112.300   1.12300   300.000   5.00000   10.5295   0.05265   113.198   -0.8982   0.79980   10.5456   -0.0162   0.30735
+ 15  1    130.600   1.30600   300.000   5.00000   10.2750   0.05138   128.245   2.35461   1.80292   10.2378   0.03722   0.72442
+ 16  1    148.500   1.48500   300.000   5.00000   10.0101   0.05005   145.948   2.55219   1.71864   9.97448   0.03559   0.71111
+ 17  1    170.500   1.70500   300.000   5.00000   9.74209   0.04871   166.285   4.21532   2.47233   9.69065   0.05144   1.05606
+ 18  1    185.500   1.85500   300.000   5.00000   9.47260   0.04736   189.600   -4.0996   2.21002   9.51747   -0.0449   0.94719
+ 19  1    198.200   1.98200   300.000   5.00000   9.37926   0.04690   198.429   -0.2291   0.11557   9.38163   -0.0024   0.05047
+ 20  1    214.500   2.14500   300.000   5.00000   9.23022   0.04615   213.415   1.08510   0.50587   9.21985   0.01037   0.22466
+ 21  1    68.9000   0.68900   300.000   5.00000   11.5487   0.05774   67.6901   1.20988   1.75600   11.5147   0.03400   0.58875
+ 22  1    84.8000   0.84800   300.000   5.00000   11.0745   0.05537   86.3106   -1.5106   1.78132   11.1094   -0.0350   0.63172
+ 23  1    101.200   1.01200   300.000   5.00000   10.7342   0.05367   102.309   -1.1095   1.09630   10.7562   -0.0220   0.40954
+ 24  1    70.3000   0.70300   300.000   5.00000   11.4749   0.05737   70.3384   -0.0384   0.05458   11.4760   -0.0011   0.01835
+ 25  1    43.2000   0.43200   300.000   5.00000   12.3933   0.06197   42.6554   0.54459   1.26063   12.3713   0.02198   0.35470
+ 26  1    49.3000   0.49300   300.000   5.00000   12.2051   0.06103   47.4845   1.81549   3.68254   12.1380   0.06707   1.09905
+ 27  1    56.3000   0.56300   300.000   5.00000   11.8317   0.05916   58.2788   -1.9788   3.51472   11.8959   -0.0642   1.08447
+ 28  1    58.9000   0.58900   300.000   5.00000   11.8377   0.05919   58.0907   0.80926   1.37395   11.8119   0.02581   0.43599
+ 29  1    64.7000   0.64700   300.000   5.00000   11.6752   0.05838   63.3429   1.35714   2.09759   11.6349   0.04023   0.68912
+ 30  1    67.2000   0.67200   300.000   5.00000   11.5863   0.05793   66.3713   0.82867   1.23315   11.5626   0.02372   0.40949
+ 31  1    110.600   1.10600   300.000   5.00000   10.5445   0.05272   112.362   -1.7622   1.59330   10.5766   -0.0321   0.60850
+ 32  1    120.100   1.20100   300.000   5.00000   10.3654   0.05183   122.698   -2.5979   2.16309   10.4090   -0.0436   0.84220
+
+       Esds available for all data points for:  P, T, V
+
+EOSFIT-7.6>fit
+      32 data for V will be used in least-squares
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 12-mars-2024 at 18:44
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  15.3700           :Reference pressure volume: units are cm^3/mol
+      K0:  115.490           :Bulk modulus: units are GPa
+      Kp:  4.99000           :dK/dP: dimensionless
+     Kpp: -0.0507            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+    Do you want to change these EoS parameters or the EoS type? (Y/N) <N>?n
+
+ SELECT PARAMETERS TO REFINE IN LEAST-SQUARES FIT:
+           REFINE V0     (Y/N)?y
+           REFINE K0     (Y/N)?y
+           REFINE Kp     (Y/N)?y
+
+ SELECT WEIGHTING SCHEME:
+     SIGMAS FOR P   PRESENT, USE IN WEIGHTS (Y/N)?n
+     SIGMAS FOR T   PRESENT, USE IN WEIGHTS (Y/N)?n
+     SIGMAS FOR V   PRESENT, USE IN WEIGHTS (Y/N)?n
+
+     EQUATION FITTED WITH UNIT WEIGHTS FOR ALL DATA
+
+
+
+
+   RESULTS FROM CYCLE  1
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      1        14.90524         -0.46476          0.55012          -0.84
+ K0      1       150.18654         34.69654         34.27243           1.01
+ Kp      1         4.28300         -0.70700          0.61282          -1.15
+ Kpp     0        -0.02831  [IMPLIED VALUE]
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  UNIT WEIGHTS USED: NO W-CHI^2 CALCULATED
+
+
+   RESULTS FROM CYCLE  2
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      1        14.99233          0.08709          0.69130           0.13
+ K0      1       148.46762         -1.71892         56.60331          -0.03
+ Kp      1         4.41192          0.12893          0.74118           0.17
+ Kpp     0        -0.03011  [IMPLIED VALUE]
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  UNIT WEIGHTS USED: NO W-CHI^2 CALCULATED
+
+
+   RESULTS FROM CYCLE  3
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      1        14.99254          0.00021          0.32142           0.00
+ K0      1       148.36542         -0.10221         25.92303          -0.00
+ Kp      1         4.41146         -0.00046          0.34494          -0.00
+ Kpp     0        -0.03013  [IMPLIED VALUE]
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  UNIT WEIGHTS USED: NO W-CHI^2 CALCULATED
+
+
+***********************MESSAGE FROM LEAST SQUARES***********************
+Least Squares converged, indicated by small shift/esd
+************************************************************************
+
+
+
+   RESULTS AFTER FINAL REFINEMENT CYCLE
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      1        14.99254          0.00021          0.32142           0.00
+ K0      1       148.36542         -0.10221         25.92303          -0.00
+ Kp      1         4.41146         -0.00046          0.34494          -0.00
+ Kpp     0        -0.03013  [IMPLIED VALUE]
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  UNIT WEIGHTS USED: NO W-CHI^2 CALCULATED
+
+ INPUT <CR> TO CONTINUE
+
+  THE  32 LOADED DATA ARE AS FOLLOWS:
+
+     **********Scale factors in use: Calculated values have been scaled to observed values**********
+<-------------------------Observed Values---------------------------><----------------Calculated Values -------------------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd       Wt
+                                                                          GPa                       cm^3/mol
+  1  1    62.2692   0.00560   300.000   5.00000   11.8284   0.00423   59.5483   2.72088   485.871   11.7461   0.08234   19.4856   1.0000000
+  2  1    63.9256   0.00560   300.000   5.00000   11.7776   0.00327   61.2168   2.70881   483.716   11.6973   0.08036   24.5745   1.0000000
+  3  1    64.1117   0.00560   300.000   5.00000   11.7685   0.00337   61.5216   2.59004   462.507   11.6918   0.07661   22.7428   1.0000000
+  4  1    66.7763   0.00560   300.000   5.00000   11.7099   0.00374   63.4937   3.28257   586.172   11.6154   0.09449   25.2479   1.0000000
+  5  1    117.627   0.00560   300.000   5.00000   10.5203   0.00793   115.785   1.84176   328.885   10.4876   0.03273   4.12782   1.0000000
+  6  1    118.231   0.00560   300.000   5.00000   10.5106   0.00645   116.327   1.90433   340.058   10.4769   0.03370   5.22681   1.0000000
+  7  1    122.968   0.00560   300.000   5.00000   10.4226   0.00636   121.362   1.60673   286.916   10.3952   0.02740   4.30640   1.0000000
+  8  1    123.164   0.00560   300.000   5.00000   10.4201   0.00776   121.506   1.65863   296.184   10.3918   0.02825   3.63865   1.0000000
+  9  1    126.236   0.00560   300.000   5.00000   10.3842   0.00674   123.617   2.61927   467.727   10.3404   0.04378   6.49176   1.0000000
+ 10  1    146.495   0.00560   300.000   5.00000   10.0622   0.00479   144.113   2.38229   425.410   10.0276   0.03462   7.23174   1.0000000
+ 11  1    146.468   0.00560   300.000   5.00000   10.0611   0.00504   144.187   2.28131   407.377   10.0280   0.03315   6.57300   1.0000000
+ 12  1    39.0000   0.39000   300.000   5.00000   12.4836   0.06242   40.7860   -1.7860   4.57951   12.5557   -0.0721   1.15467   1.0000000
+ 13  1    44.3000   0.44300   300.000   5.00000   12.3060   0.06153   45.4072   -1.1072   2.49926   12.3474   -0.0415   0.67379   1.0000000
+ 14  1    112.300   1.12300   300.000   5.00000   10.5295   0.05265   115.273   -2.9730   2.64741   10.5835   -0.0540   1.02651   1.0000000
+ 15  1    130.600   1.30600   300.000   5.00000   10.2750   0.05138   130.243   0.35710   0.27343   10.2693   0.00574   0.11169   1.0000000
+ 16  1    148.500   1.48500   300.000   5.00000   10.0101   0.05005   147.714   0.78590   0.52923   9.99885   0.01122   0.22410   1.0000000
+ 17  1    170.500   1.70500   300.000   5.00000   9.74209   0.04871   167.619   2.88089   1.68967   9.70587   0.03622   0.74363   1.0000000
+ 18  1    185.500   1.85500   300.000   5.00000   9.47260   0.04736   190.246   -4.7458   2.55836   9.52642   -0.0538   1.13614   1.0000000
+ 19  1    198.200   1.98200   300.000   5.00000   9.37926   0.04690   198.766   -0.5656   0.28536   9.38534   -0.0061   0.12950   1.0000000
+ 20  1    214.500   2.14500   300.000   5.00000   9.23022   0.04615   213.170   1.33044   0.62025   9.21697   0.01325   0.28713   1.0000000
+ 21  1    68.9000   0.68900   300.000   5.00000   11.5487   0.05774   69.1710   -0.2710   0.39326   11.5561   -0.0075   0.12917   1.0000000
+ 22  1    84.8000   0.84800   300.000   5.00000   11.0745   0.05537   88.2047   -3.4047   4.01499   11.1528   -0.0783   1.41423   1.0000000
+ 23  1    101.200   1.01200   300.000   5.00000   10.7342   0.05367   104.364   -3.1641   3.12654   10.7971   -0.0629   1.17179   1.0000000
+ 24  1    70.3000   0.70300   300.000   5.00000   11.4749   0.05737   71.8947   -1.5947   2.26839   11.5178   -0.0429   0.74808   1.0000000
+ 25  1    43.2000   0.43200   300.000   5.00000   12.3933   0.06197   43.0959   0.10411   0.24100   12.3893   0.00400   0.06453   1.0000000
+ 26  1    49.3000   0.49300   300.000   5.00000   12.2051   0.06103   48.1770   1.12302   2.27792   12.1653   0.03979   0.65203   1.0000000
+ 27  1    56.3000   0.56300   300.000   5.00000   11.8317   0.05916   59.4418   -3.1418   5.58053   11.9304   -0.0987   1.66849   1.0000000
+ 28  1    58.9000   0.58900   300.000   5.00000   11.8377   0.05919   59.2466   -0.3466   0.58843   11.8485   -0.0107   0.18125   1.0000000
+ 29  1    64.7000   0.64700   300.000   5.00000   11.6752   0.05838   64.6868   0.01317   0.02035   11.6748   0.00038   0.00650   1.0000000
+ 30  1    67.2000   0.67200   300.000   5.00000   11.5863   0.05793   67.8123   -0.6124   0.91124   11.6035   -0.0172   0.29609   1.0000000
+ 31  1    110.600   1.10600   300.000   5.00000   10.5445   0.05272   114.438   -3.8379   3.47008   10.6150   -0.0705   1.33651   1.0000000
+ 32  1    120.100   1.20100   300.000   5.00000   10.3654   0.05183   124.737   -4.6375   3.86134   10.4443   -0.0789   1.52334   1.0000000
+
+  FITTING STATISTICS FOR 3 PARAMETERS FITTED TO  32 DATA:
+      MAXIMUM DELTA-PRESSURE=-4.746
+
+
+CORRELATION COEFFICIENTS (IN %)
+  VARIABLE      V0        K0        Kp
+    V0   :     100.0     -99.3      95.8
+    K0   :     -99.3     100.0     -98.5
+    Kp   :      95.8     -98.5     100.0
+
+
+  VARIANCE-COVARIANCE MATRIX RESCALED
+  VARIABLE     V0        K0        Kp
+    V0   :   0.10331  -8.27507   0.10626
+    K0   :  -8.27507 672.00366  -8.80428
+    Kp   :   0.10626  -8.80428   0.11898
+
+ UPDATE EOS PARAMETERS (Y/N)?y
+                                       FURTHER CALCULATIONS (Y/N)?n
+
+EOSFIT-7.6>save /Users/clemens/Programming/peritheos/docs/data/fes-author-eosfit/all-author-rows-cold-unit/fitted.eos
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 12-mars-2024 at 18:44
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  15.0(3)           :Reference pressure volume: units are cm^3/mol
+      K0:  148(26)           :Bulk modulus: units are GPa
+      Kp:  4.4(3)            :dK/dP: dimensionless
+     Kpp: -0.0301            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+      Do you want to save this EoS to file (Y/N) <Y>?y
+
+
+
+
+     Eos parameters written to file /Users/clemens/Programming/peritheos/docs/data/fes-author-eosfit/all-author-rows-cold-unit/fitted.eos
+
+
+EOSFIT-7.6>exit

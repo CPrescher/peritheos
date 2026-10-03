@@ -1,0 +1,477 @@
+{
+  "protocol_provenance": "User's 2026-10-03 account of an in-person conversation with Miozzi: RT-only; all data with RT coefficients fixed; release V0,K0,Kprime,gamma0,q starting from stage two. User explicitly clarified that theta0 stays fixed at 420 K and V0 is free in the final stage.",
+  "qualification": "Diagnostic replay, not recovered author inputs. Room temperature means all 36 rows at 298/300 K. n=1, Tr=300 and theta0=420 K fixed. Unit weights in every stage. Original weights/handling of incomplete errors remain unspecified. Blanks are written as zero solely for unused console-input error columns; canonical observations are untouched. No calibration covariance or new physical validation. Q-compromise keeps theta(V)=420 K and gamma(V)/V=gamma0/V0; q is absent, not a free or fitted parameter. Stage two releases gamma0 only. In this variant only stage two uses q-compromise; before stage three switch to full MGD, retaining stage-two cold coefficients and gamma0 and setting the initial q to 0.3. Stage three releases V0,K0,Kprime,gamma0,q, with theta0 still fixed at 420 K.",
+  "source_csv_sha256": {
+    "peritheos/data/datasets/iron-miozzi-2020-he-pvt.csv": "15a5a62d61ae0023fb2ebc0dcca31d4c026ba0a8e1580356a61f3d0717b994b0",
+    "peritheos/data/datasets/iron-miozzi-2020-mgo-pvt.csv": "a227bc39ad49f5c9be148e38aa44b7973543de51acda7ef8b04b7f4fbc9b648d"
+  },
+  "executable_sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d",
+  "thermal_model": "q_compromise_then_full_mgd",
+  "cases": {
+    "printed-unit-theta_fixed": {
+      "returncode": 0,
+      "completed_stages": 3,
+      "converged_stages": 3,
+      "stages": [
+        {
+          "parameters": {
+            "V0": 22.690568926522403,
+            "K0": 136.16335,
+            "Kp": 6.46487
+          },
+          "conditional_eosfit_standard_errors": {
+            "V0": 0.10478001513866973,
+            "K0": 9.5919,
+            "Kp": 0.35807
+          },
+          "rows": 36,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "Kp"
+          ],
+          "covariance": [
+            [
+              0.010981029910554808,
+              -0.9851978285542433,
+              0.035226675771025985
+            ],
+            [
+              -0.9851978285542433,
+              92.005,
+              -3.3928
+            ],
+            [
+              0.035226675771025985,
+              -3.3928,
+              0.12821
+            ]
+          ],
+          "rmse_gpa_from_printed_coefficients": 0.7766204329858231,
+          "residual_range_gpa": [
+            -2.1242362302473623,
+            1.2735832494413835
+          ]
+        },
+        {
+          "parameters": {
+            "V0": 22.690568926522403,
+            "K0": 136.16335,
+            "Kp": 6.46487,
+            "ThMGD": 420.0,
+            "Gamm0": 1.98449
+          },
+          "conditional_eosfit_standard_errors": {
+            "Gamm0": 0.02018
+          },
+          "rows": 131,
+          "free_parameters": [
+            "Gamm0"
+          ],
+          "covariance": [
+            [
+              0.00040722
+            ]
+          ],
+          "rmse_gpa_from_printed_coefficients": 1.338606108794988,
+          "residual_range_gpa": [
+            -3.20709980455338,
+            9.145162289816753
+          ]
+        },
+        {
+          "parameters": {
+            "V0": 22.60265998830622,
+            "K0": 146.8046,
+            "Kp": 6.05363,
+            "ThMGD": 420.0,
+            "Gamm0": 2.23582,
+            "q": 1.51438
+          },
+          "conditional_eosfit_standard_errors": {
+            "V0": 0.12327842034698638,
+            "K0": 11.35024,
+            "Kp": 0.36696,
+            "Gamm0": 0.19078,
+            "q": 0.32846
+          },
+          "rows": 131,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "Kp",
+            "Gamm0",
+            "q"
+          ],
+          "covariance": [
+            [
+              0.01519983660077901,
+              -1.3587194863243284,
+              0.04084593997434228,
+              0.0064631501572540466,
+              0.003978319497135102
+            ],
+            [
+              -1.3587194863243284,
+              128.83,
+              -4.0747,
+              -0.91599,
+              -0.87084
+            ],
+            [
+              0.04084593997434228,
+              -4.0747,
+              0.13466,
+              0.037898,
+              0.043727
+            ],
+            [
+              0.0064631501572540466,
+              -0.91599,
+              0.037898,
+              0.036397,
+              0.059801
+            ],
+            [
+              0.003978319497135102,
+              -0.87084,
+              0.043727,
+              0.059801,
+              0.10789
+            ]
+          ],
+          "rmse_gpa_from_printed_coefficients": 1.277981994946681,
+          "residual_range_gpa": [
+            -2.9051591125742675,
+            9.080421190584133
+          ]
+        }
+      ],
+      "warnings": [
+        "*****WARNING: This command will delete all of your data loaded in EosFit"
+      ],
+      "stages_saved": true,
+      "files_sha256": {
+        "all.dat": "f34e194497177640184b0c51b4023f5a9ed56ce6b0025ef698bb9639f0796d18",
+        "cold.dat": "94602729f6d12d8305842a50aaec2eb128e7b275d7bd349088dd128f15cf3577",
+        "run.log": "f3253315ff59d63d41efa9ae6529e2f29c86877c97647ada2eefeed0d0757493",
+        "run.mcr": "ff1e9274b13fbc588fbf468fc971ac5a35f49bc29392ab7aaf0e15dbce5fec74",
+        "stage1.eos": "f6aed2a78be42eb17b687fb771abbc9679e81916c78525efcbd91a86086b6842",
+        "stage2.eos": "d9d9107003fe94ba5fd70639cae118252935d6e225d565c20fda1785a067f1e4",
+        "stage3.eos": "36a9f9ee17b80973fc4d4aa1c9387e04578617b5f8ab0abccf89c5c73f200f44",
+        "stderr.txt": "e7864e01ce1d4df4fc9776e0a26a41fe33e1286a8cd20548869ba3c55ef261fe",
+        "stdout.txt": "48a334bb2fce8dbb55d224710c3cc47fe757ae50857d6dcf4e9ecec8ff357610"
+      }
+    },
+    "tange_vinet-unit-theta_fixed": {
+      "returncode": 0,
+      "completed_stages": 3,
+      "converged_stages": 3,
+      "stages": [
+        {
+          "parameters": {
+            "V0": 22.69807456310603,
+            "K0": 136.57272,
+            "Kp": 6.30804
+          },
+          "conditional_eosfit_standard_errors": {
+            "V0": 0.1001969273132699,
+            "K0": 9.09158,
+            "Kp": 0.33131
+          },
+          "rows": 36,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "Kp"
+          ],
+          "covariance": [
+            [
+              0.010041973174330787,
+              -0.8927390132940034,
+              0.03113178643137528
+            ],
+            [
+              -0.8927390132940034,
+              82.657,
+              -2.9744
+            ],
+            [
+              0.03113178643137528,
+              -2.9744,
+              0.10977
+            ]
+          ],
+          "rmse_gpa_from_printed_coefficients": 0.7425783078153698,
+          "residual_range_gpa": [
+            -2.0574958961168477,
+            1.203511974662618
+          ]
+        },
+        {
+          "parameters": {
+            "V0": 22.69807456310603,
+            "K0": 136.57272,
+            "Kp": 6.30804,
+            "ThMGD": 420.0,
+            "Gamm0": 2.19819
+          },
+          "conditional_eosfit_standard_errors": {
+            "Gamm0": 0.01496
+          },
+          "rows": 131,
+          "free_parameters": [
+            "Gamm0"
+          ],
+          "covariance": [
+            [
+              0.0002237
+            ]
+          ],
+          "rmse_gpa_from_printed_coefficients": 0.9918150951132126,
+          "residual_range_gpa": [
+            -2.9342745772713954,
+            3.1986396351336452
+          ]
+        },
+        {
+          "parameters": {
+            "V0": 22.578283274800107,
+            "K0": 150.48717,
+            "Kp": 5.80143,
+            "ThMGD": 420.0,
+            "Gamm0": 1.98942,
+            "q": 0.64303
+          },
+          "conditional_eosfit_standard_errors": {
+            "V0": 0.09212670744680501,
+            "K0": 8.62858,
+            "Kp": 0.26638,
+            "Gamm0": 0.1233,
+            "q": 0.238
+          },
+          "rows": 131,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "Kp",
+            "Gamm0",
+            "q"
+          ],
+          "covariance": [
+            [
+              0.008484378714740037,
+              -0.7702576516992605,
+              0.02201542695259086,
+              0.0028816330756108064,
+              0.0030117197061332057
+            ],
+            [
+              -0.7702576516992605,
+              74.452,
+              -2.2459,
+              -0.43958,
+              -0.58192
+            ],
+            [
+              0.02201542695259086,
+              -2.2459,
+              0.070961,
+              0.01767,
+              0.026393
+            ],
+            [
+              0.0028816330756108064,
+              -0.43958,
+              0.01767,
+              0.015204,
+              0.028344
+            ],
+            [
+              0.0030117197061332057,
+              -0.58192,
+              0.026393,
+              0.028344,
+              0.056643
+            ]
+          ],
+          "rmse_gpa_from_printed_coefficients": 0.9844676638208121,
+          "residual_range_gpa": [
+            -2.7405183906718946,
+            3.2758573907906907
+          ]
+        }
+      ],
+      "warnings": [
+        "*****WARNING: This command will delete all of your data loaded in EosFit"
+      ],
+      "stages_saved": true,
+      "files_sha256": {
+        "all.dat": "e5d295e214a88840e1570dbbcbb12d9d4d41a4b4155c91118a205eadccdafdcc",
+        "cold.dat": "4f663430210d2c8fc3742bec09d523e155dbddd5507e670a4e90920edb951ec7",
+        "run.log": "acc246bcb9c9b38ac223d93868c59cc19b286deb489d0d68109e7484bfc37040",
+        "run.mcr": "2acb43913f71ffc691ee893967d7a37396fcbbf160370adc408925035974297c",
+        "stage1.eos": "912f69a475a92de68b4ace01ecf00490092aa2cc5dc9ffc9f04b5c1ce6e8351e",
+        "stage2.eos": "81376bdf15ff9af14ad6ca7eacb6b4d2f286eb8d933586d31ed83505d0f4088b",
+        "stage3.eos": "ee76215da24de37584de2f6cf85c403e1ae8fa87dd22557d7a60f33d263a78b1",
+        "stderr.txt": "e7864e01ce1d4df4fc9776e0a26a41fe33e1286a8cd20548869ba3c55ef261fe",
+        "stdout.txt": "76a69548aba495227bcc1d7d02170b93ed48bbfc9bfbce8c8be8d7683be4d924"
+      }
+    },
+    "speziale_variable_q_debye-unit-theta_fixed": {
+      "returncode": 0,
+      "completed_stages": 3,
+      "converged_stages": 3,
+      "stages": [
+        {
+          "parameters": {
+            "V0": 22.80627528872308,
+            "K0": 128.50888,
+            "Kp": 6.28689
+          },
+          "conditional_eosfit_standard_errors": {
+            "V0": 0.09760648636847871,
+            "K0": 8.11734,
+            "Kp": 0.30638
+          },
+          "rows": 36,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "Kp"
+          ],
+          "covariance": [
+            [
+              0.009529650113517939,
+              -0.7779293421896037,
+              0.028177687430873007
+            ],
+            [
+              -0.7779293421896037,
+              65.891,
+              -2.4574
+            ],
+            [
+              0.028177687430873007,
+              -2.4574,
+              0.093866
+            ]
+          ],
+          "rmse_gpa_from_printed_coefficients": 0.6511280430506119,
+          "residual_range_gpa": [
+            -1.989341787183733,
+            1.077674217573815
+          ]
+        },
+        {
+          "parameters": {
+            "V0": 22.80627528872308,
+            "K0": 128.50888,
+            "Kp": 6.28689,
+            "ThMGD": 420.0,
+            "Gamm0": 2.24266
+          },
+          "conditional_eosfit_standard_errors": {
+            "Gamm0": 0.01434
+          },
+          "rows": 131,
+          "free_parameters": [
+            "Gamm0"
+          ],
+          "covariance": [
+            [
+              0.00020575
+            ]
+          ],
+          "rmse_gpa_from_printed_coefficients": 0.9466698284420961,
+          "residual_range_gpa": [
+            -2.6810798496134822,
+            3.011051811383595
+          ]
+        },
+        {
+          "parameters": {
+            "V0": 22.70315581265158,
+            "K0": 139.41826,
+            "Kp": 5.86999,
+            "ThMGD": 420.0,
+            "Gamm0": 1.93066,
+            "q": 0.42951
+          },
+          "conditional_eosfit_standard_errors": {
+            "V0": 0.09840354512072215,
+            "K0": 8.36517,
+            "Kp": 0.27378,
+            "Gamm0": 0.11427,
+            "q": 0.22194
+          },
+          "rows": 131,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "Kp",
+            "Gamm0",
+            "q"
+          ],
+          "covariance": [
+            [
+              0.00968649045635451,
+              -0.800579095065855,
+              0.02441789487497798,
+              0.002950744711586582,
+              0.0034416332706245145
+            ],
+            [
+              -0.800579095065855,
+              69.976,
+              -2.2415,
+              -0.39543,
+              -0.5513
+            ],
+            [
+              0.02441789487497798,
+              -2.2415,
+              0.074954,
+              0.016727,
+              0.02582
+            ],
+            [
+              0.002950744711586582,
+              -0.39543,
+              0.016727,
+              0.013057,
+              0.024574
+            ],
+            [
+              0.0034416332706245145,
+              -0.5513,
+              0.02582,
+              0.024574,
+              0.049259
+            ]
+          ],
+          "rmse_gpa_from_printed_coefficients": 0.9281276182170184,
+          "residual_range_gpa": [
+            -2.5765291510254116,
+            3.1739883622202427
+          ]
+        }
+      ],
+      "warnings": [
+        "*****WARNING: This command will delete all of your data loaded in EosFit"
+      ],
+      "stages_saved": true,
+      "files_sha256": {
+        "all.dat": "1c66e70376caa471566e87383a4b87f83a926b0a5c50d1d5f751c6d3b5d288a6",
+        "cold.dat": "724449e4c85e1b9ec999168039c763b2aed8cdcacda3b1e09730efa3cd6bdbd0",
+        "run.log": "a33d29a2f72cc33b7b81da112426ddd129130115184c460504aae6c6e1b13e4d",
+        "run.mcr": "68d7ce02306b30f03928c1f155ef1af90c975b7762202fc61587422bf69e0c49",
+        "stage1.eos": "7ddae0f2908a6aed3256a1b874da8364f64f319767dcb13e495eeac862ac6063",
+        "stage2.eos": "9b515f08243ba9e0aa5a1c77e37d9df720c21c606ad853cbed6620dd7eec3c95",
+        "stage3.eos": "fbb2bc5e629eb6bcbb9cfb490be0de996241261502ac50d2e5930851125c81c5",
+        "stderr.txt": "e7864e01ce1d4df4fc9776e0a26a41fe33e1286a8cd20548869ba3c55ef261fe",
+        "stdout.txt": "67c3c1d413c6898bd18b508578e82b0500abc27dbdcd0c4ca358b57d0df4983d"
+      }
+    }
+  }
+}

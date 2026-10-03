@@ -48,6 +48,14 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1103/h4pj-rvxx": (
+        "FeS source record deferred from the executable catalog: the standard "
+        "thermal replay exceeds the stated +/-3 GPa bound. Table S1, paired "
+        "KCl markers, the selected 167-row author input and the reference cold "
+        "datasets are bundled separately. Author-input staged fit reproduction is classified similar; the residual-range discrepancy is retained separately. "
+        "The exact GUI procedure remains untested; see the "
+        "[source audit](literature-reproductions/morard-2026-fes.md)."
+    ),
     "10.1103/physrevb.81.144110": (
         "DO NOT USE the original-constant reconstruction. Separate Peritheos density refit; "
         "[comparison and explanation](#chen-2010-original-constant-reconstruction-and-independent-refit)."

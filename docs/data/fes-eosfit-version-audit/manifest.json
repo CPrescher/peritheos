@@ -1,0 +1,155 @@
+{
+  "audit_date": "2026-10-03",
+  "question": "Could the GUI 20210609 used by Morard use a different MGD equation or numerical engine from the audited EosFit7c 7.60?",
+  "qualification": "Version notes, public source history and distributed binary pressure routines support equivalent MGD evaluation. Exact original 20210609 GUI binary is unavailable: no direct original-GUI fit has been run. Public repository snapshot equality does not identify private build inputs. GUI and console refinement frontends need not be instruction-identical or select the same weights/data/defaults.",
+  "primary_sources": {
+    "website": "https://www.rossangel.com/text_eosfit.htm",
+    "installer": "https://www.rossangel.com/Download/EoSFit7installer_MacOS.dmg",
+    "gui_methodology": "https://doi.org/10.1107/S1600576716008050",
+    "public_library_repository": "https://code.ill.fr/scientific-software/crysfml.git"
+  },
+  "author_eos": {
+    "resource": "../fes-author-eosfit/sources/FeS6.eos",
+    "sha256": "d7590158a533b191d48924dbf7087722cf758ae9874316152c6cf731243f7b64",
+    "gui_banner": "EoSFit7-GUI Program (20210609)",
+    "saved_date_token": "12/03/2024",
+    "mgd_model": 7,
+    "q_compromise_flag": 0,
+    "q": 1,
+    "tref_k": 298
+  },
+  "audited_console": {
+    "version": "7.60",
+    "version_date": "13-May-2021",
+    "sha256": "6b48e46e5bb01c2dd13060bc29b4a9f7c67e70c7161866b77f8de3f238445e6d"
+  },
+  "distributed_gui": {
+    "banner": "EoSFit7-GUI Program (20211014)",
+    "sha256": "e7d19f1f79cf544e0828b83c25a9a9e981e97c2fce925c1d895e9943fea5968e",
+    "qualification": "Current official Mac installer, not the original author executable."
+  },
+  "release_history": [
+    {
+      "version": "7.4",
+      "date": "2017-06",
+      "mgd_relevance": "Introduction of MGD thermal-pressure EOS."
+    },
+    {
+      "version": "7.5",
+      "date": "2019-08",
+      "mgd_relevance": "GUI MGD fitting bugs fixed. Unweighted parameter-esd bug fixed. Calculator MGD parameter editing/saving bugs fixed. All predate the author GUI banner."
+    },
+    {
+      "version": "7.6",
+      "date": "summer 2021",
+      "mgd_relevance": "Added q-compromise MGD; improved volume inversion and refinement termination. Two numerical fixes concern fourth-order linear moduli and thermal-pressure fitting to T-V-only data, unlike this volumetric BM3 P-V-T audit."
+    },
+    {
+      "version": "later 2021 Mac GUI",
+      "date_qualification": "Bundled manual says November 2021; current website labels graphics fixes December 2021. Mac GUI binary banner is 20211014. These labels are retained separately.",
+      "mgd_relevance": "Bundled manual explicitly describes the Mac re-release as identical to the summer version except for the graphics-library crash fix."
+    },
+    {
+      "version": "Windows calculator update",
+      "date": "2023-08",
+      "mgd_relevance": "Windows 11 calculator compatibility fix; no documented changed MGD fitting law."
+    }
+  ],
+  "public_snapshots": {
+    "2021-06-09": {
+      "commit": "8924b41c13a21f642938e1e5f5961302c3103e41",
+      "files": {
+        "CFML_EoS.f90": "24c8ab0c3b36a6c4681504118d24f1340885641abd0fbfde811f43ab9ccff37f",
+        "CFML_Math_General.f90": "c272d83d92d689762e335ea05268f373c09093109a8aa23d91ebfedfdc1bf0ab",
+        "CFML_Optimization_LSQ.f90": "c788bdd9d4cdcd491d261e6f079125743e20fb692632122391d22ca482033e26",
+        "CFML_LSQ_TypeDef.f90": "bb81a740ba36173ce539063a7f457537266e3ca2ba814c153d678e4c57c645cf"
+      }
+    },
+    "2021-10-14": {
+      "commit": "eddca0d1dbfca91bd1c061a23d6cdbb6098ea285",
+      "files": {
+        "CFML_EoS.f90": "24c8ab0c3b36a6c4681504118d24f1340885641abd0fbfde811f43ab9ccff37f",
+        "CFML_Math_General.f90": "c272d83d92d689762e335ea05268f373c09093109a8aa23d91ebfedfdc1bf0ab",
+        "CFML_Optimization_LSQ.f90": "c788bdd9d4cdcd491d261e6f079125743e20fb692632122391d22ca482033e26",
+        "CFML_LSQ_TypeDef.f90": "bb81a740ba36173ce539063a7f457537266e3ca2ba814c153d678e4c57c645cf"
+      }
+    }
+  },
+  "compiled_pressure_routines": {
+    "_cfml_eos_mp_get_debyet_": {
+      "eosfit7gui": {
+        "instruction_lines": 169,
+        "address_normalized_disassembly_sha256": "4d6540b7fe72b1df068c90f2876c602553e7e7133d4bac651e13e65eb798350f",
+        "artifact": "eosfit7gui-cfml_eos_mp_get_debyet.asm.txt"
+      },
+      "eosfit7c": {
+        "instruction_lines": 169,
+        "address_normalized_disassembly_sha256": "4d6540b7fe72b1df068c90f2876c602553e7e7133d4bac651e13e65eb798350f",
+        "artifact": "eosfit7c-cfml_eos_mp_get_debyet.asm.txt"
+      }
+    },
+    "_cfml_eos_mp_get_grun_v_": {
+      "eosfit7gui": {
+        "instruction_lines": 68,
+        "address_normalized_disassembly_sha256": "b97201980c492c05ba0fd8c7154a3b4e9fd00f0714b6797e35274b6b12f47119",
+        "artifact": "eosfit7gui-cfml_eos_mp_get_grun_v.asm.txt"
+      },
+      "eosfit7c": {
+        "instruction_lines": 68,
+        "address_normalized_disassembly_sha256": "b97201980c492c05ba0fd8c7154a3b4e9fd00f0714b6797e35274b6b12f47119",
+        "artifact": "eosfit7c-cfml_eos_mp_get_grun_v.asm.txt"
+      }
+    },
+    "_cfml_eos_mp_pthermal_": {
+      "eosfit7gui": {
+        "instruction_lines": 819,
+        "address_normalized_disassembly_sha256": "510b99f82bcf574f09b71157cba9bd9c3e065546b0e0b71345f0128e21b37a31",
+        "artifact": "eosfit7gui-cfml_eos_mp_pthermal.asm.txt"
+      },
+      "eosfit7c": {
+        "instruction_lines": 819,
+        "address_normalized_disassembly_sha256": "510b99f82bcf574f09b71157cba9bd9c3e065546b0e0b71345f0128e21b37a31",
+        "artifact": "eosfit7c-cfml_eos_mp_pthermal.asm.txt"
+      }
+    },
+    "_cfml_eos_mp_ethdebye_": {
+      "eosfit7gui": {
+        "instruction_lines": 49,
+        "address_normalized_disassembly_sha256": "d37de7c7ee86a8c59879c6b1f63c282156e4596d63b63b389e71dcde83beccea",
+        "artifact": "eosfit7gui-cfml_eos_mp_ethdebye.asm.txt"
+      },
+      "eosfit7c": {
+        "instruction_lines": 49,
+        "address_normalized_disassembly_sha256": "d37de7c7ee86a8c59879c6b1f63c282156e4596d63b63b389e71dcde83beccea",
+        "artifact": "eosfit7c-cfml_eos_mp_ethdebye.asm.txt"
+      }
+    }
+  },
+  "regression_frontend_caution": {
+    "routine": "_eos_kfit_mp_least_squares_kfit_",
+    "gui_instruction_lines": 2646,
+    "console_instruction_lines": 2896,
+    "interpretation": "The refinement routine differs between these programs; console also contains group-scale refinement support. Pressure-routine agreement is not proof of identical front-end fitting defaults or an empirical original-GUI regression comparison."
+  },
+  "later_public_library_update": {
+    "commit": "09f8e56",
+    "date": "2022-06-02",
+    "qualification": "Later CrysFML source changes exist. They must not be assumed to be compiled into the distributed 2021 binaries used for this audit."
+  },
+  "conclusion": "No documented June-to-late-2021 numerical MGD change explains the FeS residual mismatch. A remaining GUI-specific data-selection, weighting, starting-model or refinement behavior has not been empirically ruled out using the original GUI executable.",
+  "manual_sources": {
+    "VersionInfo.html": {
+      "sha256": "5e812117feae8290359b357de62ed59cb6987f29dfe7ba90d71ed312359e0fd7",
+      "text_sha256": "4276683e3ae942ab23593ca5b9e9ea56fc8a9d630f5eb18ab142556be113e851"
+    },
+    "EoSFitanddisplay.html": {
+      "sha256": "24d227570579e36b4ededbedae07376f257f686764072f57999d0acee2eada6b",
+      "text_sha256": "27a5bbacb5ade2de08ce157e0c2b340551547e0f0b8d0d4665152f3139835d07"
+    }
+  },
+  "source_history_check": {
+    "command": "git log --all --since=2021-06-09 --until=2021-10-15 --format=%H -- Src/CFML_EoS.f90 Src/CFML_Math_General.f90 Src/CFML_Optimization_LSQ.f90 Src/CFML_LSQ_TypeDef.f90",
+    "commits": []
+  },
+  "disassembly_qualification": "otool -tvV output; remove leading instruction addresses and replace hexadecimal addresses/immediates by <address>. Equal hashes show matched normalized instruction structure. They do not prove identical constants, absolute addresses, original June GUI binary or full program behavior."
+}

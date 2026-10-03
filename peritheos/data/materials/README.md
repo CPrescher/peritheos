@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 226 curated material documents with 633 EOS records. The
+This directory contains 227 curated material documents with 635 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -8,8 +8,9 @@ tag commit
 
 Every EOS record has an explicit `determination_method` and a rationale under
 `parameter_provenance.determination_method`. The current collection classifies
-490 records as experimental, 114 as theoretical, 22 as hybrid, and seven as
-unknown. These counts include the two deferred Campbell source records.
+492 records as experimental, 114 as theoretical, 22 as hybrid, and seven as
+unknown. These counts include the two deferred Campbell source records and
+the deferred Morard FeS source record.
 The seven unknowns are the Holland et al. (2013) THERMOCALC modified-Tait
 endmembers: the existing source audit verifies the coefficients but does not
 establish each endmember's measurement-versus-calculation constraints.
@@ -36,16 +37,29 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-with additions through 2026-10-02 classifies 626 of 633 bundled records as
+with additions through 2026-10-03 classifies 627 of 635 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
-discrepancies; they are not exposed by the executable catalog. Maltby, the Chen
+discrepancies; they are not exposed by the executable catalog. The Morard
+(2026) FeS record is also deferred after its source replay exceeds the stated
+±3 GPa residual bound; its 146 Table S1 observations, source contradictions and
+independent FeS-VI structure are documented in the
+[source audit](../../../docs/literature-reproductions/morard-2026-fes.md).
+The selected 167-row author EosFit input, its 21 literature cold rows and
+the original Sata (2010) VI transcription are accessible as separate datasets.
+The 11 unsuitable quenched observations and their 178-row variant are excluded
+from the database on the basis of user-reported author personal communication.
+Assigned errors and overlapping observations remain explicit; the author EOS
+file does not overwrite the paper coefficients.
+Maltby, the Chen
 printed-constant diagnostic, and the three Miozzi (2020) hcp-Fe parameterizations
 are explicit-selection `not_reproduced` records; the Chen diagnostic is marked
 DO NOT USE. The Miozzi source coefficients and all 131 official supplementary
 observations are preserved, with unresolved source-fit discrepancies documented
 in the [iron audit](../../../docs/literature-reproductions/miozzi-2020-iron.md).
-The separate nondefault Tange-calibrated Peritheos refit is selectable with
+The published Miozzi thermal record uses n=2 at the ~6.87 cm³/mol volume,
+as used in the paper according to personal communication with Miozzi et al.
+The separate nondefault Speziale- and Tange-calibrated n=1 Peritheos refits are selectable with
 conditional parameter errors and covariance; its validation concerns the
 independent refit only, not reproduction of Miozzi's published EOS.
 The complete
@@ -85,7 +99,7 @@ Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to
-185 EOS records citing 115 distinct publications. All 633 records now carry
+185 EOS records citing 115 distinct publications. All 635 records now carry
 an explicit publication title; `reference.source` retains the journal or
 book name. Previously, the catalog fell back to that source name when a
 title was absent.
@@ -152,10 +166,10 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 333 distinct primary datasets with
-24,005 observation rows, represented by
-372 material-document links to
-490 EOS records.
+The current bundle contains 339 distinct primary datasets with
+24,629 observation rows, represented by
+378 material-document links to
+492 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate

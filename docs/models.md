@@ -72,6 +72,14 @@ by molar volume, energy-based models require the volume convention described
 under [Units and reference states](units.md). The volume-independent linear
 correction instead inherits the reference EOS volume convention.
 
+For Debye and Einstein models, `n` is the number of atoms per formula unit,
+with the same formula unit defining the molar volume. It is not $Z$, the
+number of formula units in a crystallographic cell. For hcp Fe, the standard
+choice is `n=1` with volume per mole of Fe; $Z=2$ is used to convert its
+two-atom cell volume. See the
+[explicit MGD pressure equation](equation-reference.md#mie-gruneisen-debye-and-einstein)
+and [normalization examples](units.md#atom-count-and-molar-volume-basis).
+
 | Import | Reference EOS | Thermal parameters | Caloric model |
 |---|---|---|---|
 | [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet`, `BM2`, `BM3`, or `BM4`: 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0`, `Tr` | double Debye + $T^2$ |

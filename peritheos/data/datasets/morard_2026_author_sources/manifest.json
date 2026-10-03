@@ -1,0 +1,36 @@
+{
+  "format": "peritheos.primary-source-manifest",
+  "audit_date": "2026-10-03",
+  "sources": [
+    {
+      "filename": "FeS6EOSfittot-SataOhfuji-300K.dat",
+      "sha256": "463b97a3e39c32c4457ad5c37b2f93f56c92f13b878ff9c017b9c1b0e6014f8e",
+      "bytes": 8534,
+      "role": "user-supplied author file",
+      "license": "unspecified",
+      "bundled": true
+    },
+    {
+      "filename": "FeS6.eos",
+      "sha256": "d7590158a533b191d48924dbf7087722cf758ae9874316152c6cf731243f7b64",
+      "bytes": 45825,
+      "role": "user-supplied author file",
+      "license": "unspecified",
+      "bundled": true
+    },
+    {
+      "filename": "fes-sata-2010-table1.csv",
+      "sha256": "1d0128d2e19bc10f04f7099b0164bf08bb46c22e77f548880fb864adce2ccf07",
+      "bytes": 773,
+      "role": "published numerical transcription",
+      "license": "unspecified",
+      "bundled": true
+    }
+  ],
+  "datasets": [
+    "fes_morard_2026_author_without_additional_cold_pvt",
+    "fes_morard_2026_author_literature_cold_pv",
+    "fes_sata_2010_table1_vi_pv"
+  ],
+  "qualification": "Original source versions and their assigned uncertainty conventions are kept separate. Input variants and subsets overlap; do not concatenate them as independent observations. Saved EOS is March 2024, not confirmed final publication model."
+}

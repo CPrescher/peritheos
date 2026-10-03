@@ -9,7 +9,7 @@ The documentation is organized around scientific workflows:
 
 - [Getting started](getting-started.md) introduces isothermal and thermal use.
 - [Material catalog](catalog.md) covers executable lookup and typed discovery
-  across 224 executable materials, 626 primary-source-validated records, and five
+  across 224 executable materials, 627 primary-source-validated records, and five
   qualified explicit-selection implementations.
 - [EOS models](models.md) lists parameters, assumptions, and useful limits.
 - [Equation reference](equation-reference.md) defines the implemented
@@ -47,7 +47,7 @@ The documentation is organized around scientific workflows:
 - [Calculation uncertainty](uncertainty.md) propagates fitted or published
   parameter errors into EOS predictions.
 - [Dioptas and `.eosmat`](dioptas-integration.md) defines the shared material
-  ownership and bundled 226-material-document/633-record EOS library.
+  ownership and bundled 227-material-document/635-record EOS library.
 - [`.eosmat` schema reference](eosmat-schema.md) documents every exchange
   field, model discriminator, default, unit, and compatibility rule.
 - [Advanced DAC analysis](dac-thermal-pressure.md) documents the optional

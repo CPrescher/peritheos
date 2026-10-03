@@ -109,16 +109,20 @@ def test_source_reproduction_discrepancy_is_preserved():
         3.7536167053
     )
     assert results["iron_miozzi_2020_bm3_mgd"]["published_rmse_gpa"] == pytest.approx(
-        6.9826090764
+        2.4988584007
     )
-    assert results["iron_miozzi_2020_bm3_mgd"]["published_residual_range_gpa"][0] < -11
+    assert results["iron_miozzi_2020_bm3_mgd"]["published_residual_range_gpa"][0] < -6.9
     raw = next(
         r
         for r in get_material_document("iron")["eos_records"]
         if r["identifier"] == "iron_miozzi_2020_bm3_mgd"
     )
-    assert raw["fixed_parameters"] == ["V0"]
-    assert raw["thermal"]["parameters"]["n"] == 1
+    assert raw["fixed_parameters"] == []
+    assert raw["thermal"]["parameters"]["n"] == 2
+    communication = raw["scientific_validation"]["personal_communication"]
+    assert communication["type"] == "personal_communication"
+    assert communication["attribution"] == "Miozzi et al."
+    assert communication["recorded_on"] == "2026-10-03"
     assert raw["thermal"]["debye_temperature_law"] == "integrated_gruneisen"
     assert raw["parameter_errors"]["V0"] == pytest.approx(0.06642156269)
     for r in get_material_document("iron")["eos_records"]:
