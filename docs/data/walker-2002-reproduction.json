@@ -34,42 +34,42 @@
     ],
     "objective": "unweighted sum of squared pressure residuals; Walker page 808",
     "fixed_parameters": {
-      "V0": 249.53,
+      "V0": 249.08086007607702,
       "K0_prime": 5,
       "Tr": 296.15
     },
     "joint_fitted_parameters": {
-      "K0": 17.18012993682163,
-      "alpha_KT": 0.0018721693153050372,
-      "alpha0": 0.00010897294270705578
+      "K0": 17.683421849750918,
+      "alpha_KT": 0.001927145871094727,
+      "alpha0": 0.00010898037085067176
     },
     "published": {
-      "sum_squared_pressure_residuals_gpa2": 0.12553451521818915,
-      "rmse_gpa": 0.0738784298749698,
-      "max_absolute_residual_gpa": 0.1909234771425301
+      "sum_squared_pressure_residuals_gpa2": 0.0681494611302472,
+      "rmse_gpa": 0.05443362976268607,
+      "max_absolute_residual_gpa": 0.15196885624256806
     },
     "joint_refit": {
-      "sum_squared_pressure_residuals_gpa2": 0.08456487693415629,
-      "rmse_gpa": 0.060636076553038334,
-      "max_absolute_residual_gpa": 0.14519854134962018
+      "sum_squared_pressure_residuals_gpa2": 0.06663985697861528,
+      "rmse_gpa": 0.05382736372911785,
+      "max_absolute_residual_gpa": 0.14490412317044887
     },
-    "normal_equation_max_absolute_gradient": 1.7010837183306649e-12,
+    "normal_equation_max_absolute_gradient": 1.1762812945903534e-13,
     "direct_K0_alpha0_solver": {
       "success": true,
-      "K0": 17.1801299408428,
-      "alpha_KT": 0.001872169315029434
+      "K0": 17.683421848532703,
+      "alpha_KT": 0.0019271458711720881
     },
     "literal_printed_BE1_diagnostic": {
-      "K0": 22.135521865922293,
-      "alpha_KT": 0.001777567666576679,
-      "sum_squared_pressure_residuals_gpa2": 0.1465769698789661,
-      "rmse_gpa": 0.07983051881246978,
-      "max_absolute_residual_gpa": 0.1764137665404686,
+      "K0": 22.557539147812033,
+      "alpha_KT": 0.001845533791157742,
+      "sum_squared_pressure_residuals_gpa2": 0.12282053331539927,
+      "rmse_gpa": 0.07307546228130243,
+      "max_absolute_residual_gpa": 0.17695779476028406,
       "qualification": "Inconsistent signs with positive strain; not a catalog model."
     },
     "fixed_published_K0_diagnostic": {
       "K0": 17.7,
-      "alpha_KT": 0.0018365262521917055,
+      "alpha_KT": 0.0019260931385255487,
       "qualification": "Conditional diagnostic; source does not specify this B1 staging."
     },
     "figure1_reference_volume_diagnostic": {
@@ -81,7 +81,13 @@
       "sum_squared_pressure_residuals_gpa2": 0.06663985697861528,
       "rmse_gpa": 0.05382736372911785,
       "max_absolute_residual_gpa": 0.14490412317044887,
-      "qualification": "Figure 1's rounded 37.50 cm3/mol differs from Tables 1/3's 249.53 A3 (37.57 cm3/mol). This volume choice recovers K0 to printed rounding and beta within its printed error width, but the author workbook is unavailable; no exact solver-input or uncertainty parity is established. Table-based catalog reference volume remains unchanged."
+      "qualification": "Figure 1's rounded 37.50 cm3/mol differs from Tables 1/3's 249.53 A3 (37.57 cm3/mol). This volume choice recovers K0 to printed rounding and beta within its printed error width, but the author workbook is unavailable; no exact solver-input or uncertainty parity is established. Figure 1 is the explicitly selected catalog reference volume; raw tables are unchanged."
+    },
+    "table_reference_volume_diagnostic": {
+      "conventional_cell_V0_a3": 249.53,
+      "sum_squared_pressure_residuals_gpa2": 0.08456487693415629,
+      "rmse_gpa": 0.060636076553038334,
+      "max_absolute_residual_gpa": 0.14519854134962018
     },
     "status": "similar_not_exact",
     "qualification": "Joint fit follows the stated objective and fixed B1 inputs. The B2-only staging footnote does not prescribe B1 staging. Excel workbook, solver settings, unrounded observations and source covariance are unavailable. Published coefficients and error widths remain unchanged."
@@ -130,11 +136,76 @@
   },
   "nacl_pressure_replay": {
     "ancestry": "Walker page 806: Birch (1986) NaCl-B1 BE2 thermal EOS, both phases",
-    "status": "blocked_missing_verified_reference_parameters",
+    "status": "conditional_run_normalized_replay",
+    "birch_source": {
+      "doi": "10.1029/JB091iB05p04949",
+      "pdf_sha256": "3b5b75419a3ceb70fc46e7c676b77cca2ad43dddb0449a4a5e3f2f9bc28c8e3a",
+      "locations": [
+        "Table 5, p. 4951",
+        "Table 6, 25 Celsius extended row, p. 4951",
+        "Equation 8, p. 4952"
+      ],
+      "K0_gpa": 23.88,
+      "a": 1.796,
+      "b": -5.0,
+      "Tr_k": 298.15,
+      "thermal_coefficient_gpa_per_k": 0.00286,
+      "qualification": "Use the printed polynomial a,b, rather than reconstructing them from rounded elastic derivatives. Ratio reference is the zero-pressure 25 Celsius volume. Source construction: 25-500 Celsius, 0-30 GPa."
+    },
+    "birch_table5_check": [
+      {
+        "volume_ratio": 1.0,
+        "printed_pressure_gpa": 0.0,
+        "calculated_pressure_gpa": 0.0,
+        "difference_gpa": 0.0
+      },
+      {
+        "volume_ratio": 0.95,
+        "printed_pressure_gpa": 1.3980000000000001,
+        "calculated_pressure_gpa": 1.3976246098965937,
+        "difference_gpa": -0.00037539010340648105
+      },
+      {
+        "volume_ratio": 0.9,
+        "printed_pressure_gpa": 3.289,
+        "calculated_pressure_gpa": 3.289271586471852,
+        "difference_gpa": 0.0002715864718516592
+      },
+      {
+        "volume_ratio": 0.85,
+        "printed_pressure_gpa": 5.838000000000001,
+        "calculated_pressure_gpa": 5.838476214917312,
+        "difference_gpa": 0.00047621491731142385
+      },
+      {
+        "volume_ratio": 0.8,
+        "printed_pressure_gpa": 9.266,
+        "calculated_pressure_gpa": 9.26608033613842,
+        "difference_gpa": 8.03361384207335e-05
+      },
+      {
+        "volume_ratio": 0.75,
+        "printed_pressure_gpa": 13.871000000000002,
+        "calculated_pressure_gpa": 13.870602365549471,
+        "difference_gpa": -0.0003976344505307594
+      },
+      {
+        "volume_ratio": 0.7,
+        "printed_pressure_gpa": 20.054000000000002,
+        "calculated_pressure_gpa": 20.054060968101293,
+        "difference_gpa": 6.096810129108121e-05
+      },
+      {
+        "volume_ratio": 0.65,
+        "printed_pressure_gpa": 28.351,
+        "calculated_pressure_gpa": 28.35082913825026,
+        "difference_gpa": -0.00017086174974068058
+      }
+    ],
     "reference_temperature_k": 298.15,
     "thermal_coefficient_gpa_per_k": 0.00286,
-    "thermal_evidence": "Birch original publisher abstract; DOI 10.1029/JB091iB05p04949",
-    "qualification": "Known thermal increment is only one term of the scale. No independent full pressure is calculated without the adjusted 25 Celsius BE2 coefficients and verified volume/reference normalization. Thermal increments are neither observations nor a ready dataset reduction. Bracketed ambient pressures in Table 1 are imposed zeroes. 600 Celsius lies outside the abstract's 25-500 Celsius domain.",
+    "thermal_evidence": "Birch (1986) original Equation 8 and Tables 5-6",
+    "qualification": "Adjusted 25 Celsius coefficients are now verified. B2 replay assumes each loading is normalized to its separate printed zero-pressure NaCl anchor at its actual 23/24 Celsius temperature; no coefficients are fit to Walker pressures. The author normalization, unrounded inputs and uncertainty propagation remain unverified. B1 pressure replay is not supplied because its ambient/36 Celsius anchors need separate treatment. No ready dataset reduction is registered. 600 Celsius extrapolates beyond Birch's 25-500 Celsius construction.",
     "table1_rows": [
       {
         "source_row_index": 0,
@@ -146,7 +217,9 @@
         "reported_pressure_gpa": null,
         "birch_abstract_thermal_increment_gpa": -0.00572,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 1,
@@ -158,7 +231,9 @@
         "reported_pressure_gpa": 0.0,
         "birch_abstract_thermal_increment_gpa": 0.03146,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 2,
@@ -170,7 +245,9 @@
         "reported_pressure_gpa": 0.0,
         "birch_abstract_thermal_increment_gpa": 0.03146,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 3,
@@ -182,7 +259,9 @@
         "reported_pressure_gpa": 1.4740000000000002,
         "birch_abstract_thermal_increment_gpa": 0.0143,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 4,
@@ -194,7 +273,9 @@
         "reported_pressure_gpa": 1.499,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 5,
@@ -206,7 +287,9 @@
         "reported_pressure_gpa": 1.5730000000000002,
         "birch_abstract_thermal_increment_gpa": 0.5005000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 6,
@@ -218,7 +301,9 @@
         "reported_pressure_gpa": 1.62,
         "birch_abstract_thermal_increment_gpa": 0.7865000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 7,
@@ -230,7 +315,9 @@
         "reported_pressure_gpa": 1.6520000000000001,
         "birch_abstract_thermal_increment_gpa": 1.0725,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 8,
@@ -242,7 +329,9 @@
         "reported_pressure_gpa": 1.711,
         "birch_abstract_thermal_increment_gpa": 1.3585,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 9,
@@ -254,7 +343,9 @@
         "reported_pressure_gpa": 1.7260000000000002,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 10,
@@ -266,7 +357,9 @@
         "reported_pressure_gpa": 1.7329999999999999,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 11,
@@ -278,7 +371,9 @@
         "reported_pressure_gpa": 1.804,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 12,
@@ -290,7 +385,9 @@
         "reported_pressure_gpa": 1.502,
         "birch_abstract_thermal_increment_gpa": 1.3585,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 13,
@@ -302,7 +399,9 @@
         "reported_pressure_gpa": 1.3410000000000002,
         "birch_abstract_thermal_increment_gpa": 1.0725,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 14,
@@ -314,7 +413,9 @@
         "reported_pressure_gpa": 1.1720000000000002,
         "birch_abstract_thermal_increment_gpa": 0.7865000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 15,
@@ -326,7 +427,9 @@
         "reported_pressure_gpa": 1.024,
         "birch_abstract_thermal_increment_gpa": 0.5005000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 16,
@@ -338,7 +441,9 @@
         "reported_pressure_gpa": 0.859,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 17,
@@ -350,7 +455,9 @@
         "reported_pressure_gpa": 0.944,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 18,
@@ -362,7 +469,9 @@
         "reported_pressure_gpa": 0.391,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 19,
@@ -374,7 +483,9 @@
         "reported_pressure_gpa": 0.35000000000000003,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 20,
@@ -386,7 +497,9 @@
         "reported_pressure_gpa": 0.551,
         "birch_abstract_thermal_increment_gpa": 0.5005000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 21,
@@ -398,7 +511,9 @@
         "reported_pressure_gpa": 0.675,
         "birch_abstract_thermal_increment_gpa": 0.7865000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 22,
@@ -410,7 +525,9 @@
         "reported_pressure_gpa": 0.8630000000000001,
         "birch_abstract_thermal_increment_gpa": 1.0725,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 23,
@@ -422,7 +539,9 @@
         "reported_pressure_gpa": 0.8880000000000001,
         "birch_abstract_thermal_increment_gpa": 1.3585,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 24,
@@ -434,7 +553,9 @@
         "reported_pressure_gpa": 0.994,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 25,
@@ -446,7 +567,9 @@
         "reported_pressure_gpa": 0.945,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 26,
@@ -458,7 +581,9 @@
         "reported_pressure_gpa": 0.614,
         "birch_abstract_thermal_increment_gpa": 1.0725,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 27,
@@ -470,7 +595,9 @@
         "reported_pressure_gpa": 0.309,
         "birch_abstract_thermal_increment_gpa": 0.5005000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 28,
@@ -482,7 +609,9 @@
         "reported_pressure_gpa": 0.19,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       },
       {
         "source_row_index": 29,
@@ -494,7 +623,9 @@
         "reported_pressure_gpa": 0.21000000000000002,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": null,
+        "conditional_run_normalized_difference_gpa": null,
+        "replay_kind": "not_replayed"
       }
     ],
     "table2_rows": [
@@ -508,7 +639,9 @@
         "reported_pressure_gpa": 3.63,
         "birch_abstract_thermal_increment_gpa": -0.00572,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 3.6300362491691605,
+        "conditional_run_normalized_difference_gpa": 3.6249169160562644e-05,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 1,
@@ -520,7 +653,9 @@
         "reported_pressure_gpa": 4.62,
         "birch_abstract_thermal_increment_gpa": -0.00572,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 4.62906931839885,
+        "conditional_run_normalized_difference_gpa": 0.009069318398849724,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 2,
@@ -532,7 +667,9 @@
         "reported_pressure_gpa": 5.460000000000001,
         "birch_abstract_thermal_increment_gpa": -0.00572,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 5.468864520666827,
+        "conditional_run_normalized_difference_gpa": 0.008864520666826081,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 3,
@@ -544,7 +681,9 @@
         "reported_pressure_gpa": 6.2700000000000005,
         "birch_abstract_thermal_increment_gpa": -0.00572,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 6.2781794241901165,
+        "conditional_run_normalized_difference_gpa": 0.00817942419011608,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 4,
@@ -556,7 +695,9 @@
         "reported_pressure_gpa": 6.91,
         "birch_abstract_thermal_increment_gpa": -0.00572,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 6.91952188962055,
+        "conditional_run_normalized_difference_gpa": 0.009521889620550006,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 5,
@@ -568,7 +709,9 @@
         "reported_pressure_gpa": 7.6000000000000005,
         "birch_abstract_thermal_increment_gpa": -0.00572,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 7.610927112657545,
+        "conditional_run_normalized_difference_gpa": 0.010927112657544313,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 6,
@@ -580,7 +723,9 @@
         "reported_pressure_gpa": 8.14,
         "birch_abstract_thermal_increment_gpa": -0.00572,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 8.14608254839792,
+        "conditional_run_normalized_difference_gpa": 0.006082548397920107,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 7,
@@ -592,7 +737,9 @@
         "reported_pressure_gpa": 3.18,
         "birch_abstract_thermal_increment_gpa": -0.00286,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 3.1774891435642605,
+        "conditional_run_normalized_difference_gpa": -0.0025108564357396723,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 8,
@@ -604,7 +751,9 @@
         "reported_pressure_gpa": 3.39,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 3.3884321572425606,
+        "conditional_run_normalized_difference_gpa": -0.001567842757439486,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 9,
@@ -616,7 +765,9 @@
         "reported_pressure_gpa": 3.25,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 3.2485164478445125,
+        "conditional_run_normalized_difference_gpa": -0.0014835521554874553,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 10,
@@ -628,7 +779,9 @@
         "reported_pressure_gpa": 4.04,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 4.036901542540579,
+        "conditional_run_normalized_difference_gpa": -0.0030984574594210557,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 11,
@@ -640,7 +793,9 @@
         "reported_pressure_gpa": 5.300000000000001,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 5.299528068521249,
+        "conditional_run_normalized_difference_gpa": -0.000471931478752019,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 12,
@@ -652,7 +807,9 @@
         "reported_pressure_gpa": 5.890000000000001,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 5.8897814280210845,
+        "conditional_run_normalized_difference_gpa": -0.00021857197891606006,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 13,
@@ -664,7 +821,9 @@
         "reported_pressure_gpa": 6.890000000000001,
         "birch_abstract_thermal_increment_gpa": 0.2145,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 6.892353393038237,
+        "conditional_run_normalized_difference_gpa": 0.002353393038236007,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 14,
@@ -676,7 +835,9 @@
         "reported_pressure_gpa": 3.4000000000000004,
         "birch_abstract_thermal_increment_gpa": 0.5005000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 3.4011183370575298,
+        "conditional_run_normalized_difference_gpa": 0.001118337057529395,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 15,
@@ -688,7 +849,9 @@
         "reported_pressure_gpa": 4.3,
         "birch_abstract_thermal_increment_gpa": 0.5005000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 4.295283343895507,
+        "conditional_run_normalized_difference_gpa": -0.004716656104492678,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 16,
@@ -700,7 +863,9 @@
         "reported_pressure_gpa": 5.510000000000001,
         "birch_abstract_thermal_increment_gpa": 0.5005000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 5.50453178293518,
+        "conditional_run_normalized_difference_gpa": -0.005468217064820813,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 17,
@@ -712,7 +877,9 @@
         "reported_pressure_gpa": 6.09,
         "birch_abstract_thermal_increment_gpa": 0.5005000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 6.087532983624954,
+        "conditional_run_normalized_difference_gpa": -0.0024670163750455387,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 18,
@@ -724,7 +891,9 @@
         "reported_pressure_gpa": 7.140000000000001,
         "birch_abstract_thermal_increment_gpa": 0.5005000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 7.1392508332783144,
+        "conditional_run_normalized_difference_gpa": -0.0007491667216861231,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 19,
@@ -736,7 +905,9 @@
         "reported_pressure_gpa": 3.38,
         "birch_abstract_thermal_increment_gpa": 0.7865000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 3.381102311206268,
+        "conditional_run_normalized_difference_gpa": 0.0011023112062682472,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 20,
@@ -748,7 +919,9 @@
         "reported_pressure_gpa": 4.41,
         "birch_abstract_thermal_increment_gpa": 0.7865000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 4.408322790430366,
+        "conditional_run_normalized_difference_gpa": -0.0016772095696344635,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 21,
@@ -760,7 +933,9 @@
         "reported_pressure_gpa": 5.73,
         "birch_abstract_thermal_increment_gpa": 0.7865000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 5.728252515163219,
+        "conditional_run_normalized_difference_gpa": -0.0017474848367813323,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 22,
@@ -772,7 +947,9 @@
         "reported_pressure_gpa": 6.420000000000001,
         "birch_abstract_thermal_increment_gpa": 0.7865000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 6.414813034424746,
+        "conditional_run_normalized_difference_gpa": -0.005186965575254554,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 23,
@@ -784,7 +961,9 @@
         "reported_pressure_gpa": 7.33,
         "birch_abstract_thermal_increment_gpa": 0.7865000000000001,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 7.332500164598991,
+        "conditional_run_normalized_difference_gpa": 0.0025001645989908283,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 24,
@@ -796,7 +975,9 @@
         "reported_pressure_gpa": 3.38,
         "birch_abstract_thermal_increment_gpa": 1.0725,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 3.37876220549954,
+        "conditional_run_normalized_difference_gpa": -0.001237794500459799,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 25,
@@ -808,7 +989,9 @@
         "reported_pressure_gpa": 4.6000000000000005,
         "birch_abstract_thermal_increment_gpa": 1.0725,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 4.597946029280975,
+        "conditional_run_normalized_difference_gpa": -0.0020539707190252443,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 26,
@@ -820,7 +1003,9 @@
         "reported_pressure_gpa": 5.920000000000001,
         "birch_abstract_thermal_increment_gpa": 1.0725,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 5.921529059746125,
+        "conditional_run_normalized_difference_gpa": 0.0015290597461241617,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 27,
@@ -832,7 +1017,9 @@
         "reported_pressure_gpa": 6.740000000000001,
         "birch_abstract_thermal_increment_gpa": 1.0725,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 6.7394786294165625,
+        "conditional_run_normalized_difference_gpa": -0.0005213705834385962,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 28,
@@ -844,7 +1031,9 @@
         "reported_pressure_gpa": 7.53,
         "birch_abstract_thermal_increment_gpa": 1.0725,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 7.529400969008152,
+        "conditional_run_normalized_difference_gpa": -0.0005990309918484371,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 29,
@@ -856,7 +1045,9 @@
         "reported_pressure_gpa": 3.44,
         "birch_abstract_thermal_increment_gpa": 1.3585,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 3.441012211275572,
+        "conditional_run_normalized_difference_gpa": 0.0010122112755719392,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 30,
@@ -868,7 +1059,9 @@
         "reported_pressure_gpa": 4.84,
         "birch_abstract_thermal_increment_gpa": 1.3585,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 4.835047388048138,
+        "conditional_run_normalized_difference_gpa": -0.004952611951861918,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 31,
@@ -880,7 +1073,9 @@
         "reported_pressure_gpa": 6.170000000000001,
         "birch_abstract_thermal_increment_gpa": 1.3585,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 6.171694223743551,
+        "conditional_run_normalized_difference_gpa": 0.0016942237435504381,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 32,
@@ -892,7 +1087,9 @@
         "reported_pressure_gpa": 7.370000000000001,
         "birch_abstract_thermal_increment_gpa": 1.3585,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 7.370948868766255,
+        "conditional_run_normalized_difference_gpa": 0.0009488687662537743,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 33,
@@ -904,7 +1101,9 @@
         "reported_pressure_gpa": 7.71,
         "birch_abstract_thermal_increment_gpa": 1.3585,
         "outside_birch_abstract_temperature_range": false,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 7.712266790288839,
+        "conditional_run_normalized_difference_gpa": 0.00226679028883936,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 34,
@@ -916,7 +1115,9 @@
         "reported_pressure_gpa": 3.3600000000000003,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 3.3596853440146273,
+        "conditional_run_normalized_difference_gpa": -0.00031465598537305794,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 35,
@@ -928,7 +1129,9 @@
         "reported_pressure_gpa": 4.95,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 4.9520691292926875,
+        "conditional_run_normalized_difference_gpa": 0.0020691292926873217,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 36,
@@ -940,7 +1143,9 @@
         "reported_pressure_gpa": 6.36,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 6.363589039601809,
+        "conditional_run_normalized_difference_gpa": 0.0035890396018087856,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 37,
@@ -952,7 +1157,9 @@
         "reported_pressure_gpa": 7.51,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 7.509626292046573,
+        "conditional_run_normalized_difference_gpa": -0.00037370795342717145,
+        "replay_kind": "conditional_run_normalized"
       },
       {
         "source_row_index": 38,
@@ -964,7 +1171,9 @@
         "reported_pressure_gpa": 7.890000000000001,
         "birch_abstract_thermal_increment_gpa": 1.6445,
         "outside_birch_abstract_temperature_range": true,
-        "independently_replayed_pressure_gpa": null
+        "independently_replayed_pressure_gpa": 7.887279639286847,
+        "conditional_run_normalized_difference_gpa": -0.0027203607131536245,
+        "replay_kind": "conditional_run_normalized"
       }
     ],
     "table2_calibrant_reference_anchors": [

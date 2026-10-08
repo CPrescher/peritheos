@@ -11,9 +11,16 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import least_squares
 
+from scripts.birch_1986_nacl import (
+    SOURCE,
+    WALKER_B2_ANCHORS,
+    normalized_pressure,
+    table5_check,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/data/walker-2002-reproduction.json"
-BIRCH_THERMAL_GPA_K = 0.00286  # Birch (1986), original publisher abstract
+BIRCH_THERMAL_GPA_K = 0.00286  # Birch (1986), original Equation 8
 BIRCH_REFERENCE_K = 298.15  # 25 Celsius; distinct from Walker's KCl reference
 
 
@@ -44,7 +51,7 @@ def fit_metrics(prediction, observed):
 
 
 def paired_inputs(rows, file_column):
-    """Only known thermal increments; a full independent replay is blocked."""
+    """Preserve inputs; B2 adds a conditional replay from printed run anchors."""
     result = []
     for index, row in enumerate(rows):
         temperature = float(row["temperature_celsius"]) + 273.15
@@ -68,7 +75,32 @@ def paired_inputs(rows, file_column):
                 "outside_birch_abstract_temperature_range": (
                     temperature < 298.15 or temperature > 773.15
                 ),
-                "independently_replayed_pressure_gpa": None,
+                "independently_replayed_pressure_gpa": (
+                    float(
+                        normalized_pressure(
+                            float(row["nacl_lattice_a_angstrom"]),
+                            temperature,
+                            WALKER_B2_ANCHORS[0 if index < 7 else 1],
+                        )
+                    )
+                    if file_column == "nacl_file"
+                    else None
+                ),
+                "conditional_run_normalized_difference_gpa": (
+                    float(
+                        normalized_pressure(
+                            float(row["nacl_lattice_a_angstrom"]),
+                            temperature,
+                            WALKER_B2_ANCHORS[0 if index < 7 else 1],
+                        )
+                    )
+                    - printed_pressure
+                    if file_column == "nacl_file" and printed_pressure is not None
+                    else None
+                ),
+                "replay_kind": "conditional_run_normalized"
+                if file_column == "nacl_file"
+                else "not_replayed",
             }
         )
     return result
@@ -81,33 +113,36 @@ def reproduce():
     v = values(b1, "b1_kcl_cell_volume_a3")
     p = values(b1, "pressure_kbar") * 0.1
     dt = values(b1, "temperature_celsius") + 273.15 - 296.15
-    shape = bm3(v, 249.53, 1, 5)
+    selected_v0 = 37.50 * 4e24 / 6.02214076e23
+    shape = bm3(v, selected_v0, 1, 5)
     design = np.column_stack((shape, dt))
     fitted = np.linalg.lstsq(design, p, rcond=None)[0]
     nonlinear = least_squares(
-        lambda z: bm3(v, 249.53, z[0], 5) + z[0] * z[1] * dt - p,
+        lambda z: bm3(v, selected_v0, z[0], 5) + z[0] * z[1] * dt - p,
         [17.7, 0.00011],
         xtol=1e-13,
         ftol=1e-13,
         gtol=1e-13,
     )
-    literal_shape = bm3(v, 249.53, 1, 5, literal_printed_signs=True)
+    literal_shape = bm3(v, selected_v0, 1, 5, literal_printed_signs=True)
     literal_design = np.column_stack((literal_shape, dt))
     literal = np.linalg.lstsq(literal_design, p, rcond=None)[0]
     published = shape * 17.7 + 0.00195 * dt
     # Figure 1 prints 37.50 cm3/mol, inconsistent with Tables 1/3's 249.53 A3.
-    # This is a separate source-backed sensitivity case, not a catalog change.
+    # Figure 1 is the explicit catalog choice; preserve the table alternative.
     figure_v0 = 37.50 * 4e24 / 6.02214076e23
     figure_shape = bm3(v, figure_v0, 1, 5)
     figure_design = np.column_stack((figure_shape, dt))
     figure_fit = np.linalg.lstsq(figure_design, p, rcond=None)[0]
+    table_design = np.column_stack((bm3(v, 249.53, 1, 5), dt))
+    table_fit = np.linalg.lstsq(table_design, p, rcond=None)[0]
     b1_result = {
         "observations": len(b1),
         "source_row_indices": [
             i for i, r in enumerate(b1_all) if r["included_in_fit"] == "1"
         ],
         "objective": "unweighted sum of squared pressure residuals; Walker page 808",
-        "fixed_parameters": {"V0": 249.53, "K0_prime": 5, "Tr": 296.15},
+        "fixed_parameters": {"V0": selected_v0, "K0_prime": 5, "Tr": 296.15},
         "joint_fitted_parameters": {
             "K0": float(fitted[0]),
             "alpha_KT": float(fitted[1]),
@@ -145,8 +180,12 @@ def reproduce():
             "Tables 1/3's 249.53 A3 (37.57 cm3/mol). This volume choice "
             "recovers K0 to printed rounding and beta within its printed "
             "error width, but the author workbook is unavailable; no exact "
-            "solver-input or uncertainty parity is established. Table-based "
-            "catalog reference volume remains unchanged.",
+            "solver-input or uncertainty parity is established. Figure 1 is the "
+            "explicitly selected catalog reference volume; raw tables are unchanged.",
+        },
+        "table_reference_volume_diagnostic": {
+            "conventional_cell_V0_a3": 249.53,
+            **fit_metrics(table_design @ table_fit, p),
         },
         "status": "similar_not_exact",
         "qualification": "Joint fit follows the stated objective and fixed B1 inputs. "
@@ -198,16 +237,13 @@ def reproduce():
         },
         "nacl_pressure_replay": {
             "ancestry": "Walker page 806: Birch (1986) NaCl-B1 BE2 thermal EOS, both phases",
-            "status": "blocked_missing_verified_reference_parameters",
+            "status": "conditional_run_normalized_replay",
+            "birch_source": SOURCE,
+            "birch_table5_check": table5_check(),
             "reference_temperature_k": BIRCH_REFERENCE_K,
             "thermal_coefficient_gpa_per_k": BIRCH_THERMAL_GPA_K,
-            "thermal_evidence": "Birch original publisher abstract; DOI 10.1029/JB091iB05p04949",
-            "qualification": "Known thermal increment is only one term of the scale. "
-            "No independent full pressure is calculated without the adjusted 25 Celsius "
-            "BE2 coefficients and verified volume/reference normalization. Thermal "
-            "increments are neither observations nor a ready dataset reduction. "
-            "Bracketed ambient pressures in Table 1 are imposed zeroes. "
-            "600 Celsius lies outside the abstract's 25-500 Celsius domain.",
+            "thermal_evidence": "Birch (1986) original Equation 8 and Tables 5-6",
+            "qualification": "Adjusted 25 Celsius coefficients are now verified. B2 replay assumes each loading is normalized to its separate printed zero-pressure NaCl anchor at its actual 23/24 Celsius temperature; no coefficients are fit to Walker pressures. The author normalization, unrounded inputs and uncertainty propagation remain unverified. B1 pressure replay is not supplied because its ambient/36 Celsius anchors need separate treatment. No ready dataset reduction is registered. 600 Celsius extrapolates beyond Birch's 25-500 Celsius construction.",
             "table1_rows": paired_inputs(b1_all, "spectrum"),
             "table2_rows": paired_inputs(b2, "nacl_file"),
             "table2_calibrant_reference_anchors": [

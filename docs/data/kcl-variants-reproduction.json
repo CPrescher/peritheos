@@ -204,23 +204,23 @@
   },
   "kcl_b1_walker_2002_bm3_linear_thermal": {
     "fitted_parameters": {
-      "K0": 17.18012993682163,
-      "alpha_KT": 0.0018721693153050372
+      "K0": 17.683421849750918,
+      "alpha_KT": 0.001927145871094727
     },
     "free_parameters": [
       "K0",
       "alpha_KT"
     ],
-    "native_max_difference_gpa": 7.771561172376096e-15,
+    "native_max_difference_gpa": 1.3766765505351941e-14,
     "observations": 23,
     "published": {
-      "max_absolute_residual_gpa": 0.1909234771425301,
-      "rmse_gpa": 0.0738784298749698
+      "max_absolute_residual_gpa": 0.15196885624256806,
+      "rmse_gpa": 0.05443362976268607
     },
-    "qualification": "Fixed V0=249.53 conventional-cell A3 (Z=4), K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 differs by 2.94%, alpha_KT by 3.99%; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.",
+    "qualification": "Fixed Figure 1 V0=37.50 cm3/mol=249.0808601 conventional-cell A3 (Z=4); Tables 1/3 retain the conflicting 249.53 A3, K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 rounds to 17.7 GPa; alpha_KT differs by 1.17%, within its printed error width; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.",
     "refit": {
-      "max_absolute_residual_gpa": 0.14519854134962018,
-      "rmse_gpa": 0.060636076553038334
+      "max_absolute_residual_gpa": 0.14490412317044887,
+      "rmse_gpa": 0.05382736372911785
     },
     "selection": "23 measured Table 1 KCl states; exclude six NaCl-only checks and one derived V0 anchor",
     "total_source_rows": 30

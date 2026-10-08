@@ -22,6 +22,8 @@ from scipy.constants import Avogadro, Boltzmann, R, hbar
 from scipy.integrate import quad
 from scipy.optimize import brentq, least_squares
 
+from scripts.birch_1986_nacl import WALKER_B2_ANCHORS
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
 RECORD_ID = "kcl_b2_ma_2024_bm3_mgd"
@@ -363,6 +365,17 @@ def walker_input_check():
         pt = matsui_nacl_pressure(cell, temperature) - p300
         kcl_increment = 0.00275 * (300.0 - temperature)
         corrected = p300 + pt + kcl_increment
+        anchor = WALKER_B2_ANCHORS[0 if row["run"] == "Run 1" else 1]
+        # Source-backed ambient anchor, not a fitted lattice correction.
+        reference_cell = brentq(
+            lambda v: matsui_nacl_pressure(v, anchor["temperature_k"]), 178.0, 181.0
+        )
+        normalized_cell = (
+            lattice / anchor["nacl_lattice_a_angstrom"]
+        ) ** 3 * reference_cell
+        normalized_corrected = (
+            matsui_nacl_pressure(normalized_cell, temperature) + kcl_increment
+        )
         # This inversion is a conditional diagnostic, not recovered source data.
         implied_lattice = brentq(
             lambda a: matsui_nacl_pressure(a**3) - row["matsui_300k_pressure_gpa"],
@@ -404,6 +417,12 @@ def walker_input_check():
                     "matsui_300k_pressure_gpa"
                 ],
                 "difference_gpa": float(corrected - row["matsui_300k_pressure_gpa"]),
+                "run_anchor": dict(anchor),
+                "run_normalized_nacl_cell_volume_a3": float(normalized_cell),
+                "run_normalized_kcl_300k_pressure_gpa": float(normalized_corrected),
+                "run_normalized_difference_gpa": float(
+                    normalized_corrected - row["matsui_300k_pressure_gpa"]
+                ),
             }
         )
     return {
@@ -411,8 +430,11 @@ def walker_input_check():
         "matsui_source_doi": "10.2138/am.2012.4136",
         "matsui_source_url": "https://rruff.info/doclib/am/vol97/AM97_1670.pdf",
         "method": "Matsui (2012) Equations 2 and 4-11, Table 2; conventional NaCl cell Z=4; Walker alphaKT=0.00275 GPa/K correction to 300 K.",
-        "status": "deposited_inputs_preserved_upstream_recalculation_not_reproduced",
-        "qualification": "Original Walker lattice observations do not reproduce Ma's deposited recalibrated pressures. Half a printed lattice digit cannot explain the difference; the implied lattice is conditional on direct Matsui evaluation at 300 K, not an inferred measurement. The actual correction prescription and upstream inputs remain unavailable. Preserve the deposited reductions in the source joint fit.",
+        "status": "conditional_run_normalized_reproduction",
+        "max_run_normalized_difference_gpa": max(
+            abs(r["run_normalized_difference_gpa"]) for r in results
+        ),
+        "qualification": "Direct absolute-volume evaluation misses Ma pressures. Normalizing each loading to its printed ambient NaCl anchor, mapped to zero pressure in Matsui at the actual anchor temperature, recovers all eight pressures within 0.0004 GPa, below printed-lattice rounding and source pressure errors. This supports run normalization but does not establish the exact author algorithm or uncertainty propagation. Preserve both diagnostics and the deposited reductions in the source joint fit.",
     }
 
 
@@ -551,7 +573,7 @@ def ledger_outcome(record):
         "kt_rmse_gpa": fitted["kt_rmse_gpa"],
         "solver_success": fitted["success"],
         "solver_message": "dedicated Ma acoustic/Walker diagnostic completed",
-        "qualification": "All three BM3 coefficients lie within their published error widths, but unknown source weights/error confidence/covariance prevent strict statistical parity. Gamma0/theta0 receive a separate Eq 13 acoustic diagnostic; high-temperature use is modeled. Direct upstream Walker recalibration remains unresolved. See the [Ma audit](literature-reproductions/ma-2024-kcl.md).",
+        "qualification": "All three BM3 coefficients lie within their published error widths, but unknown source weights/error confidence/covariance prevent strict statistical parity. Gamma0/theta0 receive a separate Eq 13 acoustic diagnostic; high-temperature use is modeled. Run-normalized upstream Walker recalibration is reproduced within printed-input precision; the exact algorithm and uncertainty propagation remain unverified. See the [Ma audit](literature-reproductions/ma-2024-kcl.md).",
         "source_grid_validation": audit["source_grid_validation"],
         "debye_temperature_fits": audit["debye_temperature_fits"],
         "upstream_recalibration_status": audit["walker_input_check"]["status"],

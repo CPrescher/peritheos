@@ -207,27 +207,41 @@ NaCl pressure at 296.15/297.15 K and adding Walker's KCl
 alphaKT=0.00275 GPa/K increment to 300 K, misses Ma's deposited pressures
 by 0.0443-0.1471 GPa. Seven Run 1 rows miss by about 0.044-0.064 GPa;
 the one Run 2 row misses by about 0.147 GPa. These differences are not
-explained by the tiny room-temperature correction alone. The precise
-upstream calculation and calibration inputs are unavailable. The printed
-NaCl lattice values have four decimals; a half-last-digit bound of ±0.00005 Å
-changes the computed pressure by at most 0.001661 GPa, much smaller than
-these discrepancies. Direct inversion of the deposited pressures at 300 K
-would require NaCl lattice shifts of about -0.00193 to -0.00199 Å for Run 1
-and -0.00700 Å for Run 2. These conditional shifts are **not recovered
-measurements** or an identified correction mechanism. The report separates
-NaCl and KCl temperature terms and retains measured temperatures.
+explained by the tiny room-temperature correction alone. The direct-volume
+comparison and its conditional inverse lattice shifts remain in the report.
+They are not recovered measurements. A half printed lattice digit (0.00005 A)
+changes the pressure by at most 0.001661 GPa, much smaller than this direct
+absolute-volume mismatch.
+
+The supplied original Birch paper closes the missing Walker reference-isotherm
+coefficient gap; see the [Walker audit](walker-2002-kcl.md). More importantly,
+Walker Table 2 prints separate zero-pressure NaCl anchors for its two loadings:
+Run 1 a=5.6414 A at 296.15 K, Run 2 a=5.6468 A at 297.15 K.
+For each run, solve Matsui's EOS for the zero-pressure cell volume at the
+actual anchor temperature, multiply it by `(a_observed/a_anchor)^3`, and
+calculate pressure at the observed temperature. Add Walker's B2
+0.00275*(300-T) GPa term to bring KCl to 300 K.
+
+This conditional, source-backed normalization recovers **all eight Ma
+pressures within 0.000377 GPa** (0.000269-0.000377 GPa residuals), below
+both printed-lattice rounding and the deposited pressure-error magnitudes.
+No reference lattice is fitted to Ma. It supports run normalization as the
+missing step, without establishing the authors' exact algorithm, temperature
+rounding or uncertainty propagation. The numerical report preserves direct
+and normalized calculations alongside the original deposited reductions.
+The Figure 1 reference-volume choice is for B1 KCl and does not alter these
+B2 observations or their Matsui recalibration.
 
 The independent Matsui implementation is checked against eleven printed
 primary Table 1 pressure/relative-volume benchmarks at 300, 473 and 673 K,
 using a 0.02 GPa tolerance for rounded table coordinates. Its reference is
 179.425 Å³ per conventional NaCl cell (Z=4), with a 300 K thermal baseline;
-KCl's conventional B2 cell has Z=1. No cause, correction, or exact upstream
-reproduction is asserted.
+KCl's conventional B2 cell has Z=1. The exact author algorithm and uncertainty propagation remain unverified.
 
-Both the author-deposited input and this independently computed diagnostic
+The author-deposited input and both independently computed diagnostics
 remain visible. The joint reproduction uses the deposited input, so it
-establishes numerical recovery from Ma's final reduced dataset, not full
-reproduction of every upstream calibration step. Matsui's NaCl EOS is used
+establishes numerical recovery from Ma's final reduced dataset, with a separate qualified upstream pressure reproduction at printed-input
+precision. It does not establish every upstream uncertainty calculation. Matsui's NaCl EOS is used
 only in the audit and is not added to the catalog in this change.
 
 ## Model-grid checks and coverage
@@ -271,7 +285,9 @@ round trips. Generic catalog and scientific-ledger checks cover the addition.
 
 1. Which NaCl lattice inputs, reference volume, temperature convention and
    correction sequence generated the eight Matsui-recalibrated S1 pressures,
-   especially the Run 2 anchor r35189/r35193? Were inputs adjusted or supplied
+   does the source-backed run-normalization prescription above match the
+   actual spreadsheet? r35189/r35193 is the Run 2 sample pair, while r35101
+   is its ambient NaCl anchor. Were inputs adjusted or supplied
    at precision beyond Walker's printed Table 2?
 2. Should Equation 9 use hbar/kB and two atoms per formula unit, as the
    deposited Debye temperatures numerically indicate?

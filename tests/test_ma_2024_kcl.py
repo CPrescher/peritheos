@@ -234,12 +234,10 @@ def test_acoustic_debye_reduction_and_thermal_stage_expose_printed_eq9_discrepan
 
 def test_original_walker_pairs_are_retained_without_claiming_upstream_parity():
     audit = walker_input_check()
-    assert (
-        audit["status"]
-        == "deposited_inputs_preserved_upstream_recalculation_not_reproduced"
-    )
+    assert audit["status"] == "conditional_run_normalized_reproduction"
     rows = audit["rows"]
     assert len(rows) == 8
+    assert audit["max_run_normalized_difference_gpa"] < 0.0004
     assert rows[0]["nacl_file"] == "r35189"
     assert rows[0]["kcl_file"] == "r35193"
     assert rows[0]["difference_gpa"] == pytest.approx(-0.147057334, abs=1e-8)
@@ -253,6 +251,17 @@ def test_original_walker_pairs_are_retained_without_claiming_upstream_parity():
         assert (
             round(original["kcl_molar_volume_from_original_cell_cm3_mol"], 4)
             == deposited["molar_volume_cm3_mol"]
+        )
+        assert (
+            abs(original["run_normalized_difference_gpa"])
+            < deposited["matsui_pressure_error_gpa"]
+        )
+        assert (
+            abs(original["run_normalized_difference_gpa"])
+            < original["printed_lattice_half_digit_pressure_bound_gpa"]
+        )
+        assert original["run_anchor"]["nacl_file"] == (
+            "r34439" if deposited["run"] == "Run 1" else "r35101"
         )
         assert original["source_temperature_k"] == deposited["source_temperature_k"]
         assert original["printed_lattice_half_digit_pressure_bound_gpa"] < 0.0017

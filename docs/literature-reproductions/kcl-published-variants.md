@@ -18,7 +18,7 @@ confidence remain unavailable. No diagnostic refit replaces published values.
 ## Walker (2002): B1 thermal EOS
 
 [Walker et al., American Mineralogist 87, 805-812](https://doi.org/10.2138/am-2002-0701),
-Tables 1 and 3, specifies the conventional B1 cell, Z=4, V0=249.53 A3,
+Tables 1 and 3, specifies the conventional B1 cell, Z=4, the conflicting tabulated V0=249.53 A3,
 K0=177 kbar=17.7 GPa and fixed K0'=5. The reference is 23 Celsius=296.15 K.
 The abstract reports alpha0*K0=0.0195(5) kbar/K, represented as
 0.00195 +/- 0.00005 GPa/K; using rounded Table 3 alpha0=0.00011 instead
@@ -35,16 +35,19 @@ NaCl BE2 thermal equation of Birch (1986), explicitly identified on page 806.
 Its exact equation is not bundled here; paired NaCl lattice values are retained.
 The [Walker follow-up](walker-2002-kcl.md) verifies this ancestry for both
 B1 and B2 directly, recovers the original pressure-residual objective and
-Excel Solver attribution, and records the remaining Birch reference-model
-and exact author-reproduction gaps.
+Excel Solver attribution, and recovers the original Birch reference coefficients and conditional run-normalized
+pressure replay, with exact author-reproduction gaps documented.
 The ESDs are spectrum-fitting errors, with no additional NaCl-EOS or temperature
 error. The thermally derived V0 has no fabricated uncertainty.
 
-The complete unweighted joint fit holds V0 and K0' fixed and yields
-K0=17.1801 GPa and alpha_KT=0.00187217 GPa/K, RMSE=0.06064 GPa.
-The published curve gives RMSE=0.07388 GPa. Differences of 2.94% and 3.99%
-are close under the declared 5% diagnostic criterion, but exact coefficient
-and uncertainty parity are not established. Page 808 specifies the joint
+The selected reference now follows Figure 1: 37.50 cm3/mol, or
+249.080860076 A3 per conventional Z=4 cell. The raw tabulated anchor remains
+249.53 A3. At the Figure reference, the complete unweighted joint fit holds
+V0 and K0' fixed and yields K0=17.68342 GPa and alpha_KT=0.001927146 GPa/K,
+RMSE=0.05382736 GPa. The published curve gives RMSE=0.05443363 GPa.
+K0 rounds to the published value; beta differs by 1.17%, within its printed
+error width. Exact solver and uncertainty parity remain unverified.
+Page 808 specifies the joint
 pressure-residual objective; the B2 Table 3 staging footnote does not apply
 to B1. The [follow-up](walker-2002-kcl.md) documents the figure/table reference-
 volume discrepancy and remaining original Solver inputs. Table 1 also lacks enough room-temperature compression points

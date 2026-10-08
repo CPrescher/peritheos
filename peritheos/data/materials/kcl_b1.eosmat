@@ -170,7 +170,7 @@
    "eos": {
     "type": "BM3",
     "parameters": {
-     "V0": 249.53,
+     "V0": 249.08086007607702,
      "K0": 17.7,
      "K0_prime": 5.0
     },
@@ -189,7 +189,7 @@
     0,
     1.733
    ],
-   "notes": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
+   "notes": "Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
    "thermal": {
     "type": "LinearThermalPressure",
     "parameters": {
@@ -234,19 +234,19 @@
        "locator": "4949-4954"
       },
       "source_location": "Walker (2002), page 806, Experimental method: NaCl BE2 thermal form of Birch (1986)",
-      "notes": "BE2 is the quadratic reduced-strain form (Birch 1978 Table 1), not BM2. The 1986 adjusted coefficients are required."
+      "notes": "BE2 is the quadratic reduced-strain form, not BM2. Birch (1986) Table 6 final extended 25 Celsius row verifies K0=23.88 GPa, a=1.796, b=-5.00; Equation 8 supplies the thermal term."
      }
     ],
     "recalculation": {
      "status": "reference_eos_not_bundled",
-     "notes": "Original Walker final article, page 806, explicitly identifies the NaCl-B1 BE2 thermal EOS of Birch (1986) for both phases. Paired NaCl lattice observations and actual temperatures are available. The original Birch publisher abstract verifies the 25 degC reference and 0.0286 kbar/K thermal increment, but the adjusted reference-isotherm BE2 coefficients and exact volume/reference normalization remain unverified because full text is inaccessible. No executable scale link or independent complete pressure replay is claimed. See docs/literature-reproductions/walker-2002-kcl.md."
+     "notes": "Walker page 806 identifies Birch (1986) NaCl-B1 BE2. The supplied original Birch PDF verifies the adjusted reference-isotherm BE2 coefficients (Table 6: K0=23.88 GPa, a=1.796, b=-5.00) and Equation 8 thermal term 0.00286*(T-298.15) GPa. A conditional B2 replay using separate printed run anchors is bundled in the audit, but the exact volume/reference normalization, unrounded inputs and uncertainty propagation remain unverified. No executable catalog scale link or ready dataset reduction is registered. See docs/literature-reproductions/walker-2002-kcl.md."
     },
-    "notes": "Primary-source ancestry is identified; complete pressure replay remains unavailable."
+    "notes": "Primary-source ancestry and Birch coefficients are verified. B1 ambient/36 Celsius anchor handling and exact author reduction remain unverified."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "audit_date": "2026-10-08",
-    "note": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
+    "note": "Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
     "verified_fields": [
      "equation",
      "parameters",
@@ -262,9 +262,10 @@
      "locations": [
       "Tables 1 and 3",
       "Pages 806-808, Equation BE1",
-      "Abstract alpha0*K0"
+      "Abstract alpha0*K0",
+      "Figure 1, page 808: selected B1 V0=37.50 cm3/mol"
      ],
-     "finding": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region."
+     "finding": "Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region."
     },
     "primary_data_check": {
      "status": "bundled",
@@ -275,9 +276,10 @@
      "source_locations": [
       "Tables 1 and 3",
       "Pages 806-808, Equation BE1",
-      "Abstract alpha0*K0"
+      "Abstract alpha0*K0",
+      "Figure 1, page 808: selected B1 V0=37.50 cm3/mol"
      ],
-     "finding": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region."
+     "finding": "Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region."
     }
    },
    "temperature_ref": 296.15,
@@ -526,7 +528,7 @@
       "doi": "10.2138/am-2002-0701"
      },
      "source_location": "Walker page 806 methods; Table 1, page 806",
-     "notes": "Original Walker final article, page 806, explicitly identifies the NaCl-B1 BE2 thermal EOS of Birch (1986) for both phases. Paired NaCl lattice observations and actual temperatures are available. The original Birch publisher abstract verifies the 25 degC reference and 0.0286 kbar/K thermal increment, but the adjusted reference-isotherm BE2 coefficients and exact volume/reference normalization remain unverified because full text is inaccessible. No executable scale link or independent complete pressure replay is claimed. See docs/literature-reproductions/walker-2002-kcl.md."
+     "notes": "Walker page 806 identifies Birch (1986) NaCl-B1 BE2. The supplied original Birch PDF verifies the adjusted reference-isotherm BE2 coefficients (Table 6: K0=23.88 GPa, a=1.796, b=-5.00) and Equation 8 thermal term 0.00286*(T-298.15) GPa. A conditional B2 replay using separate printed run anchors is bundled in the audit, but the exact volume/reference normalization, unrounded inputs and uncertainty propagation remain unverified. No executable catalog scale link or ready dataset reduction is registered. See docs/literature-reproductions/walker-2002-kcl.md."
     }
    ]
   }

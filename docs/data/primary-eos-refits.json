@@ -23697,21 +23697,21 @@
       ],
       "debye_temperature_fits": {
         "reported_errors": {
-          "A_k": 1710.7862055137741,
-          "B_mol_cm3": 0.0590200496979652,
-          "gamma0": 1.9169712141899093,
+          "A_k": 1710.7862052515077,
+          "B_mol_cm3": 0.05902004969023801,
+          "gamma0": 1.9169712139389303,
           "q_fixed": 1.0,
           "qualification": "Diagnostic Eq 13 fit to all 11 reduced acoustic Debye values; source weights and covariance unknown. Uses the published V0 to map A,B to gamma0,theta0.",
-          "theta0_k": 251.57397939554787,
+          "theta0_k": 251.57397942012093,
           "weighted_by_reported_errors": true
         },
         "unweighted": {
-          "A_k": 1751.9607209727449,
-          "B_mol_cm3": 0.06025088757498749,
-          "gamma0": 1.9569488284355936,
+          "A_k": 1751.960720972745,
+          "B_mol_cm3": 0.0602508875749875,
+          "gamma0": 1.9569488284355938,
           "q_fixed": 1.0,
           "qualification": "Diagnostic Eq 13 fit to all 11 reduced acoustic Debye values; source weights and covariance unknown. Uses the published V0 to map A,B to gamma0,theta0.",
-          "theta0_k": 247.53253385108002,
+          "theta0_k": 247.53253385108,
           "weighted_by_reported_errors": false
         }
       },
@@ -23778,7 +23778,7 @@
       "primary_data_finding": "All 11 acoustic rows and eight recalibrated Walker input rows preserved with original errors and explicit modeled-pressure columns; 186 S3 and 371 S4 model rows separately bundled for validation.",
       "primary_data_status": "bundled",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024JB028819",
-      "qualification": "All three BM3 coefficients lie within their published error widths, but unknown source weights/error confidence/covariance prevent strict statistical parity. Gamma0/theta0 receive a separate Eq 13 acoustic diagnostic; high-temperature use is modeled. Direct upstream Walker recalibration remains unresolved. See the [Ma audit](literature-reproductions/ma-2024-kcl.md).",
+      "qualification": "All three BM3 coefficients lie within their published error widths, but unknown source weights/error confidence/covariance prevent strict statistical parity. Gamma0/theta0 receive a separate Eq 13 acoustic diagnostic; high-temperature use is modeled. Run-normalized upstream Walker recalibration is reproduced within printed-input precision; the exact algorithm and uncertainty propagation remain unverified. See the [Ma audit](literature-reproductions/ma-2024-kcl.md).",
       "record_identifier": "kcl_b2_ma_2024_bm3_mgd",
       "rmse_gpa": 0.028929592032841005,
       "selection": "11 measured acoustic-volume rows reduced to KT plus eight Matsui-2012-recalibrated Walker-2002 300 K P-V rows; S1 modeled pressures and S3-S4 grids excluded from all fits.",
@@ -23797,18 +23797,18 @@
           ],
           "meaning": "Reverse reconstruction of source grid precision only, not a refit of observations, source covariance, or selectable EOS. Published rounded coefficients remain authoritative.",
           "thermal_gamma0_theta0": [
-            1.9224554719645683,
-            250.8877146371014
+            1.9224554719999998,
+            250.88771463710177
           ],
-          "thermal_max_abs_residual_gpa": 1.4210854715202004e-14
+          "thermal_max_abs_residual_gpa": 1.5987211554602254e-14
         },
         "qualification": "Grids are independently deposited benchmarks, not fit observations. All inferred grid coefficients round to the published Table 1 values; their precision explains the small grid discrepancy.",
-        "thermal_max_abs_error_gpa": 0.013943133408838904,
+        "thermal_max_abs_error_gpa": 0.013943133609412683,
         "thermal_rows": 371
       },
       "source_notes": "Nondefault final published Table 1 BM3+MGD pressure scale. Uses 300 K thermal-energy subtraction and integrated-Gruneisen Debye law with q=1 and n=2. Source observations, reduced KT and Walker inputs, and modeled grids are separately identified. Marginal coefficient errors are preserved without assuming their confidence or reconstructing the missing source covariance. Published rounded coefficients remain unchanged despite diagnostic refit or grid-precision reconstruction.",
       "status": "similar",
-      "upstream_recalibration_status": "deposited_inputs_preserved_upstream_recalculation_not_reproduced"
+      "upstream_recalibration_status": "conditional_run_normalized_reproduction"
     },
     {
       "absolute_sigma": true,
@@ -23917,61 +23917,61 @@
       "observations": 23,
       "parameters": [
         {
-          "difference": -0.5198700631783701,
+          "difference": -0.016578150249081602,
           "parameter": "K0",
           "published": 17.7,
           "published_error": null,
-          "refit": 17.18012993682163,
+          "refit": 17.683421849750918,
           "refit_error": null,
-          "relative_difference": -0.02937119001007741,
+          "relative_difference": -0.0009366186581402035,
           "similar": true,
           "within_combined_2sigma": null
         },
         {
-          "difference": -7.78306846949627e-05,
+          "difference": -2.2854128905272844e-05,
           "parameter": "alpha_KT",
           "published": 0.00195,
           "published_error": 5e-05,
-          "refit": 0.0018721693153050372,
+          "refit": 0.001927145871094727,
           "refit_error": null,
-          "relative_difference": -0.039913171638442414,
+          "relative_difference": -0.011720066105268125,
           "similar": true,
           "within_combined_2sigma": null
         }
       ],
-      "primary_data_finding": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
+      "primary_data_finding": "Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.2138/am-2002-0701",
-      "published_rmse_gpa": 0.0738784298749698,
-      "reason": "Fixed V0=249.53 conventional-cell A3 (Z=4), K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 differs by 2.94%, alpha_KT by 3.99%; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.",
+      "published_rmse_gpa": 0.05443362976268607,
+      "reason": "Fixed Figure 1 V0=37.50 cm3/mol=249.0808601 conventional-cell A3 (Z=4); Tables 1/3 retain the conflicting 249.53 A3, K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 rounds to 17.7 GPa; alpha_KT differs by 1.17%, within its printed error width; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.",
       "record_identifier": "kcl_b1_walker_2002_bm3_linear_thermal",
       "reproduction": {
         "fitted_parameters": {
-          "K0": 17.18012993682163,
-          "alpha_KT": 0.0018721693153050372
+          "K0": 17.683421849750918,
+          "alpha_KT": 0.001927145871094727
         },
         "free_parameters": [
           "K0",
           "alpha_KT"
         ],
-        "native_max_difference_gpa": 7.771561172376096e-15,
+        "native_max_difference_gpa": 1.3766765505351941e-14,
         "observations": 23,
         "published": {
-          "max_absolute_residual_gpa": 0.1909234771425301,
-          "rmse_gpa": 0.0738784298749698
+          "max_absolute_residual_gpa": 0.15196885624256806,
+          "rmse_gpa": 0.05443362976268607
         },
-        "qualification": "Fixed V0=249.53 conventional-cell A3 (Z=4), K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 differs by 2.94%, alpha_KT by 3.99%; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.",
+        "qualification": "Fixed Figure 1 V0=37.50 cm3/mol=249.0808601 conventional-cell A3 (Z=4); Tables 1/3 retain the conflicting 249.53 A3, K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 rounds to 17.7 GPa; alpha_KT differs by 1.17%, within its printed error width; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.",
         "refit": {
-          "max_absolute_residual_gpa": 0.14519854134962018,
-          "rmse_gpa": 0.060636076553038334
+          "max_absolute_residual_gpa": 0.14490412317044887,
+          "rmse_gpa": 0.05382736372911785
         },
         "selection": "23 measured Table 1 KCl states; exclude six NaCl-only checks and one derived V0 anchor",
         "total_source_rows": 30
       },
-      "rmse_gpa": 0.060636076553038334,
+      "rmse_gpa": 0.05382736372911785,
       "selection": "23 measured Table 1 KCl states; exclude six NaCl-only checks and one derived V0 anchor",
       "solver_success": true,
-      "source_notes": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
+      "source_notes": "Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
       "status": "similar"
     },
     {

@@ -37,7 +37,7 @@ from scripts.audit_walker_2002 import (
             "kcl_b1",
             "kcl_b1_walker_2002_bm3_linear_thermal",
             "kcl_b1_walker_2002_table1_pvt",
-            {"V0": 249.53, "K0": 17.7, "K0_prime": 5},
+            {"V0": 37.50 * 4e24 / 6.02214076e23, "K0": 17.7, "K0_prime": 5},
             0.00195,
             0.00005,
         ),
@@ -73,7 +73,7 @@ def test_actual_temperature_and_volume_inputs_never_claim_complete_replay():
     result = reproduce()
     replay = result["nacl_pressure_replay"]
     assert replay["reference_temperature_k"] == 298.15
-    assert replay["status"] == "blocked_missing_verified_reference_parameters"
+    assert replay["status"] == "conditional_run_normalized_replay"
     for number, filename in (
         (1, "kcl-walker-2002-table1-pvt.csv"),
         (2, "kcl-walker-2002-table2-pvt.csv"),
@@ -94,10 +94,18 @@ def test_actual_temperature_and_volume_inputs_never_claim_complete_replay():
             assert row["outside_birch_abstract_temperature_range"] == (
                 temp < 25 or temp > 500
             )
-            assert row["independently_replayed_pressure_gpa"] is None
+            if number == 1:
+                assert row["independently_replayed_pressure_gpa"] is None
+            else:
+                assert isinstance(row["independently_replayed_pressure_gpa"], float)
+                assert row["replay_kind"] == "conditional_run_normalized"
     assert replay["table2_rows"][7]["temperature_k"] == 297.15
     assert replay["table2_calibrant_reference_anchors"][0]["nacl_file"] == "r34439"
     assert replay["table2_calibrant_reference_anchors"][1]["nacl_file"] == "r35101"
+    assert max(
+        abs(row["conditional_run_normalized_difference_gpa"])
+        for row in replay["table2_rows"]
+    ) < 0.011
 
 
 def test_b1_source_objective_and_figure_table_reference_disagreement():
@@ -114,10 +122,11 @@ def test_b1_source_objective_and_figure_table_reference_disagreement():
     assert figure["conventional_cell_V0_a3"] == pytest.approx(249.080860076)
     assert round(figure["K0"], 1) == 17.7
     assert abs(figure["alpha_KT"] - 0.00195) < 0.00005
-    assert figure["rmse_gpa"] < result["joint_refit"]["rmse_gpa"]
+    assert figure["rmse_gpa"] == pytest.approx(result["joint_refit"]["rmse_gpa"])
+    assert figure["rmse_gpa"] < result["table_reference_volume_diagnostic"]["rmse_gpa"]
     assert (
         get_eos_record("kcl_b1_walker_2002_bm3_linear_thermal").reference_volume
-        == 249.53
+        == pytest.approx(249.080860076)
     )
     literal = result["literal_printed_BE1_diagnostic"]
     assert abs(literal["K0"] - 17.7) > abs(fitted["K0"] - 17.7)

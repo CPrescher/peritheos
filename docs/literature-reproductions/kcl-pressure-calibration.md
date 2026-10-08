@@ -98,10 +98,12 @@ All 30 B1 entries and 39 paired B2 sample states preserve NaCl lattice a,
 pressure/ESDs, sample volumes and actual Celsius temperatures. The eight cold
 B2 rows comprise seven at 23 degC and one at 24 degC. The
 [dedicated Walker report](walker-2002-kcl.md) verifies the source objectives,
-reference-volume discrepancy and available Birch thermal increment, while
-leaving missing adjusted 1986 elastic coefficients, reference/run normalization
-and high-temperature treatment explicit. No complete independently replayed
-pressure or executable calibration edge is manufactured.
+selected Figure 1 B1 reference and recovered original Birch Table 6 coefficients
+and Equation 8. Conditional run-normalized replay matches all 39 B2 reported
+pressures within 0.011 GPa. Exact normalization and uncertainty propagation
+remain unverified, so no ready catalog calibration edge is registered.
+The [Ma audit](ma-2024-kcl.md) now reproduces all eight recalibrated cold B2
+pressures within 0.000377 GPa using the separate printed run anchors.
 
 The derived reference anchor and six B1 calibrant-only checks are retained as
 source evidence, not additional measured KCl residuals. Ma's room-temperature

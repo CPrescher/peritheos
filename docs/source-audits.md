@@ -156,7 +156,7 @@ The current collection contains 156 standalone reports.
 | Tsuchiya et al. (2004): MgSiO3 perovskite/post-perovskite phase transition | [`tsuchiya-2004-mgsio3-phase-transition.md`](literature-reproductions/tsuchiya-2004-mgsio3-phase-transition.md) |
 | Tsuchiya et al. (2004): MgSiO3 post-perovskite elasticity | [`tsuchiya-2004-post-perovskite-elasticity.md`](literature-reproductions/tsuchiya-2004-post-perovskite-elasticity.md) |
 | Vanpeteghem et al. (2002): delta-AlOOH | [`vanpeteghem-2002-delta-alooh.md`](literature-reproductions/vanpeteghem-2002-delta-alooh.md) |
-| Walker (2002): verified NaCl ancestry and remaining reproduction limits | [`walker-2002-kcl.md`](literature-reproductions/walker-2002-kcl.md) |
+| Walker (2002): Figure 1 reference and recovered Birch calibration | [`walker-2002-kcl.md`](literature-reproductions/walker-2002-kcl.md) |
 | Wang (1996) and Shim (2002) experimental data recovery | [`casio3-wang-1996-shim-2002-recovery.md`](literature-reproductions/casio3-wang-1996-shim-2002-recovery.md) |
 | Wang and Weidner (1994): room-temperature CaSiO3 perovskite BM2 | [`wang-weidner-1994-casio3.md`](literature-reproductions/wang-weidner-1994-casio3.md) |
 | Wang et al. (1996): CaSiO3 fit reproduction | [`wang-1996-casio3.md`](literature-reproductions/wang-1996-casio3.md) |

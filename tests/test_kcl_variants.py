@@ -28,11 +28,11 @@ def test_walker_b1_retains_all_source_rows_and_real_sample_selection():
     assert last["pressure_kbar"] == "2.10"
     assert last["included_in_fit"] == "0"
     record = get_eos_record(IDS[0])
-    assert record.reference_volume == 249.53
+    assert record.reference_volume == pytest.approx(249.080860076)
     assert record.reference_temperature == 296.15
-    assert record.pressure(249.53, 296.15) == pytest.approx(0, abs=1e-12)
+    assert record.pressure(record.reference_volume, 296.15) == pytest.approx(0, abs=1e-12)
     # Abstract's directly reported product; this is not rounded K0*alpha0.
-    assert record.pressure(249.53, 873.15, check_validity=False) == pytest.approx(
+    assert record.pressure(record.reference_volume, 873.15, check_validity=False) == pytest.approx(
         0.00195 * 577
     )
     # Independent off-reference measured Table 1 state, with propagated
@@ -132,7 +132,7 @@ def test_complete_chidester_vinet_fit_and_independent_equation_reproduction():
         assert result[identifier]["native_max_difference_gpa"] < 1e-9
         assert result[identifier].get("quadrature_max_difference_gpa", 0) < 1e-10
     assert c["refit"]["rmse_gpa"] < 1.3
-    assert result[IDS[0]]["fitted_parameters"]["K0"] == pytest.approx(17.18012994)
+    assert result[IDS[0]]["fitted_parameters"]["K0"] == pytest.approx(17.68342185)
     assert (
         "strict coefficient/uncertainty parity is not established"
         in result[IDS[0]]["qualification"]
