@@ -33,6 +33,10 @@ Temperatures and pressures remain raw Celsius and kbar in the data; the
 reproduction converts them to Kelvin and GPa. The source calibrant is the
 NaCl BE2 thermal equation of Birch (1986), explicitly identified on page 806.
 Its exact equation is not bundled here; paired NaCl lattice values are retained.
+The [Walker follow-up](walker-2002-kcl.md) verifies this ancestry for both
+B1 and B2 directly, recovers the original pressure-residual objective and
+Excel Solver attribution, and records the remaining Birch reference-model
+and exact author-reproduction gaps.
 The ESDs are spectrum-fitting errors, with no additional NaCl-EOS or temperature
 error. The thermally derived V0 has no fabricated uncertainty.
 

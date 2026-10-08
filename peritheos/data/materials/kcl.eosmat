@@ -437,8 +437,8 @@
       "locator": "805-812",
       "doi": "10.2138/am-2002-0701"
      },
-     "source_location": "Table 2, journal page 807",
-     "notes": "All 39 rows preserve measured NaCl lattice parameters, reported NaCl-derived pressure and temperature; eight are at 23 degC. Ma et al. (2024), DOI 10.1029/2024JB028819, section 3 attributes the original scale to Birch (1986) NaCl-B1 and recalculates only room-temperature rows on Matsui (2012), with a temperature correction. The original Walker methods text could not be retrieved in this recheck, and neither reference EOS is bundled. Exact scale attribution and executable ancestry remain unresolved pending the original article and reference-model verification. Missing calibrant observations are not the blocker. Do not apply the room-temperature recalibration to all 39 heated rows."
+     "source_location": "Walker page 806 methods; Table 2, page 807",
+     "notes": "Original Walker final article, page 806, explicitly identifies the NaCl-B1 BE2 thermal EOS of Birch (1986) for both phases. Paired NaCl lattice observations and actual temperatures are available. The original Birch publisher abstract verifies the 25 degC reference and 0.0286 kbar/K thermal increment, but the adjusted reference-isotherm BE2 coefficients and exact volume/reference normalization remain unverified because full text is inaccessible. No executable scale link or independent complete pressure replay is claimed. See docs/literature-reproductions/walker-2002-kcl.md."
     }
    ]
   },
@@ -1295,14 +1295,32 @@
    },
    "identifier": "kcl_walker_2002_bm3_2",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "All 39 rows preserve measured NaCl lattice parameters, reported NaCl-derived pressure and temperature; eight are at 23 degC. Ma et al. (2024), DOI 10.1029/2024JB028819, section 3 attributes the original scale to Birch (1986) NaCl-B1 and recalculates only room-temperature rows on Matsui (2012), with a temperature correction. The original Walker methods text could not be retrieved in this recheck, and neither reference EOS is bundled. Exact scale attribution and executable ancestry remain unresolved pending the original article and reference-model verification. Missing calibrant observations are not the blocker. Do not apply the room-temperature recalibration to all 39 heated rows."
-    },
+    "status": "partially_resolved",
     "audit_date": "2026-10-08",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl (B1)",
+      "reference": {
+       "authors": [
+        "Birch"
+       ],
+       "year": 1986,
+       "title": "Equation of state and thermodynamic parameters of NaCl to 300 kbar in the high-temperature domain",
+       "doi": "10.1029/JB091iB05p04949",
+       "source": "Journal of Geophysical Research",
+       "volume": "91",
+       "locator": "4949-4954"
+      },
+      "source_location": "Walker (2002), page 806, Experimental method: NaCl BE2 thermal form of Birch (1986)",
+      "notes": "BE2 is the quadratic reduced-strain form (Birch 1978 Table 1), not BM2. The 1986 adjusted coefficients are required."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Original Walker final article, page 806, explicitly identifies the NaCl-B1 BE2 thermal EOS of Birch (1986) for both phases. Paired NaCl lattice observations and actual temperatures are available. The original Birch publisher abstract verifies the 25 degC reference and 0.0286 kbar/K thermal increment, but the adjusted reference-isotherm BE2 coefficients and exact volume/reference normalization remain unverified because full text is inaccessible. No executable scale link or independent complete pressure replay is claimed. See docs/literature-reproductions/walker-2002-kcl.md."
+    },
+    "notes": "Primary-source ancestry is identified; complete pressure replay remains unavailable."
    },
    "scientific_validation": {
     "status": "primary_source_validated",

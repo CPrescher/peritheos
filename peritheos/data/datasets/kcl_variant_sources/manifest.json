@@ -10,9 +10,13 @@
       "doi": "10.2138/am-2002-0701",
       "local_pdf_sha256": "01585fbd045709f3c08516aeedb30dcb553aec1d3073542c5450a72a6c3ff4b6",
       "locations": [
+        "Experimental method, page 806: NaCl Birch (1986) BE2 ancestry for both phases",
         "Table 1, page 806",
-        "Table 3, page 809",
-        "Equation BE1, page 807"
+        "Equation BE1, page 807",
+        "Unweighted pressure residuals and Excel solver; B1 fixed inputs, page 808",
+        "Table 3 B2 staging footnote, page 809",
+        "Thermal products and correlation discussion, page 810",
+        "Figure 1, page 808: B1 V0=37.50 cm3/mol conflicts with Tables 1/3 37.57 cm3/mol"
       ]
     },
     {
@@ -41,6 +45,22 @@
         "Tables 1-2, pages 496-497",
         "Reference 5, page 499"
       ]
+    },
+    {
+      "doi": "10.1029/JB091iB05p04949",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/JB091iB05p04949",
+      "locations": [
+        "Original publisher abstract: P25(V) plus 0.0286 kbar/K*(t-25)"
+      ],
+      "access_status": "Abstract inspected; ePDF access denied without institutional/personal access on 2026-10-08; adjusted BE2 parameters unavailable."
+    },
+    {
+      "doi": "10.1029/JB083iB03p01257",
+      "local_pdf_sha256": "4461ec624cbd39f74af821d0302d3486a7ca82b8eede33921ec73b52c8f67770",
+      "locations": [
+        "Equations 8-9 and Table 1, page 1258: BE1/BE2 strain-polynomial definitions"
+      ],
+      "qualification": "1978 precursor confirms equation convention only; its coefficients are not substituted for the adjusted 1986 isotherm."
     }
   ],
   "tateno_pt_pairing_corrections": [

@@ -208,7 +208,7 @@
    "determination_method": "experimental",
    "parameter_provenance": {
     "determination_method": "Walker (2002), in-situ XRD with NaCl/Birch (1986) pressure reference and thermocouple temperatures.",
-    "V0": "Table 1 footnote and Table 3: thermally corrected 23 degC conventional B1 cell, held fixed.",
+    "V0": "Table 1 footnote and Table 3: thermally corrected 23 degC conventional B1 cell, held fixed. Figure 1 instead labels V0=37.50 cm3/mol (249.08086 A3 after Z=4 conversion); the source-backed diagnostic at that reference recovers K0 to printed rounding but does not establish the original solver input. The tabulated reference is preserved; see docs/literature-reproductions/walker-2002-kcl.md.",
     "K0": "Table 3 B1 This study row, 177 kbar converted to 17.7 GPa.",
     "K0_prime": "Page 808: fixed at representative 5 because the range cannot resolve it.",
     "alpha_KT": "Abstract: directly reported 0.0195 +/- 0.0005 kbar/K, converted by 0.1; Table 3 alpha0 is rounded.",
@@ -229,15 +229,19 @@
        "year": 1986,
        "title": "Equation of state and thermodynamic parameters of NaCl to 300 kbar in the high-temperature domain",
        "doi": "10.1029/JB091iB05p04949",
-       "source": "Journal of Geophysical Research"
+       "source": "Journal of Geophysical Research",
+       "volume": "91",
+       "locator": "4949-4954"
       },
-      "source_location": "Walker page 806: NaCl EOS BE2 thermal form of Birch (1986)"
+      "source_location": "Walker (2002), page 806, Experimental method: NaCl BE2 thermal form of Birch (1986)",
+      "notes": "BE2 is the quadratic reduced-strain form (Birch 1978 Table 1), not BM2. The 1986 adjusted coefficients are required."
      }
     ],
     "recalculation": {
      "status": "reference_eos_not_bundled",
-     "notes": "Paired NaCl lattice observations are retained. Exact Birch (1986) BE2 thermal reference is not linked to an executable record; no substitute NaCl scale is inferred."
-    }
+     "notes": "Original Walker final article, page 806, explicitly identifies the NaCl-B1 BE2 thermal EOS of Birch (1986) for both phases. Paired NaCl lattice observations and actual temperatures are available. The original Birch publisher abstract verifies the 25 degC reference and 0.0286 kbar/K thermal increment, but the adjusted reference-isotherm BE2 coefficients and exact volume/reference normalization remain unverified because full text is inaccessible. No executable scale link or independent complete pressure replay is claimed. See docs/literature-reproductions/walker-2002-kcl.md."
+    },
+    "notes": "Primary-source ancestry is identified; complete pressure replay remains unavailable."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -501,7 +505,30 @@
    "used_by_eos_records": [
     "kcl_b1_walker_2002_bm3_linear_thermal"
    ],
-   "notes": "Walker Table 1, journal page 806. All 30 printed entries, including one derived reference anchor and six calibrant-only spot checks. Only the 23 measured sample states are selected. ESDs describe spectrum-fitting errors; the source adds no NaCl EOS or temperature uncertainty. The derived V0 row is not an extra measurement."
+   "notes": "Walker Table 1, journal page 806. All 30 printed entries, including one derived reference anchor and six calibrant-only spot checks. Only the 23 measured sample states are selected. ESDs describe spectrum-fitting errors; the source adds no NaCl EOS or temperature uncertainty. The derived V0 row is not an extra measurement.",
+   "pressure_reductions": [
+    {
+     "eos_record": "kcl_b1_walker_2002_bm3_linear_thermal",
+     "status": "unresolved",
+     "reference": {
+      "authors": [
+       "Walker",
+       "Cranswick",
+       "Verma",
+       "Clark",
+       "Buhre"
+      ],
+      "year": 2002,
+      "title": "Thermal equations of state for B1 and B2 KCl",
+      "source": "American Mineralogist",
+      "volume": "87",
+      "locator": "805-812",
+      "doi": "10.2138/am-2002-0701"
+     },
+     "source_location": "Walker page 806 methods; Table 1, page 806",
+     "notes": "Original Walker final article, page 806, explicitly identifies the NaCl-B1 BE2 thermal EOS of Birch (1986) for both phases. Paired NaCl lattice observations and actual temperatures are available. The original Birch publisher abstract verifies the 25 degC reference and 0.0286 kbar/K thermal increment, but the adjusted reference-isotherm BE2 coefficients and exact volume/reference normalization remain unverified because full text is inaccessible. No executable scale link or independent complete pressure replay is claimed. See docs/literature-reproductions/walker-2002-kcl.md."
+    }
+   ]
   }
  ]
 }
