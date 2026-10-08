@@ -1,0 +1,227 @@
+{
+  "audit_date": "2026-10-08",
+  "campbell_1991": {
+    "exact_source_regression_reproduced": false,
+    "fits": {
+      "equal_normalized_stress_weights": {
+        "K02_gpa": 31.069865990240466,
+        "V02_over_V01": 0.8345818763548691,
+        "intercept_gpa": -1.3051969722040542,
+        "pressure_residuals": {
+          "max_absolute_residual_gpa": 2.4966411550009866,
+          "rmse_gpa": 1.435834532164081
+        },
+        "slope_gpa": 20.3751240729016,
+        "within_printed_parameter_error_widths": false
+      },
+      "pressure_and_volume_response_weights": {
+        "K02_gpa": 28.722804663297875,
+        "V02_over_V01": 0.8483304533712893,
+        "intercept_gpa": -1.1339128141826182,
+        "pressure_residuals": {
+          "max_absolute_residual_gpa": 3.3785423731208226,
+          "rmse_gpa": 1.5371272309605066
+        },
+        "slope_gpa": 19.56794920801807,
+        "within_printed_parameter_error_widths": true
+      },
+      "pressure_only_normalized_stress_weights": {
+        "K02_gpa": 28.75441825853191,
+        "V02_over_V01": 0.848327735771026,
+        "intercept_gpa": -1.1351757062719086,
+        "pressure_residuals": {
+          "max_absolute_residual_gpa": 3.321477309694167,
+          "rmse_gpa": 1.5299072663372049
+        },
+        "slope_gpa": 19.589340136087586,
+        "within_printed_parameter_error_widths": true
+      }
+    },
+    "observations": 14,
+    "published_BM2": {
+      "K02_gpa": 28.7,
+      "K02_prime": 4,
+      "V02_over_V01": 0.8483
+    },
+    "published_pressure_residuals": {
+      "max_absolute_residual_gpa": 3.4272348951158236,
+      "rmse_gpa": 1.5436731689425307
+    },
+    "qualification": "The source specifies weighted linear G-versus-g regression but not numerical weights, predictor-response covariance or parameter-error confidence. The two explicit response-weight choices recover both coefficients within printed widths. They are conditional diagnostics; volume error also affects g and correlates it with G, which these response-only fits do not model. Source pressure errors are spatial standard deviations of five readings, not standard errors of their mean. Conversion of the printed mean does not recover the mean of five nonlinearly converted readings. Raw rows and the published composite EOS are unchanged.",
+    "rows": [
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 2.2635712200391893,
+        "effective_strain_g": 0.08562827053944644,
+        "normalized_stress_G_gpa": 0.5074077674898004,
+        "reported_mean_mao1978_gpa": 2.26,
+        "run": "210789"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 4.695299035473926,
+        "effective_strain_g": 0.10603012345402751,
+        "normalized_stress_G_gpa": 0.9645263121055757,
+        "reported_mean_mao1978_gpa": 4.68,
+        "run": "140289"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 9.309655836939902,
+        "effective_strain_g": 0.1526857780098959,
+        "normalized_stress_G_gpa": 1.5837444829146061,
+        "reported_mean_mao1978_gpa": 9.25,
+        "run": "111188"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 10.98278162358446,
+        "effective_strain_g": 0.1556225031002978,
+        "normalized_stress_G_gpa": 1.845421708801396,
+        "reported_mean_mao1978_gpa": 10.9,
+        "run": "020389"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 13.72873247975596,
+        "effective_strain_g": 0.17537303366967416,
+        "normalized_stress_G_gpa": 2.13788024496824,
+        "reported_mean_mao1978_gpa": 13.6,
+        "run": "171188"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 16.178005541031524,
+        "effective_strain_g": 0.1810874962739536,
+        "normalized_stress_G_gpa": 2.4627281259890585,
+        "reported_mean_mao1978_gpa": 16.0,
+        "run": "060389"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 21.717752320573265,
+        "effective_strain_g": 0.19829034299046933,
+        "normalized_stress_G_gpa": 3.0947633101705785,
+        "reported_mean_mao1978_gpa": 21.4,
+        "run": "160689"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 22.232708161024952,
+        "effective_strain_g": 0.21942304245744992,
+        "normalized_stress_G_gpa": 2.9395916938886204,
+        "reported_mean_mao1978_gpa": 21.9,
+        "run": "181188"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 23.16048761379234,
+        "effective_strain_g": 0.22016900957711227,
+        "normalized_stress_G_gpa": 3.0524779194412375,
+        "reported_mean_mao1978_gpa": 22.8,
+        "run": "120689"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 31.455778092102125,
+        "effective_strain_g": 0.25131739361843575,
+        "normalized_stress_G_gpa": 3.709333352772099,
+        "reported_mean_mao1978_gpa": 30.8,
+        "run": "060489"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 37.418920590066755,
+        "effective_strain_g": 0.2616404672447462,
+        "normalized_stress_G_gpa": 4.248362763214668,
+        "reported_mean_mao1978_gpa": 36.5,
+        "run": "070489"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 45.22550781075591,
+        "effective_strain_g": 0.2984987337731245,
+        "normalized_stress_G_gpa": 4.540280629127976,
+        "reported_mean_mao1978_gpa": 43.9,
+        "run": "090489"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 51.18164560736095,
+        "effective_strain_g": 0.308316494812124,
+        "normalized_stress_G_gpa": 4.965412713658505,
+        "reported_mean_mao1978_gpa": 49.5,
+        "run": "120489"
+      },
+      {
+        "diagnostic_mean_coordinate_mao1986_gpa": 57.93184528579079,
+        "effective_strain_g": 0.31844170931214366,
+        "normalized_stress_G_gpa": 5.4258598376324345,
+        "reported_mean_mao1978_gpa": 55.8,
+        "run": "150489"
+      }
+    ],
+    "source_calibration": "ruby_mao_1978",
+    "source_location": "Experimental procedure, pages 495-496; reference 5, page 499",
+    "source_volume_basis": {
+      "B1_lattice_a_angstrom": 6.2931,
+      "B1_molar_volume_cm3_mol": 37.521,
+      "qualification": "Printed source normalizations; distinct from the executable Campbell-Dewaele composite V01=62.36 A3/formula unit."
+    }
+  },
+  "resource_sha256": {
+    "kcl-campbell-1991-table1-compression.csv": "91671aa26aa19fb20450bf708f260a0e6040c56af1e37d7834f7bbec42a0830f",
+    "kcl-tateno-2019-official-table-s1.csv": "f039369c2a8d695c6229f35f2ca8b045171f9bee389e6ad07e0c7d87fe9ea39f",
+    "kcl-tateno-2019-table-s1-pvt.csv": "a7e3f6307a851c993bd69cbb8a3c5c424f7e0000826dc7739d56a1d84f228ab1"
+  },
+  "tateno_2019": {
+    "coordinate_precision_sensitivity": {
+      "fits": {
+        "linear": {
+          "full_workbook_Pt_volume_fit": {
+            "K0": 17.554928390334098,
+            "K0_prime": 5.749003323377288,
+            "alpha_KT": 0.003211014863101239
+          },
+          "rounded_Pt_volume_only_fit": {
+            "K0": 17.537805405402718,
+            "K0_prime": 5.751739813931137,
+            "alpha_KT": 0.0032130054175883
+          },
+          "rounded_Pt_volume_only_residuals": {
+            "max_absolute_residual_gpa": 2.605704803900977,
+            "rmse_gpa": 0.7517258089622005
+          },
+          "solver_success": true
+        },
+        "mgd": {
+          "full_workbook_Pt_volume_fit": {
+            "K0": 17.49250943307562,
+            "K0_prime": 5.75758693915366,
+            "gamma0": 1.933684075678557,
+            "q": 0.7271590664130659
+          },
+          "rounded_Pt_volume_only_fit": {
+            "K0": 17.476042916654837,
+            "K0_prime": 5.760241483112409,
+            "gamma0": 1.9367208832008467,
+            "q": 0.7295214665853199
+          },
+          "rounded_Pt_volume_only_residuals": {
+            "max_absolute_residual_gpa": 2.564293904545167,
+            "rmse_gpa": 0.7429594757900873
+          },
+          "solver_success": true
+        }
+      },
+      "maximum_absolute_pressure_shift_gpa": 0.12374833088972537,
+      "qualification": "Only Pt volume is replaced by its corrected two-decimal transcription; source T and KCl volumes remain at workbook precision. Equal pressure weights in both cases. This is sensitivity to stored precision, not recovered author rounding or extra experimental precision."
+    },
+    "exact_source_regression_reproduced": false,
+    "observations": 39,
+    "outside_holmes_thermal_approximation_excel_rows": [
+      25,
+      27,
+      30,
+      32,
+      34,
+      47,
+      49
+    ],
+    "qualification": "Final article specifies simultaneous elastic/thermal fitting with fixed V0 and theta0, but names only the Holmes scale. Equation 12 versus full thermodynamic Pt reduction, any correction above 2000 K, author input precision, numerical weights and covariance remain unspecified. The official supplemental PDF is Figure S1 only. No Holmes pressure column, formulas, code or fit protocol are deposited in the inspected archive. Separate author Sokolova coordinates and conditional Holmes coordinates remain in the existing reproduction report.",
+    "workbook_package": {
+      "external_links": [],
+      "formula_cells": 0,
+      "sheets": [
+        "Sheet1"
+      ]
+    }
+  }
+}

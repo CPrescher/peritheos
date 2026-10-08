@@ -31,6 +31,16 @@
         "Table I",
         "Section III"
       ]
+    },
+    {
+      "doi": "10.1016/0022-3697(91)90181-X",
+      "local_pdf_sha256": "bba2946d8398c43dc5342f48073426d446a61508e0211fb72de1cae776eec2c5",
+      "access_route": "Existing local final publisher article; both local copies have identical hashes. Publisher/author-web attempts exposed only abstract or access challenge.",
+      "locations": [
+        "Experimental procedure, pages 495-496",
+        "Tables 1-2, pages 496-497",
+        "Reference 5, page 499"
+      ]
     }
   ],
   "tateno_pt_pairing_corrections": [
@@ -808,5 +818,62 @@
   "rights": {
     "source_terms": "Unspecified for deposited numerical workbook and observations; publisher article rights remain with their owners.",
     "contributor_dedication": "CC0 applies only to rights held by Peritheos contributors in transcription, normalization, metadata and arrangement."
-  }
+  },
+  "tateno_deposit_inventory": [
+    {
+      "archive_member": "AM-19-56779/.DS_Store",
+      "bytes": 6148,
+      "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "kind": "metadata"
+    },
+    {
+      "archive_member": "__MACOSX/AM-19-56779/._.DS_Store",
+      "bytes": 120,
+      "sha256": "7e942b8cc8dde6380e3fd99840cbf3f66011678a56744efdc9f9e16145a93892",
+      "kind": "metadata"
+    },
+    {
+      "archive_member": "AM-19-56779/6779_supp.pdf",
+      "bytes": 1640157,
+      "sha256": "0777af34a35d3d3838893a3b06ee92a19a3eb00e027d967106ecf9a99baadbd4",
+      "kind": "supplemental_figure_pdf"
+    },
+    {
+      "archive_member": "__MACOSX/AM-19-56779/._6779_supp.pdf",
+      "bytes": 243,
+      "sha256": "49b69738eebe1e23964ee8b72d67f879f3046c149d7dfd5aefcb745f06ed2114",
+      "kind": "metadata"
+    },
+    {
+      "archive_member": "AM-19-56779/6779TableS1 revised.xlsx",
+      "bytes": 19081,
+      "sha256": "89fa4f82774ea0d291bb1715bdd33c2389953becfac661398b84b02cfb814298",
+      "kind": "workbook"
+    },
+    {
+      "archive_member": "__MACOSX/AM-19-56779/._6779TableS1 revised.xlsx",
+      "bytes": 278,
+      "sha256": "a690fb768f85910e50b863079bccee72afba4a5dd5c45ae3b7b7b7580521ba87",
+      "kind": "metadata"
+    },
+    {
+      "archive_member": "AM-19-56779/~$6779TableS1 revised.xlsx",
+      "bytes": 165,
+      "sha256": "46accbd4b3b1e542f4db07e8817d81aa738f6b86bdaca8df863f9b4ff7cc0636",
+      "kind": "metadata"
+    },
+    {
+      "archive_member": "__MACOSX/AM-19-56779/._~$6779TableS1 revised.xlsx",
+      "bytes": 188,
+      "sha256": "fb808efd6cca8bf9f6b255b6a88a85bf43d11d89ae4d9a5dd6b030442cc98f06",
+      "kind": "metadata"
+    },
+    {
+      "archive_member": "__MACOSX/._AM-19-56779",
+      "bytes": 388,
+      "sha256": "2a7b70e228f72268601523273c73aa239310aa9a8d0afc321ea76e705816c126",
+      "kind": "metadata"
+    }
+  ],
+  "audit_date": "2026-10-08"
 }

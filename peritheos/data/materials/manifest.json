@@ -25,18 +25,18 @@
       "resolved": 217,
       "partially_resolved": 177,
       "not_applicable": 160,
-      "unresolved": 88
+      "unresolved": 87
     },
     "recalculation_counts": {
       "missing_calibrant_observations": 184,
       "not_applicable": 157,
-      "not_possible": 119,
+      "not_possible": 118,
       "ready": 121,
       "reference_eos_not_bundled": 54,
       "reference_model_not_supported": 7
     },
     "resolvable_reference_eos_uses": 103,
-    "resolvable_reference_calibration_uses": 117,
+    "resolvable_reference_calibration_uses": 118,
     "policy": "Exact EOS and ruby-scale links resolve to executable bundled records. Unsupported or ambiguous calibrations are recorded explicitly and are never replaced by an approximate pressure scale."
   }
 }

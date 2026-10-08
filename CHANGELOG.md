@@ -22,6 +22,12 @@ All notable changes to Peritheos are documented here. The project follows
   coefficients; document raw-wavelength and uncertainty gaps and unresolved
   Walker (2002) and Campbell-Heinz (1991) scale evidence.
 
+- Resolve Campbell-Heinz (1991) KCl pressure ancestry from its final methods as
+  Mao (1978) ruby fluorescence, retaining five-position mean pressures and their
+  spatial standard deviations. Add conditional source-regression and Tateno
+  Pt-coordinate precision diagnostics, complete deposit inventory and exact
+  remaining-source questions without changing published EOS values or raw data.
+
 - Add nondefault Walker (2002) B1, Tateno (2019) Holmes-Pt MGD/linear and
   Sokolova-Pt linear, and Chidester (2021) Vinet KCl EOS records with independent
   primary-table reproductions. Preserve complete Walker B1 and official Tateno

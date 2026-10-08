@@ -133,6 +133,13 @@ Equations 3-4 leave theta(V) implicit: its identification is a reproduction
 inference, not a verbatim explicit source formula. No full covariance or
 confidence interpretation of the printed errors is claimed.
 
+## Follow-up source audit
+
+The [Tateno-Holmes/Campbell-Heinz source-gap audit](kcl-tateno-campbell-source-gaps.md)
+checks the complete MSA deposit, quantifies Pt-volume precision sensitivity, and
+identifies Campbell's Mao (1978) ruby scale from its recovered final methods.
+Exact Tateno Holmes reduction and source regression weights remain unavailable.
+
 ## Rights and validation scope
 
 The source manifest separates original numerical data from contributor

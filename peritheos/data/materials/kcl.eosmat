@@ -237,13 +237,28 @@
      "name": "pressure_gpa",
      "quantity": "pressure",
      "unit": "GPa",
-     "role": "value"
+     "role": "value",
+     "pressure_scale": {
+      "calibration_record": "ruby_mao_1978",
+      "reference": {
+       "authors": [
+        "Campbell",
+        "Heinz"
+       ],
+       "year": 1991,
+       "source": "J. Phys. Chem. Solids",
+       "volume": "52",
+       "locator": "495-499",
+       "doi": "10.1016/0022-3697(91)90181-X"
+      },
+      "source_location": "Experimental procedure, pages 495-496; reference 5, page 499 (Mao et al. 1978)"
+     }
     },
     {
      "name": "pressure_uncertainty_gpa",
      "quantity": "pressure",
      "unit": "GPa",
-     "role": "bound",
+     "role": "standard_deviation",
      "of": "pressure_gpa"
     },
     {
@@ -256,7 +271,7 @@
      "name": "normalized_volume_uncertainty",
      "quantity": "volume_ratio",
      "unit": "1",
-     "role": "bound",
+     "role": "standard_deviation",
      "of": "normalized_volume"
     }
    ],
@@ -265,7 +280,7 @@
     "sha256": "91671aa26aa19fb20450bf708f260a0e6040c56af1e37d7834f7bbec42a0830f",
     "media_type": "text/csv"
    },
-   "notes": "The source normalizes volumes to the B1-KCl molar volume V0=37.521 cm^3 mol^-1. Parenthesized uncertainties apply to the last printed digits; no confidence level is assigned.",
+   "notes": "Table 1 normalizes volumes to the B1-KCl molar volume V01=37.521 cm^3/mol; the methods adopt B1 a0=6.2931 A (JCPDS). Pressures use Mao et al. (1978) ruby fluorescence (reference 5). Each pressure is the mean of five spatial readings; its uncertainty is their standard deviation, not the standard error of the mean. Volume uncertainties are standard deviations across diffraction-line volumes. No pressure medium was used. The five individual ruby readings, raw spectra, and coordinate covariance are not published. Parenthesized EOS parameter errors have no stated confidence convention.",
    "reference": {
     "authors": [
      "Campbell",
@@ -1101,19 +1116,39 @@
    "determination_method": "experimental",
    "identifier": "kcl_campbell_1991_bm2_1",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Bell",
+        "Shaner",
+        "Steinberg"
+       ],
+       "year": 1978,
+       "source": "J. Appl. Phys.",
+       "volume": "49",
+       "locator": "3276-3283",
+       "doi": "10.1063/1.325277"
+      },
+      "reference_calibration_record": "ruby_mao_1978",
+      "source_location": "Experimental procedure, pages 495-496; reference 5, page 499 (Mao et al. 1978)",
+      "scope": "All 14 room-temperature Table 1 mean pressures; five spatial readings per state"
+     }
+    ],
     "recalculation": {
-     "status": "not_possible",
+     "status": "ready",
      "notes": "All 14 printed sample P-V observations are bundled. The accessible primary abstract does not identify the exact pressure gauge or equation; primary methods evidence is still required before a scale or executable normalization edge can be assigned."
     },
     "audit_date": "2026-10-08",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "notes": "Primary methods explicitly cite Mao et al. (1978), not Mao et al. (1986). No pressure-transmitting medium. Source temperatures are described as room temperature; the existing 298 K model reference is unchanged."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-10-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1121,15 +1156,16 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1016/0022-3697(91)90181-X",
      "locations": [
-      "Campbell and Heinz (1991), primary abstract: B2/B1 V0 ratio, K0, fixed K0', and 2-56 GPa range",
+      "Campbell and Heinz (1991), final article: Experimental procedure, pages 495-496; Tables 1-2; reference 5, page 499",
       "Dewaele et al. (2012), Table III: experimental B1-KCl V0"
      ],
-     "finding": "This is an explicit two-primary-source composite. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 fixed. Multiplication by Dewaele et al.'s B1 V0=62.36 A^3/formula unit gives V0(B2)=52.899988 A^3. Because Dewaele et al. publish no V0 error, only the Campbell ratio error is propagated.",
+     "finding": "This is an explicit two-primary-source composite. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 fixed. Multiplication by Dewaele et al.'s B1 V0=62.36 A^3/formula unit gives V0(B2)=52.899988 A^3. Because Dewaele et al. publish no V0 error, only the Campbell ratio error is propagated. The full final article identifies the Mao et al. (1978) ruby calibration and five-position mean-pressure reduction. The source fits weighted normalized stress against effective strain; numerical weights and covariance remain unspecified.",
      "doi": "10.1016/0022-3697(91)90181-x"
     },
     "migration_source": {
@@ -1148,7 +1184,12 @@
       "Table 1, journal page 496"
      ],
      "finding": "All 14 B2-KCl compression observations printed in Table 1."
-    }
+    },
+    "unresolved_issues": [
+     "Individual spatial ruby readings and raw/reference wavelengths are absent; transform of their reported mean is not the mean of separately transformed readings.",
+     "Weighted G-versus-g regression is specified, but numerical weights, errors-in-variables treatment, fit covariance and parameter-error confidence are absent.",
+     "The executable record retains its explicit Campbell-Dewaele composite volume construction; the original source volume basis is preserved separately in the audit."
+    ]
    },
    "temperature_ref": 298.0,
    "parameter_provenance": {
@@ -2096,7 +2137,12 @@
       "Official MSA AM-19-56779 workbook"
      ],
      "finding": "Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed."
-    }
+    },
+    "unresolved_issues": [
+     "Final article names Holmes (1989), but does not identify Equation 12 versus the full thermodynamic implementation, its coefficients, or a correction above 2000 K.",
+     "Official AM-19-56779 archive contains only the revised S1 workbook and Figure S1 PDF (plus filesystem/Excel-lock metadata). The workbook has no formulas, fitting code, weights, covariance or Holmes-pressure column.",
+     "Full workbook decimals are preserved; original regression input precision, weighting and parameter-error confidence remain unknown."
+    ]
    },
    "default": false,
    "fit_datasets": [
@@ -2257,7 +2303,12 @@
       "Official MSA AM-19-56779 workbook"
      ],
      "finding": "Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed."
-    }
+    },
+    "unresolved_issues": [
+     "Final article names Holmes (1989), but does not identify Equation 12 versus the full thermodynamic implementation, its coefficients, or a correction above 2000 K.",
+     "Official AM-19-56779 archive contains only the revised S1 workbook and Figure S1 PDF (plus filesystem/Excel-lock metadata). The workbook has no formulas, fitting code, weights, covariance or Holmes-pressure column.",
+     "Full workbook decimals are preserved; original regression input precision, weighting and parameter-error confidence remain unknown."
+    ]
    },
    "default": false,
    "fit_datasets": [
