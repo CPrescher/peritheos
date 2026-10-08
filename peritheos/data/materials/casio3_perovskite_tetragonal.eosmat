@@ -154,7 +154,7 @@
      "pressure_calibration"
     ],
     "primary_source_check": {
-     "access_url": "https://geoweb.princeton.edu/archival/duffy/shim_grl_o2.pdf",
+     "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_et_al-2002-grl.pdf",
      "doi": "10.1029/2002gl016148",
      "locations": [
       "abstract",
@@ -164,15 +164,186 @@
      "finding": "Six diffraction images at 19.7-45.8 GPa support a source-owned BM3 fit with adopted V0 and K0' and fitted K0=255(5) GPa. Rows 408-409 in LitCurate are incomplete literature comparisons, not additional fits by this paper."
     },
     "primary_data_check": {
-     "status": "parameterization_and_figure_only",
-     "audit_date": "2026-09-06",
-     "finding": "The six pressures and plotted volume/c-axis-ratio observations appear in Figure 2, but numerical cell volumes are not tabulated; no pseudo-precision was introduced by digitizing the small four-page rendering."
+     "status": "plot_digitized",
+     "audit_date": "2026-10-08",
+     "dataset_identifiers": [
+      "casio3_perovskite_tetragonal_shim_2002_figure2a_digitized"
+     ],
+     "observation_count": 6,
+     "finding": "Six unique Figure 2a marker centers and plotted 1-sigma error-bar halfwidths recovered from the author-hosted vector PDF: five tetragonal refinements and the open cubic refinement at 19.7 GPa. Volumes derive from plotted V/V0 using the source-adopted V0=45.58 A3. These remain approximate plot-derived observations, not an original numerical table or original regression weights. The pressure observations use paragraph 7 printed values; digitized horizontal readings remain separate."
+    },
+    "figure_digitization_check": {
+     "status": "qualified_numerical_check",
+     "fixed_parameters": {
+      "V0": 45.58,
+      "K0_prime": 4
+     },
+     "pressure_weighted_K0_gpa": 254.7407,
+     "errors_in_both_axes_effective_weight_K0_gpa": 255.0081,
+     "unweighted_pressure_residual_K0_gpa": 262.2289,
+     "finding": "Diagnostic fits using the plotted errors agree with published K0=255(5) GPa. Weight choice changes the answer; no original-fit reproduction or original parameter-error reproduction is asserted. Published parameters and errors remain unchanged.",
+     "pressure_coordinates": "Six pressures printed in paragraph 7; volumes and source error bars digitized from Figure 2a."
     }
    },
-   "notes": "The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals."
+   "notes": "The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. Figure 2a supporting observations are now bundled as an explicitly digitized dataset; the 19.7 GPa cubic refinement is flagged separately.",
+   "supporting_datasets": [
+    "casio3_perovskite_tetragonal_shim_2002_figure2a_digitized"
+   ]
   }
  ],
- "datasets": [],
+ "datasets": [
+  {
+   "identifier": "casio3_perovskite_tetragonal_shim_2002_figure2a_digitized",
+   "kind": "pressure_volume_digitized",
+   "description": "Six unique room-temperature Figure 2a P-V states: five tetragonal and one cubic refinement at 19.7 GPa. Vector marker-center digitization; no numerical source table.",
+   "reference": {
+    "authors": [
+     "Shim",
+     "Jeanloz",
+     "Duffy"
+    ],
+    "year": 2002,
+    "title": "Tetragonal structure of CaSiO3 perovskite above 20 GPa",
+    "source": "Geophysical Research Letters",
+    "volume": "29",
+    "locator": "2166",
+    "doi": "10.1029/2002GL016148"
+   },
+   "source_location": "Paragraph 7 for printed pressures; Figure 2a and caption, journal page 19-2 (PDF page 2) for volumes and error bars; paragraph 10 for adopted V0",
+   "source_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_et_al-2002-grl.pdf",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "plot_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    },
+    {
+     "name": "pressure_plot_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_plot_sigma_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    },
+    {
+     "name": "pressure_digitization_bound_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "plot_pressure_gpa"
+    },
+    {
+     "name": "volume_digitization_bound_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "bound",
+     "of": "volume_a3"
+    },
+    {
+     "name": "plot_x_pt",
+     "quantity": "pdf_plot_x_coordinate",
+     "unit": "PDF point",
+     "role": "flag"
+    },
+    {
+     "name": "plot_y_pt",
+     "quantity": "pdf_plot_y_coordinate",
+     "unit": "PDF point",
+     "role": "flag"
+    },
+    {
+     "name": "source_refinement",
+     "quantity": "source_refinement_model",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/casio3-perovskite-tetragonal-shim-2002-figure2a-digitized.csv",
+    "sha256": "9ae3bac91e3bd3affb33229514a87c459c03b753e8c22412a3f6b0d89eaf8bbc",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "casio3_perovskite_tetragonal_shim_2002_bm3_1"
+   ],
+   "uncertainty": {
+    "source": "Figure 2 caption defines error bars as 1-sigma. Stored plot_sigma columns are digitized bar halfwidths, not exact original numerical errors. Some volume bars are smaller than the conservative digitization bound.",
+    "digitization": "A conservative 0.1 PDF-point coordinate bound is propagated independently along each calibrated axis. These bounds describe graph-coordinate recovery and are not Gaussian sigmas or original fit weights. The pressure bound applies only to plot_pressure_gpa and does not describe the printed pressure values or source plotting/rounding offsets.",
+    "conversion": "volume_a3=45.58*volume_ratio. The adopted V0 has no reported uncertainty; its error is not invented or propagated."
+   },
+   "provenance": {
+    "type": "digitized_from_figure",
+    "digitized_on": "2026-10-08",
+    "source_pdf_sha256": "ad622245ea2b6b1171dcd533139be36362bf838fd7f9f3d1237b20f8c7739cdf",
+    "script": "scripts/digitize_shim_2002_figure2.py",
+    "axis_calibration_pdf_points": {
+     "pressure": [
+      [
+       328.29400634765625,
+       0.0
+      ],
+      [
+       537.4310302734375,
+       50.0
+      ]
+     ],
+     "volume_ratio": [
+      [
+       481.09600830078125,
+       1.0
+      ],
+      [
+       574.0460205078125,
+       0.86
+      ]
+     ]
+    },
+    "coordinate_bound_pt": 0.1,
+    "adopted_v0_a3": 45.58,
+    "method": "Read PDF vector circle centers and error-bar stem endpoints, calibrated to the printed linear axes. Use final white cubic marker and replacement error bars only at 19.7 GPa; exclude the overdrawn black duplicate, legend, comparison curves and c/a panel. Use the six pressures printed in paragraph 7 as pressure_gpa; retain independent graph readings as plot_pressure_gpa.",
+    "reported_pressure_gpa": [
+     19.7,
+     24.2,
+     25.2,
+     26.6,
+     36.1,
+     45.8
+    ]
+   },
+   "notes": "Supporting comparison dataset for the published BM3, with source_refinement preserved per row. P4/mmm pseudocell volumes have Z=1; space-group identity remains unresolved. Measurements followed laser annealing and quench; these are not simultaneous high-temperature data. Extra stored decimals allow reproducible extraction and conversion, not extra experimental precision. No new published-fit manifest, coefficients or pressure calibration is assigned. Contributor transcription/normalization/metadata rights do not replace third-party source rights. Diagnostic fits use printed pressures with digitized volumes and source error bars."
+  }
+ ],
  "source": {
   "structure_reference": {
    "authors": [

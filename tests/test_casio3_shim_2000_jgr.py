@@ -61,11 +61,13 @@ def test_shim_2000_jgr_record_is_distinct_nonpreferred_dac_only_fit():
         "parameters": {"gamma0": 1.92, "q": 0.6},
         "reason": (
             "The preferred result combines the 34 Table 1 DAC rows with Wang et "
-            "al. (1996) LVP observations that are only plotted in this article and "
-            "are not provided numerically in an official supplement. It therefore "
-            "fails the complete-checksummed-dataset rule and is not represented by "
-            "this record."
+            "al. (1996) LVP observations. The full 66-row Wang Table 1 is now "
+            "bundled separately, but the exact combined-fit row selection and "
+            "regression protocol have not been audited. This record remains the "
+            "published DAC-only alternative; the preferred combined fit is not "
+            "represented by it."
         ),
+        "available_lvp_dataset": "ca_perovskite_wang_1996_table1_pvt",
     }
 
     default_record = next(

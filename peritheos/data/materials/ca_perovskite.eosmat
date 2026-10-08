@@ -793,7 +793,8 @@
       "gamma0": 1.92,
       "q": 0.6
      },
-     "reason": "The preferred result combines the 34 Table 1 DAC rows with Wang et al. (1996) LVP observations that are only plotted in this article and are not provided numerically in an official supplement. It therefore fails the complete-checksummed-dataset rule and is not represented by this record."
+     "reason": "The preferred result combines the 34 Table 1 DAC rows with Wang et al. (1996) LVP observations. The full 66-row Wang Table 1 is now bundled separately, but the exact combined-fit row selection and regression protocol have not been audited. This record remains the published DAC-only alternative; the preferred combined fit is not represented by it.",
+     "available_lvp_dataset": "ca_perovskite_wang_1996_table1_pvt"
     },
     "unresolved_issues": [
      "The source publishes no coefficient covariance matrix.",
@@ -4321,7 +4322,7 @@
    "used_by_eos_records": [
     "ca_perovskite_shim_2000_dac_only_bm3_mgd_4"
    ],
-   "notes": "Table 1 is printed as parallel blocks. Rows are normalized as all 17 experiment-1/NaCl entries followed by all 17 experiments-2-to-4/argon entries, preserving the source order within each block. Every parenthetical value is expanded as the source's estimated 1-sigma uncertainty. The two greater-than-90-GPa observations shown only in Figures 7-8 were excluded from all reported fits because Pt and Ar diffraction peaks overlapped; they are not part of Table 1 and are not digitized here. This dataset is complete for the published DAC-only alternative, but not for the preferred combined fit, whose Wang et al. (1996) LVP observations are unavailable numerically in this article."
+   "notes": "Table 1 is printed as parallel blocks. Rows are normalized as all 17 experiment-1/NaCl entries followed by all 17 experiments-2-to-4/argon entries, preserving the source order within each block. Every parenthetical value is expanded as the source's estimated 1-sigma uncertainty. The two greater-than-90-GPa observations shown only in Figures 7-8 were excluded from all reported fits because Pt and Ar diffraction peaks overlapped; they are not part of Table 1 and are not digitized here. This dataset is complete for the published DAC-only alternative, but not for the preferred combined fit, whose exact combined-fit selection remains unaudited. The full Wang et al. (1996) Table 1 is now bundled separately as ca_perovskite_wang_1996_table1_pvt."
   },
   {
    "identifier": "ca_perovskite_mao_1989_table1_compression",
@@ -4490,8 +4491,8 @@
     "locator": "661-672",
     "doi": "10.1029/95JB03254"
    },
-   "source_location": "Table 1, run 13, journal page 665",
-   "source_url": "https://doi.org/10.1029/95JB03254",
+   "source_location": "Table 1, run 13, journal page 664",
+   "source_url": "https://millenia.cars.aps.anl.gov/gsecars/LVP/publication/Papers/Wang_et_al95JB03254.pdf",
    "columns": [
     {
      "name": "source_order",
@@ -4521,7 +4522,7 @@
      "name": "volume_sigma_a3",
      "quantity": "formula_unit_volume",
      "unit": "angstrom^3/formula_unit",
-     "role": "standard_deviation",
+     "role": "uncertainty",
      "of": "volume_a3"
     },
     {
@@ -4539,13 +4540,140 @@
    ],
    "resource": {
     "path": "datasets/ca-perovskite-wang-1996-table1-room-temperature.csv",
-    "sha256": "71f8f01e5149e140e66251dbc3ff2c0e2a7d02aede82deae8d1f79cd2823d446",
+    "sha256": "a70e35a3dd6b0426ac41a4d8226ad37705fa391678f031cc193ab78525602a00",
     "media_type": "text/csv"
    },
    "used_by_eos_records": [
     "ca_perovskite_wang_1996_preferred_bm3"
    ],
-   "notes": "The 12 observations at 2.66-10.07 GPa have fit_included=1. The two lower-pressure states have fit_included=0 because the authors attribute their high differential stress to amorphization and explicitly omit them. Pressures and temperatures are transcribed at the precision printed in Table 1."
+   "notes": "The 12 observations at 2.66-10.07 GPa have fit_included=1. The two lower-pressure states have fit_included=0 because the authors attribute their high differential stress to amorphization and explicitly omit them. Pressures and temperatures are transcribed at the precision printed in Table 1. Audit 2026-10-08: the printed footnote glyphs after 1.13 and 0.59 GPa had been misread as trailing digits; corrected the two excluded pressures from 1.137 and 0.595 GPa. The 12 fit-included rows are unchanged. This is a subset of the full Table 1 dataset; do not concatenate them as independent observations.",
+   "provenance": {
+    "type": "transcribed_from_table",
+    "audit_date": "2026-10-08",
+    "source_pdf_sha256": "118d404c1de2085f4b3f2deeda66e1020a5f12acbf045e2f008e87b04a6343ad",
+    "corrected_rows": [
+     {
+      "source_order": 13,
+      "previous_pressure_gpa": 1.137,
+      "pressure_gpa": 1.13,
+      "printed_footnote": "dagger"
+     },
+     {
+      "source_order": 14,
+      "previous_pressure_gpa": 0.595,
+      "pressure_gpa": 0.59,
+      "printed_footnote": "double_dagger"
+     }
+    ]
+   },
+   "uncertainty": {
+    "source": "The legacy volume_sigma_a3 column contains expanded printed parenthetical errors. Table 1 does not state their confidence convention; the column name is retained for compatibility, without asserting Gaussian standard deviations. Differential stress is not a pressure standard deviation."
+   }
+  },
+  {
+   "identifier": "ca_perovskite_wang_1996_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 66 numerical P-V-T observations in Wang et al. (1996), Table 1: run 13 (34 rows), run 3 (15), run 4 (12), and run 5 (5). Includes 14 room-temperature and 52 elevated-temperature states.",
+   "reference": {
+    "authors": [
+     "Wang",
+     "Weidner",
+     "Guyot"
+    ],
+    "year": 1996,
+    "title": "Thermal equation of state of CaSiO3 perovskite",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "101",
+    "locator": "661-672",
+    "doi": "10.1029/95JB03254"
+   },
+   "source_location": "Table 1, both columns, journal page 664 (PDF page 4)",
+   "source_url": "https://millenia.cars.aps.anl.gov/gsecars/LVP/publication/Papers/Wang_et_al95JB03254.pdf",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run_order",
+     "quantity": "source_order_within_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    },
+    {
+     "name": "volume_reported_uncertainty_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "differential_stress_gpa",
+     "quantity": "differential_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_printed_a3",
+     "quantity": "printed_volume_with_parenthetical_uncertainty",
+     "unit": "angstrom^3/formula_unit",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_footnote",
+     "quantity": "source_footnote",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_origin",
+     "quantity": "observation_source",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-wang-1996-table1-pvt.csv",
+    "sha256": "8e96724876f06eb56d1a5835efdef165f8871c23b0a5bd05baa561f08e44dabc",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [],
+   "uncertainty": {
+    "source": "Parenthetical volume errors are expanded at printed precision and retained verbatim in volume_printed_a3. Table 1 does not state their confidence convention. No row-specific pressure or temperature errors are printed; differential stress is not a pressure standard deviation."
+   },
+   "provenance": {
+    "type": "transcribed_from_table",
+    "transcribed_on": "2026-10-08",
+    "source_pdf_sha256": "118d404c1de2085f4b3f2deeda66e1020a5f12acbf045e2f008e87b04a6343ad",
+    "method": "Read the rendered numerical table, preserving run order 13, 3, 4, 5 and the final two run-5 rows in the right-hand continuation. Checked the 14 room-temperature rows against the previous subset."
+   },
+   "notes": "Standalone source table, without a newly assigned fit manifest or new EOS. Runs 3, 4 and 5 carry the source footnote identifying Wang and Weidner (1994); these inherited measurements are not independent new Wang (1996) observations. The 14 room-temperature run-13 rows duplicate the existing room-temperature subset. Its fit_included flag applies to the room-temperature compression fit only. The two low-pressure rows are preserved with their footnotes. Published Table 1 recovery does not recover unrounded measurements or NaCl calibrant lattice parameters. Any contributor CC0 statement covers transcription/normalization/metadata only, not third-party source rights."
   },
   {
    "identifier": "ca_perovskite_sun_2016_table1_pvt",

@@ -29,7 +29,7 @@ def records():
     [
         (
             "ca_perovskite",
-            "29b151a87c6114bcf29895b07028a854cf14521f9778afaaa38218f2be4b6f8e",
+            "0644a72ce490a9ced97297f40cda35ad31d208622fbb2f012bd740e32b1b4b61",
         ),
         (
             "ca_perovskite_tetragonal",
@@ -43,8 +43,9 @@ def test_qualification_preserves_all_scientific_payloads_and_schema(
     document = get_material_document(material)
     schema = json.loads((ROOT / "peritheos/data/eosmat-v3.schema.json").read_text())
     jsonschema.validate(document, schema)
-    # Frozen before this metadata-only change: includes every other record field,
-    # all datasets, observations' checksums, provenance and classifications.
+    # Reviewed scientific payload checkpoint, including the 2026-10-08 Wang
+    # source recovery and its two excluded-row footnote corrections. Freezes
+    # every other record field, dataset, checksum, provenance and classification.
     for row in document["eos_records"]:
         row.pop("scientific_validation")
     payload = json.dumps(document, sort_keys=True, separators=(",", ":")).encode()

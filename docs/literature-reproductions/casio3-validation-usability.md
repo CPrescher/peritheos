@@ -55,6 +55,12 @@ Detailed evidence and diagnostics remain in the Sun reproduction script,
 primary-source ledger repeats the concise reproduction status and usage
 qualification; full evidence stays in each material's validation metadata.
 
+The subsequent [Wang (1996) and Shim (2002) recovery](casio3-wang-1996-shim-2002-recovery.md)
+adds Wang's full 66-row numerical table and six explicitly digitized Shim P–V
+states. It also corrects two footnote-transcription errors in source-excluded
+Wang room-temperature rows. That recovery is separate from the metadata-only
+qualification checkpoint described above; all EOS coefficients remain unchanged.
+
 ## Studio presentation
 
 Studio supplies compatible record notices for the existing pinned identities.
