@@ -880,6 +880,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-26",
         "2026-10-02",
         "2026-10-03",
+        "2026-10-08",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")

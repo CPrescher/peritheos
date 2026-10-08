@@ -125,6 +125,15 @@ pressure errors and covariance remain unreported.
 
 ## Migration and Studio integration
 
+The Dewaele (2012) KCl tables also declare DOR source-scale columns and
+as-reported reductions: all 123 B2 and 30 B1 rows. Their reported-pressure
+normalization and conditional reference-isotherm refits are ready. See the
+[KCl calibration capability audit](literature-reproductions/kcl-pressure-calibration.md)
+for executable diagnostics, volume conventions, raw-wavelength and uncertainty
+gaps, and explicitly unresolved Walker/Campbell reductions. The B2 table's
+separate Chidester link has no declared reduction here; this change does not
+infer the pressure treatment of that combined fit.
+
 The six Dewaele (2004) Table I datasets now carry both column attributions:
 Al (40 rows), Cu (42), Au (37), Pt (36), Ta (36), and W (42). The migration
 adds 12 as-reported 2004 EOS reductions, plus 10 2019 Mao/DOR reductions for

@@ -148,7 +148,28 @@
      "name": "pressure_gpa",
      "quantity": "pressure",
      "unit": "GPa",
-     "role": "value"
+     "role": "value",
+     "pressure_scale": {
+      "calibration_record": "ruby_dorogokupets_oganov_2007",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Belonoshko",
+        "Garbarino",
+        "Occelli",
+        "Bouvier",
+        "Hanfland",
+        "Mezouar"
+       ],
+       "year": 2012,
+       "title": "High-pressure–high-temperature equation of state of KCl and KBr",
+       "source": "Phys. Rev. B",
+       "volume": "85",
+       "locator": "214105",
+       "doi": "10.1103/PhysRevB.85.214105"
+      },
+      "source_location": "Table I, page 214105-2; experimental methods: Dorogokupets-Oganov (2007) ruby gauge"
+     }
     },
     {
      "name": "volume_a3_per_formula_unit",
@@ -167,7 +188,35 @@
     "kcl_b2_chidester_2021_bm3_5"
    ],
    "notes": "The paper reports pressure uncertainty below 2% through 162 GPa and relative volume uncertainty below 0.001 under 50 GPa and below 0.005 above 50 GPa; row-wise values are not printed. The KCl value at 3.45 GPa is transcribed as 47.783 angstrom^3 rather than the text extractor's dropped leading 4.",
-   "source_url": "https://doi.org/10.1103/PhysRevB.85.214105"
+   "source_url": "https://doi.org/10.1103/PhysRevB.85.214105",
+   "pressure_reductions": [
+    {
+     "eos_record": "kcl_b2_dewaele_2012_vinet_3",
+     "status": "as_reported",
+     "pressure_column": "pressure_gpa",
+     "target_calibration_record": "ruby_dorogokupets_oganov_2007",
+     "row_scope": "all_rows",
+     "reference": {
+      "authors": [
+       "Dewaele",
+       "Belonoshko",
+       "Garbarino",
+       "Occelli",
+       "Bouvier",
+       "Hanfland",
+       "Mezouar"
+      ],
+      "year": 2012,
+      "title": "High-pressure–high-temperature equation of state of KCl and KBr",
+      "source": "Phys. Rev. B",
+      "volume": "85",
+      "locator": "214105",
+      "doi": "10.1103/PhysRevB.85.214105"
+     },
+     "source_location": "Table I, page 214105-2; experimental methods: Dorogokupets-Oganov (2007) ruby gauge",
+     "notes": "Use printed source-scale pressures at their reported precision. No raw ruby wavelengths or row-wise pressure/volume uncertainties are published."
+    }
+   ]
   },
   {
    "identifier": "kcl_campbell_1991_table1_compression",
@@ -228,6 +277,26 @@
    },
    "used_by_eos_records": [
     "kcl_campbell_1991_bm2_1"
+   ],
+   "pressure_reductions": [
+    {
+     "eos_record": "kcl_campbell_1991_bm2_1",
+     "status": "unresolved",
+     "reference": {
+      "authors": [
+       "Campbell",
+       "Heinz"
+      ],
+      "year": 1991,
+      "title": "Compression of KCl in the B2 structure to 56 GPa",
+      "source": "J. Phys. Chem. Solids",
+      "volume": "52",
+      "locator": "495-499",
+      "doi": "10.1016/0022-3697(91)90181-X"
+     },
+     "source_location": "Table 1, journal page 496",
+     "notes": "All 14 printed sample P-V observations are bundled. The accessible primary abstract does not identify the exact pressure gauge or equation; primary methods evidence is still required before a scale or executable normalization edge can be assigned."
+    }
    ]
   },
   {
@@ -329,6 +398,29 @@
    },
    "used_by_eos_records": [
     "kcl_walker_2002_bm3_2"
+   ],
+   "pressure_reductions": [
+    {
+     "eos_record": "kcl_walker_2002_bm3_2",
+     "status": "unresolved",
+     "reference": {
+      "authors": [
+       "Walker",
+       "Cranswick",
+       "Verma",
+       "Clark",
+       "Buhre"
+      ],
+      "year": 2002,
+      "title": "Thermal equations of state for B1 and B2 KCl",
+      "source": "American Mineralogist",
+      "volume": "87",
+      "locator": "805-812",
+      "doi": "10.2138/am-2002-0701"
+     },
+     "source_location": "Table 2, journal page 807",
+     "notes": "All 39 rows preserve measured NaCl lattice parameters, reported NaCl-derived pressure and temperature; eight are at 23 degC. Ma et al. (2024), DOI 10.1029/2024JB028819, section 3 attributes the original scale to Birch (1986) NaCl-B1 and recalculates only room-temperature rows on Matsui (2012), with a temperature correction. The original Walker methods text could not be retrieved in this recheck, and neither reference EOS is bundled. Exact scale attribution and executable ancestry remain unresolved pending the original article and reference-model verification. Missing calibrant observations are not the blocker. Do not apply the room-temperature recalibration to all 39 heated rows."
+    }
    ]
   },
   {
@@ -516,9 +608,9 @@
     "methods": [],
     "recalculation": {
      "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "notes": "All 14 printed sample P-V observations are bundled. The accessible primary abstract does not identify the exact pressure gauge or equation; primary methods evidence is still required before a scale or executable normalization edge can be assigned."
     },
-    "audit_date": "2026-09-03",
+    "audit_date": "2026-10-08",
     "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
    },
    "scientific_validation": {
@@ -667,9 +759,9 @@
     "methods": [],
     "recalculation": {
      "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "notes": "All 39 rows preserve measured NaCl lattice parameters, reported NaCl-derived pressure and temperature; eight are at 23 degC. Ma et al. (2024), DOI 10.1029/2024JB028819, section 3 attributes the original scale to Birch (1986) NaCl-B1 and recalculates only room-temperature rows on Matsui (2012), with a temperature correction. The original Walker methods text could not be retrieved in this recheck, and neither reference EOS is bundled. Exact scale attribution and executable ancestry remain unresolved pending the original article and reference-model verification. Missing calibrant observations are not the blocker. Do not apply the room-temperature recalibration to all 39 heated rows."
     },
-    "audit_date": "2026-09-03",
+    "audit_date": "2026-10-08",
     "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
    },
    "scientific_validation": {
@@ -895,10 +987,10 @@
      }
     ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+     "status": "ready",
+     "notes": "All 123 sample P-V observations and the invertible Dorogokupets-Oganov (2007) ruby scale are bundled. The explicit as-reported dataset reduction supports normalization of printed pressures through the same corrected R1 ratio and a conditional reference-isotherm refit (scripts/audit_kcl_pressure_normalization.py). Raw R1 wavelengths, reference wavelengths and individual measurement corrections are not recoverable; this is not raw-wavelength re-reduction. Row-wise pressure/volume uncertainties and covariance are unavailable, so full uncertainty propagation and exact weighted-fit parity are not established. The MD-derived alpha_KT term is not refitted by the 298 K table."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-10-08"
    },
    "parameter_provenance": {
     "determination_method": "Dewaele (2012), Table III: experimental reference Vinet fit; Equation (2) and Table V: ab-initio MD determines the thermal-pressure slope.",

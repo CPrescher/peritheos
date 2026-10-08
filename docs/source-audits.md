@@ -87,6 +87,7 @@ The current collection contains 151 standalone reports.
 | Karki et al. (1997) MgO EOS audit | [`karki-1997-mgo.md`](literature-reproductions/karki-1997-mgo.md) |
 | Katsura et al. (2009): MgSiO3 bridgmanite P-V-T audit | [`katsura-2009-bridgmanite.md`](literature-reproductions/katsura-2009-bridgmanite.md) |
 | Kawai and Tsuchiya (2012) NaMg2Al5SiO12 NAL and CF audit | [`kawai-2012-nal-cf.md`](literature-reproductions/kawai-2012-nal-cf.md) |
+| KCl pressure-calibration capability audit | [`kcl-pressure-calibration.md`](literature-reproductions/kcl-pressure-calibration.md) |
 | Kiefer, Stixrude, and Wentzcovitch (2002) bridgmanite audit | [`kiefer-2002-fe-bridgmanite.md`](literature-reproductions/kiefer-2002-fe-bridgmanite.md) |
 | Koemets et al. (2023) Fe-rich silicate perovskites | [`koemets-2023-silicate-perovskites.md`](literature-reproductions/koemets-2023-silicate-perovskites.md) |
 | Kubo et al. (2000) aluminous bridgmanite compression audit | [`kubo-2000-aluminous-bridgmanite.md`](literature-reproductions/kubo-2000-aluminous-bridgmanite.md) |
