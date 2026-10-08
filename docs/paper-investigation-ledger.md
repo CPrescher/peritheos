@@ -1103,7 +1103,7 @@ the primary-source and refit ledgers.
 | [Chen et al. (2018)](https://doi.org/10.2138/am-2018-6087) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Chen et al. (2024), stishovite velocities](https://doi.org/10.1029/2023GL107700) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Chidester et al. (2018)](https://doi.org/10.2138/am-2018-6212) | Reproduced | 2 | 2 similar | 2 bundled |
-| [Chidester et al. (2021)](https://doi.org/10.1103/physrevb.104.094107) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Chidester et al. (2021)](https://doi.org/10.1103/physrevb.104.094107) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Chizmeshya et al. (1996)](https://doi.org/10.1029/96gl02624) | Direct refit unavailable | 5 | 5 direct refit unavailable | 5 theoretical parameterization only |
 | [Clendenen and Drickamer (1966)](https://doi.org/10.1063/1.1726610) | Coefficient parity not achieved | 1 | 1 parity not achieved | 1 bundled |
 | [Cohen and Lin (2014)](https://doi.org/10.1103/physrevb.90.140102) | Direct refit unavailable | 3 | 3 direct refit unavailable |  |
@@ -1370,7 +1370,7 @@ the primary-source and refit ledgers.
 | [Tange et al. (2009)](https://doi.org/10.1029/2008jb005813) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Tange et al. (2012)](https://doi.org/10.1029/2011jb008988) | Reproduced | 2 | 2 similar | 2 bundled |
 | [Taniguchi et al. (1995), Ca-silicate calculation models](https://doi.org/10.2465/minerj.17.290) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Tateno et al. (2019)](https://doi.org/10.2138/am-2019-6779) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Tateno et al. (2019)](https://doi.org/10.2138/am-2019-6779) | Reproduced | 4 | 1 parity; 3 similar | 4 bundled |
 | [The effect of temperature on the product of bulk modulus and volume thermal expansion coefficient, and its application to the thermal expansion of MgO and other minerals (2004)](https://doi.org/10.1002/pssb.200302047) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [The sound velocity of wüstite at high pressures: implications for low-velocity anomalies at the base of the lower mantle (2020)](https://doi.org/10.1186/s40645-020-00333-3) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [The texture of the post-perovskite phase controls the characteristics of the D” seismic discontinuity (2025)](https://doi.org/10.1038/s43247-025-02383-1) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
@@ -1387,7 +1387,7 @@ the primary-source and refit ledgers.
 | [Vanpeteghem et al. (2006)](https://doi.org/10.1029/2005gl024955) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Vijay (2024), generalized Rydberg-Vinet and Stacey thermoelasticity](https://doi.org/10.32908/hthp.v53.1503) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
 | [Vocadlo (1999)](https://doi.org/10.2138/am-1999-1017) | Reproduced | 1 | 1 similar | 1 bundled |
-| [Walker et al. (2002)](https://doi.org/10.2138/am-2002-0701) | Reproduced | 1 | 1 similar | 1 bundled |
+| [Walker et al. (2002)](https://doi.org/10.2138/am-2002-0701) | Reproduced | 2 | 2 similar | 2 bundled |
 | [Wang and Weidner (1994)](https://doi.org/10.1029/94gl00976) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Wang et al. (1996)](https://doi.org/10.1029/95jb03254) | Partly reproduced | 5 | 1 rounded source fit reproduced; room-temperature parameters within source errors; pressure-weighted source fits unresolved; independent thermal refit reproduced. See the [dedicated audit](literature-reproductions/wang-1996-casio3.md). | 1 bundled |
 | [Wang et al. (2004)](https://doi.org/10.1016/j.pepi.2003.08.007) | Reproduced | 2 | 2 similar | 2 bundled |

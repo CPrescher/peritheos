@@ -38,7 +38,7 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
         "not_refittable": 175,
         "parity": 224,
         "parity_not_achieved": 73,
-        "similar": 151,
+        "similar": 156,
         "source_reconstruction": 13,
     }
     assert all(

@@ -23,7 +23,7 @@
     "audit_date": "2026-09-24",
     "status_counts": {
       "resolved": 213,
-      "partially_resolved": 175,
+      "partially_resolved": 176,
       "not_applicable": 160,
       "unresolved": 88
     },
@@ -32,10 +32,10 @@
       "not_applicable": 157,
       "not_possible": 119,
       "ready": 118,
-      "reference_eos_not_bundled": 52,
+      "reference_eos_not_bundled": 53,
       "reference_model_not_supported": 7
     },
-    "resolvable_reference_eos_uses": 99,
+    "resolvable_reference_eos_uses": 103,
     "resolvable_reference_calibration_uses": 117,
     "policy": "Exact EOS and ruby-scale links resolve to executable bundled records. Unsupported or ambiguous calibrations are recorded explicitly and are never replaced by an approximate pressure scale."
   }

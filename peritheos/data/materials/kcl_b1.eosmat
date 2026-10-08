@@ -149,6 +149,142 @@
      "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
+  },
+  {
+   "label": "Walker et al. (2002), B1 BM3 + linear thermal pressure",
+   "reference": {
+    "authors": [
+     "Walker",
+     "Cranswick",
+     "Verma",
+     "Clark",
+     "Buhre"
+    ],
+    "year": 2002,
+    "title": "Thermal equations of state for B1 and B2 KCl",
+    "source": "American Mineralogist",
+    "volume": "87",
+    "locator": "805-812",
+    "doi": "10.2138/am-2002-0701"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 249.53,
+     "K0": 17.7,
+     "K0_prime": 5.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    0,
+    1.733
+   ],
+   "notes": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
+   "thermal": {
+    "type": "LinearThermalPressure",
+    "parameters": {
+     "Tr": 296.15,
+     "alpha_KT": 0.00195
+    },
+    "model": "linear_thermal_pressure",
+    "parameter_errors": {
+     "Tr": null,
+     "alpha_KT": 5e-05
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "determination_method": "experimental",
+   "parameter_provenance": {
+    "determination_method": "Walker (2002), in-situ XRD with NaCl/Birch (1986) pressure reference and thermocouple temperatures.",
+    "V0": "Table 1 footnote and Table 3: thermally corrected 23 degC conventional B1 cell, held fixed.",
+    "K0": "Table 3 B1 This study row, 177 kbar converted to 17.7 GPa.",
+    "K0_prime": "Page 808: fixed at representative 5 because the range cannot resolve it.",
+    "alpha_KT": "Abstract: directly reported 0.0195 +/- 0.0005 kbar/K, converted by 0.1; Table 3 alpha0 is rounded.",
+    "Tr": "Table 1: reference at 23 degC, Celsius offset +273.15."
+   },
+   "identifier": "kcl_b1_walker_2002_bm3_linear_thermal",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-10-08",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl (B1)",
+      "reference": {
+       "authors": [
+        "Birch"
+       ],
+       "year": 1986,
+       "title": "Equation of state and thermodynamic parameters of NaCl to 300 kbar in the high-temperature domain",
+       "doi": "10.1029/JB091iB05p04949",
+       "source": "Journal of Geophysical Research"
+      },
+      "source_location": "Walker page 806: NaCl EOS BE2 thermal form of Birch (1986)"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Paired NaCl lattice observations are retained. Exact Birch (1986) BE2 thermal reference is not linked to an executable record; no substitute NaCl scale is inferred."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-08",
+    "note": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2002-0701",
+     "doi": "10.2138/am-2002-0701",
+     "locations": [
+      "Tables 1 and 3",
+      "Pages 806-808, Equation BE1",
+      "Abstract alpha0*K0"
+     ],
+     "finding": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-10-08",
+     "dataset_identifiers": [
+      "kcl_b1_walker_2002_table1_pvt"
+     ],
+     "source_locations": [
+      "Tables 1 and 3",
+      "Pages 806-808, Equation BE1",
+      "Abstract alpha0*K0"
+     ],
+     "finding": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region."
+    }
+   },
+   "temperature_ref": 296.15,
+   "experimental_temperature_range_k": [
+    303.15,
+    873.15
+   ],
+   "default": false,
+   "fit_datasets": [
+    "kcl_b1_walker_2002_table1_pvt"
+   ]
   }
  ],
  "format": "peritheos.material",
@@ -259,6 +395,113 @@
      "notes": "Use printed source-scale pressures at their reported precision. No raw ruby wavelengths or row-wise pressure/volume uncertainties are published."
     }
    ]
+  },
+  {
+   "identifier": "kcl_b1_walker_2002_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "reference": {
+    "authors": [
+     "Walker",
+     "Cranswick",
+     "Verma",
+     "Clark",
+     "Buhre"
+    ],
+    "year": 2002,
+    "title": "Thermal equations of state for B1 and B2 KCl",
+    "source": "American Mineralogist",
+    "volume": "87",
+    "locator": "805-812",
+    "doi": "10.2138/am-2002-0701"
+   },
+   "source_location": "Walker Table 1, journal page 806",
+   "source_url": "https://doi.org/10.2138/am-2002-0701",
+   "columns": [
+    {
+     "name": "press_load_kn",
+     "quantity": "press_load",
+     "unit": "kN",
+     "role": "value"
+    },
+    {
+     "name": "temperature_celsius",
+     "quantity": "temperature",
+     "unit": "degC",
+     "role": "value"
+    },
+    {
+     "name": "spectrum",
+     "quantity": "observation_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "nacl_lattice_a_angstrom",
+     "quantity": "nacl_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_lattice_a_esd_angstrom",
+     "quantity": "nacl_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "nacl_lattice_a_angstrom"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure_from_nacl",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_esd_kbar",
+     "quantity": "pressure_from_nacl",
+     "unit": "kbar",
+     "role": "standard_deviation",
+     "of": "pressure_kbar"
+    },
+    {
+     "name": "b1_kcl_cell_volume_a3",
+     "quantity": "b1_kcl_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "b1_kcl_cell_volume_esd_a3",
+     "quantity": "b1_kcl_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "b1_kcl_cell_volume_a3"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "row_kind",
+     "quantity": "observation_kind",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "included_in_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kcl-walker-2002-table1-pvt.csv",
+    "sha256": "05ee7d62b20d5447ac4ceee05e42226dedd86429d9675c48015b274fc430a922",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "kcl_b1_walker_2002_bm3_linear_thermal"
+   ],
+   "notes": "Walker Table 1, journal page 806. All 30 printed entries, including one derived reference anchor and six calibrant-only spot checks. Only the 23 measured sample states are selected. ESDs describe spectrum-fitting errors; the source adds no NaCl EOS or temperature uncertainty. The derived V0 row is not an extra measurement."
   }
  ]
 }

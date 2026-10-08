@@ -5225,6 +5225,16 @@ def validate_all() -> dict[str, Any]:
                 from scripts.register_wang_1996_thermal_refit import ledger_outcome
 
                 outcome = ledger_outcome(record)
+            elif record["identifier"] in {
+                "kcl_b1_walker_2002_bm3_linear_thermal",
+                "kcl_b2_tateno_2019_holmes_vinet_mgd",
+                "kcl_b2_tateno_2019_holmes_vinet_linear_thermal",
+                "kcl_b2_tateno_2019_sokolova_vinet_linear_thermal",
+                "kcl_b2_chidester_2021_vinet_mgd",
+            }:
+                from scripts.reproduce_kcl_variants import ledger_outcome
+
+                outcome = ledger_outcome(record)
             elif (
                 record["identifier"] == "argon_fcc_ross_1986_errandonea_2006_bm3_refit"
             ):

@@ -18,6 +18,11 @@ All notable changes to Peritheos are documented here. The project follows
   coefficients; document raw-wavelength and uncertainty gaps and unresolved
   Walker (2002) and Campbell-Heinz (1991) scale evidence.
 
+- Add nondefault Walker (2002) B1, Tateno (2019) Holmes-Pt MGD/linear and
+  Sokolova-Pt linear, and Chidester (2021) Vinet KCl EOS records with independent
+  primary-table reproductions. Preserve complete Walker B1 and official Tateno
+  data; correct the remaining Tateno Pt-volume pairing permutation.
+
 - Preserve Miozzi (2020) published hcp-Fe BM3–MGD coefficients with the
   author-reported n=2 and ~6.87 cm³/mol volume convention, attributed to
   personal communication with Miozzi et al. Add a separate nondefault n=1

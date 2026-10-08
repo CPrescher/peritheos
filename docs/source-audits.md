@@ -126,6 +126,7 @@ The current collection contains 151 standalone reports.
 | Nisr et al. (2017): hydrous silica and the dry reference | [`nisr-2017-hydrous-silica.md`](literature-reproductions/nisr-2017-hydrous-silica.md) |
 | Noguchi et al. (1999) NiO shock-to-isotherm audit | [`noguchi-1999-nio-shock-reduction.md`](literature-reproductions/noguchi-1999-nio-shock-reduction.md) |
 | Ono et al. (2006): CaTi2O4-type MgAl2O4 | [`ono-2006-mgal2o4-cati2o4.md`](literature-reproductions/ono-2006-mgal2o4-cati2o4.md) |
+| Published KCl alternatives: Walker B1, Tateno and Chidester | [`kcl-published-variants.md`](literature-reproductions/kcl-published-variants.md) |
 | Redfern et al. (1993): natural magnesite | [`redfern-1993-magnesite.md`](literature-reproductions/redfern-1993-magnesite.md) |
 | Ricolleau et al. (2009) KLB-1 EOS audit | [`ricolleau-2009-klb1-eos.md`](literature-reproductions/ricolleau-2009-klb1-eos.md) |
 | Ross et al. (1986): published tables recovered; Monte Carlo reproduction pending | [`argon-ross-1986.md`](literature-reproductions/argon-ross-1986.md) |

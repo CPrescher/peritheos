@@ -1,0 +1,812 @@
+{
+  "sources": [
+    {
+      "filename": "6779TableS1 revised.xlsx",
+      "sha256": "89fa4f82774ea0d291bb1715bdd33c2389953becfac661398b84b02cfb814298",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/2019/May2019_data/AM-19-56779.zip",
+      "archive_sha256": "652fa6bcbd9c00c76d8bb62199750a49f281edf3dc445144ff435ff1afce4210"
+    },
+    {
+      "doi": "10.2138/am-2002-0701",
+      "local_pdf_sha256": "01585fbd045709f3c08516aeedb30dcb553aec1d3073542c5450a72a6c3ff4b6",
+      "locations": [
+        "Table 1, page 806",
+        "Table 3, page 809",
+        "Equation BE1, page 807"
+      ]
+    },
+    {
+      "doi": "10.2138/am-2019-6779",
+      "local_pdf_sha256": "b53a139b2c068d31e7869464e9afec10ebb6a709945131ee10a4913da2997db9",
+      "locations": [
+        "Table 1, page 721",
+        "Equations 1-7"
+      ]
+    },
+    {
+      "doi": "10.1103/PhysRevB.104.094107",
+      "author_csv_sha256": "6e10f6de9b2a263308a5ce51f799b14778998ae6de68b83440ea0a1a06bb4d96",
+      "url": "https://knowledge.uchicago.edu/records/6t4wc-w2146/files/SuppTable_KCl.csv?download=1",
+      "locations": [
+        "Table I",
+        "Section III"
+      ]
+    }
+  ],
+  "tateno_pt_pairing_corrections": [
+    {
+      "run": "3",
+      "pressure_gpa": "10.0",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8964",
+      "after": "3.9246"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "10.0",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0003",
+      "after": "0.0005"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "10.0",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "59.16",
+      "after": "60.45"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "10.0",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.01",
+      "after": "0.02"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "10.2",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8839",
+      "after": "3.9289"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "10.2",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0005",
+      "after": "0.0003"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "10.2",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "58.59",
+      "after": "60.65"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "10.2",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.02",
+      "after": "0.01"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "9.7",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8488",
+      "after": "3.9199"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "9.7",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0004",
+      "after": "0.0005"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "9.7",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "57.01",
+      "after": "60.23"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "6.0",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8097",
+      "after": "3.8964"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "6.0",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0010",
+      "after": "0.0003"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "6.0",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "55.29",
+      "after": "59.16"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "6.0",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.04",
+      "after": "0.01"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "14.1",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.9040",
+      "after": "3.9208"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "14.1",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0002",
+      "after": "0.0005"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "14.1",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "59.50",
+      "after": "60.27"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "14.1",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.01",
+      "after": "0.02"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "9.0",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.9019",
+      "after": "3.8839"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "9.0",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0001",
+      "after": "0.0005"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "9.0",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "59.40",
+      "after": "58.59"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "9.0",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.01",
+      "after": "0.02"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "22.8",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8373",
+      "after": "3.8844"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "22.8",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0004",
+      "after": "0.0008"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "22.8",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "56.51",
+      "after": "58.61"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "22.8",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.02",
+      "after": "0.03"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "20.7",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8240",
+      "after": "3.8728"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "20.7",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0006",
+      "after": "0.0005"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "20.7",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "55.92",
+      "after": "58.09"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "20.7",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.03",
+      "after": "0.02"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "18.4",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.7870",
+      "after": "3.8487"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "18.4",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "54.31",
+      "after": "57.01"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "31.6",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.7652",
+      "after": "3.8573"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "31.6",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0007",
+      "after": "0.0005"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "31.6",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "53.38",
+      "after": "57.39"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "31.6",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.03",
+      "after": "0.02"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "30.1",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.7470",
+      "after": "3.8462"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "30.1",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0004",
+      "after": "0.0003"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "30.1",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "52.61",
+      "after": "56.90"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "30.1",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.02",
+      "after": "0.01"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "37.0",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.9246",
+      "after": "3.8425"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "37.0",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0005",
+      "after": "0.0012"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "37.0",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "60.45",
+      "after": "56.73"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "37.0",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.02",
+      "after": "0.05"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "30.6",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.9289",
+      "after": "3.8097"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "30.6",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0003",
+      "after": "0.0010"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "30.6",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "60.65",
+      "after": "55.29"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "30.6",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.01",
+      "after": "0.04"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "48.3",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.9199",
+      "after": "3.8028"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "48.3",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0005",
+      "after": "0.0004"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "48.3",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "60.23",
+      "after": "55.00"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "46.6",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.9208",
+      "after": "3.7950"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "46.6",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0005",
+      "after": "0.0009"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "46.6",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "60.27",
+      "after": "54.66"
+    },
+    {
+      "run": "3",
+      "pressure_gpa": "46.6",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.02",
+      "after": "0.04"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "4.2",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8844",
+      "after": "3.9040"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "4.2",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0008",
+      "after": "0.0002"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "4.2",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "58.61",
+      "after": "59.50"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "4.2",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.03",
+      "after": "0.01"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "8.7",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8728",
+      "after": "3.9324"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "8.7",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0005",
+      "after": "0.0008"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "8.7",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "58.09",
+      "after": "60.81"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "8.7",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.02",
+      "after": "0.04"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "4.7",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8573",
+      "after": "3.9019"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "4.7",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0005",
+      "after": "0.0001"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "4.7",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "57.39",
+      "after": "59.40"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "4.7",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.02",
+      "after": "0.01"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "22.2",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8462",
+      "after": "3.8766"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "22.2",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0003",
+      "after": "0.0004"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "22.2",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "56.90",
+      "after": "58.26"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "22.2",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.01",
+      "after": "0.02"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "27.2",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8425",
+      "after": "3.8597"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "27.2",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0012",
+      "after": "0.0002"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "27.2",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "56.73",
+      "after": "57.50"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "27.2",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.05",
+      "after": "0.01"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "21.8",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8028",
+      "after": "3.8373"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "21.8",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "55.00",
+      "after": "56.51"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "31.0",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.7950",
+      "after": "3.8487"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "31.0",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0009",
+      "after": "0.0007"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "31.0",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "54.66",
+      "after": "57.01"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "31.0",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.04",
+      "after": "0.03"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "25.9",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.9324",
+      "after": "3.8240"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "25.9",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0008",
+      "after": "0.0006"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "25.9",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "60.81",
+      "after": "55.92"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "25.9",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.04",
+      "after": "0.03"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "38.7",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8766",
+      "after": "3.7870"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "38.7",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0004",
+      "after": "0.0007"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "38.7",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "58.26",
+      "after": "54.31"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "38.7",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.02",
+      "after": "0.03"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "47.1",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8597",
+      "after": "3.7652"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "47.1",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0002",
+      "after": "0.0007"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "47.1",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "57.50",
+      "after": "53.38"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "47.1",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.01",
+      "after": "0.03"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "60.7",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.8487",
+      "after": "3.7660"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "60.7",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0007",
+      "after": "0.0023"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "60.7",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "57.01",
+      "after": "53.41"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "60.7",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.03",
+      "after": "0.10"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "58.1",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.7660",
+      "after": "3.7620"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "58.1",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0023",
+      "after": "0.0013"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "58.1",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "53.41",
+      "after": "53.24"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "58.1",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.10",
+      "after": "0.05"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "59.4",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.7620",
+      "after": "3.7710"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "59.4",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0013",
+      "after": "0.0019"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "59.4",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "53.24",
+      "after": "53.63"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "59.4",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.05",
+      "after": "0.08"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "54.7",
+      "column": "platinum_lattice_a_angstrom",
+      "before": "3.7710",
+      "after": "3.7470"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "54.7",
+      "column": "platinum_lattice_a_uncertainty_angstrom",
+      "before": "0.0019",
+      "after": "0.0004"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "54.7",
+      "column": "platinum_unit_cell_volume_a3",
+      "before": "53.63",
+      "after": "52.61"
+    },
+    {
+      "run": "4",
+      "pressure_gpa": "54.7",
+      "column": "platinum_unit_cell_volume_uncertainty_a3",
+      "before": "0.08",
+      "after": "0.02"
+    }
+  ],
+  "rights": {
+    "source_terms": "Unspecified for deposited numerical workbook and observations; publisher article rights remain with their owners.",
+    "contributor_dedication": "CC0 applies only to rights held by Peritheos contributors in transcription, normalization, metadata and arrangement."
+  }
+}

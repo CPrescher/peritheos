@@ -345,7 +345,12 @@ use `--check` in continuous integration to detect stale generated files.
 | [`kcl_b2_dewaele_2012_vinet_3`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.85.214105/fulltext) | `kcl_dewaele_2012_table1_compression` | 123 | `rt_eos.K0` 17.2 → 17.2499; `rt_eos.K0_prime` 5.89 → 5.8731 | 0.819344/0.800253 | [similar](#investigation-kcl_b2_dewaele_2012_vinet_3) |
 | [`kcl_b2_tateno_2019_vinet_4`](https://doi.org/10.2138/am-2019-6779) | `kcl_tateno_2019_table_s1_pvt` | 39 | `rt_eos.K0` 18.3 → 18.3446; `rt_eos.K0_prime` 5.6 → 5.60096; `gamma0` 2.3 → 2.29519; `q` 0.8 → 0.8249 | 0.72623/0.569397 | parity — Corrected final-publication reproduction: the model uses the final gamma0=2.3 and q=0.8 coefficients, Equation 6's integrated-Gruneisen Debye law, and the correctly aligned official MSA Supplemental Table S1 workbook. See the [dedicated Tateno reproduction](literature-reproductions.md#kcl-tateno-2019). |
 | [`kcl_b2_chidester_2021_bm3_5`](https://link.aps.org/accepted/10.1103/PhysRevB.104.094107) | `kcl_dewaele_2012_table1_compression, kcl_chidester_2021_supplemental_pvt` | 278 | `rt_eos.V0` 53.1373 → 53.2036; `rt_eos.K0` 24 → 23.9721; `rt_eos.K0_prime` 4.56 → 4.55798; `gamma0` 2.9 → 2.91714; `q` 1 → 0.965243 | 1.30258/1.26278 | parity — Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021). |
+| [`kcl_b2_tateno_2019_holmes_vinet_mgd`](https://doi.org/10.2138/am-2019-6779) | `kcl_tateno_2019_official_table_s1` | 39 | `K0` 17.4 → 17.4925; `K0_prime` 5.77 → 5.75759; `gamma0` 1.8 → 1.93368; `q` 0.7 → 0.727159 | 0.776781/0.732973 | [similar](#investigation-kcl_b2_tateno_2019_holmes_vinet_mgd) — Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged. |
+| [`kcl_b2_tateno_2019_holmes_vinet_linear_thermal`](https://doi.org/10.2138/am-2019-6779) | `kcl_tateno_2019_official_table_s1` | 39 | `K0` 17.7 → 17.5549; `K0_prime` 5.73 → 5.749; `alpha_KT` 0.0033 → 0.00321101 | 0.766004/0.742006 | [similar](#investigation-kcl_b2_tateno_2019_holmes_vinet_linear_thermal) — Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged. |
+| [`kcl_b2_tateno_2019_sokolova_vinet_linear_thermal`](https://doi.org/10.2138/am-2019-6779) | `kcl_tateno_2019_official_table_s1` | 39 | `K0` 18.3 → 18.3386; `K0_prime` 5.6 → 5.59882; `alpha_KT` 0.0037 → 0.00367626 | 0.733286/0.719869 | [similar](#investigation-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal) — All 39 author-reported Sokolova-pressure observations. Equal pressure weights; covariance and original objective details unavailable. Coefficients agree within printed error widths of unknown confidence; no statistical parity claimed. Published coefficients remain unchanged. |
+| [`kcl_b2_chidester_2021_vinet_mgd`](https://doi.org/10.1103/PhysRevB.104.094107) | `kcl_dewaele_2012_table1_compression, kcl_chidester_2021_supplemental_pvt` | 278 | `V0` 56.9565 → 56.8432; `K0` 13 → 13.119; `K0_prime` 6.2 → 6.20982; `gamma0` 3.4 → 3.3873; `q` 1 → 0.985081 | 1.35628/1.2516 | [similar](#investigation-kcl_b2_chidester_2021_vinet_mgd) — All five Table I coefficients are fitted, including q. Fixed theta0=235 K, Tr=300 K and n=2. Equal pressure weights; no original covariance or explicit row weights. Integrated-Gruneisen theta law is inferred by complete-data numerical reproduction; Equations 3-4 do not explicitly define theta(V). Dewaele 298 K measurements enter the source regression as its 300 K reference, preserving raw temperature provenance. High-temperature KCl temperatures are geometry-conditioned modeled effective temperatures. Cold ruby and high-T Pt calibration ancestry remain distinct. |
 | [`kcl_b1_dewaele_2012_vinet_1`](https://doi.org/10.1103/PhysRevB.85.214105) | `kcl_b1_dewaele_2012_table2_compression` | 30 | `V0` 249.44 → 249.379; `K0` 17.1 → 17.3253 | 0.0554449/0.0534777 | [similar](#investigation-kcl_b1_dewaele_2012_vinet_1) |
+| [`kcl_b1_walker_2002_bm3_linear_thermal`](https://doi.org/10.2138/am-2002-0701) | `kcl_b1_walker_2002_table1_pvt` | 23 | `K0` 17.7 → 17.1801; `alpha_KT` 0.00195 → 0.00187217 | 0.0738784/0.0606361 | [similar](#investigation-kcl_b1_walker_2002_bm3_linear_thermal) — Fixed V0=249.53 conventional-cell A3 (Z=4), K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit; original B1 staging is not fully explicit. K0 differs by 2.94%, alpha_KT by 3.99%; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly. |
 | [`klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `klb1_ricolleau_2009_table_s1_ca_perovskite_pvt` | 153 | `K0` 244 → 243.606; `alpha0` 3.06e-05 → 3.45931e-05; `alpha1` 8.7e-09 → 5.61423e-09; `dK_dT` -0.035 → -0.0351296 | —/1.71035 | [similar](#investigation-klb1_ca_perovskite_ricolleau_2009_bm2_alphakt) — The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling. |
 | [`klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `klb1_ricolleau_2009_table_s1_ferropericlase_pvt` | 136 | `V0` 76.44 → 76.4383; `alpha0` 2.2e-05 → 2.75973e-05; `alpha1` 3.61e-08 → 3.08748e-08; `dK_dT` -0.034 → -0.0340187 | —/1.47911 | [similar](#investigation-klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt) — The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling. |
 | [`klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `klb1_ricolleau_2009_table_s1_ferropericlase_pvt` | 7 | `V0` 74.04 → 74.0429 | —/1.57751 | parity — The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling. |
@@ -875,7 +880,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **224** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **229** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests or a dedicated partial-source reconstruction does
@@ -3016,6 +3021,93 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `rt_eos.K0`, `rt_eos.K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
+<a id="investigation-kcl_b2_tateno_2019_holmes_vinet_mgd"></a>
+
+### `kcl_b2_tateno_2019_holmes_vinet_mgd`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `kcl_tateno_2019_official_table_s1` with 39 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 17.4 | 17.4925 | 0.53% | — | yes |
+| `K0_prime` | 5.77 | 5.75759 | -0.22% | — | yes |
+| `gamma0` | 1.8 | 1.93368 | 7.43% | — | yes |
+| `q` | 0.7 | 0.727159 | 3.88% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 4.15617-233.491 GPa; fit kind: `independent_primary_equation_pressure_fit`; objective: `equal pressure weights`; published/refit pressure RMSE: 0.776781/0.732973 GPa; reduced chi-square: —; free parameters: `K0, K0_prime, gamma0, q`; source-fixed parameters: `V0, Tr, theta0, n`.
+
+**Source/data scope.** Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.
+
+**Registered source-fit note.** Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`, `gamma0`, `q`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-kcl_b2_tateno_2019_holmes_vinet_linear_thermal"></a>
+
+### `kcl_b2_tateno_2019_holmes_vinet_linear_thermal`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `kcl_tateno_2019_official_table_s1` with 39 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 17.7 | 17.5549 | -0.82% | — | yes |
+| `K0_prime` | 5.73 | 5.749 | 0.33% | — | yes |
+| `alpha_KT` | 0.0033 | 0.00321101 | -2.70% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 4.15617-233.491 GPa; fit kind: `independent_primary_equation_pressure_fit`; objective: `equal pressure weights`; published/refit pressure RMSE: 0.766004/0.742006 GPa; reduced chi-square: —; free parameters: `K0, K0_prime, alpha_KT`; source-fixed parameters: `V0, Tr`.
+
+**Source/data scope.** Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.
+
+**Registered source-fit note.** Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`, `alpha_KT`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal"></a>
+
+### `kcl_b2_tateno_2019_sokolova_vinet_linear_thermal`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `kcl_tateno_2019_official_table_s1` with 39 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 18.3 | 18.3386 | 0.21% | — | yes |
+| `K0_prime` | 5.6 | 5.59882 | -0.02% | — | yes |
+| `alpha_KT` | 0.0037 | 0.00367626 | -0.64% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 4.2-228.6 GPa; fit kind: `independent_primary_equation_pressure_fit`; objective: `equal pressure weights`; published/refit pressure RMSE: 0.733286/0.719869 GPa; reduced chi-square: —; free parameters: `K0, K0_prime, alpha_KT`; source-fixed parameters: `V0, Tr`.
+
+**Source/data scope.** Nondefault final-publication Table 1 alternative. The final linear-thermal Sokolova row reports K0 error 0.2 GPa, distinct from the MGD row error 0.3 GPa. All 39 official Sokolova-pressure rows are used in the independent joint diagnostic.
+
+**Registered source-fit note.** Nondefault final-publication Table 1 alternative. The final linear-thermal Sokolova row reports K0 error 0.2 GPa, distinct from the MGD row error 0.3 GPa. All 39 official Sokolova-pressure rows are used in the independent joint diagnostic.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`, `alpha_KT`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-kcl_b2_chidester_2021_vinet_mgd"></a>
+
+### `kcl_b2_chidester_2021_vinet_mgd`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `kcl_dewaele_2012_table1_compression, kcl_chidester_2021_supplemental_pvt` with 278 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 56.9565 | 56.8432 | -0.20% | — | yes |
+| `K0` | 13 | 13.119 | 0.92% | — | yes |
+| `K0_prime` | 6.2 | 6.20982 | 0.16% | — | yes |
+| `gamma0` | 3.4 | 3.3873 | -0.37% | — | yes |
+| `q` | 1 | 0.985081 | -1.49% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 2.6-167.52 GPa; fit kind: `independent_primary_equation_pressure_fit`; objective: `equal pressure weights`; published/refit pressure RMSE: 1.35628/1.2516 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime, gamma0, q`; source-fixed parameters: `Tr, theta0, n`.
+
+**Source/data scope.** Nondefault Rydberg-Vinet alternative from Table I. Published V0=34.3(5) cm^3/mol converts to 56.956490004062935 A^3/B2 conventional cell with Z=1 and exact Avogadro constant. All five listed parameters are fitted; theta0=235 K, Tr=300 K, n=2 are held fixed. Fit includes all 123 Dewaele room-temperature rows and all 155 author-deposited Chidester effective-temperature rows. The integrated-Gruneisen Debye relation reproduces the complete fit. Dewaele and high-temperature Pt-derived pressures retain distinct calibration ancestry. KCl effective temperatures depend on the laser-heating gradient model; they are not directly measured homogeneous temperatures.
+
+**Registered source-fit note.** Nondefault Rydberg-Vinet alternative from Table I. Published V0=34.3(5) cm^3/mol converts to 56.956490004062935 A^3/B2 conventional cell with Z=1 and exact Avogadro constant. All five listed parameters are fitted; theta0=235 K, Tr=300 K, n=2 are held fixed. Fit includes all 123 Dewaele room-temperature rows and all 155 author-deposited Chidester effective-temperature rows. The integrated-Gruneisen Debye relation reproduces the complete fit. Dewaele and high-temperature Pt-derived pressures retain distinct calibration ancestry. KCl effective temperatures depend on the laser-heating gradient model; they are not directly measured homogeneous temperatures.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`, `gamma0`, `q`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-kcl_b1_dewaele_2012_vinet_1"></a>
 
 ### `kcl_b1_dewaele_2012_vinet_1`
@@ -3035,6 +3127,26 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-kcl_b1_walker_2002_bm3_linear_thermal"></a>
+
+### `kcl_b1_walker_2002_bm3_linear_thermal`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `kcl_b1_walker_2002_table1_pvt` with 23 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 17.7 | 17.1801 | -2.94% | — | yes |
+| `alpha_KT` | 0.00195 | 0.00187217 | -3.99% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 0-1.733 GPa; fit kind: `independent_primary_equation_pressure_fit`; objective: `equal pressure weights`; published/refit pressure RMSE: 0.0738784/0.0606361 GPa; reduced chi-square: —; free parameters: `K0, alpha_KT`; source-fixed parameters: `V0, K0_prime, Tr`.
+
+**Source/data scope.** Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.
+
+**Registered source-fit note.** Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `alpha_KT`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-klb1_ca_perovskite_ricolleau_2009_bm2_alphakt"></a>
 

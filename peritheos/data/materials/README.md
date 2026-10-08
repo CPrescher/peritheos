@@ -304,3 +304,10 @@ of the old Wittlinger adjusted-coordinate residual comparison.
 Maltby (2024) is available as a nondefault, explicitly unvalidated full Helmholtz
 EOS. Its `not_reproduced` status, Table 8 mismatch and assumed squared cutoff 64
 remain visible in its label and metadata; the diagnostic refit is not used.
+
+Five nondefault published KCl variants are available: Walker (2002) B1 thermal,
+Tateno (2019) Holmes-Pt MGD and linear thermal, Tateno Sokolova-Pt linear thermal,
+and Chidester (2021) Vinet+MGD. The
+[source report](../../../docs/literature-reproductions/kcl-published-variants.md)
+retains their pressure-coordinate, effective-temperature and refit limitations.
+The official Tateno workbook is bundled and the corrected Pt pairing is logged.

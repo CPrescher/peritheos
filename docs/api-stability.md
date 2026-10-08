@@ -54,7 +54,7 @@ with no executable EOS.
 The migration audit covered all 37 historical convenience records: 9 have an
 equation-identical canonical counterpart, 17 have a counterpart whose audited
 parameters, reference state, or equation composition differs, and 11 have no
-executable record in the bundled 612-record collection. Consequently, the old names are not
+executable record in the bundled 637-record collection. Consequently, the old names are not
 blindly redirected to scientifically different records. Their compatibility
 objects remain numerically stable; all new discovery and canonical-identifier
 lookups use document-built objects. An exhaustive internal manifest is tested
