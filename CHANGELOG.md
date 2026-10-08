@@ -7,6 +7,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Combine the KCl source audits and nondefault variants with the newer Wang
+  CaSiO3 refit. Regenerate catalog manifests and reproduction ledgers; select
+  Shim (2002) printed pressures explicitly for its digitized-data diagnostic.
+
 - Add an optional independent Wang (1996) CaSiO3 BM3 + linear thermal-pressure
   refit with 64 selected experimental observations, explicit equal weights,
   conditional parameter errors and full covariance. Preserve the published EOS

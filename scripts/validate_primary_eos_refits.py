@@ -326,6 +326,9 @@ INVESTIGATION_NOTES = {
 
 # Dataset choices that cannot be inferred uniquely from generic quantity metadata.
 PRESSURE_COLUMNS = {
+    # Source paragraph 7 supplies printed pressures; graph x-values remain
+    # independent digitization diagnostics, as declared by dataset provenance.
+    "casio3_perovskite_tetragonal_shim_2002_figure2a_digitized": "pressure_gpa",
     "platinum_dewaele_2004_table1_compression#platinum_fei_2007_vinet_300k": "ruby_pressure_revised_gpa",
     "iron_zhang_2025_tables_s1_s3_s4_pvt": "pressure_gpa_fit",
     "akimotoite_reynard_1996_table1_compression#akimotoite_reynard_1996_bm3_ruby_2": (

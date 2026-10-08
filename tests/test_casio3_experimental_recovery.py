@@ -91,6 +91,12 @@ def test_shim_vector_conversion_preserves_six_unique_states_and_cubic_point():
         "casio3_perovskite_tetragonal",
         "casio3_perovskite_tetragonal_shim_2002_figure2a_digitized",
     )
+    from scripts.validate_primary_eos_refits import _pressure_column
+
+    assert (
+        _pressure_column(dataset, "BM3", document["eos_records"][0]["identifier"])
+        == "pressure_gpa"
+    )
     assert len(rows) == 6
     assert Counter(r["source_refinement"] for r in rows) == {
         "cubic": 1,

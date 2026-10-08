@@ -5,7 +5,7 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 227 bundled material documents and 636 EOS records pass the
+separate. All 227 bundled material documents and 642 EOS records pass the
 format-3 validator; 224 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe and FeS-VI source cards do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
@@ -13,7 +13,7 @@ including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 636 bundled records: 628 are
+The primary-source audit covers all 642 bundled records: 634 are
 `primary_source_validated`, five explicit-selection implementations are
 `not_reproduced` (Maltby, the Chen diagnostic, and three Miozzi hcp-Fe
 parameterizations), and three records are `deferred`: the two Campbell Fe/FeO
@@ -40,10 +40,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 636
+fit for every record with sufficient direct observations and documents all 642
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 224 parity matches and 151 additional numerically similar results.
+diagnostics. The current campaign finds 225 parity matches and 157 additional numerically similar results.
 For opt-in Peritheos refits, including the provisional Ross + Errandonea argon
 refit, parity verifies the stored fit under its documented selection and
 objective; it does not imply reproduction of published author coefficients.
@@ -56,7 +56,7 @@ confidence convention. Sakai (2011) contributes eight conditional fixed-V0
 parity matches within printed error widths, with weighting and marker-averaging
 qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
 [73 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 175 records cannot be
+recover at least one published coefficient, while 174 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Two further records are composite reconstructions, and eleven share a source-level
 calibration reconstruction. There are no unresolved extraction or solver failures. The

@@ -44,16 +44,21 @@ record through DOR to other ruby scales and existing ruby/XRD bridges.
 
 ```python
 from peritheos import (
-    get_material_document, resolve_dataset_pressure, recalculate_ruby_pressure,
+    get_material_document,
+    resolve_dataset_pressure,
+    recalculate_ruby_pressure,
 )
 
 document = get_material_document("kcl")
 rows = resolve_dataset_pressure(
-    document, "kcl_b2_dewaele_2012_vinet_3",
+    document,
+    "kcl_b2_dewaele_2012_vinet_3",
     "kcl_dewaele_2012_table1_compression",
 )
 mao_pressure = recalculate_ruby_pressure(
-    rows.pressure_gpa, rows.source_calibration["identifier"], "ruby_mao_1986",
+    rows.pressure_gpa,
+    rows.source_calibration["identifier"],
+    "ruby_mao_1986",
 )
 ```
 

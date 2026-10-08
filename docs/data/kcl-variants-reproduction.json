@@ -228,11 +228,11 @@
   "kcl_b2_chidester_2021_vinet_mgd": {
     "effective_temperature_rows": 155,
     "fitted_parameters": {
-      "K0": 13.118956468473124,
-      "K0_prime": 6.209818047627718,
-      "V0": 56.84322297072302,
-      "gamma0": 3.38729525853543,
-      "q": 0.9850809742161145
+      "K0": 13.118956334409043,
+      "K0_prime": 6.209818061576453,
+      "V0": 56.843223048761274,
+      "gamma0": 3.387295350295268,
+      "q": 0.985080984724219
     },
     "free_parameters": [
       "V0",
@@ -242,10 +242,10 @@
       "q"
     ],
     "high_temperature_refit": {
-      "max_absolute_residual_gpa": 4.273382808878182,
-      "rmse_gpa": 1.5407921028597675
+      "max_absolute_residual_gpa": 4.273382823340299,
+      "rmse_gpa": 1.5407921029242686
     },
-    "native_max_difference_gpa": 1.637943114474183e-10,
+    "native_max_difference_gpa": 2.5579538487363607e-13,
     "observations": 278,
     "published": {
       "max_absolute_residual_gpa": 4.700079313174726,
@@ -254,8 +254,8 @@
     "quadrature_max_difference_gpa": 7.105427357601002e-15,
     "qualification": "All five Table I coefficients are fitted, including q. Fixed theta0=235 K, Tr=300 K and n=2. Equal pressure weights; no original covariance or explicit row weights. Integrated-Gruneisen theta law is inferred by complete-data numerical reproduction; Equations 3-4 do not explicitly define theta(V). Dewaele 298 K measurements enter the source regression as its 300 K reference, preserving raw temperature provenance. High-temperature KCl temperatures are geometry-conditioned modeled effective temperatures. Cold ruby and high-T Pt calibration ancestry remain distinct.",
     "refit": {
-      "max_absolute_residual_gpa": 4.273382808878182,
-      "rmse_gpa": 1.2516022922765186
+      "max_absolute_residual_gpa": 4.273382823340299,
+      "rmse_gpa": 1.2516022922765149
     },
     "room_temperature_rows": 123,
     "selection": "all 123 Dewaele room-temperature rows as 300 K source reference plus all 155 Chidester effective-temperature rows",
@@ -265,7 +265,7 @@
     "fitted_parameters": {
       "K0": 17.554928390334098,
       "K0_prime": 5.749003323377288,
-      "alpha_KT": 0.0032110148631012392
+      "alpha_KT": 0.003211014863101239
     },
     "free_parameters": [
       "K0",
@@ -290,10 +290,10 @@
   },
   "kcl_b2_tateno_2019_holmes_vinet_mgd": {
     "fitted_parameters": {
-      "K0": 17.492509471923285,
-      "K0_prime": 5.757586933659126,
-      "gamma0": 1.93368411891194,
-      "q": 0.7271591265912735
+      "K0": 17.49250943307562,
+      "K0_prime": 5.75758693915366,
+      "gamma0": 1.933684075678557,
+      "q": 0.7271590664130659
     },
     "free_parameters": [
       "K0",
@@ -301,7 +301,7 @@
       "gamma0",
       "q"
     ],
-    "native_max_difference_gpa": 1.29020349959319e-10,
+    "native_max_difference_gpa": 1.9895196601282805e-13,
     "observations": 39,
     "pressure_coordinate": "conditional Holmes Equations 11-12 derived from Pt volumes",
     "published": {
@@ -311,17 +311,17 @@
     "quadrature_max_difference_gpa": 1.7763568394002505e-15,
     "qualification": "Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged.",
     "refit": {
-      "max_absolute_residual_gpa": 2.602332826565629,
-      "rmse_gpa": 0.7329733701901231
+      "max_absolute_residual_gpa": 2.6023328085872777,
+      "rmse_gpa": 0.7329733701901262
     },
     "selection": "all 39 correctly paired official Table S1 rows; no exclusions",
     "solver_success": true
   },
   "kcl_b2_tateno_2019_sokolova_vinet_linear_thermal": {
     "fitted_parameters": {
-      "K0": 18.338636288275783,
-      "K0_prime": 5.5988178573924685,
-      "alpha_KT": 0.0036762573045795253
+      "K0": 18.338636254621413,
+      "K0_prime": 5.598817861995818,
+      "alpha_KT": 0.003676257316470379
     },
     "free_parameters": [
       "K0",
@@ -338,8 +338,8 @@
     "quadrature_max_difference_gpa": 0,
     "qualification": "All 39 author-reported Sokolova-pressure observations. Equal pressure weights; covariance and original objective details unavailable. Coefficients agree within printed error widths of unknown confidence; no statistical parity claimed. Published coefficients remain unchanged.",
     "refit": {
-      "max_absolute_residual_gpa": 2.58274850658907,
-      "rmse_gpa": 0.7198692268373714
+      "max_absolute_residual_gpa": 2.582748495450204,
+      "rmse_gpa": 0.719869226837368
     },
     "selection": "all 39 correctly paired official Table S1 rows; no exclusions",
     "solver_success": true
