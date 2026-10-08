@@ -5235,6 +5235,10 @@ def validate_all() -> dict[str, Any]:
                 from scripts.reproduce_kcl_variants import ledger_outcome
 
                 outcome = ledger_outcome(record)
+            elif record["identifier"] == "kcl_b2_ma_2024_bm3_mgd":
+                from scripts.reproduce_ma_2024_kcl import ledger_outcome
+
+                outcome = ledger_outcome(record)
             elif (
                 record["identifier"] == "argon_fcc_ross_1986_errandonea_2006_bm3_refit"
             ):

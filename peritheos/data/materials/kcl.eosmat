@@ -690,6 +690,377 @@
     "kcl_b2_tateno_2019_sokolova_vinet_linear_thermal"
    ],
    "notes": "MSA AM-19-56779, 6779TableS1 revised.xlsx, Sheet1, rows 9-50. All 39 reported rows at workbook numerical precision; raw Pt cell volumes are correctly aligned with sample P-T-V. Published pressures use Sokolova Pt and must not be used as Holmes pressures. Lattice constants are absent from the workbook; the older rounded transcription retains article lattice constants."
+  },
+  {
+   "identifier": "kcl_ma_2024_acoustic",
+   "kind": "acoustic_volume_reduction",
+   "description": "11 source S1 acoustic-XRD states at 300 K.",
+   "reference": {
+    "authors": [
+     "Ma",
+     "Sumita",
+     "Murakami"
+    ],
+    "year": 2024,
+    "title": "Primary Pressure Scale of KCl B2 Phase to the Core-Mantle Boundary",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "129",
+    "locator": "e2024JB028819",
+    "doi": "10.1029/2024JB028819"
+   },
+   "source_location": "Final author deposit Data Tables.xlsx, Table S1 rows 3-13",
+   "source_url": "https://data.mendeley.com/public-files/datasets/7svmv9hvft/files/51aa0d16-dad5-49b2-a4c5-be70a64488e9/file_downloaded",
+   "source_doi": "10.17632/7svmv9hvft.1",
+   "source_version": 1,
+   "license": "CC-BY-4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_coordinate",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "diamond_raman_shift_cm1",
+     "quantity": "diamond_raman_shift",
+     "unit": "cm^-1",
+     "role": "value"
+    },
+    {
+     "name": "diamond_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "diamond_pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "diamond_pressure_gpa"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_error_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_mol"
+    },
+    {
+     "name": "vp_km_s",
+     "quantity": "longitudinal_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vp_error_km_s",
+     "quantity": "longitudinal_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "vp_km_s"
+    },
+    {
+     "name": "vs_km_s",
+     "quantity": "transverse_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vs_error_km_s",
+     "quantity": "transverse_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "vs_km_s"
+    },
+    {
+     "name": "kt_gpa",
+     "quantity": "isothermal_bulk_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_error_gpa",
+     "quantity": "isothermal_bulk_modulus",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "kt_gpa"
+    },
+    {
+     "name": "theta_d_k",
+     "quantity": "debye_temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "theta_d_error_k",
+     "quantity": "debye_temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "theta_d_k"
+    },
+    {
+     "name": "model_pressure_gpa",
+     "quantity": "modeled_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "model_pressure_error_gpa",
+     "quantity": "modeled_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "model_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kcl-ma-2024-table-s1-acoustic.csv",
+    "sha256": "64d4b1db0735749c0b971007209030627d3088f90a3670acf3291483e6064147",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "kcl_b2_ma_2024_bm3_mgd"
+   ],
+   "notes": "11 source S1 acoustic-XRD states at 300 K. Molar volume, VL/VT and Raman shifts are measured observations; KT and Debye temperature are reduced inputs; primary-scale pressures are downstream EOS outputs and are excluded from fitting. Diamond pressure is an independent comparison, not a calibration constraint. Source S1 footnote explicitly calls diamond-pressure and velocity errors 2 standard deviations; other errors have unspecified confidence. The printed Equation 9 differs by 2*2^(1/3) from the source Debye values; the two-atom density expression reproduces those values.",
+   "uncertainty": {
+    "reported_as": "Source plus/minus values; diamond-pressure and acoustic-velocity errors explicitly 2 standard deviations in S1; other confidence levels unspecified.",
+    "covariance": "not_deposited"
+   }
+  },
+  {
+   "identifier": "kcl_ma_2024_walker",
+   "kind": "recalibrated_pressure_volume",
+   "description": "All eight author-deposited low-pressure P-V fit inputs, recalibrated to the Matsui (2012) NaCl-B1 primary scale and corrected to 300 K.",
+   "reference": {
+    "authors": [
+     "Ma",
+     "Sumita",
+     "Murakami"
+    ],
+    "year": 2024,
+    "title": "Primary Pressure Scale of KCl B2 Phase to the Core-Mantle Boundary",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "129",
+    "locator": "e2024JB028819",
+    "doi": "10.1029/2024JB028819"
+   },
+   "source_location": "Final author deposit Data Tables.xlsx, Table S1 rows 15-22",
+   "source_url": "https://data.mendeley.com/public-files/datasets/7svmv9hvft/files/51aa0d16-dad5-49b2-a4c5-be70a64488e9/file_downloaded",
+   "source_doi": "10.17632/7svmv9hvft.1",
+   "source_version": 1,
+   "license": "CC-BY-4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_coordinate",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "source_temperature_k",
+     "quantity": "source_temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "walker_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "walker_pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "walker_pressure_gpa"
+    },
+    {
+     "name": "matsui_300k_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "matsui_pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "matsui_300k_pressure_gpa"
+    },
+    {
+     "name": "model_pressure_gpa",
+     "quantity": "modeled_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "model_pressure_error_gpa",
+     "quantity": "modeled_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "model_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kcl-ma-2024-table-s1-walker-recalibrated.csv",
+    "sha256": "24d67e1b8800bb28e2329cb44d27c76e9025c91c97e733530cb9861e7ca03bef",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "kcl_b2_ma_2024_bm3_mgd"
+   ],
+   "notes": "All eight author-deposited low-pressure P-V fit inputs, recalibrated to the Matsui (2012) NaCl-B1 primary scale and corrected to 300 K. Original temperatures are retained as source_temperature_k, not the reference temperature of the corrected pressure. Original Walker pressures and Ma model pressures are comparisons, not fit inputs. Paired NaCl lattice observations and KCl volume uncertainties remain in kcl_walker_2002_table2_pvt. Direct recalculation from that original rounded lattice table does not exactly recover these deposited pressures; see the dedicated audit.",
+   "uncertainty": {
+    "reported_as": "Source plus/minus values; diamond-pressure and acoustic-velocity errors explicitly 2 standard deviations in S1; other confidence levels unspecified.",
+    "covariance": "not_deposited"
+   }
+  },
+  {
+   "identifier": "kcl_ma_2024_cold_grid",
+   "kind": "model_grid",
+   "description": "All 186 tabulated source S3 modeled states at 300 K, extending to 144.1826 GPa.",
+   "reference": {
+    "authors": [
+     "Ma",
+     "Sumita",
+     "Murakami"
+    ],
+    "year": 2024,
+    "title": "Primary Pressure Scale of KCl B2 Phase to the Core-Mantle Boundary",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "129",
+    "locator": "e2024JB028819",
+    "doi": "10.1029/2024JB028819"
+   },
+   "source_location": "Final author deposit Data Tables.xlsx, Table S3",
+   "source_url": "https://data.mendeley.com/public-files/datasets/7svmv9hvft/files/51aa0d16-dad5-49b2-a4c5-be70a64488e9/file_downloaded",
+   "source_doi": "10.17632/7svmv9hvft.1",
+   "source_version": 1,
+   "license": "CC-BY-4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "columns": [
+    {
+     "name": "source_cell",
+     "quantity": "source_coordinate",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "model_pressure_gpa",
+     "quantity": "modeled_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "model_pressure_error_gpa",
+     "quantity": "modeled_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "model_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kcl-ma-2024-table-s3-model-grid.csv",
+    "sha256": "18babf7cea7c9b55fbb14b3f650da008b6bf5727d0f43dfab5b65f80ec65a81f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "kcl_b2_ma_2024_bm3_mgd"
+   ],
+   "notes": "All 186 tabulated source S3 modeled states at 300 K, extending to 144.1826 GPa. These are EOS predictions and their propagated source errors, not experimental observations. The grid uses unrounded coefficients that round to Table 1. Source full covariance is not deposited.",
+   "uncertainty": {
+    "reported_as": "Source plus/minus values; diamond-pressure and acoustic-velocity errors explicitly 2 standard deviations in S1; other confidence levels unspecified.",
+    "covariance": "not_deposited"
+   }
+  },
+  {
+   "identifier": "kcl_ma_2024_thermal_grid",
+   "kind": "model_grid",
+   "description": "All 371 source S4 modeled thermal increments relative to 300 K at fixed V=32.48 cm3/mol, 300-4000 K.",
+   "reference": {
+    "authors": [
+     "Ma",
+     "Sumita",
+     "Murakami"
+    ],
+    "year": 2024,
+    "title": "Primary Pressure Scale of KCl B2 Phase to the Core-Mantle Boundary",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "129",
+    "locator": "e2024JB028819",
+    "doi": "10.1029/2024JB028819"
+   },
+   "source_location": "Final author deposit Data Tables.xlsx, Table S4",
+   "source_url": "https://data.mendeley.com/public-files/datasets/7svmv9hvft/files/51aa0d16-dad5-49b2-a4c5-be70a64488e9/file_downloaded",
+   "source_doi": "10.17632/7svmv9hvft.1",
+   "source_version": 1,
+   "license": "CC-BY-4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "columns": [
+    {
+     "name": "source_cell",
+     "quantity": "source_coordinate",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "model_thermal_pressure_gpa",
+     "quantity": "modeled_pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kcl-ma-2024-table-s4-model-grid.csv",
+    "sha256": "0241b933ba9f1084edcd636a3ce41b57029841e4d4420ac4ca6d53c969828f4a",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "kcl_b2_ma_2024_bm3_mgd"
+   ],
+   "notes": "All 371 source S4 modeled thermal increments relative to 300 K at fixed V=32.48 cm3/mol, 300-4000 K. These are quasi-harmonic predictions, not measured high-temperature P-V-T data; no row errors or independent thermal calibration are supplied.",
+   "uncertainty": {
+    "reported_as": "Source plus/minus values; diamond-pressure and acoustic-velocity errors explicitly 2 standard deviations in S1; other confidence levels unspecified.",
+    "covariance": "not_deposited"
+   }
   }
  ],
  "eos_records": [
@@ -2251,6 +2622,232 @@
      "notes": "Effective KCl temperature from the geometry-dependent heating model. Raw Pt volume and calibration covariance are not deposited; reported Pt-derived pressures are retained."
     }
    ]
+  },
+  {
+   "identifier": "kcl_b2_ma_2024_bm3_mgd",
+   "label": "Ma, Sumita and Murakami (2024), B2 primary BM3 + MGD",
+   "record_kind": "published",
+   "default": false,
+   "reference": {
+    "authors": [
+     "Ma",
+     "Sumita",
+     "Murakami"
+    ],
+    "year": 2024,
+    "title": "Primary Pressure Scale of KCl B2 Phase to the Core-Mantle Boundary",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "129",
+    "locator": "e2024JB028819",
+    "doi": "10.1029/2024JB028819"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 53.93430890180654,
+     "K0": 21.33,
+     "K0_prime": 4.836
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.14944851604564618,
+    "K0": 0.7,
+    "K0_prime": 0.083
+   },
+   "fixed_parameters": [],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 251.0,
+     "gamma0": 1.92,
+     "q": 1.0,
+     "n": 2
+    },
+    "debye_temperature_law": "integrated_gruneisen",
+    "thermal_pressure_reference": "reference_temperature",
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": 22.0,
+     "gamma0": 0.11,
+     "q": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "q",
+     "n"
+    ]
+   },
+   "determination_method": "experimental",
+   "temperature_ref": 300.0,
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "experimental_pressure_range_gpa": [
+    3.1578608426387715,
+    85.0
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "validity": {
+    "notes": [
+     "Room-temperature acoustic experiment extends to about 85 GPa; the low-pressure anchors are eight Walker states at 296.15/297.15 K recalibrated and corrected to 300 K.",
+     "S3 model grid extends to 144.1826 GPa, and S4 thermal grid to 4000 K. These are pressure extrapolation and modeled thermal extension, not experimental coverage.",
+     "Fictive zero-pressure B2 V0 is extrapolated; B2 KCl is stable only above about 2-3 GPa. No rectangular P-T phase-stability guarantee is supplied."
+    ]
+   },
+   "fit_datasets": [
+    "kcl_ma_2024_acoustic",
+    "kcl_ma_2024_walker"
+   ],
+   "diagnostic_datasets": [
+    "kcl_ma_2024_cold_grid",
+    "kcl_ma_2024_thermal_grid",
+    "kcl_walker_2002_table2_pvt"
+   ],
+   "parameter_provenance": {
+    "determination_method": "Room-temperature Brillouin velocities and XRD volumes yield elastic/Debye inputs; joint fit includes Walker low-pressure data on the Matsui acoustic primary scale. Thermal extension uses experimentally inferred gamma0 and theta0 within the quasi-harmonic approximation (Section 3).",
+    "V0": "Table 1: 32.48(9) cm3/mol converted to angstrom3 per conventional B2 cell with Z=1 using exact N_A=6.02214076e23/mol; multiply by 1e24/N_A.",
+    "K0": "Table 1: KT0=21.33(70) GPa; Equation 15 is isothermal KT(V).",
+    "K0_prime": "Table 1: 4.836(83).",
+    "thermal.theta0": "Table 1: thetaD0=251(22) K; deposited S1 acoustic Debye data use two-atom number density, differing from printed Equation 9.",
+    "thermal.gamma0": "Table 1: 1.92(11), inferred from Debye-temperature-volume fit.",
+    "thermal.q": "Equations 13-14: q found close to and fixed at 1.",
+    "thermal.n": "Equation 20: two atoms per KCl formula unit.",
+    "thermal.Tr": "Equations 18-20 subtract thermal energy at fixed volume and 300 K.",
+    "thermal.debye_temperature_law": "Equations 13-14: theta(V)=theta0*exp[(gamma0/q)*(1-(V/V0)^q)]. Zero-point term in Equation 20 cancels in the thermal increment."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "audit_date": "2026-10-08",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Ma",
+        "Sumita",
+        "Murakami"
+       ],
+       "year": 2024,
+       "title": "Primary Pressure Scale of KCl B2 Phase to the Core-Mantle Boundary",
+       "source": "J. Geophys. Res. Solid Earth",
+       "volume": "129",
+       "locator": "e2024JB028819",
+       "doi": "10.1029/2024JB028819"
+      },
+      "source_location": "Section 3, Equations 4-16",
+      "scope": "11 acoustic/XRD states; sample primary-scale pressures calculated downstream from fitted EOS."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Matsui",
+        "Higo",
+        "Okamoto",
+        "Irifune",
+        "Funakoshi"
+       ],
+       "year": 2012,
+       "title": "Simultaneous sound velocity and density measurements of NaCl at high temperatures and pressures: Application as a primary pressure standard",
+       "source": "American Mineralogist",
+       "volume": "97",
+       "locator": "1670-1675",
+       "doi": "10.2138/am.2012.4136"
+      },
+      "source_location": "Ma Section 3, Walker low-pressure recalibration; Matsui Table 2 and Equations 2, 4-11",
+      "scope": "Eight Walker (2002) room-temperature P-V states corrected to 300 K. Original Birch (1986) NaCl pressures retained only as ancestry/comparison."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Ma-deposited recalibrated Walker P-V inputs are bundled and directly usable for the joint fit. Original paired NaCl lattice observations are already bundled. The exact Matsui NaCl B1 catalog EOS is not bundled; dedicated independent BM4+MGD re-reduction does not exactly recover Ma pressures and is explicitly diagnostic. Unrounded upstream calibration and temperature-correction prescription remain unresolved."
+    },
+    "notes": "This is an acoustic primary pressure scale with low-pressure anchors on another acoustic primary scale, not an assertion of no external input. Akahama-Kawamura (2004) diamond Raman measurements monitor/check pressure and do not constrain the joint EOS fit."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-08",
+    "note": "Published parameterization and independent source-grid reproduction verified; uncertainty conventions and upstream recalibration have documented limits.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "fit_scope",
+     "thermal_model_convention"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024JB028819",
+     "doi": "10.1029/2024JB028819",
+     "locations": [
+      "Table 1",
+      "Equations 4-16 and 18-20",
+      "Section 3, joint acoustic/Walker fit and temperature correction",
+      "Final Mendeley deposit 7svmv9hvft.1, Data Tables.xlsx Tables S1-S4"
+     ],
+     "finding": "Final source verifies Table 1 BM3 coefficients and MGD parameters, q=1 fixed, n=2, 300 K subtraction and integrated-Gruneisen Debye law. Weighted joint KT-V/P-V diagnostic recovers all three BM3 coefficients within published error magnitudes. The full source covariance and exact weighting prescription are not deposited. Source grids are matched within the documented rounding tolerance and remain distinct from observations."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-10-08",
+     "dataset_identifiers": [
+      "kcl_ma_2024_acoustic",
+      "kcl_ma_2024_walker"
+     ],
+     "source_locations": [
+      "Final author deposit 7svmv9hvft.1, Table S1"
+     ],
+     "finding": "All 11 acoustic rows and eight recalibrated Walker input rows preserved with original errors and explicit modeled-pressure columns; 186 S3 and 371 S4 model rows separately bundled for validation."
+    },
+    "reproduction": {
+     "script": "scripts/reproduce_ma_2024_kcl.py",
+     "report": "docs/data/ma-2024-kcl-reproduction.json",
+     "documentation": "docs/literature-reproductions/ma-2024-kcl.md",
+     "status": "weighted_joint_diagnostic_similar_source_grid_reproduced",
+     "limitations": [
+      "Exact source weights and full covariance unavailable.",
+      "Printed Equation 9 differs from deposited acoustic Debye convention.",
+      "Direct original-lattice Walker recalibration does not exactly recover deposited inputs.",
+      "Publisher SI DOCX download returned HTTP 403; all numerical S1-S4 tables recovered from final author deposit."
+     ]
+    }
+   },
+   "source_lineage": [
+    {
+     "doi": "10.1029/2024JB028819",
+     "role": "final published coefficients and equations, June 2024",
+     "citation": "10.1029/2024JB028819"
+    },
+    {
+     "doi": "10.17632/7svmv9hvft.1",
+     "role": "final cited author numerical S1-S4 tables, April 2024",
+     "source_sha256": "e4484174250276f092a8abd0e3b7a4f76d9a7a2cb853b76cf5ca7d54da057b84",
+     "citation": "10.17632/7svmv9hvft.1"
+    },
+    {
+     "doi": "10.2138/am-2002-0701",
+     "role": "original low-pressure KCl/NaCl observations",
+     "citation": "10.2138/am-2002-0701"
+    },
+    {
+     "doi": "10.2138/am.2012.4136",
+     "role": "NaCl B1 acoustic primary pressure calibration for low-pressure anchors",
+     "citation": "10.2138/am.2012.4136"
+    }
+   ],
+   "notes": "Nondefault final published Table 1 BM3+MGD pressure scale. Uses 300 K thermal-energy subtraction and integrated-Gruneisen Debye law with q=1 and n=2. Source observations, reduced KT and Walker inputs, and modeled grids are separately identified. Marginal coefficient errors are preserved without assuming their confidence or reconstructing the missing source covariance. Published rounded coefficients remain unchanged despite diagnostic refit or grid-precision reconstruction.",
+   "uncertainty_provenance": {
+    "status": "not_deposited",
+    "notes": "Paper Figures 3-4 and S3 errors propagate the fitted variance-covariance matrix, but numerical covariance is not supplied. Table 1 errors are uncertainties in last digits with unspecified confidence; do not construct source covariance from marginal errors or from the modeled grids. Diagnostic covariance is separately retained in docs/data/ma-2024-kcl-reproduction.json."
+   }
   }
  ],
  "format": "peritheos.material",

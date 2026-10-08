@@ -362,6 +362,15 @@ effective temperature with `T_surface=(4*T_KCl-295 K)/3`, then applies the
 reported 3% axial-gradient correction to obtain the average Pt-foil EOS
 temperature before continuing through another Pt scale.
 
+`kcl_b2_ma_2024_bm3_mgd` is the nondefault Ma, Sumita and Murakami
+(2024) acoustic primary BM3+MGD scale. Its room-temperature acoustic
+coverage extends to about 85 GPa; higher pressures extrapolate that coverage
+and the thermal extension is modeled. The joint fit uses 11 reduced KT-V
+states and eight Walker (2002) low-pressure P-V states recalibrated to the
+Matsui (2012) acoustic NaCl B1 scale. The final source workbook, modeled
+grids, weighting diagnostics and unresolved upstream recalibration are
+documented in the [Ma audit](literature-reproductions/ma-2024-kcl.md).
+
 ### Sokolova markers and the diamond source lineage
 
 ```python

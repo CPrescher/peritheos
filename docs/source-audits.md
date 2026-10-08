@@ -102,6 +102,7 @@ The current collection contains 151 standalone reports.
 | LitCurate tranche C: zero-yield paper audits | [`tranche-c-zero-yield-audits.md`](literature-reproductions/tranche-c-zero-yield-audits.md) |
 | Liu et al. (2010): MgSiO3 post-perovskite | [`liu-2010-mgsio3-post-perovskite.md`](literature-reproductions/liu-2010-mgsio3-post-perovskite.md) |
 | Lv et al. (2016): synthetic qandilite at 300 K | [`lv-2016-qandilite.md`](literature-reproductions/lv-2016-qandilite.md) |
+| Ma, Sumita and Murakami (2024): B2-KCl primary pressure scale | [`ma-2024-kcl.md`](literature-reproductions/ma-2024-kcl.md) |
 | Maltby 2024: rounding audit and constrained refit | [`argon-maltby-2024-refit.md`](literature-reproductions/argon-maltby-2024-refit.md) |
 | Maltby, Hammer and Wilhelmsen (2024): fcc argon Helmholtz EOS | [`argon-maltby-2024.md`](literature-reproductions/argon-maltby-2024.md) |
 | Mao et al. (1991): (Fe,Mg)SiO3 perovskites | [`mao-1991-bridgmanites.md`](literature-reproductions/mao-1991-bridgmanites.md) |

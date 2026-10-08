@@ -23,6 +23,14 @@ All notable changes to Peritheos are documented here. The project follows
   primary-table reproductions. Preserve complete Walker B1 and official Tateno
   data; correct the remaining Tateno Pt-volume pairing permutation.
 
+- Add Ma, Sumita and Murakami (2024) B2-KCl BM3 plus MGD as a nondefault
+  published pressure scale, retaining all existing KCl coefficients and the
+  Dewaele default. Bundle the final author's workbook, all 11 acoustic and
+  eight recalibrated Walker inputs, and separately labeled model grids.
+  Validate unit conversion, the integrated Debye law and joint fitting;
+  document missing source covariance, weighting sensitivity, the printed
+  acoustic Debye-formula discrepancy and unresolved upstream recalibration.
+
 - Preserve Miozzi (2020) published hcp-Fe BM3–MGD coefficients with the
   author-reported n=2 and ~6.87 cm³/mol volume convention, attributed to
   personal communication with Miozzi et al. Add a separate nondefault n=1

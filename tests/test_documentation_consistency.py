@@ -52,7 +52,7 @@ def test_material_readme_inventory_matches_bundled_datasets():
     )
     expected = (
         f"contains {len(datasets)} distinct primary datasets with "
-        f"{sum(datasets.values()):,} observation rows, represented by "
+        f"{sum(datasets.values()):,} source rows, represented by "
         f"{material_links} material-document links to "
         f"{len(record_identifiers)} EOS records"
     )

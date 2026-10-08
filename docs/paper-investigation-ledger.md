@@ -1250,6 +1250,7 @@ the primary-source and refit ledgers.
 | [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Lv et al. (2016)](https://doi.org/10.1007/s00269-015-0794-1) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Lv et al. (2020)](https://doi.org/10.2138/am-2020-7279) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
+| [Ma, Sumita and Murakami (2024)](https://doi.org/10.1029/2024JB028819) | Reproduced | 1 | 1 similar; Reproduction covers Ma's final reduced acoustic/Walker inputs and model grids; source weights/covariance and exact original-lattice Walker recalibration remain unresolved. High-temperature coverage is modeled. See the [Ma audit](literature-reproductions/ma-2024-kcl.md). | 1 bundled |
 | [Magad-Weiss et al. (2021)](https://doi.org/10.1103/physrevb.103.014101) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Maltby et al. (2024)](https://doi.org/10.1063/5.0237497) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Mao et al. (1974)](https://doi.org/10.1029/jb079i008p01165) | Reproduced | 1 | 1 parity | 1 bundled |

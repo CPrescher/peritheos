@@ -149,6 +149,32 @@ fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
 }
 
 #[test]
+fn bundled_ma_2024_kcl_scale_preserves_molar_units_and_source_metadata() {
+    let Some(material) = load_bundled_material("kcl.eosmat") else {
+        return;
+    };
+    let record = material.record("kcl_b2_ma_2024_bm3_mgd").unwrap();
+    let cell_per_molar = 1e24 / 6.022_140_76e23;
+    assert_close(record.reference_volume(), 32.48 * cell_per_molar, 1e-12);
+    // Independent BM3 and Debye quadrature at a compressed, heated state.
+    assert_close(
+        record.pressure(15.0 * cell_per_molar, 300.0).unwrap(),
+        111.121_801_384_307_69,
+        2e-7,
+    );
+    assert_close(
+        record.pressure(15.0 * cell_per_molar, 2000.0).unwrap(),
+        115.941_740_825_198_25,
+        2e-7,
+    );
+    let volume = record.volume(100.0, 2000.0).unwrap();
+    assert_close(record.pressure(volume, 2000.0).unwrap(), 100.0, 1e-8);
+    assert_eq!(record.document["default"], false);
+    let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
+    assert_eq!(restored.document, material.document);
+}
+
+#[test]
 fn morard_fes_deferred_source_round_trips_and_matches_independent_quadrature() {
     let Some(material) = load_bundled_material("fes_vi.eosmat") else {
         return;

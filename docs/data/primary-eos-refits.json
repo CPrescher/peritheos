@@ -46753,6 +46753,127 @@
       "solver_success": true,
       "source_notes": "Table 3 B1 row: V0=249.53 A^3/conventional cell, Z=4, K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.",
       "status": "similar"
+    },
+    {
+      "absolute_sigma": false,
+      "dataset_identifiers": [
+        "kcl_ma_2024_acoustic",
+        "kcl_ma_2024_walker"
+      ],
+      "debye_temperature_fits": {
+        "reported_errors": {
+          "A_k": 1710.7862055137741,
+          "B_mol_cm3": 0.0590200496979652,
+          "gamma0": 1.9169712141899093,
+          "q_fixed": 1.0,
+          "qualification": "Diagnostic Eq 13 fit to all 11 reduced acoustic Debye values; source weights and covariance unknown. Uses the published V0 to map A,B to gamma0,theta0.",
+          "theta0_k": 251.57397939554787,
+          "weighted_by_reported_errors": true
+        },
+        "unweighted": {
+          "A_k": 1751.9607209727449,
+          "B_mol_cm3": 0.06025088757498749,
+          "gamma0": 1.9569488284355936,
+          "q_fixed": 1.0,
+          "qualification": "Diagnostic Eq 13 fit to all 11 reduced acoustic Debye values; source weights and covariance unknown. Uses the published V0 to map A,B to gamma0,theta0.",
+          "theta0_k": 247.53253385108002,
+          "weighted_by_reported_errors": false
+        }
+      },
+      "experimental_pressure_range_gpa": [
+        3.1578608426387715,
+        85.0
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "joint_acoustic_kt_volume_and_recalibrated_walker_pv",
+      "fixed_parameters": [
+        "Tr",
+        "q",
+        "n"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "kt_rmse_gpa": 7.050999325906817,
+      "label": "Ma, Sumita and Murakami (2024), B2 primary BM3 + MGD",
+      "material_identifier": "kcl",
+      "model": "BM3",
+      "objective": "KT and pressure residuals divided by deposited row error widths; all 19 rows, V0/K0/K0_prime free",
+      "observations": 19,
+      "parameters": [
+        {
+          "difference": -0.0010401060661493489,
+          "parameter": "V0",
+          "published": 53.93430890180654,
+          "published_error": 0.14944851604564618,
+          "refit": 53.93326879574039,
+          "refit_error": null,
+          "relative_difference": 1.928468329951124e-05,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.018727595446598855,
+          "parameter": "K0",
+          "published": 21.33,
+          "published_error": 0.7,
+          "refit": 21.348727595446597,
+          "refit_error": null,
+          "relative_difference": 0.0008779932230004152,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.010212436598055596,
+          "parameter": "K0_prime",
+          "published": 4.836,
+          "published_error": 0.083,
+          "refit": 4.846212436598056,
+          "refit_error": null,
+          "relative_difference": 0.002111752811839453,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "All 11 acoustic rows and eight recalibrated Walker input rows preserved with original errors and explicit modeled-pressure columns; 186 S3 and 371 S4 model rows separately bundled for validation.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024JB028819",
+      "qualification": "All three BM3 coefficients lie within their published error widths, but unknown source weights/error confidence/covariance prevent strict statistical parity. Gamma0/theta0 receive a separate Eq 13 acoustic diagnostic; high-temperature use is modeled. Direct upstream Walker recalibration remains unresolved. See the [Ma audit](literature-reproductions/ma-2024-kcl.md).",
+      "record_identifier": "kcl_b2_ma_2024_bm3_mgd",
+      "rmse_gpa": 0.028929592032841005,
+      "selection": "11 measured acoustic-volume rows reduced to KT plus eight Matsui-2012-recalibrated Walker-2002 300 K P-V rows; S1 modeled pressures and S3-S4 grids excluded from all fits.",
+      "solver_message": "dedicated Ma acoustic/Walker diagnostic completed",
+      "solver_success": true,
+      "source_grid_validation": {
+        "cold_max_abs_error_gpa": 0.10680438990041807,
+        "cold_max_error_over_reported_grid_error": 0.4274011465401192,
+        "cold_rows": 186,
+        "grid_precision_diagnostic": {
+          "cold_max_abs_residual_gpa": 1.1368683772161603e-13,
+          "cold_parameters_molar": [
+            32.48441270403208,
+            21.33455152957105,
+            4.836059266516246
+          ],
+          "meaning": "Reverse reconstruction of source grid precision only, not a refit of observations, source covariance, or selectable EOS. Published rounded coefficients remain authoritative.",
+          "thermal_gamma0_theta0": [
+            1.9224554719645683,
+            250.8877146371014
+          ],
+          "thermal_max_abs_residual_gpa": 1.4210854715202004e-14
+        },
+        "qualification": "Grids are independently deposited benchmarks, not fit observations. All inferred grid coefficients round to the published Table 1 values; their precision explains the small grid discrepancy.",
+        "thermal_max_abs_error_gpa": 0.013943133408838904,
+        "thermal_rows": 371
+      },
+      "source_notes": "Nondefault final published Table 1 BM3+MGD pressure scale. Uses 300 K thermal-energy subtraction and integrated-Gruneisen Debye law with q=1 and n=2. Source observations, reduced KT and Walker inputs, and modeled grids are separately identified. Marginal coefficient errors are preserved without assuming their confidence or reconstructing the missing source covariance. Published rounded coefficients remain unchanged despite diagnostic refit or grid-precision reconstruction.",
+      "status": "similar",
+      "upstream_recalibration_status": "deposited_inputs_preserved_upstream_recalculation_not_reproduced"
     }
   ],
   "summary": {

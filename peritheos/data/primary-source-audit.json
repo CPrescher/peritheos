@@ -5554,6 +5554,26 @@
       }
     },
     {
+      "material": "kcl",
+      "file": "kcl.eosmat",
+      "record": "kcl_b2_ma_2024_bm3_mgd",
+      "label": "Ma, Sumita and Murakami (2024), B2 primary BM3 + MGD",
+      "doi": "10.1029/2024JB028819",
+      "status": "primary_source_validated",
+      "note": "Published parameterization and independent source-grid reproduction verified; uncertainty conventions and upstream recalibration have documented limits.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024JB028819",
+        "doi": "10.1029/2024JB028819",
+        "locations": [
+          "Table 1",
+          "Equations 4-16 and 18-20",
+          "Section 3, joint acoustic/Walker fit and temperature correction",
+          "Final Mendeley deposit 7svmv9hvft.1, Data Tables.xlsx Tables S1-S4"
+        ],
+        "finding": "Final source verifies Table 1 BM3 coefficients and MGD parameters, q=1 fixed, n=2, 300 K subtraction and integrated-Gruneisen Debye law. Weighted joint KT-V/P-V diagnostic recovers all three BM3 coefficients within published error magnitudes. The full source covariance and exact weighting prescription are not deposited. Source grids are matched within the documented rounding tolerance and remain distinct from observations."
+      }
+    },
+    {
       "material": "kcl_b1",
       "file": "kcl_b1.eosmat",
       "record": "kcl_b1_dewaele_2012_vinet_1",

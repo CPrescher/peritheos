@@ -1,0 +1,420 @@
+{
+  "record_identifier": "kcl_b2_ma_2024_bm3_mgd",
+  "source": {
+    "article_doi": "10.1029/2024JB028819",
+    "dataset_doi": "10.17632/7svmv9hvft.1",
+    "url": "https://data.mendeley.com/public-files/datasets/7svmv9hvft/files/51aa0d16-dad5-49b2-a4c5-be70a64488e9/file_downloaded",
+    "sha256": "e4484174250276f092a8abd0e3b7a4f76d9a7a2cb853b76cf5ca7d54da057b84",
+    "license": "CC-BY-4.0",
+    "excluded_older_deposit": "10.17632/mws6hnp49j.1"
+  },
+  "selection": "11 measured acoustic-volume rows reduced to KT plus eight Matsui-2012-recalibrated Walker-2002 300 K P-V rows; S1 modeled pressures and S3-S4 grids excluded from all fits.",
+  "fits": {
+    "reported_errors": {
+      "mode": "reported_errors",
+      "success": true,
+      "observations": 19,
+      "acoustic_rows": 11,
+      "walker_rows": 8,
+      "parameters_molar": {
+        "V0_cm3_mol": 32.47937363348643,
+        "K0_gpa": 21.348727595446597,
+        "K0_prime": 4.846212436598056
+      },
+      "difference_from_published": [
+        -0.0006263665135648466,
+        0.018727595446598855,
+        0.010212436598055596
+      ],
+      "residual_sum_squares": 10.444384560258078,
+      "kt_rmse_gpa": 7.050999325906817,
+      "pv_rmse_gpa": 0.028929592032841005,
+      "diagnostic_covariance": [
+        [
+          0.003200352391904967,
+          -0.023737873440488395,
+          0.002377438678475747
+        ],
+        [
+          -0.023737873440488395,
+          0.18227713383033206,
+          -0.019559074459422388
+        ],
+        [
+          0.002377438678475747,
+          -0.019559074459422388,
+          0.002726646066491232
+        ]
+      ],
+      "diagnostic_errors": [
+        0.056571657142998444,
+        0.42693926246051916,
+        0.05221729662182093
+      ],
+      "covariance_provenance": "Residual-scaled inverse JtJ of this diagnostic objective, not the source covariance or independent physical errors."
+    },
+    "effective_errors": {
+      "mode": "effective_errors",
+      "success": true,
+      "observations": 19,
+      "acoustic_rows": 11,
+      "walker_rows": 8,
+      "parameters_molar": {
+        "V0_cm3_mol": 32.472733079309506,
+        "K0_gpa": 21.415177521881063,
+        "K0_prime": 4.830810577057584
+      },
+      "difference_from_published": [
+        -0.007266920690490508,
+        0.08517752188106442,
+        -0.005189422942415867
+      ],
+      "residual_sum_squares": 9.201615775657267,
+      "kt_rmse_gpa": 7.05413687549553,
+      "pv_rmse_gpa": 0.028742327086458783,
+      "diagnostic_covariance": [
+        [
+          0.0029087568365312533,
+          -0.0219555139625544,
+          0.0023481254641110026
+        ],
+        [
+          -0.021955513962554397,
+          0.17212640410149418,
+          -0.019986364746298474
+        ],
+        [
+          0.002348125464111001,
+          -0.01998636474629846,
+          0.003091260191833744
+        ]
+      ],
+      "diagnostic_errors": [
+        0.05393289197262885,
+        0.4148811927546176,
+        0.05559910243730328
+      ],
+      "covariance_provenance": "Residual-scaled inverse JtJ of this diagnostic objective, not the source covariance or independent physical errors."
+    },
+    "unweighted": {
+      "mode": "unweighted",
+      "success": true,
+      "observations": 19,
+      "acoustic_rows": 11,
+      "walker_rows": 8,
+      "parameters_molar": {
+        "V0_cm3_mol": 33.34903223156892,
+        "K0_gpa": 16.371146851611957,
+        "K0_prime": 5.303924892954211
+      },
+      "difference_from_published": [
+        0.869032231568923,
+        -4.958853148388041,
+        0.467924892954211
+      ],
+      "residual_sum_squares": 439.39859503389897,
+      "kt_rmse_gpa": 6.318474521329465,
+      "pv_rmse_gpa": 0.17473980310493825,
+      "diagnostic_covariance": [
+        [
+          12.156379004841622,
+          -29.04749347591109,
+          1.2683512275379687
+        ],
+        [
+          -29.047493475910795,
+          71.25322115262642,
+          -3.361000953483456
+        ],
+        [
+          1.2683512275379158,
+          -3.36100095348336,
+          0.1919600250658379
+        ]
+      ],
+      "diagnostic_errors": [
+        3.4865999203868547,
+        8.441162310524922,
+        0.4381324286854808
+      ],
+      "covariance_provenance": "Residual-scaled inverse JtJ of this diagnostic objective, not the source covariance or independent physical errors."
+    }
+  },
+  "debye_temperature_fits": {
+    "reported_errors": {
+      "weighted_by_reported_errors": true,
+      "q_fixed": 1.0,
+      "A_k": 1710.7862055137741,
+      "B_mol_cm3": 0.0590200496979652,
+      "gamma0": 1.9169712141899093,
+      "theta0_k": 251.57397939554787,
+      "qualification": "Diagnostic Eq 13 fit to all 11 reduced acoustic Debye values; source weights and covariance unknown. Uses the published V0 to map A,B to gamma0,theta0."
+    },
+    "unweighted": {
+      "weighted_by_reported_errors": false,
+      "q_fixed": 1.0,
+      "A_k": 1751.9607209727449,
+      "B_mol_cm3": 0.06025088757498749,
+      "gamma0": 1.9569488284355936,
+      "theta0_k": 247.53253385108002,
+      "qualification": "Diagnostic Eq 13 fit to all 11 reduced acoustic Debye values; source weights and covariance unknown. Uses the published V0 to map A,B to gamma0,theta0."
+    }
+  },
+  "source_grid_validation": {
+    "cold_rows": 186,
+    "thermal_rows": 371,
+    "cold_max_abs_error_gpa": 0.10680438990041807,
+    "thermal_max_abs_error_gpa": 0.013943133408838904,
+    "cold_max_error_over_reported_grid_error": 0.4274011465401192,
+    "grid_precision_diagnostic": {
+      "cold_parameters_molar": [
+        32.48441270403208,
+        21.33455152957105,
+        4.836059266516246
+      ],
+      "cold_max_abs_residual_gpa": 1.1368683772161603e-13,
+      "thermal_gamma0_theta0": [
+        1.9224554719645683,
+        250.8877146371014
+      ],
+      "thermal_max_abs_residual_gpa": 1.4210854715202004e-14,
+      "meaning": "Reverse reconstruction of source grid precision only, not a refit of observations, source covariance, or selectable EOS. Published rounded coefficients remain authoritative."
+    },
+    "qualification": "Grids are independently deposited benchmarks, not fit observations. All inferred grid coefficients round to the published Table 1 values; their precision explains the small grid discrepancy."
+  },
+  "acoustic_reductions": [
+    {
+      "run": "KCl 3 P1",
+      "ks_gpa": 71.09353127518037,
+      "printed_eq9_theta_d_k": 155.92021720955367,
+      "two_atom_theta_d_k": 392.8943275329951,
+      "kt_gpa": 69.92431077322637,
+      "source_theta_difference_k": -1.9339871641932405e-06,
+      "source_kt_difference_gpa": -0.0007576578815218227
+    },
+    {
+      "run": "KCl 3 P2",
+      "ks_gpa": 107.99826959591869,
+      "printed_eq9_theta_d_k": 189.90124767907778,
+      "two_atom_theta_d_k": 478.52115870434005,
+      "kt_gpa": 106.99614878102496,
+      "source_theta_difference_k": -2.3554777044410002e-06,
+      "source_kt_difference_gpa": 0.008980875641668717
+    },
+    {
+      "run": "KCl 1 P1",
+      "ks_gpa": 123.69665996615771,
+      "printed_eq9_theta_d_k": 198.1944645231003,
+      "two_atom_theta_d_k": 499.4187556505934,
+      "kt_gpa": 122.73937449369646,
+      "source_theta_difference_k": -2.4583440563219483e-06,
+      "source_kt_difference_gpa": 0.00921908769036861
+    },
+    {
+      "run": "KCl 2 P1",
+      "ks_gpa": 156.1988951176954,
+      "printed_eq9_theta_d_k": 211.239730247678,
+      "two_atom_theta_d_k": 532.2907654263286,
+      "kt_gpa": 155.3092397223253,
+      "source_theta_difference_k": -2.620153850330098e-06,
+      "source_kt_difference_gpa": 0.00977021463702954
+    },
+    {
+      "run": "KCl 1 P2",
+      "ks_gpa": 160.56817013791493,
+      "printed_eq9_theta_d_k": 221.20625975163992,
+      "two_atom_theta_d_k": 557.4048460592084,
+      "kt_gpa": 159.6969672098752,
+      "source_theta_difference_k": -2.743775780800206e-06,
+      "source_kt_difference_gpa": 0.020278484244613537
+    },
+    {
+      "run": "KCl 2 P2",
+      "ks_gpa": 183.4437087081216,
+      "printed_eq9_theta_d_k": 216.07493172479755,
+      "two_atom_theta_d_k": 544.47470966934,
+      "kt_gpa": 182.58710180811497,
+      "source_theta_difference_k": -2.6801282047017594e-06,
+      "source_kt_difference_gpa": 0.007319925593606058
+    },
+    {
+      "run": "KCl 6 P1",
+      "ks_gpa": 219.72462440448882,
+      "printed_eq9_theta_d_k": 224.3009247090959,
+      "two_atom_theta_d_k": 565.20291310375,
+      "kt_gpa": 218.91291083298253,
+      "source_theta_difference_k": -2.782161232062208e-06,
+      "source_kt_difference_gpa": 0.006263521060304811
+    },
+    {
+      "run": "KCl 5 P1",
+      "ks_gpa": 244.0073313243838,
+      "printed_eq9_theta_d_k": 238.54784832889317,
+      "two_atom_theta_d_k": 601.1029110334041,
+      "kt_gpa": 243.24498200710983,
+      "source_theta_difference_k": -2.958875256808824e-06,
+      "source_kt_difference_gpa": 0.011951324732365265
+    },
+    {
+      "run": "KCl 5 P2",
+      "ks_gpa": 264.76029214634656,
+      "printed_eq9_theta_d_k": 249.6691369674224,
+      "two_atom_theta_d_k": 629.1268023486834,
+      "kt_gpa": 264.0389146148798,
+      "source_theta_difference_k": -3.0968205919634784e-06,
+      "source_kt_difference_gpa": 0.01468539231456134
+    },
+    {
+      "run": "KCl 6 P2",
+      "ks_gpa": 287.66091287437956,
+      "printed_eq9_theta_d_k": 257.962468476991,
+      "two_atom_theta_d_k": 650.0246882340072,
+      "kt_gpa": 286.9601791007127,
+      "source_theta_difference_k": -3.1996886491469922e-06,
+      "source_kt_difference_gpa": 0.020725142063042767
+    },
+    {
+      "run": "KCl 4 P1",
+      "ks_gpa": 344.14292970733726,
+      "printed_eq9_theta_d_k": 259.4447502747674,
+      "two_atom_theta_d_k": 653.7598043117962,
+      "kt_gpa": 343.47139562890135,
+      "source_theta_difference_k": -3.2180741982301697e-06,
+      "source_kt_difference_gpa": 0.013442044769305994
+    }
+  ],
+  "walker_input_check": {
+    "rows": [
+      {
+        "source_row": 15.0,
+        "nacl_file": "r35189",
+        "kcl_file": "r35193",
+        "nacl_lattice_a_angstrom": 5.4572,
+        "nacl_lattice_a_esd_angstrom": 0.0006,
+        "b2_kcl_cell_volume_a3": 48.2,
+        "b2_kcl_cell_volume_esd_a3": 0.01,
+        "kcl_molar_volume_from_original_cell_cm3_mol": 29.0267184632,
+        "matsui_300k_at_original_nacl_volume_gpa": 3.0107456514468773,
+        "matsui_at_measured_temperature_gpa": 3.002966008611561,
+        "kcl_300k_pressure_diagnostic_gpa": 3.010803508611561,
+        "ma_deposited_recalibrated_pressure_gpa": 3.1578608426387715,
+        "difference_gpa": -0.14705733402721055
+      },
+      {
+        "source_row": 16.0,
+        "nacl_file": "r34515",
+        "kcl_file": "r34511",
+        "nacl_lattice_a_angstrom": 5.4315,
+        "nacl_lattice_a_esd_angstrom": 0.0007,
+        "b2_kcl_cell_volume_a3": 47.57,
+        "b2_kcl_cell_volume_esd_a3": 0.03,
+        "kcl_molar_volume_from_original_cell_cm3_mol": 28.647323595319996,
+        "matsui_300k_at_original_nacl_volume_gpa": 3.564288275212601,
+        "matsui_at_measured_temperature_gpa": 3.5537995207833077,
+        "kcl_300k_pressure_diagnostic_gpa": 3.564387020783308,
+        "ma_deposited_recalibrated_pressure_gpa": 3.608665628686293,
+        "difference_gpa": -0.0442786079029851
+      },
+      {
+        "source_row": 17.0,
+        "nacl_file": "r34519",
+        "kcl_file": "r34523",
+        "nacl_lattice_a_angstrom": 5.3896,
+        "nacl_lattice_a_esd_angstrom": 0.0009,
+        "b2_kcl_cell_volume_a3": 46.4,
+        "b2_kcl_cell_volume_esd_a3": 0.04,
+        "kcl_molar_volume_from_original_cell_cm3_mol": 27.942733126399993,
+        "matsui_300k_at_original_nacl_volume_gpa": 4.548531450597767,
+        "matsui_at_measured_temperature_gpa": 4.538074413624451,
+        "kcl_300k_pressure_diagnostic_gpa": 4.548661913624451,
+        "ma_deposited_recalibrated_pressure_gpa": 4.597488465619416,
+        "difference_gpa": -0.04882655199496533
+      },
+      {
+        "source_row": 18.0,
+        "nacl_file": "r34531",
+        "kcl_file": "r34527",
+        "nacl_lattice_a_angstrom": 5.3575,
+        "nacl_lattice_a_esd_angstrom": 0.0015,
+        "b2_kcl_cell_volume_a3": 45.59,
+        "b2_kcl_cell_volume_esd_a3": 0.04,
+        "kcl_molar_volume_from_original_cell_cm3_mol": 27.45493972484,
+        "matsui_300k_at_original_nacl_volume_gpa": 5.375942398120755,
+        "matsui_at_measured_temperature_gpa": 5.36551089990395,
+        "kcl_300k_pressure_diagnostic_gpa": 5.37609839990395,
+        "ma_deposited_recalibrated_pressure_gpa": 5.428646198706775,
+        "difference_gpa": -0.05254779880282534
+      },
+      {
+        "source_row": 19.0,
+        "nacl_file": "r34535",
+        "kcl_file": "r34539",
+        "nacl_lattice_a_angstrom": 5.3288,
+        "nacl_lattice_a_esd_angstrom": 0.002,
+        "b2_kcl_cell_volume_a3": 44.82,
+        "b2_kcl_cell_volume_esd_a3": 0.04,
+        "kcl_molar_volume_from_original_cell_cm3_mol": 26.991234886319997,
+        "matsui_300k_at_original_nacl_volume_gpa": 6.173439018255453,
+        "matsui_at_measured_temperature_gpa": 6.163031275614299,
+        "kcl_300k_pressure_diagnostic_gpa": 6.173618775614298,
+        "ma_deposited_recalibrated_pressure_gpa": 6.229675874157613,
+        "difference_gpa": -0.056057098543314865
+      },
+      {
+        "source_row": 20.0,
+        "nacl_file": "r34547",
+        "kcl_file": "r34543",
+        "nacl_lattice_a_angstrom": 5.3074,
+        "nacl_lattice_a_esd_angstrom": 0.0021,
+        "b2_kcl_cell_volume_a3": 44.28,
+        "b2_kcl_cell_volume_esd_a3": 0.05,
+        "kcl_molar_volume_from_original_cell_cm3_mol": 26.666039285279997,
+        "matsui_300k_at_original_nacl_volume_gpa": 6.805532688402898,
+        "matsui_at_measured_temperature_gpa": 6.7951432303056,
+        "kcl_300k_pressure_diagnostic_gpa": 6.8057307303056,
+        "ma_deposited_recalibrated_pressure_gpa": 6.864520453662623,
+        "difference_gpa": -0.05878972335702315
+      },
+      {
+        "source_row": 21.0,
+        "nacl_file": "r34551",
+        "kcl_file": "r34555",
+        "nacl_lattice_a_angstrom": 5.2855,
+        "nacl_lattice_a_esd_angstrom": 0.002,
+        "b2_kcl_cell_volume_a3": 43.66,
+        "b2_kcl_cell_volume_esd_a3": 0.08,
+        "kcl_molar_volume_from_original_cell_cm3_mol": 26.292666558159993,
+        "matsui_300k_at_original_nacl_volume_gpa": 7.487109604748796,
+        "matsui_at_measured_temperature_gpa": 7.4767393671387765,
+        "kcl_300k_pressure_diagnostic_gpa": 7.487326867138776,
+        "ma_deposited_recalibrated_pressure_gpa": 7.54901867553968,
+        "difference_gpa": -0.06169180840090416
+      },
+      {
+        "source_row": 22.0,
+        "nacl_file": "r34563",
+        "kcl_file": "r34559",
+        "nacl_lattice_a_angstrom": 5.2693,
+        "nacl_lattice_a_esd_angstrom": 0.0015,
+        "b2_kcl_cell_volume_a3": 43.25,
+        "b2_kcl_cell_volume_esd_a3": 0.07,
+        "kcl_molar_volume_from_original_cell_cm3_mol": 26.045758787,
+        "matsui_300k_at_original_nacl_volume_gpa": 8.014773518298604,
+        "matsui_at_measured_temperature_gpa": 8.004417831364892,
+        "kcl_300k_pressure_diagnostic_gpa": 8.015005331364891,
+        "ma_deposited_recalibrated_pressure_gpa": 8.078914270458299,
+        "difference_gpa": -0.06390893909340711
+      }
+    ],
+    "matsui_source_doi": "10.2138/am.2012.4136",
+    "matsui_source_url": "https://rruff.info/doclib/am/vol97/AM97_1670.pdf",
+    "method": "Matsui (2012) Equations 2 and 4-11, Table 2; conventional NaCl cell Z=4; Walker alphaKT=0.00275 GPa/K correction to 300 K.",
+    "status": "deposited_inputs_preserved_upstream_recalculation_not_reproduced",
+    "qualification": "Original Walker lattice observations do not reproduce Ma's deposited recalibrated pressures exactly. The temperature correction prescription and unrounded upstream calibration are not deposited. Keep both inputs distinct; do not substitute this diagnostic into the source joint fit."
+  },
+  "limitations": [
+    "Source regression objective, weights, confidence of coefficient errors and full covariance are unavailable; diagnostic objectives do not recreate source covariance.",
+    "Only room-temperature acoustic measurements to 85 GPa constrain the source; high-temperature use is a quasi-harmonic model extension, and higher pressures extrapolate the acoustic coverage.",
+    "Equation 9 prints hbar/(2 kB) and Avogadro number without the two-atom factor. Source S1 values instead agree with hbar/kB and the two-atom number density; printed Equation 9 is not used to replace published theta0."
+  ]
+}

@@ -48,6 +48,12 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1029/2024jb028819": (
+        "Reproduction covers Ma's final reduced acoustic/Walker inputs and "
+        "model grids; source weights/covariance and exact original-lattice "
+        "Walker recalibration remain unresolved. High-temperature coverage is "
+        "modeled. See the [Ma audit](literature-reproductions/ma-2024-kcl.md)."
+    ),
     "10.1103/h4pj-rvxx": (
         "FeS source record deferred from the executable catalog: the standard "
         "thermal replay exceeds the stated +/-3 GPa bound. Table S1, paired "
