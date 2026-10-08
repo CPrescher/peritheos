@@ -34,6 +34,13 @@ All notable changes to Peritheos are documented here. The project follows
   primary-table reproductions. Preserve complete Walker B1 and official Tateno
   data; correct the remaining Tateno Pt-volume pairing permutation.
 
+- Recover and checksum the final Ma (2024) publisher supplement; verify its
+  printed tables and final-PDF Equation 9. Strengthen the Walker-to-Matsui
+  audit with original spectrum identity, independent Matsui benchmarks,
+  temperature terms and lattice-rounding bounds. Record the deposited-file
+  inventory and unresolved weights/covariance without changing source inputs
+  or published EOS coefficients.
+
 - Add Ma, Sumita and Murakami (2024) B2-KCl BM3 plus MGD as a nondefault
   published pressure scale, retaining all existing KCl coefficients and the
   Dewaele default. Bundle the final author's workbook, all 11 acoustic and

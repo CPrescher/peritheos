@@ -12,6 +12,7 @@ import argparse
 import csv
 import hashlib
 import json
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
@@ -19,7 +20,7 @@ from zipfile import ZipFile
 import numpy as np
 from scipy.constants import Avogadro, Boltzmann, R, hbar
 from scipy.integrate import quad
-from scipy.optimize import least_squares
+from scipy.optimize import brentq, least_squares
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
@@ -30,6 +31,8 @@ SOURCE_URL = (
     "51aa0d16-dad5-49b2-a4c5-be70a64488e9/file_downloaded"
 )
 SOURCE = DATA / "ma_2024_sources/data-tables.xlsx"
+SUPPLEMENT = SOURCE.parent / "supporting-information.docx"
+SUPPLEMENT_SHA256 = "427318e7e0a536d7f7635da07ec305fa2bb809832f457cfeefcafc68918a6c01"
 PUBLISHED = np.array([32.48, 21.33, 4.836])
 NS = {"s": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 TABLES = {
@@ -156,6 +159,105 @@ def load(key: str) -> list[dict]:
     ]
 
 
+def publisher_supplement_check(path=SUPPLEMENT):
+    """Compare unchanged publisher tables with cached final-deposit cells.
+
+    Half a printed last digit is allowed for numerical rounding. Differences
+    remain provenance findings; neither original is overwritten or repaired.
+    """
+    if hashlib.sha256(path.read_bytes()).hexdigest() != SUPPLEMENT_SHA256:
+        raise ValueError("This is not the recovered publisher supplement")
+    ns = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+    with ZipFile(path) as archive:
+        root = ET.fromstring(archive.read("word/document.xml"))
+        tables = root.find("w:body", ns).findall("w:tbl", ns)
+        embedded = [
+            name for name in archive.namelist() if name.startswith("word/embeddings/")
+        ]
+    rows = [
+        [
+            [
+                "".join(n.text or "" for n in c.iter() if n.tag.endswith("}t")).strip()
+                for c in row.findall("w:tc", ns)
+            ]
+            for row in table.findall("w:tr", ns)
+        ]
+        for table in tables
+    ]
+    if [len(table) for table in rows] != [22, 13, 48, 50]:
+        raise ValueError("Unexpected publisher S1-S4 table layout")
+    sheets = workbook_cells(SOURCE)
+    mismatches, checked = [], 0
+    for index, table in enumerate(rows):
+        sheet = f"Table S{index + 1}"
+        for i, row in enumerate(table):
+            if i == 0:
+                continue
+            # S1 has a second header and footnote; S2 comparisons have prose.
+            if index == 0 and i in {12, 21}:
+                continue
+            if index == 1 and i > 2:
+                continue  # Only the two Ma parameterizations; other studies reorder.
+            columns = (
+                range(3, 12) if index == 1 else range(1 if index == 0 else 0, len(row))
+            )
+            workbook_columns = (
+                "ABCDEFGHIJKLMNOP" if index != 0 or i < 12 else "ABCEGHKNP"
+            )
+            for j in columns:
+                if j >= len(row) or not row[j]:
+                    continue
+                cell = f"{workbook_columns[j]}{i + 2}"
+                source = sheets[sheet].get(cell)
+                if source is None:
+                    continue
+                printed = row[j]
+                try:
+                    value = Decimal(printed)
+                except InvalidOperation:
+                    if index != 1 or not isinstance(source, str):
+                        continue
+                    differs = printed.replace(" ", "") != source.replace(" ", "")
+                else:
+                    if not isinstance(source, float):
+                        continue
+                    half_digit = Decimal(5).scaleb(value.as_tuple().exponent - 1)
+                    differs = abs(Decimal(str(source)) - value) > half_digit + Decimal(
+                        "1e-12"
+                    )
+                checked += 1
+                if differs:
+                    mismatches.append(
+                        {
+                            "table": sheet,
+                            "workbook_cell": cell,
+                            "publisher_text": printed,
+                            "deposited_value": source,
+                        }
+                    )
+    return {
+        "sha256": SUPPLEMENT_SHA256,
+        "table_rows_including_headers": [len(t) for t in rows],
+        "checked_cells": checked,
+        "differences_beyond_printed_rounding": mismatches,
+        "embedded_files": embedded,
+        "qualification": "Publisher S1/S3/S4 numerical cells and the two Ma S2 parameter rows compared with unchanged final workbook. Other-study S2 rows reorder and are not compared by position. Text S1 and Figures S1-S3 were visually inspected; no recalibration algorithm, regression objective, weights or numerical covariance are supplied.",
+    }
+
+
+def matsui_nacl_pressure(cell_volume_a3, temperature=300.0):
+    """Matsui 2012 Table 2 BM4+MGD, conventional NaCl cell Z=4."""
+    v0, k0, kp, kpp = 179.425, 23.7, 5.14, -0.392
+    f = 0.5 * ((v0 / cell_volume_a3) ** (2.0 / 3.0) - 1.0)
+    aa = 1.5 * (kp - 4.0)
+    bb = (9.0 * k0 * kpp + 9.0 * kp**2 - 63.0 * kp + 143.0) / 6.0
+    cold = 3.0 * f * k0 * (1.0 + 2.0 * f) ** 2.5 * (1.0 + aa * f + bb * f**2)
+    molar = cell_volume_a3 * Avogadro * 1e-24 / 4.0
+    return cold + thermal_pressure(
+        molar, temperature, v0 * Avogadro * 1e-24 / 4.0, 1.56, 279.0, 0.96
+    )
+
+
 def pressure(volume, parameters=PUBLISHED):
     """Independent molar-volume BM3, Equation 16, in GPa."""
     v0, k0, kp = parameters
@@ -245,22 +347,32 @@ def walker_input_check():
             r
             for r in raw
             if abs(float(r["pressure_kbar"]) / 10.0 - row["walker_pressure_gpa"]) < 1e-8
+            and float(r["temperature_celsius"]) + 273.15 == row["source_temperature_k"]
+            and round(float(r["b2_kcl_cell_volume_a3"]) * Avogadro * 1e-24, 4)
+            == row["molar_volume_cm3_mol"]
         ]
         if len(candidates) != 1:
-            raise ValueError("Walker pressure row mapping is ambiguous")
+            raise ValueError(
+                "Walker pressure/temperature/volume row mapping is ambiguous"
+            )
         original = candidates[0]
         cell = float(original["nacl_lattice_a_angstrom"]) ** 3
-        v0, k0, kp, kpp = 179.425, 23.7, 5.14, -0.392
-        f = 0.5 * ((v0 / cell) ** (2.0 / 3.0) - 1.0)
-        aa = 1.5 * (kp - 4.0)
-        bb = (9.0 * k0 * kpp + 9.0 * kp**2 - 63.0 * kp + 143.0) / 6.0
-        p300 = 3.0 * f * k0 * (1.0 + 2.0 * f) ** 2.5 * (1.0 + aa * f + bb * f**2)
-        molar = cell * Avogadro * 1e-24 / 4.0
+        lattice = float(original["nacl_lattice_a_angstrom"])
+        p300 = matsui_nacl_pressure(cell)
         temperature = float(original["temperature_celsius"]) + 273.15
-        pt = thermal_pressure(
-            molar, temperature, v0 * Avogadro * 1e-24 / 4.0, 1.56, 279.0, 0.96
+        pt = matsui_nacl_pressure(cell, temperature) - p300
+        kcl_increment = 0.00275 * (300.0 - temperature)
+        corrected = p300 + pt + kcl_increment
+        # This inversion is a conditional diagnostic, not recovered source data.
+        implied_lattice = brentq(
+            lambda a: matsui_nacl_pressure(a**3) - row["matsui_300k_pressure_gpa"],
+            5.0,
+            5.7,
         )
-        corrected = p300 + pt + 0.00275 * (300.0 - temperature)
+        rounding_bound = max(
+            abs(matsui_nacl_pressure((lattice + delta) ** 3) - p300)
+            for delta in [-0.00005, 0.00005]
+        )
         results.append(
             {
                 "source_row": row["source_row"],
@@ -280,6 +392,12 @@ def walker_input_check():
                 * Avogadro
                 * 1e-24,
                 "matsui_300k_at_original_nacl_volume_gpa": float(p300),
+                "source_temperature_k": temperature,
+                "nacl_temperature_increment_gpa": float(pt),
+                "kcl_temperature_increment_to_300k_gpa": kcl_increment,
+                "printed_lattice_half_digit_pressure_bound_gpa": float(rounding_bound),
+                "implied_nacl_lattice_at_300k_angstrom": implied_lattice,
+                "implied_lattice_shift_at_300k_angstrom": implied_lattice - lattice,
                 "matsui_at_measured_temperature_gpa": float(p300 + pt),
                 "kcl_300k_pressure_diagnostic_gpa": float(corrected),
                 "ma_deposited_recalibrated_pressure_gpa": row[
@@ -294,7 +412,7 @@ def walker_input_check():
         "matsui_source_url": "https://rruff.info/doclib/am/vol97/AM97_1670.pdf",
         "method": "Matsui (2012) Equations 2 and 4-11, Table 2; conventional NaCl cell Z=4; Walker alphaKT=0.00275 GPa/K correction to 300 K.",
         "status": "deposited_inputs_preserved_upstream_recalculation_not_reproduced",
-        "qualification": "Original Walker lattice observations do not reproduce Ma's deposited recalibrated pressures exactly. The temperature correction prescription and unrounded upstream calibration are not deposited. Keep both inputs distinct; do not substitute this diagnostic into the source joint fit.",
+        "qualification": "Original Walker lattice observations do not reproduce Ma's deposited recalibrated pressures. Half a printed lattice digit cannot explain the difference; the implied lattice is conditional on direct Matsui evaluation at 300 K, not an inferred measurement. The actual correction prescription and upstream inputs remain unavailable. Preserve the deposited reductions in the source joint fit.",
     }
 
 
@@ -452,6 +570,25 @@ def reproduce():
         gtol=1e-12,
         ftol=1e-12,
     )
+    # First-order P(V) variance has only five independent volume powers for
+    # three BM3 coefficients; six covariance entries cannot be recovered.
+    jac = np.column_stack(
+        [
+            np.imag(pressure(v, precision.x.astype(complex) + 1e-20j * direction))
+            / 1e-20
+            for direction in np.eye(3)
+        ]
+    )
+    variance_design = np.column_stack(
+        [
+            jac[:, 0] ** 2,
+            jac[:, 1] ** 2,
+            jac[:, 2] ** 2,
+            2 * jac[:, 0] * jac[:, 1],
+            2 * jac[:, 0] * jac[:, 2],
+            2 * jac[:, 1] * jac[:, 2],
+        ]
+    )
     temperatures = np.array([r["temperature_k"] for r in thermal])
     thermal_precision = least_squares(
         lambda coefficients: (
@@ -524,6 +661,14 @@ def reproduce():
             "qualification": "Grids are independently deposited benchmarks, not fit observations. All inferred grid coefficients round to the published Table 1 values; their precision explains the small grid discrepancy.",
         },
         "acoustic_reductions": reductions,
+        "publisher_supplement_check": publisher_supplement_check(),
+        "cold_grid_covariance_identifiability": {
+            "symmetric_covariance_entries": 6,
+            "first_order_variance_design_rank": int(
+                np.linalg.matrix_rank(variance_design)
+            ),
+            "qualification": "S3 pressure-error envelopes alone cannot uniquely recover the six BM3 covariance entries under first-order propagation; no covariance is inferred or attached to the source EOS.",
+        },
         "walker_input_check": walker_input_check(),
         "limitations": [
             "Source regression objective, weights, confidence of coefficient errors and full covariance are unavailable; diagnostic objectives do not recreate source covariance.",

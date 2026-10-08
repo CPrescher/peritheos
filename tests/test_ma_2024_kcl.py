@@ -15,13 +15,17 @@ from scripts.reproduce_ma_2024_kcl import (
     RECORD_ID,
     SOURCE,
     SOURCE_SHA256,
+    SUPPLEMENT,
+    SUPPLEMENT_SHA256,
     TABLES,
     acoustic_reduction,
     debye_fit,
     extract,
     joint_fit,
     load,
+    matsui_nacl_pressure,
     pressure,
+    publisher_supplement_check,
     reproduce,
     thermal_pressure,
     walker_input_check,
@@ -29,6 +33,43 @@ from scripts.reproduce_ma_2024_kcl import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_publisher_supplement_custody_and_printed_table_agreement(tmp_path):
+    assert hashlib.sha256(SUPPLEMENT.read_bytes()).hexdigest() == SUPPLEMENT_SHA256
+    check = publisher_supplement_check()
+    assert check["table_rows_including_headers"] == [22, 13, 48, 50]
+    assert check["checked_cells"] > 1400
+    assert check["differences_beyond_printed_rounding"] == []
+    assert check["embedded_files"] == []
+    invalid = tmp_path / "wrong.docx"
+    invalid.write_bytes(b"not the publisher supplement")
+    with pytest.raises(ValueError, match="recovered publisher supplement"):
+        publisher_supplement_check(invalid)
+
+
+@pytest.mark.parametrize(
+    "relative_volume,temperature,source_pressure",
+    [
+        # Independent Matsui 2012 Table 1 values, pp. 1672-1673. Volumes rounded
+        # to four decimals and pressures to two; not values from Ma's reductions.
+        (0.7669, 300, 12.04),
+        (0.7702, 300, 11.73),
+        (0.7742, 300, 11.35),
+        (0.7860, 300, 10.31),
+        (0.8115, 300, 8.30),
+        (0.8291, 300, 7.07),
+        (0.8355, 300, 6.66),
+        (0.8310, 473, 7.43),
+        (0.8358, 473, 7.12),
+        (0.8340, 673, 7.81),
+        (0.8379, 673, 7.56),
+    ],
+)
+def test_matsui_primary_table_benchmarks(relative_volume, temperature, source_pressure):
+    assert matsui_nacl_pressure(
+        relative_volume * 179.425, temperature
+    ) == pytest.approx(source_pressure, abs=0.02)
 
 
 def test_final_author_workbook_is_checksummed_and_extractions_are_lossless(
@@ -209,6 +250,19 @@ def test_original_walker_pairs_are_retained_without_claiming_upstream_parity():
         )
         assert original["nacl_lattice_a_esd_angstrom"] > 0
         assert original["b2_kcl_cell_volume_esd_a3"] > 0
+        assert (
+            round(original["kcl_molar_volume_from_original_cell_cm3_mol"], 4)
+            == deposited["molar_volume_cm3_mol"]
+        )
+        assert original["source_temperature_k"] == deposited["source_temperature_k"]
+        assert original["printed_lattice_half_digit_pressure_bound_gpa"] < 0.0017
+        assert (
+            abs(original["difference_gpa"])
+            > 25 * original["printed_lattice_half_digit_pressure_bound_gpa"]
+        )
+        assert matsui_nacl_pressure(
+            original["implied_nacl_lattice_at_300k_angstrom"] ** 3
+        ) == pytest.approx(deposited["matsui_300k_pressure_gpa"], abs=1e-9)
 
 
 def test_api_native_python_inversion_and_roundtrip():
@@ -244,6 +298,13 @@ def test_committed_report_has_source_grid_precision_and_scientific_limits():
             report["source_grid_validation"][name], abs=1e-8
         )
     grid = report["source_grid_validation"]["grid_precision_diagnostic"]
+    assert replay["publisher_supplement_check"] == report["publisher_supplement_check"]
+    assert (
+        replay["cold_grid_covariance_identifiability"][
+            "first_order_variance_design_rank"
+        ]
+        == 5
+    )
     assert grid["cold_max_abs_residual_gpa"] < 1e-10
     assert grid["thermal_max_abs_residual_gpa"] < 1e-10
     assert report["source"]["excluded_older_deposit"] == "10.17632/mws6hnp49j.1"

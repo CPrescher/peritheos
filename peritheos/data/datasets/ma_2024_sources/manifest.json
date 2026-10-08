@@ -9,7 +9,19 @@
       "Table 1",
       "Equations 4-20",
       "Section 3"
-    ]
+    ],
+    "pdf": {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2024JB028819?download=true",
+      "sha256": "84355d26c2d490f3460dd98c60b0fbac446341160c79920471717114fc7ad9a6",
+      "bundled": false,
+      "inspection": "Final PDF p. 7 Equation 9 visually agrees with HTML: hbar/(2 kB), no two-atom density factor."
+    },
+    "update_check": {
+      "checked_on": "2026-10-08",
+      "publisher_crossmark": "Document is current; no updates listed",
+      "crossref_updates_query": "No results for updates:10.1029/2024JB028819",
+      "qualification": "No correction identified in these sources; not author confirmation of the equation."
+    }
   },
   "dataset": {
     "doi": "10.17632/7svmv9hvft.1",
@@ -18,13 +30,41 @@
     "license": "CC-BY-4.0",
     "original_filename": "Data Tables.xlsx",
     "path": "data-tables.xlsx",
-    "sha256": "e4484174250276f092a8abd0e3b7a4f76d9a7a2cb853b76cf5ca7d54da057b84"
+    "sha256": "e4484174250276f092a8abd0e3b7a4f76d9a7a2cb853b76cf5ca7d54da057b84",
+    "file_inventory": {
+      "url": "https://data.mendeley.com/public-api/datasets/7svmv9hvft/files?folder_id=root&version=1&$start=0&$limit=1000",
+      "file_count": 1,
+      "files": [
+        {
+          "filename": "Data Tables.xlsx",
+          "id": "51aa0d16-dad5-49b2-a4c5-be70a64488e9",
+          "size_bytes": 45834,
+          "sha256": "e4484174250276f092a8abd0e3b7a4f76d9a7a2cb853b76cf5ca7d54da057b84"
+        }
+      ]
+    },
+    "archive_inspection": {
+      "worksheets": 4,
+      "formula_cells": 0,
+      "defined_names": 0,
+      "qualification": "Cached numerical S1-S4 tables and comparison text; no deposited solver script, weights, or covariance file identified."
+    }
   },
   "publisher_supplement": {
     "filename": "2024JB028819-sup-0001-Supporting Information SI-S01.docx",
-    "status": "download_unavailable_http_403",
+    "status": "recovered_via_publisher_browser_download",
     "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2024JB028819&file=2024JB028819-sup-0001-Supporting+Information+SI-S01.docx",
-    "numerical_tables": "All numerical S1-S4 tables recovered from final cited author deposit; supporting text and figures not inspected."
+    "numerical_tables": "S1/S3/S4 and Ma S2 parameter rows agree with final workbook at printed precision; both original files preserved.",
+    "path": "supporting-information.docx",
+    "sha256": "427318e7e0a536d7f7635da07ec305fa2bb809832f457cfeefcafc68918a6c01",
+    "size_bytes": 312990,
+    "inspection": "All 10 rendered pages inspected, including Text S1 and Figures S1-S3.",
+    "license": "Publisher article is CC-BY-NC-ND-4.0; no independent license notice in DOCX. Do not apply Mendeley CC-BY-4.0 to this source.",
+    "missing_information": [
+      "Walker recalibration algorithm and exact inputs",
+      "regression objective and weights",
+      "numerical coefficient covariance"
+    ]
   },
   "matsui_calibrant": {
     "doi": "10.2138/am.2012.4136",
@@ -38,5 +78,16 @@
     "bundled": false,
     "role": "Independent audit of Walker recalibration; not a new catalog EOS."
   },
-  "excluded_older_deposit": "10.17632/mws6hnp49j.1"
+  "excluded_older_deposit": "10.17632/mws6hnp49j.1",
+  "walker_original": {
+    "doi": "10.2138/am-2002-0701",
+    "author_upload_url": "https://www.researchgate.net/publication/231182054_Thermal_equations_of_state_for_B1_and_B2_KCl",
+    "sha256": "c07401f2f62579fff1e5f1bd293632bce7ecd44a7f650cca921a32d5db8d4d1d",
+    "bundled": false,
+    "inspection": "Original Table 2 on p. 807 visually checked for all eight ambient-temperature anchors and paired spectrum identifiers; no raw CSV values changed."
+  },
+  "eth_repository": {
+    "url": "https://www.research-collection.ethz.ch/entities/publication/f5bb02e8-4438-470c-821d-53c20d06e914",
+    "inspection": "Repository page lists one full-text PDF; no separate supplementary attachment exposed. Direct shell download rate-limited."
+  }
 }

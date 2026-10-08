@@ -24,14 +24,38 @@ attributed to the authors.
   S1-S4, source text, comparison coefficients, and numerical precision.
 - The older deposit `10.17632/mws6hnp49j.1` is **not** used as scientific input.
 - The publisher lists `2024JB028819-sup-0001-Supporting Information SI-S01.docx`.
-  Its download returned HTTP 403 during this audit. All numerical S1-S4 tables
-  were recovered from the final article's cited author deposit; the additional
-  supporting text and figures in the publisher DOCX were not independently
-  inspected. The DOI and filename remain recorded in the source manifest.
+  Direct shell requests returned HTTP 403, but the official publisher browser
+  download succeeded. The unchanged original is bundled as
+  `peritheos/data/datasets/ma_2024_sources/supporting-information.docx`, SHA-256
+  `427318e7e0a536d7f7635da07ec305fa2bb809832f457cfeefcafc68918a6c01`.
+  All ten rendered pages were inspected, including Text S1 and Figures S1-S3.
+  The final publisher PDF was also downloaded and Equation 9 visually checked
+  on p. 7; its checksum is recorded in the manifest.
+- The final Mendeley file inventory exposes one file, the workbook. Its four
+  sheets contain cached values and no formula cells or defined names. The
+  publisher DOCX has no embedded files. Neither source supplies the regression
+  objective, weights, numerical covariance, or Walker recalibration algorithm.
+  The ETH repository page exposes the final full-text PDF without a separate
+  supplementary attachment.
+- On 8 October 2026 the publisher Crossmark dialog reported **Document is
+  current**, with no updates listed. A Crossref DOI-updates query also found
+  none. This is a bounded correction search, not author confirmation.
 
 No original source is relabeled CC0. The workbook and its attributed numerical
 extractions retain the deposit's CC BY 4.0 terms. Repository code retains the
-project license. Acquisition date: 8 October 2026.
+project license. The article-associated publisher license is CC BY-NC-ND 4.0;
+no independent license notice appears in the supplement. Its unchanged copy
+is retained as source evidence, without assigning the Mendeley workbook's
+license to it. Acquisition date: 8 October 2026.
+
+The supplement's S1/S3/S4 numbers and both Ma parameter rows in S2 agree
+with the final workbook at printed precision. S2 comparison rows for other
+studies reorder, so they are not compared by position. The publisher S2 Vinet
+row differs slightly from main Table 1: V0=32.75(11), K0=18.56(70),
+K0'=5.768(90), versus 32.75(10), 18.58(69), 5.766(90) in the main article.
+Its BM3 G0 uncertainty is 16.83(236), versus 16.83(237) in the main article.
+These differences are retained as source-version observations; the published
+main-table BM3 coefficients remain authoritative and unchanged.
 
 ## Equation and units
 
@@ -85,8 +109,12 @@ not imply experimental high-temperature coverage.
 The existing `kcl_walker_2002_table2_pvt` contains the upstream NaCl lattice
 readings, their ESDs, KCl cell volumes and their ESDs. The dedicated audit
 maps all eight S1 low-pressure rows to those original spectrum identifiers.
-The more precise molar volumes in Ma S1 are kept as deposited, rather than
-replaced with the original Walker table's rounded molar-volume column.
+Ma's four-decimal molar volumes equal the original printed KCl cell volumes
+multiplied by exact N_A × 10^-24 and rounded to four decimals. Thus their
+extra molar digits do not establish extra measured lattice precision. The
+original Table 2 on p. 807 was visually checked against all eight anchors.
+Mapping requires agreement in original pressure, temperature, and converted
+KCl volume, and retains the paired NaCl/KCl spectrum IDs.
 
 Only KT-V and author-recalibrated P-V coordinates enter the joint fit. The
 diamond Raman pressures monitor and compare with the derived scale; they are
@@ -147,7 +175,8 @@ article's A=1716(117), B=0.0592(35). The unweighted sensitivity is also saved.
 
 ### Acoustic Equation 9 discrepancy
 
-As printed in the final HTML article, Equation 9 contains `hbar/(2 kB)` and
+As printed in both the final publisher PDF (p. 7) and HTML article, Equation 9
+contains `hbar/(2 kB)` and
 Avogadro number without a two-atom number-density factor. Evaluating that
 expression gives theta values smaller than S1 by `2 × 2^(1/3)`.
 The conventional two-atom expression
@@ -179,8 +208,21 @@ alphaKT=0.00275 GPa/K increment to 300 K, misses Ma's deposited pressures
 by 0.0443-0.1471 GPa. Seven Run 1 rows miss by about 0.044-0.064 GPa;
 the one Run 2 row misses by about 0.147 GPa. These differences are not
 explained by the tiny room-temperature correction alone. The precise
-upstream calculation and unrounded calibration inputs are unavailable.
-No cause, correction, or exact original-table reproduction is asserted.
+upstream calculation and calibration inputs are unavailable. The printed
+NaCl lattice values have four decimals; a half-last-digit bound of ±0.00005 Å
+changes the computed pressure by at most 0.001661 GPa, much smaller than
+these discrepancies. Direct inversion of the deposited pressures at 300 K
+would require NaCl lattice shifts of about -0.00193 to -0.00199 Å for Run 1
+and -0.00700 Å for Run 2. These conditional shifts are **not recovered
+measurements** or an identified correction mechanism. The report separates
+NaCl and KCl temperature terms and retains measured temperatures.
+
+The independent Matsui implementation is checked against eleven printed
+primary Table 1 pressure/relative-volume benchmarks at 300, 473 and 673 K,
+using a 0.02 GPa tolerance for rounded table coordinates. Its reference is
+179.425 Å³ per conventional NaCl cell (Z=4), with a 300 K thermal baseline;
+KCl's conventional B2 cell has Z=1. No cause, correction, or exact upstream
+reproduction is asserted.
 
 Both the author-deposited input and this independently computed diagnostic
 remain visible. The joint reproduction uses the deposited input, so it
@@ -204,6 +246,13 @@ These values all round to Table 1 and reconstruct the grids to about
 are not observation refits, new selectable EOS records, or source covariance.
 The catalog stores the published rounded Table 1 values.
 
+S3's error envelope also cannot uniquely recover the full covariance: for
+first-order BM3 pressure propagation the variance design has rank five for
+six symmetric covariance entries. BM3 pressure is a linear combination of
+V^-3, V^-7/3 and V^-5/3; their pairwise products provide only five distinct
+powers. A complex-step derivative check confirms the rank without finite-
+difference noise. No arbitrary covariance is assigned from this envelope.
+
 Experimental coverage is the room-temperature acoustic scale to about
 85 GPa, plus the low-pressure Walker anchors brought to 300 K. Pressure
 above that acoustic coverage is extrapolation. The extension to 4000 K and
@@ -217,3 +266,18 @@ counts, unit conversion, source-grid benchmarks, the joint and acoustic
 reductions, the exposed upstream discrepancy, default preservation,
 thermal inversion and arrays, native/Python agreement, and `.eosmat`
 round trips. Generic catalog and scientific-ledger checks cover the addition.
+
+## Questions remaining for the authors
+
+1. Which NaCl lattice inputs, reference volume, temperature convention and
+   correction sequence generated the eight Matsui-recalibrated S1 pressures,
+   especially the Run 2 anchor r35189/r35193? Were inputs adjusted or supplied
+   at precision beyond Walker's printed Table 2?
+2. Should Equation 9 use hbar/kB and two atoms per formula unit, as the
+   deposited Debye temperatures numerically indicate?
+3. What regression residuals, row weights, uncertainty confidence/scaling,
+   and full coefficient covariance generated Table 1 and the error envelopes?
+4. Which main-table or S2 Vinet values and shear uncertainty are intended?
+
+No author contact was made. These questions delimit unresolved source
+information; they do not change the published EOS or original observations.
