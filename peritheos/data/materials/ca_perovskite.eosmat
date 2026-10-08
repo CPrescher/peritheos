@@ -1566,6 +1566,46 @@
       "ca_perovskite_wang_1996_table1_room_temperature"
      ],
      "finding": "All 14 room-temperature Run-13 states are bundled; the two source-excluded sub-2-GPa rows remain flagged rather than deleted."
+    },
+    "reproduction_status": "parameters_within_published_uncertainties",
+    "fit_reproduction_note": "The 12 included Run-13 states give V0=45.5878 A3 and K0=229.8908 GPa under unit-weight pressure residuals with K0-prime=4.8 fixed. Both parameters agree within published uncertainties; original weighting and parameter errors are not established.",
+    "reproduction_audit": {
+     "audit_date": "2026-10-08",
+     "artifact": "docs/data/wang-1996-casio3-refit.json",
+     "documentation": "docs/literature-reproductions/wang-1996-casio3.md",
+     "artifact_section": "room_temperature",
+     "independent_result": {
+      "covariance": [
+       [
+        0.002574649751592741,
+        -0.4362603904122402
+       ],
+       [
+        -0.4362603904122403,
+        80.3132759084553
+       ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 10,
+      "fixed_parameters": {
+       "K0_prime": 4.8
+      },
+      "objective": "unit-weight pressure residuals",
+      "observations": 12,
+      "parameters": {
+       "K0_gpa": 229.89080825086657,
+       "V0_a3": 45.5877745539174
+      },
+      "pressure_rmse_gpa": 0.26188522533725295,
+      "solver_success": true,
+      "standard_errors": {
+       "K0_gpa": 8.961767454495531,
+       "V0_a3": 0.05074100660799647
+      },
+      "status": "parameters_within_published_uncertainties",
+      "weighted_residual_sum_squares": 0.8230064549993252
+     },
+     "source_regression_replaced": false
     }
    }
   },
@@ -1682,6 +1722,53 @@
       "ca_perovskite_mao_1989_table1_compression"
      ],
      "finding": "The separate bundled Mao Table 1 permits an unweighted reproduction close to the rounded source fit."
+    },
+    "reproduction_status": "rounded_parameters_and_errors_reproduced",
+    "fit_reproduction_note": "An equal-weight pressure-residual fit to the 44 printed Mao states above the sub-1-GPa anomalous region reproduces the rounded V0, K0, K0-prime and their standard errors. The original covariance and unrounded measurements remain unavailable.",
+    "reproduction_audit": {
+     "audit_date": "2026-10-08",
+     "artifact": "docs/data/wang-1996-casio3-refit.json",
+     "documentation": "docs/literature-reproductions/wang-1996-casio3.md",
+     "artifact_section": "mao_equal_weight_reanalysis",
+     "independent_result": {
+      "covariance": [
+       [
+        0.014829502933441638,
+        -1.292277262009636,
+        0.02582505899887027
+       ],
+       [
+        -1.2922772620096343,
+        132.98358259591782,
+        -2.941709593642761
+       ],
+       [
+        0.0258250589988702,
+        -2.941709593642758,
+        0.06969265721905506
+       ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 41,
+      "objective": "unit-weight pressure residuals",
+      "observations": 44,
+      "parameters": {
+       "K0_gpa": 243.72785456778138,
+       "K0_prime": 4.769527277287714,
+       "V0_a3": 45.706099621611976
+      },
+      "pressure_rmse_gpa": 1.675923601759595,
+      "selection": "exclude both sub-1-GPa rows",
+      "solver_success": true,
+      "standard_errors": {
+       "K0_gpa": 11.53185078796625,
+       "K0_prime": 0.2639936688995686,
+       "V0_a3": 0.12177644654629087
+      },
+      "status": "rounded_parameters_and_errors_reproduced",
+      "weighted_residual_sum_squares": 123.58367643313358
+     },
+     "source_regression_replaced": false
     }
    }
   },
@@ -1797,6 +1884,20 @@
       "ca_perovskite_mao_1989_table1_compression"
      ],
      "finding": "All printed Mao observations are already bundled; exact coefficient parity depends on the unreported legacy regression objective."
+    },
+    "reproduction_status": "not_exactly_reconstructible",
+    "fit_reproduction_note": "The 46-row Mao source table contains a 0-GPa state without a printed pressure uncertainty. Its original pressure weight is unknown; no uncertainty is invented. The historical generic all-row errors-in-variables check does not identify this source pressure-weighted protocol.",
+    "reproduction_audit": {
+     "audit_date": "2026-10-08",
+     "artifact": "docs/data/wang-1996-casio3-refit.json",
+     "documentation": "docs/literature-reproductions/wang-1996-casio3.md",
+     "artifact_section": "mao_pressure_weighted_all",
+     "independent_result": {
+      "finding": "The 0-GPa observation has no printed pressure error; its source weight is unknown. No error is invented.",
+      "observations": 46,
+      "status": "not_exactly_reconstructible"
+     },
+     "source_regression_replaced": false
     }
    }
   },
@@ -1912,6 +2013,53 @@
       "ca_perovskite_mao_1989_table1_compression"
      ],
      "finding": "The Mao table is bundled; legacy weighting details prevent bitwise coefficient recovery."
+    },
+    "reproduction_status": "not_reproduced_at_published_precision",
+    "fit_reproduction_note": "Pressure-error weighting on the correct 44-row mask gives V0=45.3521 A3, K0=279.1467 GPa and K0-prime=4.0748, differing from the source coefficients. The original residual coordinate/optimizer is unresolved; no published coefficient is replaced.",
+    "reproduction_audit": {
+     "audit_date": "2026-10-08",
+     "artifact": "docs/data/wang-1996-casio3-refit.json",
+     "documentation": "docs/literature-reproductions/wang-1996-casio3.md",
+     "artifact_section": "mao_pressure_weighted_excluding_sub1",
+     "independent_result": {
+      "covariance": [
+       [
+        0.001028944204060654,
+        -0.1685996715339684,
+        0.004229437438834596
+       ],
+       [
+        -0.16859967153396835,
+        55.33248679673902,
+        -1.751376629014843
+       ],
+       [
+        0.0042294374388345945,
+        -1.7513766290148425,
+        0.0689563947310256
+       ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 41,
+      "objective": "pressure residuals / printed pressure errors",
+      "observations": 44,
+      "parameters": {
+       "K0_gpa": 279.1467193058818,
+       "K0_prime": 4.0747510239403,
+       "V0_a3": 45.35212150403437
+      },
+      "pressure_rmse_gpa": 1.8921878992578582,
+      "selection": "exclude both sub-1-GPa rows",
+      "solver_success": true,
+      "standard_errors": {
+       "K0_gpa": 7.438580966605056,
+       "K0_prime": 0.262595496402786,
+       "V0_a3": 0.03207716016203202
+      },
+      "status": "not_reproduced_at_published_precision",
+      "weighted_residual_sum_squares": 169.0134871996033
+     },
+     "source_regression_replaced": false
     }
    }
   },

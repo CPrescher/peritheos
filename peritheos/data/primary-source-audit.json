@@ -1672,7 +1672,9 @@
           "Table 2"
         ],
         "finding": "The preferred low-pressure fit fixes K0'=4.8 from the authors' Mao-data reanalysis and excludes the two sub-2-GPa amorphizing observations."
-      }
+      },
+      "reproduction_status": "parameters_within_published_uncertainties",
+      "fit_reproduction_note": "The 12 included Run-13 states give V0=45.5878 A3 and K0=229.8908 GPa under unit-weight pressure residuals with K0-prime=4.8 fixed. Both parameters agree within published uncertainties; original weighting and parameter errors are not established."
     },
     {
       "material": "ca_perovskite",
@@ -1690,7 +1692,9 @@
           "Figure 4"
         ],
         "finding": "The authors explicitly refit Mao et al.'s data equally and report all three BM3 coefficients."
-      }
+      },
+      "reproduction_status": "rounded_parameters_and_errors_reproduced",
+      "fit_reproduction_note": "An equal-weight pressure-residual fit to the 44 printed Mao states above the sub-1-GPa anomalous region reproduces the rounded V0, K0, K0-prime and their standard errors. The original covariance and unrounded measurements remain unavailable."
     },
     {
       "material": "ca_perovskite",
@@ -1707,7 +1711,9 @@
           "Room Temperature Compression"
         ],
         "finding": "The paper reports this weighted all-data fit immediately before explaining why the low-pressure rows should be excluded."
-      }
+      },
+      "reproduction_status": "not_exactly_reconstructible",
+      "fit_reproduction_note": "The 46-row Mao source table contains a 0-GPa state without a printed pressure uncertainty. Its original pressure weight is unknown; no uncertainty is invented. The historical generic all-row errors-in-variables check does not identify this source pressure-weighted protocol."
     },
     {
       "material": "ca_perovskite",
@@ -1724,7 +1730,9 @@
           "Room Temperature Compression"
         ],
         "finding": "The authors explicitly report the changed three-parameter fit after removing anomalous sub-1-GPa points."
-      }
+      },
+      "reproduction_status": "not_reproduced_at_published_precision",
+      "fit_reproduction_note": "Pressure-error weighting on the correct 44-row mask gives V0=45.3521 A3, K0=279.1467 GPa and K0-prime=4.0748, differing from the source coefficients. The original residual coordinate/optimizer is unresolved; no published coefficient is replaced."
     },
     {
       "material": "ca_perovskite",

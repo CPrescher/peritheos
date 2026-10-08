@@ -46,6 +46,11 @@ Shim (2000, JGR) combined DAC/LVP fit. Its exact LVP row selection and regressio
 protocol still need an audit before that combined fit can be claimed reproduced.
 The existing DAC-only record remains unchanged numerically.
 
+The subsequent [Wang fit audit](wang-1996-casio3.md) reproduces the rounded
+equal-weight Mao reanalysis and checks all direct Table 2 fitting approaches.
+Thermal reproduction remains qualified because weights, masks and some
+unweighted results cannot be recovered exactly from the printed information.
+
 ## Shim et al. (2002)
 
 The [author-hosted PDF](https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_et_al-2002-grl.pdf)

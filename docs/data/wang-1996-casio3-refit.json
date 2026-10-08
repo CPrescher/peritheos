@@ -1,0 +1,1486 @@
+{
+  "audit_date": "2026-10-08",
+  "dataset_checksums": {
+    "ca_perovskite_mao_1989_table1_compression": "b8278277cbaca2ed279956bdfe738a877706d3985fe5d48671fbc02acdc2ca80",
+    "ca_perovskite_wang_1996_table1_pvt": "8e96724876f06eb56d1a5835efdef165f8871c23b0a5bd05baa561f08e44dabc",
+    "ca_perovskite_wang_1996_table1_room_temperature": "a70e35a3dd6b0426ac41a4d8226ad37705fa391678f031cc193ab78525602a00"
+  },
+  "format": "peritheos.wang-1996-casio3-reproduction-audit",
+  "high_temperature_bm3": {
+    "unweighted1_constant_alpha": {
+      "covariance": [
+        [
+          4.712508793356315e-12,
+          -2.215700365554754e-08
+        ],
+        [
+          -2.2157003655547543e-08,
+          0.0001058769150315877
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 64,
+      "fixed_parameters": {
+        "K0_gpa": 232,
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "V0_a3": 45.58
+      },
+      "objective": "pressure residuals",
+      "observations": 66,
+      "parameters": {
+        "alpha0_per_k": 3.331196740659999e-05,
+        "dK_dT_p_gpa_per_k": -0.027850745125668007
+      },
+      "pressure_rmse_gpa": 0.38446414984110266,
+      "selection": "all_66",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "standard_errors": {
+        "alpha0_per_k": 2.1708313599532127e-06,
+        "dK_dT_p_gpa_per_k": 0.010289650870247625
+      },
+      "thermal_law": "V0(T)=V0 exp(alpha0 dT + b dT^2/2); K0(T)=K0+k dT; c=0",
+      "weighted_residual_sum_squares": 9.75563704586076,
+      "weighting": "unit"
+    },
+    "unweighted2_linear_alpha": {
+      "covariance": [
+        [
+          4.724581038058095e-12,
+          -3.220725568549157e-08,
+          7.376336180636852e-15
+        ],
+        [
+          -3.220725568549157e-08,
+          0.00031096999261824793,
+          -9.972019240177044e-11
+        ],
+        [
+          7.376336180636858e-15,
+          -9.972019240177045e-11,
+          3.8666227724749045e-17
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 63,
+      "fixed_parameters": {
+        "K0_gpa": 232,
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "V0_a3": 45.58
+      },
+      "objective": "pressure residuals",
+      "observations": 66,
+      "parameters": {
+        "alpha0_per_k": 3.4762873747657685e-05,
+        "dK_dT_p_gpa_per_k": -0.04749602490037131,
+        "dalpha_dT_p_per_k2": 6.865117805530283e-09
+      },
+      "pressure_rmse_gpa": 0.38009696894009676,
+      "selection": "all_66",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "standard_errors": {
+        "alpha0_per_k": 2.1736101393897883e-06,
+        "dK_dT_p_gpa_per_k": 0.01763434128676906,
+        "dalpha_dT_p_per_k2": 6.218217407324148e-09
+      },
+      "thermal_law": "V0(T)=V0 exp(alpha0 dT + b dT^2/2); K0(T)=K0+k dT; c=0",
+      "weighted_residual_sum_squares": 9.535264582631624,
+      "weighting": "unit"
+    },
+    "weighted_volume_proxy": {
+      "covariance": [
+        [
+          3.105895356829931e-12,
+          -1.280073214950089e-08
+        ],
+        [
+          -1.280073214950089e-08,
+          5.369236087476596e-05
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 64,
+      "fixed_parameters": {
+        "K0_gpa": 232,
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "V0_a3": 45.58
+      },
+      "objective": "pressure residuals",
+      "observations": 66,
+      "parameters": {
+        "alpha0_per_k": 3.6626823894352215e-05,
+        "dK_dT_p_gpa_per_k": -0.04172374528898733
+      },
+      "pressure_rmse_gpa": 0.39386757683240364,
+      "selection": "all_66",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "standard_errors": {
+        "alpha0_per_k": 1.7623550598077367e-06,
+        "dK_dT_p_gpa_per_k": 0.00732750713918219
+      },
+      "thermal_law": "V0(T)=V0 exp(alpha0 dT + b dT^2/2); K0(T)=K0+k dT; c=0",
+      "weighted_residual_sum_squares": 1538.1358120698364,
+      "weighting": "volume_only_proxy"
+    }
+  },
+  "mao_equal_weight_reanalysis": {
+    "covariance": [
+      [
+        0.014829502933441638,
+        -1.292277262009636,
+        0.02582505899887027
+      ],
+      [
+        -1.2922772620096343,
+        132.98358259591782,
+        -2.941709593642761
+      ],
+      [
+        0.0258250589988702,
+        -2.941709593642758,
+        0.06969265721905506
+      ]
+    ],
+    "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+    "degrees_of_freedom": 41,
+    "objective": "unit-weight pressure residuals",
+    "observations": 44,
+    "parameters": {
+      "K0_gpa": 243.72785456778138,
+      "K0_prime": 4.769527277287714,
+      "V0_a3": 45.706099621611976
+    },
+    "pressure_rmse_gpa": 1.675923601759595,
+    "selection": "exclude both sub-1-GPa rows",
+    "solver_success": true,
+    "standard_errors": {
+      "K0_gpa": 11.53185078796625,
+      "K0_prime": 0.2639936688995686,
+      "V0_a3": 0.12177644654629087
+    },
+    "status": "rounded_parameters_and_errors_reproduced",
+    "weighted_residual_sum_squares": 123.58367643313358
+  },
+  "mao_pressure_weighted_all": {
+    "finding": "The 0-GPa observation has no printed pressure error; its source weight is unknown. No error is invented.",
+    "observations": 46,
+    "status": "not_exactly_reconstructible"
+  },
+  "mao_pressure_weighted_excluding_sub1": {
+    "covariance": [
+      [
+        0.001028944204060654,
+        -0.1685996715339684,
+        0.004229437438834596
+      ],
+      [
+        -0.16859967153396835,
+        55.33248679673902,
+        -1.751376629014843
+      ],
+      [
+        0.0042294374388345945,
+        -1.7513766290148425,
+        0.0689563947310256
+      ]
+    ],
+    "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+    "degrees_of_freedom": 41,
+    "objective": "pressure residuals / printed pressure errors",
+    "observations": 44,
+    "parameters": {
+      "K0_gpa": 279.1467193058818,
+      "K0_prime": 4.0747510239403,
+      "V0_a3": 45.35212150403437
+    },
+    "pressure_rmse_gpa": 1.8921878992578582,
+    "selection": "exclude both sub-1-GPa rows",
+    "solver_success": true,
+    "standard_errors": {
+      "K0_gpa": 7.438580966605056,
+      "K0_prime": 0.262595496402786,
+      "V0_a3": 0.03207716016203202
+    },
+    "status": "not_reproduced_at_published_precision",
+    "weighted_residual_sum_squares": 169.0134871996033
+  },
+  "overall_status": "partial_reproduction_with_explicit_diagnostics",
+  "published_eos_replaced": false,
+  "published_table2_targets": {
+    "high_temperature_unweighted1": {
+      "alpha0_per_k": [
+        3.06e-05,
+        1.4e-06
+      ],
+      "dK_dT_p_gpa_per_k": [
+        -0.022,
+        0.01
+      ]
+    },
+    "high_temperature_unweighted2": {
+      "alpha0_per_k": [
+        3.19e-05,
+        4.8e-06
+      ],
+      "dK_dT_p_gpa_per_k": [
+        -0.035,
+        0.015
+      ],
+      "dalpha_dT_p_per_k2": [
+        4.5e-09,
+        4e-09
+      ]
+    },
+    "high_temperature_weighted": {
+      "alpha0_per_k": [
+        3.55e-05,
+        1.8e-06
+      ],
+      "dK_dT_p_gpa_per_k": [
+        -0.036,
+        0.008
+      ]
+    },
+    "thermal_unweighted": {
+      "K0_gpa": [
+        233,
+        9
+      ],
+      "V0_a3": [
+        45.58,
+        0.04
+      ],
+      "dP_dT_v_gpa_per_k": [
+        0.0071,
+        0.0001
+      ]
+    },
+    "thermal_weighted1": {
+      "K0_gpa": [
+        233,
+        7
+      ],
+      "V0_a3": [
+        45.6,
+        0.05
+      ],
+      "dK_dT_v_gpa_per_k": [
+        0.005,
+        0.022
+      ],
+      "dP_dT_v_gpa_per_k": [
+        0.0075,
+        0.0005
+      ]
+    },
+    "thermal_weighted2": {
+      "K0_gpa": [
+        229,
+        4
+      ],
+      "V0_a3": [
+        45.61,
+        0.02
+      ],
+      "dP_dT_v_gpa_per_k": [
+        0.0069,
+        0.0001
+      ]
+    }
+  },
+  "room_temperature": {
+    "covariance": [
+      [
+        0.002574649751592741,
+        -0.4362603904122402
+      ],
+      [
+        -0.4362603904122403,
+        80.3132759084553
+      ]
+    ],
+    "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+    "degrees_of_freedom": 10,
+    "fixed_parameters": {
+      "K0_prime": 4.8
+    },
+    "objective": "unit-weight pressure residuals",
+    "observations": 12,
+    "parameters": {
+      "K0_gpa": 229.89080825086657,
+      "V0_a3": 45.5877745539174
+    },
+    "pressure_rmse_gpa": 0.26188522533725295,
+    "solver_success": true,
+    "standard_errors": {
+      "K0_gpa": 8.961767454495531,
+      "V0_a3": 0.05074100660799647
+    },
+    "status": "parameters_within_published_uncertainties",
+    "weighted_residual_sum_squares": 0.8230064549993252
+  },
+  "source_doi": "10.1029/95JB03254",
+  "source_pdf_sha256": "118d404c1de2085f4b3f2deeda66e1020a5f12acbf045e2f008e87b04a6343ad",
+  "thermal_pressure": {
+    "all_quadrature_proxy": {
+      "covariance": [
+        [
+          0.001374333686389569,
+          -0.22195797522327504,
+          -2.969871710228581e-06
+        ],
+        [
+          -0.22195797522327504,
+          43.89350648407306,
+          0.0002639111296271562
+        ],
+        [
+          -2.969871710228579e-06,
+          0.0002639111296271559,
+          1.5717454211556137e-08
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 63,
+      "derived": {
+        "alpha0_per_k": 3.339182989976735e-05,
+        "dK_dT_p_gpa_per_k": -0.035556779584262024
+      },
+      "fixed_parameters": {
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "dK_dT_v_gpa_per_k": 0.0
+      },
+      "objective": "pressure residuals",
+      "observations": 66,
+      "parameters": {
+        "K0_gpa": 221.84056506108203,
+        "V0_a3": 45.646965549002154,
+        "dP_dT_v_gpa_per_k": 0.007407662413387923
+      },
+      "pressure_rmse_gpa": 0.40635956212817187,
+      "selection": "all_66",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "standard_errors": {
+        "K0_gpa": 6.625217466926882,
+        "V0_a3": 0.03707200677586215,
+        "dP_dT_v_gpa_per_k": 0.00012536927140075488
+      },
+      "weighted_residual_sum_squares": 834.4828759615885,
+      "weighting": "quadrature_proxy"
+    },
+    "run13_literal_reciprocal_sum": {
+      "covariance": [
+        [
+          0.00020924601411757759,
+          -0.03232988264582572,
+          -3.0048591427188266e-07
+        ],
+        [
+          -0.03232988264582572,
+          5.366742817090805,
+          3.763232706789667e-05
+        ],
+        [
+          -3.0048591427188277e-07,
+          3.7632327067896687e-05,
+          1.4284317356224983e-09
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 31,
+      "derived": {
+        "alpha0_per_k": 3.325872704930067e-05,
+        "dK_dT_p_gpa_per_k": -0.03311973917008644
+      },
+      "fixed_parameters": {
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "dK_dT_v_gpa_per_k": 0.0
+      },
+      "objective": "pressure residuals",
+      "observations": 34,
+      "parameters": {
+        "K0_gpa": 207.4627104701459,
+        "V0_a3": 45.72585665658858,
+        "dP_dT_v_gpa_per_k": 0.006899945660434675
+      },
+      "pressure_rmse_gpa": 0.4192627336652896,
+      "selection": "run13_34",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "standard_errors": {
+        "K0_gpa": 2.316623149562916,
+        "V0_a3": 0.014465338368582242,
+        "dP_dT_v_gpa_per_k": 3.77945992917308e-05
+      },
+      "weighted_residual_sum_squares": 7416.917623158705,
+      "weighting": "literal_reciprocal_sum"
+    },
+    "text_fixed_log_all_volume_proxy": {
+      "covariance": [
+        [
+          0.0013432596943975985,
+          -0.22699026220095264,
+          -3.175736822351693e-06
+        ],
+        [
+          -0.22699026220095259,
+          48.126789412458436,
+          0.00027852220442541693
+        ],
+        [
+          -3.175736822351697e-06,
+          0.00027852220442541763,
+          1.802009342892381e-08
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 63,
+      "derived": {
+        "alpha0_per_k": 3.181928579889464e-05,
+        "dK_dT_p_gpa_per_k": -0.03891608666166731
+      },
+      "fixed_parameters": {
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "dK_dT_v_gpa_per_k": -0.0036
+      },
+      "objective": "pressure residuals",
+      "observations": 66,
+      "parameters": {
+        "K0_gpa": 231.22825889352967,
+        "V0_a3": 45.60776896394711,
+        "dP_dT_v_gpa_per_k": 0.007357518054514022
+      },
+      "pressure_rmse_gpa": 0.40112694257925,
+      "selection": "all_66",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "standard_errors": {
+        "K0_gpa": 6.93734743345455,
+        "V0_a3": 0.03665050742346685,
+        "dP_dT_v_gpa_per_k": 0.00013423894155171147
+      },
+      "weighted_residual_sum_squares": 1673.7175353074847,
+      "weighting": "volume_only_proxy"
+    },
+    "text_fixed_log_run13_volume_proxy": {
+      "covariance": [
+        [
+          0.0004303451306505356,
+          -0.07875568188560193,
+          -1.2197769376278338e-06
+        ],
+        [
+          -0.07875568188560193,
+          18.896407136861672,
+          8.148364436683537e-05
+        ],
+        [
+          -1.2197769376278285e-06,
+          8.1483644366834e-05,
+          1.5388313729751527e-08
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 31,
+      "derived": {
+        "alpha0_per_k": 3.0243662990561216e-05,
+        "dK_dT_p_gpa_per_k": -0.036818440671311195
+      },
+      "fixed_parameters": {
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "dK_dT_v_gpa_per_k": -0.0036
+      },
+      "objective": "pressure residuals",
+      "observations": 34,
+      "parameters": {
+        "K0_gpa": 228.8250756976648,
+        "V0_a3": 45.60736519466638,
+        "dP_dT_v_gpa_per_k": 0.006920508473189833
+      },
+      "pressure_rmse_gpa": 0.3126008254180846,
+      "selection": "run13_34",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "standard_errors": {
+        "K0_gpa": 4.34699978569837,
+        "V0_a3": 0.020744761523105913,
+        "dP_dT_v_gpa_per_k": 0.000124049642199208
+      },
+      "weighted_residual_sum_squares": 217.16790228287064,
+      "weighting": "volume_only_proxy"
+    },
+    "text_three_term_all_volume_proxy": {
+      "covariance": [
+        [
+          0.001315836974413721,
+          -0.22409335808505357,
+          -3.038314918878672e-06
+        ],
+        [
+          -0.22409335808505365,
+          47.96742387014085,
+          0.000259743723376903
+        ],
+        [
+          -3.0383149188786674e-06,
+          0.000259743723376902,
+          1.7468621289936222e-08
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 63,
+      "derived": {
+        "alpha0_per_k": 3.194161987889913e-05,
+        "dK_dT_p_gpa_per_k": -0.03565118002048337
+      },
+      "fixed_parameters": {
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "dK_dT_v_gpa_per_k": 0.0
+      },
+      "objective": "pressure residuals",
+      "observations": 66,
+      "parameters": {
+        "K0_gpa": 232.5282562090905,
+        "V0_a3": 45.60308693072507,
+        "dP_dT_v_gpa_per_k": 0.007427329170934035
+      },
+      "pressure_rmse_gpa": 0.4016457744427503,
+      "selection": "all_66",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "standard_errors": {
+        "K0_gpa": 6.925851851587706,
+        "V0_a3": 0.036274467251962796,
+        "dP_dT_v_gpa_per_k": 0.00013216891196471362
+      },
+      "weighted_residual_sum_squares": 1668.131704142843,
+      "weighting": "volume_only_proxy"
+    },
+    "unweighted_all_66": {
+      "covariance": [
+        [
+          0.0012753041954387861,
+          -0.21940726261312074,
+          -3.620194330836106e-06
+        ],
+        [
+          -0.21940726261312074,
+          45.260754910942794,
+          0.0004366423753809053
+        ],
+        [
+          -3.620194330836106e-06,
+          0.00043664237538090523,
+          2.0014133441004523e-08
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 63,
+      "derived": {
+        "alpha0_per_k": 3.217790235372568e-05,
+        "dK_dT_p_gpa_per_k": -0.03685486165741725
+      },
+      "fixed_parameters": {
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "dK_dT_v_gpa_per_k": 0.0
+      },
+      "objective": "pressure residuals",
+      "observations": 66,
+      "parameters": {
+        "K0_gpa": 238.61394363823703,
+        "V0_a3": 45.53796264484751,
+        "dP_dT_v_gpa_per_k": 0.007678096178628594
+      },
+      "pressure_rmse_gpa": 0.38153866498236544,
+      "selection": "all_66",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "standard_errors": {
+        "K0_gpa": 6.727611382276981,
+        "V0_a3": 0.0357114014768223,
+        "dP_dT_v_gpa_per_k": 0.00014147131667233652
+      },
+      "weighted_residual_sum_squares": 9.607735689850697,
+      "weighting": "unit"
+    },
+    "unweighted_exclude_low_64": {
+      "covariance": [
+        [
+          0.0018598436016569906,
+          -0.3010762621915365,
+          -5.084396797684938e-06
+        ],
+        [
+          -0.30107626219153644,
+          54.95791754780352,
+          0.0006615749323144231
+        ],
+        [
+          -5.084396797684937e-06,
+          0.0006615749323144231,
+          2.2565984357898532e-08
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 61,
+      "derived": {
+        "alpha0_per_k": 3.25253049106299e-05,
+        "dK_dT_p_gpa_per_k": -0.03627473961013229
+      },
+      "fixed_parameters": {
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "dK_dT_v_gpa_per_k": 0.0
+      },
+      "objective": "pressure residuals",
+      "observations": 64,
+      "parameters": {
+        "K0_gpa": 232.34947188174428,
+        "V0_a3": 45.57782732594936,
+        "dP_dT_v_gpa_per_k": 0.007557237418777561
+      },
+      "pressure_rmse_gpa": 0.3562013701977093,
+      "selection": "exclude_two_low_64",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "standard_errors": {
+        "K0_gpa": 7.413360745829351,
+        "V0_a3": 0.04312590406770611,
+        "dP_dT_v_gpa_per_k": 0.0001502197868388134
+      },
+      "weighted_residual_sum_squares": 8.120282632366436,
+      "weighting": "unit"
+    },
+    "weighted1_volume_proxy_free_log": {
+      "covariance": [
+        [
+          0.002077367869496678,
+          -0.4604804273123494,
+          -1.5031267457422543e-05,
+          -0.0006703783838383099
+        ],
+        [
+          -0.4604804273123495,
+          118.89114553947844,
+          0.0038089527772683547,
+          0.19501091880460783
+        ],
+        [
+          -1.5031267457422548e-05,
+          0.0038089527772683547,
+          2.0129641228230297e-07,
+          1.0004541008810226e-05
+        ],
+        [
+          -0.0006703783838383102,
+          0.19501091880460783,
+          1.0004541008810228e-05,
+          0.0005400086729030883
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 62,
+      "derived": {
+        "alpha0_per_k": 3.2371631554404164e-05,
+        "dK_dT_p_gpa_per_k": -0.02304848872646131
+      },
+      "fixed_parameters": {
+        "K0_prime": 4.8,
+        "T0_k": 300
+      },
+      "objective": "pressure residuals",
+      "observations": 66,
+      "parameters": {
+        "K0_gpa": 237.53349959911935,
+        "V0_a3": 45.585522846819885,
+        "dK_dT_v_gpa_per_k": 0.013860376541623014,
+        "dP_dT_v_gpa_per_k": 0.007689346930850901
+      },
+      "pressure_rmse_gpa": 0.4061620258477007,
+      "selection": "all_66",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "standard_errors": {
+        "K0_gpa": 10.903721637105308,
+        "V0_a3": 0.04557815122947263,
+        "dK_dT_v_gpa_per_k": 0.023238086687657578,
+        "dP_dT_v_gpa_per_k": 0.0004486606872485074
+      },
+      "weighted_residual_sum_squares": 1658.614635631994,
+      "weighting": "volume_only_proxy"
+    },
+    "weighted2_run13_volume_proxy": {
+      "covariance": [
+        [
+          0.000426083549055248,
+          -0.07839584498634883,
+          -1.1834151499364686e-06
+        ],
+        [
+          -0.0783958449863488,
+          18.94276390943276,
+          7.545281992407462e-05
+        ],
+        [
+          -1.1834151499364669e-06,
+          7.54528199240742e-05,
+          1.5235467137357464e-08
+        ]
+      ],
+      "covariance_convention": "local Jacobian, scaled by residual variance; not source covariance",
+      "degrees_of_freedom": 31,
+      "derived": {
+        "alpha0_per_k": 3.0428481868819614e-05,
+        "dK_dT_p_gpa_per_k": -0.03354894636987783
+      },
+      "fixed_parameters": {
+        "K0_prime": 4.8,
+        "T0_k": 300,
+        "dK_dT_v_gpa_per_k": 0.0
+      },
+      "objective": "pressure residuals",
+      "observations": 34,
+      "parameters": {
+        "K0_gpa": 229.69807883251505,
+        "V0_a3": 45.604038955652435,
+        "dP_dT_v_gpa_per_k": 0.006989363827057882
+      },
+      "pressure_rmse_gpa": 0.3126875163644442,
+      "selection": "run13_34",
+      "solver_success": true,
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "standard_errors": {
+        "K0_gpa": 4.3523285617509115,
+        "V0_a3": 0.02064179132379862,
+        "dP_dT_v_gpa_per_k": 0.0001234320344860177
+      },
+      "weighted_residual_sum_squares": 217.69712575559652,
+      "weighting": "volume_only_proxy"
+    }
+  },
+  "unresolved": {
+    "confidence": "Agreement within source error bars or under proxy weights is a qualified numerical check, not reproduction of original weights, covariance or measurement accuracy.",
+    "fit_masks": "The two sub-2-GPa rows are explicitly excluded in the compression discussion; thermal figure captions say all Table 1 data are plotted. Thermal regression row masks are not explicitly given. Both 66- and 64-row unit-weight diagnostics are retained.",
+    "isobaric_isochoric": "The numerical interpolated coordinates, interpolation algorithm, weights and covariance used for Figures 5-6 are not published. Their original interpolation regressions cannot be uniquely recovered from Table 1 alone.",
+    "literal_source_weight": "w=1/(2|differential stress|)^2 + 1/(232*volume_error/volume)^2 is singular at Table 1 source_order=35, run 3, printed stress=0.000 GPa. No floor is silently introduced.",
+    "text_table_discrepancy": "The prose three-term thermal fit reports K0=231(7), V0=45.61(4), alpha0=3.33(6)e-5; Table 2 weighted-1 instead reports K0=233(7), V0=45.60(5), alpha0=3.23e-5 and a free logarithmic term. These are distinct source-reported fits, not interchangeable targets."
+  }
+}
