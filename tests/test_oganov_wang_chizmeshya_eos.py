@@ -52,7 +52,9 @@ def test_oganov_preserves_four_static_and_seven_corrected_bm3_fits():
 def test_wang_and_chizmeshya_preserve_only_source_owned_complete_fits():
     document = get_material_document("ca_perovskite")
     validate_eosmat_document(document)
-    wang = _doi_records(document, WANG_DOI)
+    wang = [
+        r for r in _doi_records(document, WANG_DOI) if r["record_kind"] == "published"
+    ]
     chizmeshya = _doi_records(document, CHIZMESHYA_DOI)
     assert len(wang) == 4
     assert len(chizmeshya) == 5
@@ -97,7 +99,9 @@ def test_primary_table_resources_are_complete_and_unchanged():
         ),
         "ca-perovskite-wang-1996-table1-room-temperature.csv": (
             14,
-            "71f8f01e5149e140e66251dbc3ff2c0e2a7d02aede82deae8d1f79cd2823d446",
+            # Reviewed source recovery corrected the two excluded footnote
+            # pressures to 1.13 and 0.59 GPa; the 12 fit rows are unchanged.
+            "a70e35a3dd6b0426ac41a4d8226ad37705fa391678f031cc193ab78525602a00",
         ),
     }
     for filename, (expected_rows, expected_sha256) in resources.items():

@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **358 primary papers**: **257** support the 635 audited catalog records and **101** were investigated without adding a production record.
+The register covers **358 primary papers**: **257** support the 636 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -39,8 +39,8 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Original unreproduced; independent refit available | 2 |
-| Reproduced | 167 |
-| Partly reproduced | 7 |
+| Reproduced | 166 |
+| Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 12 |
 | Coefficient parity not achieved | 14 |
 | Direct refit unavailable | 60 |
@@ -1389,7 +1389,7 @@ the primary-source and refit ledgers.
 | [Vocadlo (1999)](https://doi.org/10.2138/am-1999-1017) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Walker et al. (2002)](https://doi.org/10.2138/am-2002-0701) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Wang and Weidner (1994)](https://doi.org/10.1029/94gl00976) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
-| [Wang et al. (1996)](https://doi.org/10.1029/95jb03254) | Reproduced | 4 | 4 parity |  |
+| [Wang et al. (1996)](https://doi.org/10.1029/95jb03254) | Partly reproduced | 5 | 1 rounded source fit reproduced; room-temperature parameters within source errors; pressure-weighted source fits unresolved; independent thermal refit reproduced. See the [dedicated audit](literature-reproductions/wang-1996-casio3.md). | 1 bundled |
 | [Wang et al. (2004)](https://doi.org/10.1016/j.pepi.2003.08.007) | Reproduced | 2 | 2 similar | 2 bundled |
 | [Wang et al. (2012)](https://doi.org/10.1029/2011jb009100) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Wang et al. (2026), KAlSi3O8 liebermannite and K-hollandite II](https://doi.org/10.2138/am-2024-9562) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

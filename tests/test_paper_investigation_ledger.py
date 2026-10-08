@@ -42,6 +42,10 @@ def test_paper_investigation_ledger_is_complete_and_current():
     assert "two independent Peritheos refits added" in ledger
     assert "Katsura et al. (2004)" in ledger
     assert "Wang et al. (2026)" in ledger
+    wang = next(line for line in ledger.splitlines() if "[Wang et al. (1996)]" in line)
+    assert "| Partly reproduced | 5 |" in wang
+    assert "independent thermal refit reproduced" in wang
+    assert "5 parity" not in wang
     assert (
         "Zhang et al. (2025)</a>" not in ledger
         and "3 final-input parity, upstream reduction partial" in ledger

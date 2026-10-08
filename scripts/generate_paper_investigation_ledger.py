@@ -66,6 +66,21 @@ PAPER_SCOPE_NOTES = {
     ),
 }
 
+# Dedicated source-protocol audits supersede the older generic regressions.
+# Keep the historical record ledger, but do not turn refit reproducibility
+# into a claim that every published author fit was reproduced.
+PAPER_REPRODUCTION_OVERRIDES = {
+    "10.1029/95jb03254": {
+        "outcome": "partial_reproduction",
+        "summary": (
+            "1 rounded source fit reproduced; room-temperature parameters within "
+            "source errors; pressure-weighted source fits unresolved; independent "
+            "thermal refit reproduced. See the "
+            "[dedicated audit](literature-reproductions/wang-1996-casio3.md)."
+        ),
+    },
+}
+
 
 def load_json(path: Path) -> dict[str, Any]:
     """Load one UTF-8 JSON document."""
@@ -214,6 +229,10 @@ def build_papers() -> tuple[list[dict[str, Any]], dict[str, int]]:
                 ],
             }
         )
+        override = PAPER_REPRODUCTION_OVERRIDES.get(str(doi).lower())
+        if override:
+            papers[-1]["outcome"] = override["outcome"]
+            papers[-1]["reproduction_summary"] = override["summary"]
 
     for paper in load_json(NONPRODUCTION_PATH)["papers"]:
         papers.append({**paper, "records": []})
@@ -478,7 +497,9 @@ def render() -> str:
     }
     for paper in papers:
         if paper["records"]:
-            result = compact_counts(paper["statuses"], STATUS_LABELS)
+            result = paper.get("reproduction_summary") or compact_counts(
+                paper["statuses"], STATUS_LABELS
+            )
             scope_note = PAPER_SCOPE_NOTES.get(str(paper.get("doi", "")).lower())
             if scope_note:
                 result += "; " + scope_note
