@@ -44,9 +44,10 @@ The complete unweighted joint fit holds V0 and K0' fixed and yields
 K0=17.1801 GPa and alpha_KT=0.00187217 GPa/K, RMSE=0.06064 GPa.
 The published curve gives RMSE=0.07388 GPa. Differences of 2.94% and 3.99%
 are close under the declared 5% diagnostic criterion, but exact coefficient
-and uncertainty parity are not established. The B1 prose does not completely
-specify staging, unlike the B2 Table 3 footnote. This is not a recovered author
-solver protocol. Table 1 also lacks enough room-temperature compression points
+and uncertainty parity are not established. Page 808 specifies the joint
+pressure-residual objective; the B2 Table 3 staging footnote does not apply
+to B1. The [follow-up](walker-2002-kcl.md) documents the figure/table reference-
+volume discrepancy and remaining original Solver inputs. Table 1 also lacks enough room-temperature compression points
 to determine independent elastic errors.
 
 The printed BE1 expression has minus signs inconsistent with its printed

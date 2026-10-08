@@ -2862,7 +2862,8 @@
       "Table 1",
       "Equations 4-16 and 18-20",
       "Section 3, joint acoustic/Walker fit and temperature correction",
-      "Final Mendeley deposit 7svmv9hvft.1, Data Tables.xlsx Tables S1-S4"
+      "Final Mendeley deposit 7svmv9hvft.1, Data Tables.xlsx Tables S1-S4",
+      "Final publisher supporting DOCX: Text S1, Figures S1-S3 and Tables S1-S4; all ten pages inspected"
      ],
      "finding": "Final source verifies Table 1 BM3 coefficients and MGD parameters, q=1 fixed, n=2, 300 K subtraction and integrated-Gruneisen Debye law. Weighted joint KT-V/P-V diagnostic recovers all three BM3 coefficients within published error magnitudes. The full source covariance and exact weighting prescription are not deposited. Source grids are matched within the documented rounding tolerance and remain distinct from observations."
     },
@@ -2887,9 +2888,15 @@
       "Exact source weights and full covariance unavailable.",
       "Printed Equation 9 differs from deposited acoustic Debye convention.",
       "Direct original-lattice Walker recalibration does not exactly recover deposited inputs.",
-      "Publisher SI DOCX download returned HTTP 403; all numerical S1-S4 tables recovered from final author deposit."
+      "Final publisher supplement recovered and numerical tables verified. Exact upstream recalibration algorithm, source regression weights and covariance remain unavailable."
      ]
-    }
+    },
+    "unresolved_issues": [
+     "Equation 9 in both final PDF and HTML differs from the conventional two-atom acoustic Debye expression matching deposited S1 values; no published correction was found in the bounded source search.",
+     "Independent Matsui replay differs from eight deposited Walker pressures by 0.044-0.147 GPa, exceeding the 0.0017 GPa maximum printed-lattice rounding effect. Conditional inverse lattice shifts are diagnostics, not recovered measurements.",
+     "The main article and publisher S2 differ slightly in Vinet coefficients and shear error; the main-table BM3 parameters are retained.",
+     "Source regression weights, uncertainty confidence and complete coefficient covariance are not deposited."
+    ]
    },
    "source_lineage": [
     {

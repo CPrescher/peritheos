@@ -94,7 +94,7 @@ def reproduce():
     t = column(walker, "temperature_celsius") + 273.15
     shape = bm3(v, 249.53, 1, 5)
     # Walker specifies ordinary pressure least squares. Joint K0 and alpha*K0
-    # is the reproducible complete-data diagnostic; B1 staging is not explicit.
+    # solves the stated joint objective; the B2 staging footnote does not apply.
     fitted = np.linalg.lstsq(np.column_stack((shape, t - 296.15)), p, rcond=None)[0]
     prediction = shape * 17.7 + 0.00195 * (t - 296.15)
     native = get_eos_record(IDS[0]).pressure(v, temperature=t, check_validity=False)
@@ -107,7 +107,7 @@ def reproduce():
         "published": metrics(prediction, p),
         "refit": metrics(shape * fitted[0] + fitted[1] * (t - 296.15), p),
         "native_max_difference_gpa": float(np.max(np.abs(native - prediction))),
-        "qualification": "Fixed V0=249.53 conventional-cell A3 (Z=4), K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit; original B1 staging is not fully explicit. K0 differs by 2.94%, alpha_KT by 3.99%; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.",
+        "qualification": "Fixed V0=249.53 conventional-cell A3 (Z=4), K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 differs by 2.94%, alpha_KT by 3.99%; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.",
     }
     official = rows("kcl-tateno-2019-official-table-s1.csv")
     v = column(official, "kcl_unit_cell_volume_a3") / A3_PER_MOLAR
