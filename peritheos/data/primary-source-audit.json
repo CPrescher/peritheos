@@ -1639,7 +1639,7 @@
       "label": "Sun et al. (2016), cubic CaSiO3 BM3-MGD",
       "doi": "10.1002/2016jb013062",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
+      "note": "Primary-source verification establishes the published equation, coefficients and Table 1 transcription. The rounded model-1 parameters and errors are reproduced from the printed table under an inferred unweighted pressure-residual objective; this does not validate the unavailable original measurements or resolve the separately supplied workbook discrepancies.",
       "primary_source_check": {
         "access_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
         "locations": [
@@ -1648,9 +1648,11 @@
           "Table 1, pages 4880-4881",
           "Table 2 model 1, page 4882"
         ],
-        "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. All 144 Table 1 observations were transcribed at printed precision and independently reproduce the source fit. The 300 K cubic isotherm is retained only as the model reference state.",
+        "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. All 144 Table 1 observations were transcribed at printed precision and reproduce the rounded model-1 parameters and errors under an inferred unweighted pressure-residual objective; original weights and unavailable unrounded measurements are not independently established. The 300 K cubic isotherm is retained only as the model reference state.",
         "doi": "10.1002/2016jb013062"
-      }
+      },
+      "reproduction_status": "parameters_reproduced_at_published_precision",
+      "usage_recommendation": "Retain the published cubic thermal EOS and all 144 printed observations for qualified comparison within the reported high-temperature range. The 300 K cubic branch is an extrapolated reference. Do not replace observations, uncertainties or the Pt pressure scale from the separately supplied workbook without resolved row correspondence and calibration."
     },
     {
       "material": "ca_perovskite",
@@ -1967,7 +1969,7 @@
       "label": "Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)",
       "doi": "10.2138/am-2022-8435",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Primary-source validation verifies the published joint Sun (2016)–Gréaux (2019) equation conventions and Table S3 coefficients only. The published joint fit is NOT REPRODUCED from the 174 candidate observations; its exact row selection, objective, weights and covariance are undisclosed. The discrepancy remains unresolved and does not establish that every prediction is invalid.",
       "primary_source_check": {
         "access_url": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
         "doi": "10.2138/am-2022-8435",
@@ -1978,7 +1980,9 @@
           "Online Materials Table S3"
         ],
         "finding": "The source publishes a complete CaSiO3 BM3-MGD coefficient set, but not its regression objective, weights, covariance, code, or row manifest. The official ZIP contains only the supplement PDF and CIF. A 174-observation candidate selection can be reconstructed from the 140 Sun rows matching the Figure S3 temperature legend and 34 cubic Gréaux rows; multiple explicit weightings do not recover Table S3."
-      }
+      },
+      "reproduction_status": "not_reproduced",
+      "usage_recommendation": "Retain unchanged as the Fu (2023) published joint literature parameterization for qualified comparison, with an explicit non-reproduction warning. Do not describe it as a reproduced fit or silently substitute the independent Peritheos candidate-data refit. Treat the high-temperature discrepancy as unresolved; the 300 K cubic branch is an extrapolated reference."
     },
     {
       "material": "ca_perovskite",
@@ -2024,7 +2028,7 @@
       "label": "Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data",
       "doi": "10.2138/am-2022-8435",
       "status": "primary_source_validated",
-      "note": "Primary observations and equation conventions were audited; the coefficients are an explicitly labeled Peritheos refit.",
+      "note": "Source observations and equation conventions are verified; these coefficients belong to a reproducible independent Peritheos fit to the 174 reconstructed candidate observations. They are not the published Fu (2023) coefficients and do not reproduce Fu's undisclosed regression protocol.",
       "primary_source_check": {
         "access_url": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
         "doi": "10.2138/am-2022-8435",
@@ -2033,7 +2037,9 @@
           "Online Materials Text S3 and Figure S3"
         ],
         "finding": "This is the reproducible unweighted Peritheos solution for the candidate Fu data selection, not a source-published coefficient set or a reconstruction of undisclosed source weights."
-      }
+      },
+      "reproduction_status": "refit_reproduced",
+      "usage_recommendation": "Opt-in independent comparison using unit weight for every scalar pressure, bulk-modulus and shear-modulus residual in GPa. Retain the candidate selection, pressure-scale and measurement-error qualifications. Do not present it as a correction to or reproduction of Fu's original fit; its residual-scaled errors do not establish source measurement covariance."
     },
     {
       "material": "ca_perovskite_tetragonal",
@@ -2142,7 +2148,7 @@
       "label": "Chen et al. (2018), 300 K Ne-medium Vinet",
       "doi": "10.2138/am-2018-6087",
       "status": "primary_source_validated",
-      "note": "The final article PDF and the authors' accepted manuscript were visually checked. The previous BM2 attribution is contradicted by the primary source and has been corrected to Vinet.",
+      "note": "The final article and accepted manuscript verify the published 300 K Vinet equation, coefficients and seven I4/mcm Table 1 observations. The former BM2 attribution was corrected from the primary source. Numerical diagnostics on the rounded table do not fully reconstruct the authors' fit: pressure errors, objective weights, software, unrounded lattice values and covariance are unpublished.",
       "primary_source_check": {
         "access_url": "https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf",
         "doi": "10.2138/am-2018-6087",
@@ -2153,7 +2159,9 @@
           "Tables 1-2, page 467"
         ],
         "finding": "The paper reports a seven-observation I4/mcm 300 K Vinet fit, K0'=4 fixed, with V0 fitted because the phase is unstable at ambient pressure."
-      }
+      },
+      "reproduction_status": "qualified_numerical_check",
+      "usage_recommendation": "Use the unchanged published 300 K Vinet parameterization for qualified comparison in its measured 28.824-62.477 GPa range. V0 is an extrapolation and K0' is fixed at 4. Retain the reported 2-sigma lattice and parameter errors without inventing pressure errors or source weights. P4/mmm refinements are parallel structural diagnostics, not additional independent fit observations."
     },
     {
       "material": "cairo3_perovskite",

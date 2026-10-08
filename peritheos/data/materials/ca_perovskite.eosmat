@@ -1362,7 +1362,7 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
+    "note": "Primary-source verification establishes the published equation, coefficients and Table 1 transcription. The rounded model-1 parameters and errors are reproduced from the printed table under an inferred unweighted pressure-residual objective; this does not validate the unavailable original measurements or resolve the separately supplied workbook discrepancies.",
     "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
@@ -1382,7 +1382,7 @@
       "Table 1, pages 4880-4881",
       "Table 2 model 1, page 4882"
      ],
-     "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. All 144 Table 1 observations were transcribed at printed precision and independently reproduce the source fit. The 300 K cubic isotherm is retained only as the model reference state.",
+     "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. All 144 Table 1 observations were transcribed at printed precision and reproduce the rounded model-1 parameters and errors under an inferred unweighted pressure-residual objective; original weights and unavailable unrounded measurements are not independently established. The 300 K cubic isotherm is retained only as the model reference state.",
      "doi": "10.1002/2016jb013062"
     },
     "primary_data_check": {
@@ -1395,7 +1395,32 @@
       "Table 1, pages 4880-4881"
      ],
      "finding": "All 144 factual P-T-V observations and printed P/V uncertainties in Table 1 are transcribed at source precision for scientific validation. No explicit open data-reuse license was identified; the CSV contains no article prose, table image, or typographic arrangement and is not asserted to be openly licensed."
-    }
+    },
+    "reproduction_status": "parameters_reproduced_at_published_precision",
+    "fit_reproduction_note": "All 144 printed Table 1 rows reproduce the rounded model-1 parameters and uncertainties using the inferred unweighted pressure-residual objective. Original regression weights, unrounded measurements, parameter covariance and the confidence convention remain unconfirmed; numerical agreement does not independently validate measurement errors.",
+    "usage_recommendation": "Retain the published cubic thermal EOS and all 144 printed observations for qualified comparison within the reported high-temperature range. The 300 K cubic branch is an extrapolated reference. Do not replace observations, uncertainties or the Pt pressure scale from the separately supplied workbook without resolved row correspondence and calibration.",
+    "original_data_recovery": {
+     "status": "unavailable_author_reported",
+     "recovery_status": "closed",
+     "evidence_type": "user_reported_author_communication",
+     "reported_by": "Peritheos maintainer (user)",
+     "reported_on": "2026-10-08",
+     "author": "Ningyu Sun",
+     "finding": "The user reports that Ningyu Sun no longer has the original Sun (2016) data. Further original-data recovery is closed. This is a report of private author communication, not an independently archived publication or verified correspondence.",
+     "supplied_workbook": {
+      "filename": "Sun et al. 2016 data.xlsx",
+      "role": "separate author-supplied evidence; not a replacement for published Table 1",
+      "prior_audit_date": "2026-09-29",
+      "unresolved": [
+       "Incomplete correspondence and coverage relative to the published high-pressure and high-temperature rows.",
+       "Published volume errors differ from errors propagated from workbook lattice parameters; zero lattice and Pt errors have unresolved meaning.",
+       "At least one candidate central-volume mismatch has unconfirmed row correspondence.",
+       "The alternative Pt EOS used for workbook pressures is unidentified; no recalibration is inferred."
+      ],
+      "disposition": "Preserve the supplied workbook as separate evidence where held by the user; no workbook values or blanket corrections are adopted into published observations or EOS coefficients. The workbook is not bundled in this catalog."
+     }
+    },
+    "qualification_date": "2026-10-08"
    }
   },
   {
@@ -3575,7 +3600,7 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "note": "Primary-source validation verifies the published joint Sun (2016)–Gréaux (2019) equation conventions and Table S3 coefficients only. The published joint fit is NOT REPRODUCED from the 174 candidate observations; its exact row selection, objective, weights and covariance are undisclosed. The discrepancy remains unresolved and does not establish that every prediction is invalid.",
     "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
@@ -3612,7 +3637,11 @@
      "dataset_identifiers": [
       "ca_perovskite_fu_2023_candidate_composite_external"
      ]
-    }
+    },
+    "reproduction_status": "not_reproduced",
+    "fit_reproduction_note": "Multiple explicit candidate-data weightings do not recover the published Table S3 coefficients. The normalization audit verifies Peritheos formula/molar consistency; a single global atom-count factor does not reconcile pressure and elastic observations. No coefficient or observation correction is justified by this audit.",
+    "usage_recommendation": "Retain unchanged as the Fu (2023) published joint literature parameterization for qualified comparison, with an explicit non-reproduction warning. Do not describe it as a reproduced fit or silently substitute the independent Peritheos candidate-data refit. Treat the high-temperature discrepancy as unresolved; the 300 K cubic branch is an extrapolated reference.",
+    "qualification_date": "2026-10-08"
    },
    "supporting_datasets": [
     "ca_perovskite_fu_2023_candidate_composite_external"
@@ -4099,7 +4128,7 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Primary observations and equation conventions were audited; the coefficients are an explicitly labeled Peritheos refit.",
+    "note": "Source observations and equation conventions are verified; these coefficients belong to a reproducible independent Peritheos fit to the 174 reconstructed candidate observations. They are not the published Fu (2023) coefficients and do not reproduce Fu's undisclosed regression protocol.",
     "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
@@ -4126,7 +4155,12 @@
      ],
      "audit_artifact": "docs/data/fu-2023-casio3-refit-audit.json",
      "finding": "The 174 reconstructed candidate observations are bundled with attribution: 140 Sun Table 1 P-V-T rows at 1200-2200 K and 34 cubic Gréaux Figure 3b P-density-Vp-Vs rows. Gréaux volume and elastic moduli are explicitly derived from the retained measurements. Fu does not disclose the exact row manifest, objective, or weights; the candidate selection and the non-parity audit are not an exact reconstruction of the published fit."
-    }
+    },
+    "reproduction_status": "refit_reproduced",
+    "original_publication_reproduction_status": "not_reproduced",
+    "refit_status": "independent_candidate_data_refit",
+    "usage_recommendation": "Opt-in independent comparison using unit weight for every scalar pressure, bulk-modulus and shear-modulus residual in GPa. Retain the candidate selection, pressure-scale and measurement-error qualifications. Do not present it as a correction to or reproduction of Fu's original fit; its residual-scaled errors do not establish source measurement covariance.",
+    "qualification_date": "2026-10-08"
    },
    "notes": "Opt-in unweighted Peritheos refit. Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three. Errors are residual-scaled standard errors from the full seven-parameter joint fit; the pressure-volume covariance retains its marginal block. Fixed parameters have no estimated errors. The published Fu record remains the authoritative literature parameterization."
   }

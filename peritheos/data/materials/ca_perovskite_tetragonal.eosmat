@@ -840,7 +840,7 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The final article PDF and the authors' accepted manuscript were visually checked. The previous BM2 attribution is contradicted by the primary source and has been corrected to Vinet.",
+    "note": "The final article and accepted manuscript verify the published 300 K Vinet equation, coefficients and seven I4/mcm Table 1 observations. The former BM2 attribution was corrected from the primary source. Numerical diagnostics on the rounded table do not fully reconstruct the authors' fit: pressure errors, objective weights, software, unrounded lattice values and covariance are unpublished.",
     "audit_date": "2026-09-07",
     "verified_fields": [
      "equation",
@@ -876,7 +876,11 @@
       "ca_perovskite_tetragonal_chen_2018_table1_compression"
      ],
      "finding": "All seven source-order Table 1 rows and both I4/mcm and P4/mmm refinements are transcribed at printed precision. Derived cell volumes are calculated without intermediate rounding. The publisher PDF and author manuscript were not redistributed; the bundle is limited to factual numerical values and audit metadata."
-    }
+    },
+    "reproduction_status": "qualified_numerical_check",
+    "fit_reproduction_note": "The published curve has pressure RMSE 0.6885 GPa and maximum absolute residual 1.627 GPa over the seven I4/mcm rows. Alternative justified objectives shift the fit; agreement from duplicating P4/mmm refinements as extra measurements contradicts the reported fit scope. No independent production refit is added.",
+    "usage_recommendation": "Use the unchanged published 300 K Vinet parameterization for qualified comparison in its measured 28.824-62.477 GPa range. V0 is an extrapolation and K0' is fixed at 4. Retain the reported 2-sigma lattice and parameter errors without inventing pressure errors or source weights. P4/mmm refinements are parallel structural diagnostics, not additional independent fit observations.",
+    "qualification_date": "2026-10-08"
    },
    "notes": "Accepted LitCurate source record litcurate_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published."
   }
