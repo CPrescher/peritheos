@@ -96,7 +96,9 @@ def test_unverified_exact_scales_do_not_authorize_a_reduction(record_id, dataset
     document = get_material_document("kcl")
     with pytest.raises(DatasetError, match="Unresolved"):
         resolve_dataset_pressure(document, record_id, dataset_id)
-    assert get_eos_record_document(record_id)["pressure_calibration"]["methods"] == []
+    calibration = get_eos_record_document(record_id)["pressure_calibration"]
+    assert calibration["methods"][0]["reference"]["year"] == 1986
+    assert calibration["recalculation"]["status"] == "reference_eos_not_bundled"
 
 
 def test_manifest_recalculation_counts_match_current_records():

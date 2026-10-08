@@ -19,8 +19,9 @@ All notable changes to Peritheos are documented here. The project follows
 - Make bundled Dewaele (2012) B1/B2 KCl source-scale pressure coordinates
   executable and mark reported-pressure normalization and conditional isotherm
   refits ready. Add a reproducible diagnostic without changing published EOS
-  coefficients; document raw-wavelength and uncertainty gaps and unresolved
-  Walker (2002) and Campbell-Heinz (1991) scale evidence.
+  coefficients; document raw-wavelength and uncertainty gaps. Follow-up primary
+  methods identify Birch (1986) for Walker and Mao (1978) for Campbell-Heinz,
+  with exact Walker replay still unavailable.
 
 - Resolve Campbell-Heinz (1991) KCl pressure ancestry from its final methods as
   Mao (1978) ruby fluorescence, retaining five-position mean pressures and their

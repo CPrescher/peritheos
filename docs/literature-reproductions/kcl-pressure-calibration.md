@@ -85,31 +85,28 @@ Neither a new thermal slope on Mao nor uncertainty parity can be inferred from
 these static rows. A high-temperature EOS curve transformed through the graph
 is a pressure-coordinate normalization, not a refit of new thermal observations.
 
-## Walker (2002): observations exist; exact scale remains unverified
+## Walker (2002): Birch (1986) ancestry verified; exact replay unavailable
 
-The bundled [Walker primary table](https://doi.org/10.2138/am-2002-0701)
-contains 39 B2-KCl observations, including NaCl lattice a and its ESD,
-NaCl-derived pressure and its ESD, KCl volume, and temperature. Eight rows are
-at 23 degC. There is no need to recover missing NaCl observations before a
-future verified reference-EOS re-reduction.
+The final [Walker article](https://doi.org/10.2138/am-2002-0701), page 806,
+explicitly identifies the NaCl-B1 BE2 thermal EOS of Birch (1986) for both
+phases. This supersedes the initial audit's unidentified-scale assessment.
+Both Walker records now have `partially_resolved` calibration provenance and
+`reference_eos_not_bundled` replay status. BE2 includes a quadratic strain
+polynomial; substituting BM2 or unverified precursor coefficients is unsupported.
 
-[Ma (2024), section 3](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024JB028819)
-identifies Walker's original NaCl-B1 scale as Birch (1986) and recalculates
-room-temperature rows using Matsui (2012), correcting the small temperature
-difference to 300 K. This is a strong discovery lead, not verification of the
-original methods. The MSA PDF and publisher article could not be retrieved in
-this recheck; the author-upload page exposes figures and a reference list but
-not the original methods text. No local original copy was found. Neither the
-Birch (1986) nor Matsui (2012) EOS is bundled in the current NaCl-B1 card.
+All 30 B1 entries and 39 paired B2 sample states preserve NaCl lattice a,
+pressure/ESDs, sample volumes and actual Celsius temperatures. The eight cold
+B2 rows comprise seven at 23 degC and one at 24 degC. The
+[dedicated Walker report](walker-2002-kcl.md) verifies the source objectives,
+reference-volume discrepancy and available Birch thermal increment, while
+leaving missing adjusted 1986 elastic coefficients, reference/run normalization
+and high-temperature treatment explicit. No complete independently replayed
+pressure or executable calibration edge is manufactured.
 
-Consequently the Walker calibration remains `unresolved`, with an explicit
-unresolved dataset reduction and a revised note naming the actual evidence and
-blockers. No guessed `reference_eos_record` or executable graph edge is added.
-Before enabling it, verify the original methods and exact NaCl equation,
-parameter convention, cell volume a^3 (four formula units), reference
-temperature, validity, and thermal correction. A Ma room-temperature subset
-reduction must not be applied to all 39 heated rows. Original Table 2 ESDs do
-not include NaCl scale uncertainty or additional temperature error.
+The derived reference anchor and six B1 calibrant-only checks are retained as
+source evidence, not additional measured KCl residuals. Ma's room-temperature
+recalibration must not be applied to all heated Walker rows. Source Table 2
+ESDs omit NaCl EOS and additional temperature errors.
 
 ## Campbell-Heinz (1991): Mao (1978) ancestry verified
 
