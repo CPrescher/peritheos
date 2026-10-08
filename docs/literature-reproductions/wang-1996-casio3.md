@@ -83,6 +83,52 @@ Both 66- and 64-row diagnostics are retained; neither is silently declared the
 original mask.
 
 The prose's three-term and fixed-B fits are also rerun and kept in the JSON.
+
+## Optional independent thermal EOS
+
+The catalog includes **Peritheos refit of Wang (1996), BM3 + linear thermal
+pressure (64 points)** under
+`ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit`. It is selectable
+and nondefault; published records remain unchanged.
+
+This joint equal-weight pressure fit uses the 64-row diagnostic above, with
+K0′=4.8, Tr=300 K and B=0 fixed. The exact selected CSV retains the original
+row/run identities and printed uncertainties. Rows 33 and 34 are excluded
+because the source flags their low-pressure amorphization. This is our
+explicit selection, not a recovered original thermal regression manifest.
+
+| Fitted parameter | Value | Conditional standard error |
+| --- | --- | --- |
+| V0 | 45.577827 Å³ per formula unit | 0.043126 Å³ |
+| K0 | 232.349472 GPa | 7.413361 GPa |
+| A=(∂P/∂T)V | 0.007557237 GPa/K | 0.000150220 GPa/K |
+
+Pressure RMS is **0.356201 GPa**. The full three-parameter covariance is
+stored, scaled by RSS/(64−3). Its errors are conditional on the fixed
+parameters, independent common-variance pressure residuals and the chosen
+model; they omit coordinate errors, shared correlations and calibration
+systematics. They are not published Wang errors.
+
+Observed bounds are **2.66–12.25 GPa and 301–1594 K**, an uneven observation
+envelope rather than full rectangular coverage. The fitted 300 K,
+zero-pressure reference is an extrapolation, not evidence of ambient phase
+stability. Runs 3/4/5 are inherited Wang–Weidner measurements; overlapping
+source tables must not be combined as independent observations.
+
+Register this record reproducibly with:
+
+```sh
+.venv/bin/python -m scripts.register_wang_1996_thermal_refit
+```
+
+For Python selection:
+
+```python
+from peritheos import get_eos_record
+
+eos = get_eos_record("ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit")
+pressure_gpa = eos.pressure(45.0, 1000.0)
+```
 The prose first reports K0=231(7), V0=45.61(4) and α0=3.33(6)×10⁻⁵ K⁻¹;
 this differs from the Table 2 weighted-1 column, which has a free B term. Those
 are separate fitting targets. Interchanging them would conceal a source

@@ -5218,7 +5218,16 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if record["identifier"] == "argon_fcc_ross_1986_errandonea_2006_bm3_refit":
+            if (
+                record["identifier"]
+                == "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"
+            ):
+                from scripts.register_wang_1996_thermal_refit import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif (
+                record["identifier"] == "argon_fcc_ross_1986_errandonea_2006_bm3_refit"
+            ):
                 outcome = _argon_combined_registered_refit_outcome(record)
             elif record["identifier"] == "argon_fcc_chen_2010_bm3_reported_constants":
                 outcome = _chen_reported_constants_outcome()

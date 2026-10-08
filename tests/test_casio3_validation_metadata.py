@@ -29,7 +29,7 @@ def records():
     [
         (
             "ca_perovskite",
-            "0644a72ce490a9ced97297f40cda35ad31d208622fbb2f012bd740e32b1b4b61",
+            "a2a224de2f134b3dc7b80aaaa1bea913bc6818ae24ec72f5313cf8559b92230d",
         ),
         (
             "ca_perovskite_tetragonal",
@@ -44,7 +44,7 @@ def test_qualification_preserves_all_scientific_payloads_and_schema(
     schema = json.loads((ROOT / "peritheos/data/eosmat-v3.schema.json").read_text())
     jsonschema.validate(document, schema)
     # Reviewed scientific payload checkpoint, including the 2026-10-08 Wang
-    # source recovery and its two excluded-row footnote corrections. Freezes
+    # source recovery, excluded-row corrections and optional 64-point thermal refit. Freezes
     # every other record field, dataset, checksum, provenance and classification.
     for row in document["eos_records"]:
         row.pop("scientific_validation")

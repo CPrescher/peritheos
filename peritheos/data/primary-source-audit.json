@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 635,
+    "records": 636,
     "deferred": 3,
     "not_reproduced": 5,
-    "primary_source_validated": 627
+    "primary_source_validated": 628
   },
   "records": [
     {
@@ -2048,6 +2048,27 @@
       },
       "reproduction_status": "refit_reproduced",
       "usage_recommendation": "Opt-in independent comparison using unit weight for every scalar pressure, bulk-modulus and shear-modulus residual in GPa. Retain the candidate selection, pressure-scale and measurement-error qualifications. Do not present it as a correction to or reproduction of Fu's original fit; its residual-scaled errors do not establish source measurement covariance."
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit",
+      "label": "Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)",
+      "doi": "10.1029/95jb03254",
+      "status": "primary_source_validated",
+      "note": "Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard.",
+      "primary_source_check": {
+        "access_url": "https://millenia.cars.aps.anl.gov/gsecars/LVP/publication/Papers/Wang_et_al95JB03254.pdf",
+        "doi": "10.1029/95jb03254",
+        "locations": [
+          "Table 1",
+          "Equation (1)",
+          "Thermal Pressure"
+        ],
+        "finding": "Published Table 1 observations and BM3 conventions checked; coefficients are an independent equal-weight Peritheos refit with constant thermal-pressure slope."
+      },
+      "reproduction_status": "refit_reproduced",
+      "usage_recommendation": "Optional comparison within sampled coverage; range bounds describe an observation envelope, not complete P–T coverage. Preserve the source pressure-scale and weighting qualifications. Do not extrapolate to ambient stability or present as Wang's published thermal coefficients."
     },
     {
       "material": "ca_perovskite_tetragonal",

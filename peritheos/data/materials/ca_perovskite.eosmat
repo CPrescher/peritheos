@@ -4312,6 +4312,304 @@
     "qualification_date": "2026-10-08"
    },
    "notes": "Opt-in unweighted Peritheos refit. Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three. Errors are residual-scaled standard errors from the full seven-parameter joint fit; the pressure-volume covariance retains its marginal block. Fixed parameters have no estimated errors. The published Fu record remains the authoritative literature parameterization."
+  },
+  {
+   "identifier": "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit",
+   "label": "Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)",
+   "record_kind": "refit",
+   "default": false,
+   "determination_method": "experimental",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Wang",
+     "Weidner",
+     "Guyot"
+    ],
+    "year": 1996,
+    "title": "Thermal equation of state of CaSiO3 perovskite",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "101",
+    "locator": "661-672",
+    "doi": "10.1029/95JB03254"
+   },
+   "derived_from_record": "ca_perovskite_wang_1996_preferred_bm3",
+   "source_lineage": [
+    {
+     "role": "experimental_data",
+     "citation": "Wang et al. (1996), Table 1; runs 3/4/5 inherited from Wang–Weidner (1994)",
+     "doi": "10.1029/95JB03254"
+    }
+   ],
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 45.57782732594936,
+     "K0": 232.34947188174428,
+     "K0_prime": 4.8
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.04312590406770611,
+    "K0": 7.413360745829351,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": {
+    "parameter_order": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "alpha_KT"
+    ],
+    "matrix": [
+     [
+      0.0018598436016569906,
+      -0.3010762621915365,
+      -5.084396797684938e-06
+     ],
+     [
+      -0.30107626219153644,
+      54.95791754780352,
+      0.0006615749323144231
+     ],
+     [
+      -5.084396797684937e-06,
+      0.0006615749323144231,
+      2.2565984357898532e-08
+     ]
+    ]
+   },
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "LinearThermalPressure",
+    "model": "linear_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha_KT": 0.007557237418777561
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha_KT": 0.0001502197868388134
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1.0,
+    "molar_mass_g_mol": 116.162
+   },
+   "fit_datasets": [
+    "ca_perovskite_wang_1996_selected64_thermal_refit"
+   ],
+   "experimental_pressure_range_gpa": [
+    2.66,
+    12.25
+   ],
+   "experimental_temperature_range_k": [
+    301.0,
+    1594.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     2.66,
+     12.25
+    ],
+    "temperature_k": [
+     301.0,
+     1594.0
+    ],
+    "notes": [
+     "Observed range envelope only; uneven P–T coverage. P=0 at fitted V0 and 300 K is an extrapolated reference, not an ambient stable-phase observation."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "Decker"
+       ],
+       "year": 1971,
+       "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+       "source": "Journal of Applied Physics",
+       "volume": "42",
+       "locator": "3239-3244",
+       "doi": "10.1063/1.1660714"
+      },
+      "source_location": "Experimental Procedure",
+      "scope": "SAM-85 measurements"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The reduced pressures and differential stresses are printed, but row-wise NaCl lattice parameters are not."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "parameter_provenance": {
+    "determination_method": "Independent fit of experimental Table 1 P–V–T states; K0-prime=4.8 is adopted from Wang's experimental Mao-data reanalysis, and the thermal slope is fitted to these observations.",
+    "eos.V0": "Joint unit-weight pressure fit; extrapolated 300 K formula-unit reference volume in Å³.",
+    "eos.K0": "Joint unit-weight pressure fit; reference bulk modulus in GPa.",
+    "eos.K0_prime": "Fixed at Wang's adopted 4.8, not re-estimated.",
+    "thermal.alpha_KT": "Joint unit-weight pressure fit; constant (∂P/∂T)V in GPa/K.",
+    "thermal.Tr": "Fixed at 300 K, matching the source thermal-pressure reference."
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "SciPy least_squares / Peritheos",
+     "version": "1.13.1",
+     "version_date": "2026-10-08"
+    },
+    "dataset": "ca_perovskite_wang_1996_selected64_thermal_refit",
+    "selection": {
+     "source_dataset": "ca_perovskite_wang_1996_table1_pvt",
+     "count": 64,
+     "source_orders": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66
+     ],
+     "excluded_source_orders": [
+      33,
+      34
+     ],
+     "reason": "Source-flagged sub-2-GPa amorphizing states; no values corrected."
+    },
+    "objective": "Minimize squared pressure residuals with unit weight per observation.",
+    "refined_parameters": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "alpha_KT"
+    ],
+    "fixed_parameters": [
+     "K0_prime",
+     "Tr"
+    ],
+    "model_assumptions": "Constant volume-independent thermal-pressure slope; logarithmic volume and quadratic-temperature terms set to zero. K0-prime fixed at Wang's adopted 4.8; Tr fixed at 300 K.",
+    "statistics": {
+     "observations": 64,
+     "free_parameters": 3,
+     "degrees_of_freedom": 61,
+     "pressure_rmse_gpa": 0.3562013701977093,
+     "residual_sum_squares_gpa2": 8.120282632366436,
+     "solver_success": true
+    },
+    "covariance_scaling": "Full local (J.T J)^-1 scaled by RSS/61; one-standard-error estimates conditional on fixed K0-prime/Tr, independent common-variance pressure residuals and the chosen model. Coordinate uncertainties, shared correlations and pressure-scale systematics omitted.",
+    "reproduction": {
+     "script": "scripts/register_wang_1996_thermal_refit.py",
+     "diagnostic_script": "scripts/reproduce_wang_1996_casio3.py",
+     "artifact": "docs/data/wang-1996-casio3-refit.json",
+     "artifact_section": "thermal_pressure.unweighted_exclude_low_64",
+     "initial_parameters": [
+      45.58,
+      233.0,
+      0.0071
+     ],
+     "solver": "scipy.optimize.least_squares",
+     "max_nfev": 10000,
+     "ftol": 1e-11,
+     "xtol": 1e-11,
+     "gtol": 1e-11
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-08",
+    "note": "Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard.",
+    "refit_status": "independent_selected_data_refit",
+    "reproduction_status": "refit_reproduced",
+    "original_publication_reproduction_status": "not_reproduced",
+    "primary_source_check": {
+     "access_url": "https://millenia.cars.aps.anl.gov/gsecars/LVP/publication/Papers/Wang_et_al95JB03254.pdf",
+     "doi": "10.1029/95jb03254",
+     "locations": [
+      "Table 1",
+      "Equation (1)",
+      "Thermal Pressure"
+     ],
+     "finding": "Published Table 1 observations and BM3 conventions checked; coefficients are an independent equal-weight Peritheos refit with constant thermal-pressure slope."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-10-08",
+     "dataset_identifiers": [
+      "ca_perovskite_wang_1996_selected64_thermal_refit"
+     ],
+     "finding": "Exact 64-row manifest retains source-row/run identities. Rows 33 and 34 are excluded without altering the 66-row source table. Runs 3/4/5 originate in Wang–Weidner (1994)."
+    },
+    "usage_recommendation": "Optional comparison within sampled coverage; range bounds describe an observation envelope, not complete P–T coverage. Preserve the source pressure-scale and weighting qualifications. Do not extrapolate to ambient stability or present as Wang's published thermal coefficients."
+   },
+   "notes": "Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard."
   }
  ],
  "format": "peritheos.material",
@@ -5380,6 +5678,120 @@
     "canonical_pvt_sha256": "f6e599a617516126b898d320bfec9c836aa0dc6b86c68a395e138d12bbbec38a",
     "canonical_pvt_and_pt_sha256": "2c079998b96d3e7ecf366cc2e9730ff95aa75a01d756728d48d7657305dff142"
    }
+  },
+  {
+   "identifier": "ca_perovskite_wang_1996_selected64_thermal_refit",
+   "kind": "pressure_volume_temperature",
+   "description": "Exact 64 selected experimental states for the optional Peritheos BM3 + linear thermal-pressure refit; source uncertainties retained but not used as weights.",
+   "reference": {
+    "authors": [
+     "Wang",
+     "Weidner",
+     "Guyot"
+    ],
+    "year": 1996,
+    "title": "Thermal equation of state of CaSiO3 perovskite",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "101",
+    "locator": "661-672",
+    "doi": "10.1029/95JB03254"
+   },
+   "source_location": "Table 1, both columns, journal page 664 (PDF page 4)",
+   "source_url": "https://millenia.cars.aps.anl.gov/gsecars/LVP/publication/Papers/Wang_et_al95JB03254.pdf",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run_order",
+     "quantity": "source_order_within_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    },
+    {
+     "name": "volume_reported_uncertainty_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "differential_stress_gpa",
+     "quantity": "differential_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_printed_a3",
+     "quantity": "printed_volume_with_parenthetical_uncertainty",
+     "unit": "angstrom^3/formula_unit",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_footnote",
+     "quantity": "source_footnote",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_origin",
+     "quantity": "observation_source",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-wang-1996-selected64-thermal-refit.csv",
+    "sha256": "e1a661dbddae9052b15410591782515bb42aea788fcde5880e01a12cb19d4c1d",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"
+   ],
+   "uncertainty": {
+    "source": "Parenthetical volume errors are expanded at printed precision and retained verbatim in volume_printed_a3. Table 1 does not state their confidence convention. No row-specific pressure or temperature errors are printed; differential stress is not a pressure standard deviation."
+   },
+   "provenance": {
+    "type": "selected_source_observations",
+    "transcribed_on": "2026-10-08",
+    "source_pdf_sha256": "118d404c1de2085f4b3f2deeda66e1020a5f12acbf045e2f008e87b04a6343ad",
+    "method": "Read the rendered numerical table, preserving run order 13, 3, 4, 5 and the final two run-5 rows in the right-hand continuation. Checked the 14 room-temperature rows against the previous subset.",
+    "source_dataset": "ca_perovskite_wang_1996_table1_pvt",
+    "source_dataset_sha256": "8e96724876f06eb56d1a5835efdef165f8871c23b0a5bd05baa561f08e44dabc",
+    "selection_script": "scripts/register_wang_1996_thermal_refit.py",
+    "excluded_source_orders": [
+     33,
+     34
+    ]
+   },
+   "notes": "Subset of the full 66-row Table 1 source, with rows 33/34 omitted. It overlaps the full source, the room-temperature subset and inherited Wang–Weidner observations; do not combine these as independent measurements. Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard."
   }
  ]
 }

@@ -7591,6 +7591,77 @@
     },
     {
       "absolute_sigma": false,
+      "dataset_identifiers": [
+        "ca_perovskite_wang_1996_selected64_thermal_refit"
+      ],
+      "experimental_pressure_range_gpa": [
+        2.66,
+        12.25
+      ],
+      "experimental_temperature_range_k": [
+        301.0,
+        1594.0
+      ],
+      "fit_kind": "selected_bm3_linear_thermal_pressure",
+      "fixed_parameters": [
+        "K0_prime",
+        "Tr"
+      ],
+      "label": "Peritheos refit of Wang (1996), BM3 + linear thermal pressure (64 points)",
+      "material_identifier": "ca_perovskite",
+      "model": "BM3",
+      "objective": "equal pressure weights",
+      "observations": 64,
+      "original_publication_reproduction_status": "not_reproduced",
+      "parameters": [
+        {
+          "difference": 0.0,
+          "parameter": "rt_eos.V0",
+          "published": 45.57782732462212,
+          "published_error": null,
+          "refit": 45.57782732462212,
+          "refit_error": 0.043125903640153104,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.0,
+          "parameter": "rt_eos.K0",
+          "published": 232.34947213175133,
+          "published_error": null,
+          "refit": 232.34947213175133,
+          "refit_error": 7.413360721903516,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.0,
+          "parameter": "alpha_KT",
+          "published": 0.007557237421438911,
+          "published_error": null,
+          "refit": 0.007557237421438911,
+          "refit_error": 0.0001502197861336945,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "parity_basis": "registered_peritheos_refit_reproduced",
+      "primary_data_finding": "Exact 64-row manifest retains source-row/run identities. Rows 33 and 34 are excluded without altering the 66-row source table. Runs 3/4/5 originate in Wang\u2013Weidner (1994).",
+      "primary_data_status": "bundled",
+      "primary_source": "https://millenia.cars.aps.anl.gov/gsecars/LVP/publication/Papers/Wang_et_al95JB03254.pdf",
+      "qualification": "Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard.",
+      "record_identifier": "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit",
+      "reproduction_status": "refit_reproduced",
+      "rmse_gpa": 0.3562013701977034,
+      "solver_success": true,
+      "source_notes": "Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": false,
       "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
@@ -46145,10 +46216,10 @@
   ],
   "summary": {
     "not_refittable": 175,
-    "parity": 223,
+    "parity": 224,
     "parity_not_achieved": 73,
     "similar": 151,
     "source_reconstruction": 13,
-    "total": 635
+    "total": 636
   }
 }

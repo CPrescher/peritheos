@@ -1,12 +1,20 @@
 """Distinct Wang (1996) source regressions must keep their masks and weights."""
 
+import hashlib
 import json
 from pathlib import Path
 
 import numpy as np
 import pytest
 
-from peritheos import get_material_document
+from peritheos import Material, get_material_document, list_eos_record_documents
+from scripts.register_wang_1996_thermal_refit import (
+    DATASET_ID as REFIT_DATASET_ID,
+)
+from scripts.register_wang_1996_thermal_refit import (
+    RECORD_ID,
+    ledger_outcome,
+)
 from scripts.reproduce_wang_1996_casio3 import (
     DATASET_ID,
     load_table,
@@ -104,4 +112,94 @@ def test_artifact_and_metadata_preserve_qualifications_and_covariances(audit):
     assert (
         nonparity["scientific_validation"]["reproduction_status"]
         == "not_reproduced_at_published_precision"
+    )
+
+
+def test_registered_thermal_refit_has_exact_source_manifest_and_reproduces(audit):
+    doc = get_material_document("ca_perovskite")
+    record = next(r for r in doc["eos_records"] if r["identifier"] == RECORD_ID)
+    _, source = load_table(DATASET_ID)
+    dataset, selected = load_table(REFIT_DATASET_ID)
+    assert selected == [r for r in source if int(r["source_order"]) not in (33, 34)]
+    assert len(selected) == 64
+    assert dataset["used_by_eos_records"] == [RECORD_ID]
+    assert record["default"] is False
+    assert RECORD_ID in list_eos_record_documents()
+    assert record["experimental_pressure_range_gpa"] == [2.66, 12.25]
+    assert record["experimental_temperature_range_k"] == [301.0, 1594.0]
+    assert (
+        ledger_outcome(record)["parity_basis"]
+        == "registered_peritheos_refit_reproduced"
+    )
+    assert record["parameter_covariance"]["parameter_order"] == [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "alpha_KT",
+    ]
+    fit = audit["thermal_pressure"]["unweighted_exclude_low_64"]
+    assert np.array(record["parameter_covariance"]["matrix"]) == pytest.approx(
+        np.array(fit["covariance"]), rel=1e-6
+    )
+
+
+def test_selectable_thermal_record_predictions_inverse_and_covariance():
+    doc = get_material_document("ca_perovskite")
+    record = Material.from_eosmat(doc, record_identifiers=[RECORD_ID]).get_eos_record(
+        RECORD_ID
+    )
+    raw = next(r for r in doc["eos_records"] if r["identifier"] == RECORD_ID)
+    _, rows = load_table(REFIT_DATASET_ID)
+    v, t, observed = [
+        np.array([float(r[key]) for r in rows])
+        for key in ("volume_a3", "temperature_k", "pressure_gpa")
+    ]
+    parameters = np.array(
+        [
+            raw["eos"]["parameters"]["V0"],
+            raw["eos"]["parameters"]["K0"],
+            raw["thermal"]["parameters"]["alpha_KT"],
+        ]
+    )
+
+    def pressure(x, volumes, temperatures):
+        v0, k0, slope = x
+        eta = v0 / volumes
+        return 1.5 * k0 * (eta ** (7 / 3) - eta ** (5 / 3)) * (
+            1 + 0.75 * 0.8 * (eta ** (2 / 3) - 1)
+        ) + slope * (temperatures - 300)
+
+    predicted = record.pressure(v, t)
+    assert predicted == pytest.approx(pressure(parameters, v, t), abs=1e-10)
+    assert np.sqrt(np.mean((predicted - observed) ** 2)) == pytest.approx(0.3562013702)
+    assert record.volume(predicted, t) == pytest.approx(v, abs=1e-8)
+    gradient = []
+    for index, step in enumerate([1e-4, 1e-3, 1e-7]):
+        delta = np.zeros(3)
+        delta[index] = step
+        gradient.append(
+            (
+                pressure(parameters + delta, 45.0, 1000.0)
+                - pressure(parameters - delta, 45.0, 1000.0)
+            )
+            / (2 * step)
+        )
+    covariance = np.array(raw["parameter_covariance"]["matrix"])
+    expected_error = np.sqrt(np.array(gradient) @ covariance @ np.array(gradient))
+    assert record.pressure_with_uncertainty(
+        45.0, 1000.0
+    ).standard_error == pytest.approx(expected_error, rel=1e-5)
+
+
+def test_thermal_addition_preserves_all_previous_scientific_content():
+    doc = get_material_document("ca_perovskite")
+    doc["eos_records"] = [r for r in doc["eos_records"] if r["identifier"] != RECORD_ID]
+    doc["datasets"] = [
+        d for d in doc["datasets"] if d["identifier"] != REFIT_DATASET_ID
+    ]
+    for record in doc["eos_records"]:
+        record.pop("scientific_validation")
+    payload = json.dumps(doc, sort_keys=True, separators=(",", ":")).encode()
+    assert (
+        hashlib.sha256(payload).hexdigest()
+        == "0644a72ce490a9ced97297f40cda35ad31d208622fbb2f012bd740e32b1b4b61"
     )

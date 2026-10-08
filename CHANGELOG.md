@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Add an optional independent Wang (1996) CaSiO3 BM3 + linear thermal-pressure
+  refit with 64 selected experimental observations, explicit equal weights,
+  conditional parameter errors and full covariance. Preserve the published EOS
+  records and retain the unresolved original thermal-fit weighting.
+
 - Preserve Miozzi (2020) published hcp-Fe BM3–MGD coefficients with the
   author-reported n=2 and ~6.87 cm³/mol volume convention, attributed to
   personal communication with Miozzi et al. Add a separate nondefault n=1
