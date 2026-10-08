@@ -90,7 +90,6 @@ def test_diagnostic_refits_are_reproducible_and_keep_source_constraints():
     "record_id,dataset_id",
     [
         ("kcl_walker_2002_bm3_2", "kcl_walker_2002_table2_pvt"),
-        ("kcl_campbell_1991_bm2_1", "kcl_campbell_1991_table1_compression"),
     ],
 )
 def test_unverified_exact_scales_do_not_authorize_a_reduction(record_id, dataset_id):

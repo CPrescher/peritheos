@@ -111,19 +111,25 @@ temperature, validity, and thermal correction. A Ma room-temperature subset
 reduction must not be applied to all 39 heated rows. Original Table 2 ESDs do
 not include NaCl scale uncertainty or additional temperature error.
 
-## Campbell-Heinz (1991): primary methods still needed
+## Campbell-Heinz (1991): Mao (1978) ancestry verified
 
-All 14 sample observations are bundled. The accessible
-[primary abstract](https://www.sciencedirect.com/science/article/abs/pii/002236979190181X)
-does not identify the pressure gauge or calibration equation; no accessible
-primary methods evidence was recovered in this recheck. The scale remains
-unresolved and its dataset reduction now carries that explicit reason.
-No ruby scale is inferred from the DAC apparatus, publication date, or later
-papers. The composite B2 reference-volume construction remains unchanged.
+The recovered final methods, pages 495-496 and reference 5 on page 499,
+identify Mao et al. (1978) ruby fluorescence. All 14 reported Table 1 mean
+pressures now declare an executable `as_reported` coordinate on
+`ruby_mao_1978`. Each mean has five spatial readings; the reported errors are
+spatial standard deviations rather than standard errors of the mean.
+
+The [source-gap audit](kcl-tateno-campbell-source-gaps.md) documents conditional
+recovery of the weighted normalized-stress regression and the remaining
+missing individual ruby readings, numerical fit weights and covariance.
+Nonlinear conversion of a reported mean cannot recover the mean of five
+separately transformed readings. The published coefficients and explicit
+Campbell-Dewaele composite volume construction remain unchanged.
 
 ## Verification
 
 Tests cover schema/export preservation, all 153 Dewaele row identities and
 checksums, independent DOR-to-Mao algebra through the existing ancestry graph,
 source-fixed refit constraints, generated audit reproducibility, manifest
-recalculation counts, and rejection of unresolved Walker/Campbell reductions.
+recalculation counts, and rejection of unsupported Walker reductions. Campbell's verified reported
+pressure contract is covered by the source-gap regression tests.

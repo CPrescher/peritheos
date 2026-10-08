@@ -298,21 +298,23 @@
    "pressure_reductions": [
     {
      "eos_record": "kcl_campbell_1991_bm2_1",
-     "status": "unresolved",
+     "status": "as_reported",
+     "pressure_column": "pressure_gpa",
+     "target_calibration_record": "ruby_mao_1978",
+     "row_scope": "all_rows",
      "reference": {
       "authors": [
        "Campbell",
        "Heinz"
       ],
       "year": 1991,
-      "title": "Compression of KCl in the B2 structure to 56 GPa",
       "source": "J. Phys. Chem. Solids",
       "volume": "52",
       "locator": "495-499",
       "doi": "10.1016/0022-3697(91)90181-X"
      },
-     "source_location": "Table 1, journal page 496",
-     "notes": "All 14 printed sample P-V observations are bundled. The accessible primary abstract does not identify the exact pressure gauge or equation; primary methods evidence is still required before a scale or executable normalization edge can be assigned."
+     "source_location": "Experimental procedure, pages 495-496; reference 5, page 499 (Mao et al. 1978)",
+     "notes": "All 14 printed mean pressures at source precision. A later nonlinear ruby-scale conversion acts on these means; it cannot recover the mean of five separately converted readings. No coordinate errors or spatial pressure gradients are recomputed."
     }
    ]
   },
@@ -1117,6 +1119,7 @@
    "identifier": "kcl_campbell_1991_bm2_1",
    "pressure_calibration": {
     "status": "resolved",
+    "audit_date": "2026-10-08",
     "methods": [
      {
       "kind": "ruby_fluorescence",
@@ -1140,9 +1143,8 @@
     ],
     "recalculation": {
      "status": "ready",
-     "notes": "All 14 printed sample P-V observations are bundled. The accessible primary abstract does not identify the exact pressure gauge or equation; primary methods evidence is still required before a scale or executable normalization edge can be assigned."
+     "notes": "Ready for reported-pressure normalization through the exact bundled Mao (1978) ruby scale (A=1904 GPa, B=5); not a reconstruction of the five raw spatial ruby readings. Those readings, reference wavelengths and spectra are absent, so nonlinear normalization of their mean is only a coordinate diagnostic. Original pressure standard deviations and systematic uncertainty are not rederived."
     },
-    "audit_date": "2026-10-08",
     "notes": "Primary methods explicitly cite Mao et al. (1978), not Mao et al. (1986). No pressure-transmitting medium. Source temperatures are described as room temperature; the existing 298 K model reference is unchanged."
    },
    "scientific_validation": {
