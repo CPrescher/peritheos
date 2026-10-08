@@ -32,7 +32,8 @@ heading is corrected only in metadata: its volumes and Z identify B1.
 Temperatures and pressures remain raw Celsius and kbar in the data; the
 reproduction converts them to Kelvin and GPa. The source calibrant is the
 NaCl BE2 thermal equation of Birch (1986), explicitly identified on page 806.
-Its exact equation is not bundled here; paired NaCl lattice values are retained.
+Birch's original equation is implemented in the audit; paired NaCl lattice
+values are retained. A ready catalog calibration edge is not registered.
 The [Walker follow-up](walker-2002-kcl.md) verifies this ancestry for both
 B1 and B2 directly, recovers the original pressure-residual objective and
 Excel Solver attribution, and recovers the original Birch reference coefficients and conditional run-normalized
@@ -164,16 +165,14 @@ visible. Existing defaults and coefficients are unchanged.
 
 ## Integration check limitation
 
-The catalog-wide refit generator at base `8ee9153` has pre-existing stale
-Wang (1996) / Shim (2002) CaSiO3 ledger entries. In particular, the recovered
-Shim table has both printed and digitized pressure columns, which the generic
-selector rejects as ambiguous. This change appends only the five KCl outcomes
-and retains existing unrelated ledger entries. The dedicated KCl reproduction
-check passes; the global `validate_primary_eos_refits.py --check` remains stale
-until those separate CaSiO3 changes and their generator are reconciled.
+The original integration audit at base `8ee9153` reported stale Wang (1996) /
+Shim (2002) CaSiO3 ledger entries and a Wang resource-hash test failure.
+Those are historical findings, not current KCl reproduction failures.
 
-The full Python run finishes with 2,530 passes, 90.94% coverage and one
-pre-existing failure: `test_primary_table_resources_are_complete_and_unchanged`
-in `test_oganov_wang_chizmeshya_eos.py` still expects the earlier Wang (1996)
-CSV hash. Both that test and the current Wang CSV are byte-identical to the
-base checkout. No Wang/Shim source files or tests are modified here.
+On 2026-10-08 the dedicated KCl audit checks pass, and the targeted
+`test_primary_table_resources_are_complete_and_unchanged` in
+`test_oganov_wang_chizmeshya_eos.py` passes. The catalog-wide
+`validate_primary_eos_refits.py --check` still reports stale generated
+documentation. Its current differences need reconciliation separately;
+the check alone does not identify their cause. No Wang/Shim source files,
+tests or catalog-wide generated ledgers are modified by this KCl audit.

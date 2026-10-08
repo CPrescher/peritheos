@@ -12,7 +12,7 @@ Run `PYTHONPATH=. python scripts/audit_walker_2002.py --check` and
 `PYTHONPATH=. python scripts/reproduce_kcl_variants.py --check`.
 The [numerical report](../data/walker-2002-reproduction.json) records the
 independent fits, all 69 bundled NaCl input rows, their actual temperatures,
-source hashes, Birch benchmarks and conditional B2 pressure replay.
+source hashes, Birch benchmarks and conditional B1/B2 pressure replay.
 
 ## Primary evidence
 
@@ -46,7 +46,7 @@ Temperature-specific Table 6 polynomials approximate the additive Equation 8;
 they are not substituted for it. The construction covers 25-500 Celsius and
 0-30 GPa. The old missing-coefficients assessment is superseded.
 
-## Conditional NaCl replay
+## Conditional B2 NaCl replay
 
 Walker Table 2 supplies separate ambient NaCl anchors: Run 1 r34439,
 a=5.6414(14) A at 23 Celsius; Run 2 r35101, a=5.6468(4) A at 24 Celsius.
@@ -62,11 +62,46 @@ unrounded inputs, exact anchor corrections and uncertainty propagation remain
 unavailable. Ambient 23/24 Celsius and heated 600 Celsius states are flagged
 as outside Birch's construction range. The conditional replay extrapolates
 Equation 8 to them; it does not recover the author's extrapolation protocol.
-B1 replay remains absent because its ambient/36 Celsius anchors require
-separate treatment. No ready observation-pressure reduction or executable
-catalog calibration edge is registered; the catalog's
+No ready observation-pressure reduction or executable catalog calibration
+edge is registered; the catalog's
 `reference_eos_not_bundled` status means that edge is absent, not that Birch's
 numerical coefficients are still missing.
+
+## Conditional B1 NaCl replay
+
+Table 1 contains separate ambient NaCl measurements at **36 Celsius**:
+r57689, a=5.6479(4) A in the mixed KCl-NaCl pellet, and r57693,
+a=5.6473(4) A in the pure-NaCl spot check. Page 806 describes these two
+measurement families. The audit assigns each sample or spot-check row to
+its corresponding reference and retains every measured row temperature.
+
+An explicit **23 Celsius normalization hypothesis** treats these two lattices
+as zero-pressure anchors at 296.15 K despite their measured 309.15 K.
+It uses the same Birch ratio normalization as B2, without fitting coefficients
+to Walker pressures. For nonzero pressures the agreement is:
+
+| NaCl family | Rows | RMSE (GPa) | Maximum difference (GPa) |
+|---|---:|---:|---:|
+| Mixed-pellet sample | 22 | 0.00069980 | 0.00145779 |
+| Pure-NaCl spot check | 5 | 0.00063829 | 0.00103240 |
+
+This agreement does not establish the author's temperature convention.
+The two bracketed ambient pressures are preserved as imposed zeros:
+evaluating their actual 36 Celsius temperatures under the hypothesis gives
+**0.03718 GPa**, rather than zero. They are displayed as diagnostics and
+excluded from the 27 nonzero-pressure comparison. The derived 23 Celsius
+reference has no reported pressure and is not replayed.
+
+The report also evaluates both anchors at their printed 36 Celsius
+temperatures. Nonzero-pressure RMSE then rises to 0.03906 GPa for samples
+and 0.03764 GPa for spot checks (maximum differences 0.04693 and
+0.04200 GPa). This sensitivity makes the unresolved reference-temperature
+inconsistency visible. The conditional replay is retained as the available
+reproduction, with the reference-temperature convention recorded as an evidence
+limit rather than further numerical work. An exact author reduction would
+require the original spreadsheet or confirmation of that convention. The audit
+does not alter raw observations, published KCl coefficients, source
+error widths, Figure 1 V0, or catalog calibration availability.
 
 ## B1 fit with the selected Figure reference
 
@@ -103,7 +138,8 @@ below printed-input precision. This is separate from the B1 Figure choice.
 Ma's deposited reductions, joint-fit observations and published parameters
 are unchanged. Exact algorithm, source weighting and covariance remain open.
 
-Tests cover Birch's printed benchmarks, actual anchor temperatures, both fit
+Tests cover Birch's printed benchmarks, actual and assumed anchor temperatures,
+separate B1 reference families, imposed-zero diagnostics, both fit
 objectives, raw-source preservation, catalog round trips and generated-report
 freshness. Article PDFs are not redistributed. Contributor CC0 applies to
 transcription, normalization and metadata, not third-party article rights.

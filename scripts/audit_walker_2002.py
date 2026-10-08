@@ -1,4 +1,4 @@
-"""Independent Walker KCl fit and paired-NaCl input audit (no guessed scale)."""
+"""Independent Walker KCl fits and explicitly conditional NaCl replays."""
 
 from __future__ import annotations
 
@@ -106,8 +106,128 @@ def paired_inputs(rows, file_column):
     return result
 
 
+def b1_pressure_replay(rows):
+    """Test two source anchors at assumed 23 C and their measured temperatures.
+
+    The 23 C normalization is a hypothesis, not a correction to the measured
+    36 C temperatures. Bracketed ambient zeros remain separate diagnostics.
+    """
+    inputs = paired_inputs(rows, "spectrum")
+    anchors = {}
+    for kind, spectrum in (
+        ("sample_observation", "r57689"),
+        ("calibrant_spot_check", "r57693"),
+    ):
+        matches = [(i, r) for i, r in enumerate(rows) if r["spectrum"] == spectrum]
+        if len(matches) != 1:
+            raise ValueError(f"Expected one B1 ambient anchor {spectrum}")
+        index, row = matches[0]
+        if (
+            row["row_kind"] != kind
+            or float(row["temperature_celsius"]) != 36
+            or float(row["pressure_kbar"]) != 0
+        ):
+            raise ValueError(f"Unexpected B1 ambient anchor inputs for {spectrum}")
+        anchors[kind] = {
+            "source_row_index": index,
+            "calibrant_file": spectrum,
+            "row_kind": kind,
+            "nacl_lattice_a_angstrom": float(row["nacl_lattice_a_angstrom"]),
+            "nacl_lattice_a_esd_angstrom": float(row["nacl_lattice_a_esd_angstrom"]),
+            "measured_temperature_k": float(row["temperature_celsius"]) + 273.15,
+            "assumed_normalization_temperature_k": 296.15,
+        }
+    for row in inputs:
+        kind = row["row_kind"]
+        row["included_in_nonzero_pressure_comparison"] = False
+        row["reported_zero_is_imposed"] = False
+        if kind == "derived_reference":
+            if row["reported_pressure_gpa"] is not None:
+                raise ValueError("B1 derived reference must have no reported pressure")
+            continue
+        if kind not in anchors or row["reported_pressure_gpa"] is None:
+            raise ValueError(f"Unsupported B1 pressure row: {row['calibrant_file']}")
+        anchor = anchors[kind]
+        assumed = {
+            **anchor,
+            "temperature_k": anchor["assumed_normalization_temperature_k"],
+        }
+        measured = {**anchor, "temperature_k": anchor["measured_temperature_k"]}
+        pressure = float(
+            normalized_pressure(
+                row["nacl_lattice_a_angstrom"], row["temperature_k"], assumed
+            )
+        )
+        sensitivity = float(
+            normalized_pressure(
+                row["nacl_lattice_a_angstrom"], row["temperature_k"], measured
+            )
+        )
+        ambient = row["source_row_index"] == anchor["source_row_index"]
+        if row["reported_pressure_gpa"] == 0 and not ambient:
+            raise ValueError("Unexpected additional B1 zero-pressure row")
+        row.update(
+            {
+                "calibrant_reference_file": anchor["calibrant_file"],
+                "anchor_measured_temperature_k": anchor["measured_temperature_k"],
+                "assumed_normalization_temperature_k": anchor[
+                    "assumed_normalization_temperature_k"
+                ],
+                "independently_replayed_pressure_gpa": pressure,
+                "conditional_reference_temperature_difference_gpa": pressure
+                - row["reported_pressure_gpa"],
+                "measured_anchor_temperature_pressure_gpa": sensitivity,
+                "measured_anchor_temperature_difference_gpa": sensitivity
+                - row["reported_pressure_gpa"],
+                "included_in_nonzero_pressure_comparison": not ambient,
+                "reported_zero_is_imposed": ambient,
+                "replay_kind": "imposed_ambient_zero_diagnostic"
+                if ambient
+                else "conditional_b1_reference_temperature",
+            }
+        )
+    groups = {}
+    for kind in anchors:
+        selected = [
+            r
+            for r in inputs
+            if r["row_kind"] == kind and r["included_in_nonzero_pressure_comparison"]
+        ]
+        observed = np.array([r["reported_pressure_gpa"] for r in selected])
+        groups[kind] = {
+            "observations": len(selected),
+            "source_row_indices": [r["source_row_index"] for r in selected],
+            "assumed_23_celsius_normalization": fit_metrics(
+                np.array([r["independently_replayed_pressure_gpa"] for r in selected]),
+                observed,
+            ),
+            "measured_36_celsius_normalization": fit_metrics(
+                np.array(
+                    [r["measured_anchor_temperature_pressure_gpa"] for r in selected]
+                ),
+                observed,
+            ),
+        }
+    return inputs, {
+        "status": "conditional_reference_temperature_hypothesis",
+        "source_location": "Walker page 806, Table 1 and NaCl-only spot-check description",
+        "calibrant_reference_anchors": list(anchors.values()),
+        "nonzero_pressure_groups": groups,
+        "imposed_zero_source_row_indices": [
+            r["source_row_index"] for r in inputs if r["reported_zero_is_imposed"]
+        ],
+        "unreplayed_source_row_indices": [
+            r["source_row_index"]
+            for r in inputs
+            if r["independently_replayed_pressure_gpa"] is None
+        ],
+        "qualification": "Separate mixed-pellet and pure-NaCl reference lattices are source observations. Treating them as zero-pressure anchors at 23 Celsius, rather than their printed 36 Celsius, is an unverified hypothesis. Actual row temperatures are retained. Agreement statistics include only 27 nonzero pressures; both bracketed ambient zeros instead give approximately 0.03718 GPa under this hypothesis. The derived reference has no reported pressure and is not replayed. The measured-temperature sensitivity is retained. No coefficients are fit to reported pressures; no author-exact reduction or new uncertainty propagation is claimed.",
+    }
+
+
 def reproduce():
     b1_all, b1_hash = load_rows("kcl-walker-2002-table1-pvt.csv")
+    b1_inputs, b1_replay = b1_pressure_replay(b1_all)
     b1 = [r for r in b1_all if r["included_in_fit"] == "1"]
     b2, b2_hash = load_rows("kcl-walker-2002-table2-pvt.csv")
     v = values(b1, "b1_kcl_cell_volume_a3")
@@ -243,8 +363,9 @@ def reproduce():
             "reference_temperature_k": BIRCH_REFERENCE_K,
             "thermal_coefficient_gpa_per_k": BIRCH_THERMAL_GPA_K,
             "thermal_evidence": "Birch (1986) original Equation 8 and Tables 5-6",
-            "qualification": "Adjusted 25 Celsius coefficients are now verified. B2 replay assumes each loading is normalized to its separate printed zero-pressure NaCl anchor at its actual 23/24 Celsius temperature; no coefficients are fit to Walker pressures. The author normalization, unrounded inputs and uncertainty propagation remain unverified. B1 pressure replay is not supplied because its ambient/36 Celsius anchors need separate treatment. No ready dataset reduction is registered. 600 Celsius extrapolates beyond Birch's 25-500 Celsius construction.",
-            "table1_rows": paired_inputs(b1_all, "spectrum"),
+            "qualification": "Adjusted 25 Celsius coefficients are verified. B2 replay assumes each loading is normalized to its separate printed zero-pressure NaCl anchor at its actual 23/24 Celsius temperature. B1 replay tests separate sample and pure-NaCl references at an assumed 23 Celsius despite their measured 36 Celsius temperatures; its ambient-zero disagreement and measured-temperature sensitivity remain explicit. No coefficients are fit to Walker pressures. Author normalization, unrounded inputs and uncertainty propagation remain unverified. No ready dataset reduction is registered. 600 Celsius extrapolates beyond Birch's 25-500 Celsius construction.",
+            "table1_replay": b1_replay,
+            "table1_rows": b1_inputs,
             "table2_rows": paired_inputs(b2, "nacl_file"),
             "table2_calibrant_reference_anchors": [
                 {

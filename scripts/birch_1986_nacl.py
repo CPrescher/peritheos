@@ -47,7 +47,10 @@ def pressure_ratio(ratio, temperature=298.15):
 
 
 def normalized_pressure(lattice, temperature, anchor):
-    """Assume the printed run anchor is zero pressure at its actual temperature."""
+    """Normalize to zero pressure at the supplied anchor temperature.
+
+    Callers must distinguish measured temperatures from conditional assumptions.
+    """
     ambient_ratio = brentq(
         lambda ratio: pressure_ratio(ratio, anchor["temperature_k"]), 0.99, 1.01
     )

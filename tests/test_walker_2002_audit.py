@@ -14,6 +14,7 @@ from peritheos import (
 from peritheos.errors import DatasetError
 from scripts.audit_walker_2002 import (
     OUTPUT,
+    b1_pressure_replay,
     bm3,
     check_report,
     load_rows,
@@ -94,18 +95,89 @@ def test_actual_temperature_and_volume_inputs_never_claim_complete_replay():
             assert row["outside_birch_abstract_temperature_range"] == (
                 temp < 25 or temp > 500
             )
-            if number == 1:
+            if number == 1 and source["row_kind"] == "derived_reference":
                 assert row["independently_replayed_pressure_gpa"] is None
-            else:
+            elif number == 2:
                 assert isinstance(row["independently_replayed_pressure_gpa"], float)
                 assert row["replay_kind"] == "conditional_run_normalized"
+            else:
+                assert isinstance(row["independently_replayed_pressure_gpa"], float)
+                assert row["assumed_normalization_temperature_k"] == 296.15
+                assert row["anchor_measured_temperature_k"] == 309.15
     assert replay["table2_rows"][7]["temperature_k"] == 297.15
     assert replay["table2_calibrant_reference_anchors"][0]["nacl_file"] == "r34439"
     assert replay["table2_calibrant_reference_anchors"][1]["nacl_file"] == "r35101"
-    assert max(
-        abs(row["conditional_run_normalized_difference_gpa"])
-        for row in replay["table2_rows"]
-    ) < 0.011
+    assert (
+        max(
+            abs(row["conditional_run_normalized_difference_gpa"])
+            for row in replay["table2_rows"]
+        )
+        < 0.011
+    )
+
+
+def test_b1_two_reference_hypothesis_and_measured_temperature_sensitivity():
+    replay = reproduce()["nacl_pressure_replay"]
+    summary = replay["table1_replay"]
+    assert summary["status"] == "conditional_reference_temperature_hypothesis"
+    anchors = summary["calibrant_reference_anchors"]
+    assert [a["calibrant_file"] for a in anchors] == ["r57689", "r57693"]
+    assert [a["nacl_lattice_a_angstrom"] for a in anchors] == [5.6479, 5.6473]
+    for kind, count, reference, rmse, maximum in (
+        ("sample_observation", 22, "r57689", 0.0006997991, 0.0014577870),
+        ("calibrant_spot_check", 5, "r57693", 0.0006382892, 0.0010323969),
+    ):
+        group = summary["nonzero_pressure_groups"][kind]
+        assert group["observations"] == count
+        conditional = group["assumed_23_celsius_normalization"]
+        assert conditional["rmse_gpa"] == pytest.approx(rmse, abs=1e-10)
+        assert conditional["max_absolute_residual_gpa"] == pytest.approx(
+            maximum, abs=1e-10
+        )
+        sensitivity = group["measured_36_celsius_normalization"]
+        assert 0.037 < sensitivity["rmse_gpa"] < 0.040
+        assert 0.042 < sensitivity["max_absolute_residual_gpa"] < 0.047
+        for index in group["source_row_indices"]:
+            row = replay["table1_rows"][index]
+            assert row["calibrant_reference_file"] == reference
+            assert row["reported_pressure_gpa"] > 0
+            assert row["replay_kind"] == "conditional_b1_reference_temperature"
+
+
+def test_b1_imposed_zeros_keep_the_hypothesis_disagreement_visible():
+    result = reproduce()
+    replay = result["nacl_pressure_replay"]
+    summary = replay["table1_replay"]
+    assert summary["imposed_zero_source_row_indices"] == [1, 2]
+    assert summary["unreplayed_source_row_indices"] == [0]
+    for index in summary["imposed_zero_source_row_indices"]:
+        row = replay["table1_rows"][index]
+        assert row["reported_pressure_gpa"] == 0
+        assert row["temperature_k"] == 309.15
+        assert row["independently_replayed_pressure_gpa"] == pytest.approx(0.03718)
+        assert row["conditional_reference_temperature_difference_gpa"] == pytest.approx(
+            0.03718
+        )
+        assert row["measured_anchor_temperature_pressure_gpa"] == pytest.approx(
+            0, abs=1e-10
+        )
+        assert row["reported_zero_is_imposed"]
+        assert not row["included_in_nonzero_pressure_comparison"]
+        assert row["replay_kind"] == "imposed_ambient_zero_diagnostic"
+    # Calibrant spot checks still do not enter the KCl fit.
+    assert result["b1_fit"]["observations"] == 23
+    assert 1 in result["b1_fit"]["source_row_indices"]
+    assert 2 not in result["b1_fit"]["source_row_indices"]
+
+
+def test_b1_reference_selection_rejects_missing_or_misclassified_source():
+    rows, _ = load_rows("kcl-walker-2002-table1-pvt.csv")
+    with pytest.raises(ValueError, match="Expected one B1 ambient anchor r57693"):
+        b1_pressure_replay([row for row in rows if row["spectrum"] != "r57693"])
+    changed = [dict(row) for row in rows]
+    changed[3]["row_kind"] = "unknown"
+    with pytest.raises(ValueError, match="Unsupported B1 pressure row"):
+        b1_pressure_replay(changed)
 
 
 def test_b1_source_objective_and_figure_table_reference_disagreement():
@@ -124,10 +196,9 @@ def test_b1_source_objective_and_figure_table_reference_disagreement():
     assert abs(figure["alpha_KT"] - 0.00195) < 0.00005
     assert figure["rmse_gpa"] == pytest.approx(result["joint_refit"]["rmse_gpa"])
     assert figure["rmse_gpa"] < result["table_reference_volume_diagnostic"]["rmse_gpa"]
-    assert (
-        get_eos_record("kcl_b1_walker_2002_bm3_linear_thermal").reference_volume
-        == pytest.approx(249.080860076)
-    )
+    assert get_eos_record(
+        "kcl_b1_walker_2002_bm3_linear_thermal"
+    ).reference_volume == pytest.approx(249.080860076)
     literal = result["literal_printed_BE1_diagnostic"]
     assert abs(literal["K0"] - 17.7) > abs(fitted["K0"] - 17.7)
 
