@@ -1,0 +1,172 @@
+{
+  "doi": "10.1073/pnas.0609013104",
+  "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+  "audit_date": "2026-10-09",
+  "figure5_hot_digitization": {
+    "source_location": "Figure 5, red filled circles at 1000 K, Pt pressure scale",
+    "image_path": "docs/data/fei-2007-thermal-source-figures/figure5.png",
+    "image_sha256": "f933050771367bbb1766a92db4238ba0910a1606b17266256c84ba09ae1b590b",
+    "source_resolution_px": [
+      1683,
+      1275
+    ],
+    "tile_manifest_url": "https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?manifest=1&p=PMC3&id=1890468_zpq0150759070005.jpg&w=1500&h=1200",
+    "axis_calibration_pixels": {
+      "pressure": [
+        [
+          402.5,
+          25.0
+        ],
+        [
+          1430.5,
+          125.0
+        ]
+      ],
+      "volume": [
+        [
+          32.0,
+          50.0
+        ],
+        [
+          1103.5,
+          24.0
+        ]
+      ]
+    },
+    "method": "Connected components in official source-resolution Figure5 RGB pixels with R>220, G<70, B<70; area 100-500 pixels and y>400. Six red filled-circle Ne markers are separately identifiable; centers are component centroids. Legend, text and calculated curves excluded. Pressure/volume calibrated from printed axes; full centroid precision is retained only for reproducibility, not measurement precision.",
+    "coordinate_sensitivity_bound_px": 3.0,
+    "bound_note": "Illustrative combined center/axis coordinate perturbation bound, not experimental uncertainty or a statistical confidence interval. Common offsets are used for extreme sensitivity fits.",
+    "observations": [
+      {
+        "x_px": 387.9352112676056,
+        "y_px": 474.37464788732393,
+        "red_pixels": 355,
+        "component_box_xyxy": [
+          377,
+          465,
+          400,
+          487
+        ],
+        "temperature_k": 1000.0,
+        "pressure_gpa": 23.583191757549184,
+        "volume_a3": 39.26575749410134
+      },
+      {
+        "x_px": 415.50815217391306,
+        "y_px": 511.8804347826087,
+        "red_pixels": 368,
+        "component_box_xyxy": [
+          403,
+          501,
+          427,
+          523
+        ],
+        "temperature_k": 1000.0,
+        "pressure_gpa": 26.265384452715278,
+        "volume_a3": 38.3556777374262
+      },
+      {
+        "x_px": 560.5497076023391,
+        "y_px": 693.4239766081871,
+        "red_pixels": 342,
+        "component_box_xyxy": [
+          548,
+          683,
+          572,
+          705
+        ],
+        "temperature_k": 1000.0,
+        "pressure_gpa": 40.37448517532482,
+        "volume_a3": 33.95051479998799
+      },
+      {
+        "x_px": 590.8470588235294,
+        "y_px": 722.2088235294118,
+        "red_pixels": 340,
+        "component_box_xyxy": [
+          580,
+          712,
+          602,
+          733
+        ],
+        "temperature_k": 1000.0,
+        "pressure_gpa": 43.32169832913711,
+        "volume_a3": 33.252049079081004
+      },
+      {
+        "x_px": 683.045643153527,
+        "y_px": 799.7178423236514,
+        "red_pixels": 241,
+        "component_box_xyxy": [
+          673,
+          790,
+          697,
+          810
+        ],
+        "temperature_k": 1000.0,
+        "pressure_gpa": 52.29043221337811,
+        "volume_a3": 31.371288940350038
+      },
+      {
+        "x_px": 705.4688644688645,
+        "y_px": 815.4175824175824,
+        "red_pixels": 273,
+        "component_box_xyxy": [
+          696,
+          804,
+          717,
+          828
+        ],
+        "temperature_k": 1000.0,
+        "pressure_gpa": 54.471679423041294,
+        "volume_a3": 30.99033397773482
+      }
+    ]
+  },
+  "finger_1981": {
+    "doi": "10.1063/1.92597",
+    "primary_source": "https://hazen.carnegiescience.edu/sites/default/files/061-argon-1981.pdf",
+    "discovery_url": "https://hazen.carnegiescience.edu/publications/crystallography-crystal-chemistry",
+    "pdf_sha256": "a23289268d0a191b894bbeec8920fd4f6ea926847a4a5bc68686aa4a496f8bbb",
+    "pdf_bytes": 192142,
+    "locations": [
+      "Table I, p.892",
+      "Table II and equations, p.893",
+      "Reference 5, p.894"
+    ],
+    "identity_verification": "Author-institution-hosted publisher scan; title, five authors, journal, year and pages verified visually. Table I Ne columns transcribed and visually checked.",
+    "pressure_calibration": "Piermarini et al. (1975), DOI 10.1063/1.321957; original reported pressures retained. Fei does not explicitly specify recalibration of this Finger subset.",
+    "temperature_k": 293,
+    "temperature_uncertainty_k": 1,
+    "coexistence_observation": {
+      "pressure_kbar": 47.5,
+      "pressure_uncertainty_kbar": 0.4,
+      "volume": null,
+      "note": "Table I; excluded from PV fitting because no volume is printed. Narrative/abstract instead says 47.4 +/- 0.5 kbar. Both reports retained without resolving discrepancy."
+    },
+    "parameter_provenance": "Fei adopts V0, theta0 and gamma0 from Finger Table II. Finger V0=13.394 cm3/mol is a low-temperature adopted value; theta0=75.1 K is from Fugate & Swenson (1973). Finger gamma1=2.05 is the coefficient of gamma=1/2+gamma1*(V/V0), not the Fei gamma(V0). Fei nevertheless prints gamma0=2.05; it is preserved as Fei's choice.",
+    "copyright_note": "Source rights remain with the source holder; any Peritheos CC0 contribution covers transcription, conversion and metadata only."
+  },
+  "retrieval_checks": {
+    "pmc_html": "Fetched complete article (165629 bytes); no supplemental-data links or new Ne numerical table present.",
+    "europe_pmc_fulltext_xml": "HTTP 500; no XML recovered.",
+    "pnas_supplement_endpoint": "HTTP 403; supplement existence/content unverified.",
+    "doi_dataset_search": "DOI searches with Zenodo/figshare filters and supplementary-data terms found no original Ne or paired Pt/Au dataset. This is a scoped unsuccessful search, not proof none exists.",
+    "paired_calibrant_volumes": "Not recovered for new Fei Ne observations; Pt and Au model inversions would be synthetic estimates, not measured paired inputs.",
+    "dewaele_2008": "DOI 10.1103/PhysRevB.77.094106, pp.094106-2,-5,-9. Replots six Fei hot observations and discusses reference-state reinterpretation in note29, but does not tabulate those Fei observations or paired calibrant volumes. Its Table I contains separate new Dewaele measurements."
+  },
+  "files": {
+    "neon-finger-1981-table1.csv": {
+      "sha256": "f13287a44be2a1eb85887d9d502628407fbe8b4e22c21dfd2ece7d2a3f11e67b"
+    },
+    "neon-fei-2007-figure5-1000k-digitized.csv": {
+      "sha256": "b46e25c3296197f35605fdee1c638cd3da3cffa520dcd05c820cbcda25d6a239"
+    },
+    "neon-hemley-1989-table1-compression.csv": {
+      "sha256": "e5e3ea137a29f17c64beba1bb9b055eea34513b2ff5bda38389de7d5cdf6087d"
+    },
+    "neon-fei-2007-figure5-digitized.csv": {
+      "sha256": "1d9db20d5cf8bf50cb5d429c3af7009e69fc147afee932b25df441274bdb29d0"
+    }
+  }
+}

@@ -48,7 +48,7 @@
    "eos": {
     "type": "BM3",
     "parameters": {
-     "V0": 88.95544934400003,
+     "V0": 88.967,
      "K0": 1.43,
      "K0_prime": 8.02
     },
@@ -64,7 +64,9 @@
    ],
    "fit_datasets": [
     "neon_fei_2007_figure5_digitized",
-    "neon_hemley_1989_table1_fei_recalculated"
+    "neon_hemley_1989_table1_fei_recalculated",
+    "neon_finger_1981_table1",
+    "neon_fei_2007_figure5_1000k_digitized"
    ],
    "fit_data_sources": [
     {
@@ -82,22 +84,36 @@
     },
     {
      "source": "Finger et al. (1981), Fei reference 47",
-     "data": "low-pressure single-crystal compression observations",
-     "availability": "not_yet_bundled"
+     "data": "All 14 Table I single-crystal Ne observations at 293 +/- 1 K; original Piermarini (1975) ruby pressures retained",
+     "availability": "bundled_transcribed",
+     "dataset_identifier": "neon_finger_1981_table1",
+     "pressure_treatment": "Fei states recalibration for Hemley only; exact treatment of Finger pressures and 293-versus-300 K is unspecified"
+    },
+    {
+     "source": "Fei et al. (2007), this study",
+     "data": "Six separable 1000 K solid-Ne filled-circle markers in Figure 5",
+     "dataset_identifier": "neon_fei_2007_figure5_1000k_digitized",
+     "pressure_treatment": "Published Fei Pt scale; paired measured Pt volumes unavailable",
+     "availability": "bundled_digitized"
     }
    ],
    "experimental_pressure_range_gpa": [
     4.7,
-    110.0
+    115.0
    ],
-   "notes": "From the paper's text: BM3 fit to the same data as the Vinet fit, K0=1.43(14) GPa, K0p=8.02(31), with V0 fixed at 4.464^3 = 88.955449344 A^3. The room-temperature fit combined Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and Fei et al.'s new Pt- and Au-scale observations. Fei recalculated the Hemley ruby pressures to the Dewaele et al. (2004) scale. The Hemley and Fei observations are bundled; the Finger rows remain unavailable.",
+   "notes": "Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal parameters and Eq. 3 printed variable-exponent theta law, relative to 300 K. V0=88.967 A^3 is the fixed four-atom conventional fcc-cell volume for both branches; K0 and K0-prime remain specific to the cold equation. V0, theta0 and gamma0 are adopted source parameters; q=0.6(3) is retained with unspecified confidence/covariance. The room-temperature fit combined Finger (1981), Hemley (1989, recalculated to Dewaele 2004 ruby) and new Fei Pt/Au observations. All 14 Finger and 21 Hemley table rows, 13 separable new 300 K markers and six new 1000 K Pt-scale markers are bundled. Complete new rows, paired calibrant volumes and original weights are unrecovered. The 2000 K curve is a calculated extrapolation. See docs/literature-reproductions/fei-2007-neon.md; diagnostics do not replace published coefficients. Reported overall range is about 4.7-115 GPa; digitized/table recalculated endpoints carry their own rounding and can extend slightly above 115 GPa.",
    "determination_method": "experimental",
    "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption."
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption.",
+    "V0": "Fei Table1 and p.9185: adopted fixed conventional fcc-cell V0=88.967 A^3, common to Vinet and BM3. Finger TableII gives adopted low-temperature Vm0=13.394 cm3/mol; modern conversion gives 88.965041 A^3, a rounding difference.",
+    "theta0": "Fei Table1: adopted 75.1 K from Finger et al. (1981), TableII (Fugate and Swenson 1973).",
+    "gamma0": "Fei Table1: adopted 2.05. Finger TableII calls 2.05 gamma1 in its different gamma=1/2+gamma1*V/V0 law; preserve Fei gamma0=2.05 rather than transferring Finger law.",
+    "q": "Fei Table1: optimized q=0.6(3); confidence and covariance unspecified. A distinct BM3 q fit is not supplied.",
+    "thermal_equation": "Fei Eq3: subtract E(300 K,theta(V)) at the same volume and use printed theta=theta0*(V/V0)^(-gamma(V)), gamma(V)=gamma0*(V/V0)^q."
    },
    "identifier": "neon_fcc_fei_2007_bm3_1",
    "pressure_calibration": {
-    "status": "not_applicable",
+    "status": "partially_resolved",
     "methods": [
      {
       "kind": "self_consistent",
@@ -114,14 +130,83 @@
        "source": "Proc. Natl. Acad. Sci. USA",
        "doi": "10.1073/pnas.0609013104"
       },
-      "source_location": "Equations 2-3, Table 1, and pressure-scale-free comparison"
+      "source_location": "Table1, Eqs1-3 and Ne discussion: internally consistent Pt/Au calibration; individual source pathways listed below"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Piermarini",
+        "Block",
+        "Barnett",
+        "Forman"
+       ],
+       "year": 1975,
+       "doi": "10.1063/1.321957"
+      },
+      "source_location": "Finger (1981), Table I and reference5; original low-pressure scale"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Fei Figure5 caption: Hemley Mao-ruby pressures recalculated to revised Dewaele scale; W is a consistency comparison, not a second fitted copy of each Hemley row"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "title": "Toward an internally consistent pressure scale",
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "reference_eos_record": "platinum_fei_2007_vinet_mgd",
+      "source_location": "Figure5: open circles at 300 K and filled circles at 1000 K; published Pt calibrant retained as-is"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "title": "Toward an internally consistent pressure scale",
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "reference_eos_record": "gold_fei_2007_vinet_2",
+      "source_location": "Figure5: new 300 K crosses; no new Au-scale Ne hot observations shown"
      }
     ],
     "recalculation": {
-     "status": "not_applicable",
-     "notes": "This record belongs to the internally consistent Fei et al. pressure-scale solution rather than depending on one external reference EOS."
+     "status": "missing_calibrant_observations",
+     "notes": "Hemley printed Mao-scale rows can be algebraically re-expressed on the Dewaele scale. New Fei Pt/Au pressures are plot readouts; measured paired calibrant volumes and original temperature/error columns were not recovered."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-10-09"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -143,7 +228,7 @@
       "Table 1",
       "Ne EOS discussion and Figure 5 caption"
      ],
-     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale.",
+     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
      "doi": "10.1073/pnas.0609013104"
     },
     "migration_source": {
@@ -154,20 +239,70 @@
     },
     "primary_data_check": {
      "status": "plot_only",
-     "audit_date": "2026-09-04",
+     "audit_date": "2026-10-09",
      "dataset_identifiers": [
-      "neon_hemley_1989_table1_fei_recalculated"
+      "neon_hemley_1989_table1_fei_recalculated",
+      "neon_finger_1981_table1"
      ],
      "digitized_dataset_identifiers": [
-      "neon_fei_2007_figure5_digitized"
+      "neon_fei_2007_figure5_digitized",
+      "neon_fei_2007_figure5_1000k_digitized"
      ],
      "source_locations": [
       "Ne EOS discussion and Figure 5 caption",
-      "Hemley et al. (1989), Table I"
+      "Hemley et al. (1989), Table I",
+      "Finger et al. (1981), Table I, p.892"
      ],
-     "finding": "Fei's room-temperature fit combined Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and this study. Bundled inputs now comprise 21 Hemley Table I observations recalculated from the Mao to the Dewaele ruby scale and 13 separable Figure 5 observations from this study. The Finger low-pressure rows are not yet bundled, so this remains a 34-point partial reproduction of the complete source fit."
+     "finding": "54 recovered inputs: all 14 Finger Table I rows (293 K, original ruby scale), all 21 Hemley Table I rows (300 K, Fei-stated revised ruby scale), 13 separable new Figure5 cold markers and six 1000 K hot markers on published Fei Pt scale. Original complete new observations, paired calibrant volumes, fitting weights and covariance are absent. The unweighted 54-point joint fit reaches coefficient parity for K0, K0-prime and q within individual published error widths. Exact original-regression recovery and absolute accuracy are not established."
+    },
+    "reproduction_status": "parity",
+    "reproduction_basis": "54 recovered-input unweighted joint fit: K0, K0-prime and q within individual published error widths; combined-uncertainty and numerical similarity criteria passed. Exact original regression and absolute pressure accuracy remain unestablished. See docs/literature-reproductions/fei-2007-neon.md."
+   },
+   "migration_corrections": [
+    {
+     "path": "eos.parameters.V0",
+     "source_value": 88.95544934400003,
+     "value": 88.967,
+     "reason": "Fei Table1 and p.9185 use the same fixed V0=88.967 for both cold fits; 4.464^3 was an imported lattice-rounding approximation. Separate BM3 K0/K0-prime are preserved.",
+     "primary_reference": {
+      "doi": "10.1073/pnas.0609013104",
+      "location": "Table1 and Ne discussion p.9185"
+     }
     }
-   }
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 75.1,
+     "gamma0": 2.05,
+     "q": 0.6,
+     "n": 1
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": null,
+     "q": 0.3,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "n"
+    ],
+    "debye_temperature_law": "variable_exponent",
+    "thermal_pressure_reference": "reference_temperature",
+    "model": "mie_gruneisen_debye"
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "experimental_temperature_range_k": [
+    300.0,
+    1000.0
+   ],
+   "pressure_range_status": "reported_qualitatively"
   },
   {
    "label": "Fei et al PNAS 2007 [Vinet]",
@@ -207,7 +342,9 @@
    ],
    "fit_datasets": [
     "neon_fei_2007_figure5_digitized",
-    "neon_hemley_1989_table1_fei_recalculated"
+    "neon_hemley_1989_table1_fei_recalculated",
+    "neon_finger_1981_table1",
+    "neon_fei_2007_figure5_1000k_digitized"
    ],
    "fit_data_sources": [
     {
@@ -225,13 +362,22 @@
     },
     {
      "source": "Finger et al. (1981), Fei reference 47",
-     "data": "low-pressure single-crystal compression observations",
-     "availability": "not_yet_bundled"
+     "data": "All 14 Table I single-crystal Ne observations at 293 +/- 1 K; original Piermarini (1975) ruby pressures retained",
+     "availability": "bundled_transcribed",
+     "dataset_identifier": "neon_finger_1981_table1",
+     "pressure_treatment": "Fei states recalibration for Hemley only; exact treatment of Finger pressures and 293-versus-300 K is unspecified"
+    },
+    {
+     "source": "Fei et al. (2007), this study",
+     "data": "Six separable 1000 K solid-Ne filled-circle markers in Figure 5",
+     "dataset_identifier": "neon_fei_2007_figure5_1000k_digitized",
+     "pressure_treatment": "Published Fei Pt scale; paired measured Pt volumes unavailable",
+     "availability": "bundled_digitized"
     }
    ],
    "experimental_pressure_range_gpa": [
     4.7,
-    110.0
+    115.0
    ],
    "thermal": {
     "type": "MieGruneisenDebye",
@@ -242,10 +388,24 @@
      "q": 0.6,
      "n": 1
     },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": null,
+     "q": 0.3,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "n"
+    ],
     "debye_temperature_law": "variable_exponent",
+    "thermal_pressure_reference": "reference_temperature",
     "model": "mie_gruneisen_debye"
    },
-   "notes": "The paper's primary fit (Table 1: fixed V0=88.967, K0=1.16(14), K0p=8.23(31)); was missing from the hosted database. The room-temperature fit combined Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and Fei et al.'s new Pt- and Au-scale observations. Fei recalculated the Hemley ruby pressures to the Dewaele et al. (2004) scale. The Hemley and Fei observations are bundled; the Finger rows remain unavailable. Thermal parameters are the paper's MGD fit (not yet used by Dioptas).",
+   "notes": "Published Fei et al. (2007) cold branch with the common Table 1 Ne MGD thermal parameters and Eq. 3 printed variable-exponent theta law, relative to 300 K. V0=88.967 A^3 is the fixed four-atom conventional fcc-cell volume for both branches; K0 and K0-prime remain specific to the cold equation. V0, theta0 and gamma0 are adopted source parameters; q=0.6(3) is retained with unspecified confidence/covariance. The room-temperature fit combined Finger (1981), Hemley (1989, recalculated to Dewaele 2004 ruby) and new Fei Pt/Au observations. All 14 Finger and 21 Hemley table rows, 13 separable new 300 K markers and six new 1000 K Pt-scale markers are bundled. Complete new rows, paired calibrant volumes and original weights are unrecovered. The 2000 K curve is a calculated extrapolation. See docs/literature-reproductions/fei-2007-neon.md; diagnostics do not replace published coefficients. Reported overall range is about 4.7-115 GPa; digitized/table recalculated endpoints carry their own rounding and can extend slightly above 115 GPa.",
    "migration_corrections": [
     {
      "path": "thermal.debye_temperature_law",
@@ -260,11 +420,16 @@
    ],
    "determination_method": "experimental",
    "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption."
+    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption.",
+    "V0": "Fei Table1 and p.9185: adopted fixed conventional fcc-cell V0=88.967 A^3, common to Vinet and BM3. Finger TableII gives adopted low-temperature Vm0=13.394 cm3/mol; modern conversion gives 88.965041 A^3, a rounding difference.",
+    "theta0": "Fei Table1: adopted 75.1 K from Finger et al. (1981), TableII (Fugate and Swenson 1973).",
+    "gamma0": "Fei Table1: adopted 2.05. Finger TableII calls 2.05 gamma1 in its different gamma=1/2+gamma1*V/V0 law; preserve Fei gamma0=2.05 rather than transferring Finger law.",
+    "q": "Fei Table1: optimized q=0.6(3); confidence and covariance unspecified. A distinct BM3 q fit is not supplied.",
+    "thermal_equation": "Fei Eq3: subtract E(300 K,theta(V)) at the same volume and use printed theta=theta0*(V/V0)^(-gamma(V)), gamma(V)=gamma0*(V/V0)^q."
    },
    "identifier": "neon_fcc_fei_2007_vinet_2",
    "pressure_calibration": {
-    "status": "not_applicable",
+    "status": "partially_resolved",
     "methods": [
      {
       "kind": "self_consistent",
@@ -281,14 +446,83 @@
        "source": "Proc. Natl. Acad. Sci. USA",
        "doi": "10.1073/pnas.0609013104"
       },
-      "source_location": "Equations 2-3, Table 1, and pressure-scale-free comparison"
+      "source_location": "Table1, Eqs1-3 and Ne discussion: internally consistent Pt/Au calibration; individual source pathways listed below"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Piermarini",
+        "Block",
+        "Barnett",
+        "Forman"
+       ],
+       "year": 1975,
+       "doi": "10.1063/1.321957"
+      },
+      "source_location": "Finger (1981), Table I and reference5; original low-pressure scale"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Fei Figure5 caption: Hemley Mao-ruby pressures recalculated to revised Dewaele scale; W is a consistency comparison, not a second fitted copy of each Hemley row"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "title": "Toward an internally consistent pressure scale",
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "reference_eos_record": "platinum_fei_2007_vinet_mgd",
+      "source_location": "Figure5: open circles at 300 K and filled circles at 1000 K; published Pt calibrant retained as-is"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "title": "Toward an internally consistent pressure scale",
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "reference_eos_record": "gold_fei_2007_vinet_2",
+      "source_location": "Figure5: new 300 K crosses; no new Au-scale Ne hot observations shown"
      }
     ],
     "recalculation": {
-     "status": "not_applicable",
-     "notes": "This record belongs to the internally consistent Fei et al. pressure-scale solution rather than depending on one external reference EOS."
+     "status": "missing_calibrant_observations",
+     "notes": "Hemley printed Mao-scale rows can be algebraically re-expressed on the Dewaele scale. New Fei Pt/Au pressures are plot readouts; measured paired calibrant volumes and original temperature/error columns were not recovered."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-10-09"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -310,7 +544,7 @@
       "Table 1",
       "Ne EOS discussion and Figure 5 caption"
      ],
-     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale.",
+     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
      "doi": "10.1073/pnas.0609013104"
     },
     "migration_source": {
@@ -321,20 +555,32 @@
     },
     "primary_data_check": {
      "status": "plot_only",
-     "audit_date": "2026-09-04",
+     "audit_date": "2026-10-09",
      "dataset_identifiers": [
-      "neon_hemley_1989_table1_fei_recalculated"
+      "neon_hemley_1989_table1_fei_recalculated",
+      "neon_finger_1981_table1"
      ],
      "digitized_dataset_identifiers": [
-      "neon_fei_2007_figure5_digitized"
+      "neon_fei_2007_figure5_digitized",
+      "neon_fei_2007_figure5_1000k_digitized"
      ],
      "source_locations": [
       "Ne EOS discussion and Figure 5 caption",
-      "Hemley et al. (1989), Table I"
+      "Hemley et al. (1989), Table I",
+      "Finger et al. (1981), Table I, p.892"
      ],
-     "finding": "Fei's room-temperature fit combined Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and this study. Bundled inputs now comprise 21 Hemley Table I observations recalculated from the Mao to the Dewaele ruby scale and 13 separable Figure 5 observations from this study. The Finger low-pressure rows are not yet bundled, so this remains a 34-point partial reproduction of the complete source fit."
-    }
-   }
+     "finding": "54 recovered inputs: all 14 Finger Table I rows (293 K, original ruby scale), all 21 Hemley Table I rows (300 K, Fei-stated revised ruby scale), 13 separable new Figure5 cold markers and six 1000 K hot markers on published Fei Pt scale. Original complete new observations, paired calibrant volumes, fitting weights and covariance are absent. The unweighted 54-point joint fit reaches coefficient parity for K0, K0-prime and q within individual published error widths. Exact original-regression recovery and absolute accuracy are not established."
+    },
+    "reproduction_status": "parity",
+    "reproduction_basis": "54 recovered-input unweighted joint fit: K0, K0-prime and q within individual published error widths; combined-uncertainty and numerical similarity criteria passed. Exact original regression and absolute pressure accuracy remain unestablished. See docs/literature-reproductions/fei-2007-neon.md."
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "experimental_temperature_range_k": [
+    300.0,
+    1000.0
+   ],
+   "pressure_range_status": "reported_qualitatively"
   },
   {
    "label": "Hemley et al. (1989) Table I direct 300 K BM3 refit",
@@ -757,6 +1003,249 @@
     "derived_on": "2026-09-04"
    },
    "notes": "This is the transformed Hemley contribution to Fei's room-temperature fit. It does not alter the source-reported Hemley pressure column.",
+   "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/"
+  },
+  {
+   "identifier": "neon_finger_1981_table1",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "All 14 Ne Table I single-crystal observations; all original numerical columns, rounding and errors preserved.",
+   "reference": {
+    "authors": [
+     "Finger",
+     "Hazen",
+     "Zou",
+     "Mao",
+     "Bell"
+    ],
+    "year": 1981,
+    "source": "Applied Physics Letters",
+    "volume": "39",
+    "locator": "892-894",
+    "doi": "10.1063/1.92597"
+   },
+   "source_location": "Table I p.892; Methods p.892; reference5 p.894",
+   "columns": [
+    {
+     "name": "pressure_kbar",
+     "quantity": "source_pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_kbar",
+     "quantity": "source_pressure",
+     "unit": "kbar",
+     "role": "uncertainty",
+     "of": "pressure_kbar"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_uncertainty_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_uncertainty_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_mol"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/neon-finger-1981-table1.csv",
+    "sha256": "f13287a44be2a1eb85887d9d502628407fbe8b4e22c21dfd2ece7d2a3f11e67b",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "neon_fcc_fei_2007_bm3_1",
+    "neon_fcc_fei_2007_vinet_2"
+   ],
+   "provenance": {
+    "type": "transcribed_from_table",
+    "source_pdf_sha256": "a23289268d0a191b894bbeec8920fd4f6ea926847a4a5bc68686aa4a496f8bbb",
+    "method": "Visually transcribed all Ne rows in Table I. Cell volumes a^3 and first-order errors 3*a^2*sigma_a are separate derived columns; printed molar values remain intact. No pressure recalibration performed.",
+    "transcribed_on": "2026-10-09"
+   },
+   "source_url": "https://hazen.carnegiescience.edu/sites/default/files/061-argon-1981.pdf"
+  },
+  {
+   "identifier": "neon_fei_2007_figure5_1000k_digitized",
+   "kind": "pressure_volume_temperature_digitized",
+   "description": "Six separable Figure5 red filled-circle Ne markers at 1000 K on the published Fei Pt pressure scale. Experimental uncertainties and paired Pt volumes are unavailable.",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Ricolleau",
+     "Frank",
+     "Mibe",
+     "Shen",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "title": "Toward an internally consistent pressure scale",
+    "source": "Proc. Natl. Acad. Sci. USA",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "source_location": "Figure5 red filled circles at 1000 K",
+   "columns": [
+    {
+     "name": "pressure_scale",
+     "quantity": "pressure_calibration_series",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "x_pixel",
+     "quantity": "digitization_x_coordinate",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "y_pixel",
+     "quantity": "digitization_y_coordinate",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "red_component_pixels",
+     "quantity": "digitization_component_size",
+     "unit": "pixel",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_experimental_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_experimental_uncertainty_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "temperature_experimental_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    }
+   ],
+   "resource": {
+    "path": "datasets/neon-fei-2007-figure5-1000k-digitized.csv",
+    "sha256": "b46e25c3296197f35605fdee1c638cd3da3cffa520dcd05c820cbcda25d6a239",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "neon_fcc_fei_2007_bm3_1",
+    "neon_fcc_fei_2007_vinet_2"
+   ],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "source_figure_sha256": "f933050771367bbb1766a92db4238ba0910a1606b17266256c84ba09ae1b590b",
+    "method": "Connected components in official source-resolution Figure5 RGB pixels with R>220, G<70, B<70; area 100-500 pixels and y>400. Six red filled-circle Ne markers are separately identifiable; centers are component centroids. Legend, text and calculated curves excluded. Pressure/volume calibrated from printed axes; full centroid precision is retained only for reproducibility, not measurement precision.",
+    "axis_calibration_pixels_source_figure": {
+     "pressure": [
+      [
+       402.5,
+       25.0
+      ],
+      [
+       1430.5,
+       125.0
+      ]
+     ],
+     "volume": [
+      [
+       32.0,
+       50.0
+      ],
+      [
+       1103.5,
+       24.0
+      ]
+     ]
+    },
+    "coordinate_sensitivity_bound_px": 3.0,
+    "bound_note": "Illustrative common-coordinate readout sensitivity, not source measurement error or statistical confidence interval.",
+    "digitized_on": "2026-10-09"
+   },
    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/"
   }
  ],

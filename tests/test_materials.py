@@ -568,13 +568,17 @@ def test_fei_table1_parameters_and_published_errors():
         assert record["fit_datasets"] == [
             "neon_fei_2007_figure5_digitized",
             "neon_hemley_1989_table1_fei_recalculated",
+            "neon_finger_1981_table1",
+            "neon_fei_2007_figure5_1000k_digitized",
         ]
         assert [item["source"] for item in record["fit_data_sources"]] == [
             "Fei et al. (2007), this study",
             "Hemley et al. (1989), Fei reference 45",
             "Finger et al. (1981), Fei reference 47",
+            "Fei et al. (2007), this study",
         ]
-        assert record["fit_data_sources"][-1]["availability"] == "not_yet_bundled"
+        assert record["fit_data_sources"][2]["availability"] == "bundled_transcribed"
+        assert record["fit_data_sources"][-1]["availability"] == "bundled_digitized"
 
 
 @pytest.mark.parametrize(
