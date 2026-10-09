@@ -5,97 +5,105 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-10-09
+
+This release expands the pressure-scale catalog and its primary-data audits,
+adds explicit pressure-coordinate provenance and recalculation, and documents
+thermal-pressure conventions in detail. The library contains 650 source EOS
+records in 227 material documents; 647 records across 224 materials are
+executable, including seven qualified implementations requiring explicit
+selection. Scientific source validation, equation reconstruction, and
+reproduction of an author's fit remain separate assessments.
+
 ### Added
 
-- Combine the KCl source audits and nondefault variants with the newer Wang
-  CaSiO3 refit. Regenerate catalog manifests and reproduction ledgers; select
-  Shim (2002) printed pressures explicitly for its digitized-data diagnostic.
-
-- Add an optional independent Wang (1996) CaSiO3 BM3 + linear thermal-pressure
-  refit with 64 selected experimental observations, explicit equal weights,
-  conditional parameter errors and full covariance. Preserve the published EOS
-  records and retain the unresolved original thermal-fit weighting.
-
-- Make bundled Dewaele (2012) B1/B2 KCl source-scale pressure coordinates
-  executable and mark reported-pressure normalization and conditional isotherm
-  refits ready. Add a reproducible diagnostic without changing published EOS
-  coefficients; document raw-wavelength and uncertainty gaps. Follow-up primary
-  methods identify Birch (1986) for Walker and Mao (1978) for Campbell-Heinz,
-  with exact Walker replay still unavailable.
-
-- Resolve Campbell-Heinz (1991) KCl pressure ancestry from its final methods as
-  Mao (1978) ruby fluorescence, retaining five-position mean pressures and their
-  spatial standard deviations. Add conditional source-regression and Tateno
-  Pt-coordinate precision diagnostics, complete deposit inventory and exact
-  remaining-source questions without changing published EOS values or raw data.
-
+- Add dataset pressure-column calibration provenance and per-EOS pressure
+  reductions in Python and Rust, with the metadata-driven
+  `resolve_dataset_pressure` API. Migrate the six Dewaele (2004) metal tables
+  and their 22 direct 2004/2019 reductions while preserving source observations.
+- Add Miozzi (2020) hcp-Fe BM3, Vinet and BM3–MGD source records and all 131
+  supplementary observations. Preserve their `not_reproduced` status and
+  explicit-selection access. Add separate nondefault Peritheos thermal refits
+  on Tange (2009) Fit3-Vinet and Speziale (2001) variable-q MgO scales, with
+  derived inputs, conditional parameter errors, covariance, and sensitivity
+  diagnostics. Preserve the author-reported n=2 molar-volume convention in
+  the published thermal record; the separate Speziale refit uses n=1.
+- Preserve Morard (2026) FeS coefficients, the experimental FeS-VI Pnma
+  structure, all 146 supplied thermal observations, and the selected 167-row
+  input with 21 literature cold points. Exclude 11 unsuitable quenched rows.
+  Add source hashes, EosFit comparisons, and reproducible fitting audits;
+  retain the deferred source status and unresolved published ±3 GPa envelope.
+- Add the optional Wang (1996) CaSiO3 BM3 plus linear thermal-pressure refit
+  with 64 selected observations, equal weights, conditional errors and full
+  covariance. Preserve the published records and source-weighting limits;
+  recover the source table and Shim (2002) digitized observations with an
+  explicit reported-pressure diagnostic.
 - Add nondefault Walker (2002) B1, Tateno (2019) Holmes-Pt MGD/linear and
-  Sokolova-Pt linear, and Chidester (2021) Vinet KCl EOS records with independent
-  primary-table reproductions. Preserve complete Walker B1 and official Tateno
-  data; correct the remaining Tateno Pt-volume pairing permutation.
+  Sokolova-Pt linear, Chidester (2021) Vinet, and Ma (2024) BM3–MGD KCl
+  records. Keep Dewaele as the default. Bundle Walker and official Tateno
+  data, Ma's final workbook, 11 acoustic and eight recalibrated Walker inputs,
+  and separately identified model grids. Preserve weighting, covariance,
+  thermal-convention and upstream-recalibration qualifications.
+- Add executable KCl source-pressure reductions and independent diagnostics.
+  Trace Campbell-Heinz (1991) to Mao (1978) ruby fluorescence and Walker
+  (2002) to Birch (1986) NaCl. Recover the Birch calibration and a conditional
+  Walker B1 NaCl replay with run-specific reference volumes; retain the
+  unresolved original implementation and uncertainty conventions. Correct
+  the Tateno Pt-volume pairing permutation and document source precision.
+- Add the complete Matsui (2009) Pt Debye pressure model with a bounded
+  electronic-pressure table, source benchmarks and independent quadrature.
+  Linear interpolation is an explicit numerical choice; the model does not
+  supply an electronic caloric potential or reproduce the original fit.
+- Add bounded Yokoo (2009) Au/Pt PVT table-output reconstructions as
+  nondefault, explicit-selection diagnostics marked `not_reproduced`.
+  Preserve the separate 0 K cold and 300 K fitted branches, pressure residual
+  tables and phase annotations. Document missing electronic inputs and
+  fitting data; calculated output grids are not experimental observations.
+- Add canonical Fei (2007) Pt and NaCl-B2 thermal pressure records with the
+  printed variable-exponent Debye law and unchanged published coefficients.
+  Pt retains its separate 300 K record and legacy thermal alias. Bundle
+  36 digitized NaCl figure positions representing 24 distinct measured states;
+  exclude comparison curves and duplicated cold observations from fits.
+- Add independent Fei Au/Pt/NaCl/Ne equation, curve and fit checks, Pt
+  weighting/reference-state diagnostics, and published Pt-scale comparisons.
+  Fei Au and Ne have qualified numerical parameter agreement; the Pt joint
+  and NaCl hot-data diagnostics do not reproduce the reported thermal fits.
+  Further Fei Pt investigation remains pending an author response.
+- Expose the published Maltby (2024) argon EOS only by explicit selection,
+  preserving its `not_reproduced` status. Retain the Chen (2010)
+  printed-constant reconstruction as an explicit-selection DO NOT USE
+  diagnostic alongside the independent Peritheos refit. Add the provisional,
+  nondefault 49-observation Ross (1986) plus Errandonea (2006) argon refit,
+  complete selection provenance, and qualified Xiao (2025) refit findings.
+- Audit Speziale (2001) MgO's printed variable-q equations against recoverable
+  original thermal constraints and later Fei/Hirose pressure reductions. Bundle
+  four Svendsen–Ahrens shock-temperature rows with separate measured and
+  calculated columns and explicit volume-normalization diagnostics. Preserve
+  published Au/Pt coefficients and reported pressure targets; the complete
+  original thermal fit remains unreproduced.
+- Expand the Mie–Grüneisen–Debye equation reference with energy and pressure
+  derivations, unit conversion, atom-count normalization, reference-isotherm,
+  isentrope and absolute-zero conventions, caloric derivatives, the printed
+  variable-exponent limitation, and a worked calculation. Refresh source
+  audit indexes and record-by-record reproduction ledgers.
 
-- Recover and checksum the final Ma (2024) publisher supplement; verify its
-  printed tables and final-PDF Equation 9. Strengthen the Walker-to-Matsui
-  audit with original spectrum identity, independent Matsui benchmarks,
-  temperature terms and lattice-rounding bounds. Record the deposited-file
-  inventory and unresolved weights/covariance without changing source inputs
-  or published EOS coefficients.
+### Changed
 
-- Add Ma, Sumita and Murakami (2024) B2-KCl BM3 plus MGD as a nondefault
-  published pressure scale, retaining all existing KCl coefficients and the
-  Dewaele default. Bundle the final author's workbook, all 11 acoustic and
-  eight recalibrated Walker inputs, and separately labeled model grids.
-  Validate unit conversion, the integrated Debye law and joint fitting;
-  document missing source covariance, weighting sensitivity, the printed
-  acoustic Debye-formula discrepancy and unresolved upstream recalibration.
-
-- Preserve Miozzi (2020) published hcp-Fe BM3–MGD coefficients with the
-  author-reported n=2 and ~6.87 cm³/mol volume convention, attributed to
-  personal communication with Miozzi et al. Add a separate nondefault n=1
-  refit on the Speziale (2001) variable-q Debye MgO scale, with derived inputs,
-  the three-stage fitting protocol, conditional parameter errors and covariance.
-
-- Add the Morard et al. (2026) FeS BM3–MGD source record, an independently
-  sourced experimental FeS-VI Pnma structure, all 146 supplied Table S1 rows,
-  public source-file hashes, and a reproducible audit. Preserve the published
-  coefficients and classify the author-input cold-then-thermal fit reproduction
-  as similar. Bundle the selected 167-row input and literature cold datasets;
-  exclude the 11 unsuitable quenched points. Keep the ±3 GPa residual-bound
-  discrepancy separate and retain the source EOS as deferred. Document EosFit
-  version checks, Peritheos pressure agreement, and source-table conventions.
-
-- Add a separate, nondefault Peritheos BM3–MGD refit of all 131 Miozzi (2020)
-  hcp-Fe observations using Tange (2009) Fit3-Vinet MgO pressures. Bundle derived
-  inputs alongside unchanged originals, conditional errors and full covariance
-  for all five fitted coefficients, and calibration/weighting sensitivity checks.
-
-- Add Miozzi et al. (2020) hcp-Fe BM3, Vinet, and BM3–MGD source
-  parameterizations with all 131 supplementary observations, calibrant volumes,
-  reported errors, source hashes, and independent conditional refit diagnostics.
-  Preserve their not-reproduced status and require explicit selection because
-  the supplied observations do not reproduce the reported coefficients.
-
-- Add explicit dataset pressure-column calibration provenance and per-EOS
-  pressure reductions, with Python/Rust validation and the metadata-driven
-  `resolve_dataset_pressure` API. Migrate six Dewaele (2004) metal tables and
-  their 22 direct 2004/2019 reductions without changing source observations or
-  EOS coefficients; preserve unresolved model links and scale qualifications.
-- Expose the published Maltby (2024) argon EOS only through explicit selection,
-  retaining its not-reproduced status and documented reproduction limits.
-- Retain the Chen (2010) printed-constant BM3 reconstruction as an explicit-selection
-  diagnostic marked DO NOT USE, alongside the separate Peritheos refit and a
-  visual comparison explaining the unresolved source-author EOS mismatch.
-- Add the provisional, non-default Ross (1986) and Errandonea (2006) combined-data
-  argon BM3 refit with 49 selected observations and complete selection provenance.
-- Document Xiao (2025) equal-weight refit findings separately from reproduction
-  of the reported parameters and source-author weighting.
+- Rust material loading supports the Matsui and Yokoo tabulated pressure
+  mechanisms with bounded tables and lossless interchange. `ThermalModel`
+  and `LoadedEos` now implement `Clone` without `Copy` because the tables own
+  their coordinates. Rust callers that copied these enums must borrow them
+  or call `.clone()` explicitly. Python model signatures are unchanged.
 
 ### Fixed
 
-- Reconcile merged argon catalog inventories, source/refit audit coverage,
-  packaged Rust fixtures and installed-wheel checks. Qualify registered
-  Peritheos refit reproducibility separately from source-author fit parity.
-- Keep descriptive-error test assertions compatible with Rust 1.99 Clippy.
+- Reconcile catalog counts, source/refit audit coverage, Rust fixtures, and
+  installed-wheel validation. Qualify reproduction of registered Peritheos
+  refits separately from source-author fit parity.
+- Fix Python 3.9 typing and documentation/example formatting, and keep
+  descriptive-error assertions compatible with Rust 1.99 Clippy.
+- Make the Fei source-figure comparison reproducible from bundled images
+  and recorded PDF provenance without requiring local Zotero or temporary files.
 
 ## [0.11.0] - 2026-09-28
 
@@ -1107,7 +1115,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.11.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/CPrescher/peritheos/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/CPrescher/peritheos/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/CPrescher/peritheos/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/CPrescher/peritheos/compare/v0.8.0...v0.9.0

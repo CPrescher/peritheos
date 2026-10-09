@@ -149,3 +149,41 @@ once per solved state.
 Document the required molar-volume unit, reference temperature, pressure unit,
 parameter domain, source equations, and whether energy methods are absolute or
 reference contributions.
+
+## Preparing a release
+
+The Python version in `peritheos/__init__.py`, workspace version in
+`Cargo.toml`, package entries in `Cargo.lock`, and `CITATION.cff` must agree.
+Update the citation release date and move the completed changelog entries to
+an explicitly dated version section, leaving `Unreleased` for subsequent work.
+Catalog additions also require consistent material manifests, source audits,
+refit ledgers, discovery counts, and dataset-resource hashes.
+
+Regenerate the aggregate source audit without rewriting curated records, then
+refresh the independent refit and publication ledgers:
+
+```bash
+uv run python -m scripts.apply_primary_source_audit --aggregate-only
+uv run python -m scripts.validate_primary_eos_refits
+uv run python -m scripts.generate_paper_investigation_ledger
+uv run python -m scripts.generate_source_audit_index
+```
+
+A refit diagnostic must preserve the source's temperature coordinates and
+calibration provenance. Material-specific adapters handle Fei Ne's joint PVT
+fit and NaCl's staged cold/hot reconstruction; the two NaCl cold figures contain
+duplicate observations and must not be pooled. Numerical agreement remains
+qualified by the source inputs and uncertainty conventions documented in each
+audit.
+
+Run the development, native, documentation and distribution checks above.
+Smoke-test the installed wheel outside the checkout, and validate both wheel
+and source-distribution metadata with Twine. Commit the completed changes,
+push `main`, and require its CI checks to pass before pushing an annotated
+`v<version>` tag. The tag starts `.github/workflows/publish.yml`, which checks
+version/changelog consistency, builds and smoke-tests all supported platform
+wheels, publishes them to PyPI, and creates a GitHub release with the changelog
+notes and distribution artifacts. Verify both publication destinations before
+calling the release complete. A failed run can be restarted with the workflow's
+existing-tag `version` input; published version numbers are not reused for
+changed source.
