@@ -3858,7 +3858,8 @@
     "V0": "Inferred cold Vc from model outputs, distinct from ambient volume normalization",
     "thermal": "Derived Table III pressure reconstruction; published and reconstructed coefficients separately archived",
     "electronic_pressure": "Tsuchiya-Kawamura (2002) Table I, Au-only 2003 erratum applied; explicit linear interpolation",
-    "residual_pressure": "Zero; no additional residual correction"
+    "residual_pressure": "Zero; no additional residual correction",
+    "determination_method": "Independent Peritheos regression to Yokoo (2009) calculated cold/phonon/electronic table outputs. These are source-derived model checkpoints, not experimental observations or recovery of the original author optimization."
    },
    "pressure_calibration": {
     "status": "not_applicable",

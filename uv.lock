@@ -3647,6 +3647,8 @@ dev = [
     { name = "jsonschema", version = "4.26.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "mypy", version = "1.19.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "mypy", version = "1.20.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
+    { name = "pillow", version = "11.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
+    { name = "pillow", version = "12.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "pytest", version = "8.4.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "pytest", version = "9.1.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "pytest-cov" },
@@ -3675,6 +3677,7 @@ requires-dist = [
 dev = [
     { name = "jsonschema", specifier = ">=4.18,<5" },
     { name = "mypy", specifier = ">=1.16,<2" },
+    { name = "pillow", specifier = ">=9.2,<13" },
     { name = "pytest", specifier = ">=7.4.4" },
     { name = "pytest-cov", specifier = ">=6.0,<8" },
     { name = "ruff", specifier = ">=0.12,<1" },

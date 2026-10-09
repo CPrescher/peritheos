@@ -74,6 +74,12 @@ statistics. `peritheos-python` exposes these through the private
 `peritheos._rust` module; application code should continue importing the
 documented Python modules.
 
+The bounded tabulated pressure models use Python interpolation and inversion
+with native Debye oscillator kernels. Their Python fitting path therefore uses
+callbacks. Rust clients evaluate the same pressure surfaces directly through
+the public crate and EOSMAT loader; cross-language checkpoints and bounded
+round trips cover both implementations.
+
 Named-loss fits of exact built-in Peritheos models cross the PyO3 boundary
 once. Model reconstruction, EOS evaluation, residual weighting, correlated
 whitening, latent-coordinate assembly, finite differences, and optimization

@@ -163,7 +163,7 @@ python -m pytest tests/test_speziale_2001_mgo.py tests/test_fei_2007_gold.py
 archives all constraints, sensitivities, hashes and explicit reproduction flags.
 [`speziale-2001-mgo-calibration-residuals.csv`](../data/speziale-2001-mgo-calibration-residuals.csv)
 retains reported pressures alongside every diagnostic prediction.
-[`mgo-svendsen-1987-source.json`](../../peritheos/data/datasets/mgo-svendsen-1987-source.json)
+[`mgo-svendsen-1987-source.json`](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/mgo-svendsen-1987-source.json)
 records the original shock recovery and separates optical measurements from
 model outputs. No third-party source-rights transfer or source CC0 claim is made.
 

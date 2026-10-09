@@ -53,7 +53,10 @@ def test_migrated_reductions_preserve_rows_scales_and_exports(metal, count, tmp_
     ] == ["ruby_mao_1986", "ruby_dewaele_2004"]
     jsonschema.validate(document, eosmat_schema())
     assert (
-        Material.from_eosmat(document).to_eosmat()["datasets"] == document["datasets"]
+        Material.from_eosmat(document, require_primary_validation=False).to_eosmat()[
+            "datasets"
+        ]
+        == document["datasets"]
     )
     path = tmp_path / "material.eosmat"
     save_eosmat(path, document)

@@ -45,14 +45,15 @@ def test_fei_thermal_errors_and_measured_provenance_are_complete():
     assert raw["parameter_error_confidence"] is None
     assert raw["parameter_covariance"] is None
     data_check = raw["scientific_validation"]["primary_data_check"]
-    assert data_check["status"] == "plot_only"
+    assert data_check["status"] == "bundled"
     assert data_check["digitized_dataset_identifiers"] == [
         "gold_fei_2007_figure1_digitized"
     ]
-    linked = data_check["comparison_dataset_identifiers"]
+    linked = data_check["dataset_identifiers"]
     assert set(linked) == {
         "gold_fei_2004_table1",
         "gold_dewaele_2004_table1_compression",
+        "gold_hirose_2006_table1",
     }
     for identifier in linked:
         data = next(d for d in document["datasets"] if d["identifier"] == identifier)

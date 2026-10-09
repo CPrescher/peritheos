@@ -305,6 +305,7 @@ jobs:
             --resolution lowest-direct \
             --editable . \
             'pytest>=7.4.4' \
+            'Pillow>=9.2,<13' \
             'jsonschema>=4.18,<5'
 
       - name: Run tests against declared dependency floors

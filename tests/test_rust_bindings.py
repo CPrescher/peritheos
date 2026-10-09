@@ -22,6 +22,8 @@ from peritheos.eos.rt import (
     Vinet3,
 )
 from peritheos.eos.thermal import (
+    AsymptoticDebyeTabulatedPressure,
+    DebyeTabulatedThermalPressure,
     DoubleDebyeHelmholtz,
     MieGruneisenDebye,
     MieGruneisenEinstein,
@@ -394,6 +396,23 @@ def test_every_bundled_material_record_has_an_evaluation_backend():
                 continue
             if isinstance(record.eos, DoubleDebyeHelmholtz):
                 assert record.eos.pressure(record.eos.rt_eos.V0, 300.0) > 0.0
+                continue
+            if isinstance(
+                record.eos,
+                (DebyeTabulatedThermalPressure, AsymptoticDebyeTabulatedPressure),
+            ):
+                # Python owns bounded table interpolation; oscillator kernels are native.
+                volumes = record.eos.rt_eos.V0 * np.array([0.95, 0.9])[:, None]
+                temperatures = np.array([300.0, 1500.0])[None, :]
+                pressures = record.eos.pressure(volumes, temperatures)
+                assert pressures.shape == (2, 2)
+                assert np.all(np.isfinite(pressures))
+                assert record.eos.volume(pressures, temperatures) == pytest.approx(
+                    np.broadcast_to(volumes, (2, 2)), rel=1e-8
+                )
+                assert record.eos.thermal_pressure_increment(
+                    volumes, record.eos.Tr
+                ) == pytest.approx(np.zeros((2, 1)), abs=1e-12)
                 continue
             if type(record.eos).__name__ == "Maltby2024":
                 # Python quadrature is independent of the tested native EOSMAT backend.

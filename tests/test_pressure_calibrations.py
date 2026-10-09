@@ -320,12 +320,13 @@ def test_sample_eos_normalization_selects_xrd_or_ruby_provenance_edge():
     assert ruby_result.source_calibration_record == "ruby_dewaele_2004"
 
 
-def test_fei_gold_has_two_ruby_linked_gold_bridge_options():
+def test_fei_gold_has_all_ruby_linked_gold_bridge_options():
     assert list_ruby_xrd_bridges("gold_fei_2007_vinet_2") == (
         "gold_dewaele_2004_mao_ruby_vinet",
         "gold_dewaele_2004_vinet_5",
         "gold_dewaele_2019_dor_vinet",
         "gold_dewaele_2019_mao_vinet",
+        "gold_fei_2007_vinet_2",
         "gold_takemura_2008_vinet_6",
     )
 
@@ -374,7 +375,7 @@ def test_xrd_recalculation_rejects_missing_standard_and_shape_mismatch():
         recalculate_ruby_to_xrd_pressure(
             50.0,
             "ruby_dewaele_2004",
-            "gold_fei_2007_vinet_2",
+            "gold_sokolova_2013_holzapfel_4",
             "gold_dewaele_2004_vinet_5",
         )
     result = recalculate_eos_pressure_scale(

@@ -104,6 +104,8 @@ reproduction of an author's fit remain separate assessments.
   descriptive-error assertions compatible with Rust 1.99 Clippy.
 - Make the Fei source-figure comparison reproducible from bundled images
   and recorded PDF provenance without requiring local Zotero or temporary files.
+- Declare the figure-audit image reader in test dependencies, repair source-data
+  documentation links, and refresh provenance and catalog regression checks.
 
 ## [0.11.0] - 2026-09-28
 

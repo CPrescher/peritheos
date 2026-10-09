@@ -384,6 +384,7 @@ and Rust implementations; its Python class uses the NumPy backend.
 
 ```python
 from peritheos.eos.thermal import (
+    AsymptoticDebyeTabulatedPressure,
     AsymptoticPowerLawMieGruneisenDebyeExcess,
     Dewaele2006,
     DorogokupetsOganov2007,
@@ -394,6 +395,7 @@ from peritheos.eos.thermal import (
     LinearThermalPressure,
     LogVolumeThermalPressure,
     DebyeQuadraticThermalPressure,
+    DebyeTabulatedThermalPressure,
     DebyeAnharmonicHelmholtz,
     MieGruneisenDebye,
     MieGruneisenEinstein,
@@ -411,6 +413,7 @@ Thermal constructor signatures are:
 
 | Class | Parameters after `rt_eos` |
 |---|---|
+| `AsymptoticDebyeTabulatedPressure` | `Tr, theta0, gamma0, a, b, n, cold_volume_ratio`; bounded electronic/residual tables and volume/temperature ranges |
 | `AsymptoticPowerLawMieGruneisenDebyeExcess` | `Tr, theta0, gamma0, a, b, n, beta0, m` |
 | `DoubleDebyeHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_1_0, a_1, b_1`, followed by optional `n, alpha0, Ve, kappa, phi0, Tr=None` |
 | `DoubleDebyeLogMomentHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_0_0, a_0, b_0`, followed by optional `n, anharmonic_a, phi0, Tr=None` |
@@ -420,6 +423,7 @@ Thermal constructor signatures are:
 | `SecondOrderTaylorThermalPressure` | `Tr, eta0, c0, c1, c2, c3, c4, c5` |
 | `SoundVelocityDebyeHelmholtz` | `Tr, molar_mass_g_mol, n, longitudinal_intercept, longitudinal_slope, shear_intercept, shear_slope` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
+| `DebyeTabulatedThermalPressure` | `Tr, theta0, gamma0, q, n`; electronic temperature/pressure tables and explicit linear interpolation |
 | `DebyeQuadraticThermalPressure` | `Tr, theta0, gamma0, q, n, A, m` |
 | `DebyeAnharmonicHelmholtz` | `Tr, theta0, gamma0, q, b1, b2, b3` (monatomic; absolute-zero thermal baseline; gas constant 8.31451 J/mol/K) |
 | `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity", bulk_modulus_law="linear_temperature", beta1=0, beta2=0, beta3=0, kprime_log_coefficient=0`; volume laws also include `linear_temperature` and `berman` |
