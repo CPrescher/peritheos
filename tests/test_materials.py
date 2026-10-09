@@ -69,7 +69,7 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 640
+    assert len(records) == 645
     assert len(materials) == 224
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
@@ -101,6 +101,8 @@ def test_catalog_listing_lookup_and_material_filter():
         "gold_sokolova_2013_holzapfel_4",
         "gold_takemura_2008_vinet_6",
         "gold_ye_2017_vinet_300k",
+        "gold_yokoo_2009_bm3_300k",
+        "gold_yokoo_2009_vinet_300k",
         "gold_zhu_2025_pvt",
     }
     assert get_material("mgo_b1").eos_records == (

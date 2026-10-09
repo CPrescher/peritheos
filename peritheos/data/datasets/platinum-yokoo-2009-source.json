@@ -1,0 +1,109 @@
+{
+  "doi": "10.1103/PhysRevB.80.104114",
+  "source_filename": "PhysRevB.80.104114.pdf",
+  "source_sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+  "inspection": "All nine pages rendered and inspected; equations 1-18, Tables I-V and their footnotes checked on 2026-10-09.",
+  "table4": {
+    "rho0_300k_g_cm3": 21.4,
+    "B0_0k_gpa": 288.4,
+    "B0_300k_gpa": 276.4,
+    "B0_prime_0k": 5.05,
+    "B0_prime_0k_error": 0.1,
+    "B0_prime_300k_bm3": 5.12,
+    "B0_prime_300k_vinet": 5.48,
+    "gamma0_300k": 2.63,
+    "a": 0.39,
+    "a_error": 0.08,
+    "b": 5.2,
+    "b_error": 1.1,
+    "theta0_k": 230.0,
+    "C0_km_s": 3.635,
+    "S": 1.543,
+    "error_confidence": null,
+    "covariance": null
+  },
+  "volume_basis": {
+    "source": "Mass-specific V=1/rho in Rankine-Hugoniot equations; ambient V0 at 300 K. Cold BM3 uses a distinct Vc at 0 K, which is not tabulated.",
+    "public": "Conventional fcc cell, four Pt atoms; molar mass 195.084 g/mol is a conversion convention.",
+    "V0_cell_a3_derived_from_printed_density": 60.55039315524163,
+    "V0_cell_a3_rounded": 60.55
+  },
+  "equations": {
+    "pressure": "Pc(V,0)+Pph(V,T)+Pel(V,T)",
+    "cold": "BM3 with Vc, B0_0K=288.4 and B0_prime_0K=5.05",
+    "gamma": "gamma0*(1+a*((V/V0)**b-1))",
+    "theta": "theta0*(V/V0)**(-(1-a)*gamma0)*exp(-(gamma(V)-gamma0)/b)",
+    "phonon_energy": "3*n*kB*T*D3(theta/T), no explicit zero-point term",
+    "phonon_pressure": "gamma(V)*Eph/V, absolute rather than 300 K subtracted",
+    "electronic": "Recovered Tsuchiya-Kawamura (2002) Table I Pt electronic pressure, absolute 0 K reference; all 51 nodes bundled and unchanged by the Au-only erratum."
+  },
+  "missing_dependencies": [
+    {
+      "need": "Unrounded author cold Vc, phonon normalization and adopted electronic implementation for exact author-model reproduction. The separate PVT reconstruction includes an explicitly derived residual-pressure correction."
+    },
+    {
+      "need": "Complete selected shock/ambient input rows, weights, numeric electronic energies/DOS and covariance for original joint-fit replay; not required for bounded PVT evaluation."
+    }
+  ],
+  "table5": {
+    "resource": "platinum-yokoo-2009-table5-isochores.csv",
+    "sha256": "91fa24883ccbbab1f02916e11bb2df5ca9ba3543c8189bf06db93a77e7dafbb9",
+    "rows": 168,
+    "kind": "source_derived_eos_checkpoints",
+    "observations": false,
+    "temperature_k": [
+      0,
+      3000
+    ],
+    "volume_ratio": [
+      0.6,
+      1.0
+    ],
+    "pressure_unit": "GPa",
+    "phase_annotation": "Parentheses indicate first liquid states by the preceding Table III convention; two Pt entries at 3000 K (V/V0=1.00,0.98) are parenthesized. The Pt caption does not restate this convention."
+  },
+  "upstream_inputs": [
+    {
+      "dataset": "platinum-holmes-1989-table3-shock.csv",
+      "role": "Seven recovered new experiments from the Holmes (1989) source; not necessarily the full Yokoo selection, which is not enumerated. Shock pressure follows momentum conservation; Ta impedance-match/calibration and 2-sigma errors retained in the upstream audit.",
+      "doi": "10.1063/1.344177"
+    },
+    {
+      "dataset": "platinum-dewaele-2004-table1-compression.csv",
+      "role": "36 simultaneous Au/Pt volume pairs are recoverable from the underlying source table, with separate Au and Pt files. Ruby-scale pressure is comparison metadata, not a Yokoo fitting target. Fig. 6 checks mutual Au/Pt consistency, not an independent primary pressure measurement.",
+      "doi": "10.1103/PhysRevB.70.094112"
+    },
+    {
+      "role": "Ambient thermal expansion, specific heat and elastic measurements",
+      "references": [
+        19,
+        22,
+        38,
+        39
+      ],
+      "recovery": "Not supplied as numerical Pt tables in Yokoo; raw rows, weights, exact selection and covariance unavailable."
+    }
+  ],
+  "fit_scope": "Section II.D: three adjustable B0_prime_0K, a, b; gamma0 obtained secondarily; simultaneous steepest-descent least squares with respect to total pressures. Details delegated to Tange (2009), no row-level weights/selection or complete Pt inputs here.",
+  "electronic_source": {
+    "source_doi": "10.1103/PhysRevB.66.094115",
+    "erratum_doi": "10.1103/PhysRevB.67.019902",
+    "source_pdf_sha256": "2f35128ef0a86d500896d7930a3b13092b1d33085d64fa628a3e3271088211e8",
+    "erratum_pdf_sha256": "efa078407c80ede80d5889f6ad38f808dc31fe63bab0936c1b86cd69a10e825e",
+    "inspection": "Equations (1)-(6), DOS/energy discussion, Table I/Figures 3-5 and the complete erratum inspected visually on 2026-10-09.",
+    "resource": "tsuchiya-kawamura-2002-table1-electronic-pressure.csv",
+    "sha256": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336",
+    "rows": 51,
+    "temperature_k": [
+      0,
+      5000
+    ],
+    "step_k": 100,
+    "pressure_reference": "Raw Pt electronic pressure relative to 0 K; Pt 300 K value is 0.04 GPa. The absolute Yokoo decomposition does not subtract this value.",
+    "volume_dependence": "Near volume independence inferred by linear free-energy fitting within the calculated volume range; not a numerical volume-resolved energy table or proof at arbitrary compression.",
+    "erratum_scope": "Nine Au nodes corrected at 3100-3900 K; no Pt values corrected.",
+    "interpolation_rule": "Linear interpolation is an explicit implementation choice for the bounded PVT reconstruction; source prescription is unspecified.",
+    "electronic_energy": "DOS-integral equations and energy/free-energy curves given; no complete numeric Eel(V,T) or DOS grid available for original shock replay.",
+    "pressure_column": "platinum_electronic_pressure_gpa"
+  }
+}

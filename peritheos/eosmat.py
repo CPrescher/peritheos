@@ -63,6 +63,7 @@ _THERMAL_TYPES = {
     "LinearThermalPressure",
     "DebyeQuadraticThermalPressure",
     "DebyeTabulatedThermalPressure",
+    "AsymptoticDebyeTabulatedPressure",
     "DebyeAnharmonicHelmholtz",
     "LogVolumeThermalPressure",
     "SecondOrderTaylorThermalPressure",
@@ -110,6 +111,7 @@ _THERMAL_MODELS = {
     "LinearThermalPressure": "linear_thermal_pressure",
     "DebyeQuadraticThermalPressure": "debye_quadratic_thermal_pressure",
     "DebyeTabulatedThermalPressure": "debye_tabulated_thermal_pressure",
+    "AsymptoticDebyeTabulatedPressure": "asymptotic_debye_tabulated_pressure",
     "DebyeAnharmonicHelmholtz": "debye_anharmonic_helmholtz",
     "LogVolumeThermalPressure": "log_volume_thermal_pressure",
     "SecondOrderTaylorThermalPressure": "second_order_taylor_thermal_pressure",
@@ -798,15 +800,20 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 raise EosmatError(
                     f"{location}.thermal.model does not match thermal.type"
                 )
-            if thermal_type == "DebyeTabulatedThermalPressure":
+            if thermal_type in {
+                "DebyeTabulatedThermalPressure",
+                "AsymptoticDebyeTabulatedPressure",
+            }:
                 config = _require_mapping(
                     thermal.get("configuration"), f"{location}.thermal.configuration"
                 )
                 t_grid = config.get("electronic_temperature_k")
                 p_grid = config.get("electronic_pressure_gpa")
                 if (
-                    not isinstance(t_grid, list) or not isinstance(p_grid, list)
-                    or len(t_grid) < 2 or len(t_grid) != len(p_grid)
+                    not isinstance(t_grid, list)
+                    or not isinstance(p_grid, list)
+                    or len(t_grid) < 2
+                    or len(t_grid) != len(p_grid)
                     or config.get("interpolation") != "linear"
                 ):
                     raise EosmatError(f"{location}.thermal electronic table is invalid")
@@ -816,10 +823,65 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 if t_grid[0] < 0 or any(a >= b for a, b in zip(t_grid, t_grid[1:])):
                     raise EosmatError(f"{location}.thermal temperatures must increase")
                 if any(a > b for a, b in zip(p_grid, p_grid[1:])):
-                    raise EosmatError(f"{location}.thermal electronic pressures must not decrease")
+                    raise EosmatError(
+                        f"{location}.thermal electronic pressures must not decrease"
+                    )
                 tr = thermal.get("parameters", {}).get("Tr")
                 if tr is not None and not t_grid[0] <= tr <= t_grid[-1]:
-                    raise EosmatError(f"{location}.thermal Tr lies outside the electronic table")
+                    raise EosmatError(
+                        f"{location}.thermal Tr lies outside the electronic table"
+                    )
+                if thermal_type == "AsymptoticDebyeTabulatedPressure":
+                    for name in ("volume_ratio_range", "temperature_range_k"):
+                        bounds = config.get(name)
+                        if not isinstance(bounds, list) or len(bounds) != 2:
+                            raise EosmatError(
+                                f"{location}.thermal {name} requires two bounds"
+                            )
+                        for value in bounds:
+                            _finite_number(value, f"{location}.thermal {name}")
+                        if (
+                            bounds[0] < 0
+                            or bounds[0] >= bounds[1]
+                            or (name == "volume_ratio_range" and bounds[0] == 0)
+                        ):
+                            raise EosmatError(
+                                f"{location}.thermal {name} has invalid bounds"
+                            )
+                    temperatures = config["temperature_range_k"]
+                    if (
+                        temperatures[0] < t_grid[0]
+                        or temperatures[1] > t_grid[-1]
+                        or not temperatures[0] <= tr <= temperatures[1]
+                    ):
+                        raise EosmatError(
+                            f"{location}.thermal reconstruction temperature range is invalid"
+                        )
+                    residual_t, residual_p = (
+                        config.get("residual_temperature_k"),
+                        config.get("residual_pressure_gpa"),
+                    )
+                    if (
+                        not isinstance(residual_t, list)
+                        or not isinstance(residual_p, list)
+                        or len(residual_t) < 2
+                        or len(residual_t) != len(residual_p)
+                    ):
+                        raise EosmatError(
+                            f"{location}.thermal residual pressure table is invalid"
+                        )
+                    for value in residual_t + residual_p:
+                        _finite_number(
+                            value, f"{location}.thermal residual pressure table"
+                        )
+                    if (
+                        any(a >= b for a, b in zip(residual_t, residual_t[1:]))
+                        or residual_t[0] > temperatures[0]
+                        or residual_t[-1] < temperatures[1]
+                    ):
+                        raise EosmatError(
+                            f"{location}.thermal residual pressure temperatures are invalid"
+                        )
             debye_temperature_law = thermal.get("debye_temperature_law")
             thermal_pressure_reference = thermal.get("thermal_pressure_reference")
             if thermal_type == "MieGruneisenDebye":

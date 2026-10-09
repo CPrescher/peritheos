@@ -44,6 +44,7 @@ from peritheos.eos.rt import (
     Vinet3,
 )
 from peritheos.eos.thermal import (
+    AsymptoticDebyeTabulatedPressure,
     AsymptoticPowerLawMieGruneisenDebyeExcess,
     DebyeAnharmonicHelmholtz,
     DebyeQuadraticThermalPressure,
@@ -404,6 +405,8 @@ class EOSRecord:
         """Reference unit-cell volume in ``volume_unit``."""
         if isinstance(self.eos, Maltby2024):
             return self.eos.reference_volume / self.volume_scale
+        if isinstance(self.eos, AsymptoticDebyeTabulatedPressure):
+            return self.eos.ambient_reference_volume / self.volume_scale
         reference_eos = (
             self.eos.rt_eos if isinstance(self.eos, ThermalEOS) else self.eos
         )
@@ -431,7 +434,11 @@ class EOSRecord:
         if (
             self.is_thermal and not isinstance(self.eos, Maltby2024)
         ) or self.is_hugoniot:
-            invalid_minimum = values <= 0.0
+            invalid_minimum = (
+                values < 0.0
+                if getattr(self.eos, "allows_zero_temperature", False)
+                else values <= 0.0
+            )
         else:
             invalid_minimum = values < 0.0
         if not np.all(np.isfinite(values)) or np.any(invalid_minimum):
@@ -1291,6 +1298,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "LinearThermalPressure": "linear_thermal_pressure",
         "DebyeQuadraticThermalPressure": "debye_quadratic_thermal_pressure",
         "DebyeTabulatedThermalPressure": "debye_tabulated_thermal_pressure",
+        "AsymptoticDebyeTabulatedPressure": "asymptotic_debye_tabulated_pressure",
         "DebyeAnharmonicHelmholtz": "debye_anharmonic_helmholtz",
         "LogVolumeThermalPressure": "log_volume_thermal_pressure",
         "SecondOrderTaylorThermalPressure": ("second_order_taylor_thermal_pressure"),
@@ -1342,6 +1350,7 @@ _MODEL_CLASSES = MappingProxyType(
             LinearThermalPressure,
             DebyeQuadraticThermalPressure,
             DebyeTabulatedThermalPressure,
+            AsymptoticDebyeTabulatedPressure,
             DebyeAnharmonicHelmholtz,
             LogVolumeThermalPressure,
             SecondOrderTaylorThermalPressure,
@@ -1388,6 +1397,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "linear_thermal_pressure": "LinearThermalPressure",
         "debye_quadratic_thermal_pressure": "DebyeQuadraticThermalPressure",
         "debye_tabulated_thermal_pressure": "DebyeTabulatedThermalPressure",
+        "asymptotic_debye_tabulated_pressure": "AsymptoticDebyeTabulatedPressure",
         "debye_anharmonic_helmholtz": "DebyeAnharmonicHelmholtz",
         "log_volume_thermal_pressure": "LogVolumeThermalPressure",
         "second_order_taylor_thermal_pressure": ("SecondOrderTaylorThermalPressure"),
@@ -1411,6 +1421,7 @@ _MOLAR_VOLUME_THERMAL_MODELS = frozenset(
     {
         "debye_quadratic_thermal_pressure",
         "debye_tabulated_thermal_pressure",
+        "asymptotic_debye_tabulated_pressure",
         "debye_anharmonic_helmholtz",
         "mie_gruneisen_debye",
         "sound_velocity_debye_helmholtz",
@@ -1541,7 +1552,11 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
     reference_component = _merge_eosmat_component(
         result.get("eos"), _eosmat_component(reference_eos)
     )
-    if not isinstance(record.eos, Maltby2024):
+    if isinstance(record.eos, AsymptoticDebyeTabulatedPressure):
+        # The public reference volume normalizes ambient-volume ratios, while
+        # the reference isotherm has its own 0 K cold volume.
+        reference_component["parameters"]["V0"] = reference_eos.V0 / record.volume_scale
+    elif not isinstance(record.eos, Maltby2024):
         reference_component["parameters"]["V0"] = record.reference_volume
     stored_errors = result.get("parameter_errors")
     merged_errors = (

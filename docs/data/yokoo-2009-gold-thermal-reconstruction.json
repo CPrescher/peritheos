@@ -1,0 +1,1972 @@
+{
+  "doi": "10.1103/PhysRevB.80.104114",
+  "kind": "derived_table_output_pressure_reconstruction",
+  "scientific_validation": {
+    "status": "not_reproduced",
+    "audit_date": "2026-10-09",
+    "scope": "Numerical verification of diagnostic Table III pressure reconstruction; published analytical PVT remains unreproduced",
+    "verified_fields": [
+      "equation",
+      "units",
+      "reference_state",
+      "source_output_agreement",
+      "reconstruction_parameters",
+      "represented_range",
+      "source_phase_annotations"
+    ],
+    "evidence": "docs/literature-reproductions/yokoo-2009-gold.md",
+    "note": "Diagnostic pressure reconstruction: 156 unmarked source states, RMS 0.008923 GPa, maximum 0.021133 GPa; six first-liquid states held out. Altered phonon coefficients and inferred cold volume retain derived provenance and do not reproduce the published analytical parameter set. The pressure-convention audit identifies a thermal-increment discrepancy beyond the stated last-digit rounding test. Caloric data and original fitting weights are not PVT evaluation dependencies."
+  },
+  "diagnostic_only": true,
+  "published_analytical_pvt_reproduced": false,
+  "author_fit_reproduced": false,
+  "experimental_observations": 0,
+  "qualification": "Fits derived Table III outputs, not original shock/ambient measurements. Published catalog coefficients are unchanged. This executable pressure reconstruction does not recover electronic energy, caloric properties or original shock-temperature reduction.",
+  "input_sha256": {
+    "gold-yokoo-2009-table3-isochores.csv": "edcb89b181d94a99ae8712833c59f0fee0f6815481b8377928199ea92e2499ca",
+    "gold-yokoo-2009-source.json": "a8f3584f9bbb82811a6cb1dc19207c6b0a025e85fbfae5bc6d82976369206314",
+    "tsuchiya-kawamura-2002-table1-electronic-pressure.csv": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336"
+  },
+  "equation_gpa": "Pc_BM3_GPa(V/Vc,0)+gamma(V)*9*R*T*integral_0^(theta/T)[z^3/(exp(z)-1)]/((theta/T)^3*Vm_m3_per_mol*1e9)+Pel_GPa(T)",
+  "conventions": {
+    "ambient_cell_a3": 67.72,
+    "atoms_per_cell": 4,
+    "thermal_volume_normalization": "Ambient 300 K V0, separate from cold Vc",
+    "phonon_reference": "Absolute; no zero-point or 300 K subtraction term",
+    "electronic": "Corrected Tsuchiya-Kawamura Table I, volume independent, linear interpolation, no extrapolation",
+    "electronic_interpolation_author_verified": false,
+    "fit_electronic_values": "All fit temperatures coincide with exact source nodes; interpolation has no effect on the fit",
+    "objective": "Sum of squared pressure residuals in GPa with unit weights",
+    "optimizer": "scipy.optimize.least_squares, trust-region reflective, x_scale=jac, ftol=xtol=1e-13, gtol=1e-12, max_nfev=2000",
+    "debye_integration": "64-point Gauss-Legendre; asymptotic integral pi^4/15 for theta/T>80",
+    "uncertainty": "No parameter errors or covariance assigned: residuals reflect rounded model outputs and reconstruction assumptions, not experimental errors",
+    "bounds_lower": {
+      "vc_over_v0": 0.95,
+      "k0_gpa": 150.0,
+      "k0_prime": 3.0,
+      "gamma0": 1.0,
+      "a": 0.0,
+      "b": 0.1,
+      "theta0_k": 80.0
+    },
+    "bounds_upper": {
+      "vc_over_v0": 1.0,
+      "k0_gpa": 220.0,
+      "k0_prime": 8.0,
+      "gamma0": 4.0,
+      "a": 1.0,
+      "b": 12.0,
+      "theta0_k": 300.0
+    },
+    "domain": {
+      "volume_ratio": [
+        0.6,
+        1.0
+      ],
+      "temperature_k": [
+        0,
+        3000
+      ],
+      "phase_stability_verified": false
+    }
+  },
+  "parameter_comparison": [
+    {
+      "parameter": "vc_over_v0",
+      "published": null,
+      "reconstructed": 0.9901781199449332,
+      "relative_difference_percent": null
+    },
+    {
+      "parameter": "k0_gpa",
+      "published": 180.0,
+      "reconstructed": 180.0,
+      "relative_difference_percent": 0.0
+    },
+    {
+      "parameter": "k0_prime",
+      "published": 5.61,
+      "reconstructed": 5.610130908250963,
+      "relative_difference_percent": 0.0023334804093222417
+    },
+    {
+      "parameter": "gamma0",
+      "published": 2.96,
+      "reconstructed": 2.9232646613990725,
+      "relative_difference_percent": -1.2410587365178194
+    },
+    {
+      "parameter": "a",
+      "published": 0.45,
+      "reconstructed": 0.44753258346638264,
+      "relative_difference_percent": -0.548314785248305
+    },
+    {
+      "parameter": "b",
+      "published": 4.2,
+      "reconstructed": 4.215495747399446,
+      "relative_difference_percent": 0.3689463666534776
+    },
+    {
+      "parameter": "theta0_k",
+      "published": 170.0,
+      "reconstructed": 170.0,
+      "relative_difference_percent": 0.0
+    }
+  ],
+  "fits": {
+    "printed_coefficients_cold_volume_only": {
+      "parameters": {
+        "vc_over_v0": 0.9901044574488099,
+        "k0_gpa": 180.0,
+        "k0_prime": 5.61,
+        "gamma0": 2.96,
+        "a": 0.45,
+        "b": 4.2,
+        "theta0_k": 170.0
+      },
+      "refined_parameters": [
+        "vc_over_v0"
+      ],
+      "fixed_parameters": [
+        "k0_gpa",
+        "k0_prime",
+        "gamma0",
+        "a",
+        "b",
+        "theta0_k"
+      ],
+      "fit_states": {
+        "states": 156,
+        "rmse_gpa": 0.08339037572052148,
+        "max_abs_residual_gpa": 0.1812327932844866,
+        "mean_residual_gpa": 0.025262837405240626
+      },
+      "unmarked_states": {
+        "states": 156,
+        "rmse_gpa": 0.08339037572052148,
+        "max_abs_residual_gpa": 0.1812327932844866,
+        "mean_residual_gpa": 0.025262837405240626
+      },
+      "first_liquid_states": {
+        "states": 6,
+        "rmse_gpa": 0.17429232889435625,
+        "max_abs_residual_gpa": 0.1915828129454411,
+        "mean_residual_gpa": 0.17368302990095774
+      },
+      "all_populated_states": {
+        "states": 162,
+        "rmse_gpa": 0.08843927394388293,
+        "max_abs_residual_gpa": 0.1915828129454411,
+        "mean_residual_gpa": 0.030759881571748665
+      }
+    },
+    "primary": {
+      "parameters": {
+        "vc_over_v0": 0.9901781199449332,
+        "k0_gpa": 180.0,
+        "k0_prime": 5.610130908250963,
+        "gamma0": 2.9232646613990725,
+        "a": 0.44753258346638264,
+        "b": 4.215495747399446,
+        "theta0_k": 170.0
+      },
+      "refined_parameters": [
+        "vc_over_v0",
+        "k0_prime",
+        "gamma0",
+        "a",
+        "b"
+      ],
+      "fixed_parameters": [
+        "k0_gpa",
+        "theta0_k"
+      ],
+      "fit_states": {
+        "states": 156,
+        "rmse_gpa": 0.008922681886743658,
+        "max_abs_residual_gpa": 0.021133005589867082,
+        "mean_residual_gpa": -0.00011162965807357198
+      },
+      "unmarked_states": {
+        "states": 156,
+        "rmse_gpa": 0.008922681886743658,
+        "max_abs_residual_gpa": 0.021133005589867082,
+        "mean_residual_gpa": -0.00011162965807357198
+      },
+      "first_liquid_states": {
+        "states": 6,
+        "rmse_gpa": 0.01664321038902582,
+        "max_abs_residual_gpa": 0.027081684506747195,
+        "mean_residual_gpa": -0.01342901351143085
+      },
+      "all_populated_states": {
+        "states": 162,
+        "rmse_gpa": 0.009323341884964068,
+        "max_abs_residual_gpa": 0.027081684506747195,
+        "mean_residual_gpa": -0.0006048660970868045
+      }
+    },
+    "include_first_liquid_states": {
+      "parameters": {
+        "vc_over_v0": 0.9901760844366763,
+        "k0_gpa": 180.0,
+        "k0_prime": 5.6101918707852745,
+        "gamma0": 2.924604945636066,
+        "a": 0.4477729054981812,
+        "b": 4.218407679704728,
+        "theta0_k": 170.0
+      },
+      "refined_parameters": [
+        "vc_over_v0",
+        "k0_prime",
+        "gamma0",
+        "a",
+        "b"
+      ],
+      "fixed_parameters": [
+        "k0_gpa",
+        "theta0_k"
+      ],
+      "fit_states": {
+        "states": 162,
+        "rmse_gpa": 0.009187736749212258,
+        "max_abs_residual_gpa": 0.021965273027845456,
+        "mean_residual_gpa": -2.7906017253758132e-05
+      },
+      "unmarked_states": {
+        "states": 156,
+        "rmse_gpa": 0.00900909466327574,
+        "max_abs_residual_gpa": 0.021373205398560913,
+        "mean_residual_gpa": 0.0002870362940054337
+      },
+      "first_liquid_states": {
+        "states": 6,
+        "rmse_gpa": 0.01299743145847816,
+        "max_abs_residual_gpa": 0.021965273027845456,
+        "mean_residual_gpa": -0.008216406109992747
+      },
+      "all_populated_states": {
+        "states": 162,
+        "rmse_gpa": 0.009187736749212258,
+        "max_abs_residual_gpa": 0.021965273027845456,
+        "mean_residual_gpa": -2.7906017253758132e-05
+      }
+    },
+    "also_refine_cold_bulk_modulus": {
+      "parameters": {
+        "vc_over_v0": 0.990191073427653,
+        "k0_gpa": 179.9749639746067,
+        "k0_prime": 5.610527251148103,
+        "gamma0": 2.9222149849767765,
+        "a": 0.44751160584169397,
+        "b": 4.20859798872283,
+        "theta0_k": 170.0
+      },
+      "refined_parameters": [
+        "vc_over_v0",
+        "k0_prime",
+        "gamma0",
+        "a",
+        "b",
+        "k0_gpa"
+      ],
+      "fixed_parameters": [
+        "theta0_k"
+      ],
+      "fit_states": {
+        "states": 156,
+        "rmse_gpa": 0.008893315211596739,
+        "max_abs_residual_gpa": 0.02145075081775616,
+        "mean_residual_gpa": -6.782483402163077e-07
+      },
+      "unmarked_states": {
+        "states": 156,
+        "rmse_gpa": 0.008893315211596739,
+        "max_abs_residual_gpa": 0.02145075081775616,
+        "mean_residual_gpa": -6.782483402163077e-07
+      },
+      "first_liquid_states": {
+        "states": 6,
+        "rmse_gpa": 0.01782837691232287,
+        "max_abs_residual_gpa": 0.02841492320138883,
+        "mean_residual_gpa": -0.015072577163975254
+      },
+      "all_populated_states": {
+        "states": 162,
+        "rmse_gpa": 0.009377313966481402,
+        "max_abs_residual_gpa": 0.02841492320138883,
+        "mean_residual_gpa": -0.0005588967266970695
+      }
+    },
+    "also_refine_bulk_modulus_and_debye_temperature": {
+      "parameters": {
+        "vc_over_v0": 0.9902184901260201,
+        "k0_gpa": 179.9580983579011,
+        "k0_prime": 5.610515283891788,
+        "gamma0": 2.9236571039929333,
+        "a": 0.44696417473490757,
+        "b": 4.218397845806933,
+        "theta0_k": 173.37804140995004
+      },
+      "refined_parameters": [
+        "vc_over_v0",
+        "k0_gpa",
+        "k0_prime",
+        "gamma0",
+        "a",
+        "b",
+        "theta0_k"
+      ],
+      "fixed_parameters": [],
+      "fit_states": {
+        "states": 156,
+        "rmse_gpa": 0.007986383231431261,
+        "max_abs_residual_gpa": 0.019410158716006265,
+        "mean_residual_gpa": 7.21046585829035e-09
+      },
+      "unmarked_states": {
+        "states": 156,
+        "rmse_gpa": 0.007986383231431261,
+        "max_abs_residual_gpa": 0.019410158716006265,
+        "mean_residual_gpa": 7.21046585829035e-09
+      },
+      "first_liquid_states": {
+        "states": 6,
+        "rmse_gpa": 0.015655745089338983,
+        "max_abs_residual_gpa": 0.025565194853527373,
+        "mean_residual_gpa": -0.012556886316846297
+      },
+      "all_populated_states": {
+        "states": 162,
+        "rmse_gpa": 0.008396301212557404,
+        "max_abs_residual_gpa": 0.025565194853527373,
+        "mean_residual_gpa": -0.00046506292017533266
+      }
+    },
+    "unrounded_density_conversion": {
+      "parameters": {
+        "vc_over_v0": 0.9901781010849244,
+        "k0_gpa": 180.0,
+        "k0_prime": 5.610130819090231,
+        "gamma0": 2.923114062943977,
+        "a": 0.44753479387018547,
+        "b": 4.215477191881047,
+        "theta0_k": 170.0
+      },
+      "refined_parameters": [
+        "vc_over_v0",
+        "k0_prime",
+        "gamma0",
+        "a",
+        "b"
+      ],
+      "fixed_parameters": [
+        "k0_gpa",
+        "theta0_k"
+      ],
+      "fit_states": {
+        "states": 156,
+        "rmse_gpa": 0.00892640808083794,
+        "max_abs_residual_gpa": 0.021132799193502194,
+        "mean_residual_gpa": -0.00011172114599831795
+      },
+      "unmarked_states": {
+        "states": 156,
+        "rmse_gpa": 0.00892640808083794,
+        "max_abs_residual_gpa": 0.021132799193502194,
+        "mean_residual_gpa": -0.00011172114599831795
+      },
+      "first_liquid_states": {
+        "states": 6,
+        "rmse_gpa": 0.016642522241140607,
+        "max_abs_residual_gpa": 0.027080531639583683,
+        "mean_residual_gpa": -0.013428414427043123
+      },
+      "all_populated_states": {
+        "states": 162,
+        "rmse_gpa": 0.009326730478722475,
+        "max_abs_residual_gpa": 0.027080531639583683,
+        "mean_residual_gpa": -0.0006049320082592367
+      },
+      "ambient_cell_a3": 67.71649780791556
+    }
+  },
+  "multistart": [
+    {
+      "initial": {
+        "vc_over_v0": 0.9901904131217347,
+        "k0_gpa": 180.0,
+        "k0_prime": 5.61,
+        "gamma0": 2.96,
+        "a": 0.45,
+        "b": 4.2,
+        "theta0_k": 170.0
+      },
+      "fitted": {
+        "vc_over_v0": 0.9901781199449332,
+        "k0_gpa": 180.0,
+        "k0_prime": 5.610130908250963,
+        "gamma0": 2.9232646613990725,
+        "a": 0.44753258346638264,
+        "b": 4.215495747399446,
+        "theta0_k": 170.0
+      },
+      "unmarked_states": {
+        "states": 156,
+        "rmse_gpa": 0.008922681886743658,
+        "max_abs_residual_gpa": 0.021133005589867082,
+        "mean_residual_gpa": -0.00011162965807357198
+      }
+    },
+    {
+      "initial": {
+        "vc_over_v0": 0.98,
+        "k0_gpa": 180.0,
+        "k0_prime": 4.8,
+        "gamma0": 2.5,
+        "a": 0.2,
+        "b": 2,
+        "theta0_k": 170.0
+      },
+      "fitted": {
+        "vc_over_v0": 0.9901781199505342,
+        "k0_gpa": 180.0,
+        "k0_prime": 5.610130908048206,
+        "gamma0": 2.923264664378023,
+        "a": 0.4475325825233459,
+        "b": 4.215495788153598,
+        "theta0_k": 170.0
+      },
+      "unmarked_states": {
+        "states": 156,
+        "rmse_gpa": 0.008922681886743127,
+        "max_abs_residual_gpa": 0.021133007379283697,
+        "mean_residual_gpa": -0.00011162933005530416
+      }
+    },
+    {
+      "initial": {
+        "vc_over_v0": 0.995,
+        "k0_gpa": 180.0,
+        "k0_prime": 6.5,
+        "gamma0": 3.4,
+        "a": 0.7,
+        "b": 7,
+        "theta0_k": 170.0
+      },
+      "fitted": {
+        "vc_over_v0": 0.9901781199567501,
+        "k0_gpa": 180.0,
+        "k0_prime": 5.6101309078173,
+        "gamma0": 2.9232646681229353,
+        "a": 0.44753258140724744,
+        "b": 4.215495837537587,
+        "theta0_k": 170.0
+      },
+      "unmarked_states": {
+        "states": 156,
+        "rmse_gpa": 0.008922681886743502,
+        "max_abs_residual_gpa": 0.021133009095429145,
+        "mean_residual_gpa": -0.00011162891485728147
+      }
+    }
+  ],
+  "volume_interpolation_holdout": {
+    "held_out_volume_ratios": [
+      0.62,
+      0.66,
+      0.7,
+      0.74,
+      0.78,
+      0.82,
+      0.86,
+      0.9,
+      0.94,
+      0.98
+    ],
+    "parameters": {
+      "vc_over_v0": 0.9901788320404992,
+      "k0_gpa": 180.0,
+      "k0_prime": 5.6101116157155815,
+      "gamma0": 2.923812925940462,
+      "a": 0.4476730308018846,
+      "b": 4.2153648699719435,
+      "theta0_k": 170.0
+    },
+    "training_states": {
+      "states": 82,
+      "rmse_gpa": 0.008876845273693866,
+      "max_abs_residual_gpa": 0.021099497031514147,
+      "mean_residual_gpa": -0.00012535092680062237
+    },
+    "held_out_states": {
+      "states": 74,
+      "rmse_gpa": 0.009075685737408539,
+      "max_abs_residual_gpa": 0.018672295140589767,
+      "mean_residual_gpa": 0.0012428664876988724
+    }
+  },
+  "adaptive_quad_max_difference_gpa": 5.684341886080802e-14,
+  "cold_volume_cell_a3": 67.05486228267088,
+  "states": [
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "0",
+      "pressure_gpa": "-1.73",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": -1.7281551184951447,
+      "model_minus_table_gpa": 0.0018448815048552891,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "300",
+      "pressure_gpa": "0.00",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": -0.004224030642073329,
+      "model_minus_table_gpa": -0.004224030642073329,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "500",
+      "pressure_gpa": "1.42",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 1.412460516589417,
+      "model_minus_table_gpa": -0.007539483410582859,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "1000",
+      "pressure_gpa": "4.99",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 4.988053908990866,
+      "model_minus_table_gpa": -0.001946091009133788,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "1500",
+      "pressure_gpa": "8.58",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 8.580514544994898,
+      "model_minus_table_gpa": 0.000514544994898003,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "2000",
+      "pressure_gpa": "12.18",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 12.174695682719111,
+      "model_minus_table_gpa": -0.0053043172808884265,
+      "used_in_primary_fit": false
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "0",
+      "pressure_gpa": "1.92",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 1.9144928582135683,
+      "model_minus_table_gpa": -0.005507141786431635,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "300",
+      "pressure_gpa": "3.59",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 3.586715415149813,
+      "model_minus_table_gpa": -0.003284584850186789,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "500",
+      "pressure_gpa": "4.98",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 4.977856706410503,
+      "model_minus_table_gpa": -0.00214329358949783,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "1000",
+      "pressure_gpa": "8.49",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 8.492043749435359,
+      "model_minus_table_gpa": 0.002043749435358677,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "1500",
+      "pressure_gpa": "12.02",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 12.023808980488967,
+      "model_minus_table_gpa": 0.003808980488967606,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "2000",
+      "pressure_gpa": "15.56",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 15.557473331961322,
+      "model_minus_table_gpa": -0.0025266680386781815,
+      "used_in_primary_fit": false
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "0",
+      "pressure_gpa": "6.08",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 6.076391809993254,
+      "model_minus_table_gpa": -0.0036081900067461703,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "300",
+      "pressure_gpa": "7.70",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 7.699867910317211,
+      "model_minus_table_gpa": -0.0001320896827889939,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "500",
+      "pressure_gpa": "9.07",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 9.06778093707136,
+      "model_minus_table_gpa": -0.0022190629286402697,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "1000",
+      "pressure_gpa": "12.53",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 12.526585817089648,
+      "model_minus_table_gpa": -0.0034141829103511157,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "1500",
+      "pressure_gpa": "16.00",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 16.003749784362864,
+      "model_minus_table_gpa": 0.0037497843628635508,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "2000",
+      "pressure_gpa": "19.48",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 19.483009177422822,
+      "model_minus_table_gpa": 0.003009177422821807,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "2500",
+      "pressure_gpa": "22.99",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 22.973107299657855,
+      "model_minus_table_gpa": -0.01689270034214374,
+      "used_in_primary_fit": false
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "0",
+      "pressure_gpa": "10.83",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 10.830000064928381,
+      "model_minus_table_gpa": 6.492838089400266e-08,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "300",
+      "pressure_gpa": "12.41",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 12.407577704447998,
+      "model_minus_table_gpa": -0.0024222955520016853,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "500",
+      "pressure_gpa": "13.76",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 13.754559021049596,
+      "model_minus_table_gpa": -0.005440978950403519,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "1000",
+      "pressure_gpa": "17.16",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 17.163989447479626,
+      "model_minus_table_gpa": 0.003989447479625596,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "1500",
+      "pressure_gpa": "20.59",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 20.592638793405094,
+      "model_minus_table_gpa": 0.0026387934050937645,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "2000",
+      "pressure_gpa": "24.02",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 24.023599846179348,
+      "model_minus_table_gpa": 0.003599846179348276,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "2500",
+      "pressure_gpa": "27.47",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 27.46548627155956,
+      "model_minus_table_gpa": -0.004513728440439735,
+      "used_in_primary_fit": false
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "0",
+      "pressure_gpa": "16.26",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 16.259031078906933,
+      "model_minus_table_gpa": -0.0009689210930687864,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "300",
+      "pressure_gpa": "17.80",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 17.79343850362276,
+      "model_minus_table_gpa": -0.006561496377241127,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "500",
+      "pressure_gpa": "19.13",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 19.1217672084627,
+      "model_minus_table_gpa": -0.008232791537299278,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "1000",
+      "pressure_gpa": "22.49",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 22.487821873780863,
+      "model_minus_table_gpa": -0.002178126219135379,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "1500",
+      "pressure_gpa": "25.87",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 25.874044756781878,
+      "model_minus_table_gpa": 0.004044756781876657,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "2000",
+      "pressure_gpa": "29.26",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 29.26281829192656,
+      "model_minus_table_gpa": 0.0028182919265589135,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "2500",
+      "pressure_gpa": "32.67",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 32.662612938371,
+      "model_minus_table_gpa": -0.0073870616290037106,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "3000",
+      "pressure_gpa": "36.10",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 36.072918315493254,
+      "model_minus_table_gpa": -0.027081684506747195,
+      "used_in_primary_fit": false
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "0",
+      "pressure_gpa": "22.46",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 22.460441517687798,
+      "model_minus_table_gpa": 0.0004415176877969884,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "300",
+      "pressure_gpa": "23.96",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 23.954281224863216,
+      "model_minus_table_gpa": -0.0057187751367848705,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "500",
+      "pressure_gpa": "25.27",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 25.26621982830946,
+      "model_minus_table_gpa": -0.003780171690539902,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "1000",
+      "pressure_gpa": "28.59",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 28.594896474083388,
+      "model_minus_table_gpa": 0.004896474083388114,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "1500",
+      "pressure_gpa": "31.93",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 31.944792476806448,
+      "model_minus_table_gpa": 0.014792476806448462,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "2000",
+      "pressure_gpa": "35.29",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 35.29750390409457,
+      "model_minus_table_gpa": 0.007503904094569691,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "2500",
+      "pressure_gpa": "38.66",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 38.6613425486897,
+      "model_minus_table_gpa": 0.001342548689706291,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "3000",
+      "pressure_gpa": "42.06",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 42.035745017540314,
+      "model_minus_table_gpa": -0.024254982459687824,
+      "used_in_primary_fit": false
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "0",
+      "pressure_gpa": "29.55",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 29.546818749774815,
+      "model_minus_table_gpa": -0.0031812502251860053,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "300",
+      "pressure_gpa": "31.01",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 31.00256106201635,
+      "model_minus_table_gpa": -0.007438937983650362,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "500",
+      "pressure_gpa": "32.30",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 32.30035619313077,
+      "model_minus_table_gpa": 0.0003561931307700661,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "1000",
+      "pressure_gpa": "35.59",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 35.597660333211245,
+      "model_minus_table_gpa": 0.007660333211241266,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "1500",
+      "pressure_gpa": "38.91",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 38.917351374284266,
+      "model_minus_table_gpa": 0.007351374284269241,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "2000",
+      "pressure_gpa": "42.23",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 42.24015216718442,
+      "model_minus_table_gpa": 0.010152167184422467,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "2500",
+      "pressure_gpa": "45.58",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 45.574198150463985,
+      "model_minus_table_gpa": -0.005801849536013037,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "3000",
+      "pressure_gpa": "48.94",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 48.91886699441013,
+      "model_minus_table_gpa": -0.021133005589867082,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "0",
+      "pressure_gpa": "37.65",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 37.649258549745525,
+      "model_minus_table_gpa": -0.0007414502544733637,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "300",
+      "pressure_gpa": "39.07",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 39.06923464868799,
+      "model_minus_table_gpa": -0.0007653513120118305,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "500",
+      "pressure_gpa": "40.36",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 40.35511753751439,
+      "model_minus_table_gpa": -0.004882462485610972,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "1000",
+      "pressure_gpa": "43.62",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 43.62707189033868,
+      "model_minus_table_gpa": 0.007071890338679054,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "1500",
+      "pressure_gpa": "46.91",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 46.92271426481984,
+      "model_minus_table_gpa": 0.012714264819841503,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "2000",
+      "pressure_gpa": "50.21",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 50.22179467573879,
+      "model_minus_table_gpa": 0.011794675738791227,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "2500",
+      "pressure_gpa": "53.53",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 53.532251889129675,
+      "model_minus_table_gpa": 0.0022518891296741117,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "3000",
+      "pressure_gpa": "56.87",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 56.85339783066892,
+      "model_minus_table_gpa": -0.016602169331079608,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "0",
+      "pressure_gpa": "46.93",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 46.92084702445578,
+      "model_minus_table_gpa": -0.009152975544218123,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "300",
+      "pressure_gpa": "48.31",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 48.30724131641099,
+      "model_minus_table_gpa": -0.0027586835890147654,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "500",
+      "pressure_gpa": "49.59",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 49.58342796904139,
+      "model_minus_table_gpa": -0.006572030958615471,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "1000",
+      "pressure_gpa": "52.83",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 52.836082650196154,
+      "model_minus_table_gpa": 0.0060826501961557256,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "1500",
+      "pressure_gpa": "56.10",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 56.113880341229404,
+      "model_minus_table_gpa": 0.013880341229402404,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "2000",
+      "pressure_gpa": "59.39",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 59.395483522392695,
+      "model_minus_table_gpa": 0.00548352239269434,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "2500",
+      "pressure_gpa": "62.69",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 62.688610855748266,
+      "model_minus_table_gpa": -0.0013891442517319774,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "3000",
+      "pressure_gpa": "66.01",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 65.99250066798069,
+      "model_minus_table_gpa": -0.01749933201931242,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "0",
+      "pressure_gpa": "57.55",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 57.54089062056248,
+      "model_minus_table_gpa": -0.009109379437518328,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "300",
+      "pressure_gpa": "58.90",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 58.895732292196726,
+      "model_minus_table_gpa": -0.004267707803272458,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "500",
+      "pressure_gpa": "60.17",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 60.16442325057765,
+      "model_minus_table_gpa": -0.005576749422353089,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "1000",
+      "pressure_gpa": "63.40",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 63.40386677353269,
+      "model_minus_table_gpa": 0.0038667735326924912,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "1500",
+      "pressure_gpa": "66.66",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 66.67008619758573,
+      "model_minus_table_gpa": 0.01008619758573559,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "2000",
+      "pressure_gpa": "69.93",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 69.94052392072942,
+      "model_minus_table_gpa": 0.010523920729411884,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "2500",
+      "pressure_gpa": "73.22",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 73.22265137566554,
+      "model_minus_table_gpa": 0.002651375665536193,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "3000",
+      "pressure_gpa": "76.53",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 76.51562419325036,
+      "model_minus_table_gpa": -0.014375806749640674,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "0",
+      "pressure_gpa": "69.73",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 69.72007665827185,
+      "model_minus_table_gpa": -0.0099233417281539,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "300",
+      "pressure_gpa": "71.05",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 71.04523026632245,
+      "model_minus_table_gpa": -0.0047697336775485155,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "500",
+      "pressure_gpa": "72.31",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 72.30860981222146,
+      "model_minus_table_gpa": -0.001390187778540053,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "1000",
+      "pressure_gpa": "75.54",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 75.54098093832357,
+      "model_minus_table_gpa": 0.0009809383235648284,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "1500",
+      "pressure_gpa": "78.79",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 78.8019673090692,
+      "model_minus_table_gpa": 0.011967309069191856,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "2000",
+      "pressure_gpa": "82.06",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 82.06763750796176,
+      "model_minus_table_gpa": 0.007637507961760548,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "2500",
+      "pressure_gpa": "85.34",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 85.3451842169006,
+      "model_minus_table_gpa": 0.005184216900602223,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "3000",
+      "pressure_gpa": "88.65",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 88.6336697944089,
+      "model_minus_table_gpa": -0.01633020559110321,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "0",
+      "pressure_gpa": "83.71",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 83.70679701089189,
+      "model_minus_table_gpa": -0.003202989108103793,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "300",
+      "pressure_gpa": "85.01",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 85.00395193665186,
+      "model_minus_table_gpa": -0.0060480633481461155,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "500",
+      "pressure_gpa": "86.27",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 86.26418655723246,
+      "model_minus_table_gpa": -0.005813442767532706,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "1000",
+      "pressure_gpa": "89.49",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 89.49568702400526,
+      "model_minus_table_gpa": 0.005687024005268881,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "1500",
+      "pressure_gpa": "92.74",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 92.75788254573546,
+      "model_minus_table_gpa": 0.017882545735460553,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "2000",
+      "pressure_gpa": "96.01",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 96.02528894193645,
+      "model_minus_table_gpa": 0.015288941936447031,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "2500",
+      "pressure_gpa": "99.30",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 99.30478337348855,
+      "model_minus_table_gpa": 0.004783373488550069,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "3000",
+      "pressure_gpa": "102.61",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 102.59532258198054,
+      "model_minus_table_gpa": -0.014677418019459765,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "0",
+      "pressure_gpa": "99.80",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 99.79493318772788,
+      "model_minus_table_gpa": -0.005066812272119137,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "300",
+      "pressure_gpa": "101.07",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 101.06559177541132,
+      "model_minus_table_gpa": -0.004408224588672738,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "500",
+      "pressure_gpa": "102.33",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 102.32482765368268,
+      "model_minus_table_gpa": -0.005172346317323218,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "1000",
+      "pressure_gpa": "105.56",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 105.56173579089564,
+      "model_minus_table_gpa": 0.0017357908956370238,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "1500",
+      "pressure_gpa": "108.82",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 108.83169992161484,
+      "model_minus_table_gpa": 0.011699921614848563,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "2000",
+      "pressure_gpa": "112.10",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 112.10747403688006,
+      "model_minus_table_gpa": 0.007474036880068979,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "2500",
+      "pressure_gpa": "115.39",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 115.3955767168556,
+      "model_minus_table_gpa": 0.005576716855600239,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "3000",
+      "pressure_gpa": "118.71",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 118.69484462103415,
+      "model_minus_table_gpa": -0.015155378965843624,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "0",
+      "pressure_gpa": "118.34",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 118.33348749009505,
+      "model_minus_table_gpa": -0.006512509904951003,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "300",
+      "pressure_gpa": "119.58",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 119.57895167965852,
+      "model_minus_table_gpa": -0.0010483203414821674,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "500",
+      "pressure_gpa": "120.84",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 120.83931090306355,
+      "model_minus_table_gpa": -0.0006890969364548027,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "1000",
+      "pressure_gpa": "124.08",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 124.08799611562135,
+      "model_minus_table_gpa": 0.007996115621352828,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "1500",
+      "pressure_gpa": "127.36",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 127.3724281728621,
+      "model_minus_table_gpa": 0.012428172862101405,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "2000",
+      "pressure_gpa": "130.65",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 130.66335408250205,
+      "model_minus_table_gpa": 0.013354082502047504,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "2500",
+      "pressure_gpa": "133.96",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 133.96688321816666,
+      "model_minus_table_gpa": 0.006883218166649385,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "3000",
+      "pressure_gpa": "137.30",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 137.28171513854352,
+      "model_minus_table_gpa": -0.018284861456493218,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "0",
+      "pressure_gpa": "139.75",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 139.73855943078948,
+      "model_minus_table_gpa": -0.011440569210520835,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "300",
+      "pressure_gpa": "140.96",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 140.95991569249964,
+      "model_minus_table_gpa": -8.430750037291546e-05,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "500",
+      "pressure_gpa": "142.23",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 142.22349078239048,
+      "model_minus_table_gpa": -0.006509217609504958,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "1000",
+      "pressure_gpa": "145.49",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 145.49042883319012,
+      "model_minus_table_gpa": 0.0004288331901136644,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "1500",
+      "pressure_gpa": "148.78",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 148.79619325217578,
+      "model_minus_table_gpa": 0.016193252175781936,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "2000",
+      "pressure_gpa": "152.10",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 152.10923549398098,
+      "model_minus_table_gpa": 0.009235493980980891,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "2500",
+      "pressure_gpa": "155.43",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 155.43519595929467,
+      "model_minus_table_gpa": 0.005195959294667318,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "3000",
+      "pressure_gpa": "158.79",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 158.77261699890593,
+      "model_minus_table_gpa": -0.017383001094060546,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "0",
+      "pressure_gpa": "164.52",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 164.50831944450687,
+      "model_minus_table_gpa": -0.011680555493143174,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "300",
+      "pressure_gpa": "165.71",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 165.70642182776933,
+      "model_minus_table_gpa": -0.0035781722306751362,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "500",
+      "pressure_gpa": "166.98",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 166.97526807543088,
+      "model_minus_table_gpa": -0.004731924569114199,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "1000",
+      "pressure_gpa": "170.26",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 170.2670570333073,
+      "model_minus_table_gpa": 0.007057033307319216,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "1500",
+      "pressure_gpa": "173.59",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 173.60121162710496,
+      "model_minus_table_gpa": 0.011211627104955824,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "2000",
+      "pressure_gpa": "176.93",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 176.94354675195225,
+      "model_minus_table_gpa": 0.01354675195224786,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "2500",
+      "pressure_gpa": "180.30",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 180.29916297609492,
+      "model_minus_table_gpa": -0.0008370239050918826,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "3000",
+      "pressure_gpa": "183.68",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 183.6664215824972,
+      "model_minus_table_gpa": -0.013578417502799311,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "0",
+      "pressure_gpa": "193.25",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 193.24183739811778,
+      "model_minus_table_gpa": -0.008162601882219178,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "300",
+      "pressure_gpa": "194.42",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 194.41728852561087,
+      "model_minus_table_gpa": -0.0027114743891161197,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "500",
+      "pressure_gpa": "195.70",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 195.69341346903227,
+      "model_minus_table_gpa": -0.006586530967723547,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "1000",
+      "pressure_gpa": "199.01",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 199.01679008732134,
+      "model_minus_table_gpa": 0.006790087321348892,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "1500",
+      "pressure_gpa": "202.37",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 202.38661770132285,
+      "model_minus_table_gpa": 0.01661770132284346,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "2000",
+      "pressure_gpa": "205.75",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 205.7656700363369,
+      "model_minus_table_gpa": 0.015670036336899784,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "2500",
+      "pressure_gpa": "209.16",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 209.15842344010042,
+      "model_minus_table_gpa": -0.0015765598995756136,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "3000",
+      "pressure_gpa": "212.58",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 212.5630296845597,
+      "model_minus_table_gpa": -0.016970315440318018,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "0",
+      "pressure_gpa": "226.67",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 226.66290182201257,
+      "model_minus_table_gpa": -0.007098177987415966,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "300",
+      "pressure_gpa": "227.82",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 227.81603169895365,
+      "model_minus_table_gpa": -0.003968301046342049,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "500",
+      "pressure_gpa": "229.10",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 229.10138087877417,
+      "model_minus_table_gpa": 0.0013808787741709239,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "1000",
+      "pressure_gpa": "232.46",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 232.46323702537748,
+      "model_minus_table_gpa": 0.0032370253774729463,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "1500",
+      "pressure_gpa": "235.86",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 235.87628102219284,
+      "model_minus_table_gpa": 0.01628102219282823,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "2000",
+      "pressure_gpa": "239.29",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 239.2997633177062,
+      "model_minus_table_gpa": 0.009763317706216412,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "2500",
+      "pressure_gpa": "242.74",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 242.73743506637072,
+      "model_minus_table_gpa": -0.002564933629287225,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "3000",
+      "pressure_gpa": "246.20",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 246.1872044582411,
+      "model_minus_table_gpa": -0.01279554175889075,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "0",
+      "pressure_gpa": "265.66",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 265.65034611787684,
+      "model_minus_table_gpa": -0.00965388212318885,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "300",
+      "pressure_gpa": "266.78",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 266.78118869523485,
+      "model_minus_table_gpa": 0.0011886952348731938,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "500",
+      "pressure_gpa": "268.08",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 268.0776265756822,
+      "model_minus_table_gpa": -0.002373424317795525,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "1000",
+      "pressure_gpa": "271.48",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 271.4850251265008,
+      "model_minus_table_gpa": 0.005025126500754595,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "1500",
+      "pressure_gpa": "274.93",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 274.9491291791047,
+      "model_minus_table_gpa": 0.019129179104709237,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "2000",
+      "pressure_gpa": "278.41",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 278.4250889292136,
+      "model_minus_table_gpa": 0.015088929213561642,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "2500",
+      "pressure_gpa": "281.91",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 281.91580892132083,
+      "model_minus_table_gpa": 0.005808921320806348,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "3000",
+      "pressure_gpa": "285.44",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 285.4189127428448,
+      "model_minus_table_gpa": -0.021087257155215866,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "0",
+      "pressure_gpa": "311.29",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 311.27692209117146,
+      "model_minus_table_gpa": -0.013077908828563523,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "300",
+      "pressure_gpa": "312.39",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 312.3851896348741,
+      "model_minus_table_gpa": -0.00481036512587707,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "500",
+      "pressure_gpa": "313.70",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 313.69447425061736,
+      "model_minus_table_gpa": -0.0055257493826275095,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "1000",
+      "pressure_gpa": "317.15",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 317.1546635570548,
+      "model_minus_table_gpa": 0.004663557054811918,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "1500",
+      "pressure_gpa": "320.66",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 320.6780162624384,
+      "model_minus_table_gpa": 0.018016262438379727,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "2000",
+      "pressure_gpa": "324.20",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 324.2148886283542,
+      "model_minus_table_gpa": 0.014888628354185585,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "2500",
+      "pressure_gpa": "327.77",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 327.7671918234855,
+      "model_minus_table_gpa": -0.002808176514463412,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "3000",
+      "pressure_gpa": "331.35",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 331.3322151765751,
+      "model_minus_table_gpa": -0.01778482342490406,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "0",
+      "pressure_gpa": "364.87",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 364.85949001078075,
+      "model_minus_table_gpa": -0.010509989219258387,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "300",
+      "pressure_gpa": "365.95",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 365.94454550601836,
+      "model_minus_table_gpa": -0.005454493981631003,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "500",
+      "pressure_gpa": "367.27",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 367.2682949801574,
+      "model_minus_table_gpa": -0.001705019842574984,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "1000",
+      "pressure_gpa": "370.78",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 370.7887205880214,
+      "model_minus_table_gpa": 0.008720588021446929,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "1500",
+      "pressure_gpa": "374.37",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 374.37990543156377,
+      "model_minus_table_gpa": 0.009905431563765887,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "2000",
+      "pressure_gpa": "377.98",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 377.98657385965146,
+      "model_minus_table_gpa": 0.006573859651439307,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "2500",
+      "pressure_gpa": "381.61",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 381.60946527241117,
+      "model_minus_table_gpa": -0.0005347275888425429,
+      "used_in_primary_fit": true
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "3000",
+      "pressure_gpa": "385.26",
+      "source_phase_annotation": "unmarked",
+      "model_pressure_gpa": 385.2454742845014,
+      "model_minus_table_gpa": -0.014525715498564296,
+      "used_in_primary_fit": true
+    }
+  ]
+}

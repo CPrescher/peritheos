@@ -5430,10 +5430,28 @@ def validate_all() -> dict[str, Any]:
             }:
                 outcome = _argon_batch_outcome(record)
             elif record["identifier"] in {
+                "gold_yokoo_2009_bm3_300k",
+                "gold_yokoo_2009_vinet_300k",
+            }:
+                from scripts.reproduce_yokoo_2009_gold import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "platinum_yokoo_2009_vinet_300k":
+                from scripts.reproduce_yokoo_2009_platinum import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] in {
                 "platinum_matsui_2009_vinet_300k",
                 "platinum_matsui_2009_vinet_mgd_electronic",
             }:
                 from scripts.audit_matsui_2009_platinum import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] in {
+                "gold_yokoo_2009_pvt_reconstruction",
+                "platinum_yokoo_2009_pvt_reconstruction",
+            }:
+                from scripts.register_yokoo_2009_pvt import ledger_outcome
 
                 outcome = ledger_outcome(record)
             elif not identifiers:

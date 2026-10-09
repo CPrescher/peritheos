@@ -34,8 +34,14 @@ exact experimental temperature or a thermal EOS.
 The fit uses the **platinum Vinet pressure scale of Yokoo et al. (2009)**,
 [Physical Review B 80, 104114](https://doi.org/10.1103/PhysRevB.80.104114).
 Figure 10 also shows a Dewaele-Pt reduction and previous Re curves; these are
-comparison data and do not define additional Sakai records. The exact Yokoo-Pt
-record is not currently bundled, so no approximate calibration link is supplied.
+comparison data and do not define additional Sakai records. The [Yokoo
+primary-source audit](yokoo-2009-platinum.md) now registers the published fitted
+300 K Vinet branch as `platinum_yokoo_2009_vinet_300k` (K0=276.4 GPa,
+K0'=5.48; density-derived V0=60.55 Å³ per fcc cell). This named equation
+reference resolves exactly to that published branch. Original paired Pt/Re
+volumes and an independently stated unrounded Pt normalization remain absent;
+resolving the reference does not claim replay of the historical pressure
+reduction (`missing_calibrant_observations`).
 
 ## Experimental coverage and observations
 

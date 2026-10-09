@@ -3117,6 +3117,765 @@
     }
    },
    "notes": "fcc conventional cell with four atoms; composition/phase match existing material. No covariance or error confidence reported. Published coefficients remain unchanged; diagnostic refits do not replace this record. See docs/literature-reproductions/fei-2004-pressure-scales.md."
+  },
+  {
+   "identifier": "gold_yokoo_2009_bm3_300k",
+   "label": "Yokoo et al. (2009), Au fitted BM3 isotherm, 300 K",
+   "record_kind": "published",
+   "determination_method": "experimental",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Yokoo",
+     "Kawai",
+     "Nakamura",
+     "Kondo",
+     "Tange",
+     "Tsuchiya"
+    ],
+    "year": 2009,
+    "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
+    "source": "Physical Review B",
+    "volume": "80",
+    "locator": "104114",
+    "doi": "10.1103/PhysRevB.80.104114"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 196.96657
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 67.72,
+     "K0": 167.5,
+     "K0_prime": 5.79
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reference_parameterization",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     368.90987378691
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Modeled reference-isotherm compression range V/V0=0.6-1.0 from the source grid; not measured static coverage or a phase-stability guarantee. Full thermal Table III includes first liquid states and reaches 385.26 GPa at 3000 K; it is distinct from this fitted branch."
+    ]
+   },
+   "notes": "Published Table II fitted 300 K BM3 branch: K0=167.5 GPa, K0_prime=5.79. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. Full thermal model remains withheld pending exact cold Vc/unrounded phonon normalization and verification of the adopted electronic implementation; electronic energy/heat capacity for the original shock fit remain unavailable. Original joint fit is not independently refittable.",
+   "parameter_provenance": {
+    "determination_method": "Table II/Section II.D: reference-isotherm fit of the joint experimental shock and ambient thermodynamic model. Underlying electronic contribution is imported from first-principles calculations.",
+    "V0": "Table II ambient density 19.32 Mg/m^3 converted to four-atom fcc volume with molar mass 196.96657 g/mol and exact N_A. Rounded to source density precision; exact unrounded author volume unavailable.",
+    "K0": "Table II B0,300K=167.5 GPa; cold B0,0K=180 GPa belongs to a separate branch.",
+    "K0_prime": "Table II B0_prime,300K=5.79; footnote a distinguishes unparenthesized BM3 5.79 and parenthesized Vinet 5.94. Neither is cold B0_prime,0K=5.61(10).",
+    "temperature_ref": "Table II and footnote a: fitted 300 K reference isotherm."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-09",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "note": "Published Table II fitted 300 K BM3 branch: K0=167.5 GPa, K0_prime=5.79. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. A separate nondefault diagnostic reconstructs Table III outputs (156 unmarked states, RMS 0.008923 GPa) with altered phonon coefficients. Its scientific status is not_reproduced; the published analytical PVT mismatch is documented in the pressure-convention audit. The source-exact author implementation and electronic caloric properties remain unresolved. Original joint fit is not independently refittable.",
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+     "doi": "10.1103/PhysRevB.80.104114",
+     "source_filename": "PhysRevB.80.104114.pdf",
+     "sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+     "locations": [
+      "Table II and footnotes a-d, page 104114-3",
+      "Table III and caption, page 104114-4",
+      "Equations (1)-(18) and Sections II-III, pages 104114-1/6"
+     ],
+     "finding": "The published fitted Au 300 K BM3 branch and density normalization are verified from the primary PDF. The full thermal equation and original fit are not reconstructed by this record."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-10-09",
+     "dataset_identifiers": [
+      "gold_yokoo_2009_table3_isochores",
+      "tsuchiya_kawamura_2002_table1_electronic_pressure"
+     ],
+     "comparison_dataset_identifiers": [
+      "gold_dewaele_2004_table1_compression"
+     ],
+     "source_locations": [
+      "Table II/III",
+      "Section II.B-D",
+      "Dewaele (2004), Table I; Yokoo Figure 6"
+     ],
+     "finding": "162 derived full-model states are bundled with six first-liquid annotations; six blank source cells remain absent. Shock velocity regression is preserved as a published fit, not manufactured raw observations. Complete shock/ambient thermodynamic inputs, exact selection/weights, numerical electronic energy/DOS and author unrounded reference volumes are unavailable. Neither the grid nor static comparison data reproduce the original joint fit. Corrected upstream electronic pressure nodes are bundled separately as theoretical diagnostics; no original joint-fit parity is claimed.",
+     "reproduction_resource": "docs/data/yokoo-2009-gold-reproduction.json"
+    },
+    "thermal_reconstruction_check": {
+     "status": "not_reproduced",
+     "audit_date": "2026-10-09",
+     "scope": "Numerical verification of diagnostic Table III pressure reconstruction; published analytical PVT remains unreproduced",
+     "verified_fields": [
+      "equation",
+      "units",
+      "reference_state",
+      "source_output_agreement",
+      "reconstruction_parameters",
+      "represented_range",
+      "source_phase_annotations"
+     ],
+     "evidence": "docs/literature-reproductions/yokoo-2009-gold.md",
+     "note": "Diagnostic pressure reconstruction: 156 unmarked source states, RMS 0.008923 GPa, maximum 0.021133 GPa; six first-liquid states held out. Altered phonon coefficients and inferred cold volume retain derived provenance and do not reproduce the published analytical parameter set. The pressure-convention audit identifies a thermal-increment discrepancy beyond the stated last-digit rounding test. Caloric data and original fitting weights are not PVT evaluation dependencies."
+    }
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Yokoo",
+        "Kawai",
+        "Hironaka",
+        "Nakamura",
+        "Kondo"
+       ],
+       "year": 2008,
+       "source": "Applied Physics Letters",
+       "volume": "92",
+       "locator": "051901"
+      },
+      "source_location": "Section II.B and Eq. (13)-(16); Table II C0, S and Q",
+      "scope": "Symmetric-impact shock constraints plus pressure-scale-free ambient thermodynamic inputs; Dewaele ruby data are comparison only.",
+      "notes": "Source refers to remeasured shock data in reference 8 and other shock compilations. Complete row-level selection/weights unavailable; regression checkpoints are model output."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Primary reference-isotherm fit from shock/ambient model; no external static calibrant pressure is recalculated."
+    },
+    "audit_date": "2026-10-09"
+   },
+   "source_lineage": [
+    {
+     "role": "Remeasured Au shock-Hugoniot constraints",
+     "citation": "Yokoo et al. (2008), Applied Physics Letters 92, 051901; source reference 8"
+    },
+    {
+     "role": "Ambient elastic, thermodynamic and expansion inputs",
+     "citation": "Source Table I and references 14, 15, 19-23 and 30"
+    },
+    {
+     "role": "First-principles electronic pressure input, now recovered; numerical energy/DOS unavailable for shock replay",
+     "citation": "Tsuchiya and Kawamura (2002), with 2003 erratum",
+     "doi": "10.1103/PhysRevB.66.094115"
+    },
+    {
+     "role": "Published parameterization and derived grid",
+     "citation": "Yokoo et al. (2009), Tables II-III",
+     "doi": "10.1103/PhysRevB.80.104114"
+    }
+   ]
+  },
+  {
+   "identifier": "gold_yokoo_2009_vinet_300k",
+   "label": "Yokoo et al. (2009), Au fitted Vinet isotherm, 300 K",
+   "record_kind": "published",
+   "determination_method": "experimental",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Yokoo",
+     "Kawai",
+     "Nakamura",
+     "Kondo",
+     "Tange",
+     "Tsuchiya"
+    ],
+    "year": 2009,
+    "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
+    "source": "Physical Review B",
+    "volume": "80",
+    "locator": "104114",
+    "doi": "10.1103/PhysRevB.80.104114"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 196.96657
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 67.72,
+     "K0": 167.5,
+     "K0_prime": 5.94
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reference_parameterization",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     352.8492451039456
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Modeled reference-isotherm compression range V/V0=0.6-1.0 from the source grid; not measured static coverage or a phase-stability guarantee. Full thermal Table III includes first liquid states and reaches 385.26 GPa at 3000 K; it is distinct from this fitted branch."
+    ]
+   },
+   "notes": "Published Table II fitted 300 K Vinet branch: K0=167.5 GPa, K0_prime=5.94. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. Full thermal model remains withheld pending exact cold Vc/unrounded phonon normalization and verification of the adopted electronic implementation; electronic energy/heat capacity for the original shock fit remain unavailable. Original joint fit is not independently refittable.",
+   "parameter_provenance": {
+    "determination_method": "Table II/Section II.D: reference-isotherm fit of the joint experimental shock and ambient thermodynamic model. Underlying electronic contribution is imported from first-principles calculations.",
+    "V0": "Table II ambient density 19.32 Mg/m^3 converted to four-atom fcc volume with molar mass 196.96657 g/mol and exact N_A. Rounded to source density precision; exact unrounded author volume unavailable.",
+    "K0": "Table II B0,300K=167.5 GPa; cold B0,0K=180 GPa belongs to a separate branch.",
+    "K0_prime": "Table II B0_prime,300K=5.94; footnote a distinguishes unparenthesized BM3 5.79 and parenthesized Vinet 5.94. Neither is cold B0_prime,0K=5.61(10).",
+    "temperature_ref": "Table II and footnote a: fitted 300 K reference isotherm."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-09",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "note": "Published Table II fitted 300 K Vinet branch: K0=167.5 GPa, K0_prime=5.94. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. A separate nondefault diagnostic reconstructs Table III outputs (156 unmarked states, RMS 0.008923 GPa) with altered phonon coefficients. Its scientific status is not_reproduced; the published analytical PVT mismatch is documented in the pressure-convention audit. The source-exact author implementation and electronic caloric properties remain unresolved. Original joint fit is not independently refittable.",
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+     "doi": "10.1103/PhysRevB.80.104114",
+     "source_filename": "PhysRevB.80.104114.pdf",
+     "sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+     "locations": [
+      "Table II and footnotes a-d, page 104114-3",
+      "Table III and caption, page 104114-4",
+      "Equations (1)-(18) and Sections II-III, pages 104114-1/6"
+     ],
+     "finding": "The published fitted Au 300 K Vinet branch and density normalization are verified from the primary PDF. The full thermal equation and original fit are not reconstructed by this record."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-10-09",
+     "dataset_identifiers": [
+      "gold_yokoo_2009_table3_isochores",
+      "tsuchiya_kawamura_2002_table1_electronic_pressure"
+     ],
+     "comparison_dataset_identifiers": [
+      "gold_dewaele_2004_table1_compression"
+     ],
+     "source_locations": [
+      "Table II/III",
+      "Section II.B-D",
+      "Dewaele (2004), Table I; Yokoo Figure 6"
+     ],
+     "finding": "162 derived full-model states are bundled with six first-liquid annotations; six blank source cells remain absent. Shock velocity regression is preserved as a published fit, not manufactured raw observations. Complete shock/ambient thermodynamic inputs, exact selection/weights, numerical electronic energy/DOS and author unrounded reference volumes are unavailable. Neither the grid nor static comparison data reproduce the original joint fit. Corrected upstream electronic pressure nodes are bundled separately as theoretical diagnostics; no original joint-fit parity is claimed.",
+     "reproduction_resource": "docs/data/yokoo-2009-gold-reproduction.json"
+    },
+    "thermal_reconstruction_check": {
+     "status": "not_reproduced",
+     "audit_date": "2026-10-09",
+     "scope": "Numerical verification of diagnostic Table III pressure reconstruction; published analytical PVT remains unreproduced",
+     "verified_fields": [
+      "equation",
+      "units",
+      "reference_state",
+      "source_output_agreement",
+      "reconstruction_parameters",
+      "represented_range",
+      "source_phase_annotations"
+     ],
+     "evidence": "docs/literature-reproductions/yokoo-2009-gold.md",
+     "note": "Diagnostic pressure reconstruction: 156 unmarked source states, RMS 0.008923 GPa, maximum 0.021133 GPa; six first-liquid states held out. Altered phonon coefficients and inferred cold volume retain derived provenance and do not reproduce the published analytical parameter set. The pressure-convention audit identifies a thermal-increment discrepancy beyond the stated last-digit rounding test. Caloric data and original fitting weights are not PVT evaluation dependencies."
+    }
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Yokoo",
+        "Kawai",
+        "Hironaka",
+        "Nakamura",
+        "Kondo"
+       ],
+       "year": 2008,
+       "source": "Applied Physics Letters",
+       "volume": "92",
+       "locator": "051901"
+      },
+      "source_location": "Section II.B and Eq. (13)-(16); Table II C0, S and Q",
+      "scope": "Symmetric-impact shock constraints plus pressure-scale-free ambient thermodynamic inputs; Dewaele ruby data are comparison only.",
+      "notes": "Source refers to remeasured shock data in reference 8 and other shock compilations. Complete row-level selection/weights unavailable; regression checkpoints are model output."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Primary reference-isotherm fit from shock/ambient model; no external static calibrant pressure is recalculated."
+    },
+    "audit_date": "2026-10-09"
+   },
+   "source_lineage": [
+    {
+     "role": "Remeasured Au shock-Hugoniot constraints",
+     "citation": "Yokoo et al. (2008), Applied Physics Letters 92, 051901; source reference 8"
+    },
+    {
+     "role": "Ambient elastic, thermodynamic and expansion inputs",
+     "citation": "Source Table I and references 14, 15, 19-23 and 30"
+    },
+    {
+     "role": "First-principles electronic pressure input, now recovered; numerical energy/DOS unavailable for shock replay",
+     "citation": "Tsuchiya and Kawamura (2002), with 2003 erratum",
+     "doi": "10.1103/PhysRevB.66.094115"
+    },
+    {
+     "role": "Published parameterization and derived grid",
+     "citation": "Yokoo et al. (2009), Tables II-III",
+     "doi": "10.1103/PhysRevB.80.104114"
+    }
+   ]
+  },
+  {
+   "identifier": "gold_yokoo_2009_pvt_reconstruction",
+   "label": "Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction",
+   "default": false,
+   "catalog_access": "explicit_selection",
+   "reference": {
+    "authors": [
+     "Yokoo",
+     "Kawai",
+     "Nakamura",
+     "Kondo",
+     "Tange",
+     "Tsuchiya"
+    ],
+    "year": 2009,
+    "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
+    "source": "Physical Review B",
+    "volume": "80",
+    "locator": "104114",
+    "doi": "10.1103/PhysRevB.80.104114"
+   },
+   "record_kind": "derived",
+   "equation_kind": "thermal",
+   "determination_method": "hybrid",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 67.05486228267088,
+     "K0": 180.0,
+     "K0_prime": 5.610130908250963
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0"
+   ],
+   "thermal": {
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ],
+    "type": "AsymptoticDebyeTabulatedPressure",
+    "model": "asymptotic_debye_tabulated_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 170.0,
+     "gamma0": 2.9232646613990725,
+     "a": 0.44753258346638264,
+     "b": 4.215495747399446,
+     "n": 1.0,
+     "cold_volume_ratio": 0.9901781199449332
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": null,
+     "a": null,
+     "b": null,
+     "n": null,
+     "cold_volume_ratio": null
+    },
+    "configuration": {
+     "electronic_temperature_k": [
+      0.0,
+      100.0,
+      200.0,
+      300.0,
+      400.0,
+      500.0,
+      600.0,
+      700.0,
+      800.0,
+      900.0,
+      1000.0,
+      1100.0,
+      1200.0,
+      1300.0,
+      1400.0,
+      1500.0,
+      1600.0,
+      1700.0,
+      1800.0,
+      1900.0,
+      2000.0,
+      2100.0,
+      2200.0,
+      2300.0,
+      2400.0,
+      2500.0,
+      2600.0,
+      2700.0,
+      2800.0,
+      2900.0,
+      3000.0,
+      3100.0,
+      3200.0,
+      3300.0,
+      3400.0,
+      3500.0,
+      3600.0,
+      3700.0,
+      3800.0,
+      3900.0,
+      4000.0,
+      4100.0,
+      4200.0,
+      4300.0,
+      4400.0,
+      4500.0,
+      4600.0,
+      4700.0,
+      4800.0,
+      4900.0,
+      5000.0
+     ],
+     "electronic_pressure_gpa": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.02,
+      0.02,
+      0.02,
+      0.03,
+      0.03,
+      0.03,
+      0.04,
+      0.04,
+      0.05,
+      0.06,
+      0.06,
+      0.07,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.1,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15,
+      0.17,
+      0.18,
+      0.19,
+      0.21,
+      0.22,
+      0.24,
+      0.26,
+      0.28,
+      0.3,
+      0.32,
+      0.34,
+      0.37,
+      0.39,
+      0.42,
+      0.45,
+      0.48,
+      0.52
+     ],
+     "interpolation": "linear",
+     "volume_ratio_range": [
+      0.6,
+      1.0
+     ],
+     "temperature_range_k": [
+      0,
+      3000
+     ],
+     "residual_temperature_k": [
+      0,
+      3000
+     ],
+     "residual_pressure_gpa": [
+      0,
+      0
+     ]
+    }
+   },
+   "validity": {
+    "temperature_k": [
+     0,
+     3000
+    ],
+    "volume_ratio": [
+     0.6,
+     1.0
+    ],
+    "notes": [
+     "Bounds of pressure reconstruction, not independently measured or guaranteed solid-phase validity. First-liquid markers excluded from fitting; missing source cells are not fabricated observations."
+    ]
+   },
+   "derivation": {
+    "diagnostic_only": true,
+    "published_analytical_pvt_reproduced": false,
+    "pressure_convention_audit": "docs/data/yokoo-2009-pressure-conventions.json",
+    "source_kind": "published_table",
+    "source_identifier": "gold_yokoo_2009_table3_isochores",
+    "source_version": "Yokoo et al. PRB 80, 104114 (2009)",
+    "method": "Sum of squared pressure residuals in GPa with unit weights",
+    "software": {
+     "script": "scripts/fit_yokoo_2009_gold_thermal.py",
+     "report": "docs/data/yokoo-2009-gold-thermal-reconstruction.json"
+    },
+    "input_sha256": {
+     "gold-yokoo-2009-table3-isochores.csv": "edcb89b181d94a99ae8712833c59f0fee0f6815481b8377928199ea92e2499ca",
+     "gold-yokoo-2009-source.json": "a8f3584f9bbb82811a6cb1dc19207c6b0a025e85fbfae5bc6d82976369206314",
+     "tsuchiya-kawamura-2002-table1-electronic-pressure.csv": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336"
+    },
+    "parameter_comparison": [
+     {
+      "parameter": "vc_over_v0",
+      "published": null,
+      "reconstructed": 0.9901781199449332,
+      "relative_difference_percent": null
+     },
+     {
+      "parameter": "k0_gpa",
+      "published": 180.0,
+      "reconstructed": 180.0,
+      "relative_difference_percent": 0.0
+     },
+     {
+      "parameter": "k0_prime",
+      "published": 5.61,
+      "reconstructed": 5.610130908250963,
+      "relative_difference_percent": 0.0023334804093222417
+     },
+     {
+      "parameter": "gamma0",
+      "published": 2.96,
+      "reconstructed": 2.9232646613990725,
+      "relative_difference_percent": -1.2410587365178194
+     },
+     {
+      "parameter": "a",
+      "published": 0.45,
+      "reconstructed": 0.44753258346638264,
+      "relative_difference_percent": -0.548314785248305
+     },
+     {
+      "parameter": "b",
+      "published": 4.2,
+      "reconstructed": 4.215495747399446,
+      "relative_difference_percent": 0.3689463666534776
+     },
+     {
+      "parameter": "theta0_k",
+      "published": 170.0,
+      "reconstructed": 170.0,
+      "relative_difference_percent": 0.0
+     }
+    ],
+    "source_phase_markers": [
+     {
+      "volume_ratio": "1.00",
+      "temperature_k": "2000",
+      "pressure_gpa": "12.18",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 12.174695682719111,
+      "model_minus_table_gpa": -0.0053043172808884265,
+      "used_in_primary_fit": false
+     },
+     {
+      "volume_ratio": "0.98",
+      "temperature_k": "2000",
+      "pressure_gpa": "15.56",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 15.557473331961322,
+      "model_minus_table_gpa": -0.0025266680386781815,
+      "used_in_primary_fit": false
+     },
+     {
+      "volume_ratio": "0.96",
+      "temperature_k": "2500",
+      "pressure_gpa": "22.99",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 22.973107299657855,
+      "model_minus_table_gpa": -0.01689270034214374,
+      "used_in_primary_fit": false
+     },
+     {
+      "volume_ratio": "0.94",
+      "temperature_k": "2500",
+      "pressure_gpa": "27.47",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 27.46548627155956,
+      "model_minus_table_gpa": -0.004513728440439735,
+      "used_in_primary_fit": false
+     },
+     {
+      "volume_ratio": "0.92",
+      "temperature_k": "3000",
+      "pressure_gpa": "36.10",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 36.072918315493254,
+      "model_minus_table_gpa": -0.027081684506747195,
+      "used_in_primary_fit": false
+     },
+     {
+      "volume_ratio": "0.90",
+      "temperature_k": "3000",
+      "pressure_gpa": "42.06",
+      "source_phase_annotation": "first_liquid_state",
+      "model_pressure_gpa": 42.035745017540314,
+      "model_minus_table_gpa": -0.024254982459687824,
+      "used_in_primary_fit": false
+     }
+    ],
+    "experimental_observations": 0,
+    "author_fit_reproduced": false
+   },
+   "parameter_provenance": {
+    "V0": "Inferred cold Vc from model outputs, distinct from ambient volume normalization",
+    "thermal": "Derived Table III pressure reconstruction; published and reconstructed coefficients separately archived",
+    "electronic_pressure": "Tsuchiya-Kawamura (2002) Table I, Au-only 2003 erratum applied; explicit linear interpolation",
+    "residual_pressure": "Zero; no additional residual correction"
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Yokoo",
+        "Kawai",
+        "Hironaka",
+        "Nakamura",
+        "Kondo"
+       ],
+       "year": 2008,
+       "source": "Applied Physics Letters",
+       "volume": "92",
+       "locator": "051901"
+      },
+      "source_location": "Section II.B and Eq. (13)-(16); Table II C0, S and Q",
+      "scope": "Symmetric-impact shock constraints plus pressure-scale-free ambient thermodynamic inputs; Dewaele ruby data are comparison only.",
+      "notes": "Source refers to remeasured shock data in reference 8 and other shock compilations. Complete row-level selection/weights unavailable; regression checkpoints are model output."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Reconstruction of source-calculated pressures, not an experimental recalibration"
+    },
+    "audit_date": "2026-10-09"
+   },
+   "scientific_validation": {
+    "status": "not_reproduced",
+    "audit_date": "2026-10-09",
+    "note": "Diagnostic table-output reconstruction. Its numerical implementation, inversions and canonical interchange are checked, but the published analytical Yokoo PVT parameterization is not reproduced. Au uses altered phonon coefficients; Pt additionally uses an empirical residual-pressure correction. These are not validated replacements for the published pressure standard. See the pressure-convention audit; source caloric data and original optimization are not required to evaluate PVT.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "validity",
+     "source_phase_annotations"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+     "doi": "10.1103/PhysRevB.80.104114",
+     "source_filename": "PhysRevB.80.104114.pdf",
+     "sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+     "locations": [
+      "Table II and footnotes a-d, page 104114-3",
+      "Table III and caption, page 104114-4",
+      "Equations (1)-(18) and Sections II-III, pages 104114-1/6"
+     ],
+     "finding": "Equations 1-12 and Table III supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-10-09",
+     "dataset_identifiers": [
+      "gold_yokoo_2009_table3_isochores",
+      "tsuchiya_kawamura_2002_table1_electronic_pressure"
+     ],
+     "finding": "Derived source outputs, not primary experimental observations. Exact author optimization is not reproduced.",
+     "reproduction_resource": "docs/data/yokoo-2009-gold-thermal-reconstruction.json"
+    }
+   },
+   "notes": "Diagnostic reconstruction of Yokoo (2009) Table III calculated PVT outputs; published analytical PVT remains unreproduced. Not a validated replacement for the source pressure standard. Cold BM3 V0 is Vc at 0 K; ambient normalization is Vc/cold_volume_ratio. Phonon and electronic pressures are absolute relative to 0 K. Electronic pressure is assumed volume independent and interpolated linearly; no extrapolation. Source first-liquid annotations are preserved and excluded from the primary fit. Numerical bounds do not guarantee solid Au/Pt throughout the rectangular domain; use the source phase markers. No parameter errors or covariance are inferred from model-output residuals. This pressure model supplies no caloric potential."
   }
  ],
  "format": "peritheos.material",
@@ -4737,6 +5496,137 @@
      "platinum_fei_pressure_gpa": "Fei et al. (2004), Table 3"
     }
    }
+  },
+  {
+   "identifier": "gold_yokoo_2009_table3_isochores",
+   "kind": "source_derived_eos_checkpoints",
+   "description": "All 162 populated Au Table III pressures from the full cold-BM3/phonon/electronic model, not observations or outputs of the separate fitted 300 K branches.",
+   "reference": {
+    "authors": [
+     "Yokoo",
+     "Kawai",
+     "Nakamura",
+     "Kondo",
+     "Tange",
+     "Tsuchiya"
+    ],
+    "year": 2009,
+    "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
+    "source": "Physical Review B",
+    "volume": "80",
+    "locator": "104114",
+    "doi": "10.1103/PhysRevB.80.104114"
+   },
+   "source_location": "Table III and caption, page 104114-4",
+   "source_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+   "columns": [
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "source_phase_annotation",
+     "quantity": "phase_annotation",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-yokoo-2009-table3-isochores.csv",
+    "sha256": "edcb89b181d94a99ae8712833c59f0fee0f6815481b8377928199ea92e2499ca",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_yokoo_2009_bm3_300k",
+    "gold_yokoo_2009_vinet_300k",
+    "gold_yokoo_2009_pvt_reconstruction"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "source_artifact_sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+    "manifest": "datasets/gold-yokoo-2009-source.json"
+   },
+   "notes": "Derived EOS checkpoints only. Six parenthesized first-liquid entries are flagged exactly as stated in the Table III caption; six blank cells after these entries are not interpolated. Comparing the grid with fitted 300 K BM3/Vinet branches measures their approximation, not an independent author-fit reproduction."
+  },
+  {
+   "identifier": "tsuchiya_kawamura_2002_table1_electronic_pressure",
+   "kind": "source_derived_electronic_pressure",
+   "description": "51 first-principles electronic pressure nodes (Au original/corrected and Pt) from Tsuchiya-Kawamura (2002), with nine Au-only erratum corrections. Used as Au thermal diagnostics, not measured author fitting targets.",
+   "source_location": "Table I, page 094115-4; 2003 erratum",
+   "source_url": "https://doi.org/10.1103/PhysRevB.66.094115",
+   "reference": {
+    "authors": [
+     "Tsuchiya",
+     "Kawamura"
+    ],
+    "year": 2002,
+    "title": "First-principles electronic thermal pressure of metal Au and Pt",
+    "source": "Physical Review B",
+    "volume": "66",
+    "locator": "094115",
+    "doi": "10.1103/PhysRevB.66.094115"
+   },
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "platinum_electronic_pressure_gpa",
+     "quantity": "electronic_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_original_electronic_pressure_gpa",
+     "quantity": "electronic_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_corrected_electronic_pressure_gpa",
+     "quantity": "electronic_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_erratum_applied",
+     "quantity": "erratum_flag",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/tsuchiya-kawamura-2002-table1-electronic-pressure.csv",
+    "sha256": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_yokoo_2009_bm3_300k",
+    "gold_yokoo_2009_vinet_300k",
+    "gold_yokoo_2009_pvt_reconstruction"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "manifest": "datasets/platinum-matsui-2009-source.json"
+   },
+   "notes": "Both original Au pressures and corrected 2003 values retained; corrections at 3100-3900 K lie above Yokoo Table III. Au source-node diagnostics only; no interpolation, thermal record or caloric function inferred in this audit."
   }
  ]
 }

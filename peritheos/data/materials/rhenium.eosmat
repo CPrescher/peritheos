@@ -656,7 +656,7 @@
    },
    "notes": "Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure scale. Figure 10 distinguishes conventional-DAC RP01 and ds-DAC Micro17 points; exact fit-row membership and weights are not specified. RP01 used silica glass and a tungsten gasket; Micro17 used glycerin and direct anvil loading. Parenthetical errors are preserved without assuming their confidence level or covariance. V0 is fixed, with no fabricated zero uncertainty. At the rounded reported V=18.65 A^3, the printed parameters give 461.56 GPa versus the reported 464 GPa; the difference is compatible with coefficient rounding. This does not independently refit the original observations. A subsequent Figure 10 vector refit of the 26 RP01 Yokoo-Pt points gives K0=357.19 GPa and K0_prime=4.83483, both within the printed errors. Selecting RP01 and unweighted pressure residuals is a documented reconstruction: adding Micro17 or changing residual coordinates changes the optimum; see the dedicated audit.",
    "pressure_calibration": {
-    "status": "partially_resolved",
+    "status": "resolved",
     "methods": [
      {
       "kind": "equation_of_state",
@@ -665,7 +665,9 @@
         "Yokoo",
         "Kawai",
         "Nakamura",
-        "Kondo"
+        "Kondo",
+        "Tange",
+        "Tsuchiya"
        ],
        "year": 2009,
        "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
@@ -674,14 +676,15 @@
       },
       "source_location": "Section 3, Figure 10 and following paragraph; reference [7]",
       "scope": "Yokoo platinum Vinet scale applied to co-compressed Pt.",
-      "notes": "The Dewaele-Pt points in Figure 10 are a comparison, not the pressure scale of this fitted record."
+      "notes": "The Dewaele-Pt points in Figure 10 are a comparison, not the pressure scale of this fitted record. The named Vinet branch is verified in Yokoo Table IV (K0=276.4 GPa, K0_prime=5.48; density-derived V0=60.55 A^3). Sakai does not provide a separate unrounded Pt normalization; this resolves the published equation reference without claiming exact historical pressure replay.",
+      "reference_eos_record": "platinum_yokoo_2009_vinet_300k"
      }
     ],
     "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "No exact Yokoo (2009) Pt record is bundled; original paired Pt-Re volumes and pressure uncertainties are also not tabulated."
+     "status": "missing_calibrant_observations",
+     "notes": "The published Yokoo 300 K Pt Vinet branch is bundled. Original paired Pt-Re volumes, pressure uncertainties and an independently stated unrounded Pt normalization are not tabulated; historical pressure recalculation remains unavailable."
     },
-    "audit_date": "2026-09-10"
+    "audit_date": "2026-10-09"
    },
    "scientific_validation": {
     "status": "primary_source_validated",

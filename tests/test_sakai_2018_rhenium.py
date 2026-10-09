@@ -42,7 +42,11 @@ def test_sakai_2018_source_metadata_and_interchange():
     )
     method = source["pressure_calibration"]["methods"][0]
     assert method["reference"]["doi"] == "10.1103/PhysRevB.80.104114"
-    assert "reference_eos_record" not in method
+    assert method["reference_eos_record"] == "platinum_yokoo_2009_vinet_300k"
+    assert source["pressure_calibration"]["status"] == "resolved"
+    assert source["pressure_calibration"]["recalculation"]["status"] == (
+        "missing_calibrant_observations"
+    )
     restored = Material.from_eosmat(document).to_eosmat()
     record = next(r for r in restored["eos_records"] if r["identifier"] == RECORD)
     assert record["scientific_validation"] == source["scientific_validation"]

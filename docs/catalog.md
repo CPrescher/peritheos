@@ -2,7 +2,7 @@
 
 Peritheos exposes the complete bundled library through the normal executable
 API. `list_materials()` returns 224 `Material` objects and
-`list_eos_records()` returns their 639 `EOSRecord` objects. Both are ordered by
+`list_eos_records()` returns their 645 `EOSRecord` objects. Both are ordered by
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
 
@@ -242,3 +242,17 @@ Linear interpolation between 100 K nodes is explicitly a numerical choice;
 no table extrapolation or electronic caloric properties are supplied.
 The Au-only erratum does not change Pt. Source-grid reconstruction agrees
 within 0.0071 GPa; the original shock/expansion fit remains unreproduced.
+
+The [Yokoo (2009) Pt audit](literature-reproductions/yokoo-2009-platinum.md)
+adds the published fitted 300 K Vinet branch, including its density-derived
+V0=60.55 Å³ per four-atom cell. It resolves Sakai (2018)'s named calibration
+reference while retaining the missing paired-observation boundary. The
+derived Table V grid and original joint-fit status are documented separately.
+Both `gold_yokoo_2009_pvt_reconstruction` and
+`platinum_yokoo_2009_pvt_reconstruction` now provide bounded executable
+[PVT reconstructions](literature-reproductions/yokoo-2009-pvt-library.md).
+These explicit-selection diagnostic records have validation status
+`not_reproduced`. They retain explicit interpolation and, for Pt, a separate
+empirical residual-pressure correction; exact author-fit reproduction is
+not claimed. The [pressure-convention audit](literature-reproductions/yokoo-2009-pressure-conventions.md)
+tests the unreproduced analytical PVT independently of the fitted corrections.

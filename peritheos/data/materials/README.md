@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 227 curated material documents with 642 EOS records. The
+This directory contains 227 curated material documents with 648 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -37,7 +37,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-with additions through 2026-10-08 classifies 634 of 642 bundled records as
+with additions through 2026-10-09 classifies 638 of 648 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
 discrepancies; they are not exposed by the executable catalog. The Morard
@@ -52,11 +52,15 @@ from the database on the basis of user-reported author personal communication.
 Assigned errors and overlapping observations remain explicit; the author EOS
 file does not overwrite the paper coefficients.
 Maltby, the Chen
-printed-constant diagnostic, and the three Miozzi (2020) hcp-Fe parameterizations
+printed-constant diagnostic, the three Miozzi (2020) hcp-Fe parameterizations,
+and the two Yokoo (2009) Au/Pt table-output reconstructions
 are explicit-selection `not_reproduced` records; the Chen diagnostic is marked
 DO NOT USE. The Miozzi source coefficients and all 131 official supplementary
 observations are preserved, with unresolved source-fit discrepancies documented
 in the [iron audit](../../../docs/literature-reproductions/miozzi-2020-iron.md).
+The Yokoo records remain numerical diagnostics; the
+[pressure-convention audit](../../../docs/literature-reproductions/yokoo-2009-pressure-conventions.md)
+documents their unresolved published analytical PVT reproduction.
 The published Miozzi thermal record uses n=2 at the ~6.87 cm³/mol volume,
 as used in the paper according to personal communication with Miozzi et al.
 The separate nondefault Speziale- and Tange-calibrated n=1 Peritheos refits are selectable with
@@ -99,7 +103,7 @@ Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to
-185 EOS records citing 115 distinct publications. All 642 records now carry
+185 EOS records citing 115 distinct publications. All 648 records now carry
 an explicit publication title; `reference.source` retains the journal or
 book name. Previously, the catalog fell back to that source name when a
 title was absent.

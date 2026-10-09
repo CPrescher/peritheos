@@ -48,6 +48,38 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1103/physrevb.80.104114": (
+        "The published fitted 300 K Au BM3/Vinet and Pt Vinet branches are "
+        "bundled with density-derived four-atom volume normalizations. "
+        "Their equations are independently reproduced. The Pt Vinet branch "
+        "resolves Sakai (2018)'s named reference; "
+        "paired calibrant observations remain missing. All 168 Pt Table V "
+        "states and all 162 populated Au Table III states are full-model output, "
+        "not fitted-isotherm observations. Au liquid markers and blank cells "
+        "are retained. The Au thermal pressure reconstruction is numerically "
+        "verified against derived Table III output (156 unmarked states, RMS "
+        "0.008923 GPa); its coefficients are not the published parameter set. "
+        "Both Au and Pt bounded PVT reconstructions are now registered in the "
+        "library; Pt additionally retains a derived residual-pressure correction "
+        "and agrees with unmarked Table V states within 0.00594 GPa. "
+        "These two records are nondefault, explicit-selection diagnostics with "
+        "scientific validation status not_reproduced; source reconstruction here "
+        "means numerical table-output verification, not validation of the published "
+        "analytical PVT EOS. The [pressure-convention audit]"
+        "(literature-reproductions/yokoo-2009-pressure-conventions.md) tests the "
+        "remaining thermal-increment mismatch without empirical corrections. "
+        "The Au/Pt PVT investigation was closed for now on 2026-10-09, pending "
+        "author inputs; the published analytical EOS remains unreproduced. "
+        "Reopen when the authors' Table III/V pressure code or spreadsheet, or an "
+        "equivalent complete specification/correction, resolves the discrepancy. "
+        "Required inputs are the adopted phonon parameters and conventions, "
+        "electronic-pressure routine and reference conventions, and cold Vc "
+        "separately from ambient V0 for absolute pressure. Missing electronic "
+        "energy concerns the original shock/caloric calculation, not bounded "
+        "pressure evaluation. See the "
+        "[Pt audit](literature-reproductions/yokoo-2009-platinum.md) and "
+        "[Au audit](literature-reproductions/yokoo-2009-gold.md)."
+    ),
     "10.1063/1.3054331": (
         "The complete Vinet/integrated-q Debye plus electronic pressure scale "
         "is registered using 51 recovered Tsuchiya-Kawamura Pt nodes; the "
@@ -58,7 +90,6 @@ PAPER_SCOPE_NOTES = {
         "author-fit parity. See the "
         "[Matsui audit](literature-reproductions/matsui-2009-platinum.md)."
     ),
-
     "10.1029/2024jb028819": (
         "Reproduction covers Ma's final reduced acoustic/Walker inputs and "
         "model grids; source weights/covariance and exact original-lattice "
@@ -554,10 +585,17 @@ def render() -> str:
         lines.extend(["", "## Withheld alternatives in catalog papers", ""])
         for paper in incomplete_alternatives:
             for candidate in paper["withheld_candidates"]:
+                closure = ""
+                evidence = candidate.get("pressure_convention_audit", candidate["evidence"])
+                if candidate.get("investigation_status") == "closed_pending_author_inputs":
+                    closure = (
+                        f"**Closed for now ({candidate['closure_date']}); "
+                        "awaiting author inputs.** "
+                    )
                 lines.append(
                     f"- {source_link(paper)}, {candidate['candidate']}: "
-                    f"{candidate['reason']} "
-                    f"[Audit]({candidate['evidence']})."
+                    f"{closure}{candidate['reason']} "
+                    f"[Audit]({evidence})."
                 )
 
     lines.extend(

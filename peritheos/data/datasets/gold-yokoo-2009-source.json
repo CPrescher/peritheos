@@ -1,0 +1,160 @@
+{
+  "doi": "10.1103/PhysRevB.80.104114",
+  "source_filename": "PhysRevB.80.104114.pdf",
+  "source_sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+  "inspection": "Au Tables I-III, footnotes, Equations (1)-(18), Sections II-III and references checked against rendered primary PDF pages on 2026-10-09.",
+  "table2": {
+    "rho0_300k_g_cm3": 19.32,
+    "B0_0k_gpa": 180.0,
+    "B0_300k_gpa": 167.5,
+    "B0_prime_0k": 5.61,
+    "B0_prime_0k_error": 0.1,
+    "B0_prime_300k_bm3": 5.79,
+    "B0_prime_300k_vinet": 5.94,
+    "gamma0_300k": 2.96,
+    "a": 0.45,
+    "a_error": 0.09,
+    "b": 4.2,
+    "b_error": 0.6,
+    "theta0_k": 170.0,
+    "C0_km_s": 2.995,
+    "S": 1.653,
+    "S_error": 0.056,
+    "Q_inverse_km_s": -0.013,
+    "Q_error": 0.019,
+    "shock_regression_error_confidence": "2 sigma, explicitly stated for S and Q in Section II.B",
+    "eos_parameter_error_confidence": null,
+    "covariance": null
+  },
+  "volume_basis": {
+    "source": "Mass-specific V=1/rho in Rankine-Hugoniot equations; ambient V0 at 300 K. Cold BM3 uses a distinct Vc at 0 K, which is not tabulated.",
+    "public": "Conventional fcc cell, four Au atoms; molar mass 196.96657 g/mol is a conversion convention.",
+    "V0_cell_a3_derived_from_printed_density": 67.71649780791556,
+    "V0_cell_a3_rounded": 67.72,
+    "rounding": "Four significant figures, matching the printed density; exact unrounded author V0 and density uncertainty are unavailable."
+  },
+  "equations": {
+    "pressure": "Pc(V,0)+Pph(V,T)+Pel(V,T)",
+    "cold": "BM3 with Vc, B0_0K=180 and B0_prime_0K=5.61",
+    "bm3_300k": "Separate fitted reference isotherm, V0 at 300 K, B0=167.5 GPa and B0_prime=5.79",
+    "vinet_300k": "Separate fitted reference isotherm, V0 at 300 K, B0=167.5 GPa and B0_prime=5.94",
+    "gamma": "2.96*(1+0.45*((V/V0)**4.2-1))",
+    "theta": "170*(V/V0)**(-(1-0.45)*2.96)*exp(-(gamma(V)-2.96)/4.2)",
+    "phonon_energy": "3*n*kB*T*D3(theta/T), no explicit zero-point term",
+    "phonon_pressure": "gamma(V)*Eph/V, absolute rather than 300 K subtracted",
+    "electronic": "Au electronic pressure nodes recovered from corrected Tsuchiya-Kawamura Table I (0-5000 K). Eel and Cv_el require numeric DOS/energy data; Yokoo adopted full electronic calculation and cold Vc remain unresolved.",
+    "hugoniot_velocity": "Us=2.995+1.653*up-0.013*up**2 for up<=3.5 km/s; this is a fitted shock relation, not raw observations",
+    "hugoniot_pressure": "Ph-P0=rho0*Us*up",
+    "hugoniot_volume_ratio": "Vh/V0=1-up/Us"
+  },
+  "table3": {
+    "resource": "gold-yokoo-2009-table3-isochores.csv",
+    "sha256": "edcb89b181d94a99ae8712833c59f0fee0f6815481b8377928199ea92e2499ca",
+    "rows": 162,
+    "kind": "source_derived_eos_checkpoints",
+    "observations": false,
+    "temperature_k": [
+      0,
+      3000
+    ],
+    "volume_ratio": [
+      0.6,
+      1.0
+    ],
+    "pressure_unit": "GPa",
+    "phase_annotation": "Table III explicitly identifies parentheses as the first liquid state at each V/V0. Six parenthesized entries retained; six blank cells after these markers remain absent.",
+    "omitted_cells": [
+      {
+        "volume_ratio": 1.0,
+        "temperature_k": 2500,
+        "reason": "Blank source cell after first liquid state; no pressure supplied."
+      },
+      {
+        "volume_ratio": 1.0,
+        "temperature_k": 3000,
+        "reason": "Blank source cell after first liquid state; no pressure supplied."
+      },
+      {
+        "volume_ratio": 0.98,
+        "temperature_k": 2500,
+        "reason": "Blank source cell after first liquid state; no pressure supplied."
+      },
+      {
+        "volume_ratio": 0.98,
+        "temperature_k": 3000,
+        "reason": "Blank source cell after first liquid state; no pressure supplied."
+      },
+      {
+        "volume_ratio": 0.96,
+        "temperature_k": 3000,
+        "reason": "Blank source cell after first liquid state; no pressure supplied."
+      },
+      {
+        "volume_ratio": 0.94,
+        "temperature_k": 3000,
+        "reason": "Blank source cell after first liquid state; no pressure supplied."
+      }
+    ]
+  },
+  "missing_dependencies": [
+    {
+      "need": "Yokoo exact 0 K cold Vc normalization and unrounded phonon coefficients; no Vc tabulated and Table III reconstruction remains circular."
+    },
+    {
+      "doi": "10.1103/PhysRevB.66.094115",
+      "need": "Numerical electronic energy/DOS and heat capacity for original high-temperature shock reduction, plus Yokoo adopted high-compression/high-temperature electronic implementation. Table I pressure nodes are now recovered; they do not specify Eel."
+    }
+  ],
+  "upstream_inputs": [
+    {
+      "source": "Yokoo et al. (2008), Applied Physics Letters 92, 051901; LASL/Marsh (1979); Jones et al. (1966); corrected Altshuler et al. (1981)",
+      "references": [
+        8,
+        11,
+        12,
+        13
+      ],
+      "role": "Measured shock constraints, not tabulated as numerical observations in the supplied 2009 paper; exact complete fit selection unavailable."
+    },
+    {
+      "dataset": "gold-dewaele-2004-table1-compression.csv",
+      "doi": "10.1103/PhysRevB.70.094112",
+      "role": "37 Au measurements already bundled; 36 have simultaneous Pt volumes. Comparison only (Figure 6), not fitting targets or direct primary pressure observations."
+    },
+    {
+      "role": "Ambient thermal expansion, specific heat and elastic measurements",
+      "references": [
+        14,
+        15,
+        19,
+        20,
+        21,
+        22,
+        23,
+        30
+      ],
+      "recovery": "Table I gives ranges and error estimates, not complete numerical fit inputs. Section II.C uses inputs up to 1000 K. References 21/22 have reversed author names in the prose relative to the bibliography; reference-number identity is preserved."
+    }
+  ],
+  "fit_scope": "Section II.D: simultaneous steepest-descent least squares with respect to total pressures, adjustable B0_prime_0K, a, b; gamma0 obtained secondarily. Details delegated to Tange (2009); row-level weights, exact source selection, covariance and unrounded values unavailable.",
+  "electronic_source": {
+    "source_doi": "10.1103/PhysRevB.66.094115",
+    "erratum_doi": "10.1103/PhysRevB.67.019902",
+    "source_pdf_sha256": "2f35128ef0a86d500896d7930a3b13092b1d33085d64fa628a3e3271088211e8",
+    "erratum_pdf_sha256": "efa078407c80ede80d5889f6ad38f808dc31fe63bab0936c1b86cd69a10e825e",
+    "inspection": "Equations (1)-(6), DOS/energy discussion, Table I/Figures 3-5 and the complete erratum inspected visually on 2026-10-09.",
+    "resource": "tsuchiya-kawamura-2002-table1-electronic-pressure.csv",
+    "sha256": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336",
+    "rows": 51,
+    "temperature_k": [
+      0,
+      5000
+    ],
+    "step_k": 100,
+    "pressure_reference": "Electronic free-energy increment relative to 0 K; Au 300 K tabulated pressure is 0.00 GPa.",
+    "volume_dependence": "Near volume independence inferred by linear free-energy fitting within the calculated volume range; not a numerical volume-resolved energy table or proof at arbitrary compression.",
+    "erratum_scope": "Nine Au values corrected at 3100-3900 K; outside Yokoo Table III range 0-3000 K. Original and corrected values both retained.",
+    "interpolation_rule": "Not specified by source; this Au audit uses only exact printed nodes and creates no continuous electronic model.",
+    "electronic_energy": "DOS-integral equations and energy/free-energy curves given; no complete numeric Eel(V,T) or DOS grid available for original shock replay."
+  }
+}

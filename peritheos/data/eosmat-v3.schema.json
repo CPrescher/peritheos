@@ -847,7 +847,8 @@
             "HollandPowellThermalPressure",
             "DebyeQuadraticThermalPressure",
             "DebyeTabulatedThermalPressure",
-            "DebyeAnharmonicHelmholtz"
+            "DebyeAnharmonicHelmholtz",
+            "AsymptoticDebyeTabulatedPressure"
           ]
         },
         "model": {
@@ -870,7 +871,8 @@
             "holland_powell_thermal_pressure",
             "debye_quadratic_thermal_pressure",
             "debye_tabulated_thermal_pressure",
-            "debye_anharmonic_helmholtz"
+            "debye_anharmonic_helmholtz",
+            "asymptotic_debye_tabulated_pressure"
           ]
         },
         "debye_temperature_law": {
@@ -1154,6 +1156,16 @@
                 },
                 "model": {
                   "const": "debye_anharmonic_helmholtz"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "AsymptoticDebyeTabulatedPressure"
+                },
+                "model": {
+                  "const": "asymptotic_debye_tabulated_pressure"
                 }
               }
             }
@@ -1444,6 +1456,76 @@
                   },
                   "interpolation": {
                     "const": "linear"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "AsymptoticDebyeTabulatedPressure"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "configuration"
+            ],
+            "properties": {
+              "configuration": {
+                "type": "object",
+                "required": [
+                  "electronic_temperature_k",
+                  "electronic_pressure_gpa",
+                  "interpolation",
+                  "volume_ratio_range",
+                  "temperature_range_k",
+                  "residual_temperature_k",
+                  "residual_pressure_gpa"
+                ],
+                "properties": {
+                  "electronic_temperature_k": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "electronic_pressure_gpa": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "interpolation": {
+                    "const": "linear"
+                  },
+                  "volume_ratio_range": {
+                    "$ref": "#/$defs/range"
+                  },
+                  "temperature_range_k": {
+                    "$ref": "#/$defs/range"
+                  },
+                  "residual_temperature_k": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "residual_pressure_gpa": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number"
+                    }
                   }
                 },
                 "additionalProperties": false

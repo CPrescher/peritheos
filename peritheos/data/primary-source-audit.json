@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 643,
+    "records": 648,
     "deferred": 3,
-    "not_reproduced": 5,
-    "primary_source_validated": 635
+    "not_reproduced": 7,
+    "primary_source_validated": 638
   },
   "records": [
     {
@@ -4490,6 +4490,152 @@
           "Adopted Shim (2002) Equations 1-8 and Table 1"
         ],
         "finding": "New modified Au q and fitted Pt parameterization, not a new MgO scale. Published heat-capacity prefactors retained; see dedicated numerical audit."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_yokoo_2009_bm3_300k",
+      "label": "Yokoo et al. (2009), Au fitted BM3 isotherm, 300 K",
+      "doi": "10.1103/physrevb.80.104114",
+      "status": "primary_source_validated",
+      "note": "Published Table II fitted 300 K BM3 branch: K0=167.5 GPa, K0_prime=5.79. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. A separate nondefault diagnostic reconstructs Table III outputs (156 unmarked states, RMS 0.008923 GPa) with altered phonon coefficients. Its scientific status is not_reproduced; the published analytical PVT mismatch is documented in the pressure-convention audit. The source-exact author implementation and electronic caloric properties remain unresolved. Original joint fit is not independently refittable.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+        "doi": "10.1103/PhysRevB.80.104114",
+        "source_filename": "PhysRevB.80.104114.pdf",
+        "sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+        "locations": [
+          "Table II and footnotes a-d, page 104114-3",
+          "Table III and caption, page 104114-4",
+          "Equations (1)-(18) and Sections II-III, pages 104114-1/6"
+        ],
+        "finding": "The published fitted Au 300 K BM3 branch and density normalization are verified from the primary PDF. The full thermal equation and original fit are not reconstructed by this record."
+      },
+      "primary_data_check": {
+        "status": "parameterization_only",
+        "audit_date": "2026-10-09",
+        "dataset_identifiers": [
+          "gold_yokoo_2009_table3_isochores",
+          "tsuchiya_kawamura_2002_table1_electronic_pressure"
+        ],
+        "comparison_dataset_identifiers": [
+          "gold_dewaele_2004_table1_compression"
+        ],
+        "source_locations": [
+          "Table II/III",
+          "Section II.B-D",
+          "Dewaele (2004), Table I; Yokoo Figure 6"
+        ],
+        "finding": "162 derived full-model states are bundled with six first-liquid annotations; six blank source cells remain absent. Shock velocity regression is preserved as a published fit, not manufactured raw observations. Complete shock/ambient thermodynamic inputs, exact selection/weights, numerical electronic energy/DOS and author unrounded reference volumes are unavailable. Neither the grid nor static comparison data reproduce the original joint fit. Corrected upstream electronic pressure nodes are bundled separately as theoretical diagnostics; no original joint-fit parity is claimed.",
+        "reproduction_resource": "docs/data/yokoo-2009-gold-reproduction.json"
+      },
+      "evidence": "literature-reproductions/yokoo-2009-gold.md",
+      "withheld_candidates": [
+        {
+          "candidate": "Source-exact Yokoo (2009) cold-BM3 + phonon + first-principles electronic Au pressure scale",
+          "status": "deferred_incomplete_model",
+          "reason": "The published analytical PVT remains unreproduced. Separate nondefault table-output diagnostics have status not_reproduced; close output agreement is not source-equation validation. Reopen when author code/spreadsheet for Tables III/V, or an equivalent complete specification/correction, resolves the thermal-pressure mismatch. Required inputs are exact adopted phonon parameters and conventions, the electronic-pressure routine with volume/interpolation/reference conventions, and cold Vc separately from ambient V0 for absolute pressure. Tested last-digit rounding and cold-reference offsets cannot explain the thermal-increment mismatch. Electronic energy, entropy, heat capacity, original fit observations and weights are not PVT evaluation dependencies.",
+          "investigation_status": "closed_pending_author_inputs",
+          "closure_date": "2026-10-09",
+          "scope": "Published analytical Au/Pt PVT evaluation; original author fitting procedure is separate.",
+          "reopening_evidence": "Author Table III/V pressure calculation code/spreadsheet or equivalent complete specification/correction that resolves the discrepancy.",
+          "outreach_status": "not_sent",
+          "pressure_convention_audit": "literature-reproductions/yokoo-2009-pressure-conventions.md#remaining-evidence-needed"
+        }
+      ],
+      "thermal_reconstruction_check": {
+        "status": "not_reproduced",
+        "audit_date": "2026-10-09",
+        "scope": "Numerical verification of diagnostic Table III pressure reconstruction; published analytical PVT remains unreproduced",
+        "verified_fields": [
+          "equation",
+          "units",
+          "reference_state",
+          "source_output_agreement",
+          "reconstruction_parameters",
+          "represented_range",
+          "source_phase_annotations"
+        ],
+        "evidence": "docs/literature-reproductions/yokoo-2009-gold.md",
+        "note": "Diagnostic pressure reconstruction: 156 unmarked source states, RMS 0.008923 GPa, maximum 0.021133 GPa; six first-liquid states held out. Altered phonon coefficients and inferred cold volume retain derived provenance and do not reproduce the published analytical parameter set. The pressure-convention audit identifies a thermal-increment discrepancy beyond the stated last-digit rounding test. Caloric data and original fitting weights are not PVT evaluation dependencies."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_yokoo_2009_vinet_300k",
+      "label": "Yokoo et al. (2009), Au fitted Vinet isotherm, 300 K",
+      "doi": "10.1103/physrevb.80.104114",
+      "status": "primary_source_validated",
+      "note": "Published Table II fitted 300 K Vinet branch: K0=167.5 GPa, K0_prime=5.94. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. A separate nondefault diagnostic reconstructs Table III outputs (156 unmarked states, RMS 0.008923 GPa) with altered phonon coefficients. Its scientific status is not_reproduced; the published analytical PVT mismatch is documented in the pressure-convention audit. The source-exact author implementation and electronic caloric properties remain unresolved. Original joint fit is not independently refittable.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+        "doi": "10.1103/PhysRevB.80.104114",
+        "source_filename": "PhysRevB.80.104114.pdf",
+        "sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+        "locations": [
+          "Table II and footnotes a-d, page 104114-3",
+          "Table III and caption, page 104114-4",
+          "Equations (1)-(18) and Sections II-III, pages 104114-1/6"
+        ],
+        "finding": "The published fitted Au 300 K Vinet branch and density normalization are verified from the primary PDF. The full thermal equation and original fit are not reconstructed by this record."
+      },
+      "primary_data_check": {
+        "status": "parameterization_only",
+        "audit_date": "2026-10-09",
+        "dataset_identifiers": [
+          "gold_yokoo_2009_table3_isochores",
+          "tsuchiya_kawamura_2002_table1_electronic_pressure"
+        ],
+        "comparison_dataset_identifiers": [
+          "gold_dewaele_2004_table1_compression"
+        ],
+        "source_locations": [
+          "Table II/III",
+          "Section II.B-D",
+          "Dewaele (2004), Table I; Yokoo Figure 6"
+        ],
+        "finding": "162 derived full-model states are bundled with six first-liquid annotations; six blank source cells remain absent. Shock velocity regression is preserved as a published fit, not manufactured raw observations. Complete shock/ambient thermodynamic inputs, exact selection/weights, numerical electronic energy/DOS and author unrounded reference volumes are unavailable. Neither the grid nor static comparison data reproduce the original joint fit. Corrected upstream electronic pressure nodes are bundled separately as theoretical diagnostics; no original joint-fit parity is claimed.",
+        "reproduction_resource": "docs/data/yokoo-2009-gold-reproduction.json"
+      },
+      "evidence": "literature-reproductions/yokoo-2009-gold.md",
+      "thermal_reconstruction_check": {
+        "status": "not_reproduced",
+        "audit_date": "2026-10-09",
+        "scope": "Numerical verification of diagnostic Table III pressure reconstruction; published analytical PVT remains unreproduced",
+        "verified_fields": [
+          "equation",
+          "units",
+          "reference_state",
+          "source_output_agreement",
+          "reconstruction_parameters",
+          "represented_range",
+          "source_phase_annotations"
+        ],
+        "evidence": "docs/literature-reproductions/yokoo-2009-gold.md",
+        "note": "Diagnostic pressure reconstruction: 156 unmarked source states, RMS 0.008923 GPa, maximum 0.021133 GPa; six first-liquid states held out. Altered phonon coefficients and inferred cold volume retain derived provenance and do not reproduce the published analytical parameter set. The pressure-convention audit identifies a thermal-increment discrepancy beyond the stated last-digit rounding test. Caloric data and original fitting weights are not PVT evaluation dependencies."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_yokoo_2009_pvt_reconstruction",
+      "label": "Yokoo et al. (2009), Gold PVT — diagnostic Table III reconstruction",
+      "doi": "10.1103/physrevb.80.104114",
+      "status": "not_reproduced",
+      "note": "Diagnostic table-output reconstruction. Its numerical implementation, inversions and canonical interchange are checked, but the published analytical Yokoo PVT parameterization is not reproduced. Au uses altered phonon coefficients; Pt additionally uses an empirical residual-pressure correction. These are not validated replacements for the published pressure standard. See the pressure-convention audit; source caloric data and original optimization are not required to evaluate PVT.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+        "doi": "10.1103/PhysRevB.80.104114",
+        "source_filename": "PhysRevB.80.104114.pdf",
+        "sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+        "locations": [
+          "Table II and footnotes a-d, page 104114-3",
+          "Table III and caption, page 104114-4",
+          "Equations (1)-(18) and Sections II-III, pages 104114-1/6"
+        ],
+        "finding": "Equations 1-12 and Table III supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction."
       }
     },
     {
@@ -11065,6 +11211,82 @@
           "Results and Discussion, Pt scale; Figure 2"
         ],
         "finding": "All 36 Dewaele (2004) static rows and the 42 Fei (2004) P-V-T rows are already bundled. The 300 K diagnostic refits the Dewaele subset with published V0 and K0 held fixed, using the revised ruby column. The joint thermal fit and Fei (2007) Au re-reduction are not reconstructed by this isothermal-only record."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_yokoo_2009_vinet_300k",
+      "label": "Yokoo et al. (2009), Pt fitted Vinet isotherm, 300 K",
+      "doi": "10.1103/physrevb.80.104114",
+      "status": "primary_source_validated",
+      "note": "Published Table IV fitted 300 K Vinet branch: K0=276.4 GPa, K0_prime=5.48. V0=60.55 A^3 per four-atom fcc cell is derived from printed ambient density 21.40 Mg/m^3 using Pt molar mass 195.084 g/mol, rounded at the density precision (unrounded conversion 60.5503931552 A^3). This is a fitted reference isotherm, not an exact projection of the full cold-BM3 + phonon + first-principles electronic model. The full-model Table V differs by up to 6.0093 GPa on its 300 K grid. Vinet parameter uncertainties/covariance are not reported; the 0 K BM3 derivative error must not be transferred. A separate derived Au/Pt PVT reconstruction is registered with the recovered electronic-pressure table and explicit interpolation. Exact author cold-volume/unrounded normalization and adopted full electronic implementation remain unrecovered; the original author joint fit is not independently reproduced. The author joint fit is not independently refittable.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+        "doi": "10.1103/PhysRevB.80.104114",
+        "source_filename": "PhysRevB.80.104114.pdf",
+        "sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+        "locations": [
+          "Table IV and footnotes a-d, page 104114-6",
+          "Equations (1)-(12), pages 104114-1/2",
+          "Table V, page 104114-7",
+          "Section IV, page 104114-8"
+        ],
+        "finding": "All nine source pages inspected visually. The published 300 K Vinet fit is executable; the complete thermal model is not reconstructed by this record."
+      },
+      "primary_data_check": {
+        "status": "parameterization_only",
+        "audit_date": "2026-10-09",
+        "dataset_identifiers": [
+          "platinum_yokoo_2009_table5_isochores",
+          "platinum_holmes_1989_table3_shock"
+        ],
+        "comparison_dataset_identifiers": [
+          "platinum_dewaele_2004_table1_compression"
+        ],
+        "source_locations": [
+          "Table IV/V",
+          "Holmes (1989), Table III",
+          "Dewaele (2004), Table I; Yokoo Figure 6"
+        ],
+        "finding": "168 derived full-model states and seven recovered upstream Holmes shock experiments are preserved separately. No complete Pt ambient thermodynamic input rows, original shock selection, electronic energy functions or row-level weights recovered; neither grid outputs nor shock states are independent 300 K fitting targets. 36 paired Dewaele Au/Pt volumes support comparison provenance only. Electronic-pressure nodes are recovered and used by the separate derived PVT record.",
+        "reproduction_resource": "docs/data/yokoo-2009-platinum-reproduction.json"
+      },
+      "withheld_candidates": [
+        {
+          "candidate": "Complete Yokoo (2009) cold-BM3 + phonon + first-principles electronic Pt pressure scale",
+          "status": "deferred_incomplete_model",
+          "reason": "The published analytical PVT remains unreproduced. Separate nondefault table-output diagnostics have status not_reproduced; close output agreement is not source-equation validation. Reopen when author code/spreadsheet for Tables III/V, or an equivalent complete specification/correction, resolves the thermal-pressure mismatch. Required inputs are exact adopted phonon parameters and conventions, the electronic-pressure routine with volume/interpolation/reference conventions, and cold Vc separately from ambient V0 for absolute pressure. Tested last-digit rounding and cold-reference offsets cannot explain the thermal-increment mismatch. Electronic energy, entropy, heat capacity, original fit observations and weights are not PVT evaluation dependencies.",
+          "investigation_status": "closed_pending_author_inputs",
+          "closure_date": "2026-10-09",
+          "scope": "Published analytical Au/Pt PVT evaluation; original author fitting procedure is separate.",
+          "reopening_evidence": "Author Table III/V pressure calculation code/spreadsheet or equivalent complete specification/correction that resolves the discrepancy.",
+          "outreach_status": "not_sent",
+          "pressure_convention_audit": "literature-reproductions/yokoo-2009-pressure-conventions.md#remaining-evidence-needed"
+        }
+      ],
+      "evidence": "literature-reproductions/yokoo-2009-platinum.md"
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_yokoo_2009_pvt_reconstruction",
+      "label": "Yokoo et al. (2009), Platinum PVT — diagnostic Table V reconstruction",
+      "doi": "10.1103/physrevb.80.104114",
+      "status": "not_reproduced",
+      "note": "Diagnostic table-output reconstruction. Its numerical implementation, inversions and canonical interchange are checked, but the published analytical Yokoo PVT parameterization is not reproduced. Au uses altered phonon coefficients; Pt additionally uses an empirical residual-pressure correction. These are not validated replacements for the published pressure standard. See the pressure-convention audit; source caloric data and original optimization are not required to evaluate PVT.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+        "doi": "10.1103/PhysRevB.80.104114",
+        "source_filename": "PhysRevB.80.104114.pdf",
+        "sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+        "locations": [
+          "Table IV and footnotes a-d, page 104114-6",
+          "Equations (1)-(12), pages 104114-1/2",
+          "Table V, page 104114-7",
+          "Section IV, page 104114-8"
+        ],
+        "finding": "Equations 1-12 and Table V supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction."
       }
     },
     {

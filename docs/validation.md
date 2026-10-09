@@ -5,7 +5,7 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 227 bundled material documents and 642 EOS records pass the
+separate. All 227 bundled material documents and 648 EOS records pass the
 format-3 validator; 224 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe and FeS-VI source cards do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
@@ -13,10 +13,10 @@ including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 642 bundled records: 634 are
-`primary_source_validated`, five explicit-selection implementations are
+The primary-source audit covers all 648 bundled records: 638 are
+`primary_source_validated`, seven explicit-selection implementations are
 `not_reproduced` (Maltby, the Chen diagnostic, and three Miozzi hcp-Fe
-parameterizations), and three records are `deferred`: the two Campbell Fe/FeO
+parameterizations, and the two Yokoo table-output diagnostics), and three records are `deferred`: the two Campbell Fe/FeO
 records retain unresolved combined-data refit discrepancies, and the Morard
 FeS record does not reproduce the published ±3 GPa residual bound.
 The deferred records preserve source parameters for inspection and are
@@ -40,7 +40,7 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 642
+fit for every record with sufficient direct observations and documents all 648
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
 diagnostics. The current campaign finds 225 parity matches and 157 additional numerically similar results.
@@ -56,7 +56,7 @@ confidence convention. Sakai (2011) contributes eight conditional fixed-V0
 parity matches within printed error widths, with weighting and marker-averaging
 qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
 [73 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 174 records cannot be
+recover at least one published coefficient, while 177 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Two further records are composite reconstructions, and eleven share a source-level
 calibration reconstruction. There are no unresolved extraction or solver failures. The
@@ -116,7 +116,7 @@ Primary-source findings changed or qualified several migrated records:
   `140.3 GPa` and `4.6`. Depository row 32 is itself an isolated 100 degC,
   6.66 GPa state at `V=122.80 angstrom^3`; the published EOS expects
   `133.105 angstrom^3`. Removing it improves the curve residual but still gives
-  `K0=177.642 GPa` and `K0'=1.5419`. The
+  `K0=177.648 GPa` and `K0'=1.5419`. The
   [detailed goethite reproduction](literature-reproductions.md#goethite-gleason-2008)
   documents the anomaly, a fresh Figure 3 digitization cross-check, the paper's
   malformed printed Equation 1, the 9 GPa non-hydrostatic discontinuity, and
@@ -420,7 +420,7 @@ volume.
 | Pt | 0.80 | 1000 | 112.879825670 | 112.862087358 | 112.870486265 |
 | NaCl B2 | 0.75 | 300 | 15.988842533 | 15.988842533 | — |
 | NaCl B2 | 0.65 | 1000 | 36.581254597 | 36.509419876 | — |
-| Ne | 0.65 | 300 | 2.646283932 | 2.646283932 | — |
+| Ne | 0.65 | 300 | 2.645283932 | 2.645283932 | — |
 | Ne | 0.50 | 1000 | 14.180923257 | 14.168848666 | — |
 
 The exact 300 K BurnMan agreement for Au/Pt and Pytheos agreement for NaCl/Ne

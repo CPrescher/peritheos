@@ -1,0 +1,61 @@
+{
+  "scope": "Numerical verification of diagnostic table-output reconstructions; published analytical PVT reproduction remains unresolved",
+  "metals": {
+    "gold": {
+      "record_identifier": "gold_yokoo_2009_pvt_reconstruction",
+      "kind": "derived_table_output_pressure_reconstruction",
+      "states": 162,
+      "source_fit": {
+        "states": 156,
+        "rmse_gpa": 0.008922681886743658,
+        "max_abs_residual_gpa": 0.021133005589867082,
+        "mean_residual_gpa": -0.00011162965807357198
+      },
+      "volume_holdout": {
+        "states": 74,
+        "rmse_gpa": 0.009075685737408539,
+        "max_abs_residual_gpa": 0.018672295140589767,
+        "mean_residual_gpa": 0.0012428664876988724
+      },
+      "library_vs_independent_pressure_max_gpa": 6.252776074688882e-13,
+      "volume_inversion_max_cell_a3": 3.176126028847648e-11,
+      "temperature_inversion_max_k": 3.537934389896691e-10,
+      "eosmat_roundtrip_max_gpa": 0.0,
+      "snapshot_import_rejected_for_unvalidated_composition": true,
+      "scientific_validation_status": "not_reproduced",
+      "published_analytical_pvt_reproduced": false,
+      "ambient_volume_cell_a3": 67.72,
+      "cold_volume_cell_a3": 67.05486228267088,
+      "original_author_fit_reproduced": false,
+      "independent_experimental_validation": false
+    },
+    "platinum": {
+      "record_identifier": "platinum_yokoo_2009_pvt_reconstruction",
+      "kind": "derived_table_output_pressure_reconstruction",
+      "states": 168,
+      "source_fit": {
+        "states": 166,
+        "rmse_gpa": 0.0029185036070077386,
+        "max_abs_residual_gpa": 0.005940025300674279,
+        "mean_residual_gpa": 1.9438208392783836e-05
+      },
+      "volume_holdout": {
+        "states": 79,
+        "rmse_gpa": 0.003223978827627145,
+        "max_abs_residual_gpa": 0.005992476996510732,
+        "mean_residual_gpa": -2.2365937441322458e-05
+      },
+      "library_vs_independent_pressure_max_gpa": 9.094947017729282e-13,
+      "volume_inversion_max_cell_a3": 2.894751105486648e-11,
+      "temperature_inversion_max_k": 3.583409124985337e-10,
+      "eosmat_roundtrip_max_gpa": 0.0,
+      "snapshot_import_rejected_for_unvalidated_composition": true,
+      "scientific_validation_status": "not_reproduced",
+      "published_analytical_pvt_reproduced": false,
+      "ambient_volume_cell_a3": 60.54999999999999,
+      "cold_volume_cell_a3": 60.17580150980359,
+      "original_author_fit_reproduced": false,
+      "independent_experimental_validation": false
+    }
+  }
+}

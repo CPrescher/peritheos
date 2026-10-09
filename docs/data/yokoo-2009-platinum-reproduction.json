@@ -1,0 +1,2287 @@
+{
+  "doi": "10.1103/PhysRevB.80.104114",
+  "record_identifier": "platinum_yokoo_2009_vinet_300k",
+  "author_fit_status": "not_refittable",
+  "qualification": "Independent implementation of the published 300 K Vinet fit. Table V is derived full-model output, not Vinet output or observations. Cold-volume diagnostic is circular checkpoint reconstruction; no author-fit parity. Electronic pressure nodes and the Au-only erratum are recovered. Exact author phonon/electronic normalization and original joint-fit inputs remain unresolved; a separate explicitly derived PVT reconstruction is registered.",
+  "input_sha256": {
+    "platinum-yokoo-2009-table5-isochores.csv": "91fa24883ccbbab1f02916e11bb2df5ca9ba3543c8189bf06db93a77e7dafbb9",
+    "platinum-yokoo-2009-source.json": "fc916e7a3b848d8e48162f803d91d6b43c4ff9f23db541060a76fee531a1579d",
+    "tsuchiya-kawamura-2002-table1-electronic-pressure.csv": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336",
+    "platinum-holmes-1989-table3-shock.csv": "22e5cc3334758cbdd5b5fed94388ff66b404e005b375045c0a539db0c53915fd",
+    "platinum-dewaele-2004-table1-compression.csv": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+    "gold-dewaele-2004-table1-compression.csv": "c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438"
+  },
+  "density_derived_V0_cell_a3": 60.55039315524163,
+  "catalog_V0_cell_a3": 60.55,
+  "equation_grid": {
+    "volume_a3": [
+      60.55,
+      59.339,
+      54.495,
+      48.44,
+      42.385,
+      36.33
+    ],
+    "pressure_gpa": [
+      0.0,
+      5.900963881343389,
+      38.71103688105937,
+      111.65525022533693,
+      250.41765333945702,
+      522.6307426505111
+    ]
+  },
+  "independent_equation_max_difference_gpa": 5.115907697472721e-13,
+  "vinet_minus_full_model_300k_table_gpa": [
+    0.0,
+    0.010963881343389659,
+    0.06082392518940871,
+    0.1437769578070629,
+    0.26861755124520315,
+    0.4310368810593701,
+    0.6463312771731609,
+    0.8926029725261557,
+    1.1745542496316546,
+    1.4879996239042441,
+    1.805250225336934,
+    2.131561907961668,
+    2.4228861563666726,
+    2.6452236641773084,
+    2.74595867090855,
+    2.6476533394570083,
+    2.2349132074742784,
+    1.3951074045335758,
+    -0.07604483664300687,
+    -2.4327069963911185,
+    -6.009257349488848
+  ],
+  "max_abs_vinet_minus_full_model_300k_table_gpa": 6.009257349488848,
+  "cold_checkpoint_diagnostic": {
+    "Vc_over_V0": 0.9938200084195538,
+    "K0_fixed_gpa": 288.4,
+    "K0_prime_fixed": 5.05,
+    "rmse_gpa": 0.0029405967721169487,
+    "max_abs_residual_gpa": 0.005268744757060517,
+    "kind": "derived_output_only_not_independent_fit"
+  },
+  "gamma_theta_checkpoints": [
+    {
+      "volume_ratio": 1.0,
+      "gamma": 2.63,
+      "theta_k": 230.0
+    },
+    {
+      "volume_ratio": 0.8,
+      "gamma": 1.925731391120471,
+      "theta_k": 376.72096941469283
+    },
+    {
+      "volume_ratio": 0.6,
+      "gamma": 1.6763123290908992,
+      "theta_k": 627.0324742198361
+    }
+  ],
+  "table5_thermal_term_diagnostic": [
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "0",
+      "pressure_gpa": "-1.76",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "300",
+      "pressure_gpa": "0.00",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.6012057736772005,
+      "table_total_minus_0k_minus_phonon_gpa": 0.1587942263227995,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.11879422632279948
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "500",
+      "pressure_gpa": "1.52",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 3.0154202958888776,
+      "table_total_minus_0k_minus_phonon_gpa": 0.26457970411112264,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.18457970411112234
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "1000",
+      "pressure_gpa": "5.37",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 6.59459383170851,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5354061682914901,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.2854061682914901
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "1500",
+      "pressure_gpa": "9.25",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 10.186381630667185,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8236183693328147,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.31361836933281495
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "2000",
+      "pressure_gpa": "13.15",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 13.781335402749463,
+      "table_total_minus_0k_minus_phonon_gpa": 1.1286645972505376,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.27866459725053794
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "2500",
+      "pressure_gpa": "17.09",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 17.377556792069807,
+      "table_total_minus_0k_minus_phonon_gpa": 1.4724432079301941,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.2424432079301937
+    },
+    {
+      "volume_ratio": "1.00",
+      "temperature_k": "3000",
+      "pressure_gpa": "21.06",
+      "source_phase_annotation": "first_liquid_state",
+      "phonon_pressure_gpa": 20.9744122427754,
+      "table_total_minus_0k_minus_phonon_gpa": 1.8455877572245996,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.205587757224599
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "0",
+      "pressure_gpa": "4.18",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "300",
+      "pressure_gpa": "5.89",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.5445268188893218,
+      "table_total_minus_0k_minus_phonon_gpa": 0.1654731811106782,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12547318111067796
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "500",
+      "pressure_gpa": "7.38",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.92882320426997,
+      "table_total_minus_0k_minus_phonon_gpa": 0.2711767957300304,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.19117679573003077
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "1000",
+      "pressure_gpa": "11.16",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 6.436967105665512,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5430328943344884,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.29303289433448754
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "1500",
+      "pressure_gpa": "14.97",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.958831285624594,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8311687143754067,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.32116871437540695
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "2000",
+      "pressure_gpa": "18.81",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 13.484140511288041,
+      "table_total_minus_0k_minus_phonon_gpa": 1.1458594887119578,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.2958594887119581
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "2500",
+      "pressure_gpa": "22.67",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 17.01082923813406,
+      "table_total_minus_0k_minus_phonon_gpa": 1.4791707618659409,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.24917076186594045
+    },
+    {
+      "volume_ratio": "0.98",
+      "temperature_k": "3000",
+      "pressure_gpa": "26.57",
+      "source_phase_annotation": "first_liquid_state",
+      "phonon_pressure_gpa": 20.538208020842237,
+      "table_total_minus_0k_minus_phonon_gpa": 1.8517919791577633,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.2117919791577627
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "0",
+      "pressure_gpa": "10.90",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "300",
+      "pressure_gpa": "12.55",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.4922650357074037,
+      "table_total_minus_0k_minus_phonon_gpa": 0.1577349642925967,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.11773496429259822
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "500",
+      "pressure_gpa": "14.02",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.8500817587088316,
+      "table_total_minus_0k_minus_phonon_gpa": 0.2699182412911676,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.18991824129116708
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "1000",
+      "pressure_gpa": "17.74",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 6.2961260805372055,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5438739194627926,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.2938739194627935
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "1500",
+      "pressure_gpa": "21.49",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.75709790472927,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8329020952707289,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.32290209527072733
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "2000",
+      "pressure_gpa": "25.27",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 13.221819651938072,
+      "table_total_minus_0k_minus_phonon_gpa": 1.1481803480619277,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.2981803480619263
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "2500",
+      "pressure_gpa": "29.07",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 16.6880431562646,
+      "table_total_minus_0k_minus_phonon_gpa": 1.4819568437354,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.25195684373539606
+    },
+    {
+      "volume_ratio": "0.96",
+      "temperature_k": "3000",
+      "pressure_gpa": "32.92",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 20.15501790725529,
+      "table_total_minus_0k_minus_phonon_gpa": 1.8649820927447145,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.22498209274471037
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "0",
+      "pressure_gpa": "18.48",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "300",
+      "pressure_gpa": "20.09",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.4441278716420856,
+      "table_total_minus_0k_minus_phonon_gpa": 0.16587212835791387,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.1258721283579156
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "500",
+      "pressure_gpa": "21.53",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.7787949136656054,
+      "table_total_minus_0k_minus_phonon_gpa": 0.27120508633439533,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.1912050863343957
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "1000",
+      "pressure_gpa": "25.20",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 6.171446288883759,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5485537111162397,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.29855371111623796
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "1500",
+      "pressure_gpa": "28.91",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.580348452069437,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8496515479305629,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.3396515479305613
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "2000",
+      "pressure_gpa": "32.63",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.993335038517147,
+      "table_total_minus_0k_minus_phonon_gpa": 1.1566649614828552,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.30666496148285205
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "2500",
+      "pressure_gpa": "36.39",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 16.407957547800724,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5020424521992766,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.2720424521992797
+    },
+    {
+      "volume_ratio": "0.94",
+      "temperature_k": "3000",
+      "pressure_gpa": "40.18",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 19.82339846194228,
+      "table_total_minus_0k_minus_phonon_gpa": 1.8766015380577201,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.23660153805771955
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "0",
+      "pressure_gpa": "27.06",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "300",
+      "pressure_gpa": "28.62",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.3998250150514515,
+      "table_total_minus_0k_minus_phonon_gpa": 0.16017498494855076,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12017498494855161
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "500",
+      "pressure_gpa": "30.04",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.7145665112103687,
+      "table_total_minus_0k_minus_phonon_gpa": 0.2654334887896317,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.18543348878963428
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "1000",
+      "pressure_gpa": "33.67",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 6.062322579816784,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5476774201832191,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.29767742018321997
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "1500",
+      "pressure_gpa": "37.33",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.42778615198326,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8422138480167387,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.3322138480167425
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "2000",
+      "pressure_gpa": "41.02",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.797702742797606,
+      "table_total_minus_0k_minus_phonon_gpa": 1.1622972572023986,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.31229725720239543
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "2500",
+      "pressure_gpa": "44.73",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 16.169403133899085,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5005968661009135,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.2705968661009166
+    },
+    {
+      "volume_ratio": "0.92",
+      "temperature_k": "3000",
+      "pressure_gpa": "48.48",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 19.541995959118303,
+      "table_total_minus_0k_minus_phonon_gpa": 1.8780040408816951,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.23800404088169813
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "0",
+      "pressure_gpa": "36.76",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "300",
+      "pressure_gpa": "38.28",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.3590680311697516,
+      "table_total_minus_0k_minus_phonon_gpa": 0.16093196883025152,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.1209319688302557
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "500",
+      "pressure_gpa": "39.68",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.6570046207063474,
+      "table_total_minus_0k_minus_phonon_gpa": 0.26299537929365435,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.18299537929365783
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "1000",
+      "pressure_gpa": "43.28",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.968168928652258,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5518310713477454,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.301831071347749
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "1500",
+      "pressure_gpa": "46.90",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.298651189754825,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8413488102451758,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.33134881024517426
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "2000",
+      "pressure_gpa": "50.56",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.633994398395336,
+      "table_total_minus_0k_minus_phonon_gpa": 1.1660056016046685,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.3160056016046653
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "2500",
+      "pressure_gpa": "54.24",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.971285108175273,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5087148918247308,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.27871489182473397
+    },
+    {
+      "volume_ratio": "0.90",
+      "temperature_k": "3000",
+      "pressure_gpa": "57.96",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 19.309550211605252,
+      "table_total_minus_0k_minus_phonon_gpa": 1.8904497883947506,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.2504497883947536
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "0",
+      "pressure_gpa": "47.73",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "300",
+      "pressure_gpa": "49.21",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.3215698255829993,
+      "table_total_minus_0k_minus_phonon_gpa": 0.1584301744170047,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.1184301744170071
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "500",
+      "pressure_gpa": "50.61",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.6057206155956485,
+      "table_total_minus_0k_minus_phonon_gpa": 0.27427938440435407,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.19427938440435355
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "1000",
+      "pressure_gpa": "54.18",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.888417999226284,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5615820007737184,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.31158200077371845
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "1500",
+      "pressure_gpa": "57.78",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.192221271193944,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8577787288060605,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.34777872880606253
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "2000",
+      "pressure_gpa": "61.40",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.501338894474761,
+      "table_total_minus_0k_minus_phonon_gpa": 1.1686611055252403,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.3186611055252371
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "2500",
+      "pressure_gpa": "65.06",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.812586020189068,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5174139798109376,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.2874139798109354
+    },
+    {
+      "volume_ratio": "0.88",
+      "temperature_k": "3000",
+      "pressure_gpa": "68.76",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 19.1248986721136,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9051013278864097,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.2651013278864127
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "0",
+      "pressure_gpa": "60.16",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "300",
+      "pressure_gpa": "61.61",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.2870439412116284,
+      "table_total_minus_0k_minus_phonon_gpa": 0.1629560587883745,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12295605878837534
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "500",
+      "pressure_gpa": "63.00",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.5603279686677904,
+      "table_total_minus_0k_minus_phonon_gpa": 0.27967203133221297,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.1996720313322129
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "1000",
+      "pressure_gpa": "66.54",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.822520431266644,
+      "table_total_minus_0k_minus_phonon_gpa": 0.557479568733366,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.30747956873337046
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "1500",
+      "pressure_gpa": "70.13",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.107812026452299,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8621879735476998,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.35218797354770004
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "2000",
+      "pressure_gpa": "73.74",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.398924063742905,
+      "table_total_minus_0k_minus_phonon_gpa": 1.181075936257093,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.3310759362570934
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "2500",
+      "pressure_gpa": "77.38",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.692368815900622,
+      "table_total_minus_0k_minus_phonon_gpa": 1.527631184099377,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.29763118409937306
+    },
+    {
+      "volume_ratio": "0.86",
+      "temperature_k": "3000",
+      "pressure_gpa": "81.06",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 18.986980860550123,
+      "table_total_minus_0k_minus_phonon_gpa": 1.913019139449883,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.273019139449886
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "0",
+      "pressure_gpa": "74.26",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "300",
+      "pressure_gpa": "75.68",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.2552036959539246,
+      "table_total_minus_0k_minus_phonon_gpa": 0.16479630404607715,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12479630404607178
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "500",
+      "pressure_gpa": "77.06",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.5204407424015485,
+      "table_total_minus_0k_minus_phonon_gpa": 0.2795592575984487,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.19955925759845172
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "1000",
+      "pressure_gpa": "80.59",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.769943816501325,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5600561834986735,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.3100561834986735
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "1500",
+      "pressure_gpa": "84.17",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.044777236266608,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8652227637333887,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.35522276373338
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "2000",
+      "pressure_gpa": "87.77",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.325998365205056,
+      "table_total_minus_0k_minus_phonon_gpa": 1.1840016347949351,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.3340016347949444
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "2500",
+      "pressure_gpa": "91.41",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.609780061057474,
+      "table_total_minus_0k_minus_phonon_gpa": 1.540219938942517,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.31021993894250954
+    },
+    {
+      "volume_ratio": "0.84",
+      "temperature_k": "3000",
+      "pressure_gpa": "95.08",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 18.894843170420828,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9251568295791657,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.2851568295791651
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "0",
+      "pressure_gpa": "90.28",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "300",
+      "pressure_gpa": "91.66",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.2257611695949966,
+      "table_total_minus_0k_minus_phonon_gpa": 0.15423883040499886,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.11423883040498595
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "500",
+      "pressure_gpa": "93.04",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.485671744949471,
+      "table_total_minus_0k_minus_phonon_gpa": 0.27432825505053415,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.19432825505053586
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "1000",
+      "pressure_gpa": "96.57",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.730171315700721,
+      "table_total_minus_0k_minus_phonon_gpa": 0.559828684299271,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.30982868429927635
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "1500",
+      "pressure_gpa": "100.14",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.002508848929933,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8574911510700662,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.34749115107005935
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "2000",
+      "pressure_gpa": "103.74",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.281872555965933,
+      "table_total_minus_0k_minus_phonon_gpa": 1.178127444034061,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.3281274440340667
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "2500",
+      "pressure_gpa": "107.38",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.564053371861737,
+      "table_total_minus_0k_minus_phonon_gpa": 1.535946628138257,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.30594662813825835
+    },
+    {
+      "volume_ratio": "0.82",
+      "temperature_k": "3000",
+      "pressure_gpa": "111.05",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 18.847644110813928,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9223558891860684,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.28235588918606425
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "0",
+      "pressure_gpa": "108.48",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "300",
+      "pressure_gpa": "109.85",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.1984260507920228,
+      "table_total_minus_0k_minus_phonon_gpa": 0.17157394920796754,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.1315739492079615
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "500",
+      "pressure_gpa": "111.22",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.455630315059321,
+      "table_total_minus_0k_minus_phonon_gpa": 0.28436968494067383,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.20436968494067287
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "1000",
+      "pressure_gpa": "114.75",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.702699853996726,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5673001460032703,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.3173001460032765
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "1500",
+      "pressure_gpa": "118.33",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 8.980436743000425,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8695632569995695,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.3595632569995644
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "2000",
+      "pressure_gpa": "121.94",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.265921337392534,
+      "table_total_minus_0k_minus_phonon_gpa": 1.1940786626074598,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.34407866260747255
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "2500",
+      "pressure_gpa": "125.58",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.554513073780909,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5454869262190858,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.31548692621908003
+    },
+    {
+      "volume_ratio": "0.80",
+      "temperature_k": "3000",
+      "pressure_gpa": "129.26",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 18.84466004303101,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9353399569689778,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.29533995696897364
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "0",
+      "pressure_gpa": "129.22",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "300",
+      "pressure_gpa": "130.56",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.1729043584109997,
+      "table_total_minus_0k_minus_phonon_gpa": 0.1670956415890037,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12709564158902253
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "500",
+      "pressure_gpa": "131.93",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.4299196906860563,
+      "table_total_minus_0k_minus_phonon_gpa": 0.28008030931395167,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.2000803093139325
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "1000",
+      "pressure_gpa": "135.48",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.6870378128030685,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5729621871969224,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.3229621871969357
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "1500",
+      "pressure_gpa": "139.07",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 8.978028173135646,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8719718268643479,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.36197182686436236
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "2000",
+      "pressure_gpa": "142.70",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.277584948377621,
+      "table_total_minus_0k_minus_phonon_gpa": 1.2024150516223688,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.35241505162238695
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "2500",
+      "pressure_gpa": "146.35",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.580578103362178,
+      "table_total_minus_0k_minus_phonon_gpa": 1.549421896637817,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.3194218966378344
+    },
+    {
+      "volume_ratio": "0.78",
+      "temperature_k": "3000",
+      "pressure_gpa": "150.05",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 18.885291472286525,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9447085277134875,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.3047085277135011
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "0",
+      "pressure_gpa": "152.88",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "300",
+      "pressure_gpa": "154.20",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.1488970568594696,
+      "table_total_minus_0k_minus_phonon_gpa": 0.17110294314052354,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.13110294314051885
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "500",
+      "pressure_gpa": "155.57",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.408133906261793,
+      "table_total_minus_0k_minus_phonon_gpa": 0.2818660937382047,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.20186609373820374
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "1000",
+      "pressure_gpa": "159.14",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.682702112415408,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5772978875845833,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.3272978875845922
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "1500",
+      "pressure_gpa": "162.75",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 8.994786813220028,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8752131867799768,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.3652131867799824
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "2000",
+      "pressure_gpa": "166.40",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.316370661082134,
+      "table_total_minus_0k_minus_phonon_gpa": 1.2036293389178763,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.3536293389178695
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "2500",
+      "pressure_gpa": "170.08",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.641766158448785,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5582338415512318,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.3282338415512527
+    },
+    {
+      "volume_ratio": "0.76",
+      "temperature_k": "3000",
+      "pressure_gpa": "173.80",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 18.969069954374344,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9509300456256717,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.31093004562569604
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "0",
+      "pressure_gpa": "179.94",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "300",
+      "pressure_gpa": "181.23",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.126098593171636,
+      "table_total_minus_0k_minus_phonon_gpa": 0.16390140682835597,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12390140682836659
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "500",
+      "pressure_gpa": "182.61",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.3898541526493906,
+      "table_total_minus_0k_minus_phonon_gpa": 0.2801458473506253,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.20014584735062613
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "1000",
+      "pressure_gpa": "186.20",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.689214548491312,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5707854515086792,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.32078545150866944
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "1500",
+      "pressure_gpa": "189.84",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.030251280396891,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8697487196031144,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.35974871960311816
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "2000",
+      "pressure_gpa": "193.52",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.381854110751092,
+      "table_total_minus_0k_minus_phonon_gpa": 1.19814588924892,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.34814588924893997
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "2500",
+      "pressure_gpa": "197.24",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.73769808791592,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5623019120840915,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.3323019120840911
+    },
+    {
+      "volume_ratio": "0.74",
+      "temperature_k": "3000",
+      "pressure_gpa": "200.98",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 19.095665673819376,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9443343261806163,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.30433432618062284
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "0",
+      "pressure_gpa": "210.93",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "300",
+      "pressure_gpa": "212.20",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.1041953955479495,
+      "table_total_minus_0k_minus_phonon_gpa": 0.16580460445203227,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12580460445204267
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "500",
+      "pressure_gpa": "213.59",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.3746445219280305,
+      "table_total_minus_0k_minus_phonon_gpa": 0.28535547807196604,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.20535547807196508
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "1000",
+      "pressure_gpa": "217.21",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.70609720624311,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5739027937568908,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.32390279375690056
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "1500",
+      "pressure_gpa": "220.90",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.083992983355172,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8860070166448271,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.3760070166448486
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "2000",
+      "pressure_gpa": "224.61",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.473680358695827,
+      "table_total_minus_0k_minus_phonon_gpa": 1.2063196413041801,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.35631964130419647
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "2500",
+      "pressure_gpa": "228.37",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 15.868102490984285,
+      "table_total_minus_0k_minus_phonon_gpa": 1.571897509015713,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.34189750901572324
+    },
+    {
+      "volume_ratio": "0.72",
+      "temperature_k": "3000",
+      "pressure_gpa": "232.15",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 19.264895742302674,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9551042576973252,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.3151042576973282
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "0",
+      "pressure_gpa": "246.53",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "300",
+      "pressure_gpa": "247.77",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.082864390248403,
+      "table_total_minus_0k_minus_phonon_gpa": 0.15713560975160612,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.11713560975161386
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "500",
+      "pressure_gpa": "249.17",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.362047046795323,
+      "table_total_minus_0k_minus_phonon_gpa": 0.2779529532046632,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.19795295320466266
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "1000",
+      "pressure_gpa": "252.83",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.732866725876246,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5671332741237656,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.317133274123762
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "1500",
+      "pressure_gpa": "256.56",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.155613085013686,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8743869149863155,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.36438691498631215
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "2000",
+      "pressure_gpa": "260.33",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.591564543106667,
+      "table_total_minus_0k_minus_phonon_gpa": 1.2084354568933158,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.3584354568932895
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "2500",
+      "pressure_gpa": "264.13",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 16.032820465518476,
+      "table_total_minus_0k_minus_phonon_gpa": 1.567179534481518,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.33717953448149274
+    },
+    {
+      "volume_ratio": "0.70",
+      "temperature_k": "3000",
+      "pressure_gpa": "267.97",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 19.476733251844323,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9632667481557036,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.3232667481557314
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "0",
+      "pressure_gpa": "287.51",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "300",
+      "pressure_gpa": "288.74",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.0617716180161836,
+      "table_total_minus_0k_minus_phonon_gpa": 0.1682283819838346,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12822838198383124
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "500",
+      "pressure_gpa": "290.14",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.351575932351035,
+      "table_total_minus_0k_minus_phonon_gpa": 0.27842406764896044,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.19842406764900034
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "1000",
+      "pressure_gpa": "293.85",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.769027128360244,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5709728716397882,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.32097287163981036
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "1500",
+      "pressure_gpa": "297.64",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.2447382991549,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8852617008450956,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.37526170084510113
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "2000",
+      "pressure_gpa": "301.46",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.735291911506906,
+      "table_total_minus_0k_minus_phonon_gpa": 1.214708088493083,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.36470808849304603
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "2500",
+      "pressure_gpa": "305.32",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 16.23181040043936,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5781895995606412,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.34818959956061235
+    },
+    {
+      "volume_ratio": "0.68",
+      "temperature_k": "3000",
+      "pressure_gpa": "309.21",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 19.731317093046787,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9686829069532017,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.32868290695319047
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "0",
+      "pressure_gpa": "334.83",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "300",
+      "pressure_gpa": "336.03",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.0405710648891506,
+      "table_total_minus_0k_minus_phonon_gpa": 0.159428935110838,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.1194289351108182
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "500",
+      "pressure_gpa": "337.45",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.342710867805582,
+      "table_total_minus_0k_minus_phonon_gpa": 0.27728913219442264,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.19728913219444166
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "1000",
+      "pressure_gpa": "341.21",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.814060827817072,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5659391721829232,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.31593917218293655
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "1500",
+      "pressure_gpa": "345.06",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.351015146489491,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8789848535105271,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.3689848535105398
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "2000",
+      "pressure_gpa": "348.95",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 12.904716945057576,
+      "table_total_minus_0k_minus_phonon_gpa": 1.2152830549424287,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.3652830549423811
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "2500",
+      "pressure_gpa": "352.87",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 16.465152643671,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5748473563290197,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.3448473563290122
+    },
+    {
+      "volume_ratio": "0.66",
+      "temperature_k": "3000",
+      "pressure_gpa": "356.83",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 20.028962509752596,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9710374902474044,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.3310374902474109
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "0",
+      "pressure_gpa": "389.62",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "300",
+      "pressure_gpa": "390.80",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 1.0189038682226415,
+      "table_total_minus_0k_minus_phonon_gpa": 0.16109613177736537,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12109613177733536
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "500",
+      "pressure_gpa": "392.23",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.334889299677652,
+      "table_total_minus_0k_minus_phonon_gpa": 0.2751107003223616,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.1951107003224024
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "1000",
+      "pressure_gpa": "396.06",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.867417350144907,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5725826498550903,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.3225826498550646
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "1500",
+      "pressure_gpa": "399.98",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.474102169677321,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8858978303226923,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.3758978303226854
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "2000",
+      "pressure_gpa": "403.94",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 13.099761169642633,
+      "table_total_minus_0k_minus_phonon_gpa": 1.22023883035736,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.37023883035732297
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "2500",
+      "pressure_gpa": "407.94",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 16.73305378553198,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5869462144680142,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.356946214467996
+    },
+    {
+      "volume_ratio": "0.64",
+      "temperature_k": "3000",
+      "pressure_gpa": "411.97",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 20.37017230051225,
+      "table_total_minus_0k_minus_phonon_gpa": 1.979827699487771,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.3398276994877847
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "0",
+      "pressure_gpa": "453.28",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "300",
+      "pressure_gpa": "454.44",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.9963981204388437,
+      "table_total_minus_0k_minus_phonon_gpa": 0.16360187956118133,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.12360187956113577
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "500",
+      "pressure_gpa": "455.89",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.327497550316028,
+      "table_total_minus_0k_minus_phonon_gpa": 0.28250244968398563,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.20250244968400466
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "1000",
+      "pressure_gpa": "459.79",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.928499139792556,
+      "table_total_minus_0k_minus_phonon_gpa": 0.581500860207492,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.33150086020748404
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "1500",
+      "pressure_gpa": "463.78",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.613659437356166,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8863405626438343,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.3763405626438612
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "2000",
+      "pressure_gpa": "467.83",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 13.32040908903165,
+      "table_total_minus_0k_minus_phonon_gpa": 1.229590910968362,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.379590910968318
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "2500",
+      "pressure_gpa": "471.90",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 17.03585016603864,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5841498339613658,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.35414983396134403
+    },
+    {
+      "volume_ratio": "0.62",
+      "temperature_k": "3000",
+      "pressure_gpa": "476.02",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 20.755648483544725,
+      "table_total_minus_0k_minus_phonon_gpa": 1.984351516455284,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.3443515164552764
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "0",
+      "pressure_gpa": "527.51",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.0,
+      "table_total_minus_0k_minus_phonon_gpa": 0.0,
+      "source_electronic_pressure_gpa": 0.0,
+      "printed_components_minus_table_gpa": 0.0
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "300",
+      "pressure_gpa": "528.64",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 0.9726695742936308,
+      "table_total_minus_0k_minus_phonon_gpa": 0.15733042570636468,
+      "source_electronic_pressure_gpa": 0.04,
+      "printed_components_minus_table_gpa": -0.11733042570642738
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "500",
+      "pressure_gpa": "530.11",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 2.319860682534715,
+      "table_total_minus_0k_minus_phonon_gpa": 0.28013931746530796,
+      "source_electronic_pressure_gpa": 0.08,
+      "printed_components_minus_table_gpa": -0.20013931746530034
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "1000",
+      "pressure_gpa": "534.08",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 5.996643658580376,
+      "table_total_minus_0k_minus_phonon_gpa": 0.5733563414196743,
+      "source_electronic_pressure_gpa": 0.25,
+      "printed_components_minus_table_gpa": -0.32335634141963965
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "1500",
+      "pressure_gpa": "538.17",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 9.769334438065727,
+      "table_total_minus_0k_minus_phonon_gpa": 0.8906655619342416,
+      "source_electronic_pressure_gpa": 0.51,
+      "printed_components_minus_table_gpa": -0.38066556193427914
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "2000",
+      "pressure_gpa": "542.30",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 13.56670145334114,
+      "table_total_minus_0k_minus_phonon_gpa": 1.2232985466588229,
+      "source_electronic_pressure_gpa": 0.85,
+      "printed_components_minus_table_gpa": -0.3732985466588161
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "2500",
+      "pressure_gpa": "546.47",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 17.37401002554219,
+      "table_total_minus_0k_minus_phonon_gpa": 1.5859899744578456,
+      "source_electronic_pressure_gpa": 1.23,
+      "printed_components_minus_table_gpa": -0.3559899744577706
+    },
+    {
+      "volume_ratio": "0.60",
+      "temperature_k": "3000",
+      "pressure_gpa": "550.69",
+      "source_phase_annotation": "unmarked",
+      "phonon_pressure_gpa": 21.186304099400505,
+      "table_total_minus_0k_minus_phonon_gpa": 1.9936959005995583,
+      "source_electronic_pressure_gpa": 1.64,
+      "printed_components_minus_table_gpa": -0.3536959005995186
+    }
+  ],
+  "recovered_electronic_pressure_check": {
+    "rows": 51,
+    "erratum_changes_platinum": false,
+    "reference": "Absolute relative to 0 K; no 300 K subtraction",
+    "printed_components_max_abs_difference_gpa": 0.38066556193427914,
+    "pressure_reconstruction_report": "docs/data/yokoo-2009-platinum-thermal-reconstruction.json"
+  },
+  "upstream_shock_momentum_checks": [
+    {
+      "shot": "TaPt1",
+      "source_pressure_gpa": 653.4,
+      "momentum_pressure_gpa": 653.5239784,
+      "yokoo_linear_Us_residual_km_s": 0.004853999999999914,
+      "momentum_last_digit_interval_gpa": [
+        653.23927229625,
+        653.8087569187501
+      ],
+      "rounding_intervals_overlap": true
+    },
+    {
+      "shot": "TaPt3",
+      "source_pressure_gpa": 659.3,
+      "momentum_pressure_gpa": 659.2867797600001,
+      "yokoo_linear_Us_residual_km_s": -0.01209200000000088,
+      "momentum_last_digit_interval_gpa": [
+        659.0003204162499,
+        659.57331171875
+      ],
+      "rounding_intervals_overlap": true
+    },
+    {
+      "shot": "TaPt4",
+      "source_pressure_gpa": 433.4,
+      "momentum_pressure_gpa": 433.25604252000005,
+      "yokoo_linear_Us_residual_km_s": -0.01571899999999893,
+      "momentum_last_digit_interval_gpa": [
+        433.0444664812501,
+        433.46768084375003
+      ],
+      "rounding_intervals_overlap": true
+    },
+    {
+      "shot": "TaPt5",
+      "source_pressure_gpa": 279.3,
+      "momentum_pressure_gpa": 279.2984205,
+      "yokoo_linear_Us_residual_km_s": 0.018806000000000545,
+      "momentum_last_digit_interval_gpa": [
+        279.14085556875,
+        279.45603928124996
+      ],
+      "rounding_intervals_overlap": true
+    },
+    {
+      "shot": "TaPt6",
+      "source_pressure_gpa": 263.6,
+      "momentum_pressure_gpa": 263.615365,
+      "yokoo_linear_Us_residual_km_s": -0.008554999999999424,
+      "momentum_last_digit_interval_gpa": [
+        263.46370502375004,
+        263.76707777624995
+      ],
+      "rounding_intervals_overlap": true
+    },
+    {
+      "shot": "TaPt7",
+      "source_pressure_gpa": 533.3,
+      "momentum_pressure_gpa": 533.169337,
+      "yokoo_linear_Us_residual_km_s": 0.019284999999999997,
+      "momentum_last_digit_interval_gpa": [
+        532.92393111375,
+        533.41481006625
+      ],
+      "rounding_intervals_overlap": true
+    },
+    {
+      "shot": "TaPt8",
+      "source_pressure_gpa": 218.9,
+      "momentum_pressure_gpa": 218.90072148000002,
+      "yokoo_linear_Us_residual_km_s": 0.004964000000001079,
+      "momentum_last_digit_interval_gpa": [
+        218.76568738875,
+        219.03580548124995
+      ],
+      "rounding_intervals_overlap": true
+    }
+  ],
+  "dewaele_simultaneous_volume_pairs": [
+    {
+      "platinum_csv_row_one_based": 1,
+      "gold_csv_row_one_based": 1,
+      "platinum_atomic_volume_a3": 14.979,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 16.716,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 2.27,
+      "original_revised_ruby_pressure_gpa": 2.27,
+      "derived_yokoo_vinet_pt_pressure_gpa": 2.9943637102839515,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 2,
+      "gold_csv_row_one_based": 2,
+      "platinum_atomic_volume_a3": 14.921,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 16.642,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 3.43,
+      "original_revised_ruby_pressure_gpa": 3.44,
+      "derived_yokoo_vinet_pt_pressure_gpa": 4.141665538077902,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 3,
+      "gold_csv_row_one_based": 3,
+      "platinum_atomic_volume_a3": 14.83,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 16.494,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 4.99,
+      "original_revised_ruby_pressure_gpa": 5.0,
+      "derived_yokoo_vinet_pt_pressure_gpa": 5.999737219937858,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 4,
+      "gold_csv_row_one_based": 4,
+      "platinum_atomic_volume_a3": 14.741,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 16.373,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 6.74,
+      "original_revised_ruby_pressure_gpa": 6.76,
+      "derived_yokoo_vinet_pt_pressure_gpa": 7.887693272312019,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 5,
+      "gold_csv_row_one_based": 5,
+      "platinum_atomic_volume_a3": 14.693,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 16.276,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 7.84,
+      "original_revised_ruby_pressure_gpa": 7.87,
+      "derived_yokoo_vinet_pt_pressure_gpa": 8.935838879132726,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 6,
+      "gold_csv_row_one_based": 6,
+      "platinum_atomic_volume_a3": 14.625,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 16.17,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 9.24,
+      "original_revised_ruby_pressure_gpa": 9.28,
+      "derived_yokoo_vinet_pt_pressure_gpa": 10.457596812535265,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 7,
+      "gold_csv_row_one_based": 7,
+      "platinum_atomic_volume_a3": 14.566,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 16.084,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 10.59,
+      "original_revised_ruby_pressure_gpa": 10.6,
+      "derived_yokoo_vinet_pt_pressure_gpa": 11.813811932381544,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 8,
+      "gold_csv_row_one_based": 8,
+      "platinum_atomic_volume_a3": 14.509,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.979,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 12.04,
+      "original_revised_ruby_pressure_gpa": 12.1,
+      "derived_yokoo_vinet_pt_pressure_gpa": 13.156490991357256,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 9,
+      "gold_csv_row_one_based": 9,
+      "platinum_atomic_volume_a3": 14.442,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.88,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 13.49,
+      "original_revised_ruby_pressure_gpa": 13.6,
+      "derived_yokoo_vinet_pt_pressure_gpa": 14.77649726149098,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 10,
+      "gold_csv_row_one_based": 11,
+      "platinum_atomic_volume_a3": 14.334,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.714,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 16.14,
+      "original_revised_ruby_pressure_gpa": 16.3,
+      "derived_yokoo_vinet_pt_pressure_gpa": 17.485884646995267,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 11,
+      "gold_csv_row_one_based": 12,
+      "platinum_atomic_volume_a3": 14.281,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.642,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 17.39,
+      "original_revised_ruby_pressure_gpa": 17.5,
+      "derived_yokoo_vinet_pt_pressure_gpa": 18.8611304217463,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 12,
+      "gold_csv_row_one_based": 13,
+      "platinum_atomic_volume_a3": 14.215,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.532,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 19.14,
+      "original_revised_ruby_pressure_gpa": 19.3,
+      "derived_yokoo_vinet_pt_pressure_gpa": 20.617012344454974,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 13,
+      "gold_csv_row_one_based": 14,
+      "platinum_atomic_volume_a3": 14.149,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.44,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 20.79,
+      "original_revised_ruby_pressure_gpa": 21.0,
+      "derived_yokoo_vinet_pt_pressure_gpa": 22.42215505168548,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 14,
+      "gold_csv_row_one_based": 15,
+      "platinum_atomic_volume_a3": 14.092,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.361,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 22.39,
+      "original_revised_ruby_pressure_gpa": 22.6,
+      "derived_yokoo_vinet_pt_pressure_gpa": 24.02181262253462,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 15,
+      "gold_csv_row_one_based": 16,
+      "platinum_atomic_volume_a3": 14.035,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.263,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 23.99,
+      "original_revised_ruby_pressure_gpa": 24.3,
+      "derived_yokoo_vinet_pt_pressure_gpa": 25.660097271837,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 16,
+      "gold_csv_row_one_based": 17,
+      "platinum_atomic_volume_a3": 13.952,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.157,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 26.24,
+      "original_revised_ruby_pressure_gpa": 26.6,
+      "derived_yokoo_vinet_pt_pressure_gpa": 28.11662269812647,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 17,
+      "gold_csv_row_one_based": 18,
+      "platinum_atomic_volume_a3": 13.897,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 15.087,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 27.89,
+      "original_revised_ruby_pressure_gpa": 28.3,
+      "derived_yokoo_vinet_pt_pressure_gpa": 29.792035085823326,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 18,
+      "gold_csv_row_one_based": 19,
+      "platinum_atomic_volume_a3": 13.822,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 14.961,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 30.05,
+      "original_revised_ruby_pressure_gpa": 30.5,
+      "derived_yokoo_vinet_pt_pressure_gpa": 32.139633185632476,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 19,
+      "gold_csv_row_one_based": 20,
+      "platinum_atomic_volume_a3": 15.044,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 16.852,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 1.14,
+      "original_revised_ruby_pressure_gpa": 1.14,
+      "derived_yokoo_vinet_pt_pressure_gpa": 1.7418347466286241,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 20,
+      "gold_csv_row_one_based": 21,
+      "platinum_atomic_volume_a3": 15.105,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 16.966,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 0.0,
+      "original_revised_ruby_pressure_gpa": 0.0,
+      "derived_yokoo_vinet_pt_pressure_gpa": 0.5975726639768527,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 21,
+      "gold_csv_row_one_based": 22,
+      "platinum_atomic_volume_a3": 13.146,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 14.079,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 52.5,
+      "original_revised_ruby_pressure_gpa": 53.8,
+      "derived_yokoo_vinet_pt_pressure_gpa": 56.97078707286921,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 22,
+      "gold_csv_row_one_based": 23,
+      "platinum_atomic_volume_a3": 12.985,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.881,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 58.7,
+      "original_revised_ruby_pressure_gpa": 60.3,
+      "derived_yokoo_vinet_pt_pressure_gpa": 63.99147044601798,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 23,
+      "gold_csv_row_one_based": 24,
+      "platinum_atomic_volume_a3": 12.837,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.679,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 65.5,
+      "original_revised_ruby_pressure_gpa": 67.4,
+      "derived_yokoo_vinet_pt_pressure_gpa": 70.87556607810988,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 24,
+      "gold_csv_row_one_based": 25,
+      "platinum_atomic_volume_a3": 12.721,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.542,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 70.0,
+      "original_revised_ruby_pressure_gpa": 72.2,
+      "derived_yokoo_vinet_pt_pressure_gpa": 76.57727511060881,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 25,
+      "gold_csv_row_one_based": 26,
+      "platinum_atomic_volume_a3": 12.566,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.339,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 78.0,
+      "original_revised_ruby_pressure_gpa": 80.7,
+      "derived_yokoo_vinet_pt_pressure_gpa": 84.64169668829292,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 26,
+      "gold_csv_row_one_based": 27,
+      "platinum_atomic_volume_a3": 12.305,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.03,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 90.0,
+      "original_revised_ruby_pressure_gpa": 93.6,
+      "derived_yokoo_vinet_pt_pressure_gpa": 99.46572007575863,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 27,
+      "gold_csv_row_one_based": 28,
+      "platinum_atomic_volume_a3": 13.776,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 14.903,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 31.0,
+      "original_revised_ruby_pressure_gpa": 31.5,
+      "derived_yokoo_vinet_pt_pressure_gpa": 33.61630357474192,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 28,
+      "gold_csv_row_one_based": 29,
+      "platinum_atomic_volume_a3": 13.616,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 14.709,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 36.2,
+      "original_revised_ruby_pressure_gpa": 36.8,
+      "derived_yokoo_vinet_pt_pressure_gpa": 38.97913479404181,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 29,
+      "gold_csv_row_one_based": 30,
+      "platinum_atomic_volume_a3": 13.51,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 14.564,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 39.5,
+      "original_revised_ruby_pressure_gpa": 40.2,
+      "derived_yokoo_vinet_pt_pressure_gpa": 42.734387740971776,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 30,
+      "gold_csv_row_one_based": 31,
+      "platinum_atomic_volume_a3": 13.342,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 14.332,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 45.3,
+      "original_revised_ruby_pressure_gpa": 46.2,
+      "derived_yokoo_vinet_pt_pressure_gpa": 49.03698847930527,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 31,
+      "gold_csv_row_one_based": 32,
+      "platinum_atomic_volume_a3": 13.204,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 14.159,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 50.2,
+      "original_revised_ruby_pressure_gpa": 51.4,
+      "derived_yokoo_vinet_pt_pressure_gpa": 54.55504679068448,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 32,
+      "gold_csv_row_one_based": 33,
+      "platinum_atomic_volume_a3": 13.073,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.99,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 55.3,
+      "original_revised_ruby_pressure_gpa": 56.8,
+      "derived_yokoo_vinet_pt_pressure_gpa": 60.09563639510077,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 33,
+      "gold_csv_row_one_based": 34,
+      "platinum_atomic_volume_a3": 12.809,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.635,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 66.5,
+      "original_revised_ruby_pressure_gpa": 68.5,
+      "derived_yokoo_vinet_pt_pressure_gpa": 72.22659362872523,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 34,
+      "gold_csv_row_one_based": 35,
+      "platinum_atomic_volume_a3": 12.639,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.43,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 74.1,
+      "original_revised_ruby_pressure_gpa": 76.6,
+      "derived_yokoo_vinet_pt_pressure_gpa": 80.7782707207767,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 35,
+      "gold_csv_row_one_based": 36,
+      "platinum_atomic_volume_a3": 12.512,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.278,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 79.9,
+      "original_revised_ruby_pressure_gpa": 82.8,
+      "derived_yokoo_vinet_pt_pressure_gpa": 87.57672330799875,
+      "role": "comparison_only_not_yokoo_fit_target"
+    },
+    {
+      "platinum_csv_row_one_based": 36,
+      "gold_csv_row_one_based": 37,
+      "platinum_atomic_volume_a3": 12.408,
+      "platinum_atomic_volume_error_a3": 0.01,
+      "gold_atomic_volume_a3": 13.16,
+      "gold_atomic_volume_error_a3": 0.01,
+      "original_classical_ruby_pressure_gpa": 85.7,
+      "original_revised_ruby_pressure_gpa": 89.0,
+      "derived_yokoo_vinet_pt_pressure_gpa": 93.42051029492403,
+      "role": "comparison_only_not_yokoo_fit_target"
+    }
+  ],
+  "max_abs_shock_momentum_rounding_difference_gpa": 0.14395747999992636
+}
