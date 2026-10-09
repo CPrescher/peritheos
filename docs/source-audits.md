@@ -153,7 +153,7 @@ The current collection contains 169 standalone reports.
 | Sokolova et al. (2013) eleven-marker pressure-scale audit | [`sokolova-2013-global-pressure-scale.md`](literature-reproductions/sokolova-2013-global-pressure-scale.md) |
 | Solomatova et al. (2016): spin-crossover ferropericlase branches | [`solomatova-2016-ferropericlase.md`](literature-reproductions/solomatova-2016-ferropericlase.md) |
 | Source-specific metal EOS batch (47 records) | [`experimental-metal-eos-batch-47.md`](literature-reproductions/experimental-metal-eos-batch-47.md) |
-| Speziale et al. (2001): MgO thermal equations and the later Au calibration | [`speziale-2001-mgo.md`](literature-reproductions/speziale-2001-mgo.md) |
+| Speziale et al. (2001): equation and calculation verification | [`speziale-2001-mgo.md`](literature-reproductions/speziale-2001-mgo.md) |
 | Speziale et al. (2007) ferropericlase audit | [`speziale-2007-ferropericlase.md`](literature-reproductions/speziale-2007-ferropericlase.md) |
 | Sueda et al. (2009): CaFe2O4-type MgAl2O4 | [`sueda-2009-mgal2o4-cafe2o4.md`](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md) |
 | Sun et al. (2010): Morse equations for 50 solids | [`sun-2010-50-solids-morse-eos.md`](literature-reproductions/sun-2010-50-solids-morse-eos.md) |
