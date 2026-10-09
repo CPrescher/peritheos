@@ -1002,7 +1002,11 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                 == Some("absolute_zero")
                 || matches!(
                     record.eos.thermal_model_identifier(),
-                    Some("debye_anharmonic_helmholtz" | "maltby_2024_published")
+                    Some(
+                        "debye_anharmonic_helmholtz"
+                            | "maltby_2024_published"
+                            | "asymptotic_debye_tabulated_pressure"
+                    )
                 )
             {
                 assert!(pressure.is_finite());
@@ -1522,5 +1526,74 @@ fn migrated_pressure_coordinates_survive_rust_exports() {
         let serialized = serialize_eosmat(&material.document).unwrap();
         let reloaded = load_eosmat_str(&serialized).unwrap();
         assert_eq!(material.document["datasets"], reloaded.document["datasets"]);
+    }
+}
+
+#[test]
+fn bounded_pressure_tables_match_matsui_and_yokoo_source_checks() {
+    let Some(pt) = load_bundled_material("platinum.eosmat") else {
+        return;
+    };
+    let matsui = pt
+        .eos_records
+        .iter()
+        .find(|r| r.identifier == "platinum_matsui_2009_vinet_mgd_electronic")
+        .unwrap();
+    // Matsui Table III at ambient volume and 3000 K, including electronic pressure.
+    assert_close(matsui.pressure(60.38, 3000.0).unwrap(), 21.54, 0.005);
+    assert!(matsui.pressure(60.38, 5001.0).is_err());
+    for (file, identifier, ambient, checkpoints) in [
+        (
+            "gold.eosmat",
+            "gold_yokoo_2009_pvt_reconstruction",
+            67.72,
+            [
+                69.720_076_658_271_85,
+                71.045_230_266_322_45,
+                78.801_967_309_069_2,
+                88.633_669_794_408_9,
+            ],
+        ),
+        (
+            "platinum.eosmat",
+            "platinum_yokoo_2009_pvt_reconstruction",
+            60.55,
+            [
+                108.482_827_657_309_4,
+                109.845_055_977_973_37,
+                118.330_845_005_259_92,
+                129.260_813_829_075_37,
+            ],
+        ),
+    ] {
+        let material = load_bundled_material(file).unwrap();
+        let record = material
+            .eos_records
+            .iter()
+            .find(|r| r.identifier == identifier)
+            .unwrap();
+        let volume = 0.8 * ambient;
+        // Independent Python quadrature checks archived beside the source-table outputs.
+        for (temperature, expected) in [0.0, 300.0, 1500.0, 3000.0].into_iter().zip(checkpoints) {
+            let pressure = record.pressure(volume, temperature).unwrap();
+            assert_close(pressure, expected, 2e-9);
+            assert_close(record.volume(pressure, temperature).unwrap(), volume, 1e-8);
+        }
+        assert!(record.pressure(ambient * 1.01, 300.0).is_err());
+        assert!(record.pressure(volume, -1.0).is_err());
+        assert!(record.pressure(volume, 5001.0).is_err());
+        assert!(record.volume(-100.0, 1500.0).is_err());
+        assert_close(
+            record.thermal_pressure_increment(volume, 300.0).unwrap(),
+            0.0,
+            1e-12,
+        );
+        assert_close(
+            record
+                .volume_with_dac_confinement(record.pressure(volume, 1500.0).unwrap(), 1500.0, 0.0)
+                .unwrap(),
+            volume,
+            1e-8,
+        );
     }
 }

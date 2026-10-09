@@ -204,3 +204,25 @@ document. The native reader validates the optional identifier and preserves it
 on export, including unknown external families. It does not require a bundled
 family registry or change EOS selection. Family registry lookup and grouped
 catalog discovery are currently Python APIs.
+
+## Tabulated pressure corrections
+
+`thermal::DebyeTabulatedThermalPressure` composes an integrated Debye model
+with a bounded, volume-independent electronic-pressure table. Its pressure
+correction subtracts the electronic value at the reference temperature once.
+`thermal::AsymptoticDebyeTabulatedPressure` instead adds absolute phonon,
+electronic and derived residual pressure to a 0 K cold curve, with separate
+cold and ambient reference volumes and explicit numerical bounds. Both models
+load from their canonical `.eosmat` records and retain configuration tables
+through serialization. The Yokoo reconstructions remain qualified,
+explicit-selection Python diagnostics; their Rust executability does not
+change their scientific validation status.
+
+The tables use linear interpolation and reject temperature extrapolation.
+The absolute model also bounds its volume inversion to the reconstruction
+interval and accepts 0 K. These models do not implement `CaloricEos`: a pressure
+table does not establish electronic energy, entropy or heat capacity.
+
+As of 0.12.0, the runtime `ThermalModel` and `LoadedEos` enums own table data
+and implement `Clone` without `Copy`. Borrow an existing model or use
+`.clone()` where an independent owned value is required.

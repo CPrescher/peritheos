@@ -25,13 +25,15 @@ use crate::isothermal::{
     SecondOrderMurnaghan, SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
 };
 use crate::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, AsymptoticPowerLawMieGruneisenDebyeExcess,
-    DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure, DebyeTemperatureLaw, Dewaele2006,
+    AsymptoticDebyeTabulatedPressure, AsymptoticPowerLawMieGruneisenDebye,
+    AsymptoticPowerLawMieGruneisenDebyeExcess, DebyeAnharmonicHelmholtz,
+    DebyeQuadraticThermalPressure, DebyeTabulatedThermalPressure, DebyeTemperatureLaw, Dewaele2006,
     DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz, HollandPowellThermalPressure, LinearThermalPressure,
     LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
-    ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters,
-    ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
+    PressureTable, ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure,
+    SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference,
+    ThermalReferenceState,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -621,9 +623,13 @@ impl Hugoniot for HugoniotModel {
 }
 
 /// Runtime-dispatched built-in thermal model.
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 #[non_exhaustive]
 pub enum ThermalModel {
+    /// Integrated Debye pressure plus a bounded electronic table.
+    DebyeTabulatedThermalPressure(DebyeTabulatedThermalPressure<IsothermalModel>),
+    /// Absolute bounded phonon/electronic reconstruction with a separate cold volume.
+    AsymptoticDebyeTabulatedPressure(AsymptoticDebyeTabulatedPressure<IsothermalModel>),
     /// Tange-type asymptotic-power-law Mie--Gruneisen--Debye EOS.
     AsymptoticPowerLawMieGruneisenDebye(AsymptoticPowerLawMieGruneisenDebye<IsothermalModel>),
     /// Debye EOS with a quadratic-temperature excess term.
@@ -664,6 +670,8 @@ pub enum ThermalModel {
 macro_rules! dispatch_thermal {
     ($self:expr, $model:ident => $expression:expr) => {
         match $self {
+            ThermalModel::DebyeTabulatedThermalPressure($model) => $expression,
+            ThermalModel::AsymptoticDebyeTabulatedPressure($model) => $expression,
             ThermalModel::AsymptoticPowerLawMieGruneisenDebye($model) => $expression,
             ThermalModel::AsymptoticPowerLawMieGruneisenDebyeExcess($model) => $expression,
             ThermalModel::DoubleDebyeHelmholtz($model) => $expression,
@@ -696,6 +704,8 @@ impl ThermalModel {
             Self::AsymptoticPowerLawMieGruneisenDebyeExcess(_) => {
                 "asymptotic_power_law_mie_gruneisen_debye_excess"
             }
+            Self::DebyeTabulatedThermalPressure(_) => "debye_tabulated_thermal_pressure",
+            Self::AsymptoticDebyeTabulatedPressure(_) => "asymptotic_debye_tabulated_pressure",
             Self::DoubleDebyeHelmholtz(_) => "double_debye_helmholtz",
             Self::DoubleDebyeLogMomentHelmholtz(_) => "double_debye_log_moment_helmholtz",
             Self::Dewaele2006(_) => "dewaele_2006",
@@ -755,7 +765,7 @@ impl ThermalModel {
 }
 
 /// An executable equation selected from an `.eosmat` record.
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 #[non_exhaustive]
 pub enum LoadedEos {
     /// Isothermal equation with no thermal correction.
@@ -802,6 +812,12 @@ impl LoadedEos {
         match self {
             Self::Isothermal(model) => model.model_identifier(),
             Self::Thermal(model) => match model {
+                ThermalModel::DebyeTabulatedThermalPressure(value) => {
+                    value.debye.rt_eos.model_identifier()
+                }
+                ThermalModel::AsymptoticDebyeTabulatedPressure(value) => {
+                    value.rt_eos.model_identifier()
+                }
                 ThermalModel::AsymptoticPowerLawMieGruneisenDebyeExcess(value) => {
                     value.debye.rt_eos.model_identifier()
                 }
@@ -1001,7 +1017,7 @@ impl EosRecord {
     /// Reference volume in the file's conventional-cell volume unit.
     #[must_use]
     pub fn reference_volume(&self) -> f64 {
-        let model_volume = match self.eos {
+        let model_volume = match &self.eos {
             LoadedEos::Isothermal(model) => model.reference_volume(),
             LoadedEos::Thermal(model) => model.reference_volume(),
             LoadedEos::Maltby2024(_) => 2.256, // characteristic volume, not P=0
@@ -1020,7 +1036,7 @@ impl EosRecord {
     /// Returns an error when the state is invalid or model evaluation fails.
     pub fn pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         let volume = volume * self.volume_scale;
-        match self.eos {
+        match &self.eos {
             LoadedEos::Isothermal(model) => model.pressure(volume),
             LoadedEos::Thermal(model) => model.pressure(volume, temperature),
             LoadedEos::Maltby2024(model) => model.pressure(volume, temperature),
@@ -1044,7 +1060,7 @@ impl EosRecord {
     /// Returns an error when the state is invalid or model evaluation fails.
     pub fn bulk_modulus(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         let volume = volume * self.volume_scale;
-        match self.eos {
+        match &self.eos {
             LoadedEos::Isothermal(model) => model.bulk_modulus(volume),
             LoadedEos::Thermal(model) => model.bulk_modulus(volume, temperature),
             LoadedEos::Maltby2024(model) => model.bulk_modulus(volume, temperature, 1e-5),
@@ -1061,7 +1077,7 @@ impl EosRecord {
     ///
     /// Returns an error when inversion fails on the supported branch.
     pub fn volume(&self, pressure: f64, temperature: f64) -> EosResult<f64> {
-        let model_volume = match self.eos {
+        let model_volume = match &self.eos {
             LoadedEos::Isothermal(model) => model.volume(pressure)?,
             LoadedEos::Thermal(model) => model.volume(pressure, temperature)?,
             LoadedEos::Maltby2024(model) => model.volume(pressure, temperature)?,
@@ -1101,7 +1117,7 @@ impl EosRecord {
     /// Returns an error for an isothermal record or invalid state.
     pub fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         let volume = volume * self.volume_scale;
-        match self.eos {
+        match &self.eos {
             LoadedEos::Thermal(model) => model.thermal_pressure_increment(volume, temperature),
             LoadedEos::Maltby2024(model) => model.thermal_pressure_increment(volume, temperature),
             LoadedEos::Isothermal(_) | LoadedEos::Hugoniot(_) => Err(EosError::InvalidState {
@@ -1124,7 +1140,7 @@ impl EosRecord {
         f_dac: f64,
     ) -> EosResult<f64> {
         let volume = volume * self.volume_scale;
-        match self.eos {
+        match &self.eos {
             LoadedEos::Maltby2024(_) => Err(EosError::InvalidState {
                 name: "eos",
                 reason: "DAC confinement is not supported for Maltby2024",
@@ -1149,7 +1165,7 @@ impl EosRecord {
         temperature: f64,
         f_dac: f64,
     ) -> EosResult<f64> {
-        let model_volume = match self.eos {
+        let model_volume = match &self.eos {
             LoadedEos::Maltby2024(_) => {
                 return Err(EosError::InvalidState {
                     name: "eos",
@@ -2845,7 +2861,7 @@ fn build_record(
             Some(thermal) => LoadedEos::Thermal(build_thermal(thermal, reference)?),
         }
     };
-    let reference_temperature = raw.temperature_ref.unwrap_or_else(|| match eos {
+    let reference_temperature = raw.temperature_ref.unwrap_or_else(|| match &eos {
         LoadedEos::Isothermal(_) | LoadedEos::Maltby2024(_) => 300.0,
         LoadedEos::Thermal(model) => model.reference_temperature(),
         LoadedEos::Hugoniot(_) => raw
@@ -2895,7 +2911,9 @@ fn nearly_equal(left: f64, right: f64) -> bool {
 fn is_molar_volume_model(model: &str) -> bool {
     matches!(
         model,
-        "debye_quadratic_thermal_pressure"
+        "debye_tabulated_thermal_pressure"
+            | "asymptotic_debye_tabulated_pressure"
+            | "debye_quadratic_thermal_pressure"
             | "debye_anharmonic_helmholtz"
             | "mie_gruneisen_debye"
             | "mie_gruneisen_einstein"
@@ -2937,6 +2955,8 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "AsymptoticPowerLawMieGruneisenDebyeExcess" => {
                 "asymptotic_power_law_mie_gruneisen_debye_excess"
             }
+            "DebyeTabulatedThermalPressure" => "debye_tabulated_thermal_pressure",
+            "AsymptoticDebyeTabulatedPressure" => "asymptotic_debye_tabulated_pressure",
             "DoubleDebyeHelmholtz" => "double_debye_helmholtz",
             "DoubleDebyeLogMomentHelmholtz" => "double_debye_log_moment_helmholtz",
             "Dewaele2006" => "dewaele_2006",
@@ -3389,6 +3409,72 @@ fn build_thermal(
                 model.with_temperature_laws(coefficients, beta("kprime_log_coefficient"))
             })
             .map(ThermalModel::ThermalReferenceState)
+        }
+        "debye_tabulated_thermal_pressure" | "asymptotic_debye_tabulated_pressure" => {
+            if configuration(component, "interpolation") != Some("linear") {
+                return Err("tabulated pressure requires explicit linear interpolation".to_owned());
+            }
+            let array = |name: &str| -> Result<Vec<f64>, String> {
+                component
+                    .configuration
+                    .get(name)
+                    .and_then(Value::as_array)
+                    .ok_or_else(|| format!("missing table array {name}"))?
+                    .iter()
+                    .map(|v| {
+                        v.as_f64()
+                            .ok_or_else(|| format!("non-numeric table entry {name}"))
+                    })
+                    .collect()
+            };
+            let electronic = PressureTable::new(
+                array("electronic_temperature_k")?,
+                array("electronic_pressure_gpa")?,
+                true,
+            )
+            .map_err(|e| e.to_string())?;
+            if model == "debye_tabulated_thermal_pressure" {
+                check_type(component, "DebyeTabulatedThermalPressure")?;
+                let debye = MieGruneisenDebye::new(
+                    reference,
+                    p("Tr")?,
+                    p("theta0")?,
+                    p("gamma0")?,
+                    p("q")?,
+                    p("n")?,
+                )
+                .map_err(|e| e.to_string())?;
+                DebyeTabulatedThermalPressure::new(debye, electronic)
+                    .map(ThermalModel::DebyeTabulatedThermalPressure)
+            } else {
+                check_type(component, "AsymptoticDebyeTabulatedPressure")?;
+                let range = |name: &str| -> Result<[f64; 2], String> {
+                    array(name)?
+                        .try_into()
+                        .map_err(|_| format!("{name} requires two bounds"))
+                };
+                let residual = PressureTable::new(
+                    array("residual_temperature_k")?,
+                    array("residual_pressure_gpa")?,
+                    false,
+                )
+                .map_err(|e| e.to_string())?;
+                AsymptoticDebyeTabulatedPressure::new(
+                    reference,
+                    p("Tr")?,
+                    p("theta0")?,
+                    p("gamma0")?,
+                    p("a")?,
+                    p("b")?,
+                    p("n")?,
+                    p("cold_volume_ratio")?,
+                    electronic,
+                    residual,
+                    range("volume_ratio_range")?,
+                    range("temperature_range_k")?,
+                )
+                .map(ThermalModel::AsymptoticDebyeTabulatedPressure)
+            }
         }
         "mie_gruneisen_debye" => {
             check_type(component, "MieGruneisenDebye")?;

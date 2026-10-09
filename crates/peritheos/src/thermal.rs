@@ -1,5 +1,10 @@
 //! Built-in thermal equations of state and caloric models.
 
+mod tabulated;
+pub use tabulated::{
+    AsymptoticDebyeTabulatedPressure, DebyeTabulatedThermalPressure, PressureTable,
+};
+
 use crate::isothermal::{
     Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
     NaturalStrain4, OddInversePower, ReferenceEnergyEos, RydbergStacey, SecondOrderMurnaghan,

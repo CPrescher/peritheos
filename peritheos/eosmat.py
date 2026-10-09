@@ -817,8 +817,8 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     or config.get("interpolation") != "linear"
                 ):
                     raise EosmatError(f"{location}.thermal electronic table is invalid")
-                for column in (t_grid, p_grid):
-                    for value in column:
+                for table_column in (t_grid, p_grid):
+                    for value in table_column:
                         _finite_number(value, f"{location}.thermal electronic table")
                 if t_grid[0] < 0 or any(a >= b for a, b in zip(t_grid, t_grid[1:])):
                     raise EosmatError(f"{location}.thermal temperatures must increase")
