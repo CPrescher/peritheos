@@ -499,6 +499,37 @@ def reproduce():
     }
 
 
+def ledger_outcome(record):
+    """Use the qualified joint PVT replay, retaining the temperature coordinates."""
+    branch = next(
+        key for key, identifier in RECORDS.items() if identifier == record["identifier"]
+    )
+    report = reproduce()
+    result = report["results"][branch]
+    fit = result["joint_54_unweighted"]
+    volume, temperature, pressure, _, _ = observations()
+    return {
+        "status": result["status"],
+        "fit_kind": "diagnostic_joint_pvt",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": 54,
+        "observed_pressure_range_gpa": [float(pressure.min()), float(pressure.max())],
+        "observed_temperature_range_k": [
+            float(temperature.min()),
+            float(temperature.max()),
+        ],
+        "free_parameters": fit["free_parameters"],
+        "fixed_parameters": fit["fixed_parameters"],
+        "parameters": result["parameter_comparisons"],
+        "parity_basis": "Conditional equal-pressure-weight joint PVT agreement within published parameter widths; source confidence and covariance are unspecified.",
+        "rmse_gpa": fit["rmse_gpa"],
+        "published_rmse_gpa": fit["published_rmse_gpa"],
+        "solver_success": fit["solver_success"],
+        "reason": " ".join(report["limitations"]),
+        "reproduction": result,
+    }
+
+
 def main():
     report = reproduce()
     OUTPUT.write_text(json.dumps(report, indent=2) + "\n")

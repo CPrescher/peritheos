@@ -30,11 +30,13 @@ def test_walker_b1_retains_all_source_rows_and_real_sample_selection():
     record = get_eos_record(IDS[0])
     assert record.reference_volume == pytest.approx(249.080860076)
     assert record.reference_temperature == 296.15
-    assert record.pressure(record.reference_volume, 296.15) == pytest.approx(0, abs=1e-12)
-    # Abstract's directly reported product; this is not rounded K0*alpha0.
-    assert record.pressure(record.reference_volume, 873.15, check_validity=False) == pytest.approx(
-        0.00195 * 577
+    assert record.pressure(record.reference_volume, 296.15) == pytest.approx(
+        0, abs=1e-12
     )
+    # Abstract's directly reported product; this is not rounded K0*alpha0.
+    assert record.pressure(
+        record.reference_volume, 873.15, check_validity=False
+    ) == pytest.approx(0.00195 * 577)
     # Independent off-reference measured Table 1 state, with propagated
     # coordinate/product-error tolerance (not exact source-fit parity).
     assert record.pressure(242.28, 873.15, check_validity=False) == pytest.approx(

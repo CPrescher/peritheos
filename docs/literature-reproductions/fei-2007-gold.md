@@ -35,9 +35,9 @@ returned HTTP 403, so the hash is not independently reverified in this run.
 | Fei (2007) Figure 1, 111 calculated vertices | Existing vector paths; only equation/output comparisons | Never used as regression observations |
 
 The new data are
-[`gold-hirose-2006-table1.csv`](../../peritheos/data/datasets/gold-hirose-2006-table1.csv)
+[`gold-hirose-2006-table1.csv`](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2006-table1.csv)
 and its
-[`source sidecar`](../../peritheos/data/datasets/gold-hirose-2006-source.json).
+[`source sidecar`](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2006-source.json).
 They are transcribed directly from the
 [original publisher Table 1](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005GL024468).
 The publisher lists an original 1012-byte tab-delimited supplement, but its
@@ -242,9 +242,18 @@ on Fei (2004)'s 26 reported pressures. For Hirose's two hot rows it gives
 **105.609013** and **115.947872 GPa**, versus 106.5 and 117.9 GPa; differences
 are **-0.890987** and **-1.952128 GPa**. Refitting q to those diagnostic
 re-reductions yields **1.100484**, rather than 0.632194 for reported targets.
-The precise source calibration implementation/normalization is unresolved;
-no single cause is assigned and neither source pressures nor MgO coefficients
-are overwritten.
+The [Speziale MgO follow-up](speziale-2001-mgo.md) independently validates the
+printed gamma equation, thermal normalization and numerical integration. It
+recovers a constant-q Dewaele subset fit within Speziale's published width, but
+does not reproduce the complete original thermal analysis. A different law,
+gamma=gamma0*(V/V0)**q(V), with integrated theta and Tr=300 K gives Fei RMS
+**0.008997 GPa** and Hirose pressures **106.493943** and **117.880818 GPa**.
+This strongly supports a convention difference. It is a diagnostic inference:
+the alternative gamma law disagrees with Speziale Eq. 11 and Figure 9, and no
+original reducer establishes its use by Fei/Hirose. At Tr=298 K this alternative
+puts all Fei rows within 0.005 GPa and both Hirose rows within 0.011 GPa, but that
+temperature choice is not established by the papers. No author error is assigned;
+source pressures, published coefficients and conditional Au parity are retained.
 
 For paired Au/MgO observations with a shared measured temperature, a full
 residual variance contains

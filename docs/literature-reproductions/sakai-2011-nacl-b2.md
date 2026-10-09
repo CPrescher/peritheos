@@ -179,6 +179,10 @@ These two Pt records implement only the exact 300 K reference isotherms needed
 here. Their cell convention is fcc Pt, Z=4, V0=60.38 Å³. They do not implement
 either paper's thermal model. No additional NaCl fit is created by conversion.
 
+The subsequent [Fei Pt thermal audit](fei-2007-platinum.md) adds the separate
+`platinum_fei_2007_vinet_mgd` record. The NaCl calibration here continues to use
+the explicitly named 300 K branch, which has identical reference pressures.
+
 Matsui's Equation (6) and Table II give K0=273 GPa and K0′=5.20; no coefficient
 errors or covariance are supplied. Table III independently gives 235.96 GPa at
 V/V0=0.70 and 300 K, recovered within its 0.005 GPa rounding half-width.

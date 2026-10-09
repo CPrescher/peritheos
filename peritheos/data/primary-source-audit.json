@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 648,
+    "records": 650,
     "deferred": 3,
     "not_reproduced": 7,
-    "primary_source_validated": 638
+    "primary_source_validated": 640
   },
   "records": [
     {
@@ -10184,6 +10184,26 @@
       }
     },
     {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_fei_2007",
+      "label": "Fei et al. (2007), NaCl-B2 Vinet-MGD pressure scale",
+      "doi": "10.1073/pnas.0609013104",
+      "status": "primary_source_validated",
+      "note": "Published NaCl-B2 pressure equation and coefficient transcription verified independently; original author optimization is not reproduced.",
+      "primary_source_check": {
+        "access_url": "https://www.pnas.org/doi/10.1073/pnas.0609013104",
+        "doi": "10.1073/pnas.0609013104",
+        "locations": [
+          "Table 1 and Equations 2-3, page 9183",
+          "Figures 3-4 and NaCl paragraphs, page 9184",
+          "Methods, pages 9185-9186"
+        ],
+        "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306",
+        "finding": "Vinet 26.86/5.25; adopted V0=41.35, gamma0=1.70, theta0=290; q=0.5(3); 300 K subtraction and two-atom formula-unit normalization. Printed variable-exponent and integrated-law curves both agree within one graphical stroke width."
+      }
+    },
+    {
       "material": "namg2al5sio12_cf",
       "file": "namg2al5sio12_cf.eosmat",
       "record": "namg2al5sio12_cf_kawai_2012_bm3_1",
@@ -10238,9 +10258,10 @@
           "Table 1",
           "Ne EOS discussion and Figure 5 caption"
         ],
-        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale.",
+        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
         "doi": "10.1073/pnas.0609013104"
-      }
+      },
+      "reproduction_status": "parity"
     },
     {
       "material": "neon_fcc",
@@ -10257,9 +10278,10 @@
           "Table 1",
           "Ne EOS discussion and Figure 5 caption"
         ],
-        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale.",
+        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
         "doi": "10.1073/pnas.0609013104"
-      }
+      },
+      "reproduction_status": "parity"
     },
     {
       "material": "neon_fcc",
@@ -11213,6 +11235,26 @@
           "Results and Discussion, Pt scale; Figure 2"
         ],
         "finding": "All 36 Dewaele (2004) static rows and the 42 Fei (2004) P-V-T rows are already bundled. The 300 K diagnostic refits the Dewaele subset with published V0 and K0 held fixed, using the revised ruby column. The joint thermal fit and Fei (2007) Au re-reduction are not reconstructed by this isothermal-only record."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_fei_2007_vinet_mgd",
+      "label": "Fei et al. (2007), Pt Vinet-MGD thermal pressure scale",
+      "doi": "10.1073/pnas.0609013104",
+      "status": "primary_source_validated",
+      "note": "Primary full text and Table 1 checked; independent Debye quadrature, source-Au pressure re-reduction, and 78-row joint diagnostic documented separately. Equation reconstruction is successful; original coefficient-fit parity is not achieved.",
+      "primary_source_check": {
+        "doi": "10.1073/pnas.0609013104",
+        "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+        "locations": [
+          "Equations (2)-(3) and the theta_D definition following Equation (3)",
+          "Table 1, Pt column and Pt footnote",
+          "Results and Discussion, Pt paragraph",
+          "Figure 2 and caption"
+        ],
+        "finding": "Complete Pt Vinet-MGD pressure scale. The variable-exponent theta law is retained explicitly; all published coefficients and errors are preserved. The Pt paragraph requires Au re-reduction of the earlier paired data."
       }
     },
     {

@@ -69,7 +69,7 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 645
+    assert len(records) == 647
     assert len(materials) == 224
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
@@ -275,7 +275,10 @@ def test_eosmat_datasets_follow_selected_eos_records():
         source, record_identifiers=("gold_fei_2007_vinet_2",)
     ).to_eosmat()
     assert [dataset["identifier"] for dataset in with_digitized_data["datasets"]] == [
-        "gold_fei_2007_figure1_digitized"
+        "gold_fei_2007_figure1_digitized",
+        "gold_dewaele_2004_table1_compression",
+        "gold_fei_2004_table1",
+        "gold_hirose_2006_table1",
     ]
 
     with_data = Material.from_eosmat(

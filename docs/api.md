@@ -214,10 +214,13 @@ coverage.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
-CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. Of 626 bundled records, 624 across 224 executable materials are
-`primary_source_validated`. The Campbell fcc-Fe and FeO records remain
-`deferred` source evidence because substantial refit discrepancies are
-unresolved. They are excluded from the executable catalog. This status
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina.
+The library contains 650 source records in 227 material documents. Of these,
+640 are `primary_source_validated`; seven qualified, nondefault
+`not_reproduced` implementations require explicit selection. The executable
+catalog contains 647 records across 224 materials. Three `deferred` records
+preserve the Campbell fcc-Fe/FeO and Morard FeS findings and are excluded from
+executable discovery. This status
 records source validation, not numerical refit parity; see
 [Validation](validation.md) for reproduction results and scientific limitations.
 

@@ -25,7 +25,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 648
+    assert len(identifiers) == len(set(identifiers)) == 650
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -33,11 +33,11 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 648, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 650, **dict(sorted(statuses.items()))}
     assert statuses == {
         "not_refittable": 177,
         "parity": 226,
-        "parity_not_achieved": 73,
+        "parity_not_achieved": 75,
         "similar": 156,
         "source_reconstruction": 16,
     }
@@ -378,28 +378,19 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     neon_vinet = by_identifier["neon_fcc_fei_2007_vinet_2"]
     assert neon_bm3["status"] == "parity"
     assert neon_vinet["status"] == "parity"
-    assert neon_bm3["observations"] == 34
-    assert neon_vinet["observations"] == 34
-    assert neon_bm3["dataset_identifiers"] == [
-        "neon_fei_2007_figure5_digitized",
-        "neon_hemley_1989_table1_fei_recalculated",
-    ]
-    assert neon_bm3["observed_pressure_range_gpa"] == pytest.approx(
-        [10.047704716, 115.715945233]
-    )
-    assert [item["refit"] for item in neon_bm3["parameters"]] == pytest.approx(
-        [1.4775172078, 7.8503378205]
-    )
-    assert [item["refit"] for item in neon_vinet["parameters"]] == pytest.approx(
-        [1.1439324121, 8.2580743609]
-    )
-    assert neon_bm3["free_parameters"] == ["K0", "K0_prime"]
-    assert neon_vinet["free_parameters"] == ["rt_eos.K0", "rt_eos.K0_prime"]
-    assert "Conditional partial reproduction" in neon_bm3["qualification"]
-    assert "Conditional partial reference-isotherm" in neon_vinet["qualification"]
-    assert (
-        "Finger's low-pressure rows remain unavailable" in (neon_bm3["qualification"])
-    )
+    for neon in (neon_bm3, neon_vinet):
+        assert neon["observations"] == 54
+        assert set(neon["dataset_identifiers"]) == {
+            "neon_fei_2007_figure5_digitized",
+            "neon_hemley_1989_table1_fei_recalculated",
+            "neon_finger_1981_table1",
+            "neon_fei_2007_figure5_1000k_digitized",
+        }
+        assert neon["fit_kind"] == "diagnostic_joint_pvt"
+        assert neon["free_parameters"] == ["K0", "K0_prime", "q"]
+        assert neon["observed_temperature_range_k"] == [300.0, 1000.0]
+        assert all(p["within_published_error_width"] for p in neon["parameters"])
+        assert "source confidence" in neon["parity_basis"]
     hemley = by_identifier["neon_fcc_hemley_1989_bm3_refit"]
     assert hemley["status"] == "parity"
     assert hemley["observations"] == 21

@@ -104,7 +104,9 @@ def fei_pressure(volume, temperature):
 def mgo_pressure(volume, temperature):
     """Speziale variable-q reconstruction with integrated dln(theta)=-gamma dln(V).
 
-    This is a calibration sensitivity, not a verified author pressure reducer.
+    The printed gamma equation and SI normalization are independently validated
+    by reproduce_speziale_2001_mgo. Exact author/later pressure reducers remain
+    unavailable; this is a source-equation calibration sensitivity.
     Constants: Speziale Eqs. 1-4, 10-11 and Fei (2004) Table 3.
     """
     v, t = np.broadcast_arrays(np.asarray(volume), np.asarray(temperature))
@@ -513,7 +515,8 @@ def reproduce():
             Fei2004_difference=metrics(reconstructed[:26] - d["p"][:26]),
             Hirose2006_difference=metrics(reconstructed[26:] - d["p"][26:]),
             status="not_exactly_reproduced",
-            qualification="An integrated equation reconstruction is a diagnostic; author calibration implementation/normalization is unavailable. Do not overwrite reported targets or attribute the discrepancy to one cause. No MgO refit is performed.",
+            followup_report="docs/data/speziale-2001-mgo-reproduction.json",
+            qualification="The printed MgO gamma equation, differential identities, quadrature and SI normalization have been independently validated. Substitution of q(V) into gamma0*(V/V0)**q, a different gamma law, closely reproduces later reported pressures; that is diagnostic inference, not recovered author code or Speziale Eq. 11. Exact original thermal fitting and later reducer details remain unavailable. Reported targets and Au parity are unchanged.",
         ),
         objectives=dict(
             equal="Minimize sum(P_Au-P_reported_MgO)^2 at measured V,T.",

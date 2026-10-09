@@ -45,9 +45,9 @@ def test_every_historical_record_has_an_explicit_audited_disposition():
 
     assert set(LEGACY_RECORD_AUDIT) == set(_EOS_RECORD_CATALOG)
     assert Counter(entry.relationship for entry in LEGACY_RECORD_AUDIT.values()) == {
-        "equivalent": 9,
+        "equivalent": 11,
         "different": 17,
-        "absent": 11,
+        "absent": 9,
     }
     assert all(
         entry.canonical_identifier in canonical
@@ -178,7 +178,7 @@ def test_search_rejects_ambiguous_or_invalid_range_options(options, message):
 
 def test_validation_status_filter_and_ordering_are_deterministic():
     records = search_eos_records(validation_status=("primary_source_validated",))
-    assert len(records) == 638
+    assert len(records) == 640
     assert identifiers(records) == tuple(sorted(identifiers(records)))
     assert search_eos_records(validation_status="deferred") == ()
 

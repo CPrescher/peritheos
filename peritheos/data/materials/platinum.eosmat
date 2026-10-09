@@ -3152,6 +3152,204 @@
    ]
   },
   {
+   "determination_method": "experimental",
+   "identifier": "platinum_fei_2007_vinet_mgd",
+   "label": "Fei et al. (2007), Pt Vinet-MGD thermal pressure scale",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Ricolleau",
+     "Frank",
+     "Mibe",
+     "Shen",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "title": "Toward an internally consistent pressure scale",
+    "source": "Proceedings of the National Academy of Sciences",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 195.084
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 60.38,
+     "K0": 277.0,
+     "K0_prime": 5.08
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.01,
+    "K0": null,
+    "K0_prime": 0.02
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0"
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     93.6
+    ],
+    "temperature_k": [
+     300.0,
+     1873.0
+    ],
+    "notes": [
+     "Conservative marginal envelope of the recovered cold and paired high-temperature observations. High-temperature paired data cover much lower pressure than the cold subset; this rectangle does not assert measured high-temperature coverage at 93.6 GPa. The printed variable-exponent pressure convention is not a thermodynamic consistency claim."
+    ]
+   },
+   "notes": "Complete published Vinet plus Mie-Gruneisen-Debye pressure parameterization, with the direct variable-exponent Debye-temperature law printed after Equation (3). The exact 300 K branch remains available separately. The source combines Dewaele (2004) ruby-referenced cold data and Fei (2004) paired Au-Pt data recalculated on its new Au scale. The independent 78-row diagnostic re-reduction and joint fit do not recover all published coefficients; no diagnostic coefficients replace this record. V0/theta0 treatment and source weights are not fully enumerated. Published uncertainty confidence and covariance are unknown. See docs/literature-reproductions/fei-2007-platinum.md.",
+   "parameter_provenance": {
+    "determination_method": "Experimental co-compression and ruby-calibrated static compression; Fei (2007) Table 1, Equation (3), Pt paragraph, and Figure 2.",
+    "reference_isotherm": {
+     "V0": "Table 1, Pt Vinet column; conventional four-atom fcc cell, explicit 300 K reference.",
+     "K0": "Table 1, Pt Vinet column; conventional four-atom fcc cell, explicit 300 K reference.",
+     "K0_prime": "Table 1, Pt Vinet column; conventional four-atom fcc cell, explicit 300 K reference."
+    },
+    "thermal_correction": {
+     "Tr": "Equation (3), definition following it, and Table 1 Pt column. Tr=300 K; n=1 atom per formula unit. V0/theta0 fit constraints are not fully enumerated.",
+     "theta0": "Equation (3), definition following it, and Table 1 Pt column. Tr=300 K; n=1 atom per formula unit. V0/theta0 fit constraints are not fully enumerated.",
+     "gamma0": "Equation (3), definition following it, and Table 1 Pt column. Tr=300 K; n=1 atom per formula unit. V0/theta0 fit constraints are not fully enumerated.",
+     "q": "Equation (3), definition following it, and Table 1 Pt column. Tr=300 K; n=1 atom per formula unit. V0/theta0 fit constraints are not fully enumerated.",
+     "n": "Equation (3), definition following it, and Table 1 Pt column. Tr=300 K; n=1 atom per formula unit. V0/theta0 fit constraints are not fully enumerated."
+    },
+    "debye_temperature_law": "Equation (3), following definition: theta_D=theta0*(V/V0)^(-gamma(V)), gamma(V)=gamma0*(V/V0)^q."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-08",
+    "note": "Primary full text and Table 1 checked; independent Debye quadrature, source-Au pressure re-reduction, and 78-row joint diagnostic documented separately. Equation reconstruction is successful; original coefficient-fit parity is not achieved.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "doi": "10.1073/pnas.0609013104",
+     "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+     "locations": [
+      "Equations (2)-(3) and the theta_D definition following Equation (3)",
+      "Table 1, Pt column and Pt footnote",
+      "Results and Discussion, Pt paragraph",
+      "Figure 2 and caption"
+     ],
+     "finding": "Complete Pt Vinet-MGD pressure scale. The variable-exponent theta law is retained explicitly; all published coefficients and errors are preserved. The Pt paragraph requires Au re-reduction of the earlier paired data."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-10-08",
+     "dataset_identifiers": [
+      "platinum_dewaele_2004_table1_compression",
+      "platinum_fei_2004_table2"
+     ],
+     "source_locations": [
+      "Dewaele (2004), Table I, all 36 Pt observations",
+      "Fei (2004), Table 2, all 42 paired Au-Pt observations",
+      "Fei (2007), Pt paragraph and Figure 2"
+     ],
+     "finding": "All numerical upstream Pt observations are recovered. Independent re-reduction calculates Fei (2007) Au pressures from the paired Au volumes and temperatures. All 78 rows enter the qualified joint fit; published thermal coefficients are not recovered under the stated diagnostic objective. Source weights, exact fitted/fixed list, covariance, and unrounded inputs remain unavailable.",
+     "fit_scope": "complete_recovered_inputs_qualified_objective",
+     "reproduction_resource": "docs/data/fei-2007-platinum-reproduction.json"
+    }
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    93.6
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    1873.0
+   ],
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_dewaele_2004",
+      "source_location": "Pt paragraph and Figure 2; Dewaele (2004) cold subset",
+      "scope": "36 upstream cold rows on revised ruby scale."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference_eos_record": "gold_fei_2007_vinet_2",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "title": "Toward an internally consistent pressure scale",
+       "source": "Proceedings of the National Academy of Sciences",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Pt paragraph and Figure 2; paired Fei (2004) Table 2",
+      "scope": "All 42 paired Au-Pt rows are re-reduced from measured Au volumes at their measured temperatures. Original Fei (2004) reported pressures remain unchanged."
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Both upstream pressure scales are executable. Recovered observations and independent pressure re-reductions are bundled; unknown source weighting and constraints still limit original fit reproduction."
+    },
+    "audit_date": "2026-10-08"
+   },
+   "fit_datasets": [
+    "platinum_dewaele_2004_table1_compression",
+    "platinum_fei_2004_table2"
+   ],
+   "aliases": [
+    "pt_fcc_fei_2007"
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "variable_exponent",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 230.0,
+     "gamma0": 2.72,
+     "q": 0.5,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.03,
+     "q": 0.5,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "n"
+    ]
+   }
+  },
+  {
    "identifier": "platinum_yokoo_2009_vinet_300k",
    "label": "Yokoo et al. (2009), Pt fitted Vinet isotherm, 300 K",
    "record_kind": "published",
@@ -4028,7 +4226,8 @@
     "platinum_dorogokupets_oganov_2007_vinet_4",
     "platinum_dewaele_2019_mao_vinet",
     "platinum_dewaele_2019_dor_vinet",
-    "platinum_fei_2007_vinet_300k"
+    "platinum_fei_2007_vinet_300k",
+    "platinum_fei_2007_vinet_mgd"
    ],
    "transcription": {
     "type": "direct_table_transcription",
@@ -4561,7 +4760,8 @@
    "used_by_eos_records": [
     "platinum_fei_2004_bm3_mgd",
     "platinum_fei_2004_bm3_300k",
-    "platinum_fei_2007_vinet_300k"
+    "platinum_fei_2007_vinet_300k",
+    "platinum_fei_2007_vinet_mgd"
    ],
    "uncertainty": {
     "notes": "Parenthetical source errors with unspecified confidence. Missing temperature errors and errors on recalculated pressures remain missing; no zero sigma or row-wise temperature error invented. Type C thermocouple without pressure-emf correction; ~30 C/500 micrometre gradient, sample length ~250 micrometre."
@@ -4690,8 +4890,8 @@
    "used_by_eos_records": [
     "platinum_holmes_1989_vinet_1",
     "platinum_matsui_2009_vinet_300k",
-    "platinum_matsui_2009_vinet_mgd_electronic",
-    "platinum_yokoo_2009_vinet_300k"
+    "platinum_yokoo_2009_vinet_300k",
+    "platinum_matsui_2009_vinet_mgd_electronic"
    ]
   },
   {
@@ -4986,6 +5186,70 @@
    "notes": "Audit evidence only, not fit_datasets. Published calculated pressures and inferred electronic residuals are not independent observations."
   },
   {
+   "identifier": "platinum_yokoo_2009_table5_isochores",
+   "kind": "source_derived_eos_checkpoints",
+   "description": "All 168 Pt Table V pressures from the full BM3/phonon/electronic model, not measurements and not output of the separate fitted 300 K Vinet branch.",
+   "reference": {
+    "authors": [
+     "Yokoo",
+     "Kawai",
+     "Nakamura",
+     "Kondo",
+     "Tange",
+     "Tsuchiya"
+    ],
+    "year": 2009,
+    "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
+    "source": "Physical Review B",
+    "volume": "80",
+    "locator": "104114",
+    "doi": "10.1103/PhysRevB.80.104114"
+   },
+   "source_location": "Table V, page 104114-7",
+   "source_url": "https://doi.org/10.1103/PhysRevB.80.104114",
+   "columns": [
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "source_phase_annotation",
+     "quantity": "phase_annotation",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/platinum-yokoo-2009-table5-isochores.csv",
+    "sha256": "91fa24883ccbbab1f02916e11bb2df5ca9ba3543c8189bf06db93a77e7dafbb9",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "platinum_yokoo_2009_vinet_300k",
+    "platinum_yokoo_2009_pvt_reconstruction"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "source_artifact_sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
+    "manifest": "datasets/platinum-yokoo-2009-source.json"
+   },
+   "notes": "Model output only. Parenthesized 3000 K values retained with phase annotations; first-liquid interpretation follows the preceding Au Table III convention, which is not restated in the Pt caption. Comparing Table V with Vinet quantifies the branch approximation; it cannot reproduce the independent author fit."
+  },
+  {
    "identifier": "tsuchiya_kawamura_2002_table1_electronic_pressure",
    "kind": "source_derived_electronic_pressure",
    "description": "51 first-principles electronic pressure nodes, 0-5000 K. Pt unchanged; original and erratum-corrected Au kept separately.",
@@ -5050,70 +5314,6 @@
     "manifest": "datasets/platinum-matsui-2009-source.json"
    },
    "notes": "First-principles pressure input, not experimental observations or Matsui fit_datasets. Raw 0 K-referenced pressures; subtract at Tr once. Linear interpolation is an implementation choice; no error bars or analytic coefficients published. Preserve printed Pt 2100 K=0.95 GPa."
-  },
-  {
-   "identifier": "platinum_yokoo_2009_table5_isochores",
-   "kind": "source_derived_eos_checkpoints",
-   "description": "All 168 Pt Table V pressures from the full BM3/phonon/electronic model, not measurements and not output of the separate fitted 300 K Vinet branch.",
-   "reference": {
-    "authors": [
-     "Yokoo",
-     "Kawai",
-     "Nakamura",
-     "Kondo",
-     "Tange",
-     "Tsuchiya"
-    ],
-    "year": 2009,
-    "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
-    "source": "Physical Review B",
-    "volume": "80",
-    "locator": "104114",
-    "doi": "10.1103/PhysRevB.80.104114"
-   },
-   "source_location": "Table V, page 104114-7",
-   "source_url": "https://doi.org/10.1103/PhysRevB.80.104114",
-   "columns": [
-    {
-     "name": "volume_ratio",
-     "quantity": "volume_ratio",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "source_phase_annotation",
-     "quantity": "phase_annotation",
-     "unit": "1",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/platinum-yokoo-2009-table5-isochores.csv",
-    "sha256": "91fa24883ccbbab1f02916e11bb2df5ca9ba3543c8189bf06db93a77e7dafbb9",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "platinum_yokoo_2009_vinet_300k",
-    "platinum_yokoo_2009_pvt_reconstruction"
-   ],
-   "provenance": {
-    "type": "transcribed_from_primary_source_table",
-    "source_artifact_sha256": "aff3f39fee51031532f8251a3f8d5af5e08bcd58856d9fd09b22bcc68bef9907",
-    "manifest": "datasets/platinum-yokoo-2009-source.json"
-   },
-   "notes": "Model output only. Parenthesized 3000 K values retained with phase annotations; first-liquid interpretation follows the preceding Au Table III convention, which is not restated in the Pt caption. Comparing Table V with Vinet quantifies the branch approximation; it cannot reproduce the independent author fit."
   }
  ]
 }

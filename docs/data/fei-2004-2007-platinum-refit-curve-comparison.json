@@ -1,0 +1,235 @@
+{
+  "fei2007_diagnostic_parameters": {
+    "K0_prime": 5.0869600966080855,
+    "gamma0": 2.612403030560318,
+    "q": -1.660642403777131
+  },
+  "fei2007_diagnostic_vs_figure2": {
+    "300": {
+      "samples": 7,
+      "diagnostic_rmse_gpa": 0.3345132656729833,
+      "diagnostic_max_absolute_difference_gpa": 0.4383825617934747
+    },
+    "1473": {
+      "samples": 8,
+      "diagnostic_rmse_gpa": 3.435808083818878,
+      "diagnostic_max_absolute_difference_gpa": 5.179963932405116
+    },
+    "1873": {
+      "samples": 8,
+      "diagnostic_rmse_gpa": 4.700723199678491,
+      "diagnostic_max_absolute_difference_gpa": 7.165860836312589
+    }
+  },
+  "fei2004_diagnostic": {
+    "rows": 42,
+    "run_ids": [
+      "s424056/7",
+      "s424054/5",
+      "s424052/3",
+      "s424050/1",
+      "s424048/9",
+      "s424046/7",
+      "s424042/3",
+      "s376004",
+      "s377002",
+      "s381006",
+      "s379003",
+      "s380008",
+      "s383004",
+      "s375014",
+      "s377003",
+      "s381007",
+      "s378006",
+      "s379005",
+      "s380009",
+      "s383005",
+      "s376012",
+      "s376013",
+      "s375016",
+      "s376006/7",
+      "s382009",
+      "s382006/7",
+      "s377007",
+      "s377005",
+      "s377006",
+      "s377004",
+      "s381016",
+      "s378008",
+      "s378010",
+      "s378011",
+      "s379009",
+      "s379007",
+      "s379011",
+      "s379018",
+      "s380018/9",
+      "s380012/3",
+      "s380010",
+      "s383010"
+    ],
+    "native_equation_max_difference_gpa": 2.1795543148073193e-10,
+    "published_rmse_gpa": 0.44257007460253,
+    "published_mae_gpa": 0.35187573664246097,
+    "table_output_max_difference_gpa": 0.1941933665520068,
+    "table_output_max_fraction_of_parameter_error_bound": 0.8361013045836795,
+    "free_parameters": [
+      "K0",
+      "K0_prime",
+      "gamma0",
+      "q"
+    ],
+    "published_parameters": [
+      273.0,
+      4.8,
+      2.69,
+      0.5
+    ],
+    "published_errors": [
+      3.0,
+      0.3,
+      0.03,
+      0.5
+    ],
+    "refit_parameters": [
+      289.73852218026184,
+      2.636293963510851,
+      2.5593955119705374,
+      -0.9772047375935908
+    ],
+    "diagnostic_standard_errors": [
+      10.372674277963979,
+      1.153900452484886,
+      0.04364356243678907,
+      0.5358516024238034
+    ],
+    "rmse_gpa": 0.3743599578404893,
+    "solver_success": true,
+    "limitations": "Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise."
+  },
+  "fei2004_figure4": {
+    "source_pdf": "https://doi.org/10.1016/j.pepi.2003.09.018",
+    "source_pdf_sha256": "b3fb00483e702e48d9d4cb5b4fa1dcefbbe176f94b4eca438d84b99a225342fd",
+    "source_image": "docs/data/fei-2007-thermal-source-figures/fei2004-figure4.jpg",
+    "source_image_sha256": "72b859ec07e7c8dd66f77497dfbd565d30a6c65373aa7512c43df2306e5a12e3",
+    "pressure_from_x_pixel": [
+      0.048418189919251065,
+      -5.188733892373175
+    ],
+    "volume_from_y_pixel": [
+      -0.00942257920414008,
+      61.09163758019323
+    ],
+    "samples": [
+      {
+        "x_pixel": 248.5,
+        "y_pixel": 225,
+        "temperature_k": 300,
+        "volume_a3": 58.97155725926171,
+        "figure_pressure_gpa": 6.843186302560714,
+        "published_minus_figure_gpa": -0.023843708627659055,
+        "diagnostic_minus_figure_gpa": 0.2097607976225273
+      },
+      {
+        "x_pixel": 430.0,
+        "y_pixel": 225,
+        "temperature_k": 1473,
+        "volume_a3": 58.97155725926171,
+        "figure_pressure_gpa": 15.631087772904781,
+        "published_minus_figure_gpa": -0.10977530453073037,
+        "diagnostic_minus_figure_gpa": -0.004673856491267614
+      },
+      {
+        "x_pixel": 462.5,
+        "y_pixel": 225,
+        "temperature_k": 1673,
+        "volume_a3": 58.97155725926171,
+        "figure_pressure_gpa": 17.204678945280442,
+        "published_minus_figure_gpa": -0.19142718589018415,
+        "diagnostic_minus_figure_gpa": -0.10838970582034335
+      },
+      {
+        "x_pixel": 494.0,
+        "y_pixel": 225,
+        "temperature_k": 1873,
+        "volume_a3": 58.97155725926171,
+        "figure_pressure_gpa": 18.72985192773685,
+        "published_minus_figure_gpa": -0.22427301901342744,
+        "diagnostic_minus_figure_gpa": -0.16330677341030864
+      },
+      {
+        "x_pixel": 382.5,
+        "y_pixel": 350,
+        "temperature_k": 300,
+        "volume_a3": 57.7937348587442,
+        "figure_pressure_gpa": 13.331223751740357,
+        "published_minus_figure_gpa": -0.05411756664487122,
+        "diagnostic_minus_figure_gpa": 0.0945642944581504
+      },
+      {
+        "x_pixel": 565.5,
+        "y_pixel": 350,
+        "temperature_k": 1473,
+        "volume_a3": 57.7937348587442,
+        "figure_pressure_gpa": 22.1917525069633,
+        "published_minus_figure_gpa": -0.13108188992501724,
+        "diagnostic_minus_figure_gpa": 0.14970592025816742
+      },
+      {
+        "x_pixel": 598.0,
+        "y_pixel": 350,
+        "temperature_k": 1673,
+        "volume_a3": 57.7937348587442,
+        "figure_pressure_gpa": 23.76534367933896,
+        "published_minus_figure_gpa": -0.1978143383440738,
+        "diagnostic_minus_figure_gpa": 0.10559948101091976
+      },
+      {
+        "x_pixel": 629.0,
+        "y_pixel": 350,
+        "temperature_k": 1873,
+        "volume_a3": 57.7937348587442,
+        "figure_pressure_gpa": 25.266307566835746,
+        "published_minus_figure_gpa": -0.19148365999279804,
+        "diagnostic_minus_figure_gpa": 0.13456094142315678
+      },
+      {
+        "x_pixel": 440.0,
+        "y_pixel": 400,
+        "temperature_k": 300,
+        "volume_a3": 57.3226058985372,
+        "figure_pressure_gpa": 16.115269672097295,
+        "published_minus_figure_gpa": -0.04211795581962363,
+        "diagnostic_minus_figure_gpa": -0.012186714222917061
+      },
+      {
+        "x_pixel": 624.5,
+        "y_pixel": 400,
+        "temperature_k": 1473,
+        "volume_a3": 57.3226058985372,
+        "figure_pressure_gpa": 25.048425712199116,
+        "published_minus_figure_gpa": -0.15857255007574267,
+        "diagnostic_minus_figure_gpa": 0.11277720751552778
+      },
+      {
+        "x_pixel": 656.0,
+        "y_pixel": 400,
+        "temperature_k": 1673,
+        "volume_a3": 57.3226058985372,
+        "figure_pressure_gpa": 26.573598694655523,
+        "published_minus_figure_gpa": -0.17079712263217317,
+        "diagnostic_minus_figure_gpa": 0.14194949507660581
+      },
+      {
+        "x_pixel": 688.0,
+        "y_pixel": 400,
+        "temperature_k": 1873,
+        "volume_a3": 57.3226058985372,
+        "figure_pressure_gpa": 28.12298077207156,
+        "published_minus_figure_gpa": -0.2067739693318842,
+        "diagnostic_minus_figure_gpa": 0.14738055407794448
+      }
+    ],
+    "scope": "Three manually reviewed raster rows per isotherm; readout comparison, not new observations or fit targets."
+  },
+  "qualification": "Published coefficients unchanged. Both refits are unweighted pressure diagnostics with assumed constraints; neither is established as the original optimization. High-pressure thermal Figure 2 branches extend beyond the recovered thermal observations."
+}

@@ -1,0 +1,444 @@
+{
+  "doi": "10.1073/pnas.0609013104",
+  "input_sha256": {
+    "docs/data/fei-2007-thermal-inputs.json": "70eaa93b01f5f754e5b838577e86606ebad0b2427e59112d5ae36aad3f8b8f1b",
+    "docs/data/fei-2007-thermal-source-figures/figure4.png": "7f7b96031d6d273367ea5da395f27924c3b90ed4f42535c24394e3aa57ba24b7",
+    "docs/data/fei-2007-thermal-source-figures/figure5.png": "f933050771367bbb1766a92db4238ba0910a1606b17266256c84ba09ae1b590b",
+    "peritheos/data/datasets/gold-dewaele-2004-table1-compression.csv": "c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438",
+    "peritheos/data/datasets/gold-fei-2004-table1.csv": "9341ee703e18ce373ebc409c11b217479c5f92fc0464147b459307944cd440ef",
+    "peritheos/data/datasets/gold-fei-2007-figure1-digitized.csv": "a60e32e20bdc32de732c26d628628ef333817be97e571dfc209c516c3fc3f111",
+    "peritheos/data/datasets/platinum-dewaele-2004-table1-compression.csv": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+    "peritheos/data/datasets/platinum-fei-2004-table2.csv": "cc935b6c4c456452f6abc0c5ee425d1eb687d8bb967568b6738f4269b1bb1022"
+  },
+  "materials": {
+    "gold": {
+      "fei_2004_only_q_diagnostic": {
+        "conditional_standard_errors": {
+          "q": 0.10368649795478314
+        },
+        "fixed_parameters": {
+          "K0": 167.0,
+          "K0_prime": 6.0,
+          "V0": 67.85,
+          "gamma0": 2.97,
+          "theta0": 170.0
+        },
+        "free_parameters": [
+          "q"
+        ],
+        "law": "printed",
+        "observations": 26,
+        "parameters": {
+          "q": 1.1167471628862844
+        },
+        "published_rmse_gpa": 0.43586773666601064,
+        "rmse_gpa": 0.3063346645040221,
+        "solver_success": true
+      },
+      "integrated_law_q_only_sensitivity": {
+        "conditional_standard_errors": {
+          "q": 0.12509328964742203
+        },
+        "fixed_parameters": {
+          "K0": 167.0,
+          "K0_prime": 6.0,
+          "V0": 67.85,
+          "gamma0": 2.97,
+          "theta0": 170.0
+        },
+        "free_parameters": [
+          "q"
+        ],
+        "law": "integrated",
+        "observations": 28,
+        "parameters": {
+          "q": 0.6288146551057404
+        },
+        "published_rmse_gpa": 0.7121733383828789,
+        "rmse_gpa": 0.7114906877773183,
+        "solver_success": true
+      },
+      "joint_diagnostic": {
+        "conditional_standard_errors": {
+          "K0_prime": 0.017525082360484074,
+          "gamma0": 0.048870258918213734,
+          "q": 0.1792412018428128
+        },
+        "fixed_parameters": {
+          "K0": 167.0,
+          "V0": 67.85,
+          "theta0": 170.0
+        },
+        "free_parameters": [
+          "K0_prime",
+          "gamma0",
+          "q"
+        ],
+        "law": "printed",
+        "observations": 72,
+        "parameters": {
+          "K0_prime": 6.000933041812018,
+          "gamma0": 2.8517279194379035,
+          "q": 0.325960928532978
+        },
+        "published_rmse_gpa": 0.6614924679809896,
+        "rmse_gpa": 0.6345027520716334,
+        "solver_success": true
+      },
+      "native_equation_max_difference_gpa": 6.750155989720952e-14,
+      "q_only_diagnostic": {
+        "conditional_standard_errors": {
+          "q": 0.1255317289134658
+        },
+        "fixed_parameters": {
+          "K0": 167.0,
+          "K0_prime": 6.0,
+          "V0": 67.85,
+          "gamma0": 2.97,
+          "theta0": 170.0
+        },
+        "free_parameters": [
+          "q"
+        ],
+        "law": "printed",
+        "observations": 28,
+        "parameters": {
+          "q": 0.6321942957409733
+        },
+        "published_rmse_gpa": 0.7122682138769993,
+        "rmse_gpa": 0.7114216004083934,
+        "solver_success": true
+      },
+      "scope": "26 Fei (2004) Au-MgO hot rows plus two Hirose (2006) Run 2 hot rows. Use reported Speziale-MgO pressures, not Au-derived pressures. The joint sensitivity additionally includes 37 Dewaele cold rows, six Fei Figure 1 cold rows and one Hirose cold row; original Dewaele 298 K rows are assigned 300 K as a diagnostic choice. Source selection, unrounded inputs and weights are not recovered.",
+      "theta_identity_factor_at_half_volume": 0.5841116916640328
+    },
+    "nacl_b2": {
+      "coordinate_bounds": {
+        "pressure": 0.2892960462873674,
+        "volume": 0.0621403912543153
+      },
+      "coordinate_offset_q_range": [
+        -0.007624385782629925,
+        1.3513082843452724
+      ],
+      "integrated_law_q_only_sensitivity": {
+        "conditional_standard_errors": {
+          "q": 0.3601419684184303
+        },
+        "fixed_parameters": {
+          "K0": 26.86,
+          "K0_prime": 5.25,
+          "V0": 41.35,
+          "gamma0": 1.7,
+          "theta0": 290.0
+        },
+        "free_parameters": [
+          "q"
+        ],
+        "law": "integrated",
+        "observations": 10,
+        "parameters": {
+          "q": 0.5359354648286334
+        },
+        "published_rmse_gpa": 1.7027935722978236,
+        "rmse_gpa": 1.7018406060970075,
+        "solver_success": true
+      },
+      "native_equation_max_difference_gpa": 4.973799150320701e-14,
+      "q_only_diagnostic": {
+        "conditional_standard_errors": {
+          "q": 0.3666627031763525
+        },
+        "fixed_parameters": {
+          "K0": 26.86,
+          "K0_prime": 5.25,
+          "V0": 41.35,
+          "gamma0": 1.7,
+          "theta0": 290.0
+        },
+        "free_parameters": [
+          "q"
+        ],
+        "law": "printed",
+        "observations": 10,
+        "parameters": {
+          "q": 0.5653894778628807
+        },
+        "published_rmse_gpa": 1.7016935807931486,
+        "rmse_gpa": 1.6986073007155995,
+        "solver_success": true
+      },
+      "scope": "Figure-only partial reconstruction, published Vinet cold coefficients/gamma0/theta0 fixed, q fitted without weights. No measured Pt volumes are available to independently re-reduce the source's Pt-calibrated pressures. Coordinate sensitivity is not a confidence interval. Two touching NaCl markers are excluded; all six separable Ne hot markers are included.",
+      "theta_identity_factor_at_half_volume": 0.6534264097200273
+    },
+    "neon": {
+      "coordinate_bounds": {
+        "pressure": 0.2918287937743191,
+        "volume": 0.07279514699020065
+      },
+      "coordinate_offset_q_range": [
+        0.43119557666796526,
+        0.770440919541754
+      ],
+      "integrated_law_q_only_sensitivity": {
+        "conditional_standard_errors": {
+          "q": 0.12724976431336654
+        },
+        "fixed_parameters": {
+          "K0": 1.16,
+          "K0_prime": 8.23,
+          "V0": 88.967,
+          "gamma0": 2.05,
+          "theta0": 75.1
+        },
+        "free_parameters": [
+          "q"
+        ],
+        "law": "integrated",
+        "observations": 6,
+        "parameters": {
+          "q": 0.5760710612519562
+        },
+        "published_rmse_gpa": 1.0482986772412912,
+        "rmse_gpa": 1.0446351347754566,
+        "solver_success": true
+      },
+      "native_equation_max_difference_gpa": 1.4210854715202004e-14,
+      "q_only_diagnostic": {
+        "conditional_standard_errors": {
+          "q": 0.12729741042855547
+        },
+        "fixed_parameters": {
+          "K0": 1.16,
+          "K0_prime": 8.23,
+          "V0": 88.967,
+          "gamma0": 2.05,
+          "theta0": 75.1
+        },
+        "free_parameters": [
+          "q"
+        ],
+        "law": "printed",
+        "observations": 6,
+        "parameters": {
+          "q": 0.5888557627147682
+        },
+        "published_rmse_gpa": 1.0527935516442486,
+        "rmse_gpa": 1.0519819305368516,
+        "solver_success": true
+      },
+      "scope": "Figure-only partial reconstruction, published Vinet cold coefficients/gamma0/theta0 fixed, q fitted without weights. No measured Pt volumes are available to independently re-reduce the source's Pt-calibrated pressures. Coordinate sensitivity is not a confidence interval. Two touching NaCl markers are excluded; all six separable Ne hot markers are included.",
+      "theta_identity_factor_at_half_volume": 0.5841116916640328
+    },
+    "platinum": {
+      "joint_diagnostic": {
+        "conditional_standard_errors": {
+          "K0_prime": 0.016015985058864434,
+          "gamma0": 0.03143004746975884,
+          "q": 0.3793989467454935
+        },
+        "fixed_parameters": {
+          "K0": 277.0,
+          "V0": 60.38,
+          "theta0": 230.0
+        },
+        "free_parameters": [
+          "K0_prime",
+          "gamma0",
+          "q"
+        ],
+        "law": "printed",
+        "observations": 78,
+        "parameters": {
+          "K0_prime": 5.086960096129324,
+          "gamma0": 2.6124030341296223,
+          "q": -1.6606423518463969
+        },
+        "published_rmse_gpa": 0.44216087777470403,
+        "rmse_gpa": 0.34724907871655414,
+        "solver_success": true
+      },
+      "native_equation_max_difference_gpa": 1.9895196601282805e-13,
+      "q_fixed_at_published_hot_sensitivity": {
+        "conditional_standard_errors": {
+          "gamma0": 0.022954070764530484
+        },
+        "fixed_parameters": {
+          "K0": 277.0,
+          "K0_prime": 5.08,
+          "V0": 60.38,
+          "q": 0.5,
+          "theta0": 230.0
+        },
+        "free_parameters": [
+          "gamma0"
+        ],
+        "law": "printed",
+        "observations": 35,
+        "parameters": {
+          "gamma0": 2.7746915489483244
+        },
+        "published_rmse_gpa": 0.5883711531576933,
+        "rmse_gpa": 0.5446517303116679,
+        "solver_success": true
+      },
+      "q_fixed_at_published_joint_sensitivity": {
+        "conditional_standard_errors": {
+          "K0_prime": 0.019019215026693008,
+          "gamma0": 0.017498069695183503
+        },
+        "fixed_parameters": {
+          "K0": 277.0,
+          "V0": 60.38,
+          "q": 0.5,
+          "theta0": 230.0
+        },
+        "free_parameters": [
+          "K0_prime",
+          "gamma0"
+        ],
+        "law": "printed",
+        "observations": 78,
+        "parameters": {
+          "K0_prime": 5.090198533954942,
+          "gamma0": 2.7743152068576347
+        },
+        "published_rmse_gpa": 0.44216087777470403,
+        "rmse_gpa": 0.41548348722340445,
+        "solver_success": true
+      },
+      "q_only_diagnostic": {
+        "conditional_standard_errors": {
+          "q": 0.1780921367945917
+        },
+        "fixed_parameters": {
+          "K0": 277.0,
+          "K0_prime": 5.08,
+          "V0": 60.38,
+          "gamma0": 2.72,
+          "theta0": 230.0
+        },
+        "free_parameters": [
+          "q"
+        ],
+        "law": "printed",
+        "observations": 78,
+        "parameters": {
+          "q": -0.5138165877100829
+        },
+        "published_rmse_gpa": 0.44216087777470403,
+        "rmse_gpa": 0.37336255551059616,
+        "solver_success": true
+      },
+      "scope": "Existing 78-row Pt reconstruction: 36 Dewaele cold rows and 42 Fei (2004) paired Au-Pt rows, with pressures re-reduced from measured Au volumes using the published Fei (2007) Au scale. See reproduce_fei_2007_platinum.py. Au diagnostic coefficients are never substituted into this calibration.",
+      "source_q_fit_status": "Fei (2004), Section 3.2 and Table 3, presents q=0.5(5) among optimized Pt model parameters. Fei (2007) retains the same value/error and describes fitted model parameters but does not explicitly enumerate q as a free parameter in the 2007 optimization. A newly optimized versus retained Pt q cannot be distinguished with certainty from this wording alone.",
+      "staged_all_rt_then_fei_hot": {
+        "all_78_rmse_gpa": 0.3472490881379134,
+        "cold_stage": {
+          "conditional_standard_errors": {
+            "K0_prime": 0.012306826492823976
+          },
+          "fixed_parameters": {
+            "K0": 277.0,
+            "V0": 60.38,
+            "gamma0": 2.72,
+            "q": 0.5,
+            "theta0": 230.0
+          },
+          "free_parameters": [
+            "K0_prime"
+          ],
+          "law": "printed",
+          "observations": 43,
+          "parameters": {
+            "K0_prime": 5.086992411832206
+          },
+          "published_rmse_gpa": 0.2699339013711683,
+          "rmse_gpa": 0.2689034528899527,
+          "solver_success": true
+        },
+        "qualification": "Fit K0-prime to RT data first with V0/K0 fixed, then fix that cold EOS and fit gamma0/q to the 35 Fei hot rows with theta0 fixed. Equal pressure weights; thermal-stage errors do not propagate cold-stage or Au-calibration uncertainty. All target pressures use the published Au coefficients, not diagnostic refits.",
+        "thermal_stage": {
+          "conditional_standard_errors": {
+            "gamma0": 0.03876416668726203,
+            "q": 0.46769032721668924
+          },
+          "fixed_parameters": {
+            "K0": 277.0,
+            "K0_prime": 5.086992411832206,
+            "V0": 60.38,
+            "theta0": 230.0
+          },
+          "free_parameters": [
+            "gamma0",
+            "q"
+          ],
+          "law": "printed",
+          "observations": 35,
+          "parameters": {
+            "gamma0": 2.6124037814970538,
+            "q": -1.6606168324076254
+          },
+          "published_rmse_gpa": 0.5883711531576933,
+          "rmse_gpa": 0.42413274871401785,
+          "solver_success": true
+        }
+      },
+      "staged_dewaele_rt_then_fei_hot": {
+        "all_78_rmse_gpa": 0.34725861141705594,
+        "cold_stage": {
+          "conditional_standard_errors": {
+            "K0_prime": 0.011980007104755969
+          },
+          "fixed_parameters": {
+            "K0": 277.0,
+            "V0": 60.38,
+            "gamma0": 2.72,
+            "q": 0.5,
+            "theta0": 230.0
+          },
+          "free_parameters": [
+            "K0_prime"
+          ],
+          "law": "printed",
+          "observations": 36,
+          "parameters": {
+            "K0_prime": 5.085932102324548
+          },
+          "published_rmse_gpa": 0.2617213303057028,
+          "rmse_gpa": 0.2608102396136297,
+          "solver_success": true
+        },
+        "qualification": "Fit K0-prime to RT data first with V0/K0 fixed, then fix that cold EOS and fit gamma0/q to the 35 Fei hot rows with theta0 fixed. Equal pressure weights; thermal-stage errors do not propagate cold-stage or Au-calibration uncertainty. All target pressures use the published Au coefficients, not diagnostic refits.",
+        "thermal_stage": {
+          "conditional_standard_errors": {
+            "gamma0": 0.03876348743919433,
+            "q": 0.4676825002895767
+          },
+          "fixed_parameters": {
+            "K0": 277.0,
+            "K0_prime": 5.085932102324548,
+            "V0": 60.38,
+            "theta0": 230.0
+          },
+          "free_parameters": [
+            "gamma0",
+            "q"
+          ],
+          "law": "printed",
+          "observations": 35,
+          "parameters": {
+            "gamma0": 2.6123769586018586,
+            "q": -1.6614852259321236
+          },
+          "published_rmse_gpa": 0.5883711531576933,
+          "rmse_gpa": 0.42413162454432335,
+          "solver_success": true
+        }
+      },
+      "theta_identity_factor_at_half_volume": 0.6534264097200273
+    }
+  },
+  "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+  "qualification": "Conditional diagnostics, not a recovery of author fitting procedure. All fits use equal pressure weights; errors are residual-scaled linearized errors conditional on the adopted cold scale, pressure standards and data selection. Calibration covariance, source weights and full experimental uncertainty are unavailable. The printed theta law implies -dln(theta)/dln(V)=gamma*(1+q*ln(V/V0)), so its thermodynamic identity issue is common to all four models. Published coefficients remain unchanged."
+}

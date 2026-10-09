@@ -1,0 +1,466 @@
+{
+  "cold_rows": 36,
+  "doi": "10.1073/pnas.0609013104",
+  "equation_grid": {
+    "pressure_gpa": [
+      [
+        0.0,
+        5.1788044514369975,
+        11.68521611980362
+      ],
+      [
+        38.000024146440985,
+        43.42479339280638,
+        50.2761683205741
+      ],
+      [
+        107.18701102347637,
+        112.87982566949965,
+        120.13412643124695
+      ]
+    ],
+    "temperature_k": [
+      300.0,
+      1000.0,
+      1873.0
+    ],
+    "volume_a3": [
+      60.38,
+      54.342000000000006,
+      48.304
+    ]
+  },
+  "figure2_temperature_selection_sensitivity": {
+    "diagnostic_standard_errors": {
+      "K0_prime": 0.01612459676238498,
+      "gamma0": 0.0338759486269969,
+      "q": 0.42610005051036487
+    },
+    "fixed_parameters": [
+      "V0",
+      "K0",
+      "theta0"
+    ],
+    "free_parameters": [
+      "K0_prime",
+      "gamma0",
+      "q"
+    ],
+    "observations": 71,
+    "parameters": {
+      "K0_prime": 5.086879448644002,
+      "gamma0": 2.614962893914902,
+      "q": -1.5705121047752224
+    },
+    "published_rmse_gpa": 0.4204521732103238,
+    "qualification": "All 36 Dewaele (2004) cold rows and all 42 paired Fei (2004) Au-Pt rows are used. Au pressures are independently recalculated with Fei (2007) Table 1 and its printed variable-exponent Debye law. Dewaele's raw 298 K provenance remains unchanged; the diagnostic assigns that subset to the source's 300 K reference branch. Equal pressure weights, exact SI R and Avogadro constant, fixed V0/K0/theta0, and fitted K0-prime/gamma0/q are explicit diagnostic choices. The source does not supply its weights, complete fitted/fixed parameter list, covariance, or unrounded inputs. Diagnostic coefficients do not replace the published record.",
+    "rmse_gpa": 0.34890909037479867,
+    "solver_success": true
+  },
+  "fit_reproduction_status": "parity_not_achieved",
+  "fixed_v0_joint_diagnostic": {
+    "diagnostic_standard_errors": {
+      "K0_prime": 0.016015984951392562,
+      "gamma0": 0.03143005487794812,
+      "q": 0.3793990491205905
+    },
+    "fixed_parameters": [
+      "V0",
+      "K0",
+      "theta0"
+    ],
+    "free_parameters": [
+      "K0_prime",
+      "gamma0",
+      "q"
+    ],
+    "observations": 78,
+    "parameters": {
+      "K0_prime": 5.0869600966080855,
+      "gamma0": 2.612403030560318,
+      "q": -1.660642403777131
+    },
+    "published_rmse_gpa": 0.44216087777470436,
+    "qualification": "All 36 Dewaele (2004) cold rows and all 42 paired Fei (2004) Au-Pt rows are used. Au pressures are independently recalculated with Fei (2007) Table 1 and its printed variable-exponent Debye law. Dewaele's raw 298 K provenance remains unchanged; the diagnostic assigns that subset to the source's 300 K reference branch. Equal pressure weights, exact SI R and Avogadro constant, fixed V0/K0/theta0, and fitted K0-prime/gamma0/q are explicit diagnostic choices. The source does not supply its weights, complete fitted/fixed parameter list, covariance, or unrounded inputs. Diagnostic coefficients do not replace the published record.",
+    "rmse_gpa": 0.34724907871655497,
+    "solver_success": true
+  },
+  "free_v0_joint_sensitivity": {
+    "diagnostic_standard_errors": {
+      "K0_prime": 0.027109340289642462,
+      "V0": 0.012487995829719977,
+      "gamma0": 0.034652624808796696,
+      "q": 0.3812165691006813
+    },
+    "fixed_parameters": [
+      "K0",
+      "theta0"
+    ],
+    "free_parameters": [
+      "V0",
+      "K0_prime",
+      "gamma0",
+      "q"
+    ],
+    "observations": 78,
+    "parameters": {
+      "K0_prime": 5.0942087637369475,
+      "V0": 60.375848920479534,
+      "gamma0": 2.6171601781776976,
+      "q": -1.6652028513180488
+    },
+    "published_rmse_gpa": 0.44216087777470436,
+    "qualification": "All 36 Dewaele (2004) cold rows and all 42 paired Fei (2004) Au-Pt rows are used. Au pressures are independently recalculated with Fei (2007) Table 1 and its printed variable-exponent Debye law. Dewaele's raw 298 K provenance remains unchanged; the diagnostic assigns that subset to the source's 300 K reference branch. Equal pressure weights, exact SI R and Avogadro constant, fixed V0/K0/theta0, and fitted K0-prime/gamma0/q are explicit diagnostic choices. The source does not supply its weights, complete fitted/fixed parameter list, covariance, or unrounded inputs. Diagnostic coefficients do not replace the published record.",
+    "rmse_gpa": 0.3469908001825645,
+    "solver_success": true
+  },
+  "independent_au_reduction_max_difference_gpa": 9.947598300641403e-14,
+  "independent_equation_max_difference_gpa": 2.8421709430404007e-13,
+  "input_sha256": {
+    "platinum-dewaele-2004-table1-compression.csv": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+    "platinum-fei-2004-table2.csv": "cc935b6c4c456452f6abc0c5ee425d1eb687d8bb967568b6738f4269b1bb1022"
+  },
+  "observations": 78,
+  "paired_pressure_reductions": [
+    {
+      "gold_volume_a3": 66.43996698600802,
+      "original_fei_2004_pressure_gpa": 3.7,
+      "platinum_volume_a3": 59.61608959962499,
+      "reconstructed_fei_2007_au_pressure_gpa": 3.734485179688245,
+      "run": "s424056/7",
+      "temperature_k": 300.0
+    },
+    {
+      "gold_volume_a3": 65.494687223629,
+      "original_fei_2004_pressure_gpa": 6.45,
+      "platinum_volume_a3": 59.14577489312799,
+      "reconstructed_fei_2007_au_pressure_gpa": 6.556519639103234,
+      "run": "s424054/5",
+      "temperature_k": 300.0
+    },
+    {
+      "gold_volume_a3": 64.072027003375,
+      "original_fei_2004_pressure_gpa": 11.04,
+      "platinum_volume_a3": 58.217085384093004,
+      "reconstructed_fei_2007_au_pressure_gpa": 11.346641699126668,
+      "run": "s424052/3",
+      "temperature_k": 300.0
+    },
+    {
+      "gold_volume_a3": 63.244591735688,
+      "original_fei_2004_pressure_gpa": 14.0,
+      "platinum_volume_a3": 57.71831561013599,
+      "reconstructed_fei_2007_au_pressure_gpa": 14.464745422622014,
+      "run": "s424050/1",
+      "temperature_k": 300.0
+    },
+    {
+      "gold_volume_a3": 62.632260640096995,
+      "original_fei_2004_pressure_gpa": 16.33,
+      "platinum_volume_a3": 57.249135974420994,
+      "reconstructed_fei_2007_au_pressure_gpa": 16.944499983657956,
+      "run": "s424048/9",
+      "temperature_k": 300.0
+    },
+    {
+      "gold_volume_a3": 61.962805966411004,
+      "original_fei_2004_pressure_gpa": 19.03,
+      "platinum_volume_a3": 56.822402971125,
+      "reconstructed_fei_2007_au_pressure_gpa": 19.83500580073311,
+      "run": "s424046/7",
+      "temperature_k": 300.0
+    },
+    {
+      "gold_volume_a3": 61.49423288411099,
+      "original_fei_2004_pressure_gpa": 21.02,
+      "platinum_volume_a3": 56.49049725300001,
+      "reconstructed_fei_2007_au_pressure_gpa": 21.97614701414088,
+      "run": "s424042/3",
+      "temperature_k": 300.0
+    },
+    {
+      "gold_volume_a3": 65.89031131899999,
+      "original_fei_2004_pressure_gpa": 13.7,
+      "platinum_volume_a3": 59.41944263864801,
+      "reconstructed_fei_2007_au_pressure_gpa": 13.916333147696417,
+      "run": "s376004",
+      "temperature_k": 1473.0
+    },
+    {
+      "gold_volume_a3": 64.587387895848,
+      "original_fei_2004_pressure_gpa": 17.79,
+      "platinum_volume_a3": 58.709656445896,
+      "reconstructed_fei_2007_au_pressure_gpa": 18.170296015445608,
+      "run": "s377002",
+      "temperature_k": 1473.0
+    },
+    {
+      "gold_volume_a3": 63.942417278272,
+      "original_fei_2004_pressure_gpa": 20.0,
+      "platinum_volume_a3": 58.154019758406996,
+      "reconstructed_fei_2007_au_pressure_gpa": 20.489476784915745,
+      "run": "s381006",
+      "temperature_k": 1473.0
+    },
+    {
+      "gold_volume_a3": 63.22078394925299,
+      "original_fei_2004_pressure_gpa": 22.62,
+      "platinum_volume_a3": 57.655610771968,
+      "reconstructed_fei_2007_au_pressure_gpa": 23.26660824604314,
+      "run": "s379003",
+      "temperature_k": 1473.0
+    },
+    {
+      "gold_volume_a3": 62.89759099360901,
+      "original_fei_2004_pressure_gpa": 23.85,
+      "platinum_volume_a3": 57.58400372889601,
+      "reconstructed_fei_2007_au_pressure_gpa": 24.576256878454608,
+      "run": "s380008",
+      "temperature_k": 1473.0
+    },
+    {
+      "gold_volume_a3": 61.812604547819,
+      "original_fei_2004_pressure_gpa": 28.24,
+      "platinum_volume_a3": 56.786937919453,
+      "reconstructed_fei_2007_au_pressure_gpa": 29.292090578808498,
+      "run": "s383004",
+      "temperature_k": 1473.0
+    },
+    {
+      "gold_volume_a3": 66.686332676608,
+      "original_fei_2004_pressure_gpa": 12.86,
+      "platinum_volume_a3": 59.794818596864005,
+      "reconstructed_fei_2007_au_pressure_gpa": 13.037159455783486,
+      "run": "s375014",
+      "temperature_k": 1673.0
+    },
+    {
+      "gold_volume_a3": 65.139496664256,
+      "original_fei_2004_pressure_gpa": 17.45,
+      "platinum_volume_a3": 58.90473512342899,
+      "reconstructed_fei_2007_au_pressure_gpa": 17.77313496627547,
+      "run": "s377003",
+      "temperature_k": 1673.0
+    },
+    {
+      "gold_volume_a3": 64.51497510504299,
+      "original_fei_2004_pressure_gpa": 19.49,
+      "platinum_volume_a3": 58.56023735553701,
+      "reconstructed_fei_2007_au_pressure_gpa": 19.90214937955194,
+      "run": "s381007",
+      "temperature_k": 1673.0
+    },
+    {
+      "gold_volume_a3": 64.02400300012499,
+      "original_fei_2004_pressure_gpa": 21.17,
+      "platinum_volume_a3": 58.145014103021,
+      "reconstructed_fei_2007_au_pressure_gpa": 21.671131686805268,
+      "run": "s378006",
+      "temperature_k": 1673.0
+    },
+    {
+      "gold_volume_a3": 63.71243178400001,
+      "original_fei_2004_pressure_gpa": 22.27,
+      "platinum_volume_a3": 58.059506743048,
+      "reconstructed_fei_2007_au_pressure_gpa": 22.839228322658666,
+      "run": "s379005",
+      "temperature_k": 1673.0
+    },
+    {
+      "gold_volume_a3": 63.42095514843899,
+      "original_fei_2004_pressure_gpa": 23.34,
+      "platinum_volume_a3": 57.938140552374996,
+      "reconstructed_fei_2007_au_pressure_gpa": 23.965108054084467,
+      "run": "s380009",
+      "temperature_k": 1673.0
+    },
+    {
+      "gold_volume_a3": 62.259225692104,
+      "original_fei_2004_pressure_gpa": 27.85,
+      "platinum_volume_a3": 57.209039304768005,
+      "reconstructed_fei_2007_au_pressure_gpa": 28.789217069612402,
+      "run": "s383005",
+      "temperature_k": 1673.0
+    },
+    {
+      "gold_volume_a3": 67.33966273350399,
+      "original_fei_2004_pressure_gpa": 12.54,
+      "platinum_volume_a3": 60.088890949631995,
+      "reconstructed_fei_2007_au_pressure_gpa": 12.70132633022282,
+      "run": "s376012",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 67.33469729198698,
+      "original_fei_2004_pressure_gpa": 12.55,
+      "platinum_volume_a3": 60.033679108415996,
+      "reconstructed_fei_2007_au_pressure_gpa": 12.714533612091468,
+      "run": "s376013",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 67.20568147339299,
+      "original_fei_2004_pressure_gpa": 12.89,
+      "platinum_volume_a3": 60.11650956002401,
+      "reconstructed_fei_2007_au_pressure_gpa": 13.060017533309864,
+      "run": "s375016",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 67.09664304787502,
+      "original_fei_2004_pressure_gpa": 13.18,
+      "platinum_volume_a3": 59.849883912896,
+      "reconstructed_fei_2007_au_pressure_gpa": 13.355519253925824,
+      "run": "s376006/7",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 66.799865109375,
+      "original_fei_2004_pressure_gpa": 13.99,
+      "platinum_volume_a3": 59.77647100000001,
+      "reconstructed_fei_2007_au_pressure_gpa": 14.176388422159253,
+      "run": "s382009",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 66.656736691336,
+      "original_fei_2004_pressure_gpa": 14.38,
+      "platinum_volume_a3": 59.76729860919201,
+      "reconstructed_fei_2007_au_pressure_gpa": 14.58109089781594,
+      "run": "s382006/7",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 65.80714737511701,
+      "original_fei_2004_pressure_gpa": 16.84,
+      "platinum_volume_a3": 59.282503487488,
+      "reconstructed_fei_2007_au_pressure_gpa": 17.10636489705765,
+      "run": "s377007",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 65.79247865299999,
+      "original_fei_2004_pressure_gpa": 16.88,
+      "platinum_volume_a3": 59.24146280808699,
+      "reconstructed_fei_2007_au_pressure_gpa": 17.151874001010814,
+      "run": "s377005",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 65.78270071603202,
+      "original_fei_2004_pressure_gpa": 16.91,
+      "platinum_volume_a3": 59.26882115566899,
+      "reconstructed_fei_2007_au_pressure_gpa": 17.182246629845448,
+      "run": "s377006",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 65.68497462419198,
+      "original_fei_2004_pressure_gpa": 17.21,
+      "platinum_volume_a3": 59.309874467991996,
+      "reconstructed_fei_2007_au_pressure_gpa": 17.487439166351017,
+      "run": "s377004",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 65.02785394359701,
+      "original_fei_2004_pressure_gpa": 19.26,
+      "platinum_volume_a3": 58.804873530103,
+      "reconstructed_fei_2007_au_pressure_gpa": 19.618518511525334,
+      "run": "s381016",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 64.664687908072,
+      "original_fei_2004_pressure_gpa": 20.44,
+      "platinum_volume_a3": 58.546666387,
+      "reconstructed_fei_2007_au_pressure_gpa": 20.857374995265552,
+      "run": "s378008",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 64.664687908072,
+      "original_fei_2004_pressure_gpa": 20.44,
+      "platinum_volume_a3": 58.524052765624994,
+      "reconstructed_fei_2007_au_pressure_gpa": 20.857374995265552,
+      "run": "s378010",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 64.659854851353,
+      "original_fei_2004_pressure_gpa": 20.46,
+      "platinum_volume_a3": 58.537620239552,
+      "reconstructed_fei_2007_au_pressure_gpa": 20.87416469559291,
+      "run": "s378011",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 64.26917649561601,
+      "original_fei_2004_pressure_gpa": 21.77,
+      "platinum_volume_a3": 58.424622007627,
+      "reconstructed_fei_2007_au_pressure_gpa": 22.258306538830723,
+      "run": "s379009",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 64.22586518382299,
+      "original_fei_2004_pressure_gpa": 21.92,
+      "platinum_volume_a3": 58.50596606166099,
+      "reconstructed_fei_2007_au_pressure_gpa": 22.415079796857622,
+      "run": "s379007",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 64.201811754088,
+      "original_fei_2004_pressure_gpa": 22.01,
+      "platinum_volume_a3": 58.325303933540994,
+      "reconstructed_fei_2007_au_pressure_gpa": 22.502436414047743,
+      "run": "s379011",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 64.19219206399998,
+      "original_fei_2004_pressure_gpa": 22.04,
+      "platinum_volume_a3": 58.27568713299999,
+      "reconstructed_fei_2007_au_pressure_gpa": 22.537431230429576,
+      "run": "s379018",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 63.94721451866899,
+      "original_fei_2004_pressure_gpa": 22.89,
+      "platinum_volume_a3": 58.185546875,
+      "reconstructed_fei_2007_au_pressure_gpa": 23.439939717902718,
+      "run": "s380018/9",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 63.85131529020901,
+      "original_fei_2004_pressure_gpa": 23.23,
+      "platinum_volume_a3": 58.21257918521599,
+      "reconstructed_fei_2007_au_pressure_gpa": 23.799237335217658,
+      "run": "s380012/3",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 63.808191936,
+      "original_fei_2004_pressure_gpa": 23.39,
+      "platinum_volume_a3": 58.226098479479006,
+      "reconstructed_fei_2007_au_pressure_gpa": 23.961917989325045,
+      "run": "s380010",
+      "temperature_k": 1873.0
+    },
+    {
+      "gold_volume_a3": 62.67011920236101,
+      "original_fei_2004_pressure_gpa": 27.66,
+      "platinum_volume_a3": 57.51245599999999,
+      "reconstructed_fei_2007_au_pressure_gpa": 28.515531845183062,
+      "run": "s383010",
+      "temperature_k": 1873.0
+    }
+  ],
+  "paired_rows": 42,
+  "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+  "record_identifier": "platinum_fei_2007_vinet_mgd",
+  "scope": "All 36 Dewaele (2004) cold rows and all 42 paired Fei (2004) Au-Pt rows are used. Au pressures are independently recalculated with Fei (2007) Table 1 and its printed variable-exponent Debye law. Dewaele's raw 298 K provenance remains unchanged; the diagnostic assigns that subset to the source's 300 K reference branch. Equal pressure weights, exact SI R and Avogadro constant, fixed V0/K0/theta0, and fitted K0-prime/gamma0/q are explicit diagnostic choices. The source does not supply its weights, complete fitted/fixed parameter list, covariance, or unrounded inputs. Diagnostic coefficients do not replace the published record."
+}

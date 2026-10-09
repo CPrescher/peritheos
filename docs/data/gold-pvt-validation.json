@@ -1,0 +1,1172 @@
+{
+  "scope": "Au pressure-volume-temperature only; caloric validation is not an acceptance criterion.",
+  "audit_date": "2026-10-09",
+  "input_sha256": {
+    "docs/data/fei-2007-gold-source-curves.json": "c1078dd735cd0aeaeb98227467c891a34f76e4921106c111b8ec9d244374e1cd",
+    "peritheos/data/datasets/gold-fei-2004-table1.csv": "9341ee703e18ce373ebc409c11b217479c5f92fc0464147b459307944cd440ef",
+    "peritheos/data/datasets/gold-dewaele-2004-table1-compression.csv": "c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438",
+    "peritheos/data/datasets/gold-yokoo-2009-source.json": "a8f3584f9bbb82811a6cb1dc19207c6b0a025e85fbfae5bc6d82976369206314",
+    "peritheos/data/datasets/gold-yokoo-2009-table3-isochores.csv": "edcb89b181d94a99ae8712833c59f0fee0f6815481b8377928199ea92e2499ca",
+    "peritheos/data/datasets/tsuchiya-kawamura-2002-table1-electronic-pressure.csv": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336"
+  },
+  "fei_2007": {
+    "record_identifier": "gold_fei_2007_vinet_2",
+    "status": "published_pvt_equation_verified",
+    "published_parameters": {
+      "V0": 67.85,
+      "K0": 167.0,
+      "K0_prime": 6.0,
+      "theta0": 170.0,
+      "gamma0": 2.97,
+      "q": 0.6,
+      "Tr": 300.0,
+      "n": 1
+    },
+    "doi": "10.1073/pnas.0609013104",
+    "source_locations": [
+      "Table 1",
+      "Equations 2-3",
+      "Figure 1"
+    ],
+    "independent_equation": {
+      "states": 119,
+      "rmse_gpa": 7.241399823498042e-14,
+      "max_abs_difference_gpa": 2.2737367544323206e-13
+    },
+    "verification_grid": {
+      "cell_volume_a3": [
+        48.852,
+        50.208999999999996,
+        51.565999999999995,
+        52.922999999999995,
+        54.28,
+        55.63699999999999,
+        56.99399999999999,
+        58.35099999999999,
+        59.708,
+        61.065,
+        62.422,
+        63.77899999999999,
+        65.136,
+        66.493,
+        67.85,
+        69.207,
+        70.564
+      ],
+      "temperature_k": [
+        300.0,
+        500.0,
+        1000.0,
+        1473.0,
+        2000.0,
+        2173.0,
+        2330.0
+      ],
+      "qualification": "Numerical test domain, not a measured validity rectangle."
+    },
+    "source_curve_comparison": {
+      "kind": "calculated_source_curves_not_observations",
+      "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306",
+      "location": "Figure 1, page 9183",
+      "qualification": "Vector path vertices and axis ticks from the primary PDF. Agreement at graph precision does not establish exact author numerical output parity or the original fitting objective.",
+      "curves": [
+        {
+          "temperature_k": 300,
+          "states": 37,
+          "rmse_gpa": 0.09833864298276525,
+          "max_abs_difference_gpa": 0.21859855127276262,
+          "one_stroke_pressure_width_gpa": 0.2780234684224822,
+          "within_one_stroke_pressure_width": true,
+          "points": [
+            {
+              "cell_volume_a3": 67.84794898743819,
+              "figure_pressure_gpa": 0.0038309009304384745,
+              "model_minus_figure_gpa": 0.0012178144525714736
+            },
+            {
+              "cell_volume_a3": 67.49729764339254,
+              "figure_pressure_gpa": 0.8747206303943784,
+              "model_minus_figure_gpa": 0.009359772437381064
+            },
+            {
+              "cell_volume_a3": 67.00235590825679,
+              "figure_pressure_gpa": 2.1972106423499724,
+              "model_minus_figure_gpa": -0.017201666093397794
+            },
+            {
+              "cell_volume_a3": 66.50132882391856,
+              "figure_pressure_gpa": 3.5527629046044638,
+              "model_minus_figure_gpa": 0.007743566133208368
+            },
+            {
+              "cell_volume_a3": 66.00043696956259,
+              "figure_pressure_gpa": 5.014264650771281,
+              "model_minus_figure_gpa": -0.0012807389923326085
+            },
+            {
+              "cell_volume_a3": 65.49940988522434,
+              "figure_pressure_gpa": 6.547902215772055,
+              "model_minus_figure_gpa": -0.00616522092616556
+            },
+            {
+              "cell_volume_a3": 64.9983828008861,
+              "figure_pressure_gpa": 8.14616145181158,
+              "model_minus_figure_gpa": 0.003915729559432535
+            },
+            {
+              "cell_volume_a3": 64.49789663647698,
+              "figure_pressure_gpa": 9.818810751023591,
+              "model_minus_figure_gpa": 0.021206232718537166
+            },
+            {
+              "cell_volume_a3": 64.00295490134123,
+              "figure_pressure_gpa": 11.59214963069131,
+              "model_minus_figure_gpa": 0.004991409199160302
+            },
+            {
+              "cell_volume_a3": 63.50192781700298,
+              "figure_pressure_gpa": 13.471437994271383,
+              "model_minus_figure_gpa": -0.004303642123115736
+            },
+            {
+              "cell_volume_a3": 63.001035962647,
+              "figure_pressure_gpa": 15.419856517567325,
+              "model_minus_figure_gpa": 0.013058819759272922
+            },
+            {
+              "cell_volume_a3": 62.500008878308776,
+              "figure_pressure_gpa": 17.474224524775607,
+              "model_minus_figure_gpa": 0.026086271048733067
+            },
+            {
+              "cell_volume_a3": 61.99898179397052,
+              "figure_pressure_gpa": 19.63153635677817,
+              "model_minus_figure_gpa": 0.04228724579865428
+            },
+            {
+              "cell_volume_a3": 61.498089939614566,
+              "figure_pressure_gpa": 21.92785992299197,
+              "model_minus_figure_gpa": 0.03025094242175541
+            },
+            {
+              "cell_volume_a3": 61.003148204478805,
+              "figure_pressure_gpa": 24.29406506370114,
+              "model_minus_figure_gpa": 0.03601660861322031
+            },
+            {
+              "cell_volume_a3": 60.50212112014057,
+              "figure_pressure_gpa": 26.833095603699988,
+              "model_minus_figure_gpa": 0.02018104743830662
+            },
+            {
+              "cell_volume_a3": 60.001094035802325,
+              "figure_pressure_gpa": 29.478075627611148,
+              "model_minus_figure_gpa": 0.0273705069119643
+            },
+            {
+              "cell_volume_a3": 59.50020218144636,
+              "figure_pressure_gpa": 32.228253720655175,
+              "model_minus_figure_gpa": 0.06409651930997029
+            },
+            {
+              "cell_volume_a3": 58.999175097108115,
+              "figure_pressure_gpa": 35.15125721298884,
+              "model_minus_figure_gpa": 0.0711262454736925
+            },
+            {
+              "cell_volume_a3": 58.49828324275216,
+              "figure_pressure_gpa": 38.21327243953374,
+              "model_minus_figure_gpa": 0.08796053278560834
+            },
+            {
+              "cell_volume_a3": 57.997256158413904,
+              "figure_pressure_gpa": 41.447361650588775,
+              "model_minus_figure_gpa": 0.09087637697677309
+            },
+            {
+              "cell_volume_a3": 57.50272011322498,
+              "figure_pressure_gpa": 44.824971084532166,
+              "model_minus_figure_gpa": 0.0705518983564204
+            },
+            {
+              "cell_volume_a3": 57.001828258869025,
+              "figure_pressure_gpa": 48.406965338505074,
+              "model_minus_figure_gpa": 0.06173716287049302
+            },
+            {
+              "cell_volume_a3": 56.50080117453078,
+              "figure_pressure_gpa": 52.13172840058682,
+              "model_minus_figure_gpa": 0.09404532959361234
+            },
+            {
+              "cell_volume_a3": 55.99990932017482,
+              "figure_pressure_gpa": 56.062379112257105,
+              "model_minus_figure_gpa": 0.11188728092903233
+            },
+            {
+              "cell_volume_a3": 55.4987470058543,
+              "figure_pressure_gpa": 60.20417737697258,
+              "model_minus_figure_gpa": 0.12339508002511934
+            },
+            {
+              "cell_volume_a3": 54.99799038148061,
+              "figure_pressure_gpa": 64.55261470605609,
+              "model_minus_figure_gpa": 0.13808101722518984
+            },
+            {
+              "cell_volume_a3": 54.503048646344865,
+              "figure_pressure_gpa": 69.11219958818481,
+              "model_minus_figure_gpa": 0.11141470651824648
+            },
+            {
+              "cell_volume_a3": 54.002427251953456,
+              "figure_pressure_gpa": 73.94755369439741,
+              "model_minus_figure_gpa": 0.0957969189969532
+            },
+            {
+              "cell_volume_a3": 53.50099447766837,
+              "figure_pressure_gpa": 78.99480676843476,
+              "model_minus_figure_gpa": 0.1254511282712798
+            },
+            {
+              "cell_volume_a3": 52.99996739333014,
+              "figure_pressure_gpa": 84.31707765177651,
+              "model_minus_figure_gpa": 0.13868154633962604
+            },
+            {
+              "cell_volume_a3": 52.49894030899189,
+              "figure_pressure_gpa": 89.88430975324181,
+              "model_minus_figure_gpa": 0.1837915392342495
+            },
+            {
+              "cell_volume_a3": 51.997913224653644,
+              "figure_pressure_gpa": 95.76638464732613,
+              "model_minus_figure_gpa": 0.20599965488005978
+            },
+            {
+              "cell_volume_a3": 51.503647639429275,
+              "figure_pressure_gpa": 101.96029667491132,
+              "model_minus_figure_gpa": 0.13836848966874982
+            },
+            {
+              "cell_volume_a3": 51.00262055509103,
+              "figure_pressure_gpa": 108.46604583599739,
+              "model_minus_figure_gpa": 0.16530991723311672
+            },
+            {
+              "cell_volume_a3": 50.501593470752795,
+              "figure_pressure_gpa": 115.32195428433991,
+              "model_minus_figure_gpa": 0.18483654000431216
+            },
+            {
+              "cell_volume_a3": 50.000701616396825,
+              "figure_pressure_gpa": 122.52351353126173,
+              "model_minus_figure_gpa": 0.21859855127276262
+            }
+          ]
+        },
+        {
+          "temperature_k": 1473,
+          "states": 37,
+          "rmse_gpa": 0.031373655326965615,
+          "max_abs_difference_gpa": 0.08652641890273571,
+          "one_stroke_pressure_width_gpa": 0.2780234684224822,
+          "within_one_stroke_pressure_width": true,
+          "points": [
+            {
+              "cell_volume_a3": 67.84794898743819,
+              "figure_pressure_gpa": 8.460252829651026,
+              "model_minus_figure_gpa": 0.02406502354461182
+            },
+            {
+              "cell_volume_a3": 67.49729764339254,
+              "figure_pressure_gpa": 9.364956224193378,
+              "model_minus_figure_gpa": 0.01512564117707349
+            },
+            {
+              "cell_volume_a3": 67.00235590825679,
+              "figure_pressure_gpa": 10.687446236148958,
+              "model_minus_figure_gpa": 0.01235071172304636
+            },
+            {
+              "cell_volume_a3": 66.50132882391856,
+              "figure_pressure_gpa": 12.115885732016906,
+              "model_minus_figure_gpa": -0.011309046657167698
+            },
+            {
+              "cell_volume_a3": 66.00043696956259,
+              "figure_pressure_gpa": 13.577387478183738,
+              "model_minus_figure_gpa": 0.004148823457292394
+            },
+            {
+              "cell_volume_a3": 65.49940988522434,
+              "figure_pressure_gpa": 15.10501372494835,
+              "model_minus_figure_gpa": 0.029973056659608588
+            },
+            {
+              "cell_volume_a3": 64.9983828008861,
+              "figure_pressure_gpa": 16.74234652952292,
+              "model_minus_figure_gpa": 0.025888557534813117
+            },
+            {
+              "cell_volume_a3": 64.49789663647698,
+              "figure_pressure_gpa": 18.448809493813343,
+              "model_minus_figure_gpa": 0.03445909386299917
+            },
+            {
+              "cell_volume_a3": 64.00295490134123,
+              "figure_pressure_gpa": 20.258216282898033,
+              "model_minus_figure_gpa": 0.007202967021015638
+            },
+            {
+              "cell_volume_a3": 63.50192781700298,
+              "figure_pressure_gpa": 22.13675323169859,
+              "model_minus_figure_gpa": 0.02420934486679016
+            },
+            {
+              "cell_volume_a3": 63.001035962647,
+              "figure_pressure_gpa": 24.152799085151344,
+              "model_minus_figure_gpa": -0.000293347600823779
+            },
+            {
+              "cell_volume_a3": 62.500008878308776,
+              "figure_pressure_gpa": 26.24323500177661,
+              "model_minus_figure_gpa": 0.002656589140350718
+            },
+            {
+              "cell_volume_a3": 61.99898179397052,
+              "figure_pressure_gpa": 28.434360498857572,
+              "model_minus_figure_gpa": 0.011257750684990242
+            },
+            {
+              "cell_volume_a3": 61.498089939614566,
+              "figure_pressure_gpa": 30.729932650291857,
+              "model_minus_figure_gpa": 0.026405184816951532
+            },
+            {
+              "cell_volume_a3": 61.003148204478805,
+              "figure_pressure_gpa": 33.16601936549641,
+              "model_minus_figure_gpa": -0.011368728268976724
+            },
+            {
+              "cell_volume_a3": 60.50212112014057,
+              "figure_pressure_gpa": 35.7073041498338,
+              "model_minus_figure_gpa": -0.00256402045554438
+            },
+            {
+              "cell_volume_a3": 60.001094035802325,
+              "figure_pressure_gpa": 38.385346424043874,
+              "model_minus_figure_gpa": -0.0013100268502554968
+            },
+            {
+              "cell_volume_a3": 59.50020218144636,
+              "figure_pressure_gpa": 41.1693381821663,
+              "model_minus_figure_gpa": 0.028956225981289663
+            },
+            {
+              "cell_volume_a3": 58.999175097108115,
+              "figure_pressure_gpa": 44.128409583916934,
+              "model_minus_figure_gpa": 0.027516132977631003
+            },
+            {
+              "cell_volume_a3": 58.49828324275216,
+              "figure_pressure_gpa": 47.22423847554025,
+              "model_minus_figure_gpa": 0.038366455780177944
+            },
+            {
+              "cell_volume_a3": 57.997256158413904,
+              "figure_pressure_gpa": 50.49514701079177,
+              "model_minus_figure_gpa": 0.03254167150736009
+            },
+            {
+              "cell_volume_a3": 57.50272011322498,
+              "figure_pressure_gpa": 53.90506728025454,
+              "model_minus_figure_gpa": 0.007860461080625214
+            },
+            {
+              "cell_volume_a3": 57.001828258869025,
+              "figure_pressure_gpa": 57.490067193345524,
+              "model_minus_figure_gpa": 0.02459807014654558
+            },
+            {
+              "cell_volume_a3": 56.50080117453078,
+              "figure_pressure_gpa": 61.28170617080457,
+              "model_minus_figure_gpa": 0.01884480199718297
+            },
+            {
+              "cell_volume_a3": 55.99990932017482,
+              "figure_pressure_gpa": 65.24842479189181,
+              "model_minus_figure_gpa": 0.02967678160675291
+            },
+            {
+              "cell_volume_a3": 55.4987470058543,
+              "figure_pressure_gpa": 69.4240367216857,
+              "model_minus_figure_gpa": 0.03669854212938617
+            },
+            {
+              "cell_volume_a3": 54.99799038148061,
+              "figure_pressure_gpa": 73.80854196018618,
+              "model_minus_figure_gpa": 0.04487687102195537
+            },
+            {
+              "cell_volume_a3": 54.503048646344865,
+              "figure_pressure_gpa": 78.40118909261378,
+              "model_minus_figure_gpa": 0.014619883807668543
+            },
+            {
+              "cell_volume_a3": 54.002427251953456,
+              "figure_pressure_gpa": 83.2395488579445,
+              "model_minus_figure_gpa": 0.026066404916036845
+            },
+            {
+              "cell_volume_a3": 53.50099447766837,
+              "figure_pressure_gpa": 88.35367784735914,
+              "model_minus_figure_gpa": 0.01922860746461197
+            },
+            {
+              "cell_volume_a3": 52.99996739333014,
+              "figure_pressure_gpa": 93.71201664011784,
+              "model_minus_figure_gpa": 0.027018537517648156
+            },
+            {
+              "cell_volume_a3": 52.49894030899189,
+              "figure_pressure_gpa": 99.31606806577963,
+              "model_minus_figure_gpa": 0.06620772040503198
+            },
+            {
+              "cell_volume_a3": 51.997913224653644,
+              "figure_pressure_gpa": 105.23120521016284,
+              "model_minus_figure_gpa": 0.08652641890273571
+            },
+            {
+              "cell_volume_a3": 51.503647639429275,
+              "figure_pressure_gpa": 111.45893090282644,
+              "model_minus_figure_gpa": 0.016105803688873266
+            },
+            {
+              "cell_volume_a3": 51.00262055509103,
+              "figure_pressure_gpa": 117.99999655854998,
+              "model_minus_figure_gpa": 0.039458616929280765
+            },
+            {
+              "cell_volume_a3": 50.501593470752795,
+              "figure_pressure_gpa": 124.88971867197091,
+              "model_minus_figure_gpa": 0.05718426259437592
+            },
+            {
+              "cell_volume_a3": 50.000701616396825,
+              "figure_pressure_gpa": 132.16341373772667,
+              "model_minus_figure_gpa": 0.0511030422323131
+            }
+          ]
+        },
+        {
+          "temperature_k": 2173,
+          "states": 37,
+          "rmse_gpa": 0.031037644543922157,
+          "max_abs_difference_gpa": 0.08631844025954649,
+          "one_stroke_pressure_width_gpa": 0.2780234684224822,
+          "within_one_stroke_pressure_width": true,
+          "points": [
+            {
+              "cell_volume_a3": 67.84794898743819,
+              "figure_pressure_gpa": 13.541319568766767,
+              "model_minus_figure_gpa": 0.01732403951588246
+            },
+            {
+              "cell_volume_a3": 67.49729764339254,
+              "figure_pressure_gpa": 14.44527154852959,
+              "model_minus_figure_gpa": 0.01959269995951729
+            },
+            {
+              "cell_volume_a3": 67.00235590825679,
+              "figure_pressure_gpa": 15.80458088468167,
+              "model_minus_figure_gpa": -0.005115272588096076
+            },
+            {
+              "cell_volume_a3": 66.50132882391856,
+              "figure_pressure_gpa": 17.229263306652015,
+              "model_minus_figure_gpa": -0.009795106404659748
+            },
+            {
+              "cell_volume_a3": 66.00043696956259,
+              "figure_pressure_gpa": 18.690765052818847,
+              "model_minus_figure_gpa": 0.021038575318630848
+            },
+            {
+              "cell_volume_a3": 65.49940988522434,
+              "figure_pressure_gpa": 20.258216282898033,
+              "model_minus_figure_gpa": 0.022577629008686984
+            },
+            {
+              "cell_volume_a3": 64.9983828008861,
+              "figure_pressure_gpa": 21.92785992299197,
+              "model_minus_figure_gpa": 0.0018847574168177061
+            },
+            {
+              "cell_volume_a3": 64.49789663647698,
+              "figure_pressure_gpa": 23.632068642943835,
+              "model_minus_figure_gpa": 0.028560305054590174
+            },
+            {
+              "cell_volume_a3": 64.00295490134123,
+              "figure_pressure_gpa": 25.477543341445497,
+              "model_minus_figure_gpa": -0.01892325704402964
+            },
+            {
+              "cell_volume_a3": 63.50192781700298,
+              "figure_pressure_gpa": 27.356831705025584,
+              "model_minus_figure_gpa": 0.013537347464549043
+            },
+            {
+              "cell_volume_a3": 63.001035962647,
+              "figure_pressure_gpa": 29.372126143698807,
+              "model_minus_figure_gpa": 0.006161791107494707
+            },
+            {
+              "cell_volume_a3": 62.500008878308776,
+              "figure_pressure_gpa": 31.462562060324075,
+              "model_minus_figure_gpa": 0.025669538655989754
+            },
+            {
+              "cell_volume_a3": 61.99898179397052,
+              "figure_pressure_gpa": 33.68975546682201,
+              "model_minus_figure_gpa": 0.014941544173808552
+            },
+            {
+              "cell_volume_a3": 61.498089939614566,
+              "figure_pressure_gpa": 36.01914128333469,
+              "model_minus_figure_gpa": 0.013193752262090186
+            },
+            {
+              "cell_volume_a3": 61.003148204478805,
+              "figure_pressure_gpa": 38.45522799853924,
+              "model_minus_figure_gpa": -0.007678439409502857
+            },
+            {
+              "cell_volume_a3": 60.50212112014057,
+              "figure_pressure_gpa": 40.99350712375856,
+              "model_minus_figure_gpa": 0.02143148468826439
+            },
+            {
+              "cell_volume_a3": 60.001094035802325,
+              "figure_pressure_gpa": 43.71137438128321,
+              "model_minus_figure_gpa": 0.00035483640550637574
+            },
+            {
+              "cell_volume_a3": 59.50020218144636,
+              "figure_pressure_gpa": 46.527676974925015,
+              "model_minus_figure_gpa": 0.015998285290883985
+            },
+            {
+              "cell_volume_a3": 58.999175097108115,
+              "figure_pressure_gpa": 49.487499791455164,
+              "model_minus_figure_gpa": 0.03170185984854612
+            },
+            {
+              "cell_volume_a3": 58.49828324275216,
+              "figure_pressure_gpa": 52.61864517771593,
+              "model_minus_figure_gpa": 0.0253320758012876
+            },
+            {
+              "cell_volume_a3": 57.997256158413904,
+              "figure_pressure_gpa": 55.88955371296744,
+              "model_minus_figure_gpa": 0.03781878240813796
+            },
+            {
+              "cell_volume_a3": 57.50272011322498,
+              "figure_pressure_gpa": 59.33328764750863,
+              "model_minus_figure_gpa": -0.0023916148299036877
+            },
+            {
+              "cell_volume_a3": 57.001828258869025,
+              "figure_pressure_gpa": 62.95210122567801,
+              "model_minus_figure_gpa": -0.0007310926907706516
+            },
+            {
+              "cell_volume_a3": 56.50080117453078,
+              "figure_pressure_gpa": 66.74599444747562,
+              "model_minus_figure_gpa": 0.010225976868468933
+            },
+            {
+              "cell_volume_a3": 55.99990932017482,
+              "figure_pressure_gpa": 70.71271306856286,
+              "model_minus_figure_gpa": 0.04024481514510114
+            },
+            {
+              "cell_volume_a3": 55.4987470058543,
+              "figure_pressure_gpa": 74.92213866343516,
+              "model_minus_figure_gpa": 0.032882326349550794
+            },
+            {
+              "cell_volume_a3": 54.99799038148061,
+              "figure_pressure_gpa": 79.30664390193564,
+              "model_minus_figure_gpa": 0.06071110353640563
+            },
+            {
+              "cell_volume_a3": 54.503048646344865,
+              "figure_pressure_gpa": 83.93611035855974,
+              "model_minus_figure_gpa": 0.013294435266047344
+            },
+            {
+              "cell_volume_a3": 54.002427251953456,
+              "figure_pressure_gpa": 88.80678095940982,
+              "model_minus_figure_gpa": 0.012560461998035066
+            },
+            {
+              "cell_volume_a3": 53.50099447766837,
+              "figure_pressure_gpa": 93.92090994882443,
+              "model_minus_figure_gpa": 0.02613795032250721
+            },
+            {
+              "cell_volume_a3": 52.99996739333014,
+              "figure_pressure_gpa": 99.27924874158316,
+              "model_minus_figure_gpa": 0.054584274688380674
+            },
+            {
+              "cell_volume_a3": 52.49894030899189,
+              "figure_pressure_gpa": 104.95318174174037,
+              "model_minus_figure_gpa": 0.044811380479330865
+            },
+            {
+              "cell_volume_a3": 51.997913224653644,
+              "figure_pressure_gpa": 110.86831888612355,
+              "model_minus_figure_gpa": 0.08631844025954649
+            },
+            {
+              "cell_volume_a3": 51.503647639429275,
+              "figure_pressure_gpa": 117.13136107342459,
+              "model_minus_figure_gpa": 0.0017529975983450186
+            },
+            {
+              "cell_volume_a3": 51.00262055509103,
+              "figure_pressure_gpa": 123.70699180900607,
+              "model_minus_figure_gpa": 0.012281033237258043
+            },
+            {
+              "cell_volume_a3": 50.501593470752795,
+              "figure_pressure_gpa": 130.59671392242697,
+              "model_minus_figure_gpa": 0.052034208936305504
+            },
+            {
+              "cell_volume_a3": 50.000701616396825,
+              "figure_pressure_gpa": 137.86965757340323,
+              "model_minus_figure_gpa": 0.06901966392197778
+            }
+          ]
+        }
+      ]
+    },
+    "measured_data_comparisons": {
+      "fei_2004_hot": {
+        "states": 26,
+        "rmse_gpa": 0.43586773666600875,
+        "max_abs_difference_gpa": 0.8624889379297151,
+        "calibration": "Speziale (2001) MgO",
+        "temperature_k": [
+          1273.0,
+          2173.0
+        ],
+        "pressure_gpa": [
+          8.64,
+          25.56
+        ],
+        "qualification": "Comparison with source fit inputs, not withheld physical validation; original uncertainty columns remain in the CSV. No refit is made.",
+        "points": [
+          {
+            "source_row_index": 1,
+            "cell_volume_a3": 64.732375991808,
+            "temperature_k": 1273.0,
+            "source_pressure_gpa": 16.14,
+            "model_pressure_gpa": 16.192619111079043
+          },
+          {
+            "source_row_index": 2,
+            "cell_volume_a3": 67.81249364913899,
+            "temperature_k": 1473.0,
+            "source_pressure_gpa": 8.64,
+            "model_pressure_gpa": 8.573450138623647
+          },
+          {
+            "source_row_index": 3,
+            "cell_volume_a3": 65.358297508041,
+            "temperature_k": 1473.0,
+            "source_pressure_gpa": 15.28,
+            "model_pressure_gpa": 15.58674819713984
+          },
+          {
+            "source_row_index": 4,
+            "cell_volume_a3": 63.335115834381,
+            "temperature_k": 1473.0,
+            "source_pressure_gpa": 22.88,
+            "model_pressure_gpa": 22.813258786522418
+          },
+          {
+            "source_row_index": 5,
+            "cell_volume_a3": 63.225545028472,
+            "temperature_k": 1473.0,
+            "source_pressure_gpa": 23.25,
+            "model_pressure_gpa": 23.247626928150424
+          },
+          {
+            "source_row_index": 6,
+            "cell_volume_a3": 63.04003999939901,
+            "temperature_k": 1473.0,
+            "source_pressure_gpa": 23.34,
+            "model_pressure_gpa": 23.99385326370733
+          },
+          {
+            "source_row_index": 7,
+            "cell_volume_a3": 62.774308905407,
+            "temperature_k": 1473.0,
+            "source_pressure_gpa": 24.58,
+            "model_pressure_gpa": 25.086968459871933
+          },
+          {
+            "source_row_index": 8,
+            "cell_volume_a3": 64.17295556665599,
+            "temperature_k": 1673.0,
+            "source_pressure_gpa": 20.36,
+            "model_pressure_gpa": 21.125318418786087
+          },
+          {
+            "source_row_index": 9,
+            "cell_volume_a3": 63.616767488,
+            "temperature_k": 1673.0,
+            "source_pressure_gpa": 22.94,
+            "model_pressure_gpa": 23.205172969256907
+          },
+          {
+            "source_row_index": 10,
+            "cell_volume_a3": 63.57374981503099,
+            "temperature_k": 1673.0,
+            "source_pressure_gpa": 23.34,
+            "model_pressure_gpa": 23.370861628411376
+          },
+          {
+            "source_row_index": 11,
+            "cell_volume_a3": 63.53075153880801,
+            "temperature_k": 1673.0,
+            "source_pressure_gpa": 23.43,
+            "model_pressure_gpa": 23.537182175734458
+          },
+          {
+            "source_row_index": 12,
+            "cell_volume_a3": 63.154153934766995,
+            "temperature_k": 1673.0,
+            "source_pressure_gpa": 24.56,
+            "model_pressure_gpa": 25.024530637228864
+          },
+          {
+            "source_row_index": 13,
+            "cell_volume_a3": 66.49411528569702,
+            "temperature_k": 1873.0,
+            "source_pressure_gpa": 15.45,
+            "model_pressure_gpa": 15.048007017461153
+          },
+          {
+            "source_row_index": 14,
+            "cell_volume_a3": 64.54876100154401,
+            "temperature_k": 1873.0,
+            "source_pressure_gpa": 20.74,
+            "model_pressure_gpa": 21.26232344917596
+          },
+          {
+            "source_row_index": 15,
+            "cell_volume_a3": 64.24030012499999,
+            "temperature_k": 1873.0,
+            "source_pressure_gpa": 22.13,
+            "model_pressure_gpa": 22.362755156046305
+          },
+          {
+            "source_row_index": 16,
+            "cell_volume_a3": 64.06242028219698,
+            "temperature_k": 1873.0,
+            "source_pressure_gpa": 22.41,
+            "model_pressure_gpa": 23.012790581055384
+          },
+          {
+            "source_row_index": 17,
+            "cell_volume_a3": 64.21143240518401,
+            "temperature_k": 1873.0,
+            "source_pressure_gpa": 22.66,
+            "model_pressure_gpa": 22.46747141921067
+          },
+          {
+            "source_row_index": 18,
+            "cell_volume_a3": 64.148915349791,
+            "temperature_k": 1873.0,
+            "source_pressure_gpa": 22.82,
+            "model_pressure_gpa": 22.69527750410758
+          },
+          {
+            "source_row_index": 19,
+            "cell_volume_a3": 64.02400300012499,
+            "temperature_k": 1873.0,
+            "source_pressure_gpa": 22.87,
+            "model_pressure_gpa": 23.15468983654236
+          },
+          {
+            "source_row_index": 20,
+            "cell_volume_a3": 63.187463087000005,
+            "temperature_k": 1873.0,
+            "source_pressure_gpa": 25.56,
+            "model_pressure_gpa": 26.382045057888412
+          },
+          {
+            "source_row_index": 21,
+            "cell_volume_a3": 64.48602515030102,
+            "temperature_k": 2023.0,
+            "source_pressure_gpa": 22.6,
+            "model_pressure_gpa": 22.593036364301632
+          },
+          {
+            "source_row_index": 22,
+            "cell_volume_a3": 64.27880387511199,
+            "temperature_k": 2023.0,
+            "source_pressure_gpa": 23.0,
+            "model_pressure_gpa": 23.33458848627126
+          },
+          {
+            "source_row_index": 23,
+            "cell_volume_a3": 65.01815191393098,
+            "temperature_k": 2073.0,
+            "source_pressure_gpa": 20.43,
+            "model_pressure_gpa": 21.12572609767234
+          },
+          {
+            "source_row_index": 24,
+            "cell_volume_a3": 64.85336502523297,
+            "temperature_k": 2173.0,
+            "source_pressure_gpa": 21.56,
+            "model_pressure_gpa": 22.422488937929714
+          },
+          {
+            "source_row_index": 25,
+            "cell_volume_a3": 64.713031721792,
+            "temperature_k": 2173.0,
+            "source_pressure_gpa": 22.46,
+            "model_pressure_gpa": 22.90609472536696
+          },
+          {
+            "source_row_index": 26,
+            "cell_volume_a3": 64.664687908072,
+            "temperature_k": 2173.0,
+            "source_pressure_gpa": 22.82,
+            "model_pressure_gpa": 23.074253872933056
+          }
+        ]
+      },
+      "dewaele_2004_cold": {
+        "states": 37,
+        "rmse_gpa": 0.3185190033267001,
+        "max_abs_difference_gpa": 0.9059199588611477,
+        "calibration": "Dewaele revised ruby",
+        "temperature_k": [
+          300.0,
+          300.0
+        ],
+        "pressure_gpa": [
+          0.0,
+          93.6
+        ],
+        "qualification": "Comparison with source fit inputs, not withheld physical validation; original uncertainty columns remain in the CSV. No refit is made. Original Dewaele 298 K rows are evaluated at the paper's 300 K reference isotherm, an explicit comparison convention.",
+        "points": [
+          {
+            "source_row_index": 1,
+            "cell_volume_a3": 66.864,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 2.27,
+            "model_pressure_gpa": 2.554186567883169
+          },
+          {
+            "source_row_index": 2,
+            "cell_volume_a3": 66.568,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 3.44,
+            "model_pressure_gpa": 3.372704457778005
+          },
+          {
+            "source_row_index": 3,
+            "cell_volume_a3": 65.976,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 5.0,
+            "model_pressure_gpa": 5.085757178890507
+          },
+          {
+            "source_row_index": 4,
+            "cell_volume_a3": 65.492,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 6.76,
+            "model_pressure_gpa": 6.5649342121048715
+          },
+          {
+            "source_row_index": 5,
+            "cell_volume_a3": 65.104,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 7.87,
+            "model_pressure_gpa": 7.804226847325089
+          },
+          {
+            "source_row_index": 6,
+            "cell_volume_a3": 64.68,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 9.28,
+            "model_pressure_gpa": 9.215235088112877
+          },
+          {
+            "source_row_index": 7,
+            "cell_volume_a3": 64.336,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 10.6,
+            "model_pressure_gpa": 10.405175748265323
+          },
+          {
+            "source_row_index": 8,
+            "cell_volume_a3": 63.916,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 12.1,
+            "model_pressure_gpa": 11.914976595489811
+          },
+          {
+            "source_row_index": 9,
+            "cell_volume_a3": 63.52,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 13.6,
+            "model_pressure_gpa": 13.39803636291774
+          },
+          {
+            "source_row_index": 10,
+            "cell_volume_a3": 63.16,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 15.2,
+            "model_pressure_gpa": 14.798337565043445
+          },
+          {
+            "source_row_index": 11,
+            "cell_volume_a3": 62.856,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 16.3,
+            "model_pressure_gpa": 16.02076556016247
+          },
+          {
+            "source_row_index": 12,
+            "cell_volume_a3": 62.568,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 17.5,
+            "model_pressure_gpa": 17.213649048761663
+          },
+          {
+            "source_row_index": 13,
+            "cell_volume_a3": 62.128,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 19.3,
+            "model_pressure_gpa": 19.10369433178748
+          },
+          {
+            "source_row_index": 14,
+            "cell_volume_a3": 61.76,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 21.0,
+            "model_pressure_gpa": 20.74946135606882
+          },
+          {
+            "source_row_index": 15,
+            "cell_volume_a3": 61.444,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 22.6,
+            "model_pressure_gpa": 22.211677380588792
+          },
+          {
+            "source_row_index": 16,
+            "cell_volume_a3": 61.052,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 24.3,
+            "model_pressure_gpa": 24.090728217319416
+          },
+          {
+            "source_row_index": 17,
+            "cell_volume_a3": 60.628,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 26.6,
+            "model_pressure_gpa": 26.207462229536038
+          },
+          {
+            "source_row_index": 18,
+            "cell_volume_a3": 60.348,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 28.3,
+            "model_pressure_gpa": 27.655080229013034
+          },
+          {
+            "source_row_index": 19,
+            "cell_volume_a3": 59.844,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 30.5,
+            "model_pressure_gpa": 30.364604908100095
+          },
+          {
+            "source_row_index": 20,
+            "cell_volume_a3": 67.408,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 1.14,
+            "model_pressure_gpa": 1.1130506131560858
+          },
+          {
+            "source_row_index": 21,
+            "cell_volume_a3": 67.864,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 0.0,
+            "model_pressure_gpa": -0.03443348973661252
+          },
+          {
+            "source_row_index": 22,
+            "cell_volume_a3": 56.316,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 53.8,
+            "model_pressure_gpa": 53.659623981419976
+          },
+          {
+            "source_row_index": 23,
+            "cell_volume_a3": 55.524,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 60.3,
+            "model_pressure_gpa": 60.11327773590638
+          },
+          {
+            "source_row_index": 24,
+            "cell_volume_a3": 54.716,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 67.4,
+            "model_pressure_gpa": 67.24570693976445
+          },
+          {
+            "source_row_index": 25,
+            "cell_volume_a3": 54.168,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 72.2,
+            "model_pressure_gpa": 72.42240381441658
+          },
+          {
+            "source_row_index": 26,
+            "cell_volume_a3": 53.356,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 80.7,
+            "model_pressure_gpa": 80.63670771652669
+          },
+          {
+            "source_row_index": 27,
+            "cell_volume_a3": 52.12,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 93.6,
+            "model_pressure_gpa": 94.50591995886114
+          },
+          {
+            "source_row_index": 28,
+            "cell_volume_a3": 59.612,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 31.5,
+            "model_pressure_gpa": 31.658231764371155
+          },
+          {
+            "source_row_index": 29,
+            "cell_volume_a3": 58.836,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 36.8,
+            "model_pressure_gpa": 36.208585666873475
+          },
+          {
+            "source_row_index": 30,
+            "cell_volume_a3": 58.256,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 40.2,
+            "model_pressure_gpa": 39.8464244649987
+          },
+          {
+            "source_row_index": 31,
+            "cell_volume_a3": 57.328,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 46.2,
+            "model_pressure_gpa": 46.12172113484565
+          },
+          {
+            "source_row_index": 32,
+            "cell_volume_a3": 56.636,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 51.4,
+            "model_pressure_gpa": 51.19339613210695
+          },
+          {
+            "source_row_index": 33,
+            "cell_volume_a3": 55.96,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 56.8,
+            "model_pressure_gpa": 56.497441980538895
+          },
+          {
+            "source_row_index": 34,
+            "cell_volume_a3": 54.54,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 68.5,
+            "model_pressure_gpa": 68.87737138408467
+          },
+          {
+            "source_row_index": 35,
+            "cell_volume_a3": 53.72,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 76.6,
+            "model_pressure_gpa": 76.87132984881292
+          },
+          {
+            "source_row_index": 36,
+            "cell_volume_a3": 53.112,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 82.8,
+            "model_pressure_gpa": 83.23919636002309
+          },
+          {
+            "source_row_index": 37,
+            "cell_volume_a3": 52.64,
+            "temperature_k": 300.0,
+            "source_pressure_gpa": 89.0,
+            "model_pressure_gpa": 88.45913922413676
+          }
+        ]
+      }
+    },
+    "author_fit_reproduced": false,
+    "limitations": "Unrounded source coefficients, covariance, original weights and complete fitting selections are not recovered. These checks verify the published PVT equation and available comparison evidence."
+  },
+  "yokoo_2009": {
+    "doi": "10.1103/PhysRevB.80.104114",
+    "published_300k_records": [
+      "gold_yokoo_2009_bm3_300k",
+      "gold_yokoo_2009_vinet_300k"
+    ],
+    "full_published_pvt_status": "not_reproduced",
+    "reconstruction_status": "numerically_verified_derived_output_reconstruction",
+    "experimental_observations": 0,
+    "author_fit_reproduced": false,
+    "primary_fit": {
+      "states": 156,
+      "rmse_gpa": 0.008922681886743658,
+      "max_abs_residual_gpa": 0.021133005589867082,
+      "mean_residual_gpa": -0.00011162965807357198
+    },
+    "first_liquid_holdout": {
+      "states": 6,
+      "rmse_gpa": 0.01664321038902582,
+      "max_abs_residual_gpa": 0.027081684506747195,
+      "mean_residual_gpa": -0.01342901351143085
+    },
+    "volume_holdout": {
+      "states": 74,
+      "rmse_gpa": 0.009075685737408539,
+      "max_abs_residual_gpa": 0.018672295140589767,
+      "mean_residual_gpa": 0.0012428664876988724
+    },
+    "independent_quad_max_difference_gpa": 5.684341886080802e-14,
+    "published_coefficients_changed": false,
+    "limits": "Derived reconstruction coefficients differ from the printed phonon normalization; cold Vc is inferred. Electronic interpolation is an explicit linear choice. Source phase markers and omitted cells do not certify the full rectangular domain as solid Au. The supplied electronic pressure table suffices for this bounded PVT reconstruction; missing electronic energy is not a PVT blocker."
+  }
+}

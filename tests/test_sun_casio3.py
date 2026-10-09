@@ -191,7 +191,7 @@ def test_sun_2022_table_subsets_and_lattice_volumes_are_not_conflated():
 
 def test_sun_pressure_scale_parameters_are_executable_but_rows_are_missing():
     platinum = get_eos_record("pt_fcc_fei_2007")
-    assert platinum.validity.pressure_gpa == (0.0, 94.0)
+    assert platinum.validity.pressure_gpa == (0.0, 93.6)
     assert platinum.validity.temperature_k == (300.0, 1873.0)
     assert platinum.eos.rt_eos.parameter_values() == {
         "V0": pytest.approx(60.38 * platinum.volume_scale),

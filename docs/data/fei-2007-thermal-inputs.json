@@ -1,0 +1,332 @@
+{
+  "doi": "10.1073/pnas.0609013104",
+  "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+  "hirose_2006": {
+    "doi": "10.1029/2005GL024468",
+    "source_location": "Table 1, Run 2: two heated rows and one 300 K row",
+    "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005GL024468",
+    "observations": [
+      {
+        "gold_a_angstrom": 3.7237,
+        "mgo_a_angstrom": 3.7827,
+        "temperature_k": 1340.0,
+        "mgo_pressure_gpa": 106.5,
+        "mgo_pressure_uncertainty_gpa": 1.2
+      },
+      {
+        "gold_a_angstrom": 3.7254,
+        "mgo_a_angstrom": 3.7767,
+        "temperature_k": 2330.0,
+        "mgo_pressure_gpa": 117.9,
+        "mgo_pressure_uncertainty_gpa": 2.1
+      },
+      {
+        "gold_a_angstrom": 3.7187,
+        "mgo_a_angstrom": 3.7719,
+        "temperature_k": 300.0,
+        "mgo_pressure_gpa": 102.8,
+        "mgo_pressure_uncertainty_gpa": null
+      }
+    ]
+  },
+  "figures": {
+    "nacl_b2": {
+      "source_location": "Figure 4, red filled circles at 1000 K, Pt pressure scale",
+      "image_path": "docs/data/fei-2007-thermal-source-figures/figure4.png",
+      "image_sha256": "7f7b96031d6d273367ea5da395f27924c3b90ed4f42535c24394e3aa57ba24b7",
+      "source_resolution_px": [
+        1683,
+        1275
+      ],
+      "tile_manifest_url": "https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?manifest=1&p=PMC3&id=1890468_zpq0150759070004.jpg&w=1500&h=1200",
+      "axis_calibration_pixels": {
+        "pressure": [
+          [
+            465.5,
+            25.0
+          ],
+          [
+            1502.5,
+            125.0
+          ]
+        ],
+        "volume": [
+          [
+            186.5,
+            38.0
+          ],
+          [
+            1055.5,
+            20.0
+          ]
+        ]
+      },
+      "method": "Connected components of source-resolution RGB pixels with R>220, G<70, B<70; area 100-500 pixels and y>400. Centers are pixel centroids. Legend, text and curves excluded. Two touching NaCl markers form one 734-pixel component and are excluded together; no merged centroid is treated as an observation. All six Ne hot markers are separable.",
+      "coordinate_sensitivity_bound_px": 3.0,
+      "bound_note": "Illustrative combined center/axis coordinate perturbation bound, not experimental uncertainty or a statistical confidence interval. Common offsets are used for extreme sensitivity fits.",
+      "observations": [
+        {
+          "x_px": 567.6203966005666,
+          "y_px": 702.4957507082153,
+          "red_pixels": 353,
+          "component_box_xyxy": [
+            555,
+            692,
+            578,
+            714
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 34.84767566061394,
+          "volume_a3": 27.31194072180912
+        },
+        {
+          "x_px": 640.6347826086957,
+          "y_px": 768.4289855072464,
+          "red_pixels": 345,
+          "component_box_xyxy": [
+            630,
+            758,
+            652,
+            779
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 41.88860005869775,
+          "volume_a3": 25.94623505278431
+        },
+        {
+          "x_px": 685.4403409090909,
+          "y_px": 793.8693181818181,
+          "red_pixels": 352,
+          "component_box_xyxy": [
+            675,
+            784,
+            697,
+            805
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 46.20929034803191,
+          "volume_a3": 25.419277644105033
+        },
+        {
+          "x_px": 799.264367816092,
+          "y_px": 857.1178160919541,
+          "red_pixels": 348,
+          "component_box_xyxy": [
+            789,
+            847,
+            811,
+            868
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 57.18557066693269,
+          "volume_a3": 24.1091821753105
+        },
+        {
+          "x_px": 914.7190332326284,
+          "y_px": 912.5377643504531,
+          "red_pixels": 331,
+          "component_box_xyxy": [
+            905,
+            903,
+            928,
+            923
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 68.3190967437443,
+          "volume_a3": 22.961243085951487
+        },
+        {
+          "x_px": 945.5376044568245,
+          "y_px": 930.6852367688023,
+          "red_pixels": 359,
+          "component_box_xyxy": [
+            935,
+            920,
+            958,
+            942
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 71.2909936795395,
+          "volume_a3": 22.585346073833783
+        },
+        {
+          "x_px": 971.3529411764706,
+          "y_px": 943.5126050420168,
+          "red_pixels": 357,
+          "component_box_xyxy": [
+            960,
+            931,
+            982,
+            955
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 73.7804186283964,
+          "volume_a3": 22.319646846080204
+        },
+        {
+          "x_px": 1099.6686930091184,
+          "y_px": 975.9544072948328,
+          "red_pixels": 329,
+          "component_box_xyxy": [
+            1089,
+            966,
+            1111,
+            987
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 86.15416518892174,
+          "volume_a3": 21.647664751085166
+        },
+        {
+          "x_px": 1166.738872403561,
+          "y_px": 993.9525222551929,
+          "red_pixels": 337,
+          "component_box_xyxy": [
+            1156,
+            984,
+            1178,
+            1005
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 92.62187776312064,
+          "volume_a3": 21.274861449259525
+        },
+        {
+          "x_px": 1220.2555555555555,
+          "y_px": 1002.3583333333333,
+          "red_pixels": 360,
+          "component_box_xyxy": [
+            1210,
+            992,
+            1232,
+            1014
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 97.78259937854922,
+          "volume_a3": 21.100747986191024
+        }
+      ]
+    },
+    "neon": {
+      "source_location": "Figure 5, red filled circles at 1000 K, Pt pressure scale",
+      "image_path": "docs/data/fei-2007-thermal-source-figures/figure5.png",
+      "image_sha256": "f933050771367bbb1766a92db4238ba0910a1606b17266256c84ba09ae1b590b",
+      "source_resolution_px": [
+        1683,
+        1275
+      ],
+      "tile_manifest_url": "https://www.ncbi.nlm.nih.gov/corecgi/tileshop/tileshop.fcgi?manifest=1&p=PMC3&id=1890468_zpq0150759070005.jpg&w=1500&h=1200",
+      "axis_calibration_pixels": {
+        "pressure": [
+          [
+            402.5,
+            25.0
+          ],
+          [
+            1430.5,
+            125.0
+          ]
+        ],
+        "volume": [
+          [
+            32.0,
+            50.0
+          ],
+          [
+            1103.5,
+            24.0
+          ]
+        ]
+      },
+      "method": "Connected components of source-resolution RGB pixels with R>220, G<70, B<70; area 100-500 pixels and y>400. Centers are pixel centroids. Legend, text and curves excluded. Two touching NaCl markers form one 734-pixel component and are excluded together; no merged centroid is treated as an observation. All six Ne hot markers are separable.",
+      "coordinate_sensitivity_bound_px": 3.0,
+      "bound_note": "Illustrative combined center/axis coordinate perturbation bound, not experimental uncertainty or a statistical confidence interval. Common offsets are used for extreme sensitivity fits.",
+      "observations": [
+        {
+          "x_px": 387.9352112676056,
+          "y_px": 474.37464788732393,
+          "red_pixels": 355,
+          "component_box_xyxy": [
+            377,
+            465,
+            400,
+            487
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 23.583191757549184,
+          "volume_a3": 39.26575749410134
+        },
+        {
+          "x_px": 415.50815217391306,
+          "y_px": 511.8804347826087,
+          "red_pixels": 368,
+          "component_box_xyxy": [
+            403,
+            501,
+            427,
+            523
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 26.265384452715278,
+          "volume_a3": 38.3556777374262
+        },
+        {
+          "x_px": 560.5497076023391,
+          "y_px": 693.4239766081871,
+          "red_pixels": 342,
+          "component_box_xyxy": [
+            548,
+            683,
+            572,
+            705
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 40.37448517532482,
+          "volume_a3": 33.95051479998799
+        },
+        {
+          "x_px": 590.8470588235294,
+          "y_px": 722.2088235294118,
+          "red_pixels": 340,
+          "component_box_xyxy": [
+            580,
+            712,
+            602,
+            733
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 43.32169832913711,
+          "volume_a3": 33.252049079081004
+        },
+        {
+          "x_px": 683.045643153527,
+          "y_px": 799.7178423236514,
+          "red_pixels": 241,
+          "component_box_xyxy": [
+            673,
+            790,
+            697,
+            810
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 52.29043221337811,
+          "volume_a3": 31.371288940350038
+        },
+        {
+          "x_px": 705.4688644688645,
+          "y_px": 815.4175824175824,
+          "red_pixels": 273,
+          "component_box_xyxy": [
+            696,
+            804,
+            717,
+            828
+          ],
+          "temperature_k": 1000.0,
+          "pressure_gpa": 54.471679423041294,
+          "volume_a3": 30.99033397773482
+        }
+      ]
+    }
+  }
+}

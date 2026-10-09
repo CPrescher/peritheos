@@ -1,0 +1,1250 @@
+{
+  "doi": "10.1073/pnas.0609013104",
+  "primary_source": "https://www.pnas.org/doi/10.1073/pnas.0609013104",
+  "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306",
+  "source_page": 9184,
+  "coordinate_basis": "PDF points from page top left",
+  "axis_calibration": {
+    "3": {
+      "pressure": [
+        [
+          356.228,
+          0
+        ],
+        [
+          518.843,
+          120
+        ]
+      ],
+      "volume": [
+        [
+          170.646,
+          20
+        ],
+        [
+          53.223,
+          40
+        ]
+      ]
+    },
+    "4": {
+      "pressure": [
+        [
+          361.642,
+          0
+        ],
+        [
+          517.188,
+          125
+        ]
+      ],
+      "volume": [
+        [
+          659.721,
+          20
+        ],
+        [
+          543.991,
+          40
+        ]
+      ]
+    }
+  },
+  "extraction": "pdfplumber marker path bounding-box centers; duplicate cold outlines removed. Figure 3 filled study circles only; comparison symbols excluded. Figure 4 touching hot circles are separate vector objects.",
+  "precision": "Vector layout precision, not original experimental precision. No original numerical table, paired Pt cells, P/V/T uncertainties, fit weights or covariance recovered. No experimental error bars are plotted. Blank CSV error/calibrant cells mean unavailable, not zero.",
+  "duplicate_scope": "Figure 3 and Figure 4 cold series depict the same 12 observations at slightly different graphical coordinates; never concatenate them in a fit.",
+  "retrieval_audit": {
+    "date": "2026-10-09",
+    "publisher_full_text": "Retrieved through web tool; Table 1, Figures 3-4, and Methods verified.",
+    "numerical_supplement": "No article-specific numerical supplement recovered. Generic publisher PDF and Supporting Information control is not evidence that a supplement exists. Direct publisher PDF/supplement HTTP requests returned 403; PMC XML and Europe PMC fullTextXML did not supply article XML. No claim of definitive supplement absence.",
+    "pdf_copy": "Existing local copy, full 5-page paper; SHA256 matches the independently used primary PDF. Contains model Table 1 but no experimental NaCl/Pt table."
+  },
+  "observations": [
+    {
+      "row_id": "fig3_300k_01",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 31.46241121667742,
+      "volume_a3": 27.239212079405235,
+      "pdf_curve_index": 84,
+      "x_pt": 398.8635,
+      "y_pt": 128.14349999999996,
+      "marker_box_xyxy_pt": [
+        397.404,
+        126.68399999999997,
+        400.323,
+        129.60299999999995
+      ]
+    },
+    {
+      "row_id": "fig3_300k_02",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 40.34609353380684,
+      "volume_a3": 25.956924963593167,
+      "pdf_curve_index": 85,
+      "x_pt": 410.902,
+      "y_pt": 135.67199999999997,
+      "marker_box_xyxy_pt": [
+        409.443,
+        134.21299999999997,
+        412.361,
+        137.13099999999997
+      ]
+    },
+    {
+      "row_id": "fig3_300k_03",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 50.10165113919382,
+      "volume_a3": 24.637166483567952,
+      "pdf_curve_index": 86,
+      "x_pt": 424.122,
+      "y_pt": 143.4205,
+      "marker_box_xyxy_pt": [
+        422.663,
+        141.961,
+        425.581,
+        144.88
+      ]
+    },
+    {
+      "row_id": "fig3_300k_04",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 54.97979891153955,
+      "volume_a3": 24.010798565868694,
+      "pdf_curve_index": 87,
+      "x_pt": 430.7325,
+      "y_pt": 147.098,
+      "marker_box_xyxy_pt": [
+        429.273,
+        145.639,
+        432.192,
+        148.55700000000002
+      ]
+    },
+    {
+      "row_id": "fig3_300k_05",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 58.048519509270385,
+      "volume_a3": 23.55603246382736,
+      "pdf_curve_index": 88,
+      "x_pt": 434.891,
+      "y_pt": 149.76799999999997,
+      "marker_box_xyxy_pt": [
+        433.432,
+        148.30899999999997,
+        436.35,
+        151.22699999999998
+      ]
+    },
+    {
+      "row_id": "fig3_300k_06",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 64.63905543769026,
+      "volume_a3": 23.130817642199567,
+      "pdf_curve_index": 89,
+      "x_pt": 443.822,
+      "y_pt": 152.2645,
+      "marker_box_xyxy_pt": [
+        442.363,
+        150.80499999999995,
+        445.281,
+        153.72400000000005
+      ]
+    },
+    {
+      "row_id": "fig3_300k_07",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 70.48574854718201,
+      "volume_a3": 22.45982473621011,
+      "pdf_curve_index": 90,
+      "x_pt": 451.745,
+      "y_pt": 156.204,
+      "marker_box_xyxy_pt": [
+        450.286,
+        154.745,
+        453.204,
+        157.663
+      ]
+    },
+    {
+      "row_id": "fig3_300k_08",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 83.82769117240107,
+      "volume_a3": 21.796411265254676,
+      "pdf_curve_index": 91,
+      "x_pt": 469.825,
+      "y_pt": 160.099,
+      "marker_box_xyxy_pt": [
+        468.366,
+        158.64,
+        471.284,
+        161.558
+      ]
+    },
+    {
+      "row_id": "fig3_300k_09",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 93.55114841804262,
+      "volume_a3": 20.90919155531709,
+      "pdf_curve_index": 92,
+      "x_pt": 483.00149999999996,
+      "y_pt": 165.30800000000005,
+      "marker_box_xyxy_pt": [
+        481.542,
+        163.84900000000005,
+        484.461,
+        166.76700000000005
+      ]
+    },
+    {
+      "row_id": "fig3_300k_10",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 99.13993174061434,
+      "volume_a3": 20.461749401735602,
+      "pdf_curve_index": 93,
+      "x_pt": 490.575,
+      "y_pt": 167.935,
+      "marker_box_xyxy_pt": [
+        489.116,
+        166.476,
+        492.034,
+        169.394
+      ]
+    },
+    {
+      "row_id": "fig3_300k_11",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 101.04602896411774,
+      "volume_a3": 20.44676085605035,
+      "pdf_curve_index": 94,
+      "x_pt": 493.158,
+      "y_pt": 168.02299999999997,
+      "marker_box_xyxy_pt": [
+        491.699,
+        166.56399999999996,
+        494.617,
+        169.48199999999997
+      ]
+    },
+    {
+      "row_id": "fig3_300k_12",
+      "figure": 3,
+      "temperature_k": 300,
+      "pressure_gpa": 107.53915690434465,
+      "volume_a3": 20.379653049232264,
+      "pdf_curve_index": 95,
+      "x_pt": 501.957,
+      "y_pt": 168.41699999999997,
+      "marker_box_xyxy_pt": [
+        500.498,
+        166.95799999999997,
+        503.416,
+        169.87599999999998
+      ]
+    },
+    {
+      "row_id": "fig4_300k_01",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 31.448896146477583,
+      "volume_a3": 27.237017195195705,
+      "pdf_curve_index": 102,
+      "x_pt": 400.776,
+      "y_pt": 617.844,
+      "marker_box_xyxy_pt": [
+        399.348,
+        616.415,
+        402.204,
+        619.273
+      ]
+    },
+    {
+      "row_id": "fig4_300k_02",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 40.36707790621427,
+      "volume_a3": 25.95584550246264,
+      "pdf_curve_index": 104,
+      "x_pt": 411.87350000000004,
+      "y_pt": 625.2574999999999,
+      "marker_box_xyxy_pt": [
+        410.445,
+        623.829,
+        413.302,
+        626.686
+      ]
+    },
+    {
+      "row_id": "fig4_300k_03",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 50.14633934655988,
+      "volume_a3": 24.630605720210827,
+      "pdf_curve_index": 106,
+      "x_pt": 424.0425,
+      "y_pt": 632.926,
+      "marker_box_xyxy_pt": [
+        422.614,
+        631.4970000000001,
+        425.471,
+        634.355
+      ]
+    },
+    {
+      "row_id": "fig4_300k_04",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 55.03556825633573,
+      "volume_a3": 24.008381577810432,
+      "pdf_curve_index": 108,
+      "x_pt": 430.12649999999996,
+      "y_pt": 636.5264999999999,
+      "marker_box_xyxy_pt": [
+        428.698,
+        635.098,
+        431.555,
+        637.955
+      ]
+    },
+    {
+      "row_id": "fig4_300k_05",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 58.03146657580397,
+      "volume_a3": 23.549295774647888,
+      "pdf_curve_index": 110,
+      "x_pt": 433.85450000000003,
+      "y_pt": 639.183,
+      "marker_box_xyxy_pt": [
+        432.426,
+        637.755,
+        435.283,
+        640.611
+      ]
+    },
+    {
+      "row_id": "fig4_300k_06",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 64.64245303640082,
+      "volume_a3": 23.11984792188715,
+      "pdf_curve_index": 112,
+      "x_pt": 442.081,
+      "y_pt": 641.668,
+      "marker_box_xyxy_pt": [
+        440.653,
+        640.24,
+        443.509,
+        643.096
+      ]
+    },
+    {
+      "row_id": "fig4_300k_07",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 70.46187301505664,
+      "volume_a3": 22.460727555517156,
+      "pdf_curve_index": 114,
+      "x_pt": 449.3225,
+      "y_pt": 645.482,
+      "marker_box_xyxy_pt": [
+        447.894,
+        644.054,
+        450.751,
+        646.91
+      ]
+    },
+    {
+      "row_id": "fig4_300k_08",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 83.82126509199853,
+      "volume_a3": 21.78717705003024,
+      "pdf_curve_index": 116,
+      "x_pt": 465.9465,
+      "y_pt": 649.3795,
+      "marker_box_xyxy_pt": [
+        464.518,
+        647.952,
+        467.375,
+        650.807
+      ]
+    },
+    {
+      "row_id": "fig4_300k_09",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 93.53141514407312,
+      "volume_a3": 20.913246349261208,
+      "pdf_curve_index": 118,
+      "x_pt": 478.0295,
+      "y_pt": 654.4365,
+      "marker_box_xyxy_pt": [
+        476.601,
+        653.008,
+        479.458,
+        655.865
+      ]
+    },
+    {
+      "row_id": "fig4_300k_10",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 99.14430457870985,
+      "volume_a3": 20.461678043722465,
+      "pdf_curve_index": 120,
+      "x_pt": 485.014,
+      "y_pt": 657.0495,
+      "marker_box_xyxy_pt": [
+        483.586,
+        655.622,
+        486.442,
+        658.477
+      ]
+    },
+    {
+      "row_id": "fig4_300k_11",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 101.03763516901755,
+      "volume_a3": 20.43955759094444,
+      "pdf_curve_index": 122,
+      "x_pt": 487.37,
+      "y_pt": 657.1775,
+      "marker_box_xyxy_pt": [
+        485.942,
+        655.75,
+        488.798,
+        658.605
+      ]
+    },
+    {
+      "row_id": "fig4_300k_12",
+      "figure": 4,
+      "temperature_k": 300,
+      "pressure_gpa": 107.57991205174035,
+      "volume_a3": 20.38028169014085,
+      "pdf_curve_index": 124,
+      "x_pt": 495.511,
+      "y_pt": 657.5205,
+      "marker_box_xyxy_pt": [
+        494.083,
+        656.092,
+        496.939,
+        658.949
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_01",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 34.96152263639052,
+      "volume_a3": 27.303551369567103,
+      "pdf_curve_index": 126,
+      "x_pt": 405.147,
+      "y_pt": 617.459,
+      "marker_box_xyxy_pt": [
+        403.719,
+        616.031,
+        406.575,
+        618.887
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_02",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 41.951014490890195,
+      "volume_a3": 25.93381145770328,
+      "pdf_curve_index": 127,
+      "x_pt": 413.84450000000004,
+      "y_pt": 625.385,
+      "marker_box_xyxy_pt": [
+        412.416,
+        623.957,
+        415.273,
+        626.813
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_03",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 46.28976315687967,
+      "volume_a3": 25.40793225611337,
+      "pdf_curve_index": 128,
+      "x_pt": 419.24350000000004,
+      "y_pt": 628.428,
+      "marker_box_xyxy_pt": [
+        417.815,
+        626.999,
+        420.672,
+        629.857
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_04",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 57.27365216720456,
+      "volume_a3": 24.09003715544803,
+      "pdf_curve_index": 129,
+      "x_pt": 432.9115,
+      "y_pt": 636.054,
+      "marker_box_xyxy_pt": [
+        431.483,
+        634.626,
+        434.34,
+        637.482
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_05",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 68.39536214367453,
+      "volume_a3": 22.94219303551369,
+      "pdf_curve_index": 130,
+      "x_pt": 446.751,
+      "y_pt": 642.696,
+      "marker_box_xyxy_pt": [
+        445.323,
+        641.267,
+        448.179,
+        644.125
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_06",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 71.35670476900724,
+      "volume_a3": 22.557158904346327,
+      "pdf_curve_index": 131,
+      "x_pt": 450.436,
+      "y_pt": 644.924,
+      "marker_box_xyxy_pt": [
+        449.008,
+        643.496,
+        451.864,
+        646.352
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_07",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 73.8358749180307,
+      "volume_a3": 22.28315907716236,
+      "pdf_curve_index": 132,
+      "x_pt": 453.521,
+      "y_pt": 646.5095,
+      "marker_box_xyxy_pt": [
+        452.093,
+        645.082,
+        454.949,
+        647.937
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_08",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 79.96468890231833,
+      "volume_a3": 21.831417955586293,
+      "pdf_curve_index": 133,
+      "x_pt": 461.14750000000004,
+      "y_pt": 649.1234999999999,
+      "marker_box_xyxy_pt": [
+        459.719,
+        647.6949999999999,
+        462.576,
+        650.552
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_09",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 81.89297699715843,
+      "volume_a3": 21.80186641320315,
+      "pdf_curve_index": 134,
+      "x_pt": 463.547,
+      "y_pt": 649.2945,
+      "marker_box_xyxy_pt": [
+        462.119,
+        647.866,
+        464.975,
+        650.723
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_10",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 86.23172566314791,
+      "volume_a3": 21.624297934848354,
+      "pdf_curve_index": 135,
+      "x_pt": 468.946,
+      "y_pt": 650.322,
+      "marker_box_xyxy_pt": [
+        467.517,
+        648.893,
+        470.375,
+        651.751
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_11",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 92.70448934720275,
+      "volume_a3": 21.25403957487254,
+      "pdf_curve_index": 136,
+      "x_pt": 477.0005,
+      "y_pt": 652.4645,
+      "marker_box_xyxy_pt": [
+        475.572,
+        651.037,
+        478.429,
+        653.892
+      ]
+    },
+    {
+      "row_id": "fig4_1000k_12",
+      "figure": 4,
+      "temperature_k": 1000,
+      "pressure_gpa": 97.8697619996657,
+      "volume_a3": 21.091160459690652,
+      "pdf_curve_index": 137,
+      "x_pt": 483.428,
+      "y_pt": 653.407,
+      "marker_box_xyxy_pt": [
+        482.0,
+        651.9780000000001,
+        484.856,
+        654.836
+      ]
+    }
+  ],
+  "calculated_curves": [
+    {
+      "figure": 3,
+      "temperature_k": 300,
+      "pdf_curve_index": 28,
+      "linewidth_pt": 0.365,
+      "points": [
+        {
+          "x_pt": 356.228,
+          "y_pt": 45.28800000000001,
+          "pressure_gpa": 0.0,
+          "volume_a3": 41.351523977414985
+        },
+        {
+          "x_pt": 356.55,
+          "y_pt": 47.339000000000055,
+          "pressure_gpa": 0.23761645604649226,
+          "volume_a3": 41.0021886683188
+        },
+        {
+          "x_pt": 357.553,
+          "y_pt": 53.222999999999956,
+          "pressure_gpa": 0.9777695784521642,
+          "volume_a3": 40.00000000000001
+        },
+        {
+          "x_pt": 358.695,
+          "y_pt": 59.10699999999997,
+          "pressure_gpa": 1.8204962641822602,
+          "volume_a3": 38.99781133168119
+        },
+        {
+          "x_pt": 360.063,
+          "y_pt": 64.94100000000003,
+          "pressure_gpa": 2.8299972327275937,
+          "volume_a3": 38.00413888250172
+        },
+        {
+          "x_pt": 361.609,
+          "y_pt": 70.82500000000005,
+          "pressure_gpa": 3.970851397472538,
+          "volume_a3": 37.0019502141829
+        },
+        {
+          "x_pt": 363.433,
+          "y_pt": 76.70899999999995,
+          "pressure_gpa": 5.316852688866331,
+          "volume_a3": 35.999761545864104
+        },
+        {
+          "x_pt": 365.535,
+          "y_pt": 82.59000000000003,
+          "pressure_gpa": 6.868001106908971,
+          "volume_a3": 34.99808385069364
+        },
+        {
+          "x_pt": 367.997,
+          "y_pt": 88.42700000000002,
+          "pressure_gpa": 8.684807674568773,
+          "volume_a3": 34.00390042836582
+        },
+        {
+          "x_pt": 370.821,
+          "y_pt": 94.31100000000004,
+          "pressure_gpa": 10.768748270454772,
+          "volume_a3": 33.001711760047
+        },
+        {
+          "x_pt": 374.104,
+          "y_pt": 100.19200000000001,
+          "pressure_gpa": 13.191403007102652,
+          "volume_a3": 32.00003406487655
+        },
+        {
+          "x_pt": 377.938,
+          "y_pt": 106.07600000000002,
+          "pressure_gpa": 16.02066230052577,
+          "volume_a3": 30.997845396557736
+        },
+        {
+          "x_pt": 382.407,
+          "y_pt": 111.91200000000003,
+          "pressure_gpa": 19.318513052301434,
+          "volume_a3": 30.0038322986127
+        },
+        {
+          "x_pt": 387.649,
+          "y_pt": 117.793,
+          "pressure_gpa": 23.18679088644959,
+          "volume_a3": 29.00215460344225
+        },
+        {
+          "x_pt": 393.76,
+          "y_pt": 123.678,
+          "pressure_gpa": 27.696337976201455,
+          "volume_a3": 27.999795610740655
+        },
+        {
+          "x_pt": 400.921,
+          "y_pt": 129.558,
+          "pressure_gpa": 32.98072133567014,
+          "volume_a3": 26.99828823995299
+        },
+        {
+          "x_pt": 409.403,
+          "y_pt": 135.39499999999998,
+          "pressure_gpa": 39.23992251637305,
+          "volume_a3": 26.00410481762517
+        },
+        {
+          "x_pt": 419.344,
+          "y_pt": 141.27999999999997,
+          "pressure_gpa": 46.57577714233005,
+          "volume_a3": 25.00174582492357
+        },
+        {
+          "x_pt": 431.152,
+          "y_pt": 147.15999999999997,
+          "pressure_gpa": 55.289364449774006,
+          "volume_a3": 24.000238454135904
+        },
+        {
+          "x_pt": 445.197,
+          "y_pt": 153.04399999999998,
+          "pressure_gpa": 65.65372198136704,
+          "volume_a3": 22.998049785817088
+        },
+        {
+          "x_pt": 461.934,
+          "y_pt": 158.88099999999997,
+          "pressure_gpa": 78.0046121206531,
+          "volume_a3": 22.00386636348927
+        },
+        {
+          "x_pt": 482.042,
+          "y_pt": 164.76199999999994,
+          "pressure_gpa": 92.84309565538236,
+          "volume_a3": 21.00218866831882
+        },
+        {
+          "x_pt": 506.301,
+          "y_pt": 170.64599999999996,
+          "pressure_gpa": 110.74476524305878,
+          "volume_a3": 20.000000000000004
+        },
+        {
+          "x_pt": 535.759,
+          "y_pt": 176.52599999999995,
+          "pressure_gpa": 132.4829812747902,
+          "volume_a3": 18.99849262921234
+        }
+      ]
+    },
+    {
+      "figure": 4,
+      "temperature_k": 300,
+      "pdf_curve_index": 99,
+      "linewidth_pt": 0.357,
+      "points": [
+        {
+          "x_pt": 361.642,
+          "y_pt": 536.178,
+          "pressure_gpa": 0.0,
+          "volume_a3": 41.350211699645726
+        },
+        {
+          "x_pt": 361.957,
+          "y_pt": 538.184,
+          "pressure_gpa": 0.25314055006235914,
+          "volume_a3": 41.00354272876523
+        },
+        {
+          "x_pt": 362.849,
+          "y_pt": 543.991,
+          "pressure_gpa": 0.9699702981754543,
+          "volume_a3": 40.0
+        },
+        {
+          "x_pt": 363.921,
+          "y_pt": 549.793,
+          "pressure_gpa": 1.8314517891813327,
+          "volume_a3": 38.997321351421405
+        },
+        {
+          "x_pt": 365.17,
+          "y_pt": 555.549,
+          "pressure_gpa": 2.8351741606984593,
+          "volume_a3": 38.00259224055992
+        },
+        {
+          "x_pt": 366.599,
+          "y_pt": 561.35,
+          "pressure_gpa": 3.983548275108323,
+          "volume_a3": 37.00008640801866
+        },
+        {
+          "x_pt": 368.252,
+          "y_pt": 567.153,
+          "pressure_gpa": 5.311933447340348,
+          "volume_a3": 35.997234943402745
+        },
+        {
+          "x_pt": 370.212,
+          "y_pt": 572.912,
+          "pressure_gpa": 6.887030203283911,
+          "volume_a3": 35.00198738442927
+        },
+        {
+          "x_pt": 372.447,
+          "y_pt": 578.7139999999999,
+          "pressure_gpa": 8.683122677535913,
+          "volume_a3": 33.9993087358507
+        },
+        {
+          "x_pt": 375.036,
+          "y_pt": 584.517,
+          "pressure_gpa": 10.763696912810364,
+          "volume_a3": 32.99645727123476
+        },
+        {
+          "x_pt": 378.068,
+          "y_pt": 590.2719999999999,
+          "pressure_gpa": 13.200275159759805,
+          "volume_a3": 32.001900976410624
+        },
+        {
+          "x_pt": 381.595,
+          "y_pt": 596.075,
+          "pressure_gpa": 16.034645699664434,
+          "volume_a3": 30.999049511794688
+        },
+        {
+          "x_pt": 385.701,
+          "y_pt": 601.877,
+          "pressure_gpa": 19.334312679207457,
+          "volume_a3": 29.996370863216114
+        },
+        {
+          "x_pt": 390.478,
+          "y_pt": 607.636,
+          "pressure_gpa": 23.173209211423,
+          "volume_a3": 29.00112330424264
+        },
+        {
+          "x_pt": 396.102,
+          "y_pt": 613.438,
+          "pressure_gpa": 27.692772556028427,
+          "volume_a3": 27.998444655664045
+        },
+        {
+          "x_pt": 402.704,
+          "y_pt": 619.24,
+          "pressure_gpa": 32.998277037018,
+          "volume_a3": 26.995766007085457
+        },
+        {
+          "x_pt": 410.471,
+          "y_pt": 624.996,
+          "pressure_gpa": 39.239999742841356,
+          "volume_a3": 26.001036896223972
+        },
+        {
+          "x_pt": 419.622,
+          "y_pt": 630.798,
+          "pressure_gpa": 46.59393362735141,
+          "volume_a3": 24.99835824764538
+        },
+        {
+          "x_pt": 430.47,
+          "y_pt": 636.601,
+          "pressure_gpa": 55.31161199902282,
+          "volume_a3": 23.995506783029466
+        },
+        {
+          "x_pt": 443.323,
+          "y_pt": 642.36,
+          "pressure_gpa": 65.64055006236096,
+          "volume_a3": 23.00025922405599
+        },
+        {
+          "x_pt": 458.719,
+          "y_pt": 648.162,
+          "pressure_gpa": 78.01309580445657,
+          "volume_a3": 21.9975805754774
+        },
+        {
+          "x_pt": 477.197,
+          "y_pt": 653.965,
+          "pressure_gpa": 92.86240083319404,
+          "volume_a3": 20.99472911086148
+        },
+        {
+          "x_pt": 499.47,
+          "y_pt": 659.721,
+          "pressure_gpa": 110.76144677458761,
+          "volume_a3": 20.0
+        },
+        {
+          "x_pt": 526.513,
+          "y_pt": 665.522,
+          "pressure_gpa": 132.49376390263976,
+          "volume_a3": 18.997494167458733
+        }
+      ]
+    },
+    {
+      "figure": 4,
+      "temperature_k": 1000,
+      "pdf_curve_index": 100,
+      "linewidth_pt": 0.357,
+      "points": [
+        {
+          "x_pt": 364.588,
+          "y_pt": 536.178,
+          "pressure_gpa": 2.367466858678483,
+          "volume_a3": 41.350211699645726
+        },
+        {
+          "x_pt": 364.86,
+          "y_pt": 538.184,
+          "pressure_gpa": 2.58605171460534,
+          "volume_a3": 41.00354272876523
+        },
+        {
+          "x_pt": 365.838,
+          "y_pt": 543.991,
+          "pressure_gpa": 3.3719928509894395,
+          "volume_a3": 40.0
+        },
+        {
+          "x_pt": 366.912,
+          "y_pt": 549.793,
+          "pressure_gpa": 4.235081583582977,
+          "volume_a3": 38.997321351421405
+        },
+        {
+          "x_pt": 368.205,
+          "y_pt": 555.549,
+          "pressure_gpa": 5.274163270029436,
+          "volume_a3": 38.00259224055992
+        },
+        {
+          "x_pt": 369.68,
+          "y_pt": 561.35,
+          "pressure_gpa": 6.459503940956382,
+          "volume_a3": 37.00008640801866
+        },
+        {
+          "x_pt": 371.376,
+          "y_pt": 567.153,
+          "pressure_gpa": 7.822444807323863,
+          "volume_a3": 35.997234943402745
+        },
+        {
+          "x_pt": 373.34,
+          "y_pt": 572.912,
+          "pressure_gpa": 9.400756046442837,
+          "volume_a3": 35.00198738442927
+        },
+        {
+          "x_pt": 375.615,
+          "y_pt": 578.7139999999999,
+          "pressure_gpa": 11.228993352448803,
+          "volume_a3": 33.9993087358507
+        },
+        {
+          "x_pt": 378.292,
+          "y_pt": 584.517,
+          "pressure_gpa": 13.38028621758192,
+          "volume_a3": 32.99645727123476
+        },
+        {
+          "x_pt": 381.328,
+          "y_pt": 590.2719999999999,
+          "pressure_gpa": 15.82007894770677,
+          "volume_a3": 32.001900976410624
+        },
+        {
+          "x_pt": 384.898,
+          "y_pt": 596.075,
+          "pressure_gpa": 18.689005181746904,
+          "volume_a3": 30.999049511794688
+        },
+        {
+          "x_pt": 389.051,
+          "y_pt": 601.877,
+          "pressure_gpa": 22.026442338600795,
+          "volume_a3": 29.996370863216114
+        },
+        {
+          "x_pt": 393.871,
+          "y_pt": 607.636,
+          "pressure_gpa": 25.899894564951836,
+          "volume_a3": 29.00112330424264
+        },
+        {
+          "x_pt": 399.537,
+          "y_pt": 613.438,
+          "pressure_gpa": 30.45320998289894,
+          "volume_a3": 27.998444655664045
+        },
+        {
+          "x_pt": 406.189,
+          "y_pt": 619.24,
+          "pressure_gpa": 35.79889550358096,
+          "volume_a3": 26.995766007085457
+        },
+        {
+          "x_pt": 413.998,
+          "y_pt": 624.996,
+          "pressure_gpa": 42.07437028274594,
+          "volume_a3": 26.001036896223972
+        },
+        {
+          "x_pt": 423.193,
+          "y_pt": 630.798,
+          "pressure_gpa": 49.463663482185325,
+          "volume_a3": 24.99835824764538
+        },
+        {
+          "x_pt": 434.083,
+          "y_pt": 636.601,
+          "pressure_gpa": 58.21509392719841,
+          "volume_a3": 23.995506783029466
+        },
+        {
+          "x_pt": 447.026,
+          "y_pt": 642.36,
+          "pressure_gpa": 68.61635786198296,
+          "volume_a3": 23.00025922405599
+        },
+        {
+          "x_pt": 462.468,
+          "y_pt": 648.162,
+          "pressure_gpa": 81.0258701605956,
+          "volume_a3": 21.9975805754774
+        },
+        {
+          "x_pt": 480.993,
+          "y_pt": 653.965,
+          "pressure_gpa": 95.91294536664395,
+          "volume_a3": 20.99472911086148
+        },
+        {
+          "x_pt": 503.352,
+          "y_pt": 659.721,
+          "pressure_gpa": 113.88110269630847,
+          "volume_a3": 20.0
+        },
+        {
+          "x_pt": 530.399,
+          "y_pt": 665.522,
+          "pressure_gpa": 135.61663430753603,
+          "volume_a3": 18.997494167458733
+        }
+      ]
+    },
+    {
+      "figure": 4,
+      "temperature_k": 2000,
+      "pdf_curve_index": 101,
+      "linewidth_pt": 0.357,
+      "points": [
+        {
+          "x_pt": 368.787,
+          "y_pt": 536.178,
+          "pressure_gpa": 5.741870572049412,
+          "volume_a3": 41.350211699645726
+        },
+        {
+          "x_pt": 369.144,
+          "y_pt": 538.184,
+          "pressure_gpa": 6.028763195453442,
+          "volume_a3": 41.00354272876523
+        },
+        {
+          "x_pt": 370.126,
+          "y_pt": 543.991,
+          "pressure_gpa": 6.817918815012907,
+          "volume_a3": 40.0
+        },
+        {
+          "x_pt": 371.283,
+          "y_pt": 549.793,
+          "pressure_gpa": 7.74770807349596,
+          "volume_a3": 38.997321351421405
+        },
+        {
+          "x_pt": 372.622,
+          "y_pt": 555.549,
+          "pressure_gpa": 8.823756316459455,
+          "volume_a3": 38.00259224055992
+        },
+        {
+          "x_pt": 374.143,
+          "y_pt": 561.35,
+          "pressure_gpa": 10.046063543903392,
+          "volume_a3": 37.00008640801866
+        },
+        {
+          "x_pt": 375.929,
+          "y_pt": 567.153,
+          "pressure_gpa": 11.48133028171729,
+          "volume_a3": 35.997234943402745
+        },
+        {
+          "x_pt": 377.935,
+          "y_pt": 572.912,
+          "pressure_gpa": 13.093393594177934,
+          "volume_a3": 35.00198738442927
+        },
+        {
+          "x_pt": 380.303,
+          "y_pt": 578.7139999999999,
+          "pressure_gpa": 14.996367634011804,
+          "volume_a3": 33.9993087358507
+        },
+        {
+          "x_pt": 382.98,
+          "y_pt": 584.517,
+          "pressure_gpa": 17.147660499144965,
+          "volume_a3": 32.99645727123476
+        },
+        {
+          "x_pt": 386.148,
+          "y_pt": 590.2719999999999,
+          "pressure_gpa": 19.69353117405786,
+          "volume_a3": 32.001900976410624
+        },
+        {
+          "x_pt": 389.765,
+          "y_pt": 596.075,
+          "pressure_gpa": 22.60022758540881,
+          "volume_a3": 30.999049511794688
+        },
+        {
+          "x_pt": 394.003,
+          "y_pt": 601.877,
+          "pressure_gpa": 26.005972509739877,
+          "volume_a3": 29.996370863216114
+        },
+        {
+          "x_pt": 398.913,
+          "y_pt": 607.636,
+          "pressure_gpa": 29.951750607537335,
+          "volume_a3": 29.00112330424264
+        },
+        {
+          "x_pt": 404.672,
+          "y_pt": 613.438,
+          "pressure_gpa": 34.579802759312386,
+          "volume_a3": 27.998444655664045
+        },
+        {
+          "x_pt": 411.41,
+          "y_pt": 619.24,
+          "pressure_gpa": 39.99459966826536,
+          "volume_a3": 26.995766007085457
+        },
+        {
+          "x_pt": 419.311,
+          "y_pt": 624.996,
+          "pressure_gpa": 46.34400756046442,
+          "volume_a3": 26.001036896223972
+        },
+        {
+          "x_pt": 428.595,
+          "y_pt": 630.798,
+          "pressure_gpa": 53.80482301055639,
+          "volume_a3": 24.99835824764538
+        },
+        {
+          "x_pt": 439.617,
+          "y_pt": 636.601,
+          "pressure_gpa": 62.66233140035748,
+          "volume_a3": 23.995506783029466
+        },
+        {
+          "x_pt": 452.649,
+          "y_pt": 642.36,
+          "pressure_gpa": 73.13511758579456,
+          "volume_a3": 23.00025922405599
+        },
+        {
+          "x_pt": 468.228,
+          "y_pt": 648.162,
+          "pressure_gpa": 85.65472593316449,
+          "volume_a3": 21.9975805754774
+        },
+        {
+          "x_pt": 486.838,
+          "y_pt": 653.965,
+          "pressure_gpa": 100.61010890669002,
+          "volume_a3": 20.99472911086148
+        },
+        {
+          "x_pt": 509.333,
+          "y_pt": 659.721,
+          "pressure_gpa": 118.68755866431798,
+          "volume_a3": 20.0
+        },
+        {
+          "x_pt": 536.558,
+          "y_pt": 665.522,
+          "pressure_gpa": 140.5661347768506,
+          "volume_a3": 18.997494167458733
+        }
+      ]
+    }
+  ]
+}

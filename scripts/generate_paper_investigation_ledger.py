@@ -76,7 +76,8 @@ PAPER_SCOPE_NOTES = {
         "electronic-pressure routine and reference conventions, and cold Vc "
         "separately from ambient V0 for absolute pressure. Missing electronic "
         "energy concerns the original shock/caloric calculation, not bounded "
-        "pressure evaluation. See the "
+        "pressure evaluation. See the [Au PVT validation]"
+        "(literature-reproductions/gold-pvt-validation.md), "
         "[Pt audit](literature-reproductions/yokoo-2009-platinum.md) and "
         "[Au audit](literature-reproductions/yokoo-2009-gold.md)."
     ),
@@ -84,7 +85,16 @@ PAPER_SCOPE_NOTES = {
         "Conditional Au numerical parity reproduces K0-prime/q within printed "
         "widths using a staged equal-pressure-weight replay; source weights, "
         "exact MgO reduction and error confidence/covariance remain unresolved. "
-        "See the [Au replay](literature-reproductions/fei-2007-gold.md)."
+        "See the [Au replay](literature-reproductions/fei-2007-gold.md). "
+        "The Pt Vinet-MGD equation is independently reproduced, including the "
+        "printed variable-exponent Debye law. A 78-row joint diagnostic "
+        "reconstructs the upstream Au pressure reduction but does not recover "
+        "the published thermal coefficients; source weights and constraints "
+        "remain unspecified. The complete published Au PVT equation is independently "
+        "verified, with Figure 1 vector-curve agreement at graphical precision "
+        "and recovered hot MgO/cold ruby comparisons; see the [Au PVT audit]"
+        "(literature-reproductions/gold-pvt-validation.md). See the [Pt audit]"
+        "(literature-reproductions/fei-2007-platinum.md)."
     ),
     "10.1063/1.3054331": (
         "The complete Vinet/integrated-q Debye plus electronic pressure scale "
@@ -592,8 +602,13 @@ def render() -> str:
         for paper in incomplete_alternatives:
             for candidate in paper["withheld_candidates"]:
                 closure = ""
-                evidence = candidate.get("pressure_convention_audit", candidate["evidence"])
-                if candidate.get("investigation_status") == "closed_pending_author_inputs":
+                evidence = candidate.get(
+                    "pressure_convention_audit", candidate["evidence"]
+                )
+                if (
+                    candidate.get("investigation_status")
+                    == "closed_pending_author_inputs"
+                ):
                     closure = (
                         f"**Closed for now ({candidate['closure_date']}); "
                         "awaiting author inputs.** "

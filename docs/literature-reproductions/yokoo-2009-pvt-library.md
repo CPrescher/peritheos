@@ -30,8 +30,8 @@ parameter estimates.
 from peritheos import get_eos_record
 
 pt = get_eos_record("platinum_yokoo_2009_pvt_reconstruction")
-p = pt.pressure(48.44, 1500)       # Å³/four-atom cell, K -> GPa
-v = pt.volume(p, 1500)            # -> 48.44 Å³/cell
+p = pt.pressure(48.44, 1500)  # Å³/four-atom cell, K -> GPa
+v = pt.volume(p, 1500)  # -> 48.44 Å³/cell
 t = pt.eos.temperature(p, 48.44 * pt.volume_scale)  # -> 1500 K
 ```
 

@@ -282,6 +282,6 @@ outputs and measured inputs.
 The companion [Pt audit](yokoo-2009-platinum.md) documents the same paper's
 platinum branch and electronic-source dependency.
 
-The [pressure-convention audit](yokoo-2009-pressure-conventions.md) records
-the unreproduced published analytical PVT and the author inputs needed to
-reopen the investigation.
+The [Au PVT validation](gold-pvt-validation.md) independently checks the
+published Fei Au scale and records this reconstruction's qualified numerical
+validation separately from recovery of the full published Yokoo equation.

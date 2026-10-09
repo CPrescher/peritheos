@@ -12,8 +12,9 @@
       "rmse_gpa": 1.517343086746933,
       "rows": 2
     },
+    "followup_report": "docs/data/speziale-2001-mgo-reproduction.json",
     "model": "Speziale variable-q gamma with thermodynamically integrated Debye temperature; fixed constants",
-    "qualification": "An integrated equation reconstruction is a diagnostic; author calibration implementation/normalization is unavailable. Do not overwrite reported targets or attribute the discrepancy to one cause. No MgO refit is performed.",
+    "qualification": "The printed MgO gamma equation, differential identities, quadrature and SI normalization have been independently validated. Substitution of q(V) into gamma0*(V/V0)**q, a different gamma law, closely reproduces later reported pressures; that is diagnostic inference, not recovered author code or Speziale Eq. 11. Exact original thermal fitting and later reducer details remain unavailable. Reported targets and Au parity are unchanged.",
     "source": "https://duffy.psb-test.princeton.edu/sites/g/files/toruqf616/files/speziale_et_al-2001-jgrse.pdf",
     "status": "not_exactly_reproduced"
   },

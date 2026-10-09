@@ -1714,6 +1714,179 @@
     }
    },
    "pressure_range_status": "reported_exactly"
+  },
+  {
+   "identifier": "nacl_b2_fei_2007",
+   "label": "Fei et al. (2007), NaCl-B2 Vinet-MGD pressure scale",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Ricolleau",
+     "Frank",
+     "Mibe",
+     "Shen",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "title": "Toward an internally consistent pressure scale",
+    "source": "Proc. Natl. Acad. Sci. USA",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "record_kind": "published",
+   "determination_method": "experimental",
+   "equation_kind": "thermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 41.35,
+     "K0": 26.86,
+     "K0_prime": 5.25
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.9,
+    "K0_prime": 0.26
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_qualitatively",
+   "experimental_temperature_range_k": [
+    300.0,
+    1000.0
+   ],
+   "notes": "Published coefficients retained. One NaCl formula unit and two atoms per B2 cell. Source reports room-temperature data up to 107 GPa and a 1000 K decompression series from 98 to 34 GPa; vector points extend slightly beyond rounded prose endpoints. The 2000 K curve is calculated extrapolation, not measured data. Parenthetical parameter error widths have unspecified confidence and no covariance. Diagnostic fits do not replace this record. The direct variable-exponent theta law follows the printed equation, although drawn curves cannot uniquely distinguish it from the integrated law. No default changed.",
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "variable_exponent",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 290.0,
+     "gamma0": 1.7,
+     "q": 0.5,
+     "n": 2
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": null,
+     "q": 0.3,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "n"
+    ]
+   },
+   "parameter_provenance": {
+    "determination_method": "Table 1; Equations 2-3; Figures 3-4 and Methods, pages 9183-9186.",
+    "reference_isotherm": {
+     "V0": "Table 1 footnote: adopted from Bukowinski and Aidun (1985), fixed.",
+     "K0": "Least-squares Vinet fit at 300 K with fixed V0; 26.86(2.90) GPa. Figure 3 caption identifies the study observations as the fit input.",
+     "K0_prime": "Same cold Vinet fit; 5.25(26). BM3 coefficients 30.69/4.33 are a different parameterization."
+    },
+    "thermal_correction": {
+     "Tr": "Equation 3 subtracts Debye energy at 300 K.",
+     "theta0": "Table 1 footnote: 290 K adopted from Bukowinski and Aidun (1985). theta_D=theta0*(V/V0)^(-gamma(V)) is printed explicitly.",
+     "gamma0": "Table 1 footnote: 1.70 adopted from Bukowinski and Aidun (1985).",
+     "q": "Table 1: 0.5(3); thermal fit to 1000 K study data with adopted gamma0/theta0. Exact residual direction, weights and covariance not recovered.",
+     "n": "Two atoms per NaCl formula unit; V0=41.35 A^3 is a one-formula-unit B2 cell."
+    }
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "title": "Toward an internally consistent pressure scale",
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "reference_eos_record": "platinum_fei_2007_vinet_mgd",
+      "source_location": "Figure 3 caption; 1000 K paragraph on page 9184; Methods",
+      "scope": "Pt unit-cell measurements reduced using this paper's published thermal Vinet-MGD Pt scale at 300 and 1000 K."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Published Pt calibrant remains unchanged and executable; paired observed Pt cells and calibrant errors are not available from the recovered figures. NaCl fitted pressures or inverse-calculated Pt cells are not substituted for measured calibrant data."
+    },
+    "audit_date": "2026-10-09"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-09",
+    "note": "Published NaCl-B2 pressure equation and coefficient transcription verified independently; original author optimization is not reproduced.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.pnas.org/doi/10.1073/pnas.0609013104",
+     "doi": "10.1073/pnas.0609013104",
+     "locations": [
+      "Table 1 and Equations 2-3, page 9183",
+      "Figures 3-4 and NaCl paragraphs, page 9184",
+      "Methods, pages 9185-9186"
+     ],
+     "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306",
+     "finding": "Vinet 26.86/5.25; adopted V0=41.35, gamma0=1.70, theta0=290; q=0.5(3); 300 K subtraction and two-atom formula-unit normalization. Printed variable-exponent and integrated-law curves both agree within one graphical stroke width."
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-10-09",
+     "digitized_dataset_identifiers": [
+      "nacl_b2_fei_2007_figure3_digitized",
+      "nacl_b2_fei_2007_figure4_digitized"
+     ],
+     "source_locations": [
+      "Figure 3: 12 filled study circles",
+      "Figure 4: 12 cold plus 12 hot study circles"
+     ],
+     "finding": "Vector marker centers recovered with exact path and axis coordinates, including both touching hot markers. Figure 3/4 cold rows are duplicates and are not pooled. Original unrounded measurements, P/V/T errors and measured Pt cells are missing. Sata/Ono comparison paths and calculated curve vertices are excluded from fits."
+    },
+    "pvt_check": {
+     "status": "published_equation_verified",
+     "report": "docs/data/fei-2007-nacl-b2-reproduction.json",
+     "script": "scripts/reproduce_fei_2007_nacl_b2.py",
+     "author_fit_reproduced": false
+    }
+   },
+   "fit_datasets": [
+    "nacl_b2_fei_2007_figure3_digitized",
+    "nacl_b2_fei_2007_figure4_digitized"
+   ]
   }
  ],
  "format": "peritheos.material",
@@ -2220,6 +2393,244 @@
     "confidence": null,
     "covariance": "not_reported",
     "notes": "Source error widths retained verbatim; no sigma/confidence convention is inferred."
+   }
+  },
+  {
+   "identifier": "nacl_b2_fei_2007_figure3_digitized",
+   "kind": "experimental_pressure_volume_temperature",
+   "description": "12 room-temperature filled study circles; Sata/Ono comparison symbols excluded.",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Ricolleau",
+     "Frank",
+     "Mibe",
+     "Shen",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "title": "Toward an internally consistent pressure scale",
+    "source": "Proc. Natl. Acad. Sci. USA",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "source_location": "Figure 3, page 9184",
+   "source_url": "https://www.pnas.org/doi/10.1073/pnas.0609013104",
+   "columns": [
+    {
+     "name": "row_id",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "figure",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_error_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "temperature_error_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "platinum_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "x_pt",
+     "quantity": "figure_coordinate",
+     "unit": "pt",
+     "role": "value"
+    },
+    {
+     "name": "y_pt",
+     "quantity": "figure_coordinate",
+     "unit": "pt",
+     "role": "value"
+    },
+    {
+     "name": "pdf_curve_index",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/nacl-b2-fei-2007-figure3-digitized.csv",
+    "sha256": "affeb73beded9fddd85c9090ba3864c6eb7b16dee502e5a965ec15caa7556ee3",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "nacl_b2_fei_2007"
+   ],
+   "provenance": {
+    "type": "digitized_from_primary_figure",
+    "manifest": "datasets/nacl-b2-fei-2007-source.json",
+    "notes": "PDF vector marker centers; figure precision only, no original error/calibrant columns recovered. Missing error/calibrant cells are blank rather than zero. Curve vertices in the sidecar are validation output only, never measurement or fit input. Figure 3 and Figure 4 cold rows must not be combined."
+   },
+   "uncertainty": {
+    "reported_as": "not_reported",
+    "confidence": null,
+    "covariance": "not_reported",
+    "notes": "No experimental P/V/T error bars in the figures. Coordinate sensitivity is not experimental uncertainty or a statistical weight."
+   }
+  },
+  {
+   "identifier": "nacl_b2_fei_2007_figure4_digitized",
+   "kind": "experimental_pressure_volume_temperature",
+   "description": "12 room-temperature and 12 hot study circles; cold rows duplicate Figure 3.",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Ricolleau",
+     "Frank",
+     "Mibe",
+     "Shen",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "title": "Toward an internally consistent pressure scale",
+    "source": "Proc. Natl. Acad. Sci. USA",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "source_location": "Figure 4, page 9184",
+   "source_url": "https://www.pnas.org/doi/10.1073/pnas.0609013104",
+   "columns": [
+    {
+     "name": "row_id",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "figure",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_error_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "temperature_error_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "platinum_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "x_pt",
+     "quantity": "figure_coordinate",
+     "unit": "pt",
+     "role": "value"
+    },
+    {
+     "name": "y_pt",
+     "quantity": "figure_coordinate",
+     "unit": "pt",
+     "role": "value"
+    },
+    {
+     "name": "pdf_curve_index",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/nacl-b2-fei-2007-figure4-digitized.csv",
+    "sha256": "ad8e886f1ce9dd54bb3a71a50e4be246b5b33e56cb5bd4cdc764f9e2104d3e7a",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "nacl_b2_fei_2007"
+   ],
+   "provenance": {
+    "type": "digitized_from_primary_figure",
+    "manifest": "datasets/nacl-b2-fei-2007-source.json",
+    "notes": "PDF vector marker centers; figure precision only, no original error/calibrant columns recovered. Missing error/calibrant cells are blank rather than zero. Curve vertices in the sidecar are validation output only, never measurement or fit input. Figure 3 and Figure 4 cold rows must not be combined."
+   },
+   "uncertainty": {
+    "reported_as": "not_reported",
+    "confidence": null,
+    "covariance": "not_reported",
+    "notes": "No experimental P/V/T error bars in the figures. Coordinate sensitivity is not experimental uncertainty or a statistical weight."
    }
   }
  ]

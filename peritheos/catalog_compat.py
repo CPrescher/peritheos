@@ -56,8 +56,8 @@ LEGACY_RECORD_AUDIT: Mapping[str, LegacyRecordAudit] = MappingProxyType(
             "different", "tungsten_sokolova_2013_holzapfel_4"
         ),
         "au_fcc_fei_2007": _entry("equivalent", "gold_fei_2007_vinet_2"),
-        "pt_fcc_fei_2007": _entry("absent"),
-        "nacl_b2_fei_2007": _entry("absent"),
+        "pt_fcc_fei_2007": _entry("equivalent", "platinum_fei_2007_vinet_mgd"),
+        "nacl_b2_fei_2007": _entry("equivalent", "nacl_b2_fei_2007"),
         "ne_fcc_fei_2007": _entry("equivalent", "neon_fcc_fei_2007_vinet_2"),
         "au_fcc_dorfman_2012": _entry("absent"),
         "pt_fcc_dorfman_2012": _entry("absent"),

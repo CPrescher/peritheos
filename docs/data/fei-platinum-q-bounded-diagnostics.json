@@ -1,0 +1,295 @@
+{
+  "scope": "Separate bounded diagnostics. Published material coefficients and original observations are unchanged.",
+  "objective": "Equal-weight least squares of pressure residuals; same datasets and pressure calibration as the preceding unconstrained diagnostics.",
+  "constraints_2007": "78 observations; V0=60.38 A^3, K0=277 GPa and theta0=230 K fixed; K0-prime, gamma0 and q free except the stated q constraint.",
+  "constraints_2004": "42 original Au-Pt rows and original Au-derived pressure targets; V0=60.38 A^3 and theta0=230 K fixed; K0, K0-prime, gamma0 and q free except the stated q constraint.",
+  "interpretation": "Both nonnegative fits choose the lower q boundary. A strict-positive epsilon bound likewise reaches its boundary. Bounds remove increasing gamma under compression but do not recover a preferred positive q or establish the author's fit procedure.",
+  "input_sha256": {
+    "platinum-dewaele-2004-table1-compression.csv": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+    "platinum-fei-2004-table2.csv": "cc935b6c4c456452f6abc0c5ee425d1eb687d8bb967568b6738f4269b1bb1022"
+  },
+  "results": {
+    "2007": {
+      "unconstrained": {
+        "parameters": {
+          "K0_prime": 5.0869600966080855,
+          "gamma0": 2.612403030560318,
+          "q": -1.660642403777131
+        },
+        "observations": 78,
+        "q_lower_bound": null,
+        "q_fixed": null,
+        "q_start": 0.5,
+        "q_at_lower_bound": false,
+        "solver_success": true,
+        "active_mask": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rmse_gpa": 0.34724907871655497,
+        "published_rmse_gpa": 0.44216087777470436,
+        "standard_errors": null,
+        "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+      },
+      "q_nonnegative": {
+        "parameters": {
+          "K0_prime": 5.089433823541892,
+          "gamma0": 2.736640258895924,
+          "q": 4.50552072215279e-18
+        },
+        "observations": 78,
+        "q_lower_bound": 0.0,
+        "q_fixed": null,
+        "q_start": 0.5,
+        "q_at_lower_bound": true,
+        "solver_success": true,
+        "active_mask": [
+          0,
+          0,
+          -1
+        ],
+        "rmse_gpa": 0.3890135553651797,
+        "published_rmse_gpa": 0.44216087777470436,
+        "standard_errors": null,
+        "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+      },
+      "q_positive_epsilon": {
+        "parameters": {
+          "K0_prime": 5.089433824997125,
+          "gamma0": 2.736640334378377,
+          "q": 1.0000000000054383e-06
+        },
+        "observations": 78,
+        "q_lower_bound": 1e-06,
+        "q_fixed": null,
+        "q_start": 0.5,
+        "q_at_lower_bound": true,
+        "solver_success": true,
+        "active_mask": [
+          0,
+          0,
+          -1
+        ],
+        "rmse_gpa": 0.3890136029535322,
+        "published_rmse_gpa": 0.44216087777470436,
+        "standard_errors": null,
+        "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+      },
+      "q_fixed_at_published": {
+        "parameters": {
+          "K0_prime": 5.090198533958054,
+          "gamma0": 2.774315207826782,
+          "q": 0.5
+        },
+        "observations": 78,
+        "q_lower_bound": null,
+        "q_fixed": 0.5,
+        "q_start": null,
+        "q_at_lower_bound": false,
+        "solver_success": true,
+        "active_mask": [
+          0.0,
+          0.0
+        ],
+        "rmse_gpa": 0.41548348722340533,
+        "published_rmse_gpa": 0.44216087777470436,
+        "standard_errors": null,
+        "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+      },
+      "nonnegative_start_sensitivity": [
+        {
+          "parameters": {
+            "K0_prime": 5.089433823901908,
+            "gamma0": 2.7366402597329405,
+            "q": 4.692658784470261e-20
+          },
+          "observations": 78,
+          "q_lower_bound": 0.0,
+          "q_fixed": null,
+          "q_start": 0.05,
+          "q_at_lower_bound": true,
+          "solver_success": true,
+          "active_mask": [
+            0,
+            0,
+            -1
+          ],
+          "rmse_gpa": 0.3890135553651799,
+          "published_rmse_gpa": 0.44216087777470436,
+          "standard_errors": null,
+          "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+        },
+        {
+          "parameters": {
+            "K0_prime": 5.089433823649273,
+            "gamma0": 2.7366402592212666,
+            "q": 1.0342601658248349e-22
+          },
+          "observations": 78,
+          "q_lower_bound": 0.0,
+          "q_fixed": null,
+          "q_start": 2.0,
+          "q_at_lower_bound": true,
+          "solver_success": true,
+          "active_mask": [
+            0,
+            0,
+            -1
+          ],
+          "rmse_gpa": 0.3890135553651797,
+          "published_rmse_gpa": 0.44216087777470436,
+          "standard_errors": null,
+          "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+        }
+      ]
+    },
+    "2004": {
+      "unconstrained": {
+        "parameters": {
+          "K0": 289.73852218026184,
+          "K0_prime": 2.636293963510851,
+          "gamma0": 2.5593955119705374,
+          "q": -0.9772047375935908
+        },
+        "observations": 42,
+        "q_lower_bound": null,
+        "q_fixed": null,
+        "q_start": 0.5,
+        "q_at_lower_bound": false,
+        "solver_success": true,
+        "active_mask": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rmse_gpa": 0.3743599578404893,
+        "published_rmse_gpa": 0.44257007460253,
+        "standard_errors": null,
+        "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+      },
+      "q_nonnegative": {
+        "parameters": {
+          "K0": 293.50457453815653,
+          "K0_prime": 2.563001144479816,
+          "gamma0": 2.6062558433297887,
+          "q": 8.401053096241687e-26
+        },
+        "observations": 42,
+        "q_lower_bound": 0.0,
+        "q_fixed": null,
+        "q_start": 0.5,
+        "q_at_lower_bound": true,
+        "solver_success": true,
+        "active_mask": [
+          0,
+          0,
+          0,
+          -1
+        ],
+        "rmse_gpa": 0.3900098973591777,
+        "published_rmse_gpa": 0.44257007460253,
+        "standard_errors": null,
+        "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+      },
+      "q_positive_epsilon": {
+        "parameters": {
+          "K0": 293.50459671547856,
+          "K0_prime": 2.5629989712088577,
+          "gamma0": 2.60625584130857,
+          "q": 1.0000000000001067e-06
+        },
+        "observations": 42,
+        "q_lower_bound": 1e-06,
+        "q_fixed": null,
+        "q_start": 0.5,
+        "q_at_lower_bound": true,
+        "solver_success": true,
+        "active_mask": [
+          0,
+          0,
+          0,
+          -1
+        ],
+        "rmse_gpa": 0.3900099284641263,
+        "published_rmse_gpa": 0.44257007460253,
+        "standard_errors": null,
+        "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+      },
+      "q_fixed_at_published": {
+        "parameters": {
+          "K0": 295.77535740173613,
+          "K0_prime": 2.488601672975636,
+          "gamma0": 2.629047921179797,
+          "q": 0.5
+        },
+        "observations": 42,
+        "q_lower_bound": null,
+        "q_fixed": 0.5,
+        "q_start": null,
+        "q_at_lower_bound": false,
+        "solver_success": true,
+        "active_mask": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rmse_gpa": 0.4089319159519795,
+        "published_rmse_gpa": 0.44257007460253,
+        "standard_errors": null,
+        "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+      },
+      "nonnegative_start_sensitivity": [
+        {
+          "parameters": {
+            "K0": 293.50458197249003,
+            "K0_prime": 2.5630003103335546,
+            "gamma0": 2.606255821669672,
+            "q": 6.749280317383507e-25
+          },
+          "observations": 42,
+          "q_lower_bound": 0.0,
+          "q_fixed": null,
+          "q_start": 0.05,
+          "q_at_lower_bound": true,
+          "solver_success": true,
+          "active_mask": [
+            0,
+            0,
+            0,
+            -1
+          ],
+          "rmse_gpa": 0.39000989735917285,
+          "published_rmse_gpa": 0.44257007460253,
+          "standard_errors": null,
+          "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+        },
+        {
+          "parameters": {
+            "K0": 293.5045766113593,
+            "K0_prime": 2.563000909764736,
+            "gamma0": 2.6062558374735008,
+            "q": 4.175945124624188e-24
+          },
+          "observations": 42,
+          "q_lower_bound": 0.0,
+          "q_fixed": null,
+          "q_start": 2.0,
+          "q_at_lower_bound": true,
+          "solver_success": true,
+          "active_mask": [
+            0,
+            0,
+            0,
+            -1
+          ],
+          "rmse_gpa": 0.3900098973591763,
+          "published_rmse_gpa": 0.44257007460253,
+          "standard_errors": null,
+          "uncertainty_note": "No symmetric regression errors reported: the q constraint changes inference at the boundary. Source covariance and calibration uncertainty remain unrecovered."
+        }
+      ]
+    }
+  }
+}

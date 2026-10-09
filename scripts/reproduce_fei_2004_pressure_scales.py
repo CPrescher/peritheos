@@ -33,7 +33,9 @@ def source_pressure(
     ratio = volume / v0
     gamma = gamma0 * ratio**q
     theta = theta0 * np.exp(
-        -gamma0 * np.log(ratio) if abs(q) < 1e-12 else (gamma0 - gamma) / q
+        -gamma0 * np.log(ratio)
+        if abs(q) < 1e-12
+        else -gamma0 * np.expm1(q * np.log(ratio)) / q
     )
 
     def energy(t, th):

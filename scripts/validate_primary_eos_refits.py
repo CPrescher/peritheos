@@ -221,7 +221,7 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
-    "platinum_fei_2007_vinet_300k": "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The complete Fei (2007) joint thermal optimization and Au re-reduction are not reconstructed; the source confidence convention is unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure.",
+    "platinum_fei_2007_vinet_300k": "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The separate platinum_fei_2007_vinet_mgd audit reconstructs the paired Au pressure reduction and a qualified joint thermal fit; the author's complete objective and confidence convention remain unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure.",
     **{
         f"fesi_b2_fischer_2014_{model}_refit": (
             "Stored Peritheos refit reproduction using all 114 single-phase B2 rows "
@@ -2159,6 +2159,18 @@ def _fit_record(
         return ledger_outcome(record)
     if record_id.startswith("gold_hirose_2008_"):
         from scripts.reproduce_hirose_2008_gold import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id in {"neon_fcc_fei_2007_bm3_1", "neon_fcc_fei_2007_vinet_2"}:
+        from scripts.reproduce_fei_2007_neon import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id == "nacl_b2_fei_2007":
+        from scripts.reproduce_fei_2007_nacl_b2 import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id == "platinum_fei_2007_vinet_mgd":
+        from scripts.reproduce_fei_2007_platinum import ledger_outcome
 
         return ledger_outcome(record)
     if "_fei_2004_" in record_id:

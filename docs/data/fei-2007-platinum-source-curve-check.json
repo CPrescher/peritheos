@@ -1,0 +1,509 @@
+{
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/figure/F2/",
+  "source_image": "docs/data/fei-2007-thermal-source-figures/figure2.png",
+  "source_image_sha256": "04521535820bca1514f5261f4095194719e70b19c4468efc40590155215e4de2",
+  "image_size_pixels": [
+    1800,
+    1400
+  ],
+  "pressure_axis_ticks": {
+    "x_pixel": [
+      216,
+      495,
+      775,
+      1054,
+      1334,
+      1613
+    ],
+    "pressure_gpa": [
+      0,
+      25,
+      50,
+      75,
+      100,
+      125
+    ]
+  },
+  "volume_axis_ticks": {
+    "y_pixel": [
+      37.5,
+      122,
+      206,
+      291,
+      375,
+      460,
+      544,
+      628,
+      713,
+      797,
+      881,
+      966,
+      1051,
+      1135,
+      1219
+    ],
+    "volume_a3": [
+      61,
+      60,
+      59,
+      58,
+      57,
+      56,
+      55,
+      54,
+      53,
+      52,
+      51,
+      50,
+      49,
+      48,
+      47
+    ]
+  },
+  "linear_calibration": {
+    "pressure_from_x": [
+      0.08945913306316633,
+      -19.310377186265605
+    ],
+    "volume_from_y": [
+      -0.011847079564183332,
+      61.44430989548065
+    ]
+  },
+  "extraction": "Hot lines: red>150 and green<110; magenta blue>150, red blue<110; x 450..1730; median pixels at each selected row. Cold line: manually identified contiguous solid-blue components, excluding dotted Holmes line and marker-only components.",
+  "scope": "Published calculated isotherms, not additional observations or fitting targets. Raster agreement does not establish the original fit objective or exact numerical output parity.",
+  "tolerance_note": "Three pixels per coordinate is an illustrative conservative sensitivity, not a statistical error estimate or recovered author uncertainty.",
+  "points": [
+    {
+      "temperature_k": 300,
+      "y_pixel": 544,
+      "x_pixel": 583.5,
+      "x_pixel_span": [
+        581,
+        586
+      ],
+      "volume_a3": 54.99949861256492,
+      "figure_pressure_gpa": 32.889026956091946,
+      "published_coefficients_pressure_gpa": 32.67538760600655,
+      "difference_gpa": -0.21363935008539414,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.5474317625432216,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.40601607263197
+    },
+    {
+      "temperature_k": 300,
+      "y_pixel": 628,
+      "x_pixel": 676.0,
+      "x_pixel_span": [
+        674,
+        678
+      ],
+      "volume_a3": 54.004343929173515,
+      "figure_pressure_gpa": 41.163996764434835,
+      "published_coefficients_pressure_gpa": 40.87208947776011,
+      "difference_gpa": -0.29190728667472143,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.5763069528465815,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.37090027042826057
+    },
+    {
+      "temperature_k": 300,
+      "y_pixel": 713,
+      "x_pixel": 780.0,
+      "x_pixel_span": [
+        777,
+        783
+      ],
+      "volume_a3": 52.99734216621793,
+      "figure_pressure_gpa": 50.46774660300414,
+      "published_coefficients_pressure_gpa": 50.030290302965476,
+      "difference_gpa": -0.43745630003866154,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.608590169028903,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.4711077140488089
+    },
+    {
+      "temperature_k": 300,
+      "y_pixel": 797,
+      "x_pixel": 891.0,
+      "x_pixel_span": [
+        889,
+        893
+      ],
+      "volume_a3": 52.002187482826535,
+      "figure_pressure_gpa": 60.39771037301559,
+      "published_coefficients_pressure_gpa": 60.02431866356072,
+      "difference_gpa": -0.37339170945487155,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.643875279553671,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.393396187803719
+    },
+    {
+      "temperature_k": 300,
+      "y_pixel": 881,
+      "x_pixel": 1014.5,
+      "x_pixel_span": [
+        1012,
+        1017
+      ],
+      "volume_a3": 51.00703279943514,
+      "figure_pressure_gpa": 71.44591330631664,
+      "published_coefficients_pressure_gpa": 71.05610338557439,
+      "difference_gpa": -0.38980992074225185,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.6829201317410091,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.45112493397262826
+    },
+    {
+      "temperature_k": 300,
+      "y_pixel": 966,
+      "x_pixel": 1153.5,
+      "x_pixel_span": [
+        1152,
+        1155
+      ],
+      "volume_a3": 50.000031036479555,
+      "figure_pressure_gpa": 83.88073280209676,
+      "published_coefficients_pressure_gpa": 83.38927743489744,
+      "difference_gpa": -0.4914553671993218,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.7267170256076648,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.37624686997534534
+    },
+    {
+      "temperature_k": 300,
+      "y_pixel": 1051,
+      "x_pixel": 1304.0,
+      "x_pixel_span": [
+        1302,
+        1306
+      ],
+      "volume_a3": 48.993029273523966,
+      "figure_pressure_gpa": 97.34433232810329,
+      "published_coefficients_pressure_gpa": 97.02819247896092,
+      "difference_gpa": -0.3161398491423739,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.7753551512505746,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.43716903011596264
+    },
+    {
+      "temperature_k": 1473,
+      "y_pixel": 544,
+      "x_pixel": 684.0,
+      "x_pixel_span": [
+        682,
+        686
+      ],
+      "volume_a3": 54.99949861256492,
+      "figure_pressure_gpa": 41.879669828940166,
+      "published_coefficients_pressure_gpa": 41.7603650302454,
+      "difference_gpa": -0.11930479869476329,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.5500908165352479,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.3621726564693285
+    },
+    {
+      "temperature_k": 1473,
+      "y_pixel": 628,
+      "x_pixel": 776.5,
+      "x_pixel_span": [
+        775,
+        778
+      ],
+      "volume_a3": 54.004343929173515,
+      "figure_pressure_gpa": 50.15463963728305,
+      "published_coefficients_pressure_gpa": 50.03220743845762,
+      "difference_gpa": -0.12243219882542888,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.5790170260187703,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.3270738577057683
+    },
+    {
+      "temperature_k": 1473,
+      "y_pixel": 713,
+      "x_pixel": 880.0,
+      "x_pixel_span": [
+        878,
+        882
+      ],
+      "volume_a3": 52.99734216621793,
+      "figure_pressure_gpa": 59.413659909320764,
+      "published_coefficients_pressure_gpa": 59.26790760609599,
+      "difference_gpa": -0.14575230322477495,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.6113526056735689,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.38256918646132
+    },
+    {
+      "temperature_k": 1473,
+      "y_pixel": 797,
+      "x_pixel": 993.0,
+      "x_pixel_span": [
+        991,
+        995
+      ],
+      "volume_a3": 52.002187482826535,
+      "figure_pressure_gpa": 69.52254194545856,
+      "published_coefficients_pressure_gpa": 69.33999050212006,
+      "difference_gpa": -0.1825514433384967,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.6466901492233413,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.39433426833782426
+    },
+    {
+      "temperature_k": 1473,
+      "y_pixel": 881,
+      "x_pixel": 1117.5,
+      "x_pixel_span": [
+        1115,
+        1120
+      ],
+      "volume_a3": 51.00703279943514,
+      "figure_pressure_gpa": 80.66020401182277,
+      "published_coefficients_pressure_gpa": 80.45130658385678,
+      "difference_gpa": -0.20889742796599364,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.6857880709341894,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.45208070191319566
+    },
+    {
+      "temperature_k": 1473,
+      "y_pixel": 966,
+      "x_pixel": 1256.0,
+      "x_pixel_span": [
+        1253,
+        1259
+      ],
+      "volume_a3": 50.000031036479555,
+      "figure_pressure_gpa": 93.05029394107132,
+      "published_coefficients_pressure_gpa": 92.86647966729045,
+      "difference_gpa": -0.18381427378086812,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.7296392666207888,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.5114094358421144
+    },
+    {
+      "temperature_k": 1473,
+      "y_pixel": 1051,
+      "x_pixel": 1409.5,
+      "x_pixel_span": [
+        1407,
+        1412
+      ],
+      "volume_a3": 48.993029273523966,
+      "figure_pressure_gpa": 106.78227086626734,
+      "published_coefficients_pressure_gpa": 106.58894001065062,
+      "difference_gpa": -0.19333085561672192,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.778332250317329,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.4828907468479349
+    },
+    {
+      "temperature_k": 1473,
+      "y_pixel": 1135,
+      "x_pixel": 1577.5,
+      "x_pixel_span": [
+        1574,
+        1581
+      ],
+      "volume_a3": 47.99787459013257,
+      "figure_pressure_gpa": 121.81140522087927,
+      "published_coefficients_pressure_gpa": 121.57636988325991,
+      "difference_gpa": -0.23503533761935103,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.8318011443021144,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.5901504752188771
+    },
+    {
+      "temperature_k": 1873,
+      "y_pixel": 544,
+      "x_pixel": 719.0,
+      "x_pixel_span": [
+        717,
+        721
+      ],
+      "volume_a3": 54.99949861256492,
+      "figure_pressure_gpa": 45.01073948615099,
+      "published_coefficients_pressure_gpa": 44.88350739902257,
+      "difference_gpa": -0.12723208712841938,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.5510848422481184,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.3625038962216275
+    },
+    {
+      "temperature_k": 1873,
+      "y_pixel": 628,
+      "x_pixel": 812.0,
+      "x_pixel_span": [
+        810,
+        814
+      ],
+      "volume_a3": 54.004343929173515,
+      "figure_pressure_gpa": 53.33043886102545,
+      "published_coefficients_pressure_gpa": 53.18353487644413,
+      "difference_gpa": -0.14690398458132137,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.5800373419157504,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.37214342301120473
+    },
+    {
+      "temperature_k": 1873,
+      "y_pixel": 713,
+      "x_pixel": 916.0,
+      "x_pixel_span": [
+        914,
+        918
+      ],
+      "volume_a3": 52.99734216621793,
+      "figure_pressure_gpa": 62.63418869959475,
+      "published_coefficients_pressure_gpa": 62.44852054127587,
+      "difference_gpa": -0.18566815831888306,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.6124006803017418,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.3829184334519292
+    },
+    {
+      "temperature_k": 1873,
+      "y_pixel": 797,
+      "x_pixel": 1029.0,
+      "x_pixel_span": [
+        1027,
+        1031
+      ],
+      "volume_a3": 52.002187482826535,
+      "figure_pressure_gpa": 72.74307073573254,
+      "published_coefficients_pressure_gpa": 72.55033332806255,
+      "difference_gpa": -0.1927374076699948,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.6477668678450451,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.394693058400558
+    },
+    {
+      "temperature_k": 1873,
+      "y_pixel": 881,
+      "x_pixel": 1154.0,
+      "x_pixel_span": [
+        1152,
+        1156
+      ],
+      "volume_a3": 51.00703279943514,
+      "figure_pressure_gpa": 83.92546236862833,
+      "published_coefficients_pressure_gpa": 83.6921984297482,
+      "difference_gpa": -0.2332639388801283,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.6868947135053484,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.40771989485846893
+    },
+    {
+      "temperature_k": 1873,
+      "y_pixel": 966,
+      "x_pixel": 1292.5,
+      "x_pixel_span": [
+        1290,
+        1295
+      ],
+      "volume_a3": 50.000031036479555,
+      "figure_pressure_gpa": 96.31555229787688,
+      "published_coefficients_pressure_gpa": 96.13915576752491,
+      "difference_gpa": -0.17639653035196545,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.7307775755746443,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.46705917860699403
+    },
+    {
+      "temperature_k": 1873,
+      "y_pixel": 1051,
+      "x_pixel": 1446.5,
+      "x_pixel_span": [
+        1444,
+        1449
+      ],
+      "volume_a3": 48.993029273523966,
+      "figure_pressure_gpa": 110.09225878960447,
+      "published_coefficients_pressure_gpa": 109.89431766201011,
+      "difference_gpa": -0.1979411275943619,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.7795037116858007,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.4832811009313139
+    },
+    {
+      "temperature_k": 1873,
+      "y_pixel": 1135,
+      "x_pixel": 1614.0,
+      "x_pixel_span": [
+        1611,
+        1617
+      ],
+      "volume_a3": 47.99787459013257,
+      "figure_pressure_gpa": 125.07666357768485,
+      "published_coefficients_pressure_gpa": 124.91500805091937,
+      "difference_gpa": -0.161655526765486,
+      "illustrative_three_pixel_pressure_tolerance_gpa": 0.8330069262787371,
+      "stroke_and_one_pixel_axis_sensitivity_gpa": 0.5458226966215736
+    }
+  ],
+  "max_absolute_pressure_difference_gpa": 0.4914553671993218,
+  "all_points_within_illustrative_tolerance": true,
+  "per_isotherm_summary": {
+    "300": {
+      "samples": 7,
+      "rmse_gpa": 0.369375065970643,
+      "mean_difference_gpa": -0.35911425476251374,
+      "max_absolute_difference_gpa": 0.4914553671993218
+    },
+    "1473": {
+      "samples": 8,
+      "rmse_gpa": 0.17812786628601027,
+      "mean_difference_gpa": -0.17388982988329982,
+      "max_absolute_difference_gpa": 0.23503533761935103
+    },
+    "1873": {
+      "samples": 8,
+      "rmse_gpa": 0.18035733920436836,
+      "mean_difference_gpa": -0.17772484516132003,
+      "max_absolute_difference_gpa": 0.2332639388801283
+    }
+  },
+  "hot_curve_separation": {
+    "description": "1873 K minus 1473 K pressure at the same volume; the cold pressure cancels. No coefficients refitted.",
+    "rmse_gpa": 0.03242942448150206,
+    "max_absolute_difference_gpa": 0.07337981085386502,
+    "points": [
+      {
+        "volume_a3": 54.99949861256492,
+        "figure_separation_gpa": 3.1310696572108228,
+        "calculated_separation_gpa": 3.1231423687771667,
+        "difference_gpa": -0.007927288433656088
+      },
+      {
+        "volume_a3": 54.004343929173515,
+        "figure_separation_gpa": 3.175799223742402,
+        "calculated_separation_gpa": 3.1513274379865095,
+        "difference_gpa": -0.024471785755892483
+      },
+      {
+        "volume_a3": 52.99734216621793,
+        "figure_separation_gpa": 3.2205287902739883,
+        "calculated_separation_gpa": 3.18061293517988,
+        "difference_gpa": -0.03991585509410811
+      },
+      {
+        "volume_a3": 52.002187482826535,
+        "figure_separation_gpa": 3.2205287902739883,
+        "calculated_separation_gpa": 3.21034282594249,
+        "difference_gpa": -0.010185964331498099
+      },
+      {
+        "volume_a3": 51.00703279943514,
+        "figure_separation_gpa": 3.2652583568055604,
+        "calculated_separation_gpa": 3.2408918458914258,
+        "difference_gpa": -0.024366510914134665
+      },
+      {
+        "volume_a3": 50.000031036479555,
+        "figure_separation_gpa": 3.2652583568055604,
+        "calculated_separation_gpa": 3.272676100234463,
+        "difference_gpa": 0.007417743428902668
+      },
+      {
+        "volume_a3": 48.993029273523966,
+        "figure_separation_gpa": 3.3099879233371325,
+        "calculated_separation_gpa": 3.3053776513594926,
+        "difference_gpa": -0.004610271977639968
+      },
+      {
+        "volume_a3": 47.99787459013257,
+        "figure_separation_gpa": 3.265258356805589,
+        "calculated_separation_gpa": 3.338638167659454,
+        "difference_gpa": 0.07337981085386502
+      }
+    ]
+  },
+  "readout_sensitivity_note": "Error bars in the validation plot show observed horizontal half-stroke width plus an illustrative one pixel in each calibrated coordinate. These are deterministic readout sensitivities, not statistical errors. The earlier three-pixel criterion alone is not proof of exact parity.",
+  "published_coefficients": {
+    "V0": 60.38,
+    "K0": 277.0,
+    "K0_prime": 5.08,
+    "gamma0": 2.72,
+    "q": 0.5,
+    "theta0": 230.0
+  }
+}

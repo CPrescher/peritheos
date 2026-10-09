@@ -1,0 +1,203 @@
+{
+  "scope": "Fei 2004 Pt, original 42 Table 2 observations and original pressure_gpa calibration column. No Dewaele data or Fei 2007 Au recalibration. No EOS record changed.",
+  "published_parameters": {
+    "K0": 273.0,
+    "K0_prime": 4.8,
+    "gamma0": 2.69,
+    "q": 0.5
+  },
+  "published_unweighted_rmse_all42_gpa": 0.44257007460253,
+  "weight_qualification": "Approximate pressure-equivalent errors from symmetric +/- reported Au/Pt volume errors evaluated with published Fei 2004 EOSs; independent errors assumed and quadrature sum where combined. Weights fixed during fitting. Temperature uncertainty, calibration parameter uncertainty and correlated systematic errors excluded. Original author objective/weights not recovered; these are sensitivity diagnostics, not author-fit parity.",
+  "variants": {
+    "joint_unweighted": {
+      "rows": 42,
+      "free_parameters": [
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "fixed_parameters": [
+        "V0=60.38",
+        "theta0=230"
+      ],
+      "parameters": {
+        "K0": 289.7385268071255,
+        "K0_prime": 2.6362932573483513,
+        "gamma0": 2.5593954646006263,
+        "q": -0.9772053235745852
+      },
+      "unweighted_rmse_gpa": 0.37435995784048326,
+      "weighted_squared_residual_sum": 5.886105877441793,
+      "published_weighted_squared_residual_sum": 8.226467379214938,
+      "q_by_start": [
+        -0.9772053235745852,
+        -0.9772043438058391,
+        -0.9772052064821692
+      ]
+    },
+    "fixed_cold_unweighted": {
+      "rows": 35,
+      "free_parameters": [
+        "gamma0",
+        "q"
+      ],
+      "fixed_parameters": [
+        "K0",
+        "K0_prime",
+        "V0=60.38",
+        "theta0=230"
+      ],
+      "parameters": {
+        "K0": 273.0,
+        "K0_prime": 4.8,
+        "gamma0": 2.60503584264889,
+        "q": -0.9026860257400625
+      },
+      "unweighted_rmse_gpa": 0.4079263429039347,
+      "weighted_squared_residual_sum": 5.824136543224247,
+      "published_weighted_squared_residual_sum": 7.668840893966886,
+      "q_by_start": [
+        -0.9026871400784884,
+        -0.9026861790620063,
+        -0.9026860257400625
+      ]
+    },
+    "fixed_cold_gamma_unweighted": {
+      "rows": 35,
+      "free_parameters": [
+        "q"
+      ],
+      "fixed_parameters": [
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "V0=60.38",
+        "theta0=230"
+      ],
+      "parameters": {
+        "K0": 273.0,
+        "K0_prime": 4.8,
+        "gamma0": 2.69,
+        "q": 0.015121544739272333
+      },
+      "unweighted_rmse_gpa": 0.4377399218315416,
+      "weighted_squared_residual_sum": 6.706568370777945,
+      "published_weighted_squared_residual_sum": 7.668840893966886,
+      "q_by_start": [
+        0.015121808705344516,
+        0.015121544739272333,
+        0.01512141289533416
+      ]
+    },
+    "joint_pt_volume_weighted": {
+      "rows": 42,
+      "free_parameters": [
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "fixed_parameters": [
+        "V0=60.38",
+        "theta0=230"
+      ],
+      "parameters": {
+        "K0": 278.104607695022,
+        "K0_prime": 4.322376653296041,
+        "gamma0": 2.5959320720832615,
+        "q": 0.15435644301487506
+      },
+      "unweighted_rmse_gpa": 0.4775889151408674,
+      "weighted_squared_residual_sum": 289.3359930221294,
+      "published_weighted_squared_residual_sum": 379.44964765076384,
+      "q_by_start": [
+        0.15435862985295762,
+        0.15435644301487506,
+        0.1543568466552564
+      ]
+    },
+    "joint_au_volume_weighted": {
+      "rows": 42,
+      "free_parameters": [
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "fixed_parameters": [
+        "V0=60.38",
+        "theta0=230"
+      ],
+      "parameters": {
+        "K0": 292.85641310361063,
+        "K0_prime": 2.3501094737213317,
+        "gamma0": 2.537133171599559,
+        "q": -0.8307788299022538
+      },
+      "unweighted_rmse_gpa": 0.3844507536172308,
+      "weighted_squared_residual_sum": 822.3681586302439,
+      "published_weighted_squared_residual_sum": 1032.839782559496,
+      "q_by_start": [
+        -0.8307788299022538,
+        -0.830773987731432,
+        -0.8307802463322469
+      ]
+    },
+    "joint_combined_volume_weighted": {
+      "rows": 42,
+      "free_parameters": [
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "fixed_parameters": [
+        "V0=60.38",
+        "theta0=230"
+      ],
+      "parameters": {
+        "K0": 298.84609323405766,
+        "K0_prime": 1.7578095365337532,
+        "gamma0": 2.573975512263144,
+        "q": -0.45696830953193646
+      },
+      "unweighted_rmse_gpa": 0.38269175986497517,
+      "weighted_squared_residual_sum": 101.34238404608794,
+      "published_weighted_squared_residual_sum": 133.86625695342994,
+      "q_by_start": [
+        -0.45696830953193646,
+        -0.45696741001922553,
+        -0.4569673084783728
+      ]
+    },
+    "fixed_cold_combined_volume_weighted": {
+      "rows": 35,
+      "free_parameters": [
+        "gamma0",
+        "q"
+      ],
+      "fixed_parameters": [
+        "K0",
+        "K0_prime",
+        "V0=60.38",
+        "theta0=230"
+      ],
+      "parameters": {
+        "K0": 273.0,
+        "K0_prime": 4.8,
+        "gamma0": 2.6834156192604968,
+        "q": 0.23771437091516753
+      },
+      "unweighted_rmse_gpa": 0.44498641981428866,
+      "weighted_squared_residual_sum": 115.70970760853368,
+      "published_weighted_squared_residual_sum": 120.8142151289884,
+      "q_by_start": [
+        0.23771464693922648,
+        0.23771437091516753,
+        0.2377142932171021
+      ]
+    }
+  },
+  "source_sha256": "cc935b6c4c456452f6abc0c5ee425d1eb687d8bb967568b6738f4269b1bb1022"
+}

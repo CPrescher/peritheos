@@ -1,0 +1,175 @@
+{
+  "hypothesis": "Treat the unchanged RT Vinet curve as a 0 K baseline: P=P_RT+gamma*E_D(T)/V_m, omitting subtraction of E_D(300). Debye energy excludes zero-point energy.",
+  "correct_expression": "P=P_RT+gamma*(E_D(T)-E_D(300))/V_m",
+  "fixed_cold_coefficients": [
+    60.38,
+    277.0,
+    5.086992410819014,
+    2.72,
+    0.5,
+    230.0
+  ],
+  "observations": 35,
+  "objective": "Same 35 hot Fei (2004) rows and equal pressure weights as the fixed-RT diagnostic. No RT residuals enter these fits.",
+  "cases": {
+    "correct_300K_reference": {
+      "unconstrained_q": {
+        "gamma0": 2.6124038411148955,
+        "q": -1.6606160241450427,
+        "q_lower_bound": null,
+        "hot_rmse_gpa": 0.4241327487129246,
+        "q_at_lower_bound": false,
+        "coefficients": [
+          60.38,
+          277.0,
+          5.086992410819014,
+          2.6124038411148955,
+          -1.6606160241450427,
+          230.0
+        ],
+        "solver_success": true,
+        "q_start_sensitivity_rmse_gpa": [
+          0.4241327487129253,
+          0.4241327487129246,
+          0.4241327487129413
+        ],
+        "added_pressure_at_V0_300K_gpa": 0.0
+      },
+      "q_nonnegative": {
+        "gamma0": 2.7367296599628994,
+        "q": 5e-324,
+        "q_lower_bound": 0.0,
+        "hot_rmse_gpa": 0.4984974100374829,
+        "q_at_lower_bound": true,
+        "coefficients": [
+          60.38,
+          277.0,
+          5.086992410819014,
+          2.7367296599628994,
+          5e-324,
+          230.0
+        ],
+        "solver_success": true,
+        "q_start_sensitivity_rmse_gpa": [
+          0.498497410037483,
+          0.4984974100374829,
+          0.4984974100374831
+        ],
+        "added_pressure_at_V0_300K_gpa": 0.0
+      }
+    },
+    "Pt_omits_300K_subtraction": {
+      "unconstrained_q": {
+        "gamma0": 2.2949111340014814,
+        "q": -1.3512525850229125,
+        "q_lower_bound": null,
+        "hot_rmse_gpa": 0.4269239949970234,
+        "q_at_lower_bound": false,
+        "coefficients": [
+          60.38,
+          277.0,
+          5.086992410819014,
+          2.2949111340014814,
+          -1.3512525850229125,
+          230.0
+        ],
+        "solver_success": true,
+        "q_start_sensitivity_rmse_gpa": [
+          0.426923994997032,
+          0.4269239949970234,
+          0.4269239949970162
+        ],
+        "added_pressure_at_V0_300K_gpa": 1.4011296087842107
+      },
+      "q_nonnegative": {
+        "gamma0": 2.383523670261764,
+        "q": 5.582766985418418e-22,
+        "q_lower_bound": 0.0,
+        "hot_rmse_gpa": 0.4774377646380971,
+        "q_at_lower_bound": true,
+        "coefficients": [
+          60.38,
+          277.0,
+          5.086992410819014,
+          2.383523670261764,
+          5.582766985418418e-22,
+          230.0
+        ],
+        "solver_success": true,
+        "q_start_sensitivity_rmse_gpa": [
+          0.4774377646380967,
+          0.4774377646380971,
+          0.47743776463809606
+        ],
+        "added_pressure_at_V0_300K_gpa": 1.4552308968141576
+      }
+    },
+    "Pt_and_Au_omit_300K_subtraction_in_hot_calibration": {
+      "unconstrained_q": {
+        "gamma0": 2.6444393137424584,
+        "q": -1.3601144633880384,
+        "q_lower_bound": null,
+        "hot_rmse_gpa": 0.42502377015893694,
+        "q_at_lower_bound": false,
+        "coefficients": [
+          60.38,
+          277.0,
+          5.086992410819014,
+          2.6444393137424584,
+          -1.3601144633880384,
+          230.0
+        ],
+        "solver_success": true,
+        "q_start_sensitivity_rmse_gpa": [
+          0.4250237701589384,
+          0.42502377015893694,
+          0.42502377015893616
+        ],
+        "added_pressure_at_V0_300K_gpa": 1.6145297158661853
+      },
+      "q_nonnegative": {
+        "gamma0": 2.747164381556128,
+        "q": 1.6341897312848113e-24,
+        "q_lower_bound": 0.0,
+        "hot_rmse_gpa": 0.49167935575605226,
+        "q_at_lower_bound": true,
+        "coefficients": [
+          60.38,
+          277.0,
+          5.086992410819014,
+          2.747164381556128,
+          1.6341897312848113e-24,
+          230.0
+        ],
+        "solver_success": true,
+        "q_start_sensitivity_rmse_gpa": [
+          0.4916793557560527,
+          0.49167935575605226,
+          0.49167935575605315
+        ],
+        "added_pressure_at_V0_300K_gpa": 1.6772472354884531
+      }
+    }
+  },
+  "published_coefficients_added_pressure_V0_300K_gpa": 1.660662358305763,
+  "published_coefficients_omitted_subtraction_vs_figure2": {
+    "300": {
+      "rmse_gpa": 1.193561673440128,
+      "max_absolute_difference_gpa": 1.3836543236308714
+    },
+    "1473": {
+      "rmse_gpa": 1.366570071235193,
+      "max_absolute_difference_gpa": 1.4779888750215022
+    },
+    "1873": {
+      "rmse_gpa": 1.3618498595175836,
+      "max_absolute_difference_gpa": 1.4700615865878461
+    }
+  },
+  "consistent_0K_baseline_conversion_max_identity_error_gpa": 3.552713678800501e-15,
+  "qualification": "Counterfactual diagnostics, not evidence about the author's actual code. The combined Au/Pt case changes hot calibration targets while retaining the previously frozen RT cold coefficients. Omitting the subtraction changes RT predictions despite unchanged cold coefficients. Canonical EOS coefficients, source measurements and normal calibration targets remain unchanged.",
+  "input_sha256": {
+    "platinum-dewaele-2004-table1-compression.csv": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+    "platinum-fei-2004-table2.csv": "cc935b6c4c456452f6abc0c5ee425d1eb687d8bb967568b6738f4269b1bb1022"
+  }
+}

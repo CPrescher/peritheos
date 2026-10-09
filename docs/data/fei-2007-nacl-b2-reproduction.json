@@ -1,0 +1,365 @@
+{
+  "doi": "10.1073/pnas.0609013104",
+  "source_sha256": "eab6fc6fd74ad84df6fcf4188d7337c5cd32dc10b62328580d0242d709eeeb8a",
+  "published_parameters": {
+    "V0": 41.35,
+    "K0": 26.86,
+    "K0_prime": 5.25,
+    "gamma0": 1.7,
+    "q": 0.5,
+    "theta0": 290.0
+  },
+  "normalization": "V0 and volumes: A^3 per B2 cell, one NaCl FU, two atoms; molar volume = V*N_A*1e-30 m^3/mol(FU); Debye energy uses n=2; reference 300 K.",
+  "native_max_difference_gpa": 1.1368683772161603e-13,
+  "published_observation_comparisons": {
+    "figure3_300k": {
+      "observations": 12,
+      "rmse_gpa": 1.873020137884707,
+      "mean_residual_gpa": -0.019965818259788826,
+      "max_abs_residual_gpa": 3.982041377018035,
+      "pressure_residuals_gpa": [
+        0.18134704719156147,
+        -0.8338620482352255,
+        -0.5366916131900794,
+        0.2042533865009446,
+        1.6136525908029427,
+        -0.4550054110734152,
+        1.5642085521895552,
+        -3.009162356193201,
+        0.7941462393091712,
+        2.9277328471555393,
+        1.291832323442776,
+        -3.982041377018035
+      ]
+    },
+    "figure4_300k": {
+      "observations": 12,
+      "rmse_gpa": 1.8762374641766457,
+      "mean_residual_gpa": 0.011593262801575873,
+      "max_abs_residual_gpa": 4.03429061753755,
+      "pressure_residuals_gpa": [
+        0.20697207140130658,
+        -0.8474984166900299,
+        -0.5255950322300151,
+        0.17136175179296487,
+        1.6997463481594224,
+        -0.33720694611265856,
+        1.5768538854816398,
+        -2.8730580402269794,
+        0.7468363850880451,
+        2.9246445450105796,
+        1.4303532194821855,
+        -4.03429061753755
+      ]
+    },
+    "figure4_1000k": {
+      "observations": 12,
+      "rmse_gpa": 2.0008151879693523,
+      "mean_residual_gpa": 0.680301421160026,
+      "max_abs_residual_gpa": 3.4959463082453084,
+      "pressure_residuals_gpa": [
+        -0.8604952637819281,
+        0.5885388360793584,
+        0.028811411208224058,
+        0.12155488712326701,
+        0.9196279966511725,
+        2.527041251998085,
+        3.4959463082453084,
+        3.4377570768266708,
+        1.9242270588533472,
+        0.12541324172612178,
+        -0.7768049082733626,
+        -3.3680008427359525
+      ]
+    }
+  },
+  "cold_fit_figure3": {
+    "observations": 12,
+    "law": "printed",
+    "residual_direction": "pressure",
+    "weighting": "equal pressure weights; no experimental error weights recovered",
+    "free_parameters": [
+      "K0",
+      "K0_prime"
+    ],
+    "fixed_parameters": {
+      "V0": 41.35,
+      "gamma0": 1.7,
+      "q": 0.5,
+      "theta0": 290.0
+    },
+    "parameters": {
+      "K0": 26.88910684272275,
+      "K0_prime": 5.2469124012106825
+    },
+    "conditional_standard_errors": {
+      "K0": 2.1296181357073074,
+      "K0_prime": 0.27006889403636436
+    },
+    "rmse_gpa": 1.872957772286715,
+    "solver_success": true
+  },
+  "cold_fit_figure4_sensitivity": {
+    "observations": 12,
+    "law": "printed",
+    "residual_direction": "pressure",
+    "weighting": "equal pressure weights; no experimental error weights recovered",
+    "free_parameters": [
+      "K0",
+      "K0_prime"
+    ],
+    "fixed_parameters": {
+      "V0": 41.35,
+      "gamma0": 1.7,
+      "q": 0.5,
+      "theta0": 290.0
+    },
+    "parameters": {
+      "K0": 26.834139970029497,
+      "K0_prime": 5.252541698770625
+    },
+    "conditional_standard_errors": {
+      "K0": 2.1310072694453197,
+      "K0_prime": 0.2707589922151107
+    },
+    "rmse_gpa": 1.876155123107606,
+    "solver_success": true
+  },
+  "hot_q_only_published_cold": {
+    "observations": 12,
+    "law": "printed",
+    "residual_direction": "pressure",
+    "weighting": "equal pressure weights; no experimental error weights recovered",
+    "free_parameters": [
+      "q"
+    ],
+    "fixed_parameters": {
+      "V0": 41.35,
+      "K0": 26.86,
+      "K0_prime": 5.25,
+      "gamma0": 1.7,
+      "theta0": 290.0
+    },
+    "parameters": {
+      "q": 0.9812193423087391
+    },
+    "conditional_standard_errors": {
+      "q": 0.4359800244069485
+    },
+    "rmse_gpa": 1.873551060698402,
+    "solver_success": true
+  },
+  "hot_excluding_touching_points_sensitivity": {
+    "observations": 10,
+    "law": "printed",
+    "residual_direction": "pressure",
+    "weighting": "equal pressure weights; no experimental error weights recovered",
+    "free_parameters": [
+      "q"
+    ],
+    "fixed_parameters": {
+      "V0": 41.35,
+      "K0": 26.86,
+      "K0_prime": 5.25,
+      "gamma0": 1.7,
+      "theta0": 290.0
+    },
+    "parameters": {
+      "q": 0.6715189377405272
+    },
+    "conditional_standard_errors": {
+      "q": 0.40261228875604466
+    },
+    "rmse_gpa": 1.7840097272718185,
+    "solver_success": true
+  },
+  "hot_q_only_integrated_law_sensitivity": {
+    "observations": 12,
+    "law": "integrated",
+    "residual_direction": "pressure",
+    "weighting": "equal pressure weights; no experimental error weights recovered",
+    "free_parameters": [
+      "q"
+    ],
+    "fixed_parameters": {
+      "V0": 41.35,
+      "K0": 26.86,
+      "K0_prime": 5.25,
+      "gamma0": 1.7,
+      "theta0": 290.0
+    },
+    "parameters": {
+      "q": 0.9461044161677808
+    },
+    "conditional_standard_errors": {
+      "q": 0.43538873100494413
+    },
+    "rmse_gpa": 1.8737440775557666,
+    "solver_success": true
+  },
+  "staged_cold_then_hot": {
+    "observations": 12,
+    "law": "printed",
+    "residual_direction": "pressure",
+    "weighting": "equal pressure weights; no experimental error weights recovered",
+    "free_parameters": [
+      "q"
+    ],
+    "fixed_parameters": {
+      "V0": 41.35,
+      "K0": 26.88910684272275,
+      "K0_prime": 5.2469124012106825,
+      "gamma0": 1.7,
+      "theta0": 290.0
+    },
+    "parameters": {
+      "q": 0.9933853990496189
+    },
+    "conditional_standard_errors": {
+      "q": 0.43881448265358847
+    },
+    "rmse_gpa": 1.8740067288353497,
+    "solver_success": true
+  },
+  "hot_q_only_volume_residual_sensitivity": {
+    "observations": 12,
+    "law": "printed",
+    "residual_direction": "volume",
+    "weighting": "equal volume weights; no experimental error weights recovered",
+    "free_parameters": [
+      "q"
+    ],
+    "fixed_parameters": {
+      "V0": 41.35,
+      "K0": 26.86,
+      "K0_prime": 5.25,
+      "gamma0": 1.7,
+      "theta0": 290.0
+    },
+    "parameters": {
+      "q": 0.8548431468339167
+    },
+    "conditional_standard_errors": {
+      "q": 0.34699015211720463
+    },
+    "rmse_a3": 0.1464211618927991,
+    "solver_success": true
+  },
+  "figure3_vs_figure4_same_cold_rows": {
+    "max_pressure_difference_gpa": 0.05576934479618245,
+    "max_volume_difference_a3": 0.010969720312417053,
+    "duplicate_observations_not_pooled": true
+  },
+  "curve_checks": [
+    {
+      "figure": 3,
+      "temperature_k": 300,
+      "law": "printed",
+      "vertices": 24,
+      "role": "calculated curve, excluded from fits",
+      "rmse_gpa": 0.017962412404369354,
+      "max_abs_residual_gpa": 0.0475673070843996,
+      "max_horizontal_difference_pt": 0.06445964701274699,
+      "printed_linewidth_pt": 0.365
+    },
+    {
+      "figure": 3,
+      "temperature_k": 300,
+      "law": "integrated",
+      "vertices": 24,
+      "role": "calculated curve, excluded from fits",
+      "rmse_gpa": 0.017962412404369354,
+      "max_abs_residual_gpa": 0.0475673070843996,
+      "max_horizontal_difference_pt": 0.06445964701274699,
+      "printed_linewidth_pt": 0.365
+    },
+    {
+      "figure": 4,
+      "temperature_k": 300,
+      "law": "printed",
+      "vertices": 24,
+      "role": "calculated curve, excluded from fits",
+      "rmse_gpa": 0.022631971206275366,
+      "max_abs_residual_gpa": 0.07934913692278656,
+      "max_horizontal_difference_pt": 0.09873952681433405,
+      "printed_linewidth_pt": 0.357
+    },
+    {
+      "figure": 4,
+      "temperature_k": 300,
+      "law": "integrated",
+      "vertices": 24,
+      "role": "calculated curve, excluded from fits",
+      "rmse_gpa": 0.022631971206275366,
+      "max_abs_residual_gpa": 0.07934913692278656,
+      "max_horizontal_difference_pt": 0.09873952681433405,
+      "printed_linewidth_pt": 0.357
+    },
+    {
+      "figure": 4,
+      "temperature_k": 1000,
+      "law": "printed",
+      "vertices": 24,
+      "role": "calculated curve, excluded from fits",
+      "rmse_gpa": 0.05538917954661642,
+      "max_abs_residual_gpa": 0.16785995252141106,
+      "max_horizontal_difference_pt": 0.20887955339916323,
+      "printed_linewidth_pt": 0.357
+    },
+    {
+      "figure": 4,
+      "temperature_k": 1000,
+      "law": "integrated",
+      "vertices": 24,
+      "role": "calculated curve, excluded from fits",
+      "rmse_gpa": 0.024177193496968126,
+      "max_abs_residual_gpa": 0.07553439111686089,
+      "max_horizontal_difference_pt": 0.09399257920530595,
+      "printed_linewidth_pt": 0.357
+    },
+    {
+      "figure": 4,
+      "temperature_k": 2000,
+      "law": "printed",
+      "vertices": 24,
+      "role": "calculated curve, excluded from fits",
+      "rmse_gpa": 0.06153415936681445,
+      "max_abs_residual_gpa": 0.18096971380589366,
+      "max_horizontal_difference_pt": 0.22519292082921227,
+      "printed_linewidth_pt": 0.357
+    },
+    {
+      "figure": 4,
+      "temperature_k": 2000,
+      "law": "integrated",
+      "vertices": 24,
+      "role": "calculated curve, excluded from fits",
+      "rmse_gpa": 0.023703273706960067,
+      "max_abs_residual_gpa": 0.08786710707455825,
+      "max_horizontal_difference_pt": 0.10933901629615389,
+      "printed_linewidth_pt": 0.357
+    }
+  ],
+  "coordinate_sensitivity": {
+    "bound_pt": 0.357,
+    "pressure_bound_gpa": 0.2868926234040091,
+    "volume_bound_a3": 0.06169532532619026,
+    "common_offset_q_range": [
+      0.3102616711125015,
+      2.001435807337506
+    ],
+    "meaning": "One printed stroke-width coordinate perturbations; not source errors, statistical interval, or confidence on q."
+  },
+  "author_fit_reproduced": false,
+  "source_error_weighted_fit": {
+    "status": "not_possible",
+    "reason": "No P/V/T experimental uncertainties recovered; graphical stroke widths are not source-error weights."
+  },
+  "missing_for_exact_reproduction": [
+    "original unrounded NaCl cell parameters and temperatures",
+    "paired measured Pt cells for independent pressure reduction",
+    "P/V/T uncertainty columns and calibration covariance",
+    "author weights, residual direction and optimization/covariance details"
+  ],
+  "qualification": "The source describes a least-squares cold EOS and Mie-Gruneisen thermal fit. q is the remaining thermal parameter once source-adopted gamma0/theta0 are fixed. These diagnostics use only study markers, fixed V0, cold K0/K0_prime free followed by hot q free. Conditional errors omit cold-stage and Pt-calibration covariance. Graphical agreement and q proximity do not establish author-fit parity, theta convention uniqueness or absolute pressure accuracy."
+}

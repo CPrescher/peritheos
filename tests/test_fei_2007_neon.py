@@ -137,3 +137,22 @@ def test_fit_parity_and_curve_validation_preserve_exact_regression_limits():
     assert len(curve["points"]) == 18
     assert all(s["samples"] == 6 for s in curve["summary"]["vinet"]["printed"].values())
     assert max(abs(row["difference_gpa"]) for row in curve["thermal_separation"]) < 0.16
+
+
+@pytest.mark.parametrize("branch", ["vinet", "bm3"])
+def test_refit_ledger_adapter_preserves_joint_thermal_scope(branch):
+    from scripts.reproduce_fei_2007_neon import ledger_outcome
+
+    record = next(
+        r
+        for r in get_material_document("neon_fcc")["eos_records"]
+        if r["identifier"] == RECORDS[branch]
+    )
+    outcome = ledger_outcome(record)
+    assert outcome["status"] == "parity"
+    assert outcome["fit_kind"] == "diagnostic_joint_pvt"
+    assert outcome["observations"] == 54
+    assert set(outcome["free_parameters"]) == {"K0", "K0_prime", "q"}
+    assert len(outcome["parameters"]) == 3
+    assert outcome["solver_success"]
+    assert "confidence" in outcome["parity_basis"]

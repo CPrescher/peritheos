@@ -1,0 +1,578 @@
+{
+  "objective": "Equal-weight pressure residuals. Fit K0-prime to RT observations first with V0 and K0 fixed, then freeze the complete cold EOS and fit gamma0/q only to the 35 hot Fei (2004) rows. No RT residuals enter the thermal objective.",
+  "pressure_calibration": "Hot pressures independently recalculated from measured Au volumes using published Fei (2007) Au coefficients. Original source data and canonical EOS records unchanged.",
+  "counts": {
+    "rt": 43,
+    "hot": 35
+  },
+  "hot_rows_per_temperature": {
+    "1473": 6,
+    "1673": 7,
+    "1873": 22
+  },
+  "hot_volume_a3_range": [
+    56.786937919453,
+    60.11650956002401
+  ],
+  "hot_pressure_gpa_range": [
+    12.70132633022282,
+    29.292090578808498
+  ],
+  "hot_inputs": [
+    {
+      "run": "s376004",
+      "temperature_k": 1473.0,
+      "platinum_volume_a3": 59.41944263864801,
+      "gold_volume_a3": 65.89031131899999,
+      "recalculated_au_pressure_gpa": 13.916333147696417
+    },
+    {
+      "run": "s377002",
+      "temperature_k": 1473.0,
+      "platinum_volume_a3": 58.709656445896,
+      "gold_volume_a3": 64.587387895848,
+      "recalculated_au_pressure_gpa": 18.170296015445608
+    },
+    {
+      "run": "s381006",
+      "temperature_k": 1473.0,
+      "platinum_volume_a3": 58.154019758406996,
+      "gold_volume_a3": 63.942417278272,
+      "recalculated_au_pressure_gpa": 20.489476784915745
+    },
+    {
+      "run": "s379003",
+      "temperature_k": 1473.0,
+      "platinum_volume_a3": 57.655610771968,
+      "gold_volume_a3": 63.22078394925299,
+      "recalculated_au_pressure_gpa": 23.26660824604314
+    },
+    {
+      "run": "s380008",
+      "temperature_k": 1473.0,
+      "platinum_volume_a3": 57.58400372889601,
+      "gold_volume_a3": 62.89759099360901,
+      "recalculated_au_pressure_gpa": 24.576256878454608
+    },
+    {
+      "run": "s383004",
+      "temperature_k": 1473.0,
+      "platinum_volume_a3": 56.786937919453,
+      "gold_volume_a3": 61.812604547819,
+      "recalculated_au_pressure_gpa": 29.292090578808498
+    },
+    {
+      "run": "s375014",
+      "temperature_k": 1673.0,
+      "platinum_volume_a3": 59.794818596864005,
+      "gold_volume_a3": 66.686332676608,
+      "recalculated_au_pressure_gpa": 13.037159455783486
+    },
+    {
+      "run": "s377003",
+      "temperature_k": 1673.0,
+      "platinum_volume_a3": 58.90473512342899,
+      "gold_volume_a3": 65.139496664256,
+      "recalculated_au_pressure_gpa": 17.77313496627547
+    },
+    {
+      "run": "s381007",
+      "temperature_k": 1673.0,
+      "platinum_volume_a3": 58.56023735553701,
+      "gold_volume_a3": 64.51497510504299,
+      "recalculated_au_pressure_gpa": 19.90214937955194
+    },
+    {
+      "run": "s378006",
+      "temperature_k": 1673.0,
+      "platinum_volume_a3": 58.145014103021,
+      "gold_volume_a3": 64.02400300012499,
+      "recalculated_au_pressure_gpa": 21.671131686805268
+    },
+    {
+      "run": "s379005",
+      "temperature_k": 1673.0,
+      "platinum_volume_a3": 58.059506743048,
+      "gold_volume_a3": 63.71243178400001,
+      "recalculated_au_pressure_gpa": 22.839228322658666
+    },
+    {
+      "run": "s380009",
+      "temperature_k": 1673.0,
+      "platinum_volume_a3": 57.938140552374996,
+      "gold_volume_a3": 63.42095514843899,
+      "recalculated_au_pressure_gpa": 23.965108054084467
+    },
+    {
+      "run": "s383005",
+      "temperature_k": 1673.0,
+      "platinum_volume_a3": 57.209039304768005,
+      "gold_volume_a3": 62.259225692104,
+      "recalculated_au_pressure_gpa": 28.789217069612402
+    },
+    {
+      "run": "s376012",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 60.088890949631995,
+      "gold_volume_a3": 67.33966273350399,
+      "recalculated_au_pressure_gpa": 12.70132633022282
+    },
+    {
+      "run": "s376013",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 60.033679108415996,
+      "gold_volume_a3": 67.33469729198698,
+      "recalculated_au_pressure_gpa": 12.714533612091468
+    },
+    {
+      "run": "s375016",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 60.11650956002401,
+      "gold_volume_a3": 67.20568147339299,
+      "recalculated_au_pressure_gpa": 13.060017533309864
+    },
+    {
+      "run": "s376006/7",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 59.849883912896,
+      "gold_volume_a3": 67.09664304787502,
+      "recalculated_au_pressure_gpa": 13.355519253925824
+    },
+    {
+      "run": "s382009",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 59.77647100000001,
+      "gold_volume_a3": 66.799865109375,
+      "recalculated_au_pressure_gpa": 14.176388422159253
+    },
+    {
+      "run": "s382006/7",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 59.76729860919201,
+      "gold_volume_a3": 66.656736691336,
+      "recalculated_au_pressure_gpa": 14.58109089781594
+    },
+    {
+      "run": "s377007",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 59.282503487488,
+      "gold_volume_a3": 65.80714737511701,
+      "recalculated_au_pressure_gpa": 17.10636489705765
+    },
+    {
+      "run": "s377005",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 59.24146280808699,
+      "gold_volume_a3": 65.79247865299999,
+      "recalculated_au_pressure_gpa": 17.151874001010814
+    },
+    {
+      "run": "s377006",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 59.26882115566899,
+      "gold_volume_a3": 65.78270071603202,
+      "recalculated_au_pressure_gpa": 17.182246629845448
+    },
+    {
+      "run": "s377004",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 59.309874467991996,
+      "gold_volume_a3": 65.68497462419198,
+      "recalculated_au_pressure_gpa": 17.487439166351017
+    },
+    {
+      "run": "s381016",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.804873530103,
+      "gold_volume_a3": 65.02785394359701,
+      "recalculated_au_pressure_gpa": 19.618518511525334
+    },
+    {
+      "run": "s378008",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.546666387,
+      "gold_volume_a3": 64.664687908072,
+      "recalculated_au_pressure_gpa": 20.857374995265552
+    },
+    {
+      "run": "s378010",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.524052765624994,
+      "gold_volume_a3": 64.664687908072,
+      "recalculated_au_pressure_gpa": 20.857374995265552
+    },
+    {
+      "run": "s378011",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.537620239552,
+      "gold_volume_a3": 64.659854851353,
+      "recalculated_au_pressure_gpa": 20.87416469559291
+    },
+    {
+      "run": "s379009",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.424622007627,
+      "gold_volume_a3": 64.26917649561601,
+      "recalculated_au_pressure_gpa": 22.258306538830723
+    },
+    {
+      "run": "s379007",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.50596606166099,
+      "gold_volume_a3": 64.22586518382299,
+      "recalculated_au_pressure_gpa": 22.415079796857622
+    },
+    {
+      "run": "s379011",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.325303933540994,
+      "gold_volume_a3": 64.201811754088,
+      "recalculated_au_pressure_gpa": 22.502436414047743
+    },
+    {
+      "run": "s379018",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.27568713299999,
+      "gold_volume_a3": 64.19219206399998,
+      "recalculated_au_pressure_gpa": 22.537431230429576
+    },
+    {
+      "run": "s380018/9",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.185546875,
+      "gold_volume_a3": 63.94721451866899,
+      "recalculated_au_pressure_gpa": 23.439939717902718
+    },
+    {
+      "run": "s380012/3",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.21257918521599,
+      "gold_volume_a3": 63.85131529020901,
+      "recalculated_au_pressure_gpa": 23.799237335217658
+    },
+    {
+      "run": "s380010",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 58.226098479479006,
+      "gold_volume_a3": 63.808191936,
+      "recalculated_au_pressure_gpa": 23.961917989325045
+    },
+    {
+      "run": "s383010",
+      "temperature_k": 1873.0,
+      "platinum_volume_a3": 57.51245599999999,
+      "gold_volume_a3": 62.67011920236101,
+      "recalculated_au_pressure_gpa": 28.515531845183062
+    }
+  ],
+  "input_sha256": {
+    "platinum-dewaele-2004-table1-compression.csv": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+    "platinum-fei-2004-table2.csv": "cc935b6c4c456452f6abc0c5ee425d1eb687d8bb967568b6738f4269b1bb1022"
+  },
+  "variants": {
+    "all_43_rt_rows": {
+      "cold_parameters_fixed_in_thermal_stage": {
+        "V0": 60.38,
+        "K0": 277.0,
+        "K0_prime": 5.086992410819014,
+        "theta0": 230.0
+      },
+      "rt_rows_used_in_cold_fit": 43,
+      "all_43_rt_rmse_gpa": 0.2689034528899533,
+      "hot_rmse_with_published_gamma_q_gpa": 0.5874404616005755,
+      "thermal_fits": {
+        "unconstrained_q": {
+          "gamma0": 2.6124038411148955,
+          "q": -1.6606160241450427,
+          "q_fixed": null,
+          "q_lower_bound": null,
+          "q_at_lower_bound": false,
+          "hot_rmse_gpa": 0.4241327487129246,
+          "coefficients": [
+            60.38,
+            277.0,
+            5.086992410819014,
+            2.6124038411148955,
+            -1.6606160241450427,
+            230.0
+          ],
+          "solver_success": true,
+          "q_start_sensitivity": [
+            {
+              "q_start": 0.05,
+              "hot_rmse_gpa": 0.4241327487129253
+            },
+            {
+              "q_start": 0.5,
+              "hot_rmse_gpa": 0.4241327487129246
+            },
+            {
+              "q_start": 2.0,
+              "hot_rmse_gpa": 0.4241327487129413
+            }
+          ],
+          "rt_pressure_max_change_gpa": 0.0
+        },
+        "q_nonnegative": {
+          "gamma0": 2.7367296599628994,
+          "q": 5e-324,
+          "q_fixed": null,
+          "q_lower_bound": 0.0,
+          "q_at_lower_bound": true,
+          "hot_rmse_gpa": 0.4984974100374829,
+          "coefficients": [
+            60.38,
+            277.0,
+            5.086992410819014,
+            2.7367296599628994,
+            5e-324,
+            230.0
+          ],
+          "solver_success": true,
+          "q_start_sensitivity": [
+            {
+              "q_start": 0.05,
+              "hot_rmse_gpa": 0.498497410037483
+            },
+            {
+              "q_start": 0.5,
+              "hot_rmse_gpa": 0.4984974100374829
+            },
+            {
+              "q_start": 2.0,
+              "hot_rmse_gpa": 0.4984974100374831
+            }
+          ],
+          "rt_pressure_max_change_gpa": 0.0
+        },
+        "q_fixed_at_published": {
+          "gamma0": 2.77443352576072,
+          "q": 0.5,
+          "q_fixed": 0.5,
+          "q_lower_bound": null,
+          "q_at_lower_bound": false,
+          "hot_rmse_gpa": 0.544074879979265,
+          "coefficients": [
+            60.38,
+            277.0,
+            5.086992410819014,
+            2.77443352576072,
+            0.5,
+            230.0
+          ],
+          "solver_success": true,
+          "q_start_sensitivity": [
+            {
+              "q_start": null,
+              "hot_rmse_gpa": 0.544074879979265
+            }
+          ],
+          "rt_pressure_max_change_gpa": 0.0
+        }
+      }
+    },
+    "dewaele_36_rt_rows": {
+      "cold_parameters_fixed_in_thermal_stage": {
+        "V0": 60.38,
+        "K0": 277.0,
+        "K0_prime": 5.085932102275772,
+        "theta0": 230.0
+      },
+      "rt_rows_used_in_cold_fit": 36,
+      "all_43_rt_rmse_gpa": 0.26892720321534913,
+      "hot_rmse_with_published_gamma_q_gpa": 0.587581461339685,
+      "thermal_fits": {
+        "unconstrained_q": {
+          "gamma0": 2.612377013404886,
+          "q": -1.6614844722742448,
+          "q_fixed": null,
+          "q_lower_bound": null,
+          "q_at_lower_bound": false,
+          "hot_rmse_gpa": 0.4241316245442668,
+          "coefficients": [
+            60.38,
+            277.0,
+            5.085932102275772,
+            2.612377013404886,
+            -1.6614844722742448,
+            230.0
+          ],
+          "solver_success": true,
+          "q_start_sensitivity": [
+            {
+              "q_start": 0.05,
+              "hot_rmse_gpa": 0.42413162454426584
+            },
+            {
+              "q_start": 0.5,
+              "hot_rmse_gpa": 0.4241316245442668
+            },
+            {
+              "q_start": 2.0,
+              "hot_rmse_gpa": 0.42413162454429454
+            }
+          ],
+          "rt_pressure_max_change_gpa": 0.0
+        },
+        "q_nonnegative": {
+          "gamma0": 2.7367684846765092,
+          "q": 5.075167144418383e-18,
+          "q_fixed": null,
+          "q_lower_bound": 0.0,
+          "q_at_lower_bound": true,
+          "hot_rmse_gpa": 0.4985700454090148,
+          "coefficients": [
+            60.38,
+            277.0,
+            5.085932102275772,
+            2.7367684846765092,
+            5.075167144418383e-18,
+            230.0
+          ],
+          "solver_success": true,
+          "q_start_sensitivity": [
+            {
+              "q_start": 0.05,
+              "hot_rmse_gpa": 0.4985700454090155
+            },
+            {
+              "q_start": 0.5,
+              "hot_rmse_gpa": 0.4985700454090148
+            },
+            {
+              "q_start": 2.0,
+              "hot_rmse_gpa": 0.4985700454090151
+            }
+          ],
+          "rt_pressure_max_change_gpa": 0.0
+        },
+        "q_fixed_at_published": {
+          "gamma0": 2.774472654304111,
+          "q": 0.5,
+          "q_fixed": 0.5,
+          "q_lower_bound": null,
+          "q_at_lower_bound": false,
+          "hot_rmse_gpa": 0.5441622775511173,
+          "coefficients": [
+            60.38,
+            277.0,
+            5.085932102275772,
+            2.774472654304111,
+            0.5,
+            230.0
+          ],
+          "solver_success": true,
+          "q_start_sensitivity": [
+            {
+              "q_start": null,
+              "hot_rmse_gpa": 0.5441622775511173
+            }
+          ],
+          "rt_pressure_max_change_gpa": 0.0
+        }
+      }
+    },
+    "published_cold_coefficients": {
+      "cold_parameters_fixed_in_thermal_stage": {
+        "V0": 60.38,
+        "K0": 277.0,
+        "K0_prime": 5.08,
+        "theta0": 230.0
+      },
+      "rt_rows_used_in_cold_fit": null,
+      "all_43_rt_rmse_gpa": 0.26993390137116957,
+      "hot_rmse_with_published_gamma_q_gpa": 0.5883711531576932,
+      "thermal_fits": {
+        "unconstrained_q": {
+          "gamma0": 2.6122268879471298,
+          "q": -1.666343301245548,
+          "q_fixed": null,
+          "q_lower_bound": null,
+          "q_at_lower_bound": false,
+          "hot_rmse_gpa": 0.42412547743635604,
+          "coefficients": [
+            60.38,
+            277.0,
+            5.08,
+            2.6122268879471298,
+            -1.666343301245548,
+            230.0
+          ],
+          "solver_success": true,
+          "q_start_sensitivity": [
+            {
+              "q_start": 0.05,
+              "hot_rmse_gpa": 0.4241254774363524
+            },
+            {
+              "q_start": 0.5,
+              "hot_rmse_gpa": 0.42412547743635604
+            },
+            {
+              "q_start": 2.0,
+              "hot_rmse_gpa": 0.4241254774363548
+            }
+          ],
+          "rt_pressure_max_change_gpa": 0.0
+        },
+        "q_nonnegative": {
+          "gamma0": 2.736985686097548,
+          "q": 3.931449746750675e-18,
+          "q_fixed": null,
+          "q_lower_bound": 0.0,
+          "q_at_lower_bound": true,
+          "hot_rmse_gpa": 0.498977039959944,
+          "coefficients": [
+            60.38,
+            277.0,
+            5.08,
+            2.736985686097548,
+            3.931449746750675e-18,
+            230.0
+          ],
+          "solver_success": true,
+          "q_start_sensitivity": [
+            {
+              "q_start": 0.05,
+              "hot_rmse_gpa": 0.4989770399599454
+            },
+            {
+              "q_start": 0.5,
+              "hot_rmse_gpa": 0.498977039959944
+            },
+            {
+              "q_start": 2.0,
+              "hot_rmse_gpa": 0.4989770399599452
+            }
+          ],
+          "rt_pressure_max_change_gpa": 0.0
+        },
+        "q_fixed_at_published": {
+          "gamma0": 2.7746915490442796,
+          "q": 0.5,
+          "q_fixed": 0.5,
+          "q_lower_bound": null,
+          "q_at_lower_bound": false,
+          "hot_rmse_gpa": 0.5446517303116682,
+          "coefficients": [
+            60.38,
+            277.0,
+            5.08,
+            2.7746915490442796,
+            0.5,
+            230.0
+          ],
+          "solver_success": true,
+          "q_start_sensitivity": [
+            {
+              "q_start": null,
+              "hot_rmse_gpa": 0.5446517303116682
+            }
+          ],
+          "rt_pressure_max_change_gpa": 0.0
+        }
+      }
+    }
+  },
+  "qualification": "Diagnostic subset fits with explicit frozen cold coefficients. Original author weights, fitting constraints and calibration covariance remain unrecovered. RMS values in this report refer to the hot subset unless explicitly labeled RT. No symmetric boundary parameter errors assigned."
+}

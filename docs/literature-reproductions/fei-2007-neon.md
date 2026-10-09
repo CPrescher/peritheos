@@ -92,7 +92,7 @@ weights, staged versus joint optimization, or uncertainty propagation.
 
 Finger's raw pressure (kbar), lattice a (A), molar volume (cm3/mol), and every
 printed parenthetic uncertainty are preserved in
-[`neon-finger-1981-table1.csv`](../../peritheos/data/datasets/neon-finger-1981-table1.csv).
+[`neon-finger-1981-table1.csv`](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/neon-finger-1981-table1.csv).
 Derived GPa pressures, cell volumes a^3, and first-order cell errors
 `3*a^2*sigma_a` occupy separate columns. The printed molar-volume column is
 not overwritten; its maximum difference from modern lattice-derived values is
@@ -126,7 +126,7 @@ shared scale uncertainty. W is a pressure-scale consistency comparison in
 Fei's discussion, not an additional independent copy of each Hemley point.
 
 The new hot observations are now a bundled numerical resource,
-[`neon-fei-2007-figure5-1000k-digitized.csv`](../../peritheos/data/datasets/neon-fei-2007-figure5-1000k-digitized.csv).
+[`neon-fei-2007-figure5-1000k-digitized.csv`](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/neon-fei-2007-figure5-1000k-digitized.csv).
 It retains the calibrated coordinates, centroids, component sizes and pressure
 scale. Empty experimental-error columns mean unavailable errors, not zeros.
 The decimal precision records the coordinate conversion reproducibly; it does
@@ -156,7 +156,7 @@ returned HTTP 403 and Europe PMC fulltext XML returned HTTP 500; neither
 establishes that a supplement is absent. Scoped DOI searches for archived data,
 including Zenodo and figshare, did not recover the new or paired observations.
 These access/search outcomes are recorded in
-[`neon-fei-2007-source.json`](../../peritheos/data/datasets/neon-fei-2007-source.json).
+[`neon-fei-2007-source.json`](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/neon-fei-2007-source.json).
 Source rights are retained: Peritheos transcription/conversion/metadata can
 carry contributor licensing without claiming rights to the third-party source.
 
