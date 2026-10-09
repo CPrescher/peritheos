@@ -1,0 +1,579 @@
+{
+  "format": "peritheos.speziale-2001-mgo-validation",
+  "format_version": 1,
+  "parameters": {
+    "V0": 74.71,
+    "K0": 160.2,
+    "K0_prime": 3.99,
+    "gamma0": 1.524,
+    "q0": 1.65,
+    "q1": 11.8,
+    "theta0": 773.0,
+    "Tr": 300.0
+  },
+  "atoms_per_formula_unit": 2,
+  "formula_units_per_cell": 4,
+  "printed_equations_validated": true,
+  "exact_author_thermal_fit_reproduced": false,
+  "exact_later_pressure_reducer_recovered": false,
+  "published_coefficients_changed": false,
+  "cold_table1": {
+    "rows": 32,
+    "V0": 74.71217425343802,
+    "K0": 160.2,
+    "K0_prime": 3.995497115720413,
+    "objective": "Independent equal pressure residuals; original objective unknown"
+  },
+  "source_evidence": {
+    "Speziale2001": {
+      "url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/speziale_et_al-2001-jgrse.pdf",
+      "pdf_sha256": "c0431bdddf8f4bc8269a7e0d1b79d30d92a38b4a778d9edddad9cb4c45b1f94b",
+      "locations": "Eqs. 1-4 and 10-11; Tables 1-3; Sections 4.2 and 5.1-5.4; Figures 6, 9, 10",
+      "theta_extension": "Integrated differential identity; no explicit variable-q theta executable recovered"
+    },
+    "Fei2004": {
+      "doi": "10.1016/j.pepi.2003.09.018",
+      "pdf_sha256": "b3fb00483e702e48d9d4cb5b4fa1dcefbbe176f94b4eca438d84b99a225342fd",
+      "locations": "Original Tables 1 and 3; Section 3.1",
+      "provenance": "Cached primary text and pixels; inherited hash, not a newly fetched PDF"
+    },
+    "Dorogokupets2010": {
+      "doi": "10.1007/s00269-010-0367-2",
+      "access": "Author-uploaded full text on ResearchGate and publisher abstract",
+      "use": "Primary reanalysis corroborates multiple differing historical MgO reductions; does not establish the inferred local-power reducer"
+    }
+  },
+  "thermodynamic_checkpoints": {
+    "volume_ratios": [
+      1.0,
+      0.85,
+      0.64,
+      0.6
+    ],
+    "gamma": [
+      1.524,
+      1.352635348093228,
+      1.3260835907516666,
+      1.3255733336324527
+    ],
+    "theta_k": [
+      773.0,
+      972.2248968040867,
+      1419.2077746728494,
+      1545.9888654571616
+    ],
+    "gamma_infinite_compression": 1.3251265294320034
+  },
+  "independent_quadrature": {
+    "states": 35,
+    "max_difference_gpa": 3.694822225952521e-13
+  },
+  "existing_Au_diagnostic_max_difference_gpa": 1.5987211554602254e-13,
+  "Dewaele2000_hot41": {
+    "q": 1.2373167114960821,
+    "free_parameters": [
+      "q"
+    ],
+    "objective": "equal pressure residuals",
+    "fixed_parameters": {
+      "V0": 74.71,
+      "K0": 160.2,
+      "K0_prime": 3.99,
+      "gamma0": 1.524,
+      "theta0": 773.0,
+      "Tr": 300.0
+    },
+    "constant_q_fit": {
+      "rows": 41,
+      "rmse_gpa": 0.9483951906928555,
+      "mean_residual_gpa": 0.024248448571256503,
+      "max_abs_residual_gpa": 2.5858372124898352
+    },
+    "source_exact_fit_reproduced": false,
+    "eq11": {
+      "rows": 41,
+      "rmse_gpa": 1.1088936628818866,
+      "mean_residual_gpa": 0.4880748307036239,
+      "max_abs_residual_gpa": 2.3390723132263034
+    },
+    "eq11_mean_abs_relative_volume_difference_percent": 0.3822989440962163
+  },
+  "Fiquet1999_COD_hot34": {
+    "q": 0.6077587912758238,
+    "free_parameters": [
+      "q"
+    ],
+    "objective": "equal pressure residuals",
+    "fixed_parameters": {
+      "V0": 74.71,
+      "K0": 160.2,
+      "K0_prime": 3.99,
+      "gamma0": 1.524,
+      "theta0": 773.0,
+      "Tr": 300.0
+    },
+    "constant_q_fit": {
+      "rows": 34,
+      "rmse_gpa": 0.19973420556444513,
+      "mean_residual_gpa": -4.070089631320802e-05,
+      "max_abs_residual_gpa": 0.5397472906219756
+    },
+    "source_exact_fit_reproduced": false
+  },
+  "Svendsen1987_shock4": {
+    "per_shot_density_molar_mass_volume": {
+      "cell_volume_a3": [
+        50.080539529006096,
+        49.34513761607258,
+        49.18974651847742,
+        48.349681105563306
+      ],
+      "pressure_residual_gpa": [
+        -8.790769516941992,
+        -5.970917216467029,
+        -8.719247233229822,
+        -8.09235297273554
+      ],
+      "predicted_volume_difference_percent": [
+        -1.2944676346229533,
+        -0.8483300271504346,
+        -1.214753495865406,
+        -1.06865493887901
+      ]
+    },
+    "per_shot_ratio_times_adopted_V0": {
+      "cell_volume_a3": [
+        49.78338367895437,
+        49.50678871817289,
+        49.10379093656893,
+        48.40012552593285
+      ],
+      "pressure_residual_gpa": [
+        -4.818833821288507,
+        -8.222317327797242,
+        -7.491237839171447,
+        -8.863941094490912
+      ],
+      "predicted_volume_difference_percent": [
+        -0.705296625999019,
+        -1.1720831353845385,
+        -1.0418311372188849,
+        -1.171764885470239
+      ]
+    }
+  },
+  "calibration_conventions": {
+    "eq11_integrated_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.2546472495662818,
+        "mean_residual_gpa": -0.24262700654788993,
+        "max_abs_residual_gpa": 0.36184433676899985
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 1.517343086746933,
+        "mean_residual_gpa": -1.4215573666238868,
+        "max_abs_residual_gpa": 1.9521275281445583
+      },
+      "Hirose2006_pressures_gpa": [
+        105.60901279489678,
+        115.94787247185545
+      ]
+    },
+    "eq11_integrated_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.2459018027989815,
+        "mean_residual_gpa": -0.2333890412900646,
+        "max_abs_residual_gpa": 0.3527230257558607
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 1.5097506234140081,
+        "mean_residual_gpa": -1.4134458682591315,
+        "max_abs_residual_gpa": 1.9440283052094856
+      },
+      "Hirose2006_pressures_gpa": [
+        105.61713656869122,
+        115.95597169479052
+      ]
+    },
+    "eq11_integrated_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.24655504967564,
+        "mean_residual_gpa": -0.23408041244156846,
+        "max_abs_residual_gpa": 0.3534056079333716
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 1.5103177450799765,
+        "mean_residual_gpa": -1.4140519626783785,
+        "max_abs_residual_gpa": 1.9446334719197864
+      },
+      "Hirose2006_pressures_gpa": [
+        105.61652954656303,
+        115.95536652808022
+      ]
+    },
+    "eq11_eq4_qV": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.3209551006179452,
+        "mean_residual_gpa": -0.30389344812187474,
+        "max_abs_residual_gpa": 0.46082534126322017
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 13.386993547476655,
+        "mean_residual_gpa": -12.610191851479186,
+        "max_abs_residual_gpa": 17.104038500962176
+      },
+      "Hirose2006_pressures_gpa": [
+        98.3836547980038,
+        100.79596149903783
+      ]
+    },
+    "eq11_eq4_q0": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.2216569593417824,
+        "mean_residual_gpa": -0.21136948993179155,
+        "max_abs_residual_gpa": 0.3158787881476357
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 0.9665578627690911,
+        "mean_residual_gpa": -0.8399965716389985,
+        "max_abs_residual_gpa": 1.3181595791118497
+      },
+      "Hirose2006_pressures_gpa": [
+        106.13816643583385,
+        116.58184042088816
+      ]
+    },
+    "eq11_power_theta": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.25107252841628724,
+        "mean_residual_gpa": -0.23922846812147305,
+        "max_abs_residual_gpa": 0.3570065235645359
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 1.4861727176005346,
+        "mean_residual_gpa": -1.389348344432193,
+        "max_abs_residual_gpa": 1.917004031754601
+      },
+      "Hirose2006_pressures_gpa": [
+        105.63830734289022,
+        115.9829959682454
+      ]
+    },
+    "eq11_fixed_theta": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.15720208987350734,
+        "mean_residual_gpa": -0.14760482237876987,
+        "max_abs_residual_gpa": 0.23894030747731065
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 0.8364205836781222,
+        "mean_residual_gpa": -0.6934952836519699,
+        "max_abs_residual_gpa": 1.1611101725861488
+      },
+      "Hirose2006_pressures_gpa": [
+        106.27411960528221,
+        116.73888982741386
+      ]
+    },
+    "constant_q_1.65": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.569852734738844,
+        "mean_residual_gpa": -0.5406887608664195,
+        "max_abs_residual_gpa": 0.8218394872717312
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 5.353545218871676,
+        "mean_residual_gpa": -5.0221519989403305,
+        "max_abs_residual_gpa": 6.876453945777314
+      },
+      "Hirose2006_pressures_gpa": [
+        103.33214994789665,
+        111.02354605422269
+      ]
+    },
+    "local_power_integrated_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.008997471196165736,
+        "mean_residual_gpa": -0.008449883891555552,
+        "max_abs_residual_gpa": 0.014237408991348843
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 0.014224118860247152,
+        "mean_residual_gpa": -0.01261972151925761,
+        "max_abs_residual_gpa": 0.019182357127519367
+      },
+      "Hirose2006_pressures_gpa": [
+        106.493942914089,
+        117.88081764287249
+      ]
+    },
+    "local_power_integrated_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.0032644250706911977,
+        "mean_residual_gpa": 0.0010181520577633525,
+        "max_abs_residual_gpa": 0.004899906426068412
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 0.007593303081072212,
+        "mean_residual_gpa": -0.0037906505446869687,
+        "max_abs_residual_gpa": 0.010370104939170233
+      },
+      "Hirose2006_pressures_gpa": [
+        106.5027888038498,
+        117.88962989506084
+      ]
+    },
+    "local_power_integrated_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.003116133647690293,
+        "mean_residual_gpa": 0.00030956551314695536,
+        "max_abs_residual_gpa": 0.0055108331115114595
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 0.007942113724024962,
+        "mean_residual_gpa": -0.0044502424114512,
+        "max_abs_residual_gpa": 0.011028427030680632
+      },
+      "Hirose2006_pressures_gpa": [
+        106.50212794220778,
+        117.88897157296933
+      ]
+    },
+    "local_power_eq4_qV_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.009929554485073492,
+        "mean_residual_gpa": -0.009379897574110174,
+        "max_abs_residual_gpa": 0.015670115876620372
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 0.04821452959091115,
+        "mean_residual_gpa": -0.04718282943446184,
+        "max_abs_residual_gpa": 0.05710358899365531
+      },
+      "Hirose2006_pressures_gpa": [
+        106.46273793012473,
+        117.84289641100635
+      ]
+    },
+    "local_power_power_theta_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.007366323022680706,
+        "mean_residual_gpa": -0.006719088978564231,
+        "max_abs_residual_gpa": 0.01222629485767257
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 0.04064655420128678,
+        "mean_residual_gpa": -0.03956245940258185,
+        "max_abs_residual_gpa": 0.04888738162516404
+      },
+      "Hirose2006_pressures_gpa": [
+        106.46976246282,
+        117.85111261837484
+      ]
+    },
+    "eq11_n1_wrong_normalization": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 4.949444668618691,
+        "mean_residual_gpa": -4.877303534818319,
+        "max_abs_residual_gpa": 6.220998396421294
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 7.452275983109223,
+        "mean_residual_gpa": -7.016036377514872,
+        "max_abs_residual_gpa": 9.528336295481381
+      },
+      "Hirose2006_pressures_gpa": [
+        101.99626354045164,
+        108.37166370451862
+      ]
+    },
+    "eq11_Z1_wrong_normalization": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 7.302482733789795,
+        "mean_residual_gpa": -7.1946417989535325,
+        "max_abs_residual_gpa": 9.196681537125711
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 10.41981512044971,
+        "mean_residual_gpa": -9.813275882960362,
+        "max_abs_residual_gpa": 13.316440679149792
+      },
+      "Hirose2006_pressures_gpa": [
+        100.18988891322907,
+        104.58355932085021
+      ]
+    },
+    "eq11_n8_Z1_cell_normalization": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.2546472495662818,
+        "mean_residual_gpa": -0.24262700654788993,
+        "max_abs_residual_gpa": 0.36184433676899985
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 1.517343086746933,
+        "mean_residual_gpa": -1.4215573666238868,
+        "max_abs_residual_gpa": 1.9521275281445583
+      },
+      "Hirose2006_pressures_gpa": [
+        105.60901279489678,
+        115.94787247185545
+      ]
+    },
+    "eq11_R_8.31451": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.25459619783312476,
+        "mean_residual_gpa": -0.24257418287103766,
+        "max_abs_residual_gpa": 0.36178768943691253
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 1.5172754509979034,
+        "mean_residual_gpa": -1.4214936036083614,
+        "max_abs_residual_gpa": 1.9520411783850307
+      },
+      "Hirose2006_pressures_gpa": [
+        105.60905397116831,
+        115.94795882161498
+      ]
+    },
+    "eq11_51.041_heat_capacity": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.08193649132524349,
+        "mean_residual_gpa": -0.028163106703824603,
+        "max_abs_residual_gpa": 0.15984198303119435
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 1.2427507816654046,
+        "mean_residual_gpa": -1.1626797990195712,
+        "max_abs_residual_gpa": 1.6015478774688745
+      },
+      "Hirose2006_pressures_gpa": [
+        105.77618827942973,
+        116.29845212253113
+      ]
+    },
+    "eq11_literal_Table3_specific_heat": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 8.692579664645859,
+        "mean_residual_gpa": -8.563598635013516,
+        "max_abs_residual_gpa": 10.954552556847526
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 12.172877945985089,
+        "mean_residual_gpa": -11.465732152440594,
+        "max_abs_residual_gpa": 15.55424578166334
+      },
+      "Hirose2006_pressures_gpa": [
+        99.12278147678215,
+        102.34575421833667
+      ]
+    },
+    "eq11_table1_ambient_a0": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.24385200262036866,
+        "mean_residual_gpa": -0.2315069717303438,
+        "max_abs_residual_gpa": 0.3499533720599892
+      },
+      "Hirose2006": {
+        "rows": 2,
+        "rmse_gpa": 1.4907293051986175,
+        "mean_residual_gpa": -1.3931900576455973,
+        "max_abs_residual_gpa": 1.9235628743089421
+      },
+      "Hirose2006_pressures_gpa": [
+        105.63718275901775,
+        115.97643712569106
+      ]
+    }
+  },
+  "rounding": {
+    "pressure_plus_lattice_half_digit_bounds_gpa": [
+      0.012213229678875167,
+      0.010712131093858376,
+      0.01186274879106108,
+      0.013059113646258,
+      0.013117144491794904,
+      0.0131297970880172,
+      0.013318636067407682,
+      0.01246855749968134,
+      0.012872975704167119,
+      0.012935733750624508,
+      0.012948322044089907,
+      0.013123314423031048,
+      0.011431281357166086,
+      0.012320893121733009,
+      0.012544209208774078,
+      0.012588783227806318,
+      0.012628519797172829,
+      0.012653410861983901,
+      0.012660886600827866,
+      0.013080875293771329,
+      0.0124622433112026,
+      0.012526913324475971,
+      0.012053659043680939,
+      0.012131490360062998,
+      0.012279685108915857,
+      0.01233930036331998,
+      0.07010008087557935,
+      0.07072490690434848
+    ],
+    "original_eq11_outside_bounds": 28,
+    "temperatures_held_at_reported_values": true
+  },
+  "local_power_is_an_inference": true,
+  "local_power_q_identity": "dln(gamma)/dln(V)=q(V)*(1+q1*ln(V/V0)), not q(V)",
+  "missing_evidence": [
+    "Original author pressure-reduction executable and unrounded inputs",
+    "Full selected Fei 1999 and Utsumi 1998 thermal regression inputs",
+    "Original thermal objective, weights and covariance",
+    "Explicit variable-q theta prescription used by Speziale and later reducers",
+    "Exact shock volume normalization used in the source reduction"
+  ],
+  "input_sha256": {
+    "mgo-speziale-2001-table1-compression.csv": "25153a29b4686283bbe894990e1eceac8a49f898025454bc823e8b3ea54bf4f6",
+    "mgo-dewaele-2000-table2-pvt.csv": "22c993b8a0ae8ddbe77ef533ecf442a502b591e569bc10cd2ddaf50f6cc4d0ed",
+    "mgo-fiquet-1999-cod-thermal-expansion.csv": "8c84c6ac5c04f2957c4b41221f54b4d6e35fec8acfd2ce2ac2afd4d7f6795261",
+    "mgo-svendsen-1987-table6.csv": "013ff0945683a573e51f1adfbee36dabff34def4545389ece0317c56fdb397d5",
+    "gold-fei-2004-table1.csv": "9341ee703e18ce373ebc409c11b217479c5f92fc0464147b459307944cd440ef",
+    "gold-hirose-2006-table1.csv": "6b5c0d725071d6ab96ef5cf96d6634d2c31cecc96f32cdc55fd5d2721ad4f4f5"
+  },
+  "source_code_sha256": "31455af8d1af64b6730c040cb9f5a455db1ce41ab03084e850823b8a6ecf3fbc"
+}

@@ -1,0 +1,36 @@
+{
+  "reference": {
+    "authors": [
+      "Svendsen",
+      "Ahrens"
+    ],
+    "year": 1987,
+    "title": "Shock-induced temperatures of MgO",
+    "doi": "10.1111/j.1365-246X.1987.tb01664.x"
+  },
+  "source_url": "https://web.gps.caltech.edu/~asimow/TJA_LindhurstLabWebsite/ListPublications/Papers_pdf/Seismo_1409.pdf",
+  "source_pdf_sha256": "3dd7b9dab1bc352e8deb78a65174b10b7514af893a668959602197a7f5cff998",
+  "source_location": "Table 6, page 685; PDF page 19 of 25; discussion pages 685-687",
+  "access_date": "2026-10-09",
+  "recovery": "Manual transcription from rendered primary article scan, all four shots. Automatic OCR used only to locate the table; every retained number and column heading visually verified.",
+  "measured_columns": [
+    "initial_density_mg_m3",
+    "impact_velocity_km_s",
+    "greybody_temperature_k"
+  ],
+  "measured_temperature_definition": "Experimentally constrained greybody absolute temperature (GS fit with emissivity and temperature variable). This is an optical inference, not raw pyrometer counts.",
+  "model_columns": [
+    "model_shock_velocity_km_s",
+    "model_pressure_gpa",
+    "model_temperature_k"
+  ],
+  "model_columns_are_observations": false,
+  "volume_reduction": "Rankine-Hugoniot mass/momentum conservation: Up=P/(rho0*Us), V/V_initial=1-Up/Us. These are derived values from correlated model P and Us, not independently measured volumes. Two explicit normalization sensitivities retained.",
+  "uncertainties": {
+    "meaning": "Parenthetical measurement/model widths as printed. Model widths propagate Table 1 inputs. Confidence convention not transferred from Speziale Figure 6.",
+    "confidence": null,
+    "covariance": null
+  },
+  "csv_sha256": "013ff0945683a573e51f1adfbee36dabff34def4545389ece0317c56fdb397d5",
+  "rights": "Original source rights remain with rightsholders. No separate source data license recovered; no CC0 claim for source material."
+}
