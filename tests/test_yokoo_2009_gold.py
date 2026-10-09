@@ -55,7 +55,7 @@ def test_300k_branches_match_source_equations_and_roundtrip(identifier, equation
 
 
 def test_density_conversion_and_error_conventions_are_explicit():
-    source = json.loads((DATA / SOURCE).read_text())
+    source = json.loads((DATA / SOURCE).read_text(encoding="utf-8"))
     assert source["volume_basis"]["V0_cell_a3_derived_from_printed_density"] == (
         pytest.approx(67.71649780791556)
     )
@@ -77,7 +77,7 @@ def test_table3_preserves_liquid_markers_and_does_not_fill_blank_cells():
         ("0.92", "3000"),
         ("0.90", "3000"),
     ]
-    source = json.loads((DATA / SOURCE).read_text())
+    source = json.loads((DATA / SOURCE).read_text(encoding="utf-8"))
     states = {(float(r["volume_ratio"]), float(r["temperature_k"])) for r in rows}
     assert len(states) == len(rows)
     assert source["table3"]["observations"] is False
@@ -117,7 +117,9 @@ def test_fitted_300k_branches_remain_distinct_from_full_model_output():
         assert outcome["status"] == "not_refittable"
         assert outcome["observations"] == 0
     ledger = json.loads(
-        (Path(__file__).parents[1] / "docs/data/primary-eos-refits.json").read_text()
+        (Path(__file__).parents[1] / "docs/data/primary-eos-refits.json").read_text(
+            encoding="utf-8"
+        )
     )
     outcomes = {r["record_identifier"]: r for r in ledger["records"]}
     for identifier in RECORDS:
@@ -160,7 +162,7 @@ def test_shock_regression_and_simultaneous_volumes_keep_their_source_roles():
 
 def test_saved_audit_and_source_hashes_are_reproducible():
     audit = reproduce()
-    check_saved(json.loads(OUTPUT.read_text()), audit)
+    check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), audit)
     for filename, digest in audit["input_sha256"].items():
         assert hashlib.sha256((DATA / filename).read_bytes()).hexdigest() == digest
 
@@ -181,7 +183,7 @@ def test_electronic_source_preserves_original_and_erratum_values():
     endpoint = audit["table3_thermal_term_diagnostic"][-1]
     assert endpoint["upstream_electronic_pressure_at_source_node_gpa"] == 0.12
     assert audit["max_abs_table_minus_0k_phonon_electronic_gpa"] < 0.22
-    source = json.loads((DATA / SOURCE).read_text())
+    source = json.loads((DATA / SOURCE).read_text(encoding="utf-8"))
     assert (
         source["electronic_source"]["sha256"]
         == audit["input_sha256"][source["electronic_source"]["resource"]]

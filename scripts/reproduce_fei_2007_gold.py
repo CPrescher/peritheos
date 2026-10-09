@@ -349,7 +349,7 @@ def cold_diagnostics():
 
 
 def curve_checks():
-    source = json.loads(CURVES.read_text())
+    source = json.loads(CURVES.read_text(encoding="utf-8"))
     out = []
     for c in source["curves"]:
         xy = np.array(c["points_xy_pt"])
@@ -641,10 +641,11 @@ def main():
     args = parser.parse_args()
     report = reproduce()
     if args.check:
-        check_saved(json.loads(OUTPUT.read_text()), report)
+        check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
     else:
         OUTPUT.write_text(
-            json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\n"
+            json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\n",
+            encoding="utf-8",
         )
         save_residuals(report)
     for label in ("all28_equal", "all28_available_errors", "fei2004_only_equal"):

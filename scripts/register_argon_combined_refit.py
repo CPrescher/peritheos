@@ -20,7 +20,7 @@ FILENAME = "argon-fcc-ross-errandonea-selected49.csv"
 
 
 def register():
-    report = json.loads(REPORT.read_text())
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
     fit = report["fits"][PREFERRED]["pressure"]
     rows = [r for r in observations() if r["included_in_preferred_fit"]]
     assert fit["count"] == len(rows) == 49
@@ -34,7 +34,7 @@ def register():
         writer.writeheader()
         writer.writerows(rows)
     material_path = ROOT / "peritheos/data/materials/argon_fcc.eosmat"
-    doc = json.loads(material_path.read_text())
+    doc = json.loads(material_path.read_text(encoding="utf-8"))
     published = next(
         r
         for r in doc["eos_records"]
@@ -181,7 +181,7 @@ def register():
     doc["datasets"] = [d for d in doc["datasets"] if d["identifier"] != DATASET_ID] + [
         dataset
     ]
-    material_path.write_text(json.dumps(doc, indent=1) + "\n")
+    material_path.write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

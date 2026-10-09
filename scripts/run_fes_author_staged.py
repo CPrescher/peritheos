@@ -120,7 +120,7 @@ def run(executable, output):
     assert not np.any((data[:, 2] == 300) & (data[:, 1] == 0.0056))
     cold, hot = data[data[:, 2] == 300], data[data[:, 2] > 300]
     assert len(cold) == 21 and len(hot) == 146
-    lines = source.read_text().splitlines()
+    lines = source.read_text(encoding="utf-8").splitlines()
     cold_text = (
         lines[0]
         + "\n"
@@ -165,8 +165,8 @@ def run(executable, output):
                 # an adjacent directory so its no-overwrite guard remains useful.
                 input_folder = output / (name + "-inputs")
                 input_folder.mkdir()
-                (input_folder / "cold.dat").write_text(cold_text)
-                (input_folder / "thermal.dat").write_text(hot_text)
+                (input_folder / "cold.dat").write_text(cold_text, encoding="utf-8")
+                (input_folder / "thermal.dat").write_text(hot_text, encoding="utf-8")
                 commands = macro(folder, cold_source, weighted, tref)
                 commands = [
                     c.replace(
@@ -232,7 +232,9 @@ def run(executable, output):
                     flush=True,
                 )
     verify_native(report)
-    (output / "manifest.json").write_text(json.dumps(report, indent=2) + "\n")
+    (output / "manifest.json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8"
+    )
     return report
 
 

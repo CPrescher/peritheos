@@ -19,7 +19,9 @@ from peritheos.eos.rt import BM3, Baonza
 def main():
     package = resources.files("peritheos")
     manifest = json.loads(
-        package.joinpath("data", "materials", "manifest.json").read_text()
+        package.joinpath("data", "materials", "manifest.json").read_text(
+            encoding="utf-8"
+        )
     )
     documents = [
         get_material_document(identifier) for identifier in list_material_documents()

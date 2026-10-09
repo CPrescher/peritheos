@@ -68,7 +68,9 @@ def test_official_tateno_pairing_has_correct_marker_and_sample_volume():
     assert float(six["platinum_unit_cell_volume_a3"]) == pytest.approx(59.1561974927066)
     assert float(six["kcl_unit_cell_volume_a3"]) == pytest.approx(45.04627509139811)
     corrections = json.loads(
-        (ROOT / "peritheos/data/datasets/kcl_variant_sources/manifest.json").read_text()
+        (ROOT / "peritheos/data/datasets/kcl_variant_sources/manifest.json").read_text(
+            encoding="utf-8"
+        )
     )["tateno_pt_pairing_corrections"]
     assert len(corrections) == 110
     assert all(r["column"].startswith("platinum_") for r in corrections)
@@ -185,7 +187,7 @@ def test_defaults_and_every_variant_dataset_checksum():
             assert parsed
 
     archive = ROOT / "peritheos/data/datasets/kcl_variant_sources"
-    manifest = json.loads((archive / "manifest.json").read_text())
+    manifest = json.loads((archive / "manifest.json").read_text(encoding="utf-8"))
     for source in manifest["sources"]:
         if "filename" in source:
             assert (

@@ -237,9 +237,9 @@ def reconstruct():
             fitted = parameters
     assert fitted is not None
     residual = pressure_gpa(ratio, temperature, fitted) - pressure
-    density_v0 = json.loads((DATA / SOURCE).read_text())["volume_basis"][
-        "V0_cell_a3_derived_from_printed_density"
-    ]
+    density_v0 = json.loads((DATA / SOURCE).read_text(encoding="utf-8"))[
+        "volume_basis"
+    ]["V0_cell_a3_derived_from_printed_density"]
     sensitivity, _ = fit_parameters(
         ratio, temperature, pressure, solid, ambient_cell_a3=density_v0
     )
@@ -470,7 +470,7 @@ def main():
         )
         return
     if args.check:
-        check_reconstruction(json.loads(OUTPUT.read_text()), result)
+        check_reconstruction(json.loads(OUTPUT.read_text(encoding="utf-8")), result)
         with RESIDUALS.open() as stream:
             archived_rows = list(csv.DictReader(stream))
         assert len(archived_rows) == len(result["states"])
@@ -482,7 +482,9 @@ def main():
                 else:
                     assert archived[name] == str(value)
     else:
-        OUTPUT.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_text(
+            json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
         with RESIDUALS.open("w", newline="") as stream:
             writer = csv.DictWriter(stream, fieldnames=list(result["states"][0]))
             writer.writeheader()

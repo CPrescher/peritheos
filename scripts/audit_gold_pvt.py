@@ -129,7 +129,7 @@ def measured_comparison(filename, *, cold=False):
 
 
 def source_curve_comparison():
-    source = json.loads(CURVES.read_text())
+    source = json.loads(CURVES.read_text(encoding="utf-8"))
     axes = source["axis_calibration"]
     comparisons = []
     for curve in source["curves"]:
@@ -187,7 +187,7 @@ def audit():
     source = fei_pressure(volume, temperature)
     library = record.pressure(volume, temperature)
     yokoo = reconstruct()
-    check_reconstruction(json.loads(YOKOO_OUTPUT.read_text()), yokoo)
+    check_reconstruction(json.loads(YOKOO_OUTPUT.read_text(encoding="utf-8")), yokoo)
     printed = reproduce()
     return {
         "scope": "Au pressure-volume-temperature only; caloric validation is not an acceptance criterion.",
@@ -272,9 +272,11 @@ def main():
     args = parser.parse_args()
     result = audit()
     if args.check:
-        check_saved(json.loads(OUTPUT.read_text()), result)
+        check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), result)
     else:
-        OUTPUT.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_text(
+            json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
     print(
         json.dumps(
             {

@@ -12,7 +12,7 @@ from scripts.refit_miozzi_2020_tange import target_pressures
 
 
 def test_cell_basis_evidence_preserves_input_and_code_fingerprints():
-    report = json.loads((OUTPUT / "report.json").read_text())
+    report = json.loads((OUTPUT / "report.json").read_text(encoding="utf-8"))
     _, data, hashes = read_data()
     assert report["source_csv_sha256"] == hashes
     path = ROOT / "scripts/refit_miozzi_2020_cell_basis.py"
@@ -38,7 +38,7 @@ def test_cell_basis_evidence_preserves_input_and_code_fingerprints():
     "case", ["printed", "tange_vinet", "speziale_variable_q_debye"]
 )
 def test_cell_basis_fit_matches_per_fe_and_direct_cell_physics(case):
-    report = json.loads((OUTPUT / "report.json").read_text())
+    report = json.loads((OUTPUT / "report.json").read_text(encoding="utf-8"))
     result = report["cases"][case]
     n1, n2 = result["fits"]["n1"], result["fits"]["n2"]
     v = np.array(report["observations"]["volume_cell_a3"])

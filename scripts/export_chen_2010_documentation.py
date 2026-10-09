@@ -95,7 +95,8 @@ a{color:#195ca5}code{font-size:.85em;overflow-wrap:anywhere}strong{color:#792c25
             },
             indent=2,
         )
-        + "\n"
+        + "\n",
+        encoding="utf-8",
     )
 
 

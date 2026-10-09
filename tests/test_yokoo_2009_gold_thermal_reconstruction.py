@@ -103,7 +103,7 @@ def test_electronic_interpolation_is_explicit_and_bounded():
 
 def test_saved_report_does_not_claim_original_fit_or_experimental_errors():
     report = reconstruct()
-    check_reconstruction(json.loads(OUTPUT.read_text()), report)
+    check_reconstruction(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
     assert report["author_fit_reproduced"] is False
     assert report["experimental_observations"] == 0
     assert report["kind"] == "derived_table_output_pressure_reconstruction"

@@ -187,7 +187,7 @@ def parse_console(stdout, dataset, *, n_observations=None, parameter_names=None)
 
 def saved_covariance(path, dataset):
     """Extract the program's fixed-width covariance, preserving its scaling."""
-    text = path.read_text().split("Variance-Covariance matrix=")[1]
+    text = path.read_text(encoding="utf-8").split("Variance-Covariance matrix=")[1]
     matrix = []
     for line in text.splitlines():
         numbers = re.findall(r"[-+]?\d\.\d+E[-+]\d+", line)
@@ -267,9 +267,12 @@ def run(executable, output, *, q_compromise=False):
             name = dataset + ("-errors" if weighted else "-unit")
             folder = output / name
             folder.mkdir()
-            (folder / "input.dat").write_text("\n".join(data_lines(dataset)) + "\n")
+            (folder / "input.dat").write_text(
+                "\n".join(data_lines(dataset)) + "\n", encoding="utf-8"
+            )
             (folder / "run.mcr").write_text(
-                macro(dataset, weighted, folder, q_compromise=q_compromise)
+                macro(dataset, weighted, folder, q_compromise=q_compromise),
+                encoding="utf-8",
             )
             result = subprocess.run(
                 [str(executable)],
@@ -282,8 +285,8 @@ def run(executable, output, *, q_compromise=False):
                 cwd=folder,
                 timeout=120,
             )
-            (folder / "stdout.txt").write_text(result.stdout)
-            (folder / "stderr.txt").write_text(result.stderr)
+            (folder / "stdout.txt").write_text(result.stdout, encoding="utf-8")
+            (folder / "stderr.txt").write_text(result.stderr, encoding="utf-8")
             if result.returncode != 0 or not (folder / "fitted.eos").is_file():
                 raise RuntimeError(f"EosFit failed: {name}; inspect {folder}")
             version = re.search(r"Version:\s*([\d.]+)", result.stdout)
@@ -304,7 +307,9 @@ def run(executable, output, *, q_compromise=False):
             }
             report["cases"][name] = case
             print(name, case["refined_parameters_final_cycle"], flush=True)
-    (output / "manifest.json").write_text(json.dumps(report, indent=2) + "\n")
+    (output / "manifest.json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8"
+    )
     return report
 
 

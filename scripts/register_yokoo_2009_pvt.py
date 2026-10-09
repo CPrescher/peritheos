@@ -200,7 +200,7 @@ def record_definition(metal, document, report):
 def register():
     for metal, report in reports().items():
         path = MATERIALS / f"{metal}.eosmat"
-        document = json.loads(path.read_text())
+        document = json.loads(path.read_text(encoding="utf-8"))
         record = record_definition(metal, document, report)
         existing = next(
             (
@@ -224,12 +224,15 @@ def register():
                 if record["identifier"] not in dataset["used_by_eos_records"]:
                     dataset["used_by_eos_records"].append(record["identifier"])
         path.write_text(
-            json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n"
+            json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
+            encoding="utf-8",
         )
     audit_path = ROOT / "peritheos/data/primary-source-audit.json"
-    audit = json.loads(audit_path.read_text())
+    audit = json.loads(audit_path.read_text(encoding="utf-8"))
     for metal in RECORDS:
-        document = json.loads((MATERIALS / f"{metal}.eosmat").read_text())
+        document = json.loads(
+            (MATERIALS / f"{metal}.eosmat").read_text(encoding="utf-8")
+        )
         record = next(
             r for r in document["eos_records"] if r["identifier"] == RECORDS[metal]
         )
@@ -253,12 +256,16 @@ def register():
         **dict(sorted(Counter(r["status"] for r in audit["records"]).items())),
     }
     audit_path.write_text(
-        json.dumps(audit, indent=2, ensure_ascii=False, allow_nan=False) + "\n"
+        json.dumps(audit, indent=2, ensure_ascii=False, allow_nan=False) + "\n",
+        encoding="utf-8",
     )
-    documents = [json.loads(path.read_text()) for path in MATERIALS.glob("*.eosmat")]
+    documents = [
+        json.loads(path.read_text(encoding="utf-8"))
+        for path in MATERIALS.glob("*.eosmat")
+    ]
     records = [r for d in documents for r in d["eos_records"]]
     path = MATERIALS / "manifest.json"
-    manifest = json.loads(path.read_text())
+    manifest = json.loads(path.read_text(encoding="utf-8"))
     manifest["eos_records"] = len(records)
     manifest["scientific_validation"]["counts"] = dict(
         sorted(Counter(r["scientific_validation"]["status"] for r in records).items())
@@ -274,7 +281,8 @@ def register():
         )
     )
     path.write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False, allow_nan=False) + "\n"
+        json.dumps(manifest, indent=2, ensure_ascii=False, allow_nan=False) + "\n",
+        encoding="utf-8",
     )
 
 
@@ -379,9 +387,11 @@ def main():
     if args.check:
         from scripts.fit_yokoo_2009_gold_thermal import check_reconstruction
 
-        check_reconstruction(json.loads(OUTPUT.read_text()), report)
+        check_reconstruction(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
     else:
-        OUTPUT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_text(
+            json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
     print(json.dumps(report, indent=2))
 
 

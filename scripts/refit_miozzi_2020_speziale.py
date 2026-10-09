@@ -503,7 +503,7 @@ def main():
     group.add_argument("--check", action="store_true")
     args = parser.parse_args()
     report = reproduce()
-    document = json.loads(IRON_PATH.read_text())
+    document = json.loads(IRON_PATH.read_text(encoding="utf-8"))
     record, dataset = catalog_record(report, document)
     _, table = derived_rows(*read_data()[:2])
     if args.check:
@@ -517,8 +517,8 @@ def main():
             rtol=1e-4,
             atol=1e-6,
         )
-        assert CSV_PATH.read_text() == table
-        saved = json.loads(REPORT.read_text())
+        assert CSV_PATH.read_text(encoding="utf-8") == table
+        saved = json.loads(REPORT.read_text(encoding="utf-8"))
         assert saved["original_csv_sha256"] == report["original_csv_sha256"]
         assert saved["derived_csv_sha256"] == report["derived_csv_sha256"]
         assert (
@@ -529,9 +529,10 @@ def main():
         )
         return
     REPORT.write_text(
-        json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\n"
+        json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\n",
+        encoding="utf-8",
     )
-    CSV_PATH.write_text(table)
+    CSV_PATH.write_text(table, encoding="utf-8")
     if args.register:
         document["eos_records"] = [
             author_record(r) if r["identifier"] == AUTHOR_ID else r
@@ -542,7 +543,8 @@ def main():
             d for d in document["datasets"] if d["identifier"] != DATASET_ID
         ] + [dataset]
         IRON_PATH.write_text(
-            json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n"
+            json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
+            encoding="utf-8",
         )
     print(
         json.dumps(

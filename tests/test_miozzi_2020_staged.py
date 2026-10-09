@@ -16,7 +16,7 @@ REPORT = ROOT / "docs/data/miozzi-2020-eosfit-staged/report.json"
 
 
 def test_console_evidence_preserves_inputs_and_stage_constraints():
-    report = json.loads(REPORT.read_text())
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
     _, data, hashes = read_data()
     assert report["source_csv_sha256"] == hashes
     assert "User explicitly clarified" in report["protocol_provenance"]
@@ -49,7 +49,7 @@ def test_console_evidence_preserves_inputs_and_stage_constraints():
 
 
 def test_tange_staged_console_matches_registered_joint_optimum():
-    report = json.loads(REPORT.read_text())
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
     final = report["cases"]["tange_vinet-unit-theta_fixed"]["stages"][-1]
     stored = reproduce()["primary"]
     mapping = {"V0": "V0", "K0": "K0", "Kp": "K0_prime", "Gamm0": "gamma0", "q": "q"}
@@ -68,7 +68,7 @@ def test_tange_staged_console_matches_registered_joint_optimum():
 
 
 def test_speziale_cold_recovery_does_not_establish_source_thermal_parity():
-    report = json.loads(REPORT.read_text())
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
     stages = report["cases"]["speziale_variable_q_debye-unit-theta_fixed"]["stages"]
     assert stages[0]["parameters"]["K0"] == pytest.approx(129, abs=1)
     assert stages[-1]["parameters"]["Gamm0"] > 1.8
@@ -79,8 +79,8 @@ def test_speziale_cold_recovery_does_not_establish_source_thermal_parity():
 def test_q_compromise_console_evidence_and_independent_pressure(switch_to_full):
     suffix = "-start" if switch_to_full else ""
     path = ROOT / f"docs/data/miozzi-2020-eosfit-q-compromise{suffix}/report.json"
-    report = json.loads(path.read_text())
-    original = json.loads(REPORT.read_text())
+    report = json.loads(path.read_text(encoding="utf-8"))
+    original = json.loads(REPORT.read_text(encoding="utf-8"))
     _, data, hashes = read_data()
     assert report["source_csv_sha256"] == hashes
     for name, case in report["cases"].items():
@@ -98,12 +98,12 @@ def test_q_compromise_console_evidence_and_independent_pressure(switch_to_full):
         np.testing.assert_array_equal(inputs[:15, 0], data["pressure_gpa"][:15])
         blocks = (
             (folder / "stdout.txt")
-            .read_text()
+            .read_text(encoding="utf-8")
             .split("RESULTS AFTER FINAL REFINEMENT CYCLE")[1:]
         )
         for i, (stage, block) in enumerate(zip(case["stages"], blocks)):
             q_compromise = i > 0 and not (switch_to_full and i == 2)
-            saved = (folder / f"stage{i + 1}.eos").read_text()
+            saved = (folder / f"stage{i + 1}.eos").read_text(encoding="utf-8")
             flag = re.search(r"Param =14\s+([\d.]+)", saved)
             assert float(flag[1]) == int(q_compromise)
             if i:
@@ -172,7 +172,7 @@ def test_q_compromise_console_evidence_and_independent_pressure(switch_to_full):
 def test_q_compromise_matches_independent_least_squares(calibration):
     folder = ROOT / "docs/data/miozzi-2020-eosfit-q-compromise"
     name = f"{calibration}-unit-theta_fixed"
-    report = json.loads((folder / "report.json").read_text())
+    report = json.loads((folder / "report.json").read_text(encoding="utf-8"))
     final = report["cases"][name]["stages"][-1]
     _, data, _ = read_data()
     pressures = np.loadtxt(folder / name / "all.dat", skiprows=5)[:, 0]
@@ -209,8 +209,8 @@ def test_q_compromise_matches_independent_least_squares(calibration):
 def test_full_mgd_n2_author_replay_and_volume_control(multiplier):
     suffix = "n2-author-volume" if multiplier == 1 else "n2-double-volume-control"
     folder = ROOT / f"docs/data/miozzi-2020-eosfit-{suffix}"
-    report = json.loads((folder / "report.json").read_text())
-    old = json.loads(REPORT.read_text())
+    report = json.loads((folder / "report.json").read_text(encoding="utf-8"))
+    old = json.loads(REPORT.read_text(encoding="utf-8"))
     _, data, hashes = read_data()
     assert report["source_csv_sha256"] == hashes
     assert report["thermal_model"] == "full_mgd"
@@ -239,11 +239,11 @@ def test_full_mgd_n2_author_replay_and_volume_control(multiplier):
         )
         blocks = (
             (folder / name / "stdout.txt")
-            .read_text()
+            .read_text(encoding="utf-8")
             .split("RESULTS AFTER FINAL REFINEMENT CYCLE")[1:]
         )
         for i, (stage, block) in enumerate(zip(case["stages"], blocks)):
-            saved = (folder / name / f"stage{i + 1}.eos").read_text()
+            saved = (folder / name / f"stage{i + 1}.eos").read_text(encoding="utf-8")
             assert float(re.search(r"Param =14\s+([\d.]+)", saved)[1]) == 0
             if i:
                 assert float(re.search(r"Param =13\s+([\d.]+)", saved)[1]) == 2
@@ -294,9 +294,9 @@ def test_full_mgd_normalization_equivalence_including_volume_dependent_theta():
 def test_n2_full_mgd_console_matches_independent_fit(calibration):
     folder = ROOT / "docs/data/miozzi-2020-eosfit-n2-author-volume"
     name = f"{calibration}-unit-theta_fixed"
-    final = json.loads((folder / "report.json").read_text())["cases"][name]["stages"][
-        -1
-    ]
+    final = json.loads((folder / "report.json").read_text(encoding="utf-8"))["cases"][
+        name
+    ]["stages"][-1]
     _, data, _ = read_data()
     pressure = np.loadtxt(folder / name / "all.dat", skiprows=5)[:, 0]
 

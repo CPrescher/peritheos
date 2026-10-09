@@ -159,7 +159,9 @@ def main():
         }
 
     source = json.loads(
-        (ROOT / "docs/data/fei-2007-platinum-source-curve-check.json").read_text()
+        (ROOT / "docs/data/fei-2007-platinum-source-curve-check.json").read_text(
+            encoding="utf-8"
+        )
     )
     curve_checks = {}
     low = {r["y_pixel"]: r for r in source["points"] if r["temperature_k"] == 1473}
@@ -242,7 +244,9 @@ def main():
             ]
         },
     }
-    OUT.with_suffix(".json").write_text(json.dumps(report, indent=2) + "\n")
+    OUT.with_suffix(".json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8"
+    )
     with OUT.with_suffix(".csv").open("w") as stream:
         writer = csv.writer(stream)
         writer.writerow(

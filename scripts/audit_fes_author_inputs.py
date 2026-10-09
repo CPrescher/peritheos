@@ -37,7 +37,7 @@ def digest(path):
 
 def read_data(path):
     """Honor the actual Format header: P, sigmaP, T, sigmaT, V, sigmaV."""
-    header = path.read_text().splitlines()[0].split()
+    header = path.read_text(encoding="utf-8").splitlines()[0].split()
     if [word.lower() for word in header] != [
         "format",
         "1",
@@ -95,7 +95,9 @@ def initial_rows(stdout, n):
 def run_macro(executable, folder, commands):
     folder.mkdir()
     path = folder / "run.mcr"
-    path.write_text("\n".join([f"log {folder / 'run.log'}", *commands]) + "\n")
+    path.write_text(
+        "\n".join([f"log {folder / 'run.log'}", *commands]) + "\n", encoding="utf-8"
+    )
     result = subprocess.run(
         [str(executable)],
         input=f"macro {path}\nexit\n",
@@ -104,8 +106,8 @@ def run_macro(executable, folder, commands):
         cwd=folder,
         timeout=120,
     )
-    (folder / "stdout.txt").write_text(result.stdout)
-    (folder / "stderr.txt").write_text(result.stderr)
+    (folder / "stdout.txt").write_text(result.stdout, encoding="utf-8")
+    (folder / "stderr.txt").write_text(result.stderr, encoding="utf-8")
     if result.returncode:
         raise RuntimeError(f"EosFit failed: {folder}")
     return result.stdout
@@ -261,7 +263,7 @@ def replay(executable, output, eos_path, input_paths):
             "bytes": target.stat().st_size,
         }
     saved = sources / eos_path.name
-    text = saved.read_text()
+    text = saved.read_text(encoding="utf-8")
     parameters = {
         int(i): float(v) for i, v in re.findall(r"Param\s*=\s*(\d+)\s+(\S+)", text)
     }
@@ -391,7 +393,7 @@ def replay(executable, output, eos_path, input_paths):
         if path.is_file()
     }
     (output / "manifest.json").write_text(
-        json.dumps(report, indent=2, allow_nan=False) + "\n"
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
     )
     return report
 

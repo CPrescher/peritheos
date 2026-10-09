@@ -44,7 +44,9 @@ def test_hirose_original_columns_and_missing_errors_are_preserved():
                 * float(r["gold_a_angstrom"]) ** 2
                 * float(r["gold_a_angstrom_uncertainty"])
             )
-    source = json.loads((DATA / "gold-hirose-2006-source.json").read_text())
+    source = json.loads(
+        (DATA / "gold-hirose-2006-source.json").read_text(encoding="utf-8")
+    )
     assert (
         source["csv_sha256"]
         == hashlib.sha256(
@@ -113,7 +115,7 @@ def test_conditional_weight_sensitivity_and_calibration_gap(report):
 
 
 def test_archived_au_report_reproduces(report):
-    check_saved(json.loads(OUTPUT.read_text()), report)
+    check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
 
 
 def test_staged_parity_keeps_author_fit_and_confidence_unresolved(report):
@@ -141,7 +143,9 @@ def test_staged_parity_keeps_author_fit_and_confidence_unresolved(report):
     assert sv["pvt_check"]["report"] == "docs/data/fei-2007-gold-reproduction.json"
     assert record["pressure_calibration"]["status"] == "partially_resolved"
     assert record["thermal"]["parameters"]["q"] == 0.6
-    ledger = json.loads((OUTPUT.parent / "primary-eos-refits.json").read_text())
+    ledger = json.loads(
+        (OUTPUT.parent / "primary-eos-refits.json").read_text(encoding="utf-8")
+    )
     saved = next(
         r for r in ledger["records"] if r["record_identifier"] == record["identifier"]
     )

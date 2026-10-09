@@ -24,9 +24,11 @@ SOURCE_2004_SHA256 = "b3fb00483e702e48d9d4cb5b4fa1dcefbbe176f94b4eca438d84b99a22
 
 def main():
     figure2 = json.loads(
-        (DATA / "fei-2007-platinum-source-curve-check.json").read_text()
+        (DATA / "fei-2007-platinum-source-curve-check.json").read_text(encoding="utf-8")
     )
-    result2007 = json.loads((DATA / "fei-2007-platinum-reproduction.json").read_text())
+    result2007 = json.loads(
+        (DATA / "fei-2007-platinum-reproduction.json").read_text(encoding="utf-8")
+    )
     fitted2007 = result2007["fixed_v0_joint_diagnostic"]["parameters"]
     coefficients2007 = list(PARAMETERS["platinum"])
     coefficients2007[2:5] = [fitted2007[k] for k in ("K0_prime", "gamma0", "q")]
@@ -108,7 +110,7 @@ def main():
         "qualification": "Published coefficients unchanged. Both refits are unweighted pressure diagnostics with assumed constraints; neither is established as the original optimization. High-pressure thermal Figure 2 branches extend beyond the recovered thermal observations.",
     }
     (DATA / "fei-2004-2007-platinum-refit-curve-comparison.json").write_text(
-        json.dumps(report, indent=2) + "\n"
+        json.dumps(report, indent=2) + "\n", encoding="utf-8"
     )
 
     fig, axes = plt.subplots(1, 2, figsize=(15, 7), layout="constrained")

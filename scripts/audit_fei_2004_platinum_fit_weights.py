@@ -121,7 +121,7 @@ def main():
             (ROOT / "peritheos/data/datasets/platinum-fei-2004-table2.csv").read_bytes()
         ).hexdigest(),
     }
-    OUTPUT.write_text(json.dumps(payload, indent=2) + "\n")
+    OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2))
 
 

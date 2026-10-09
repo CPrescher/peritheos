@@ -719,10 +719,10 @@ def main():
     report = reproduce()
     record, dataset, table = catalog_record(report)
     if args.check:
-        saved = json.loads(REPORT.read_text())
+        saved = json.loads(REPORT.read_text(encoding="utf-8"))
         if (
             saved["derived_csv_sha256"] != report["derived_csv_sha256"]
-            or CSV_PATH.read_text() != table
+            or CSV_PATH.read_text(encoding="utf-8") != table
         ):
             raise SystemExit("Derived Tange table is stale")
         if (
@@ -748,7 +748,7 @@ def main():
             atol=1e-6,
         ):
             raise SystemExit("Stored Tange covariance is stale")
-        iron = json.loads(IRON_PATH.read_text())
+        iron = json.loads(IRON_PATH.read_text(encoding="utf-8"))
         registered = next(
             r for r in iron["eos_records"] if r["identifier"] == RECORD_ID
         )
@@ -772,7 +772,7 @@ def main():
     )
     CSV_PATH.write_text(table, encoding="utf-8")
     if args.register:
-        iron = json.loads(IRON_PATH.read_text())
+        iron = json.loads(IRON_PATH.read_text(encoding="utf-8"))
         iron["eos_records"] = [
             r for r in iron["eos_records"] if r["identifier"] != RECORD_ID
         ] + [record]

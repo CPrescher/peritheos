@@ -21,7 +21,7 @@ PLOT = ROOT / "docs/data/fei-2007-gold-replay.png"
 
 
 def main():
-    report = json.loads(OUTPUT.read_text())
+    report = json.loads(OUTPUT.read_text(encoding="utf-8"))
     _, d = observations()
     fits = report["fits"]
     colors = ["#374151", "#0072B2", "#D55E00"]

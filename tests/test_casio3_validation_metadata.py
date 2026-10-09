@@ -41,7 +41,9 @@ def test_qualification_preserves_all_scientific_payloads_and_schema(
     material, scientific_payload_sha256
 ):
     document = get_material_document(material)
-    schema = json.loads((ROOT / "peritheos/data/eosmat-v3.schema.json").read_text())
+    schema = json.loads(
+        (ROOT / "peritheos/data/eosmat-v3.schema.json").read_text(encoding="utf-8")
+    )
     jsonschema.validate(document, schema)
     # Reviewed scientific payload checkpoint, including the 2026-10-08 Wang
     # source recovery, excluded-row corrections and optional 64-point thermal refit. Freezes
@@ -100,7 +102,9 @@ def test_chen_rounded_table_check_retains_missing_weighting_and_scope():
 
 
 def test_aggregate_ledger_carries_qualifications_without_rewriting_sources():
-    ledger = json.loads((ROOT / "peritheos/data/primary-source-audit.json").read_text())
+    ledger = json.loads(
+        (ROOT / "peritheos/data/primary-source-audit.json").read_text(encoding="utf-8")
+    )
     by_id = {row["record"]: row for row in ledger["records"]}
     for identifier in (SUN, FU, REFIT, CHEN):
         check = records()[identifier]["scientific_validation"]

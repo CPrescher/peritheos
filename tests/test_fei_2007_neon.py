@@ -53,7 +53,7 @@ def test_ne_thermal_branches_match_independent_quadrature_and_invert(branch):
 
 
 def test_source_rows_scales_and_uncertainty_types_remain_distinct():
-    source = json.loads(SOURCE.read_text())
+    source = json.loads(SOURCE.read_text(encoding="utf-8"))
     for name, meta in source["files"].items():
         assert hashlib.sha256((DATA / name).read_bytes()).hexdigest() == meta["sha256"]
     v, t, p, sp, sv = observations()
@@ -87,7 +87,7 @@ def test_source_rows_scales_and_uncertainty_types_remain_distinct():
 
 def test_fit_parity_and_curve_validation_preserve_exact_regression_limits():
     report = reproduce()
-    saved = json.loads(OUTPUT.read_text())
+    saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert report["input_sha256"] == saved["input_sha256"]
     assert report["status"]["fit_reproduction"] == "parity"
     assert report["status"]["reproduction_outcome"] == "reproduced"

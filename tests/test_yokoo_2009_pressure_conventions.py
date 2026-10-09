@@ -11,7 +11,7 @@ from scripts.fit_yokoo_2009_gold_thermal import check_reconstruction
 
 def test_archived_convention_audit_reproduces_and_preserves_source_states():
     report = audit()
-    check_reconstruction(json.loads(OUTPUT.read_text()), report)
+    check_reconstruction(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
     assert report["published_analytical_pvt_reproduced"] is False
     for metal, count in [("gold", 162), ("platinum", 168)]:
         m = report["metals"][metal]

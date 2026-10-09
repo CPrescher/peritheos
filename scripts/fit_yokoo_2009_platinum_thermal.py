@@ -276,9 +276,9 @@ def reconstruct():
         pressure_gpa(ratio, temperature, holdout_p, correction=holdout_correction)
         - pressure
     )
-    density_v0 = json.loads((DATA / SOURCE).read_text())["volume_basis"][
-        "V0_cell_a3_derived_from_printed_density"
-    ]
+    density_v0 = json.loads((DATA / SOURCE).read_text(encoding="utf-8"))[
+        "volume_basis"
+    ]["V0_cell_a3_derived_from_printed_density"]
     density_p, density_correction = fit_with_pressure_correction(
         ratio, temperature, pressure, unmarked, ambient_cell_a3=density_v0
     )
@@ -376,9 +376,11 @@ def main():
     args = parser.parse_args()
     report = reconstruct()
     if args.check:
-        check_reconstruction(json.loads(OUTPUT.read_text()), report)
+        check_reconstruction(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
     else:
-        OUTPUT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_text(
+            json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
         with RESIDUALS.open("w", newline="") as stream:
             writer = csv.DictWriter(stream, fieldnames=list(report["states"][0]))
             writer.writeheader()

@@ -71,7 +71,9 @@ def main():
         "fei_pressure_grid_gpa": pressure_grid.tolist(),
         "pressure_difference_curves_gpa": curves,
     }
-    OUTPUT.with_suffix(".json").write_text(json.dumps(report, indent=2) + "\n")
+    OUTPUT.with_suffix(".json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8"
+    )
     with OUTPUT.with_suffix(".csv").open("w") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()

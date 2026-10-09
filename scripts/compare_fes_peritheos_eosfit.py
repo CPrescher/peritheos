@@ -107,8 +107,8 @@ def comparison(parameters, coordinates, reference):
 
 
 def reproduce():
-    direct = json.loads((DIRECT / "manifest.json").read_text())
-    staged = json.loads((STAGED / "manifest.json").read_text())
+    direct = json.loads((DIRECT / "manifest.json").read_text(encoding="utf-8"))
+    staged = json.loads((STAGED / "manifest.json").read_text(encoding="utf-8"))
     cases = {}
     inputs = [DIRECT / "manifest.json", STAGED / "manifest.json"]
     for name, case in direct["cases"].items():
@@ -254,10 +254,10 @@ def main():
     result = reproduce()
     serialized = json.dumps(result, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if OUTPUT.read_text() != serialized:
+        if OUTPUT.read_text(encoding="utf-8") != serialized:
             raise SystemExit("Peritheos/EosFit comparison is stale")
     else:
-        OUTPUT.write_text(serialized)
+        OUTPUT.write_text(serialized, encoding="utf-8")
     print(
         "Maximum pressure difference (GPa):",
         max(

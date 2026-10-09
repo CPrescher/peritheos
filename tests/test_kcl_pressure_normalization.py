@@ -61,7 +61,7 @@ def test_dewaele_all_rows_have_executable_pressure_contract(
 
 def test_diagnostic_refits_are_reproducible_and_keep_source_constraints():
     report = audit()
-    assert report == json.loads(OUTPUT.read_text())
+    assert report == json.loads(OUTPUT.read_text(encoding="utf-8"))
     for record in report["records"]:
         published = get_eos_record_document(record["record_identifier"])
         assert record["original_published_parameters"] == published["eos"]["parameters"]
@@ -108,8 +108,8 @@ def test_manifest_recalculation_counts_match_current_records():
     counts = Counter(
         record["pressure_calibration"]["recalculation"]["status"]
         for path in root.glob("*.eosmat")
-        for record in json.loads(path.read_text())["eos_records"]
+        for record in json.loads(path.read_text(encoding="utf-8"))["eos_records"]
     )
-    assert json.loads((root / "manifest.json").read_text())["pressure_calibration"][
-        "recalculation_counts"
-    ] == dict(counts)
+    assert json.loads((root / "manifest.json").read_text(encoding="utf-8"))[
+        "pressure_calibration"
+    ]["recalculation_counts"] == dict(counts)

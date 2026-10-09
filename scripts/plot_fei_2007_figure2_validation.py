@@ -24,7 +24,7 @@ OUTPUT = DATA / "fei-2007-platinum-figure2-validation.png"
 
 
 def main():
-    report = json.loads(INPUT.read_text())
+    report = json.loads(INPUT.read_text(encoding="utf-8"))
     pc = np.polyfit(
         report["pressure_axis_ticks"]["x_pixel"],
         report["pressure_axis_ticks"]["pressure_gpa"],
@@ -101,7 +101,7 @@ def main():
     report["published_coefficients"] = dict(
         zip(("V0", "K0", "K0_prime", "gamma0", "q", "theta0"), PARAMETERS["platinum"])
     )
-    INPUT.write_text(json.dumps(report, indent=2) + "\n")
+    INPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 
     plt.rcParams.update(
         {"font.size": 11, "axes.spines.top": False, "axes.spines.right": False}

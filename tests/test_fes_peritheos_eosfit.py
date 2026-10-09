@@ -67,7 +67,7 @@ def test_joint_equal_weight_refit_recovers_coefficients_and_covariance(report):
 
 
 def test_retained_report_matches_recomputed_scientific_results(report):
-    retained = json.loads(OUTPUT.read_text())
+    retained = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert retained["input_sha256"] == report["input_sha256"]
     for name, case in report["cases"].items():
         for stage, result in case.items():

@@ -103,7 +103,10 @@ def test_primary_regression_weights_and_precision_gaps_remain_visible():
     assert t["exact_source_regression_reproduced"] is False
     assert all(f["solver_success"] for f in sensitivity["fits"].values())
     assert_report_equal(
-        report, json.loads((ROOT / "docs/data/kcl-source-gaps-audit.json").read_text())
+        report,
+        json.loads(
+            (ROOT / "docs/data/kcl-source-gaps-audit.json").read_text(encoding="utf-8")
+        ),
     )
 
 
@@ -115,7 +118,9 @@ def test_source_inventory_and_raw_hashes_are_preserved():
         "kcl-tateno-2019-table-s1-pvt.csv": "a7e3f6307a851c993bd69cbb8a3c5c424f7e0000826dc7739d56a1d84f228ab1",
     }
     manifest = json.loads(
-        (ROOT / "peritheos/data/datasets/kcl_variant_sources/manifest.json").read_text()
+        (ROOT / "peritheos/data/datasets/kcl_variant_sources/manifest.json").read_text(
+            encoding="utf-8"
+        )
     )
     content = [
         m for m in manifest["tateno_deposit_inventory"] if m["kind"] != "metadata"

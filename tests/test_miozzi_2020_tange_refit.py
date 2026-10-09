@@ -49,7 +49,7 @@ def test_primary_tange_table5_checkpoint(model):
 def test_derived_pressures_preserve_sources_and_native_calibration():
     original, data, hashes = read_data()
     rows, text = derived_rows(original, data)
-    assert CSV_PATH.read_text() == text
+    assert CSV_PATH.read_text(encoding="utf-8") == text
     assert len(rows) == 131
     assert {row["source_medium"] for row in rows} == {"he", "mgo"}
     target = target_pressures(data, "vinet")
@@ -156,7 +156,7 @@ def test_refit_is_selectable_with_errors_covariance_and_lossless_export():
 
 def test_reproduction_covariance_multistart_and_ledger_meaning():
     report = reproduce()
-    stored = json.loads(REPORT.read_text())
+    stored = json.loads(REPORT.read_text(encoding="utf-8"))
     primary = report["primary"]
     assert primary["solver_success"]
     assert primary["degrees_of_freedom"] == 126
@@ -197,6 +197,8 @@ def test_reproduction_covariance_multistart_and_ledger_meaning():
     assert outcome["status"] == "parity"
     assert outcome["fit_kind"] == "stored_refit_reproduction"
     assert outcome["original_publication_reproduction_status"] == "not_reproduced"
-    paper = (REPORT.parents[1] / "paper-investigation-ledger.md").read_text()
+    paper = (REPORT.parents[1] / "paper-investigation-ledger.md").read_text(
+        encoding="utf-8"
+    )
     assert "Miozzi et al. (2020)" in paper
     assert "Original unreproduced; independent refit available" in paper

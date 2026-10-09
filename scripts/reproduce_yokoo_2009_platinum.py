@@ -293,10 +293,12 @@ def main():
         for row in result["upstream_shock_momentum_checks"]
     )
     if args.check:
-        saved = json.loads(OUTPUT.read_text())
+        saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
         check_saved(saved, result)
     else:
-        OUTPUT.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_text(
+            json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
     print(
         json.dumps(
             {

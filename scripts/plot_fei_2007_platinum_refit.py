@@ -29,7 +29,9 @@ REFIT_COLOR = "#d95f02"
 
 def main():
     result = json.loads(
-        (ROOT / "docs/data/fei-2007-platinum-reproduction.json").read_text()
+        (ROOT / "docs/data/fei-2007-platinum-reproduction.json").read_text(
+            encoding="utf-8"
+        )
     )
     diagnostic = result["fixed_v0_joint_diagnostic"]
     coefficients = np.array(PARAMETERS["platinum"])

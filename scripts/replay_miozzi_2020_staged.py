@@ -157,7 +157,7 @@ def macro(
 def covariance(path, names, molar_volume_multiplier=1):
     if not path.exists():
         return None
-    text = path.read_text().split("Variance-Covariance matrix=")[-1]
+    text = path.read_text(encoding="utf-8").split("Variance-Covariance matrix=")[-1]
     matrix = []
     for line in text.splitlines():
         values = re.findall(r"[-+]?\d\.\d+E[-+]\d+", line)
@@ -338,10 +338,12 @@ def run(
                 folder = output / name
                 folder.mkdir()
                 (folder / "cold.dat").write_text(
-                    input_data(data, pressures, True, molar_volume_multiplier)
+                    input_data(data, pressures, True, molar_volume_multiplier),
+                    encoding="utf-8",
                 )
                 (folder / "all.dat").write_text(
-                    input_data(data, pressures, False, molar_volume_multiplier)
+                    input_data(data, pressures, False, molar_volume_multiplier),
+                    encoding="utf-8",
                 )
                 (folder / "run.mcr").write_text(
                     macro(
@@ -352,7 +354,8 @@ def run(
                         switch_to_full,
                         atoms,
                         molar_volume_multiplier,
-                    )
+                    ),
+                    encoding="utf-8",
                 )
                 try:
                     result = subprocess.run(
@@ -363,8 +366,8 @@ def run(
                         cwd=folder,
                         timeout=50,
                     )
-                    (folder / "stdout.txt").write_text(result.stdout)
-                    (folder / "stderr.txt").write_text(result.stderr)
+                    (folder / "stdout.txt").write_text(result.stdout, encoding="utf-8")
+                    (folder / "stderr.txt").write_text(result.stderr, encoding="utf-8")
                     stages = parse_stages(
                         result.stdout,
                         folder,
@@ -410,7 +413,8 @@ def run(
                 }
                 report["cases"][name] = case
                 (output / "report.json").write_text(
-                    json.dumps(report, indent=2, allow_nan=False) + "\n"
+                    json.dumps(report, indent=2, allow_nan=False) + "\n",
+                    encoding="utf-8",
                 )
                 print(
                     name,

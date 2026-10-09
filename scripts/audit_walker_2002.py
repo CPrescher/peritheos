@@ -26,9 +26,9 @@ BIRCH_REFERENCE_K = 298.15  # 25 Celsius; distinct from Walker's KCl reference
 
 def load_rows(filename):
     path = ROOT / "peritheos/data/datasets" / filename
-    return list(csv.DictReader(path.read_text().splitlines())), hashlib.sha256(
-        path.read_bytes()
-    ).hexdigest()
+    return list(
+        csv.DictReader(path.read_text(encoding="utf-8").splitlines())
+    ), hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def values(rows, name):
@@ -406,9 +406,11 @@ def main():
     args = parser.parse_args()
     result = reproduce()
     if args.check:
-        check_report(result, json.loads(OUTPUT.read_text()))
+        check_report(result, json.loads(OUTPUT.read_text(encoding="utf-8")))
     else:
-        OUTPUT.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_text(
+            json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
     print(
         json.dumps(
             {

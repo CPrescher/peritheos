@@ -26,7 +26,9 @@ def test_registered_refit_preserves_defaults_and_selected_observations():
 
     doc = get_material_document("argon_fcc")
     Draft202012Validator(
-        json.loads((ROOT / "peritheos/data/eosmat-v3.schema.json").read_text())
+        json.loads(
+            (ROOT / "peritheos/data/eosmat-v3.schema.json").read_text(encoding="utf-8")
+        )
     ).validate(doc)
     record = next(r for r in doc["eos_records"] if r["identifier"] == RECORD_ID)
     assert record["record_kind"] == "refit"
@@ -36,7 +38,9 @@ def test_registered_refit_preserves_defaults_and_selected_observations():
     ]
     assert (
         record["eos"]["parameters"]
-        == json.loads(REPORT.read_text())["fits"][PREFERRED]["pressure"]["parameters"]
+        == json.loads(REPORT.read_text(encoding="utf-8"))["fits"][PREFERRED][
+            "pressure"
+        ]["parameters"]
     )
     dataset = next(d for d in doc["datasets"] if d["identifier"] == DATASET_ID)
     path = ROOT / "peritheos/data" / dataset["resource"]["path"]
@@ -64,7 +68,7 @@ def test_registered_refit_preserves_defaults_and_selected_observations():
 
 
 def test_combined_source_selection_and_units():
-    source = json.loads(INPUT.read_text())
+    source = json.loads(INPUT.read_text(encoding="utf-8"))
     ross = source["ross"]["rows"]
     assert len(ross) == 42
     for row in ross:

@@ -5183,7 +5183,9 @@ def _argon_combined_registered_refit_outcome(record: dict[str, Any]) -> dict[str
 
 def validate_all() -> dict[str, Any]:
     results = []
-    dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text())["row_level_refits"]
+    dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text(encoding="utf-8"))[
+        "row_level_refits"
+    ]
     datchi_diamond_refit = json.loads(
         DATCHI_DIAMOND_REFIT_JSON.read_text(encoding="utf-8")
     )
@@ -5196,7 +5198,9 @@ def validate_all() -> dict[str, Any]:
         "record_refits"
     ]
 
-    mgsio3_primary_refits = json.loads(MGSIO3_PRIMARY_REFIT_JSON.read_text())["fits"]
+    mgsio3_primary_refits = json.loads(
+        MGSIO3_PRIMARY_REFIT_JSON.read_text(encoding="utf-8")
+    )["fits"]
     dorogokupets_refits = json.loads(
         DOROGOKUPETS_REFIT_JSON.read_text(encoding="utf-8")
     )["fits"]

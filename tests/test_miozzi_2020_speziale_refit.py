@@ -61,8 +61,8 @@ def test_author_n2_record_preserves_printed_coefficients_and_communication():
 def test_speziale_derived_pressures_preserve_source_columns_and_holes():
     original, data, hashes = read_data()
     rows, table = derived_rows(original, data)
-    report = json.loads(REPORT.read_text())
-    assert CSV_PATH.read_text() == table
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
+    assert CSV_PATH.read_text(encoding="utf-8") == table
     assert report["original_csv_sha256"] == hashes
     assert report["derived_csv_sha256"] == hashlib.sha256(table.encode()).hexdigest()
     for path, fingerprint in report["source_code_sha256"].items():

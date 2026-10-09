@@ -303,7 +303,7 @@ def curve_check(source):
 
 
 def reproduce():
-    source = json.loads(SOURCE.read_text())
+    source = json.loads(SOURCE.read_text(encoding="utf-8"))
     v, t, p, sp, sv = observations()
     material = Material.from_eosmat(get_material_document("neon_fcc"))
     results = {}
@@ -532,7 +532,7 @@ def ledger_outcome(record):
 
 def main():
     report = reproduce()
-    OUTPUT.write_text(json.dumps(report, indent=2) + "\n")
+    OUTPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     plot_validation(report)
     print(
         json.dumps(

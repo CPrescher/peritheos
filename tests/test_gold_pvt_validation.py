@@ -100,4 +100,4 @@ def test_yokoo_pressure_reconstruction_has_qualified_validation():
 
 
 def test_gold_pvt_audit_is_reproducible():
-    check_saved(json.loads(OUTPUT.read_text()), audit())
+    check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), audit())

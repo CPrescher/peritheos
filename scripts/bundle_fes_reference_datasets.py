@@ -24,7 +24,7 @@ AUTHOR = ROOT / "docs/data/fes-author-eosfit/sources"
 SOURCE = DATA / "morard_2026_author_sources"
 RECORD = "fes_vi_morard_2026_bm3_mgd"
 PREFIX = "fes_morard_2026_author_"
-REFERENCE = json.loads(CARD.read_text())["eos_records"][0]["reference"]
+REFERENCE = json.loads(CARD.read_text(encoding="utf-8"))["eos_records"][0]["reference"]
 VALUE_COLUMNS = [
     ("pressure_gpa", "pressure", "GPa"),
     ("pressure_uncertainty_gpa", "pressure", "GPa"),
@@ -132,7 +132,7 @@ def match_additional_cold_gsas(author):
 
 
 def author_rows(filename):
-    lines = (AUTHOR / filename).read_text().splitlines()
+    lines = (AUTHOR / filename).read_text(encoding="utf-8").splitlines()
     if lines[0].split() != ["Format", "1", "P", "sigP", "T", "sigT", "V", "sigV"]:
         raise ValueError("Unexpected original column order")
     counts = Counter()
@@ -401,7 +401,7 @@ def main():
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     datasets, outputs = build()
-    document = json.loads(CARD.read_text())
+    document = json.loads(CARD.read_text(encoding="utf-8"))
     old = [
         x
         for x in document["datasets"]

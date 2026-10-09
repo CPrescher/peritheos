@@ -23,7 +23,9 @@ from scripts.reproduce_chen_2010_argon import (
 
 def test_supporting_study_datasets_load_without_an_invented_eos():
     doc = get_material_document("argon_fcc")
-    schema = json.loads((ROOT / "peritheos/data/eosmat-v3.schema.json").read_text())
+    schema = json.loads(
+        (ROOT / "peritheos/data/eosmat-v3.schema.json").read_text(encoding="utf-8")
+    )
     assert not list(Draft202012Validator(schema).iter_errors(doc))
     assert all(
         r.get("record_kind") in {"refit", "diagnostic"}
@@ -92,7 +94,9 @@ def test_printed_acoustic_equation_units_and_invalid_denominator():
 
 def test_packaged_source_manifest_preserves_status_and_pdf_identity():
     study = json.loads(
-        (ROOT / "peritheos/data/studies/argon-fcc-chen-2010.json").read_text()
+        (ROOT / "peritheos/data/studies/argon-fcc-chen-2010.json").read_text(
+            encoding="utf-8"
+        )
     )
     assert study["eos_record_identifiers"] == []
     assert study["reproduction_status"] == "not_reproduced"

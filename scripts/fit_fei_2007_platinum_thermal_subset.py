@@ -182,7 +182,9 @@ def main():
         "variants": variants,
         "qualification": "Diagnostic subset fits with explicit frozen cold coefficients. Original author weights, fitting constraints and calibration covariance remain unrecovered. RMS values in this report refer to the hot subset unless explicitly labeled RT. No symmetric boundary parameter errors assigned.",
     }
-    OUTPUT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+    OUTPUT.write_text(
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
     for label, variant in variants.items():
         print(label, variant["cold_parameters_fixed_in_thermal_stage"])
         for name, fit in variant["thermal_fits"].items():

@@ -312,12 +312,12 @@ def main():
     args = parser.parse_args()
     payload = json.dumps(audit(), indent=2, sort_keys=True, allow_nan=False) + "\n"
     if args.check:
-        if OUTPUT.read_text() != payload:
+        if OUTPUT.read_text(encoding="utf-8") != payload:
             raise SystemExit(
                 "Matsui audit is stale; run python -m scripts.audit_matsui_2009_platinum"
             )
     else:
-        OUTPUT.write_text(payload)
+        OUTPUT.write_text(payload, encoding="utf-8")
 
 
 if __name__ == "__main__":

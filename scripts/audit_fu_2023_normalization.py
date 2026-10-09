@@ -271,7 +271,9 @@ def main():
     args = parser.parse_args()
     result, arrays = audit()
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
+    args.output.write_text(
+        json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
     if args.plot:
         args.plot.parent.mkdir(parents=True, exist_ok=True)
         plot_diagnostics(arrays, args.plot)

@@ -44,7 +44,7 @@ def test_q_compromise_has_volume_independent_thermal_pressure():
 
 def test_original_full_model_macros_are_preserved():
     def archived_macro(case):
-        text = (case / "run.mcr").read_text()
+        text = (case / "run.mcr").read_text(encoding="utf-8")
         # The immutable evidence retains paths from the original Mac checkout.
         # Compare commands on that recorded basis, including on Windows or CI.
         log = text.splitlines()[0]
@@ -67,8 +67,10 @@ def test_original_full_model_macros_are_preserved():
 
 
 def test_actual_console_selected_q_compromise_and_kept_inputs():
-    direct = json.loads((DIRECT / "manifest.json").read_text())
-    full = json.loads((ROOT / "docs/data/fes-eosfit7c/manifest.json").read_text())
+    direct = json.loads((DIRECT / "manifest.json").read_text(encoding="utf-8"))
+    full = json.loads(
+        (ROOT / "docs/data/fes-eosfit7c/manifest.json").read_text(encoding="utf-8")
+    )
     assert direct["executable_sha256"] == full["executable_sha256"]
     assert direct["thermal_source_sha256"] == full["thermal_source_sha256"]
     assert direct["cold_source_sha256"] == full["cold_source_sha256"]
@@ -82,7 +84,7 @@ def test_actual_console_selected_q_compromise_and_kept_inputs():
         assert (DIRECT / name / "input.dat").read_bytes() == (
             ROOT / "docs/data/fes-eosfit7c" / name / "input.dat"
         ).read_bytes()
-        text = (DIRECT / name / "stdout.txt").read_text()
+        text = (DIRECT / name / "stdout.txt").read_text(encoding="utf-8")
         parsed = parse_console(text, name.split("-")[0])
         assert parsed["converged"]
         assert parsed["fitted_replay"] == case["fitted_replay"]
@@ -94,15 +96,17 @@ def test_actual_console_selected_q_compromise_and_kept_inputs():
             continue
         assert "with q-compromise" in text
         assert "q is not defined for q-compromise" in text
-        saved = (DIRECT / name / "fitted.eos").read_text()
+        saved = (DIRECT / name / "fitted.eos").read_text(encoding="utf-8")
         assert "Param =14 1.00000" in saved  # Explicit q-compromise flag.
         assert "Param =19 0.00000" in saved  # Not a free or fixed physical q.
 
 
 def test_staged_q_compromise_preserves_cold_solution():
-    manifest = json.loads((STAGED / "manifest.json").read_text())
+    manifest = json.loads((STAGED / "manifest.json").read_text(encoding="utf-8"))
     full = json.loads(
-        (ROOT / "docs/data/fes-eosfit7c-staged/manifest.json").read_text()
+        (ROOT / "docs/data/fes-eosfit7c-staged/manifest.json").read_text(
+            encoding="utf-8"
+        )
     )
     for name, case in manifest["cases"].items():
         for filename, digest in case["files_sha256"].items():
@@ -126,7 +130,7 @@ def test_staged_q_compromise_preserves_cold_solution():
 
 def test_peritheos_component_evaluation_matches_actual_console(report):
     assert len(report["cases"]) == 6
-    retained = json.loads(OUTPUT.read_text())
+    retained = json.loads(OUTPUT.read_text(encoding="utf-8"))
     for name, case in report["cases"].items():
         for stage, result in case.items():
             assert result["max_pressure_difference_gpa"] < 0.0012
@@ -148,9 +152,9 @@ def test_peritheos_component_evaluation_matches_actual_console(report):
 
 def test_independent_joint_refit_and_failed_published_bound(report):
     fit = report["independent_joint_equal_weight_refit"]
-    console = json.loads((DIRECT / "manifest.json").read_text())["cases"][
-        "combined-unit"
-    ]
+    console = json.loads((DIRECT / "manifest.json").read_text(encoding="utf-8"))[
+        "cases"
+    ]["combined-unit"]
     assert fit["solver"]["success"]
     assert fit["degrees_of_freedom"] == 155
     cov = np.array(fit["covariance"])

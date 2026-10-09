@@ -290,7 +290,9 @@ def main():
             raise SystemExit("Stored cold audit differs from replay")
         print("Sata FeS-VI cold audit verified")
     else:
-        OUTPUT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_text(
+            json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
         print(OUTPUT)
 
 

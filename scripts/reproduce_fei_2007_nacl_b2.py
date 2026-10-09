@@ -170,7 +170,7 @@ def recover(pdf):
         "observations": observations,
         "calculated_curves": calculated_curves,
     }
-    SOURCE.write_text(json.dumps(source, indent=2) + "\n")
+    SOURCE.write_text(json.dumps(source, indent=2) + "\n", encoding="utf-8")
     write_csv(source)
     return source
 
@@ -275,7 +275,7 @@ def fit(
 
 
 def reproduce(source=None):
-    source = source or json.loads(SOURCE.read_text())
+    source = source or json.loads(SOURCE.read_text(encoding="utf-8"))
     cold = subset(source, 3, 300)
     cold4 = subset(source, 4, 300)
     hot = subset(source, 4, 1000)
@@ -437,7 +437,7 @@ def plot(source, report):
 
 def ledger_outcome(record):
     """Keep duplicate cold figures separate and retain the staged hot diagnostic."""
-    report = reproduce(json.loads(SOURCE.read_text()))
+    report = reproduce(json.loads(SOURCE.read_text(encoding="utf-8")))
     cold = report["cold_fit_figure3"]
     hot = report["staged_cold_then_hot"]
     parameters = []
@@ -477,9 +477,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pdf", type=Path)
     args = parser.parse_args()
-    source = recover(args.pdf) if args.pdf else json.loads(SOURCE.read_text())
+    source = (
+        recover(args.pdf)
+        if args.pdf
+        else json.loads(SOURCE.read_text(encoding="utf-8"))
+    )
     report = reproduce(source)
-    OUTPUT.write_text(json.dumps(report, indent=2) + "\n")
+    OUTPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     plot(source, report)
     print(
         json.dumps(

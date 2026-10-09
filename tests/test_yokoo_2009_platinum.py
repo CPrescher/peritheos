@@ -44,7 +44,10 @@ def test_vinet_source_branch_reconstructs_and_roundtrips():
     assert raw["parameter_error_confidence"] is None
     # The cold BM3 error width must not migrate to the derived Vinet fit.
     assert (
-        json.loads((DATA / SOURCE).read_text())["table4"]["B0_prime_0k_error"] == 0.10
+        json.loads((DATA / SOURCE).read_text(encoding="utf-8"))["table4"][
+            "B0_prime_0k_error"
+        ]
+        == 0.10
     )
 
 
@@ -92,7 +95,7 @@ def test_phonon_law_has_integrated_gamma_and_requires_additional_term():
 
 def test_saved_audit_and_inputs_remain_reproducible():
     audit = reproduce()
-    saved = json.loads(OUTPUT.read_text())
+    saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
     check_saved(saved, audit)
     assert saved["input_sha256"] == audit["input_sha256"]
     for filename, digest in audit["input_sha256"].items():

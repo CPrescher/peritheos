@@ -106,6 +106,8 @@ reproduction of an author's fit remain separate assessments.
   and recorded PDF provenance without requiring local Zotero or temporary files.
 - Declare the figure-audit image reader in test dependencies, repair source-data
   documentation links, and refresh provenance and catalog regression checks.
+- Read and write audit resources explicitly as UTF-8 across platforms and
+  preserve Python source line endings for reproducible audit fingerprints.
 
 ## [0.11.0] - 2026-09-28
 

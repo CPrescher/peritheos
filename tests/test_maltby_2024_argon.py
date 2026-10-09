@@ -55,7 +55,9 @@ def test_helmholtz_pressure_identity_and_stable_inverse(volume, temperature):
 
 def test_independent_si_quadrature_and_retained_literature_mismatch():
     report = json.loads(
-        (ROOT / "docs/data/argon-maltby-2024-reproduction.json").read_text()
+        (ROOT / "docs/data/argon-maltby-2024-reproduction.json").read_text(
+            encoding="utf-8"
+        )
     )
     model = Maltby2024Published(64)
     for row in report["independent_si_quadrature"]:
@@ -67,7 +69,7 @@ def test_independent_si_quadrature_and_retained_literature_mismatch():
     assert model.thermal_pressure_increment(2.0, 300) == 0
     # The published implementation is available without a validation claim.
     records = json.loads(
-        (ROOT / "peritheos/data/materials/argon_fcc.eosmat").read_text()
+        (ROOT / "peritheos/data/materials/argon_fcc.eosmat").read_text(encoding="utf-8")
     )["eos_records"]
     record = next(row for row in records if "maltby" in row["identifier"])
     assert record["scientific_validation"]["status"] == "not_reproduced"

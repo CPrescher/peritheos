@@ -294,7 +294,7 @@ def main():
         result[identifier]["native_max_difference_gpa"] < 1e-9 for identifier in IDS
     )
     if args.check:
-        saved = json.loads(OUTPUT.read_text())
+        saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
 
         def check(actual, expected, path="report"):
             if isinstance(actual, dict):
@@ -313,7 +313,8 @@ def main():
         check(result, saved)
     else:
         OUTPUT.write_text(
-            json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"
+            json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n",
+            encoding="utf-8",
         )
     print(json.dumps({i: result[i]["refit"] for i in IDS}, indent=2))
 

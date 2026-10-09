@@ -172,7 +172,9 @@ def test_native_fit_recovers_independent_quadratic_pressure():
 
 def test_partial_refits_and_report_are_reproducible():
     result = reproduce()
-    saved = json.loads((ROOT / "docs/data/fei-2016-iron-reproduction.json").read_text())
+    saved = json.loads(
+        (ROOT / "docs/data/fei-2016-iron-reproduction.json").read_text(encoding="utf-8")
+    )
     assert result["thermal"] == pytest.approx(saved["thermal"])
     assert result["static"]["fixed_density"]["parameters"]["K0"] == pytest.approx(
         174.1450783, rel=1e-7

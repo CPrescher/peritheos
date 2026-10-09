@@ -128,7 +128,7 @@ def read_csv(name):
 
 
 def reproduce():
-    inputs = json.loads(INPUT.read_text())
+    inputs = json.loads(INPUT.read_text(encoding="utf-8"))
     hirose = inputs["hirose_2006"]["observations"]
     au_rows = read_csv("gold-fei-2004-table1.csv")
     av, at, ap = [
@@ -293,7 +293,8 @@ def reproduce():
 if __name__ == "__main__":
     result = reproduce()
     OUTPUT.write_text(
-        json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"
+        json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n",
+        encoding="utf-8",
     )
     for name, data in result["materials"].items():
         diagnostic = data["q_only_diagnostic"]

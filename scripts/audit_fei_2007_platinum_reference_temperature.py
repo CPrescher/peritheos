@@ -85,7 +85,9 @@ def fit(volume, temperature, target, cold, *, omit_reference, q_min=None):
 
 def main():
     staged = json.loads(
-        (DATA / "fei-2007-platinum-fixed-rt-thermal-subset.json").read_text()
+        (DATA / "fei-2007-platinum-fixed-rt-thermal-subset.json").read_text(
+            encoding="utf-8"
+        )
     )
     cold = np.array(PARAMETERS["platinum"])
     cold[2] = staged["variants"]["all_43_rt_rows"][
@@ -125,7 +127,7 @@ def main():
         assert abs(result["hot_rmse_gpa"] - previous["hot_rmse_gpa"]) < 1e-9
 
     source = json.loads(
-        (DATA / "fei-2007-platinum-source-curve-check.json").read_text()
+        (DATA / "fei-2007-platinum-source-curve-check.json").read_text(encoding="utf-8")
     )
     figure_checks = {}
     published = np.array(PARAMETERS["platinum"])
@@ -172,7 +174,9 @@ def main():
         "qualification": "Counterfactual diagnostics, not evidence about the author's actual code. The combined Au/Pt case changes hot calibration targets while retaining the previously frozen RT cold coefficients. Omitting the subtraction changes RT predictions despite unchanged cold coefficients. Canonical EOS coefficients, source measurements and normal calibration targets remain unchanged.",
         "input_sha256": staged["input_sha256"],
     }
-    OUTPUT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+    OUTPUT.write_text(
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
     print(
         json.dumps(
             {

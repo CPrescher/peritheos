@@ -21,7 +21,7 @@ def material():
 
 
 def test_original_files_packaged_byte_for_byte_and_checksums_verified(material):
-    manifest = json.loads((SOURCE / "manifest.json").read_text())
+    manifest = json.loads((SOURCE / "manifest.json").read_text(encoding="utf-8"))
     for source in manifest["sources"]:
         original = (
             Path("docs/data/fes-sata-2010-table1.csv")

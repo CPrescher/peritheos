@@ -273,7 +273,7 @@ def ledger_outcome(record):
     """Classify staged coefficient reproduction separately from residual claims."""
     report = reproduce()
     path = ROOT / "docs/data/fes-author-staged/manifest.json"
-    staged = json.loads(path.read_text())
+    staged = json.loads(path.read_text(encoding="utf-8"))
     fit = staged["cases"]["reproduced-errors-tr300"]
     cold = fit["cold_stage"]["refined_parameters_final_cycle"]
     thermal = fit["thermal_stage"]["refined_parameters_final_cycle"]
@@ -346,7 +346,7 @@ def main():
     report = reproduce()
     encoded = json.dumps(report, indent=2, ensure_ascii=False, allow_nan=False) + "\n"
     if args.check:
-        if json.loads(OUTPUT.read_text()) != report:
+        if json.loads(OUTPUT.read_text(encoding="utf-8")) != report:
             raise SystemExit("Morard FeS audit is stale")
     else:
         OUTPUT.write_text(encoded, encoding="utf-8")

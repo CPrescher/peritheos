@@ -219,10 +219,11 @@ def main():
     args = parser.parse_args()
     result = audit()
     if args.check:
-        assert_report_equal(result, json.loads(OUTPUT.read_text()))
+        assert_report_equal(result, json.loads(OUTPUT.read_text(encoding="utf-8")))
     else:
         OUTPUT.write_text(
-            json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"
+            json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n",
+            encoding="utf-8",
         )
     print("Campbell calibration resolved; exact source regressions remain conditional.")
 

@@ -114,10 +114,10 @@ def main() -> None:
     args = parser.parse_args()
     expected = json.dumps(audit(), indent=2, allow_nan=False) + "\n"
     if args.check:
-        if OUTPUT.read_text() != expected:
+        if OUTPUT.read_text(encoding="utf-8") != expected:
             raise SystemExit(f"stale audit: {OUTPUT}")
     else:
-        OUTPUT.write_text(expected)
+        OUTPUT.write_text(expected, encoding="utf-8")
 
 
 if __name__ == "__main__":

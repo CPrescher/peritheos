@@ -259,9 +259,11 @@ def main():
     args = parser.parse_args()
     report = audit()
     if args.check:
-        check_reconstruction(json.loads(OUTPUT.read_text()), report)
+        check_reconstruction(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
     else:
-        OUTPUT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_text(
+            json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
     print(
         json.dumps(
             {

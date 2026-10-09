@@ -104,7 +104,10 @@ def test_independent_quadrature_native_pressure_inversion_and_validity():
 
 def test_replay_does_not_hide_failed_published_residual_claim():
     report = reproduce()
-    assert json.loads(OUTPUT.read_text())["source_rows"] == report["source_rows"]
+    assert (
+        json.loads(OUTPUT.read_text(encoding="utf-8"))["source_rows"]
+        == report["source_rows"]
+    )
     integrated = report["published_coefficient_replays"]["integrated_gruneisen"]
     assert integrated["rmse_gpa"] == pytest.approx(1.9110674244, abs=1e-8)
     assert integrated["max_abs_gpa"] == pytest.approx(6.1493197517, abs=1e-8)
@@ -156,7 +159,7 @@ def test_experimental_structure_and_source_files_are_independent():
     lattice = document["lattice"]
     assert lattice["a"] * lattice["b"] * lattice["c"] == pytest.approx(78.54, abs=0.015)
     source_dir = DATA.parent / "morard_2026_sources"
-    manifest = json.loads((source_dir / "manifest.json").read_text())
+    manifest = json.loads((source_dir / "manifest.json").read_text(encoding="utf-8"))
     for source in manifest["sources"]:
         if source["bundled"]:
             assert (

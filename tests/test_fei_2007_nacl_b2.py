@@ -21,7 +21,9 @@ from scripts.reproduce_fei_2007_nacl_b2 import (
 
 
 def document():
-    return json.loads((ROOT / "peritheos/data/materials/nacl_b2.eosmat").read_text())
+    return json.loads(
+        (ROOT / "peritheos/data/materials/nacl_b2.eosmat").read_text(encoding="utf-8")
+    )
 
 
 def test_canonical_record_preserves_published_equation_and_formula_unit_basis():
@@ -54,7 +56,7 @@ def test_canonical_record_preserves_published_equation_and_formula_unit_basis():
 
 
 def test_recovered_markers_include_touching_hot_pair_and_exclude_comparisons():
-    source = json.loads(SOURCE.read_text())
+    source = json.loads(SOURCE.read_text(encoding="utf-8"))
     assert len(source["observations"]) == 36
     assert len(subset(source, 3, 300)[0]) == 12
     assert len(subset(source, 4, 300)[0]) == 12
@@ -97,7 +99,7 @@ def test_csv_provenance_hashes_and_missing_errors_are_explicit():
 
 
 def test_report_keeps_equation_curve_and_author_fit_claims_separate():
-    report = json.loads(OUTPUT.read_text())
+    report = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert report["source_sha256"] == hashlib.sha256(SOURCE.read_bytes()).hexdigest()
     assert report["native_max_difference_gpa"] < 1e-9
     assert report["author_fit_reproduced"] is False

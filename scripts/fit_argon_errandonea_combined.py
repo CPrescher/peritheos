@@ -22,7 +22,7 @@ PREFERRED = "room_temperature_without_ross_row17"
 
 
 def observations():
-    source = json.loads(INPUT.read_text())
+    source = json.loads(INPUT.read_text(encoding="utf-8"))
     own_path = (
         ROOT / "peritheos/data/datasets/argon-fcc-errandonea-2006-figure5-digitized.csv"
     )
@@ -235,7 +235,7 @@ def plot(report):
 
 if __name__ == "__main__":
     report = calculate()
-    REPORT.write_text(json.dumps(report, indent=2) + "\n")
+    REPORT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     plot(report)
     print(REPORT)
     for name, fits in report["fits"].items():

@@ -20,7 +20,7 @@ from scripts.run_fes_eosfit_console import parse_console
 
 @pytest.fixture(scope="module")
 def report():
-    return json.loads((OUTPUT / "manifest.json").read_text())
+    return json.loads((OUTPUT / "manifest.json").read_text(encoding="utf-8"))
 
 
 def test_source_bytes_and_actual_input_difference(report):
@@ -73,7 +73,8 @@ def test_native_replay_agrees_with_actual_external_program(report):
         data = read_data(OUTPUT / "sources" / filename)
         case = report["cases"][name + "-replay"]
         external_rows = initial_rows(
-            (OUTPUT / (name + "-replay") / "stdout.txt").read_text(), len(data)
+            (OUTPUT / (name + "-replay") / "stdout.txt").read_text(encoding="utf-8"),
+            len(data),
         )
         residual = np.array([x["residual_gpa"] for x in external_rows])
         native = eos.pressure(data[:, 4] / 10, data[:, 2]) - data[:, 0]
@@ -108,7 +109,7 @@ def test_actual_refinements_converge_and_cold_fit_approaches_saved_model(report)
         dataset = "combined" if cold or "joint" in name else "morard"
         rows = len(case["fitted_replay"]["rows"])
         parsed = parse_console(
-            (OUTPUT / name / "stdout.txt").read_text(),
+            (OUTPUT / name / "stdout.txt").read_text(encoding="utf-8"),
             dataset,
             n_observations=rows,
             parameter_names=keys,

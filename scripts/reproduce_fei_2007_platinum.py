@@ -238,10 +238,10 @@ def main():
     args = parser.parse_args()
     payload = json.dumps(reproduce(), indent=2, sort_keys=True, allow_nan=False) + "\n"
     if args.check:
-        if not OUTPUT.exists() or OUTPUT.read_text() != payload:
+        if not OUTPUT.exists() or OUTPUT.read_text(encoding="utf-8") != payload:
             raise SystemExit("Fei (2007) Pt reproduction is stale")
     else:
-        OUTPUT.write_text(payload)
+        OUTPUT.write_text(payload, encoding="utf-8")
     return 0
 
 

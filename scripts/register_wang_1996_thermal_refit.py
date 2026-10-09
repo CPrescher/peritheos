@@ -95,7 +95,7 @@ def register():
         writer.writeheader()
         writer.writerows(selected)
     material_path = ROOT / "peritheos/data/materials/ca_perovskite.eosmat"
-    doc = json.loads(material_path.read_text())
+    doc = json.loads(material_path.read_text(encoding="utf-8"))
     published = next(
         r
         for r in doc["eos_records"]
@@ -260,7 +260,9 @@ def register():
     doc["datasets"] = [d for d in doc["datasets"] if d["identifier"] != DATASET_ID] + [
         dataset
     ]
-    material_path.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n")
+    material_path.write_text(
+        json.dumps(doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
 
 
 if __name__ == "__main__":

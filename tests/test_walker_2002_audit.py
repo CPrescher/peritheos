@@ -221,4 +221,4 @@ def test_b2_independent_staging_and_published_native_evaluation():
 
 
 def test_generated_report_is_current():
-    check_report(reproduce(), json.loads(OUTPUT.read_text()))
+    check_report(reproduce(), json.loads(OUTPUT.read_text(encoding="utf-8")))

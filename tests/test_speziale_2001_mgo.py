@@ -94,7 +94,9 @@ def test_later_pressure_convention_is_diagnostic_not_speziale_eq11(report):
 
 
 def test_recovered_shock_temperatures_are_not_model_temperature_targets():
-    source = json.loads((DATA / "mgo-svendsen-1987-source.json").read_text())
+    source = json.loads(
+        (DATA / "mgo-svendsen-1987-source.json").read_text(encoding="utf-8")
+    )
     assert source["model_columns_are_observations"] is False
     assert source["uncertainties"]["covariance"] is None
     assert (
@@ -108,5 +110,5 @@ def test_recovered_shock_temperatures_are_not_model_temperature_targets():
 def test_archived_report_and_row_predictions_reproduce(report):
     from scripts.reproduce_fei_2007_gold import check_saved
 
-    check_saved(json.loads(OUTPUT.read_text()), report)
-    assert RESIDUALS.read_text() == reproduce()[1]
+    check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
+    assert RESIDUALS.read_text(encoding="utf-8") == reproduce()[1]

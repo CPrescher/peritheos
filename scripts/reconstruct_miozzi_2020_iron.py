@@ -540,7 +540,7 @@ def main():
     }
     if args.check:
         # Numerical fit results can differ slightly between BLAS/SciPy builds.
-        stored = json.loads((OUT / "summary.json").read_text())
+        stored = json.loads((OUT / "summary.json").read_text(encoding="utf-8"))
         if (
             stored["original_csv_sha256"] != summary["original_csv_sha256"]
             or stored["calibration_models"] != summary["calibration_models"]
@@ -561,7 +561,9 @@ def main():
                         raise SystemExit(
                             f"Reconstruction fit is stale: {model}/{selection}/{mode}"
                         )
-        if (OUT / "pressures.csv").read_text() != documents["pressures.csv"]:
+        if (OUT / "pressures.csv").read_text(encoding="utf-8") != documents[
+            "pressures.csv"
+        ]:
             raise SystemExit("Reconstructed pressures are stale")
     else:
         OUT.mkdir(parents=True, exist_ok=True)

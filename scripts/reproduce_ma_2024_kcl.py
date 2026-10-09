@@ -147,7 +147,7 @@ def extract(path: Path = SOURCE) -> dict[str, list[list]]:
     # Keep all text, comparison parameters, blank-layout information and notes
     # recoverable from the original workbook; no subset overwrites the source.
     (SOURCE.parent / "cached-cells.json").write_text(
-        json.dumps(sheets, indent=2) + "\n"
+        json.dumps(sheets, indent=2) + "\n", encoding="utf-8"
     )
     return rows
 
@@ -710,7 +710,9 @@ def main():
     if args.extract_source:
         extract(args.extract_source)
     report = reproduce()
-    args.output.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+    args.output.write_text(
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
     print(
         json.dumps(
             {

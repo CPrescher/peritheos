@@ -91,7 +91,9 @@ def test_diagnostics_require_explicit_acceptance_and_roundtrip_canonical_data(me
     assert raw["derivation"]["author_fit_reproduced"] is False
     assert raw["parameter_covariance"] is None
     assert all(v is None for v in raw["thermal"]["parameter_errors"].values())
-    schema = json.loads((ROOT / "peritheos/data/eosmat-v3.schema.json").read_text())
+    schema = json.loads(
+        (ROOT / "peritheos/data/eosmat-v3.schema.json").read_text(encoding="utf-8")
+    )
     assert not list(Draft202012Validator(schema).iter_errors(document))
     with pytest.raises(MaterialError, match="not_reproduced"):
         Material.from_eosmat(document, record_identifiers=[record.identifier])
@@ -222,7 +224,7 @@ def test_platinum_correction_is_explicit_and_phase_holdouts_remain_withheld():
     for start in report["multistart"]:
         assert start["fitted"]["a"] == pytest.approx(fit["parameters"]["a"], abs=1e-6)
         assert start["fitted"]["b"] == pytest.approx(fit["parameters"]["b"], abs=1e-5)
-    check_reconstruction(json.loads(PT_OUTPUT.read_text()), report)
+    check_reconstruction(json.loads(PT_OUTPUT.read_text(encoding="utf-8")), report)
     with PT_RESIDUALS.open() as stream:
         archived = list(csv.DictReader(stream))
     assert len(archived) == 168
@@ -275,4 +277,6 @@ def test_residual_pressure_table_validation_and_reconstructable_parameters():
 
 
 def test_saved_library_audit_is_reproducible():
-    check_reconstruction(json.loads(OUTPUT.read_text()), validate_library())
+    check_reconstruction(
+        json.loads(OUTPUT.read_text(encoding="utf-8")), validate_library()
+    )

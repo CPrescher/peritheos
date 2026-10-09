@@ -51,7 +51,7 @@ def test_ross_supporting_study_does_not_fabricate_a_journal_eos():
 
 def test_precursor_audit_is_reproducible_without_claiming_an_eos_fit():
     result = audit()
-    assert result == json.loads(REPORT.read_text())
+    assert result == json.loads(REPORT.read_text(encoding="utf-8"))
     assert result["conversion_max_absolute_roundoff"] < 5e-5
     assert result["eos_fit_performed"] is False
     assert result["pressure_residual_rmse_gpa"] is None

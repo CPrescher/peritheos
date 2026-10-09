@@ -124,7 +124,7 @@ def audit(checkout: Path, compiler: str) -> dict:
     )
     with tempfile.TemporaryDirectory(prefix="miozzi-eosfit-") as scratch:
         path = Path(scratch)
-        (path / "audit.f90").write_text(program)
+        (path / "audit.f90").write_text(program, encoding="utf-8")
         subprocess.run(
             [compiler, "-O2", "-ffree-line-length-none", "-o", "audit", "audit.f90"],
             cwd=path,
@@ -217,6 +217,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     result = json.dumps(audit(args.source_checkout, args.compiler), indent=2) + "\n"
     if args.output:
-        args.output.write_text(result)
+        args.output.write_text(result, encoding="utf-8")
     else:
         print(result, end="")

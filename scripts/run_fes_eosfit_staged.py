@@ -129,10 +129,14 @@ def run(executable, output, *, q_compromise=False):
         name = "errors" if weighted else "unit"
         folder = output / name
         folder.mkdir()
-        (folder / "cold.dat").write_text("\n".join(cold_molar_lines()) + "\n")
-        (folder / "all.dat").write_text("\n".join(data_lines("combined")) + "\n")
+        (folder / "cold.dat").write_text(
+            "\n".join(cold_molar_lines()) + "\n", encoding="utf-8"
+        )
+        (folder / "all.dat").write_text(
+            "\n".join(data_lines("combined")) + "\n", encoding="utf-8"
+        )
         (folder / "run.mcr").write_text(
-            staged_macro(folder, weighted, q_compromise=q_compromise)
+            staged_macro(folder, weighted, q_compromise=q_compromise), encoding="utf-8"
         )
         result = subprocess.run(
             [str(executable)],
@@ -142,8 +146,8 @@ def run(executable, output, *, q_compromise=False):
             cwd=folder,
             timeout=120,
         )
-        (folder / "stdout.txt").write_text(result.stdout)
-        (folder / "stderr.txt").write_text(result.stderr)
+        (folder / "stdout.txt").write_text(result.stdout, encoding="utf-8")
+        (folder / "stderr.txt").write_text(result.stderr, encoding="utf-8")
         if result.returncode or not (folder / "fitted.eos").is_file():
             raise RuntimeError(f"Staged EosFit failed; inspect {folder}")
         cold_text = result.stdout.split("EOSFIT-7.6>clear")[0]
@@ -191,7 +195,9 @@ def run(executable, output, *, q_compromise=False):
             thermal["refined_parameters_final_cycle"],
             flush=True,
         )
-    (output / "manifest.json").write_text(json.dumps(report, indent=2) + "\n")
+    (output / "manifest.json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8"
+    )
 
 
 def main():

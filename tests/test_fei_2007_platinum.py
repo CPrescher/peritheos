@@ -91,7 +91,7 @@ def test_published_uncertainties_and_temperature_law_remain_explicit():
 
 def test_audit_reproduces_equations_without_claiming_joint_coefficient_parity():
     result = reproduce()
-    saved = json.loads(OUTPUT.read_text())
+    saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert result["scope"] == saved["scope"]
     assert result["input_sha256"] == saved["input_sha256"]
     assert np.array(result["equation_grid"]["pressure_gpa"]) == pytest.approx(

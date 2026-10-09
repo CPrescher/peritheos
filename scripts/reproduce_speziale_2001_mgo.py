@@ -410,13 +410,13 @@ def main():
     if args.check:
         from scripts.reproduce_fei_2007_gold import check_saved
 
-        check_saved(json.loads(OUTPUT.read_text()), report)
-        if RESIDUALS.read_text() != table:
+        check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
+        if RESIDUALS.read_text(encoding="utf-8") != table:
             raise ValueError("Archived calibration table differs")
         print("Speziale MgO validation archive reproduced")
     else:
-        OUTPUT.write_text(json.dumps(report, indent=2) + "\n")
-        RESIDUALS.write_text(table)
+        OUTPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        RESIDUALS.write_text(table, encoding="utf-8")
         print(OUTPUT.relative_to(ROOT))
 
 

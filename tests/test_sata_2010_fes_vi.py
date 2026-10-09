@@ -37,7 +37,7 @@ def test_source_precision_phase_selection_and_unknown_errors():
     assert parse_token("214.5(6)") == pytest.approx((214.5, 0.6))
     assert rows[0]["volume_raw"] == "76.71(3)"
     manifest = json.loads(
-        (DATA.parent / "fes-sata-2010-source-manifest.json").read_text()
+        (DATA.parent / "fes-sata-2010-source-manifest.json").read_text(encoding="utf-8")
     )
     assert manifest["table_sha256"] == hashlib.sha256(DATA.read_bytes()).hexdigest()
 
@@ -73,7 +73,7 @@ def test_zero_reference_reduces_to_native_bm3_and_linear_benchmark():
 
 def test_fit_errors_covariance_and_source_replay_remain_qualified():
     report = reproduce()
-    saved = json.loads(OUTPUT.read_text())
+    saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert report["source_rows"] == saved["source_rows"]
     assert report["published_replay"]["rmse_gpa"] == pytest.approx(1.9860371659)
     fit = report["conditional_refits"]["unweighted_pressure"]
@@ -115,7 +115,7 @@ def test_direct_eosfit_inputs_preserve_all_rows_units_and_derived_conversions():
 
 def test_direct_console_outputs_are_complete_hashed_and_actually_converged():
     folder = ROOT / "docs/data/fes-eosfit7c"
-    manifest = json.loads((folder / "manifest.json").read_text())
+    manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["version"] == "7.60"
     assert len(manifest["cases"]) == 6
     for name, case in manifest["cases"].items():
@@ -125,7 +125,8 @@ def test_direct_console_outputs_are_complete_hashed_and_actually_converged():
                 == digest
             )
         parsed = parse_console(
-            (folder / name / "stdout.txt").read_text(), name.split("-")[0]
+            (folder / name / "stdout.txt").read_text(encoding="utf-8"),
+            name.split("-")[0],
         )
         assert parsed["converged"]
         assert parsed["fitted_replay"] == case["fitted_replay"]
@@ -135,7 +136,7 @@ def test_direct_console_outputs_are_complete_hashed_and_actually_converged():
             covariance, case["saved_refined_parameter_covariance"]
         )
         assert np.min(np.linalg.eigvalsh(covariance)) > 0
-        model = (folder / name / "fitted.eos").read_text()
+        model = (folder / name / "fitted.eos").read_text(encoding="utf-8")
         assert "Model =  2,  (Birch-Murnaghan)" in model
         if name.startswith("cold"):
             assert "Thermal =  0" in model
@@ -166,14 +167,16 @@ def test_direct_console_outputs_are_complete_hashed_and_actually_converged():
 
 
 def test_manual_defaults_are_not_mistaken_for_author_model_files():
-    report = json.loads((ROOT / "docs/data/eosfit-mgd-manual-audit.json").read_text())
+    report = json.loads(
+        (ROOT / "docs/data/eosfit-mgd-manual-audit.json").read_text(encoding="utf-8")
+    )
     assert report["full_mgd"]["q_compromise_prompt_default"] == "N"
     assert "authors exact" in report["qualification"]
 
 
 def test_same_process_staged_refits_keep_the_cold_curve_fixed():
     folder = ROOT / "docs/data/fes-eosfit7c-staged"
-    manifest = json.loads((folder / "manifest.json").read_text())
+    manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
     assert set(manifest["cases"]) == {"unit", "errors"}
     for name, case in manifest["cases"].items():
         for filename, digest in case["files_sha256"].items():
@@ -194,7 +197,7 @@ def test_same_process_staged_refits_keep_the_cold_curve_fixed():
         )
         final = (
             (folder / name / "stdout.txt")
-            .read_text()
+            .read_text(encoding="utf-8")
             .split("RESULTS AFTER FINAL REFINEMENT CYCLE")[-1]
         )
         for parameter, values in cold["refined_parameters_final_cycle"].items():

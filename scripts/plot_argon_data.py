@@ -274,9 +274,9 @@ def load():
             skip=lambda r, k=kind: r["determination_method"] != k,
             note="Pressure converted from pV/NkT using SI R; six theory alternatives share T and V.",
         )
-    maltby = json.loads((ROOT / "curation/argon/maltby-2024.json").read_text())[
-        "source_table8"
-    ]
+    maltby = json.loads(
+        (ROOT / "curation/argon/maltby-2024.json").read_text(encoding="utf-8")
+    )["source_table8"]
     records.append(
         dict(
             source="Maltby 2024",
@@ -838,7 +838,7 @@ def main():
         + json.dumps([c for _, c, _ in graphs])
         + ";function show(i){document.getElementById('caption').textContent=captions[i];document.querySelectorAll('nav button').forEach((b,j)=>b.classList.toggle('active',j===i));Plotly.react('plot',figures[i].data,figures[i].layout,{responsive:true,displaylogo:false,toImageButtonOptions:{format:'svg',filename:'argon-data'}})}show(0);</script></main></body></html>"
     )
-    (out / "argon-data-atlas.html").write_text(page)
+    (out / "argon-data-atlas.html").write_text(page, encoding="utf-8")
     fields = [k for k in records[0] if k != "original"]
     with (out / "argon-normalized-pv.csv").open("w") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
@@ -864,12 +864,15 @@ def main():
         },
         note="Rows from earlier precursor/replotted Ross and adopted Grimsditch densities are non-independent, hidden initially. No source fitting or recalibration.",
     )
-    (out / "argon-data-inventory.json").write_text(json.dumps(report, indent=2) + "\n")
+    (out / "argon-data-inventory.json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8"
+    )
     (out / "README.md").write_text(
         "# Argon data atlas\n\nOffline interactive atlas: `argon-data-atlas.html`. Static figures are supplied as PNG, PDF and SVG.\n\n"
         + f"{len(measured)} source compression rows and {len(neutron)} Xiao near-sublimation volume rows appear in the experimental overview. These counts include repeated measurements; they are not independent-sample counts.\n\n"
         + f"All {len(tables)} CSV source tables are embedded in the HTML. The inventory lists source hashes and counts. Normalized P-V export also includes calculated, adopted and overlapping graphical data, with explicit role labels. Missing pressures remain blank. Volume is per atom. Original CSV tables are unchanged.\n\n"
-        + "Maltby has no newly recovered independent experimental table; its published Table 8 calculated checkpoint is available as an optional layer. Grimsditch acoustic shifts and elastic bounds have separate views. Phase observations and parameter summaries remain in the table archive.\n"
+        + "Maltby has no newly recovered independent experimental table; its published Table 8 calculated checkpoint is available as an optional layer. Grimsditch acoustic shifts and elastic bounds have separate views. Phase observations and parameter summaries remain in the table archive.\n",
+        encoding="utf-8",
     )
     print(json.dumps(report, indent=2))
 

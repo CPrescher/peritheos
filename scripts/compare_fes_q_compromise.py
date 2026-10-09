@@ -95,8 +95,8 @@ def compare(parameters, coordinates, reference):
 
 
 def reproduce():
-    direct = json.loads((DIRECT / "manifest.json").read_text())
-    staged = json.loads((STAGED / "manifest.json").read_text())
+    direct = json.loads((DIRECT / "manifest.json").read_text(encoding="utf-8"))
+    staged = json.loads((STAGED / "manifest.json").read_text(encoding="utf-8"))
     cases, files = {}, [DIRECT / "manifest.json", STAGED / "manifest.json"]
     for name, case in direct["cases"].items():
         if name.startswith("cold"):
@@ -211,10 +211,10 @@ def main():
     result = reproduce()
     text = json.dumps(result, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if OUTPUT.read_text() != text:
+        if OUTPUT.read_text(encoding="utf-8") != text:
             raise SystemExit("Q-compromise comparison is stale")
     else:
-        OUTPUT.write_text(text)
+        OUTPUT.write_text(text, encoding="utf-8")
     print(
         "Max difference GPa:",
         max(

@@ -126,7 +126,7 @@ def test_catalog_retains_cold_branch_and_evidence_is_not_claimed_as_fit_input():
 
 
 def test_saved_audit_matches_independent_replay():
-    result, saved = audit(), json.loads(OUTPUT.read_text())
+    result, saved = audit(), json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert result["input_sha256"] == saved["input_sha256"]
     assert result["parameters"] == saved["parameters"]
     assert np.array(result["table3"]["phonon_increment_gpa"]) == pytest.approx(

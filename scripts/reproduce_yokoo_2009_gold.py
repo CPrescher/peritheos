@@ -246,9 +246,11 @@ def main():
         assert branch["independent_equation_max_difference_gpa"] < 1e-9
         assert branch["inversion_max_difference_a3"] < 1e-7
     if args.check:
-        check_saved(json.loads(OUTPUT.read_text()), result)
+        check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), result)
     else:
-        OUTPUT.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_text(
+            json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
     print(
         json.dumps(
             {

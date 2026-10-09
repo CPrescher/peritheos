@@ -96,7 +96,10 @@ def test_final_author_workbook_is_checksummed_and_extractions_are_lossless(
     }
     for filename, _ in TABLES.values():
         assert (tmp_path / filename).read_bytes() == (DATA / filename).read_bytes()
-    assert json.loads((tmp_path / "source/cached-cells.json").read_text()) == original
+    assert (
+        json.loads((tmp_path / "source/cached-cells.json").read_text(encoding="utf-8"))
+        == original
+    )
     invalid = tmp_path / "wrong-version.xlsx"
     invalid.write_bytes(b"not the final workbook")
     with pytest.raises(ValueError, match="final 7svmv9hvft"):
@@ -299,7 +302,9 @@ def test_api_native_python_inversion_and_roundtrip():
 
 
 def test_committed_report_has_source_grid_precision_and_scientific_limits():
-    report = json.loads((ROOT / "docs/data/ma-2024-kcl-reproduction.json").read_text())
+    report = json.loads(
+        (ROOT / "docs/data/ma-2024-kcl-reproduction.json").read_text(encoding="utf-8")
+    )
     replay = reproduce()
     assert replay["source"] == report["source"]
     for name in ["cold_max_abs_error_gpa", "thermal_max_abs_error_gpa"]:

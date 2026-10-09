@@ -90,7 +90,9 @@ def test_thermal_masks_and_proxy_protocols_are_distinct(audit):
 
 
 def test_artifact_and_metadata_preserve_qualifications_and_covariances(audit):
-    saved = json.loads((ROOT / "docs/data/wang-1996-casio3-refit.json").read_text())
+    saved = json.loads(
+        (ROOT / "docs/data/wang-1996-casio3-refit.json").read_text(encoding="utf-8")
+    )
     assert audit["published_eos_replaced"] is False
     assert audit["overall_status"] == "partial_reproduction_with_explicit_diagnostics"
     for key in ("room_temperature", "mao_equal_weight_reanalysis"):

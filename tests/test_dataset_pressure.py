@@ -23,7 +23,9 @@ from scripts.audit_dewaele_2019_static_dac import SOURCES, _fit_pressure, _publi
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = json.loads(
-    (ROOT / "crates/peritheos/tests/data/dataset-pressure.json").read_text()
+    (ROOT / "crates/peritheos/tests/data/dataset-pressure.json").read_text(
+        encoding="utf-8"
+    )
 )
 METALS = {
     "aluminum": 40,
@@ -111,7 +113,9 @@ def test_complete_2019_reductions_reproduce_existing_audit(metal, scale):
         result.dataset["atomic_volume_a3"], result.pressure_gpa, published
     )
     audit = json.loads(
-        (ROOT / "docs/data/dewaele-2019-static-dac-refit.json").read_text()
+        (ROOT / "docs/data/dewaele-2019-static-dac-refit.json").read_text(
+            encoding="utf-8"
+        )
     )
     expected = audit["row_level_refits"][identifier][
         "unweighted_pressure_residual_fit"

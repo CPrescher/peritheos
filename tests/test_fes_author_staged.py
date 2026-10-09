@@ -13,7 +13,7 @@ from scripts.run_fes_eosfit_console import parse_console
 
 @pytest.fixture(scope="module")
 def report():
-    return json.loads((OUTPUT / "manifest.json").read_text())
+    return json.loads((OUTPUT / "manifest.json").read_text(encoding="utf-8"))
 
 
 def test_only_author_confirmed_selected_data_are_used(report):
@@ -45,7 +45,7 @@ def test_cold_then_fixed_cold_thermal_with_only_gamma_refined(report):
         "q_compromise": False,
     }
     for name, case in report["cases"].items():
-        stdout = (OUTPUT / name / "stdout.txt").read_text()
+        stdout = (OUTPUT / name / "stdout.txt").read_text(encoding="utf-8")
         cold_text, thermal_text = stdout.split("EOSFIT-7.6>clear", 1)
         thermal = parse_console(thermal_text, "morard", n_observations=146)
         assert thermal["converged"]

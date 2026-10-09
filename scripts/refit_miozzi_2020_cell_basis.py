@@ -295,9 +295,9 @@ def main():
     report = run()
     OUTPUT.mkdir(parents=True, exist_ok=True)
     (OUTPUT / "report.json").write_text(
-        json.dumps(report, indent=2, allow_nan=False) + "\n"
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
     )
-    (OUTPUT / "comparison.md").write_text(comparison(report))
+    (OUTPUT / "comparison.md").write_text(comparison(report), encoding="utf-8")
     for case, result in report["cases"].items():
         fit = result["fits"]["n2"]
         print(

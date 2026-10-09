@@ -27,7 +27,9 @@ FIGURE = ROOT / "docs/data/chen-2010-argon-comparison.png"
 
 
 def compare():
-    refit = json.loads((ROOT / "docs/data/chen-2010-argon-refit.json").read_text())
+    refit = json.loads(
+        (ROOT / "docs/data/chen-2010-argon-refit.json").read_text(encoding="utf-8")
+    )
     source = reproduce()
     pars = refit["primary"]["density_parameters"]
     p, _, _, _ = observations()
@@ -217,6 +219,8 @@ if __name__ == "__main__":
     parser.add_argument("--plot", action="store_true")
     args = parser.parse_args()
     report = compare()
-    REPORT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+    REPORT.write_text(
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
     if args.plot:
         plot(report)

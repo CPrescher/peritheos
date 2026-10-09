@@ -128,7 +128,7 @@ def test_unreliable_covariance_rejected(failure):
 
 def test_reconstruction_artifacts_covariance_and_original_inputs():
     summary, derived = reconstruct()
-    stored = json.loads((OUT / "summary.json").read_text())
+    stored = json.loads((OUT / "summary.json").read_text(encoding="utf-8"))
     assert summary["status"] == "conditional_reconstruction_not_original_fit_recovered"
     assert summary["original_csv_sha256"] == stored["original_csv_sha256"]
     for relative, digest in summary["original_csv_sha256"].items():
