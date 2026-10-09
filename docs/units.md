@@ -130,8 +130,9 @@ deprecated compatibility wrappers.
 
 ## Reference states
 
-Isothermal classes define `V0` at zero model pressure. Thermal pressure is a
-difference relative to `Tr`, so
+Isothermal classes define `V0` at zero model pressure. In the default
+reference-temperature convention, thermal pressure is a difference relative
+to `Tr`, so
 
 \[
 \Delta P_{\mathrm{th}}(V,T_r)=0
@@ -140,6 +141,13 @@ difference relative to `Tr`, so
 for every valid volume. Consequently, `rt_eos` must represent the same
 reference temperature supplied as `Tr`. Peritheos does not silently translate
 an isotherm between reference temperatures.
+
+`MieGruneisenDebye` additionally supports `reference_isentrope` and
+`absolute_zero` pressure baselines. Those require a reference isentrope and a
+0 K cold curve, respectively. Their added thermal pressure need not vanish at
+`Tr`; `thermal_pressure_increment(V,T)` still measures the pressure difference
+from `Tr` at fixed volume. See the
+[MGD reference-state equations](equation-reference.md#thermal-pressure-and-its-reference-state).
 
 With `Tr=None`, the double-Debye Helmholtz classes consume a 0 K
 motionless-ion cold curve (`Vinet`, `BM2`, `BM3`, or `BM4`) and add absolute

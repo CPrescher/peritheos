@@ -234,18 +234,44 @@ class MieGruneisenDebye(_MieGruneisenBase):
 
     The thermal pressure is
 
-    ``Delta P = gamma(V) / V * (E_D(V, T) - E_D(V, Tr))``,
+    ``Delta P [GPa] = 1e-4 * gamma(V) / V * (E_D(V, T) - E_D(V, Tr))``,
 
-    where ``E_D`` is the Debye vibrational energy and ``gamma(V) = gamma0 *
-    (V/V0)**q``. ``thermal_pressure_reference="absolute_zero"`` instead uses
-    ``P_th = gamma(V) E_D(V, T) / V`` so that the supplied isothermal EOS is a
+    where ``V`` and ``rt_eos.V0`` are in J bar^-1 mol^-1 and ``E_D`` is in
+    J mol^-1. Both energies use the same volume and Debye temperature.
+    Total pressure adds this correction to ``rt_eos.pressure(V)``; by default
+    that curve must represent the isotherm at ``Tr``.
+
+    With ``x = V/V0``, the default volume and energy laws are::
+
+        gamma(V) = gamma0 * x**q
+        theta(V) = theta0 * exp(-gamma0 * (x**q - 1) / q)  # q != 0
+        theta(V) = theta0 * x**(-gamma0)                   # q == 0
+        D3(y) = 3/y**3 * integral_0^y z**3/(exp(z) - 1) dz
+        E_D(V, T) = Cvmax * T * D3(theta(V)/T)
+
+    ``Cvmax`` defaults to ``3*n*R``. ``n`` counts atoms in the formula unit
+    defining the molar energy and volume basis, not formula units per cell.
+    ``theta0`` and ``Tr`` are in K. ``gamma0`` and ``q`` are dimensionless;
+    the integrated law obeys ``gamma = -d(log(theta))/d(log(V))``.
+    Energy excludes zero-point energy and is not reference-subtracted;
+    ``molar_heat_capacity_v`` returns its fixed-volume temperature derivative.
+
+    ``thermal_pressure_reference="absolute_zero"`` instead uses
+    ``P_th [GPa] = 1e-4 * gamma(V) E_D(V, T) / V`` so that the supplied EOS is a
     0 K cold curve. ``thermal_pressure_reference="reference_isentrope"``
     subtracts the Debye energy at ``T_S(V) = Tr * theta(V) / theta0``. This
     maps publications whose BM3 term is a reference isentrope rather than an
-    isotherm. ``Cvmax`` optionally replaces the Dulong--Petit limit ``3 n R``.
+    isotherm. In all modes, ``thermal_pressure_increment(V, T)`` measures
+    pressure relative to the ``Tr`` isotherm at fixed volume.
+    ``Cvmax`` optionally replaces the Dulong--Petit limit ``3 n R``.
     ``debye_temperature_law`` selects either the conventional
     thermodynamically integrated relation (the default) or the direct
-    variable-exponent relation printed by Fei et al. (2007).
+    variable-exponent relation printed by Fei et al. (2007). For that option,
+    ``theta = theta0 * x**(-gamma(V))`` and its logarithmic volume derivative
+    gives ``gamma(V) * (1 + q*log(x))``, rather than generally ``gamma(V)``.
+
+    See the documentation's Equation reference for derivations, caloric and
+    thermoelastic equations, reference-state conventions, and a worked example.
 
     Reference
     ---------

@@ -50,6 +50,10 @@ together with [`fit_joint_eos`](fitting.md#joint-reference-and-thermal-fitting).
 `SecondOrderTaylorThermalPressure` instead adds an absolute pressure polynomial
 to a cold curve; its `Tr` is an expansion coordinate, not the temperature of
 the reference EOS.
+`AsymptoticDebyeTabulatedPressure` likewise uses an absolute 0 K cold curve,
+with a separate ambient volume for its phonon law and bounded electronic and
+residual pressure tables. See the [Yokoo PVT model](literature-reproductions/yokoo-2009-pvt-library.md)
+for its reference conventions and derived reconstruction limits.
 `DoubleDebyeHelmholtz` and `DoubleDebyeLogMomentHelmholtz` can either represent
 the absolute simulated free energy or, when their optional `Tr` is supplied,
 add the simulated non-cold contribution relative to `Tr` to an experimental
@@ -77,11 +81,12 @@ with the same formula unit defining the molar volume. It is not $Z$, the
 number of formula units in a crystallographic cell. For hcp Fe, the standard
 choice is `n=1` with volume per mole of Fe; $Z=2$ is used to convert its
 two-atom cell volume. See the
-[explicit MGD pressure equation](equation-reference.md#mie-gruneisen-debye-and-einstein)
+[MGD equations, derivations, and worked calculation](equation-reference.md#mie-gruneisen-debye-and-einstein)
 and [normalization examples](units.md#atom-count-and-molar-volume-basis).
 
 | Import | Reference EOS | Thermal parameters | Caloric model |
 |---|---|---|---|
+| [`AsymptoticDebyeTabulatedPressure`](literature-reproductions/yokoo-2009-pvt-library.md) | cold `EosBase` exposing `V0` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n`, `cold_volume_ratio`; pressure tables and numerical bounds | pressure only |
 | [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet`, `BM2`, `BM3`, or `BM4`: 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0`, `Tr` | double Debye + $T^2$ |
 | [`DoubleDebyeLogMomentHelmholtz`](equation-reference.md#logarithmic-moment-double-debye-variant) | `Vinet`, `BM2`, `BM3`, or `BM4`: 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; cutoff A, cutoff B, and `theta_0` parameter triples; optional `n`, `anharmonic_a`, `phi0`, `Tr` | logarithmic-moment double Debye + $T^2$ |
 | [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `Cvmax`, `debye_temperature_law`, `thermal_pressure_reference` | Debye |

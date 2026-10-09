@@ -79,7 +79,10 @@ g = eos.thermal_gibbs_free_energy(V, T)
 
 Energy values are in J mol^-1 and entropy in J mol^-1 K^-1. Enthalpy and Gibbs
 energy use the unreferenced `vibrational_pressure()`, whereas the public
-`thermal_pressure()` is referenced to `Tr`. These methods omit static formation
+`thermal_pressure()` uses the configured pressure baseline (the `Tr` isotherm
+by default). `MieGruneisenDebye` also supports a reference isentrope or a 0 K
+cold curve; see the [MGD reference states](equation-reference.md#thermal-pressure-and-its-reference-state).
+These methods omit static formation
 energies and zero-point offsets. They are vibrational
 contributions suitable for differences within the same reference convention;
 they are not absolute chemical potentials.
@@ -102,3 +105,8 @@ The pressure in these Legendre transforms is the unreferenced vibrational
 pressure, not the reference-subtracted thermal pressure used by `pressure()`.
 Oscillator definitions are given in the
 [equation reference](equation-reference.md#mie-gruneisen-debye-and-einstein).
+For the default integrated Gruneisen law, the vibrational pressure also equals
+$-10^{-4}(\partial F_{\mathrm{vib}}/\partial V)_T$. The optional
+[`variable_exponent` Debye law](equation-reference.md#variable-exponent-debye-temperature-law)
+generally does not satisfy this volume-derivative identity with the Gruneisen
+parameter used in its pressure equation.
