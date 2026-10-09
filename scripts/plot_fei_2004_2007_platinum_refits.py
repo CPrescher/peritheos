@@ -98,7 +98,7 @@ def main():
         "fei2004_figure4": {
             "source_pdf": SOURCE_2004,
             "source_pdf_sha256": SOURCE_2004_SHA256,
-            "source_image": str(source_image.relative_to(ROOT)),
+            "source_image": source_image.relative_to(ROOT).as_posix(),
             "source_image_sha256": hashlib.sha256(
                 source_image.read_bytes()
             ).hexdigest(),

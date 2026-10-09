@@ -23,7 +23,9 @@ DOI = "10.1016/j.epsl.2009.08.017"
 
 def document():
     return json.loads(
-        (ROOT / "peritheos/data/materials/mg090fe010o.eosmat").read_text()
+        (ROOT / "peritheos/data/materials/mg090fe010o.eosmat").read_text(
+            encoding="utf-8"
+        )
     )
 
 
@@ -31,7 +33,7 @@ def test_epsl_source_has_one_hs_and_twelve_ls_owned_published_records():
     records = [
         record
         for path in (ROOT / "peritheos/data/materials").glob("*.eosmat")
-        for record in json.loads(path.read_text())["eos_records"]
+        for record in json.loads(path.read_text(encoding="utf-8"))["eos_records"]
         if record["reference"].get("doi") == DOI
     ]
     assert [r["identifier"] for r in records] == [RECORD, *LS_RECORDS]
@@ -48,7 +50,9 @@ def test_epsl_source_has_one_hs_and_twelve_ls_owned_published_records():
     assert record["fit_datasets"] == [DATASET]
     assert "adiabatic" in record["parameter_provenance"]["Brillouin_constraint"]
     assert record["pressure_calibration"]["status"] == "partially_resolved"
-    audit = json.loads((ROOT / "peritheos/data/primary-source-audit.json").read_text())
+    audit = json.loads(
+        (ROOT / "peritheos/data/primary-source-audit.json").read_text(encoding="utf-8")
+    )
     assert [r["record"] for r in audit["records"] if r.get("doi") == DOI] == [
         RECORD,
         *LS_RECORDS,
@@ -202,7 +206,9 @@ def test_supplement_tables_complete_checksummed_and_not_pv_inputs():
 
 
 def test_global_refits_select_six_ls_rows_and_do_not_claim_uncertainty_parity():
-    ledger = json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())
+    ledger = json.loads(
+        (ROOT / "docs/data/primary-eos-refits.json").read_text(encoding="utf-8")
+    )
     records = {r["record_identifier"]: r for r in ledger["records"]}
     assert records[RECORD]["status"] == "not_refittable"
     for rid in LS_RECORDS:

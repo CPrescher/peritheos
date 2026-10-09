@@ -483,7 +483,7 @@ def reproduce():
             "Dewaele 2004 Table I",
         ],
         input_sha256={
-            str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+            p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in paths
         },
         published_parameters=dict(zip(NAMES, PUBLISHED.tolist())),

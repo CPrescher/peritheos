@@ -388,7 +388,7 @@ def replay(executable, output, eos_path, input_paths):
         ],
     }
     report["artifact_sha256"] = {
-        str(path.relative_to(output)): digest(path)
+        path.relative_to(output).as_posix(): digest(path)
         for path in sorted(output.rglob("*"))
         if path.is_file()
     }

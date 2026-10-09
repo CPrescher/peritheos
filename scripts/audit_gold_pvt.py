@@ -193,7 +193,9 @@ def audit():
         "scope": "Au pressure-volume-temperature only; caloric validation is not an acceptance criterion.",
         "audit_date": "2026-10-09",
         "input_sha256": {
-            str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+            path.relative_to(ROOT).as_posix(): hashlib.sha256(
+                path.read_bytes()
+            ).hexdigest()
             for path in [
                 CURVES,
                 DATA / "gold-fei-2004-table1.csv",

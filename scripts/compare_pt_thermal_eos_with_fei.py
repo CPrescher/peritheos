@@ -233,7 +233,7 @@ def main():
         "common_fei_2007_cold_baseline_hot_diagnostic": common_stats,
         "common_baseline_qualification": "Replace each model's cold curve with Fei 2007 solely to isolate the thermal increment. These are diagnostic hybrids, not the published models.",
         "input_sha256": {
-            str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+            p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in [
                 ROOT / "peritheos/data/datasets/platinum-fei-2004-table2.csv",
                 ROOT

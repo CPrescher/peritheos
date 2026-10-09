@@ -42,7 +42,7 @@ def test_sun_parameter_table_is_a_non_catalog_benchmark_fixture():
     records = []
     material_root = Path(__file__).parents[1] / "peritheos" / "data" / "materials"
     for path in material_root.glob("*.eosmat"):
-        document = json.loads(path.read_text())
+        document = json.loads(path.read_text(encoding="utf-8"))
         records.extend(document.get("eos_records", []))
 
     assert not any(

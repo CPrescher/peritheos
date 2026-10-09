@@ -222,7 +222,7 @@ def reproduce():
             Path(_rust.__file__).read_bytes()
         ).hexdigest(),
         "input_sha256": {
-            str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+            p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in inputs
         },
         "volume_conversion": "EosFit cm3/mol divided by 10 gives Peritheos J/bar/mol; conventional cell Z=4 converted using exact SI Avogadro constant.",

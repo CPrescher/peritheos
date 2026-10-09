@@ -160,7 +160,7 @@ def read_data():
     rows, hashes = [], {}
     for medium in ("he", "mgo"):
         path = ROOT / f"peritheos/data/datasets/iron-miozzi-2020-{medium}-pvt.csv"
-        hashes[str(path.relative_to(ROOT))] = hashlib.sha256(
+        hashes[path.relative_to(ROOT).as_posix()] = hashlib.sha256(
             path.read_bytes()
         ).hexdigest()
         with path.open(encoding="utf-8") as stream:

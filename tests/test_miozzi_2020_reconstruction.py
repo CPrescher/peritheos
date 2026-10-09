@@ -3,6 +3,7 @@
 import csv
 import hashlib
 import json
+from pathlib import Path, PureWindowsPath
 from types import SimpleNamespace
 
 import numpy as np
@@ -28,6 +29,21 @@ from scripts.reconstruct_miozzi_2020_iron import (
     read_data,
     reconstruct,
 )
+
+
+def test_source_fingerprints_use_portable_paths_on_windows(monkeypatch):
+    path_type = type(Path())
+    original_relative_to = path_type.relative_to
+
+    def windows_relative_to(path, *parts, **kwargs):
+        return PureWindowsPath(original_relative_to(path, *parts, **kwargs))
+
+    _, _, expected = read_data()
+    with monkeypatch.context() as context:
+        context.setattr(path_type, "relative_to", windows_relative_to)
+        _, _, actual = read_data()
+    assert actual == expected
+    assert all("\\" not in name for name in actual)
 
 
 def test_dorogokupets_independent_published_pressure_checkpoints():

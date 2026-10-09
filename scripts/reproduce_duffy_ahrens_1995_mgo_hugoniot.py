@@ -142,7 +142,7 @@ def reproduce(
             ),
         },
         "dataset": {
-            "path": str(dataset.relative_to(ROOT))
+            "path": dataset.relative_to(ROOT).as_posix()
             if dataset.is_relative_to(ROOT)
             else str(dataset),
             "sha256": dataset_digest,

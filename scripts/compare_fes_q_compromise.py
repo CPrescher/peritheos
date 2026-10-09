@@ -188,7 +188,7 @@ def reproduce():
         "scope": "Actual EosFit7c q-compromise replay and refits, forward-checked with native Peritheos BM3 and Debye-energy components; independent Peritheos API equal-weight joint refit using an audit-local composition.",
         "qualification": "GUI estimation uses q-compromise, but GUI usage alone does not prove the final author setting. Same 146 hot and 13 re-reported cold VI points; incomplete original input recovery. Theta0=417 K, n=2, Tr=300 K fixed; q undefined. Weighted EosFit fits are evaluated, not independently refitted with a different objective. No catalog coefficients changed or physical validation claimed.",
         "input_sha256": {
-            str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+            p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in files
         },
         "cases": cases,

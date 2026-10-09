@@ -332,7 +332,7 @@ def ledger_outcome(record):
         "qualification": "Classified similar: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. Exact GUI output and the complete +/-3 GPa residual envelope are separate unresolved findings. Published coefficients are preserved; this is not an automatic replacement EOS or a formal independent uncertainty-parity claim.",
         "reason": record.get("scientific_validation", {}).get("note", QUALIFICATION),
         "author_input_followup": record.get("author_input_followup", {}),
-        "staged_manifest": str(path.relative_to(ROOT)),
+        "staged_manifest": path.relative_to(ROOT).as_posix(),
         "staged_manifest_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         "partial_validation": report["conditional_gamma_only_fits"],
         "published_curve_validation": report["published_coefficient_replays"],

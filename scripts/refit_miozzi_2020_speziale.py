@@ -270,7 +270,7 @@ def catalog_record(report, document):
             "description": "Independent Peritheos Speziale variable-q Debye recalculation of all 131 Miozzi Fe observations; original pressures retained separately.",
             "source_location": "All 15 Fe-He and 116 Fe-MgO source rows; derived Speziale pressures by scripts/refit_miozzi_2020_speziale.py",
             "resource": {
-                "path": str(CSV_PATH.relative_to(ROOT / "peritheos/data")),
+                "path": CSV_PATH.relative_to(ROOT / "peritheos/data").as_posix(),
                 "sha256": report["derived_csv_sha256"],
                 "media_type": "text/csv",
             },
@@ -376,7 +376,7 @@ def catalog_record(report, document):
             },
             "reproduction": {
                 "script": "scripts/refit_miozzi_2020_speziale.py",
-                "report": str(REPORT.relative_to(ROOT)),
+                "report": REPORT.relative_to(ROOT).as_posix(),
                 "original_csv_sha256": report["original_csv_sha256"],
                 "derived_csv_sha256": report["derived_csv_sha256"],
             },
@@ -436,7 +436,7 @@ def catalog_record(report, document):
             },
             "independent_numerical_check": {
                 "script": "scripts/refit_miozzi_2020_speziale.py",
-                "report": str(REPORT.relative_to(ROOT)),
+                "report": REPORT.relative_to(ROOT).as_posix(),
                 "independent_native_max_difference_gpa": report[
                     "independent_native_max_difference_gpa"
                 ],

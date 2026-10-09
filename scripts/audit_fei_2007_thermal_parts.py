@@ -269,12 +269,12 @@ def reproduce():
         "platinum-fei-2004-table2.csv",
     ]
     hashes = {
-        str((DATA / name).relative_to(ROOT)): hashlib.sha256(
+        (DATA / name).relative_to(ROOT).as_posix(): hashlib.sha256(
             (DATA / name).read_bytes()
         ).hexdigest()
         for name in names
     }
-    hashes[str(INPUT.relative_to(ROOT))] = hashlib.sha256(
+    hashes[INPUT.relative_to(ROOT).as_posix()] = hashlib.sha256(
         INPUT.read_bytes()
     ).hexdigest()
     for figure in inputs["figures"].values():

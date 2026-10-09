@@ -50,7 +50,7 @@ def write_csv(path: Path, rows: list[dict]) -> dict:
         writer.writeheader()
         writer.writerows(rows)
     return {
-        "path": str(path.relative_to(DATA)),
+        "path": path.relative_to(DATA).as_posix(),
         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         "media_type": "text/csv",
     }

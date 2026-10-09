@@ -44,7 +44,7 @@ def recovered_data():
         with path.open() as stream:
             rows = list(csv.DictReader(stream))
         return rows, {
-            "path": str(path.relative_to(ROOT)),
+            "path": path.relative_to(ROOT).as_posix(),
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         }
 

@@ -494,7 +494,7 @@ def catalog_record(report):
             },
             "reproduction": {
                 "script": "scripts/refit_miozzi_2020_tange.py",
-                "report": str(REPORT.relative_to(ROOT)),
+                "report": REPORT.relative_to(ROOT).as_posix(),
                 "original_csv_sha256": report["original_csv_sha256"],
                 "calibration_record": CALIBRATION_ID,
                 "calibration_record_sha256": report["calibration_record_sha256"],
@@ -560,7 +560,7 @@ def catalog_record(report):
             },
             "independent_numerical_check": {
                 "script": "scripts/refit_miozzi_2020_tange.py",
-                "report": str(REPORT.relative_to(ROOT)),
+                "report": REPORT.relative_to(ROOT).as_posix(),
                 "native_calibration_max_difference_gpa": report[
                     "independent_native_calibration_max_difference_gpa"
                 ],
@@ -631,7 +631,7 @@ def catalog_record(report):
         "license": "Derived from Miozzi (2020) supplementary observations; attribution retained, article CC BY 4.0. Source PDFs are not redistributed.",
         "columns": columns,
         "resource": {
-            "path": str(CSV_PATH.relative_to(ROOT / "peritheos/data")),
+            "path": CSV_PATH.relative_to(ROOT / "peritheos/data").as_posix(),
             "sha256": report["derived_csv_sha256"],
             "media_type": "text/csv",
         },

@@ -115,6 +115,8 @@ reproduction of an author's fit remain separate assessments.
 - Keep source-column checks exact while allowing documented numerical variation
   in calculated audit columns and optimizer-derived quantities across platforms.
   Correct the two NaCl figure-table fingerprints after CSV line normalization.
+- Serialize audit artifact and fingerprint paths consistently with forward
+  slashes on Windows, and read the remaining catalog-scan test fixtures as UTF-8.
 
 ## [0.11.0] - 2026-09-28
 
