@@ -15,6 +15,7 @@ from peritheos import (
     get_material_document,
     validate_eosmat_document,
 )
+from scripts.check_numerical_archive import check_csv
 from scripts.reconstruct_miozzi_2020_iron import (
     NA,
     fe_pressure,
@@ -62,9 +63,20 @@ def test_speziale_derived_pressures_preserve_source_columns_and_holes():
     original, data, hashes = read_data()
     rows, table = derived_rows(original, data)
     report = json.loads(REPORT.read_text(encoding="utf-8"))
-    assert CSV_PATH.read_text(encoding="utf-8") == table
+    check_csv(
+        CSV_PATH.read_text(encoding="utf-8"),
+        table,
+        {
+            "pressure_gpa",
+            "conditional_pressure_error_gpa",
+            "pressure_temperature_covariance_gpa_k",
+        },
+    )
     assert report["original_csv_sha256"] == hashes
-    assert report["derived_csv_sha256"] == hashlib.sha256(table.encode()).hexdigest()
+    assert (
+        report["derived_csv_sha256"]
+        == hashlib.sha256(CSV_PATH.read_bytes()).hexdigest()
+    )
     for path, fingerprint in report["source_code_sha256"].items():
         from scripts.reconstruct_miozzi_2020_iron import ROOT
 
@@ -129,13 +141,20 @@ def test_speziale_refit_selection_covariance_export_and_native_pressure():
     fit = reproduce()["primary"]
     errors = [fit["conditional_standard_errors"][name] for name in NAMES]
     covariance = np.array(raw["parameter_covariance"]["matrix"])
-    np.testing.assert_allclose(np.diag(covariance), np.array(errors) ** 2, rtol=1e-12)
+    np.testing.assert_allclose(np.diag(covariance), np.array(errors) ** 2, rtol=1e-6)
     assert np.all(np.linalg.eigvalsh(covariance) > 0)
     _, data, _ = read_data()
+    retained_parameters = {**raw["eos"]["parameters"], **raw["thermal"]["parameters"]}
+    np.testing.assert_allclose(
+        [fit["parameters"][name] for name in NAMES],
+        [retained_parameters[name] for name in NAMES],
+        rtol=2e-6,
+        atol=2e-6,
+    )
     independent = fe_pressure(
         data["volume_a3"],
         data["temperature_k"],
-        [fit["parameters"][name] for name in NAMES],
+        [retained_parameters[name] for name in NAMES],
     )
     native = get_eos_record(RECORD_ID)
     np.testing.assert_allclose(

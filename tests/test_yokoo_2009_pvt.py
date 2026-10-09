@@ -57,7 +57,8 @@ def test_complete_source_grid_agrees_with_independent_pressure_and_inverts(metal
     temperature = np.array([float(r["temperature_k"]) for r in rows])
     expected = np.array([r["model_pressure_gpa"] for r in rows])
     actual = record.pressure(volume, temperature, check_validity=True)
-    assert actual == pytest.approx(expected, abs=2e-9)
+    # Expected values include a fresh optimizer run on each numerical stack.
+    assert actual == pytest.approx(expected, abs=5e-8)
     assert record.volume(actual, temperature) == pytest.approx(volume, abs=1e-8)
     assert record.eos.temperature(
         actual, volume * record.volume_scale

@@ -561,10 +561,19 @@ def main():
                         raise SystemExit(
                             f"Reconstruction fit is stale: {model}/{selection}/{mode}"
                         )
-        if (OUT / "pressures.csv").read_text(encoding="utf-8") != documents[
-            "pressures.csv"
-        ]:
-            raise SystemExit("Reconstructed pressures are stale")
+        from scripts.check_numerical_archive import check_csv
+
+        check_csv(
+            (OUT / "pressures.csv").read_text(encoding="utf-8"),
+            documents["pressures.csv"],
+            {
+                "reconstructed_pressure_gpa",
+                "pressure_shift_gpa",
+                "conditional_pressure_error_gpa",
+                "pressure_temperature_covariance_gpa_k",
+                "published_fe_residual_gpa",
+            },
+        )
     else:
         OUT.mkdir(parents=True, exist_ok=True)
         for filename, document in documents.items():

@@ -81,6 +81,10 @@ reproduction of an author's fit remain separate assessments.
   calculated columns and explicit volume-normalization diagnostics. Preserve
   published Au/Pt coefficients and reported pressure targets; the complete
   original thermal fit remains unreproduced.
+- Verify the Speziale variable-q equations independently with an analytic Debye
+  temperature integral and adaptive pressure evaluation. Archive published
+  calculated-curve checkpoints, graphical discrepancies, and the distinction
+  between verified equations and an unconfirmed historical implementation.
 - Expand the Mie–Grüneisen–Debye equation reference with energy and pressure
   derivations, unit conversion, atom-count normalization, reference-isotherm,
   isentrope and absolute-zero conventions, caloric derivatives, the printed
@@ -108,6 +112,9 @@ reproduction of an author's fit remain separate assessments.
   documentation links, and refresh provenance and catalog regression checks.
 - Read and write audit resources explicitly as UTF-8 across platforms and
   preserve Python source line endings for reproducible audit fingerprints.
+- Keep source-column checks exact while allowing documented numerical variation
+  in calculated audit columns and optimizer-derived quantities across platforms.
+  Correct the two NaCl figure-table fingerprints after CSV line normalization.
 
 ## [0.11.0] - 2026-09-28
 

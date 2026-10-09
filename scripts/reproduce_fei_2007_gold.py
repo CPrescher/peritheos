@@ -612,17 +612,23 @@ def ledger_outcome(record):
     )
 
 
-def check_saved(saved, current):
+def check_saved(saved, current, *, rtol=1e-5, atol=2e-6):
     if isinstance(current, dict):
         assert saved.keys() == current.keys()
         for k, v in current.items():
-            check_saved(saved[k], v)
+            # Latent EIV shifts are expressed in measured line widths. Different
+            # numerical Jacobians can move the optimum by 0.0001 of a width.
+            if k == "available_error_eiv":
+                check_saved(saved[k], v, rtol=1e-4, atol=1e-4)
+            else:
+                check_saved(saved[k], v, rtol=rtol, atol=atol)
     elif isinstance(current, list):
         assert len(saved) == len(current)
         for a, b in zip(saved, current):
-            check_saved(a, b)
+            check_saved(a, b, rtol=rtol, atol=atol)
     elif isinstance(current, float):
-        assert np.isclose(saved, current, rtol=1e-6, atol=1e-8), (saved, current)
+        # Optimizer-derived errors vary slightly across SciPy/BLAS builds.
+        assert np.isclose(saved, current, rtol=rtol, atol=atol), (saved, current)
     else:
         assert saved == current, (saved, current)
 

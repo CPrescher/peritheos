@@ -76,7 +76,7 @@ def test_retained_report_matches_recomputed_scientific_results(report):
                 [r["peritheos_pressure_gpa"] for r in result["rows"]],
                 [r["peritheos_pressure_gpa"] for r in previous["rows"]],
                 rtol=0,
-                atol=1e-10,
+                atol=1e-9,
             )
     np.testing.assert_allclose(
         report["independent_joint_equal_weight_refit"]["covariance"],

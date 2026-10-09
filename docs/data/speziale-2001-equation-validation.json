@@ -1,0 +1,227 @@
+{
+  "scope": "Printed equations and numerical evaluation only; no fitting or later pressure-target matching.",
+  "parameters": {
+    "V0": 74.71,
+    "K0": 160.2,
+    "K0_prime": 3.99,
+    "gamma0": 1.524,
+    "q0": 1.65,
+    "q1": 11.8,
+    "theta0": 773.0,
+    "Tr": 300.0
+  },
+  "normalization": {
+    "cell_volume_units": "angstrom^3",
+    "formula_units_per_conventional_cell": 4,
+    "atoms_per_formula_unit": 2,
+    "molar_volume_expression": "V_cell * 1e-30 * N_A / 4 (m^3/mol MgO)",
+    "energy_expression": "9*n*R*T*(T/theta)^3*integral_0^(theta/T) z^3/(exp(z)-1) dz",
+    "thermal_pressure_expression": "gamma*(E(T)-E(300))/V_m/1e9 (GPa)"
+  },
+  "theta_interpretation": "Integrate d ln(theta) = -gamma d ln(V); printed Eq. 4 is the constant-q case.",
+  "numerical": {
+    "states": 35,
+    "volume_ratio_range": [
+      0.6,
+      1.02
+    ],
+    "temperature_range_k": [
+      300,
+      3663
+    ],
+    "adaptive_max_difference_gpa": 3.694822225952521e-13,
+    "closed_form_max_difference_gpa": 3.694822225952521e-13,
+    "existing_calibration_max_difference_gpa": 2.1316282072803006e-13,
+    "closed_form_theta_max_difference_k": 4.547473508864641e-13
+  },
+  "gamma_infinite_compression_limit": 1.3251265294320034,
+  "source_curve_checks": {
+    "6": {
+      "checkpoints": 11,
+      "max_abs_pressure_difference_gpa": 0.10916546625691836,
+      "max_abs_volume_ratio_difference": 0.00039422181934301026,
+      "interpretation": "Constant-q isotherms agree at graphical precision.",
+      "exact_author_calculation_verified": false
+    },
+    "10": {
+      "checkpoints": 4,
+      "max_abs_pressure_difference_gpa": 0.29780899193415067,
+      "max_abs_volume_ratio_difference": 0.0011979978213363385,
+      "interpretation": "Small plotted-curve differences remain; the inset does not identify the original variable-q theta prescription.",
+      "exact_author_calculation_verified": false
+    }
+  },
+  "checkpoints": [
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 3000.0,
+      "digitized_pressure_gpa": 24.987499687,
+      "digitized_volume_ratio": 0.956447587,
+      "calculated_pressure_gpa": 24.914078906731813,
+      "pressure_difference_gpa": -0.07342078026818655,
+      "calculated_volume_ratio": 0.956053365180657,
+      "volume_ratio_difference": -0.00039422181934301026
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 3000.0,
+      "digitized_pressure_gpa": 29.992624816,
+      "digitized_volume_ratio": 0.931156406,
+      "calculated_pressure_gpa": 29.955037448757288,
+      "pressure_difference_gpa": -0.03758736724271117,
+      "calculated_volume_ratio": 0.930980201638279,
+      "volume_ratio_difference": -0.00017620436172105514
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 3000.0,
+      "digitized_pressure_gpa": 45.0080002,
+      "digitized_volume_ratio": 0.871589018,
+      "calculated_pressure_gpa": 44.94418075122403,
+      "pressure_difference_gpa": -0.06381944877596624,
+      "calculated_volume_ratio": 0.8713725327487807,
+      "volume_ratio_difference": -0.00021648525121931161
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 3000.0,
+      "digitized_pressure_gpa": 50.013125328,
+      "digitized_volume_ratio": 0.855449251,
+      "calculated_pressure_gpa": 49.91610763614587,
+      "pressure_difference_gpa": -0.09701769185413411,
+      "calculated_volume_ratio": 0.8551481241891372,
+      "volume_ratio_difference": -0.00030112681086280624
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 1100.0,
+      "digitized_pressure_gpa": 24.987499687,
+      "digitized_volume_ratio": 0.901539101,
+      "calculated_pressure_gpa": 24.941178413331503,
+      "pressure_difference_gpa": -0.04632127366849659,
+      "calculated_volume_ratio": 0.9013604925881586,
+      "volume_ratio_difference": -0.00017860841184136333
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 1100.0,
+      "digitized_pressure_gpa": 29.992624816,
+      "digitized_volume_ratio": 0.882903494,
+      "calculated_pressure_gpa": 30.016945112299673,
+      "pressure_difference_gpa": 0.024320296299674027,
+      "calculated_volume_ratio": 0.8829885526528507,
+      "volume_ratio_difference": 8.505865285068914e-05
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 1100.0,
+      "digitized_pressure_gpa": 40.002875072,
+      "digitized_volume_ratio": 0.851123128,
+      "calculated_pressure_gpa": 39.919406632024675,
+      "pressure_difference_gpa": -0.08346843997532716,
+      "calculated_volume_ratio": 0.8508769426014584,
+      "volume_ratio_difference": -0.0002461853985415985
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 1100.0,
+      "digitized_pressure_gpa": 45.0080002,
+      "digitized_volume_ratio": 0.836980033,
+      "calculated_pressure_gpa": 44.89883473374308,
+      "pressure_difference_gpa": -0.10916546625691836,
+      "calculated_volume_ratio": 0.8366817665976852,
+      "volume_ratio_difference": -0.0002982664023147841
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 1100.0,
+      "digitized_pressure_gpa": 50.013125328,
+      "digitized_volume_ratio": 0.823502496,
+      "calculated_pressure_gpa": 50.012595149868574,
+      "pressure_difference_gpa": -0.0005301781314273057,
+      "calculated_volume_ratio": 0.8235011487669207,
+      "volume_ratio_difference": -1.3472330793184994e-06
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 300.0,
+      "digitized_pressure_gpa": 24.987499687,
+      "digitized_volume_ratio": 0.885066556,
+      "calculated_pressure_gpa": 24.95990793958632,
+      "pressure_difference_gpa": -0.027591747413680423,
+      "calculated_volume_ratio": 0.8849705615688777,
+      "volume_ratio_difference": -9.599443112229267e-05
+    },
+    {
+      "figure": 6,
+      "gamma_law": "constant_q",
+      "temperature_k": 300.0,
+      "digitized_pressure_gpa": 29.992624816,
+      "digitized_volume_ratio": 0.868427621,
+      "calculated_pressure_gpa": 29.955172960484372,
+      "pressure_difference_gpa": -0.03745185551562713,
+      "calculated_volume_ratio": 0.8683081909523237,
+      "volume_ratio_difference": -0.0001194300476763388
+    },
+    {
+      "figure": 10,
+      "gamma_law": "eq11",
+      "temperature_k": 1100.0,
+      "digitized_pressure_gpa": 9.993521218,
+      "digitized_volume_ratio": 0.970151188,
+      "calculated_pressure_gpa": 10.026313574817978,
+      "pressure_difference_gpa": 0.03279235681797843,
+      "calculated_volume_ratio": 0.9703295200863602,
+      "volume_ratio_difference": 0.00017833208636020004
+    },
+    {
+      "figure": 10,
+      "gamma_law": "eq11",
+      "temperature_k": 1100.0,
+      "digitized_pressure_gpa": 16.018788468,
+      "digitized_volume_ratio": 0.939510439,
+      "calculated_pressure_gpa": 16.155982505043987,
+      "pressure_difference_gpa": 0.13719403704398658,
+      "calculated_volume_ratio": 0.9401440622828118,
+      "volume_ratio_difference": 0.0006336232828118016
+    },
+    {
+      "figure": 10,
+      "gamma_law": "eq11",
+      "temperature_k": 1100.0,
+      "digitized_pressure_gpa": 18.001295756,
+      "digitized_volume_ratio": 0.930640749,
+      "calculated_pressure_gpa": 18.12567945097556,
+      "pressure_difference_gpa": 0.12438369497555968,
+      "calculated_volume_ratio": 0.9311886968128437,
+      "volume_ratio_difference": 0.0005479478128436188
+    },
+    {
+      "figure": 10,
+      "gamma_law": "eq11",
+      "temperature_k": 1100.0,
+      "digitized_pressure_gpa": 22.005183026,
+      "digitized_volume_ratio": 0.913102952,
+      "calculated_pressure_gpa": 22.30299201793415,
+      "pressure_difference_gpa": 0.29780899193415067,
+      "calculated_volume_ratio": 0.9143009498213364,
+      "volume_ratio_difference": 0.0011979978213363385
+    }
+  ],
+  "source_curve_csv_sha256": "9a54c054f300bcd82b2fa5eb72ddc8ba727172136d5c37e84837828de2dc372c",
+  "source_curve_provenance_sha256": "56922540072063b5451f9a5daa1d5f2cb62922dd8bb6d12863d6de657536d3fd",
+  "printed_gamma_equation_verified": true,
+  "consistent_theta_integration_verified": true,
+  "energy_and_pressure_normalization_verified": true,
+  "exact_historical_variable_q_implementation_verified": false
+}

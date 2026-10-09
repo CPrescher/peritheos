@@ -379,7 +379,7 @@ def check_reconstruction(saved, current):
         for left, right in zip(saved, current):
             check_reconstruction(left, right)
     elif isinstance(current, float):
-        np.testing.assert_allclose(saved, current, atol=2e-7, rtol=2e-7)
+        np.testing.assert_allclose(saved, current, atol=2e-6, rtol=1e-5)
     else:
         assert saved == current
 

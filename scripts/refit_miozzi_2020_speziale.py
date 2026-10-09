@@ -517,10 +517,23 @@ def main():
             rtol=1e-4,
             atol=1e-6,
         )
-        assert CSV_PATH.read_text(encoding="utf-8") == table
+        from scripts.check_numerical_archive import check_csv
+
+        check_csv(
+            CSV_PATH.read_text(encoding="utf-8"),
+            table,
+            {
+                "pressure_gpa",
+                "conditional_pressure_error_gpa",
+                "pressure_temperature_covariance_gpa_k",
+            },
+        )
         saved = json.loads(REPORT.read_text(encoding="utf-8"))
         assert saved["original_csv_sha256"] == report["original_csv_sha256"]
-        assert saved["derived_csv_sha256"] == report["derived_csv_sha256"]
+        assert (
+            saved["derived_csv_sha256"]
+            == hashlib.sha256(CSV_PATH.read_bytes()).hexdigest()
+        )
         assert (
             next(r for r in document["eos_records"] if r["identifier"] == AUTHOR_ID)[
                 "thermal"

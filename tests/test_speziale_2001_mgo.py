@@ -6,6 +6,7 @@ import json
 import numpy as np
 import pytest
 
+from scripts.check_numerical_archive import check_csv
 from scripts.reproduce_speziale_2001_mgo import (
     DATA,
     OUTPUT,
@@ -111,4 +112,12 @@ def test_archived_report_and_row_predictions_reproduce(report):
     from scripts.reproduce_fei_2007_gold import check_saved
 
     check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
-    assert RESIDUALS.read_text(encoding="utf-8") == reproduce()[1]
+    table = reproduce()[1]
+    calculated = set(table.splitlines()[0].split(",")) - {
+        "source",
+        "row",
+        "mgo_volume_a3",
+        "temperature_k",
+        "reported_pressure_gpa",
+    }
+    check_csv(RESIDUALS.read_text(encoding="utf-8"), table, calculated, atol=1e-6)

@@ -411,8 +411,16 @@ def main():
         from scripts.reproduce_fei_2007_gold import check_saved
 
         check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
-        if RESIDUALS.read_text(encoding="utf-8") != table:
-            raise ValueError("Archived calibration table differs")
+        from scripts.check_numerical_archive import check_csv
+
+        calculated = set(table.splitlines()[0].split(",")) - {
+            "source",
+            "row",
+            "mgo_volume_a3",
+            "temperature_k",
+            "reported_pressure_gpa",
+        }
+        check_csv(RESIDUALS.read_text(encoding="utf-8"), table, calculated, atol=1e-6)
         print("Speziale MgO validation archive reproduced")
     else:
         OUTPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

@@ -1,10 +1,22 @@
-# Speziale et al. (2001): MgO thermal equations and the later Au calibration
+# Speziale et al. (2001): equation and calculation verification
 
-**The existing integrated MgO calculation implements the printed variable-q
-gamma equation correctly. It does not reproduce the pressures labeled Speziale
-MgO in Fei (2004) and Hirose (2006).** A different gamma convention explains
-almost all of that gap numerically. This is evidence for a pressure-reduction
-convention difference, not recovery of the authors' executable calibration.
+**The printed gamma equation, thermodynamically consistent Debye-temperature
+integration, and numerical pressure calculation are verified. All coefficients
+needed for this calculation are available.** An independent analytic solution
+for the Debye temperature and adaptive Debye integration agree with the existing
+calculation to 3.70e-13 GPa across 35 states. No parameters were fitted for these
+equation checks.
+
+This verifies the equations and their evaluation; exact reproduction of the
+authors' historical variable-q implementation remains a separate question.
+Equation 4 is written for constant q, whereas the final model uses variable q
+in Equations 10–11. We integrate its defining thermodynamic identity. The source
+does not explicitly state how its software extended the Debye-temperature
+calculation to variable q.
+
+The later Fei/Hirose pressure comparisons are retained below as separate
+calibration evidence. They do not determine whether the printed equation has
+been implemented correctly.
 
 The cold record `mgo_speziale_2001_bm3_2` remains a cold-only constrained BM3
 record. No thermal model is silently attached to it. The published Au
@@ -42,8 +54,17 @@ V_m=V*N_A*10^-30/4 in m^3/mol MgO, and the Debye energy uses n=2 atoms
 per MgO formula unit. The equivalent cell basis is n=8 and Z=1. All pressures
 are converted from Pa to GPa after dividing energy by molar volume.
 
-V0=74.71, K0=160.2 GPa, K0-prime=3.99, gamma0=1.524, q0=1.65,
-q1=11.8, theta0=773 K and Tr=300 K are the relevant final model coefficients.
+| Coefficient | Value used | Meaning |
+| --- | --- | --- |
+| V0 | 74.71 angstrom^3 | Conventional-cell volume at the reference state |
+| K0 | 160.2 GPa | Isothermal bulk modulus |
+| K0-prime | 3.99 | Pressure derivative of the bulk modulus |
+| gamma0 | 1.524 | Final thermodynamic Gruneisen anchor |
+| q0 | 1.65 | Initial logarithmic volume derivative of gamma |
+| q1 | 11.8 | Exponent controlling the decrease of q with compression |
+| theta0 | 773 K | Initial Debye temperature |
+| Tr | 300 K | Principal isotherm and thermal-energy subtraction |
+
 The abstract's gamma0=1.49(3) is the preliminary static thermal fit, not the
 fixed final gamma0. Table 3 is a set of **constant-q** fits: it is not a fit of
 q0 and q1 simultaneously. q0 is constrained by thermodynamic derivatives,
@@ -57,6 +78,42 @@ theta prescription. Integration is the thermodynamically consistent extension,
 not proof of the original software's choices.
 
 ## What is independently validated
+
+The focused equation check is
+[`validate_speziale_2001_equations.py`](https://github.com/CPrescher/peritheos/blob/main/scripts/validate_speziale_2001_equations.py).
+It evaluates theta independently with the closed form obtained by substituting
+a=q0/q1 and z=a*x^q1 into the thermodynamic integral:
+
+\[
+\ln\frac{\theta(x)}{\theta_0}
+=-\frac{\gamma_0 e^{-a}}{q_1}
+\left[\operatorname{Ei}(a x^{q_1})-\operatorname{Ei}(a)\right].
+\]
+
+Here Ei is the exponential integral; this expression is evaluated only for
+the source's positive q0 and q1. Constant-q and constant-gamma limits are checked
+separately. The analytic theta and 64-point numerical integral differ by at
+most 2.28e-13 K. Independent finite-strain BM3 and adaptive Debye integration
+then give pressures within 3.70e-13 GPa of the existing calculation, over
+V/V0=0.60–1.02 and T=300–3663 K. The Debye energy also approaches the MgO
+Dulong–Petit limit 6R per mole per kelvin.
+
+| Original-paper calculated-output check | Result | Interpretation |
+| --- | --- | --- |
+| Figure 6, constant q=1.65, 300/1100/3000 K | 11 digitized checkpoints; maximum pressure difference 0.109 GPa and V/V0 difference 0.000394 | Agreement at graphical precision; checks the normalization and constant-q calculation against the paper |
+| Figure 9, final gamma law | gamma approaches 1.325127 and decreases monotonically on compression | Consistent with the paper's stated approximately 1.33 limit |
+| Figure 10 inset, final-model 1100 K curve | Four unobscured checkpoints; maximum pressure difference 0.298 GPa and V/V0 difference 0.001198 | Small differences remain; this scanned inset does not establish the exact historical variable-q theta prescription |
+
+These checkpoints are **published calculated curves, not experimental data**.
+The manually chosen pixel windows, axis calibration, PDF hash and extraction
+method are recorded in the
+[`source-curve provenance`](../data/speziale-2001-source-curve-provenance.json).
+Scan warping, dotted-line phase and stroke width limit the comparison; its
+differences are not formal measurement uncertainties. No curve points are fitted
+or registered as observations. The equation-only
+[`report`](../data/speziale-2001-equation-validation.json) and
+[`comparison plot`](../data/speziale-2001-equation-validation.png) preserve the
+results, including the Figure 10 discrepancy.
 
 The new implementation in
 [`reproduce_speziale_2001_mgo.py`](https://github.com/CPrescher/peritheos/blob/main/scripts/reproduce_speziale_2001_mgo.py)
@@ -154,6 +211,9 @@ local-power reducer inferred here.
 ## Reproduction and remaining evidence
 
 ```bash
+python -m scripts.validate_speziale_2001_equations --check
+python -m scripts.validate_speziale_2001_equations --plot
+python -m pytest tests/test_speziale_2001_equations.py tests/test_speziale_2001_mgo.py
 python -m scripts.reproduce_speziale_2001_mgo
 python -m scripts.reproduce_speziale_2001_mgo --check
 python -m pytest tests/test_speziale_2001_mgo.py tests/test_fei_2007_gold.py

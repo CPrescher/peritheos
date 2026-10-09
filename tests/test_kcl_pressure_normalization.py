@@ -17,6 +17,7 @@ from peritheos import (
     resolve_dataset_pressure,
 )
 from scripts.audit_kcl_pressure_normalization import CASES, OUTPUT, SOURCE, audit
+from scripts.reproduce_fei_2007_gold import check_saved
 
 
 @pytest.mark.parametrize("material,record_id,dataset_id", CASES)
@@ -61,7 +62,7 @@ def test_dewaele_all_rows_have_executable_pressure_contract(
 
 def test_diagnostic_refits_are_reproducible_and_keep_source_constraints():
     report = audit()
-    assert report == json.loads(OUTPUT.read_text(encoding="utf-8"))
+    check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), report)
     for record in report["records"]:
         published = get_eos_record_document(record["record_identifier"])
         assert record["original_published_parameters"] == published["eos"]["parameters"]

@@ -1,6 +1,5 @@
 """Selectable Tange-calibrated Fe refit with distinct source provenance."""
 
-import csv
 import hashlib
 import json
 
@@ -16,6 +15,7 @@ from peritheos import (
     get_material,
     get_material_document,
 )
+from scripts.check_numerical_archive import check_csv
 from scripts.reconstruct_miozzi_2020_iron import fe_pressure, read_data
 from scripts.refit_miozzi_2020_tange import (
     CALIBRATION_ID,
@@ -49,7 +49,15 @@ def test_primary_tange_table5_checkpoint(model):
 def test_derived_pressures_preserve_sources_and_native_calibration():
     original, data, hashes = read_data()
     rows, text = derived_rows(original, data)
-    assert CSV_PATH.read_text(encoding="utf-8") == text
+    check_csv(
+        CSV_PATH.read_text(encoding="utf-8"),
+        text,
+        {
+            "pressure_gpa",
+            "conditional_pressure_error_gpa",
+            "pressure_temperature_covariance_gpa_k",
+        },
+    )
     assert len(rows) == 131
     assert {row["source_medium"] for row in rows} == {"he", "mgo"}
     target = target_pressures(data, "vinet")
@@ -81,9 +89,12 @@ def test_derived_pressures_preserve_sources_and_native_calibration():
         for d in get_material_document("iron")["datasets"]
         if d["identifier"] == DATASET_ID
     )
-    assert ds["resource"]["sha256"] == report["derived_csv_sha256"]
-    with CSV_PATH.open() as stream:
-        assert list(csv.DictReader(stream)) == rows
+    # The catalog hashes the retained artifact, not a fresh numerical rendering.
+    assert ds["resource"]["sha256"] == hashlib.sha256(CSV_PATH.read_bytes()).hexdigest()
+    assert (
+        ds["resource"]["sha256"]
+        == json.loads(REPORT.read_text(encoding="utf-8"))["derived_csv_sha256"]
+    )
 
 
 def test_refit_is_selectable_with_errors_covariance_and_lossless_export():

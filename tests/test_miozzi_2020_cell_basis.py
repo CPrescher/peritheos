@@ -28,9 +28,11 @@ def test_cell_basis_evidence_preserves_input_and_code_fingerprints():
     np.testing.assert_array_equal(
         report["cases"]["printed"]["observed_pressure_gpa"], data["pressure_gpa"]
     )
-    np.testing.assert_array_equal(
+    np.testing.assert_allclose(
         report["cases"]["tange_vinet"]["observed_pressure_gpa"],
         target_pressures(data, "vinet"),
+        rtol=1e-14,
+        atol=0,
     )
 
 
@@ -62,7 +64,9 @@ def test_cell_basis_fit_matches_per_fe_and_direct_cell_physics(case):
             assert (
                 thermal["model"]["parameters"]["rt_eos." + key] == rt["parameters"][key]
             )
-        np.testing.assert_allclose(final["adjusted_volume"], v * scale, rtol=0, atol=0)
+        np.testing.assert_allclose(
+            final["adjusted_volume"], v * scale, rtol=1e-14, atol=0
+        )
         independent = direct_cell_pressure(v, t, fit["parameters"])
         np.testing.assert_allclose(
             independent, fit["predicted_pressure_gpa"], rtol=0, atol=1e-8

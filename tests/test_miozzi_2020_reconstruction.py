@@ -9,6 +9,7 @@ import numpy as np
 import pytest
 from scipy.integrate import quad
 
+from scripts.check_numerical_archive import check_rows
 from scripts.reconstruct_miozzi_2020_iron import (
     MODELS,
     OUT,
@@ -161,7 +162,17 @@ def test_reconstruction_artifacts_covariance_and_original_inputs():
                     assert len(stage["standard_errors"]) == 2
                     assert np.all(np.linalg.eigvalsh(stage["covariance"]) > 0)
     with (OUT / "pressures.csv").open(newline="") as stream:
-        assert list(csv.DictReader(stream)) == derived
+        check_rows(
+            list(csv.DictReader(stream)),
+            derived,
+            {
+                "reconstructed_pressure_gpa",
+                "pressure_shift_gpa",
+                "conditional_pressure_error_gpa",
+                "pressure_temperature_covariance_gpa_k",
+                "published_fe_residual_gpa",
+            },
+        )
     assert len(derived) == 116 * 3
     for row in derived:
         source = original[15 + int(row["source_row"]) - 1]

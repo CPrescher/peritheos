@@ -192,8 +192,8 @@ def write_csv(source):
     ]
     for fig in (3, 4):
         path = DATA / f"nacl-b2-fei-2007-figure{fig}-digitized.csv"
-        with path.open("w", newline="") as handle:
-            writer = csv.DictWriter(handle, fields)
+        with path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fields, lineterminator="\n")
             writer.writeheader()
             for row in source["observations"]:
                 if row["figure"] == fig:

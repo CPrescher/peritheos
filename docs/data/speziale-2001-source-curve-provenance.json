@@ -1,0 +1,212 @@
+{
+  "source_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/speziale_et_al-2001-jgrse.pdf",
+  "doi": "10.1029/2000JB900318",
+  "pdf_sha256": "c0431bdddf8f4bc8269a7e0d1b79d30d92a38b4a778d9edddad9cb4c45b1f94b",
+  "csv_sha256": "9a54c054f300bcd82b2fa5eb72ddc8ba727172136d5c37e84837828de2dc372c",
+  "kind": "digitized published calculated isotherms, not experimental observations",
+  "purpose": "equation validation only; never a thermal fit target",
+  "method": "pdftoppm at 300 dpi; grayscale <128; manually selected unobscured curve windows; median black-pixel y in narrow vertical stripes; axes calibrated by ordinary least squares",
+  "precision": "Graphical checks only. Scan warping, dotted-line phase, stroke width, and axis placement limit precision. No formal measurement error or author-code parity is inferred.",
+  "excluded": "Figure 6 3000 K at 40 GPa is obscured by the inset. Figure 10 markers, labels, and arrow segments are avoided. No pixels are selected from model predictions.",
+  "rights": "Numerical transcription and provenance by Peritheos contributors; no claim over third-party source rights.",
+  "figures": {
+    "6": {
+      "page": 8,
+      "crop_box": [
+        350,
+        250,
+        2320,
+        1540
+      ],
+      "x_pressure_ticks_gpa": [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "x_tick_pixels": [
+        31,
+        214,
+        397,
+        578.5,
+        760,
+        943,
+        1122,
+        1304.5,
+        1486.5,
+        1669.5,
+        1850
+      ],
+      "y_volume_ratio_ticks": [
+        1,
+        0.95,
+        0.9,
+        0.85
+      ],
+      "y_tick_pixels": [
+        40.5,
+        342.5,
+        643,
+        942
+      ],
+      "half_stripe_width_px": 4,
+      "windows": [
+        [
+          3000,
+          25,
+          292,
+          315
+        ],
+        [
+          3000,
+          30,
+          445,
+          470
+        ],
+        [
+          3000,
+          45,
+          800,
+          824
+        ],
+        [
+          3000,
+          50,
+          900,
+          925
+        ],
+        [
+          1100,
+          25,
+          620,
+          646
+        ],
+        [
+          1100,
+          30,
+          735,
+          765
+        ],
+        [
+          1100,
+          40,
+          925,
+          950
+        ],
+        [
+          1100,
+          45,
+          1010,
+          1040
+        ],
+        [
+          1100,
+          50,
+          1090,
+          1125
+        ],
+        [
+          300,
+          25,
+          720,
+          742
+        ],
+        [
+          300,
+          30,
+          825,
+          848
+        ]
+      ],
+      "gamma_law": "constant_q",
+      "x_pixel_equals_slope_times_pressure_plus_intercept": [
+        36.36272727272727,
+        32.386363636363576
+      ],
+      "y_pixel_equals_slope_times_volume_ratio_plus_intercept": [
+        -6009.999999999986,
+        6051.249999999989
+      ]
+    },
+    "10": {
+      "page": 10,
+      "crop_box": [
+        430,
+        1840,
+        2220,
+        2950
+      ],
+      "x_pressure_ticks_gpa": [
+        0,
+        10,
+        20
+      ],
+      "x_tick_pixels": [
+        1047.5,
+        1303,
+        1562
+      ],
+      "y_volume_ratio_ticks": [
+        1,
+        0.98,
+        0.96,
+        0.94,
+        0.92,
+        0.9,
+        0.88
+      ],
+      "y_tick_pixels": [
+        57,
+        156,
+        256,
+        354,
+        453.5,
+        553,
+        652.5
+      ],
+      "half_stripe_width_px": 3,
+      "windows": [
+        [
+          1100,
+          10,
+          198,
+          214
+        ],
+        [
+          1100,
+          16,
+          342,
+          370
+        ],
+        [
+          1100,
+          18,
+          390,
+          420
+        ],
+        [
+          1100,
+          22,
+          480,
+          500
+        ]
+      ],
+      "gamma_law": "eq11",
+      "x_pixel_equals_slope_times_pressure_plus_intercept": [
+        25.72499999999999,
+        1046.916666666667
+      ],
+      "y_pixel_equals_slope_times_volume_ratio_plus_intercept": [
+        -4960.714285714298,
+        5017.642857142868
+      ]
+    }
+  }
+}

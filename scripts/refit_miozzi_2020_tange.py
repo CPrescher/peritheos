@@ -720,9 +720,20 @@ def main():
     record, dataset, table = catalog_record(report)
     if args.check:
         saved = json.loads(REPORT.read_text(encoding="utf-8"))
+        from scripts.check_numerical_archive import check_csv
+
+        check_csv(
+            CSV_PATH.read_text(encoding="utf-8"),
+            table,
+            {
+                "pressure_gpa",
+                "conditional_pressure_error_gpa",
+                "pressure_temperature_covariance_gpa_k",
+            },
+        )
         if (
-            saved["derived_csv_sha256"] != report["derived_csv_sha256"]
-            or CSV_PATH.read_text(encoding="utf-8") != table
+            saved["derived_csv_sha256"]
+            != hashlib.sha256(CSV_PATH.read_bytes()).hexdigest()
         ):
             raise SystemExit("Derived Tange table is stale")
         if (

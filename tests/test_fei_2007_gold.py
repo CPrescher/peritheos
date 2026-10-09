@@ -149,4 +149,4 @@ def test_staged_parity_keeps_author_fit_and_confidence_unresolved(report):
     saved = next(
         r for r in ledger["records"] if r["record_identifier"] == record["identifier"]
     )
-    assert all(saved[k] == value for k, value in outcome.items())
+    check_saved({k: saved[k] for k in outcome}, outcome)

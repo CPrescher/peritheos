@@ -2324,8 +2324,8 @@
   "qualification": "Independent Peritheos refit, not Miozzi's published coefficients. All 116 MgO-series pressures are recalculated with the Speziale (2001) variable-q Debye model; the 15 He pressures remain unchanged. Equal pressure-residual weights; 36 RT rows first, all rows with cold coefficients fixed second, then V0,K0,K0_prime,gamma0,q free. theta0=420 K, Tr=300 K, n=1 per mole Fe fixed. Local errors/covariance are conditional on this calibration, objective and fixed parameters, excluding calibrant systematics, predictor and inter-row covariance and fixed-theta uncertainty. Original author weights and exact pressure reduction remain unavailable; numerical reproducibility does not establish independent physical accuracy.",
   "record_identifier": "iron_miozzi_2020_speziale_2001_bm3_mgd_refit",
   "source_code_sha256": {
-    "scripts/reconstruct_miozzi_2020_iron.py": "e6de1c9f490e3e7d3ca55ebb792eeec44361756d527fdba67dc69e47e3469b62",
+    "scripts/reconstruct_miozzi_2020_iron.py": "32304e0a588fdff18b9c99cd9c05988c130965d78b6b40eefea8124d6cbd6139",
     "scripts/refit_miozzi_2020_cell_basis.py": "3c283c5ce48eef2e6f6ab547763bbf1f03db16261993fa08aea092f6d4149463",
-    "scripts/refit_miozzi_2020_speziale.py": "dcaafe57de0c8b96bfab18ad2ff2c27ab0b420e2a0db91dccae7d611e30ea132"
+    "scripts/refit_miozzi_2020_speziale.py": "dc8463afaeb935f4033ea66e20af8678e2dca6c57e54dc69076bf287ccc6e119"
   }
 }

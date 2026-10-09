@@ -146,7 +146,7 @@ def test_peritheos_component_evaluation_matches_actual_console(report):
                     for r in retained["cases"][name][stage]["rows"]
                 ],
                 rtol=0,
-                atol=1e-10,
+                atol=1e-9,
             )
 
 
