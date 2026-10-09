@@ -8528,7 +8528,7 @@
       "label": "Speziale et al. (2001), constrained BM3",
       "doi": "10.1029/2000jb900318",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Primary-source validated 300 K constrained BM3 record. Replays of all 32 Table 1 observations with K0 fixed recover V0 and K0-prime within their published parameter error widths. Original fit weights, covariance and parameter uncertainties are not reproduced. The related variable-q thermal reconstruction has verified equations and numerical evaluation, but its complete thermal fit and exact historical implementation remain unresolved.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2000JB900318",
         "locations": [
@@ -8536,6 +8536,31 @@
           "constrained third-order Birch-Murnaghan fit"
         ],
         "doi": "10.1029/2000jb900318"
+      },
+      "reproduction_status": "parameters_within_published_uncertainties",
+      "fit_reproduction_note": "Cold fit only: K0=160.2 GPa fixed. The existing errors-in-variables replay gives V0=74.711431 A3 and K0-prime=3.996280; an independent equal-pressure-residual replay gives V0=74.712174 A3 and K0-prime=3.995497. Both lie within the published 74.71(1) A3 and 3.99(1). Agreement of coefficients does not establish reproduction of the original objective, weights, covariance or parameter errors.",
+      "usage_recommendation": "Use this record as the published 300 K constrained BM3 EOS. The linked thermal audit is a partially reproduced equation-consistent reconstruction, not an executable thermal extension of this database record or a fully reproduced author fit.",
+      "related_thermal_reconstruction": {
+        "classification": "Partially reproduced — equation-consistent reconstruction",
+        "reproduction_status": "partially_reproduced",
+        "scope": "Separate audit reconstruction of Speziale (2001) BM3 plus variable-q Mie-Gruneisen-Debye thermal pressure; not attached as thermal parameters to this cold-only record.",
+        "report_path": "docs/literature-reproductions/speziale-2001-mgo.md",
+        "equation_validation_path": "docs/data/speziale-2001-equation-validation.json",
+        "thermal_fit_audit_path": "docs/data/speziale-2001-mgo-reproduction.json",
+        "verification": {
+          "printed_gamma_equation_verified": true,
+          "consistent_theta_integration_verified": true,
+          "energy_and_pressure_normalization_verified": true,
+          "independent_numerical_evaluation_verified": true,
+          "exact_historical_variable_q_implementation_verified": false,
+          "complete_author_thermal_fit_reproduced": false
+        },
+        "remaining_evidence": [
+          "Original variable-q Debye-temperature prescription or implementation and reference calculated outputs.",
+          "Complete selected thermal fitting inputs, objective, weights and covariance.",
+          "Original shock-volume normalization and reduction details."
+        ],
+        "audit_date": "2026-10-09"
       }
     },
     {
