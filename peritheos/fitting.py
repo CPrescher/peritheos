@@ -695,6 +695,7 @@ def _native_fitting_types() -> tuple[type[EosBase], ...]:
         Tange2009Debye,
         ThermalModifiedTait,
         ThermalReferenceStateEOS,
+        VariableQMieGruneisenDebye,
     )
 
     return (
@@ -720,6 +721,7 @@ def _native_fitting_types() -> tuple[type[EosBase], ...]:
         DebyeAnharmonicHelmholtz,
         LogVolumeThermalPressure,
         MieGruneisenDebye,
+        VariableQMieGruneisenDebye,
         MieGruneisenEinstein,
         Tange2009Debye,
         SecondOrderTaylorThermalPressure,

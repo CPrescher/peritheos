@@ -32,6 +32,7 @@ from .mie_gruneisen import (
 from .multi_oscillator import MultiOscillatorGruneisenThermalEOS
 from .sokolova2016 import Sokolova2016
 from .sound_velocity_debye import SoundVelocityDebyeHelmholtz
+from .variable_q import VariableQMieGruneisenDebye
 
 __all__ = [
     "AsymptoticDebyeTabulatedPressure",
@@ -47,6 +48,7 @@ __all__ = [
     "DebyeAnharmonicHelmholtz",
     "LogVolumeThermalPressure",
     "MieGruneisenDebye",
+    "VariableQMieGruneisenDebye",
     "AsymptoticPowerLawMieGruneisenDebyeExcess",
     "MieGruneisenEinstein",
     "MultiOscillatorGruneisenThermalEOS",

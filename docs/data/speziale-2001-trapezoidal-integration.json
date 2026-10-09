@@ -1,0 +1,627 @@
+{
+  "scope": "Quadrature sensitivity only; all published coefficients fixed. No original thermal fit is replayed.",
+  "author_confirmation_scope": "Numerical integration of N5 using S11, generally trapezoidal; original grid unspecified. Debye-energy quadrature is not specified in the supplied reply.",
+  "grid_definition": "Each state integrates theta from V0 to its volume using N equal intervals in log(V/V0) or V/V0. Debye diagnostic uses N equal intervals from 0 to theta/T.",
+  "parameters": {
+    "V0": 74.71,
+    "K0": 160.2,
+    "K0_prime": 3.99,
+    "gamma0": 1.524,
+    "q0": 1.65,
+    "q1": 11.8,
+    "theta0": 773.0,
+    "Tr": 300.0
+  },
+  "reference": {
+    "theta": "independent analytic exponential-integral solution",
+    "pressure": "independent adaptive Debye integral and finite-strain BM3",
+    "fei2004_rmse_gpa": 0.254647249566291,
+    "hirose2006_max_abs_residual_gpa": 1.9521275281447572,
+    "figure10_max_abs_residual_gpa": 0.29780899193417554
+  },
+  "trials": [
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 1,
+      "grid35_max_pressure_change_gpa": 0.15367480710165182,
+      "later28_max_pressure_change_gpa": 0.04219994976378416,
+      "later28_pressure_change_range_gpa": [
+        -0.04219994976378416,
+        -1.0513007673296215e-06
+      ],
+      "fei2004_rmse_gpa": 0.25530188859695896,
+      "hirose2006_max_abs_residual_gpa": 1.9943274779085414,
+      "figure10_max_pressure_change_gpa": 0.0011464475670450724,
+      "figure10_max_abs_residual_gpa": 0.29666254436713047
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 2,
+      "grid35_max_pressure_change_gpa": 0.050473457010696166,
+      "later28_max_pressure_change_gpa": 0.012359797453555643,
+      "later28_pressure_change_range_gpa": [
+        -0.012359797453555643,
+        -2.62872386969093e-07
+      ],
+      "fei2004_rmse_gpa": 0.25481326631993756,
+      "hirose2006_max_abs_residual_gpa": 1.9644873255983129,
+      "figure10_max_pressure_change_gpa": 0.0002925198022936115,
+      "figure10_max_abs_residual_gpa": 0.2975164721318819
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 4,
+      "grid35_max_pressure_change_gpa": 0.014100940051548605,
+      "later28_max_pressure_change_gpa": 0.0032612654649142314,
+      "later28_pressure_change_range_gpa": [
+        -0.0032612654649142314,
+        -6.572106947544398e-08
+      ],
+      "fei2004_rmse_gpa": 0.2546889084892876,
+      "hirose2006_max_abs_residual_gpa": 1.9553887936096714,
+      "figure10_max_pressure_change_gpa": 7.352414716166322e-05,
+      "figure10_max_abs_residual_gpa": 0.2977354677870139
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 8,
+      "grid35_max_pressure_change_gpa": 0.0036506038261450158,
+      "later28_max_pressure_change_gpa": 0.0008278757811979176,
+      "later28_pressure_change_range_gpa": [
+        -0.0008278757811979176,
+        -1.6430476534878835e-08
+      ],
+      "fei2004_rmse_gpa": 0.25465767409569307,
+      "hirose2006_max_abs_residual_gpa": 1.9529554039259551,
+      "figure10_max_pressure_change_gpa": 1.8406115042779447e-05,
+      "figure10_max_abs_residual_gpa": 0.29779058581913276
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 16,
+      "grid35_max_pressure_change_gpa": 0.0009213626015025511,
+      "later28_max_pressure_change_gpa": 0.0002077929524944011,
+      "later28_pressure_change_range_gpa": [
+        -0.0002077929524944011,
+        -4.107652884499657e-09
+      ],
+      "fei2004_rmse_gpa": 0.2546498563131004,
+      "hirose2006_max_abs_residual_gpa": 1.9523353210972516,
+      "figure10_max_pressure_change_gpa": 4.603103295863775e-06,
+      "figure10_max_abs_residual_gpa": 0.2978043888308797
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 32,
+      "grid35_max_pressure_change_gpa": 0.00023090191012897776,
+      "later28_max_pressure_change_gpa": 5.2000409766606026e-05,
+      "later28_pressure_change_range_gpa": [
+        -5.2000409766606026e-05,
+        -1.0269403105667152e-09
+      ],
+      "fei2004_rmse_gpa": 0.2546479012914234,
+      "hirose2006_max_abs_residual_gpa": 1.9521795285545238,
+      "figure10_max_pressure_change_gpa": 1.1508743646970743e-06,
+      "figure10_max_abs_residual_gpa": 0.29780784105981084
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 64,
+      "grid35_max_pressure_change_gpa": 5.7760834806686034e-05,
+      "later28_max_pressure_change_gpa": 1.30033737946178e-05,
+      "later28_pressure_change_range_gpa": [
+        -1.30033737946178e-05,
+        -2.56758170280591e-10
+      ],
+      "fei2004_rmse_gpa": 0.2546474124999699,
+      "hirose2006_max_abs_residual_gpa": 1.9521405315185518,
+      "figure10_max_pressure_change_gpa": 2.8772476667882074e-07,
+      "figure10_max_abs_residual_gpa": 0.29780870420940886
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 128,
+      "grid35_max_pressure_change_gpa": 1.4442422923366394e-05,
+      "later28_max_pressure_change_gpa": 3.2510479286429472e-06,
+      "later28_pressure_change_range_gpa": [
+        -3.2510479286429472e-06,
+        -6.421352338747965e-11
+      ],
+      "fei2004_rmse_gpa": 0.2546472902998548,
+      "hirose2006_max_abs_residual_gpa": 1.9521307791926858,
+      "figure10_max_pressure_change_gpa": 7.193159490270773e-08,
+      "figure10_max_abs_residual_gpa": 0.29780892000258063
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 256,
+      "grid35_max_pressure_change_gpa": 3.6107441019339603e-06,
+      "later28_max_pressure_change_gpa": 8.127746156105786e-07,
+      "later28_pressure_change_range_gpa": [
+        -8.127746156105786e-07,
+        -1.6076029396572267e-11
+      ],
+      "fei2004_rmse_gpa": 0.2546472597496836,
+      "hirose2006_max_abs_residual_gpa": 1.9521283409193728,
+      "figure10_max_pressure_change_gpa": 1.7982941358241078e-08,
+      "figure10_max_abs_residual_gpa": 0.2978089739512342
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 1024,
+      "grid35_max_pressure_change_gpa": 2.2567417090613162e-07,
+      "later28_max_pressure_change_gpa": 5.079847653632896e-08,
+      "later28_pressure_change_range_gpa": [
+        -5.079847653632896e-08,
+        -1.0373923942097463e-12
+      ],
+      "fei2004_rmse_gpa": 0.2546472502027444,
+      "hirose2006_max_abs_residual_gpa": 1.9521275789432337,
+      "figure10_max_pressure_change_gpa": 1.1239542629937205e-09,
+      "figure10_max_abs_residual_gpa": 0.2978089908102213
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 1,
+      "grid35_max_pressure_change_gpa": 0.23995282000231555,
+      "later28_max_pressure_change_gpa": 0.04990837760007594,
+      "later28_pressure_change_range_gpa": [
+        -0.04990837760007594,
+        -9.151057618339564e-07
+      ],
+      "fei2004_rmse_gpa": 0.2552412260945796,
+      "hirose2006_max_abs_residual_gpa": 2.002035905744833,
+      "figure10_max_pressure_change_gpa": 0.0010528893465000522,
+      "figure10_max_abs_residual_gpa": 0.2967561025876755
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 2,
+      "grid35_max_pressure_change_gpa": 0.0648501862528974,
+      "later28_max_pressure_change_gpa": 0.01323506573726263,
+      "later28_pressure_change_range_gpa": [
+        -0.01323506573726263,
+        -2.2880194805452447e-07
+      ],
+      "fei2004_rmse_gpa": 0.2547969174976998,
+      "hirose2006_max_abs_residual_gpa": 1.9653625938820198,
+      "figure10_max_pressure_change_gpa": 0.0002661357199968961,
+      "figure10_max_abs_residual_gpa": 0.29754285621417864
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 4,
+      "grid35_max_pressure_change_gpa": 0.01665746743589125,
+      "later28_max_pressure_change_gpa": 0.003370272839106292,
+      "later28_pressure_change_range_gpa": [
+        -0.003370272839106292,
+        -5.720210616289023e-08
+      ],
+      "fei2004_rmse_gpa": 0.25468474254999285,
+      "hirose2006_max_abs_residual_gpa": 1.9554978009838635,
+      "figure10_max_pressure_change_gpa": 6.672473838520432e-05,
+      "figure10_max_abs_residual_gpa": 0.29774226719579033
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 8,
+      "grid35_max_pressure_change_gpa": 0.004197022115249638,
+      "later28_max_pressure_change_gpa": 0.0008467893272978699,
+      "later28_pressure_change_range_gpa": [
+        -0.0008467893272978699,
+        -1.4300649553433686e-08
+      ],
+      "fei2004_rmse_gpa": 0.25465662760642344,
+      "hirose2006_max_abs_residual_gpa": 1.952974317472055,
+      "figure10_max_pressure_change_gpa": 1.669325892805773e-05,
+      "figure10_max_abs_residual_gpa": 0.2977922986752475
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 16,
+      "grid35_max_pressure_change_gpa": 0.0010514019036236277,
+      "later28_max_pressure_change_gpa": 0.00021196828053859917,
+      "later28_pressure_change_range_gpa": [
+        -0.00021196828053859917,
+        -3.5751916982462717e-09
+      ],
+      "fei2004_rmse_gpa": 0.2546495943766589,
+      "hirose2006_max_abs_residual_gpa": 1.9523394964252958,
+      "figure10_max_pressure_change_gpa": 4.174071772666821e-06,
+      "figure10_max_abs_residual_gpa": 0.29780481786240287
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 32,
+      "grid35_max_pressure_change_gpa": 0.00026298645491351635,
+      "later28_max_pressure_change_gpa": 5.300912201278152e-05,
+      "later28_pressure_change_range_gpa": [
+        -5.300912201278152e-05,
+        -8.938201290220604e-10
+      ],
+      "fei2004_rmse_gpa": 0.2546478357876578,
+      "hirose2006_max_abs_residual_gpa": 1.95218053726677,
+      "figure10_max_pressure_change_gpa": 1.0435653159390768e-06,
+      "figure10_max_abs_residual_gpa": 0.2978079483688596
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 64,
+      "grid35_max_pressure_change_gpa": 6.575514180440223e-05,
+      "later28_max_pressure_change_gpa": 1.325334795865274e-05,
+      "later28_pressure_change_range_gpa": [
+        -1.325334795865274e-05,
+        -2.234799012512667e-10
+      ],
+      "fei2004_rmse_gpa": 0.25464739612279996,
+      "hirose2006_max_abs_residual_gpa": 1.9521407814927159,
+      "figure10_max_pressure_change_gpa": 2.6089430704701044e-07,
+      "figure10_max_abs_residual_gpa": 0.2978087310398685
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 128,
+      "grid35_max_pressure_change_gpa": 1.6439318869743147e-05,
+      "later28_max_pressure_change_gpa": 3.313403595939235e-06,
+      "later28_pressure_change_range_gpa": [
+        -3.313403595939235e-06,
+        -5.589484430856828e-11
+      ],
+      "fei2004_rmse_gpa": 0.2546472862054839,
+      "hirose2006_max_abs_residual_gpa": 1.9521308415483531,
+      "figure10_max_pressure_change_gpa": 6.522378015461072e-08,
+      "figure10_max_abs_residual_gpa": 0.2978089267103954
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 256,
+      "grid35_max_pressure_change_gpa": 4.109863027679239e-06,
+      "later28_max_pressure_change_gpa": 8.283549135512658e-07,
+      "later28_pressure_change_range_gpa": [
+        -8.283549135512658e-07,
+        -1.3997691894473974e-11
+      ],
+      "fei2004_rmse_gpa": 0.25464725872608707,
+      "hirose2006_max_abs_residual_gpa": 1.9521283564996708,
+      "figure10_max_pressure_change_gpa": 1.630597168400527e-08,
+      "figure10_max_abs_residual_gpa": 0.29780897562820385
+    },
+    {
+      "theta_grid": "volume",
+      "debye_quadrature": "converged_gauss_legendre",
+      "intervals": 1024,
+      "grid35_max_pressure_change_gpa": 2.568670538494189e-07,
+      "later28_max_pressure_change_gpa": 5.177207640372217e-08,
+      "later28_pressure_change_range_gpa": [
+        -5.177207640372217e-08,
+        -9.059419880941277e-13
+      ],
+      "fei2004_rmse_gpa": 0.2546472501387697,
+      "hirose2006_max_abs_residual_gpa": 1.9521275799168336,
+      "figure10_max_pressure_change_gpa": 1.019145656755427e-09,
+      "figure10_max_abs_residual_gpa": 0.2978089909150299
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 1,
+      "grid35_max_pressure_change_gpa": 12.93514672059382,
+      "later28_max_pressure_change_gpa": 6.365796927033642,
+      "later28_pressure_change_range_gpa": [
+        2.500661450860857,
+        6.365796927033642
+      ],
+      "fei2004_rmse_gpa": 3.930257505041576,
+      "hirose2006_max_abs_residual_gpa": 4.413669398888885,
+      "figure10_max_pressure_change_gpa": 2.007216924705089,
+      "figure10_max_abs_residual_gpa": 2.223955047040782
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 2,
+      "grid35_max_pressure_change_gpa": 3.2198092563550063,
+      "later28_max_pressure_change_gpa": 1.577084622339811,
+      "later28_pressure_change_range_gpa": [
+        0.6161001267267032,
+        1.577084622339811
+      ],
+      "fei2004_rmse_gpa": 0.7949330215908991,
+      "hirose2006_max_abs_residual_gpa": 0.37504290580494626,
+      "figure10_max_pressure_change_gpa": 0.4936733953747936,
+      "figure10_max_abs_residual_gpa": 0.7709313746630002
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 4,
+      "grid35_max_pressure_change_gpa": 0.8033075342023039,
+      "later28_max_pressure_change_gpa": 0.3932043135264678,
+      "later28_pressure_change_range_gpa": [
+        0.15347144038018357,
+        0.3932043135264678
+      ],
+      "fei2004_rmse_gpa": 0.08262368257495704,
+      "hirose2006_max_abs_residual_gpa": 1.5589232146182894,
+      "figure10_max_pressure_change_gpa": 0.12292513162127072,
+      "figure10_max_abs_residual_gpa": 0.4155702420804097
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 8,
+      "grid35_max_pressure_change_gpa": 0.20072319296400565,
+      "later28_max_pressure_change_gpa": 0.09823439477445106,
+      "later28_pressure_change_range_gpa": [
+        0.03833358561488254,
+        0.09823439477445106
+      ],
+      "fei2004_rmse_gpa": 0.19476051734923783,
+      "hirose2006_max_abs_residual_gpa": 1.8538931333703061,
+      "figure10_max_pressure_change_gpa": 0.030700771853000575,
+      "figure10_max_abs_residual_gpa": 0.327217148265067
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 16,
+      "grid35_max_pressure_change_gpa": 0.050174310229181174,
+      "later28_max_pressure_change_gpa": 0.024554432108431,
+      "later28_pressure_change_range_gpa": [
+        0.009581259396401975,
+        0.024554432108431
+      ],
+      "fei2004_rmse_gpa": 0.2394628896554072,
+      "hirose2006_max_abs_residual_gpa": 1.9275730960363262,
+      "figure10_max_pressure_change_gpa": 0.007673290977487923,
+      "figure10_max_abs_residual_gpa": 0.3051590261255299
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 32,
+      "grid35_max_pressure_change_gpa": 0.012543171947470455,
+      "later28_max_pressure_change_gpa": 0.006138347637588026,
+      "later28_pressure_change_range_gpa": [
+        0.0023951813667899557,
+        0.006138347637588026
+      ],
+      "fei2004_rmse_gpa": 0.25084089913549545,
+      "hirose2006_max_abs_residual_gpa": 1.9459891805071692,
+      "figure10_max_pressure_change_gpa": 0.0019182039477900759,
+      "figure10_max_abs_residual_gpa": 0.2996463752528271
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 64,
+      "grid35_max_pressure_change_gpa": 0.003135767634603326,
+      "later28_max_pressure_change_gpa": 0.0015345706355418542,
+      "later28_pressure_change_range_gpa": [
+        0.0005987870003423268,
+        0.0015345706355418542
+      ],
+      "fei2004_rmse_gpa": 0.25369505728485703,
+      "hirose2006_max_abs_residual_gpa": 1.9505929575092154,
+      "figure10_max_pressure_change_gpa": 0.0004795435634132872,
+      "figure10_max_abs_residual_gpa": 0.2982683299381925
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 128,
+      "grid35_max_pressure_change_gpa": 0.0007839403241405307,
+      "later28_max_pressure_change_gpa": 0.00038364164190340944,
+      "later28_pressure_change_range_gpa": [
+        0.0001496962287959036,
+        0.00038364164190340944
+      ],
+      "fei2004_rmse_gpa": 0.2544091642430495,
+      "hirose2006_max_abs_residual_gpa": 1.9517438865028538,
+      "figure10_max_pressure_change_gpa": 0.00011988542694219007,
+      "figure10_max_abs_residual_gpa": 0.297923825946075
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 256,
+      "grid35_max_pressure_change_gpa": 0.00019598498204231873,
+      "later28_max_pressure_change_gpa": 9.591034704214962e-05,
+      "later28_pressure_change_range_gpa": [
+        3.742402464723682e-05,
+        9.591034704214962e-05
+      ],
+      "fei2004_rmse_gpa": 0.2545877259154803,
+      "hirose2006_max_abs_residual_gpa": 1.952031617797715,
+      "figure10_max_pressure_change_gpa": 2.997132778403966e-05,
+      "figure10_max_abs_residual_gpa": 0.29783770040656066
+    },
+    {
+      "theta_grid": "analytic",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 1024,
+      "grid35_max_pressure_change_gpa": 1.2249059466284962e-05,
+      "later28_max_pressure_change_gpa": 5.994395621655713e-06,
+      "later28_pressure_change_range_gpa": [
+        2.3390009395996003e-06,
+        5.994395621655713e-06
+      ],
+      "fei2004_rmse_gpa": 0.2546435292928445,
+      "hirose2006_max_abs_residual_gpa": 1.9521215337491356,
+      "figure10_max_pressure_change_gpa": 1.8732074753557981e-06,
+      "figure10_max_abs_residual_gpa": 0.297810786213077
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 1,
+      "grid35_max_pressure_change_gpa": 12.60948019403935,
+      "later28_max_pressure_change_gpa": 6.273154714676025,
+      "later28_pressure_change_range_gpa": [
+        2.499913907259728,
+        6.273154714676025
+      ],
+      "fei2004_rmse_gpa": 3.928947041112387,
+      "hirose2006_max_abs_residual_gpa": 4.321027186531268,
+      "figure10_max_pressure_change_gpa": 2.0070926547313466,
+      "figure10_max_abs_residual_gpa": 2.2213515118854623
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 2,
+      "grid35_max_pressure_change_gpa": 3.1556882121481067,
+      "later28_max_pressure_change_gpa": 1.5610977410370168,
+      "later28_pressure_change_range_gpa": [
+        0.6159911850448943,
+        1.5610977410370168
+      ],
+      "fei2004_rmse_gpa": 0.7947519565443906,
+      "hirose2006_max_abs_residual_gpa": 0.3910297871077404,
+      "figure10_max_pressure_change_gpa": 0.49365539995993934,
+      "figure10_max_abs_residual_gpa": 0.7705457140883816
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 4,
+      "grid35_max_pressure_change_gpa": 0.7882498233486785,
+      "later28_max_pressure_change_gpa": 0.38970319291399846,
+      "later28_pressure_change_range_gpa": [
+        0.15344920546705865,
+        0.38970319291399846
+      ],
+      "fei2004_rmse_gpa": 0.08263952075008074,
+      "hirose2006_max_abs_residual_gpa": 1.5624243352307587,
+      "figure10_max_pressure_change_gpa": 0.12292146599612686,
+      "figure10_max_abs_residual_gpa": 0.41549085127108043
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 8,
+      "grid35_max_pressure_change_gpa": 0.19701059671649546,
+      "later28_max_pressure_change_gpa": 0.0973912865592581,
+      "later28_pressure_change_range_gpa": [
+        0.038328341944126265,
+        0.0973912865592581
+      ],
+      "fei2004_rmse_gpa": 0.19477135164688372,
+      "hirose2006_max_abs_residual_gpa": 1.854736241585499,
+      "figure10_max_pressure_change_gpa": 0.03069990783800769,
+      "figure10_max_abs_residual_gpa": 0.3271983747571383
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 16,
+      "grid35_max_pressure_change_gpa": 0.049249035018874565,
+      "later28_max_pressure_change_gpa": 0.024345683168391474,
+      "later28_pressure_change_range_gpa": [
+        0.009579968209589396,
+        0.024345683168391474
+      ],
+      "fei2004_rmse_gpa": 0.23946552199196028,
+      "hirose2006_max_abs_residual_gpa": 1.9277818449763657,
+      "figure10_max_pressure_change_gpa": 0.007673078253111143,
+      "figure10_max_abs_residual_gpa": 0.30515440004878513
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 32,
+      "grid35_max_pressure_change_gpa": 0.012312024886057316,
+      "later28_max_pressure_change_gpa": 0.006086287415726588,
+      "later28_pressure_change_range_gpa": [
+        0.0023948598038892044,
+        0.006086287415726588
+      ],
+      "fei2004_rmse_gpa": 0.2508415524506027,
+      "hirose2006_max_abs_residual_gpa": 1.9460412407290306,
+      "figure10_max_pressure_change_gpa": 0.0019181509717345335,
+      "figure10_max_abs_residual_gpa": 0.29964522294246976
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 64,
+      "grid35_max_pressure_change_gpa": 0.0030779914681033915,
+      "later28_max_pressure_change_gpa": 0.0015215635223171375,
+      "later28_pressure_change_range_gpa": [
+        0.0005987066867412238,
+        0.0015215635223171375
+      ],
+      "fei2004_rmse_gpa": 0.2536952203177527,
+      "hirose2006_max_abs_residual_gpa": 1.95060596462244,
+      "figure10_max_pressure_change_gpa": 0.0004795303322158162,
+      "figure10_max_abs_residual_gpa": 0.29826804212369495
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 128,
+      "grid35_max_pressure_change_gpa": 0.0007694969427802789,
+      "later28_max_pressure_change_gpa": 0.000380390360049887,
+      "later28_pressure_change_range_gpa": [
+        0.00014967615522110123,
+        0.000380390360049887
+      ],
+      "fei2004_rmse_gpa": 0.2544092049828195,
+      "hirose2006_max_abs_residual_gpa": 1.9517471377847073,
+      "figure10_max_pressure_change_gpa": 0.00011988211994484743,
+      "figure10_max_abs_residual_gpa": 0.29792375400889526
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 256,
+      "grid35_max_pressure_change_gpa": 0.00019237417791373446,
+      "later28_max_pressure_change_gpa": 9.509755761882843e-05,
+      "later28_pressure_change_range_gpa": [
+        3.741900655285235e-05,
+        9.509755761882843e-05
+      ],
+      "fei2004_rmse_gpa": 0.25458773609926993,
+      "hirose2006_max_abs_residual_gpa": 1.9520324305871384,
+      "figure10_max_pressure_change_gpa": 2.9970501083553813e-05,
+      "figure10_max_abs_residual_gpa": 0.297837682423296
+    },
+    {
+      "theta_grid": "log_volume",
+      "debye_quadrature": "trapezoidal",
+      "intervals": 1024,
+      "grid35_max_pressure_change_gpa": 1.2023385011161736e-05,
+      "later28_max_pressure_change_gpa": 5.943596889323999e-06,
+      "later28_pressure_change_range_gpa": [
+        2.338687313141463e-06,
+        5.943596889323999e-06
+      ],
+      "fei2004_rmse_gpa": 0.2546435299293093,
+      "hirose2006_max_abs_residual_gpa": 1.9521215845478679,
+      "figure10_max_pressure_change_gpa": 1.8731558082407673e-06,
+      "figure10_max_abs_residual_gpa": 0.2978107850891405
+    }
+  ],
+  "limits": "Uniform grids tested here are sensitivity scenarios, not a recovered historical grid. Later Fei/Hirose pressures are not original Speziale fit targets. Digitized Figure 10 points have graphical extraction limits. Quadrature convergence does not establish original fitting parity.",
+  "calibration_input_sha256": "040acf2b0cbdc087520a662824c087b2c7849742b6839317727a3560c86d03b9",
+  "source_code_sha256": "2f182b6bd4ca07c4d50ade4b615bbc3c49eb51a2d0d6e45c65c1cb0fb88870d3"
+}

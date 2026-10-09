@@ -104,10 +104,12 @@ personal communication rather than introduced as an empirical correction.
 ## Pressure calibration
 
 Section 2.5 and Supplementary Figure S1 select the **Speziale (2001) thermal MgO
-scale** after comparison with Tange (2009). The bundled Speziale catalog record
-is only the isothermal BM3 fit; linking that record as a full thermal standard
-would misrepresent the source. Paired MgO observations are retained, but pressure
-recalculation remains `reference_eos_not_bundled`.
+scale** after comparison with Tange (2009). The Speziale catalog record now
+includes the author-confirmed published variable-q thermal model. Paired MgO
+observations can be evaluated with it. The historical `reference_eos_not_bundled`
+recalculation limitation concerns the exact Miozzi reducer and mixed optical
+gauge reduction, which remain unresolved; it no longer denotes absence of the
+published Speziale EOS. Printed source pressures are retained.
 
 The helium series used the Mao (1986) hydrostatic ruby scale (exponent 7.665)
 and a Datchi (1997) SrB4O7:Sm2+ gauge. Their individual readings and combination
@@ -748,7 +750,7 @@ The separate `iron_miozzi_2020_speziale_2001_bm3_mgd_refit` record uses the
 consistent **n=1 per mole Fe** basis. The 116 MgO-series pressures are
 recalculated with the Speziale (2001) variable-q Debye calibration described
 above; the 15 source He pressures remain unchanged. The calibration is a
-documented thermal reconstruction, not the isothermal-only Speziale catalog
+documented thermal reconstruction, now also implemented by the Speziale catalog
 record and not a recovered author input file. All 131 central observations
 are fitted with equal pressure-residual weights in the three-stage sequence.
 V0,K0,Kprime,gamma0,q are free in the last stage; theta0=420 K and Tr=300 K

@@ -1597,3 +1597,50 @@ fn bounded_pressure_tables_match_matsui_and_yokoo_source_checks() {
         );
     }
 }
+
+#[test]
+fn speziale_mgo_thermal_record_matches_integrated_equation_benchmarks() {
+    let Some(material) = load_bundled_material("mgo.eosmat") else {
+        return;
+    };
+    let record = material.record("mgo_speziale_2001_bm3_2").unwrap();
+    assert_eq!(
+        record.eos.isothermal_model_identifier(),
+        "birch_murnaghan_3"
+    );
+    assert_eq!(
+        record.eos.thermal_model_identifier(),
+        Some("variable_q_mie_gruneisen_debye")
+    );
+    // Independent analytic-theta/adaptive-Debye audit, in cell A^3 and kelvin.
+    for (volume, temperature, expected) in [
+        (74.71, 1100.0, 4.964_239_704_415_689),
+        (67.239, 1100.0, 25.685_905_931_292_062),
+        (59.768, 2000.0, 67.450_231_976_855_73),
+        (47.8144, 3663.0, 203.397_700_341_661_1),
+    ] {
+        let pressure = record.pressure(volume, temperature).unwrap();
+        assert!(
+            (pressure - expected).abs() < 1.0e-6,
+            "{pressure} != {expected}"
+        );
+        assert!((record.volume(pressure, temperature).unwrap() - volume).abs() < 1.0e-8);
+        assert!(
+            record
+                .thermal_pressure_increment(volume, 300.0)
+                .unwrap()
+                .abs()
+                < 1.0e-12
+        );
+    }
+    let output = serialize_eosmat(&material.document).unwrap();
+    let reloaded = load_eosmat_str(&output).unwrap();
+    assert_eq!(
+        reloaded
+            .record("mgo_speziale_2001_bm3_2")
+            .unwrap()
+            .eos
+            .thermal_model_identifier(),
+        Some("variable_q_mie_gruneisen_debye")
+    );
+}

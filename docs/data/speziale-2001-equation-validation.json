@@ -18,7 +18,21 @@
     "energy_expression": "9*n*R*T*(T/theta)^3*integral_0^(theta/T) z^3/(exp(z)-1) dz",
     "thermal_pressure_expression": "gamma*(E(T)-E(300))/V_m/1e9 (GPa)"
   },
-  "theta_interpretation": "Integrate d ln(theta) = -gamma d ln(V); printed Eq. 4 is the constant-q case.",
+  "theta_interpretation": "Integrate d ln(theta) = -gamma d ln(V) using source Eq. 11; confirmed by Sergio Speziale. Printed Eq. 4 is the constant-q case.",
+  "variable_q_theta_prescription_author_confirmed": true,
+  "author_confirmation": {
+    "evidence_type": "user_supplied_author_email_reply",
+    "author": "Sergio Speziale",
+    "reported_on": "2026-10-09",
+    "confirmed_prescription": "Numerically integrate d ln(theta) = -gamma(V) d ln(V), using the variable-q gamma law in Speziale (2001) Equation 11.",
+    "integration_method": "simple_trapezoidal",
+    "variable_q_theta_prescription_author_confirmed": true,
+    "original_calculator_available": false,
+    "original_quadrature_grid_and_tolerance_available": false,
+    "scope": "Confirms the gamma law and Debye-temperature integration prescription from the author's recollection. Does not recover the original calculator, integration grid, fit objective, weights, covariance, shock reduction or later Fei/Hirose reducers.",
+    "evidence_path": "docs/data/speziale-2001-author-confirmation.json",
+    "evidence_sha256": "472b86e18a73b2884d5ee84dea953a24d005556688be4558b918508f7773c80d"
+  },
   "numerical": {
     "states": 35,
     "volume_ratio_range": [
@@ -47,7 +61,7 @@
       "checkpoints": 4,
       "max_abs_pressure_difference_gpa": 0.29780899193415067,
       "max_abs_volume_ratio_difference": 0.0011979978213363385,
-      "interpretation": "Small plotted-curve differences remain; the inset does not identify the original variable-q theta prescription.",
+      "interpretation": "Small plotted-curve differences remain. The integration prescription is author-confirmed; original numerical settings and calculator outputs are unavailable.",
       "exact_author_calculation_verified": false
     }
   },

@@ -56,4 +56,16 @@ def test_archived_equation_report_and_source_curve_provenance():
     # Preserve the graphical discrepancy; it must not become exact author parity.
     assert report["source_curve_checks"]["10"]["max_abs_volume_ratio_difference"] > 1e-3
     assert report["exact_historical_variable_q_implementation_verified"] is False
+    # Author confirmation settles the formulation, not recovery of his calculator.
+    assert report["variable_q_theta_prescription_author_confirmed"] is True
+    evidence = report["author_confirmation"]
+    assert evidence["evidence_type"] == "user_supplied_author_email_reply"
+    assert evidence["integration_method"] == "simple_trapezoidal"
+    assert evidence["original_calculator_available"] is False
+    assert evidence["original_quadrature_grid_and_tolerance_available"] is False
+    evidence_path = OUTPUT.parents[2] / evidence["evidence_path"]
+    assert (
+        evidence["evidence_sha256"]
+        == hashlib.sha256(evidence_path.read_bytes()).hexdigest()
+    )
     assert report["numerical"]["closed_form_max_difference_gpa"] < 1e-9

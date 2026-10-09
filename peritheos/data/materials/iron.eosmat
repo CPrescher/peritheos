@@ -5484,7 +5484,7 @@
        "source": "J. Geophys. Res."
       },
       "source_location": "Section 2.5 and Supplementary Figure S1",
-      "scope": "MgO-series pressures; source states the full Speziale thermal scale, not the bundled isothermal-only fit."
+      "scope": "MgO-series pressures; source states the Speziale thermal scale. The published variable-q thermal EOS is now bundled; the exact source pressure-reduction settings remain unresolved."
      },
      {
       "kind": "ruby_fluorescence",
@@ -5510,7 +5510,7 @@
     ],
     "recalculation": {
      "status": "reference_eos_not_bundled",
-     "notes": "Paired MgO volumes/errors are bundled, but the full cited Speziale thermal pressure model is not an executable catalog record. The existing Speziale record is isothermal only. Ruby/Sr gauge observations and their combination are missing. Printed pressures remain unchanged; their exact coefficient implementation is not established."
+     "notes": "The published Speziale variable-q thermal EOS and paired MgO observations are now bundled. This remaining historical-reference limitation concerns the exact Miozzi pressure reducer, not availability of the published EOS. Ruby/Sr gauge readings and their combination are missing. Printed pressures remain unchanged; recalculation with the published model is a separate derived result."
     }
    },
    "scientific_validation": {
@@ -5648,7 +5648,7 @@
        "source": "J. Geophys. Res."
       },
       "source_location": "Section 2.5 and Supplementary Figure S1",
-      "scope": "MgO-series pressures; source states the full Speziale thermal scale, not the bundled isothermal-only fit."
+      "scope": "MgO-series pressures; source states the Speziale thermal scale. The published variable-q thermal EOS is now bundled; the exact source pressure-reduction settings remain unresolved."
      },
      {
       "kind": "ruby_fluorescence",
@@ -5674,7 +5674,7 @@
     ],
     "recalculation": {
      "status": "reference_eos_not_bundled",
-     "notes": "Paired MgO volumes/errors are bundled, but the full cited Speziale thermal pressure model is not an executable catalog record. The existing Speziale record is isothermal only. Ruby/Sr gauge observations and their combination are missing. Printed pressures remain unchanged; their exact coefficient implementation is not established."
+     "notes": "The published Speziale variable-q thermal EOS and paired MgO observations are now bundled. This remaining historical-reference limitation concerns the exact Miozzi pressure reducer, not availability of the published EOS. Ruby/Sr gauge readings and their combination are missing. Printed pressures remain unchanged; recalculation with the published model is a separate derived result."
     }
    },
    "scientific_validation": {
@@ -5828,7 +5828,7 @@
        "source": "J. Geophys. Res."
       },
       "source_location": "Section 2.5 and Supplementary Figure S1",
-      "scope": "MgO-series pressures; source states the full Speziale thermal scale, not the bundled isothermal-only fit."
+      "scope": "MgO-series pressures; source states the Speziale thermal scale. The published variable-q thermal EOS is now bundled; the exact source pressure-reduction settings remain unresolved."
      },
      {
       "kind": "ruby_fluorescence",
@@ -5854,7 +5854,7 @@
     ],
     "recalculation": {
      "status": "reference_eos_not_bundled",
-     "notes": "Paired MgO volumes/errors are bundled, but the full cited Speziale thermal pressure model is not an executable catalog record. The existing Speziale record is isothermal only. Ruby/Sr gauge observations and their combination are missing. Printed pressures remain unchanged; their exact coefficient implementation is not established."
+     "notes": "The published Speziale variable-q thermal EOS and paired MgO observations are now bundled. This remaining historical-reference limitation concerns the exact Miozzi pressure reducer, not availability of the published EOS. Ruby/Sr gauge readings and their combination are missing. Printed pressures remain unchanged; recalculation with the published model is a separate derived result."
     }
    },
    "scientific_validation": {
@@ -6509,7 +6509,7 @@
     ],
     "recalculation": {
      "status": "ready",
-     "notes": "Thermal calibration implementation and derived observations bundled; isothermal-only Speziale catalog record is not substituted. He source pressures retained; raw optical gauge readings unavailable."
+     "notes": "Thermal calibration implementation and derived observations bundled; the Speziale catalog record now also supplies the same published variable-q model. He source pressures retained; raw optical gauge readings unavailable."
     }
    },
    "scientific_validation": {

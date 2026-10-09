@@ -1,0 +1,20 @@
+{
+  "evidence_type": "user_supplied_author_email_reply",
+  "author": "Sergio Speziale",
+  "reported_on": "2026-10-09",
+  "original_email_date": null,
+  "original_email_headers_archived": false,
+  "publication_doi": "10.1029/2000JB900318",
+  "confirmed_prescription": "Numerically integrate d ln(theta) = -gamma(V) d ln(V), using the variable-q gamma law in Speziale (2001) Equation 11.",
+  "integration_method": "simple_trapezoidal",
+  "note_equation_mapping": {
+    "N5": "gamma(V) = -d ln(theta) / d ln(V)",
+    "S11": "Speziale (2001) Equation 11: gamma(V) = gamma0 * exp[(q0/q1)*((V/V0)^q1 - 1)]"
+  },
+  "variable_q_theta_prescription_author_confirmed": true,
+  "original_calculator_available": false,
+  "original_quadrature_grid_and_tolerance_available": false,
+  "complete_author_thermal_fit_reproduced": false,
+  "scope": "Confirms the gamma law and Debye-temperature integration prescription from the author's recollection. Does not recover the original calculator, integration grid, fit objective, weights, covariance, shock reduction or later Fei/Hirose reducers.",
+  "reply_verbatim": "Dear Clemens,\n\nyour project is a very good idea.\n\nAs for my old article:\n\nThe formula I eventually used to express the volume dependence of the Grüneisen parameter was the one with variable q (inspired by some previous work by Raymond Jeanloz).\n\nI can confirm that I numerically integrated your equation N5 by using S11, using the equation numbering of your notes.\n\nI generally used a simple trapezoidal integration approach.\n\nI cannot currently fetch the original calculator. But I am pretty sure about this integration approach.\n\nCiao!\n\nSergio"
+}

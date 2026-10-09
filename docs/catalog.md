@@ -10,6 +10,94 @@ Thorianite and cotunnite-type ThO2 have separate experimental thermal records
 from Chidester et al. (2018); see the [source audit](literature-reproductions/chidester-2018-tho2.md)
 for their phase-dependent data selections and reference-state limits.
 
+## EOS record categories
+
+Peritheos records three separate assessments: **where the coefficients come
+from**, **whether the represented EOS has been checked**, and **how much of
+the fitting procedure has been reproduced**. Read them together with the
+record's scope and qualifications. They are independent fields, not a single
+quality ranking.
+
+### Record origin
+
+The `record_kind` field identifies the origin of the represented coefficients:
+
+| Category | Meaning |
+|---|---|
+| Published (`published`) | The source publication's parameterization, including its fixed or adopted coefficients. |
+| Refit (`refit`) | A separately attributed fit using a documented dataset, selection, equation, objective and weights. Its coefficients belong to that refit. |
+| Derived (`derived`) | A model constructed through a documented transformation or composition of source results. |
+| Diagnostic (`diagnostic`) | An investigation or comparison model whose qualifications limit its scientific use. |
+
+A new fit receives its own record and provenance. It does not silently replace
+the published coefficients. Older files without `record_kind` mean `published`.
+
+### Scientific validation
+
+The `scientific_validation.status` field describes the audit of the represented
+EOS. Structural validity only establishes that the file has an accepted format.
+
+| Category | Meaning |
+|---|---|
+| Primary-source validated (`primary_source_validated`) | Equation, coefficients, units, normalization and reference state have been checked against primary evidence. For a refit or derived record, source inputs and model choices are traced, while new coefficients or transformations are identified as Peritheos results. |
+| Pending (`pending_primary_source_check`) | The primary-source audit is incomplete. |
+| Deferred (`deferred`) | Required evidence is missing, ambiguous or inconsistent enough to withhold normal executable use. |
+| Not reproduced (`not_reproduced`) | The record carries a documented unresolved reproduction problem and requires the stated qualifications and explicit acceptance. Some such records remain executable for investigation. |
+
+Primary-source validation supports the documented formulation and represented
+parameters. It does not establish the accuracy of every prediction, reproduce
+the original regression, or validate extrapolation. Author confirmation is
+evidence for a specified part of the formulation; it is recorded with its scope
+and is not a separate global validation status.
+
+### Fit reproduction
+
+The [primary EOS refit ledger](primary-eos-refits.md) uses these outcomes:
+
+| Category | Meaning |
+|---|---|
+| Parity (`parity`) | Recovered free coefficients meet the documented uncertainty and numerical comparison criteria. Conditional or source-specific criteria are stated explicitly. |
+| Similar (`similar`) | The independent result meets documented numerical similarity criteria or a qualified uncertainty comparison. Similarity is not a statistical confidence claim. |
+| Parity not achieved (`parity_not_achieved`) | A fit produced a comparison, but at least one coefficient fails the stated agreement criteria. |
+| Source reconstruction (`source_reconstruction`) | Source equations, calculations or compositions are checked without independently refitting the complete EOS. |
+| Direct refit unavailable (`not_refittable`) | Available observations or reduction details do not support an independent fit of the complete EOS. |
+| Refit failed (`refit_failed`) | Extraction or numerical fitting failed before a usable comparison was produced. This differs from a completed fit with discrepant coefficients. |
+
+These outcomes compare coefficients under the documented reconstruction. Even
+parity does not by itself recover the author's row selection, objective,
+weights, covariance, error estimates or calculator. For a Peritheos refit,
+reproduction refers to that independent fit unless the original publication is
+explicitly the comparison target. A paper-level outcome can also combine several
+record outcomes; see the [paper investigation ledger](paper-investigation-ledger.md).
+
+Individual source audits additionally use scoped `reproduction_status` values
+such as `partially_reproduced` or `equation_reproduced`. These are additive audit
+descriptions, rather than a closed schema enumeration. **Partially reproduced**
+means that a specified component was verified or recovered while the complete
+source procedure remains unreproduced. The accompanying note identifies which
+component and which evidence remain missing.
+
+### Example: Speziale (2001) MgO
+
+The record `mgo_speziale_2001_bm3_2` is **published**, **primary-source validated**,
+and has an **author-confirmed thermal formulation**. It uses the paper's final
+BM3 plus variable-q Debye coefficients. Independent calculations verify the
+pressure evaluation, and Sergio Speziale confirms integration of the defining
+Debye-temperature relation using Equation (11).
+
+Its complete original fitting procedure remains **partially reproduced**. The
+cold coefficients are recovered within published error widths, while the full
+thermal regression and original calculator settings are unavailable. A new
+refit is not required to use this published EOS. A future independent refit
+would be a separate record. See the [Speziale audit](literature-reproductions/speziale-2001-mgo.md).
+
+Other fields answer different questions: `equation_kind` distinguishes
+isothermal, thermal and Hugoniot models; `determination_method` distinguishes
+experimental, theoretical, hybrid and unknown origins of the underlying
+determination. Pressure-calibration provenance and validity ranges likewise
+have their own assessments. None of these automatically changes the three
+classifications above.
+
 ## Browse material families
 
 Families group related composition variants for browsing. They contain no EOS,

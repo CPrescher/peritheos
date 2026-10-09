@@ -7,21 +7,36 @@ for the Debye temperature and adaptive Debye integration agree with the existing
 calculation to 3.70e-13 GPa across 35 states. No parameters were fitted for these
 equation checks.
 
-This verifies the equations and their evaluation; exact reproduction of the
-authors' historical variable-q implementation remains a separate question.
-Equation 4 is written for constant q, whereas the final model uses variable q
-in Equations 10–11. We integrate its defining thermodynamic identity. The source
-does not explicitly state how its software extended the Debye-temperature
-calculation to variable q.
+**The variable-q Debye-temperature prescription is now author-confirmed.** In
+a reply supplied by Clemens and recorded on 9 October 2026, Sergio Speziale
+confirmed that he numerically integrated the defining Debye-temperature relation
+using the variable-q gamma law in Equation 11, generally with simple trapezoidal
+integration. This matches the formulation used here. The original calculator
+and its integration grid and tolerance remain unavailable; the complete author
+thermal fit and later Fei/Hirose reductions are not reproduced.
+
+The [author-confirmation evidence](../data/speziale-2001-author-confirmation.json)
+preserves the supplied reply and its scope. The evidence is the user-supplied
+reply text; original email headers and an independently retrieved calculator are
+not archived. The date is when the reply was supplied, not a recovered message
+timestamp.
 
 The later Fei/Hirose pressure comparisons are retained below as separate
 calibration evidence. They do not determine whether the printed equation has
 been implemented correctly.
 
-The cold record `mgo_speziale_2001_bm3_2` remains a cold-only constrained BM3
-record. No thermal model is silently attached to it. The published Au
-coefficients and qualified staged parity remain unchanged. This audit does not
-refit Au, Pt, or the independent Miozzi iron reconstruction.
+The existing record `mgo_speziale_2001_bm3_2` now exposes the **published BM3
+plus variable-q Debye thermal EOS**. Its stable identifier and BM3 coefficients
+are retained. The thermal parameters are the paper's final values, with n=2
+per mole MgO and automatic conventional-cell-to-molar volume conversion. The
+catalog formulation is validated and author-confirmed; only the original fitting
+procedure remains partially reproduced. The reported gamma0, q0 and q1 error
+widths are retained without inventing a covariance or confidence convention.
+
+The executable model `VariableQMieGruneisenDebye` integrates the defining theta
+relation adaptively. The following independent audit provides its numerical
+benchmarks; no catalog coefficient was refitted. The paper's static/shock range
+is a marginal coverage envelope rather than validation of every P-T combination.
 
 ## Primary authority and reference state
 
@@ -73,9 +88,10 @@ comparison. This is not one recoverable flat unconstrained PVT regression.
 
 Equation 4, theta=theta0*exp[(gamma0-gamma)/q], follows for constant q.
 Substituting instantaneous q(V) into that expression is not its integrated
-variable-q extension. The paper does not give an explicit executable variable-q
-theta prescription. Integration is the thermodynamically consistent extension,
-not proof of the original software's choices.
+variable-q extension. Although the paper does not explicitly write out the
+variable-q theta integral, Speziale's reply confirms that this integration was
+used. Our Gauss-Legendre and adaptive calculations evaluate the same continuous
+relation; their algorithms do not recover his original trapezoidal grid.
 
 ## What is independently validated
 
@@ -102,7 +118,7 @@ Dulong–Petit limit 6R per mole per kelvin.
 | --- | --- | --- |
 | Figure 6, constant q=1.65, 300/1100/3000 K | 11 digitized checkpoints; maximum pressure difference 0.109 GPa and V/V0 difference 0.000394 | Agreement at graphical precision; checks the normalization and constant-q calculation against the paper |
 | Figure 9, final gamma law | gamma approaches 1.325127 and decreases monotonically on compression | Consistent with the paper's stated approximately 1.33 limit |
-| Figure 10 inset, final-model 1100 K curve | Four unobscured checkpoints; maximum pressure difference 0.298 GPa and V/V0 difference 0.001198 | Small differences remain; this scanned inset does not establish the exact historical variable-q theta prescription |
+| Figure 10 inset, final-model 1100 K curve | Four unobscured checkpoints; maximum pressure difference 0.298 GPa and V/V0 difference 0.001198 | Small differences remain; the integration prescription is author-confirmed, while original calculator outputs and numerical settings are unavailable |
 
 These checkpoints are **published calculated curves, not experimental data**.
 The manually chosen pixel windows, axis calibration, PDF hash and extraction
@@ -208,11 +224,60 @@ reanalysis independently documents several differing implementations called
 “Speziale MgO”; it corroborates a historical convention issue, not the exact
 local-power reducer inferred here.
 
+## Does trapezoidal integration explain the differences?
+
+Speziale's reply answers the Debye-temperature prescription question completely:
+integrate the defining relation using Equation (11), generally by trapezoidal
+integration. **Full thermal-fit parity has not been demonstrated because the
+complete original fitting construction has not been replayed.** This is distinct
+from a completed thermal refit that failed to recover the coefficients. The
+constant-q subset checks and later Fei/Hirose pressure comparisons above are
+separate comparisons, not a complete replay of Speziale's final model construction.
+
+The [trapezoidal sensitivity audit](../data/speziale-2001-trapezoidal-integration.json)
+keeps every published coefficient fixed and compares uniform integration grids
+in log(V/V0) and V/V0 against the independent analytic theta and adaptive Debye
+reference. Each state integrates from its reference volume to its current volume;
+the original author grid is not known. Across the same 35 states used in the
+equation audit, the largest pressure changes from **theta integration alone** are:
+
+| Intervals | Uniform log(V/V0) | Uniform V/V0 |
+|---|---:|---:|
+| 16 | 0.000921 GPa | 0.001051 GPa |
+| 64 | 0.0000578 GPa | 0.0000658 GPa |
+| 256 | 0.00000361 GPa | 0.00000411 GPa |
+
+At the four digitized original Figure 10 checkpoints, 16 intervals change pressure
+by at most 0.00000461 GPa, compared with the approximately 0.298 GPa maximum
+graphical discrepancy. Even one interval changes those checkpoint pressures by
+at most 0.00115 GPa. The tested theta grids therefore do not explain that graphical
+difference. Extraction precision remains a separate limitation.
+
+For the 28 later Fei/Hirose states, 16 intervals change pressure by at most
+0.000212 GPa. These theta-only changes move predictions downward and slightly
+worsen agreement: Fei RMSE remains approximately 0.255 GPa and the largest
+Hirose residual approximately 1.952 GPa. These later values are not original
+Speziale thermal-fit targets.
+
+The audit also tests trapezoidal **Debye-energy** integration as a separate
+diagnostic. That method is not specified in the supplied author reply. Coarse
+energy grids can have larger effects: 16 intervals change pressures by up to
+0.0502 GPa across the 35 states. These grids converge to the same continuous EOS;
+none of the tested scenarios reproduces both the later pressure values and the
+original Figure 10 checkpoints. They do not recover the historical calculator.
+
+Changing quadrature cannot establish coefficient recovery without replaying the
+thermodynamic constraints, thermal-data selection and shock comparison used to
+construct the final parameterization. The published EOS remains validated and
+author-confirmed; its original fit remains partially reproduced. No coefficient
+or production integration method is changed by this sensitivity audit.
+
 ## Reproduction and remaining evidence
 
 ```bash
 python -m scripts.validate_speziale_2001_equations --check
 python -m scripts.validate_speziale_2001_equations --plot
+python -m scripts.audit_speziale_2001_trapezoidal --check
 python -m pytest tests/test_speziale_2001_equations.py tests/test_speziale_2001_mgo.py
 python -m scripts.reproduce_speziale_2001_mgo
 python -m scripts.reproduce_speziale_2001_mgo --check
@@ -227,10 +292,17 @@ retains reported pressures alongside every diagnostic prediction.
 records the original shock recovery and separates optical measurements from
 model outputs. No third-party source-rights transfer or source CC0 claim is made.
 
-Still needed for exact reproduction: original selected Fei (1999)/Utsumi
-(1998) thermal inputs; original regression objective, weights and covariance;
-the variable-q theta prescription and unrounded coefficient/input files used
-in Speziale's calculations; exact shock-volume normalization; and the actual
-Fei/Hirose pressure-reduction code. The available evidence establishes the
-equation implementation and conditional subset agreement, while leaving the
-complete author thermal calibration and reducer unidentified.
+Still needed to reproduce the original 2001 EOS analysis: complete selected
+thermal inputs, especially Fei (1999)/Utsumi (1998), and precise original Fiquet
+inputs; the regression objective, weights and uncertainty calculation; and the
+exact shock-volume normalization and reduction used to constrain q1. The four
+Svendsen–Ahrens shots have been recovered from their original source, but the
+exact reduced states used by Speziale have not been established. The original
+trapezoidal grid, tolerance, unrounded inputs and reference calculated outputs
+would additionally support exact historical numerical replay. The available
+evidence establishes the author-confirmed formulation, its numerical evaluation
+and conditional subset agreement; complete original thermal-fit parity remains
+unclaimed.
+
+The actual later Fei/Hirose pressure-reduction code is a separate unresolved
+calibration question. It is not required to reproduce Speziale's 2001 analysis.

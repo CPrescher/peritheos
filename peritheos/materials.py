@@ -64,6 +64,7 @@ from peritheos.eos.thermal import (
     Tange2009Debye,
     ThermalModifiedTait,
     ThermalReferenceStateEOS,
+    VariableQMieGruneisenDebye,
 )
 from peritheos.errors import (
     ConfigurationError,
@@ -1305,6 +1306,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "SoundVelocityDebyeHelmholtz": "sound_velocity_debye_helmholtz",
         "ThermalReferenceStateEOS": "thermal_reference_state",
         "MieGruneisenDebye": "mie_gruneisen_debye",
+        "VariableQMieGruneisenDebye": "variable_q_mie_gruneisen_debye",
         "MieGruneisenEinstein": "mie_gruneisen_einstein",
         "Tange2009Debye": "asymptotic_power_law_mie_gruneisen_debye",
         "AsymptoticPowerLawMieGruneisenDebyeExcess": (
@@ -1357,6 +1359,7 @@ _MODEL_CLASSES = MappingProxyType(
             SoundVelocityDebyeHelmholtz,
             ThermalReferenceStateEOS,
             MieGruneisenDebye,
+            VariableQMieGruneisenDebye,
             MieGruneisenEinstein,
             MultiOscillatorGruneisenThermalEOS,
             Tange2009Debye,
@@ -1404,6 +1407,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "sound_velocity_debye_helmholtz": "SoundVelocityDebyeHelmholtz",
         "thermal_reference_state": "AlphaKT",
         "mie_gruneisen_debye": "MieGruneisenDebye",
+        "variable_q_mie_gruneisen_debye": "VariableQMieGruneisenDebye",
         "mie_gruneisen_einstein": "MieGruneisenEinstein",
         "asymptotic_power_law_mie_gruneisen_debye": (
             "AsymptoticPowerLawMieGruneisenDebye"
@@ -1424,6 +1428,7 @@ _MOLAR_VOLUME_THERMAL_MODELS = frozenset(
         "asymptotic_debye_tabulated_pressure",
         "debye_anharmonic_helmholtz",
         "mie_gruneisen_debye",
+        "variable_q_mie_gruneisen_debye",
         "sound_velocity_debye_helmholtz",
         "double_debye_helmholtz",
         "double_debye_log_moment_helmholtz",

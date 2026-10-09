@@ -22,6 +22,7 @@ from scripts.reproduce_speziale_2001_mgo import (
     adaptive_pressure,
     gamma_theta,
     pressure,
+    read_author_confirmation,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -125,8 +126,9 @@ def validate():
             interpretation=(
                 "Constant-q isotherms agree at graphical precision."
                 if fig == 6
-                else "Small plotted-curve differences remain; the inset does not "
-                "identify the original variable-q theta prescription."
+                else "Small plotted-curve differences remain. The integration "
+                "prescription is author-confirmed; original numerical settings "
+                "and calculator outputs are unavailable."
             ),
             exact_author_calculation_verified=False,
         )
@@ -141,7 +143,9 @@ def validate():
             energy_expression="9*n*R*T*(T/theta)^3*integral_0^(theta/T) z^3/(exp(z)-1) dz",
             thermal_pressure_expression="gamma*(E(T)-E(300))/V_m/1e9 (GPa)",
         ),
-        theta_interpretation="Integrate d ln(theta) = -gamma d ln(V); printed Eq. 4 is the constant-q case.",
+        theta_interpretation="Integrate d ln(theta) = -gamma d ln(V) using source Eq. 11; confirmed by Sergio Speziale. Printed Eq. 4 is the constant-q case.",
+        variable_q_theta_prescription_author_confirmed=True,
+        author_confirmation=read_author_confirmation(),
         numerical=numerical,
         gamma_infinite_compression_limit=float(1.524 * np.exp(-1.65 / 11.8)),
         source_curve_checks=figures,

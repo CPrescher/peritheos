@@ -16,7 +16,7 @@ use peritheos::thermal::{
     HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
     SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalModifiedTait,
-    ThermalReferenceState,
+    ThermalReferenceState, VariableQMieGruneisenDebye,
 };
 use peritheos::{EosError, EosResult, ThermalEos};
 use pyo3::prelude::*;
@@ -281,6 +281,7 @@ impl ThermalModel {
     fn pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(model) => model.pressure(volume, temperature),
+            Self::VariableQMieGruneisenDebye(model) => model.pressure(volume, temperature),
             Self::Dewaele2006(model) => model.pressure(volume, temperature),
             Self::DorogokupetsOganov2007(model) => model.pressure(volume, temperature),
             Self::LinearThermalPressure(model) => model.pressure(volume, temperature),
@@ -319,6 +320,24 @@ impl ThermalModel {
                         value(names, values, "gamma0", model.gamma0),
                         value(names, values, "a", model.a),
                         value(names, values, "b", model.b),
+                        value(names, values, "n", model.n),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::VariableQMieGruneisenDebye(model) => {
+                ensure_names(names, &["Tr", "theta0", "gamma0", "q0", "q1", "n"], true)?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::VariableQMieGruneisenDebye(
+                    VariableQMieGruneisenDebye::new(
+                        reference,
+                        value(names, values, "Tr", model.tr),
+                        value(names, values, "theta0", model.theta0),
+                        value(names, values, "gamma0", model.gamma0),
+                        value(names, values, "q0", model.q0),
+                        value(names, values, "q1", model.q1),
                         value(names, values, "n", model.n),
                     )
                     .map_err(FitError::from)?,

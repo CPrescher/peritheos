@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
 OUTPUT = ROOT / "docs/data/speziale-2001-mgo-reproduction.json"
 RESIDUALS = ROOT / "docs/data/speziale-2001-mgo-calibration-residuals.csv"
+AUTHOR_CONFIRMATION = ROOT / "docs/data/speziale-2001-author-confirmation.json"
 PARAMETERS = dict(
     V0=74.71,
     K0=160.2,
@@ -39,6 +40,28 @@ NODES, WEIGHTS = np.polynomial.legendre.leggauss(64)
 def read_rows(name):
     with (DATA / name).open() as stream:
         return list(csv.DictReader(stream))
+
+
+def read_author_confirmation():
+    """User-supplied author clarification; not recovered original source code."""
+    evidence = json.loads(AUTHOR_CONFIRMATION.read_text(encoding="utf-8"))
+    return {
+        key: evidence[key]
+        for key in (
+            "evidence_type",
+            "author",
+            "reported_on",
+            "confirmed_prescription",
+            "integration_method",
+            "variable_q_theta_prescription_author_confirmed",
+            "original_calculator_available",
+            "original_quadrature_grid_and_tolerance_available",
+            "scope",
+        )
+    } | {
+        "evidence_path": str(AUTHOR_CONFIRMATION.relative_to(ROOT)),
+        "evidence_sha256": hashlib.sha256(AUTHOR_CONFIRMATION.read_bytes()).hexdigest(),
+    }
 
 
 def bm3(v, v0=74.71, k0=160.2, kp=3.99):
@@ -302,6 +325,8 @@ def reproduce():
         atoms_per_formula_unit=2,
         formula_units_per_cell=4,
         printed_equations_validated=True,
+        variable_q_theta_prescription_author_confirmed=True,
+        author_confirmation=read_author_confirmation(),
         exact_author_thermal_fit_reproduced=False,
         exact_later_pressure_reducer_recovered=False,
         published_coefficients_changed=False,
@@ -317,7 +342,7 @@ def reproduce():
                 url="https://duffy.princeton.edu/sites/g/files/toruqf616/files/speziale_et_al-2001-jgrse.pdf",
                 pdf_sha256="c0431bdddf8f4bc8269a7e0d1b79d30d92a38b4a778d9edddad9cb4c45b1f94b",
                 locations="Eqs. 1-4 and 10-11; Tables 1-3; Sections 4.2 and 5.1-5.4; Figures 6, 9, 10",
-                theta_extension="Integrated differential identity; no explicit variable-q theta executable recovered",
+                theta_extension="Integrated differential identity confirmed by Sergio Speziale in a user-supplied reply recorded 2026-10-09; generally simple trapezoidal integration. Original calculator and quadrature settings not recovered.",
             ),
             Fei2004=dict(
                 doi="10.1016/j.pepi.2003.09.018",
@@ -360,7 +385,7 @@ def reproduce():
             "Original author pressure-reduction executable and unrounded inputs",
             "Full selected Fei 1999 and Utsumi 1998 thermal regression inputs",
             "Original thermal objective, weights and covariance",
-            "Explicit variable-q theta prescription used by Speziale and later reducers",
+            "Original Speziale quadrature grid and tolerance; actual theta prescriptions and implementations of later Fei/Hirose reducers",
             "Exact shock volume normalization used in the source reduction",
         ],
         input_sha256={

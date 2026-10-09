@@ -2,6 +2,10 @@
 
 Peritheos uses several complementary validation layers.
 
+[EOS record categories](catalog.md#eos-record-categories) explains record origin,
+scientific validation and fit reproduction separately, including the distinction
+between a validated equation and a fully reproduced original fitting procedure.
+
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately

@@ -72,6 +72,7 @@ def _native_evaluation_types() -> tuple[type, ...]:
         Tange2009Debye,
         ThermalModifiedTait,
         ThermalReferenceStateEOS,
+        VariableQMieGruneisenDebye,
     )
 
     return (
@@ -100,6 +101,7 @@ def _native_evaluation_types() -> tuple[type, ...]:
         DebyeAnharmonicHelmholtz,
         LogVolumeThermalPressure,
         MieGruneisenDebye,
+        VariableQMieGruneisenDebye,
         MieGruneisenEinstein,
         Tange2009Debye,
         SecondOrderTaylorThermalPressure,

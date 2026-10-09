@@ -1327,6 +1327,201 @@ impl<R: IsothermalEos> CaloricEos for AsymptoticPowerLawMieGruneisenDebye<R> {
     }
 }
 
+/// Variable-q Mie-Gruneisen-Debye EOS (Speziale 2001, Eqs. 10--11).
+/// Debye temperature integrates the defining Gruneisen relation.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VariableQMieGruneisenDebye<R> {
+    /// Reference isotherm.
+    pub rt_eos: R,
+    /// Reference temperature in kelvin.
+    pub tr: f64,
+    /// Reference Debye temperature in kelvin.
+    pub theta0: f64,
+    /// Reference Gruneisen parameter.
+    pub gamma0: f64,
+    /// Reference logarithmic gamma derivative.
+    pub q0: f64,
+    /// Exponent in q(V) = q0 * (V/V0)^q1.
+    pub q1: f64,
+    /// Number of atoms per formula.
+    pub n: f64,
+}
+
+impl<R: IsothermalEos> VariableQMieGruneisenDebye<R> {
+    /// Construct the Speziale variable-q Debye model.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid thermal parameters.
+    #[allow(clippy::too_many_arguments)]
+    pub fn new(
+        rt_eos: R,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        q0: f64,
+        q1: f64,
+        n: f64,
+    ) -> EosResult<Self> {
+        Ok(Self {
+            rt_eos,
+            tr: positive_parameter(tr, "Tr")?,
+            theta0: positive_parameter(theta0, "theta0")?,
+            gamma0: finite_parameter(gamma0, "gamma0")?,
+            q0: finite_parameter(q0, "q0")?,
+            q1: finite_parameter(q1, "q1")?,
+            n: positive_parameter(n, "n")?,
+        })
+    }
+
+    /// Volume-dependent Gruneisen parameter.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or non-finite result.
+    pub fn volume_gruneisen_parameter(&self, volume: f64) -> EosResult<f64> {
+        let log_ratio = (positive_state(volume, "volume")? / self.rt_eos.reference_volume()).ln();
+        self.gamma_at_log_ratio(log_ratio)
+    }
+
+    #[allow(clippy::float_cmp)]
+    fn gamma_at_log_ratio(&self, log_ratio: f64) -> EosResult<f64> {
+        let exponent = if self.q1 == 0.0 {
+            self.q0 * log_ratio
+        } else {
+            self.q0 * (self.q1 * log_ratio).exp_m1() / self.q1
+        };
+        finite_result(self.gamma0 * exponent.exp())
+    }
+
+    /// Debye temperature obtained by integrating d ln(theta) = -gamma d ln(V).
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid volume or quadrature failure.
+    #[allow(clippy::float_cmp)]
+    pub fn characteristic_temperature(&self, volume: f64) -> EosResult<f64> {
+        let log_ratio = (positive_state(volume, "volume")? / self.rt_eos.reference_volume()).ln();
+        let integral = if self.q0 == 0.0 {
+            self.gamma0 * log_ratio
+        } else if self.q1 == 0.0 {
+            self.gamma0 * (self.q0 * log_ratio).exp_m1() / self.q0
+        } else {
+            integrate(|u| self.gamma_at_log_ratio(u), 0.0, log_ratio)?
+        };
+        let theta = finite_result(self.theta0 * (-integral).exp())?;
+        positive_state(theta, "Debye temperature")
+    }
+
+    /// Debye vibrational energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or failed Debye evaluation.
+    pub fn thermal_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = positive_state(temperature, "temperature")?;
+        let theta = self.characteristic_temperature(volume)?;
+        finite_result(
+            3.0 * self.n * GAS_CONSTANT * temperature * debye_function_3(theta / temperature)?,
+        )
+    }
+
+    /// Debye vibrational entropy in J mol^-1 K^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or failed Debye evaluation.
+    pub fn thermal_entropy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = positive_state(temperature, "temperature")?;
+        let ratio = self.characteristic_temperature(volume)? / temperature;
+        let log_term = (-(-ratio).exp_m1()).ln();
+        finite_result(self.n * GAS_CONSTANT * (4.0 * debye_function_3(ratio)? - 3.0 * log_term))
+    }
+
+    /// Unreferenced vibrational pressure in `GPa`.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn vibrational_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.volume_gruneisen_parameter(volume)? * self.thermal_energy(volume, temperature)?
+                / volume
+                / 1.0e4,
+        )
+    }
+
+    /// Vibrational Helmholtz free energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_energy(volume, temperature)?
+                - temperature * self.thermal_entropy(volume, temperature)?,
+        )
+    }
+
+    /// Vibrational enthalpy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_enthalpy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_energy(volume, temperature)?
+                + self.vibrational_pressure(volume, temperature)? * volume * 1.0e4,
+        )
+    }
+
+    /// Vibrational Gibbs free energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_gibbs_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_helmholtz_free_energy(volume, temperature)?
+                + self.vibrational_pressure(volume, temperature)? * volume * 1.0e4,
+        )
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for VariableQMieGruneisenDebye<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let energy_difference =
+            self.thermal_energy(volume, temperature)? - self.thermal_energy(volume, self.tr)?;
+        finite_result(self.volume_gruneisen_parameter(volume)? * energy_difference / volume / 1.0e4)
+    }
+}
+
+impl<R: IsothermalEos> CaloricEos for VariableQMieGruneisenDebye<R> {
+    fn molar_heat_capacity_v(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = positive_state(temperature, "temperature")?;
+        let step = 1.0e-5 * temperature;
+        finite_result(
+            (self.thermal_energy(volume, temperature + step)?
+                - self.thermal_energy(volume, temperature - step)?)
+                / (2.0 * step),
+        )
+    }
+
+    fn gruneisen_parameter(&self, volume: f64, _temperature: f64) -> EosResult<f64> {
+        self.volume_gruneisen_parameter(volume)
+    }
+}
+
 /// Dewaele et al. (2006) hcp-Fe thermal pressure scale.
 ///
 /// This is the single-Debye specialization of the Dorogokupets--Oganov

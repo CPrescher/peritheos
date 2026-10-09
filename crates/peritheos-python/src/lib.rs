@@ -22,6 +22,7 @@ use peritheos::thermal::{
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
     ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
     ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
+    VariableQMieGruneisenDebye,
 };
 use peritheos::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use pyo3::exceptions::PyRuntimeError;
@@ -599,6 +600,7 @@ impl PyHugoniotEos {
 #[derive(Clone, Copy, Debug, PartialEq)]
 enum ThermalModel {
     AsymptoticPowerLawMieGruneisenDebye(AsymptoticPowerLawMieGruneisenDebye<RtModel>),
+    VariableQMieGruneisenDebye(VariableQMieGruneisenDebye<RtModel>),
     Dewaele2006(Dewaele2006<RtModel>),
     DorogokupetsOganov2007(DorogokupetsOganov2007<RtModel>),
     LinearThermalPressure(LinearThermalPressure<RtModel>),
@@ -618,6 +620,7 @@ impl ThermalModel {
     fn name(self) -> &'static str {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(_) => "AsymptoticPowerLawMieGruneisenDebye",
+            Self::VariableQMieGruneisenDebye(_) => "VariableQMieGruneisenDebye",
             Self::Dewaele2006(_) => "Dewaele2006",
             Self::DorogokupetsOganov2007(_) => "DorogokupetsOganov2007",
             Self::LinearThermalPressure(_) => "LinearThermalPressure",
@@ -638,6 +641,9 @@ impl ThermalModel {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(model) => {
                 evaluate_asymptotic_mie_quantity(&model, quantity, first, second)
+            }
+            Self::VariableQMieGruneisenDebye(model) => {
+                evaluate_variable_q_mie_quantity(&model, quantity, first, second)
             }
             Self::Dewaele2006(model) => {
                 evaluate_dewaele_2006_quantity(&model, quantity, first, second)
@@ -697,6 +703,9 @@ impl ThermalModel {
     ) -> PyResult<f64> {
         let result = match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::VariableQMieGruneisenDebye(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::Dewaele2006(model) => {
@@ -884,6 +893,25 @@ impl PyThermalEos {
         Ok(Self {
             model: ThermalModel::AsymptoticPowerLawMieGruneisenDebye(
                 AsymptoticPowerLawMieGruneisenDebye::new(rt_eos.model, tr, theta0, gamma0, a, b, n)
+                    .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    #[allow(clippy::too_many_arguments)]
+    fn variable_q_mie_gruneisen_debye(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        q0: f64,
+        q1: f64,
+        n: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::VariableQMieGruneisenDebye(
+                VariableQMieGruneisenDebye::new(rt_eos.model, tr, theta0, gamma0, q0, q1, n)
                     .map_err(to_python_error)?,
             ),
         })
@@ -1418,6 +1446,38 @@ where
 
 fn evaluate_asymptotic_mie_quantity<R: IsothermalEos>(
     model: &AsymptoticPowerLawMieGruneisenDebye<R>,
+    quantity: &str,
+    first: f64,
+    second: f64,
+) -> PyResult<f64> {
+    match quantity {
+        "characteristic_temperature" => model
+            .characteristic_temperature(first)
+            .map_err(to_python_error),
+        "thermal_energy" | "thermal_internal_energy" => {
+            model.thermal_energy(first, second).map_err(to_python_error)
+        }
+        "thermal_entropy" => model
+            .thermal_entropy(first, second)
+            .map_err(to_python_error),
+        "vibrational_pressure" => model
+            .vibrational_pressure(first, second)
+            .map_err(to_python_error),
+        "thermal_helmholtz_free_energy" => model
+            .thermal_helmholtz_free_energy(first, second)
+            .map_err(to_python_error),
+        "thermal_enthalpy" => model
+            .thermal_enthalpy(first, second)
+            .map_err(to_python_error),
+        "thermal_gibbs_free_energy" => model
+            .thermal_gibbs_free_energy(first, second)
+            .map_err(to_python_error),
+        _ => evaluate_caloric_quantity(model, quantity, first, second),
+    }
+}
+
+fn evaluate_variable_q_mie_quantity<R: IsothermalEos>(
+    model: &VariableQMieGruneisenDebye<R>,
     quantity: &str,
     first: f64,
     second: f64,

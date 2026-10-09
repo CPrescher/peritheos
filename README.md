@@ -52,6 +52,14 @@ Release history is recorded in the [changelog](CHANGELOG.md).
   diamond Raman standards with source-documented cross-calibration edges
 - Native wheels for supported CPython releases on Linux, macOS, and Windows
 
+## EOS record categories
+
+Each record identifies its origin (published, refit, derived or diagnostic),
+scientific validation status, and the scope of fit reproduction. A validated
+published equation can be usable even when the complete original fitting
+procedure cannot be repeated. See [EOS record categories](docs/catalog.md#eos-record-categories)
+for the definitions and the author-confirmed Speziale (2001) MgO example.
+
 ## Unit conventions
 
 - Public pressure and bulk-modulus values are in GPa.

@@ -33,7 +33,7 @@ use crate::thermal::{
     LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
     PressureTable, ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure,
     SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference,
-    ThermalReferenceState,
+    ThermalReferenceState, VariableQMieGruneisenDebye,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -655,6 +655,8 @@ pub enum ThermalModel {
     SecondOrderTaylorThermalPressure(SecondOrderTaylorThermalPressure<IsothermalModel>),
     /// Mie--Gruneisen--Debye EOS.
     MieGruneisenDebye(MieGruneisenDebye<IsothermalModel>),
+    /// Thermodynamically integrated variable-q Debye EOS.
+    VariableQMieGruneisenDebye(VariableQMieGruneisenDebye<IsothermalModel>),
     /// Mie--Gruneisen--Einstein EOS.
     MieGruneisenEinstein(MieGruneisenEinstein<IsothermalModel>),
     /// Volume-independent Holland--Powell Einstein thermal pressure.
@@ -684,6 +686,7 @@ macro_rules! dispatch_thermal {
             ThermalModel::LogVolumeThermalPressure($model) => $expression,
             ThermalModel::SecondOrderTaylorThermalPressure($model) => $expression,
             ThermalModel::MieGruneisenDebye($model) => $expression,
+            ThermalModel::VariableQMieGruneisenDebye($model) => $expression,
             ThermalModel::MieGruneisenEinstein($model) => $expression,
             ThermalModel::HollandPowellThermalPressure($model) => $expression,
             ThermalModel::MultiOscillatorGruneisen($model) => $expression,
@@ -716,6 +719,7 @@ impl ThermalModel {
             Self::LogVolumeThermalPressure(_) => "log_volume_thermal_pressure",
             Self::SecondOrderTaylorThermalPressure(_) => "second_order_taylor_thermal_pressure",
             Self::MieGruneisenDebye(_) => "mie_gruneisen_debye",
+            Self::VariableQMieGruneisenDebye(_) => "variable_q_mie_gruneisen_debye",
             Self::MieGruneisenEinstein(_) => "mie_gruneisen_einstein",
             Self::HollandPowellThermalPressure(_) => "holland_powell_thermal_pressure",
             Self::MultiOscillatorGruneisen(_) => "multi_oscillator_gruneisen_thermal_pressure",
@@ -821,6 +825,7 @@ impl LoadedEos {
                 ThermalModel::AsymptoticPowerLawMieGruneisenDebyeExcess(value) => {
                     value.debye.rt_eos.model_identifier()
                 }
+                ThermalModel::VariableQMieGruneisenDebye(value) => value.rt_eos.model_identifier(),
                 ThermalModel::AsymptoticPowerLawMieGruneisenDebye(value) => {
                     value.rt_eos.model_identifier()
                 }
@@ -2916,6 +2921,7 @@ fn is_molar_volume_model(model: &str) -> bool {
             | "debye_quadratic_thermal_pressure"
             | "debye_anharmonic_helmholtz"
             | "mie_gruneisen_debye"
+            | "variable_q_mie_gruneisen_debye"
             | "mie_gruneisen_einstein"
             | "asymptotic_power_law_mie_gruneisen_debye"
             | "asymptotic_power_law_mie_gruneisen_debye_excess"
@@ -2952,6 +2958,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "DensityPolynomial3" => "density_polynomial_3",
             "AlphaKT" => "thermal_reference_state",
             "AsymptoticPowerLawMieGruneisenDebye" => "asymptotic_power_law_mie_gruneisen_debye",
+            "VariableQMieGruneisenDebye" => "variable_q_mie_gruneisen_debye",
             "AsymptoticPowerLawMieGruneisenDebyeExcess" => {
                 "asymptotic_power_law_mie_gruneisen_debye_excess"
             }
@@ -3530,6 +3537,19 @@ fn build_thermal(
                 p("n")?,
             )
             .map(ThermalModel::AsymptoticPowerLawMieGruneisenDebye)
+        }
+        "variable_q_mie_gruneisen_debye" => {
+            check_type(component, "VariableQMieGruneisenDebye")?;
+            VariableQMieGruneisenDebye::new(
+                reference,
+                p("Tr")?,
+                p("theta0")?,
+                p("gamma0")?,
+                p("q0")?,
+                p("q1")?,
+                p("n")?,
+            )
+            .map(ThermalModel::VariableQMieGruneisenDebye)
         }
         "asymptotic_power_law_mie_gruneisen_debye_excess" => {
             check_type(component, "AsymptoticPowerLawMieGruneisenDebyeExcess")?;

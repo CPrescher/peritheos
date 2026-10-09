@@ -1,0 +1,252 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=21mm,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,microtype}
+\usepackage{xcolor,fancyhdr,hyperref}
+\definecolor{ink}{HTML}{183E52}
+\hypersetup{colorlinks=true,urlcolor=ink,linkcolor=ink,
+ pdftitle={Speziale 2001 MgO EOS: Debye-temperature calculation},pdfauthor={Clemens Prescher}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Speziale (2001) MgO EOS}
+\fancyhead[R]{\small Peritheos / 9 October 2026}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\abovedisplayskip}{6pt}
+\setlength{\belowdisplayskip}{6pt}
+\newcommand{\sectiontitle}[1]{\vspace{5pt}{\large\bfseries\color{ink}#1}\par}
+\newcommand{\GPa}{\mathrm{GPa}}
+\begin{document}
+{\LARGE\bfseries\color{ink}Reconstructing the MgO thermal EOS}\par
+{\large Equations and Debye-temperature prescription in Speziale (2001)}\par
+\vspace{3pt}
+\textbf{Purpose.} Reconstruct the thermal EOS step by step, starting from the
+300 K reference curve. Sergio Speziale has confirmed the Debye-temperature
+integration used for the final variable-$q$ model (see Section 7).
+All equations needed for our calculation are
+written out here. Labels S1--S4, S10 and S11 correspond directly to the same
+equation numbers in Speziale et al. (2001), expressed in the notation below.
+Labels N1--N11 identify equations or derivations added in this note.
+
+\sectiontitle{1. Reference state and normalization}
+For $\gamma_0$, we use the value explicitly fixed in Section 5.1 of the paper:
+$\gamma_0=1.524$. The Figure 6 caption reports $\gamma_0=1.524\pm0.025$.
+All calculations below use this printed central value; $\gamma_0$ is not refitted.
+\begin{center}
+\renewcommand{\arraystretch}{1.14}
+\begin{tabular}{lll}
+\toprule
+Quantity & Adopted value & Definition \\
+\midrule
+$V_0$ & $74.71\ \text{\AA}^{3}$ & Conventional-cell volume at $T_r$, zero pressure \\
+$K_0$ & $160.2\ \GPa$ & Isothermal bulk modulus at the reference state \\
+$K'_0$ & $3.99$ & $(\partial K_T/\partial P)_{T_r}$ at zero pressure \\
+$\gamma_0$ & $1.524$ & Published fixed value (Section 5.1) \\
+$q_0,\ q_1$ & $1.65,\ 11.8$ & Constants in the variable-$q$ model \\
+$\theta_0$ & $773\ \mathrm{K}$ & Reference Debye temperature \\
+$T_r$ & $300\ \mathrm{K}$ & Principal isotherm and energy subtraction \\
+$Z,\ n$ & $4,\ 2$ & Formula units per cell; atoms per MgO formula unit \\
+\bottomrule
+\end{tabular}
+\end{center}
+$V_c$ denotes the numerical conventional-cell volume in \AA$^3$;
+$V_m$ is the molar volume in m$^3$ per mole of MgO. Define
+\begin{equation}\label{eq:volume}
+ x=\frac{V_c}{V_0},\qquad V_m=\frac{N_A}{Z}\,V_c\,10^{-30},
+ \qquad N_A=6.02214076\times10^{23}\ \mathrm{mol}^{-1}.\tag{N1}
+\end{equation}
+This unit conversion is explicit here; it is not a numbered equation in the
+paper. The gas constant is $R=8.31446261815324\ \mathrm{J\,mol^{-1}\,K^{-1}}$.
+
+\sectiontitle{2. Complete pressure calculation}
+Sections 2.1 and 4.2 specify a third-order Birch--Murnaghan reference isotherm.
+We write its standard expression explicitly:
+\begin{equation}\label{eq:bm3}
+ P_{300}(V_c)=\frac{3K_0}{2}
+ \left(x^{-7/3}-x^{-5/3}\right)
+ \left[1+\frac{3}{4}(K'_0-4)\left(x^{-2/3}-1\right)\right].\tag{N2}
+\end{equation}
+With $K_0$ in GPa, this expression returns GPa. For the Debye energy, the
+paper's Equation 3 becomes, with $y=\theta(V_c)/T$,
+\begin{equation}\label{eq:energy}
+ E_D(V_c,T)=\frac{9nRT}{y^3}\int_0^y\frac{z^3}{e^z-1}\,dz.\tag{S3}
+\end{equation}
+$E_D$ is in J per mole of MgO; $n=2$. The same $\theta(V_c)$ is used at both
+temperatures in the fixed-volume subtraction. The paper's Equations 2 and 1
+then give the thermal increment and total pressure, respectively:
+\begin{align}
+ \Delta P_{\mathrm{th}}(V_c,T)
+ &=10^{-9}\frac{\gamma(V_c)}{V_m}
+ \left[E_D(V_c,T)-E_D(V_c,T_r)\right],\tag{S2}\label{eq:thermal}\\
+ P(V_c,T)&=P_{300}(V_c)+\Delta P_{\mathrm{th}}(V_c,T).\tag{S1}\label{eq:total}
+\end{align}
+The factor $10^{-9}$ converts Pa to GPa. Thus $P(V_0,300\ \mathrm{K})=0$.
+The electronic contribution is omitted, as in the MgO model under discussion;
+any temperature-independent vibrational term cancels in the energy difference.
+
+\newpage
+\sectiontitle{3. Volume dependence of the Gr\"uneisen parameter}
+Section 2.1 defines $q$ through the logarithmic volume derivative of $\gamma$.
+We write that unnumbered definition as
+\begin{equation}\label{eq:qdef}
+ q(V_c)=\left(\frac{\partial\ln\gamma}{\partial\ln V_c}\right)_T.\tag{N3}
+\end{equation}
+The paper's final variable-$q$ model (its Equations 10--11) is
+\begin{align}
+ q(V_c)&=q_0x^{q_1},\tag{S10}\label{eq:q}\\
+ \gamma(V_c)&=\gamma_0\exp\!\left[
+ \frac{q_0}{q_1}\left(x^{q_1}-1\right)\right].\tag{S11}\label{eq:gamma}
+\end{align}
+Equation~\eqref{eq:gamma} follows by integrating Equation~\eqref{eq:qdef} with
+$\gamma(V_0)=\gamma_0$. It also gives a finite value at infinite compression:
+\begin{equation}\label{eq:glimit}
+ \lim_{x\to0}\gamma(x)=\gamma_0e^{-q_0/q_1}=1.325127\quad
+ \text{for the adopted coefficients}.\tag{N4}
+\end{equation}
+
+\sectiontitle{4. Debye-temperature calculation and the question}
+We reconstruct the Debye temperature from the Debye--Gr\"uneisen relation
+below. This is the thermodynamic relation used for our derivation, rather
+than an explicit numbered equation in the paper:
+\begin{equation}\label{eq:thetadef}
+ \gamma(V_c)=-\frac{d\ln\theta(V_c)}{d\ln V_c},
+ \qquad\theta(V_0)=\theta_0.\tag{N5}
+\end{equation}
+For \textbf{constant} $q\ne0$, integration gives
+\begin{align}
+ \gamma(V_c)&=\gamma_0x^q,\tag{N6}\label{eq:gammaconstant}\\
+ \theta(V_c)&=\theta_0\exp\!\left[\frac{\gamma_0-\gamma(V_c)}{q}\right].\tag{S4}\label{eq:constant}
+\end{align}
+The second expression is the paper's Equation 4; the first is the constant-$q$
+gamma law discussed in Section 5.4. For $q=0$, the corresponding
+limit is $\gamma(V_c)=\gamma_0$ and $\theta(V_c)=\theta_0x^{-\gamma_0}$.
+
+For the \textbf{variable-$q$} model, our implementation instead integrates
+Equation~\eqref{eq:thetadef} using Equation~\eqref{eq:gamma}:
+\begin{equation}\label{eq:thetaint}
+ \boxed{\displaystyle
+ \theta(V_c)=\theta_0\exp\!\left[
+ -\int_1^x\gamma_0
+ \exp\!\left(\frac{q_0}{q_1}(u^{q_1}-1)\right)\frac{du}{u}
+ \right].}\tag{N7}
+\end{equation}
+An independent closed form, with $a=q_0/q_1$, is
+\begin{equation}\label{eq:ei}
+ \ln\frac{\theta(V_c)}{\theta_0}
+ =-\frac{\gamma_0e^{-a}}{q_1}
+ \left[\operatorname{Ei}(ax^{q_1})-\operatorname{Ei}(a)\right].\tag{N8}
+\end{equation}
+Here $\operatorname{Ei}$ is the exponential integral, defined on positive
+arguments by $\operatorname{Ei}(z)=\mathrm{PV}\int_{-\infty}^{z}e^t/t\,dt$,
+where PV denotes the Cauchy principal value. Its derivative is
+$d\operatorname{Ei}(z)/dz=e^z/z$. Equation~\eqref{eq:ei} is used for the
+adopted positive $q_0$ and $q_1$.
+
+\textbf{Diagnostic illustration, not a known author prescription.}
+Simply inserting instantaneous $q(V_c)$ into Equation~\eqref{eq:constant}
+would give the hypothetical expression
+\begin{equation}\label{eq:localtheta}
+ \theta_{\mathrm{local}}(V_c)
+ =\theta_0\exp\!\left[\frac{\gamma_0-\gamma(V_c)}{q(V_c)}\right].\tag{N9}
+\end{equation}
+For Equations~\eqref{eq:q}--\eqref{eq:gamma}, differentiating this candidate gives
+\begin{equation}\label{eq:localderivative}
+ -\frac{d\ln\theta_{\mathrm{local}}}{d\ln V_c}
+ =\gamma(V_c)+\frac{q_1}{q(V_c)}\left[\gamma_0-\gamma(V_c)\right].\tag{N10}
+\end{equation}
+The extra term arises because $q(V_c)$ also changes with volume. This
+\emph{hypothetical expression}, Equation~\eqref{eq:localtheta}, therefore does
+not satisfy Equation~\eqref{eq:thetadef} in general. Our integrated
+Equation~\eqref{eq:thetaint} does satisfy that relation. Speziale's reply now
+confirms that this integration was used in his original calculation.
+
+\newpage
+\sectiontitle{5. Reference calculations}
+These \textbf{Peritheos calculations} use the equations on pages 1--2 and the
+published central parameter values. They are model outputs, not measured or
+transcribed observations. The digits facilitate numerical comparison and do
+not indicate physical parameter accuracy.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{rrrrr}
+\toprule
+$V_c/V_0$ & $V_c$ (\AA$^3$) & $T$ (K) & $\gamma$ & $\theta$ (K) \\
+\midrule
+1.00 & 74.71000 & 300  & 1.524000 & 773.000 \\
+1.00 & 74.71000 & 1100 & 1.524000 & 773.000 \\
+0.90 & 67.23900 & 1100 & 1.379666 & 899.275 \\
+0.80 & 59.76800 & 2000 & 1.338508 & 1054.804 \\
+0.64 & 47.81440 & 3663 & 1.326084 & 1419.208 \\
+\bottomrule
+\end{tabular}
+
+\vspace{8pt}
+\begin{tabular}{rrrrr}
+\toprule
+$V_c/V_0$ & $T$ (K) & $P_{300}$ (GPa) & $\Delta P_{\mathrm{th}}$ (GPa) & $P$ (GPa) \\
+\midrule
+1.00 & 300  & 0.000000   & 0.000000  & 0.000000 \\
+1.00 & 1100 & 0.000000   & 4.964240  & 4.964240 \\
+0.90 & 1100 & 20.830878  & 4.855028  & 25.685906 \\
+0.80 & 2000 & 55.839883  & 11.610349 & 67.450232 \\
+0.64 & 3663 & 174.738015 & 28.659685 & 203.397700 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\sectiontitle{6. Checks and their limits}
+\textbf{Equation and normalization checks.} We verify the defining derivatives
+in Equations~\eqref{eq:qdef} and \eqref{eq:thetadef}. At $T=T_r$, the thermal
+pressure is zero at every volume, and $P(V_0,T_r)=0$. Evaluating the Debye
+energy per mole of MgO ($n=2$, $Z=4$) or per mole of conventional cells
+($n=8$, $Z=1$) gives the same pressure. The high-temperature limit is
+\begin{equation}\label{eq:highT}
+ \lim_{T/\theta\to\infty}\frac{E_D(V_c,T)}{T}=3nR=6R
+ \quad\text{per mole of MgO}.\tag{N11}
+\end{equation}
+
+\textbf{Independent numerical evaluation.} With all coefficients fixed to the
+published central values, the 64-point Gauss--Legendre calculation, independently
+coded adaptive integration and the closed form in Equation~\eqref{eq:ei} agree
+to better than $10^{-9}$ GPa on 35 states spanning $x=0.60$--$1.02$ and
+$T=300$--$3663$ K. This checks numerical evaluation of the stated equations;
+it is not a claim of physical accuracy at that pressure precision.
+
+\textbf{Comparison with the paper's calculated curves.} Figure 6 tests the
+constant-$q$ branch ($q=1.65$), using Equation~\eqref{eq:constant}. Eleven
+selected checkpoints on the 300, 1100 and 3000 K curves differ by at most
+approximately 0.11 GPa, or 0.0004 in $V_c/V_0$. The Figure 10 inset tests the
+final variable-$q$ branch: four selected checkpoints on its 1100 K curve differ
+by at most approximately 0.30 GPa, or 0.0012 in $V_c/V_0$. These are comparisons
+with digitized \emph{calculated curves}, not refits to measurements. Scan
+resolution, axis placement, dotted-line phase and stroke width limit this
+comparison. The integration prescription is now author-confirmed; these
+graphical differences do not recover the original numerical settings.
+
+\textbf{Remaining scope.} The complete original thermal fitting procedure and
+shock-data reduction have not been reproduced. The integration prescription
+is confirmed, but the original calculator, trapezoidal grid and numerical
+settings remain unavailable.
+
+\sectiontitle{7. Author confirmation recorded on 9 October 2026}
+In the reply supplied by Clemens, Sergio Speziale states:
+\emph{``I can confirm that I numerically integrated your equation N5 by using
+S11, using the equation numbering of your notes.''} He adds:
+\emph{``I generally used a simple trapezoidal integration approach.''}
+He cannot currently retrieve the original calculator. This confirms our
+continuous integration prescription, while leaving exact historical numerical
+replay and the complete author fit unestablished.
+
+\vspace{4pt}
+{\small\textbf{Primary reference.} Speziale, Zha, Duffy, Hemley and Mao (2001),
+\emph{Quasi-hydrostatic compression of magnesium oxide to 52 GPa:
+Implications for the pressure-volume-temperature equation of state},
+J. Geophys. Res. 106, 515-528.
+\href{https://doi.org/10.1029/2000JB900318}{doi:10.1029/2000JB900318}.
+Source model: Section 2.1, Equations 1-4; Sections 4.2 and 5.1-5.4,
+Equations 10-11; Figures 6, 9 and 10.}
+\end{document}

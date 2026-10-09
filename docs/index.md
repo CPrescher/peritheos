@@ -11,6 +11,9 @@ The documentation is organized around scientific workflows:
 - [Material catalog](catalog.md) covers executable lookup and typed discovery
   across 224 executable materials, 640 primary-source-validated records, and seven
   qualified explicit-selection implementations.
+- [EOS record categories](catalog.md#eos-record-categories) explains published,
+  refit, derived and diagnostic records, scientific validation, and the separate
+  outcomes of fit reproduction.
 - [EOS models](models.md) lists parameters, assumptions, and useful limits.
 - [Equation reference](equation-reference.md) defines the implemented
   isothermal and thermal equations and their coefficients.

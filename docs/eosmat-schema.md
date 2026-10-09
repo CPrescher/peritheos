@@ -359,6 +359,7 @@ Thermal `type` and `model` must likewise match:
 | `MieGruneisenDebye` | `mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `DebyeQuadraticThermalPressure` | `debye_quadratic_thermal_pressure` | `Tr`, `theta0`, `gamma0`, `q`, `n`, `A` (GPa/K²), `m` |
 | `DebyeAnharmonicHelmholtz` | `debye_anharmonic_helmholtz` | `Tr`, `theta0`, `gamma0`, `q`, `b1`, `b2`, `b3`; intrinsic absolute-zero thermal baseline; monatomic |
+| `VariableQMieGruneisenDebye` | `variable_q_mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q0`, `q1`, `n` |
 | `MieGruneisenEinstein` | `mie_gruneisen_einstein` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `AsymptoticPowerLawMieGruneisenDebye` | `asymptotic_power_law_mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` |
 | `Dewaele2006` | `dewaele_2006` | `Tr`, `theta0`, `gamma0`, `gamma_inf`, `beta`, anharmonic and electronic terms, `n` |
@@ -369,6 +370,15 @@ Thermal `type` and `model` must likewise match:
 | `ThermalModifiedTait` | `thermal_modified_tait` | `Tr`, `theta`, `alpha0`, `n` |
 | `DoubleDebyeHelmholtz` | `double_debye_helmholtz` | Double-Debye coefficients; optional `Tr` |
 | `DoubleDebyeLogMomentHelmholtz` | `double_debye_log_moment_helmholtz` | Logarithmic-moment double-Debye coefficients; optional `Tr` |
+
+`VariableQMieGruneisenDebye` represents Speziale (2001) Equations (10)--(11):
+`q(V)=q0*(V/V0)^q1` and
+`gamma(V)=gamma0*exp[q0/q1*((V/V0)^q1-1)]`. Its Debye temperature integrates
+`d ln(theta)=-gamma(V)d ln(V)` from `theta(V0)=theta0`; energy is subtracted
+at `Tr`. The `q1=0` limit is constant-q MGD, and `q0=0` is constant gamma.
+Volumes and energies use the formula-unit molar basis, with `n` atoms per
+formula unit. This type fixes the integrated law and reference-temperature
+subtraction; it does not accept the constant-q model's alternative configuration.
 
 `Sokolova2016` remains accepted as a legacy type alias for
 `multi_oscillator_gruneisen_thermal_pressure`; new writers use the general
@@ -496,6 +506,7 @@ record declares one of:
 | `primary_source_validated` | Equation, parameters, units, and reference state were checked against the primary publication or official supplement. |
 | `pending_primary_source_check` | Structurally usable catalog data that has not completed that audit. |
 | `deferred` | The record is intentionally unavailable or incomplete because its primary evidence is inaccessible, ambiguous, or inconsistent. |
+| `not_reproduced` | A documented reproduction problem remains unresolved; qualified implementations may be available through explicit selection and acceptance. |
 
 Agreement with another software library is not sufficient for
 `primary_source_validated`.
@@ -504,8 +515,10 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. All 589 bundled records are
-validated, with no deferred or pending record.
+`peritheos/data/primary-source-audit.json`, which supplies the current audit
+outcomes. Validation status is separate from `record_kind` and fit reproduction.
+See [EOS record categories](catalog.md#eos-record-categories) for their meanings
+and the author-confirmed Speziale thermal EOS example.
 
 ## Complete EOS-only example
 
