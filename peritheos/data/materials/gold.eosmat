@@ -731,9 +731,16 @@
      "n": 1
     },
     "debye_temperature_law": "variable_exponent",
-    "model": "mie_gruneisen_debye"
+    "model": "mie_gruneisen_debye",
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.03,
+     "q": 0.3,
+     "n": null
+    }
    },
-   "notes": "Corrected against the paper (Table 1: Vinet, V0=67.850(4), K0=167, K0p=6.00(2)); the hosted database carried Anderson's BM3 values here. Thermal parameters are the paper's MGD fit (not yet used by Dioptas).",
+   "notes": "Published Fei (2007) Table 1 Au Vinet-MGD coefficients, with the printed variable-exponent Debye-temperature law. Staged cold/hot replay achieves conditional numerical parity within printed K0-prime/q error widths under equal pressure weights. Source weights, exact MgO reduction and error confidence/covariance remain unresolved; diagnostic refits do not replace published coefficients. See docs/literature-reproductions/fei-2007-gold.md.",
    "migration_corrections": [
     {
      "path": "thermal.debye_temperature_law",
@@ -748,40 +755,61 @@
    ],
    "determination_method": "experimental",
    "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne BM3 values in main text."
+    "determination_method": "Au experimental reduction described in Fei (2007) Table 1, Equations 2-3 and the staged cold/thermal refit paragraphs on pages 9183-9184.",
+    "gamma0": "Fei (2007) Table 1: 2.97(3); prose retains gamma0=2.97 while refitting q. Printed error confidence is unspecified.",
+    "q": "Fei (2007) Table 1 and paragraph continuing onto page 9184: q=0.6(3) from refitting Au PVT data against MgO pressures.",
+    "theta0": "Fei (2007) Table 1 and Equation 3: theta0=170 K; theta(V)=theta0*(V/V0)^(-gamma(V)).",
+    "thermal_parameter_errors": "Parenthetical widths in Table 1, no confidence level or covariance supplied."
    },
    "identifier": "gold_fei_2007_vinet_2",
    "pressure_calibration": {
-    "status": "not_applicable",
+    "status": "partially_resolved",
     "methods": [
      {
-      "kind": "self_consistent",
+      "kind": "ruby_fluorescence",
       "reference": {
        "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
        ],
-       "year": 2007,
-       "source": "Proc. Natl. Acad. Sci. USA",
-       "doi": "10.1073/pnas.0609013104"
+       "year": 2004,
+       "doi": "10.1103/PhysRevB.70.094112",
+       "source": "Phys. Rev. B"
       },
-      "source_location": "Equations 2-3, Table 1, and pressure-scale-free comparison"
+      "reference_calibration_record": "ruby_dewaele_2004",
+      "source_location": "Fei 2007 Figure 1 caption and cold-fit paragraph; Dewaele 2004 Table I revised ruby column",
+      "scope": "Cold Au anchor"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Speziale",
+        "Zha",
+        "Duffy",
+        "Hemley",
+        "Mao"
+       ],
+       "year": 2001,
+       "doi": "10.1029/2000JB900318",
+       "source": "J. Geophys. Res."
+      },
+      "source_location": "Fei 2007 Au thermal-refit paragraph; Fei 2004 Table 1 and Hirose 2006 Table 1",
+      "scope": "Hot Au observations",
+      "notes": "Reported MgO pressures retained. Exact author thermal-pressure reduction implementation is unresolved; the independent variable-q implementation is a sensitivity."
      }
     ],
     "recalculation": {
-     "status": "not_applicable",
-     "notes": "This record belongs to the internally consistent Fei et al. pressure-scale solution rather than depending on one external reference EOS."
+     "status": "reference_model_not_supported",
+     "notes": "Cold revised-ruby scale is executable. Exact author MgO thermal reduction is not recovered; paired lattice data support a qualified independent diagnostic."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-10-09"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Published Au Vinet-MGD equation verified independently. Staged unweighted cold/hot replay reaches conditional numerical parity within printed K0-prime/q error widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved.",
+    "audit_date": "2026-10-09",
     "verified_fields": [
      "equation",
      "parameters",
@@ -794,12 +822,14 @@
     "primary_source_check": {
      "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
      "locations": [
-      "Equations 1-3",
-      "Table 1",
-      "Ne BM3 values in main text"
+      "Table 1, page 9183",
+      "Equations 2-3, page 9183",
+      "Figure 1 and caption, page 9183",
+      "Au thermal-refit paragraph, pages 9183-9184"
      ],
-     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law.",
-     "doi": "10.1073/pnas.0609013104"
+     "finding": "Vinet K0-prime=6.00(2), gamma0=2.97(3), q=0.6(3), theta0=170 K. Equation 3 uses the direct variable-exponent Debye law and a 300 K energy subtraction. Figure 1 calculated hot curves agree at graphical precision; cold revised-ruby and hot Speziale-MgO calibration evidence is kept distinct.",
+     "doi": "10.1073/pnas.0609013104",
+     "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -808,17 +838,37 @@
      "file": "gold.json"
     },
     "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
+     "status": "bundled",
+     "audit_date": "2026-10-09",
      "digitized_dataset_identifiers": [
       "gold_fei_2007_figure1_digitized"
      ],
      "source_locations": [
-      "Figures 1 and 5; Table 1"
+      "Dewaele (2004) Table I",
+      "Fei (2004) Table 1",
+      "Hirose (2006) Table 1",
+      "Fei (2007) Figure 1"
      ],
-     "finding": "The paper's new Au compression observations are shown graphically as open circles in Figure 1. Six visible 300 K observations were digitized from the source-resolution PMC figure; no experimental error bars are plotted. Table 1 contains optimized EOS parameters, not row-level measurements."
+     "finding": "37 revised-ruby Dewaele cold rows and 28 reported-MgO hot rows (26 Fei 2004 plus two Hirose 2006) support a staged conditional replay. The six new Fei 2007 cold markers remain digitized and enter sensitivities only. Calculated Figure 1 paths are never fit targets.",
+     "dataset_identifiers": [
+      "gold_dewaele_2004_table1_compression",
+      "gold_fei_2004_table1",
+      "gold_hirose_2006_table1"
+     ]
+    },
+    "pvt_check": {
+     "status": "parity",
+     "report": "docs/data/fei-2007-gold-reproduction.json",
+     "script": "scripts/reproduce_fei_2007_gold.py",
+     "source_curve_agreement": "within one printed pressure-direction line width for 111 Figure 1 vector vertices",
+     "author_fit_reproduced": false,
+     "caloric_validation_required": false,
+     "parity_basis": "within_reported_parameter_errors",
+     "qualification": "Published Au Vinet-MGD equation verified independently. Staged unweighted cold/hot replay reaches conditional numerical parity within printed K0-prime/q error widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved."
     }
-   }
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null
   },
   {
    "label": "Shen and Smith (2026), Cu-referenced Vinet",
@@ -4119,7 +4169,8 @@
    },
    "used_by_eos_records": [
     "gold_dewaele_2004_mao_ruby_vinet",
-    "gold_dewaele_2004_vinet_5"
+    "gold_dewaele_2004_vinet_5",
+    "gold_fei_2007_vinet_2"
    ],
    "transcription": {
     "type": "direct_table_transcription",
@@ -5474,7 +5525,8 @@
    },
    "used_by_eos_records": [
     "gold_fei_2004_bm3_mgd",
-    "gold_hirose_2008_bm3_fit2"
+    "gold_hirose_2008_bm3_fit2",
+    "gold_fei_2007_vinet_2"
    ],
    "uncertainty": {
     "notes": "Parenthetical source errors with unspecified confidence. Missing temperature errors and errors on recalculated pressures remain missing; no zero sigma or row-wise temperature error invented. Type C thermocouple without pressure-emf correction; ~30 C/500 micrometre gradient, sample length ~250 micrometre."
@@ -5627,6 +5679,180 @@
     "manifest": "datasets/platinum-matsui-2009-source.json"
    },
    "notes": "Both original Au pressures and corrected 2003 values retained; corrections at 3100-3900 K lie above Yokoo Table III. Au source-node diagnostics only; no interpolation, thermal record or caloric function inferred in this audit."
+  },
+  {
+   "identifier": "gold_hirose_2006_table1",
+   "kind": "pressure_volume_temperature",
+   "description": "All 13 original Hirose 2006 Table 1 rows, with exact printed tokens and derived cell volumes. Only two hot MgO-paired rows enter the Fei 2007 Au thermal replay.",
+   "reference": {
+    "authors": [
+     "Hirose",
+     "Sinmyo",
+     "Sata",
+     "Ohishi"
+    ],
+    "year": 2006,
+    "doi": "10.1029/2005GL024468",
+    "source": "Geophys. Res. Lett."
+   },
+   "source_location": "Table 1, original publisher HTML",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005GL024468",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "source_metadata",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "cycle",
+     "quantity": "source_metadata",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "heating_min",
+     "quantity": "source_metadata",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "gold_a_angstrom_printed",
+     "quantity": "source_metadata",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "gold_tsuchiya_pressure_gpa_printed",
+     "quantity": "source_metadata",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "mgo_a_angstrom_printed",
+     "quantity": "source_metadata",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "mgo_speziale_pressure_gpa_printed",
+     "quantity": "source_metadata",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "xray_observation",
+     "quantity": "source_metadata",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "gold_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "gold_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "gold_a_angstrom"
+    },
+    {
+     "name": "gold_tsuchiya_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_tsuchiya_pressure_gpa_uncertainty",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "gold_tsuchiya_pressure_gpa"
+    },
+    {
+     "name": "mgo_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgo_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "mgo_a_angstrom"
+    },
+    {
+     "name": "mgo_speziale_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "mgo_speziale_pressure_gpa_uncertainty",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "mgo_speziale_pressure_gpa"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "mgo_volume_a3",
+     "quantity": "calibrant_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "mgo_volume_uncertainty_a3",
+     "quantity": "calibrant_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "mgo_volume_a3"
+    },
+    {
+     "name": "use_in_fei2007_thermal_replay",
+     "quantity": "source_metadata",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-hirose-2006-table1.csv",
+    "sha256": "6b5c0d725071d6ab96ef5cf96d6634d2c31cecc96f32cdc55fd5d2721ad4f4f5",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_fei_2007_vinet_2"
+   ],
+   "uncertainty": {
+    "confidence": null,
+    "notes": "Missing lattice and pressure errors remain blank; printed zero in 3.7106(0) is not a zero sigma. Source parenthetical confidence unspecified."
+   },
+   "provenance": {
+    "manifest": "datasets/gold-hirose-2006-source.json"
+   },
+   "notes": "Reported MgO pressures are independent Au fit targets. Run 1 Au-derived pressures are archived comparison outputs and excluded from Au regression."
   }
  ]
 }

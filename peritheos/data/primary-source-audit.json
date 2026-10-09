@@ -4206,16 +4206,18 @@
       "label": "04-0784, Fei et al PNAS, 2007 [Vinet]",
       "doi": "10.1073/pnas.0609013104",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Published Au Vinet-MGD equation verified independently. Staged unweighted cold/hot replay reaches conditional numerical parity within printed K0-prime/q error widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved.",
       "primary_source_check": {
         "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
         "locations": [
-          "Equations 1-3",
-          "Table 1",
-          "Ne BM3 values in main text"
+          "Table 1, page 9183",
+          "Equations 2-3, page 9183",
+          "Figure 1 and caption, page 9183",
+          "Au thermal-refit paragraph, pages 9183-9184"
         ],
-        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law.",
-        "doi": "10.1073/pnas.0609013104"
+        "finding": "Vinet K0-prime=6.00(2), gamma0=2.97(3), q=0.6(3), theta0=170 K. Equation 3 uses the direct variable-exponent Debye law and a 300 K energy subtraction. Figure 1 calculated hot curves agree at graphical precision; cold revised-ruby and hot Speziale-MgO calibration evidence is kept distinct.",
+        "doi": "10.1073/pnas.0609013104",
+        "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306"
       }
     },
     {

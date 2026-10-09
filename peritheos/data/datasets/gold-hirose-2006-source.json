@@ -1,0 +1,41 @@
+{
+  "reference": {
+    "authors": [
+      "Hirose",
+      "Sinmyo",
+      "Sata",
+      "Ohishi"
+    ],
+    "year": 2006,
+    "title": "Determination of post-perovskite phase transition boundary in MgSiO3 using Au and MgO pressure standards",
+    "doi": "10.1029/2005GL024468"
+  },
+  "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005GL024468",
+  "source_location": "Original full article, Table 1, all 13 rows; paragraphs 5-7 for thermometry and errors",
+  "access_date": "2026-10-09",
+  "recovery": "Direct manual transcription of the original publisher HTML table, verified against table footnotes. This CSV is not a downloaded author file.",
+  "publisher_supplement": {
+    "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2005GL024468&file=grl20669-sup-0001-t01.txt",
+    "description": "Publisher lists a 1012-byte tab-delimited Table 1. Retrieval returned HTTP 403 on 2026-10-09; its contents and parity with the displayed table are unverified."
+  },
+  "source_rounding": "*_printed columns retain trailing zeros and parenthetical widths exactly. Plain numerical columns parse values and widths; cell volumes are derived a^3, and available volume errors are first-order 3*a^2*delta_a. Blank means unavailable, never zero.",
+  "zero_width_issue": "Run 1 cycle 9 prints 3.7106(0). The printed token is retained; numerical uncertainty is blank rather than treating a rounded-to-zero width as exact knowledge.",
+  "pressure_scales": {
+    "gold_tsuchiya_pressure_gpa": "Tsuchiya (2003) Au EOS, as identified by the original table footnote; these values are retained but excluded as independent Au-fit targets.",
+    "mgo_speziale_pressure_gpa": "Speziale et al. (2001), DOI 10.1029/2000JB900318; only these reported targets are used for the Au thermal replay."
+  },
+  "selection": {
+    "thermal_replay": "Run 2 cycles 1 and 2, the only heated rows with paired Au and MgO observations; identified explicitly in Fei (2007) Figure 1 caption.",
+    "cold_comparison": "Run 2 300 K row; no source error widths.",
+    "excluded": "All ten Run 1 rows lack MgO measurements, and using their Au-derived pressures to fit Au would be circular."
+  },
+  "uncertainties": {
+    "confidence": null,
+    "covariance": null,
+    "run2_lattice_errors": null,
+    "temperature_row_errors": null,
+    "temperature_evidence": "Paragraph 7: spatial variation within the 20 um diffraction area is less than +/-10% even at 2400 K. This is not a row-wise standard deviation. Pressure errors at high temperature derive mainly from temperature uncertainty; shared P-T covariance is not provided."
+  },
+  "rights": "No separate data license recovered. Original source rights remain with its rightsholders; no CC0 claim is made for the article or source table.",
+  "csv_sha256": "6b5c0d725071d6ab96ef5cf96d6634d2c31cecc96f32cdc55fd5d2721ad4f4f5"
+}

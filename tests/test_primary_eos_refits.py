@@ -36,9 +36,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert ledger["summary"] == {"total": 648, **dict(sorted(statuses.items()))}
     assert statuses == {
         "not_refittable": 177,
-        "parity": 225,
+        "parity": 226,
         "parity_not_achieved": 73,
-        "similar": 157,
+        "similar": 156,
         "source_reconstruction": 16,
     }
     assert all(

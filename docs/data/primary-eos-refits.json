@@ -4,7 +4,7 @@
   "generated_with": "scripts/validate_primary_eos_refits.py",
   "policy": {
     "not_refittable": "Available observations or source reduction/calibration details are insufficient for an independent full refit. A qualified subset or proxy calculation may still be available as a diagnostic.",
-    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered. For explicitly registered Peritheos refits, parity verifies the stored coefficients under the documented selection and objective; it does not imply reproduction of source-author coefficients.",
+    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered. Fei 2007 Au parity is a staged equal-pressure-weight replay within printed parameter widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved. For explicitly registered Peritheos refits, parity verifies the stored coefficients under the documented selection and objective; it does not imply reproduction of source-author coefficients.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria, or a dedicated partial-source audit cannot reproduce the published coefficient pair.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold.",
     "source_reconstruction": "A source calculation or composition of audited source equations is reproduced without independently fitting the complete EOS coefficients. Component refits and remaining source-input gaps are documented separately."
@@ -17205,79 +17205,74 @@
       "status": "not_refittable"
     },
     {
-      "absolute_sigma": true,
-      "columns": {
-        "pressure": "pressure_gpa",
-        "temperature": null,
-        "volume": "volume_a3_conventional_cell"
-      },
+      "author_fit_reproduced": false,
+      "cold_observations": 37,
       "dataset_identifiers": [
-        "gold_fei_2007_figure1_digitized"
+        "gold_dewaele_2004_table1_compression",
+        "gold_fei_2004_table1",
+        "gold_hirose_2006_table1"
       ],
-      "degrees_of_freedom": 4,
       "experimental_pressure_range_gpa": [
         0.0,
         89.0
       ],
       "experimental_temperature_range_k": null,
-      "fit_kind": "reference_isotherm_pv",
+      "fit_kind": "staged_vinet_mgd_conditional_replay",
       "fixed_parameters": [
-        "K0"
+        "V0",
+        "K0",
+        "gamma0",
+        "theta0"
       ],
       "free_parameters": [
-        "rt_eos.V0",
-        "rt_eos.K0_prime"
+        "K0_prime",
+        "q"
       ],
       "label": "04-0784, Fei et al PNAS, 2007 [Vinet]",
       "material_identifier": "gold",
       "model": "Vinet",
-      "objective": "errors_in_variables",
-      "observations": 6,
-      "observed_pressure_range_gpa": [
-        49.2069,
-        90.3929
-      ],
-      "observed_temperature_range_k": null,
-      "observed_volume_range": [
-        52.578378,
-        57.005405
-      ],
+      "objective": "equal_pressure_residuals",
+      "observations": 65,
       "parameters": [
         {
-          "difference": -0.34781861868751207,
-          "parameter": "rt_eos.V0",
-          "published": 67.85,
-          "published_error": 0.004,
-          "refit": 67.50218138131248,
-          "refit_error": 0.09953200007943304,
-          "relative_difference": 0.005126287674097452,
-          "similar": true,
-          "within_combined_2sigma": false
-        },
-        {
-          "difference": 0.4389677868152697,
-          "parameter": "rt_eos.K0_prime",
+          "difference": -0.0046737266146053,
+          "parameter": "K0_prime",
           "published": 6.0,
           "published_error": 0.02,
-          "refit": 6.43896778681527,
-          "refit_error": 0.11209323273310233,
-          "relative_difference": 0.07316129780254495,
+          "refit": 5.995326273385395,
+          "refit_error": 0.01117901202935827,
+          "relative_difference": 0.0007789544357675501,
           "similar": true,
-          "within_combined_2sigma": false
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": 0.019148631688178375,
+          "parameter": "q",
+          "published": 0.6,
+          "published_error": 0.3,
+          "refit": 0.6191486316881784,
+          "refit_error": 0.12507788930311625,
+          "relative_difference": 0.03191438614696396,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
         }
       ],
-      "primary_data_finding": "The paper's new Au compression observations are shown graphically as open circles in Figure 1. Six visible 300 K observations were digitized from the source-resolution PMC figure; no experimental error bars are plotted. Table 1 contains optimized EOS parameters, not row-level measurements.",
-      "primary_data_status": "plot_only",
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "37 revised-ruby Dewaele cold rows and 28 reported-MgO hot rows (26 Fei 2004 plus two Hirose 2006) support a staged conditional replay. The six new Fei 2007 cold markers remain digitized and enter sensitivities only. Calculated Figure 1 paths are never fit targets.",
+      "primary_data_status": "bundled",
       "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
-      "published_rmse_gpa": 1.497450579295033,
+      "published_rmse_gpa": 0.7122682138770043,
+      "qualification": "Conditional numerical parity: staged equal-pressure-weight replay of 37 revised-ruby cold observations followed by 28 reported-MgO hot observations reproduces K0-prime and q within printed parameter error widths. V0/K0/gamma0/theta0 are adopted and fixed. Source weights, exact MgO reduction and uncertainty confidence/covariance remain unresolved; no formal combined-two-sigma or source-exact author-fit claim.",
       "record_identifier": "gold_fei_2007_vinet_2",
-      "reduced_chi_square": 13.884485145430892,
-      "rmse_gpa": 0.6560364637870134,
-      "selection": "all rows",
-      "solver_message": "`ftol` termination condition is satisfied.",
-      "solver_success": true,
-      "source_notes": "Corrected against the paper (Table 1: Vinet, V0=67.850(4), K0=167, K0p=6.00(2)); the hosted database carried Anderson's BM3 values here. Thermal parameters are the paper's MGD fit (not yet used by Dioptas).",
-      "status": "similar"
+      "reproduction_report": "docs/data/fei-2007-gold-reproduction.json",
+      "residual_scope": "Thermal 28-row RMSE; cold-stage residuals archived separately",
+      "rmse_gpa": 0.7107262512275505,
+      "sigma_absolute": false,
+      "source_notes": "Published Fei (2007) Table 1 Au Vinet-MGD coefficients, with the printed variable-exponent Debye-temperature law. Staged cold/hot replay achieves conditional numerical parity within printed K0-prime/q error widths under equal pressure weights. Source weights, exact MgO reduction and error confidence/covariance remain unresolved; diagnostic refits do not replace published coefficients. See docs/literature-reproductions/fei-2007-gold.md.",
+      "status": "parity",
+      "thermal_observations": 28
     },
     {
       "absolute_sigma": false,
@@ -48744,9 +48739,9 @@
   ],
   "summary": {
     "not_refittable": 177,
-    "parity": 225,
+    "parity": 226,
     "parity_not_achieved": 73,
-    "similar": 157,
+    "similar": 156,
     "source_reconstruction": 16,
     "total": 648
   }

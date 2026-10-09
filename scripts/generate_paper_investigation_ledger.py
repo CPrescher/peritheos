@@ -80,6 +80,12 @@ PAPER_SCOPE_NOTES = {
         "[Pt audit](literature-reproductions/yokoo-2009-platinum.md) and "
         "[Au audit](literature-reproductions/yokoo-2009-gold.md)."
     ),
+    "10.1073/pnas.0609013104": (
+        "Conditional Au numerical parity reproduces K0-prime/q within printed "
+        "widths using a staged equal-pressure-weight replay; source weights, "
+        "exact MgO reduction and error confidence/covariance remain unresolved. "
+        "See the [Au replay](literature-reproductions/fei-2007-gold.md)."
+    ),
     "10.1063/1.3054331": (
         "The complete Vinet/integrated-q Debye plus electronic pressure scale "
         "is registered using 51 recovered Tsuchiya-Kawamura Pt nodes; the "

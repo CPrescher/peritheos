@@ -2089,6 +2089,10 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if record_id == "gold_fei_2007_vinet_2":
+        from scripts.reproduce_fei_2007_gold import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id == "fes_vi_morard_2026_bm3_mgd":
         from scripts.audit_morard_2026_fes import ledger_outcome
 
@@ -5221,7 +5225,11 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if (
+            if record["identifier"] == "gold_fei_2007_vinet_2":
+                from scripts.reproduce_fei_2007_gold import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif (
                 record["identifier"]
                 == "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"
             ):
@@ -5495,6 +5503,9 @@ def validate_all() -> dict[str, Any]:
                 "Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within "
                 "printed error widths, without claiming the unspecified source "
                 "weights, marker averaging or error confidence were recovered."
+                " Fei 2007 Au parity is a staged equal-pressure-weight replay within "
+                "printed parameter widths; source weights, exact MgO reduction and "
+                "error confidence/covariance remain unresolved."
                 " For explicitly registered Peritheos refits, parity verifies the "
                 "stored coefficients under the documented selection and objective; "
                 "it does not imply reproduction of source-author coefficients."
@@ -5667,6 +5678,10 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "within the printed coefficient error widths; source weights and marker ",
         "averaging remain unspecified. Its staged-volume and weighting diagnostics ",
         "are retained separately, without assigning an error confidence convention.",
+        "Fei (2007) Au accepts conditional staged numerical parity within printed ",
+        "parameter widths; original weights, exact MgO reduction and uncertainty ",
+        "confidence/covariance remain unresolved. No formal combined-two-sigma ",
+        "or source-exact author-fit reproduction is asserted.",
         "`source_reconstruction` covers source calculations and compositions of ",
         "audited equations without an independent refit of the complete EOS. ",
         "Component refits and remaining source-input gaps are documented separately. ",

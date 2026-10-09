@@ -1150,7 +1150,7 @@ the primary-source and refit ledgers.
 | [Fedotenko et al. (2020)](https://doi.org/10.1016/j.jallcom.2020.156179) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Fei et al. (2000)](https://doi.org/10.2138/am-2000-11-1229) | Reproduced | 1 | 1 similar | 1 plot only/digitized |
 | [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | Mixed: reproduced and discrepant records | 3 | 1 similar; 1 parity not achieved; 1 direct refit unavailable | 3 bundled |
-| [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) | Reproduced | 4 | 2 parity; 2 similar | 1 bundled; 3 plot only/digitized |
+| [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) | Reproduced | 4 | 3 parity; 1 similar; Conditional Au numerical parity reproduces K0-prime/q within printed widths using a staged equal-pressure-weight replay; source weights, exact MgO reduction and error confidence/covariance remain unresolved. See the [Au replay](literature-reproductions/fei-2007-gold.md). | 2 bundled; 2 plot only/digitized |
 | [Fei et al. (2007)](https://doi.org/10.1029/2007gl030712) | Mixed: reproduced and discrepant records | 6 | 4 parity; 1 similar; 1 parity not achieved | 6 bundled |
 | [Fei et al. (2016)](https://doi.org/10.1002/2016gl069456) | Direct refit unavailable | 3 | 3 direct refit unavailable | 3 bundled |
 | [Ferre et al. (2009), dislocations in CaSiO3 perovskite](https://doi.org/10.2138/am.2009.3003) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
