@@ -1,0 +1,151 @@
+{
+  "format": "peritheos.primary-source-transcription",
+  "format_version": 1,
+  "audit_date": "2026-10-09",
+  "primary_paper": {
+    "doi": "10.1063/1.3054331",
+    "local_input": "/Users/clemens/Downloads/013505_1_online.pdf",
+    "sha256": "a211e6f471e2edf8e6c3e67fcab1f97f3262c8d043ef7ad590dbe42cec4b6d8a",
+    "visually_checked": [
+      "Equations (1)-(13), pages 2-4",
+      "Tables I-II, pages 3-4",
+      "Tables III-IV, pages 5-6"
+    ]
+  },
+  "arblaster_source": {
+    "doi": "10.1595/003214097X4111221",
+    "url": "https://technology.matthey.com/deliver/fulltext/pmr/41/1/pmr0041-0012.pdf?itemId=/content/journals/10.1595/003214097X4111221&mimeType=pdf",
+    "sha256": "95b2892396753f82bf4026ddb46fd8f6674b6bc506e3e52ac7adac91afc50443",
+    "location": "Table II, page 16; 32 rows from 100 through 2000 K",
+    "classification": "assessed crystallographic expansion from dilatometry with thermal-vacancy correction; not new Matsui measurements",
+    "later_methodology_and_erratum": {
+      "doi": "10.1595/147106706X129088",
+      "sha256": "f1459a141ffeff9fc0b7087bd549b42b1383c84a94b062a532dfc31a2c92a038",
+      "finding": "2006 replaces the dilatometry/vacancy formula combination with lattice-expansion polynomials; also corrects notation and the heat-capacity/expansion relation. Original 1997 Table II values are retained separately."
+    }
+  },
+  "resources": {
+    "platinum-matsui-2009-table1-pvt.csv": {
+      "sha256": "6e1cf6a81902f43e22ba12b492395acb418ce9c8cd2de330c0b31f20c797f6f0",
+      "rows": 12
+    },
+    "platinum-matsui-2009-table3-grid.csv": {
+      "sha256": "464f586989fe4d6ca0a094be9712c4db266bfad07867d6bb6ca19a355e1e5c79",
+      "rows": 7
+    },
+    "platinum-arblaster-1997-table2-expansion.csv": {
+      "sha256": "0ff66621d43b4858e6697f19ae6dcb4adf45565b56b43b1e2ca3aa914895723f",
+      "rows": 32
+    },
+    "tsuchiya-kawamura-2002-table1-electronic-pressure.csv": {
+      "sha256": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336",
+      "rows": 51
+    }
+  },
+  "electronic": {
+    "source_doi": "10.1103/PhysRevB.66.094115",
+    "erratum_doi": "10.1103/PhysRevB.67.019902",
+    "raw_300k_pressure_gpa": 0.04,
+    "reference_subtracted_examples_gpa": {
+      "1000": 0.21,
+      "3000": 1.6,
+      "5000": 3.78
+    },
+    "volume_dependence": "adopted as independent of volume (nearly independent in cited calculation)",
+    "continuous_function": null,
+    "coefficient_set": null,
+    "interpolation_rule": null,
+    "uncertainties": null,
+    "primary_pdf_sha256": "2f35128ef0a86d500896d7930a3b13092b1d33085d64fa628a3e3271088211e8",
+    "erratum_pdf_sha256": "efa078407c80ede80d5889f6ad38f808dc31fe63bab0936c1b86cd69a10e825e",
+    "visually_checked": [
+      "Equations (1)-(6), page 094115-1",
+      "Methods and volume dependence, pages 094115-2/3",
+      "Table I and Figures 4-5, page 094115-4",
+      "2003 erratum, complete single page"
+    ],
+    "source_grid_temperature_k": [
+      0,
+      5000
+    ],
+    "source_grid_step_k": 100,
+    "source_grid_rows": 51,
+    "source_table_reference": "0 K electronic free energy; raw electronic thermal pressure",
+    "erratum_scope": "Nine Au pressures at 3100-3900 K corrected; Pt values unchanged",
+    "source_calculation": "Full-relativistic FP-LMTO in LSDA, Fermi-Dirac DOS integration; volume derivative of electronic free-energy increment fitted as linear in V",
+    "implementation_interpolation": "linear between printed nodes; numerical implementation choice not an author-specified rule",
+    "implementation_extrapolation": "forbidden outside 0-5000 K; thermal API requires positive T",
+    "source_table_resource": "tsuchiya-kawamura-2002-table1-electronic-pressure.csv"
+  },
+  "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null,
+    "theta0": null,
+    "gamma0": null,
+    "q": null
+  },
+  "shock_fit": {
+    "C_km_s": 3.604,
+    "C_printed_error_km_s": 0.019,
+    "S": 1.543,
+    "S_printed_error": 0.013,
+    "error_confidence": null,
+    "linear_velocity_fit_pressure_range_gpa": [
+      28,
+      290
+    ],
+    "optimized_derived_hugoniot_pressure_range_gpa": [
+      16,
+      290
+    ],
+    "sampling_and_weights": null
+  },
+  "table1": {
+    "classification": "static validation observations, not author fitting inputs",
+    "pressure_scale": "Matsui, Parker and Leslie (2000) MgO, DOI 10.2138/am-2000-2-308",
+    "temperature_uncertainty": null,
+    "parenthetical_error_confidence": null,
+    "calculated_pressure": "derived model output, excluded from fits",
+    "raw_mgo_volumes": null
+  },
+  "table3": {
+    "classification": "source-calculated output; not experimental observations or fit inputs",
+    "comparison_parentheses": "Dewaele (2004) 300 K output, kept as a separate comparison column"
+  },
+  "proposed_model_envelope": {
+    "pressure_gpa": [
+      0,
+      300
+    ],
+    "temperature_k": [
+      300,
+      3000
+    ],
+    "classification": "source recommendation, not a measured P-T rectangle or melting bound"
+  },
+  "table4": {
+    "source_location": "Table IV, page 013505-6",
+    "classification": "estimated temperature derivative summary, not fitted parameter uncertainty",
+    "volume_ratio": [
+      1.0,
+      0.9,
+      0.8
+    ],
+    "present_study_derivative_mpa_per_k": [
+      7.99,
+      7.9,
+      7.79
+    ],
+    "printed_parenthetical_width_mpa_per_k": [
+      0.06,
+      0.06,
+      0.07
+    ],
+    "temperature_range_k": [
+      300,
+      3000
+    ],
+    "confidence_or_averaging_rule": null
+  }
+}

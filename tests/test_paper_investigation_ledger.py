@@ -37,7 +37,7 @@ def test_paper_investigation_ledger_is_complete_and_current():
     assert "| Reproduced |" in ledger
     assert "| Coefficient parity not achieved |" in ledger
     assert "| Direct refit unavailable |" in ledger
-    assert "| Source reconstruction | 1 |" in ledger
+    assert "| Source reconstruction | 2 |" in ledger
     assert "Two published B2 FeSi candidates withheld" in ledger
     assert "two independent Peritheos refits added" in ledger
     assert "Katsura et al. (2004)" in ledger

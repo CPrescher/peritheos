@@ -48,6 +48,17 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1063/1.3054331": (
+        "The complete Vinet/integrated-q Debye plus electronic pressure scale "
+        "is registered using 51 recovered Tsuchiya-Kawamura Pt nodes; the "
+        "erratum corrects Au only. Linear interpolation is explicitly a numerical "
+        "implementation choice. All 35 source pressure-grid states agree within "
+        "0.0071 GPa. Original shock/expansion sampling, weights and joint-fit "
+        "objective remain unresolved; equation reconstruction is distinct from "
+        "author-fit parity. See the "
+        "[Matsui audit](literature-reproductions/matsui-2009-platinum.md)."
+    ),
+
     "10.1029/2024jb028819": (
         "Reproduction covers Ma's final reduced acoustic/Walker inputs and "
         "model grids; source weights/covariance and exact original-lattice "

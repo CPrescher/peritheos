@@ -233,3 +233,12 @@ identifier. The two colliding anchored record identifiers have equation-identica
 canonical counterparts, so their numerical behavior is unchanged.
 
 The NaCl-B2 catalog includes eight [Sakai et al. (2011) experimental fits](literature-reproductions/sakai-2011-nacl-b2.md): BM3 and Vinet on four separate Pt scales. These retain their own reference volumes and uncertainties and are distinct from the 2014 Yokoo-Pt recalibration.
+
+The [Matsui (2009) Pt audit](literature-reproductions/matsui-2009-platinum.md)
+registers `platinum_matsui_2009_vinet_mgd_electronic` alongside the unchanged
+300 K Vinet branch. It includes integrated-q Debye pressure and all 51
+Tsuchiya-Kawamura electronic nodes, subtracting their 300 K value once.
+Linear interpolation between 100 K nodes is explicitly a numerical choice;
+no table extrapolation or electronic caloric properties are supplied.
+The Au-only erratum does not change Pt. Source-grid reconstruction agrees
+within 0.0071 GPa; the original shock/expansion fit remains unreproduced.

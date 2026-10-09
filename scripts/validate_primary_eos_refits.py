@@ -142,7 +142,7 @@ MODEL_CLASSES = {
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
-    "platinum_matsui_2009_vinet_300k": "The 300 K Vinet branch is an exact projection of the published thermal model. Its shock-Hugoniot and thermal-expansion optimization cannot be refitted as static 300 K observations. The seven bundled Holmes shots retain recoverable upstream constraints; Table III and Sakai (2011) marker reductions independently check the executable reference isotherm.",
+    "platinum_matsui_2009_vinet_300k": "The unchanged 300 K Vinet branch and separately registered tabulated thermal scale reproduce the published pressure parameterization. Electronic Table I is recovered, with linear interpolation explicitly a numerical implementation choice. Marsh inputs, original Hugoniot/expansion sampling, weights and joint-fit objective remain unresolved; original author fit is not reproduced.",
     "fe088sio3_bridgmanite_ismailova_2016_300k_bm2": "Supplementary Table S2 bundles only four selected crystallographic states, while Figure 3A plots substantially more compression and decompression markers for the published BM2 fit. The source gives no complete row list, inclusion/exclusion flags, regression objective, numerical weights, or row-wise Ne calibrant volumes. The four exact rows are checkpoint data, not a defensible reconstruction of the source fit input.",
     "iron_dewaele_2006_vinet_thermal": "The bundled EPAPS rows constrain the near-room-temperature Vinet reference isotherm. The high-temperature Gruneisen coefficients were determined with separate shock-wave data and the anharmonic/electronic terms with ab-initio pressures, so the complete thermal fit input is not available for an independent joint refit.",
     "lead_hcp_kuznetsov_2002_bm3_3": "The bundled Figure 3 coordinates are plot-digitized room-temperature and source-reduced markers, not the complete original P-V-T observations used to fit the nine-coefficient hcp thermal BM3 surface. The original rows, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md).",
@@ -5429,6 +5429,13 @@ def validate_all() -> dict[str, Any]:
                 "argon_fcc_grimsditch_1986_density_polynomial",
             }:
                 outcome = _argon_batch_outcome(record)
+            elif record["identifier"] in {
+                "platinum_matsui_2009_vinet_300k",
+                "platinum_matsui_2009_vinet_mgd_electronic",
+            }:
+                from scripts.audit_matsui_2009_platinum import ledger_outcome
+
+                outcome = ledger_outcome(record)
             elif not identifiers:
                 outcome = {
                     "status": "not_refittable",

@@ -2643,8 +2643,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "audit_date": "2026-09-19",
-    "note": "Primary reference-isotherm coefficients and independent Sakai Table I marker reductions verified; scope and partial-fit limits retained.",
+    "audit_date": "2026-10-09",
+    "note": "Supplied Matsui paper and upstream electronic calculation/erratum visually checked. Cold branch unchanged; complete tabulated pressure scale registered separately with explicit linear interpolation. Original joint fit remains unreproduced.",
     "verified_fields": [
      "equation",
      "parameters",
@@ -2658,22 +2658,30 @@
      "doi": "10.1063/1.3054331",
      "access_url": "https://doi.org/10.1063/1.3054331",
      "locations": [
-      "Equation (6), Table II (300 K Vinet reference isotherm)",
-      "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+      "Equations (5)-(13), pages 3-4",
+      "Tables I-II, pages 3-4",
+      "Tables III-IV, pages 5-6"
      ],
-     "finding": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md."
+     "finding": "Exact 300 K Vinet branch retained. Matsui equations and Tsuchiya-Kawamura Table I now reconstruct the pressure scale; electronic nodes are preserved with explicit linear interpolation. See docs/literature-reproductions/matsui-2009-platinum.md."
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-19",
+     "audit_date": "2026-10-09",
      "dataset_identifiers": [
-      "platinum_holmes_1989_table3_shock"
+      "platinum_holmes_1989_table3_shock",
+      "platinum_matsui_2009_table1_pvt",
+      "platinum_matsui_2009_table3_grid",
+      "platinum_arblaster_1997_table2_expansion",
+      "tsuchiya_kawamura_2002_table1_electronic_pressure"
      ],
      "source_locations": [
-      "Equation (6), Table II (300 K Vinet reference isotherm)",
-      "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+      "Table I (12 static validation rows)",
+      "Table III (35 derived-output states)",
+      "Arblaster (1997), Table II (32 assessed expansion states)",
+      "Holmes (1989), Table III (seven shots; three below 290 GPa)",
+      "Tsuchiya-Kawamura (2002), Table I; 2003 Au-only erratum"
      ],
-     "finding": "The 300 K reference branch is defined exactly. The source fits shock data up to 290 GPa with thermal reduction and checks static P-V-T data; the existing seven Holmes shots are preserved as upstream constraints, not static 300 K fit inputs. The full shock/thermal optimization is outside this reference-isotherm record and is not independently refitted."
+     "finding": "12 MgO-calibrated static validation rows, 35 source-derived pressure states, 32 assessed expansion states, seven Holmes shots and 51 upstream theoretical electronic pressures are retained separately. Three Holmes shots are below 290 GPa. Marsh inputs, exact Hugoniot/expansion sampling, weights and joint-fit objective remain unavailable. Electronic nodes are recovered; interpolation is an implementation choice. Static validation and model outputs are not author fit inputs."
     }
    },
    "pressure_calibration": {
@@ -2708,6 +2716,307 @@
     },
     "audit_date": "2026-09-19"
    }
+  },
+  {
+   "determination_method": "hybrid",
+   "identifier": "platinum_matsui_2009_vinet_mgd_electronic",
+   "label": "Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Matsui",
+     "Ito",
+     "Katsura",
+     "Yamazaki",
+     "Yoshino",
+     "Yokoyama",
+     "Funakoshi"
+    ],
+    "year": 2009,
+    "title": "The temperature-pressure-volume equation of state of platinum",
+    "source": "Journal of Applied Physics",
+    "volume": "105",
+    "locator": "013505",
+    "doi": "10.1063/1.3054331"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 195.084
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 60.38,
+     "K0": 273.0,
+     "K0_prime": 5.2
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null,
+    "Tr": null,
+    "theta0": null,
+    "gamma0": null,
+    "q": null,
+    "n": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reference_parameterization",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     300.0
+    ],
+    "temperature_k": [
+     300.0,
+     3000.0
+    ],
+    "notes": [
+     "Published Matsui Vinet and integrated-q Debye pressure plus volume-independent Tsuchiya-Kawamura (2002) Table I electronic correction, subtracting raw P_el(300 K)=0.04 GPa once. 2003 erratum corrects Au only. All 51 Pt nodes retained; linear interpolation between 100 K nodes is an explicit numerical implementation choice, not specified by the authors. No extrapolation outside 0-5000 K; positive-temperature API. Recommended scale envelope 0-300 GPa/300-3000 K is modeled, not measured coverage or a solid-phase guarantee. Rounded coefficients/table values reproduce 35 Table III states within 0.0071 GPa. Original joint shock/expansion fit, weights and covariance remain unreproduced."
+    ]
+   },
+   "notes": "Published Matsui Vinet and integrated-q Debye pressure plus volume-independent Tsuchiya-Kawamura (2002) Table I electronic correction, subtracting raw P_el(300 K)=0.04 GPa once. 2003 erratum corrects Au only. All 51 Pt nodes retained; linear interpolation between 100 K nodes is an explicit numerical implementation choice, not specified by the authors. No extrapolation outside 0-5000 K; positive-temperature API. Recommended scale envelope 0-300 GPa/300-3000 K is modeled, not measured coverage or a solid-phase guarantee. Rounded coefficients/table values reproduce 35 Table III states within 0.0071 GPa. Original joint shock/expansion fit, weights and covariance remain unreproduced.",
+   "parameter_provenance": {
+    "determination_method": "Hybrid: experimental shock/assessed expansion constrains Vinet and phonon coefficients, with imported first-principles electronic pressure table. Published coefficients used; no new fit.",
+    "V0": "Equation (6), Table II (300 K Vinet reference isotherm)",
+    "K0": "Equation (6), Table II (300 K Vinet reference isotherm)",
+    "K0_prime": "Equation (6), Table II (300 K Vinet reference isotherm)",
+    "theta0": "Table II, fixed 230 K",
+    "gamma0": "Table II, optimized 2.70; no printed error",
+    "q": "Table II, optimized constant exponent 1.10; no printed error",
+    "Tr": "Equations (5)-(10): 300 K reference for both lattice and electronic increments",
+    "n": "Equation (9): one Pt atom per molar formula unit",
+    "electronic_pressure_gpa": "Tsuchiya-Kawamura (2002) Table I, raw theoretical values; Pt unchanged by 2003 erratum",
+    "interpolation": "Linear interpolation, explicit Peritheos numerical choice"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-09",
+    "note": "Published Matsui Vinet and integrated-q Debye pressure plus volume-independent Tsuchiya-Kawamura (2002) Table I electronic correction, subtracting raw P_el(300 K)=0.04 GPa once. 2003 erratum corrects Au only. All 51 Pt nodes retained; linear interpolation between 100 K nodes is an explicit numerical implementation choice, not specified by the authors. No extrapolation outside 0-5000 K; positive-temperature API. Recommended scale envelope 0-300 GPa/300-3000 K is modeled, not measured coverage or a solid-phase guarantee. Rounded coefficients/table values reproduce 35 Table III states within 0.0071 GPa. Original joint shock/expansion fit, weights and covariance remain unreproduced.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.3054331",
+     "access_url": "https://doi.org/10.1063/1.3054331",
+     "locations": [
+      "Equations (5)-(13), pages 3-4",
+      "Tables I-II, pages 3-4",
+      "Tables III-IV, pages 5-6",
+      "Tsuchiya-Kawamura (2002), Table I, Equations (1)-(6) and Figures 4-5",
+      "Tsuchiya-Kawamura (2003), Au-only erratum"
+     ],
+     "finding": "All numeric terms recovered. Independent SI replay agrees with the production pressure equation below 1e-9 GPa and with all 35 printed grid states within 0.0071 GPa. Node reproduction is source-based; sub-grid linear interpolation is explicitly an implementation choice. No original-fit parity claim."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-10-09",
+     "dataset_identifiers": [
+      "platinum_holmes_1989_table3_shock",
+      "platinum_matsui_2009_table1_pvt",
+      "platinum_matsui_2009_table3_grid",
+      "platinum_arblaster_1997_table2_expansion",
+      "tsuchiya_kawamura_2002_table1_electronic_pressure"
+     ],
+     "source_locations": [
+      "Table I (12 static validation rows)",
+      "Table III (35 derived-output states)",
+      "Arblaster (1997), Table II (32 assessed expansion states)",
+      "Holmes (1989), Table III (seven shots; three below 290 GPa)",
+      "Tsuchiya-Kawamura (2002), Table I; 2003 Au-only erratum"
+     ],
+     "finding": "12 MgO-calibrated static validation rows, 35 source-derived pressure states, 32 assessed expansion states, seven Holmes shots and 51 upstream theoretical electronic pressures are retained separately. Three Holmes shots are below 290 GPa. Marsh inputs, exact Hugoniot/expansion sampling, weights and joint-fit objective remain unavailable. Electronic nodes are recovered; interpolation is an implementation choice. Static validation and model outputs are not author fit inputs."
+    }
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Matsui",
+        "Ito",
+        "Katsura",
+        "Yamazaki",
+        "Yoshino",
+        "Yokoyama",
+        "Funakoshi"
+       ],
+       "year": 2009,
+       "title": "The temperature-pressure-volume equation of state of platinum",
+       "source": "Journal of Applied Physics",
+       "volume": "105",
+       "locator": "013505",
+       "doi": "10.1063/1.3054331"
+      },
+      "source_location": "Shock-Hugoniot and thermal-expansion optimization; no static marker pressure scale",
+      "scope": "Reference isotherm from complete source thermal model"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Primary shock/thermal pressure model, not a static sample fit with another marker."
+    },
+    "audit_date": "2026-09-19"
+   },
+   "thermal": {
+    "type": "DebyeTabulatedThermalPressure",
+    "model": "debye_tabulated_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 230.0,
+     "gamma0": 2.7,
+     "q": 1.1,
+     "n": 1.0
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ],
+    "configuration": {
+     "electronic_temperature_k": [
+      0.0,
+      100.0,
+      200.0,
+      300.0,
+      400.0,
+      500.0,
+      600.0,
+      700.0,
+      800.0,
+      900.0,
+      1000.0,
+      1100.0,
+      1200.0,
+      1300.0,
+      1400.0,
+      1500.0,
+      1600.0,
+      1700.0,
+      1800.0,
+      1900.0,
+      2000.0,
+      2100.0,
+      2200.0,
+      2300.0,
+      2400.0,
+      2500.0,
+      2600.0,
+      2700.0,
+      2800.0,
+      2900.0,
+      3000.0,
+      3100.0,
+      3200.0,
+      3300.0,
+      3400.0,
+      3500.0,
+      3600.0,
+      3700.0,
+      3800.0,
+      3900.0,
+      4000.0,
+      4100.0,
+      4200.0,
+      4300.0,
+      4400.0,
+      4500.0,
+      4600.0,
+      4700.0,
+      4800.0,
+      4900.0,
+      5000.0
+     ],
+     "electronic_pressure_gpa": [
+      0.0,
+      0.01,
+      0.02,
+      0.04,
+      0.06,
+      0.08,
+      0.11,
+      0.14,
+      0.17,
+      0.21,
+      0.25,
+      0.29,
+      0.34,
+      0.39,
+      0.45,
+      0.51,
+      0.57,
+      0.63,
+      0.7,
+      0.77,
+      0.85,
+      0.95,
+      1.01,
+      1.09,
+      1.16,
+      1.23,
+      1.31,
+      1.39,
+      1.47,
+      1.56,
+      1.64,
+      1.73,
+      1.82,
+      1.91,
+      2.01,
+      2.11,
+      2.2,
+      2.31,
+      2.41,
+      2.52,
+      2.63,
+      2.73,
+      2.85,
+      2.96,
+      3.08,
+      3.2,
+      3.32,
+      3.44,
+      3.57,
+      3.7,
+      3.82
+     ],
+     "interpolation": "linear"
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "Published pressure parameterization",
+     "citation": "Matsui et al. (2009), Equations (5)-(10), Table II",
+     "doi": "10.1063/1.3054331"
+    },
+    {
+     "role": "Theoretical electronic pressure input",
+     "citation": "Tsuchiya and Kawamura (2002), Table I",
+     "doi": "10.1103/PhysRevB.66.094115"
+    },
+    {
+     "role": "Electronic table erratum, Au only; Pt unchanged",
+     "citation": "Tsuchiya and Kawamura (2003)",
+     "doi": "10.1103/PhysRevB.67.019902"
+    }
+   ]
   },
   {
    "determination_method": "experimental",
@@ -3837,7 +4146,8 @@
    },
    "used_by_eos_records": [
     "platinum_holmes_1989_vinet_1",
-    "platinum_matsui_2009_vinet_300k"
+    "platinum_matsui_2009_vinet_300k",
+    "platinum_matsui_2009_vinet_mgd_electronic"
    ]
   },
   {
@@ -3900,6 +4210,301 @@
    "used_by_eos_records": [
     "platinum_holmes_1989_vinet_1"
    ]
+  },
+  {
+   "identifier": "platinum_matsui_2009_table1_pvt",
+   "kind": "static_pvt",
+   "description": "static validation observations, not author fitting inputs",
+   "source_location": "Table I, page 013505-3",
+   "source_url": "https://doi.org/10.1063/1.3054331",
+   "reference": {
+    "authors": [
+     "Matsui",
+     "Ito",
+     "Katsura",
+     "Yamazaki",
+     "Yoshino",
+     "Yokoyama",
+     "Funakoshi"
+    ],
+    "year": 2009,
+    "title": "The temperature-pressure-volume equation of state of platinum",
+    "source": "Journal of Applied Physics",
+    "volume": "105",
+    "locator": "013505",
+    "doi": "10.1063/1.3054331"
+   },
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio_error",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    },
+    {
+     "name": "observed_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "observed_pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "observed_pressure_gpa"
+    },
+    {
+     "name": "calculated_pressure_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "printed_observed_minus_calculated_gpa",
+     "quantity": "pressure_difference",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/platinum-matsui-2009-table1-pvt.csv",
+    "sha256": "6e1cf6a81902f43e22ba12b492395acb418ce9c8cd2de330c0b31f20c797f6f0",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "platinum_matsui_2009_vinet_300k",
+    "platinum_matsui_2009_vinet_mgd_electronic"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "manifest": "datasets/platinum-matsui-2009-source.json"
+   },
+   "notes": "Audit evidence only, not fit_datasets. Published calculated pressures and inferred electronic residuals are not independent observations.",
+   "pressure_scale": {
+    "observed_pressure_gpa": "Matsui, Parker and Leslie (2000) MgO, DOI 10.2138/am-2000-2-308"
+   },
+   "uncertainty": {
+    "notes": "Printed parenthetical widths, confidence unspecified; no temperature errors or covariance supplied."
+   }
+  },
+  {
+   "identifier": "platinum_matsui_2009_table3_grid",
+   "kind": "source_derived_eos_checkpoints",
+   "description": "source-calculated output; not experimental observations or fit inputs",
+   "source_location": "Table III, page 013505-5",
+   "source_url": "https://doi.org/10.1063/1.3054331",
+   "reference": {
+    "authors": [
+     "Matsui",
+     "Ito",
+     "Katsura",
+     "Yamazaki",
+     "Yoshino",
+     "Yokoyama",
+     "Funakoshi"
+    ],
+    "year": 2009,
+    "title": "The temperature-pressure-volume equation of state of platinum",
+    "source": "Journal of Applied Physics",
+    "volume": "105",
+    "locator": "013505",
+    "doi": "10.1063/1.3054331"
+   },
+   "columns": [
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_300k_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_500k_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_1000k_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_2000k_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_3000k_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "dewaele_300k_comparison_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/platinum-matsui-2009-table3-grid.csv",
+    "sha256": "464f586989fe4d6ca0a094be9712c4db266bfad07867d6bb6ca19a355e1e5c79",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "platinum_matsui_2009_vinet_300k",
+    "platinum_matsui_2009_vinet_mgd_electronic"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "manifest": "datasets/platinum-matsui-2009-source.json"
+   },
+   "notes": "Audit evidence only, not fit_datasets. Published calculated pressures and inferred electronic residuals are not independent observations."
+  },
+  {
+   "identifier": "platinum_arblaster_1997_table2_expansion",
+   "kind": "assessed_thermal_expansion",
+   "description": "assessed crystallographic expansion from dilatometry with thermal-vacancy correction; not new Matsui measurements",
+   "source_location": "Table II, page 16; 100-2000 K subset",
+   "source_url": "https://doi.org/10.1595/003214097X4111221",
+   "reference": {
+    "authors": [
+     "Arblaster"
+    ],
+    "year": 1997,
+    "title": "Crystallographic Properties of Platinum",
+    "source": "Platinum Metals Review",
+    "volume": "41",
+    "locator": "12-21",
+    "doi": "10.1595/003214097X4111221"
+   },
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "lattice_parameter_nm",
+     "quantity": "lattice_parameter",
+     "unit": "nm",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "linear_length_change_percent",
+     "quantity": "relative_length_change",
+     "unit": "percent",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/platinum-arblaster-1997-table2-expansion.csv",
+    "sha256": "0ff66621d43b4858e6697f19ae6dcb4adf45565b56b43b1e2ca3aa914895723f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "platinum_matsui_2009_vinet_300k",
+    "platinum_matsui_2009_vinet_mgd_electronic"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "manifest": "datasets/platinum-matsui-2009-source.json"
+   },
+   "notes": "Audit evidence only, not fit_datasets. Published calculated pressures and inferred electronic residuals are not independent observations."
+  },
+  {
+   "identifier": "tsuchiya_kawamura_2002_table1_electronic_pressure",
+   "kind": "source_derived_electronic_pressure",
+   "description": "51 first-principles electronic pressure nodes, 0-5000 K. Pt unchanged; original and erratum-corrected Au kept separately.",
+   "source_location": "Table I, page 094115-4; 2003 erratum",
+   "source_url": "https://doi.org/10.1103/PhysRevB.66.094115",
+   "reference": {
+    "authors": [
+     "Tsuchiya",
+     "Kawamura"
+    ],
+    "year": 2002,
+    "title": "First-principles electronic thermal pressure of metal Au and Pt",
+    "source": "Physical Review B",
+    "volume": "66",
+    "locator": "094115",
+    "doi": "10.1103/PhysRevB.66.094115"
+   },
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "platinum_electronic_pressure_gpa",
+     "quantity": "electronic_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_original_electronic_pressure_gpa",
+     "quantity": "electronic_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_corrected_electronic_pressure_gpa",
+     "quantity": "electronic_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_erratum_applied",
+     "quantity": "erratum_flag",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/tsuchiya-kawamura-2002-table1-electronic-pressure.csv",
+    "sha256": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "platinum_matsui_2009_vinet_300k",
+    "platinum_matsui_2009_vinet_mgd_electronic"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "manifest": "datasets/platinum-matsui-2009-source.json"
+   },
+   "notes": "First-principles pressure input, not experimental observations or Matsui fit_datasets. Raw 0 K-referenced pressures; subtract at Tr once. Linear interpolation is an implementation choice; no error bars or analytic coefficients published. Preserve printed Pt 2100 K=0.95 GPa."
   }
  ]
 }

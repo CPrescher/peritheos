@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 642,
+    "records": 643,
     "deferred": 3,
     "not_reproduced": 5,
-    "primary_source_validated": 634
+    "primary_source_validated": 635
   },
   "records": [
     {
@@ -10963,28 +10963,78 @@
       "label": "Matsui et al. (2009), Pt Vinet reference isotherm, 300 K",
       "doi": "10.1063/1.3054331",
       "status": "primary_source_validated",
-      "note": "Primary reference-isotherm coefficients and independent Sakai Table I marker reductions verified; scope and partial-fit limits retained.",
+      "note": "Supplied Matsui paper and upstream electronic calculation/erratum visually checked. Cold branch unchanged; complete tabulated pressure scale registered separately with explicit linear interpolation. Original joint fit remains unreproduced.",
       "primary_source_check": {
         "doi": "10.1063/1.3054331",
         "access_url": "https://doi.org/10.1063/1.3054331",
         "locations": [
-          "Equation (6), Table II (300 K Vinet reference isotherm)",
-          "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+          "Equations (5)-(13), pages 3-4",
+          "Tables I-II, pages 3-4",
+          "Tables III-IV, pages 5-6"
         ],
-        "finding": "Exact 300 K Vinet branch; no thermal extension inferred. See docs/literature-reproductions/sakai-2011-nacl-b2.md."
+        "finding": "Exact 300 K Vinet branch retained. Matsui equations and Tsuchiya-Kawamura Table I now reconstruct the pressure scale; electronic nodes are preserved with explicit linear interpolation. See docs/literature-reproductions/matsui-2009-platinum.md."
       },
       "primary_data_check": {
         "status": "bundled",
-        "audit_date": "2026-09-19",
+        "audit_date": "2026-10-09",
         "dataset_identifiers": [
-          "platinum_holmes_1989_table3_shock"
+          "platinum_holmes_1989_table3_shock",
+          "platinum_matsui_2009_table1_pvt",
+          "platinum_matsui_2009_table3_grid",
+          "platinum_arblaster_1997_table2_expansion",
+          "tsuchiya_kawamura_2002_table1_electronic_pressure"
         ],
         "source_locations": [
-          "Equation (6), Table II (300 K Vinet reference isotherm)",
-          "Table III (V/V0=0.70, 300 K: 235.96 GPa)"
+          "Table I (12 static validation rows)",
+          "Table III (35 derived-output states)",
+          "Arblaster (1997), Table II (32 assessed expansion states)",
+          "Holmes (1989), Table III (seven shots; three below 290 GPa)",
+          "Tsuchiya-Kawamura (2002), Table I; 2003 Au-only erratum"
         ],
-        "finding": "The 300 K reference branch is defined exactly. The source fits shock data up to 290 GPa with thermal reduction and checks static P-V-T data; the existing seven Holmes shots are preserved as upstream constraints, not static 300 K fit inputs. The full shock/thermal optimization is outside this reference-isotherm record and is not independently refitted."
-      }
+        "finding": "12 MgO-calibrated static validation rows, 35 source-derived pressure states, 32 assessed expansion states, seven Holmes shots and 51 upstream theoretical electronic pressures are retained separately. Three Holmes shots are below 290 GPa. Marsh inputs, exact Hugoniot/expansion sampling, weights and joint-fit objective remain unavailable. Electronic nodes are recovered; interpolation is an implementation choice. Static validation and model outputs are not author fit inputs."
+      },
+      "evidence": "literature-reproductions/matsui-2009-platinum.md"
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_matsui_2009_vinet_mgd_electronic",
+      "label": "Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure",
+      "doi": "10.1063/1.3054331",
+      "status": "primary_source_validated",
+      "note": "Published Matsui Vinet and integrated-q Debye pressure plus volume-independent Tsuchiya-Kawamura (2002) Table I electronic correction, subtracting raw P_el(300 K)=0.04 GPa once. 2003 erratum corrects Au only. All 51 Pt nodes retained; linear interpolation between 100 K nodes is an explicit numerical implementation choice, not specified by the authors. No extrapolation outside 0-5000 K; positive-temperature API. Recommended scale envelope 0-300 GPa/300-3000 K is modeled, not measured coverage or a solid-phase guarantee. Rounded coefficients/table values reproduce 35 Table III states within 0.0071 GPa. Original joint shock/expansion fit, weights and covariance remain unreproduced.",
+      "primary_source_check": {
+        "doi": "10.1063/1.3054331",
+        "access_url": "https://doi.org/10.1063/1.3054331",
+        "locations": [
+          "Equations (5)-(13), pages 3-4",
+          "Tables I-II, pages 3-4",
+          "Tables III-IV, pages 5-6",
+          "Tsuchiya-Kawamura (2002), Table I, Equations (1)-(6) and Figures 4-5",
+          "Tsuchiya-Kawamura (2003), Au-only erratum"
+        ],
+        "finding": "All numeric terms recovered. Independent SI replay agrees with the production pressure equation below 1e-9 GPa and with all 35 printed grid states within 0.0071 GPa. Node reproduction is source-based; sub-grid linear interpolation is explicitly an implementation choice. No original-fit parity claim."
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-10-09",
+        "dataset_identifiers": [
+          "platinum_holmes_1989_table3_shock",
+          "platinum_matsui_2009_table1_pvt",
+          "platinum_matsui_2009_table3_grid",
+          "platinum_arblaster_1997_table2_expansion",
+          "tsuchiya_kawamura_2002_table1_electronic_pressure"
+        ],
+        "source_locations": [
+          "Table I (12 static validation rows)",
+          "Table III (35 derived-output states)",
+          "Arblaster (1997), Table II (32 assessed expansion states)",
+          "Holmes (1989), Table III (seven shots; three below 290 GPa)",
+          "Tsuchiya-Kawamura (2002), Table I; 2003 Au-only erratum"
+        ],
+        "finding": "12 MgO-calibrated static validation rows, 35 source-derived pressure states, 32 assessed expansion states, seven Holmes shots and 51 upstream theoretical electronic pressures are retained separately. Three Holmes shots are below 290 GPa. Marsh inputs, exact Hugoniot/expansion sampling, weights and joint-fit objective remain unavailable. Electronic nodes are recovered; interpolation is an implementation choice. Static validation and model outputs are not author fit inputs."
+      },
+      "evidence": "literature-reproductions/matsui-2009-platinum.md"
     },
     {
       "material": "platinum",

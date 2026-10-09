@@ -846,6 +846,7 @@
             "Dewaele2006",
             "HollandPowellThermalPressure",
             "DebyeQuadraticThermalPressure",
+            "DebyeTabulatedThermalPressure",
             "DebyeAnharmonicHelmholtz"
           ]
         },
@@ -868,6 +869,7 @@
             "dewaele_2006",
             "holland_powell_thermal_pressure",
             "debye_quadratic_thermal_pressure",
+            "debye_tabulated_thermal_pressure",
             "debye_anharmonic_helmholtz"
           ]
         },
@@ -1138,6 +1140,16 @@
             {
               "properties": {
                 "type": {
+                  "const": "DebyeTabulatedThermalPressure"
+                },
+                "model": {
+                  "const": "debye_tabulated_thermal_pressure"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
                   "const": "DebyeAnharmonicHelmholtz"
                 },
                 "model": {
@@ -1392,6 +1404,51 @@
                 ]
               }
             ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "DebyeTabulatedThermalPressure"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "configuration"
+            ],
+            "properties": {
+              "configuration": {
+                "type": "object",
+                "required": [
+                  "electronic_temperature_k",
+                  "electronic_pressure_gpa",
+                  "interpolation"
+                ],
+                "properties": {
+                  "electronic_temperature_k": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "electronic_pressure_gpa": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "interpolation": {
+                    "const": "linear"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
           }
         }
       ]

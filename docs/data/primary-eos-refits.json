@@ -2936,7 +2936,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Chen (2010) \u2014 original-constant BM3 reconstruction \u2014 DO NOT USE",
+      "label": "Chen (2010) — original-constant BM3 reconstruction — DO NOT USE",
       "material_identifier": "argon_fcc",
       "model": "BM3",
       "observations": 80,
@@ -3025,7 +3025,7 @@
         290
       ],
       "fixed_parameters": [],
-      "label": "Chen (2010) \u2014 Peritheos BM3 refit of digitized Brillouin densities",
+      "label": "Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities",
       "material_identifier": "argon_fcc",
       "model": "BM3",
       "observations": 80,
@@ -3234,7 +3234,7 @@
       "fixed_parameters": [
         "shell_cutoff_squared"
       ],
-      "label": "Maltby et al. (2024) \u2014 unvalidated published EOS",
+      "label": "Maltby et al. (2024) — unvalidated published EOS",
       "material_identifier": "argon_fcc",
       "model": "Maltby2024",
       "primary_data_finding": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
@@ -3242,7 +3242,7 @@
       "primary_source": "https://api.nva.unit.no/publication/0198cc531207-be3c0dc3-6af4-4953-97be-777a88a705a8/filelink/b4a4e90d-77d9-4854-a2cb-af09e365233e",
       "reason": "Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.",
       "record_identifier": "argon_fcc_maltby_2024_published",
-      "source_notes": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm\u00b3/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. Published coefficients are fixed. No parameter uncertainty, DAC confinement or fluid-reference free-energy offsets are provided. The diagnostic refit is not used.",
+      "source_notes": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. Published coefficients are fixed. No parameter uncertainty, DAC confinement or fluid-reference free-energy offsets are provided. The diagnostic refit is not used.",
       "status": "not_refittable"
     },
     {
@@ -6051,7 +6051,7 @@
           }
         ]
       },
-      "primary_data_finding": "All 54 Table 1 rows, both pressure scales, reported uncertainties, Pt and NaCl observations, and explicit fit exclusions are bundled. The recovered P\u2013V\u2013T and Pt values match both canonical digests from the earlier audit. The audit artifact retains selections, coefficients, residual diagnostics and source anomalies.",
+      "primary_data_finding": "All 54 Table 1 rows, both pressure scales, reported uncertainties, Pt and NaCl observations, and explicit fit exclusions are bundled. The recovered P–V–T and Pt values match both canonical digests from the earlier audit. The audit artifact retains selections, coefficients, residual diagnostics and source anomalies.",
       "primary_data_status": "bundled",
       "primary_source": "https://link.springer.com/article/10.1007/s00269-012-0549-1",
       "published_rmse_gpa": 1.2227650669472376,
@@ -6061,7 +6061,7 @@
       "selection": "9 accepted external-heating rows for the 700 K BM2 stage; all 42 high-temperature rows for the thermal stage; source orders 12, 14, and 20 excluded only as directed by Table 1 footnote e",
       "solver_message": "dedicated Noguchi (2013) staged refit completed",
       "solver_success": true,
-      "source_notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). The source data license is unspecified; scoped CC0 covers only contributors\u2019 transcription rights. No fit covariance, weighting rule, or parameter-error confidence convention is published.",
+      "source_notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). The source data license is unspecified; scoped CC0 covers only contributors’ transcription rights. No fit covariance, weighting rule, or parameter-error confidence convention is published.",
       "source_table_sha256": "f6e599a617516126b898d320bfec9c836aa0dc6b86c68a395e138d12bbbec38a",
       "stages": [
         {
@@ -6911,7 +6911,7 @@
         "q",
         "eta_s0"
       ],
-      "label": "Joint Sun (2016) + Gr\u00e9aux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)",
+      "label": "Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)",
       "material_identifier": "ca_perovskite",
       "model": "BM3",
       "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
@@ -7007,12 +7007,12 @@
           "within_combined_2sigma": null
         }
       ],
-      "primary_data_finding": "The 174 reconstructed candidate observations are bundled with attribution: 140 Sun Table 1 P-V-T rows at 1200-2200 K and 34 cubic Gr\u00e9aux Figure 3b P-density-Vp-Vs rows. Gr\u00e9aux volume and elastic moduli are explicitly derived from the retained measurements. Fu does not disclose the exact row manifest, objective, or weights; the candidate selection and the non-parity audit are not an exact reconstruction of the published fit.",
+      "primary_data_finding": "The 174 reconstructed candidate observations are bundled with attribution: 140 Sun Table 1 P-V-T rows at 1200-2200 K and 34 cubic Gréaux Figure 3b P-density-Vp-Vs rows. Gréaux volume and elastic moduli are explicitly derived from the retained measurements. Fu does not disclose the exact row manifest, objective, or weights; the candidate selection and the non-parity audit are not an exact reconstruction of the published fit.",
       "primary_data_status": "bundled",
       "primary_source": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
-      "qualification": "The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gr\u00e9aux XLSX and are now bundled as attributed numerical transcriptions. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded.",
+      "qualification": "The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gréaux XLSX and are now bundled as attributed numerical transcriptions. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded.",
       "record_identifier": "ca_perovskite_fu_2023_bm3_mgd_refit",
-      "selection": "140 Sun Table 1 P-V-T rows at 1200-2200 K plus 34 cubic Gr\u00e9aux Figure 3b P-Vp-Vs-density rows",
+      "selection": "140 Sun Table 1 P-V-T rows at 1200-2200 K plus 34 cubic Gréaux Figure 3b P-Vp-Vs-density rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_notes": null,
@@ -7515,7 +7515,7 @@
         "q",
         "eta_s0"
       ],
-      "label": "Peritheos unweighted joint fit to Sun (2016) + Gr\u00e9aux (2019) cubic CaSiO3 data",
+      "label": "Peritheos unweighted joint fit to Sun (2016) + Gréaux (2019) cubic CaSiO3 data",
       "material_identifier": "ca_perovskite",
       "model": "BM3",
       "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
@@ -7578,12 +7578,12 @@
           "within_combined_2sigma": null
         }
       ],
-      "primary_data_finding": "The 174 reconstructed candidate observations are bundled with attribution: 140 Sun Table 1 P-V-T rows at 1200-2200 K and 34 cubic Gr\u00e9aux Figure 3b P-density-Vp-Vs rows. Gr\u00e9aux volume and elastic moduli are explicitly derived from the retained measurements. Fu does not disclose the exact row manifest, objective, or weights; the candidate selection and the non-parity audit are not an exact reconstruction of the published fit.",
+      "primary_data_finding": "The 174 reconstructed candidate observations are bundled with attribution: 140 Sun Table 1 P-V-T rows at 1200-2200 K and 34 cubic Gréaux Figure 3b P-density-Vp-Vs rows. Gréaux volume and elastic moduli are explicitly derived from the retained measurements. Fu does not disclose the exact row manifest, objective, or weights; the candidate selection and the non-parity audit are not an exact reconstruction of the published fit.",
       "primary_data_status": "bundled",
       "primary_source": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
       "qualification": "This opt-in EOS record stores the pressure-producing subset of the audited unweighted seven-parameter joint fit. Parity here verifies the stored coefficients against the audit artifact; it does not imply parity with Fu Table S3 or knowledge of Fu's unpublished weights.",
       "record_identifier": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",
-      "selection": "Sun Table 1 rows at 1200-2200 K plus all cubic Gr\u00e9aux Figure 3b rows",
+      "selection": "Sun Table 1 rows at 1200-2200 K plus all cubic Gréaux Figure 3b rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_notes": "Opt-in unweighted Peritheos refit. Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three. Errors are residual-scaled standard errors from the full seven-parameter joint fit; the pressure-volume covariance retains its marginal block. Fixed parameters have no estimated errors. The published Fu record remains the authoritative literature parameterization.",
@@ -7649,7 +7649,7 @@
         }
       ],
       "parity_basis": "registered_peritheos_refit_reproduced",
-      "primary_data_finding": "Exact 64-row manifest retains source-row/run identities. Rows 33 and 34 are excluded without altering the 66-row source table. Runs 3/4/5 originate in Wang\u2013Weidner (1994).",
+      "primary_data_finding": "Exact 64-row manifest retains source-row/run identities. Rows 33 and 34 are excluded without altering the 66-row source table. Runs 3/4/5 originate in Wang–Weidner (1994).",
       "primary_data_status": "bundled",
       "primary_source": "https://millenia.cars.aps.anl.gov/gsecars/LVP/publication/Papers/Wang_et_al95JB03254.pdf",
       "qualification": "Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard.",
@@ -9673,7 +9673,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "record_identifier": "copper_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "status": "not_refittable"
     },
     {
@@ -11827,7 +11827,7 @@
       "selection": "66 D03 observations above 300 K; source-staged gamma0 fit with the published 300 K coefficients fixed. The independent Fischer script also refits the 32-row static stage.",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. The inherited 2012 protocol fits K0/K0_prime to 32 room-temperature observations, then gamma0 to 66 high-temperature rows with the published static coefficients held fixed; the independent script reports both stages. The Fe\u201316Si Vinet alternative is a 2014 source-owned reanalysis of 2012 observations. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
+      "source_notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. The inherited 2012 protocol fits K0/K0_prime to 32 room-temperature observations, then gamma0 to 66 high-temperature rows with the published static coefficients held fixed; the independent script reports both stages. The Fe–16Si Vinet alternative is a 2014 source-owned reanalysis of 2012 observations. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
       "status": "parity"
     },
     {
@@ -12405,7 +12405,7 @@
       "rmse_gpa": 1.6064015207931917,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -12505,7 +12505,7 @@
       "rmse_gpa": 1.7062383521313822,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -12605,7 +12605,7 @@
       "rmse_gpa": 1.61999641999662,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -12705,7 +12705,7 @@
       "rmse_gpa": 1.653409509846668,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -12805,7 +12805,7 @@
       "rmse_gpa": 1.7349314547623915,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -12905,7 +12905,7 @@
       "rmse_gpa": 1.66732485758244,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -12946,7 +12946,7 @@
       "record_identifier": "fe09ni01_hcp_sakai_2014_p2_bm3",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -12983,7 +12983,7 @@
       "record_identifier": "fe09ni01_hcp_sakai_2014_p2_vinet",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -13020,7 +13020,7 @@
       "record_identifier": "fe09ni01_hcp_sakai_2014_p3_bm3",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -13057,7 +13057,7 @@
       "record_identifier": "fe09ni01_hcp_sakai_2014_p3_vinet",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -13153,7 +13153,7 @@
       "rmse_gpa": 1.667656628629867,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -13253,7 +13253,7 @@
       "rmse_gpa": 1.7788197892068647,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -13353,7 +13353,7 @@
       "rmse_gpa": 1.834716343287174,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -13453,7 +13453,7 @@
       "rmse_gpa": 1.9794522014797378,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "similar",
       "temperature_range_k": [
         300.0,
@@ -13553,7 +13553,7 @@
       "rmse_gpa": 1.7786202823007078,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -13653,7 +13653,7 @@
       "rmse_gpa": 1.9135004369802666,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -13762,7 +13762,7 @@
       "rmse_gpa": 1.0512363614149651,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Tables 6\u20138; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "source_notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         1510.0,
@@ -13898,7 +13898,7 @@
       "rmse_gpa": 1.0453242461778414,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Tables 6\u20138; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "source_notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         1510.0,
@@ -14032,7 +14032,7 @@
       "rmse_gpa": 1.047994946666771,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Tables 6\u20138; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "source_notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         1510.0,
@@ -14144,7 +14144,7 @@
       "rmse_gpa": 2.2581979489171085,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Tables 6\u20138; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "source_notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         1510.0,
@@ -14234,7 +14234,7 @@
       "rmse_gpa": 4.6165012578402935,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Tables 6\u20138; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
+      "source_notes": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         1510.0,
@@ -14978,7 +14978,7 @@
           "within_combined_2sigma": true
         }
       ],
-      "primary_data_finding": "All identifiable row-level sources are bundled: 52 Fischer rows, 81 Seagle rows, 20 Ozawa rows and 25 Campbell rows. Seagle\u2019s 65 hcp-Fe rows are pressure-recalculable with Dewaele. The Campbell fcc-Fe calibration for the 14 Seagle and 15 Campbell fcc rows is retained only as deferred source evidence, not an executable EOS. Two Seagle rows lack Fe volume. The exact combined selection and weights remain unpublished.",
+      "primary_data_finding": "All identifiable row-level sources are bundled: 52 Fischer rows, 81 Seagle rows, 20 Ozawa rows and 25 Campbell rows. Seagle’s 65 hcp-Fe rows are pressure-recalculable with Dewaele. The Campbell fcc-Fe calibration for the 14 Seagle and 15 Campbell fcc rows is retained only as deferred source evidence, not an executable EOS. Two Seagle rows lack Fe volume. The exact combined selection and weights remain unpublished.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1016/j.epsl.2011.02.025",
       "published_rmse_gpa": 3.3198070865929172,
@@ -15217,7 +15217,7 @@
       "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. The published fit also includes Seagle et al. (2008). Its 81 V-T rows are linked, but exact row-wise pressures and Campbell recalibration are not published. Independent refits therefore report a current-study subset and a nominal-isobar sensitivity reconstruction. The starting Fe1-xO powder equilibrates with metallic Fe; Sections 2.1, 3 and 5 explicitly identify the selected oxide as stoichiometric Fe1.00O in B1, not Fe0.94O, rhombohedral wustite or B8. Stoichiometry follows the Stolen-Gr\u00f8nvold model-B field (above 5 GPa at 900 K, boundary slope below -120 K/GPa), not a direct per-row chemical assay. ",
+      "source_notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. The published fit also includes Seagle et al. (2008). Its 81 V-T rows are linked, but exact row-wise pressures and Campbell recalibration are not published. Independent refits therefore report a current-study subset and a nominal-isobar sensitivity reconstruction. The starting Fe1-xO powder equilibrates with metallic Fe; Sections 2.1, 3 and 5 explicitly identify the selected oxide as stoichiometric Fe1.00O in B1, not Fe0.94O, rhombohedral wustite or B8. Stoichiometry follows the Stolen-Grønvold model-B field (above 5 GPa at 900 K, boundary slope below -120 K/GPa), not a direct per-row chemical assay. ",
       "standard_errors": {
         "gamma0": 0.04580501744857736,
         "q": 0.7228257145254212,
@@ -17046,7 +17046,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "record_identifier": "gold_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "status": "not_refittable"
     },
     {
@@ -19031,7 +19031,7 @@
       "fixed_parameters": [
         "V0"
       ],
-      "label": "Mu\u00f1oz and Kunc (1993), theoretical wurtzite Murnaghan",
+      "label": "Muñoz and Kunc (1993), theoretical wurtzite Murnaghan",
       "material_identifier": "indium_nitride",
       "model": "Murnaghan",
       "primary_data_finding": "This is a first-principles study. The calculated E(V) points are plotted but not tabulated; Table 1 contains only the fitted theoretical parameters.",
@@ -19230,7 +19230,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "record_identifier": "iron_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "status": "not_refittable"
     },
     {
@@ -20009,7 +20009,7 @@
       "primary_source": "https://doi.org/10.1002/2016GL069456",
       "reason": "Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md).",
       "record_identifier": "iron_fei_2016_bm3",
-      "source_notes": "Published combined fit; S1 contains only this study\u2019s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
+      "source_notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
       "status": "not_refittable"
     },
     {
@@ -20043,7 +20043,7 @@
       "primary_source": "https://doi.org/10.1002/2016GL069456",
       "reason": "Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md).",
       "record_identifier": "iron_fei_2016_free_density_bm3",
-      "source_notes": "Published combined fit; S1 contains only this study\u2019s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
+      "source_notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
       "status": "not_refittable"
     },
     {
@@ -20085,7 +20085,7 @@
       "primary_source": "https://doi.org/10.1002/2016GL069456",
       "reason": "Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: [Fei 2016 audit](literature-reproductions/fei-2016-iron.md).",
       "record_identifier": "iron_fei_2016_bm3_debye_quadratic",
-      "source_notes": "Published combined fit; S1 contains only this study\u2019s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved. Thermal pressure adds MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2). No thermal fit errors are reported. Independent gamma_e=2 and k=1.34 define an empirical pressure surface, not a thermodynamically consistent caloric potential. Do not infer caloric observables. Table S2 is only the static subset of the thermal fit.",
+      "source_notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved. Thermal pressure adds MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2). No thermal fit errors are reported. Independent gamma_e=2 and k=1.34 define an empirical pressure surface, not a thermodynamically consistent caloric potential. Do not infer caloric observables. Table S2 is only the static subset of the thermal fit.",
       "status": "not_refittable"
     },
     {
@@ -20179,7 +20179,7 @@
       "rmse_gpa": 1.5711439530612388,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -20279,7 +20279,7 @@
       "rmse_gpa": 1.358138963628398,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "similar",
       "temperature_range_k": [
         300.0,
@@ -20379,7 +20379,7 @@
       "rmse_gpa": 1.688381370774616,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -20479,7 +20479,7 @@
       "rmse_gpa": 1.417019424665413,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -20579,7 +20579,7 @@
       "rmse_gpa": 1.8680023527394627,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -20679,7 +20679,7 @@
       "rmse_gpa": 1.5325591600243258,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -20720,7 +20720,7 @@
       "record_identifier": "iron_sakai_2014_p2_bm3",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -20757,7 +20757,7 @@
       "record_identifier": "iron_sakai_2014_p2_vinet",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -20794,7 +20794,7 @@
       "record_identifier": "iron_sakai_2014_p3_bm3",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -20831,7 +20831,7 @@
       "record_identifier": "iron_sakai_2014_p3_vinet",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": null,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "not_refittable",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -20927,7 +20927,7 @@
       "rmse_gpa": 1.7603743392994244,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -21027,7 +21027,7 @@
       "rmse_gpa": 1.5287773767443562,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "similar",
       "temperature_range_k": [
         300.0,
@@ -21127,7 +21127,7 @@
       "rmse_gpa": 1.4935823710731382,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "similar",
       "temperature_range_k": [
         300.0,
@@ -21227,7 +21227,7 @@
       "rmse_gpa": 1.289893293024698,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "similar",
       "temperature_range_k": [
         300.0,
@@ -21327,7 +21327,7 @@
       "rmse_gpa": 1.6935672966558226,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -21427,7 +21427,7 @@
       "rmse_gpa": 1.4729392562563048,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed \u00b1 confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "source_notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "status": "similar",
       "temperature_range_k": [
         300.0,
@@ -21625,7 +21625,7 @@
       "rmse_gpa": 0.6219909101294749,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alf\u00e8 et al. (2001).",
+      "source_notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -21823,7 +21823,7 @@
       "rmse_gpa": 0.6202628351531202,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alf\u00e8 et al. (2001).",
+      "source_notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
       "status": "parity_not_achieved",
       "temperature_range_k": [
         300.0,
@@ -21855,7 +21855,7 @@
       "primary_source": "https://doi.org/10.1103/PhysRevLett.84.1720",
       "reason": "The 188 input P-V-T points are not tabulated in the attached publication.",
       "record_identifier": "iron_dubrovinsky_2000_bm3_thermal",
-      "source_notes": "K0 derived exactly from 1/(b1+b2*300+b3*300\u00b2). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.",
+      "source_notes": "K0 derived exactly from 1/(b1+b2*300+b3*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.",
       "status": "not_refittable"
     },
     {
@@ -21948,7 +21948,7 @@
       "rmse_gpa": 0.7261679624581039,
       "rmse_shock_velocity_km_s": null,
       "solver_success": true,
-      "source_notes": "Distinct Table I Birch\u2013Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.",
+      "source_notes": "Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.",
       "status": "similar",
       "temperature_range_k": [
         300.0,
@@ -21982,7 +21982,7 @@
       "linear_rmse_km_s": 0.06078458507838442,
       "material_identifier": "iron",
       "model": "LinearUsUpHugoniot",
-      "objective": "Unweighted vertical Us residuals; all 37 Table I\u2013II points.",
+      "objective": "Unweighted vertical Us residuals; all 37 Table I–II points.",
       "observations": 37,
       "parameter_covariance": null,
       "parameters": [
@@ -22023,7 +22023,7 @@
       "record_identifier": "iron_brown_2000_linear_hugoniot",
       "rmse_gpa": null,
       "rmse_shock_velocity_km_s": 0.06078458507838442,
-      "source_notes": "Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm\u00b3 must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.",
+      "source_notes": "Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.",
       "status": "parity",
       "tied_parameters": {},
       "weighting": "unweighted; published coefficient constraints retained"
@@ -22093,7 +22093,7 @@
       "rmse_pressure_gpa": 0.9618378834595008,
       "selection": "All 131 rows for thermal; 35 of 36 room-temperature rows for the effective-error isothermal diagnostic (one lacks positive effective error).",
       "solver_success": true,
-      "source_notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors\u2019 experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "source_notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
       "status": "parity_not_achieved"
     },
     {
@@ -22161,7 +22161,7 @@
       "rmse_pressure_gpa": 0.9620941535662848,
       "selection": "All 131 rows for thermal; 35 of 36 room-temperature rows for the effective-error isothermal diagnostic (one lacks positive effective error).",
       "solver_success": true,
-      "source_notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors\u2019 experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "source_notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
       "status": "parity_not_achieved"
     },
     {
@@ -22183,7 +22183,7 @@
         "theta0",
         "n"
       ],
-      "label": "Miozzi et al. (2020), published BM3\u2013MGD \u2014 author-reported n=2",
+      "label": "Miozzi et al. (2020), published BM3–MGD — author-reported n=2",
       "material_identifier": "iron",
       "model": "BM3",
       "observations": 131,
@@ -22275,7 +22275,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Peritheos refit of Miozzi (2020) hcp-Fe \u2014 Tange (2009) MgO pressures, equal weights",
+      "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "equal_weight_pressure_residuals",
@@ -22383,7 +22383,7 @@
         "gamma0",
         "q"
       ],
-      "label": "Peritheos refit of Miozzi (2020) hcp-Fe \u2014 Speziale (2001) variable-q MgO, n=1",
+      "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1",
       "material_identifier": "iron",
       "model": "BM3",
       "objective": "equal_weight_pressure_residuals",
@@ -31806,7 +31806,7 @@
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Abstract-selected fixed-K0'=4 fit to all nine Table 3 decompression observations. The abstract reports this better-constrained result; The source publishes no covariance or fitting objective. Parenthetical errors are copied as \u00b1 values without an inferred confidence level.",
+      "source_notes": "Abstract-selected fixed-K0'=4 fit to all nine Table 3 decompression observations. The abstract reports this better-constrained result; The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
       "status": "parity"
     },
     {
@@ -31894,7 +31894,7 @@
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as \u00b1 values without an inferred confidence level.",
+      "source_notes": "Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
       "status": "similar"
     },
     {
@@ -31917,7 +31917,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "record_identifier": "mgo_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "status": "not_refittable"
     },
     {
@@ -35222,7 +35222,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "record_identifier": "molybdenum_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "status": "not_refittable"
     },
     {
@@ -36261,7 +36261,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "record_identifier": "nacl_b2_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "status": "not_refittable"
     },
     {
@@ -36449,7 +36449,7 @@
       "primary_source": "https://doi.org/10.1016/j.pepi.2013.12.010",
       "reason": "Original Sakai (2011a) paired NaCl/Pt calibration observations are not attached to this 2014 paper. Table 2 NaCl values are downstream measurements, not independent P5 calibration constraints.",
       "record_identifier": "nacl_b2_sakai_2014_yokoo_pt_bm3",
-      "source_notes": "New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A\u00b3 from g-G analysis, then fixed. The unusually large printed V0 uncertainty is retained verbatim. Exact new calibration pressure extrema and original paired NaCl/Pt rows are not given in this article; the validity envelope is approximate.",
+      "source_notes": "New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A³ from g-G analysis, then fixed. The unusually large printed V0 uncertainty is retained verbatim. Exact new calibration pressure extrema and original paired NaCl/Pt rows are not given in this article; the validity envelope is approximate.",
       "status": "not_refittable"
     },
     {
@@ -36505,7 +36505,7 @@
         }
       ],
       "parity_basis": "conditional_fixed_V0_diagnostic_only",
-      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.3573393",
       "published_rmse_gpa": 1.7230450703272333,
@@ -36513,7 +36513,7 @@
       "record_identifier": "nacl_b2_sakai_2011_matsui_pt_bm3",
       "rmse_gpa": 1.699382453338853,
       "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
-      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
       "status": "parity"
     },
     {
@@ -36569,7 +36569,7 @@
         }
       ],
       "parity_basis": "conditional_fixed_V0_diagnostic_only",
-      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.3573393",
       "published_rmse_gpa": 1.8460788926566665,
@@ -36577,7 +36577,7 @@
       "record_identifier": "nacl_b2_sakai_2011_matsui_pt_vinet",
       "rmse_gpa": 1.839535577598586,
       "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
-      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
       "status": "parity"
     },
     {
@@ -36633,7 +36633,7 @@
         }
       ],
       "parity_basis": "conditional_fixed_V0_diagnostic_only",
-      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.3573393",
       "published_rmse_gpa": 1.6803982142212028,
@@ -36641,7 +36641,7 @@
       "record_identifier": "nacl_b2_sakai_2011_fei_pt_bm3",
       "rmse_gpa": 1.6698989388092835,
       "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
-      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
       "status": "parity"
     },
     {
@@ -36697,7 +36697,7 @@
         }
       ],
       "parity_basis": "conditional_fixed_V0_diagnostic_only",
-      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.3573393",
       "published_rmse_gpa": 1.806433366215317,
@@ -36705,7 +36705,7 @@
       "record_identifier": "nacl_b2_sakai_2011_fei_pt_vinet",
       "rmse_gpa": 1.794240337676314,
       "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
-      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
       "status": "parity"
     },
     {
@@ -36761,7 +36761,7 @@
         }
       ],
       "parity_basis": "conditional_fixed_V0_diagnostic_only",
-      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.3573393",
       "published_rmse_gpa": 1.758957818379996,
@@ -36769,7 +36769,7 @@
       "record_identifier": "nacl_b2_sakai_2011_do_pt_bm3",
       "rmse_gpa": 1.751572038560592,
       "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
-      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
       "status": "parity"
     },
     {
@@ -36825,7 +36825,7 @@
         }
       ],
       "parity_basis": "conditional_fixed_V0_diagnostic_only",
-      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.3573393",
       "published_rmse_gpa": 1.927095895583068,
@@ -36833,7 +36833,7 @@
       "record_identifier": "nacl_b2_sakai_2011_do_pt_vinet",
       "rmse_gpa": 1.9102536236213095,
       "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
-      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
       "status": "parity"
     },
     {
@@ -36889,7 +36889,7 @@
         }
       ],
       "parity_basis": "conditional_fixed_V0_diagnostic_only",
-      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.3573393",
       "published_rmse_gpa": 1.9070710376559392,
@@ -36897,7 +36897,7 @@
       "record_identifier": "nacl_b2_sakai_2011_holmes_pt_bm3",
       "rmse_gpa": 1.9041763407754038,
       "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
-      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
       "status": "parity"
     },
     {
@@ -36953,7 +36953,7 @@
         }
       ],
       "parity_basis": "conditional_fixed_V0_diagnostic_only",
-      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g\u2013G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
+      "primary_data_finding": "All 27 Sakai and 29 Sata rows retained with reported uncertainties and paired markers. Independent fixed-V0 and staged g–G refits use explicit selection/weight sensitivity; no diagnostic fit replaces published coefficients.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.3573393",
       "published_rmse_gpa": 2.1441274596796984,
@@ -36961,7 +36961,7 @@
       "record_identifier": "nacl_b2_sakai_2011_holmes_pt_vinet",
       "rmse_gpa": 2.139772721091302,
       "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
-      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g\u2013G sign ambiguity and refit sensitivity.",
+      "source_notes": "Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress |t|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.",
       "status": "parity"
     },
     {
@@ -39553,7 +39553,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "record_identifier": "platinum_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "status": "not_refittable"
     },
     {
@@ -40536,8 +40536,13 @@
       "status": "similar"
     },
     {
+      "coefficient_optimization_performed": false,
       "dataset_identifiers": [
-        "platinum_holmes_1989_table3_shock"
+        "platinum_holmes_1989_table3_shock",
+        "platinum_matsui_2009_table1_pvt",
+        "platinum_matsui_2009_table3_grid",
+        "platinum_arblaster_1997_table2_expansion",
+        "tsuchiya_kawamura_2002_table1_electronic_pressure"
       ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
@@ -40547,13 +40552,1697 @@
       "label": "Matsui et al. (2009), Pt Vinet reference isotherm, 300 K",
       "material_identifier": "platinum",
       "model": "Vinet",
-      "primary_data_finding": "The 300 K reference branch is defined exactly. The source fits shock data up to 290 GPa with thermal reduction and checks static P-V-T data; the existing seven Holmes shots are preserved as upstream constraints, not static 300 K fit inputs. The full shock/thermal optimization is outside this reference-isotherm record and is not independently refitted.",
+      "observations": 0,
+      "original_author_fit_status": "not_reproduced",
+      "primary_data_finding": "12 MgO-calibrated static validation rows, 35 source-derived pressure states, 32 assessed expansion states, seven Holmes shots and 51 upstream theoretical electronic pressures are retained separately. Three Holmes shots are below 290 GPa. Marsh inputs, exact Hugoniot/expansion sampling, weights and joint-fit objective remain unavailable. Electronic nodes are recovered; interpolation is an implementation choice. Static validation and model outputs are not author fit inputs.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.3054331",
-      "reason": "The 300 K Vinet branch is an exact projection of the published thermal model. Its shock-Hugoniot and thermal-expansion optimization cannot be refitted as static 300 K observations. The seven bundled Holmes shots retain recoverable upstream constraints; Table III and Sakai (2011) marker reductions independently check the executable reference isotherm.",
+      "qualification": "Published Vinet/integrated-q Debye pressure and all 51 upstream Pt electronic nodes are recovered. The 2003 erratum corrects Au only. Electronic pressure is volume independent and referenced by subtracting the raw 300 K value 0.04 GPa once. Linear interpolation is an explicit numerical implementation choice, not a specified author rule; extrapolation is forbidden. Rounded grid agreement verifies the pressure parameterization, not the original shock/expansion optimization.",
+      "reason": "Marsh inputs, original Hugoniot/expansion sampling, weights and joint-fit objective remain unavailable. The pressure parameterization is reproduced at source nodes; sub-grid linear interpolation is an implementation choice.",
+      "reconstruction_kind": "published_equation_with_tabulated_electronic_input",
       "record_identifier": "platinum_matsui_2009_vinet_300k",
+      "reproduction": {
+        "arblaster_expansion": [
+          {
+            "cold_plus_phonon_pressure_gpa": 0.017287457656468108,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.017287457656468108,
+            "temperature_k": 100.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9950385557450638,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.01271254234353189
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.011379722084801536,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.011379722084801536,
+            "temperature_k": 110.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9952671834439833,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.017620277915198466
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.007820317454940051,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.007820317454940051,
+            "temperature_k": 120.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9954958461610587,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.02017968254505995
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.006172949148094409,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.006172949148094409,
+            "temperature_k": 130.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9957245438989701,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.02082705085190559
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.006101444079309459,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.006101444079309459,
+            "temperature_k": 140.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9959532766603998,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.019898555920690543
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.0073441521505717144,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.0073441521505717144,
+            "temperature_k": 150.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9961820444480302,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.017655847849428287
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.009695260919814208,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.009695260919814208,
+            "temperature_k": 160.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9964108472645413,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.014304739080185792
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.0041554886335016805,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.0041554886335016805,
+            "temperature_k": 180.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9969448567415595,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.02615548863350168
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.006155598927078509,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.006155598927078509,
+            "temperature_k": 200.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9974027309796957,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.013844401072921491
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.0024608081081834987,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.0024608081081834987,
+            "temperature_k": 220.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9979370947551215,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0184608081081835
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.009194669868450855,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.009194669868450855,
+            "temperature_k": 240.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9984716493552782,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.021194669868450856
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.0066353267110969005,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.0066353267110969005,
+            "temperature_k": 260.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9989299909192875,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0013646732889030996
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.0027363489647787564,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.0027363489647787564,
+            "temperature_k": 280.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9994648999986117,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0012636510352212402
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.007489819424192891,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.007489819424192891,
+            "temperature_k": 293.15,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9998470948014878,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.008859819424192894
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.0,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.0,
+            "temperature_k": 300.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.0
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.02049255599481603,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.02049255599481603,
+            "temperature_k": 400.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0027549599348264,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0004925559948160338
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.04284678872864878,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.04284678872864878,
+            "temperature_k": 500.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0055917143926605,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.002846788728648776
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.06951151282179335,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.06951151282179335,
+            "temperature_k": 600.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0085107015847201,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.0004884871782066535
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.08152675096365591,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.08152675096365591,
+            "temperature_k": 700.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0114353320562062,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.01847324903634409
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.11820562485274833,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.11820562485274833,
+            "temperature_k": 800.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.014519993055807,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.011794375147251679
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.15922135511643543,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.15922135511643543,
+            "temperature_k": 900.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0176882728795513,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.010778644883564559
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.20397214764310867,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.20397214764310867,
+            "temperature_k": 1000.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0209406602768347,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.006027852356891322
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.25176970839806234,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.25176970839806234,
+            "temperature_k": 1100.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.024277656783331,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0017697083980623696
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.3018766507471211,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.3018766507471211,
+            "temperature_k": 1200.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0276997767835638,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.001876650747121067
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.37098091269793354,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.37098091269793354,
+            "temperature_k": 1300.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0312855885588321,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.020980912697933507
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.4572018556862343,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.4572018556862343,
+            "temperature_k": 1400.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.035036187864815,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.04720185568623425
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.541920108615269,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.541920108615269,
+            "temperature_k": 1500.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0388742930292305,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.07192010861526893
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.6243332938689736,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.6243332938689736,
+            "temperature_k": 1600.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0428004955839256,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.09433329386897371
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.7195843226511549,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.7195843226511549,
+            "temperature_k": 1700.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.046894226822733,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.12958432265115494
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.8257223402918683,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.8257223402918683,
+            "temperature_k": 1800.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0511567345362838,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.1657223402918684
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.9559245138470871,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.9559245138470871,
+            "temperature_k": 1900.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0556685836496429,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.22592451384708712
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -1.106978262425045,
+            "electronic_increment_required_for_zero_pressure_gpa": 1.106978262425045,
+            "temperature_k": 2000.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0604318268036017,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.2969782624250451
+          }
+        ],
+        "audit_date": "2026-10-09",
+        "author_fit_reproduction_status": "not_reproduced",
+        "continuous_thermal_record_status": "registered_with_explicit_linear_interpolation",
+        "doi": "10.1063/1.3054331",
+        "electronic_examples_reference_subtracted_gpa": {
+          "1000": 0.21,
+          "3000": 1.6,
+          "5000": 3.78
+        },
+        "electronic_source": {
+          "doi": "10.1103/PhysRevB.66.094115",
+          "erratum_changes_platinum": false,
+          "erratum_doi": "10.1103/PhysRevB.67.019902",
+          "extrapolation": "forbidden",
+          "interpolation": "linear, implementation choice not specified by authors",
+          "nodes": 51,
+          "original_analytic_function_or_DOS": "not published numerically",
+          "raw_300k_pressure_gpa": 0.04,
+          "raw_pressure_reference": "0 K",
+          "temperature_range_k": [
+            0,
+            5000
+          ],
+          "uncertainties": null
+        },
+        "expansion_scope": "32 original 1997 Table II assessed crystallographic states at 100-2000 K, normalized via rounded a(T)/a(300). These are literature-assessed expansion values, not Matsui measurements. The 2006 methodology/erratum is separate; Matsui cites the 1997 assessment. The recovered electronic table is linearly interpolated for expansion diagnostics; this does not recover the original author selection or objective.",
+        "holmes_subset": [
+          {
+            "mass_conservation_volume_ratio": 0.7066666666666667,
+            "momentum_pressure_gpa": 279.2984205,
+            "published_density_volume_ratio": 0.7067032639968253,
+            "published_pressure_gpa": 279.3,
+            "shot": "TaPt5",
+            "us_minus_matsui_linear_fit_km_s": 0.04980599999999935
+          },
+          {
+            "mass_conservation_volume_ratio": 0.7115531752104055,
+            "momentum_pressure_gpa": 263.615365,
+            "published_density_volume_ratio": 0.7116254322958233,
+            "published_pressure_gpa": 263.6,
+            "shot": "TaPt6",
+            "us_minus_matsui_linear_fit_km_s": 0.02244500000000027
+          },
+          {
+            "mass_conservation_volume_ratio": 0.733074810147035,
+            "momentum_pressure_gpa": 218.90072148000002,
+            "published_density_volume_ratio": 0.7330183511366749,
+            "published_pressure_gpa": 218.9,
+            "shot": "TaPt8",
+            "us_minus_matsui_linear_fit_km_s": 0.035963999999999885
+          }
+        ],
+        "independent_cold_max_difference_gpa": 4.263256414560601e-13,
+        "independent_full_max_difference_gpa": 4.547473508864641e-13,
+        "independent_phonon_max_difference_gpa": 3.019806626980426e-14,
+        "input_sha256": {
+          "platinum-arblaster-1997-table2-expansion.csv": "0ff66621d43b4858e6697f19ae6dcb4adf45565b56b43b1e2ca3aa914895723f",
+          "platinum-holmes-1989-table3-shock.csv": "22e5cc3334758cbdd5b5fed94388ff66b404e005b375045c0a539db0c53915fd",
+          "platinum-matsui-2009-table1-pvt.csv": "6e1cf6a81902f43e22ba12b492395acb418ce9c8cd2de330c0b31f20c797f6f0",
+          "platinum-matsui-2009-table3-grid.csv": "464f586989fe4d6ca0a094be9712c4db266bfad07867d6bb6ca19a355e1e5c79",
+          "tsuchiya-kawamura-2002-table1-electronic-pressure.csv": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336"
+        },
+        "known_electronic_table3_checks": {
+          "1000": {
+            "max_abs_pressure_difference_gpa": 0.007031448817556907,
+            "pressure_difference_gpa_by_volume": [
+              0.0007250069411375293,
+              0.007031448817556907,
+              0.00015203170261202104,
+              -0.0013936320532792479,
+              0.006032821766297047,
+              0.0035622641625536744,
+              -0.0004839324650163235
+            ],
+            "reference_subtracted_electronic_gpa": 0.21
+          },
+          "3000": {
+            "max_abs_pressure_difference_gpa": 0.004840217283689441,
+            "pressure_difference_gpa_by_volume": [
+              0.004840217283689441,
+              0.0013973810838763256,
+              -6.22825681588779e-05,
+              -0.0017384480626390086,
+              -0.0008647106882904154,
+              0.002629216590548822,
+              -0.004228972180158053
+            ],
+            "reference_subtracted_electronic_gpa": 1.6
+          }
+        },
+        "parameters": {
+          "K0_gpa": 273.0,
+          "K0_prime": 5.2,
+          "Tr_k": 300,
+          "V0_cell_a3": 60.38,
+          "gamma0": 2.7,
+          "n": 1,
+          "q": 1.1,
+          "theta0_k": 230.0
+        },
+        "published_parameter_covariance": null,
+        "published_parameter_errors": null,
+        "quadratic_coefficient_implied_by_each_example_gpa_per_k2": {
+          "1000": 2.3076923076923075e-07,
+          "3000": 1.7957351290684625e-07,
+          "5000": 1.5174628663187474e-07
+        },
+        "record_identifier": "platinum_matsui_2009_vinet_300k",
+        "scope": "Published Vinet/integrated-q Debye pressure and all 51 upstream Pt electronic nodes are recovered. The 2003 erratum corrects Au only. Electronic pressure is volume independent and referenced by subtracting the raw 300 K value 0.04 GPa once. Linear interpolation is an explicit numerical implementation choice, not a specified author rule; extrapolation is forbidden. Rounded grid agreement verifies the pressure parameterization, not the original shock/expansion optimization.",
+        "shock_scope": "Three of the seven primary Holmes Table III shots are below 290 GPa. The other four are excluded, not relabeled as static or fitted to 300 K. Marsh rows and Matsui's exact Hugoniot sampling/weights remain unavailable.",
+        "table1_max_abs_calculated_reconstruction_difference_gpa": 0.008582014981179498,
+        "table1_printed_max_abs_residual_gpa": 0.19000000000000128,
+        "table1_printed_residual_rmse_gpa": 0.0922857879993809,
+        "table1_validation": [
+          {
+            "cold_plus_phonon_pressure_gpa": 23.96274796426204,
+            "electronic_increment_inferred_from_output_gpa": 0.47725203573796193,
+            "observed_mgo_pressure_gpa": 24.46,
+            "observed_minus_printed_calculated_gpa": 0.019999999999999574,
+            "observed_minus_reconstructed_gpa": 0.027252035737961477,
+            "printed_calculated_pt_pressure_gpa": 24.44,
+            "reconstructed_minus_printed_calculated_gpa": -0.0072520357379630696,
+            "reconstructed_pressure_gpa": 24.432747964262038,
+            "temperature_k": 1500.0,
+            "volume_ratio": 0.95218
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 23.836626518673043,
+            "electronic_increment_inferred_from_output_gpa": 0.5333734813269579,
+            "observed_mgo_pressure_gpa": 24.18,
+            "observed_minus_printed_calculated_gpa": -0.19000000000000128,
+            "observed_minus_reconstructed_gpa": -0.18662651867304325,
+            "printed_calculated_pt_pressure_gpa": 24.37,
+            "reconstructed_minus_printed_calculated_gpa": -0.0033734813269568065,
+            "reconstructed_pressure_gpa": 24.366626518673044,
+            "temperature_k": 1600.0,
+            "volume_ratio": 0.95456
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 23.48651632401841,
+            "electronic_increment_inferred_from_output_gpa": 0.4134836759815901,
+            "observed_mgo_pressure_gpa": 23.86,
+            "observed_minus_printed_calculated_gpa": -0.03999999999999915,
+            "observed_minus_reconstructed_gpa": -0.036516324018409096,
+            "printed_calculated_pt_pressure_gpa": 23.9,
+            "reconstructed_minus_printed_calculated_gpa": -0.0034836759815881635,
+            "reconstructed_pressure_gpa": 23.89651632401841,
+            "temperature_k": 1400.0,
+            "volume_ratio": 0.95147
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 23.14094223706049,
+            "electronic_increment_inferred_from_output_gpa": 0.29905776293951103,
+            "observed_mgo_pressure_gpa": 23.35,
+            "observed_minus_printed_calculated_gpa": -0.08999999999999986,
+            "observed_minus_reconstructed_gpa": -0.09094223706048887,
+            "printed_calculated_pt_pressure_gpa": 23.44,
+            "reconstructed_minus_printed_calculated_gpa": 0.0009422370604887931,
+            "reconstructed_pressure_gpa": 23.44094223706049,
+            "temperature_k": 1200.0,
+            "volume_ratio": 0.94843
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 22.67417555102778,
+            "electronic_increment_inferred_from_output_gpa": 0.2058244489722192,
+            "observed_mgo_pressure_gpa": 22.7,
+            "observed_minus_printed_calculated_gpa": -0.17999999999999972,
+            "observed_minus_reconstructed_gpa": -0.18417555102778052,
+            "printed_calculated_pt_pressure_gpa": 22.88,
+            "reconstructed_minus_printed_calculated_gpa": 0.004175551027781665,
+            "reconstructed_pressure_gpa": 22.88417555102778,
+            "temperature_k": 1000.0,
+            "volume_ratio": 0.94577
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 20.940620437504684,
+            "electronic_increment_inferred_from_output_gpa": -0.0006204375046827693,
+            "observed_mgo_pressure_gpa": 21.04,
+            "observed_minus_printed_calculated_gpa": 0.09999999999999787,
+            "observed_minus_reconstructed_gpa": 0.0993795624953151,
+            "printed_calculated_pt_pressure_gpa": 20.94,
+            "reconstructed_minus_printed_calculated_gpa": 0.0006204375046827693,
+            "reconstructed_pressure_gpa": 20.940620437504684,
+            "temperature_k": 300.0,
+            "volume_ratio": 0.93717
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 40.663383343397314,
+            "electronic_increment_inferred_from_output_gpa": 0.3566166566026858,
+            "observed_mgo_pressure_gpa": 41.03,
+            "observed_minus_printed_calculated_gpa": 0.00999999999999801,
+            "observed_minus_reconstructed_gpa": 0.0166166566026838,
+            "printed_calculated_pt_pressure_gpa": 41.02,
+            "reconstructed_minus_printed_calculated_gpa": -0.006616656602687954,
+            "reconstructed_pressure_gpa": 41.013383343397315,
+            "temperature_k": 1300.0,
+            "volume_ratio": 0.90873
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 40.238582014981176,
+            "electronic_increment_inferred_from_output_gpa": 0.12141798501881995,
+            "observed_mgo_pressure_gpa": 40.29,
+            "observed_minus_printed_calculated_gpa": -0.07000000000000028,
+            "observed_minus_reconstructed_gpa": -0.07858201498118034,
+            "printed_calculated_pt_pressure_gpa": 40.36,
+            "reconstructed_minus_printed_calculated_gpa": 0.008582014981179498,
+            "reconstructed_pressure_gpa": 40.36858201498118,
+            "temperature_k": 800.0,
+            "volume_ratio": 0.90209
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 40.61091162325506,
+            "electronic_increment_inferred_from_output_gpa": 0.1690883767449396,
+            "observed_mgo_pressure_gpa": 40.78,
+            "observed_minus_printed_calculated_gpa": 0.0,
+            "observed_minus_reconstructed_gpa": -0.0009116232550603898,
+            "printed_calculated_pt_pressure_gpa": 40.78,
+            "reconstructed_minus_printed_calculated_gpa": 0.000911623255063887,
+            "reconstructed_pressure_gpa": 40.780911623255065,
+            "temperature_k": 900.0,
+            "volume_ratio": 0.90281
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 40.779616937640924,
+            "electronic_increment_inferred_from_output_gpa": 0.21038306235908077,
+            "observed_mgo_pressure_gpa": 41.06,
+            "observed_minus_printed_calculated_gpa": 0.07000000000000028,
+            "observed_minus_reconstructed_gpa": 0.07038306235908107,
+            "printed_calculated_pt_pressure_gpa": 40.99,
+            "reconstructed_minus_printed_calculated_gpa": -0.0003830623590772575,
+            "reconstructed_pressure_gpa": 40.989616937640925,
+            "temperature_k": 1000.0,
+            "volume_ratio": 0.90395
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 41.10416136394706,
+            "electronic_increment_inferred_from_output_gpa": 0.25583863605294344,
+            "observed_mgo_pressure_gpa": 41.37,
+            "observed_minus_printed_calculated_gpa": 0.00999999999999801,
+            "observed_minus_reconstructed_gpa": 0.015838636052941474,
+            "printed_calculated_pt_pressure_gpa": 41.36,
+            "reconstructed_minus_printed_calculated_gpa": -0.005838636052942547,
+            "reconstructed_pressure_gpa": 41.35416136394706,
+            "temperature_k": 1100.0,
+            "volume_ratio": 0.90478
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 41.49936460284316,
+            "electronic_increment_inferred_from_output_gpa": 0.3006353971568352,
+            "observed_mgo_pressure_gpa": 41.86,
+            "observed_minus_printed_calculated_gpa": 0.060000000000002274,
+            "observed_minus_reconstructed_gpa": 0.06063539715683741,
+            "printed_calculated_pt_pressure_gpa": 41.8,
+            "reconstructed_minus_printed_calculated_gpa": -0.0006353971568415773,
+            "reconstructed_pressure_gpa": 41.799364602843156,
+            "temperature_k": 1200.0,
+            "volume_ratio": 0.90547
+          }
+        ],
+        "table3": {
+          "gamma": [
+            2.7,
+            2.5518769549724722,
+            2.404531797441101,
+            2.258003352760508,
+            2.1123347800527257,
+            1.967574357172724,
+            1.8237764697764551
+          ],
+          "inferred_electronic": [
+            {
+              "common_rounding_interval_gpa": [
+                0.00044806020803889613,
+                0.002587960593563139
+              ],
+              "electronic_increment_gpa_by_volume": [
+                0.0,
+                0.0036430610660449503,
+                0.005344528562559958,
+                0.005448060208038896,
+                -0.0010570947743104853,
+                0.0030653199163168665,
+                -0.002412039406436861
+              ],
+              "temperature_k": 300,
+              "volume_spread_gpa": 0.007860099614475757
+            },
+            {
+              "common_rounding_interval_gpa": [
+                0.03738310302605575,
+                0.03793404792870569
+              ],
+              "electronic_increment_gpa_by_volume": [
+                0.034057086086118904,
+                0.03293404792870569,
+                0.042383103026055746,
+                0.03332612951598324,
+                0.041438910570409826,
+                0.034754155656986585,
+                0.03393987720213243
+              ],
+              "temperature_k": 500,
+              "volume_spread_gpa": 0.009449055097350056
+            },
+            {
+              "common_rounding_interval_gpa": [
+                0.20639363205327388,
+                0.20796855118244395
+              ],
+              "electronic_increment_gpa_by_volume": [
+                0.20927499305886244,
+                0.20296855118244395,
+                0.20984796829738883,
+                0.21139363205327388,
+                0.20396717823369936,
+                0.20643773583745517,
+                0.21048393246501895
+              ],
+              "temperature_k": 1000,
+              "volume_spread_gpa": 0.008425080870829937
+            },
+            {
+              "common_rounding_interval_gpa": [
+                0.8104713137135534,
+                0.811673089626182
+              ],
+              "electronic_increment_gpa_by_volume": [
+                0.8104784878980773,
+                0.8150307927790514,
+                0.8154713137135534,
+                0.813719607237763,
+                0.806673089626182,
+                0.8138555961398861,
+                0.8077464526855689
+              ],
+              "temperature_k": 2000,
+              "volume_spread_gpa": 0.008798224087371409
+            },
+            {
+              "common_rounding_interval_gpa": [
+                1.599228972180195,
+                1.6001597827163119
+              ],
+              "electronic_increment_gpa_by_volume": [
+                1.595159782716312,
+                1.598602618916125,
+                1.6000622825681603,
+                1.6017384480626333,
+                1.6008647106882776,
+                1.597370783409449,
+                1.604228972180195
+              ],
+              "temperature_k": 3000,
+              "volume_spread_gpa": 0.00906918946388302
+            }
+          ],
+          "max_abs_pressure_difference_gpa": 0.00706595207129368,
+          "phonon_increment_gpa": [
+            [
+              0.0,
+              1.455942913913881,
+              5.140725006941137,
+              12.539521512101922,
+              19.944840217283687
+            ],
+            [
+              0.0,
+              1.44070901313734,
+              5.1006745098836,
+              12.458612268286995,
+              19.825040442149916
+            ],
+            [
+              0.0,
+              1.422961425536505,
+              5.055496560265176,
+              12.369873214849006,
+              19.6952822459944
+            ],
+            [
+              0.0,
+              1.4021219306920625,
+              5.004054428154773,
+              12.271728452970288,
+              19.55370961214541
+            ],
+            [
+              0.0,
+              1.3775039946552814,
+              4.944975726991982,
+              12.162269815599506,
+              19.398078194537398
+            ],
+            [
+              0.0,
+              1.3483111642593257,
+              4.876627584078846,
+              12.039209723776425,
+              19.22569453650686
+            ],
+            [
+              0.0,
+              1.313648083391425,
+              4.797104028128535,
+              11.899841507907974,
+              19.033358988413383
+            ]
+          ],
+          "published_pressure_gpa": [
+            [
+              0.0,
+              1.49,
+              5.35,
+              13.35,
+              21.54
+            ],
+            [
+              15.99,
+              17.46,
+              21.29,
+              29.26,
+              37.41
+            ],
+            [
+              37.69,
+              39.15,
+              42.95,
+              50.87,
+              58.98
+            ],
+            [
+              67.1,
+              68.53,
+              72.31,
+              80.18,
+              88.25
+            ],
+            [
+              107.01,
+              108.43,
+              112.16,
+              119.98,
+              128.01
+            ],
+            [
+              161.4,
+              162.78,
+              166.48,
+              174.25,
+              182.22
+            ],
+            [
+              235.96,
+              237.31,
+              240.97,
+              248.67,
+              256.6
+            ]
+          ],
+          "reconstructed_minus_published_gpa": [
+            [
+              0.0,
+              0.0059429139138811315,
+              0.0007250069411375293,
+              -0.00047848789807680703,
+              0.004840217283689441
+            ],
+            [
+              -0.0036430610660449503,
+              0.00706595207129368,
+              0.007031448817556907,
+              -0.005030792779052717,
+              0.0013973810838763256
+            ],
+            [
+              -0.005344528562559958,
+              -0.0023831030260552666,
+              0.00015203170261202104,
+              -0.005471313713549364,
+              -6.22825681588779e-05
+            ],
+            [
+              -0.005448060208038896,
+              0.006673870484021904,
+              -0.0013936320532792479,
+              -0.00371960723775544,
+              -0.0017384480626390086
+            ],
+            [
+              0.0010570947743104853,
+              -0.0014389105703997984,
+              0.006032821766297047,
+              0.0033269103738149397,
+              -0.0008647106882904154
+            ],
+            [
+              -0.0030653199163168665,
+              0.005245844342994133,
+              0.0035622641625536744,
+              -0.0038555961398856198,
+              0.002629216590548822
+            ],
+            [
+              0.002412039406436861,
+              0.006060122797862277,
+              -0.0004839324650163235,
+              0.0022535473144387197,
+              -0.004228972180158053
+            ]
+          ],
+          "reconstructed_pressure_gpa": [
+            [
+              0.0,
+              1.4959429139138811,
+              5.350725006941137,
+              13.349521512101923,
+              21.54484021728369
+            ],
+            [
+              15.986356938933955,
+              17.467065952071295,
+              21.297031448817556,
+              29.25496920722095,
+              37.41139738108387
+            ],
+            [
+              37.68465547143744,
+              39.14761689697394,
+              42.950152031702615,
+              50.86452868628645,
+              58.97993771743184
+            ],
+            [
+              67.09455193979196,
+              68.53667387048402,
+              72.30860636794672,
+              80.17628039276225,
+              88.24826155193736
+            ],
+            [
+              107.01105709477432,
+              108.4285610894296,
+              112.1660328217663,
+              119.98332691037382,
+              128.0091352893117
+            ],
+            [
+              161.3969346800837,
+              162.785245844343,
+              166.48356226416254,
+              174.24614440386011,
+              182.22262921659055
+            ],
+            [
+              235.96241203940644,
+              237.31606012279786,
+              240.96951606753498,
+              248.67225354731443,
+              256.59577102781986
+            ]
+          ],
+          "reference_subtracted_electronic_gpa": [
+            0.0,
+            0.04,
+            0.21,
+            0.8099999999999999,
+            1.5999999999999999
+          ],
+          "rmse_gpa": 0.0039466156879173,
+          "temperature_k": [
+            300,
+            500,
+            1000,
+            2000,
+            3000
+          ],
+          "theta_k": [
+            230.0,
+            263.15326591828546,
+            300.8725538034301,
+            343.74305418772076,
+            392.4151823575988,
+            447.60932179889716,
+            510.1200828548523
+          ],
+          "volume_ratio": [
+            1.0,
+            0.95,
+            0.9,
+            0.85,
+            0.8,
+            0.75,
+            0.7
+          ]
+        },
+        "thermal_record_identifier": "platinum_matsui_2009_vinet_mgd_electronic"
+      },
       "source_notes": "Exact 300 K reference isotherm only, not the full Matsui thermal EOS. Table II V0=60.38 A^3, K0=273 GPa, K0_prime=5.20; uncertainties and covariance not reported for this triplet. The source recommends its complete model up to 300 GPa; shock constraints reach 290 GPa and are not 300 K observations.",
       "status": "not_refittable"
+    },
+    {
+      "coefficient_optimization_performed": false,
+      "dataset_identifiers": [
+        "platinum_holmes_1989_table3_shock",
+        "platinum_matsui_2009_table1_pvt",
+        "platinum_matsui_2009_table3_grid",
+        "platinum_arblaster_1997_table2_expansion",
+        "tsuchiya_kawamura_2002_table1_electronic_pressure"
+      ],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [
+        "V0",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "label": "Matsui et al. (2009), Pt Vinet-Debye plus tabulated electronic pressure",
+      "material_identifier": "platinum",
+      "model": "Vinet",
+      "observations": 35,
+      "original_author_fit_status": "not_reproduced",
+      "primary_data_finding": "12 MgO-calibrated static validation rows, 35 source-derived pressure states, 32 assessed expansion states, seven Holmes shots and 51 upstream theoretical electronic pressures are retained separately. Three Holmes shots are below 290 GPa. Marsh inputs, exact Hugoniot/expansion sampling, weights and joint-fit objective remain unavailable. Electronic nodes are recovered; interpolation is an implementation choice. Static validation and model outputs are not author fit inputs.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1063/1.3054331",
+      "qualification": "Published Vinet/integrated-q Debye pressure and all 51 upstream Pt electronic nodes are recovered. The 2003 erratum corrects Au only. Electronic pressure is volume independent and referenced by subtracting the raw 300 K value 0.04 GPa once. Linear interpolation is an explicit numerical implementation choice, not a specified author rule; extrapolation is forbidden. Rounded grid agreement verifies the pressure parameterization, not the original shock/expansion optimization.",
+      "reason": "Marsh inputs, original Hugoniot/expansion sampling, weights and joint-fit objective remain unavailable. The pressure parameterization is reproduced at source nodes; sub-grid linear interpolation is an implementation choice.",
+      "reconstruction_kind": "published_equation_with_tabulated_electronic_input",
+      "record_identifier": "platinum_matsui_2009_vinet_mgd_electronic",
+      "reproduction": {
+        "arblaster_expansion": [
+          {
+            "cold_plus_phonon_pressure_gpa": 0.017287457656468108,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.017287457656468108,
+            "temperature_k": 100.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9950385557450638,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.01271254234353189
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.011379722084801536,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.011379722084801536,
+            "temperature_k": 110.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9952671834439833,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.017620277915198466
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.007820317454940051,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.007820317454940051,
+            "temperature_k": 120.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9954958461610587,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.02017968254505995
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.006172949148094409,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.006172949148094409,
+            "temperature_k": 130.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9957245438989701,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.02082705085190559
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.006101444079309459,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.006101444079309459,
+            "temperature_k": 140.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9959532766603998,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.019898555920690543
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.0073441521505717144,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.0073441521505717144,
+            "temperature_k": 150.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9961820444480302,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.017655847849428287
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.009695260919814208,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.009695260919814208,
+            "temperature_k": 160.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9964108472645413,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.014304739080185792
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.0041554886335016805,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.0041554886335016805,
+            "temperature_k": 180.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9969448567415595,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.02615548863350168
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.006155598927078509,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.006155598927078509,
+            "temperature_k": 200.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9974027309796957,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.013844401072921491
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.0024608081081834987,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.0024608081081834987,
+            "temperature_k": 220.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9979370947551215,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0184608081081835
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.009194669868450855,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.009194669868450855,
+            "temperature_k": 240.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9984716493552782,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.021194669868450856
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.0066353267110969005,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.0066353267110969005,
+            "temperature_k": 260.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9989299909192875,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0013646732889030996
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.0027363489647787564,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.0027363489647787564,
+            "temperature_k": 280.0,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9994648999986117,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0012636510352212402
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.007489819424192891,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.007489819424192891,
+            "temperature_k": 293.15,
+            "volume_ratio_from_rounded_lattice_parameter": 0.9998470948014878,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.008859819424192894
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 0.0,
+            "electronic_increment_required_for_zero_pressure_gpa": -0.0,
+            "temperature_k": 300.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.0
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.02049255599481603,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.02049255599481603,
+            "temperature_k": 400.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0027549599348264,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0004925559948160338
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.04284678872864878,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.04284678872864878,
+            "temperature_k": 500.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0055917143926605,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.002846788728648776
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.06951151282179335,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.06951151282179335,
+            "temperature_k": 600.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0085107015847201,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.0004884871782066535
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.08152675096365591,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.08152675096365591,
+            "temperature_k": 700.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0114353320562062,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.01847324903634409
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.11820562485274833,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.11820562485274833,
+            "temperature_k": 800.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.014519993055807,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.011794375147251679
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.15922135511643543,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.15922135511643543,
+            "temperature_k": 900.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0176882728795513,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.010778644883564559
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.20397214764310867,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.20397214764310867,
+            "temperature_k": 1000.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0209406602768347,
+            "zero_pressure_residual_with_linear_electronic_gpa": 0.006027852356891322
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.25176970839806234,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.25176970839806234,
+            "temperature_k": 1100.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.024277656783331,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.0017697083980623696
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.3018766507471211,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.3018766507471211,
+            "temperature_k": 1200.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0276997767835638,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.001876650747121067
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.37098091269793354,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.37098091269793354,
+            "temperature_k": 1300.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0312855885588321,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.020980912697933507
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.4572018556862343,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.4572018556862343,
+            "temperature_k": 1400.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.035036187864815,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.04720185568623425
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.541920108615269,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.541920108615269,
+            "temperature_k": 1500.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0388742930292305,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.07192010861526893
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.6243332938689736,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.6243332938689736,
+            "temperature_k": 1600.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0428004955839256,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.09433329386897371
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.7195843226511549,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.7195843226511549,
+            "temperature_k": 1700.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.046894226822733,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.12958432265115494
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.8257223402918683,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.8257223402918683,
+            "temperature_k": 1800.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0511567345362838,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.1657223402918684
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -0.9559245138470871,
+            "electronic_increment_required_for_zero_pressure_gpa": 0.9559245138470871,
+            "temperature_k": 1900.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0556685836496429,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.22592451384708712
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": -1.106978262425045,
+            "electronic_increment_required_for_zero_pressure_gpa": 1.106978262425045,
+            "temperature_k": 2000.0,
+            "volume_ratio_from_rounded_lattice_parameter": 1.0604318268036017,
+            "zero_pressure_residual_with_linear_electronic_gpa": -0.2969782624250451
+          }
+        ],
+        "audit_date": "2026-10-09",
+        "author_fit_reproduction_status": "not_reproduced",
+        "continuous_thermal_record_status": "registered_with_explicit_linear_interpolation",
+        "doi": "10.1063/1.3054331",
+        "electronic_examples_reference_subtracted_gpa": {
+          "1000": 0.21,
+          "3000": 1.6,
+          "5000": 3.78
+        },
+        "electronic_source": {
+          "doi": "10.1103/PhysRevB.66.094115",
+          "erratum_changes_platinum": false,
+          "erratum_doi": "10.1103/PhysRevB.67.019902",
+          "extrapolation": "forbidden",
+          "interpolation": "linear, implementation choice not specified by authors",
+          "nodes": 51,
+          "original_analytic_function_or_DOS": "not published numerically",
+          "raw_300k_pressure_gpa": 0.04,
+          "raw_pressure_reference": "0 K",
+          "temperature_range_k": [
+            0,
+            5000
+          ],
+          "uncertainties": null
+        },
+        "expansion_scope": "32 original 1997 Table II assessed crystallographic states at 100-2000 K, normalized via rounded a(T)/a(300). These are literature-assessed expansion values, not Matsui measurements. The 2006 methodology/erratum is separate; Matsui cites the 1997 assessment. The recovered electronic table is linearly interpolated for expansion diagnostics; this does not recover the original author selection or objective.",
+        "holmes_subset": [
+          {
+            "mass_conservation_volume_ratio": 0.7066666666666667,
+            "momentum_pressure_gpa": 279.2984205,
+            "published_density_volume_ratio": 0.7067032639968253,
+            "published_pressure_gpa": 279.3,
+            "shot": "TaPt5",
+            "us_minus_matsui_linear_fit_km_s": 0.04980599999999935
+          },
+          {
+            "mass_conservation_volume_ratio": 0.7115531752104055,
+            "momentum_pressure_gpa": 263.615365,
+            "published_density_volume_ratio": 0.7116254322958233,
+            "published_pressure_gpa": 263.6,
+            "shot": "TaPt6",
+            "us_minus_matsui_linear_fit_km_s": 0.02244500000000027
+          },
+          {
+            "mass_conservation_volume_ratio": 0.733074810147035,
+            "momentum_pressure_gpa": 218.90072148000002,
+            "published_density_volume_ratio": 0.7330183511366749,
+            "published_pressure_gpa": 218.9,
+            "shot": "TaPt8",
+            "us_minus_matsui_linear_fit_km_s": 0.035963999999999885
+          }
+        ],
+        "independent_cold_max_difference_gpa": 4.263256414560601e-13,
+        "independent_full_max_difference_gpa": 4.547473508864641e-13,
+        "independent_phonon_max_difference_gpa": 3.019806626980426e-14,
+        "input_sha256": {
+          "platinum-arblaster-1997-table2-expansion.csv": "0ff66621d43b4858e6697f19ae6dcb4adf45565b56b43b1e2ca3aa914895723f",
+          "platinum-holmes-1989-table3-shock.csv": "22e5cc3334758cbdd5b5fed94388ff66b404e005b375045c0a539db0c53915fd",
+          "platinum-matsui-2009-table1-pvt.csv": "6e1cf6a81902f43e22ba12b492395acb418ce9c8cd2de330c0b31f20c797f6f0",
+          "platinum-matsui-2009-table3-grid.csv": "464f586989fe4d6ca0a094be9712c4db266bfad07867d6bb6ca19a355e1e5c79",
+          "tsuchiya-kawamura-2002-table1-electronic-pressure.csv": "bbd613896d18cf04f78a51337960286812eefd7304633f6ce030f8596cf41336"
+        },
+        "known_electronic_table3_checks": {
+          "1000": {
+            "max_abs_pressure_difference_gpa": 0.007031448817556907,
+            "pressure_difference_gpa_by_volume": [
+              0.0007250069411375293,
+              0.007031448817556907,
+              0.00015203170261202104,
+              -0.0013936320532792479,
+              0.006032821766297047,
+              0.0035622641625536744,
+              -0.0004839324650163235
+            ],
+            "reference_subtracted_electronic_gpa": 0.21
+          },
+          "3000": {
+            "max_abs_pressure_difference_gpa": 0.004840217283689441,
+            "pressure_difference_gpa_by_volume": [
+              0.004840217283689441,
+              0.0013973810838763256,
+              -6.22825681588779e-05,
+              -0.0017384480626390086,
+              -0.0008647106882904154,
+              0.002629216590548822,
+              -0.004228972180158053
+            ],
+            "reference_subtracted_electronic_gpa": 1.6
+          }
+        },
+        "parameters": {
+          "K0_gpa": 273.0,
+          "K0_prime": 5.2,
+          "Tr_k": 300,
+          "V0_cell_a3": 60.38,
+          "gamma0": 2.7,
+          "n": 1,
+          "q": 1.1,
+          "theta0_k": 230.0
+        },
+        "published_parameter_covariance": null,
+        "published_parameter_errors": null,
+        "quadratic_coefficient_implied_by_each_example_gpa_per_k2": {
+          "1000": 2.3076923076923075e-07,
+          "3000": 1.7957351290684625e-07,
+          "5000": 1.5174628663187474e-07
+        },
+        "record_identifier": "platinum_matsui_2009_vinet_300k",
+        "scope": "Published Vinet/integrated-q Debye pressure and all 51 upstream Pt electronic nodes are recovered. The 2003 erratum corrects Au only. Electronic pressure is volume independent and referenced by subtracting the raw 300 K value 0.04 GPa once. Linear interpolation is an explicit numerical implementation choice, not a specified author rule; extrapolation is forbidden. Rounded grid agreement verifies the pressure parameterization, not the original shock/expansion optimization.",
+        "shock_scope": "Three of the seven primary Holmes Table III shots are below 290 GPa. The other four are excluded, not relabeled as static or fitted to 300 K. Marsh rows and Matsui's exact Hugoniot sampling/weights remain unavailable.",
+        "table1_max_abs_calculated_reconstruction_difference_gpa": 0.008582014981179498,
+        "table1_printed_max_abs_residual_gpa": 0.19000000000000128,
+        "table1_printed_residual_rmse_gpa": 0.0922857879993809,
+        "table1_validation": [
+          {
+            "cold_plus_phonon_pressure_gpa": 23.96274796426204,
+            "electronic_increment_inferred_from_output_gpa": 0.47725203573796193,
+            "observed_mgo_pressure_gpa": 24.46,
+            "observed_minus_printed_calculated_gpa": 0.019999999999999574,
+            "observed_minus_reconstructed_gpa": 0.027252035737961477,
+            "printed_calculated_pt_pressure_gpa": 24.44,
+            "reconstructed_minus_printed_calculated_gpa": -0.0072520357379630696,
+            "reconstructed_pressure_gpa": 24.432747964262038,
+            "temperature_k": 1500.0,
+            "volume_ratio": 0.95218
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 23.836626518673043,
+            "electronic_increment_inferred_from_output_gpa": 0.5333734813269579,
+            "observed_mgo_pressure_gpa": 24.18,
+            "observed_minus_printed_calculated_gpa": -0.19000000000000128,
+            "observed_minus_reconstructed_gpa": -0.18662651867304325,
+            "printed_calculated_pt_pressure_gpa": 24.37,
+            "reconstructed_minus_printed_calculated_gpa": -0.0033734813269568065,
+            "reconstructed_pressure_gpa": 24.366626518673044,
+            "temperature_k": 1600.0,
+            "volume_ratio": 0.95456
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 23.48651632401841,
+            "electronic_increment_inferred_from_output_gpa": 0.4134836759815901,
+            "observed_mgo_pressure_gpa": 23.86,
+            "observed_minus_printed_calculated_gpa": -0.03999999999999915,
+            "observed_minus_reconstructed_gpa": -0.036516324018409096,
+            "printed_calculated_pt_pressure_gpa": 23.9,
+            "reconstructed_minus_printed_calculated_gpa": -0.0034836759815881635,
+            "reconstructed_pressure_gpa": 23.89651632401841,
+            "temperature_k": 1400.0,
+            "volume_ratio": 0.95147
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 23.14094223706049,
+            "electronic_increment_inferred_from_output_gpa": 0.29905776293951103,
+            "observed_mgo_pressure_gpa": 23.35,
+            "observed_minus_printed_calculated_gpa": -0.08999999999999986,
+            "observed_minus_reconstructed_gpa": -0.09094223706048887,
+            "printed_calculated_pt_pressure_gpa": 23.44,
+            "reconstructed_minus_printed_calculated_gpa": 0.0009422370604887931,
+            "reconstructed_pressure_gpa": 23.44094223706049,
+            "temperature_k": 1200.0,
+            "volume_ratio": 0.94843
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 22.67417555102778,
+            "electronic_increment_inferred_from_output_gpa": 0.2058244489722192,
+            "observed_mgo_pressure_gpa": 22.7,
+            "observed_minus_printed_calculated_gpa": -0.17999999999999972,
+            "observed_minus_reconstructed_gpa": -0.18417555102778052,
+            "printed_calculated_pt_pressure_gpa": 22.88,
+            "reconstructed_minus_printed_calculated_gpa": 0.004175551027781665,
+            "reconstructed_pressure_gpa": 22.88417555102778,
+            "temperature_k": 1000.0,
+            "volume_ratio": 0.94577
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 20.940620437504684,
+            "electronic_increment_inferred_from_output_gpa": -0.0006204375046827693,
+            "observed_mgo_pressure_gpa": 21.04,
+            "observed_minus_printed_calculated_gpa": 0.09999999999999787,
+            "observed_minus_reconstructed_gpa": 0.0993795624953151,
+            "printed_calculated_pt_pressure_gpa": 20.94,
+            "reconstructed_minus_printed_calculated_gpa": 0.0006204375046827693,
+            "reconstructed_pressure_gpa": 20.940620437504684,
+            "temperature_k": 300.0,
+            "volume_ratio": 0.93717
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 40.663383343397314,
+            "electronic_increment_inferred_from_output_gpa": 0.3566166566026858,
+            "observed_mgo_pressure_gpa": 41.03,
+            "observed_minus_printed_calculated_gpa": 0.00999999999999801,
+            "observed_minus_reconstructed_gpa": 0.0166166566026838,
+            "printed_calculated_pt_pressure_gpa": 41.02,
+            "reconstructed_minus_printed_calculated_gpa": -0.006616656602687954,
+            "reconstructed_pressure_gpa": 41.013383343397315,
+            "temperature_k": 1300.0,
+            "volume_ratio": 0.90873
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 40.238582014981176,
+            "electronic_increment_inferred_from_output_gpa": 0.12141798501881995,
+            "observed_mgo_pressure_gpa": 40.29,
+            "observed_minus_printed_calculated_gpa": -0.07000000000000028,
+            "observed_minus_reconstructed_gpa": -0.07858201498118034,
+            "printed_calculated_pt_pressure_gpa": 40.36,
+            "reconstructed_minus_printed_calculated_gpa": 0.008582014981179498,
+            "reconstructed_pressure_gpa": 40.36858201498118,
+            "temperature_k": 800.0,
+            "volume_ratio": 0.90209
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 40.61091162325506,
+            "electronic_increment_inferred_from_output_gpa": 0.1690883767449396,
+            "observed_mgo_pressure_gpa": 40.78,
+            "observed_minus_printed_calculated_gpa": 0.0,
+            "observed_minus_reconstructed_gpa": -0.0009116232550603898,
+            "printed_calculated_pt_pressure_gpa": 40.78,
+            "reconstructed_minus_printed_calculated_gpa": 0.000911623255063887,
+            "reconstructed_pressure_gpa": 40.780911623255065,
+            "temperature_k": 900.0,
+            "volume_ratio": 0.90281
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 40.779616937640924,
+            "electronic_increment_inferred_from_output_gpa": 0.21038306235908077,
+            "observed_mgo_pressure_gpa": 41.06,
+            "observed_minus_printed_calculated_gpa": 0.07000000000000028,
+            "observed_minus_reconstructed_gpa": 0.07038306235908107,
+            "printed_calculated_pt_pressure_gpa": 40.99,
+            "reconstructed_minus_printed_calculated_gpa": -0.0003830623590772575,
+            "reconstructed_pressure_gpa": 40.989616937640925,
+            "temperature_k": 1000.0,
+            "volume_ratio": 0.90395
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 41.10416136394706,
+            "electronic_increment_inferred_from_output_gpa": 0.25583863605294344,
+            "observed_mgo_pressure_gpa": 41.37,
+            "observed_minus_printed_calculated_gpa": 0.00999999999999801,
+            "observed_minus_reconstructed_gpa": 0.015838636052941474,
+            "printed_calculated_pt_pressure_gpa": 41.36,
+            "reconstructed_minus_printed_calculated_gpa": -0.005838636052942547,
+            "reconstructed_pressure_gpa": 41.35416136394706,
+            "temperature_k": 1100.0,
+            "volume_ratio": 0.90478
+          },
+          {
+            "cold_plus_phonon_pressure_gpa": 41.49936460284316,
+            "electronic_increment_inferred_from_output_gpa": 0.3006353971568352,
+            "observed_mgo_pressure_gpa": 41.86,
+            "observed_minus_printed_calculated_gpa": 0.060000000000002274,
+            "observed_minus_reconstructed_gpa": 0.06063539715683741,
+            "printed_calculated_pt_pressure_gpa": 41.8,
+            "reconstructed_minus_printed_calculated_gpa": -0.0006353971568415773,
+            "reconstructed_pressure_gpa": 41.799364602843156,
+            "temperature_k": 1200.0,
+            "volume_ratio": 0.90547
+          }
+        ],
+        "table3": {
+          "gamma": [
+            2.7,
+            2.5518769549724722,
+            2.404531797441101,
+            2.258003352760508,
+            2.1123347800527257,
+            1.967574357172724,
+            1.8237764697764551
+          ],
+          "inferred_electronic": [
+            {
+              "common_rounding_interval_gpa": [
+                0.00044806020803889613,
+                0.002587960593563139
+              ],
+              "electronic_increment_gpa_by_volume": [
+                0.0,
+                0.0036430610660449503,
+                0.005344528562559958,
+                0.005448060208038896,
+                -0.0010570947743104853,
+                0.0030653199163168665,
+                -0.002412039406436861
+              ],
+              "temperature_k": 300,
+              "volume_spread_gpa": 0.007860099614475757
+            },
+            {
+              "common_rounding_interval_gpa": [
+                0.03738310302605575,
+                0.03793404792870569
+              ],
+              "electronic_increment_gpa_by_volume": [
+                0.034057086086118904,
+                0.03293404792870569,
+                0.042383103026055746,
+                0.03332612951598324,
+                0.041438910570409826,
+                0.034754155656986585,
+                0.03393987720213243
+              ],
+              "temperature_k": 500,
+              "volume_spread_gpa": 0.009449055097350056
+            },
+            {
+              "common_rounding_interval_gpa": [
+                0.20639363205327388,
+                0.20796855118244395
+              ],
+              "electronic_increment_gpa_by_volume": [
+                0.20927499305886244,
+                0.20296855118244395,
+                0.20984796829738883,
+                0.21139363205327388,
+                0.20396717823369936,
+                0.20643773583745517,
+                0.21048393246501895
+              ],
+              "temperature_k": 1000,
+              "volume_spread_gpa": 0.008425080870829937
+            },
+            {
+              "common_rounding_interval_gpa": [
+                0.8104713137135534,
+                0.811673089626182
+              ],
+              "electronic_increment_gpa_by_volume": [
+                0.8104784878980773,
+                0.8150307927790514,
+                0.8154713137135534,
+                0.813719607237763,
+                0.806673089626182,
+                0.8138555961398861,
+                0.8077464526855689
+              ],
+              "temperature_k": 2000,
+              "volume_spread_gpa": 0.008798224087371409
+            },
+            {
+              "common_rounding_interval_gpa": [
+                1.599228972180195,
+                1.6001597827163119
+              ],
+              "electronic_increment_gpa_by_volume": [
+                1.595159782716312,
+                1.598602618916125,
+                1.6000622825681603,
+                1.6017384480626333,
+                1.6008647106882776,
+                1.597370783409449,
+                1.604228972180195
+              ],
+              "temperature_k": 3000,
+              "volume_spread_gpa": 0.00906918946388302
+            }
+          ],
+          "max_abs_pressure_difference_gpa": 0.00706595207129368,
+          "phonon_increment_gpa": [
+            [
+              0.0,
+              1.455942913913881,
+              5.140725006941137,
+              12.539521512101922,
+              19.944840217283687
+            ],
+            [
+              0.0,
+              1.44070901313734,
+              5.1006745098836,
+              12.458612268286995,
+              19.825040442149916
+            ],
+            [
+              0.0,
+              1.422961425536505,
+              5.055496560265176,
+              12.369873214849006,
+              19.6952822459944
+            ],
+            [
+              0.0,
+              1.4021219306920625,
+              5.004054428154773,
+              12.271728452970288,
+              19.55370961214541
+            ],
+            [
+              0.0,
+              1.3775039946552814,
+              4.944975726991982,
+              12.162269815599506,
+              19.398078194537398
+            ],
+            [
+              0.0,
+              1.3483111642593257,
+              4.876627584078846,
+              12.039209723776425,
+              19.22569453650686
+            ],
+            [
+              0.0,
+              1.313648083391425,
+              4.797104028128535,
+              11.899841507907974,
+              19.033358988413383
+            ]
+          ],
+          "published_pressure_gpa": [
+            [
+              0.0,
+              1.49,
+              5.35,
+              13.35,
+              21.54
+            ],
+            [
+              15.99,
+              17.46,
+              21.29,
+              29.26,
+              37.41
+            ],
+            [
+              37.69,
+              39.15,
+              42.95,
+              50.87,
+              58.98
+            ],
+            [
+              67.1,
+              68.53,
+              72.31,
+              80.18,
+              88.25
+            ],
+            [
+              107.01,
+              108.43,
+              112.16,
+              119.98,
+              128.01
+            ],
+            [
+              161.4,
+              162.78,
+              166.48,
+              174.25,
+              182.22
+            ],
+            [
+              235.96,
+              237.31,
+              240.97,
+              248.67,
+              256.6
+            ]
+          ],
+          "reconstructed_minus_published_gpa": [
+            [
+              0.0,
+              0.0059429139138811315,
+              0.0007250069411375293,
+              -0.00047848789807680703,
+              0.004840217283689441
+            ],
+            [
+              -0.0036430610660449503,
+              0.00706595207129368,
+              0.007031448817556907,
+              -0.005030792779052717,
+              0.0013973810838763256
+            ],
+            [
+              -0.005344528562559958,
+              -0.0023831030260552666,
+              0.00015203170261202104,
+              -0.005471313713549364,
+              -6.22825681588779e-05
+            ],
+            [
+              -0.005448060208038896,
+              0.006673870484021904,
+              -0.0013936320532792479,
+              -0.00371960723775544,
+              -0.0017384480626390086
+            ],
+            [
+              0.0010570947743104853,
+              -0.0014389105703997984,
+              0.006032821766297047,
+              0.0033269103738149397,
+              -0.0008647106882904154
+            ],
+            [
+              -0.0030653199163168665,
+              0.005245844342994133,
+              0.0035622641625536744,
+              -0.0038555961398856198,
+              0.002629216590548822
+            ],
+            [
+              0.002412039406436861,
+              0.006060122797862277,
+              -0.0004839324650163235,
+              0.0022535473144387197,
+              -0.004228972180158053
+            ]
+          ],
+          "reconstructed_pressure_gpa": [
+            [
+              0.0,
+              1.4959429139138811,
+              5.350725006941137,
+              13.349521512101923,
+              21.54484021728369
+            ],
+            [
+              15.986356938933955,
+              17.467065952071295,
+              21.297031448817556,
+              29.25496920722095,
+              37.41139738108387
+            ],
+            [
+              37.68465547143744,
+              39.14761689697394,
+              42.950152031702615,
+              50.86452868628645,
+              58.97993771743184
+            ],
+            [
+              67.09455193979196,
+              68.53667387048402,
+              72.30860636794672,
+              80.17628039276225,
+              88.24826155193736
+            ],
+            [
+              107.01105709477432,
+              108.4285610894296,
+              112.1660328217663,
+              119.98332691037382,
+              128.0091352893117
+            ],
+            [
+              161.3969346800837,
+              162.785245844343,
+              166.48356226416254,
+              174.24614440386011,
+              182.22262921659055
+            ],
+            [
+              235.96241203940644,
+              237.31606012279786,
+              240.96951606753498,
+              248.67225354731443,
+              256.59577102781986
+            ]
+          ],
+          "reference_subtracted_electronic_gpa": [
+            0.0,
+            0.04,
+            0.21,
+            0.8099999999999999,
+            1.5999999999999999
+          ],
+          "rmse_gpa": 0.0039466156879173,
+          "temperature_k": [
+            300,
+            500,
+            1000,
+            2000,
+            3000
+          ],
+          "theta_k": [
+            230.0,
+            263.15326591828546,
+            300.8725538034301,
+            343.74305418772076,
+            392.4151823575988,
+            447.60932179889716,
+            510.1200828548523
+          ],
+          "volume_ratio": [
+            1.0,
+            0.95,
+            0.9,
+            0.85,
+            0.8,
+            0.75,
+            0.7
+          ]
+        },
+        "thermal_record_identifier": "platinum_matsui_2009_vinet_mgd_electronic"
+      },
+      "source_notes": "Published Matsui Vinet and integrated-q Debye pressure plus volume-independent Tsuchiya-Kawamura (2002) Table I electronic correction, subtracting raw P_el(300 K)=0.04 GPa once. 2003 erratum corrects Au only. All 51 Pt nodes retained; linear interpolation between 100 K nodes is an explicit numerical implementation choice, not specified by the authors. No extrapolation outside 0-5000 K; positive-temperature API. Recommended scale envelope 0-300 GPa/300-3000 K is modeled, not measured coverage or a solid-phase guarantee. Rounded coefficients/table values reproduce 35 Table III states within 0.0071 GPa. Original joint shock/expansion fit, weights and covariance remain unreproduced.",
+      "status": "source_reconstruction"
     },
     {
       "absolute_sigma": true,
@@ -40834,7 +42523,7 @@
         "V0",
         "K0"
       ],
-      "label": "Lv et al. (2016), 300 K BM2 (K0\u2032 = 4)",
+      "label": "Lv et al. (2016), 300 K BM2 (K0′ = 4)",
       "material_identifier": "qandilite",
       "model": "BM2",
       "objective": "pressure_residuals",
@@ -40911,7 +42600,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Lv et al. (2016), 300 K BM3 (free K0\u2032)",
+      "label": "Lv et al. (2016), 300 K BM3 (free K0′)",
       "material_identifier": "qandilite",
       "model": "BM3",
       "objective": "pressure_residuals",
@@ -41069,7 +42758,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "record_identifier": "rhenium_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "status": "not_refittable"
     },
     {
@@ -45669,7 +47358,7 @@
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
       "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "record_identifier": "tungsten_sakai_2025_rydberg_stacey_1",
-      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+      "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "status": "not_refittable"
     },
     {
@@ -46923,7 +48612,7 @@
     "parity": 225,
     "parity_not_achieved": 73,
     "similar": 157,
-    "source_reconstruction": 13,
-    "total": 642
+    "source_reconstruction": 14,
+    "total": 643
   }
 }

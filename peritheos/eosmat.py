@@ -62,6 +62,7 @@ _THERMAL_TYPES = {
     "HollandPowellThermalPressure",
     "LinearThermalPressure",
     "DebyeQuadraticThermalPressure",
+    "DebyeTabulatedThermalPressure",
     "DebyeAnharmonicHelmholtz",
     "LogVolumeThermalPressure",
     "SecondOrderTaylorThermalPressure",
@@ -108,6 +109,7 @@ _THERMAL_MODELS = {
     "HollandPowellThermalPressure": "holland_powell_thermal_pressure",
     "LinearThermalPressure": "linear_thermal_pressure",
     "DebyeQuadraticThermalPressure": "debye_quadratic_thermal_pressure",
+    "DebyeTabulatedThermalPressure": "debye_tabulated_thermal_pressure",
     "DebyeAnharmonicHelmholtz": "debye_anharmonic_helmholtz",
     "LogVolumeThermalPressure": "log_volume_thermal_pressure",
     "SecondOrderTaylorThermalPressure": "second_order_taylor_thermal_pressure",
@@ -796,6 +798,28 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 raise EosmatError(
                     f"{location}.thermal.model does not match thermal.type"
                 )
+            if thermal_type == "DebyeTabulatedThermalPressure":
+                config = _require_mapping(
+                    thermal.get("configuration"), f"{location}.thermal.configuration"
+                )
+                t_grid = config.get("electronic_temperature_k")
+                p_grid = config.get("electronic_pressure_gpa")
+                if (
+                    not isinstance(t_grid, list) or not isinstance(p_grid, list)
+                    or len(t_grid) < 2 or len(t_grid) != len(p_grid)
+                    or config.get("interpolation") != "linear"
+                ):
+                    raise EosmatError(f"{location}.thermal electronic table is invalid")
+                for column in (t_grid, p_grid):
+                    for value in column:
+                        _finite_number(value, f"{location}.thermal electronic table")
+                if t_grid[0] < 0 or any(a >= b for a, b in zip(t_grid, t_grid[1:])):
+                    raise EosmatError(f"{location}.thermal temperatures must increase")
+                if any(a > b for a, b in zip(p_grid, p_grid[1:])):
+                    raise EosmatError(f"{location}.thermal electronic pressures must not decrease")
+                tr = thermal.get("parameters", {}).get("Tr")
+                if tr is not None and not t_grid[0] <= tr <= t_grid[-1]:
+                    raise EosmatError(f"{location}.thermal Tr lies outside the electronic table")
             debye_temperature_law = thermal.get("debye_temperature_law")
             thermal_pressure_reference = thermal.get("thermal_pressure_reference")
             if thermal_type == "MieGruneisenDebye":
