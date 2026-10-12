@@ -9,7 +9,7 @@ between a validated equation and a fully reproduced original fitting procedure.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 227 bundled material documents and 650 EOS records pass the
+separate. All 227 bundled material documents and 651 EOS records pass the
 format-3 validator; 224 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe and FeS-VI source cards do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
@@ -17,7 +17,7 @@ including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 650 bundled records: 640 are
+The primary-source audit covers all 651 bundled records: 641 are
 `primary_source_validated`, seven explicit-selection implementations are
 `not_reproduced` (Maltby, the Chen diagnostic, and three Miozzi hcp-Fe
 parameterizations, and the two Yokoo table-output diagnostics), and three records are `deferred`: the two Campbell Fe/FeO
@@ -44,10 +44,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 650
+fit for every record with sufficient direct observations and documents all 651
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 226 parity matches and 156 additional numerically similar results.
+diagnostics. The current campaign finds 227 parity matches and 156 additional numerically similar results.
 For opt-in Peritheos refits, including the provisional Ross + Errandonea argon
 refit, parity verifies the stored fit under its documented selection and
 objective; it does not imply reproduction of published author coefficients.

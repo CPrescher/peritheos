@@ -225,7 +225,7 @@ Hirose (2008) and Fei (2004) observations**, on the author-confirmed published
 Speziale MgO formulation. It is not a new author result and does not refit Fei's
 own EOS. The published Au records and default are preserved.
 
-The [derived dataset](../../peritheos/data/datasets/gold-hirose-2008-fei-2004-speziale-2001-recalculated-pvt.csv)
+The [derived dataset](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-fei-2004-speziale-2001-recalculated-pvt.csv)
 contains 47 rows with original pressure targets and widths in separate columns.
 All new targets are calculated from the paired MgO volumes and source temperatures.
 The nine 300 K Hirose rows first determine K0-prime with V0=67.85 Å³ and

@@ -59,7 +59,7 @@ def read_author_confirmation():
             "scope",
         )
     } | {
-        "evidence_path": str(AUTHOR_CONFIRMATION.relative_to(ROOT)),
+        "evidence_path": AUTHOR_CONFIRMATION.relative_to(ROOT).as_posix(),
         "evidence_sha256": hashlib.sha256(AUTHOR_CONFIRMATION.read_bytes()).hexdigest(),
     }
 

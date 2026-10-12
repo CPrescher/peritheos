@@ -25,7 +25,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 650
+    assert len(identifiers) == len(set(identifiers)) == 651
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -33,10 +33,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 650, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 651, **dict(sorted(statuses.items()))}
     assert statuses == {
         "not_refittable": 177,
-        "parity": 226,
+        "parity": 227,
         "parity_not_achieved": 75,
         "similar": 156,
         "source_reconstruction": 16,

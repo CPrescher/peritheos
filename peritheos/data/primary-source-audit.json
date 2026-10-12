@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 650,
+    "records": 651,
     "deferred": 3,
     "not_reproduced": 7,
-    "primary_source_validated": 640
+    "primary_source_validated": 641
   },
   "records": [
     {
@@ -4639,6 +4639,26 @@
         ],
         "finding": "Equations 1-12 and Table III supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction."
       }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit",
+      "label": "Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO",
+      "doi": "10.1016/j.pepi.2008.03.002",
+      "status": "primary_source_validated",
+      "note": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+        "doi": "10.1016/j.pepi.2008.03.002",
+        "locations": [
+          "Table 1, page 150",
+          "Table 2, page 152",
+          "Sections 3.1-3.2, pages 151-153"
+        ],
+        "finding": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity."
+      },
+      "reproduction_status": "independent_refit_reproduced"
     },
     {
       "material": "graphite",

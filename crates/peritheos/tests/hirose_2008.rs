@@ -43,7 +43,7 @@ fn hirose_gold_records_load_and_roundtrip_through_native_eosmat() {
             record["identifier"]
                 .as_str()
                 .unwrap()
-                .starts_with("gold_hirose_2008_")
+                .starts_with("gold_hirose_2008_bm3_")
         });
     document["datasets"]
         .as_array_mut()

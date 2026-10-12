@@ -18520,6 +18520,272 @@
       "status": "source_reconstruction"
     },
     {
+      "dataset_identifiers": [
+        "gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        8.628704299040267,
+        140.54513210399975
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        2330.0
+      ],
+      "fit_kind": "staged_cold_then_thermal_bm3_reference_state",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "Tr",
+        "alpha0",
+        "alpha1",
+        "dK_dT"
+      ],
+      "label": "Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO",
+      "material_identifier": "gold",
+      "model": "BM3",
+      "objective": "sum of squared pressure residuals with equal weights at each stage",
+      "observations": 47,
+      "original_publication_reproduction_status": "not_reproduced",
+      "parameters": [
+        {
+          "parameter": "rt_eos.K0_prime",
+          "published": 5.581150323572888,
+          "published_error": null,
+          "refit": 5.581150323572888,
+          "refit_error": null,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "beta1",
+          "published": 1.0917527108795146e-06,
+          "published_error": null,
+          "refit": 1.0917589226596143e-06,
+          "refit_error": null,
+          "relative_difference": 5.689731784354716e-06,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "beta2",
+          "published": 3.9664802649941097e-10,
+          "published_error": null,
+          "refit": 3.966425201012182e-10,
+          "refit_error": null,
+          "relative_difference": 1.3882328474846988e-05,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "beta3",
+          "published": 1.6537830789802096e-13,
+          "published_error": null,
+          "refit": 1.6537969753564092e-13,
+          "refit_error": null,
+          "relative_difference": 8.402780495343515e-06,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "kprime_log_coefficient",
+          "published": 0.0003583216931587801,
+          "published_error": null,
+          "refit": 0.00035832174142973633,
+          "refit_error": null,
+          "relative_difference": 1.347140214064136e-07,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "parity_basis": "registered_peritheos_refit_reproduced",
+      "primary_data_finding": null,
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1016/j.pepi.2008.03.002",
+      "qualification": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.",
+      "reason": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.",
+      "record_identifier": "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit",
+      "reproduction": {
+        "calibration": {
+          "gamma_law": "Speziale Equation 11",
+          "native_equation_max_difference_gpa": 2.5579538487363607e-13,
+          "reference_eos_record": "mgo_speziale_2001_bm3_2",
+          "reference_temperature_k": 300,
+          "theta_law": "integral of d ln(theta) = -gamma(V) d ln(V)"
+        },
+        "cold_stage": {
+          "conditional_covariance": [
+            [
+              0.0004980523608099253
+            ]
+          ],
+          "conditional_standard_errors": [
+            0.022317086745584094
+          ],
+          "degrees_of_freedom": 8,
+          "observations": 9,
+          "parameters": [
+            5.581150323572888
+          ],
+          "pressure_mae_gpa": 0.542341992757631,
+          "pressure_rmse_gpa": 0.6641146079944168,
+          "scaled_jacobian_condition_number": 1.0,
+          "solver_success": true
+        },
+        "dataset_identifier": "gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt",
+        "derived_csv_sha256": "4803e04f73eac6f16181a424984ee85b53dd27224597c6921bb7afd5ccecafd8",
+        "fei_eos_work_paused": true,
+        "fixed_anchors": {
+          "K0": 167,
+          "Tr": 300,
+          "V0": 67.85,
+          "alpha0": 3.824e-05,
+          "alpha1": 1.499e-08
+        },
+        "implementation_sha256": "4bc846e38a82499e06cb0a71aac82dd20ead61282c3449f10393a093e1dc2c30",
+        "objective": "sum of squared pressure residuals with equal weights at each stage",
+        "observed_ranges": {
+          "hot_pressure_gpa": [
+            8.628704299176587,
+            117.44474550614116
+          ],
+          "hot_temperature_k": [
+            1273.0,
+            2330.0
+          ],
+          "pressure_gpa": [
+            8.628704299176587,
+            140.54513210399975
+          ],
+          "temperature_k": [
+            300.0,
+            2330.0
+          ]
+        },
+        "original_author_fit_reproduced": false,
+        "record_identifier": "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit",
+        "residuals_gpa": [
+          -0.43429500202927507,
+          -0.5471943190105435,
+          -0.14723521496826208,
+          0.2434459332175365,
+          -0.1968541156820649,
+          -1.2064666042162457,
+          -0.618628236830105,
+          -0.2863583177010156,
+          1.2006001911636304,
+          -0.44814851170976056,
+          -0.8675301801894477,
+          -0.8296364520491153,
+          -0.3750248076634932,
+          0.5146337143662549,
+          -0.5448442066879835,
+          0.04163374703504985,
+          0.2527787578488869,
+          0.06595866277547202,
+          -0.2058411315061477,
+          0.9249409269273201,
+          0.24584545235268251,
+          -0.01897525789936161,
+          -0.07172582746046885,
+          0.2111912359372532,
+          -0.21741944122523904,
+          -0.16868985648806145,
+          0.4728475249541404,
+          0.31440470837761225,
+          0.5739417947951289,
+          0.07438876822472196,
+          -0.16021593361682918,
+          -0.07843862415332836,
+          0.25416744175131,
+          -0.5976312952619889,
+          0.2840216202432515,
+          -0.00020415703065523871,
+          0.3584999914250204,
+          -0.4143704175519183,
+          -0.34601612754939026,
+          0.05405876551478883,
+          0.5750429685606377,
+          -0.26362369478686887,
+          0.06832800501020841,
+          0.38932066148244715,
+          0.5312443788869459,
+          0.13894970401113582,
+          -0.04764530855225502
+        ],
+        "selection": "All nine cold Hirose rows first, then all 26 Fei2004 plus 12 hot Hirose2008 rows; 8.64 GPa Fei source row retained; repeated Hirose2006 rows not added",
+        "software": {
+          "name": "Peritheos / scipy.optimize.least_squares",
+          "numpy": "2.5.2",
+          "scipy": "1.18.1",
+          "version": "0.12.0",
+          "version_date": "2026-10-12"
+        },
+        "source_hashes": {
+          "gold-fei-2004-table1.csv": "9341ee703e18ce373ebc409c11b217479c5f92fc0464147b459307944cd440ef",
+          "gold-hirose-2008-table1.csv": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9"
+        },
+        "thermal_parameter_names": [
+          "beta1",
+          "beta2",
+          "beta3",
+          "kprime_log_coefficient"
+        ],
+        "thermal_stage": {
+          "conditional_covariance": [
+            [
+              1.649075336701015e-13,
+              -1.446184816038155e-16,
+              3.5548846156819677e-20,
+              2.577450642505321e-13
+            ],
+            [
+              -1.4461848160381575e-16,
+              1.2769529156530755e-19,
+              -3.156292492600878e-23,
+              -1.5264957017343093e-16
+            ],
+            [
+              3.554884615682038e-20,
+              -3.156292492600933e-23,
+              7.963938141378864e-27,
+              2.50363982496261e-19
+            ],
+            [
+              2.5774506425151957e-13,
+              -1.5264957017430336e-16,
+              2.5036398249647626e-19,
+              4.2004530494923953e-10
+            ]
+          ],
+          "conditional_standard_errors": [
+            4.0608808609721794e-07,
+            3.573447796810631e-10,
+            8.924089948772852e-14,
+            2.0495006829694873e-05
+          ],
+          "degrees_of_freedom": 34,
+          "observations": 38,
+          "parameters": [
+            1.0917589226596143e-06,
+            3.966425201012182e-10,
+            1.6537969753564092e-13,
+            0.00035832174142973633
+          ],
+          "pressure_mae_gpa": 0.31584684373322586,
+          "pressure_rmse_gpa": 0.39646284569240897,
+          "scaled_jacobian_condition_number": 579.653392016301,
+          "solver_success": true
+        },
+        "uncertainty_scope": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity."
+      },
+      "reproduction_status": "independent_refit_reproduced",
+      "rmse_gpa": 0.39646284569240897,
+      "solver_success": true,
+      "source_notes": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.",
+      "status": "parity"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -50549,10 +50815,10 @@
   ],
   "summary": {
     "not_refittable": 177,
-    "parity": 226,
+    "parity": 227,
     "parity_not_achieved": 75,
     "similar": 156,
     "source_reconstruction": 16,
-    "total": 650
+    "total": 651
   }
 }

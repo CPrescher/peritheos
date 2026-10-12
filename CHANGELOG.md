@@ -5,6 +5,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Fixed
+
+- Preserve JSON floating-point values when Rust material documents are
+  serialized and loaded again.
+- Synchronize catalog manifests, source audits, refit ledgers, and documentation
+  with the combined Hirose (2008) and Fei (2004) Au refit. Keep refit archive
+  checks reproducible across supported NumPy/SciPy versions and operating
+  systems while checking archived data hashes and source columns exactly.
+
 ## [0.12.0] - 2026-10-09
 
 This release expands the pressure-scale catalog and its primary-data audits,
