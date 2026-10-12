@@ -1,0 +1,174 @@
+{
+  "record_identifier": "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit",
+  "dataset_identifier": "gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt",
+  "source_hashes": {
+    "gold-hirose-2008-table1.csv": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9",
+    "gold-fei-2004-table1.csv": "9341ee703e18ce373ebc409c11b217479c5f92fc0464147b459307944cd440ef"
+  },
+  "derived_csv_sha256": "0cbe94de992f1563bf638c621a5516a3e283144a74920f4834fa0d9062ba4cd7",
+  "implementation_sha256": "16ea95f517b8a4252f83f19b19ea141f527a11bbaa88c16c412e821ef48c05d4",
+  "software": {
+    "name": "Peritheos / scipy.optimize.least_squares",
+    "version": "0.12.0",
+    "scipy": "1.13.1",
+    "numpy": "2.0.2",
+    "version_date": "2026-10-12"
+  },
+  "calibration": {
+    "reference_eos_record": "mgo_speziale_2001_bm3_2",
+    "gamma_law": "Speziale Equation 11",
+    "theta_law": "integral of d ln(theta) = -gamma(V) d ln(V)",
+    "reference_temperature_k": 300,
+    "native_equation_max_difference_gpa": 2.7918645173485857e-10
+  },
+  "cold_stage": {
+    "observations": 9,
+    "degrees_of_freedom": 8,
+    "parameters": [
+      5.581150323572888
+    ],
+    "conditional_standard_errors": [
+      0.022317086745584094
+    ],
+    "conditional_covariance": [
+      [
+        0.0004980523608099253
+      ]
+    ],
+    "scaled_jacobian_condition_number": 1.0,
+    "pressure_rmse_gpa": 0.6641146079944168,
+    "pressure_mae_gpa": 0.542341992757631,
+    "solver_success": true
+  },
+  "thermal_stage": {
+    "observations": 38,
+    "degrees_of_freedom": 34,
+    "parameters": [
+      1.0917527108795146e-06,
+      3.9664802649941097e-10,
+      1.6537830789802096e-13,
+      0.0003583216931587801
+    ],
+    "conditional_standard_errors": [
+      4.060873824366569e-07,
+      3.5734409133861563e-10,
+      8.924068369965784e-14,
+      2.0495000910985764e-05
+    ],
+    "conditional_covariance": [
+      [
+        1.6490696217425564e-13,
+        -1.446179508861293e-16,
+        3.554869612093062e-20,
+        2.5772360643593716e-13
+      ],
+      [
+        -1.4461795088612927e-16,
+        1.2769479961462087e-19,
+        -3.1562786502155195e-23,
+        -1.5263038910499999e-16
+      ],
+      [
+        3.5548696120930724e-20,
+        -3.1562786502155295e-23,
+        7.963899627182378e-27,
+        2.503590516403223e-19
+      ],
+      [
+        2.5772360643613427e-13,
+        -1.5263038910517778e-16,
+        2.5035905164036705e-19,
+        4.2004506234130725e-10
+      ]
+    ],
+    "scaled_jacobian_condition_number": 579.65228454237,
+    "pressure_rmse_gpa": 0.3964628457007681,
+    "pressure_mae_gpa": 0.3158467548377205,
+    "solver_success": true
+  },
+  "thermal_parameter_names": [
+    "beta1",
+    "beta2",
+    "beta3",
+    "kprime_log_coefficient"
+  ],
+  "fixed_anchors": {
+    "V0": 67.85,
+    "K0": 167,
+    "Tr": 300,
+    "alpha0": 3.824e-05,
+    "alpha1": 1.499e-08
+  },
+  "observed_ranges": {
+    "pressure_gpa": [
+      8.628704299040267,
+      140.54513210399975
+    ],
+    "temperature_k": [
+      300.0,
+      2330.0
+    ],
+    "hot_pressure_gpa": [
+      8.628704299040267,
+      117.44474550589783
+    ],
+    "hot_temperature_k": [
+      1273.0,
+      2330.0
+    ]
+  },
+  "residuals_gpa": [
+    -0.43429500202927507,
+    -0.5471943190105435,
+    -0.14723521496826208,
+    0.2434459332175365,
+    -0.1968541156820649,
+    -1.2064666042162457,
+    -0.618628236830105,
+    -0.2863583177010156,
+    1.2006001911636304,
+    -0.44814834485724475,
+    -0.8675300875854077,
+    -0.8296370311319095,
+    -0.37502559735098373,
+    0.5146375227630671,
+    -0.5448402725378827,
+    0.04163231284933033,
+    0.2527772305731446,
+    0.0659572215303399,
+    -0.20584250405815396,
+    0.9249402796278758,
+    0.24584491780434803,
+    -0.018974414840261744,
+    -0.07172561305150715,
+    0.21119159869885173,
+    -0.2174189399583888,
+    -0.16868934726449325,
+    0.4728480477599568,
+    0.3144052508865478,
+    0.573941840714955,
+    0.07438880958071792,
+    -0.1602158926701378,
+    -0.07843858362411993,
+    0.2541674782598058,
+    -0.5976313311260917,
+    0.28402153530466734,
+    -0.00020425199078744072,
+    0.3584998903767236,
+    -0.4143705134844602,
+    -0.3460162256085084,
+    0.05405866312128893,
+    0.5750428340756777,
+    -0.26362365024722934,
+    0.06832804664885828,
+    0.3893208023741259,
+    0.531244788894977,
+    0.13895011971971272,
+    -0.04764489088083934
+  ],
+  "selection": "All nine cold Hirose rows first, then all 26 Fei2004 plus 12 hot Hirose2008 rows; 8.64 GPa Fei source row retained; repeated Hirose2006 rows not added",
+  "objective": "sum of squared pressure residuals with equal weights at each stage",
+  "uncertainty_scope": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.",
+  "original_author_fit_reproduced": false,
+  "fei_eos_work_paused": true
+}

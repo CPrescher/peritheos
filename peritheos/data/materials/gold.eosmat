@@ -3927,6 +3927,258 @@
     }
    },
    "notes": "Diagnostic reconstruction of Yokoo (2009) Table III calculated PVT outputs; published analytical PVT remains unreproduced. Not a validated replacement for the source pressure standard. Cold BM3 V0 is Vc at 0 K; ambient normalization is Vc/cold_volume_ratio. Phonon and electronic pressures are absolute relative to 0 K. Electronic pressure is assumed volume independent and interpolated linearly; no extrapolation. Source first-liquid annotations are preserved and excluded from the primary fit. Numerical bounds do not guarantee solid Au/Pt throughout the rectangular domain; use the source phase markers. No parameter errors or covariance are inferred from model-output residuals. This pressure model supplies no caloric potential."
+  },
+  {
+   "identifier": "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit",
+   "label": "Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO",
+   "record_kind": "refit",
+   "determination_method": "experimental",
+   "equation_kind": "thermal",
+   "default": false,
+   "reference": {
+    "authors": [
+     "Hirose",
+     "Sata",
+     "Komabayashi",
+     "Ohishi"
+    ],
+    "year": 2008,
+    "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "167",
+    "locator": "149-154",
+    "doi": "10.1016/j.pepi.2008.03.002"
+   },
+   "supporting_references": [
+    {
+     "authors": [
+      "Fei",
+      "Li",
+      "Hirose",
+      "Minarik",
+      "Van Orman",
+      "Sanloup",
+      "van Westrenen",
+      "Komabayashi",
+      "Funakoshi"
+     ],
+     "year": 2004,
+     "title": "A critical evaluation of pressure scales at high temperatures by in situ X-ray diffraction measurements",
+     "source": "Physics of the Earth and Planetary Interiors",
+     "volume": "143-144",
+     "locator": "515-526",
+     "doi": "10.1016/j.pepi.2003.09.018"
+    },
+    {
+     "authors": [
+      "Speziale",
+      "Zha",
+      "Duffy",
+      "Hemley",
+      "Mao"
+     ],
+     "year": 2001,
+     "title": "Quasi-hydrostatic compression of magnesium oxide to 52 GPa: Implications for the pressure-volume-temperature equation of state",
+     "source": "J. Geophys. Res.",
+     "volume": "106",
+     "locator": "515-528",
+     "doi": "10.1029/2000JB900318"
+    }
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 196.96657
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 67.85,
+     "K0": 167,
+     "K0_prime": 5.581150323572888
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0"
+   ],
+   "temperature_ref": 300,
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "bulk_modulus_law": "reciprocal_cubic",
+    "parameters": {
+     "Tr": 300,
+     "alpha0": 3.824e-05,
+     "alpha1": 1.499e-08,
+     "dK_dT": 0,
+     "beta1": 1.0917527108795146e-06,
+     "beta2": 3.9664802649941097e-10,
+     "beta3": 1.6537830789802096e-13,
+     "kprime_log_coefficient": 0.0003583216931587801
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": null,
+     "alpha1": null,
+     "dK_dT": null,
+     "beta1": null,
+     "beta2": null,
+     "beta3": null,
+     "kprime_log_coefficient": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "alpha0",
+     "alpha1",
+     "dK_dT"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    8.628704299040267,
+    140.54513210399975
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    2330.0
+   ],
+   "pressure_range_status": "reference_parameterization",
+   "validity": {
+    "pressure_gpa": [
+     8.628704299040267,
+     140.54513210399975
+    ],
+    "temperature_k": [
+     300.0,
+     2330.0
+    ],
+    "notes": [
+     "Marginal observed coverage only, not a validated P-T rectangle. Hot coverage: [8.628704299040267, 117.44474550589783] GPa and [1273.0, 2330.0] K. No 3000 K extrapolation recommendation inherited."
+    ]
+   },
+   "fit_datasets": [
+    "gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt"
+   ],
+   "notes": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.",
+   "parameter_provenance": {
+    "determination_method": "Independent Peritheos regression; source DOI attributes data and functional form, not authorship of these coefficients.",
+    "cold_stage": "Kprime from nine recalculated 300 K observations, then fixed in thermal regression",
+    "thermal_stage": "Four thermal coefficients from 38 recalculated hot observations; ambient expansivity source-fixed",
+    "uncertainties": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity."
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos / scipy.optimize.least_squares",
+     "version": "0.12.0",
+     "scipy": "1.13.1",
+     "numpy": "2.0.2",
+     "version_date": "2026-10-12"
+    },
+    "dataset": "gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt",
+    "selection": {
+     "included_rows": 47,
+     "cold_rows": 9,
+     "thermal_rows": 38,
+     "predicate": "All nine cold Hirose rows first, then all 26 Fei2004 plus 12 hot Hirose2008 rows; 8.64 GPa Fei source row retained; repeated Hirose2006 rows not added"
+    },
+    "objective": "sum of squared pressure residuals with equal weights at each stage",
+    "refined_parameters": [
+     "rt_eos.K0_prime",
+     "beta1",
+     "beta2",
+     "beta3",
+     "kprime_log_coefficient"
+    ],
+    "fixed_parameters": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "Tr",
+     "alpha0",
+     "alpha1",
+     "dK_dT"
+    ],
+    "statistics": {
+     "observations": 47,
+     "thermal_pressure_rmse_gpa": 0.3964628457007681,
+     "thermal_pressure_mae_gpa": 0.3158467548377205,
+     "solver_success": true
+    },
+    "reproduction": {
+     "script": "scripts/refit_hirose_fei_gold_speziale.py",
+     "report": "docs/data/hirose-2008-fei-2004-gold-speziale-2001-refit.json",
+     "source_hashes": {
+      "gold-hirose-2008-table1.csv": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9",
+      "gold-fei-2004-table1.csv": "9341ee703e18ce373ebc409c11b217479c5f92fc0464147b459307944cd440ef"
+     },
+     "derived_csv_sha256": "0cbe94de992f1563bf638c621a5516a3e283144a74920f4834fa0d9062ba4cd7"
+    }
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-10-12",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Speziale",
+        "Zha",
+        "Duffy",
+        "Hemley",
+        "Mao"
+       ],
+       "year": 2001,
+       "title": "Quasi-hydrostatic compression of magnesium oxide to 52 GPa: Implications for the pressure-volume-temperature equation of state",
+       "source": "J. Geophys. Res.",
+       "volume": "106",
+       "locator": "515-528",
+       "doi": "10.1029/2000JB900318"
+      },
+      "reference_eos_record": "mgo_speziale_2001_bm3_2",
+      "scope": "All 47 pressure targets explicitly recalculated from paired MgO volumes and source T",
+      "source_location": "Speziale Eq. 11 plus author-confirmed theta integral; derived CSV and refit report"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Published Speziale model is the explicitly chosen new calibration. Historical Fei/Hirose reducer remains unresolved and is not claimed reproduced."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-12",
+    "refit_status": "conditional",
+    "reproduction_status": "independent_refit_reproduced",
+    "original_publication_reproduction_status": "not_reproduced",
+    "note": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.",
+    "verified_fields": [
+     "source_observations",
+     "equation",
+     "units",
+     "pressure_recalculation",
+     "fixed_parameters",
+     "refit_parameters"
+    ],
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt"
+     ]
+    },
+    "independent_numerical_check": {
+     "script": "scripts/refit_hirose_fei_gold_speziale.py",
+     "report": "docs/data/hirose-2008-fei-2004-gold-speziale-2001-refit.json"
+    }
+   }
   }
  ],
  "format": "peritheos.material",
@@ -5854,6 +6106,159 @@
     "manifest": "datasets/gold-hirose-2006-source.json"
    },
    "notes": "Reported MgO pressures are independent Au fit targets. Run 1 Au-derived pressures are archived comparison outputs and excluded from Au regression."
+  },
+  {
+   "identifier": "gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt",
+   "kind": "recalculated_pressure_volume_temperature",
+   "reference": {
+    "authors": [
+     "Hirose",
+     "Sata",
+     "Komabayashi",
+     "Ohishi"
+    ],
+    "year": 2008,
+    "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "167",
+    "locator": "149-154",
+    "doi": "10.1016/j.pepi.2008.03.002"
+   },
+   "supporting_references": [
+    {
+     "authors": [
+      "Fei",
+      "Li",
+      "Hirose",
+      "Minarik",
+      "Van Orman",
+      "Sanloup",
+      "van Westrenen",
+      "Komabayashi",
+      "Funakoshi"
+     ],
+     "year": 2004,
+     "title": "A critical evaluation of pressure scales at high temperatures by in situ X-ray diffraction measurements",
+     "source": "Physics of the Earth and Planetary Interiors",
+     "volume": "143-144",
+     "locator": "515-526",
+     "doi": "10.1016/j.pepi.2003.09.018"
+    },
+    {
+     "authors": [
+      "Speziale",
+      "Zha",
+      "Duffy",
+      "Hemley",
+      "Mao"
+     ],
+     "year": 2001,
+     "title": "Quasi-hydrostatic compression of magnesium oxide to 52 GPa: Implications for the pressure-volume-temperature equation of state",
+     "source": "J. Geophys. Res.",
+     "volume": "106",
+     "locator": "515-528",
+     "doi": "10.1029/2000JB900318"
+    }
+   ],
+   "description": "Nine cold and twelve hot Hirose observations plus 26 hot Fei observations; pressure recalculated with published Speziale MgO",
+   "source_location": "Hirose2008 Table1 and Fei2004 Table1; source identifiers and row numbers preserved",
+   "columns": [
+    {
+     "name": "source",
+     "quantity": "source",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "fit_stage",
+     "quantity": "fit_stage",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "mgo_volume_a3",
+     "quantity": "calibrant_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "reported_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "reported_pressure_width_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "reported_pressure_gpa"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "used_by_eos_records": [
+    "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit"
+   ],
+   "resource": {
+    "path": "datasets/gold-hirose-2008-fei-2004-speziale-2001-recalculated-pvt.csv",
+    "sha256": "0cbe94de992f1563bf638c621a5516a3e283144a74920f4834fa0d9062ba4cd7",
+    "media_type": "text/csv"
+   },
+   "pressure_reconstruction": {
+    "reference_eos_record": "mgo_speziale_2001_bm3_2",
+    "source_pressure_column": "reported_pressure_gpa",
+    "target_pressure_column": "pressure_gpa"
+   },
+   "uncertainty": {
+    "notes": "Original pressure widths refer to reported pressures only; no uncertainty on recalculated pressure or missing Au-volume width is invented. Source confidence conventions and covariance are unknown."
+   },
+   "provenance": {
+    "source_datasets": [
+     "gold_hirose_2008_table1",
+     "gold_fei_2004_table1"
+    ],
+    "source_hashes": {
+     "gold-hirose-2008-table1.csv": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9",
+     "gold-fei-2004-table1.csv": "9341ee703e18ce373ebc409c11b217479c5f92fc0464147b459307944cd440ef"
+    }
+   },
+   "notes": "Third-party source rights remain with their owners; no source-rights transfer or source CC0 claim. Fei EOS work remains paused; source measurements are used for the separate combined refit."
   }
  ]
 }

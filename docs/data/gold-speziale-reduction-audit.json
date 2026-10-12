@@ -1,0 +1,3850 @@
+{
+  "scope": "All packaged Fei2004/Hirose2006/Hirose2008 Au-MgO pairs; no calculated Au pressures used as targets",
+  "tabulated_pairs": 50,
+  "unique_pairs": 48,
+  "unique_hot_pairs": 38,
+  "unique_cold_pairs": 10,
+  "excluded": "Ten Hirose2006 Run1 rows have no MgO observations. Other Au datasets use different scales or provide volumes without historical Speziale pressure outputs; they do not identify this reducer.",
+  "duplicates": [
+    {
+      "source": "Hirose2008",
+      "source_row": 14,
+      "duplicate_of": "Hirose2006:11"
+    },
+    {
+      "source": "Hirose2008",
+      "source_row": 15,
+      "duplicate_of": "Hirose2006:12"
+    }
+  ],
+  "rounding_scope": "Lattice and pressure last-digit intervals only, at fixed printed T and coefficients; not measurement uncertainty or a confidence test",
+  "uncertainty": "Source parenthetical widths retained without assigning sigma; no temperature errors or covariance inferred",
+  "native_equation_max_difference_gpa": 2.7918645173485857e-10,
+  "source_hashes": {
+    "gold-fei-2004-table1.csv": "9341ee703e18ce373ebc409c11b217479c5f92fc0464147b459307944cd440ef",
+    "gold-hirose-2006-table1.csv": "6b5c0d725071d6ab96ef5cf96d6634d2c31cecc96f32cdc55fd5d2721ad4f4f5",
+    "gold-hirose-2008-table1.csv": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9"
+  },
+  "implementation_hashes": {
+    "audit_gold_speziale_reduction.py": "e00af8ae6482c69b8cd081a0ad447d5d23fb72665450483189864efc74556bf7",
+    "reproduce_speziale_2001_mgo.py": "135c0d7b3b08ae162f09ed70c0f8ec28b82e943a3663248028b97cae7f05ad04",
+    "reproduce_fei_2007_gold.py": "7dc104acb274ea123d94ece54296f184fa09f8c9f8a05108366f7cdfdb3206e6",
+    "reproduce_hirose_2008_gold.py": "08372e0cf7f515d132d08833040b2246f8d84c1d86647bd51ccf6adf2fc2bf0a"
+  },
+  "conventions": {
+    "eq11_integrated_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.2546472495662818,
+        "mae_gpa": 0.24262700654788993,
+        "mean_residual_gpa": -0.24262700654788993,
+        "min_residual_gpa": -0.36184433676899985,
+        "max_residual_gpa": -0.011295700959733423,
+        "max_abs_residual_gpa": 0.36184433676899985,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 1.239181899748587,
+        "mae_gpa": 0.9628165555850927,
+        "mean_residual_gpa": -0.9628165555850927,
+        "min_residual_gpa": -1.9521275281445583,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 1.9521275281445583,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 1.0504597245235203,
+        "mae_gpa": 0.7848455868863103,
+        "mean_residual_gpa": -0.7848455868863103,
+        "min_residual_gpa": -1.9521275281445583,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 1.9521275281445583,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.2546472495662818,
+        "mae_gpa": 0.24262700654788993,
+        "mean_residual_gpa": -0.24262700654788993,
+        "min_residual_gpa": -0.36184433676899985,
+        "max_residual_gpa": -0.011295700959733423,
+        "max_abs_residual_gpa": 0.36184433676899985,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 1.517343086746933,
+        "mae_gpa": 1.4215573666238868,
+        "mean_residual_gpa": -1.4215573666238868,
+        "min_residual_gpa": -1.9521275281445583,
+        "max_residual_gpa": -0.8909872051032153,
+        "max_abs_residual_gpa": 1.9521275281445583,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 1.3894547260225247,
+        "mae_gpa": 1.3554242748730243,
+        "mean_residual_gpa": -1.3554242748730243,
+        "min_residual_gpa": -1.9521275281445583,
+        "max_residual_gpa": -0.8909872051032153,
+        "max_abs_residual_gpa": 1.9521275281445583,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.7196759877204325,
+        "mae_gpa": 0.47573738392427406,
+        "mean_residual_gpa": -0.47573738392427406,
+        "min_residual_gpa": -1.9521275281445583,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 1.9521275281445583,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.8087187558839019,
+        "mae_gpa": 0.5940366702295113,
+        "mean_residual_gpa": -0.5940366702295113,
+        "min_residual_gpa": -1.9521275281445583,
+        "max_residual_gpa": -0.011295700959733423,
+        "max_abs_residual_gpa": 1.9521275281445583,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "eq11_integrated_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.2459018027989815,
+        "mae_gpa": 0.2333890412900646,
+        "mean_residual_gpa": -0.2333890412900646,
+        "min_residual_gpa": -0.3527230257558607,
+        "max_residual_gpa": -0.0015126934226739053,
+        "max_abs_residual_gpa": 0.3527230257558607,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 1.2328938688038633,
+        "mae_gpa": 0.9547158042187599,
+        "mean_residual_gpa": -0.9547158042187599,
+        "min_residual_gpa": -1.9440283052094856,
+        "max_residual_gpa": -0.037255676138016725,
+        "max_abs_residual_gpa": 1.9440283052094856,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 1.044364230436943,
+        "mae_gpa": 0.7766421925938912,
+        "mean_residual_gpa": -0.7765427701062845,
+        "min_residual_gpa": -1.9440283052094856,
+        "max_residual_gpa": 0.0010439361198706365,
+        "max_abs_residual_gpa": 1.9440283052094856,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.2459018027989815,
+        "mae_gpa": 0.2333890412900646,
+        "mean_residual_gpa": -0.2333890412900646,
+        "min_residual_gpa": -0.3527230257558607,
+        "max_residual_gpa": -0.0015126934226739053,
+        "max_abs_residual_gpa": 0.3527230257558607,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 1.5097506234140081,
+        "mae_gpa": 1.4134458682591315,
+        "mean_residual_gpa": -1.4134458682591315,
+        "min_residual_gpa": -1.9440283052094856,
+        "max_residual_gpa": -0.8828634313087775,
+        "max_abs_residual_gpa": 1.9440283052094856,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.037255676138016725,
+        "mae_gpa": 0.037255676138016725,
+        "mean_residual_gpa": -0.037255676138016725,
+        "min_residual_gpa": -0.037255676138016725,
+        "max_residual_gpa": -0.037255676138016725,
+        "max_abs_residual_gpa": 0.037255676138016725,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 1.381479061052128,
+        "mae_gpa": 1.3472243641232673,
+        "mean_residual_gpa": -1.3472243641232673,
+        "min_residual_gpa": -1.9440283052094856,
+        "max_residual_gpa": -0.8828634313087775,
+        "max_abs_residual_gpa": 1.9440283052094856,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.01769120507634925,
+        "mae_gpa": 0.015865963888056375,
+        "mean_residual_gpa": -0.01563397808364068,
+        "min_residual_gpa": -0.027175222758728523,
+        "max_residual_gpa": 0.0010439361198706365,
+        "max_abs_residual_gpa": 0.027175222758728523,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.714116261246172,
+        "mae_gpa": 0.46697618321148776,
+        "mean_residual_gpa": -0.4669326858731598,
+        "min_residual_gpa": -1.9440283052094856,
+        "max_residual_gpa": 0.0010439361198706365,
+        "max_abs_residual_gpa": 1.9440283052094856,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.802528452776797,
+        "mae_gpa": 0.5851265116584444,
+        "mean_residual_gpa": -0.5851265116584444,
+        "min_residual_gpa": -1.9440283052094856,
+        "max_residual_gpa": -0.0015126934226739053,
+        "max_abs_residual_gpa": 1.9440283052094856,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.020505594451226714,
+        "mae_gpa": 0.01800493511305241,
+        "mean_residual_gpa": -0.017796147889078285,
+        "min_residual_gpa": -0.037255676138016725,
+        "max_residual_gpa": 0.0010439361198706365,
+        "max_abs_residual_gpa": 0.037255676138016725,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "eq11_integrated_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.24655504967564,
+        "mae_gpa": 0.23408041244156846,
+        "mean_residual_gpa": -0.23408041244156846,
+        "min_residual_gpa": -0.3534056079333716,
+        "max_residual_gpa": -0.0022450631447181735,
+        "max_abs_residual_gpa": 0.3534056079333716,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 1.2333629786610547,
+        "mae_gpa": 0.9553210865277748,
+        "mean_residual_gpa": -0.9553210865277748,
+        "min_residual_gpa": -1.9446334719197864,
+        "max_residual_gpa": -0.0378593342265674,
+        "max_abs_residual_gpa": 1.9446334719197864,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 1.0448186814282105,
+        "mae_gpa": 0.7771967513498093,
+        "mean_residual_gpa": -0.7771633601576382,
+        "min_residual_gpa": -1.9446334719197864,
+        "max_residual_gpa": 0.0003506075177952539,
+        "max_abs_residual_gpa": 1.9446334719197864,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.24655504967564,
+        "mae_gpa": 0.23408041244156846,
+        "mean_residual_gpa": -0.23408041244156846,
+        "min_residual_gpa": -0.3534056079333716,
+        "max_residual_gpa": -0.0022450631447181735,
+        "max_abs_residual_gpa": 0.3534056079333716,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 1.5103177450799765,
+        "mae_gpa": 1.4140519626783785,
+        "mean_residual_gpa": -1.4140519626783785,
+        "min_residual_gpa": -1.9446334719197864,
+        "max_residual_gpa": -0.8834704534369706,
+        "max_abs_residual_gpa": 1.9446334719197864,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.0378593342265674,
+        "mae_gpa": 0.0378593342265674,
+        "mean_residual_gpa": -0.0378593342265674,
+        "min_residual_gpa": -0.0378593342265674,
+        "max_residual_gpa": -0.0378593342265674,
+        "max_abs_residual_gpa": 0.0378593342265674,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 1.3820749783284643,
+        "mae_gpa": 1.3478371517013013,
+        "mean_residual_gpa": -1.3478371517013013,
+        "min_residual_gpa": -1.9446334719197864,
+        "max_residual_gpa": -0.8834704534369706,
+        "max_abs_residual_gpa": 1.9446334719197864,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.018235099334282544,
+        "mae_gpa": 0.016342884214486573,
+        "mean_residual_gpa": -0.016264971432754294,
+        "min_residual_gpa": -0.027749710310303044,
+        "max_residual_gpa": 0.0003506075177952539,
+        "max_abs_residual_gpa": 0.027749710310303044,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.714529640640897,
+        "mae_gpa": 0.4676058715844446,
+        "mean_residual_gpa": -0.4675912629378698,
+        "min_residual_gpa": -1.9446334719197864,
+        "max_residual_gpa": 0.0003506075177952539,
+        "max_abs_residual_gpa": 1.9446334719197864,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.8029894663101783,
+        "mae_gpa": 0.585793066944642,
+        "mean_residual_gpa": -0.585793066944642,
+        "min_residual_gpa": -1.9446334719197864,
+        "max_residual_gpa": -0.0022450631447181735,
+        "max_abs_residual_gpa": 1.9446334719197864,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.021038057937127427,
+        "mae_gpa": 0.018494529215694656,
+        "mean_residual_gpa": -0.018424407712135604,
+        "min_residual_gpa": -0.0378593342265674,
+        "max_residual_gpa": 0.0003506075177952539,
+        "max_abs_residual_gpa": 0.0378593342265674,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "eq11_eq4_local_q_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.3209551006179452,
+        "mae_gpa": 0.30389344812187474,
+        "mean_residual_gpa": -0.30389344812187474,
+        "min_residual_gpa": -0.46082534126322017,
+        "max_residual_gpa": -0.011776427618405805,
+        "max_abs_residual_gpa": 0.46082534126322017,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 10.930465798805331,
+        "mae_gpa": 8.421906212155292,
+        "mean_residual_gpa": -8.421906212155292,
+        "min_residual_gpa": -17.104038500962176,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 17.104038500962176,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 9.263922526131262,
+        "mae_gpa": 6.817253098867168,
+        "mean_residual_gpa": -6.817253098867168,
+        "min_residual_gpa": -17.104038500962176,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 17.104038500962176,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.3209551006179452,
+        "mae_gpa": 0.30389344812187474,
+        "mean_residual_gpa": -0.30389344812187474,
+        "min_residual_gpa": -0.46082534126322017,
+        "max_residual_gpa": -0.011776427618405805,
+        "max_abs_residual_gpa": 0.46082534126322017,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 13.386993547476655,
+        "mae_gpa": 12.610191851479186,
+        "mean_residual_gpa": -12.610191851479186,
+        "min_residual_gpa": -17.104038500962176,
+        "max_residual_gpa": -8.116345201996197,
+        "max_abs_residual_gpa": 17.104038500962176,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 12.254997983515528,
+        "mae_gpa": 11.912137420839523,
+        "mean_residual_gpa": -11.912137420839523,
+        "min_residual_gpa": -17.104038500962176,
+        "max_residual_gpa": -8.116345201996197,
+        "max_abs_residual_gpa": 17.104038500962176,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 6.132063688483288,
+        "mae_gpa": 3.148101659601808,
+        "mean_residual_gpa": -3.148101659601808,
+        "min_residual_gpa": -17.104038500962176,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 17.104038500962176,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 6.891829685068296,
+        "mae_gpa": 3.9696547026642905,
+        "mean_residual_gpa": -3.9696547026642905,
+        "min_residual_gpa": -17.104038500962176,
+        "max_residual_gpa": -0.011776427618405805,
+        "max_abs_residual_gpa": 17.104038500962176,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "eq11_eq4_local_q_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.31264773896731035,
+        "mae_gpa": 0.29500636753728676,
+        "mean_residual_gpa": -0.29500636753728676,
+        "min_residual_gpa": -0.4522501944119419,
+        "max_residual_gpa": -0.001996508819367193,
+        "max_abs_residual_gpa": 0.4522501944119419,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 10.930465794572791,
+        "mae_gpa": 8.421906207256919,
+        "mean_residual_gpa": -8.421906207256919,
+        "min_residual_gpa": -17.104038497285714,
+        "max_residual_gpa": -0.045334931832044845,
+        "max_abs_residual_gpa": 17.104038497285714,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 9.263909763479536,
+        "mae_gpa": 6.8162584554856736,
+        "mean_residual_gpa": -6.8161828838136405,
+        "min_residual_gpa": -17.104038497285714,
+        "max_residual_gpa": 0.0007935025563359233,
+        "max_abs_residual_gpa": 17.104038497285714,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.31264773896731035,
+        "mae_gpa": 0.29500636753728676,
+        "mean_residual_gpa": -0.29500636753728676,
+        "min_residual_gpa": -0.4522501944119419,
+        "max_residual_gpa": -0.001996508819367193,
+        "max_abs_residual_gpa": 0.4522501944119419,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 13.386993542295693,
+        "mae_gpa": 12.610191844969357,
+        "mean_residual_gpa": -12.610191844969357,
+        "min_residual_gpa": -17.104038497285714,
+        "max_residual_gpa": -8.116345192653,
+        "max_abs_residual_gpa": 17.104038497285714,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334931832044845,
+        "mae_gpa": 0.045334931832044845,
+        "mean_residual_gpa": -0.045334931832044845,
+        "min_residual_gpa": -0.045334931832044845,
+        "max_residual_gpa": -0.045334931832044845,
+        "max_abs_residual_gpa": 0.045334931832044845,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 12.254982660745041,
+        "mae_gpa": 11.91211676936183,
+        "mean_residual_gpa": -11.91211676936183,
+        "min_residual_gpa": -17.104038497285714,
+        "max_residual_gpa": -8.116345192653,
+        "max_abs_residual_gpa": 17.104038497285714,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.02428086073326921,
+        "mae_gpa": 0.021780703650794406,
+        "mean_residual_gpa": -0.021604369749386423,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": 0.0007935025563359233,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 6.131822773629185,
+        "mae_gpa": 3.142852667770846,
+        "mean_residual_gpa": -3.1428196051643322,
+        "min_residual_gpa": -17.104038497285714,
+        "max_residual_gpa": 0.0007935025563359233,
+        "max_abs_residual_gpa": 17.104038497285714,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 6.891559795957232,
+        "mae_gpa": 3.9635675470608267,
+        "mean_residual_gpa": -3.9635675470608267,
+        "min_residual_gpa": -17.104038497285714,
+        "max_residual_gpa": -0.001996508819367193,
+        "max_abs_residual_gpa": 17.104038497285714,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027131711751660428,
+        "mae_gpa": 0.02413612646891945,
+        "mean_residual_gpa": -0.023977425957652267,
+        "min_residual_gpa": -0.045334931832044845,
+        "max_residual_gpa": 0.0007935025563359233,
+        "max_abs_residual_gpa": 0.045334931832044845,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "eq11_eq4_local_q_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.31326818925840955,
+        "mae_gpa": 0.2956713462120453,
+        "mean_residual_gpa": -0.2956713462120453,
+        "min_residual_gpa": -0.45289170028915393,
+        "max_residual_gpa": -0.0027286460647761857,
+        "max_abs_residual_gpa": 0.45289170028915393,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 10.930465794887288,
+        "mae_gpa": 8.421906207620893,
+        "mean_residual_gpa": -8.421906207620893,
+        "min_residual_gpa": -17.10403849755889,
+        "max_residual_gpa": -0.04533493195654614,
+        "max_abs_residual_gpa": 17.10403849755889,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 9.263910683009888,
+        "mae_gpa": 6.816274205522262,
+        "mean_residual_gpa": -6.816262870837198,
+        "min_residual_gpa": -17.10403849755889,
+        "max_residual_gpa": 0.00011901419317794648,
+        "max_abs_residual_gpa": 17.10403849755889,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.31326818925840955,
+        "mae_gpa": 0.2956713462120453,
+        "mean_residual_gpa": -0.2956713462120453,
+        "min_residual_gpa": -0.45289170028915393,
+        "max_residual_gpa": -0.0027286460647761857,
+        "max_abs_residual_gpa": 0.45289170028915393,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 13.386993542680662,
+        "mae_gpa": 12.610191845453066,
+        "mean_residual_gpa": -12.610191845453066,
+        "min_residual_gpa": -17.10403849755889,
+        "max_residual_gpa": -8.116345193347243,
+        "max_abs_residual_gpa": 17.10403849755889,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.04533493195654614,
+        "mae_gpa": 0.04533493195654614,
+        "mean_residual_gpa": -0.04533493195654614,
+        "min_residual_gpa": -0.04533493195654614,
+        "max_residual_gpa": -0.04533493195654614,
+        "max_abs_residual_gpa": 0.04533493195654614,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 12.254983799304462,
+        "mae_gpa": 11.91211830387514,
+        "mean_residual_gpa": -11.91211830387514,
+        "min_residual_gpa": -17.10403849755889,
+        "max_residual_gpa": -8.116345193347243,
+        "max_abs_residual_gpa": 17.10403849755889,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.02433320525470705,
+        "mae_gpa": 0.021815407718426074,
+        "mean_residual_gpa": -0.021788960119942087,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": 0.00011901419317794648,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 6.1318405342064155,
+        "mae_gpa": 3.143219755196609,
+        "mean_residual_gpa": -3.1432147962718933,
+        "min_residual_gpa": -17.10403849755889,
+        "max_residual_gpa": 0.00011901419317794648,
+        "max_abs_residual_gpa": 17.10403849755889,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 6.891579713437127,
+        "mae_gpa": 3.964023017053023,
+        "mean_residual_gpa": -3.964023017053023,
+        "min_residual_gpa": -17.10403849755889,
+        "max_residual_gpa": -0.0027286460647761857,
+        "max_abs_residual_gpa": 17.10403849755889,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027173884442997828,
+        "mae_gpa": 0.02416736014223808,
+        "mean_residual_gpa": -0.024143557303602493,
+        "min_residual_gpa": -0.04533493195654614,
+        "max_residual_gpa": 0.00011901419317794648,
+        "max_abs_residual_gpa": 0.04533493195654614,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "eq11_eq4_q0_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.2216569593417824,
+        "mae_gpa": 0.21136948993179155,
+        "mean_residual_gpa": -0.21136948993179155,
+        "min_residual_gpa": -0.3158787881476357,
+        "max_residual_gpa": -0.010844969381681224,
+        "max_abs_residual_gpa": 0.3158787881476357,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.789625113657875,
+        "mae_gpa": 0.5751093589285006,
+        "mean_residual_gpa": -0.5751093589285006,
+        "min_residual_gpa": -1.3181595791118497,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 1.3181595791118497,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.6469422171385086,
+        "mae_gpa": 0.48092595541000693,
+        "mean_residual_gpa": -0.48092595541000693,
+        "min_residual_gpa": -1.3181595791118497,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 1.3181595791118497,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.2216569593417824,
+        "mae_gpa": 0.21136948993179155,
+        "mean_residual_gpa": -0.21136948993179155,
+        "min_residual_gpa": -0.3158787881476357,
+        "max_residual_gpa": -0.010844969381681224,
+        "max_abs_residual_gpa": 0.3158787881476357,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.9665578627690911,
+        "mae_gpa": 0.8399965716389985,
+        "mean_residual_gpa": -0.8399965716389985,
+        "min_residual_gpa": -1.3181595791118497,
+        "max_residual_gpa": -0.3618335641661474,
+        "max_abs_residual_gpa": 1.3181595791118497,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.8555433856555333,
+        "mae_gpa": 0.8235649197894936,
+        "mean_residual_gpa": -0.8235649197894936,
+        "min_residual_gpa": -1.3181595791118497,
+        "max_residual_gpa": -0.3618335641661474,
+        "max_abs_residual_gpa": 1.3181595791118497,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.4580006625967451,
+        "mae_gpa": 0.32584139031967146,
+        "mean_residual_gpa": -0.32584139031967146,
+        "min_residual_gpa": -1.3181595791118497,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 1.3181595791118497,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.5145483664828888,
+        "mae_gpa": 0.4046943625184343,
+        "mean_residual_gpa": -0.4046943625184343,
+        "min_residual_gpa": -1.3181595791118497,
+        "max_residual_gpa": -0.010844969381681224,
+        "max_abs_residual_gpa": 1.3181595791118497,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "eq11_eq4_q0_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.21271116754138242,
+        "mae_gpa": 0.20194692492894128,
+        "mean_residual_gpa": -0.20194692492894128,
+        "min_residual_gpa": -0.3064933766005744,
+        "max_residual_gpa": -0.001059065066694842,
+        "max_abs_residual_gpa": 0.3064933766005744,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.7815969476889758,
+        "mae_gpa": 0.564029829390203,
+        "mean_residual_gpa": -0.564029829390203,
+        "min_residual_gpa": -1.3070768490676699,
+        "max_residual_gpa": -0.03421211497183663,
+        "max_abs_residual_gpa": 1.3070768490676699,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.6388836032946474,
+        "mae_gpa": 0.4703500207510636,
+        "mean_residual_gpa": -0.4702364320622677,
+        "min_residual_gpa": -1.3070768490676699,
+        "max_residual_gpa": 0.0011926812323572733,
+        "max_abs_residual_gpa": 1.3070768490676699,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.21271116754138242,
+        "mae_gpa": 0.20194692492894128,
+        "mean_residual_gpa": -0.20194692492894128,
+        "min_residual_gpa": -0.3064933766005744,
+        "max_residual_gpa": -0.001059065066694842,
+        "max_abs_residual_gpa": 0.3064933766005744,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.956951121295995,
+        "mae_gpa": 0.8289386865993862,
+        "mean_residual_gpa": -0.8289386865993862,
+        "min_residual_gpa": -1.3070768490676699,
+        "max_residual_gpa": -0.3508005241311025,
+        "max_abs_residual_gpa": 1.3070768490676699,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03421211497183663,
+        "mae_gpa": 0.03421211497183663,
+        "mean_residual_gpa": -0.03421211497183663,
+        "min_residual_gpa": -0.03421211497183663,
+        "max_residual_gpa": -0.03421211497183663,
+        "max_abs_residual_gpa": 0.03421211497183663,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.8450592186032395,
+        "mae_gpa": 0.8126984614793701,
+        "mean_residual_gpa": -0.8126984614793701,
+        "min_residual_gpa": -1.3070768490676699,
+        "max_residual_gpa": -0.3508005241311025,
+        "max_abs_residual_gpa": 1.3070768490676699,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.015334907085864283,
+        "mae_gpa": 0.013885433113321553,
+        "mean_residual_gpa": -0.01362039283946438,
+        "min_residual_gpa": -0.023017703555638036,
+        "max_residual_gpa": 0.0011926812323572733,
+        "max_abs_residual_gpa": 0.023017703555638036,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.45067507140358154,
+        "mae_gpa": 0.31587880414368014,
+        "mean_residual_gpa": -0.3158291090923319,
+        "min_residual_gpa": -1.3070768490676699,
+        "max_residual_gpa": 0.0011926812323572733,
+        "max_abs_residual_gpa": 1.3070768490676699,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.5064296609358574,
+        "mae_gpa": 0.3948158312080241,
+        "mean_residual_gpa": -0.3948158312080241,
+        "min_residual_gpa": -1.3070768490676699,
+        "max_residual_gpa": -0.001059065066694842,
+        "max_abs_residual_gpa": 1.3070768490676699,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.01812981850111849,
+        "mae_gpa": 0.01591810129917306,
+        "mean_residual_gpa": -0.015679565052701606,
+        "min_residual_gpa": -0.03421211497183663,
+        "max_residual_gpa": 0.0011926812323572733,
+        "max_abs_residual_gpa": 0.03421211497183663,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "eq11_eq4_q0_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.213379310695646,
+        "mae_gpa": 0.20265218499631496,
+        "mean_residual_gpa": -0.20265218499631496,
+        "min_residual_gpa": -0.30719582815781266,
+        "max_residual_gpa": -0.0017916528178396618,
+        "max_abs_residual_gpa": 0.30719582815781266,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.782195143916098,
+        "mae_gpa": 0.5648589504816925,
+        "mean_residual_gpa": -0.5648589504816925,
+        "min_residual_gpa": -1.307906209631625,
+        "max_residual_gpa": -0.03504447517552478,
+        "max_abs_residual_gpa": 1.307906209631625,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.6394839677143063,
+        "mae_gpa": 0.47108287395695225,
+        "mean_residual_gpa": -0.4710363824694249,
+        "min_residual_gpa": -1.307906209631625,
+        "max_residual_gpa": 0.0004881606190370036,
+        "max_abs_residual_gpa": 1.307906209631625,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.213379310695646,
+        "mae_gpa": 0.20265218499631496,
+        "mean_residual_gpa": -0.20265218499631496,
+        "min_residual_gpa": -0.30719582815781266,
+        "max_residual_gpa": -0.0017916528178396618,
+        "max_abs_residual_gpa": 0.30719582815781266,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.9576689444315942,
+        "mae_gpa": 0.8297661881347764,
+        "mean_residual_gpa": -0.8297661881347764,
+        "min_residual_gpa": -1.307906209631625,
+        "max_residual_gpa": -0.3516261666379279,
+        "max_abs_residual_gpa": 1.307906209631625,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03504447517552478,
+        "mae_gpa": 0.03504447517552478,
+        "mean_residual_gpa": -0.03504447517552478,
+        "min_residual_gpa": -0.03504447517552478,
+        "max_residual_gpa": -0.03504447517552478,
+        "max_abs_residual_gpa": 0.03504447517552478,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.845843450067807,
+        "mae_gpa": 0.8135116405775827,
+        "mean_residual_gpa": -0.8135116405775827,
+        "min_residual_gpa": -1.307906209631625,
+        "max_residual_gpa": -0.3516261666379279,
+        "max_abs_residual_gpa": 1.307906209631625,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.016058711602328822,
+        "mae_gpa": 0.014511185129444826,
+        "mean_residual_gpa": -0.014402704991881047,
+        "min_residual_gpa": -0.02390449166986741,
+        "max_residual_gpa": 0.0004881606190370036,
+        "max_abs_residual_gpa": 0.02390449166986741,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.4512196837815735,
+        "mae_gpa": 0.31659878412866066,
+        "mean_residual_gpa": -0.31657844410286745,
+        "min_residual_gpa": -1.307906209631625,
+        "max_residual_gpa": 0.0004881606190370036,
+        "max_abs_residual_gpa": 1.307906209631625,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.5070350525183795,
+        "mae_gpa": 0.3955551709693469,
+        "mean_residual_gpa": -0.3955551709693469,
+        "min_residual_gpa": -1.307906209631625,
+        "max_residual_gpa": -0.0017916528178396618,
+        "max_abs_residual_gpa": 1.307906209631625,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.01883893628968713,
+        "mae_gpa": 0.01656451413405282,
+        "mean_residual_gpa": -0.01646688201024542,
+        "min_residual_gpa": -0.03504447517552478,
+        "max_residual_gpa": 0.0004881606190370036,
+        "max_abs_residual_gpa": 0.03504447517552478,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "eq11_power_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.25107252841628724,
+        "mae_gpa": 0.23922846812147305,
+        "mean_residual_gpa": -0.23922846812147305,
+        "min_residual_gpa": -0.3570065235645359,
+        "max_residual_gpa": -0.011234501307045619,
+        "max_abs_residual_gpa": 0.3570065235645359,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 1.213737196880836,
+        "mae_gpa": 0.9413438741239636,
+        "mean_residual_gpa": -0.9413438741239636,
+        "min_residual_gpa": -1.917004031754601,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 1.917004031754601,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 1.0273941310644834,
+        "mae_gpa": 0.7674596483010439,
+        "mean_residual_gpa": -0.7674596483010439,
+        "min_residual_gpa": -1.917004031754601,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 1.917004031754601,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.25107252841628724,
+        "mae_gpa": 0.23922846812147305,
+        "mean_residual_gpa": -0.23922846812147305,
+        "min_residual_gpa": -0.3570065235645359,
+        "max_residual_gpa": -0.011234501307045619,
+        "max_abs_residual_gpa": 0.3570065235645359,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 1.4861727176005346,
+        "mae_gpa": 1.389348344432193,
+        "mean_residual_gpa": -1.389348344432193,
+        "min_residual_gpa": -1.917004031754601,
+        "max_residual_gpa": -0.8616926571097849,
+        "max_abs_residual_gpa": 1.917004031754601,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 1.358937932409288,
+        "mae_gpa": 1.3249988823488081,
+        "mean_residual_gpa": -1.3249988823488081,
+        "min_residual_gpa": -1.917004031754601,
+        "max_residual_gpa": -0.8616926571097849,
+        "max_abs_residual_gpa": 1.917004031754601,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.7042629235785544,
+        "mae_gpa": 0.4662901608122443,
+        "mean_residual_gpa": -0.4662901608122443,
+        "min_residual_gpa": -1.917004031754601,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 1.917004031754601,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.7913931823946698,
+        "mae_gpa": 0.5821033357722104,
+        "mean_residual_gpa": -0.5821033357722104,
+        "min_residual_gpa": -1.917004031754601,
+        "max_residual_gpa": -0.011234501307045619,
+        "max_abs_residual_gpa": 1.917004031754601,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "eq11_power_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.2423060851707283,
+        "mae_gpa": 0.2299706195599836,
+        "mean_residual_gpa": -0.2299706195599836,
+        "min_residual_gpa": -0.3478577337249753,
+        "max_residual_gpa": -0.0014511004931616611,
+        "max_abs_residual_gpa": 0.3478577337249753,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 1.2073505206756505,
+        "mae_gpa": 0.9330999577370042,
+        "mean_residual_gpa": -0.9330999577370042,
+        "min_residual_gpa": -1.9087615296032112,
+        "max_residual_gpa": -0.037111119257929204,
+        "max_abs_residual_gpa": 1.9087615296032112,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 1.0211986731910991,
+        "mae_gpa": 0.7591362015560131,
+        "mean_residual_gpa": -0.7590351876329778,
+        "min_residual_gpa": -1.9087615296032112,
+        "max_residual_gpa": 0.001060646191870518,
+        "max_abs_residual_gpa": 1.9087615296032112,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.2423060851707283,
+        "mae_gpa": 0.2299706195599836,
+        "mean_residual_gpa": -0.2299706195599836,
+        "min_residual_gpa": -0.3478577337249753,
+        "max_residual_gpa": -0.0014511004931616611,
+        "max_abs_residual_gpa": 0.3478577337249753,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 1.4784634936573031,
+        "mae_gpa": 1.3810943769765416,
+        "mean_residual_gpa": -1.3810943769765416,
+        "min_residual_gpa": -1.9087615296032112,
+        "max_residual_gpa": -0.853427224349872,
+        "max_abs_residual_gpa": 1.9087615296032112,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.037111119257929204,
+        "mae_gpa": 0.037111119257929204,
+        "mean_residual_gpa": -0.037111119257929204,
+        "min_residual_gpa": -0.037111119257929204,
+        "max_residual_gpa": -0.037111119257929204,
+        "max_abs_residual_gpa": 0.037111119257929204,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 1.350833100387592,
+        "mae_gpa": 1.316664258316128,
+        "mean_residual_gpa": -1.316664258316128,
+        "min_residual_gpa": -1.9087615296032112,
+        "max_residual_gpa": -0.853427224349872,
+        "max_abs_residual_gpa": 1.9087615296032112,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.017576978123028473,
+        "mae_gpa": 0.01576545920919317,
+        "mean_residual_gpa": -0.015529760055444165,
+        "min_residual_gpa": -0.027011485554595538,
+        "max_residual_gpa": 0.001060646191870518,
+        "max_abs_residual_gpa": 0.027011485554595538,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.6986247916968279,
+        "mae_gpa": 0.4574626554269538,
+        "mean_residual_gpa": -0.45741846183562584,
+        "min_residual_gpa": -1.9087615296032112,
+        "max_residual_gpa": 0.001060646191870518,
+        "max_abs_residual_gpa": 1.9087615296032112,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.7851168031257133,
+        "mae_gpa": 0.5731370317987662,
+        "mean_residual_gpa": -0.5731370317987662,
+        "min_residual_gpa": -1.9087615296032112,
+        "max_residual_gpa": -0.0014511004931616611,
+        "max_abs_residual_gpa": 1.9087615296032112,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.020390651318712306,
+        "mae_gpa": 0.01790002521406677,
+        "mean_residual_gpa": -0.017687895975692668,
+        "min_residual_gpa": -0.037111119257929204,
+        "max_residual_gpa": 0.001060646191870518,
+        "max_abs_residual_gpa": 0.037111119257929204,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "eq11_power_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.24296089346347927,
+        "mae_gpa": 0.23066348657910615,
+        "mean_residual_gpa": -0.23066348657910615,
+        "min_residual_gpa": -0.34854238304709995,
+        "max_residual_gpa": -0.0021834998155778607,
+        "max_abs_residual_gpa": 0.34854238304709995,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 1.2078269925083909,
+        "mae_gpa": 0.933715986361122,
+        "mean_residual_gpa": -0.933715986361122,
+        "min_residual_gpa": -1.9093774511685808,
+        "max_residual_gpa": -0.03772562766440046,
+        "max_abs_residual_gpa": 1.9093774511685808,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 1.0216605789326232,
+        "mae_gpa": 0.7596997735331238,
+        "mean_residual_gpa": -0.7596649106432276,
+        "min_residual_gpa": -1.9093774511685808,
+        "max_residual_gpa": 0.0003660603439090693,
+        "max_abs_residual_gpa": 1.9093774511685808,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.24296089346347927,
+        "mae_gpa": 0.23066348657910615,
+        "mean_residual_gpa": -0.23066348657910615,
+        "min_residual_gpa": -0.34854238304709995,
+        "max_residual_gpa": -0.0021834998155778607,
+        "max_abs_residual_gpa": 0.34854238304709995,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 1.4790393687310897,
+        "mae_gpa": 1.3817111657094827,
+        "mean_residual_gpa": -1.3817111657094827,
+        "min_residual_gpa": -1.9093774511685808,
+        "max_residual_gpa": -0.8540448802503846,
+        "max_abs_residual_gpa": 1.9093774511685808,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03772562766440046,
+        "mae_gpa": 0.03772562766440046,
+        "mean_residual_gpa": -0.03772562766440046,
+        "min_residual_gpa": -0.03772562766440046,
+        "max_residual_gpa": -0.03772562766440046,
+        "max_abs_residual_gpa": 0.03772562766440046,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 1.3514387102092194,
+        "mae_gpa": 1.317287159674714,
+        "mean_residual_gpa": -1.317287159674714,
+        "min_residual_gpa": -1.9093774511685808,
+        "max_residual_gpa": -0.8540448802503846,
+        "max_abs_residual_gpa": 1.9093774511685808,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.018129350114922112,
+        "mae_gpa": 0.016249925344336644,
+        "mean_residual_gpa": -0.01616857860124574,
+        "min_residual_gpa": -0.02759825407585481,
+        "max_residual_gpa": 0.0003660603439090693,
+        "max_abs_residual_gpa": 0.02759825407585481,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.6990439933400912,
+        "mae_gpa": 0.4580973233940992,
+        "mean_residual_gpa": -0.45808207087976954,
+        "min_residual_gpa": -1.9093774511685808,
+        "max_residual_gpa": 0.0003660603439090693,
+        "max_abs_residual_gpa": 1.9093774511685808,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.7855842435141132,
+        "mae_gpa": 0.5738078043987718,
+        "mean_residual_gpa": -0.5738078043987718,
+        "min_residual_gpa": -1.9093774511685808,
+        "max_residual_gpa": -0.0021834998155778607,
+        "max_abs_residual_gpa": 1.9093774511685808,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.020931514524701298,
+        "mae_gpa": 0.018397495576343025,
+        "mean_residual_gpa": -0.018324283507561212,
+        "min_residual_gpa": -0.03772562766440046,
+        "max_residual_gpa": 0.0003660603439090693,
+        "max_abs_residual_gpa": 0.03772562766440046,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "eq11_fixed_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.15720208987350734,
+        "mae_gpa": 0.14760482237876987,
+        "mean_residual_gpa": -0.14760482237876987,
+        "min_residual_gpa": -0.23894030747731065,
+        "max_residual_gpa": -0.0009813626001839992,
+        "max_abs_residual_gpa": 0.23894030747731065,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.6834359374506218,
+        "mae_gpa": 0.4774418336038148,
+        "mean_residual_gpa": -0.4774418336038148,
+        "min_residual_gpa": -1.1611101725861488,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 1.1611101725861488,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.5406365565192953,
+        "mae_gpa": 0.3980776224605626,
+        "mean_residual_gpa": -0.3980776224605626,
+        "min_residual_gpa": -1.1611101725861488,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 1.1611101725861488,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.15720208987350734,
+        "mae_gpa": 0.14760482237876987,
+        "mean_residual_gpa": -0.14760482237876987,
+        "min_residual_gpa": -0.23894030747731065,
+        "max_residual_gpa": -0.0009813626001839992,
+        "max_abs_residual_gpa": 0.23894030747731065,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.8364205836781222,
+        "mae_gpa": 0.6934952836519699,
+        "mean_residual_gpa": -0.6934952836519699,
+        "min_residual_gpa": -1.1611101725861488,
+        "max_residual_gpa": -0.22588039471779098,
+        "max_abs_residual_gpa": 1.1611101725861488,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.7148589924695629,
+        "mae_gpa": 0.6785803371279661,
+        "mean_residual_gpa": -0.6785803371279661,
+        "min_residual_gpa": -1.1611101725861488,
+        "max_residual_gpa": -0.22588039471779098,
+        "max_abs_residual_gpa": 1.1611101725861488,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.3759051795033542,
+        "mae_gpa": 0.25505604972973617,
+        "mean_residual_gpa": -0.25505604972973617,
+        "min_residual_gpa": -1.1611101725861488,
+        "max_residual_gpa": -0.0009813626001839992,
+        "max_abs_residual_gpa": 1.1611101725861488,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.4222373201782799,
+        "mae_gpa": 0.31528130072062127,
+        "mean_residual_gpa": -0.31528130072062127,
+        "min_residual_gpa": -1.1611101725861488,
+        "max_residual_gpa": -0.0009813626001839992,
+        "max_abs_residual_gpa": 1.1611101725861488,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "eq11_fixed_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.14802675875249754,
+        "mae_gpa": 0.1384775128166544,
+        "mean_residual_gpa": -0.13779534984899375,
+        "min_residual_gpa": -0.22909749055632744,
+        "max_residual_gpa": 0.008868118579588469,
+        "max_abs_residual_gpa": 0.22909749055632744,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.6751366994290177,
+        "mae_gpa": 0.4654804525309686,
+        "mean_residual_gpa": -0.4654804525309686,
+        "min_residual_gpa": -1.1491452457004385,
+        "max_residual_gpa": -0.03332582846806531,
+        "max_abs_residual_gpa": 1.1491452457004385,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.5320375375881607,
+        "mae_gpa": 0.3867264646042464,
+        "mean_residual_gpa": -0.38657756950798766,
+        "min_residual_gpa": -1.1491452457004385,
+        "max_residual_gpa": 0.0015633985107168513,
+        "max_abs_residual_gpa": 1.1491452457004385,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.14802675875249754,
+        "mae_gpa": 0.1384775128166544,
+        "mean_residual_gpa": -0.13779534984899375,
+        "min_residual_gpa": -0.22909749055632744,
+        "max_residual_gpa": 0.008868118579588469,
+        "max_abs_residual_gpa": 0.22909749055632744,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.826534354369085,
+        "mae_gpa": 0.6815577645624202,
+        "mean_residual_gpa": -0.6815577645624202,
+        "min_residual_gpa": -1.1491452457004385,
+        "max_residual_gpa": -0.21397028342440194,
+        "max_abs_residual_gpa": 1.1491452457004385,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03332582846806531,
+        "mae_gpa": 0.03332582846806531,
+        "mean_residual_gpa": -0.03332582846806531,
+        "min_residual_gpa": -0.03332582846806531,
+        "max_residual_gpa": -0.03332582846806531,
+        "max_abs_residual_gpa": 0.03332582846806531,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.7037060824482737,
+        "mae_gpa": 0.6668569406292401,
+        "mean_residual_gpa": -0.6668569406292401,
+        "min_residual_gpa": -1.1491452457004385,
+        "max_residual_gpa": -0.21397028342440194,
+        "max_abs_residual_gpa": 1.1491452457004385,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.0145898128995115,
+        "mae_gpa": 0.013219163237588205,
+        "mean_residual_gpa": -0.012871741346317793,
+        "min_residual_gpa": -0.022062230794830384,
+        "max_residual_gpa": 0.0015633985107168513,
+        "max_abs_residual_gpa": 0.022062230794830384,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.368419013440071,
+        "mae_gpa": 0.2448957691331303,
+        "mean_residual_gpa": -0.24446112258770092,
+        "min_residual_gpa": -1.1491452457004385,
+        "max_residual_gpa": 0.008868118579588469,
+        "max_abs_residual_gpa": 1.1491452457004385,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.4139710439807794,
+        "mae_gpa": 0.30533417423115516,
+        "mean_residual_gpa": -0.3048674311480189,
+        "min_residual_gpa": -1.1491452457004385,
+        "max_residual_gpa": 0.008868118579588469,
+        "max_abs_residual_gpa": 1.1491452457004385,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.0173964783995718,
+        "mae_gpa": 0.015229829760635916,
+        "mean_residual_gpa": -0.014917150058492545,
+        "min_residual_gpa": -0.03332582846806531,
+        "max_residual_gpa": 0.0015633985107168513,
+        "max_abs_residual_gpa": 0.03332582846806531,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "eq11_fixed_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.14871085846145496,
+        "mae_gpa": 0.13915516965689145,
+        "mean_residual_gpa": -0.1385297276937225,
+        "min_residual_gpa": -0.22983436470063268,
+        "max_residual_gpa": 0.008130745521196303,
+        "max_abs_residual_gpa": 0.22983436470063268,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.6757542124541686,
+        "mae_gpa": 0.4663759311844444,
+        "mean_residual_gpa": -0.4663759311844444,
+        "min_residual_gpa": -1.1500409898081898,
+        "max_residual_gpa": -0.03422487993583445,
+        "max_abs_residual_gpa": 1.1500409898081898,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.532677466860489,
+        "mae_gpa": 0.3875176520016245,
+        "mean_residual_gpa": -0.3874385112228405,
+        "min_residual_gpa": -1.1500409898081898,
+        "max_residual_gpa": 0.0008309781772322111,
+        "max_abs_residual_gpa": 1.1500409898081898,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.14871085846145496,
+        "mae_gpa": 0.13915516965689145,
+        "mean_residual_gpa": -0.1385297276937225,
+        "min_residual_gpa": -0.22983436470063268,
+        "max_residual_gpa": 0.008130745521196303,
+        "max_abs_residual_gpa": 0.22983436470063268,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.8272726045693881,
+        "mae_gpa": 0.6824514568087494,
+        "mean_residual_gpa": -0.6824514568087494,
+        "min_residual_gpa": -1.1500409898081898,
+        "max_residual_gpa": -0.21486192380930902,
+        "max_abs_residual_gpa": 1.1500409898081898,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03422487993583445,
+        "mae_gpa": 0.03422487993583445,
+        "mean_residual_gpa": -0.03422487993583445,
+        "min_residual_gpa": -0.03422487993583445,
+        "max_residual_gpa": -0.03422487993583445,
+        "max_abs_residual_gpa": 0.03422487993583445,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.704540386828731,
+        "mae_gpa": 0.6677346027693302,
+        "mean_residual_gpa": -0.6677346027693302,
+        "min_residual_gpa": -1.1500409898081898,
+        "max_residual_gpa": -0.21486192380930902,
+        "max_abs_residual_gpa": 1.1500409898081898,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.015366188154954701,
+        "mae_gpa": 0.013895050978017033,
+        "mean_residual_gpa": -0.01371038916085432,
+        "min_residual_gpa": -0.023020916064126595,
+        "max_residual_gpa": 0.0008309781772322111,
+        "max_abs_residual_gpa": 0.023020916064126595,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.3689740902477264,
+        "mae_gpa": 0.24562770798019015,
+        "mean_residual_gpa": -0.24525430282608895,
+        "min_residual_gpa": -1.1500409898081898,
+        "max_residual_gpa": 0.008130745521196303,
+        "max_abs_residual_gpa": 1.1500409898081898,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.41458647073116406,
+        "mae_gpa": 0.30607499063976684,
+        "mean_residual_gpa": -0.305647056664967,
+        "min_residual_gpa": -1.1500409898081898,
+        "max_residual_gpa": 0.008130745521196303,
+        "max_abs_residual_gpa": 1.1500409898081898,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.018156045969162763,
+        "mae_gpa": 0.015928033873798774,
+        "mean_residual_gpa": -0.01576183823835233,
+        "min_residual_gpa": -0.03422487993583445,
+        "max_residual_gpa": 0.0008309781772322111,
+        "max_abs_residual_gpa": 0.03422487993583445,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "local_power_integrated_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.008997471196165736,
+        "mae_gpa": 0.008449883891555552,
+        "mean_residual_gpa": -0.008449883891555552,
+        "min_residual_gpa": -0.014237408991348843,
+        "max_residual_gpa": -0.00453157718453312,
+        "max_abs_residual_gpa": 0.014237408991348843,
+        "inside_lattice_pressure_rounding_envelope": 22
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.028635102647105132,
+        "mae_gpa": 0.02352479218200661,
+        "mean_residual_gpa": -0.02352479218200661,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.006057085910995852,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.02686604466429561,
+        "mae_gpa": 0.02304878960252386,
+        "mean_residual_gpa": -0.00019877919872063066,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": 0.05391666934112038,
+        "max_abs_residual_gpa": 0.05391666934112038,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.008997471196165736,
+        "mae_gpa": 0.008449883891555552,
+        "mean_residual_gpa": -0.008449883891555552,
+        "min_residual_gpa": -0.014237408991348843,
+        "max_residual_gpa": -0.00453157718453312,
+        "max_abs_residual_gpa": 0.014237408991348843,
+        "inside_lattice_pressure_rounding_envelope": 22
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.014224118860247152,
+        "mae_gpa": 0.01261972151925761,
+        "mean_residual_gpa": -0.01261972151925761,
+        "min_residual_gpa": -0.019182357127519367,
+        "max_residual_gpa": -0.006057085910995852,
+        "max_abs_residual_gpa": 0.019182357127519367,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.027976790534450166,
+        "mae_gpa": 0.02227987962639825,
+        "mean_residual_gpa": 0.017707638580257406,
+        "min_residual_gpa": -0.019182357127519367,
+        "max_residual_gpa": 0.05391666934112038,
+        "max_abs_residual_gpa": 0.05391666934112038,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.02006112760424579,
+        "mae_gpa": 0.015605343673769792,
+        "mean_residual_gpa": -0.005608464122105879,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": 0.05391666934112038,
+        "max_abs_residual_gpa": 0.05391666934112038,
+        "inside_lattice_pressure_rounding_envelope": 35
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.01739421137028187,
+        "mae_gpa": 0.012817250965716403,
+        "mean_residual_gpa": -0.0001896136372988285,
+        "min_residual_gpa": -0.019182357127519367,
+        "max_residual_gpa": 0.05391666934112038,
+        "max_abs_residual_gpa": 0.05391666934112038,
+        "inside_lattice_pressure_rounding_envelope": 34
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "local_power_integrated_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.0032644250706911977,
+        "mae_gpa": 0.0028709365746420936,
+        "mean_residual_gpa": 0.0010181520577633525,
+        "min_residual_gpa": -0.004804973616291619,
+        "max_residual_gpa": 0.004899906426068412,
+        "max_abs_residual_gpa": 0.004899906426068412,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.02199423061856935,
+        "mae_gpa": 0.01656972535589792,
+        "mean_residual_gpa": -0.014710522789367056,
+        "min_residual_gpa": -0.03655026727872723,
+        "max_residual_gpa": 0.0027888038497962953,
+        "max_abs_residual_gpa": 0.03655026727872723,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.028262101856434185,
+        "mae_gpa": 0.02276808554760252,
+        "mean_residual_gpa": 0.008787397830829576,
+        "min_residual_gpa": -0.026641479753834574,
+        "max_residual_gpa": 0.06268555578803614,
+        "max_abs_residual_gpa": 0.06268555578803614,
+        "inside_lattice_pressure_rounding_envelope": 13
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.0032644250706911977,
+        "mae_gpa": 0.0028709365746420936,
+        "mean_residual_gpa": 0.0010181520577633525,
+        "min_residual_gpa": -0.004804973616291619,
+        "max_residual_gpa": 0.004899906426068412,
+        "max_abs_residual_gpa": 0.004899906426068412,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.007593303081072212,
+        "mae_gpa": 0.006579454394483264,
+        "mean_residual_gpa": -0.0037906505446869687,
+        "min_residual_gpa": -0.010370104939170233,
+        "max_residual_gpa": 0.0027888038497962953,
+        "max_abs_residual_gpa": 0.010370104939170233,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03655026727872723,
+        "mae_gpa": 0.03655026727872723,
+        "mean_residual_gpa": -0.03655026727872723,
+        "min_residual_gpa": -0.03655026727872723,
+        "max_residual_gpa": -0.03655026727872723,
+        "max_abs_residual_gpa": 0.03655026727872723,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.034330317769187525,
+        "mae_gpa": 0.028371722472481764,
+        "mean_residual_gpa": 0.026643371649286724,
+        "min_residual_gpa": -0.010370104939170233,
+        "max_residual_gpa": 0.06268555578803614,
+        "max_abs_residual_gpa": 0.06268555578803614,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.017097192136631224,
+        "mae_gpa": 0.015296569647763528,
+        "mean_residual_gpa": -0.015020567260446625,
+        "min_residual_gpa": -0.026641479753834574,
+        "max_residual_gpa": 0.0012420107429260696,
+        "max_abs_residual_gpa": 0.026641479753834574,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.01957180407789862,
+        "mae_gpa": 0.012277591973314054,
+        "mean_residual_gpa": 0.0036345216806362712,
+        "min_residual_gpa": -0.03655026727872723,
+        "max_residual_gpa": 0.06268555578803614,
+        "max_abs_residual_gpa": 0.06268555578803614,
+        "inside_lattice_pressure_rounding_envelope": 40
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.019480028142674473,
+        "mae_gpa": 0.010923816331854621,
+        "mean_residual_gpa": 0.00911032666561284,
+        "min_residual_gpa": -0.010370104939170233,
+        "max_residual_gpa": 0.06268555578803614,
+        "max_abs_residual_gpa": 0.06268555578803614,
+        "inside_lattice_pressure_rounding_envelope": 38
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.019916696133541727,
+        "mae_gpa": 0.0174219394108599,
+        "mean_residual_gpa": -0.017173537262274684,
+        "min_residual_gpa": -0.03655026727872723,
+        "max_residual_gpa": 0.0012420107429260696,
+        "max_abs_residual_gpa": 0.03655026727872723,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "local_power_integrated_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.003116133647690293,
+        "mae_gpa": 0.0027671495708003245,
+        "mean_residual_gpa": 0.00030956551314695536,
+        "min_residual_gpa": -0.0055108331115114595,
+        "max_residual_gpa": 0.0041941246295600365,
+        "max_abs_residual_gpa": 0.0055108331115114595,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.02243864613658539,
+        "mae_gpa": 0.016787625490659746,
+        "mean_residual_gpa": -0.015368997352140923,
+        "min_residual_gpa": -0.03720650723352037,
+        "max_residual_gpa": 0.002127942207778233,
+        "max_abs_residual_gpa": 0.03720650723352037,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.028060764217945042,
+        "mae_gpa": 0.02267185816070382,
+        "mean_residual_gpa": 0.008115828043710223,
+        "min_residual_gpa": -0.02725565827526566,
+        "max_residual_gpa": 0.06203050665723708,
+        "max_abs_residual_gpa": 0.06203050665723708,
+        "inside_lattice_pressure_rounding_envelope": 13
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.003116133647690293,
+        "mae_gpa": 0.0027671495708003245,
+        "mean_residual_gpa": 0.00030956551314695536,
+        "min_residual_gpa": -0.0055108331115114595,
+        "max_residual_gpa": 0.0041941246295600365,
+        "max_abs_residual_gpa": 0.0055108331115114595,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.007942113724024962,
+        "mae_gpa": 0.006578184619229432,
+        "mean_residual_gpa": -0.0044502424114512,
+        "min_residual_gpa": -0.011028427030680632,
+        "max_residual_gpa": 0.002127942207778233,
+        "max_abs_residual_gpa": 0.011028427030680632,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03720650723352037,
+        "mae_gpa": 0.03720650723352037,
+        "mean_residual_gpa": -0.03720650723352037,
+        "min_residual_gpa": -0.03720650723352037,
+        "max_residual_gpa": -0.03720650723352037,
+        "max_abs_residual_gpa": 0.03720650723352037,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.033815215207456076,
+        "mae_gpa": 0.027813772719168146,
+        "mean_residual_gpa": 0.02597570154738804,
+        "min_residual_gpa": -0.011028427030680632,
+        "max_residual_gpa": 0.06203050665723708,
+        "max_abs_residual_gpa": 0.06203050665723708,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.017682103017452985,
+        "mae_gpa": 0.01581597208275139,
+        "mean_residual_gpa": -0.0156973366278602,
+        "min_residual_gpa": -0.02725565827526566,
+        "max_residual_gpa": 0.0005338595470103513,
+        "max_abs_residual_gpa": 0.02725565827526566,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.019457393598247646,
+        "mae_gpa": 0.012192946196856439,
+        "mean_residual_gpa": 0.0029432205213794824,
+        "min_residual_gpa": -0.03720650723352037,
+        "max_residual_gpa": 0.06203050665723708,
+        "max_abs_residual_gpa": 0.06203050665723708,
+        "inside_lattice_pressure_rounding_envelope": 40
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.019176529559516087,
+        "mae_gpa": 0.010676609512390163,
+        "mean_residual_gpa": 0.008414661102907298,
+        "min_residual_gpa": -0.011028427030680632,
+        "max_residual_gpa": 0.06203050665723708,
+        "max_abs_residual_gpa": 0.06203050665723708,
+        "inside_lattice_pressure_rounding_envelope": 38
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.02048959512678663,
+        "mae_gpa": 0.01795502559782829,
+        "mean_residual_gpa": -0.01784825368842622,
+        "min_residual_gpa": -0.03720650723352037,
+        "max_residual_gpa": 0.0005338595470103513,
+        "max_abs_residual_gpa": 0.03720650723352037,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "local_power_eq4_local_q_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.009929554485073492,
+        "mae_gpa": 0.009379897574110174,
+        "mean_residual_gpa": -0.009379897574110174,
+        "min_residual_gpa": -0.015670115876620372,
+        "max_residual_gpa": -0.005281458800688199,
+        "max_abs_residual_gpa": 0.015670115876620372,
+        "inside_lattice_pressure_rounding_envelope": 21
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.04727415757569724,
+        "mae_gpa": 0.046566864125476094,
+        "mean_residual_gpa": -0.046566864125476094,
+        "min_residual_gpa": -0.05710358899365531,
+        "max_residual_gpa": -0.03726206987526837,
+        "max_abs_residual_gpa": 0.05710358899365531,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.025882898120859015,
+        "mae_gpa": 0.0221659119035171,
+        "mean_residual_gpa": -0.018242186064708947,
+        "min_residual_gpa": -0.05710358899365531,
+        "max_residual_gpa": 0.017442719190668754,
+        "max_abs_residual_gpa": 0.05710358899365531,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.009929554485073492,
+        "mae_gpa": 0.009379897574110174,
+        "mean_residual_gpa": -0.009379897574110174,
+        "min_residual_gpa": -0.015670115876620372,
+        "max_residual_gpa": -0.005281458800688199,
+        "max_abs_residual_gpa": 0.015670115876620372,
+        "inside_lattice_pressure_rounding_envelope": 21
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.04821452959091115,
+        "mae_gpa": 0.04718282943446184,
+        "mean_residual_gpa": -0.04718282943446184,
+        "min_residual_gpa": -0.05710358899365531,
+        "max_residual_gpa": -0.03726206987526837,
+        "max_abs_residual_gpa": 0.05710358899365531,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.026304864802208568,
+        "mae_gpa": 0.02073484365313642,
+        "mean_residual_gpa": -0.013868323435222152,
+        "min_residual_gpa": -0.05710358899365531,
+        "max_residual_gpa": 0.017442719190668754,
+        "max_abs_residual_gpa": 0.05710358899365531,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.019731091303359854,
+        "mae_gpa": 0.01572284209183809,
+        "mean_residual_gpa": -0.014006212037359522,
+        "min_residual_gpa": -0.05710358899365531,
+        "max_residual_gpa": 0.017442719190668754,
+        "max_abs_residual_gpa": 0.05710358899365531,
+        "inside_lattice_pressure_rounding_envelope": 34
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.016910638434696083,
+        "mae_gpa": 0.012965670020118461,
+        "mean_residual_gpa": -0.010797295214461326,
+        "min_residual_gpa": -0.05710358899365531,
+        "max_residual_gpa": 0.017442719190668754,
+        "max_abs_residual_gpa": 0.05710358899365531,
+        "inside_lattice_pressure_rounding_envelope": 33
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "local_power_eq4_local_q_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.003276974632186439,
+        "mae_gpa": 0.0029232999442528286,
+        "mean_residual_gpa": 8.270288137845173e-05,
+        "min_residual_gpa": -0.0062463379891681825,
+        "max_residual_gpa": 0.004221001496816257,
+        "max_abs_residual_gpa": 0.0062463379891681825,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.0387671430912106,
+        "mae_gpa": 0.03789876580903714,
+        "mean_residual_gpa": -0.03789876580903714,
+        "min_residual_gpa": -0.048437697845102434,
+        "max_residual_gpa": -0.028559830038858536,
+        "max_abs_residual_gpa": 0.048437697845102434,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.020703343351648546,
+        "mae_gpa": 0.017279849807683285,
+        "mean_residual_gpa": -0.00937281227365547,
+        "min_residual_gpa": -0.048437697845102434,
+        "max_residual_gpa": 0.026557492898135138,
+        "max_abs_residual_gpa": 0.048437697845102434,
+        "inside_lattice_pressure_rounding_envelope": 13
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.003276974632186439,
+        "mae_gpa": 0.0029232999442528286,
+        "mean_residual_gpa": 8.270288137845173e-05,
+        "min_residual_gpa": -0.0062463379891681825,
+        "max_residual_gpa": 0.004221001496816257,
+        "max_abs_residual_gpa": 0.0062463379891681825,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.03976100139824151,
+        "mae_gpa": 0.038498763941980485,
+        "mean_residual_gpa": -0.038498763941980485,
+        "min_residual_gpa": -0.048437697845102434,
+        "max_residual_gpa": -0.028559830038858536,
+        "max_abs_residual_gpa": 0.048437697845102434,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.036698769543150433,
+        "mae_gpa": 0.036698769543150433,
+        "mean_residual_gpa": -0.036698769543150433,
+        "min_residual_gpa": -0.036698769543150433,
+        "max_residual_gpa": -0.036698769543150433,
+        "max_abs_residual_gpa": 0.036698769543150433,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.022977859228436547,
+        "mae_gpa": 0.01869608521426258,
+        "mean_residual_gpa": -0.005065136015864151,
+        "min_residual_gpa": -0.048437697845102434,
+        "max_residual_gpa": 0.026557492898135138,
+        "max_abs_residual_gpa": 0.048437697845102434,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.017209211900087732,
+        "mae_gpa": 0.015391535932244219,
+        "mean_residual_gpa": -0.015116380617377226,
+        "min_residual_gpa": -0.02682191573344994,
+        "max_residual_gpa": 0.0012381989169014673,
+        "max_abs_residual_gpa": 0.02682191573344994,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.014879515604432453,
+        "mae_gpa": 0.009907946126147352,
+        "mean_residual_gpa": -0.004820365674459907,
+        "min_residual_gpa": -0.048437697845102434,
+        "max_residual_gpa": 0.026557492898135138,
+        "max_abs_residual_gpa": 0.048437697845102434,
+        "inside_lattice_pressure_rounding_envelope": 40
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.013193884955082301,
+        "mae_gpa": 0.007904179503203277,
+        "mean_residual_gpa": -0.0015429304545928964,
+        "min_residual_gpa": -0.048437697845102434,
+        "max_residual_gpa": 0.026557492898135138,
+        "max_abs_residual_gpa": 0.048437697845102434,
+        "inside_lattice_pressure_rounding_envelope": 38
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.020030507866702622,
+        "mae_gpa": 0.01752225929333484,
+        "mean_residual_gpa": -0.01727461950995455,
+        "min_residual_gpa": -0.036698769543150433,
+        "max_residual_gpa": 0.0012381989169014673,
+        "max_abs_residual_gpa": 0.036698769543150433,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "local_power_eq4_local_q_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.0033337024975131635,
+        "mae_gpa": 0.0028376122276528603,
+        "mean_residual_gpa": -0.0006254747520437412,
+        "min_residual_gpa": -0.006951546225895555,
+        "max_residual_gpa": 0.003509766779250967,
+        "max_abs_residual_gpa": 0.006951546225895555,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.03940018774457774,
+        "mae_gpa": 0.03854627266418239,
+        "mean_residual_gpa": -0.03854627266418239,
+        "min_residual_gpa": -0.049085038011881466,
+        "max_residual_gpa": -0.029209912523057824,
+        "max_abs_residual_gpa": 0.049085038011881466,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.021004956902449266,
+        "mae_gpa": 0.017496262482233554,
+        "mean_residual_gpa": -0.010035616381411674,
+        "min_residual_gpa": -0.049085038011881466,
+        "max_residual_gpa": 0.02587621633701076,
+        "max_abs_residual_gpa": 0.049085038011881466,
+        "inside_lattice_pressure_rounding_envelope": 13
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.0033337024975131635,
+        "mae_gpa": 0.0028376122276528603,
+        "mean_residual_gpa": -0.0006254747520437412,
+        "min_residual_gpa": -0.006951546225895555,
+        "max_residual_gpa": 0.003509766779250967,
+        "max_abs_residual_gpa": 0.006951546225895555,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.040389107109668435,
+        "mae_gpa": 0.039147475267469645,
+        "mean_residual_gpa": -0.039147475267469645,
+        "min_residual_gpa": -0.049085038011881466,
+        "max_residual_gpa": -0.029209912523057824,
+        "max_abs_residual_gpa": 0.049085038011881466,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03734386745760787,
+        "mae_gpa": 0.03734386745760787,
+        "mean_residual_gpa": -0.03734386745760787,
+        "min_residual_gpa": -0.03734386745760787,
+        "max_residual_gpa": -0.03734386745760787,
+        "max_abs_residual_gpa": 0.03734386745760787,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.023127235001577023,
+        "mae_gpa": 0.01869060042279595,
+        "mean_residual_gpa": -0.005722858832155471,
+        "min_residual_gpa": -0.049085038011881466,
+        "max_residual_gpa": 0.02587621633701076,
+        "max_abs_residual_gpa": 0.049085038011881466,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.01778558879208652,
+        "mae_gpa": 0.01590381189481703,
+        "mean_residual_gpa": -0.015785959780419943,
+        "min_residual_gpa": -0.027422568251864732,
+        "max_residual_gpa": 0.000530334514786901,
+        "max_abs_residual_gpa": 0.027422568251864732,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.015103041789052946,
+        "mae_gpa": 0.009969652031322643,
+        "mean_residual_gpa": -0.005507378229591464,
+        "min_residual_gpa": -0.049085038011881466,
+        "max_residual_gpa": 0.02587621633701076,
+        "max_abs_residual_gpa": 0.049085038011881466,
+        "inside_lattice_pressure_rounding_envelope": 40
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.01328570746359063,
+        "mae_gpa": 0.007843819026119098,
+        "mean_residual_gpa": -0.0022351749878684983,
+        "min_residual_gpa": -0.049085038011881466,
+        "max_residual_gpa": 0.02587621633701076,
+        "max_abs_residual_gpa": 0.049085038011881466,
+        "inside_lattice_pressure_rounding_envelope": 38
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.020594924022249092,
+        "mae_gpa": 0.018047817451096116,
+        "mean_residual_gpa": -0.017941750548138735,
+        "min_residual_gpa": -0.03734386745760787,
+        "max_residual_gpa": 0.000530334514786901,
+        "max_abs_residual_gpa": 0.03734386745760787,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "local_power_eq4_q0_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.05221708775925106,
+        "mae_gpa": 0.04840240910287029,
+        "mean_residual_gpa": 0.047901294132904705,
+        "min_residual_gpa": -0.006514494609552557,
+        "max_residual_gpa": 0.08053071409878498,
+        "max_abs_residual_gpa": 0.08053071409878498,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.724279126030021,
+        "mae_gpa": 0.6040872709113358,
+        "mean_residual_gpa": 0.5738639819063328,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": 0.9565052178834605,
+        "max_abs_residual_gpa": 0.9565052178834605,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.6503182316561891,
+        "mae_gpa": 0.49100024334935277,
+        "mean_residual_gpa": 0.4703653837173316,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": 1.038479809981368,
+        "max_abs_residual_gpa": 1.038479809981368,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.05221708775925106,
+        "mae_gpa": 0.04840240910287029,
+        "mean_residual_gpa": 0.047901294132904705,
+        "min_residual_gpa": -0.006514494609552557,
+        "max_residual_gpa": 0.08053071409878498,
+        "max_abs_residual_gpa": 0.08053071409878498,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.8864777213817342,
+        "mae_gpa": 0.8834634396132515,
+        "mean_residual_gpa": 0.8834634396132515,
+        "min_residual_gpa": 0.8104216613430424,
+        "max_residual_gpa": 0.9565052178834605,
+        "max_abs_residual_gpa": 0.9565052178834605,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.8600108908778621,
+        "mae_gpa": 0.8411949236833488,
+        "mean_residual_gpa": 0.8411949236833488,
+        "min_residual_gpa": 0.584697559417009,
+        "max_residual_gpa": 1.038479809981368,
+        "max_abs_residual_gpa": 1.038479809981368,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.4319080085724928,
+        "mae_gpa": 0.24197505584413626,
+        "mean_residual_gpa": 0.23078691191691628,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": 1.038479809981368,
+        "max_abs_residual_gpa": 1.038479809981368,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.4852106710043831,
+        "mae_gpa": 0.2987579400230214,
+        "mean_residual_gpa": 0.29841507188567656,
+        "min_residual_gpa": -0.006514494609552557,
+        "max_residual_gpa": 1.038479809981368,
+        "max_abs_residual_gpa": 1.038479809981368,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "local_power_eq4_q0_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.06135910535928765,
+        "mae_gpa": 0.05770435992154118,
+        "mean_residual_gpa": 0.05770435992154118,
+        "min_residual_gpa": 0.0032793634445127395,
+        "max_residual_gpa": 0.09051541810534758,
+        "max_abs_residual_gpa": 0.09051541810534758,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.734978412014299,
+        "mae_gpa": 0.6085366689623252,
+        "mean_residual_gpa": 0.5873406634113062,
+        "min_residual_gpa": -0.031794008326528456,
+        "max_residual_gpa": 0.9699867960341635,
+        "max_abs_residual_gpa": 0.9699867960341635,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.6599646983037393,
+        "mae_gpa": 0.4934081498151426,
+        "mean_residual_gpa": 0.48311591887179745,
+        "min_residual_gpa": -0.020296412613674875,
+        "max_residual_gpa": 1.0520541651044653,
+        "max_abs_residual_gpa": 1.0520541651044653,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.06135910535928765,
+        "mae_gpa": 0.05770435992154118,
+        "mean_residual_gpa": 0.05770435992154118,
+        "min_residual_gpa": 0.0032793634445127395,
+        "max_residual_gpa": 0.09051541810534758,
+        "max_abs_residual_gpa": 0.09051541810534758,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.8998802529825051,
+        "mae_gpa": 0.8969079992802236,
+        "mean_residual_gpa": 0.8969079992802236,
+        "min_residual_gpa": 0.8238292025262837,
+        "max_residual_gpa": 0.9699867960341635,
+        "max_abs_residual_gpa": 0.9699867960341635,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.031794008326528456,
+        "mae_gpa": 0.031794008326528456,
+        "mean_residual_gpa": -0.031794008326528456,
+        "min_residual_gpa": -0.031794008326528456,
+        "max_residual_gpa": -0.031794008326528456,
+        "max_abs_residual_gpa": 0.031794008326528456,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.8729740279090449,
+        "mae_gpa": 0.8543322951598983,
+        "mean_residual_gpa": 0.8543322951598983,
+        "min_residual_gpa": 0.5970650887347801,
+        "max_residual_gpa": 1.0520541651044653,
+        "max_abs_residual_gpa": 1.0520541651044653,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.013406558532444135,
+        "mae_gpa": 0.012175956022134886,
+        "mean_residual_gpa": -0.01183924951233707,
+        "min_residual_gpa": -0.020296412613674875,
+        "max_residual_gpa": 0.0015151792940901743,
+        "max_abs_residual_gpa": 0.020296412613674875,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.438879272436916,
+        "mae_gpa": 0.24778496900842903,
+        "mean_residual_gpa": 0.24195736762377684,
+        "min_residual_gpa": -0.031794008326528456,
+        "max_residual_gpa": 1.0520541651044653,
+        "max_abs_residual_gpa": 1.0520541651044653,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.49318759844605997,
+        "mae_gpa": 0.3092710763126013,
+        "mean_residual_gpa": 0.3092710763126013,
+        "min_residual_gpa": 0.0032793634445127395,
+        "max_residual_gpa": 1.0520541651044653,
+        "max_abs_residual_gpa": 1.0520541651044653,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.016212591620780484,
+        "mae_gpa": 0.014137761252574243,
+        "mean_residual_gpa": -0.013834725393756209,
+        "min_residual_gpa": -0.031794008326528456,
+        "max_residual_gpa": 0.0015151792940901743,
+        "max_abs_residual_gpa": 0.031794008326528456,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "local_power_eq4_q0_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.06066764505578285,
+        "mae_gpa": 0.05697056488539188,
+        "mean_residual_gpa": 0.05697056488539188,
+        "min_residual_gpa": 0.00254617913054922,
+        "max_residual_gpa": 0.08976803504024744,
+        "max_abs_residual_gpa": 0.08976803504024744,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.734174279090986,
+        "mae_gpa": 0.608203580503608,
+        "mean_residual_gpa": 0.5863317768263935,
+        "min_residual_gpa": -0.032807705515821795,
+        "max_residual_gpa": 0.9689775427752636,
+        "max_abs_residual_gpa": 0.9689775427752636,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.659238822837435,
+        "mae_gpa": 0.4931692830251052,
+        "mean_residual_gpa": 0.48216141090828074,
+        "min_residual_gpa": -0.021387274966741643,
+        "max_residual_gpa": 1.051037964677505,
+        "max_abs_residual_gpa": 1.051037964677505,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.06066764505578285,
+        "mae_gpa": 0.05697056488539188,
+        "mean_residual_gpa": 0.05697056488539188,
+        "min_residual_gpa": 0.00254617913054922,
+        "max_residual_gpa": 0.08976803504024744,
+        "max_abs_residual_gpa": 0.08976803504024744,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.8988768744091412,
+        "mae_gpa": 0.8959015179975012,
+        "mean_residual_gpa": 0.8959015179975012,
+        "min_residual_gpa": 0.8228254932197387,
+        "max_residual_gpa": 0.9689775427752636,
+        "max_abs_residual_gpa": 0.9689775427752636,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.032807705515821795,
+        "mae_gpa": 0.032807705515821795,
+        "mean_residual_gpa": -0.032807705515821795,
+        "min_residual_gpa": -0.032807705515821795,
+        "max_residual_gpa": -0.032807705515821795,
+        "max_abs_residual_gpa": 0.032807705515821795,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.8720033989330257,
+        "mae_gpa": 0.8533488177594712,
+        "mean_residual_gpa": 0.8533488177594712,
+        "min_residual_gpa": 0.5961392604659466,
+        "max_residual_gpa": 1.051037964677505,
+        "max_abs_residual_gpa": 1.051037964677505,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.014271974280724948,
+        "mae_gpa": 0.012929903379283816,
+        "mean_residual_gpa": -0.012755131559973284,
+        "min_residual_gpa": -0.021387274966741643,
+        "max_residual_gpa": 0.0007864731868973962,
+        "max_abs_residual_gpa": 0.021387274966741643,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.43835115594005164,
+        "mae_gpa": 0.24730411116798376,
+        "mean_residual_gpa": 0.24112117938704714,
+        "min_residual_gpa": -0.032807705515821795,
+        "max_residual_gpa": 1.051037964677505,
+        "max_abs_residual_gpa": 1.051037964677505,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.4925864544764805,
+        "mae_gpa": 0.3084584342140485,
+        "mean_residual_gpa": 0.3084584342140485,
+        "min_residual_gpa": 0.00254617913054922,
+        "max_residual_gpa": 1.051037964677505,
+        "max_abs_residual_gpa": 1.051037964677505,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.01705739953814752,
+        "mae_gpa": 0.014917683592937613,
+        "mean_residual_gpa": -0.014760388955558135,
+        "min_residual_gpa": -0.032807705515821795,
+        "max_residual_gpa": 0.0007864731868973962,
+        "max_abs_residual_gpa": 0.032807705515821795,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "local_power_power_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.007366323022680706,
+        "mae_gpa": 0.006719088978564231,
+        "mean_residual_gpa": -0.006719088978564231,
+        "min_residual_gpa": -0.01222629485767257,
+        "max_residual_gpa": -0.002505009025512095,
+        "max_abs_residual_gpa": 0.01222629485767257,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.04226716981695586,
+        "mae_gpa": 0.041486617437556106,
+        "mean_residual_gpa": -0.041486617437556106,
+        "min_residual_gpa": -0.04888738162516404,
+        "max_residual_gpa": -0.030237537179999663,
+        "max_abs_residual_gpa": 0.04888738162516404,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.024131754839496897,
+        "mae_gpa": 0.021039175760244652,
+        "mean_residual_gpa": -0.013677401190180507,
+        "min_residual_gpa": -0.04888738162516404,
+        "max_residual_gpa": 0.02575763621021565,
+        "max_abs_residual_gpa": 0.04888738162516404,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.007366323022680706,
+        "mae_gpa": 0.006719088978564231,
+        "mean_residual_gpa": -0.006719088978564231,
+        "min_residual_gpa": -0.01222629485767257,
+        "max_residual_gpa": -0.002505009025512095,
+        "max_abs_residual_gpa": 0.01222629485767257,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.04064655420128678,
+        "mae_gpa": 0.03956245940258185,
+        "mean_residual_gpa": -0.03956245940258185,
+        "min_residual_gpa": -0.04888738162516404,
+        "max_residual_gpa": -0.030237537179999663,
+        "max_abs_residual_gpa": 0.04888738162516404,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.023209394027750848,
+        "mae_gpa": 0.018763055402409634,
+        "mean_residual_gpa": -0.005879949904797381,
+        "min_residual_gpa": -0.04888738162516404,
+        "max_residual_gpa": 0.02575763621021565,
+        "max_abs_residual_gpa": 0.04888738162516404,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.018082715162535887,
+        "mae_gpa": 0.013788623706569006,
+        "mean_residual_gpa": -0.010567847332165944,
+        "min_residual_gpa": -0.04888738162516404,
+        "max_residual_gpa": 0.02575763621021565,
+        "max_abs_residual_gpa": 0.04888738162516404,
+        "inside_lattice_pressure_rounding_envelope": 39
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.014395670255836185,
+        "mae_gpa": 0.010522446796620673,
+        "mean_residual_gpa": -0.0064540976921115415,
+        "min_residual_gpa": -0.04888738162516404,
+        "max_residual_gpa": 0.02575763621021565,
+        "max_abs_residual_gpa": 0.04888738162516404,
+        "inside_lattice_pressure_rounding_envelope": 38
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "local_power_power_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.004090580934385514,
+        "mae_gpa": 0.003470098203942498,
+        "mean_residual_gpa": 0.0027590497578984926,
+        "min_residual_gpa": -0.0027816952117944993,
+        "max_residual_gpa": 0.006938713793847029,
+        "max_abs_residual_gpa": 0.006938713793847029,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.0337744731390308,
+        "mae_gpa": 0.032786964357673774,
+        "mean_residual_gpa": -0.032786964357673774,
+        "min_residual_gpa": -0.04018997707085248,
+        "max_residual_gpa": -0.02150313921868019,
+        "max_abs_residual_gpa": 0.04018997707085248,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.020523915553403684,
+        "mae_gpa": 0.017861945496253046,
+        "mean_residual_gpa": -0.004775269948909866,
+        "min_residual_gpa": -0.04018997707085248,
+        "max_residual_gpa": 0.03491213704985796,
+        "max_abs_residual_gpa": 0.04018997707085248,
+        "inside_lattice_pressure_rounding_envelope": 13
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.004090580934385514,
+        "mae_gpa": 0.003470098203942498,
+        "mean_residual_gpa": 0.0027590497578984926,
+        "min_residual_gpa": -0.0027816952117944993,
+        "max_residual_gpa": 0.006938713793847029,
+        "max_abs_residual_gpa": 0.006938713793847029,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.032230569753058894,
+        "mae_gpa": 0.030846558144766334,
+        "mean_residual_gpa": -0.030846558144766334,
+        "min_residual_gpa": -0.04018997707085248,
+        "max_residual_gpa": -0.02150313921868019,
+        "max_abs_residual_gpa": 0.04018997707085248,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03666777678348865,
+        "mae_gpa": 0.03666777678348865,
+        "mean_residual_gpa": -0.03666777678348865,
+        "min_residual_gpa": -0.03666777678348865,
+        "max_residual_gpa": -0.03666777678348865,
+        "max_abs_residual_gpa": 0.03666777678348865,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.022710452625570355,
+        "mae_gpa": 0.019735778701596967,
+        "mean_residual_gpa": 0.0029572732572162863,
+        "min_residual_gpa": -0.04018997707085248,
+        "max_residual_gpa": 0.03491213704985796,
+        "max_abs_residual_gpa": 0.04018997707085248,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.01718098885075806,
+        "mae_gpa": 0.015363501222461155,
+        "mean_residual_gpa": -0.015085327557078069,
+        "min_residual_gpa": -0.026799905898485576,
+        "max_residual_gpa": 0.0012517814942238914,
+        "max_abs_residual_gpa": 0.026799905898485576,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.0148782792734434,
+        "mae_gpa": 0.010458149698068908,
+        "mean_residual_gpa": -0.0013586073334423965,
+        "min_residual_gpa": -0.04018997707085248,
+        "max_residual_gpa": 0.03491213704985796,
+        "max_abs_residual_gpa": 0.04018997707085248,
+        "inside_lattice_pressure_rounding_envelope": 40
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.01320309977897836,
+        "mae_gpa": 0.00860662888741233,
+        "mean_residual_gpa": 0.0028216466524199012,
+        "min_residual_gpa": -0.04018997707085248,
+        "max_residual_gpa": 0.03491213704985796,
+        "max_abs_residual_gpa": 0.04018997707085248,
+        "inside_lattice_pressure_rounding_envelope": 38
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.020003007911943153,
+        "mae_gpa": 0.017493928778563907,
+        "mean_residual_gpa": -0.017243572479719128,
+        "min_residual_gpa": -0.03666777678348865,
+        "max_residual_gpa": 0.0012517814942238914,
+        "max_abs_residual_gpa": 0.03666777678348865,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "local_power_power_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.0036498106888162257,
+        "mae_gpa": 0.0030981976459463897,
+        "mean_residual_gpa": 0.002049703154814171,
+        "min_residual_gpa": -0.003488469770498881,
+        "max_residual_gpa": 0.006232011308782148,
+        "max_abs_residual_gpa": 0.006232011308782148,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.034405309164852516,
+        "mae_gpa": 0.033436838773719536,
+        "mean_residual_gpa": -0.033436838773719536,
+        "min_residual_gpa": -0.04083968168430374,
+        "max_residual_gpa": -0.02215563467279935,
+        "max_abs_residual_gpa": 0.04083968168430374,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.020682832302412232,
+        "mae_gpa": 0.018017709398601377,
+        "mean_residual_gpa": -0.005440533229392266,
+        "min_residual_gpa": -0.04083968168430374,
+        "max_residual_gpa": 0.03422787713677167,
+        "max_abs_residual_gpa": 0.04083968168430374,
+        "inside_lattice_pressure_rounding_envelope": 13
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.0036498106888162257,
+        "mae_gpa": 0.0030981976459463897,
+        "mean_residual_gpa": 0.002049703154814171,
+        "min_residual_gpa": -0.003488469770498881,
+        "max_residual_gpa": 0.006232011308782148,
+        "max_abs_residual_gpa": 0.006232011308782148,
+        "inside_lattice_pressure_rounding_envelope": 26
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.032853856302037084,
+        "mae_gpa": 0.031497658178551546,
+        "mean_residual_gpa": -0.031497658178551546,
+        "min_residual_gpa": -0.04083968168430374,
+        "max_residual_gpa": -0.02215563467279935,
+        "max_abs_residual_gpa": 0.04083968168430374,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03731519996405552,
+        "mae_gpa": 0.03731519996405552,
+        "mean_residual_gpa": -0.03731519996405552,
+        "min_residual_gpa": -0.03731519996405552,
+        "max_residual_gpa": -0.03731519996405552,
+        "max_abs_residual_gpa": 0.03731519996405552,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.02262898928920228,
+        "mae_gpa": 0.019622579860322748,
+        "mean_residual_gpa": 0.0022969959085538485,
+        "min_residual_gpa": -0.04083968168430374,
+        "max_residual_gpa": 0.03422787713677167,
+        "max_abs_residual_gpa": 0.04083968168430374,
+        "inside_lattice_pressure_rounding_envelope": 12
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.01775924397175194,
+        "mae_gpa": 0.015877882116306214,
+        "mean_residual_gpa": -0.015757238746653753,
+        "min_residual_gpa": -0.02740220823773143,
+        "max_residual_gpa": 0.0005428951634360857,
+        "max_abs_residual_gpa": 0.02740220823773143,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.014945835408700548,
+        "mae_gpa": 0.010338338252693554,
+        "mean_residual_gpa": -0.0020473774115859302,
+        "min_residual_gpa": -0.04083968168430374,
+        "max_residual_gpa": 0.03422787713677167,
+        "max_abs_residual_gpa": 0.04083968168430374,
+        "inside_lattice_pressure_rounding_envelope": 40
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.013069855780502486,
+        "mae_gpa": 0.00831642360838103,
+        "mean_residual_gpa": 0.0021277956033635428,
+        "min_residual_gpa": -0.04083968168430374,
+        "max_residual_gpa": 0.03422787713677167,
+        "max_abs_residual_gpa": 0.04083968168430374,
+        "inside_lattice_pressure_rounding_envelope": 38
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.020569250998496078,
+        "mae_gpa": 0.018021613901081146,
+        "mean_residual_gpa": -0.017913034868393928,
+        "min_residual_gpa": -0.03731519996405552,
+        "max_residual_gpa": 0.0005428951634360857,
+        "max_abs_residual_gpa": 0.03731519996405552,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    },
+    "local_power_fixed_300K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.09425073527458289,
+        "mae_gpa": 0.09037915955419012,
+        "mean_residual_gpa": 0.09037915955419012,
+        "min_residual_gpa": 0.0029185292444324773,
+        "max_residual_gpa": 0.12516604753425753,
+        "max_abs_residual_gpa": 0.12516604753425753,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.7354531413733151,
+        "mae_gpa": 0.6132102485864076,
+        "mean_residual_gpa": 0.5829869595814046,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": 0.9708702987195466,
+        "max_abs_residual_gpa": 0.9708702987195466,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.6619265298067968,
+        "mae_gpa": 0.5004533369631304,
+        "mean_residual_gpa": 0.47981847733110927,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": 1.0519018444064727,
+        "max_abs_residual_gpa": 1.0519018444064727,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.09425073527458289,
+        "mae_gpa": 0.09037915955419012,
+        "mean_residual_gpa": 0.09037915955419012,
+        "min_residual_gpa": 0.0029185292444324773,
+        "max_residual_gpa": 0.12516604753425753,
+        "max_abs_residual_gpa": 0.12516604753425753,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.9001718483910454,
+        "mae_gpa": 0.8971479061258592,
+        "mean_residual_gpa": 0.8971479061258592,
+        "min_residual_gpa": 0.8234255135321717,
+        "max_residual_gpa": 0.9708702987195466,
+        "max_abs_residual_gpa": 0.9708702987195466,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.045334933507504616,
+        "mae_gpa": 0.045334933507504616,
+        "mean_residual_gpa": -0.045334933507504616,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.045334933507504616,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.8753721249813682,
+        "mae_gpa": 0.8577378375074597,
+        "mean_residual_gpa": 0.8577378375074597,
+        "min_residual_gpa": 0.607398005037993,
+        "max_residual_gpa": 1.0519018444064727,
+        "max_abs_residual_gpa": 1.0519018444064727,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.025309334621133266,
+        "mae_gpa": 0.02407400290402468,
+        "mean_residual_gpa": -0.02407400290402468,
+        "min_residual_gpa": -0.03486789600026441,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.03486789600026441,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.44333254619825996,
+        "mae_gpa": 0.2688481907946289,
+        "mean_residual_gpa": 0.2579314841428069,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": 1.0519018444064727,
+        "max_abs_residual_gpa": 1.0519018444064727,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.4980562089111381,
+        "mae_gpa": 0.3327029525920647,
+        "mean_residual_gpa": 0.3327029525920647,
+        "min_residual_gpa": 0.0029185292444324773,
+        "max_residual_gpa": 1.0519018444064727,
+        "max_abs_residual_gpa": 1.0519018444064727,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.027964831425936254,
+        "mae_gpa": 0.02620009596437267,
+        "mean_residual_gpa": -0.02620009596437267,
+        "min_residual_gpa": -0.045334933507504616,
+        "max_residual_gpa": -0.008219926508052922,
+        "max_abs_residual_gpa": 0.045334933507504616,
+        "inside_lattice_pressure_rounding_envelope": 1
+      }
+    },
+    "local_power_fixed_298K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.1039656184251799,
+        "mae_gpa": 0.10044145611608521,
+        "mean_residual_gpa": 0.10044145611608521,
+        "min_residual_gpa": 0.012773196273187182,
+        "max_residual_gpa": 0.1354357900370502,
+        "max_abs_residual_gpa": 0.1354357900370502,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.7462243941606287,
+        "mae_gpa": 0.6176892459304449,
+        "mean_residual_gpa": 0.5965471842541822,
+        "min_residual_gpa": -0.03171309251439425,
+        "max_residual_gpa": 0.9844351939079843,
+        "max_abs_residual_gpa": 0.9844351939079843,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.6716592509810506,
+        "mae_gpa": 0.5028772011305351,
+        "mean_residual_gpa": 0.4926935610953101,
+        "min_residual_gpa": -0.020248499191069413,
+        "max_residual_gpa": 1.0655557888437244,
+        "max_abs_residual_gpa": 1.0655557888437244,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.1039656184251799,
+        "mae_gpa": 0.10044145611608521,
+        "mean_residual_gpa": 0.10044145611608521,
+        "min_residual_gpa": 0.012773196273187182,
+        "max_residual_gpa": 0.1354357900370502,
+        "max_abs_residual_gpa": 0.1354357900370502,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.9136593509301937,
+        "mae_gpa": 0.9106773226384703,
+        "mean_residual_gpa": 0.9106773226384703,
+        "min_residual_gpa": 0.8369194513689564,
+        "max_residual_gpa": 0.9844351939079843,
+        "max_abs_residual_gpa": 0.9844351939079843,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03171309251439425,
+        "mae_gpa": 0.03171309251439425,
+        "mean_residual_gpa": -0.03171309251439425,
+        "min_residual_gpa": -0.03171309251439425,
+        "max_residual_gpa": -0.03171309251439425,
+        "max_abs_residual_gpa": 0.03171309251439425,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.8884469598649024,
+        "mae_gpa": 0.8709763101105944,
+        "mean_residual_gpa": 0.8709763101105944,
+        "min_residual_gpa": 0.6199054766322547,
+        "max_residual_gpa": 1.0655557888437244,
+        "max_abs_residual_gpa": 1.0655557888437244,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.013304686219923059,
+        "mae_gpa": 0.012078389157122634,
+        "mean_residual_gpa": -0.011683437591735747,
+        "min_residual_gpa": -0.020248499191069413,
+        "max_residual_gpa": 0.001777282044240991,
+        "max_abs_residual_gpa": 0.020248499191069413,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.45082528381780823,
+        "mae_gpa": 0.27507525365153845,
+        "mean_residual_gpa": 0.2692985322813611,
+        "min_residual_gpa": -0.03171309251439425,
+        "max_residual_gpa": 1.0655557888437244,
+        "max_abs_residual_gpa": 1.0655557888437244,
+        "inside_lattice_pressure_rounding_envelope": 3
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.5066163840176893,
+        "mae_gpa": 0.3437682521143513,
+        "mean_residual_gpa": 0.3437682521143513,
+        "min_residual_gpa": 0.012773196273187182,
+        "max_residual_gpa": 1.0655557888437244,
+        "max_abs_residual_gpa": 1.0655557888437244,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.016120956285289107,
+        "mae_gpa": 0.014041859492849796,
+        "mean_residual_gpa": -0.013686403084001597,
+        "min_residual_gpa": -0.03171309251439425,
+        "max_residual_gpa": 0.001777282044240991,
+        "max_abs_residual_gpa": 0.03171309251439425,
+        "inside_lattice_pressure_rounding_envelope": 3
+      }
+    },
+    "local_power_fixed_298.15K": {
+      "Fei2004": {
+        "rows": 26,
+        "rmse_gpa": 0.1032360129284147,
+        "mae_gpa": 0.09968815081452917,
+        "mean_residual_gpa": 0.09968815081452917,
+        "min_residual_gpa": 0.012035434980607107,
+        "max_residual_gpa": 0.13466695447099397,
+        "max_abs_residual_gpa": 0.13466695447099397,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006": {
+        "rows": 3,
+        "rmse_gpa": 0.7454148607671801,
+        "mae_gpa": 0.6173539295914594,
+        "mean_residual_gpa": 0.5955320095300607,
+        "min_residual_gpa": -0.03273288009209807,
+        "max_residual_gpa": 0.9834196695296669,
+        "max_abs_residual_gpa": 0.9834196695296669,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008": {
+        "rows": 21,
+        "rmse_gpa": 0.6709268842743512,
+        "mae_gpa": 0.5026371331822073,
+        "mean_residual_gpa": 0.4917296788644593,
+        "min_residual_gpa": -0.021342967939261825,
+        "max_residual_gpa": 1.0645335978688877,
+        "max_abs_residual_gpa": 1.0645335978688877,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Fei2004_hot": {
+        "rows": 26,
+        "rmse_gpa": 0.1032360129284147,
+        "mae_gpa": 0.09968815081452917,
+        "mean_residual_gpa": 0.09968815081452917,
+        "min_residual_gpa": 0.012035434980607107,
+        "max_residual_gpa": 0.13466695447099397,
+        "max_abs_residual_gpa": 0.13466695447099397,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_hot": {
+        "rows": 2,
+        "rmse_gpa": 0.9126495774716986,
+        "mae_gpa": 0.9096644543411401,
+        "mean_residual_gpa": 0.9096644543411401,
+        "min_residual_gpa": 0.8359092391526133,
+        "max_residual_gpa": 0.9834196695296669,
+        "max_abs_residual_gpa": 0.9834196695296669,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2006_cold": {
+        "rows": 1,
+        "rmse_gpa": 0.03273288009209807,
+        "mae_gpa": 0.03273288009209807,
+        "mean_residual_gpa": -0.03273288009209807,
+        "min_residual_gpa": -0.03273288009209807,
+        "max_residual_gpa": -0.03273288009209807,
+        "max_abs_residual_gpa": 0.03273288009209807,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "Hirose2008_hot": {
+        "rows": 12,
+        "rmse_gpa": 0.8874679449420806,
+        "mae_gpa": 0.8699852230823879,
+        "mean_residual_gpa": 0.8699852230823879,
+        "min_residual_gpa": 0.6189691153748527,
+        "max_residual_gpa": 1.0645335978688877,
+        "max_abs_residual_gpa": 1.0645335978688877,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "Hirose2008_cold": {
+        "rows": 9,
+        "rmse_gpa": 0.014174802711636864,
+        "mae_gpa": 0.012839679981966433,
+        "mean_residual_gpa": -0.012611046759445601,
+        "min_residual_gpa": -0.021342967939261825,
+        "max_residual_gpa": 0.0010288495013437426,
+        "max_abs_residual_gpa": 0.021342967939261825,
+        "inside_lattice_pressure_rounding_envelope": 1
+      },
+      "unique_all": {
+        "rows": 48,
+        "rmse_gpa": 0.45025852619685425,
+        "mae_gpa": 0.27458342912700434,
+        "mean_residual_gpa": 0.2684475478591522,
+        "min_residual_gpa": -0.03273288009209807,
+        "max_residual_gpa": 1.0645335978688877,
+        "max_abs_residual_gpa": 1.0645335978688877,
+        "inside_lattice_pressure_rounding_envelope": 2
+      },
+      "unique_hot": {
+        "rows": 38,
+        "rmse_gpa": 0.5059720132965513,
+        "mae_gpa": 0.34293985784648456,
+        "mean_residual_gpa": 0.34293985784648456,
+        "min_residual_gpa": 0.012035434980607107,
+        "max_residual_gpa": 1.0645335978688877,
+        "max_abs_residual_gpa": 1.0645335978688877,
+        "inside_lattice_pressure_rounding_envelope": 0
+      },
+      "unique_cold": {
+        "rows": 10,
+        "rmse_gpa": 0.016969875445471367,
+        "mae_gpa": 0.014828999992979597,
+        "mean_residual_gpa": -0.014623230092710849,
+        "min_residual_gpa": -0.03273288009209807,
+        "max_residual_gpa": 0.0010288495013437426,
+        "max_abs_residual_gpa": 0.03273288009209807,
+        "inside_lattice_pressure_rounding_envelope": 2
+      }
+    }
+  },
+  "diagnostic_au_refits": {
+    "Hirose2008_300K": {
+      "source_rows": [
+        "Hirose2008:1",
+        "Hirose2008:2",
+        "Hirose2008:3",
+        "Hirose2008:4",
+        "Hirose2008:5",
+        "Hirose2008:6",
+        "Hirose2008:7",
+        "Hirose2008:8",
+        "Hirose2008:9"
+      ],
+      "objective": "equal pressure residual weights; source-exact weights unknown",
+      "author_fit_reproduced": false,
+      "fits": {
+        "reported": {
+          "parameters": {
+            "K0_prime": 5.583345175577682
+          },
+          "solver_success": true,
+          "published_curve_residual": {
+            "rows": 9,
+            "rmse_gpa": 0.6706550807731002,
+            "mae_gpa": 0.5557724396483715,
+            "mean_residual_gpa": -0.25490168408864317,
+            "min_residual_gpa": -1.2463168480173579,
+            "max_residual_gpa": 1.142157492110556,
+            "max_abs_residual_gpa": 1.2463168480173579
+          },
+          "refit_residual": {
+            "rows": 9,
+            "rmse_gpa": 0.6697309596138137,
+            "mae_gpa": 0.5478144936346077,
+            "mean_residual_gpa": -0.2276103241463186,
+            "min_residual_gpa": -1.2153089668059351,
+            "max_residual_gpa": 1.2107137290508945,
+            "max_abs_residual_gpa": 1.2153089668059351
+          },
+          "pressure_target_shift": {
+            "rows": 9,
+            "rmse_gpa": 0.0,
+            "mae_gpa": 0.0,
+            "mean_residual_gpa": 0.0,
+            "min_residual_gpa": 0.0,
+            "max_residual_gpa": 0.0,
+            "max_abs_residual_gpa": 0.0
+          }
+        },
+        "published_speziale": {
+          "parameters": {
+            "K0_prime": 5.581150323572888
+          },
+          "solver_success": true,
+          "published_curve_residual": {
+            "rows": 9,
+            "rmse_gpa": 0.6642248765767393,
+            "mae_gpa": 0.54507853458595,
+            "mean_residual_gpa": -0.2308276811846185,
+            "min_residual_gpa": -1.2171294516137863,
+            "max_residual_gpa": 1.1770253881108204,
+            "max_abs_residual_gpa": 1.2171294516137863
+          },
+          "refit_residual": {
+            "rows": 9,
+            "rmse_gpa": 0.6641146079944168,
+            "mae_gpa": 0.542341992757631,
+            "mean_residual_gpa": -0.22144285400626057,
+            "min_residual_gpa": -1.2064666042162457,
+            "max_residual_gpa": 1.2006001911636304,
+            "max_abs_residual_gpa": 1.2064666042162457
+          },
+          "pressure_target_shift": {
+            "rows": 9,
+            "rmse_gpa": 0.025309334621133266,
+            "mae_gpa": 0.02407400290402468,
+            "mean_residual_gpa": -0.02407400290402468,
+            "min_residual_gpa": -0.03486789600026441,
+            "max_residual_gpa": -0.008219926508052922,
+            "max_abs_residual_gpa": 0.03486789600026441
+          },
+          "refitted_curve_shift_from_reported_refit": {
+            "rows": 9,
+            "rmse_gpa": 0.02309222469553177,
+            "mae_gpa": 0.01790653276396665,
+            "mean_residual_gpa": -0.01790653276396665,
+            "min_residual_gpa": -0.04498143388752851,
+            "max_residual_gpa": -0.0005770262667965653,
+            "max_abs_residual_gpa": 0.04498143388752851
+          }
+        },
+        "local_power_candidate": {
+          "parameters": {
+            "K0_prime": 5.581150323572888
+          },
+          "solver_success": true,
+          "published_curve_residual": {
+            "rows": 9,
+            "rmse_gpa": 0.6642248765767393,
+            "mae_gpa": 0.54507853458595,
+            "mean_residual_gpa": -0.2308276811846185,
+            "min_residual_gpa": -1.2171294516137863,
+            "max_residual_gpa": 1.1770253881108204,
+            "max_abs_residual_gpa": 1.2171294516137863
+          },
+          "refit_residual": {
+            "rows": 9,
+            "rmse_gpa": 0.6641146079944168,
+            "mae_gpa": 0.542341992757631,
+            "mean_residual_gpa": -0.22144285400626057,
+            "min_residual_gpa": -1.2064666042162457,
+            "max_residual_gpa": 1.2006001911636304,
+            "max_abs_residual_gpa": 1.2064666042162457
+          },
+          "pressure_target_shift": {
+            "rows": 9,
+            "rmse_gpa": 0.025309334621133266,
+            "mae_gpa": 0.02407400290402468,
+            "mean_residual_gpa": -0.02407400290402468,
+            "min_residual_gpa": -0.03486789600026441,
+            "max_residual_gpa": -0.008219926508052922,
+            "max_abs_residual_gpa": 0.03486789600026441
+          },
+          "refitted_curve_shift_from_reported_refit": {
+            "rows": 9,
+            "rmse_gpa": 0.02309222469553177,
+            "mae_gpa": 0.01790653276396665,
+            "mean_residual_gpa": -0.01790653276396665,
+            "min_residual_gpa": -0.04498143388752851,
+            "max_residual_gpa": -0.0005770262667965653,
+            "max_abs_residual_gpa": 0.04498143388752851
+          }
+        }
+      }
+    },
+    "Hirose2008_fit1": {
+      "source_rows": [
+        "Hirose2008:10",
+        "Hirose2008:11",
+        "Hirose2008:12",
+        "Hirose2008:13",
+        "Hirose2008:14",
+        "Hirose2008:15",
+        "Hirose2008:16",
+        "Hirose2008:17",
+        "Hirose2008:18",
+        "Hirose2008:19",
+        "Hirose2008:20",
+        "Hirose2008:21"
+      ],
+      "objective": "equal pressure residual weights; source-exact weights unknown",
+      "author_fit_reproduced": false,
+      "fits": {
+        "reported": {
+          "parameters": {
+            "dK_dT": -0.028332495756161705,
+            "alpha0": 3.176726251212547e-05,
+            "alpha1": 1.499812911963746e-08
+          },
+          "solver_success": true,
+          "published_curve_residual": {
+            "rows": 12,
+            "rmse_gpa": 0.4595254485710879,
+            "mae_gpa": 0.33730015926331564,
+            "mean_residual_gpa": 0.22421559252857173,
+            "min_residual_gpa": -0.3293137132864956,
+            "max_residual_gpa": 1.153021963672856,
+            "max_abs_residual_gpa": 1.153021963672856
+          },
+          "refit_residual": {
+            "rows": 12,
+            "rmse_gpa": 0.38847700498905835,
+            "mae_gpa": 0.28519829563779214,
+            "mean_residual_gpa": -0.008933829352165171,
+            "min_residual_gpa": -0.5995173576675228,
+            "max_residual_gpa": 0.8401654531831753,
+            "max_abs_residual_gpa": 0.8401654531831753
+          },
+          "pressure_target_shift": {
+            "rows": 12,
+            "rmse_gpa": 0.0,
+            "mae_gpa": 0.0,
+            "mean_residual_gpa": 0.0,
+            "min_residual_gpa": 0.0,
+            "max_residual_gpa": 0.0,
+            "max_abs_residual_gpa": 0.0
+          }
+        },
+        "published_speziale": {
+          "parameters": {
+            "dK_dT": -0.027204663886249238,
+            "alpha0": 3.015257677513449e-05,
+            "alpha1": 1.3682408513416047e-08
+          },
+          "solver_success": true,
+          "published_curve_residual": {
+            "rows": 12,
+            "rmse_gpa": 1.6742809330528672,
+            "mae_gpa": 1.5796398674015961,
+            "mean_residual_gpa": 1.5796398674015961,
+            "min_residual_gpa": 0.6770285834144829,
+            "max_residual_gpa": 2.769111667421484,
+            "max_abs_residual_gpa": 2.769111667421484
+          },
+          "refit_residual": {
+            "rows": 12,
+            "rmse_gpa": 0.36938383799208135,
+            "mae_gpa": 0.27661978676900745,
+            "mean_residual_gpa": -0.007589038616983383,
+            "min_residual_gpa": -0.548644986276642,
+            "max_residual_gpa": 0.791575460899935,
+            "max_abs_residual_gpa": 0.791575460899935
+          },
+          "pressure_target_shift": {
+            "rows": 12,
+            "rmse_gpa": 1.3894547260225247,
+            "mae_gpa": 1.3554242748730243,
+            "mean_residual_gpa": -1.3554242748730243,
+            "min_residual_gpa": -1.9521275281445583,
+            "max_residual_gpa": -0.8909872051032153,
+            "max_abs_residual_gpa": 1.9521275281445583
+          },
+          "refitted_curve_shift_from_reported_refit": {
+            "rows": 12,
+            "rmse_gpa": 1.3890402662426125,
+            "mae_gpa": 1.3540794841378425,
+            "mean_residual_gpa": -1.3540794841378425,
+            "min_residual_gpa": -1.9012551567536775,
+            "max_residual_gpa": -0.859710976724628,
+            "max_abs_residual_gpa": 1.9012551567536775
+          }
+        },
+        "local_power_candidate": {
+          "parameters": {
+            "dK_dT": -0.028353089328998993,
+            "alpha0": 3.1845216374001755e-05,
+            "alpha1": 1.4972148076652598e-08
+          },
+          "solver_success": true,
+          "published_curve_residual": {
+            "rows": 12,
+            "rmse_gpa": 0.44049421065534883,
+            "mae_gpa": 0.3191367396406252,
+            "mean_residual_gpa": 0.20650795394831434,
+            "min_residual_gpa": -0.34358897851356573,
+            "max_residual_gpa": 1.0991052943317356,
+            "max_abs_residual_gpa": 1.0991052943317356
+          },
+          "refit_residual": {
+            "rows": 12,
+            "rmse_gpa": 0.3765578540683868,
+            "mae_gpa": 0.282183220328335,
+            "mean_residual_gpa": -0.008389095333555474,
+            "min_residual_gpa": -0.5685145521571826,
+            "max_residual_gpa": 0.8037534772283834,
+            "max_abs_residual_gpa": 0.8037534772283834
+          },
+          "pressure_target_shift": {
+            "rows": 12,
+            "rmse_gpa": 0.027976790534450166,
+            "mae_gpa": 0.02227987962639825,
+            "mean_residual_gpa": 0.017707638580257406,
+            "min_residual_gpa": -0.019182357127519367,
+            "max_residual_gpa": 0.05391666934112038,
+            "max_abs_residual_gpa": 0.05391666934112038
+          },
+          "refitted_curve_shift_from_reported_refit": {
+            "rows": 12,
+            "rmse_gpa": 0.018395968346516186,
+            "mae_gpa": 0.0182523725988671,
+            "mean_residual_gpa": 0.0182523725988671,
+            "min_residual_gpa": 0.011820448382820814,
+            "max_residual_gpa": 0.02083259771072221,
+            "max_abs_residual_gpa": 0.02083259771072221
+          }
+        }
+      }
+    },
+    "Hirose2008_fit2": {
+      "source_rows": [
+        "Fei2004:1",
+        "Fei2004:2",
+        "Fei2004:3",
+        "Fei2004:4",
+        "Fei2004:5",
+        "Fei2004:6",
+        "Fei2004:7",
+        "Fei2004:8",
+        "Fei2004:9",
+        "Fei2004:10",
+        "Fei2004:11",
+        "Fei2004:12",
+        "Fei2004:13",
+        "Fei2004:14",
+        "Fei2004:15",
+        "Fei2004:16",
+        "Fei2004:17",
+        "Fei2004:18",
+        "Fei2004:19",
+        "Fei2004:20",
+        "Fei2004:21",
+        "Fei2004:22",
+        "Fei2004:23",
+        "Fei2004:24",
+        "Fei2004:25",
+        "Fei2004:26",
+        "Hirose2008:10",
+        "Hirose2008:11",
+        "Hirose2008:12",
+        "Hirose2008:13",
+        "Hirose2008:14",
+        "Hirose2008:15",
+        "Hirose2008:16",
+        "Hirose2008:17",
+        "Hirose2008:18",
+        "Hirose2008:19",
+        "Hirose2008:20",
+        "Hirose2008:21"
+      ],
+      "objective": "equal pressure residual weights; source-exact weights unknown",
+      "author_fit_reproduced": false,
+      "fits": {
+        "reported": {
+          "parameters": {
+            "beta1": 9.924306426760731e-07,
+            "beta2": 4.317111941012275e-10,
+            "beta3": 1.5138015223907164e-13,
+            "a": 0.0003594895172822541
+          },
+          "solver_success": true,
+          "published_curve_residual": {
+            "rows": 38,
+            "rmse_gpa": 0.4479194129604852,
+            "mae_gpa": 0.3593742559217345,
+            "mean_residual_gpa": 0.05812096299760718,
+            "min_residual_gpa": -0.9562803935954491,
+            "max_residual_gpa": 1.1147006892277176,
+            "max_abs_residual_gpa": 1.1147006892277176
+          },
+          "refit_residual": {
+            "rows": 38,
+            "rmse_gpa": 0.445141799111663,
+            "mae_gpa": 0.3527030762535986,
+            "mean_residual_gpa": 0.024322429338401008,
+            "min_residual_gpa": -1.0160223148076426,
+            "max_residual_gpa": 1.0049766263990279,
+            "max_abs_residual_gpa": 1.0160223148076426
+          },
+          "pressure_target_shift": {
+            "rows": 38,
+            "rmse_gpa": 0.0,
+            "mae_gpa": 0.0,
+            "mean_residual_gpa": 0.0,
+            "min_residual_gpa": 0.0,
+            "max_residual_gpa": 0.0,
+            "max_abs_residual_gpa": 0.0
+          }
+        },
+        "published_speziale": {
+          "parameters": {
+            "beta1": 1.0895622891273262e-06,
+            "beta2": 3.977683305112604e-10,
+            "beta3": 1.6532537013085042e-13,
+            "a": 0.00035872929385305925
+          },
+          "solver_success": true,
+          "published_curve_residual": {
+            "rows": 38,
+            "rmse_gpa": 0.9414359827244746,
+            "mae_gpa": 0.6817091229971128,
+            "mean_residual_gpa": 0.6521576332271186,
+            "min_residual_gpa": -0.39907814298774014,
+            "max_residual_gpa": 2.7307903929763455,
+            "max_abs_residual_gpa": 2.7307903929763455
+          },
+          "refit_residual": {
+            "rows": 38,
+            "rmse_gpa": 0.3964170596312586,
+            "mae_gpa": 0.315781286456496,
+            "mean_residual_gpa": 0.018210446786897233,
+            "min_residual_gpa": -0.8673446626406331,
+            "max_residual_gpa": 0.9250099375132947,
+            "max_abs_residual_gpa": 0.9250099375132947
+          },
+          "pressure_target_shift": {
+            "rows": 38,
+            "rmse_gpa": 0.8087187558839019,
+            "mae_gpa": 0.5940366702295113,
+            "mean_residual_gpa": -0.5940366702295113,
+            "min_residual_gpa": -1.9521275281445583,
+            "max_residual_gpa": -0.011295700959733423,
+            "max_abs_residual_gpa": 1.9521275281445583
+          },
+          "refitted_curve_shift_from_reported_refit": {
+            "rows": 38,
+            "rmse_gpa": 0.8048930877184035,
+            "mae_gpa": 0.600148652781015,
+            "mean_residual_gpa": -0.600148652781015,
+            "min_residual_gpa": -1.8622626045728623,
+            "max_residual_gpa": -0.08817583705154419,
+            "max_abs_residual_gpa": 1.8622626045728623
+          }
+        },
+        "local_power_candidate": {
+          "parameters": {
+            "beta1": 1.0306833592858302e-06,
+            "beta2": 3.973753344500804e-10,
+            "beta3": 1.613251940320986e-13,
+            "a": 0.0003622727862567262
+          },
+          "solver_success": true,
+          "published_curve_residual": {
+            "rows": 38,
+            "rmse_gpa": 0.44634170055844036,
+            "mae_gpa": 0.35852084278291807,
+            "mean_residual_gpa": 0.05831057663490601,
+            "min_residual_gpa": -0.9705556588225193,
+            "max_residual_gpa": 1.0607840198865972,
+            "max_abs_residual_gpa": 1.0607840198865972
+          },
+          "refit_residual": {
+            "rows": 38,
+            "rmse_gpa": 0.4443859376993604,
+            "mae_gpa": 0.3520053825883301,
+            "mean_residual_gpa": 0.024727785879652547,
+            "min_residual_gpa": -1.016062897857097,
+            "max_residual_gpa": 0.9763865495250741,
+            "max_abs_residual_gpa": 1.016062897857097
+          },
+          "pressure_target_shift": {
+            "rows": 38,
+            "rmse_gpa": 0.017394211370281874,
+            "mae_gpa": 0.012817250965716403,
+            "mean_residual_gpa": -0.0001896136372988285,
+            "min_residual_gpa": -0.019182357127519367,
+            "max_residual_gpa": 0.05391666934112038,
+            "max_abs_residual_gpa": 0.05391666934112038
+          },
+          "refitted_curve_shift_from_reported_refit": {
+            "rows": 38,
+            "rmse_gpa": 0.013720029940190535,
+            "mae_gpa": 0.01085264505137704,
+            "mean_residual_gpa": 0.00021574290395271216,
+            "min_residual_gpa": -0.013304110787913714,
+            "max_residual_gpa": 0.03307438922962547,
+            "max_abs_residual_gpa": 0.03307438922962547
+          }
+        }
+      }
+    }
+  },
+  "refit_scope": "Hirose2008 diagnostics only. Fei EOS refits are paused pending the author's reply; Fei2004 observations remain source inputs to Hirose fit2. Hirose thermal fits retain published Kprime=5.58 and ambient constraints; the RT sensitivity is separate, not propagated. Equal-pressure weights are diagnostic, with no claim of corrected absolute pressures or source-exact covariance.",
+  "historical_reducer_identified": false,
+  "published_coefficients_changed": false
+}

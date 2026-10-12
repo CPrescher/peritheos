@@ -2161,6 +2161,10 @@ def _fit_record(
         from scripts.reproduce_litasov_2007_superhydrous_phase_b import ledger_outcome
 
         return ledger_outcome(record)
+    if record_id == "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit":
+        from scripts.refit_hirose_fei_gold_speziale import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id.startswith("gold_hirose_2008_"):
         from scripts.reproduce_hirose_2008_gold import ledger_outcome
 
