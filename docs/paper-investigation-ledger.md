@@ -31,15 +31,15 @@ produce an executable record.
 
 ## Summary
 
-The register covers **360 primary papers**: **259** support the 650 audited catalog records and **101** were investigated without adding a production record.
+The register covers **360 primary papers**: **259** support the 651 audited catalog records and **101** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Original unreproduced; independent refit available | 2 |
-| Reproduced | 167 |
+| Original unreproduced; independent refit available | 3 |
+| Reproduced | 166 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 13 |
 | Coefficient parity not achieved | 14 |
@@ -1195,7 +1195,7 @@ the primary-source and refit ledgers.
 | [Hemley et al. (1989)](https://doi.org/10.1103/physrevb.39.11820) | Reproduced | 1 | 1 parity | 1 bundled |
 | [High pressure and high temperature in situ X‐ray observation of MgSiO3 Perovskite under lower mantle conditions (1993)](https://doi.org/10.1029/92gl02960) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Hirose et al. (2005)](https://doi.org/10.2138/am.2005.1702) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
-| [Hirose et al. (2008)](https://doi.org/10.1016/j.pepi.2008.03.002) | Reproduced | 3 | 3 similar | 3 bundled |
+| [Hirose et al. (2008)](https://doi.org/10.1016/j.pepi.2008.03.002) | Original unreproduced; independent refit available | 4 | 1 parity; 3 similar | 4 bundled |
 | [Holland et al. (2013)](https://doi.org/10.1093/petrology/egt035) | Direct refit unavailable | 7 | 7 direct refit unavailable |  |
 | [Holmes et al. (1989)](https://doi.org/10.1063/1.344177) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Inbar and Cohen (1995), MgO thermal properties](https://doi.org/10.1029/95GL01086) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

@@ -151,7 +151,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 225 bundled
+`list_material_documents()` returns the identifiers of all 227 bundled
 material cards, including source-only cards with no executable EOS.
 `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
@@ -398,6 +398,7 @@ from peritheos.eos.thermal import (
     DebyeTabulatedThermalPressure,
     DebyeAnharmonicHelmholtz,
     MieGruneisenDebye,
+    VariableQMieGruneisenDebye,
     MieGruneisenEinstein,
     MultiOscillatorGruneisenThermalEOS,
     Sokolova2016,
@@ -428,6 +429,7 @@ Thermal constructor signatures are:
 | `DebyeAnharmonicHelmholtz` | `Tr, theta0, gamma0, q, b1, b2, b3` (monatomic; absolute-zero thermal baseline; gas constant 8.31451 J/mol/K) |
 | `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity", bulk_modulus_law="linear_temperature", beta1=0, beta2=0, beta3=0, kprime_log_coefficient=0`; volume laws also include `linear_temperature` and `berman` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen", thermal_pressure_reference="reference_temperature", Cvmax=None` |
+| `VariableQMieGruneisenDebye` | `Tr, theta0, gamma0, q0, q1, n`; volume-dependent q and integrated Debye temperature |
 | `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |
 | `HollandPowellThermalPressure` | `Tr, theta, alpha0, n` |
 | `ThermalModifiedTait` | `Tr, theta, alpha0, n` |

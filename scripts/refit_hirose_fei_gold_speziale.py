@@ -356,6 +356,12 @@ def catalog_objects(report):
                 "fixed_parameters",
                 "refit_parameters",
             ],
+            "primary_source_check": {
+                **copy.deepcopy(
+                    source["scientific_validation"]["primary_source_check"]
+                ),
+                "finding": NOTE,
+            },
             "primary_data_check": {
                 "status": "bundled",
                 "dataset_identifiers": [DATASET_ID],
@@ -478,6 +484,26 @@ def ledger_outcome(record):
     }
 
 
+def check_archives(saved, current, table):
+    """Verify archived bytes exactly and recalculated pressure columns numerically."""
+    assert hashlib.sha256(CSV.read_bytes()).hexdigest() == saved["derived_csv_sha256"]
+    assert hashlib.sha256(table.encode()).hexdigest() == current["derived_csv_sha256"]
+    # Versions and implementation hashes describe the archived run. A replay
+    # may use another supported environment or a revised verification script.
+    provenance = {"derived_csv_sha256", "implementation_sha256", "software"}
+    assert (
+        hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+        == current["implementation_sha256"]
+    )
+    assert saved["software"].keys() == current["software"].keys()
+    assert saved["software"]["name"] == current["software"]["name"]
+    check_saved(
+        {k: v for k, v in saved.items() if k not in provenance},
+        {k: v for k, v in current.items() if k not in provenance},
+    )
+    check_csv(CSV.read_text(), table, {"pressure_gpa"}, atol=1e-8)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--register", action="store_true")
@@ -485,8 +511,7 @@ def main():
     args = parser.parse_args()
     report, table = reproduce()
     if args.check:
-        check_saved(json.loads(REPORT.read_text()), report)
-        check_csv(CSV.read_text(), table, {"pressure_gpa"}, atol=1e-8)
+        check_archives(json.loads(REPORT.read_text()), report, table)
         record = get_eos_record(RECORD_ID)
         rows = list(csv.DictReader(io.StringIO(table)))
         predicted = np.array(
