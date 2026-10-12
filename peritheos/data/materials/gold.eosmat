@@ -326,7 +326,7 @@
    ],
    "experimental_pressure_range_gpa": [
     0.0,
-    123.0
+    130.8
    ],
    "temperature_ref": 300.0,
    "notes": "Vinet fit for the Dorogokupets-Oganov ruby calibration. The published atomic V0=16.962 A^3 is multiplied by four atoms in the conventional fcc cell.",
@@ -354,8 +354,8 @@
      }
     ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+     "status": "ready",
+     "notes": "Row-wise pressure-scale conversion and diagnostic refitting are supported by all 86 bundled gold_takemura_2008_table3_compression observations: Table III P-prime is on the executable Dorogokupets-Oganov (2007) ruby scale, and conventional fcc cell volume is am(111)^3 (atomic volume am(111)^3/4). Reported P-prime can be inverted to an effective R1 wavelength ratio without raw wavelengths. Raw ruby spectra, row-wise R1 wavelengths and zero-pressure wavelength references, unrounded reductions, pointwise pressure/lattice uncertainties, and original fit weights/covariance are not bundled; conversion retains source rounding and does not reconstruct those inputs or establish exact author-fit reproduction. Table III reaches P=122.5 GPa on the Zha scale (the paper's rounded 123 GPa experimental limit) and P-prime=130.8 GPa on the Dorogokupets-Oganov scale; this record's range uses the latter coordinate."
     },
     "audit_date": "2026-09-03"
    },

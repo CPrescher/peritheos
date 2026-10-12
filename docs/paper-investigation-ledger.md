@@ -1368,7 +1368,7 @@ the primary-source and refit ledgers.
 | [Sun et al. (2022)](https://doi.org/10.2138/am-2021-7913) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Suzuki (2016)](https://doi.org/10.2465/jmps.160719c) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Takemura (2004)](https://doi.org/10.1103/physrevb.70.012101) | Reproduced | 1 | 1 parity | 1 bundled |
-| [Takemura and Dewaele (2008)](https://doi.org/10.1103/physrevb.78.104119) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Takemura and Dewaele (2008)](https://doi.org/10.1103/physrevb.78.104119) | Reproduced | 1 | 1 parity; Conditional numerical K0-prime parity on both ruby coordinates using all 86 observed rows with V0/K0 fixed. Original weights and uncertainty estimation remain unresolved; no exact author-fit claim. See the [dedicated audit](literature-reproductions/takemura-2008-gold.md). | 1 bundled |
 | [Takemura and Singh (2006)](https://doi.org/10.1103/physrevb.73.224119) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Tange et al. (2009)](https://doi.org/10.1029/2008jb005813) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Tange et al. (2012)](https://doi.org/10.1029/2011jb008988) | Reproduced | 2 | 2 similar | 2 bundled |

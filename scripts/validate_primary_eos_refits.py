@@ -2089,6 +2089,10 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if record_id == "gold_takemura_2008_vinet_6":
+        from scripts.reproduce_takemura_2008_gold import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id == "gold_fei_2007_vinet_2":
         from scripts.reproduce_fei_2007_gold import ledger_outcome
 
@@ -5698,6 +5702,11 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "parameter widths; original weights, exact MgO reduction and uncertainty ",
         "confidence/covariance remain unresolved. No formal combined-two-sigma ",
         "or source-exact author-fit reproduction is asserted.",
+        "Takemura and Dewaele (2008) Au accepts conditional numerical parity ",
+        "within the printed K0-prime width on both ruby coordinates, using all ",
+        "86 observed rows with V0/K0 fixed. Pressure- and volume-residual fits ",
+        "agree; original weights and uncertainty estimation are unresolved. ",
+        "No combined-two-sigma or source-exact author-fit claim is made.",
         "`source_reconstruction` covers source calculations and compositions of ",
         "audited equations without an independent refit of the complete EOS. ",
         "Component refits and remaining source-input gaps are documented separately. ",

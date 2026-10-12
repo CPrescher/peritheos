@@ -48,6 +48,12 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1103/physrevb.78.104119": (
+        "Conditional numerical K0-prime parity on both ruby coordinates using "
+        "all 86 observed rows with V0/K0 fixed. Original weights and uncertainty "
+        "estimation remain unresolved; no exact author-fit claim. See the "
+        "[dedicated audit](literature-reproductions/takemura-2008-gold.md)."
+    ),
     "10.1103/physrevb.80.104114": (
         "The published fitted 300 K Au BM3/Vinet and Pt Vinet branches are "
         "bundled with density-derived four-atom volume normalizations. "

@@ -17114,7 +17114,8 @@
       "status": "parity"
     },
     {
-      "absolute_sigma": true,
+      "absolute_sigma": false,
+      "author_fit_reproduced": false,
       "columns": {
         "pressure": "ruby_pressure_dorogokupets_gpa",
         "temperature": null,
@@ -17126,7 +17127,7 @@
       "degrees_of_freedom": 85,
       "experimental_pressure_range_gpa": [
         0.0,
-        123.0
+        130.8
       ],
       "experimental_temperature_range_k": null,
       "fit_kind": "isothermal_pv",
@@ -17140,7 +17141,7 @@
       "label": "Takemura and Dewaele (2008), Dorogokupets-ruby Vinet",
       "material_identifier": "gold",
       "model": "Vinet",
-      "objective": "pressure_residuals",
+      "objective": "equal_pressure_residuals",
       "observations": 86,
       "observed_pressure_range_gpa": [
         0.0,
@@ -17153,28 +17154,33 @@
       ],
       "parameters": [
         {
-          "difference": 0.028709512101193546,
+          "difference": 0.028709512073655574,
           "parameter": "K0_prime",
           "published": 5.9,
           "published_error": 0.1,
-          "refit": 5.928709512101194,
-          "refit_error": 0.0129545907030769,
-          "relative_difference": 0.004866019000202296,
+          "refit": 5.928709512073656,
+          "refit_error": null,
+          "relative_difference": 0.004866018995534843,
           "similar": true,
-          "within_combined_2sigma": true
+          "within_combined_2sigma": null,
+          "within_reported_error": true
         }
       ],
+      "parity_basis": "within_reported_parameter_errors",
       "primary_data_finding": "All 86 Au observations in Table III used for the definitive Vinet fit, retaining pressures on both the Zha et al. and Dorogokupets-Oganov ruby scales and the measured 111 lattice parameter.",
       "primary_data_status": "bundled",
       "primary_source": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.104119/fulltext",
-      "published_rmse_gpa": 0.7999477645481021,
+      "published_rmse_gpa": 0.7999477645481032,
+      "qualification": "Conditional numerical parameter parity: all 86 observed Table III rows, with published V0/K0 fixed, recover K0-prime within the printed 0.1 width on both ruby coordinates under equal-pressure and equal-volume residual objectives. Original residual direction, weights, unrounded reductions, pointwise uncertainties, confidence convention and covariance are not recovered; no combined-two-sigma or exact author-fit claim. See the [dedicated audit](literature-reproductions/takemura-2008-gold.md).",
       "record_identifier": "gold_takemura_2008_vinet_6",
-      "reduced_chi_square": 0.6122048339793149,
-      "rmse_gpa": 0.7778728515117945,
-      "selection": "all rows",
-      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "reduced_chi_square": null,
+      "reproduction_report": "docs/data/takemura-2008-gold-reproduction.json",
+      "rmse_gpa": 0.777872851511799,
+      "selection": "all 86 observed rows; no exclusions",
+      "solver_message": "dedicated equal-pressure refit; volume/scale sensitivities archived",
       "solver_success": true,
       "source_notes": "Vinet fit for the Dorogokupets-Oganov ruby calibration. The published atomic V0=16.962 A^3 is multiplied by four atoms in the conventional fcc cell.",
+      "source_table_sha256": "04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858",
       "status": "parity"
     },
     {

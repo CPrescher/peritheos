@@ -1,0 +1,107 @@
+{
+  "author_fit_reproduced": false,
+  "branches": {
+    "dorogokupets_oganov": {
+      "fits": {
+        "equal_pressure_residuals": {
+          "K0_prime": 5.928709512073656,
+          "cell_volume_rmse_angstrom3": 0.11443395112414691,
+          "difference_from_published": 0.028709512073655574,
+          "objective": "equal_pressure_residuals",
+          "pressure_max_abs_residual_gpa": 2.5142173161404884,
+          "pressure_rmse_gpa": 0.777872851511799,
+          "reduced_chi_square": null,
+          "refit_error": null,
+          "solver_success": true,
+          "within_reported_error": true
+        },
+        "equal_volume_residuals": {
+          "K0_prime": 5.929284062941182,
+          "cell_volume_rmse_angstrom3": 0.11443342238781624,
+          "difference_from_published": 0.029284062941181688,
+          "objective": "equal_volume_residuals",
+          "pressure_max_abs_residual_gpa": 2.519590245976474,
+          "pressure_rmse_gpa": 0.7778818505794657,
+          "reduced_chi_square": null,
+          "refit_error": null,
+          "solver_success": true,
+          "within_reported_error": true
+        }
+      },
+      "observed_pressure_range_gpa": [
+        0.0,
+        130.8
+      ],
+      "pressure_column": "ruby_pressure_dorogokupets_gpa",
+      "published_K0_prime": 5.9,
+      "published_curve": {
+        "cell_volume_rmse_angstrom3": 0.11580491433082966,
+        "pressure_max_abs_residual_gpa": 2.24619493540996,
+        "pressure_rmse_gpa": 0.7999477645481032
+      },
+      "published_error_width": 0.1
+    },
+    "zha": {
+      "fits": {
+        "equal_pressure_residuals": {
+          "K0_prime": 5.513398433917865,
+          "cell_volume_rmse_angstrom3": 0.11976708192475055,
+          "difference_from_published": 0.013398433917864772,
+          "objective": "equal_pressure_residuals",
+          "pressure_max_abs_residual_gpa": 2.3226178301694773,
+          "pressure_rmse_gpa": 0.7453167447229242,
+          "reduced_chi_square": null,
+          "refit_error": null,
+          "solver_success": true,
+          "within_reported_error": true
+        },
+        "equal_volume_residuals": {
+          "K0_prime": 5.530125093523177,
+          "cell_volume_rmse_angstrom3": 0.11931451294812272,
+          "difference_from_published": 0.030125093523176716,
+          "objective": "equal_volume_residuals",
+          "pressure_max_abs_residual_gpa": 2.471820394489882,
+          "pressure_rmse_gpa": 0.7524826230868404,
+          "reduced_chi_square": null,
+          "refit_error": null,
+          "solver_success": true,
+          "within_reported_error": true
+        }
+      },
+      "observed_pressure_range_gpa": [
+        0.0,
+        122.5
+      ],
+      "pressure_column": "ruby_pressure_zha_gpa",
+      "published_K0_prime": 5.5,
+      "published_curve": {
+        "cell_volume_rmse_angstrom3": 0.12077947235780959,
+        "pressure_max_abs_residual_gpa": 2.203311836632693,
+        "pressure_rmse_gpa": 0.7499054404521791
+      },
+      "published_error_width": 0.1
+    }
+  },
+  "cell_volume_convention": "am(111)^3; four atoms per conventional fcc cell",
+  "dataset_identifier": "gold_takemura_2008_table3_compression",
+  "fixed_parameters": {
+    "K0": 167.0,
+    "V0": 67.848
+  },
+  "free_parameters": [
+    "K0_prime"
+  ],
+  "input_kind": "observed_pressure_and_111_lattice_parameter",
+  "observations": 86,
+  "observed_cell_volume_range_angstrom3": [
+    49.42682244009901,
+    67.95227543794302
+  ],
+  "parity_basis": "within_reported_parameter_errors",
+  "published_coefficients_changed": false,
+  "qualification": "Conditional numerical parameter parity: all 86 observed Table III rows, with published V0/K0 fixed, recover K0-prime within the printed 0.1 width on both ruby coordinates under equal-pressure and equal-volume residual objectives. Original residual direction, weights, unrounded reductions, pointwise uncertainties, confidence convention and covariance are not recovered; no combined-two-sigma or exact author-fit claim. See the [dedicated audit](literature-reproductions/takemura-2008-gold.md).",
+  "record_identifier": "gold_takemura_2008_vinet_6",
+  "source_doi": "10.1103/PhysRevB.78.104119",
+  "source_table_sha256": "04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858",
+  "status": "parity"
+}
