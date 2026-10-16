@@ -1,0 +1,141 @@
+{
+  "audit_date": "2026-10-15",
+  "scope": "Independent equation validation and diagnostic refits; no executable refit records and no original-author workflow parity claim.",
+  "resources": {
+    "diopside-source-audit.json": "bcf1ec215f02b692a8ed67297b28c12dceaaeea087e10eac4e8cf639da7ab316",
+    "diopside-thompson-2008-table1-original.txt": "a2f1de10bdf1829f941333059924019f0e08397e27085284ff0ead46852ffa6f",
+    "diopside-thompson-2008-table1.csv": "50941c3229e2a57eec2ee4a8c61bef3f37c4b487c4595d50b12325b7f55d963c",
+    "diopside-thompson-2008-table2-ambient-structure.csv": "8c1b0a2aa253e479a9e5b86674ecd0db6373ef0fd6babb10544bbf32cd6bce95",
+    "diopside-zhao-1998-corrected-pvt.README.md": "075ac289fef71360958a0605574559c585908648a1c9dfa4b4fdd42f10a2852d",
+    "diopside-zhao-1998-table1-corrected-pvt.csv": "fa03931094fa921db21ec3b0ef91216d6a7dd13db95670cfd7621ae5f0516c24",
+    "diopside-zhao-1998-table1-original.txt": "866912aa4ad8964f8ea52bcdb2b11bb71515e0e0ca5135f1569103416bce1654",
+    "diopside-zhao-1998-table1.csv": "0aacfc8305498647641704a2e7e17eb6ce5276d4d8abb98f867c0f72d73f81f7",
+    "diopside.LICENSE.md": "4731d09715d0bea91361d14c7d4dd52b0a059b3fc1a161c8efdcfbf43b526f9d"
+  },
+  "zhao_1998": {
+    "observations": 32,
+    "duplicate_ambient_source_rows": [
+      1,
+      32
+    ],
+    "published_curve_all_rows": {
+      "pressure_rmse_gpa": 0.426861235534794,
+      "maximum_absolute_pressure_residual_gpa": 2.386976092548756
+    },
+    "published_curve_without_row15_diagnostic_only": {
+      "pressure_rmse_gpa": 0.06552064301005417,
+      "maximum_absolute_pressure_residual_gpa": 0.13656627535733445
+    },
+    "row15_printed_pressure_gpa": 6.95,
+    "row15_predicted_pressure_gpa": 4.563023907451244,
+    "source_mean_alpha_300_1300_per_k": 3.82e-05,
+    "integrated_mean_alpha_300_1300_per_k": 3.824e-05,
+    "metric_minus_printed_volume_a3": [
+      4.905287185142356,
+      0.016574759875254585,
+      -0.04671210419041927,
+      0.045354957341658064,
+      0.02481154636740257,
+      0.3518111289426997,
+      -0.03633698399880814,
+      -0.010604023749351654,
+      -0.005012757247584432,
+      -0.009065776860268215,
+      0.21144026489412227,
+      -0.020288149446400894,
+      0.04881107611447533,
+      -0.0013968706113018925,
+      0.04942250171274054,
+      0.6645623390308515,
+      -0.014350042701039456,
+      0.029306354917309818,
+      0.011220199398621844,
+      -0.011791204953851775,
+      -0.009118599712508058,
+      0.0005125385833366636,
+      -0.02360456151609469,
+      0.022176175405490994,
+      -0.009285200809131311,
+      -0.02246917811669391,
+      -0.022852314916065097,
+      0.026643113759064363,
+      -0.02312600729578662,
+      -0.028669611315251586,
+      0.011981238174200826,
+      4.905287185142356
+    ],
+    "diagnostic_objective": "Unweighted pressure residuals; V0 fixed to printed ambient volume, Tr=300 K. Source weights, V0 fit treatment, selection details and covariance are unreported. Row15 exclusion is a sensitivity experiment, never a source correction.",
+    "diagnostic_refits": [
+      {
+        "excluded_source_rows": [],
+        "observations": 32,
+        "coefficients": {
+          "K0": 118.92947876216506,
+          "K0_prime": 0.39589448486577544,
+          "alpha0": 2.3783158353695403e-05,
+          "alpha1": 1.2912764291725306e-08,
+          "dK_dT": -0.005232463268996601
+        },
+        "fixed_V0_a3": 438.67,
+        "success": true,
+        "pressure_rmse_gpa": 0.4116353000474688,
+        "maximum_absolute_pressure_residual_gpa": 2.1842412903610873
+      },
+      {
+        "excluded_source_rows": [
+          15
+        ],
+        "observations": 31,
+        "coefficients": {
+          "K0": 107.48355278152043,
+          "K0_prime": 5.23524650221395,
+          "alpha0": 2.2927875529028064e-05,
+          "alpha1": 1.9187417781187613e-08,
+          "dK_dT": -0.02047839047946939
+        },
+        "fixed_V0_a3": 438.67,
+        "success": true,
+        "pressure_rmse_gpa": 0.05803774896270415,
+        "maximum_absolute_pressure_residual_gpa": 0.14354953631241418
+      }
+    ],
+    "author_fit_reproduced": false,
+    "author_fit_reproduced_scope": "Exact original numerical fit input and workflow only. Published-model and parameter parity after accounting for the documented table error are assessed separately in diopside-plot-check.json.",
+    "author_workflow_parity": false
+  },
+  "thompson_2008": {
+    "observations": 14,
+    "published_curve_all_rows": {
+      "pressure_rmse_gpa": 0.03739721229323705,
+      "maximum_absolute_pressure_residual_gpa": 0.06822660516580337
+    },
+    "metric_minus_printed_volume_a3": [
+      0.0012279050658321466,
+      -0.004505649846862525,
+      -0.006676160892084226,
+      -0.004723218759579595,
+      -0.0008490093544537558,
+      0.007606436767161995,
+      0.006258694068606019,
+      0.0030292568197864966,
+      0.0059637473763700655,
+      0.0033089960895154036,
+      -0.004382183002633155,
+      0.005721149307248652,
+      0.0009519316795376653,
+      0.003943275451376849
+    ],
+    "diagnostic_objective": "Effective pressure variance sigma_P^2+(K*sigma_V/V)^2; ambient P treated as imposed reference. Parameter-dependent weights; source says weighted Levenberg-Marquardt but does not specify this objective.",
+    "diagnostic_refit": {
+      "coefficients": {
+        "V0": 438.6553948430803,
+        "K0": 117.8641776706991,
+        "K0_prime": 3.7962907042955125
+      },
+      "success": true,
+      "pressure_rmse_gpa": 0.03658693276345292,
+      "maximum_absolute_pressure_residual_gpa": 0.07353301752737185
+    },
+    "author_workflow_parity": false
+  }
+}
