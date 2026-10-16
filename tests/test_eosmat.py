@@ -2806,6 +2806,7 @@ def test_fei_2007_migrations_use_published_variable_exponent_debye_law():
         "neon_fcc_fei_2007_vinet_2",
         "platinum_fei_2007_vinet_mgd",
         "nacl_b2_fei_2007",
+        "nacl_b2_fei_2007_staged_thermal_refit",
         "neon_fcc_fei_2007_bm3_1",
     }
     assert {

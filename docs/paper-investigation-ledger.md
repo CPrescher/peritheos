@@ -31,17 +31,17 @@ produce an executable record.
 
 ## Summary
 
-The register covers **364 primary papers**: **262** support the 656 audited catalog records and **102** were investigated without adding a production record.
+The register covers **364 primary papers**: **262** support the 657 audited catalog records and **102** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Original unreproduced; independent refit available | 2 |
+| Original unreproduced; independent refit available | 3 |
 | Reproduced | 170 |
 | Partly reproduced | 8 |
-| Mixed: reproduced and discrepant records | 13 |
+| Mixed: reproduced and discrepant records | 12 |
 | Coefficient parity not achieved | 14 |
 | Direct refit unavailable | 59 |
 | Source reconstruction | 3 |
@@ -1162,7 +1162,7 @@ the primary-source and refit ledgers.
 | [Fedotenko et al. (2020)](https://doi.org/10.1016/j.jallcom.2020.156179) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Fei et al. (2000)](https://doi.org/10.2138/am-2000-11-1229) | Reproduced | 1 | 1 similar | 1 plot only/digitized |
 | [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | Mixed: reproduced and discrepant records | 3 | 1 similar; 1 parity not achieved; 1 direct refit unavailable | 3 bundled |
-| [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) | Mixed: reproduced and discrepant records | 6 | 3 parity; 1 similar; 2 parity not achieved; Conditional Au numerical parity reproduces K0-prime/q within printed widths using a staged equal-pressure-weight replay; source weights, exact MgO reduction and error confidence/covariance remain unresolved. See the [Au replay](literature-reproductions/fei-2007-gold.md). The Pt Vinet-MGD equation is independently reproduced, including the printed variable-exponent Debye law. A 78-row joint diagnostic reconstructs the upstream Au pressure reduction but does not recover the published thermal coefficients; source weights and constraints remain unspecified. The complete published Au PVT equation is independently verified, with Figure 1 vector-curve agreement at graphical precision and recovered hot MgO/cold ruby comparisons; see the [Au PVT audit](literature-reproductions/gold-pvt-validation.md). See the [Pt audit](literature-reproductions/fei-2007-platinum.md). | 3 bundled; 3 plot only/digitized |
+| [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) | Original unreproduced; independent refit available | 7 | 4 parity; 1 similar; 2 parity not achieved; Conditional Au numerical parity reproduces K0-prime/q within printed widths using a staged equal-pressure-weight replay; source weights, exact MgO reduction and error confidence/covariance remain unresolved. See the [Au replay](literature-reproductions/fei-2007-gold.md). The Pt Vinet-MGD equation is independently reproduced, including the printed variable-exponent Debye law. A 78-row joint diagnostic reconstructs the upstream Au pressure reduction but does not recover the published thermal coefficients; source weights and constraints remain unspecified. The complete published Au PVT equation is independently verified, with Figure 1 vector-curve agreement at graphical precision and recovered hot MgO/cold ruby comparisons; see the [Au PVT audit](literature-reproductions/gold-pvt-validation.md). See the [Pt audit](literature-reproductions/fei-2007-platinum.md). | 3 bundled; 4 plot only/digitized |
 | [Fei et al. (2007)](https://doi.org/10.1029/2007gl030712) | Mixed: reproduced and discrepant records | 6 | 4 parity; 1 similar; 1 parity not achieved | 6 bundled |
 | [Fei et al. (2016)](https://doi.org/10.1002/2016gl069456) | Direct refit unavailable | 3 | 3 direct refit unavailable | 3 bundled |
 | [Ferre et al. (2009), dislocations in CaSiO3 perovskite](https://doi.org/10.2138/am.2009.3003) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

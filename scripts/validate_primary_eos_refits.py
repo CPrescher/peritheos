@@ -2173,7 +2173,7 @@ def _fit_record(
         from scripts.reproduce_fei_2007_neon import ledger_outcome
 
         return ledger_outcome(record)
-    if record_id == "nacl_b2_fei_2007":
+    if record_id in {"nacl_b2_fei_2007", "nacl_b2_fei_2007_staged_thermal_refit"}:
         from scripts.reproduce_fei_2007_nacl_b2 import ledger_outcome
 
         return ledger_outcome(record)
@@ -5715,6 +5715,11 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "25% for gamma0/q/theta0, 30% for thermal-expansion or dK/dT terms, and 20% ",
         "for other coefficients. These broad limits identify broadly reproducible ",
         "published reductions; they are not statistical confidence statements.",
+        "For separately registered Peritheos refits, `parity_basis` instead ",
+        "identifies numerical reproduction of that explicit analysis. The Fei ",
+        "(2007) NaCl-B2 staged thermal refit is reproducible in this sense; its ",
+        "published parent remains `parity_not_achieved`, with original-author ",
+        "thermal coefficients and uncertainties unreproduced.",
         "The Sakai (2018) rhenium audit accepts numerical `parity` because both ",
         "coefficients agree within the reported parameter error widths and the refit ",
         "standard errors are comparable. Its explicit `parity_basis` preserves this ",

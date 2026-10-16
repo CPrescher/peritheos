@@ -7,6 +7,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Add an opt-in NaCl-B2 thermal refit of Fei (2007)'s 24 unique digitized
+  observations, with explicit cold-then-hot fitting and conditional statistics.
+  Preserve published coefficients and the default; original-author thermal-fit
+  parity remains unresolved.
 - Add the measured Fe-bearing phase E of Crichton and Ross (2000), with the
   published BM3 coefficients, all eleven primary rows and reported errors,
   and a documented phase-specific diffraction peak-position fallback. Record

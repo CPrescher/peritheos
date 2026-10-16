@@ -1887,6 +1887,341 @@
     "nacl_b2_fei_2007_figure3_digitized",
     "nacl_b2_fei_2007_figure4_digitized"
    ]
+  },
+  {
+   "identifier": "nacl_b2_fei_2007_staged_thermal_refit",
+   "label": "Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Ricolleau",
+     "Frank",
+     "Mibe",
+     "Shen",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "title": "Toward an internally consistent pressure scale",
+    "source": "Proc. Natl. Acad. Sci. USA",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "record_kind": "refit",
+   "determination_method": "experimental",
+   "equation_kind": "thermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 58.44277
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 41.35,
+     "K0": 26.88910688628862,
+     "K0_prime": 5.246912395711911
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reference_parameterization",
+   "experimental_temperature_range_k": [
+    300.0,
+    1000.0
+   ],
+   "notes": "Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited from the published record. Equal pressure weights are an analyst choice. Duplicate Figure 4 cold markers, other-paper comparisons and calculated curve vertices are excluded. This is a conditional figure-data refit, not reproduction of the authors' fit or independent validation of pressure accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, source weights and calibration covariance remain unavailable. Conditional stage errors are archived in fit statistics only; catalog parameter errors and covariance are unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty are not propagated. Coverage consists of separate 300 and 1000 K series, not a validated P-T rectangle.",
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "variable_exponent",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 290.0,
+     "gamma0": 1.7,
+     "q": 0.9933854990920269,
+     "n": 2
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": null,
+     "q": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "n"
+    ]
+   },
+   "parameter_provenance": {
+    "determination_method": "Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited from the published record. Equal pressure weights are an analyst choice. Duplicate Figure 4 cold markers, other-paper comparisons and calculated curve vertices are excluded. This is a conditional figure-data refit, not reproduction of the authors' fit or independent validation of pressure accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, source weights and calibration covariance remain unavailable. Conditional stage errors are archived in fit statistics only; catalog parameter errors and covariance are unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty are not propagated. Coverage consists of separate 300 and 1000 K series, not a validated P-T rectangle.",
+    "reference_isotherm": {
+     "V0": "Table 1 footnote: adopted from Bukowinski and Aidun (1985), fixed.",
+     "K0": "Independent unweighted pressure-residual fit of 12 Figure 3 study markers at 300 K, with V0 fixed; see fit_provenance.",
+     "K0_prime": "Same independent cold fit as K0; neither coefficient replaces the published Fei record."
+    },
+    "thermal_correction": {
+     "Tr": "Equation 3 subtracts Debye energy at 300 K.",
+     "theta0": "Table 1 footnote: 290 K adopted from Bukowinski and Aidun (1985). theta_D=theta0*(V/V0)^(-gamma(V)) is printed explicitly.",
+     "gamma0": "Table 1 footnote: 1.70 adopted from Bukowinski and Aidun (1985).",
+     "q": "Independent unweighted pressure-residual fit of all 12 Figure 4 hot markers at 1000 K, freezing the preceding cold fit and adopted gamma0/theta0; see fit_provenance.",
+     "n": "Two atoms per NaCl formula unit; V0=41.35 A^3 is a one-formula-unit B2 cell."
+    }
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "title": "Toward an internally consistent pressure scale",
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "reference_eos_record": "platinum_fei_2007_vinet_mgd",
+      "source_location": "Figure 3 caption; 1000 K paragraph on page 9184; Methods",
+      "scope": "Pt unit-cell measurements reduced using this paper's published thermal Vinet-MGD Pt scale at 300 and 1000 K."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Published Pt calibrant remains unchanged and executable; paired observed Pt cells and calibrant errors are not available from the recovered figures. NaCl fitted pressures or inverse-calculated Pt cells are not substituted for measured calibrant data."
+    },
+    "audit_date": "2026-10-09"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-16",
+    "note": "Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited from the published record. Equal pressure weights are an analyst choice. Duplicate Figure 4 cold markers, other-paper comparisons and calculated curve vertices are excluded. This is a conditional figure-data refit, not reproduction of the authors' fit or independent validation of pressure accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, source weights and calibration covariance remain unavailable. Conditional stage errors are archived in fit statistics only; catalog parameter errors and covariance are unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty are not propagated. Coverage consists of separate 300 and 1000 K series, not a validated P-T rectangle.",
+    "verified_fields": [
+     "source_observations",
+     "equation",
+     "units",
+     "reference_state",
+     "phase",
+     "fixed_parameters",
+     "independent_refit"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.pnas.org/doi/10.1073/pnas.0609013104",
+     "doi": "10.1073/pnas.0609013104",
+     "locations": [
+      "Table 1 and Equations 2-3, page 9183",
+      "Figures 3-4 and NaCl paragraphs, page 9184",
+      "Methods, pages 9185-9186"
+     ],
+     "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306",
+     "finding": "Source authority applies to the digitized markers and inherited equation/fixed parameters. K0, K0-prime and q are independently refitted Peritheos values, not published Fei coefficients."
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-10-09",
+     "digitized_dataset_identifiers": [
+      "nacl_b2_fei_2007_figure3_digitized",
+      "nacl_b2_fei_2007_figure4_digitized"
+     ],
+     "source_locations": [
+      "Figure 3: 12 filled study circles",
+      "Figure 4: 12 cold plus 12 hot study circles"
+     ],
+     "finding": "Vector marker centers recovered with exact path and axis coordinates, including both touching hot markers. Figure 3/4 cold rows are duplicates and are not pooled. Original unrounded measurements, P/V/T errors and measured Pt cells are missing. Sata/Ono comparison paths and calculated curve vertices are excluded from fits."
+    },
+    "pvt_check": {
+     "status": "independent_refit_reproduced",
+     "report": "docs/data/fei-2007-nacl-b2-reproduction.json",
+     "script": "scripts/reproduce_fei_2007_nacl_b2.py",
+     "author_fit_reproduced": false
+    },
+    "refit_status": "conditional",
+    "reproduction_status": "independent_refit_reproduced",
+    "original_publication_reproduction_status": "not_reproduced"
+   },
+   "fit_datasets": [
+    "nacl_b2_fei_2007_figure3_digitized",
+    "nacl_b2_fei_2007_figure4_digitized"
+   ],
+   "derived_from_record": "nacl_b2_fei_2007",
+   "default": false,
+   "experimental_pressure_range_gpa": [
+    31.46241121667742,
+    107.53915690434465
+   ],
+   "validity": {
+    "pressure_gpa": [
+     31.46241121667742,
+     107.53915690434465
+    ],
+    "temperature_k": [
+     300.0,
+     1000.0
+    ],
+    "notes": [
+     "Marginal digitized-observation coverage only. Separate 300 K cold and 1000 K hot series; no rectangular phase-stability or intermediate-temperature validation claim."
+    ]
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos / scipy.optimize.least_squares",
+     "version": "0.12.0",
+     "scipy": "1.13.1",
+     "numpy": "2.0.2",
+     "version_date": "2026-10-16"
+    },
+    "dataset": "nacl_b2_fei_2007_figure3_digitized",
+    "dataset_identifiers": [
+     "nacl_b2_fei_2007_figure3_digitized",
+     "nacl_b2_fei_2007_figure4_digitized"
+    ],
+    "selection": {
+     "included_rows": 24,
+     "cold_rows": 12,
+     "thermal_rows": 12,
+     "row_ids": [
+      "fig3_300k_01",
+      "fig3_300k_02",
+      "fig3_300k_03",
+      "fig3_300k_04",
+      "fig3_300k_05",
+      "fig3_300k_06",
+      "fig3_300k_07",
+      "fig3_300k_08",
+      "fig3_300k_09",
+      "fig3_300k_10",
+      "fig3_300k_11",
+      "fig3_300k_12",
+      "fig4_1000k_01",
+      "fig4_1000k_02",
+      "fig4_1000k_03",
+      "fig4_1000k_04",
+      "fig4_1000k_05",
+      "fig4_1000k_06",
+      "fig4_1000k_07",
+      "fig4_1000k_08",
+      "fig4_1000k_09",
+      "fig4_1000k_10",
+      "fig4_1000k_11",
+      "fig4_1000k_12"
+     ],
+     "predicate": "Figure 3 at 300 K, then Figure 4 at 1000 K; both touching hot markers retained. Figure 4 cold duplicates, comparison markers and calculated curves excluded."
+    },
+    "objective": "At each stage minimize sum((P_model(V,T)-P_digitized)^2) in GPa^2 with equal pressure-residual weights; cold K0/K0_prime first, then hot q with the cold fit frozen.",
+    "refined_parameters": [
+     "K0",
+     "K0_prime",
+     "q"
+    ],
+    "fixed_parameters": [
+     "V0",
+     "gamma0",
+     "theta0",
+     "n",
+     "Tr"
+    ],
+    "solver": {
+     "method": "trf",
+     "initial_parameters": {
+      "V0": 41.35,
+      "K0": 26.86,
+      "K0_prime": 5.25,
+      "gamma0": 1.7,
+      "q": 0.5,
+      "theta0": 290.0
+     },
+     "xtol": 1e-11,
+     "ftol": 1e-11,
+     "gtol": 1e-11,
+     "bounds": "unbounded"
+    },
+    "covariance_scaling": "Stage-local inverse(J.T@J) * SSE/(N-N_free); conditional standard errors only, without inter-stage propagation. Not stored as catalog parameter errors or joint covariance.",
+    "statistics": {
+     "observations": 24,
+     "solver_success": true,
+     "cold_stage": {
+      "observations": 12,
+      "law": "printed",
+      "residual_direction": "pressure",
+      "weighting": "equal pressure weights; no experimental error weights recovered",
+      "free_parameters": [
+       "K0",
+       "K0_prime"
+      ],
+      "fixed_parameters": {
+       "V0": 41.35,
+       "gamma0": 1.7,
+       "q": 0.5,
+       "theta0": 290.0
+      },
+      "parameters": {
+       "K0": 26.88910688628862,
+       "K0_prime": 5.246912395711911
+      },
+      "conditional_standard_errors": {
+       "K0": 2.129618146414732,
+       "K0_prime": 0.2700688894059465
+      },
+      "rmse_gpa": 1.8729577722867148,
+      "solver_success": true
+     },
+     "thermal_stage": {
+      "observations": 12,
+      "law": "printed",
+      "residual_direction": "pressure",
+      "weighting": "equal pressure weights; no experimental error weights recovered",
+      "free_parameters": [
+       "q"
+      ],
+      "fixed_parameters": {
+       "V0": 41.35,
+       "K0": 26.88910688628862,
+       "K0_prime": 5.246912395711911,
+       "gamma0": 1.7,
+       "theta0": 290.0
+      },
+      "parameters": {
+       "q": 0.9933854990920269
+      },
+      "conditional_standard_errors": {
+       "q": 0.4388146078612062
+      },
+      "rmse_gpa": 1.8740067298343606,
+      "solver_success": true
+     }
+    },
+    "reproduction": {
+     "script": "scripts/reproduce_fei_2007_nacl_b2.py",
+     "command": "python -m scripts.reproduce_fei_2007_nacl_b2 --write-refit",
+     "report": "docs/data/fei-2007-nacl-b2-reproduction.json",
+     "source_sha256": "eab6fc6fd74ad84df6fcf4188d7337c5cd32dc10b62328580d0242d709eeeb8a",
+     "dataset_sha256": {
+      "nacl_b2_fei_2007_figure3_digitized": "926cbcfaf0a14aad1ca4e52271023dc59e3e7998c81754f23ed8394222000673",
+      "nacl_b2_fei_2007_figure4_digitized": "d4bca161dbcc1d9b744d734d5e1788b10fe8c92fb371ab34e98cddb7ab66cdbb"
+     }
+    }
+   }
   }
  ],
  "format": "peritheos.material",
@@ -2500,7 +2835,8 @@
     "media_type": "text/csv"
    },
    "used_by_eos_records": [
-    "nacl_b2_fei_2007"
+    "nacl_b2_fei_2007",
+    "nacl_b2_fei_2007_staged_thermal_refit"
    ],
    "provenance": {
     "type": "digitized_from_primary_figure",
@@ -2619,7 +2955,8 @@
     "media_type": "text/csv"
    },
    "used_by_eos_records": [
-    "nacl_b2_fei_2007"
+    "nacl_b2_fei_2007",
+    "nacl_b2_fei_2007_staged_thermal_refit"
    ],
    "provenance": {
     "type": "digitized_from_primary_figure",

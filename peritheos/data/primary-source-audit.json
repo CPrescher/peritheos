@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 656,
+    "records": 657,
     "deferred": 3,
     "not_reproduced": 7,
-    "primary_source_validated": 646
+    "primary_source_validated": 647
   },
   "records": [
     {
@@ -10319,6 +10319,27 @@
         "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306",
         "finding": "Vinet 26.86/5.25; adopted V0=41.35, gamma0=1.70, theta0=290; q=0.5(3); 300 K subtraction and two-atom formula-unit normalization. Printed variable-exponent and integrated-law curves both agree within one graphical stroke width."
       }
+    },
+    {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_fei_2007_staged_thermal_refit",
+      "label": "Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data",
+      "doi": "10.1073/pnas.0609013104",
+      "status": "primary_source_validated",
+      "note": "Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited from the published record. Equal pressure weights are an analyst choice. Duplicate Figure 4 cold markers, other-paper comparisons and calculated curve vertices are excluded. This is a conditional figure-data refit, not reproduction of the authors' fit or independent validation of pressure accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, source weights and calibration covariance remain unavailable. Conditional stage errors are archived in fit statistics only; catalog parameter errors and covariance are unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty are not propagated. Coverage consists of separate 300 and 1000 K series, not a validated P-T rectangle.",
+      "primary_source_check": {
+        "access_url": "https://www.pnas.org/doi/10.1073/pnas.0609013104",
+        "doi": "10.1073/pnas.0609013104",
+        "locations": [
+          "Table 1 and Equations 2-3, page 9183",
+          "Figures 3-4 and NaCl paragraphs, page 9184",
+          "Methods, pages 9185-9186"
+        ],
+        "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306",
+        "finding": "Source authority applies to the digitized markers and inherited equation/fixed parameters. K0, K0-prime and q are independently refitted Peritheos values, not published Fei coefficients."
+      },
+      "reproduction_status": "independent_refit_reproduced"
     },
     {
       "material": "namg2al5sio12_cf",

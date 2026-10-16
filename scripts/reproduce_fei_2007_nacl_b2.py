@@ -8,6 +8,7 @@ required only for extraction). Calculated curves never enter regressions.
 from __future__ import annotations
 
 import argparse
+import copy
 import csv
 import hashlib
 import json
@@ -27,6 +28,24 @@ OUTPUT = ROOT / "docs/data/fei-2007-nacl-b2-reproduction.json"
 PARAMETERS = np.array([41.35, 26.86, 5.25, 1.70, 0.5, 290.0])
 NAMES = ("V0", "K0", "K0_prime", "gamma0", "q", "theta0")
 PDF_SHA256 = "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306"
+REFIT_ID = "nacl_b2_fei_2007_staged_thermal_refit"
+MATERIAL = DATA.parent / "materials/nacl_b2.eosmat"
+REFIT_NOTE = (
+    "Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study "
+    "markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; "
+    "then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. "
+    "The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited "
+    "from the published record. Equal pressure weights are an analyst choice. "
+    "Duplicate Figure 4 cold markers, other-paper comparisons and calculated "
+    "curve vertices are excluded. This is a conditional figure-data refit, not "
+    "reproduction of the authors' fit or independent validation of pressure "
+    "accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, "
+    "source weights and calibration covariance remain unavailable. Conditional "
+    "stage errors are archived in fit statistics only; catalog parameter errors "
+    "and covariance are unset because predictor, calibrant, fixed-anchor and "
+    "inter-stage uncertainty are not propagated. Coverage consists of separate "
+    "300 and 1000 K series, not a validated P-T rectangle."
+)
 
 
 def pressure(volume, temperature, coefficients=PARAMETERS, law="printed"):
@@ -383,6 +402,167 @@ def reproduce(source=None):
     return report
 
 
+def refit_record(published, datasets, source, report):
+    """Build an opt-in record from the independently replayed staged fit."""
+    import scipy
+
+    from peritheos import __version__
+
+    cold = report["cold_fit_figure3"]
+    hot = report["staged_cold_then_hot"]
+    if not (cold["solver_success"] and hot["solver_success"]):
+        raise ValueError("Both NaCl fit stages must converge before registration")
+    record = copy.deepcopy(published)
+    record.update(
+        identifier=REFIT_ID,
+        label="Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data",
+        record_kind="refit",
+        derived_from_record=published["identifier"],
+        default=False,
+        notes=REFIT_NOTE,
+        parameter_errors={"V0": None, "K0": None, "K0_prime": None},
+        parameter_error_confidence=None,
+        parameter_covariance=None,
+    )
+    record["eos"]["parameters"].update(cold["parameters"])
+    record["thermal"]["parameters"].update(hot["parameters"])
+    record["thermal"]["parameter_errors"] = dict.fromkeys(
+        record["thermal"]["parameters"]
+    )
+    selected = [
+        row
+        for row in source["observations"]
+        if (row["figure"], row["temperature_k"]) in {(3, 300), (4, 1000)}
+    ]
+    pressures = [row["pressure_gpa"] for row in selected]
+    coverage = [min(pressures), max(pressures)]
+    record["experimental_pressure_range_gpa"] = coverage
+    record["pressure_range_status"] = "reference_parameterization"
+    record["validity"] = {
+        "pressure_gpa": coverage,
+        "temperature_k": [300.0, 1000.0],
+        "notes": [
+            "Marginal digitized-observation coverage only. Separate 300 K cold "
+            "and 1000 K hot series; no rectangular phase-stability or "
+            "intermediate-temperature validation claim."
+        ],
+    }
+    provenance = record["parameter_provenance"]
+    provenance["determination_method"] = REFIT_NOTE
+    provenance["reference_isotherm"]["K0"] = (
+        "Independent unweighted pressure-residual fit of 12 Figure 3 study "
+        "markers at 300 K, with V0 fixed; see fit_provenance."
+    )
+    provenance["reference_isotherm"]["K0_prime"] = (
+        "Same independent cold fit as K0; neither coefficient replaces the "
+        "published Fei record."
+    )
+    provenance["thermal_correction"]["q"] = (
+        "Independent unweighted pressure-residual fit of all 12 Figure 4 hot "
+        "markers at 1000 K, freezing the preceding cold fit and adopted "
+        "gamma0/theta0; see fit_provenance."
+    )
+    record["fit_provenance"] = {
+        "software": {
+            "name": "Peritheos / scipy.optimize.least_squares",
+            "version": __version__,
+            "scipy": scipy.__version__,
+            "numpy": np.__version__,
+            "version_date": "2026-10-16",
+        },
+        "dataset": record["fit_datasets"][0],
+        "dataset_identifiers": record["fit_datasets"],
+        "selection": {
+            "included_rows": 24,
+            "cold_rows": 12,
+            "thermal_rows": 12,
+            "row_ids": [row["row_id"] for row in selected],
+            "predicate": "Figure 3 at 300 K, then Figure 4 at 1000 K; both "
+            "touching hot markers retained. Figure 4 cold duplicates, "
+            "comparison markers and calculated curves excluded.",
+        },
+        "objective": "At each stage minimize sum((P_model(V,T)-P_digitized)^2) "
+        "in GPa^2 with equal pressure-residual weights; cold K0/K0_prime first, "
+        "then hot q with the cold fit frozen.",
+        "refined_parameters": ["K0", "K0_prime", "q"],
+        "fixed_parameters": ["V0", "gamma0", "theta0", "n", "Tr"],
+        "solver": {
+            "method": "trf",
+            "initial_parameters": dict(zip(NAMES, PARAMETERS.tolist())),
+            "xtol": 1e-11,
+            "ftol": 1e-11,
+            "gtol": 1e-11,
+            "bounds": "unbounded",
+        },
+        "covariance_scaling": "Stage-local inverse(J.T@J) * SSE/(N-N_free); "
+        "conditional standard errors only, without inter-stage propagation. "
+        "Not stored as catalog parameter errors or joint covariance.",
+        "statistics": {
+            "observations": 24,
+            "solver_success": True,
+            "cold_stage": cold,
+            "thermal_stage": hot,
+        },
+        "reproduction": {
+            "script": "scripts/reproduce_fei_2007_nacl_b2.py",
+            "command": "python -m scripts.reproduce_fei_2007_nacl_b2 --write-refit",
+            "report": str(OUTPUT.relative_to(ROOT)),
+            "source_sha256": report["source_sha256"],
+            "dataset_sha256": {
+                dataset["identifier"]: dataset["resource"]["sha256"]
+                for dataset in datasets
+                if dataset["identifier"] in record["fit_datasets"]
+            },
+        },
+    }
+    check = record["scientific_validation"]
+    check.update(
+        audit_date="2026-10-16",
+        note=REFIT_NOTE,
+        refit_status="conditional",
+        reproduction_status="independent_refit_reproduced",
+        original_publication_reproduction_status="not_reproduced",
+        verified_fields=[
+            "source_observations",
+            "equation",
+            "units",
+            "reference_state",
+            "phase",
+            "fixed_parameters",
+            "independent_refit",
+        ],
+    )
+    check["primary_source_check"]["finding"] = (
+        "Source authority applies to the digitized markers and inherited "
+        "equation/fixed parameters. K0, K0-prime and q are independently "
+        "refitted Peritheos values, not published Fei coefficients."
+    )
+    check["pvt_check"].update(
+        status="independent_refit_reproduced", author_fit_reproduced=False
+    )
+    return record
+
+
+def register_refit(source, report):
+    document = json.loads(MATERIAL.read_text(encoding="utf-8"))
+    published = next(
+        r for r in document["eos_records"] if r["identifier"] == "nacl_b2_fei_2007"
+    )
+    record = refit_record(published, document["datasets"], source, report)
+    records = document["eos_records"]
+    records[:] = [r for r in records if r["identifier"] != REFIT_ID]
+    records.append(record)
+    for dataset in document["datasets"]:
+        if dataset["identifier"] in record["fit_datasets"]:
+            users = dataset["used_by_eos_records"]
+            if REFIT_ID not in users:
+                users.append(REFIT_ID)
+    MATERIAL.write_text(
+        json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
+
+
 def plot(source, report):
     import matplotlib.pyplot as plt
 
@@ -440,12 +620,20 @@ def ledger_outcome(record):
     report = reproduce(json.loads(SOURCE.read_text(encoding="utf-8")))
     cold = report["cold_fit_figure3"]
     hot = report["staged_cold_then_hot"]
+    is_refit = record["identifier"] == REFIT_ID
     parameters = []
     for name, published, error, fit in [
         ("K0", 26.86, 2.9, cold),
         ("K0_prime", 5.25, 0.26, cold),
         ("q", 0.5, 0.3, hot),
     ]:
+        if is_refit:
+            published = (
+                record["thermal"]["parameters"][name]
+                if name == "q"
+                else record["eos"]["parameters"][name]
+            )
+            error = None
         value = fit["parameters"][name]
         parameters.append(
             {
@@ -455,10 +643,33 @@ def ledger_outcome(record):
                 "refit": value,
                 "refit_error": fit["conditional_standard_errors"][name],
                 "relative_difference": abs(value - published) / abs(published),
-                "similar": bool(abs(value - published) <= error),
+                "similar": bool(
+                    np.isclose(value, published, rtol=1e-6, atol=1e-9)
+                    if is_refit
+                    else abs(value - published) <= error
+                ),
                 "within_combined_2sigma": None,
             }
         )
+    if is_refit:
+        return {
+            "status": "parity"
+            if all(p["similar"] for p in parameters)
+            else "parity_not_achieved",
+            "parity_basis": "registered_peritheos_refit_reproduced",
+            "reproduction_status": "independent_refit_reproduced",
+            "original_publication_reproduction_status": "not_reproduced",
+            "fit_kind": "stored_staged_thermal_refit_reproduction",
+            "dataset_identifiers": record["fit_datasets"],
+            "observations": 24,
+            "free_parameters": ["K0", "K0_prime", "q"],
+            "fixed_parameters": ["V0", "gamma0", "theta0", "n", "Tr"],
+            "parameters": parameters,
+            "solver_success": cold["solver_success"] and hot["solver_success"],
+            "objective": record["fit_provenance"]["objective"],
+            "reason": REFIT_NOTE,
+            "reproduction": report,
+        }
     return {
         "status": "parity_not_achieved",
         "fit_kind": "diagnostic_staged_figure_pvt",
@@ -476,6 +687,7 @@ def ledger_outcome(record):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pdf", type=Path)
+    parser.add_argument("--write-refit", action="store_true")
     args = parser.parse_args()
     source = (
         recover(args.pdf)
@@ -484,6 +696,8 @@ def main():
     )
     report = reproduce(source)
     OUTPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    if args.write_refit:
+        register_refit(source, report)
     plot(source, report)
     print(
         json.dumps(

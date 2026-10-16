@@ -37659,6 +37659,446 @@
       "status": "parity_not_achieved"
     },
     {
+      "dataset_identifiers": [
+        "nacl_b2_fei_2007_figure3_digitized",
+        "nacl_b2_fei_2007_figure4_digitized"
+      ],
+      "experimental_pressure_range_gpa": [
+        31.46241121667742,
+        107.53915690434465
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        1000.0
+      ],
+      "fit_kind": "stored_staged_thermal_refit_reproduction",
+      "fixed_parameters": [
+        "V0",
+        "gamma0",
+        "theta0",
+        "n",
+        "Tr"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime",
+        "q"
+      ],
+      "label": "Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data",
+      "material_identifier": "nacl_b2",
+      "model": "Vinet",
+      "objective": "At each stage minimize sum((P_model(V,T)-P_digitized)^2) in GPa^2 with equal pressure-residual weights; cold K0/K0_prime first, then hot q with the cold fit frozen.",
+      "observations": 24,
+      "original_publication_reproduction_status": "not_reproduced",
+      "parameters": [
+        {
+          "parameter": "K0",
+          "published": 26.88910688628862,
+          "published_error": null,
+          "refit": 26.88910688628862,
+          "refit_error": 2.129618146414732,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.246912395711911,
+          "published_error": null,
+          "refit": 5.246912395711911,
+          "refit_error": 0.2700688894059465,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "q",
+          "published": 0.9933854990920269,
+          "published_error": null,
+          "refit": 0.9933854990920269,
+          "refit_error": 0.4388146078612062,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "parity_basis": "registered_peritheos_refit_reproduced",
+      "primary_data_finding": "Vector marker centers recovered with exact path and axis coordinates, including both touching hot markers. Figure 3/4 cold rows are duplicates and are not pooled. Original unrounded measurements, P/V/T errors and measured Pt cells are missing. Sata/Ono comparison paths and calculated curve vertices are excluded from fits.",
+      "primary_data_status": "plot_only",
+      "primary_source": "https://www.pnas.org/doi/10.1073/pnas.0609013104",
+      "reason": "Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited from the published record. Equal pressure weights are an analyst choice. Duplicate Figure 4 cold markers, other-paper comparisons and calculated curve vertices are excluded. This is a conditional figure-data refit, not reproduction of the authors' fit or independent validation of pressure accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, source weights and calibration covariance remain unavailable. Conditional stage errors are archived in fit statistics only; catalog parameter errors and covariance are unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty are not propagated. Coverage consists of separate 300 and 1000 K series, not a validated P-T rectangle.",
+      "record_identifier": "nacl_b2_fei_2007_staged_thermal_refit",
+      "reproduction": {
+        "author_fit_reproduced": false,
+        "cold_fit_figure3": {
+          "conditional_standard_errors": {
+            "K0": 2.129618146414732,
+            "K0_prime": 0.2700688894059465
+          },
+          "fixed_parameters": {
+            "V0": 41.35,
+            "gamma0": 1.7,
+            "q": 0.5,
+            "theta0": 290.0
+          },
+          "free_parameters": [
+            "K0",
+            "K0_prime"
+          ],
+          "law": "printed",
+          "observations": 12,
+          "parameters": {
+            "K0": 26.88910688628862,
+            "K0_prime": 5.246912395711911
+          },
+          "residual_direction": "pressure",
+          "rmse_gpa": 1.8729577722867148,
+          "solver_success": true,
+          "weighting": "equal pressure weights; no experimental error weights recovered"
+        },
+        "cold_fit_figure4_sensitivity": {
+          "conditional_standard_errors": {
+            "K0": 2.1310072694453197,
+            "K0_prime": 0.2707589922151107
+          },
+          "fixed_parameters": {
+            "V0": 41.35,
+            "gamma0": 1.7,
+            "q": 0.5,
+            "theta0": 290.0
+          },
+          "free_parameters": [
+            "K0",
+            "K0_prime"
+          ],
+          "law": "printed",
+          "observations": 12,
+          "parameters": {
+            "K0": 26.834139970029497,
+            "K0_prime": 5.252541698770625
+          },
+          "residual_direction": "pressure",
+          "rmse_gpa": 1.876155123107606,
+          "solver_success": true,
+          "weighting": "equal pressure weights; no experimental error weights recovered"
+        },
+        "coordinate_sensitivity": {
+          "bound_pt": 0.357,
+          "common_offset_q_range": [
+            0.310261600551717,
+            2.001436116436609
+          ],
+          "meaning": "One printed stroke-width coordinate perturbations; not source errors, statistical interval, or confidence on q.",
+          "pressure_bound_gpa": 0.2868926234040091,
+          "volume_bound_a3": 0.06169532532619026
+        },
+        "curve_checks": [
+          {
+            "figure": 3,
+            "law": "printed",
+            "max_abs_residual_gpa": 0.0475673070843996,
+            "max_horizontal_difference_pt": 0.06445964701274699,
+            "printed_linewidth_pt": 0.365,
+            "rmse_gpa": 0.017962412404369354,
+            "role": "calculated curve, excluded from fits",
+            "temperature_k": 300,
+            "vertices": 24
+          },
+          {
+            "figure": 3,
+            "law": "integrated",
+            "max_abs_residual_gpa": 0.0475673070843996,
+            "max_horizontal_difference_pt": 0.06445964701274699,
+            "printed_linewidth_pt": 0.365,
+            "rmse_gpa": 0.017962412404369354,
+            "role": "calculated curve, excluded from fits",
+            "temperature_k": 300,
+            "vertices": 24
+          },
+          {
+            "figure": 4,
+            "law": "printed",
+            "max_abs_residual_gpa": 0.07934913692278656,
+            "max_horizontal_difference_pt": 0.09873952681433405,
+            "printed_linewidth_pt": 0.357,
+            "rmse_gpa": 0.022631971206275366,
+            "role": "calculated curve, excluded from fits",
+            "temperature_k": 300,
+            "vertices": 24
+          },
+          {
+            "figure": 4,
+            "law": "integrated",
+            "max_abs_residual_gpa": 0.07934913692278656,
+            "max_horizontal_difference_pt": 0.09873952681433405,
+            "printed_linewidth_pt": 0.357,
+            "rmse_gpa": 0.022631971206275366,
+            "role": "calculated curve, excluded from fits",
+            "temperature_k": 300,
+            "vertices": 24
+          },
+          {
+            "figure": 4,
+            "law": "printed",
+            "max_abs_residual_gpa": 0.16785995246158336,
+            "max_horizontal_difference_pt": 0.20887955332471556,
+            "printed_linewidth_pt": 0.357,
+            "rmse_gpa": 0.05538917951688756,
+            "role": "calculated curve, excluded from fits",
+            "temperature_k": 1000,
+            "vertices": 24
+          },
+          {
+            "figure": 4,
+            "law": "integrated",
+            "max_abs_residual_gpa": 0.0755343910607138,
+            "max_horizontal_difference_pt": 0.0939925791354383,
+            "printed_linewidth_pt": 0.357,
+            "rmse_gpa": 0.024177193482154795,
+            "role": "calculated curve, excluded from fits",
+            "temperature_k": 1000,
+            "vertices": 24
+          },
+          {
+            "figure": 4,
+            "law": "printed",
+            "max_abs_residual_gpa": 0.18096971366122716,
+            "max_horizontal_difference_pt": 0.2251929206491939,
+            "printed_linewidth_pt": 0.357,
+            "rmse_gpa": 0.06153415930046399,
+            "role": "calculated curve, excluded from fits",
+            "temperature_k": 2000,
+            "vertices": 24
+          },
+          {
+            "figure": 4,
+            "law": "integrated",
+            "max_abs_residual_gpa": 0.08786710693161126,
+            "max_horizontal_difference_pt": 0.10933901611827523,
+            "printed_linewidth_pt": 0.357,
+            "rmse_gpa": 0.023703273704173407,
+            "role": "calculated curve, excluded from fits",
+            "temperature_k": 2000,
+            "vertices": 24
+          }
+        ],
+        "doi": "10.1073/pnas.0609013104",
+        "figure3_vs_figure4_same_cold_rows": {
+          "duplicate_observations_not_pooled": true,
+          "max_pressure_difference_gpa": 0.05576934479618245,
+          "max_volume_difference_a3": 0.010969720312417053
+        },
+        "hot_excluding_touching_points_sensitivity": {
+          "conditional_standard_errors": {
+            "q": 0.4026122915967163
+          },
+          "fixed_parameters": {
+            "K0": 26.86,
+            "K0_prime": 5.25,
+            "V0": 41.35,
+            "gamma0": 1.7,
+            "theta0": 290.0
+          },
+          "free_parameters": [
+            "q"
+          ],
+          "law": "printed",
+          "observations": 10,
+          "parameters": {
+            "q": 0.6715189318200832
+          },
+          "residual_direction": "pressure",
+          "rmse_gpa": 1.7840097272713265,
+          "solver_success": true,
+          "weighting": "equal pressure weights; no experimental error weights recovered"
+        },
+        "hot_q_only_integrated_law_sensitivity": {
+          "conditional_standard_errors": {
+            "q": 0.4353887705712372
+          },
+          "fixed_parameters": {
+            "K0": 26.86,
+            "K0_prime": 5.25,
+            "V0": 41.35,
+            "gamma0": 1.7,
+            "theta0": 290.0
+          },
+          "free_parameters": [
+            "q"
+          ],
+          "law": "integrated",
+          "observations": 12,
+          "parameters": {
+            "q": 0.946104706307448
+          },
+          "residual_direction": "pressure",
+          "rmse_gpa": 1.873744077556127,
+          "solver_success": true,
+          "weighting": "equal pressure weights; no experimental error weights recovered"
+        },
+        "hot_q_only_published_cold": {
+          "conditional_standard_errors": {
+            "q": 0.4359799805751579
+          },
+          "fixed_parameters": {
+            "K0": 26.86,
+            "K0_prime": 5.25,
+            "V0": 41.35,
+            "gamma0": 1.7,
+            "theta0": 290.0
+          },
+          "free_parameters": [
+            "q"
+          ],
+          "law": "printed",
+          "observations": 12,
+          "parameters": {
+            "q": 0.9812191728750327
+          },
+          "residual_direction": "pressure",
+          "rmse_gpa": 1.8735510606987282,
+          "solver_success": true,
+          "weighting": "equal pressure weights; no experimental error weights recovered"
+        },
+        "hot_q_only_volume_residual_sensitivity": {
+          "conditional_standard_errors": {
+            "q": 0.3469895321221099
+          },
+          "fixed_parameters": {
+            "K0": 26.86,
+            "K0_prime": 5.25,
+            "V0": 41.35,
+            "gamma0": 1.7,
+            "theta0": 290.0
+          },
+          "free_parameters": [
+            "q"
+          ],
+          "law": "printed",
+          "observations": 12,
+          "parameters": {
+            "q": 0.8548425226780204
+          },
+          "residual_direction": "volume",
+          "rmse_a3": 0.14642116189307092,
+          "solver_success": true,
+          "weighting": "equal volume weights; no experimental error weights recovered"
+        },
+        "missing_for_exact_reproduction": [
+          "original unrounded NaCl cell parameters and temperatures",
+          "paired measured Pt cells for independent pressure reduction",
+          "P/V/T uncertainty columns and calibration covariance",
+          "author weights, residual direction and optimization/covariance details"
+        ],
+        "native_max_difference_gpa": 1.1368683772161603e-13,
+        "normalization": "V0 and volumes: A^3 per B2 cell, one NaCl FU, two atoms; molar volume = V*N_A*1e-30 m^3/mol(FU); Debye energy uses n=2; reference 300 K.",
+        "published_observation_comparisons": {
+          "figure3_300k": {
+            "max_abs_residual_gpa": 3.982041377018035,
+            "mean_residual_gpa": -0.019965818259788826,
+            "observations": 12,
+            "pressure_residuals_gpa": [
+              0.18134704719156147,
+              -0.8338620482352255,
+              -0.5366916131900794,
+              0.2042533865009446,
+              1.6136525908029427,
+              -0.4550054110734152,
+              1.5642085521895552,
+              -3.009162356193201,
+              0.7941462393091712,
+              2.9277328471555393,
+              1.291832323442776,
+              -3.982041377018035
+            ],
+            "rmse_gpa": 1.873020137884707
+          },
+          "figure4_1000k": {
+            "max_abs_residual_gpa": 3.4959463081891187,
+            "mean_residual_gpa": 0.6803014211046078,
+            "observations": 12,
+            "pressure_residuals_gpa": [
+              -0.8604952638337267,
+              0.5885388360264727,
+              0.028811411154897826,
+              0.1215548870687897,
+              0.9196279965956222,
+              2.5270412519421654,
+              3.4959463081891187,
+              3.4377570767700263,
+              1.9242270587966601,
+              0.12541324166926415,
+              -0.7768049083306181,
+              -3.3680008427933785
+            ],
+            "rmse_gpa": 2.0008151879503355
+          },
+          "figure4_300k": {
+            "max_abs_residual_gpa": 4.03429061753755,
+            "mean_residual_gpa": 0.011593262801575873,
+            "observations": 12,
+            "pressure_residuals_gpa": [
+              0.20697207140130658,
+              -0.8474984166900299,
+              -0.5255950322300151,
+              0.17136175179296487,
+              1.6997463481594224,
+              -0.33720694611265856,
+              1.5768538854816398,
+              -2.8730580402269794,
+              0.7468363850880451,
+              2.9246445450105796,
+              1.4303532194821855,
+              -4.03429061753755
+            ],
+            "rmse_gpa": 1.8762374641766457
+          }
+        },
+        "published_parameters": {
+          "K0": 26.86,
+          "K0_prime": 5.25,
+          "V0": 41.35,
+          "gamma0": 1.7,
+          "q": 0.5,
+          "theta0": 290.0
+        },
+        "qualification": "The source describes a least-squares cold EOS and Mie-Gruneisen thermal fit. q is the remaining thermal parameter once source-adopted gamma0/theta0 are fixed. These diagnostics use only study markers, fixed V0, cold K0/K0_prime free followed by hot q free. Conditional errors omit cold-stage and Pt-calibration covariance. Graphical agreement and q proximity do not establish author-fit parity, theta convention uniqueness or absolute pressure accuracy.",
+        "source_error_weighted_fit": {
+          "reason": "No P/V/T experimental uncertainties recovered; graphical stroke widths are not source-error weights.",
+          "status": "not_possible"
+        },
+        "source_sha256": "eab6fc6fd74ad84df6fcf4188d7337c5cd32dc10b62328580d0242d709eeeb8a",
+        "staged_cold_then_hot": {
+          "conditional_standard_errors": {
+            "q": 0.4388146078612062
+          },
+          "fixed_parameters": {
+            "K0": 26.88910688628862,
+            "K0_prime": 5.246912395711911,
+            "V0": 41.35,
+            "gamma0": 1.7,
+            "theta0": 290.0
+          },
+          "free_parameters": [
+            "q"
+          ],
+          "law": "printed",
+          "observations": 12,
+          "parameters": {
+            "q": 0.9933854990920269
+          },
+          "residual_direction": "pressure",
+          "rmse_gpa": 1.8740067298343606,
+          "solver_success": true,
+          "weighting": "equal pressure weights; no experimental error weights recovered"
+        }
+      },
+      "reproduction_status": "independent_refit_reproduced",
+      "solver_success": true,
+      "source_notes": "Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited from the published record. Equal pressure weights are an analyst choice. Duplicate Figure 4 cold markers, other-paper comparisons and calculated curve vertices are excluded. This is a conditional figure-data refit, not reproduction of the authors' fit or independent validation of pressure accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, source weights and calibration covariance remain unavailable. Conditional stage errors are archived in fit statistics only; catalog parameter errors and covariance are unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty are not propagated. Coverage consists of separate 300 and 1000 K series, not a validated P-T rectangle.",
+      "status": "parity"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -51085,10 +51525,10 @@
   ],
   "summary": {
     "not_refittable": 177,
-    "parity": 229,
+    "parity": 230,
     "parity_not_achieved": 75,
     "similar": 159,
     "source_reconstruction": 16,
-    "total": 656
+    "total": 657
   }
 }
