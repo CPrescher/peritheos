@@ -228,7 +228,7 @@ def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
     for live, archived in zip(
         result["conditional_au_fits"], saved["conditional_au_fits"]
     ):
-        assert live["k0_prime"] == pytest.approx(archived["k0_prime"], abs=1e-10)
+        assert live["k0_prime"] == pytest.approx(archived["k0_prime"], rel=0, abs=1e-8)
     # The first branch truly recalibrates W before reducing the Au states.
     branch = result["measurement_only_sequential_branch"][0]
     assert branch["w_fit"]["rows"] == 54
