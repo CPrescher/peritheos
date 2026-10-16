@@ -338,15 +338,28 @@ production EOS record added.**
 
 ### C11 — Dense hydrous phase E
 
+**Integrated 2026-10-16:** `phase_e_fe0072`, the measured Fe-bearing sample.
+
 - **Source:** Crichton and Ross (2000), [Equation of state of phase
   E](https://doi.org/10.1180/002646100549427).
 - **Published scope:** single-crystal compression to 6.7 GPa for measured
   `Mg1.96(7)Fe0.072(5)Si1.04(5)H3.7(8)O6`, with BM3
   `K0 = 92.9(7) GPa` and `K0' = 7.3(2)`.
-- **Likely mapping:** a new BM3 material record.
-- **Effort/risk:** low-to-medium. Extract `V0` and atomic structure from the
-  paper or a primary crystallographic source and retain the measured formula
-  with its analytical uncertainties.
+- **Bundled record:** published BM3 `V0 = 105.627(7) Å³`,
+  `K0 = 92.9(7) GPa`, `K0' = 7.3(2)`, all freely refined. All eleven
+  primary P,a,c,V rows and their reported errors are bundled.
+- **Parity:** successfully recovered within reported uncertainty. The weighted
+  refit shifts each coefficient by less than 0.123 published error widths;
+  the maximum curve difference is about 0.0096 GPa. Published coefficients
+  remain unchanged. [Audit and plot](literature-reproductions/phase-e-crichton-ross-2000.md).
+- **Structure/calibration:** R-3m, conventional hexagonal cell, O6-normalized
+  empirical formula with Z=1; eight indexed phase E reflection positions
+  provide the documented diffraction fallback. Target-sample occupied sites
+  and H positions are not inferred from different-composition structures.
+  Angel (1997) quartz scale is identified; paired quartz readings are absent.
+- **Remaining scope:** exact original regression details are optional provenance
+  gaps, not failed parity. Wang (2022) thermal data concern a distinct Fe-free
+  sample and are not added to this material.
 
 ### C12 — Brucite Mg(OH)2
 

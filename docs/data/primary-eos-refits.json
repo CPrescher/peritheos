@@ -4,7 +4,7 @@
   "generated_with": "scripts/validate_primary_eos_refits.py",
   "policy": {
     "not_refittable": "Available observations or source reduction/calibration details are insufficient for an independent full refit. A qualified subset or proxy calculation may still be available as a diagnostic.",
-    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered. Fei 2007 Au parity is a staged equal-pressure-weight replay within printed parameter widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved. For explicitly registered Peritheos refits, parity verifies the stored coefficients under the documented selection and objective; it does not imply reproduction of source-author coefficients. Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable.",
+    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered. Fei 2007 Au parity is a staged equal-pressure-weight replay within printed parameter widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved. For explicitly registered Peritheos refits, parity verifies the stored coefficients under the documented selection and objective; it does not imply reproduction of source-author coefficients. Phase E (Crichton and Ross 2000) achieves fit parity within reported parameter error widths, with small pressure-curve differences relative to the observation errors. Exact author workflow availability is a separate provenance assessment. Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria, or a dedicated partial-source audit cannot reproduce the published coefficient pair.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold.",
     "source_reconstruction": "A source calculation or composition of audited source equations is reproduced without independently fitting the complete EOS coefficients. Component refits and remaining source-input gaps are documented separately."
@@ -40709,6 +40709,93 @@
       "status": "parity"
     },
     {
+      "dataset_identifiers": [
+        "phase_e_crichton_ross_2000_table1"
+      ],
+      "exact_workflow_provenance_is_separate": true,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        6.671
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "iterated_effective_variance_pv",
+      "fit_recovery": {
+        "all_coefficients_within_published_errors": true,
+        "all_curve_differences_within_combined_observation_errors": true,
+        "assessment": "The published physical volume EOS is successfully recovered within its reported uncertainties. Small central-value differences are reported, not treated as a failed reproduction.",
+        "coefficient_differences": {
+          "K0": -0.08549016320176861,
+          "K0_prime": -0.02278310378634263,
+          "V0": 0.0005239134268890666
+        },
+        "comparison_fit": "iterated_effective_variance",
+        "exact_workflow_provenance_is_separate": true,
+        "max_coefficient_shift_over_published_error": 0.12212880457395517,
+        "max_curve_difference_gpa_on_2000_point_volume_grid": 0.009574440238959703,
+        "max_curve_difference_over_combined_observation_error": 0.3646853133003022,
+        "published_coefficients_preserved": true,
+        "status": "parity_within_reported_uncertainty"
+      },
+      "fixed_parameters": [],
+      "label": "Crichton and Ross (2000), Fe-bearing phase E, free BM3",
+      "material_identifier": "phase_e_fe0072",
+      "model": "BM3",
+      "observations": 11,
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 0.0005239134268890666,
+          "parameter": "V0",
+          "published": 105.627,
+          "published_error": 0.007,
+          "refit": 105.62752391342688,
+          "refit_error": null,
+          "relative_difference": 4.960033200687955e-06,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.08549016320176861,
+          "parameter": "K0",
+          "published": 92.9,
+          "published_error": 0.7,
+          "refit": 92.81450983679824,
+          "refit_error": null,
+          "relative_difference": 0.0009202385705249581,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.02278310378634263,
+          "parameter": "K0_prime",
+          "published": 7.3,
+          "published_error": 0.2,
+          "refit": 7.277216896213657,
+          "refit_error": null,
+          "relative_difference": 0.0031209731214167985,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "All 11 P,a,c,V rows and every reported esd; absent ambient pressure esd is null. No original calibrant readings in source or publisher-listed supplements.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://triage19.com/products/MM/MM064P0561.pdf",
+      "published_rmse_gpa": 0.012356921019492,
+      "qualification": "Fit parity within reported uncertainty on all 11 primary P-V rows. The largest weighted-refit coefficient shift is 0.123 reported error widths; maximum curve difference is 0.0096 GPa. Published coefficients are retained. Effective P/V variance assumes no covariance and omits the unreported ambient-pressure variance term while retaining its volume esd. Exact original workflow availability is a separate provenance note, not a failed-fit classification. See the [audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).",
+      "reason": "Fit parity within reported uncertainty on all 11 primary P-V rows. The largest weighted-refit coefficient shift is 0.123 reported error widths; maximum curve difference is 0.0096 GPa. Published coefficients are retained. Effective P/V variance assumes no covariance and omits the unreported ambient-pressure variance term while retaining its volume esd. Exact original workflow availability is a separate provenance note, not a failed-fit classification. See the [audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).",
+      "record_identifier": "phase_e_fe0072_crichton_ross_2000_bm3",
+      "reproduction_report": "docs/data/phase-e-crichton-ross-2000-reproduction.json",
+      "residual_plot": "docs/data/phase-e-crichton-ross-2000-parity.png",
+      "rmse_gpa": 0.010738316186002777,
+      "solver_success": true,
+      "source_notes": "Only the physical volume BM3 is executable. Axial BM3-on-edge-cubes fits are supporting data, not volume EOS records. Published parameters remain unchanged. Independent refits are diagnostic outputs in the material-specific reproduction report, not replacement published coefficients. Room temperature is represented nominally as 298 K.",
+      "status": "parity"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -50998,10 +51085,10 @@
   ],
   "summary": {
     "not_refittable": 177,
-    "parity": 228,
+    "parity": 229,
     "parity_not_achieved": 75,
     "similar": 159,
     "source_reconstruction": 16,
-    "total": 655
+    "total": 656
   }
 }

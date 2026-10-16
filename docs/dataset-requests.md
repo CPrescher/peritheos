@@ -32,6 +32,7 @@ exact original fit or calibration replay. No new author outreach is authorized.
 
 | Source | Evidence already recovered | Remaining optional evidence | Contact status |
 |---|---|---|---|
+| [Crichton–Ross (2000) phase E](literature-reproductions/phase-e-crichton-ross-2000.md) | All eleven primary P,a,c,V rows/errors, author-thesis comparison, published BM3 and parity within reported uncertainty, coefficient differences and residual plot | Optional original unrounded fit table/settings and covariance; paired quartz volumes/errors for independent pressure recalculation. These inputs do not block use or parity of the accepted EOS; no further outreach is needed for integration | Not contacted |
 | Farla (2025) rubidium halides | Primary numerical supplement, historical CsCl implementation, independent weighted fits and direct EosFit7c replay | Original saved EosFit7/GSAS-II projects, exact row flags, unrounded input/errors/correlations, raw ruby wavelengths and saved CsCl runtime settings | Not contacted; user excludes author contact |
 
 ### Morard et al. (2026): FeS

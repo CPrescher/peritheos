@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **655** EOS records. **228** achieve uncertainty parity, **159** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[75](#parity-not-achieved)** do not achieve parity, **177** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **656** EOS records. **229** achieve uncertainty parity, **159** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[75](#parity-not-achieved)** do not achieve parity, **177** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -43,6 +43,12 @@ alternative retains theta0=768 K. Table errors are a comparison scale
 only for the script vector. Script-specific errors and exact bootstrap
 reproduction remain unavailable. See the
 [source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).
+Phase E (Crichton and Ross 2000) achieves fit parity within reported
+parameter errors on all 11 primary rows. Weighted-refit coefficient
+shifts are below 0.123 reported error widths and the largest curve
+difference is about 0.0096 GPa. Exact workflow availability remains
+a separate provenance assessment. See the
+[audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).
 `source_reconstruction` covers source calculations and compositions of
 audited equations without an independent refit of the complete EOS.
 Component refits and remaining source-input gaps are documented separately.
@@ -616,6 +622,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`perovskite_orthorhombic_knittle_1987_bm3_1`](https://www.science.org/doi/epdf/10.1126/science.235.4789.668) | `mgfe_perovskite_knittle_1987_table2_compression` | 5 | `V0` 162.77 → 165.729; `K0` 266 → 194.747; `K0_prime` 3.9 → 5.49081 | 2.8805/1.4557 | [similar](#investigation-perovskite_orthorhombic_knittle_1987_bm3_1) |
 | [`phase_d_ant_a_shieh_2000_bm2_1`](https://doi.org/10.1016/S0012-821X(00)00033-9) | `phase_d_shieh_2000_table2_pv` | 6 | `K0` 134 → 139.465 | 1.26057/0.746702 | parity |
 | [`phase_d_ant_b_shieh_2000_bm2_1`](https://doi.org/10.1016/S0012-821X(00)00033-9) | `phase_d_shieh_2000_table2_pv` | 5 | `K0` 134 → 134.714 | 1.83985/1.68226 | parity |
+| [`phase_e_fe0072_crichton_ross_2000_bm3`](https://triage19.com/products/MM/MM064P0561.pdf) | `phase_e_crichton_ross_2000_table1` | 11 | `V0` 105.627 → 105.628; `K0` 92.9 → 92.8145; `K0_prime` 7.3 → 7.27722 | 0.0123569/0.0107383 | parity — Fit parity within reported uncertainty on all 11 primary P-V rows. The largest weighted-refit coefficient shift is 0.123 reported error widths; maximum curve difference is 0.0096 GPa. Published coefficients are retained. Effective P/V variance assumes no covariance and omits the unreported ambient-pressure variance term while retaining its volume esd. Exact original workflow availability is a separate provenance note, not a failed-fit classification. See the [audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md). |
 | [`phase_egg_schulze_2018_bm3_1`](https://doi.org/10.2138/am-2018-6562) | `phase_egg_schulze_2018_table1_compression` | 15 | `V0` 214.08 → 214.081; `K0` 153 → 152.846; `K0_prime` 8.6 → 8.59751 | 0.22699/0.211733 | parity |
 | [`phase_egg_mookherjee_2019_bm3_lp_1`](https://par.nsf.gov/servlets/purl/10089001) | `phase_egg_mookherjee_2019_supplement_lp_pv` | 11 | `V0` 210.21 → 210.218; `K0` 164.4 → 164.834; `K0_prime` 7.14 → 7.08137 | 0.0301132/0.0233925 | parity — Curve-level diagnostic reproduction: Supplementary Table 1 provides all 11 static LP pressure-volume points and they recover the published BM3 coefficients within the printed parameter uncertainties. The publication fitted total energy versus volume, however, and the deposited workbook does not include those energies, row uncertainties, regression weights, objective, covariance, or fit statistic. This pressure-residual refit therefore validates the published pressure curve but cannot reconstruct the source energy-fit protocol exactly. See the dedicated phase-Egg reproduction in literature-reproductions.md. |
 | [`phase_egg_mookherjee_2019_bm3_hp_1`](https://par.nsf.gov/servlets/purl/10089001) | `phase_egg_mookherjee_2019_supplement_hp_pv` | 5 | `V0` 207.74 → 207.718; `K0` 222.8 → 223.51; `K0_prime` 4.44 → 4.42432 | 0.0396658/0.0112315 | [similar](#investigation-phase_egg_mookherjee_2019_bm3_hp_1) |

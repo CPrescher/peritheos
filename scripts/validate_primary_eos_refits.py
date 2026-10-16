@@ -5249,7 +5249,11 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_farla_2025_" in record["identifier"]:
+            if record["identifier"] == "phase_e_fe0072_crichton_ross_2000_bm3":
+                from scripts.reproduce_phase_e_crichton_ross_2000 import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif "_farla_2025_" in record["identifier"]:
                 from scripts.catalog_addition_outcomes import rubidium_outcome
 
                 outcome = rubidium_outcome(record)
@@ -5546,6 +5550,10 @@ def validate_all() -> dict[str, Any]:
                 " For explicitly registered Peritheos refits, parity verifies the "
                 "stored coefficients under the documented selection and objective; "
                 "it does not imply reproduction of source-author coefficients."
+                " Phase E (Crichton and Ross 2000) achieves fit parity within "
+                "reported parameter error widths, with small pressure-curve "
+                "differences relative to the observation errors. Exact author "
+                "workflow availability is a separate provenance assessment."
                 " " + LEDGER_PARITY_POLICY
             ),
             "similar": (
@@ -5732,6 +5740,12 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "only for the script vector. Script-specific errors and exact bootstrap ",
         "reproduction remain unavailable. See the ",
         "[source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
+        "Phase E (Crichton and Ross 2000) achieves fit parity within reported ",
+        "parameter errors on all 11 primary rows. Weighted-refit coefficient ",
+        "shifts are below 0.123 reported error widths and the largest curve ",
+        "difference is about 0.0096 GPa. Exact workflow availability remains ",
+        "a separate provenance assessment. See the ",
+        "[audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).",
         "`source_reconstruction` covers source calculations and compositions of ",
         "audited equations without an independent refit of the complete EOS. ",
         "Component refits and remaining source-input gaps are documented separately. ",

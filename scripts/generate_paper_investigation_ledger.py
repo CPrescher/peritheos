@@ -48,6 +48,15 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1180/002646100549427": (
+        "Fe-bearing phase E volume EOS successfully recovered: parity within "
+        "reported uncertainty on all 11 primary rows. Published coefficients "
+        "are preserved. Largest weighted-refit shift is 0.123 reported error "
+        "widths; maximum curve difference is about 0.0096 GPa. Exact original "
+        "workflow availability is separate provenance, not a failed-fit "
+        "classification. See the [audit, coefficient differences and residual "
+        "plot](literature-reproductions/phase-e-crichton-ross-2000.md)."
+    ),
     "10.1029/2021jb023562": (
         "Conditional numerical parity for the three free forsterite coefficients "
         "using all 51 reconstructed observations and printed Table 2 error widths. "

@@ -1,5 +1,30 @@
 # References
 
+- Crichton, W. A. & Ross, N. L. (2000). Equation of state of phase E.
+  *Mineralogical Magazine*, **64**, 561–567.
+  [doi:10.1180/002646100549427](https://doi.org/10.1180/002646100549427).
+  The measured Fe-bearing sample, published BM3, all eleven primary rows and
+  reported errors are bundled. See the [parity assessment, differences and
+  residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).
+- Kudoh, Y., Finger, L. W., Hazen, R. M., Prewitt, C. T., Kanzaki, M. &
+  Veblen, D. R. (1993). Phase E: A high pressure hydrous silicate with unique
+  crystal chemistry. *Physics and Chemistry of Minerals*, **19**, 357–360.
+  [doi:10.1007/BF00202972](https://doi.org/10.1007/BF00202972).
+  Independent structure and disorder provenance; its different-composition
+  site models are retained as evidence rather than assigned to the EOS sample.
+- Shieh, S. R., Mao, H.-K., Konzett, J. & Hemley, R. J. (2000). In-situ high
+  pressure X-ray diffraction of phase E to 15 GPa. *American Mineralogist*,
+  **85**, 765–769.
+  [doi:10.2138/am-2000-5-616](https://doi.org/10.2138/am-2000-5-616).
+  Figure 1 supplies the eight indexed phase E reflections used in the
+  explicitly limited peak-position fallback.
+- Angel, R. J., Allan, D. R., Miletich, R. & Finger, L. W. (1997). The Use of
+  Quartz as an Internal Pressure Standard in High-Pressure Crystallography.
+  *Journal of Applied Crystallography*, **30**, 461–466.
+  [doi:10.1107/S0021889897000861](https://doi.org/10.1107/S0021889897000861).
+  The quantitative pressure standard used by the phase E source; original
+  paired quartz readings are not printed in that phase E experiment.
+
 - Miozzi, F., Matas, J., Guignot, N., Badro, J., Siebert, J. & Fiquet, G.
   (2020). A New Reference for the Thermal Equation of State of Iron.
   *Minerals*, **10**, 100.

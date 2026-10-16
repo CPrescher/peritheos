@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 655,
+    "records": 656,
     "deferred": 3,
     "not_reproduced": 7,
-    "primary_source_validated": 645
+    "primary_source_validated": 646
   },
   "records": [
     {
@@ -10860,6 +10860,35 @@
         "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
         "doi": "10.1016/s0012-821x(00)00033-9"
       }
+    },
+    {
+      "material": "phase_e_fe0072",
+      "file": "phase_e_fe0072.eosmat",
+      "record": "phase_e_fe0072_crichton_ross_2000_bm3",
+      "label": "Crichton and Ross (2000), Fe-bearing phase E, free BM3",
+      "doi": "10.1180/002646100549427",
+      "status": "primary_source_validated",
+      "note": "Published volume EOS successfully recovered: parity within reported uncertainty, with coefficient/curve differences documented. Original author-workflow provenance is assessed separately.",
+      "primary_source_check": {
+        "access_url": "https://triage19.com/products/MM/MM064P0561.pdf",
+        "doi": "10.1180/002646100549427",
+        "locations": [
+          "Full article pp. 561–567",
+          "Table 1 p. 562",
+          "Results and F–f discussion p. 563",
+          "Axial fits pp. 563–564"
+        ],
+        "finding": "Publication-of-record PDF inspected in full, Table 1 checked visually. Published BM3 retained; source residual benchmarks reproduced and independent refits establish parity within reported uncertainty. Exact implementation provenance is separately documented and does not negate fit recovery."
+      },
+      "reproduction_status": "parity_within_reported_uncertainty",
+      "reproduction_scope": {
+        "source_equation": "validated_against_all_11_source_rows",
+        "coefficient_agreement": "conditional_within_reported_errors",
+        "exact_author_workflow": "not_reproduced",
+        "fit_recovery": "parity_within_reported_uncertainty",
+        "exact_workflow_provenance_is_separate": true
+      },
+      "reproduction_report": "docs/literature-reproductions/phase-e-crichton-ross-2000.md"
     },
     {
       "material": "phase_egg",

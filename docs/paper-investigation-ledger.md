@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **363 primary papers**: **261** support the 655 audited catalog records and **102** were investigated without adding a production record.
+The register covers **364 primary papers**: **262** support the 656 audited catalog records and **102** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -39,7 +39,7 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Original unreproduced; independent refit available | 2 |
-| Reproduced | 169 |
+| Reproduced | 170 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 13 |
 | Coefficient parity not achieved | 14 |
@@ -1121,6 +1121,7 @@ the primary-source and refit ledgers.
 | [Compositional constraints on the equation of state and thermal properties of the lower mantle (2001)](https://doi.org/10.1046/j.1365-246x.2001.00437.x) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Constraints on lower mantle composition and temperature from density and bulk sound velocity profiles (1990)](https://doi.org/10.1029/gl017i008p01153) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Correa et al. (2008)](https://doi.org/10.1103/physrevb.78.024101) | Coefficient parity not achieved | 1 | 1 parity not achieved | 1 plot only/digitized |
+| [Crichton and Ross (2000)](https://doi.org/10.1180/002646100549427) | Reproduced | 1 | 1 parity; Fe-bearing phase E volume EOS successfully recovered: parity within reported uncertainty on all 11 primary rows. Published coefficients are preserved. Largest weighted-refit shift is 0.123 reported error widths; maximum curve difference is about 0.0096 GPa. Exact original workflow availability is separate provenance, not a failed-fit classification. See the [audit, coefficient differences and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md). | 1 bundled |
 | [Crichton et al. (2002)](https://doi.org/10.2138/am-2002-2-316) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Crichton et al. (2016)](https://doi.org/10.1080/08957959.2015.1123256) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 plot only/digitized |
 | [Criniti et al. (2021)](https://doi.org/10.1029/2020jb020967) | Reproduced | 1 | 1 parity | 1 bundled |

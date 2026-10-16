@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Add the measured Fe-bearing phase E of Crichton and Ross (2000), with the
+  published BM3 coefficients, all eleven primary rows and reported errors,
+  and a documented phase-specific diffraction peak-position fallback. Record
+  fit parity within reported uncertainty, coefficient and curve differences,
+  and the reproducible residual plot; keep exact-workflow provenance separate.
 - Add Farla (2025) B2 RbCl/RbBr/RbI thermal records and primary numerical datasets.
   Retain conditional fit similarity, benchmark precision and composite-CsCl
   calibration qualifications; preserve the existing RbCl static default.

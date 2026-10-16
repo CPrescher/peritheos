@@ -10,6 +10,13 @@ Thorianite and cotunnite-type ThO2 have separate experimental thermal records
 from Chidester et al. (2018); see the [source audit](literature-reproductions/chidester-2018-tho2.md)
 for their phase-dependent data selections and reference-state limits.
 
+Fe-bearing phase E (`phase_e_fe0072`) preserves the Crichton–Ross (2000)
+measured composition and published static BM3. Its independent refit achieves
+parity within reported uncertainty; the [audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md)
+show the small coefficient and pressure-curve differences. Its phase-specific
+diffraction fallback supplies indexed peak positions with uniform display
+markers; it does not assert sample-specific atomic occupancies or intensities.
+
 ## EOS record categories
 
 Peritheos records three separate assessments: **where the coefficients come

@@ -100,6 +100,20 @@ structures. All 100 official supplemental rows are bundled, including the
 12 room-temperature fluorite observations excluded near the volume anomaly.
 Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
 
+## Fe-bearing phase E
+
+`phase_e_fe0072.eosmat` represents Crichton and Ross (2000)'s measured
+Mg1.96(7)Fe0.072(5)Si1.04(5)H3.7(8)O6 sample. It retains the published
+static BM3 and all eleven primary rows/errors. The independent refit achieves
+parity within reported uncertainty; its coefficient and curve differences
+and residual plot are in the [source audit](../../../docs/literature-reproductions/phase-e-crichton-ross-2000.md).
+The R-3m conventional hexagonal cell uses Z=1 for the empirical O6 formula.
+Diffraction uses a documented eight-reflection position fallback with display
+markers, without assigning unsupported target-sample occupancies or intensities.
+Exact original regression provenance and absent quartz readings remain separate
+from successful fit recovery. Source reuse terms remain unspecified; contributor
+CC0 is limited to transcription, normalization and metadata rights.
+
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to

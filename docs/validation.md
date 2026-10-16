@@ -48,6 +48,12 @@ fit for every record with sufficient direct observations and documents all 650
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
 diagnostics. The current campaign finds 226 parity matches and 156 additional numerically similar results.
+The Crichton–Ross (2000) phase E fit achieves parity within reported parameter
+errors: all three coefficient shifts are below 0.123 reported error widths,
+and the largest pressure-curve difference is about 0.0096 GPa. Its published
+coefficients remain unchanged. Exact author-workflow availability is a separate
+provenance assessment, not a failed-fit classification. See the
+[coefficient comparisons and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).
 For opt-in Peritheos refits, including the provisional Ross + Errandonea argon
 refit, parity verifies the stored fit under its documented selection and
 objective; it does not imply reproduction of published author coefficients.
