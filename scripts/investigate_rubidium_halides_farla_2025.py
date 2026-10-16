@@ -40,7 +40,7 @@ def cscl_pressure(
     single/CsCl1_Dewaele2020.py. The GUI overrides the module's V0 from a0.
     This is an identified historical default, not a recovered saved session.
     """
-    facts = json.loads(INPUTS.read_text())
+    facts = json.loads(INPUTS.read_text(encoding="utf-8"))
     source = next(s for s in facts["sources"] if s["id"] == "cscl_module")
     params = source["parameter_dictionaries_si"]["_params_Dewaele_CsCl"]
     na = OLD_NA if legacy_na else Avogadro
@@ -363,7 +363,7 @@ def main():
     args = parser.parse_args()
     serialized = json.dumps(reproduce(), indent=2) + "\n"
     if args.output:
-        args.output.write_text(serialized)
+        args.output.write_text(serialized, encoding="utf-8")
     else:
         print(serialized)
 

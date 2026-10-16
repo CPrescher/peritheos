@@ -57,6 +57,9 @@ individual scientific qualifications.
 
 ### Fixed
 
+- Correct the siderite uncertainty regression and documentation using independent
+  analytic derivatives; small-coefficient finite differences no longer inflate
+  the conditional pressure error.
 - Preserve archived brucite refit coefficients and run provenance when rebuilding
   catalog records. Bound numerical replay variation across Python/SciPy versions
   while retaining exact source facts and strict runtime equation checks.

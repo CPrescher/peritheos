@@ -293,7 +293,7 @@ def main():
         result["source_pdf_sha256"] = hashlib.sha256(
             args.source_pdf.read_bytes()
         ).hexdigest()
-    args.output.write_text(json.dumps(result, indent=2) + "\n")
+    args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     if args.image:
         if args.page_render is None:
             parser.error("--image requires --page-render")

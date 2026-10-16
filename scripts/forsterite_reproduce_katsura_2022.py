@@ -119,10 +119,10 @@ def author_ordinary_optimizer(ratio, temperature, pressure):
 
 def rerun_reconstructed_input() -> dict:
     """Read the actual six-column candidate CSV; do not fill missing sigmaT."""
-    with FIT_INPUT.open(newline="") as stream:
+    with FIT_INPUT.open(newline="", encoding="utf-8") as stream:
         rows = list(csv.DictReader(stream))
     with DATA.with_name("forsterite-katsura-2009-table1.csv").open(
-        newline=""
+        newline="", encoding="utf-8"
     ) as stream:
         table = list(csv.DictReader(stream))
     matched_ids = {r["workbook_run_id"] for r in table if r["workbook_run_id"]}
@@ -253,7 +253,9 @@ def rerun_reconstructed_input() -> dict:
         )
     # Table 2 error widths are a comparison scale, not script-specific errors.
     document = json.loads(
-        (ROOT / "peritheos/data/materials/forsterite.eosmat").read_text()
+        (ROOT / "peritheos/data/materials/forsterite.eosmat").read_text(
+            encoding="utf-8"
+        )
     )
     table_record = next(
         record
@@ -508,15 +510,17 @@ def update_global_ledgers(report: dict) -> None:
     from scripts.validate_primary_eos_refits import render_markdown
 
     document = json.loads(
-        (ROOT / "peritheos/data/materials/forsterite.eosmat").read_text()
+        (ROOT / "peritheos/data/materials/forsterite.eosmat").read_text(
+            encoding="utf-8"
+        )
     )
     records = [
         r for r in document["eos_records"] if r["identifier"] in {RECORD, TABLE_RECORD}
     ]
     audit_path = ROOT / "peritheos/data/primary-source-audit.json"
     refit_path = ROOT / "docs/data/primary-eos-refits.json"
-    audit = json.loads(audit_path.read_text())
-    refits = json.loads(refit_path.read_text())
+    audit = json.loads(audit_path.read_text(encoding="utf-8"))
+    refits = json.loads(refit_path.read_text(encoding="utf-8"))
     for record in records:
         validation = record["scientific_validation"]
         outcome = ledger_outcome(record, report)
@@ -584,13 +588,19 @@ def update_global_ledgers(report: dict) -> None:
     if LEDGER_PARITY_POLICY not in refits["policy"]["parity"]:
         refits["policy"]["parity"] += " " + LEDGER_PARITY_POLICY
     audit_path.write_text(
-        json.dumps(audit, indent=2, ensure_ascii=False, allow_nan=False) + "\n"
+        json.dumps(audit, indent=2, ensure_ascii=False, allow_nan=False) + "\n",
+        encoding="utf-8",
     )
     refit_path.write_text(
-        json.dumps(refits, indent=2, sort_keys=True, allow_nan=False) + "\n"
+        json.dumps(refits, indent=2, sort_keys=True, allow_nan=False) + "\n",
+        encoding="utf-8",
     )
-    (ROOT / "docs/primary-eos-refits.md").write_text(render_markdown(refits))
-    (ROOT / "docs/paper-investigation-ledger.md").write_text(render_papers())
+    (ROOT / "docs/primary-eos-refits.md").write_text(
+        render_markdown(refits), encoding="utf-8"
+    )
+    (ROOT / "docs/paper-investigation-ledger.md").write_text(
+        render_papers(), encoding="utf-8"
+    )
 
 
 def main() -> None:
@@ -606,7 +616,7 @@ def main() -> None:
     serialized = json.dumps(result, indent=2) + "\n"
     if args.write_report:
         path = ROOT / "docs/data/forsterite-katsura-2022-reproduction.json"
-        path.write_text(serialized)
+        path.write_text(serialized, encoding="utf-8")
     if args.update_ledgers:
         update_global_ledgers(result)
     print(serialized, end="")

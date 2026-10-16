@@ -354,7 +354,7 @@ def rbcl_localization():
 
 
 def reproduce():
-    replay = json.loads(BURNMAN_REPLAY.read_text())
+    replay = json.loads(BURNMAN_REPLAY.read_text(encoding="utf-8"))
     rows = [r for r in read_rows("rbcl", "observations") if r["source_table"] != "S1"]
     reference = cscl_pressure(
         np.array([float(r["cscl_volume_a3"]) for r in rows]),
@@ -381,7 +381,7 @@ def main():
     args = parser.parse_args()
     result = json.dumps(reproduce(), indent=2) + "\n"
     if args.output:
-        args.output.write_text(result)
+        args.output.write_text(result, encoding="utf-8")
     else:
         print(result)
 

@@ -50,7 +50,7 @@ def normalized_csv(stem):
     ]
     stream = io.StringIO(newline="")
     writer = csv.writer(stream, lineterminator="\n")
-    lines = (DATA / (stem + "-original.txt")).read_text().splitlines()
+    lines = (DATA / (stem + "-original.txt")).read_text(encoding="utf-8").splitlines()
     for index, line in enumerate(line for line in lines if not line.startswith("#")):
         tokens = line.split()
         if "zhao" in stem:
@@ -234,7 +234,7 @@ def main():
     args = parser.parse_args()
     result = reproduce()
     if args.check:
-        stored = json.loads(args.output.read_text())
+        stored = json.loads(args.output.read_text(encoding="utf-8"))
         # Optimizer last digits can vary across supported SciPy/platform builds.
         for source in ("zhao_1998", "thompson_2008"):
             assert result[source]["observations"] == stored[source]["observations"]
@@ -258,7 +258,7 @@ def main():
         assert result["resources"] == stored["resources"]
         print("Diopside source resources and published-curve checks pass")
     else:
-        args.output.write_text(json.dumps(result, indent=2) + "\n")
+        args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
         print(args.output)
 
 

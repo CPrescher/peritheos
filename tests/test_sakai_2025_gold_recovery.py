@@ -185,19 +185,27 @@ def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
     assert volume_fit["conditional_numerical_parity_achieved"] is False
     assert result["conditional_numerical_parity_achieved"] is True
     assessment = result["reconstruction_assessment"]
-    assert assessment == saved["reconstruction_assessment"]
+
+    def check_assessment(expected):
+        calculated = {"reconstructed_value", "difference"}
+        for key in calculated:
+            assert assessment[key] == pytest.approx(expected[key], rel=0, abs=1e-8)
+        assert {k: v for k, v in assessment.items() if k not in calculated} == {
+            k: v for k, v in expected.items() if k not in calculated
+        }
+
+    check_assessment(saved["reconstruction_assessment"])
     document = get_material_document("gold")
     record = next(r for r in document["eos_records"] if r["identifier"] == RECORD)
-    assert (
-        assessment
-        == record["scientific_validation"]["primary_data_check"][
+    check_assessment(
+        record["scientific_validation"]["primary_data_check"][
             "reconstruction_assessment"
         ]
     )
     manifest = json.loads(
         (DATA / "sakai-2025-au-source.json").read_text(encoding="utf-8")
     )
-    assert manifest["reconstruction_assessment"] == assessment
+    check_assessment(manifest["reconstruction_assessment"])
     assert (
         manifest["reconstruction_report_sha256"]
         == hashlib.sha256(

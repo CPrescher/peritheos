@@ -26,7 +26,7 @@ from scripts.run_rubidium_halides_farla_2025_eosfit import (
 )
 
 INPUTS = DATA / f"{PREFIX}-case3-inputs.json"
-FACTS = json.loads(INPUTS.read_text())
+FACTS = json.loads(INPUTS.read_text(encoding="utf-8"))
 VARIANTS = FACTS["variants"]
 PARAMETERS = ["Gamm0", "q"]
 CASES = {
@@ -111,9 +111,13 @@ def run(executable, output):
             folder = output / variant / name
             folder.mkdir(parents=True)
             data, mapping = prepare_input(compound, **options)
-            (folder / "input.dat").write_text(data)
-            (folder / "row-map.json").write_text(json.dumps(mapping, indent=2) + "\n")
-            (folder / "run.mcr").write_text(commands(variant, folder, options))
+            (folder / "input.dat").write_text(data, encoding="utf-8")
+            (folder / "row-map.json").write_text(
+                json.dumps(mapping, indent=2) + "\n", encoding="utf-8"
+            )
+            (folder / "run.mcr").write_text(
+                commands(variant, folder, options), encoding="utf-8"
+            )
             process = subprocess.run(
                 [str(executable)],
                 input=f"macro {folder / 'run.mcr'}\nexit\n".encode(),
@@ -170,7 +174,9 @@ def run(executable, output):
                 case["published_comparison"]["eosfit_parameters"],
                 flush=True,
             )
-            (output / "manifest.json").write_text(json.dumps(report, indent=2) + "\n")
+            (output / "manifest.json").write_text(
+                json.dumps(report, indent=2) + "\n", encoding="utf-8"
+            )
     report["rounding_examples_all_match_publication"] = all(
         v["cases"]["weighted_anchor_rounding_example"]["published_comparison"][
             "both_parameters_round_to_publication"
@@ -178,7 +184,9 @@ def run(executable, output):
         for v in report["variants"].values()
     )
     report["runtime_reference"] = f"docs/data/{PREFIX}-eosfit7c/manifest.json"
-    (output / "manifest.json").write_text(json.dumps(report, indent=2) + "\n")
+    (output / "manifest.json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8"
+    )
     return report
 
 

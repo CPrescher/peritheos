@@ -69,7 +69,9 @@ def debye_anchor_check(compound):
 
 
 def read_rows(compound: str, kind: str) -> list[dict[str, str]]:
-    with (DATA / f"{PREFIX}-{compound}-{kind}.csv").open(newline="") as stream:
+    with (DATA / f"{PREFIX}-{compound}-{kind}.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
         return list(csv.DictReader(stream))
 
 
@@ -323,7 +325,7 @@ def main():
     args = parser.parse_args()
     result = reproduce()
     if args.output:
-        args.output.write_text(json.dumps(result, indent=2) + "\n")
+        args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     else:
         print(json.dumps(result, indent=2))
 

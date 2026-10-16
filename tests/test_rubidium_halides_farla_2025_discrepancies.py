@@ -31,7 +31,7 @@ def audit():
 
 
 def test_executed_historical_code_agrees_with_independent_reference():
-    replay = json.loads(BURNMAN_REPLAY.read_text())
+    replay = json.loads(BURNMAN_REPLAY.read_text(encoding="utf-8"))
     rows = [r for r in read_rows("rbcl", "observations") if r["source_table"] != "S1"]
     reference = cscl_pressure(
         np.array([float(r["cscl_volume_a3"]) for r in rows]),

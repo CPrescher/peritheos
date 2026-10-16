@@ -93,9 +93,9 @@ def extract() -> tuple[str, dict]:
 
 def main() -> None:
     csv_text, evidence = extract()
-    (DATA / f"{PREFIX}-olivine-workbook.csv").write_text(csv_text)
+    (DATA / f"{PREFIX}-olivine-workbook.csv").write_text(csv_text, encoding="utf-8")
     (DATA / f"{PREFIX}-olivine-cells.json").write_text(
-        json.dumps(evidence, indent=2, ensure_ascii=False) + "\n"
+        json.dumps(evidence, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     out = io.StringIO(newline="")
     writer = csv.writer(out, lineterminator="\n")
@@ -110,7 +110,7 @@ def main() -> None:
                 ],
             ]
         )
-    (DATA / f"{PREFIX}-olivine-pvt.csv").write_text(out.getvalue())
+    (DATA / f"{PREFIX}-olivine-pvt.csv").write_text(out.getvalue(), encoding="utf-8")
     # Candidate six-column export in the author's xlsread order. Missing sT
     # stays empty: using the correction bracket as total sT is not established.
     out = io.StringIO(newline="")
@@ -135,7 +135,9 @@ def main() -> None:
                 "",
             ]
         )
-    (DATA / f"{PREFIX}-candidate-fitting-input.csv").write_text(out.getvalue())
+    (DATA / f"{PREFIX}-candidate-fitting-input.csv").write_text(
+        out.getvalue(), encoding="utf-8"
+    )
     (DATA / f"{PREFIX}-candidate-fitting-input.json").write_text(
         json.dumps(
             {
@@ -150,7 +152,8 @@ def main() -> None:
             },
             indent=2,
         )
-        + "\n"
+        + "\n",
+        encoding="utf-8",
     )
 
 

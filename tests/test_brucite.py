@@ -437,3 +437,18 @@ def test_brucite_replay_tolerances_preserve_sources_and_small_coefficients():
     replay["fit"]["parameters"]["alpha1"] = 0.0
     with pytest.raises(ValueError, match="calculated value"):
         check_report(replay, saved)
+
+
+def test_brucite_refit_requires_curve_parity_within_coefficient_tolerance(monkeypatch):
+    from scripts import brucite_reproduce as audit
+
+    record = get_eos_record(
+        "brucite_peritheos_fukui_2003_thermal_refit"
+    ).eosmat_metadata
+    report = reproduce()
+    # A small correlated-coefficient change may meet the scalar comparison but
+    # must still be rejected when it changes the evaluated pressure curve.
+    report["peritheos_refits"]["continuous_thermal"]["parameters"]["K0"] *= 1.00005
+    monkeypatch.setattr(audit, "reproduce", lambda: report)
+    with pytest.raises(ValueError, match="stale"):
+        audit.ledger_outcome(record)

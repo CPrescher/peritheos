@@ -21,3 +21,6 @@ docs/data/miozzi-2020-eosfit*/** -text whitespace=-blank-at-eol,-blank-at-eof
 # Preserve native rubidium-halide EosFit logs/models and their recorded hashes.
 docs/data/rubidium-halides-farla-2025-eosfit7c/** -text whitespace=-blank-at-eol,-blank-at-eof
 docs/data/rubidium-halides-farla-2025-case3-eosfit7c/** -text whitespace=-blank-at-eol,-blank-at-eof
+
+# Dataset license notes are included in source-resource byte fingerprints.
+peritheos/data/datasets/*.LICENSE.md text eol=lf

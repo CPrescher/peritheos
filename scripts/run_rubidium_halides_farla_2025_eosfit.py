@@ -161,7 +161,7 @@ def macro(
 
 
 def covariance(path, indices=(1, 2, 17, 18)):
-    text = path.read_text().split("Variance-Covariance matrix=")[1]
+    text = path.read_text(encoding="utf-8").split("Variance-Covariance matrix=")[1]
     full = []
     for line in text.splitlines():
         numbers = re.findall(r"[-+]?\d\.\d+E[-+]\d+", line)
@@ -212,7 +212,9 @@ def run(executable, output):
         "cases": {},
     }
     independent = json.loads(
-        (DATA.parents[2] / "docs/data" / f"{PREFIX}-follow-up.json").read_text()
+        (DATA.parents[2] / "docs/data" / f"{PREFIX}-follow-up.json").read_text(
+            encoding="utf-8"
+        )
     )
     for compound in SOURCE:
         report["cases"][compound] = {}
@@ -220,9 +222,13 @@ def run(executable, output):
             folder = output / compound / name
             folder.mkdir(parents=True)
             data, mapping = prepare_input(compound, **options)
-            (folder / "input.dat").write_text(data)
-            (folder / "row-map.json").write_text(json.dumps(mapping, indent=2) + "\n")
-            (folder / "run.mcr").write_text(macro(compound, folder, **options))
+            (folder / "input.dat").write_text(data, encoding="utf-8")
+            (folder / "row-map.json").write_text(
+                json.dumps(mapping, indent=2) + "\n", encoding="utf-8"
+            )
+            (folder / "run.mcr").write_text(
+                macro(compound, folder, **options), encoding="utf-8"
+            )
             process = subprocess.run(
                 [str(executable)],
                 input=f"macro {folder / 'run.mcr'}\nexit\n".encode(),
@@ -280,7 +286,9 @@ def run(executable, output):
                 parsed["published_comparison"]["eosfit_parameters"],
                 flush=True,
             )
-            (output / "manifest.json").write_text(json.dumps(report, indent=2) + "\n")
+            (output / "manifest.json").write_text(
+                json.dumps(report, indent=2) + "\n", encoding="utf-8"
+            )
     return report
 
 

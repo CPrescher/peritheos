@@ -18,7 +18,7 @@ from scripts.investigate_rubidium_halides_farla_2025 import (
 
 
 def test_historical_calibration_and_corrected_evaluator_are_distinct():
-    facts = json.loads(INPUTS.read_text())
+    facts = json.loads(INPUTS.read_text(encoding="utf-8"))
     sources = {s["id"]: s for s in facts["sources"]}
     assert sources["cscl_module"]["commit"] == (
         "9518e36112be23504b84c4f595eab0b0207a3539"

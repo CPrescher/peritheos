@@ -641,11 +641,38 @@ def ledger_outcome(record):
                 "difference": value - stored[name],
                 "relative_difference": abs((value - stored[name]) / stored[name]),
                 "within_combined_2sigma": None,
-                "similar": bool(np.isclose(value, stored[name], rtol=1e-5, atol=1e-24)),
+                "similar": bool(np.isclose(value, stored[name], rtol=1e-4, atol=1e-24)),
             }
             for name, value in fit["parameters"].items()
         ]
-        if not fit["success"] or not all(p["similar"] for p in comparisons):
+        rows = observations("fukui_2003", "table4")
+        selected = [
+            r for r in rows if "thermal" in record or float(r["temperature_k"]) == 873
+        ]
+        temperatures = np.array([float(r["temperature_k"]) for r in selected])
+        volumes = np.array([float(r["cell_volume_a3"]) for r in selected])
+        delta = (
+            temperatures - 300 if "thermal" in record else np.zeros_like(temperatures)
+        )
+
+        def predictions(parameters):
+            return bm3(
+                volumes,
+                reference_volume(temperatures),
+                parameters["K0"] + parameters.get("dK_dT", 0) * delta,
+                parameters["K0_prime"] + parameters.get("dKprime_dT", 0) * delta,
+            )
+
+        # Tiny, correlated slopes are poorly conditioned under finite-difference
+        # optimization. Require pressure agreement as well as coefficient agreement.
+        curve_difference = float(
+            np.max(np.abs(predictions(stored) - predictions(fit["parameters"])))
+        )
+        if (
+            not fit["success"]
+            or not all(p["similar"] for p in comparisons)
+            or curve_difference > 1e-5
+        ):
             raise ValueError("Registered brucite Peritheos refit is stale")
         return {
             **common,
