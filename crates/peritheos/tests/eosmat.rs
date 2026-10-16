@@ -90,6 +90,23 @@ fn canonical_documents_validate_serialize_and_round_trip_without_losing_extensio
 }
 
 #[test]
+fn small_thermal_coefficients_preserve_float_bits_through_json() {
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    let coefficient = 3.966_480_264_994_109_7e-10_f64;
+    document["eos_records"][0]["coefficient_extension"] = serde_json::json!(coefficient);
+    let serialized = serialize_eosmat(&document).unwrap();
+    let reloaded = load_eosmat_str(&serialized).unwrap();
+    assert_eq!(
+        reloaded.document["eos_records"][0]["coefficient_extension"]
+            .as_f64()
+            .unwrap()
+            .to_bits(),
+        coefficient.to_bits()
+    );
+    assert_eq!(reloaded.document, document);
+}
+
+#[test]
 fn static_isothermal_record_accepts_zero_kelvin_reference_temperature() {
     let source = simple_document().replace(
         "\"default\": true,",

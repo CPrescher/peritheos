@@ -1,0 +1,787 @@
+{
+  "audit_date": "2026-10-16",
+  "software": {
+    "python": "3.9.6",
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "optimizer": "scipy.optimize.least_squares; explicit tolerances and bounds in script"
+  },
+  "source_json_sha256": "71c9a552bdc8cc6f131a38f5af215c0bcbefcd019f4ffdc7056a16e36041d199",
+  "datasets": {
+    "brucite-fukui-2003-table1.csv": {
+      "rows": 11,
+      "sha256": "6a55f95a1e0072268fc821c3d13463c4e5366cf7ab4cc95ecf7d911b48cfbc94"
+    },
+    "brucite-fukui-2003-table4.csv": {
+      "rows": 37,
+      "sha256": "75f41a98f09ff132927697af0da45bc9a89a4e354f7d32d7ffad7648963a1b56"
+    },
+    "brucite-xia-1998-table6.csv": {
+      "rows": 54,
+      "sha256": "a90d369351cee748dfa954ba78b66d4adcab205367f1244d7d0902a75c6c14bb"
+    }
+  },
+  "volume_basis": {
+    "cell": "primitive hexagonal setting of trigonal P -3 m 1; conventional cell is also primitive",
+    "Z": 1,
+    "atoms_per_formula_unit": 5,
+    "molar_conversion": "V_m [cm^3/mol formula units] = V_cell [angstrom^3] * 0.602214076 / Z",
+    "energy_terms": "No Debye, atom-normalized heat capacity, shock Hugoniot or fluid H2O EOS is imported."
+  },
+  "ambient_published_residuals_a3": [
+    -0.014916098244206921,
+    -0.009916098244204363,
+    0.020899374667024517,
+    -0.024321983336449193,
+    0.047386082888820624,
+    -0.005714716232859018,
+    -0.01907806881180818,
+    0.028451581014849125,
+    -0.005939704692856651,
+    -0.008019749709305302,
+    -0.005324079008488525
+  ],
+  "ambient_diagnostic_refits": {
+    "unweighted": {
+      "V0_a3": 40.91658519550515,
+      "alpha_per_k": 6.691851837748163e-05,
+      "success": true,
+      "delta_over_reported_errors": [
+        -0.0345670412376838,
+        0.01028798748979521
+      ]
+    },
+    "volume_sigma": {
+      "V0_a3": 40.92249953603568,
+      "alpha_per_k": 6.669383374837597e-05,
+      "success": true,
+      "delta_over_reported_errors": [
+        0.4582946696398693,
+        -0.11453680645779482
+      ]
+    }
+  },
+  "isotherms": [
+    {
+      "temperature_k": 300,
+      "observations": 13,
+      "source_rows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "pressure_range_gpa": [
+        -0.06,
+        22.56
+      ],
+      "reference_volume_a3": 40.917,
+      "published_parameters": [
+        41.8,
+        6.6
+      ],
+      "published_curve": {
+        "pressure_rmse_gpa": 0.22790990500597397,
+        "maximum_absolute_pressure_residual_gpa": 0.4401215188100771,
+        "pressure_residuals_gpa": [
+          0.05489446985425371,
+          0.008178716899726426,
+          -0.181141245406077,
+          0.14544602901929427,
+          0.17019744973397355,
+          -0.024033722153734338,
+          0.030605175295299603,
+          0.08452099023517334,
+          -0.4401215188100771,
+          -0.40291850702565135,
+          -0.2550677368819976,
+          0.34718645379899726,
+          -0.1973258854219786
+        ],
+        "max_absolute_effective_sigma_residual": 2.5420487416336193
+      },
+      "diagnostic_refits": {
+        "unweighted_pressure": {
+          "success": true,
+          "K0_gpa": 42.0177360402393,
+          "K0_prime": 6.603483849128478,
+          "delta_over_reported_errors": [
+            0.16748926172254003,
+            0.011612830428262555
+          ],
+          "pressure_rmse_gpa": 0.2167608081755301,
+          "maximum_absolute_pressure_residual_gpa": 0.4590984923934016
+        },
+        "pressure_sigma": {
+          "success": true,
+          "K0_gpa": 41.59457263717242,
+          "K0_prime": 6.686400189709784,
+          "delta_over_reported_errors": [
+            -0.15802104832890615,
+            0.28800063236594714
+          ],
+          "pressure_rmse_gpa": 0.22078163755892502,
+          "maximum_absolute_pressure_residual_gpa": 0.41515216508295083
+        },
+        "effective_sigma": {
+          "success": true,
+          "K0_gpa": 40.58210303332938,
+          "K0_prime": 7.029868137173733,
+          "delta_over_reported_errors": [
+            -0.9368438205158578,
+            1.4328937905791121
+          ],
+          "pressure_rmse_gpa": 0.2286253221993115,
+          "maximum_absolute_pressure_residual_gpa": 0.5512677442673208
+        }
+      },
+      "source_equation_validated": true,
+      "author_workflow_reproduced": false
+    },
+    {
+      "temperature_k": 473,
+      "observations": 8,
+      "source_rows": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "pressure_range_gpa": [
+        5.95,
+        16.52
+      ],
+      "reference_volume_a3": 41.393312112806804,
+      "published_parameters": [
+        32.6,
+        8.3
+      ],
+      "published_curve": {
+        "pressure_rmse_gpa": 0.33630739972845325,
+        "maximum_absolute_pressure_residual_gpa": 0.5827339497893345,
+        "pressure_residuals_gpa": [
+          -0.06436565803310401,
+          0.14002874986690372,
+          -0.35597207387265684,
+          0.04853548442830302,
+          -0.5827339497893345,
+          0.009944575919075938,
+          -0.5780771826137858,
+          -0.279548846647085
+        ],
+        "max_absolute_effective_sigma_residual": 1.1986068064457116
+      },
+      "diagnostic_refits": {
+        "unweighted_pressure": {
+          "success": true,
+          "K0_gpa": 33.69147968162089,
+          "K0_prime": 8.085231223634171,
+          "delta_over_reported_errors": [
+            0.43659187264835564,
+            -0.19524434215075426
+          ],
+          "pressure_rmse_gpa": 0.2625605629411442,
+          "maximum_absolute_pressure_residual_gpa": 0.4140092419805299
+        },
+        "pressure_sigma": {
+          "success": true,
+          "K0_gpa": 31.8680418464292,
+          "K0_prime": 8.992743801416733,
+          "delta_over_reported_errors": [
+            -0.29278326142832045,
+            0.6297670921970292
+          ],
+          "pressure_rmse_gpa": 0.2847123716692072,
+          "maximum_absolute_pressure_residual_gpa": 0.48275042233682797
+        },
+        "effective_sigma": {
+          "success": true,
+          "K0_gpa": 32.30120714742243,
+          "K0_prime": 8.464419259426498,
+          "delta_over_reported_errors": [
+            -0.11951714103102802,
+            0.149472054024088
+          ],
+          "pressure_rmse_gpa": 0.3226373241773178,
+          "maximum_absolute_pressure_residual_gpa": 0.5798219487224054
+        }
+      },
+      "source_equation_validated": true,
+      "author_workflow_reproduced": false
+    },
+    {
+      "temperature_k": 673,
+      "observations": 8,
+      "source_rows": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "pressure_range_gpa": [
+        5.62,
+        16.09
+      ],
+      "reference_volume_a3": 41.95087641595446,
+      "published_parameters": [
+        28.8,
+        9.0
+      ],
+      "published_curve": {
+        "pressure_rmse_gpa": 0.23027507836968086,
+        "maximum_absolute_pressure_residual_gpa": 0.5071162310700625,
+        "pressure_residuals_gpa": [
+          0.008286650887340485,
+          0.17274658765582807,
+          -0.08659254442162734,
+          0.5071162310700625,
+          -0.3345427527928244,
+          0.008044943924741865,
+          -0.12762145302573735,
+          0.03697149185750881
+        ],
+        "max_absolute_effective_sigma_residual": 1.5670063989561438
+      },
+      "diagnostic_refits": {
+        "unweighted_pressure": {
+          "success": true,
+          "K0_gpa": 29.03221567160922,
+          "K0_prime": 8.844925607540013,
+          "delta_over_reported_errors": [
+            0.1105788912424848,
+            -0.14097672041817008
+          ],
+          "pressure_rmse_gpa": 0.22807386078098604,
+          "maximum_absolute_pressure_residual_gpa": 0.4559218187457752
+        },
+        "pressure_sigma": {
+          "success": true,
+          "K0_gpa": 30.435152600445516,
+          "K0_prime": 8.09535521735496,
+          "delta_over_reported_errors": [
+            0.7786440954502454,
+            -0.8224043478591269
+          ],
+          "pressure_rmse_gpa": 0.24543759454622888,
+          "maximum_absolute_pressure_residual_gpa": 0.5626506521838728
+        },
+        "effective_sigma": {
+          "success": true,
+          "K0_gpa": 28.861524067080495,
+          "K0_prime": 9.048109189443743,
+          "delta_over_reported_errors": [
+            0.02929717480023543,
+            0.04373562676703877
+          ],
+          "pressure_rmse_gpa": 0.24607936258716104,
+          "maximum_absolute_pressure_residual_gpa": 0.5925598389376106
+        }
+      },
+      "source_equation_validated": true,
+      "author_workflow_reproduced": false
+    },
+    {
+      "temperature_k": 873,
+      "observations": 8,
+      "source_rows": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "pressure_range_gpa": [
+        5.21,
+        15.48
+      ],
+      "reference_volume_a3": 42.515951061625515,
+      "published_parameters": [
+        23.9,
+        10.0
+      ],
+      "published_curve": {
+        "pressure_rmse_gpa": 0.486257144044042,
+        "maximum_absolute_pressure_residual_gpa": 0.6724251855101837,
+        "pressure_residuals_gpa": [
+          -0.4662321872903785,
+          -0.10747652102528171,
+          -0.5383408006497756,
+          -0.5741339717550904,
+          -0.6724251855101837,
+          -0.1738161827396958,
+          -0.38577840712432376,
+          -0.6418809203989291
+        ],
+        "max_absolute_effective_sigma_residual": 6.714386378264875
+      },
+      "diagnostic_refits": {
+        "unweighted_pressure": {
+          "success": true,
+          "K0_gpa": 25.47614980064206,
+          "K0_prime": 9.68039354646904,
+          "delta_over_reported_errors": [
+            1.1258212861729002,
+            -0.35511828170106735
+          ],
+          "pressure_rmse_gpa": 0.15803246821895345,
+          "maximum_absolute_pressure_residual_gpa": 0.35565052578240675
+        },
+        "pressure_sigma": {
+          "success": true,
+          "K0_gpa": 25.24154474152417,
+          "K0_prime": 9.707174507609649,
+          "delta_over_reported_errors": [
+            0.9582462439458364,
+            -0.3253616582115014
+          ],
+          "pressure_rmse_gpa": 0.17774633859371577,
+          "maximum_absolute_pressure_residual_gpa": 0.30552717192474077
+        },
+        "effective_sigma": {
+          "success": true,
+          "K0_gpa": 25.903754353469424,
+          "K0_prime": 9.317746381095386,
+          "delta_over_reported_errors": [
+            1.431253109621018,
+            -0.7580595765606822
+          ],
+          "pressure_rmse_gpa": 0.17955807684902647,
+          "maximum_absolute_pressure_residual_gpa": 0.2838329028355808
+        }
+      },
+      "source_equation_validated": true,
+      "author_workflow_reproduced": false
+    }
+  ],
+  "table6_temperature_trends": {
+    "K0_gpa_unweighted": {
+      "intercept_300k": 40.08998883896788,
+      "slope_per_k": -0.029722927038312343
+    },
+    "K0_gpa_reported_sigma": {
+      "intercept_300k": 41.10261592572007,
+      "slope_per_k": -0.03092953260923791
+    },
+    "K0_prime_unweighted": {
+      "intercept_300k": 6.897726973760047,
+      "slope_per_k": 0.00563815201515622
+    },
+    "K0_prime_reported_sigma": {
+      "intercept_300k": 6.633276637306694,
+      "slope_per_k": 0.006145214854086561
+    }
+  },
+  "figure6c_audit": {
+    "markers": [
+      {
+        "source_row": 35,
+        "x": 555,
+        "y": 2820,
+        "digitized_volume_ratio": 0.8825000000000001,
+        "implied_normalization_volume_a3": 42.713881019830026
+      },
+      {
+        "source_row": 36,
+        "x": 706,
+        "y": 2910,
+        "digitized_volume_ratio": 0.8575,
+        "implied_normalization_volume_a3": 42.674052478134115
+      },
+      {
+        "source_row": 30,
+        "x": 786,
+        "y": 2955,
+        "digitized_volume_ratio": 0.845,
+        "implied_normalization_volume_a3": 42.699408284023676
+      },
+      {
+        "source_row": 37,
+        "x": 834,
+        "y": 2974,
+        "digitized_volume_ratio": 0.8397222222222223,
+        "implied_normalization_volume_a3": 42.69030764141581
+      },
+      {
+        "source_row": 31,
+        "x": 897,
+        "y": 3021,
+        "digitized_volume_ratio": 0.8266666666666667,
+        "implied_normalization_volume_a3": 42.6725806451613
+      },
+      {
+        "source_row": 32,
+        "x": 1026,
+        "y": 3066,
+        "digitized_volume_ratio": 0.8141666666666667,
+        "implied_normalization_volume_a3": 42.68045035823951
+      },
+      {
+        "source_row": 33,
+        "x": 1128,
+        "y": 3108,
+        "digitized_volume_ratio": 0.8025,
+        "implied_normalization_volume_a3": 42.716510903426794
+      },
+      {
+        "source_row": 34,
+        "x": 1224,
+        "y": 3141,
+        "digitized_volume_ratio": 0.7933333333333333,
+        "implied_normalization_volume_a3": 42.71848739495798
+      }
+    ],
+    "solid_curve": [
+      {
+        "x": 346,
+        "y": 2614,
+        "digitized_volume_ratio": 0.9397222222222222,
+        "digitized_pressure_gpa": 1.9961612284069097,
+        "printed_BM3_pressure_gpa": 2.0031900204482485
+      },
+      {
+        "x": 476,
+        "y": 2749,
+        "digitized_volume_ratio": 0.9022222222222223,
+        "digitized_pressure_gpa": 3.9923224568138194,
+        "printed_BM3_pressure_gpa": 3.987151835238618
+      },
+      {
+        "x": 998,
+        "y": 3055,
+        "digitized_volume_ratio": 0.8172222222222222,
+        "digitized_pressure_gpa": 12.00767754318618,
+        "printed_BM3_pressure_gpa": 11.914121208287579
+      },
+      {
+        "x": 1063,
+        "y": 3083,
+        "digitized_volume_ratio": 0.8094444444444444,
+        "digitized_pressure_gpa": 13.005758157389636,
+        "printed_BM3_pressure_gpa": 12.974595938732282
+      }
+    ],
+    "mean_implied_normalization_volume_a3": 42.69570984064865,
+    "range_implied_normalization_volume_a3": [
+      42.6725806451613,
+      42.71848739495798
+    ],
+    "printed_expansion_reference_volume_a3": 42.515951061625515,
+    "interpretation": "Solid curve agrees graphically with printed K0=23.9, Kprime=10. Filled observations imply a different V0 normalization, about 42.7 A^3 rather than 42.516 A^3. The mismatch lies within the published table/figure/reference-volume combination; author intent and exact hidden normalization are unrecovered. No corrected source coefficient is inferred; independent fits use printed observations and explicit source V0 only."
+  },
+  "peritheos_refits": {
+    "isotherm_873k": {
+      "parameters": {
+        "K0": 25.47615002133496,
+        "K0_prime": 9.680393410481457
+      },
+      "parameter_errors": {
+        "K0": 1.5490812495979935,
+        "K0_prime": 0.9205818541824682
+      },
+      "parameter_covariance": {
+        "parameter_order": [
+          "K0",
+          "K0_prime"
+        ],
+        "matrix": [
+          [
+            2.399652717856081,
+            -1.419279572561171
+          ],
+          [
+            -1.419279572561171,
+            0.8474709502500312
+          ]
+        ]
+      },
+      "degrees_of_freedom": 6,
+      "success": true,
+      "covariance_scaling": "SSE/(n-p) * inverse(J.T @ J); conditional on fixed V0 and alpha; no calibrant systematic or reference-volume uncertainty included",
+      "pressure_rmse_gpa": 0.1580324682189527,
+      "maximum_absolute_pressure_residual_gpa": 0.3556505260398968
+    },
+    "continuous_thermal": {
+      "parameters": {
+        "K0": 37.91605408457424,
+        "K0_prime": 7.731415353181244,
+        "dK_dT": -0.0165935803712928,
+        "dKprime_dT": 0.0002691094280414035
+      },
+      "parameter_errors": {
+        "K0": 1.5140442831388727,
+        "K0_prime": 0.5249955766051838,
+        "dK_dT": 0.004426874706085519,
+        "dKprime_dT": 0.0018612605071982673
+      },
+      "parameter_covariance": {
+        "parameter_order": [
+          "K0",
+          "K0_prime",
+          "dK_dT",
+          "dKprime_dT"
+        ],
+        "matrix": [
+          [
+            2.292330091305503,
+            -0.7847161181848709,
+            -0.003883288645796426,
+            0.0012344557626595646
+          ],
+          [
+            -0.7847161181848705,
+            0.2756203554550094,
+            0.0013802273359206038,
+            -0.00046149897136125084
+          ],
+          [
+            -0.0038832886457964267,
+            0.0013802273359206042,
+            1.9597219663379753e-05,
+            -8.045695838002012e-06
+          ],
+          [
+            0.0012344557626595644,
+            -0.0004614989713612508,
+            -8.045695838002012e-06,
+            3.4642906756559514e-06
+          ]
+        ]
+      },
+      "degrees_of_freedom": 33,
+      "success": true,
+      "covariance_scaling": "SSE/(n-p) * inverse(J.T @ J); conditional on fixed V0 and alpha; no calibrant systematic or reference-volume uncertainty included",
+      "pressure_rmse_gpa": 0.3102804033484088,
+      "maximum_absolute_pressure_residual_gpa": 0.6195431739367336,
+      "per_isotherm": {
+        "300": {
+          "pressure_rmse_gpa": 0.31230102275774163,
+          "maximum_absolute_pressure_residual_gpa": 0.6195431739367336
+        },
+        "473": {
+          "pressure_rmse_gpa": 0.3364024342460164,
+          "maximum_absolute_pressure_residual_gpa": 0.5716820796629385
+        },
+        "673": {
+          "pressure_rmse_gpa": 0.31098508818693804,
+          "maximum_absolute_pressure_residual_gpa": 0.6166608552793793
+        },
+        "873": {
+          "pressure_rmse_gpa": 0.2773070736214014,
+          "maximum_absolute_pressure_residual_gpa": 0.5057376124295931
+        }
+      }
+    },
+    "objective": "Unweighted sum of squared pressure residuals [P_BM3(V_observed,T)-P_observed]^2 in GPa^2; all printed rows; V0(300)=40.917 A^3 and alpha=6.69e-5 K^-1 fixed",
+    "author_workflow_reproduced": false
+  },
+  "metric_checks": {
+    "fukui_table1": {
+      "metric_minus_printed_volume_a3": [
+        0.0011178068896100513,
+        -0.000720021353792788,
+        0.0006670466171385669,
+        0.00021487189971480802,
+        0.0007141968014181543,
+        0.0003383850868985405,
+        0.0010177461899871787,
+        0.0002813106600996207,
+        3.2052299076212876e-05,
+        0.00045416328759984026,
+        0.00040491871401115986
+      ],
+      "maximum_absolute_difference_a3": 0.0011178068896100513,
+      "rows_exceeding_printed_volume_error": [],
+      "interpretation": "Printed a,c,V retained independently; no silent correction."
+    },
+    "fukui_table4": {
+      "metric_minus_printed_volume_a3": [
+        -0.00022663803040501307,
+        -0.0002372963575396625,
+        0.0010249598930016646,
+        -0.00037505546846006155,
+        0.0006129584542193811,
+        0.0004943975445002025,
+        0.00011636119890567898,
+        0.00019496032220445159,
+        -0.0004510501585031079,
+        0.0005525972734119478,
+        0.0007618976045975501,
+        0.0008768056062251617,
+        -0.0002781021532243244,
+        -0.00032244575986339896,
+        -0.0013023469235378116,
+        -8.873605887771419e-05,
+        -0.0004895034391410036,
+        -0.16259663908839883,
+        2.5849263138866263e-05,
+        -0.0012797658729013506,
+        0.0002844123728422687,
+        -0.0004676964583651966,
+        0.00959888747235027,
+        0.00045363967736733457,
+        -0.0004966461619275719,
+        -0.0010298708038547488,
+        -4.3841483829965e-06,
+        0.00023865965128067046,
+        -0.0001609623908507274,
+        0.0005054529021322196,
+        0.00017383783487900928,
+        0.00012922897099088004,
+        0.00029092526424534526,
+        -0.0007155972872396887,
+        -0.0002843652488095927,
+        -0.0010157574556970417,
+        0.0009417321421878455
+      ],
+      "maximum_absolute_difference_a3": 0.16259663908839883,
+      "rows_exceeding_printed_volume_error": [],
+      "interpretation": "Printed a,c,V retained independently; no silent correction."
+    },
+    "xia_table6": {
+      "metric_minus_printed_volume_a3": [
+        -0.023120842802349273,
+        -0.014270580202101257,
+        0.00366562169693907,
+        -0.004727579490335643,
+        -0.0021528994279975677,
+        -0.01659389543093681,
+        -0.005768352755474382,
+        -0.004728494945425155,
+        -0.011369419371995093,
+        -0.0214463454172531,
+        -0.004503052035957467,
+        -0.018445823291720842,
+        -0.017597849827303946,
+        -0.020190466090127757,
+        -0.013115561096171291,
+        0.0034246134506759063,
+        -0.017296225270399646,
+        -0.02336259253450379,
+        -0.00844725851561634,
+        -0.012663771297724224,
+        0.0447007688332377,
+        0.007990424142683139,
+        -0.01609067621335214,
+        -0.01774984832419335,
+        -0.015431230393303963,
+        0.004514301027633394,
+        -0.0008011245517920429,
+        0.0013873886506345912,
+        -0.01756901310542247,
+        -0.020712348708748607,
+        0.002176031665428013,
+        -0.019873636174430942,
+        0.0020590547246825963,
+        -0.01039682878489856,
+        -0.012606206823527089,
+        -0.006935656882042451,
+        -0.01739144353342681,
+        -0.004330453745090779,
+        0.001627249365505179,
+        -0.019983237465403647,
+        -0.0124699743283756,
+        -0.014584846408631336,
+        -0.005533568587480886,
+        -0.014019449778210458,
+        0.002273826384346478,
+        -0.009212945787176352,
+        -0.0037216086148532668,
+        -0.0067648521337275724,
+        0.012414086824570347,
+        -0.11526358286116789,
+        -0.010487016221560452,
+        -0.07951881088644797,
+        0.01177176121707646,
+        0.003639836228749971
+      ],
+      "maximum_absolute_difference_a3": 0.11526358286116789,
+      "rows_exceeding_printed_volume_error": [
+        1,
+        10,
+        14,
+        18,
+        21,
+        30,
+        50,
+        52
+      ],
+      "interpretation": "Printed a,c,V retained independently; no silent correction."
+    }
+  },
+  "assessments": {
+    "source_equation": "Fukui Eq. 2 is BM3; four source isotherms executable.",
+    "coefficients": "Diagnostic fits use explicit assumed weights; see deltas.",
+    "author_workflow": "Not reproduced: weights, residual orientation, full precision, covariance and static V0 treatment unreported.",
+    "continuous_thermal": "Published-slope reconstruction remains qualified. A separate Peritheos unweighted thermal fit to all 37 printed PVT rows provides a reproducible broad-range alternative with conditional covariance; neither is an author-workflow reproduction.",
+    "phase": "Layered lattice-average volume EOS accepted through the published range; H rearrangement is annotated, not treated as a first-order lattice boundary. Sun (2025) primary XRD supports this scope. Ambient H sites are not high-pressure refinements; no phase-equilibrium or dehydration model is implied.",
+    "calibration": "Anderson et al. (1989) Au scale identified; paired Au observations absent, so observation-level re-reduction unavailable.",
+    "structure": "Direct primary verification resolved using He (2023), Table 4.3, pp. 81-82: fluorine-free hydrogenated Mg(OH)2 neutron refinement. Original Zigan COD archive preserved separately, not claimed directly checked.",
+    "refit_records": "Separate Peritheos unweighted 873 K and continuous thermal fits preserve all published coefficients in their original records. Conditional covariance and fixed reference-volume assumptions are explicit."
+  },
+  "catalog_scope": {
+    "accepted_pressure_gpa": [
+      0,
+      22.56
+    ],
+    "accepted_static_temperature_k": [
+      300,
+      300
+    ],
+    "qualified_thermal_temperature_k": [
+      300,
+      873
+    ],
+    "thermal_interpolation_pressure_gpa": [
+      5.95,
+      15.48
+    ],
+    "scope_basis": "Layered brucite lattice-average empirical volume EOS, including H rearrangement. Fukui treats the H change as higher order; Sun (2025) directly observes the layered average lattice beyond this range. No evidence makes 0.5 GPa a bulk lattice phase boundary. Ambient atom sites are a reference only; no H-order-resolved or phase-equilibrium EOS is claimed.",
+    "held_isotherms_k": [],
+    "source_isotherm_ranges_gpa": {
+      "300": [
+        0,
+        22.56
+      ],
+      "473": [
+        5.95,
+        16.52
+      ],
+      "673": [
+        5.62,
+        16.09
+      ],
+      "873": [
+        5.21,
+        15.48
+      ]
+    },
+    "thermal_status": "Separate reproducible Peritheos unweighted fit to all 37 observations; original published-slope reconstruction remains not_reproduced and explicit-selection. Thermal validity uses the common measured pressure interval; isotherms retain their own larger ranges.",
+    "source_873k_status": "Printed coefficients preserved as qualified explicit-selection record; graphical normalization inconsistency diagnosed, exact author intent unrecovered. Independent 873 K table-data refit provided separately.",
+    "remaining_limitations": [
+      "Exact author normalization and fitting workflow unavailable; no corrected source coefficient asserted",
+      "Paired Au observations unavailable",
+      "Source covariance unavailable; new fit covariance conditional on fixed source V0 and alpha",
+      "No atomic high-pressure H refinement or phase-equilibrium/dehydration model"
+    ]
+  }
+}

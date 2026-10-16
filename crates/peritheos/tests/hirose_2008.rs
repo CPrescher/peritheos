@@ -40,10 +40,12 @@ fn hirose_gold_records_load_and_roundtrip_through_native_eosmat() {
         .as_array_mut()
         .unwrap()
         .retain(|record| {
-            record["identifier"]
-                .as_str()
-                .unwrap()
-                .starts_with("gold_hirose_2008_")
+            matches!(
+                record["identifier"].as_str().unwrap(),
+                "gold_hirose_2008_bm3_300k"
+                    | "gold_hirose_2008_bm3_fit1"
+                    | "gold_hirose_2008_bm3_fit2"
+            )
         });
     document["datasets"]
         .as_array_mut()

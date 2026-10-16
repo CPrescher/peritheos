@@ -356,9 +356,21 @@ def catalog_objects(report):
                 "fixed_parameters",
                 "refit_parameters",
             ],
+            "primary_source_check": {
+                "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+                "doi": "10.1016/j.pepi.2008.03.002",
+                "locations": [
+                    "Hirose (2008), Table 1 and Section 3.1 / Table 2 fit #2",
+                    "Fei (2004), Table 1",
+                    "Speziale (2001), Equation (11) and recorded author confirmation",
+                    "Peritheos staged regression and derived-data report",
+                ],
+                "finding": NOTE,
+            },
             "primary_data_check": {
                 "status": "bundled",
                 "dataset_identifiers": [DATASET_ID],
+                "finding": "All 47 source observations are retained with paired MgO volumes; the pressure targets are explicitly recalculated, not historical author pressures.",
             },
             "independent_numerical_check": {
                 "script": "scripts/refit_hirose_fei_gold_speziale.py",
@@ -437,7 +449,9 @@ def append_object(text, key, obj):
 
 def ledger_outcome(record):
     """Reproduce this staged refit, without treating it as source-author parity."""
-    report, _ = reproduce()
+    report, table = reproduce()
+    archived = json.loads(REPORT.read_text(encoding="utf-8"))
+    check_archives(archived, report, table)
     values = {
         "rt_eos.K0_prime": report["cold_stage"]["parameters"][0],
         **dict(zip(NAMES, report["thermal_stage"]["parameters"])),
@@ -474,8 +488,30 @@ def ledger_outcome(record):
         "solver_success": True,
         "qualification": NOTE,
         "reason": NOTE,
-        "reproduction": report,
+        # Keep the archived run's versions and hashes with its diagnostics.
+        # The independently replayed coefficients are compared above.
+        "reproduction": archived,
     }
+
+
+def check_archives(saved, current, table):
+    """Verify archived bytes exactly and recalculated pressure columns numerically."""
+    assert hashlib.sha256(CSV.read_bytes()).hexdigest() == saved["derived_csv_sha256"]
+    assert hashlib.sha256(table.encode()).hexdigest() == current["derived_csv_sha256"]
+    # Versions and implementation hashes describe the archived run. A replay
+    # may use another supported environment or a revised verification script.
+    provenance = {"derived_csv_sha256", "implementation_sha256", "software"}
+    assert (
+        hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+        == current["implementation_sha256"]
+    )
+    assert saved["software"].keys() == current["software"].keys()
+    assert saved["software"]["name"] == current["software"]["name"]
+    check_saved(
+        {k: v for k, v in saved.items() if k not in provenance},
+        {k: v for k, v in current.items() if k not in provenance},
+    )
+    check_csv(CSV.read_text(encoding="utf-8"), table, {"pressure_gpa"}, atol=1e-8)
 
 
 def main():
@@ -485,8 +521,7 @@ def main():
     args = parser.parse_args()
     report, table = reproduce()
     if args.check:
-        check_saved(json.loads(REPORT.read_text()), report)
-        check_csv(CSV.read_text(), table, {"pressure_gpa"}, atol=1e-8)
+        check_archives(json.loads(REPORT.read_text(encoding="utf-8")), report, table)
         record = get_eos_record(RECORD_ID)
         rows = list(csv.DictReader(io.StringIO(table)))
         predicted = np.array(
@@ -501,7 +536,7 @@ def main():
         REPORT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
         CSV.write_text(table)
         if args.register:
-            before = MATERIAL.read_text()
+            before = MATERIAL.read_text(encoding="utf-8")
             record, dataset = catalog_objects(report)
             after = append_object(
                 append_object(before, "eos_records", record), "datasets", dataset
@@ -512,7 +547,9 @@ def main():
                 assert [r for r in old[key] if r["identifier"] != own_id] == [
                     r for r in new[key] if r["identifier"] != own_id
                 ], "Registration changed an unrelated record/dataset"
-            assert MATERIAL.read_text() == before, "Concurrent gold edit; retry"
+            assert MATERIAL.read_text(encoding="utf-8") == before, (
+                "Concurrent gold edit; retry"
+            )
             MATERIAL.write_text(after)
     print(
         f"{RECORD_ID}: cold Kprime={report['cold_stage']['parameters'][0]:.8f}; thermal MAE={report['thermal_stage']['pressure_mae_gpa']:.6f} GPa"

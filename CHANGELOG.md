@@ -5,20 +5,70 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-10-17
+
+This release expands thermal EOS coverage for forsterite, diopside, brucite and
+rubidium halides, adds Fe-bearing phase E and an optional NaCl-B2 refit, and
+improves uncertainty propagation and lossless interchange. It contains 672
+stored EOS records in 232 material documents, with 669 executable records
+across 229 materials. Published models and independent refits retain their
+individual scientific qualifications.
+
 ### Added
 
 - Add an opt-in NaCl-B2 thermal refit of Fei (2007)'s 24 unique digitized
   observations, with explicit cold-then-hot fitting and conditional statistics.
   Preserve published coefficients and the default; original-author thermal-fit
   parity remains unresolved.
+- Add separate brucite curved-expansion refits: four isotherms retain the
+  published moduli, while a continuous version uses the published slopes and
+  explicit 300 K anchors. Preserve original records/defaults and shared
+  expansion covariance. Correct finite-difference uncertainty steps for very
+  small coefficients, including temperature-dependent expansivity curvature.
+- Add brucite over Fukui (2003)'s measured lattice-average pressure range,
+  with a directly inspected F-free neutron structure. Preserve all published
+  coefficients and observations. Separate Peritheos unweighted 873 K and
+  continuous thermal table-data refits include conditional covariance;
+  the original 873 K normalization mismatch and source-slope reconstruction
+  remain qualified explicit selections.
 - Add the measured Fe-bearing phase E of Crichton and Ross (2000), with the
   published BM3 coefficients, all eleven primary rows and reported errors,
   and a documented phase-specific diffraction peak-position fallback. Record
   fit parity within reported uncertainty, coefficient and curve differences,
   and the reproducible residual plot; keep exact-workflow provenance separate.
+- Support a linear temperature derivative of `K0_prime` in
+  `ThermalReferenceStateEOS` / `AlphaKT` through optional `dKprime_dT` (K^-1),
+  including native evaluation, fitting, uncertainty propagation and `.eosmat`
+  interchange. Omission retains existing behavior; unsupported reference
+  families reject nonzero shifts.
+- Add two Katsura (2022) forsterite thermal records, retaining the full-precision
+  author-script option and the printed-table alternative with scoped conditional
+  numerical parity. Preserve the static default and original-2009 fit hold.
+- Add diffraction-ready diopside with independent Thompson (2008) static and
+  Zhao (1998) thermal records. Retain original numerical tables and a separate
+  graph-corroborated corrected analysis dataset; exact author workflow is unverified.
 - Add Farla (2025) B2 RbCl/RbBr/RbI thermal records and primary numerical datasets.
   Retain conditional fit similarity, benchmark precision and composite-CsCl
   calibration qualifications; preserve the existing RbCl static default.
+- Integrate the optional combined Hirose/Fei Au refit and conditional Sakai
+  (2025) Au central-value replay into the scientific ledgers without claiming
+  original-author uncertainty or complete sequential-calibration parity.
+- Add a generated per-material coverage overview and active material-gap queue.
+
+### Fixed
+
+- Preserve archived brucite refit coefficients and run provenance when rebuilding
+  catalog records. Bound numerical replay variation across Python/SciPy versions
+  while retaining exact source facts and strict runtime equation checks.
+- Make brucite regression checks independent of local staging files and include
+  their fixtures in the standalone Rust crate. Keep unfinished Brown NaCl and
+  Fe-ringwoodite investigations outside this release.
+- Reconcile source/refit ledgers and the material manifest for all 672 stored
+  records in 232 documents (669 executable records across 229 materials).
+- Preserve small floating-point EOS coefficients through Rust JSON round trips
+  using the exact-rounding reader; retain source numeric values and defaults.
+- Reconcile catalog tests, source links and documentation counts after the first
+  material-gap batch.
 
 ## [0.12.0] - 2026-10-09
 
@@ -1143,7 +1193,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.12.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.13.0...HEAD
+[0.13.0]: https://github.com/CPrescher/peritheos/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/CPrescher/peritheos/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/CPrescher/peritheos/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/CPrescher/peritheos/compare/v0.9.0...v0.10.0

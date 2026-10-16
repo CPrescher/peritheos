@@ -146,12 +146,52 @@
      "doi": "10.1038/s43246-025-00792-5"
     },
     "primary_data_check": {
-     "status": "derived_output_only",
-     "audit_date": "2026-09-05",
+     "status": "bundled",
+     "audit_date": "2026-10-12",
      "source_locations": [
-      "Supplementary Data 1, Table S9"
+      "Supplementary Data 1, Tables S1-S4, S7, S8 and S14",
+      "Dewaele2018 Supplement Tables 4-5",
+      "Dewaele2004 Table I; Takemura-Dewaele2008 Table III; Hirose2008 Table 1"
      ],
-     "finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance."
+     "dataset_identifiers": [
+      "gold_sakai_2025_calibration_paired_volumes",
+      "gold_sakai_2025_table_s4_au_w_volumes",
+      "gold_sakai_2025_dewaele_2018_au_re_input",
+      "gold_sakai_2025_table_s8_lineage",
+      "gold_sakai_2025_table_s14_cu_anchor",
+      "gold_sakai_2025_dewaele_2004_au_input",
+      "gold_sakai_2025_takemura_2008_au_input",
+      "gold_sakai_2025_hirose_2008_au_mgo_input",
+      "gold_sakai_2025_table_s9_rs_eos_grid"
+     ],
+     "finding": "All five Table S8 Au input families are retained: 247 numerical rows, of which 235 are RT and 210 enter the documented conditional Au replay. All 19 S4 Au-W and 307 upstream paired-volume rows are recovered, including literal source tokens and missing errors. Table S8 is a lineage index, not numerical upstream observations. Table S9 remains calculated output. Published calibrants and rounding-limited ruby conversions reproduce K0_prime=5.7800966 using explicitly assumed equal pressure residuals; equal volume residuals give 5.7877715. Conditional numerical parity is achieved for the independently refitted Au K0_prime central value at published precision under equal pressure residuals and published upstream calibrants. V0, K0 and K_infinity_prime are fixed at the paper values, not independently recovered. Uncertainty parity, original weights/covariance and full sequential calibration remain unverified.",
+     "source_manifest": "datasets/sakai-2025-au-source.json",
+     "reconstruction_report": "docs/data/sakai-2025-gold-reconstruction.json",
+     "reconstruction_assessment": {
+      "status": "conditional_numerical_parity_achieved",
+      "conditional_numerical_parity_achieved": true,
+      "scope": "Au K0_prime central value at published precision",
+      "criterion": "Successful independently refitted K0_prime rounds to Table 2 at three decimal places",
+      "fitted_parameter": "K0_prime",
+      "published_value": 5.78,
+      "reconstructed_value": 5.780096584423864,
+      "difference": 9.658442386406563e-05,
+      "published_decimal_places": 3,
+      "rows": 210,
+      "assumed_residual": "equal_pressure_residuals",
+      "fixed_parameters_from_paper": {
+       "V0": 67.716,
+       "K0": 167.0,
+       "K_infinity_prime": 1.6666666666666667
+      },
+      "calibrants": "published rounded Sakai Table 2 W, MgO, Re; reconstructed IPPS-Ruby2020",
+      "uncertainty_parity_achieved": false,
+      "full_sequential_calibration_reproduced": false,
+      "author_fit_parity": false,
+      "author_fit_parity_scope": "exact original fitting procedure and uncertainty",
+      "original_weights_recovered": false,
+      "original_covariance_recovered": false
+     }
     }
    },
    "source_lineage": [
@@ -164,6 +204,36 @@
      "role": "official executable formula and curve checkpoint",
      "citation": "Sakai et al. (2025), R-S EoS workbook and Supplementary Data 1 Table S9",
      "doi": "10.1038/s43246-025-00792-5"
+    },
+    {
+     "role": "primary simultaneous-volume observations and calibration lineage",
+     "citation": "Sakai2025 Supplementary Data 1, Tables S1-S4, S7-S8",
+     "doi": "10.1038/s43246-025-00792-5",
+     "manifest": "datasets/sakai-2025-au-source.json"
+    },
+    {
+     "role": "Au calibration input indexed in Table S8",
+     "citation": "Dewaele et al. (2018), supplementary Tables 4-5, pp. 9-10",
+     "doi": "10.1038/s41467-018-05294-2",
+     "dataset_identifier": "gold_sakai_2025_dewaele_2018_au_re_input"
+    },
+    {
+     "role": "Au calibration input indexed in Table S8",
+     "citation": "Table I, journal page 094112-4",
+     "doi": "10.1103/PhysRevB.70.094112",
+     "dataset_identifier": "gold_sakai_2025_dewaele_2004_au_input"
+    },
+    {
+     "role": "Au calibration input indexed in Table S8",
+     "citation": "Table III, all runs; P, P-prime, and am(111) columns",
+     "doi": "10.1103/PhysRevB.78.104119",
+     "dataset_identifier": "gold_sakai_2025_takemura_2008_au_input"
+    },
+    {
+     "role": "Au calibration input indexed in Table S8",
+     "citation": "Table 1, page 150",
+     "doi": "10.1016/j.pepi.2008.03.002",
+     "dataset_identifier": "gold_sakai_2025_hirose_2008_au_mgo_input"
     }
    ],
    "experimental_pressure_range_gpa": [
@@ -719,8 +789,30 @@
    ],
    "experimental_pressure_range_gpa": [
     0.0,
-    89.0
+    117.9
    ],
+   "experimental_temperature_range_k": [
+    298.0,
+    2330.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     117.9
+    ],
+    "temperature_k": [
+     298.0,
+     2330.0
+    ],
+    "notes": [
+     "Marginal envelope of the recovered source measurements, not a validated rectangular P-T domain, an extrapolation limit or a guarantee of phase stability. Conditional replay uses 37 cold and 28 hot rows; the original author selection is not recovered.",
+     "Cold anchor: Dewaele (2004) Table I, 37 revised-ruby rows at 298 K spanning 0-93.6 GPa. Fei (2007) defines the EOS reference at 300 K; evaluating these rows at that reference does not relabel their measured temperature.",
+     "Hot coverage: Fei (2004) Table 1, 26 reported-MgO rows at 8.64-25.56 GPa and 1273-2173 K, plus Hirose (2006) Table 1 Run 2 points at 106.5 GPa/1340 K and 117.9 GPa/2330 K. The marginal bounds do not fill the pressure gap or provide continuous temperature coverage.",
+     "Additional cold evidence: Fei (2007) reports new room-temperature measurements to 89 GPa, recovered only as six digitized Figure 1 markers; Hirose (2006) supplies one 102.8 GPa/300 K MgO-referenced row. These enter cold sensitivities only. The 111 calculated Figure 1 vertices are equation comparisons, never measured coverage.",
+     "Fei (2007) supplies no explicit recommended numerical extrapolation range for this Au EOS. Its discussion of core pressures and the numerical PVT verification grid do not extend the measured envelope or establish accuracy outside the observed states."
+    ]
+   },
    "thermal": {
     "type": "MieGruneisenDebye",
     "parameters": {
@@ -797,14 +889,14 @@
       },
       "source_location": "Fei 2007 Au thermal-refit paragraph; Fei 2004 Table 1 and Hirose 2006 Table 1",
       "scope": "Hot Au observations",
-      "notes": "Reported MgO pressures retained. Exact author thermal-pressure reduction implementation is unresolved; the independent variable-q implementation is a sensitivity."
+      "notes": "Reported MgO pressures retained. The published Speziale VariableQMieGruneisenDebye model is executable and its Debye-temperature integration is author-confirmed; it does not reproduce the reported Fei/Hirose hot pressures. The exact later reducer is not recovered. Recalculation with the published model is a separate diagnostic, not historical-pressure replay."
      }
     ],
     "recalculation": {
-     "status": "reference_model_not_supported",
-     "notes": "Cold revised-ruby scale is executable. Exact author MgO thermal reduction is not recovered; paired lattice data support a qualified independent diagnostic."
+     "status": "not_possible",
+     "notes": "Exact historical hot-pressure replay is not possible with the available evidence: the later Fei/Hirose MgO reducer is not recovered, and its reported hot pressures are not reproduced by the executable, author-confirmed published Speziale model. The cold revised-ruby scale remains executable; paired lattice observations support separate diagnostic recalculation. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json."
     },
-    "audit_date": "2026-10-09"
+    "audit_date": "2026-10-12"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -2561,10 +2653,10 @@
      }
     ],
     "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "The published Speziale variable-q thermal EOS is now bundled and the 300 K anchor remains executable. The exact Hirose thermal pressure reducer is not recovered and is not identified with the published model; this historical-reference limitation remains."
+     "status": "not_possible",
+     "notes": "Exact historical thermal-pressure replay is not possible with the available evidence: the later Hirose MgO reducer is not recovered. The published Speziale VariableQMieGruneisenDebye model is executable and its Debye-temperature integration is author-confirmed; this does not establish the reducer used by Hirose or reproduce the later Fei/Hirose hot-pressure targets. Preserve reported pressures and paired lattice observations; published-model recalculation is a separate diagnostic and thermal ancestry remains evidence only. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json."
     },
-    "audit_date": "2026-09-10"
+    "audit_date": "2026-10-12"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -2755,10 +2847,10 @@
      }
     ],
     "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "The published Speziale variable-q thermal EOS is now bundled and the 300 K anchor remains executable. The exact Hirose thermal pressure reducer is not recovered and is not identified with the published model; this historical-reference limitation remains."
+     "status": "not_possible",
+     "notes": "Exact historical thermal-pressure replay is not possible with the available evidence: the later Hirose MgO reducer is not recovered. The published Speziale VariableQMieGruneisenDebye model is executable and its Debye-temperature integration is author-confirmed; this does not establish the reducer used by Hirose or reproduce the later Fei/Hirose hot-pressure targets. Preserve reported pressures and paired lattice observations; published-model recalculation is a separate diagnostic and thermal ancestry remains evidence only. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json."
     },
-    "audit_date": "2026-09-10"
+    "audit_date": "2026-10-12"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -2927,9 +3019,9 @@
     ],
     "recalculation": {
      "status": "ready",
-     "notes": "The published Speziale variable-q thermal EOS is now bundled and the 300 K anchor remains executable. The exact Hirose thermal pressure reducer is not recovered and is not identified with the published model; this historical-reference limitation remains."
+     "notes": "The 300 K Speziale BM3 anchor is executable and reproduces the paired room-temperature MgO pressures within their printed uncertainty widths. This readiness applies to the 300 K calibration only. The bundled, author-confirmed VariableQMieGruneisenDebye model does not establish the unrecovered later Hirose thermal reducer; thermal ancestry remains evidence only."
     },
-    "audit_date": "2026-09-10"
+    "audit_date": "2026-10-12"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -3101,10 +3193,10 @@
      }
     ],
     "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "The published Speziale variable-q thermal EOS is now bundled. The exact later author pressure reducer is not recovered and its printed pressures are not reproduced by that model; this historical-reference limitation remains. Preserve source pressures and paired lattice measurements."
+     "status": "not_possible",
+     "notes": "Exact historical thermal-pressure replay is not possible with the available evidence: the later Fei MgO reducer is not recovered, and its printed hot pressures are not reproduced by the executable, author-confirmed published Speziale VariableQMieGruneisenDebye model. Preserve source pressures and paired lattice measurements; published-model recalculation is a separate diagnostic. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json."
     },
-    "audit_date": "2026-09-10"
+    "audit_date": "2026-10-12"
    },
    "fit_datasets": [
     "gold_fei_2004_table1"
@@ -4172,11 +4264,23 @@
      "status": "bundled",
      "dataset_identifiers": [
       "gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt"
-     ]
+     ],
+     "finding": "All 47 source observations are retained with paired MgO volumes; the pressure targets are explicitly recalculated, not historical author pressures."
     },
     "independent_numerical_check": {
      "script": "scripts/refit_hirose_fei_gold_speziale.py",
      "report": "docs/data/hirose-2008-fei-2004-gold-speziale-2001-refit.json"
+    },
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+     "doi": "10.1016/j.pepi.2008.03.002",
+     "locations": [
+      "Hirose (2008), Table 1 and Section 3.1 / Table 2 fit #2",
+      "Fei (2004), Table 1",
+      "Speziale (2001), Equation (11) and recorded author confirmation",
+      "Peritheos staged regression and derived-data report"
+     ],
+     "finding": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity."
     }
    }
   }
@@ -4189,6 +4293,1188 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "datasets": [
+  {
+   "identifier": "gold_sakai_2025_calibration_paired_volumes",
+   "kind": "simultaneous_volume_calibration_network",
+   "description": "326 measured paired rows: 307 Au ancestors and 19 direct Au-W inputs. S4 rows are also exposed separately; these two resources overlap and must not be summed.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Kadobayashi",
+     "Nakamoto",
+     "Dekura",
+     "Ishimatsu",
+     "Kawaguchi-Imada",
+     "Seto",
+     "Sekizawa",
+     "Nitta",
+     "Shimizu"
+    ],
+    "year": 2025,
+    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+    "source": "Communications Materials",
+    "volume": "6",
+    "locator": "68",
+    "doi": "10.1038/s43246-025-00792-5"
+   },
+   "source_location": "Tables S1, S2, S3, S4, S7",
+   "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs43246-025-00792-5/MediaObjects/43246_2025_792_MOESM5_ESM.xlsx",
+   "columns": [
+    {
+     "name": "source_table",
+     "quantity": "source_table",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_sheet",
+     "quantity": "source_sheet",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "apparatus",
+     "quantity": "apparatus",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "au_relevance",
+     "quantity": "au_relevance",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_marker",
+     "quantity": "source_marker",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "material_1",
+     "quantity": "material_1",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase_1",
+     "quantity": "phase_1",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "material_2",
+     "quantity": "material_2",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase_2",
+     "quantity": "phase_2",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_1_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_1_a3_source_token",
+     "quantity": "volume_1_a3_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_1_error_a3",
+     "of": "volume_1_a3",
+     "quantity": "volume_1_error_a3",
+     "unit": "angstrom^3",
+     "role": "uncertainty"
+    },
+    {
+     "name": "volume_1_error_a3_source_token",
+     "quantity": "volume_1_error_a3_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_2_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_2_a3_source_token",
+     "quantity": "volume_2_a3_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_2_error_a3",
+     "of": "volume_2_a3",
+     "quantity": "volume_2_error_a3",
+     "unit": "angstrom^3",
+     "role": "uncertainty"
+    },
+    {
+     "name": "volume_2_error_a3_source_token",
+     "quantity": "volume_2_error_a3_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "secondary_a_angstrom_source_token",
+     "quantity": "secondary_a_angstrom_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_a_error_angstrom",
+     "of": "secondary_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty"
+    },
+    {
+     "name": "secondary_a_error_angstrom_source_token",
+     "quantity": "secondary_a_error_angstrom_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "secondary_c_angstrom_source_token",
+     "quantity": "secondary_c_angstrom_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_c_error_angstrom",
+     "of": "secondary_c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty"
+    },
+    {
+     "name": "secondary_c_error_angstrom_source_token",
+     "quantity": "secondary_c_error_angstrom_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_c_over_a",
+     "quantity": "secondary_c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "secondary_c_over_a_source_token",
+     "quantity": "secondary_c_over_a_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_c_over_a_error",
+     "of": "secondary_c_over_a",
+     "quantity": "secondary_c_over_a_error",
+     "unit": "1",
+     "role": "uncertainty"
+    },
+    {
+     "name": "secondary_c_over_a_error_source_token",
+     "quantity": "secondary_c_over_a_error_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pt_uniaxial_stress_gpa",
+     "quantity": "source_calculated_uniaxial_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pt_uniaxial_stress_gpa_source_token",
+     "quantity": "pt_uniaxial_stress_gpa_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "mgo_uniaxial_stress_gpa",
+     "quantity": "source_calculated_uniaxial_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "mgo_uniaxial_stress_gpa_source_token",
+     "quantity": "mgo_uniaxial_stress_gpa_source_token",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/sakai-2025-au-calibration-paired-volumes.csv",
+    "sha256": "2edda47994f2e8a176d40859b75a1a52c380e90b74f329b72a2b6d5e1a42dc36",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_sakai_2025_rydberg_stacey_1"
+   ],
+   "license": "Peritheos contributors release only their transcription, normalization code and metadata under CC0-1.0. This does not license third-party sources or rights in their contents. Sakai article rights: CC BY-NC-ND 4.0; Dewaele2018 article rights: CC BY 4.0. Original source rights and any third-party exclusions remain applicable.",
+   "provenance": {
+    "type": "primary_source_numeric_recovery",
+    "manifest": "datasets/sakai-2025-au-source.json"
+   },
+   "uncertainty": {
+    "notes": "Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations."
+   }
+  },
+  {
+   "identifier": "gold_sakai_2025_table_s4_au_w_volumes",
+   "kind": "simultaneous_xrd_compression",
+   "description": "All 19 Au-W observations at room temperature. All Au errors are blank in the source; W errors are retained. No pressures are observed or imputed.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Kadobayashi",
+     "Nakamoto",
+     "Dekura",
+     "Ishimatsu",
+     "Kawaguchi-Imada",
+     "Seto",
+     "Sekizawa",
+     "Nitta",
+     "Shimizu"
+    ],
+    "year": 2025,
+    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+    "source": "Communications Materials",
+    "volume": "6",
+    "locator": "68",
+    "doi": "10.1038/s43246-025-00792-5"
+   },
+   "source_location": "Table S4",
+   "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs43246-025-00792-5/MediaObjects/43246_2025_792_MOESM5_ESM.xlsx",
+   "columns": [
+    {
+     "name": "source_table",
+     "quantity": "source_table",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_sheet",
+     "quantity": "source_sheet",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "apparatus",
+     "quantity": "apparatus",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "au_relevance",
+     "quantity": "au_relevance",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_marker",
+     "quantity": "source_marker",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "material_1",
+     "quantity": "material_1",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase_1",
+     "quantity": "phase_1",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "material_2",
+     "quantity": "material_2",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase_2",
+     "quantity": "phase_2",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_1_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_1_a3_source_token",
+     "quantity": "volume_1_a3_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_1_error_a3",
+     "of": "volume_1_a3",
+     "quantity": "volume_1_error_a3",
+     "unit": "angstrom^3",
+     "role": "uncertainty"
+    },
+    {
+     "name": "volume_1_error_a3_source_token",
+     "quantity": "volume_1_error_a3_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_2_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_2_a3_source_token",
+     "quantity": "volume_2_a3_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_2_error_a3",
+     "of": "volume_2_a3",
+     "quantity": "volume_2_error_a3",
+     "unit": "angstrom^3",
+     "role": "uncertainty"
+    },
+    {
+     "name": "volume_2_error_a3_source_token",
+     "quantity": "volume_2_error_a3_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "secondary_a_angstrom_source_token",
+     "quantity": "secondary_a_angstrom_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_a_error_angstrom",
+     "of": "secondary_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty"
+    },
+    {
+     "name": "secondary_a_error_angstrom_source_token",
+     "quantity": "secondary_a_error_angstrom_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "secondary_c_angstrom_source_token",
+     "quantity": "secondary_c_angstrom_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_c_error_angstrom",
+     "of": "secondary_c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty"
+    },
+    {
+     "name": "secondary_c_error_angstrom_source_token",
+     "quantity": "secondary_c_error_angstrom_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_c_over_a",
+     "quantity": "secondary_c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "secondary_c_over_a_source_token",
+     "quantity": "secondary_c_over_a_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "secondary_c_over_a_error",
+     "of": "secondary_c_over_a",
+     "quantity": "secondary_c_over_a_error",
+     "unit": "1",
+     "role": "uncertainty"
+    },
+    {
+     "name": "secondary_c_over_a_error_source_token",
+     "quantity": "secondary_c_over_a_error_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pt_uniaxial_stress_gpa",
+     "quantity": "source_calculated_uniaxial_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pt_uniaxial_stress_gpa_source_token",
+     "quantity": "pt_uniaxial_stress_gpa_source_token",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "mgo_uniaxial_stress_gpa",
+     "quantity": "source_calculated_uniaxial_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "mgo_uniaxial_stress_gpa_source_token",
+     "quantity": "mgo_uniaxial_stress_gpa_source_token",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-sakai-2025-table-s4-au-w-volumes.csv",
+    "sha256": "18b5c9c2be46eccf657aaf5616f746497460b15fbfc5da5a94de3c13390b4622",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_sakai_2025_rydberg_stacey_1"
+   ],
+   "license": "Peritheos contributors release only their transcription, normalization code and metadata under CC0-1.0. This does not license third-party sources or rights in their contents. Sakai article rights: CC BY-NC-ND 4.0; Dewaele2018 article rights: CC BY 4.0. Original source rights and any third-party exclusions remain applicable.",
+   "provenance": {
+    "type": "primary_source_numeric_recovery",
+    "manifest": "datasets/sakai-2025-au-source.json"
+   },
+   "uncertainty": {
+    "notes": "Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations."
+   }
+  },
+  {
+   "identifier": "gold_sakai_2025_dewaele_2018_au_re_input",
+   "kind": "simultaneous_xrd_compression",
+   "description": "All 84 Au-Re observations in runs 1-3. Preserve Au111, Au200, Re a/c, membrane and reported Re pressure, and paired Al values where present. Cell volumes are a111^3 for Au and sqrt(3)*a_Re^2*c_Re/2 for Re. Source prints no row volume errors. All 25 rows excluded below 200 GPa by Sakai remain archived.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Occelli",
+     "Marie",
+     "Mezouar"
+    ],
+    "year": 2018,
+    "title": "Toroidal diamond anvil cell for detailed measurements under extreme static pressures",
+    "source": "Nature Communications",
+    "volume": "9",
+    "locator": "2913",
+    "doi": "10.1038/s41467-018-05294-2"
+   },
+   "source_location": "Dewaele et al. (2018), supplementary Tables 4-5, pp. 9-10",
+   "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-018-05294-2/MediaObjects/41467_2018_5294_MOESM1_ESM.pdf",
+   "columns": [
+    {
+     "name": "source_table",
+     "quantity": "source_table",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_page",
+     "quantity": "source_page",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_row_in_run",
+     "quantity": "source_row_in_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase_au",
+     "quantity": "phase_au",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase_re",
+     "quantity": "phase_re",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_tokens_json",
+     "quantity": "source_tokens_json",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "membrane_pressure_bar",
+     "quantity": "membrane_pressure",
+     "unit": "bar",
+     "role": "value"
+    },
+    {
+     "name": "re_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "re_c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "reported_re_pressure_gpa",
+     "quantity": "source_calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "au_a111_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_a200_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "al_fcc_a111_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "al_hcp_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "al_hcp_c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "au_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "re_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_error_a3",
+     "of": "au_volume_a3",
+     "quantity": "volume_error_a3",
+     "unit": "angstrom^3",
+     "role": "uncertainty"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-dewaele-2018-tables-4-5-au-re.csv",
+    "sha256": "5346dee968a9202685bf3aa3fe4702254d901d7f6171f28894b15980b2b0a31c",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_sakai_2025_rydberg_stacey_1"
+   ],
+   "license": "Peritheos contributors release only their transcription, normalization code and metadata under CC0-1.0. This does not license third-party sources or rights in their contents. Sakai article rights: CC BY-NC-ND 4.0; Dewaele2018 article rights: CC BY 4.0. Original source rights and any third-party exclusions remain applicable.",
+   "provenance": {
+    "type": "primary_source_numeric_recovery",
+    "manifest": "datasets/sakai-2025-au-source.json"
+   },
+   "uncertainty": {
+    "notes": "Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations."
+   }
+  },
+  {
+   "identifier": "gold_sakai_2025_table_s8_lineage",
+   "kind": "calibration_lineage_index",
+   "description": "All 35 lineage rows. This sheet indexes references and pressure calibrants; it does not supply their numerical observations. Downstream Mo/NaCl/Fe rows are context, not Au input.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Kadobayashi",
+     "Nakamoto",
+     "Dekura",
+     "Ishimatsu",
+     "Kawaguchi-Imada",
+     "Seto",
+     "Sekizawa",
+     "Nitta",
+     "Shimizu"
+    ],
+    "year": 2025,
+    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+    "source": "Communications Materials",
+    "volume": "6",
+    "locator": "68",
+    "doi": "10.1038/s43246-025-00792-5"
+   },
+   "source_location": "Table S8",
+   "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs43246-025-00792-5/MediaObjects/43246_2025_792_MOESM5_ESM.xlsx",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "reference",
+     "quantity": "reference",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "reference_number",
+     "quantity": "reference_number",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "material",
+     "quantity": "material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_calibrant",
+     "quantity": "pressure_calibrant",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "note",
+     "quantity": "note",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/sakai-2025-table-s8-calibration-lineage.csv",
+    "sha256": "810504e57349dd7e38ca00d8e77a97b8c7cc06a61c8d8057615b8366ba11e8e6",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_sakai_2025_rydberg_stacey_1"
+   ],
+   "license": "Peritheos contributors release only their transcription, normalization code and metadata under CC0-1.0. This does not license third-party sources or rights in their contents. Sakai article rights: CC BY-NC-ND 4.0; Dewaele2018 article rights: CC BY 4.0. Original source rights and any third-party exclusions remain applicable.",
+   "provenance": {
+    "type": "primary_source_numeric_recovery",
+    "manifest": "datasets/sakai-2025-au-source.json"
+   },
+   "uncertainty": {
+    "notes": "Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations."
+   }
+  },
+  {
+   "identifier": "gold_sakai_2025_table_s14_cu_anchor",
+   "kind": "calculated_scale_conversion_input",
+   "description": "All 36 calculated Cu curve nodes used to test scale conversion. These are external-scale calculations, not measured Cu or Au observations. Observed Cu A/B cells are preserved separately in the raw cell archive.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Kadobayashi",
+     "Nakamoto",
+     "Dekura",
+     "Ishimatsu",
+     "Kawaguchi-Imada",
+     "Seto",
+     "Sekizawa",
+     "Nitta",
+     "Shimizu"
+    ],
+    "year": 2025,
+    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+    "source": "Communications Materials",
+    "volume": "6",
+    "locator": "68",
+    "doi": "10.1038/s43246-025-00792-5"
+   },
+   "source_location": "Table S14, columns E-G",
+   "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs43246-025-00792-5/MediaObjects/43246_2025_792_MOESM5_ESM.xlsx",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "fratanduono_2020_pressure_gpa",
+     "quantity": "source_calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "sakai_rs_pressure_gpa",
+     "quantity": "source_calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kind",
+     "quantity": "kind",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/sakai-2025-table-s14-cu-anchor-calculated.csv",
+    "sha256": "8fe53fd7360840834745acd45b19e050be4c4bb34f156530c3b3618324f3f3c5",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_sakai_2025_rydberg_stacey_1"
+   ],
+   "license": "Peritheos contributors release only their transcription, normalization code and metadata under CC0-1.0. This does not license third-party sources or rights in their contents. Sakai article rights: CC BY-NC-ND 4.0; Dewaele2018 article rights: CC BY 4.0. Original source rights and any third-party exclusions remain applicable.",
+   "provenance": {
+    "type": "primary_source_numeric_recovery",
+    "manifest": "datasets/sakai-2025-au-source.json"
+   },
+   "uncertainty": {
+    "notes": "Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations."
+   }
+  },
+  {
+   "kind": "pressure_volume",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2004,
+    "source": "Phys. Rev. B",
+    "volume": "70",
+    "locator": "094112",
+    "doi": "10.1103/PhysRevB.70.094112"
+   },
+   "source_location": "Table I, journal page 094112-4",
+   "columns": [
+    {
+     "name": "ruby_pressure_classical_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value",
+     "pressure_scale": {
+      "calibration_record": "ruby_mao_1986",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "volume": "70",
+       "locator": "094112",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Table I classical P_R; Equation (1), A=1904 GPa, B=7.665"
+     }
+    },
+    {
+     "name": "ruby_pressure_revised_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value",
+     "pressure_scale": {
+      "calibration_record": "ruby_dewaele_2004",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "volume": "70",
+       "locator": "094112",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Table I revised P'_R; Equation (1), A=1904 GPa, B=9.5"
+     }
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_uncertainty_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "bound",
+     "of": "atomic_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-dewaele-2004-table1-compression.csv",
+    "sha256": "c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438",
+    "media_type": "text/csv"
+   },
+   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+   "license": "No explicit open data-reuse license is stated. APS copyright applies to the article; this factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
+   "transcription": {
+    "type": "direct_table_transcription",
+    "method": "Manual transcription from the publisher PDF with source row order and printed decimal precision retained.",
+    "source_artifact": {
+     "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+     "media_type": "application/pdf",
+     "sha256": "1f9e02e4a77f49a868b1a6261290465bdb00597b1660691b1790c7502ec9aeeb"
+    }
+   },
+   "identifier": "gold_sakai_2025_dewaele_2004_au_input",
+   "used_by_eos_records": [
+    "gold_sakai_2025_rydberg_stacey_1"
+   ],
+   "description": "Sakai Table S8 Au input: reuses all source rows of gold_dewaele_2004_table1_compression. Original source coordinates/errors are preserved; computed IPPS-Ruby2020 or MgO pressures are separate in the recovery report.",
+   "notes": "Resource alias, not new measurements. Hirose: retain all 21 rows but only nine 300 K rows enter the diagnostic Au isotherm. Ruby conversions use inferred shifts from rounded reported pressures, not recovered spectra.",
+   "provenance": {
+    "reused_dataset_identifier": "gold_dewaele_2004_table1_compression",
+    "sakai_source_manifest": "datasets/sakai-2025-au-source.json"
+   }
+  },
+  {
+   "kind": "pressure_lattice_parameter",
+   "reference": {
+    "authors": [
+     "Takemura",
+     "Dewaele"
+    ],
+    "year": 2008,
+    "source": "Phys. Rev. B",
+    "volume": "78",
+    "locator": "104119",
+    "doi": "10.1103/PhysRevB.78.104119"
+   },
+   "source_location": "Table III, all runs; P, P-prime, and am(111) columns",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ruby_pressure_zha_gpa",
+     "quantity": "pressure_from_zha_ruby_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_pressure_dorogokupets_gpa",
+     "quantity": "pressure_from_dorogokupets_oganov_ruby_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "lattice_111_angstrom",
+     "quantity": "lattice_parameter_from_111_reflection",
+     "unit": "angstrom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-takemura-2008-table3-compression.csv",
+    "sha256": "04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858",
+    "media_type": "text/csv"
+   },
+   "source_url": "https://doi.org/10.1103/PhysRevB.78.104119",
+   "identifier": "gold_sakai_2025_takemura_2008_au_input",
+   "used_by_eos_records": [
+    "gold_sakai_2025_rydberg_stacey_1"
+   ],
+   "description": "Sakai Table S8 Au input: reuses all source rows of gold_takemura_2008_table3_compression. Original source coordinates/errors are preserved; computed IPPS-Ruby2020 or MgO pressures are separate in the recovery report.",
+   "notes": "Resource alias, not new measurements. Hirose: retain all 21 rows but only nine 300 K rows enter the diagnostic Au isotherm. Ruby conversions use inferred shifts from rounded reported pressures, not recovered spectra.",
+   "provenance": {
+    "reused_dataset_identifier": "gold_takemura_2008_table3_compression",
+    "sakai_source_manifest": "datasets/sakai-2025-au-source.json"
+   }
+  },
+  {
+   "kind": "simultaneous_xrd_compression",
+   "reference": {
+    "authors": [
+     "Hirose",
+     "Sata",
+     "Komabayashi",
+     "Ohishi"
+    ],
+    "year": 2008,
+    "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "167",
+    "locator": "149-154",
+    "doi": "10.1016/j.pepi.2008.03.002"
+   },
+   "source_location": "Table 1, page 150",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "mgo_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgo_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "mgo_a_angstrom"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa_uncertainty",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "mgo_matsui_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "gold_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "gold_a_angstrom"
+    },
+    {
+     "name": "gold_fit2_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_fit2_pressure_gpa_uncertainty",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "gold_fit2_pressure_gpa"
+    },
+    {
+     "name": "gold_jamieson_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_heinz_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_anderson_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_shim_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_tsuchiya_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_fei_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b1_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b1_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "nacl_b1_a_angstrom"
+    },
+    {
+     "name": "nacl_b2_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b2_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "nacl_b2_a_angstrom"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "mgo_volume_a3",
+     "quantity": "calibrant_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-hirose-2008-table1.csv",
+    "sha256": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9",
+    "media_type": "text/csv"
+   },
+   "source_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+   "uncertainty": {
+    "notes": "Parenthetical errors are retained; their confidence convention is unspecified. Run 3 lattice errors are absent. Run 3 pressure errors include temperature only; the authors estimate an additional MgO volume contribution up to 0.5 GPa. Temperature spatial variation was below ±10%; this is not a row-wise standard deviation."
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "zotero_item_key": "RCISM6W3",
+    "source_artifact_sha256": "83c61450294d40e0ae6fed9a3dbbd4fdb5ef52c54a642f9c13ab540c32ba8d91",
+    "reused_dataset_identifier": "gold_hirose_2008_table1",
+    "sakai_source_manifest": "datasets/sakai-2025-au-source.json"
+   },
+   "identifier": "gold_sakai_2025_hirose_2008_au_mgo_input",
+   "used_by_eos_records": [
+    "gold_sakai_2025_rydberg_stacey_1"
+   ],
+   "description": "Sakai Table S8 Au input: reuses all source rows of gold_hirose_2008_table1. Original source coordinates/errors are preserved; computed IPPS-Ruby2020 or MgO pressures are separate in the recovery report.",
+   "notes": "Resource alias, not new measurements. Hirose: retain all 21 rows but only nine 300 K rows enter the diagnostic Au isotherm. Ruby conversions use inferred shifts from rounded reported pressures, not recovered spectra."
+  },
   {
    "identifier": "gold_sakai_2025_table_s9_rs_eos_grid",
    "kind": "derived_pressure_volume_grid",

@@ -5249,14 +5249,33 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if record["identifier"] == "phase_e_fe0072_crichton_ross_2000_bm3":
+            if material_id == "brucite":
+                from scripts.brucite_reproduce import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "phase_e_fe0072_crichton_ross_2000_bm3":
                 from scripts.reproduce_phase_e_crichton_ross_2000 import ledger_outcome
 
                 outcome = ledger_outcome(record)
+            elif record["identifier"] == "gold_sakai_2025_rydberg_stacey_1":
+                from scripts.catalog_addition_outcomes import sakai_gold_outcome
+
+                outcome = sakai_gold_outcome(record)
+            elif record["identifier"].startswith("diopside_"):
+                from scripts.catalog_addition_outcomes import diopside_outcome
+
+                outcome = diopside_outcome(record)
             elif "_farla_2025_" in record["identifier"]:
                 from scripts.catalog_addition_outcomes import rubidium_outcome
 
                 outcome = rubidium_outcome(record)
+            elif (
+                record["identifier"]
+                == "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit"
+            ):
+                from scripts.refit_hirose_fei_gold_speziale import ledger_outcome
+
+                outcome = ledger_outcome(record)
             elif record["identifier"] in {
                 "forsterite_katsura_2022_author_script_bm3_mgd",
                 "forsterite_katsura_2022_bm3_mgd",
@@ -5550,6 +5569,12 @@ def validate_all() -> dict[str, Any]:
                 " For explicitly registered Peritheos refits, parity verifies the "
                 "stored coefficients under the documented selection and objective; "
                 "it does not imply reproduction of source-author coefficients."
+                " Diopside parity is conditional agreement within reported error "
+                "widths, including a graph-corroborated corrected Zhao analysis "
+                "dataset; exact original inputs and workflow remain unrecovered."
+                " Sakai 2025 Au parity concerns only the independently fitted "
+                "K0-prime central value at published precision under stated "
+                "calibrants and residuals, not uncertainty or sequential-network parity."
                 " Phase E (Crichton and Ross 2000) achieves fit parity within "
                 "reported parameter error widths, with small pressure-curve "
                 "differences relative to the observation errors. Exact author "
@@ -5745,6 +5770,13 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "only for the script vector. Script-specific errors and exact bootstrap ",
         "reproduction remain unavailable. See the ",
         "[source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
+        "Diopside accepts conditional parameter parity within reported error widths; ",
+        "Zhao uses a separate corrected analysis dataset with the graph-corroborated ",
+        "row-15 pressure. Original observations and published coefficients remain ",
+        "unchanged; exact original author inputs and workflow are not recovered.",
+        "Sakai (2025) Au accepts conditional K0-prime central-value parity at published ",
+        "precision. Fixed coefficients, original weights/covariance and full ",
+        "sequential-calibration parity are not independently recovered.",
         "Phase E (Crichton and Ross 2000) achieves fit parity within reported ",
         "parameter errors on all 11 primary rows. Weighted-refit coefficient ",
         "shifts are below 0.123 reported error widths and the largest curve ",
@@ -6137,6 +6169,82 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     return "\n".join(line.rstrip() for line in lines)
 
 
+def check_ledger_values(
+    saved, current, *, path="ledger", calculated=False, absolute_tolerance=1e-10
+):
+    """Keep source facts exact while allowing optimizer/BLAS output roundoff.
+
+    Only explicitly calculated fields use a 1e-5 relative / 1e-10 absolute
+    tolerance (coefficient-scaled for differences). Published coefficients,
+    source strings, row counts, booleans,
+    classifications and dictionary/list structure must match exactly.
+    """
+    if isinstance(current, dict):
+        if not isinstance(saved, dict) or saved.keys() != current.keys():
+            raise ValueError(f"{path}: fields differ")
+        for key, value in current.items():
+            derived = (
+                calculated
+                or key
+                in {
+                    "refit",
+                    "fit",
+                    "refit_error",
+                    "difference",
+                    "relative_difference",
+                    "reduced_chi_square",
+                }
+                or key.startswith("calculated_")
+                or key.startswith("rmse_")
+                or key.endswith("_rmse_gpa")
+            )
+            if key in {
+                "published",
+                "published_error",
+                "source_parameters",
+                "fixed_parameters",
+            }:
+                derived = False
+            tolerance = absolute_tolerance
+            # Subtracting nearly equal coefficients amplifies relative roundoff
+            # in the difference. Compare it on the original coefficient scale.
+            if key == "difference" and isinstance(
+                current.get("published"), (int, float)
+            ):
+                tolerance = max(tolerance, abs(current["published"]) * 1e-5)
+            elif key == "relative_difference":
+                tolerance = max(tolerance, 1e-5)
+            check_ledger_values(
+                saved[key],
+                value,
+                path=f"{path}.{key}",
+                calculated=derived,
+                absolute_tolerance=tolerance,
+            )
+    elif isinstance(current, list):
+        if not isinstance(saved, list) or len(saved) != len(current):
+            raise ValueError(f"{path}: list length differs")
+        for index, (left, right) in enumerate(zip(saved, current)):
+            check_ledger_values(
+                left,
+                right,
+                path=f"{path}[{index}]",
+                calculated=calculated,
+                absolute_tolerance=absolute_tolerance,
+            )
+    elif isinstance(current, float) and calculated:
+        if not isinstance(saved, (int, float)) or not math.isclose(
+            saved, current, rel_tol=1e-5, abs_tol=absolute_tolerance
+        ):
+            raise ValueError(
+                f"{path}: calculated value differs ({saved!r}, {current!r})"
+            )
+    elif isinstance(saved, bool) != isinstance(current, bool) or saved != current:
+        raise ValueError(
+            f"{path}: source/assessment value differs ({saved!r}, {current!r})"
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="fail if outputs differ")
@@ -6153,8 +6261,12 @@ def main() -> int:
         current_markdown = (
             args.markdown.read_text(encoding="utf-8") if args.markdown.exists() else ""
         )
-        if current_json != json_text or current_markdown != markdown_text:
-            print("primary EOS refit documentation is stale", file=sys.stderr)
+        try:
+            check_ledger_values(json.loads(current_json), json.loads(json_text))
+            if current_markdown != markdown_text:
+                raise ValueError("rendered Markdown differs")
+        except (ValueError, TypeError) as error:
+            print(f"primary EOS refit documentation is stale: {error}", file=sys.stderr)
             return 1
         return 0
     args.json.parent.mkdir(parents=True, exist_ok=True)

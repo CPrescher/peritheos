@@ -48,6 +48,22 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1007/s00269-003-0353-z": (
+        "Brucite lattice-average volume EOSs accepted over the measured pressure ranges, "
+        "including H rearrangement; no H-order-resolved equilibrium model claimed. "
+        "300/473/673 K source moduli show conditional unweighted agreement with fixed "
+        "source V0. Original 873 K normalization is inconsistent (Fig. 6 markers imply "
+        "about 42.70 A^3 versus printed expansion's 42.516 A^3); original curve and "
+        "source-slope reconstruction remain qualified explicit selection. Separate "
+        "Peritheos 873 K and thermal table-data refits reproduce their own registered "
+        "coefficients with conditional covariance, not the original author's workflow. "
+        "Additional curved-expansion refits adopt published isotherm moduli; the "
+        "continuous variant uses published slopes with explicit 300 K anchors. "
+        "The shared ambient-data fit and its conditional covariance are Peritheos "
+        "results, not a recovered author expansion law. "
+        "Sun (2025) primary XRD supports layered average-lattice scope; He (2023) "
+        "supplies the primary ambient neutron structure. See the [audit](literature-reproductions/brucite.md)."
+    ),
     "10.1180/002646100549427": (
         "Fe-bearing phase E volume EOS successfully recovered: parity within "
         "reported uncertainty on all 11 primary rows. Published coefficients "

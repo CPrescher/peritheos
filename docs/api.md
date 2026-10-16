@@ -399,6 +399,7 @@ from peritheos.eos.thermal import (
     DebyeAnharmonicHelmholtz,
     MieGruneisenDebye,
     MieGruneisenEinstein,
+    VariableQMieGruneisenDebye,
     MultiOscillatorGruneisenThermalEOS,
     Sokolova2016,
     SecondOrderTaylorThermalPressure,
@@ -426,8 +427,9 @@ Thermal constructor signatures are:
 | `DebyeTabulatedThermalPressure` | `Tr, theta0, gamma0, q, n`; electronic temperature/pressure tables and explicit linear interpolation |
 | `DebyeQuadraticThermalPressure` | `Tr, theta0, gamma0, q, n, A, m` |
 | `DebyeAnharmonicHelmholtz` | `Tr, theta0, gamma0, q, b1, b2, b3` (monatomic; absolute-zero thermal baseline; gas constant 8.31451 J/mol/K) |
-| `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity", bulk_modulus_law="linear_temperature", beta1=0, beta2=0, beta3=0, kprime_log_coefficient=0`; volume laws also include `linear_temperature` and `berman` |
+| `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity", bulk_modulus_law="linear_temperature", beta1=0, beta2=0, beta3=0, kprime_log_coefficient=0, dKprime_dT=0`; volume laws also include `linear_temperature` and `berman` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen", thermal_pressure_reference="reference_temperature", Cvmax=None` |
+| `VariableQMieGruneisenDebye` | `Tr, theta0, gamma0, q0, q1, n`; volume-dependent q and the source-defined gamma law |
 | `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |
 | `HollandPowellThermalPressure` | `Tr, theta, alpha0, n` |
 | `ThermalModifiedTait` | `Tr, theta, alpha0, n` |
@@ -436,8 +438,10 @@ Thermal constructor signatures are:
 
 `ThermalReferenceStateEOS` also supports `bulk_modulus_law="reciprocal_cubic"`
 with `dK_dT=0` and the `beta1`, `beta2`, and `beta3` coefficients. The optional
-`kprime_log_coefficient` controls the reference modulus pressure derivative
-for supported families. See [Cubic reference compressibility](eosmat-schema.md#cubic-reference-compressibility)
+`dKprime_dT` (K^-1) adds a linear temperature slope to `K0_prime`;
+`kprime_log_coefficient` adds the logarithmic term for supported families.
+Both are preserved in fitting, uncertainty propagation and interchange.
+See [Cubic reference compressibility](eosmat-schema.md#cubic-reference-compressibility)
 for the equations, supported reference models, and domain restrictions.
 
 `Sokolova2016` is the compatibility alias for

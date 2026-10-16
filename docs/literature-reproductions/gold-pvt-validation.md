@@ -73,7 +73,9 @@ uncertainty or confidence interval. These are calculated curves, not extra
 observations.
 
 Measured-data comparisons use all 26 Au–MgO rows in Fei (2004) Table 1
-and all 37 Au rows in Dewaele (2004) Table I. Fei Table 1 was visually
+and all 37 Au rows in Dewaele (2004) Table I. This pressure-only audit's
+comparison subset is narrower than the later conditional replay, which also
+uses two Hirose (2006) hot rows. Fei Table 1 was visually
 checked on page 519, including its MgO-calibration footnote. The original
 source values and uncertainty columns remain unchanged:
 
@@ -84,8 +86,15 @@ source values and uncertainty columns remain unchanged:
 
 The cold source series was measured at 298 K; this comparison explicitly
 evaluates the paper's 300 K reference isotherm. The hot rows cover
-8.64–25.56 GPa and 1273–2173 K; the cold rows reach 93.6 GPa. These are
-marginal envelopes, not complete hot coverage to 93.6 GPa. They are source
+8.64–25.56 GPa and 1273–2173 K; the cold rows span 0–93.6 GPa at 298 K.
+The two additional replay states are 106.5 GPa/1340 K and
+117.9 GPa/2330 K (reported MgO pressures). Together these observations give
+the default record's marginal envelope of **0–117.9 GPa, 298–2330 K**.
+The [coverage audit](fei-2007-gold.md#experimental-coverage-and-validity-metadata)
+keeps the cold anchor, hot states, cold sensitivities and calculated curves
+distinct. These bounds do not validate a rectangular P–T domain, bridge the
+gap between low-pressure Fei and high-pressure Hirose hot observations, or
+specify an extrapolation limit. They are source
 fit/comparison data, not independently withheld observations. The paper's
 six digitized new cold observations remain explicitly plot-only. Original
 fit selections, weights, unrounded inputs and covariance are not recovered,

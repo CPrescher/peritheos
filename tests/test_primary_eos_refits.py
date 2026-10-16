@@ -6,6 +6,7 @@ import pytest
 
 from peritheos import list_eos_record_documents
 from scripts.validate_primary_eos_refits import (
+    check_ledger_values,
     shen_cu_pressure_gpa,
     shen_cu_reference_volume_a3,
 )
@@ -19,13 +20,37 @@ def load_ledger():
     return json.loads(LEDGER_PATH.read_text(encoding="utf-8"))
 
 
+def test_ledger_check_tolerates_only_small_calculated_roundoff():
+    import copy
+
+    saved = {
+        "status": "similar",
+        "observations": 14,
+        "parameters": [{"published": 118.0, "refit": 117.86417767}],
+    }
+    current = copy.deepcopy(saved)
+    current["parameters"][0]["refit"] += 1e-6
+    check_ledger_values(saved, current)
+    current["parameters"][0]["published"] += 1e-10
+    with pytest.raises(ValueError, match="published"):
+        check_ledger_values(saved, current)
+    current = copy.deepcopy(saved)
+    current["parameters"][0]["refit"] += 0.1
+    with pytest.raises(ValueError, match="calculated value"):
+        check_ledger_values(saved, current)
+    for field, value in [("status", "parity"), ("observations", 15)]:
+        current = {**saved, field: value}
+        with pytest.raises(ValueError, match=field):
+            check_ledger_values(saved, current)
+
+
 def test_primary_refit_ledger_covers_every_bundled_record_once():
     ledger = load_ledger()
     identifiers = [item["record_identifier"] for item in ledger["records"]]
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 652
+    assert len(identifiers) == len(set(identifiers)) == 672
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -33,19 +58,46 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 652, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 672, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "not_refittable": 177,
-        "parity": 228,
-        "parity_not_achieved": 75,
-        "similar": 156,
-        "source_reconstruction": 16,
+        "not_refittable": 176,
+        "parity": 244,
+        "parity_not_achieved": 76,
+        "similar": 159,
+        "source_reconstruction": 17,
     }
     assert all(
         item.get("reason")
         for item in ledger["records"]
         if item["status"] == "not_refittable"
     )
+
+
+def test_integrated_additions_keep_source_workflow_and_conditional_results_separate():
+    records = {r["record_identifier"]: r for r in load_ledger()["records"]}
+    for identifier in ("diopside_thompson_2008_bm3", "diopside_zhao_1998_thermal_bm3"):
+        record = records[identifier]
+        assert record["status"] == "parity"
+        assert record["parity_basis"] == "within_reported_parameter_errors"
+        assert record["original_author_workflow_parity"] is False
+    thermal = records["diopside_zhao_1998_thermal_bm3"]
+    assert thermal["dataset_identifiers"] == ["diopside_zhao_1998_table1_corrected_pvt"]
+    assert thermal["original_source_dataset_identifiers"] == [
+        "diopside_zhao_1998_table1"
+    ]
+    for compound in ("rbcl", "rbbr", "rbi"):
+        record = records[f"{compound}_b2_farla_2025_bm3_mgd_cscl"]
+        assert record["status"] == "similar"
+        assert record["original_author_workflow_parity"] is False
+        assert record["original_author_coefficient_rounding_parity"] is False
+    sakai = records["gold_sakai_2025_rydberg_stacey_1"]
+    assert sakai["status"] == "parity"
+    assert sakai["observations"] == 210
+    assert sakai["full_sequential_calibration_reproduced"] is False
+    assert sakai["uncertainty_parity_achieved"] is False
+    combined = records["gold_hirose_2008_fei_2004_speziale_2001_bm3_refit"]
+    assert combined["parity_basis"] == "registered_peritheos_refit_reproduced"
+    assert combined["original_publication_reproduction_status"] == "not_reproduced"
 
 
 def test_primary_refit_regression_examples_and_documentation_coverage():

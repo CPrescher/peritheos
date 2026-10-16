@@ -677,6 +677,7 @@ impl ThermalModel {
                         "beta2",
                         "beta3",
                         "kprime_log_coefficient",
+                        "dKprime_dT",
                     ],
                     true,
                 )?;
@@ -709,6 +710,14 @@ impl ThermalModel {
                                 model.kprime_log_coefficient,
                             ),
                         )
+                    })
+                    .and_then(|updated| {
+                        updated.with_linear_pressure_derivative(value(
+                            names,
+                            values,
+                            "dKprime_dT",
+                            model.dkprime_dt,
+                        ))
                     })
                     .map_err(FitError::from)?,
                 )

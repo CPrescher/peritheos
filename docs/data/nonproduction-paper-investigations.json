@@ -817,6 +817,22 @@
       "investigation_date": "2026-09-15",
       "evidence": "literature-reproductions/xian-2022-rhenium.md",
       "reason": "Complete primary paper audited. Unpublished velocity-density fit coefficients prevent exact quasi-Debye reconstruction; the printed alternative Eq. (40) has negative thermal expansion and other thermal equations contain unresolved notation errors. No signs, missing parameters, or gold reference volume were guessed."
+    },
+    {
+      "citation": "Xia et al. (1998), brucite volume thermal EOS",
+      "doi": "10.2138/am-1998-0107",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-10-16",
+      "evidence": "literature-reproductions/brucite.md",
+      "reason": "All 54 printed Table 6 PVT observations recovered. Final Table 7 omits fitted V0 and dKprime/dT despite Eqs. (5)-(8) requiring them; Fei-Mao ambient inputs and exact original combined fit remain unrecovered. No omitted derivative set to zero and no abstract coefficients mixed into the final fit."
+    },
+    {
+      "citation": "Fei and Mao (1993), brucite static and thermal compression",
+      "doi": "10.1029/93JB00701",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-10-16",
+      "evidence": "literature-reproductions/brucite.md",
+      "reason": "Primary abstract inspected, but final full paper and authoritative V0, original equations and complete observations not recovered. Abstract-only coefficients are preserved as discovery evidence, not an executable EOS."
     }
   ]
 }

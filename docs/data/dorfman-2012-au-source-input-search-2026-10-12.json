@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "search_date": "2026-10-12",
+  "search_date_basis": "User client date, Europe/Berlin",
+  "doi": "10.1029/2012JB009292",
+  "scope": "Source-input follow-up for the two Au coupled-fit records; joint-system files read only.",
+  "result": {
+    "status": "no_additional_fit_inputs_recovered",
+    "new_numerical_observation_count": 0,
+    "fitting_code_recovered": false,
+    "unrounded_inputs_recovered": false,
+    "authoritative_row_mask_recovered": false,
+    "an012_fit_inclusion": "Unresolved; presence in article Table 1 is not proof of inclusion in either fit.",
+    "discrepancy_explanation": "Unresolved; no new objective, row-mask experiment, or substitute coefficients introduced."
+  },
+  "rights_scope": "This report records Peritheos search notes and selected factual source metadata. It does not license or redistribute the article, auxiliary PDFs, source prose, figures, or code, and does not extend the bundled CSV CC0 dedication to third-party rights.",
+  "publisher_evidence": {
+    "article_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2012JB009292",
+    "access": "Article and attachment listing readable through web reader; direct article request returned HTTP 403.",
+    "locations": [
+      "Table 1",
+      "Section 3.1, paragraph 13",
+      "Table 2",
+      "Supporting Information"
+    ],
+    "attachment_inventory": [
+      {
+        "filename": "jgrb17272-sup-0001-readme.txt",
+        "scope": "Readme",
+        "verification": "Filename/description listed by publisher; file body not reacquired."
+      },
+      {
+        "filename": "jgrb17272-sup-0002-txts01.pdf",
+        "scope": "Unit-cell volume tables (existing source)",
+        "verification": "Filename/description listed by publisher; file body not reacquired."
+      },
+      {
+        "filename": "jgrb17272-sup-0003-fs01.eps",
+        "scope": "Figure S1: elastic anisotropy",
+        "verification": "Filename/description listed by publisher; file body not reacquired."
+      },
+      {
+        "filename": "jgrb17272-sup-0004-fs02.eps",
+        "scope": "Figure S2: lattice parameters",
+        "verification": "Filename/description listed by publisher; file body not reacquired."
+      },
+      {
+        "filename": "jgrb17272-sup-0005-fs03.eps",
+        "scope": "Figure S3: caption corrected by DOI 10.1029/2012JB009800",
+        "verification": "Filename/description listed by publisher; file body not reacquired."
+      },
+      {
+        "filename": "jgrb17272-sup-0006-t01.txt",
+        "scope": "Article Table 1: run configurations",
+        "verification": "Filename/description listed by publisher; file body not reacquired."
+      },
+      {
+        "filename": "jgrb17272-sup-0007-t02.txt",
+        "scope": "Article Table 2: fitted EOS coefficients",
+        "verification": "Filename/description listed by publisher; file body not reacquired."
+      },
+      {
+        "filename": "jgrb17272-sup-0008-t03.txt",
+        "scope": "Article Table 3: prior auxiliary-standard EOSs",
+        "verification": "Filename/description listed by publisher; file body not reacquired."
+      },
+      {
+        "filename": "jgrb17272-sup-0009-t04.txt",
+        "scope": "Article Table 4: prior metal EOSs",
+        "verification": "Filename/description listed by publisher; file body not reacquired."
+      }
+    ],
+    "inventory_limit": "Descriptions identify the four TXT tables as article Tables 1-4. Contents of these TXT files and readme were not read anew; no completeness claim about inaccessible bodies.",
+    "correction_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2012JB009800",
+    "correction_scope": "Figure S3 caption only; no revised EOS coefficients or fit-input rows provided in the correction.",
+    "figure_s3_listing": "Publisher attachment inventory still describes lattice parameters; the correction supplies a differential-stress caption."
+  },
+  "primary_routes": [
+    {
+      "url": "https://duffy.princeton.edu/publications",
+      "finding": "Article PDF linked, including appended correction; no additional article-specific input/code link found."
+    },
+    {
+      "url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/dorfman_jgr_12.pdf",
+      "finding": "Web-reader PDF text accessible, 16 pages; screenshot retrieval failed. Direct PDF retrieval returned HTTP 403; historical checksum not reverified."
+    },
+    {
+      "url": "https://sukidorfman.rocks/publications/",
+      "finding": "Article citation; no linked input/code deposit for this entry."
+    },
+    {
+      "url": "https://collaborate.princeton.edu/en/publications/intercomparison-of-pressure-standards-au-pt-mo-mgo-nacl-and-ne-to/",
+      "finding": "Publication metadata and DOI link; no additional fit-input deposit found."
+    },
+    {
+      "url": "https://carnegiescience.edu/epl/epl-publications/geophysical-lab-contributions-2012-2013",
+      "finding": "Article entry 4515 links DOI; no additional fit inputs found."
+    },
+    {
+      "url": "https://cdac.phys.uic.edu/publications/cdac-publications-2012/",
+      "finding": "Article entry 1069; no additional input/code link found."
+    },
+    {
+      "url": "https://infoscience.epfl.ch/handle/20.500.14299/89629",
+      "finding": "Exact DOI record discovered via public DSpace API; metadata-only; bundle enumeration contains LICENSE only."
+    },
+    {
+      "url": "https://minerals.princeton.edu/about-collection/publications",
+      "finding": "Lists the 2012 Dorfman dissertation; no full text obtained and no inference made about its tables or code."
+    }
+  ],
+  "selected_api_response_captures": [
+    {
+      "url": "https://api.crossref.org/works/10.1029/2012JB009292",
+      "http_status": 200,
+      "retrieved_bytes": 12055,
+      "retrieved_sha256": "7a37c68550093fbe78db3f1b16767baa31f6c71d19a69766ec43db8385b8416c",
+      "preservation": "Selected factual metadata below; full response not redistributed. Hash refers to the retrieved response, not this selection.",
+      "selected_metadata": {
+        "DOI": "10.1029/2012jb009292",
+        "title": [
+          "Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar"
+        ],
+        "relation": {},
+        "update-to": null,
+        "updated-by": null,
+        "link": [
+          {
+            "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1029%2F2012JB009292",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2012JB009292",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "resource": {
+          "primary": {
+            "URL": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2012JB009292"
+          }
+        }
+      }
+    },
+    {
+      "url": "https://api.crossref.org/works/10.1029/2012JB009800",
+      "http_status": 200,
+      "retrieved_bytes": 2724,
+      "retrieved_sha256": "09b560c5c7e6aa44e3f24f5ed991b9bfda08c6641ae302bd8883e03015a88ec8",
+      "preservation": "Selected factual metadata below; full response not redistributed. Hash refers to the retrieved response, not this selection.",
+      "selected_metadata": {
+        "DOI": "10.1029/2012jb009800",
+        "title": [
+          "Correction to “Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar”"
+        ],
+        "relation": {},
+        "update-to": null,
+        "updated-by": null,
+        "link": [
+          {
+            "URL": "https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1029%2F2012JB009800",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2012JB009800",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "resource": {
+          "primary": {
+            "URL": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2012JB009800"
+          }
+        }
+      }
+    },
+    {
+      "url": "https://infoscience.epfl.ch/server/api/discover/search/objects?query=2012JB009292&size=10",
+      "http_status": 200,
+      "retrieved_bytes": 35375,
+      "retrieved_sha256": "d0d2216b1a09537bee025905d8833b9d90be63f833d9c67b3cfb04a081c6b5d3",
+      "preservation": "Selected factual metadata below; full response not redistributed. Hash refers to the retrieved response, not this selection.",
+      "selected_metadata": {
+        "search_total_elements": 1,
+        "item_uuid": "4aa23684-5216-4c9c-93ff-7e5338379208",
+        "handle": "20.500.14299/89629",
+        "title": "Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar",
+        "metadata": {
+          "datacite.rights": [
+            "metadata-only"
+          ],
+          "dc.identifier.doi": [
+            "10.1029/2012Jb009292"
+          ],
+          "dc.identifier.uri": [
+            "https://infoscience.epfl.ch/handle/20.500.14299/89629"
+          ],
+          "dspace.legacy.oai-identifier": [
+            "oai:infoscience.tind.io:184430"
+          ]
+        }
+      }
+    },
+    {
+      "url": "https://infoscience.epfl.ch/server/api/core/items/4aa23684-5216-4c9c-93ff-7e5338379208/bundles?size=100",
+      "http_status": 200,
+      "retrieved_bytes": 1325,
+      "retrieved_sha256": "50a9f4a5bdba08c0eb6681a90449a52ae946ec2e82c997355042a743f8f860af",
+      "preservation": "Selected factual metadata below; full response not redistributed. Hash refers to the retrieved response, not this selection.",
+      "selected_metadata": {
+        "page": {
+          "number": 0,
+          "size": 100,
+          "totalPages": 1,
+          "totalElements": 1
+        },
+        "bundles": [
+          {
+            "uuid": "a1d2b454-6c58-4513-b6ca-937fef08c4e8",
+            "name": "LICENSE"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://infoscience.epfl.ch/server/api/discover/search/objects?query=%22Effects+of+iron+enrichment+on+the+chemistry+and+physical+properties+of+deep+lower+mantle+silicates%22&size=10",
+      "http_status": 200,
+      "retrieved_bytes": 7916,
+      "retrieved_sha256": "9bc7159187e3111ae242458e46236124649aea7aa2a9a8d96c4a1e4e133df144",
+      "preservation": "Selected factual metadata below; full response not redistributed. Hash refers to the retrieved response, not this selection.",
+      "selected_metadata": {
+        "query": "\"Effects of iron enrichment on the chemistry and physical properties of deep lower mantle silicates\"",
+        "page": {
+          "number": 0,
+          "size": 10,
+          "totalPages": 0,
+          "totalElements": 0
+        }
+      }
+    },
+    {
+      "url": "https://infoscience.epfl.ch/server/api/discover/search/objects?query=2012JB009800&size=10",
+      "http_status": 200,
+      "retrieved_bytes": 5602,
+      "retrieved_sha256": "8984f33ad1a30937691d67091e2bcbc190c9e68b482c26e1cd77aa00fa42a88f",
+      "preservation": "Selected factual metadata below; full response not redistributed. Hash refers to the retrieved response, not this selection.",
+      "selected_metadata": {
+        "query": "2012JB009800",
+        "page": {
+          "number": 0,
+          "size": 10,
+          "totalPages": 0,
+          "totalElements": 0
+        }
+      }
+    }
+  ],
+  "direct_download_attempts": [
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2012JB009292&file=jgrb17272-sup-0001-readme.txt",
+      "status": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2012JB009292&file=jgrb17272-sup-0002-txts01.pdf",
+      "status": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2012JB009292&file=jgrb17272-sup-0006-t01.txt",
+      "status": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2012JB009292&file=jgrb17272-sup-0007-t02.txt",
+      "status": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/suppl/10.1029/2012JB009292/supinfo/jgrb17272-sup-0002-txts01.pdf",
+      "status": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/suppl/10.1029/2012JB009292/supinfo/jgrb17272-sup-0002-txts01.pdf",
+      "status": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://dataspace.princeton.edu/simple-search?query=Dorfman",
+      "status": 401,
+      "error": "HTTP Error 401: Unauthorized"
+    },
+    {
+      "url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/dorfman_jgr_12.pdf",
+      "status": 403
+    },
+    {
+      "url": "https://duffy.princeton.edu/document/19",
+      "status": 403
+    }
+  ],
+  "indexed_web_queries": [
+    "\"10.1029/2012JB009292\"",
+    "\"Dorfman\" \"AN012\"",
+    "\"2012JB009292\" correction",
+    "\"Dorfman\" \"2012\" \"pressure standards\" data supplementary",
+    "\"Dorfman\" \"Intercomparison\" site:deepcarbon.net",
+    "\"Dorfman\" \"Intercomparison\" site:earthref.org",
+    "\"AN012\" gold NaCl data",
+    "\"AN012\" \"Dorfman\" dataset",
+    "\"Dorfman\" \"pressure standards\" site:dataspace.princeton.edu",
+    "\"Dorfman\" \"pressure standards\" site:infoscience.epfl.ch",
+    "\"2012JB009292\" data code repository",
+    "\"Dorfman\" \"Intercomparison\" site:zenodo.org",
+    "\"Dorfman\" \"Intercomparison\" site:figshare.com",
+    "\"Dorfman\" \"Intercomparison\" site:github.com",
+    "\"AN012\" \"ANN11\"",
+    "\"2012JB009292\" supplementary readme",
+    "\"Susannah\" \"Dorfman\" \"dissertation\"",
+    "\"2012JB009292\" site:infoscience.epfl.ch",
+    "\"2012JB009292\" site:dataspace.princeton.edu",
+    "\"2012JB009292\" site:zenodo.org OR site:figshare.com OR site:github.com",
+    "\"Effects of iron enrichment on the chemistry and physical properties of deep lower mantle silicates\" Princeton",
+    "\"Dorfman\" \"jgrb17272\" \"txts01\"",
+    "\"Intercomparison\" \"Dorfman\" \"NaCl\" \"code\"",
+    "\"Intercomparison\" \"Dorfman\" \"NaCl\" \"erratum\"",
+    "\"Effects of iron enrichment\" \"Dorfman\" site:dataspace.princeton.edu",
+    "\"Intercomparison of pressure standards\" \"Dorfman\" site:infoscience.epfl.ch",
+    "\"2012JB009292\" \"AN012\" \"data\"",
+    "\"2012JB009292\" \"correction\" -site:researchgate.net -site:scispace.com"
+  ],
+  "search_limits": [
+    "Indexed-web searches are not exhaustive repository inventories; no authenticated or private files inspected.",
+    "Publisher attachment retrieval failed, so bodies were not reacquired and supporting-PDF checksum was not reverified.",
+    "Princeton DataSpace direct search returned HTTP 401; dissertation full text not obtained.",
+    "EPFL title and correction queries returned zero records only for those exact API queries.",
+    "Unquoted AN012 EPFL API query returned 1168 largely unrelated hits; treated as non-discriminating and not as evidence of presence or absence.",
+    "No authors contacted and no messages sent."
+  ],
+  "local_verification": {
+    "dataset_path": "peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.csv",
+    "dataset_sha256": "c65d843d31085e72b63cc3377042b2e855ea83d958e34846c78c862e3a25246c",
+    "archived_result_path": "docs/data/dorfman-2012-cocompression-refit.json",
+    "archived_result_sha256": "1ba89c05ee97aaf486de0f7919ff042e0354a80921752055424b9c370e424190",
+    "reproducer_sha256": "1be6ae66fde1042cefe9acc99b3bdd8db35221b0297bdccd7b3957474a65d08a",
+    "observation_rows": 165,
+    "volume_cells": 368,
+    "pair_count": 241,
+    "material_cell_counts": {
+      "Au": 22,
+      "MgO": 108,
+      "Mo": 17,
+      "NaCl B2": 80,
+      "Ne": 44,
+      "Pt": 97
+    },
+    "au_run": "ANN11",
+    "ann11_aligned_rows": 26,
+    "ann11_au_volume_cells": 22,
+    "ann11_blank_au_row_in_run": [
+      10,
+      16,
+      23,
+      26
+    ],
+    "ann11_blank_nacl_b2_row_in_run": [
+      2
+    ],
+    "reported_free_au_diagnostic": {
+      "K0": 178.7131955926287,
+      "K0_prime": 5.468332069803775,
+      "V0": 67.85
+    },
+    "diagnostic_provenance": "Existing archived literal Equation (3) refit; no new alternative fit.",
+    "test_command": ".venv/bin/python -m pytest tests/test_dorfman_2012_cocompression.py -q",
+    "test_result": "6 passed; includes replay of both archived modes."
+  },
+  "an012_exclusion_check": {
+    "date": "2026-10-12",
+    "source_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/dorfman_jgr_12.pdf",
+    "source_access": "Author-hosted article text inspected through web reader; publisher full-text URL returned HTTP 403 on this check.",
+    "source_locations": ["Table 1", "paragraphs 9, 10, 13, 22, 24, 28, 31", "Figure 1 caption", "Figure 6 caption", "Figure 11 caption", "appended correction"],
+    "observations": [
+      "All nine Table 1 runs with He/Ne media match the nine runs in the bundled CSV.",
+      "AN012 is the sole Table 1 run with no medium and the sole run absent from that deposit.",
+      "Paragraphs 9 and 31 frame the work and pressure-scale result around noble-gas/quasi-hydrostatic compression.",
+      "Figure 1 and the Au part of Figure 11 identify ANN11.",
+      "Paragraph 13 and Figure 6's caption provide no explicit per-run fit-selection list.",
+      "No explicit statement that AN012 was excluded because of its pressure medium was found in the inspected article or correction."
+    ],
+    "interpretation": "Consistent with intentional exclusion of the no-medium run, but the original fit mask and reason remain unconfirmed.",
+    "consequence": "Absent from the experimental-run deposit is established; missing from the inputs actually used in the original EOS fit is not. Do not assume AN012 explains non-parity.",
+    "additional_indexed_queries": ["\"AN012\" \"excluded\"", "\"Dorfman\" \"2012JB009292\" \"fit\" \"non-hydrostatic\""],
+    "new_fit_inputs_recovered": false
+  },
+  "author_questions_location": "docs/literature-reproductions/dorfman-2012-cocompression.md, Exact questions for the authors",
+  "write_scope": [
+    "docs/literature-reproductions/dorfman-2012-cocompression.md",
+    "docs/data/dorfman-2012-au-source-input-search-2026-10-12.json"
+  ],
+  "shared_generated_files": "None regenerated. Later documentation build may publish the updated audit and report; no numerical ledger/manifest reconciliation required by these edits."
+}

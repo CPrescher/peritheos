@@ -64,6 +64,38 @@ No additional original numerical Au measurements from Fei (2007) were recovered:
 its six new RT observations remain plot-derived. No source-rights claim is made
 for any third-party article or table.
 
+## Experimental coverage and validity metadata
+
+The default `gold_fei_2007_vinet_2` record stores **0–117.9 GPa** and
+**298–2330 K** as the marginal envelope of the recovered source measurements,
+with `pressure_range_status=reported_exactly`. The endpoints come from the
+printed tables, not a recovered author selection file. The `validity` bounds
+repeat that envelope with the following qualifications; they do not establish
+a validated rectangular P–T domain or an extrapolation limit.
+
+| Evidence | Measured coverage | Use and limit |
+| --- | --- | --- |
+| Dewaele (2004) Table I, 37 rows | 0–93.6 GPa at 298 K, revised ruby | Cold stage of the conditional replay; 300 K evaluation is an EOS-reference convention |
+| Fei (2004) Table 1, 26 rows | 8.64–25.56 GPa, 1273–2173 K, reported MgO | Hot-stage observations at discrete measured states; marginal extrema do not imply every P–T combination |
+| Hirose (2006) Table 1, two hot Run 2 rows | 106.5 GPa/1340 K and 117.9 GPa/2330 K, reported MgO | Extends hot measured coverage only at these two states; does not fill the 25.56–106.5 GPa pressure gap |
+| Hirose (2006) Table 1, one cold Run 2 row | 102.8 GPa at 300 K, reported MgO | Additional cold sensitivity/comparison, outside the 37-row cold anchor |
+| Fei (2007) Figure 1, six new cold markers | Source prose reports room-temperature measurements to 89 GPa | Graphical-only observations, used in cold sensitivities; digitization errors are not experimental errors |
+| Fei (2007) Figure 1, 111 calculated vertices | Curves at 300, 1473 and 2173 K | Calculated outputs, excluded from measured coverage |
+
+The stale 89 GPa endpoint described only Fei (2007)'s new cold series, not the
+combined evidence used for this EOS. The measured minimum is 298 K even though
+the published Vinet/MGD reference remains **300 K**. No source temperatures,
+pressures, uncertainty conventions, coefficients or defaults are changed.
+
+Inspection of the full Fei (2007) article found no explicit recommended numerical
+extrapolation range for its Au model. Its introduction discusses core-pressure
+applications up to 300/364 GPa; these contextual pressures are not measured Au
+coverage or a model-specific recommendation. The 119-state equation audit
+checks numerical implementation, not physical accuracy throughout its grid.
+Recommendations for other Au parameterizations do not extend this record's
+measurement envelope. Original author row selection, weights and complete
+uncertainty/covariance remain unresolved.
+
 ## Equation, coefficients and source procedure
 
 The published pressure is a 300 K Vinet isotherm plus a harmonic MGD increment:

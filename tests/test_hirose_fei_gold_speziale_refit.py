@@ -19,9 +19,7 @@ from peritheos import (
     get_material,
     get_material_document,
 )
-from scripts.check_numerical_archive import check_csv
 from scripts.refit_hirose_fei_gold_speziale import (
-    CSV,
     DATA,
     DATASET_ID,
     MGO_ID,
@@ -29,11 +27,11 @@ from scripts.refit_hirose_fei_gold_speziale import (
     RECORD_ID,
     REPORT,
     append_object,
+    check_archives,
     gold_pressure,
     ledger_outcome,
     reproduce,
 )
-from scripts.reproduce_fei_2007_gold import check_saved
 
 
 @pytest.fixture(scope="module")
@@ -139,9 +137,7 @@ def test_dataset_load_schema_archives_and_ledger_dispatch(result):
     assert pv.pressure_uncertainty is None
     doc = get_material_document("gold")
     Draft202012Validator(eosmat_schema()).validate(doc)
-    check_saved(json.loads(REPORT.read_text()), report)
-    check_csv(CSV.read_text(), table, {"pressure_gpa"}, atol=1e-8)
-    assert hashlib.sha256(CSV.read_bytes()).hexdigest() == report["derived_csv_sha256"]
+    check_archives(json.loads(REPORT.read_text()), report, table)
     raw = get_eos_record_document(RECORD_ID)
     outcome = ledger_outcome(raw)
     assert outcome["observations"] == 47
@@ -161,3 +157,28 @@ def test_targeted_registration_preserves_other_json_members_byte_for_byte():
     parsed = json.loads(changed)
     assert len(parsed["eos_records"]) == 2
     assert parsed["eos_records"][1]["value"] == 3
+
+
+def test_archive_checks_tolerate_pressure_roundoff_and_reject_source_changes(result):
+    report, table = result
+    saved = json.loads(REPORT.read_text())
+    rows = list(csv.DictReader(io.StringIO(table)))
+    rows[0]["pressure_gpa"] = str(float(rows[0]["pressure_gpa"]) + 1e-10)
+    stream = io.StringIO()
+    writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(rows)
+    perturbed = stream.getvalue()
+    current = {
+        **report,
+        "derived_csv_sha256": hashlib.sha256(perturbed.encode()).hexdigest(),
+    }
+    assert current["derived_csv_sha256"] != saved["derived_csv_sha256"]
+    check_archives(saved, current, perturbed)
+
+    with pytest.raises(AssertionError):
+        check_archives({**saved, "derived_csv_sha256": "0" * 64}, current, perturbed)
+    changed_source = perturbed.replace(rows[0]["volume_a3"], "0.0", 1)
+    current["derived_csv_sha256"] = hashlib.sha256(changed_source.encode()).hexdigest()
+    with pytest.raises(AssertionError):
+        check_archives(saved, current, changed_source)

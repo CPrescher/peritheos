@@ -1039,7 +1039,7 @@ impl PyThermalEos {
         rt_eos, tr, alpha0, dk_dt, alpha1=0.0,
         thermal_expansion_law="constant",
         reference_volume_law="integrated_expansivity", bulk_modulus_law="linear_temperature",
-        beta1=0.0, beta2=0.0, beta3=0.0, kprime_log_coefficient=0.0
+        beta1=0.0, beta2=0.0, beta3=0.0, kprime_log_coefficient=0.0, dkprime_dt=0.0
     ))]
     #[allow(clippy::too_many_arguments)]
     fn thermal_reference_state(
@@ -1055,6 +1055,7 @@ impl PyThermalEos {
         beta2: f64,
         beta3: f64,
         kprime_log_coefficient: f64,
+        dkprime_dt: f64,
     ) -> PyResult<Self> {
         let coefficients = match bulk_modulus_law {
             "linear_temperature" if beta1 == 0.0 && beta2 == 0.0 && beta3 == 0.0 => None,
@@ -1097,6 +1098,7 @@ impl PyThermalEos {
                     volume_law,
                 )
                 .and_then(|model| model.with_temperature_laws(coefficients, kprime_log_coefficient))
+                .and_then(|model| model.with_linear_pressure_derivative(dkprime_dt))
                 .map_err(to_python_error)?,
             ),
         })
