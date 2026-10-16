@@ -1,0 +1,312 @@
+{
+  "record": "forsterite_katsura_2022_author_script_bm3_mgd",
+  "source_publication": "10.1029/2021JB023562",
+  "source_data": "10.5281/zenodo.5644426",
+  "source_code": "10.5281/zenodo.5903286",
+  "row_count": 51,
+  "pressure_rmse_gpa": 0.21300820571795537,
+  "author_polynomial_max_difference_gpa": 5.7492956194948874e-05,
+  "max_residual_over_projected_spread": 6.341967812928693,
+  "checkpoints": [
+    {
+      "source_row": 4,
+      "run_id": "M371008",
+      "volume_ratio": 1.0300114906130446,
+      "temperature_k": 1302.1629633568755,
+      "observed_pressure_gpa": 0.5745243378928577,
+      "calculated_pressure_gpa": 0.3702019586355685,
+      "projected_spread_gpa": 0.07456492840945926
+    },
+    {
+      "source_row": 54,
+      "run_id": "M375135",
+      "volume_ratio": 0.9444112334020328,
+      "temperature_k": 1750.226220760107,
+      "observed_pressure_gpa": 13.692764824786556,
+      "calculated_pressure_gpa": 13.257971903819282,
+      "projected_spread_gpa": 0.21407900822074974
+    }
+  ],
+  "ordinary_refits": [
+    {
+      "theta0_k": 768.0,
+      "parameters": {
+        "K0_prime": 4.254577305953309,
+        "gamma0": 1.0005027491131544,
+        "q": 2.4703460700134214
+      },
+      "rmse_gpa": 0.21239522341551,
+      "success": true,
+      "objective": "Unweighted sum of squared pressure residuals; AD, AN, U; all 51 rows; V0, K0, theta0, Tr, n fixed. No bootstrap or invented temperature errors."
+    },
+    {
+      "theta0_k": 760.0,
+      "parameters": {
+        "K0_prime": 4.249175303916043,
+        "gamma0": 0.9992772233445665,
+        "q": 2.4676643242328367
+      },
+      "rmse_gpa": 0.21282706402651916,
+      "success": true,
+      "objective": "Unweighted sum of squared pressure residuals; AD, AN, U; all 51 rows; V0, K0, theta0, Tr, n fixed. No bootstrap or invented temperature errors."
+    }
+  ],
+  "qualification": "Author-script coefficients recommended; table alternative retained. Equation validated; conditional numerical parameter parity within printed Table 2 error widths. Exact bootstrap workflow reproduction remains unresolved. Five candidate fitting-input columns are recoverable from the deposited workbook; its missing temperature errors, exact export selection and bootstrap realizations are not invented.",
+  "largest_normalized_residual": {
+    "source_row": 14,
+    "run_id": "M375006",
+    "temperature_k": 1312.087488026829,
+    "observed_pressure_gpa": 3.7354531111636744,
+    "calculated_minus_observed_pressure_gpa": 0.9723329391124667,
+    "projected_spread_gpa": 0.15331723020263133,
+    "disposition": "Retained without exclusion or correction in the 51-row main fit. The recovered 2009 Table 1 does not contain this observation; a separate 50-row table-matched sensitivity fit is reported."
+  },
+  "table_comparison": {
+    "record": "forsterite_katsura_2022_bm3_mgd",
+    "pressure_rmse_gpa": 0.21249940044126006,
+    "max_script_minus_table_pressure_gpa": 0.019214712298490255,
+    "author_polynomial_max_difference_gpa": 6.1000506365260776e-05
+  },
+  "reconstructed_input_refits": {
+    "input": "peritheos/data/datasets/forsterite-katsura-2022-candidate-fitting-input.csv",
+    "input_sha256": "81ed55e75794c77a999409dd61a54b6744d75e3d786b5bfeb2c58798e882a325",
+    "objective": "Unweighted squared pressure residuals, as in author ChisqPressure; errors are not weights in that optimizer.",
+    "fixed": {
+      "V0_a3": 289.58,
+      "K0_gpa": 127.4,
+      "Tr_k": 300,
+      "theta0_k": 760,
+      "n": 7,
+      "Z": 4
+    },
+    "author_script_parameters": {
+      "K0_prime": 4.21116896988574,
+      "gamma0": 0.997258584556838,
+      "q": 2.43854091371459
+    },
+    "missing_temperature_sigma_count": 51,
+    "bootstrap_performed": false,
+    "selections": [
+      {
+        "selection": "all_51_deposited_rows",
+        "row_count": 51,
+        "excluded_run_ids": [],
+        "fits": [
+          {
+            "method": "literal_author_equation_scipy_optimizer",
+            "parameters": {
+              "K0_prime": 4.249220999557795,
+              "gamma0": 0.9992725760819935,
+              "q": 2.4677172154907185
+            },
+            "difference_from_author_script": {
+              "K0_prime": 0.038052029672054566,
+              "gamma0": 0.0020139915251554674,
+              "q": 0.02917630177612862
+            },
+            "relative_difference_percent": {
+              "K0_prime": 0.9035977882665442,
+              "gamma0": 0.20195278901012875,
+              "q": 1.1964655426545554
+            },
+            "pressure_rmse_gpa": 0.21282064917509597,
+            "author_script_pressure_rmse_gpa": 0.21300125575966772,
+            "max_curve_difference_from_author_script_gpa": 0.020328111315863318,
+            "iterations_or_function_evaluations": 8
+          },
+          {
+            "method": "exact_debye_scipy_optimizer",
+            "parameters": {
+              "K0_prime": 4.249175494048122,
+              "gamma0": 0.9992772232408094,
+              "q": 2.467664522881606
+            },
+            "difference_from_author_script": {
+              "K0_prime": 0.03800652416238126,
+              "gamma0": 0.002018638683971341,
+              "q": 0.029123609167016173
+            },
+            "relative_difference_percent": {
+              "K0_prime": 0.9025171973427719,
+              "gamma0": 0.2024187823731178,
+              "q": 1.1943047173505346
+            },
+            "pressure_rmse_gpa": 0.2128270640265186,
+            "author_script_pressure_rmse_gpa": 0.21300820571795395,
+            "max_curve_difference_from_author_script_gpa": 0.020340063536898434,
+            "iterations_or_function_evaluations": 7
+          },
+          {
+            "method": "literal_author_equation_author_optimizer",
+            "parameters": {
+              "K0_prime": 4.249225247641472,
+              "gamma0": 0.9992726244362921,
+              "q": 2.4677243165561746
+            },
+            "difference_from_author_script": {
+              "K0_prime": 0.038056277755731394,
+              "gamma0": 0.0020140398794540326,
+              "q": 0.029183402841584716
+            },
+            "relative_difference_percent": {
+              "K0_prime": 0.9036986648570399,
+              "gamma0": 0.20195763773234723,
+              "q": 1.196756744061764
+            },
+            "pressure_rmse_gpa": 0.21282064917607119,
+            "author_script_pressure_rmse_gpa": 0.21300125575966772,
+            "max_curve_difference_from_author_script_gpa": 0.020330167849809122,
+            "iterations_or_function_evaluations": 4
+          }
+        ]
+      },
+      {
+        "selection": "50_rows_matched_to_2009_table1",
+        "row_count": 50,
+        "excluded_run_ids": [
+          "M375006"
+        ],
+        "fits": [
+          {
+            "method": "literal_author_equation_scipy_optimizer",
+            "parameters": {
+              "K0_prime": 4.096436618769821,
+              "gamma0": 1.0089337421186144,
+              "q": 2.46829726965907
+            },
+            "difference_from_author_script": {
+              "K0_prime": -0.1147323511159195,
+              "gamma0": 0.011675157561776395,
+              "q": 0.029756355944480006
+            },
+            "relative_difference_percent": {
+              "K0_prime": -2.7244775010543565,
+              "gamma0": 1.1707252003214996,
+              "q": 1.220252478731334
+            },
+            "pressure_rmse_gpa": 0.1622591670556536,
+            "author_script_pressure_rmse_gpa": 0.16543292088154843,
+            "max_curve_difference_from_author_script_gpa": 0.0636407165040902,
+            "iterations_or_function_evaluations": 5
+          },
+          {
+            "method": "exact_debye_scipy_optimizer",
+            "parameters": {
+              "K0_prime": 4.096387846669528,
+              "gamma0": 1.0089385874978707,
+              "q": 2.4682440674325363
+            },
+            "difference_from_author_script": {
+              "K0_prime": -0.11478112321621214,
+              "gamma0": 0.011680002941032663,
+              "q": 0.029703153717946407
+            },
+            "relative_difference_percent": {
+              "K0_prime": -2.7256356616658497,
+              "gamma0": 1.1712110702183651,
+              "q": 1.2180707549704415
+            },
+            "pressure_rmse_gpa": 0.16226619529053082,
+            "author_script_pressure_rmse_gpa": 0.1654427959373997,
+            "max_curve_difference_from_author_script_gpa": 0.06365282065390598,
+            "iterations_or_function_evaluations": 5
+          },
+          {
+            "method": "literal_author_equation_author_optimizer",
+            "parameters": {
+              "K0_prime": 4.096438911403899,
+              "gamma0": 1.008933766861508,
+              "q": 2.4683009919643415
+            },
+            "difference_from_author_script": {
+              "K0_prime": -0.11473005848184137,
+              "gamma0": 0.011675182304669907,
+              "q": 0.029760078249751576
+            },
+            "relative_difference_percent": {
+              "K0_prime": -2.724423059304464,
+              "gamma0": 1.1707276814125522,
+              "q": 1.2204051235055364
+            },
+            "pressure_rmse_gpa": 0.16225916705603016,
+            "author_script_pressure_rmse_gpa": 0.16543292088154843,
+            "max_curve_difference_from_author_script_gpa": 0.06364180357834126,
+            "iterations_or_function_evaluations": 4
+          }
+        ]
+      }
+    ],
+    "parameter_reproduction": {
+      "status": "parity",
+      "parity_basis": "within_reported_parameter_errors",
+      "scope": "Conditional numerical parity of the three free author-script coefficients using all 51 reconstructed observations and the author equation.",
+      "uncertainty_reference_record": "forsterite_katsura_2022_bm3_mgd",
+      "qualification": "Printed Table 2 bootstrap standard deviations are used as comparison widths only. They accompany the rounded theta0=768 K parameterization and are not assigned as uncertainties of the theta0=760 K script vector. No combined-two-sigma, covariance or exact bootstrap reproduction is asserted.",
+      "parameters": [
+        {
+          "parameter": "K0_prime",
+          "author_script": 4.21116896988574,
+          "refit": 4.249220999557795,
+          "reported_error_width": 0.4,
+          "difference_over_reported_error_width": 0.09513007418013641,
+          "within_reported_error": true,
+          "similar": true
+        },
+        {
+          "parameter": "gamma0",
+          "author_script": 0.997258584556838,
+          "refit": 0.9992725760819935,
+          "reported_error_width": 0.02,
+          "difference_over_reported_error_width": 0.10069957625777337,
+          "within_reported_error": true,
+          "similar": true
+        },
+        {
+          "parameter": "q",
+          "author_script": 2.43854091371459,
+          "refit": 2.4677172154907185,
+          "reported_error_width": 0.5,
+          "difference_over_reported_error_width": 0.05835260355225724,
+          "within_reported_error": true,
+          "similar": true
+        }
+      ]
+    }
+  },
+  "fit_reproduction": {
+    "status": "parity",
+    "parity_basis": "within_reported_parameter_errors",
+    "scope": "Conditional numerical parity of the three free author-script coefficients using all 51 reconstructed observations and the author equation.",
+    "uncertainty_reference_record": "forsterite_katsura_2022_bm3_mgd",
+    "qualification": "Printed Table 2 bootstrap standard deviations are used as comparison widths only. They accompany the rounded theta0=768 K parameterization and are not assigned as uncertainties of the theta0=760 K script vector. No combined-two-sigma, covariance or exact bootstrap reproduction is asserted.",
+    "parameters": [
+      {
+        "parameter": "K0_prime",
+        "author_script": 4.21116896988574,
+        "refit": 4.249220999557795,
+        "reported_error_width": 0.4,
+        "difference_over_reported_error_width": 0.09513007418013641,
+        "within_reported_error": true,
+        "similar": true
+      },
+      {
+        "parameter": "gamma0",
+        "author_script": 0.997258584556838,
+        "refit": 0.9992725760819935,
+        "reported_error_width": 0.02,
+        "difference_over_reported_error_width": 0.10069957625777337,
+        "within_reported_error": true,
+        "similar": true
+      },
+      {
+        "parameter": "q",
+        "author_script": 2.43854091371459,
+        "refit": 2.4677172154907185,
+        "reported_error_width": 0.5,
+        "difference_over_reported_error_width": 0.05835260355225724,
+        "within_reported_error": true,
+        "similar": true
+      }
+    ]
+  }
+}

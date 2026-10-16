@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 650,
+    "records": 652,
     "deferred": 3,
     "not_reproduced": 7,
-    "primary_source_validated": 640
+    "primary_source_validated": 642
   },
   "records": [
     {
@@ -4081,6 +4081,77 @@
         ],
         "doi": "10.2138/am.2014.4526"
       }
+    },
+    {
+      "material": "forsterite",
+      "file": "forsterite.eosmat",
+      "record": "forsterite_katsura_2022_author_script_bm3_mgd",
+      "label": "Katsura (2022), author script full-precision BM3-MGD (recommended thermal option)",
+      "doi": "10.1029/2021jb023562",
+      "status": "primary_source_validated",
+      "note": "Author-owned Geotherm calculation v2.m supplies the recommended full-precision olivine coefficient vector; both deposited scripts use theta0=760 K. Exact Debye evaluation is compared with a literal translation of the geotherm script. The reconstructed-input fit achieves conditional numerical parameter parity within printed Table 2 error widths. Exact bootstrap fitting and uncertainty reproduction remain unverified.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.5281/zenodo.5903286",
+        "doi": "10.1029/2021JB023562",
+        "locations": [
+          "Geotherm calculation v2.m: V00_lat_phase, KT0_phase, Theta0_phase, KT0P_phase, gamma0_phase, q_phase, n_phase, Z_phase; first/olivine entries",
+          "Section 2.2; Equations (7)-(11), pp. 4-5",
+          "Table 2, p. 5",
+          "Zenodo 5644426, Olivine worksheet, rows 4-54",
+          "Zenodo 5903286, author EOS fitting and geotherm scripts"
+        ]
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-10-15",
+        "dataset_identifiers": [
+          "forsterite_katsura_2022_olivine_pvt"
+        ],
+        "source_locations": [
+          "Zenodo 5644426, Olivine worksheet, A1:AO54"
+        ],
+        "finding": "All 51 rows and all 41 source columns recovered, including raw MgO ratios/brackets, original and corrected temperatures, both pressure assignments, author-saved error/spread columns, and sample volume ratios. Full workbook and formula/cached-value evidence retained. The original 2009 Table 1 has now been recovered separately: 52 rows, 50 matched to this workbook plus two ambient references. M375006 is absent from the printed table. The original author-specific fitting export remains unavailable."
+      },
+      "reproduction_status": "parity",
+      "parity_basis": "within_reported_parameter_errors",
+      "recommended_thermal_record": "forsterite_katsura_2022_author_script_bm3_mgd",
+      "recommended": true,
+      "reproduction_qualification": "Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit."
+    },
+    {
+      "material": "forsterite",
+      "file": "forsterite.eosmat",
+      "record": "forsterite_katsura_2022_bm3_mgd",
+      "label": "Katsura (2022), corrected forsterite BM3-MGD, final Table 2",
+      "doi": "10.1029/2021jb023562",
+      "status": "primary_source_validated",
+      "note": "Equations (7)-(11), final Table 2 and author-owned Zenodo workbook/code checked. The reconstructed-input ordinary fit recovers the three free Table 2 coefficients within printed error widths, achieving conditional numerical parity. The full-precision author-script record remains the recommended thermal option. Exact bootstrap reproduction and the original 2009 combined fit remain unverified.",
+      "primary_source_check": {
+        "access_url": "https://epub.uni-bayreuth.de/id/eprint/6715/",
+        "doi": "10.1029/2021JB023562",
+        "locations": [
+          "Section 2.2; Equations (7)-(11), pp. 4-5",
+          "Table 2, p. 5",
+          "Zenodo 5644426, Olivine worksheet, rows 4-54",
+          "Zenodo 5903286, author EOS fitting and geotherm scripts"
+        ]
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-10-15",
+        "dataset_identifiers": [
+          "forsterite_katsura_2022_olivine_pvt"
+        ],
+        "source_locations": [
+          "Zenodo 5644426, Olivine worksheet, A1:AO54"
+        ],
+        "finding": "All 51 rows and all 41 source columns recovered, including raw MgO ratios/brackets, original and corrected temperatures, both pressure assignments, author-saved error/spread columns, and sample volume ratios. Full workbook and formula/cached-value evidence retained. The original 2009 Table 1 has now been recovered separately: 52 rows, 50 matched to this workbook plus two ambient references. M375006 is absent from the printed table. The original author-specific fitting export remains unavailable."
+      },
+      "reproduction_status": "parity",
+      "parity_basis": "within_reported_parameter_errors",
+      "recommended_thermal_record": "forsterite_katsura_2022_author_script_bm3_mgd",
+      "recommended": false,
+      "reproduction_qualification": "Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit."
     },
     {
       "material": "geo2_rutile",

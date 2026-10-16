@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **360 primary papers**: **259** support the 650 audited catalog records and **101** were investigated without adding a production record.
+The register covers **362 primary papers**: **260** support the 652 audited catalog records and **102** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -39,11 +39,11 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Original unreproduced; independent refit available | 2 |
-| Reproduced | 167 |
+| Reproduced | 168 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 13 |
 | Coefficient parity not achieved | 14 |
-| Direct refit unavailable | 58 |
+| Direct refit unavailable | 59 |
 | Source reconstruction | 3 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 89 |
@@ -386,6 +386,14 @@ Evidence: [literature-reproductions/tranche-b-mineral-eos-audit.md](literature-r
 All 127 official Table 2 observations were transcribed, but the published BM3-MGD coefficients miss them by 1.890 GPa RMSE when the chemically required n=7 atoms per formula unit is used. A refit moves gamma0 far outside its reported uncertainty, while an unphysical and unpublished n=5 normalization fits much better. The hidden normalization, Debye-temperature law, and energy/volume convention remain unresolved, so no production EOS was added.
 
 Evidence: [literature-reproductions.md#ringwoodite-katsura-2004](literature-reproductions.md#ringwoodite-katsura-2004).
+
+### [Katsura et al. (2009), forsterite thermal expansion](https://doi.org/10.1016/j.pepi.2008.08.002)
+
+**Outcome:** Direct refit unavailable (2026-10-15).
+
+The supplied final article and all 52 original Table 1 observations are recovered. The original combined fit still requires the Takeuchi et al. (1984) thermal-expansion observations, row selection and normalization audit. The corrected 2022 workbook supports conditional numerical parity for the separate Katsura (2022) script and table parameterizations; it does not reproduce the original 2009 combined fit. The 2022 full-precision author-script vector is the recommended thermal option.
+
+Evidence: [literature-reproductions/forsterite-katsura-2009-2022.md](literature-reproductions/forsterite-katsura-2009-2022.md).
 
 ### [Kawai and Tsuchiya (2015), CaSiO3 thermoelasticity](https://doi.org/10.1002/2015GL063446)
 
@@ -1216,9 +1224,11 @@ the primary-source and refit ledgers.
 | [Karki et al. (1997)](https://doi.org/10.2138/am-1997-1-207) | Direct refit unavailable | 2 | 2 direct refit unavailable |  |
 | [Karki et al. (2000), theoretical MgSiO3 akimotoite](https://doi.org/10.2138/am-2000-2-309) | Direct refit unavailable | 0 | no production record | investigation evidence only |
 | [Karki et al. (2001), MgSiO3 thermodynamic derivatives](https://doi.org/10.1029/2001GL012910) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Katsura (2022)](https://doi.org/10.1029/2021jb023562) | Reproduced | 2 | 2 parity; Conditional numerical parity for the three free forsterite coefficients using all 51 reconstructed observations and printed Table 2 error widths. The recommended thermal record is `forsterite_katsura_2022_author_script_bm3_mgd`: full-precision author-script K0-prime=4.21116896988574, gamma0=0.997258584556838, q=2.43854091371459, theta0=760 K; V0=289.58 A3 and K0=127.4 GPa are fixed. The theta0=768 K printed-table alternative is retained. Table errors are comparison widths only for the script vector; script-specific errors and exact bootstrap reproduction remain unavailable. The original 2009 combined fit remains a separate unresolved investigation. See the [source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md). | 2 bundled |
 | [Katsura et al. (2004), Mg2SiO4 ringwoodite](https://doi.org/10.1029/2004JB003094) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
 | [Katsura et al. (2009)](https://doi.org/10.1029/2008gl035658) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Katsura et al. (2009)](https://doi.org/10.1029/2009gl038107) | Coefficient parity not achieved | 1 | 1 parity not achieved | 1 bundled |
+| [Katsura et al. (2009), forsterite thermal expansion](https://doi.org/10.1016/j.pepi.2008.08.002) | Direct refit unavailable | 0 | no production record | investigation evidence only |
 | [Kawai and Tsuchiya (2012)](https://doi.org/10.2138/am.2012.3915) | Reproduced | 2 | 2 similar | 2 plot only/digitized |
 | [Kawai and Tsuchiya (2014)](https://doi.org/10.1002/2013jb010905) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 theoretical parameterization only |
 | [Kawai and Tsuchiya (2015), CaSiO3 thermoelasticity](https://doi.org/10.1002/2015GL063446) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

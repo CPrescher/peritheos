@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **650** EOS records. **226** achieve uncertainty parity, **156** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[75](#parity-not-achieved)** do not achieve parity, **177** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **652** EOS records. **228** achieve uncertainty parity, **156** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[75](#parity-not-achieved)** do not achieve parity, **177** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -36,6 +36,13 @@ within the printed K0-prime width on both ruby coordinates, using all
 86 observed rows with V0/K0 fixed. Pressure- and volume-residual fits
 agree; original weights and uncertainty estimation are unresolved.
 No combined-two-sigma or source-exact author-fit claim is made.
+Katsura (2022) forsterite accepts conditional numerical `parity` within
+printed Table 2 error widths. The full-precision author-script vector
+at theta0=760 K is the recommended thermal option; the printed-table
+alternative retains theta0=768 K. Table errors are a comparison scale
+only for the script vector. Script-specific errors and exact bootstrap
+reproduction remain unavailable. See the
+[source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).
 `source_reconstruction` covers source calculations and compositions of
 audited equations without an independent refit of the complete EOS.
 Component refits and remaining source-input gaps are documented separately.
@@ -278,6 +285,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`fesio3_post_perovskite_cohen_lin_2014_vinet_1`](https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf) | `parameterization_and_independent_table_checkpoints` | — | — | —/— | not_refittable — The energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=33.98 A3/FeSiO3, K100=579 GPa, and K100'=3.47; the Table I lattice product gives 33.9343 A3/FeSiO3. |
 | [`fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1`](https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf) | `parameterization_and_independent_table_checkpoints` | — | — | —/— | not_refittable — The energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=34.49 A3/FeSiO3, K100=580 GPa, and K100'=3.44; the Table I lattice product gives 34.4492 A3/FeSiO3. |
 | [`forsterite_finkelstein_2014_bm3_1`](https://doi.org/10.2138/am.2014.4526) | `forsterite_finkelstein_2014_table2_compression` | 14 | `K0` 130 → 130.092; `K0_prime` 4.12 → 4.11435 | 0.132312/0.128027 | parity |
+| [`forsterite_katsura_2022_author_script_bm3_mgd`](https://doi.org/10.5281/zenodo.5903286) | `forsterite_katsura_2022_olivine_pvt` | 51 | `K0_prime` 4.21117 → 4.24922; `gamma0` 0.997259 → 0.999273; `q` 2.43854 → 2.46772 | 0.213001/0.212821 | parity — Recommended thermal option: full-precision author-script coefficients, theta0=760 K. Conditional numerical parity within reported error widths; exact bootstrap reproduction unverified. See [the source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md). |
+| [`forsterite_katsura_2022_bm3_mgd`](https://epub.uni-bayreuth.de/id/eprint/6715/) | `forsterite_katsura_2022_olivine_pvt` | 51 | `K0_prime` 4.2 → 4.25458; `gamma0` 1 → 1.0005; `q` 2.4 → 2.47035 | 0.212499/0.212395 | parity — Printed Table 2 alternative, theta0=768 K. Conditional numerical parity within reported error widths; exact bootstrap reproduction unverified. See [the source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md). |
 | [`geo2_rutile_hazen_1981_bm3_1`](https://www.researchgate.net/publication/256267527_Bulk_Moduli_and_High-Pressure_Crystal_Structures_of_Rutile-Type_Compounds) | `rutile_hazen_finger_1981_table1_sno2_geo2_compression` | 4 | `V0` 55.3318 → 55.346; `K0` 258 → 254.082 | 0.0951394/0.0854824 | [similar](#investigation-geo2_rutile_hazen_1981_bm3_1) |
 | [`goethite_gleason_2008_bm3_1`](https://doi.org/10.2138/am.2008.2942) | `goethite_gleason_2008_deposit_table1_pvt` | 65 | `rt_eos.K0` 140.3 → 183.338; `rt_eos.K0_prime` 4.6 → 0 | 2.54/2.13634 | [parity_not_achieved](#investigation-goethite_gleason_2008_bm3_1) |
 | [`gold_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |

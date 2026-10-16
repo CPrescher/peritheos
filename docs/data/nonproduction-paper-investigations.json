@@ -3,6 +3,14 @@
   "format_version": 1,
   "papers": [
     {
+      "citation": "Katsura et al. (2009), forsterite thermal expansion",
+      "doi": "10.1016/j.pepi.2008.08.002",
+      "outcome": "direct_refit_unavailable",
+      "investigation_date": "2026-10-15",
+      "evidence": "literature-reproductions/forsterite-katsura-2009-2022.md",
+      "reason": "The supplied final article and all 52 original Table 1 observations are recovered. The original combined fit still requires the Takeuchi et al. (1984) thermal-expansion observations, row selection and normalization audit. The corrected 2022 workbook supports conditional numerical parity for the separate Katsura (2022) script and table parameterizations; it does not reproduce the original 2009 combined fit. The 2022 full-precision author-script vector is the recommended thermal option."
+    },
+    {
       "citation": "Chantel et al. (2012), bridgmanite acoustic velocities",
       "doi": "10.1029/2012GL053075",
       "outcome": "deferred_incomplete_model",

@@ -48,6 +48,19 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1029/2021jb023562": (
+        "Conditional numerical parity for the three free forsterite coefficients "
+        "using all 51 reconstructed observations and printed Table 2 error widths. "
+        "The recommended thermal record is "
+        "`forsterite_katsura_2022_author_script_bm3_mgd`: full-precision author-script "
+        "K0-prime=4.21116896988574, gamma0=0.997258584556838, "
+        "q=2.43854091371459, theta0=760 K; V0=289.58 A3 and K0=127.4 GPa are fixed. "
+        "The theta0=768 K printed-table alternative is retained. Table errors "
+        "are comparison widths only for the script vector; script-specific errors "
+        "and exact bootstrap reproduction remain unavailable. The original "
+        "2009 combined fit remains a separate unresolved investigation. See the "
+        "[source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md)."
+    ),
     "10.1103/physrevb.78.104119": (
         "Conditional numerical K0-prime parity on both ruby coordinates using "
         "all 86 observed rows with V0/K0 fixed. Original weights and uncertainty "

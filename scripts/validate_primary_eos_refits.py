@@ -5249,7 +5249,14 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if record["identifier"] == "gold_fei_2007_vinet_2":
+            if record["identifier"] in {
+                "forsterite_katsura_2022_author_script_bm3_mgd",
+                "forsterite_katsura_2022_bm3_mgd",
+            }:
+                from scripts.forsterite_reproduce_katsura_2022 import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "gold_fei_2007_vinet_2":
                 from scripts.reproduce_fei_2007_gold import ledger_outcome
 
                 outcome = ledger_outcome(record)
@@ -5512,6 +5519,8 @@ def validate_all() -> dict[str, Any]:
                     }
             results.append({**base, **outcome})
 
+    from scripts.forsterite_reproduce_katsura_2022 import LEDGER_PARITY_POLICY
+
     counts = Counter(item["status"] for item in results)
     return {
         "format": "peritheos.primary-eos-refit-validation",
@@ -5533,6 +5542,7 @@ def validate_all() -> dict[str, Any]:
                 " For explicitly registered Peritheos refits, parity verifies the "
                 "stored coefficients under the documented selection and objective; "
                 "it does not imply reproduction of source-author coefficients."
+                " " + LEDGER_PARITY_POLICY
             ),
             "similar": (
                 "Every fitted parameter either agrees within combined 2-sigma or "
@@ -5711,6 +5721,13 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "86 observed rows with V0/K0 fixed. Pressure- and volume-residual fits ",
         "agree; original weights and uncertainty estimation are unresolved. ",
         "No combined-two-sigma or source-exact author-fit claim is made.",
+        "Katsura (2022) forsterite accepts conditional numerical `parity` within ",
+        "printed Table 2 error widths. The full-precision author-script vector ",
+        "at theta0=760 K is the recommended thermal option; the printed-table ",
+        "alternative retains theta0=768 K. Table errors are a comparison scale ",
+        "only for the script vector. Script-specific errors and exact bootstrap ",
+        "reproduction remain unavailable. See the ",
+        "[source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
         "`source_reconstruction` covers source calculations and compositions of ",
         "audited equations without an independent refit of the complete EOS. ",
         "Component refits and remaining source-input gaps are documented separately. ",
