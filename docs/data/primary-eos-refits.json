@@ -44785,6 +44785,95 @@
       "status": "parity"
     },
     {
+      "dataset_identifiers": [
+        "rbbr_farla_2025_observations"
+      ],
+      "experimental_pressure_range_gpa": [
+        1.19,
+        26.47
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        1800.0
+      ],
+      "fit_kind": "iterated_effective_variance_bm3_mgd",
+      "fixed_parameters": [
+        "V0",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "label": "Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)",
+      "material_identifier": "rbbr",
+      "model": "BM3",
+      "objective": "iterated frozen diagonal effective P/V/T variance",
+      "observations": 123,
+      "original_author_coefficient_rounding_parity": false,
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 0.03593787701797879,
+          "parameter": "K0",
+          "published": 16.28,
+          "published_error": 0.04,
+          "refit": 16.31593787701798,
+          "refit_error": null,
+          "relative_difference": 0.0022074863033156506,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.024128814948459087,
+          "parameter": "K0_prime",
+          "published": 5.28,
+          "published_error": 0.02,
+          "refit": 5.255871185051541,
+          "refit_error": null,
+          "relative_difference": 0.004569851315996039,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        },
+        {
+          "difference": -0.013520970596704984,
+          "parameter": "gamma0",
+          "published": 2.18,
+          "published_error": 0.14,
+          "refit": 2.166479029403295,
+          "refit_error": null,
+          "relative_difference": 0.0062022800902316435,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.04581562202181333,
+          "parameter": "q",
+          "published": 1.52,
+          "published_error": 0.24,
+          "refit": 1.4741843779781867,
+          "refit_error": null,
+          "relative_difference": 0.030141856593298242,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "primary_data_finding": "All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+      "published_rmse_gpa": 0.15948654363882814,
+      "qualification": "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
+      "reason": "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
+      "record_identifier": "rbbr_b2_farla_2025_bm3_mgd_cscl",
+      "reproduction_report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
+      "rmse_gpa": 0.1567603609069775,
+      "solver_success": true,
+      "source_notes": "Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.",
+      "status": "similar"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -44859,6 +44948,184 @@
       "solver_success": true,
       "source_notes": "Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression observations in Table 1. Campbell and Heinz fixed the non-quenchable phase's hypothetical zero-pressure density at rho02=3.3068(10) Mg/m^3 and report K0=17.9(10) GPa and K0'=5.23(29). Peritheos converts that density to the one-formula-unit reference volume using M(RbCl)=120.9208 g/mol; its uncertainty is propagated from the reported density error.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "rbcl_farla_2025_observations"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.54,
+        26.05
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        1800.0
+      ],
+      "fit_kind": "iterated_effective_variance_bm3_mgd",
+      "fixed_parameters": [
+        "V0",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "label": "Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)",
+      "material_identifier": "rbcl",
+      "model": "BM3",
+      "objective": "iterated frozen diagonal effective P/V/T variance",
+      "observations": 122,
+      "original_author_coefficient_rounding_parity": false,
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 0.03194072784125623,
+          "parameter": "K0",
+          "published": 19.89,
+          "published_error": 0.08,
+          "refit": 19.921940727841257,
+          "refit_error": null,
+          "relative_difference": 0.0016058686697464168,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.004815103781998786,
+          "parameter": "K0_prime",
+          "published": 5.0,
+          "published_error": 0.02,
+          "refit": 4.995184896218001,
+          "refit_error": null,
+          "relative_difference": 0.0009630207563997573,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": 0.00391114767536016,
+          "parameter": "gamma0",
+          "published": 1.96,
+          "published_error": 0.04,
+          "refit": 1.9639111476753601,
+          "refit_error": null,
+          "relative_difference": 0.0019954835078368166,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": 0.009237616705191742,
+          "parameter": "q",
+          "published": 1.05,
+          "published_error": 0.09,
+          "refit": 1.0592376167051918,
+          "refit_error": null,
+          "relative_difference": 0.008797730195420706,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "primary_data_finding": "All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+      "published_rmse_gpa": 0.15442869781174814,
+      "qualification": "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
+      "reason": "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
+      "record_identifier": "rbcl_b2_farla_2025_bm3_mgd_cscl",
+      "reproduction_report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
+      "rmse_gpa": 0.15516257838688707,
+      "solver_success": true,
+      "source_notes": "Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.",
+      "status": "similar"
+    },
+    {
+      "dataset_identifiers": [
+        "rbi_farla_2025_observations"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.54,
+        26.05
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        1800.0
+      ],
+      "fit_kind": "iterated_effective_variance_bm3_mgd",
+      "fixed_parameters": [
+        "V0",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "label": "Farla et al. (2025), RbI-B2 BM3-MGD, CsCl pressures (case 1)",
+      "material_identifier": "rbi",
+      "model": "BM3",
+      "objective": "iterated frozen diagonal effective P/V/T variance",
+      "observations": 121,
+      "original_author_coefficient_rounding_parity": false,
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 0.06511036701111195,
+          "parameter": "K0",
+          "published": 13.69,
+          "published_error": 0.04,
+          "refit": 13.755110367011111,
+          "refit_error": null,
+          "relative_difference": 0.004756053105267491,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        },
+        {
+          "difference": -0.016108969636965398,
+          "parameter": "K0_prime",
+          "published": 4.95,
+          "published_error": 0.01,
+          "refit": 4.933891030363035,
+          "refit_error": null,
+          "relative_difference": 0.00325433730039705,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": false
+        },
+        {
+          "difference": -0.01748531182345836,
+          "parameter": "gamma0",
+          "published": 2.21,
+          "published_error": 0.07,
+          "refit": 2.1925146881765416,
+          "refit_error": null,
+          "relative_difference": 0.007911905802469846,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.0020793277518253994,
+          "parameter": "q",
+          "published": 1.42,
+          "published_error": 0.1,
+          "refit": 1.4179206722481745,
+          "refit_error": null,
+          "relative_difference": 0.001464315318186901,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "primary_data_finding": "All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+      "published_rmse_gpa": 0.12780834540828995,
+      "qualification": "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
+      "reason": "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
+      "record_identifier": "rbi_b2_farla_2025_bm3_mgd_cscl",
+      "reproduction_report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
+      "rmse_gpa": 0.12894046047990115,
+      "solver_success": true,
+      "source_notes": "Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.",
+      "status": "similar"
     },
     {
       "dataset_identifiers": [],
@@ -50733,8 +51000,8 @@
     "not_refittable": 177,
     "parity": 228,
     "parity_not_achieved": 75,
-    "similar": 156,
+    "similar": 159,
     "source_reconstruction": 16,
-    "total": 652
+    "total": 655
   }
 }

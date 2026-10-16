@@ -1,0 +1,56 @@
+log /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbbr_dac/weighted_precise_theta/run.log
+read /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbbr_dac/weighted_precise_theta/input.dat
+input
+pr
+2
+3
+41.74
+16.32
+5.26
+th
+7
+300
+n
+41.74
+144.96
+2
+2.17
+1.49
+pscale
+GPa
+vscale
+cm^3/mol
+x
+save /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbbr_dac/weighted_precise_theta/initial.eos
+y
+list
+fit
+n
+n
+n
+n
+n
+y
+y
+y
+y
+y
+
+y
+n
+fit
+n
+n
+n
+n
+n
+y
+y
+y
+y
+y
+
+y
+n
+save /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbbr_dac/weighted_precise_theta/fitted.eos
+y

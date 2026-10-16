@@ -1,0 +1,92 @@
+{
+  "source_doi": "10.1063/5.0248905",
+  "audit_date": "2026-10-15",
+  "article_version": "DESY final accepted manuscript; publisher PDF attempted but inaccessible (HTTP 403)",
+  "article_access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+  "public_supplement": {
+    "doi": "10.60893/figshare.jap.28515917.v1",
+    "version": 1,
+    "article_id": 28515917,
+    "file": {
+      "id": 52698776,
+      "name": "JAP24-AR-06680R_SupplMat_round2.docx",
+      "size": 11032179,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/52698776",
+      "supplied_md5": "db20df1d724e5b4401f05fc47d02afd9",
+      "computed_md5": "db20df1d724e5b4401f05fc47d02afd9",
+      "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    "sha256": "2c56d355b97e7fd9dfdc1062e32e0c01eaccef2927e51a92e38ee5de4dc430bf",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "resource_doi": "10.1063/5.0248905",
+    "retrieved_files": 1,
+    "embedded_data_files": 0
+  },
+  "numerical_products": {
+    "DAC_rows": 49,
+    "LVP_rows": 327,
+    "total_observation_rows": 376,
+    "nonblank_sample_volumes": 375,
+    "calculated_benchmark_rows": 162
+  },
+  "unavailable": [
+    "Original EoSFit7 files, row flags, unrounded errors and covariance",
+    "GSAS-II project/raw diffraction files mentioned by the manuscript",
+    "Original ruby fluorescence wavelengths",
+    "Saved CsCl runtime a0/configuration and unrounded inputs behind five printed-pressure discrepancies; historical module coefficients and GUI defaults recovered separately"
+  ],
+  "products": [
+    {
+      "path": "datasets/rubidium-halides-farla-2025-rbbr-benchmarks.csv",
+      "sha256": "81a92449a94b031b687c3d802d593e4f09ab240f6c1dd7996abb7138be405517"
+    },
+    {
+      "path": "datasets/rubidium-halides-farla-2025-rbbr-observations.csv",
+      "sha256": "4b9424a570009f4091a0239c782f9f342ed9a51b7e4c29666779109ffbaaac00"
+    },
+    {
+      "path": "datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
+      "sha256": "03ebe170f3694fde161b503734bdf43130d0b8df2f9903ddfd84cd9a5de08c50"
+    },
+    {
+      "path": "datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
+      "sha256": "9a529939f327081dc2bfa32708112710dee8150dc188e23ce31ea043c87188ff"
+    },
+    {
+      "path": "datasets/rubidium-halides-farla-2025-rbi-benchmarks.csv",
+      "sha256": "c2a324ac4b3b6bf9a78514feae26da11c3e93def580286e8c330d40d7480b897"
+    },
+    {
+      "path": "datasets/rubidium-halides-farla-2025-rbi-observations.csv",
+      "sha256": "4076f2f602e9931d036afedced96d9fc60b9d2e0fdda53a959e2f8fcaa9df382"
+    },
+    {
+      "path": "datasets/rubidium-halides-farla-2025-source-tables.json",
+      "sha256": "786f8fb0c50659d6b358b5c12ec48735259f667952b14b74a2c99ad81424c737"
+    },
+    {
+      "path": "datasets/rubidium-halides-farla-2025.LICENSE.md",
+      "sha256": "76e35efc96955f4d68732a4cb1443027039b4d3b059e693351760ca3498d7d25"
+    },
+    {
+      "path": "datasets/rubidium-halides-farla-2025-author-inputs.json",
+      "sha256": "52fbedf2f49d1c05fc2b993f43fc8029da9776e7814171a8974ecf1a15a4b42c"
+    },
+    {
+      "path": "datasets/rubidium-halides-farla-2025-case3-inputs.json",
+      "sha256": "78f55e3d825e92c54f6169b072766fafdf261889dd87b8094da8820dc0164c55"
+    }
+  ],
+  "follow_up": {
+    "author_input_facts": "datasets/rubidium-halides-farla-2025-author-inputs.json",
+    "report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
+    "original_eosfit_files_recovered": false,
+    "discrepancy_audit_date": "2026-10-16",
+    "discrepancy_report": "docs/data/rubidium-halides-farla-2025-discrepancies.json",
+    "historical_software_execution": "docs/data/rubidium-halides-farla-2025-burnman-replay.json",
+    "direct_eosfit_report": "docs/data/rubidium-halides-farla-2025-eosfit7c/manifest.json",
+    "constrained_case3_report": "docs/data/rubidium-halides-farla-2025-case3-eosfit7c/manifest.json"
+  }
+}

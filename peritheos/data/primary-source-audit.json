@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 652,
+    "records": 655,
     "deferred": 3,
     "not_reproduced": 7,
-    "primary_source_validated": 642
+    "primary_source_validated": 645
   },
   "records": [
     {
@@ -11546,6 +11546,24 @@
       }
     },
     {
+      "material": "rbbr",
+      "file": "rbbr.eosmat",
+      "record": "rbbr_b2_farla_2025_bm3_mgd_cscl",
+      "label": "Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)",
+      "doi": "10.1063/5.0248905",
+      "status": "primary_source_validated",
+      "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
+      "primary_source_check": {
+        "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+        "doi": "10.1063/5.0248905",
+        "locations": [
+          "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
+          "Official supplement section 1, Tables S1, S3, S6"
+        ],
+        "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
+      }
+    },
+    {
       "material": "rbcl",
       "file": "rbcl.eosmat",
       "record": "rbcl_b2_campbell_1994_bm3_1",
@@ -11561,6 +11579,42 @@
         ],
         "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations.",
         "doi": "10.1029/94jb00127"
+      }
+    },
+    {
+      "material": "rbcl",
+      "file": "rbcl.eosmat",
+      "record": "rbcl_b2_farla_2025_bm3_mgd_cscl",
+      "label": "Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)",
+      "doi": "10.1063/5.0248905",
+      "status": "primary_source_validated",
+      "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
+      "primary_source_check": {
+        "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+        "doi": "10.1063/5.0248905",
+        "locations": [
+          "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
+          "Official supplement section 1, Tables S1, S2, S5"
+        ],
+        "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
+      }
+    },
+    {
+      "material": "rbi",
+      "file": "rbi.eosmat",
+      "record": "rbi_b2_farla_2025_bm3_mgd_cscl",
+      "label": "Farla et al. (2025), RbI-B2 BM3-MGD, CsCl pressures (case 1)",
+      "doi": "10.1063/5.0248905",
+      "status": "primary_source_validated",
+      "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
+      "primary_source_check": {
+        "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+        "doi": "10.1063/5.0248905",
+        "locations": [
+          "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
+          "Official supplement section 1, Tables S1, S4, S7"
+        ],
+        "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
       }
     },
     {

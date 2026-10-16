@@ -5249,7 +5249,11 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if record["identifier"] in {
+            if "_farla_2025_" in record["identifier"]:
+                from scripts.catalog_addition_outcomes import rubidium_outcome
+
+                outcome = rubidium_outcome(record)
+            elif record["identifier"] in {
                 "forsterite_katsura_2022_author_script_bm3_mgd",
                 "forsterite_katsura_2022_bm3_mgd",
             }:

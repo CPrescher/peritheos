@@ -1,0 +1,1144 @@
+***********************************************************************************************************************
+*                                                                                                                     *
+*                                                     EOSFIT7c                                                        *
+*                                                                                                                     *
+*             Authors: RJ ANGEL, J GONZALEZ-PLATAS, M ALVARO, ML MAZZUCCHELLI                                         *
+*        Version date: 13-May-2021                                                                                    *
+*             Version:  7.60                                                                                          *
+*                                                                                                                     *
+*                                                                                                                     *
+*        INCLUDING LEAST SQUARES BY I.G. WOOD & J. PIPER AND USING THE CrysFML EOS MODULE.                            *
+*                                                                                                                     *
+*        EosFit7c: Angel, Gonzalez-Platas, Alvaro (2014) Zeitschrift fuer Kristallographie, 229:405-419.              *
+*        Phase Transitions: Angel et al (2017) Contribs Min Pet, DOI:10.1007/s00410-017-1349-x                        *
+*        Fitting Moduli: Milani et al. (2017) Amer Min, DOI:10.2138/am-2017-5855                                      *
+*                                                                                                                     *
+*        Development currently supported by ERC grant 714936, TrueDepths to M. Alvaro, and                            *
+*                          Agencia Estatal de Investigacion under                                                     *
+*        National Program of Sciences and Technological Materials (PID2019-106383GB-C44) to J. Gonzalez-Platas        *
+*        For more information see the help system                                                                     *
+*                                                                                                                     *
+*                                                                                                                     *
+*        Current date and time: 16-OCT-2026 10:33                                                                     *
+*                                                                                                                     *
+***********************************************************************************************************************
+
+EOSFIT-7.6>
+
+Successfully opened file for macros
+Named /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/run.mcr
+
+***** Running macro
+
+EOSFIT-7.6>log /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/run.log
+
+
+Successfully opened Log file
+Named /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/run.log
+
+
+EOSFIT-7.6>read /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/input.dat
+
+
+Successfully opened data file
+Named /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/input.dat
+
+
+
+        The title on the file is: Farla2025 rbi printed observations
+             The data in the file is for:T  ,P  ,V
+               with esds in the file for:T  ,P  ,V
+
+Only data available is for V: This will be selected
+
+           The title on the data file is:  Farla2025 rbi printed observations
+
+  THE 105 LOADED DATA ARE AS FOLLOWS:
+<------------------------Observed Values-------------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)
+              GPA                                  CM^3/MOL
+  1  1    2.43000   0.07000   500.000   30.0000   45.7635   0.00662
+  2  1    2.66000   0.07000   600.000   30.0000   45.7610   0.00662
+  3  1    2.83000   0.07000   700.000   30.0000   45.8008   0.00783
+  4  1    2.97000   0.07000   800.000   30.0000   45.9260   0.00783
+  5  1    2.96000   0.07000   900.000   30.0000   46.4289   0.00843
+  6  1    2.95000   0.07000   1000.00   30.0000   46.7710   0.01144
+  7  1    2.92000   0.07000   1100.00   30.0000   47.4412   0.01445
+  8  1    2.89000   0.07000   1200.00   30.0000   48.1416   0.01506
+  9  1    5.03000   0.07000   500.000   30.0000   41.6485   0.00783
+ 10  1    5.28000   0.07000   600.000   30.0000   41.5859   0.00783
+ 11  1    5.40000   0.07000   700.000   30.0000   41.6690   0.00662
+ 12  1    5.48000   0.07000   800.000   30.0000   41.7882   0.00662
+ 13  1    5.54000   0.07000   900.000   30.0000   41.9797   0.00723
+ 14  1    5.56000   0.07000   1000.00   30.0000   42.2802   0.00843
+ 15  1    5.54000   0.07000   1100.00   30.0000   42.6319   0.00903
+ 16  1    5.49000   0.07000   1200.00   30.0000   43.0131   0.00843
+ 17  1    5.44000   0.07000   1300.00   30.0000   43.3998   0.00903
+ 18  1    5.44000   0.07000   1400.00   30.0000   43.8990   0.01024
+ 19  1    8.34000   0.07000   500.000   30.0000   38.4965   0.01265
+ 20  1    8.30000   0.07000   600.000   30.0000   38.7133   0.01024
+ 21  1    8.30000   0.07000   700.000   30.0000   38.8561   0.00843
+ 22  1    8.29000   0.07000   800.000   30.0000   39.0355   0.00723
+ 23  1    8.25000   0.07000   900.000   30.0000   39.2523   0.00662
+ 24  1    8.17000   0.07000   1000.00   30.0000   39.4932   0.00662
+ 25  1    8.10000   0.07000   1100.00   30.0000   39.7485   0.00602
+ 26  1    7.98000   0.07000   1200.00   30.0000   40.0773   0.00723
+ 27  1    7.77000   0.07000   1300.00   30.0000   40.5959   0.00783
+ 28  1    7.53000   0.07000   1400.00   30.0000   41.1077   0.00903
+ 29  1    7.29000   0.07000   1500.00   30.0000   41.5546   0.00903
+ 30  1    6.95000   0.07000   1600.00   30.0000   42.0779   0.01265
+ 31  1    6.71000   0.07000   1700.00   30.0000   42.7313   0.01084
+ 32  1    5.93000   0.07000   500.000   30.0000   40.5669   0.00783
+ 33  1    6.18000   0.07000   600.000   30.0000   40.5007   0.00783
+ 34  1    6.32000   0.07000   700.000   30.0000   40.4537   0.00783
+ 35  1    6.53000   0.07000   800.000   30.0000   40.3941   0.00843
+ 36  1    6.76000   0.07000   900.000   30.0000   40.3261   0.00783
+ 37  1    7.03000   0.07000   1000.00   30.0000   40.2990   0.00783
+ 38  1    7.38000   0.07000   1100.00   30.0000   40.1942   0.00783
+ 39  1    7.71000   0.07000   1200.00   30.0000   40.0653   0.00723
+ 40  1    8.04000   0.07000   1300.00   30.0000   39.9310   0.00662
+ 41  1    8.35000   0.07000   1400.00   30.0000   39.8870   0.00602
+ 42  1    8.73000   0.07000   1500.00   30.0000   39.8720   0.00602
+ 43  1    8.71000   0.07000   1600.00   30.0000   39.9226   0.00662
+ 44  1    8.71000   0.07000   1700.00   30.0000   40.0611   0.00662
+ 45  1    8.62000   0.07000   1800.00   30.0000   40.1803   0.00843
+ 46  1    7.32000   0.07000   600.000   30.0000   39.3908   0.00482
+ 47  1    7.52000   0.07000   700.000   30.0000   39.3685   0.00542
+ 48  1    7.78000   0.07000   800.000   30.0000   39.3324   0.00542
+ 49  1    8.03000   0.07000   900.000   30.0000   39.2921   0.00602
+ 50  1    8.26000   0.07000   1000.00   30.0000   39.2029   0.00602
+<------------------------Observed Values-------------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)
+              GPA                                  CM^3/MOL
+ 51  1    8.59000   0.07000   1100.00   30.0000   39.1108   0.00602
+ 52  1    8.95000   0.07000   1200.00   30.0000   38.9705   0.00602
+ 53  1    9.32000   0.07000   1300.00   30.0000   38.8494   0.00662
+ 54  1    9.66000   0.07000   1400.00   30.0000   38.7537   0.00662
+ 55  1    10.0200   0.07000   1500.00   30.0000   38.6736   0.00964
+ 56  1    10.3000   0.07000   1600.00   30.0000   38.5953   0.00723
+ 57  1    10.4700   0.07000   1700.00   30.0000   38.5574   0.00723
+ 58  1    10.6100   0.07000   1800.00   30.0000   38.5826   0.00903
+ 59  1    12.5300   0.07000   500.000   30.0000   35.5180   0.01265
+ 60  1    12.9200   0.07000   700.000   30.0000   35.5144   0.01204
+ 61  1    13.1700   0.07000   900.000   30.0000   35.5517   0.00783
+ 62  1    13.6100   0.07000   1100.00   30.0000   35.5668   0.00723
+ 63  1    13.4700   0.07000   1300.00   30.0000   35.9148   0.00843
+ 64  1    13.1400   0.07000   1400.00   30.0000   36.1876   0.00783
+ 65  1    12.9700   0.07000   1500.00   30.0000   36.4430   0.00964
+ 66  1    12.6200   0.07000   1600.00   30.0000   36.8585   0.00723
+ 67  1    12.2400   0.07000   1700.00   30.0000   37.1735   0.01024
+ 68  1    9.89000   0.07000   500.000   30.0000   37.1705   0.00482
+ 69  1    10.2500   0.07000   700.000   30.0000   37.1771   0.00542
+ 70  1    10.6100   0.07000   900.000   30.0000   37.2036   0.00662
+ 71  1    10.9600   0.07000   1100.00   30.0000   37.2102   0.00662
+ 72  1    11.3500   0.07000   1300.00   30.0000   37.1530   0.00723
+ 73  1    11.5900   0.07000   1400.00   30.0000   37.1102   0.00783
+ 74  1    11.7800   0.07000   1500.00   30.0000   37.0994   0.00843
+ 75  1    12.9500   0.07000   500.000   30.0000   35.5481   0.00783
+ 76  1    13.1200   0.07000   600.000   30.0000   35.4993   0.00843
+ 77  1    13.3300   0.07000   700.000   30.0000   35.4794   0.00783
+ 78  1    13.5600   0.07000   800.000   30.0000   35.4138   0.00843
+ 79  1    13.7700   0.07000   900.000   30.0000   35.3735   0.00843
+ 80  1    13.9800   0.07000   1000.00   30.0000   35.3542   0.00903
+ 81  1    14.2300   0.07000   1100.00   30.0000   35.3156   0.00964
+ 82  1    14.4700   0.07000   1200.00   30.0000   35.2518   0.01084
+ 83  1    14.7500   0.07000   1300.00   30.0000   35.2042   0.00964
+ 84  1    15.0100   0.07000   1400.00   30.0000   35.1639   0.00964
+ 85  1    15.2200   0.07000   1500.00   30.0000   35.1422   0.01024
+ 86  1    15.3600   0.07000   1600.00   30.0000   35.1988   0.00903
+ 87  1    15.3200   0.07000   1700.00   30.0000   35.3096   0.01024
+ 88  1    15.1700   0.07000   1800.00   30.0000   35.5457   0.01084
+ 89  1    20.3900   0.07000   800.000   30.0000   32.3780   0.00662
+ 90  1    20.1500   0.07000   500.000   30.0000   32.3244   0.00482
+ 91  1    20.2400   0.07000   600.000   30.0000   32.3275   0.00542
+ 92  1    20.3700   0.07000   700.000   30.0000   32.3660   0.00542
+ 93  1    20.4400   0.07000   800.000   30.0000   32.3913   0.00482
+ 94  1    20.5200   0.07000   900.000   30.0000   32.4383   0.00542
+ 95  1    20.4600   0.07000   1000.00   30.0000   32.5099   0.00482
+ 96  1    20.2500   0.07000   1100.00   30.0000   32.5900   0.00542
+ 97  1    20.0300   0.07000   1200.00   30.0000   32.7339   0.00662
+ 98  1    19.7400   0.07000   1300.00   30.0000   32.9321   0.00542
+ 99  1    19.3700   0.07000   1400.00   30.0000   33.1820   0.00542
+100  1    19.0100   0.07000   1500.00   30.0000   33.5096   0.00662
+101  1    18.5500   0.07000   1600.00   30.0000   33.8203   0.00602
+102  1    18.0600   0.07000   1700.00   30.0000   34.1491   0.00602
+103  1    17.4500   0.07000   1800.00   30.0000   34.4822   0.00903
+104  1    14.8100   0.07000   500.000   30.0000   34.5821   0.00723
+105  1    16.2300   0.07000   1300.00   30.0000   34.6068   0.00542
+
+       Esds available for all data points for:  P, T, V
+
+EOSFIT-7.6>input
+
+*************************************Commands to input or change EoS parameters ***************************************
+
+
+   Type HELP for a list of commands to change EoS types or parameters
+
+
+INPUT EOS>pr
+
+     Available equations of state are:
+     1=Murnaghan, 2=Birch-Murnaghan, 3=Vinet, 4=Natural Strain, 5=Tait, 6=APL, 7=Kumar,
+
+     Input choice (0 for none, space for no change):2
+
+INPUT ORDER OF EOS (2,3,4):3
+
+
+INPUT EOS PARAMETERS, <CR> FOR NO CHANGE:
+          VALUE OF V0    (     1.000):51.11
+          VALUE OF K0    (    10.000):13.68
+          VALUE OF Kp    (     4.000):4.96
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 
+ 
+   System: 
+    Class: Volume
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  51.1100           :Reference pressure volume: units as volume data
+      K0:  13.6800           :Bulk modulus: same units as pressure data
+      Kp:  4.96000           :dK/dP: dimensionless
+     Kpp: -0.4218            :d2K/dP2: inverse pressure units [IMPLIED VALUE]
+ 
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+INPUT EOS>th
+
+     Available thermal expansion equations are:
+       1=Berman 1988,  2=Fei 1995,  3=Modified HP1998,  4=Kroll,  5=Salje low-T,
+     Available thermal-pressure EoS are:
+       6=HP Thermal Pressure,  7=Mie-Gruneisen-Debye,  8=Einstein Oscillator,
+
+     Input choice (0 for none, space for no change):7
+
+INPUT THERMAL PARAMETERS FOR Mie-Gruneisen-Debye <CR> FOR NO CHANGE:
+
+
+*****WARNING: EoS must have a Pscale in kbar or GPa and a Vscale in cm3/mol set to get correct results.
+
+    Reference temperature ( 298.0K):300
+
+     Do you want to use q-compromise version (Y/N) <N>?n
+
+    Reference pressure volume: units as volume data:
+                    VALUE OF V0    (    51.110):51.11
+    Debye temperature in K:
+                    VALUE OF ThMGD (   298.000):118.0
+    Number of atoms per formula unit:
+                    VALUE OF Natom (     1.000):2
+
+*****INFORMATION*****
+
+    Gamma0 and q are  refineable parameters in the thermal-pressure model
+
+    Gruneisen parameter at Tref,Pref:
+                    VALUE OF Gamm0 (     1.000):2.22
+    Gruneisen power law in V/V0:
+                    VALUE OF q     (     0.000):1.43
+
+*****The results of the thermal pressure model depend on the EoS parameters
+
+*****WARNING: EoS must have a Pscale in kbar or GPa and a Vscale in cm3/mol set to get correct results.
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 
+ 
+   System: 
+    Class: Volume
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  51.1100           :Reference pressure volume: units as volume data
+      K0:  13.6800           :Bulk modulus: same units as pressure data
+      Kp:  4.96000           :dK/dP: dimensionless
+     Kpp: -0.4218            :d2K/dP2: inverse pressure units [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+ 
+   Temperature of reference:   300.00 K
+ 
+   ThMGD:  118.000           :Debye temperature in K
+   Natom:  2.00000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  2.22000           :Gruneisen parameter at Tref,Pref
+       q:  1.43000           :Gruneisen power law in V/V0
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+INPUT EOS>pscale
+
+     This command allows you to label the output parameters with the pressure scale name (e.g. 'GPa')
+     It does not change the parameter values or the P values in the dataset!
+
+     No pressure scale name has been set
+
+     Input name of pressure scale, blank for no change, or 'none':GPa
+
+     The pressure scale name is: GPa
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  51.1100           :Reference pressure volume: units as volume data
+      K0:  13.6800           :Bulk modulus: units are GPa
+      Kp:  4.96000           :dK/dP: dimensionless
+     Kpp: -0.4218            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+ 
+   Temperature of reference:   300.00 K
+ 
+   ThMGD:  118.000           :Debye temperature in K
+   Natom:  2.00000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  2.22000           :Gruneisen parameter at Tref,Pref
+       q:  1.43000           :Gruneisen power law in V/V0
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+INPUT EOS>vscale
+
+     This command allows you to label the output parameters with the volume scale name (e.g. 'cm3/mol')
+     For linear data and Eos, use this for the name of the linear units (e.g. 'A')
+     It does not change the parameter values or the values of the data!
+
+     No volume/linear scale name has been set
+
+     Input name of volume scale, blank for no change, or 'none':cm^3/mol
+
+     The volume scale name is: cm^3/mol
+
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  51.1100           :Reference pressure volume: units are cm^3/mol
+      K0:  13.6800           :Bulk modulus: units are GPa
+      Kp:  4.96000           :dK/dP: dimensionless
+     Kpp: -0.4218            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+ 
+   Temperature of reference:   300.00 K
+ 
+   ThMGD:  118.000           :Debye temperature in K
+   Natom:  2.00000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  2.22000           :Gruneisen parameter at Tref,Pref
+       q:  1.43000           :Gruneisen power law in V/V0
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+INPUT EOS>x
+
+*************************************************Exiting from INPUT ***************************************************
+
+
+EOSFIT-7.6>save /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/initial.eos
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  51.1100           :Reference pressure volume: units are cm^3/mol
+      K0:  13.6800           :Bulk modulus: units are GPa
+      Kp:  4.96000           :dK/dP: dimensionless
+     Kpp: -0.4218            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+ 
+   Temperature of reference:   300.00 K
+ 
+   ThMGD:  118.000           :Debye temperature in K
+   Natom:  2.00000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  2.22000           :Gruneisen parameter at Tref,Pref
+       q:  1.43000           :Gruneisen power law in V/V0
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+      Do you want to save this EoS to file (Y/N) <Y>?y
+
+
+Successfully opened file for eos
+Named /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/initial.eos
+
+
+     Eos parameters written to file /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/initial.eos
+
+
+EOSFIT-7.6>list
+
+           The title on the data file is:  Farla2025 rbi printed observations
+           The calculated values are from:
+
+  THE 105 LOADED DATA ARE AS FOLLOWS:
+<-------------------------Observed Values---------------------------><----------------Calculated Values ----------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd
+              GPA                                  CM^3/MOL               GPa                       cm^3/mol
+  1  1    2.43000   0.07000   500.000   30.0000   45.7635   0.00662   2.39985   0.03015   0.43075   45.7031   0.06036   9.11125
+  2  1    2.66000   0.07000   600.000   30.0000   45.7610   0.00662   2.60691   0.05309   0.75842   45.6547   0.10637   16.0573
+  3  1    2.83000   0.07000   700.000   30.0000   45.8008   0.00783   2.79340   0.03660   0.52282   45.7267   0.07411   9.46660
+  4  1    2.97000   0.07000   800.000   30.0000   45.9260   0.00783   2.93883   0.03117   0.44530   45.8617   0.06439   8.22456
+  5  1    2.96000   0.07000   900.000   30.0000   46.4289   0.00843   2.91119   0.04881   0.69724   46.3216   0.10734   12.7318
+  6  1    2.95000   0.07000   1000.00   30.0000   46.7710   0.01144   2.96816   -0.0182   0.25937   46.8131   -0.0422   3.68699
+  7  1    2.92000   0.07000   1100.00   30.0000   47.4412   0.01445   2.90011   0.01989   0.28409   47.3911   0.05010   3.46653
+  8  1    2.89000   0.07000   1200.00   30.0000   48.1416   0.01506   2.84548   0.04452   0.63594   48.0194   0.12224   8.11925
+  9  1    5.03000   0.07000   500.000   30.0000   41.6485   0.00783   5.05788   -0.0279   0.39830   41.6825   -0.0339   4.33423
+ 10  1    5.28000   0.07000   600.000   30.0000   41.5859   0.00783   5.30692   -0.0269   0.38458   41.6185   -0.0326   4.16369
+ 11  1    5.40000   0.07000   700.000   30.0000   41.6690   0.00662   5.43623   -0.0362   0.51761   41.7135   -0.0445   6.71279
+ 12  1    5.48000   0.07000   800.000   30.0000   41.7882   0.00662   5.53769   -0.0577   0.82419   41.8604   -0.0722   10.8970
+ 13  1    5.54000   0.07000   900.000   30.0000   41.9797   0.00723   5.58445   -0.0445   0.63505   42.0368   -0.0571   7.89642
+ 14  1    5.56000   0.07000   1000.00   30.0000   42.2802   0.00843   5.55329   0.00671   0.09587   42.2713   0.00893   1.05966
+ 15  1    5.54000   0.07000   1100.00   30.0000   42.6319   0.00903   5.49513   0.04487   0.64095   42.5696   0.06238   6.90582
+ 16  1    5.49000   0.07000   1200.00   30.0000   43.0131   0.00843   5.42944   0.06056   0.86520   42.9247   0.08843   10.4889
+ 17  1    5.44000   0.07000   1300.00   30.0000   43.3998   0.00903   5.37421   0.06579   0.93981   43.2987   0.10107   11.1888
+ 18  1    5.44000   0.07000   1400.00   30.0000   43.8990   0.01024   5.26400   0.17600   2.51429   43.6136   0.28543   27.8805
+ 19  1    8.34000   0.07000   500.000   30.0000   38.4965   0.01265   8.24763   0.09236   1.31949   38.4219   0.07468   5.90552
+ 20  1    8.30000   0.07000   600.000   30.0000   38.7133   0.01024   8.17561   0.12439   1.77702   38.6099   0.10345   10.1053
+ 21  1    8.30000   0.07000   700.000   30.0000   38.8561   0.00843   8.19845   0.10155   1.45070   38.7698   0.08630   10.2360
+ 22  1    8.29000   0.07000   800.000   30.0000   39.0355   0.00723   8.18322   0.10678   1.52546   38.9425   0.09303   12.8727
+ 23  1    8.25000   0.07000   900.000   30.0000   39.2523   0.00662   8.13225   0.11775   1.68221   39.1467   0.10563   15.9461
+ 24  1    8.17000   0.07000   1000.00   30.0000   39.4932   0.00662   8.06322   0.10678   1.52540   39.3941   0.09906   14.9545
+ 25  1    8.10000   0.07000   1100.00   30.0000   39.7485   0.00602   7.98839   0.11161   1.59444   39.6413   0.10719   17.7998
+ 26  1    7.98000   0.07000   1200.00   30.0000   40.0773   0.00723   7.85042   0.12958   1.85116   39.9474   0.12993   17.9798
+ 27  1    7.77000   0.07000   1300.00   30.0000   40.5959   0.00783   7.55043   0.21957   3.13668   40.3615   0.23432   29.9308
+ 28  1    7.53000   0.07000   1400.00   30.0000   41.1077   0.00903   7.29029   0.23971   3.42442   40.8346   0.27316   30.2394
+ 29  1    7.29000   0.07000   1500.00   30.0000   41.5546   0.00903   7.11386   0.17614   2.51623   41.3407   0.21387   23.6761
+ 30  1    6.95000   0.07000   1600.00   30.0000   42.0779   0.01265   6.90181   0.04819   0.68844   42.0146   0.06333   5.00754
+ 31  1    6.71000   0.07000   1700.00   30.0000   42.7313   0.01084   6.62720   0.08280   1.18287   42.6131   0.11819   10.9030
+ 32  1    5.93000   0.07000   500.000   30.0000   40.5669   0.00783   6.01170   -0.0817   1.16720   40.6540   -0.0871   11.1243
+ 33  1    6.18000   0.07000   600.000   30.0000   40.5007   0.00783   6.26941   -0.0894   1.27722   40.5955   -0.0948   12.1056
+ 34  1    6.32000   0.07000   700.000   30.0000   40.4537   0.00783   6.50929   -0.1893   2.70416   40.6550   -0.2013   25.7067
+ 35  1    6.53000   0.07000   800.000   30.0000   40.3941   0.00843   6.76154   -0.2315   3.30778   40.6397   -0.2455   29.1236
+ 36  1    6.76000   0.07000   900.000   30.0000   40.3261   0.00783   7.02223   -0.2622   3.74618   40.6029   -0.2768   35.3623
+ 37  1    7.03000   0.07000   1000.00   30.0000   40.2990   0.00783   7.24366   -0.2137   3.05228   40.5235   -0.2245   28.6809
+ 38  1    7.38000   0.07000   1100.00   30.0000   40.1942   0.00783   7.54059   -0.1606   2.29413   40.3604   -0.1663   21.2370
+ 39  1    7.71000   0.07000   1200.00   30.0000   40.0653   0.00723   7.86233   -0.1523   2.17619   40.2206   -0.1553   21.4960
+ 40  1    8.04000   0.07000   1300.00   30.0000   39.9310   0.00662   8.19115   -0.1512   2.15931   40.0828   -0.1518   22.9117
+ 41  1    8.35000   0.07000   1400.00   30.0000   39.8870   0.00602   8.43007   -0.0801   1.14384   39.9668   -0.0797   13.2409
+ 42  1    8.73000   0.07000   1500.00   30.0000   39.8720   0.00602   8.63985   0.09015   1.28790   39.7832   0.08881   14.7479
+ 43  1    8.71000   0.07000   1600.00   30.0000   39.9226   0.00662   8.78366   -0.0737   1.05223   39.9966   -0.0740   11.1676
+ 44  1    8.71000   0.07000   1700.00   30.0000   40.0611   0.00662   8.84133   -0.1313   1.87616   40.1962   -0.1351   20.3987
+ 45  1    8.62000   0.07000   1800.00   30.0000   40.1803   0.00843   8.92059   -0.3006   4.29414   40.4989   -0.3186   37.7850
+ 46  1    7.32000   0.07000   600.000   30.0000   39.3908   0.00482   7.40107   -0.0811   1.15820   39.4653   -0.0745   15.4584
+ 47  1    7.52000   0.07000   700.000   30.0000   39.3685   0.00542   7.61831   -0.0983   1.40444   39.4589   -0.0903   16.6652
+ 48  1    7.78000   0.07000   800.000   30.0000   39.3324   0.00542   7.85093   -0.0709   1.01336   39.3973   -0.0649   11.9707
+ 49  1    8.03000   0.07000   900.000   30.0000   39.2921   0.00602   8.08836   -0.0584   0.83372   39.3452   -0.0532   8.82833
+ 50  1    8.26000   0.07000   1000.00   30.0000   39.2029   0.00602   8.38002   -0.1200   1.71452   39.3116   -0.1087   18.0475
+<-------------------------Observed Values---------------------------><----------------Calculated Values ----------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd
+              GPA                                  CM^3/MOL               GPa                       cm^3/mol
+ 51  1    8.59000   0.07000   1100.00   30.0000   39.1108   0.00602   8.67590   -0.0859   1.22711   39.1876   -0.0769   12.7614
+ 52  1    8.95000   0.07000   1200.00   30.0000   38.9705   0.00602   9.02752   -0.0775   1.10752   39.0387   -0.0682   11.3235
+ 53  1    9.32000   0.07000   1300.00   30.0000   38.8494   0.00662   9.35920   -0.0392   0.55996   38.8834   -0.0339   5.12169
+ 54  1    9.66000   0.07000   1400.00   30.0000   38.7537   0.00662   9.66296   -0.0030   0.04228   38.7562   -0.0025   0.38064
+ 55  1    10.0200   0.07000   1500.00   30.0000   38.6736   0.00964   9.94923   0.07077   1.01094   38.6139   0.05968   6.19430
+ 56  1    10.3000   0.07000   1600.00   30.0000   38.5953   0.00723   10.2340   0.06596   0.94235   38.5401   0.05519   7.63671
+ 57  1    10.4700   0.07000   1700.00   30.0000   38.5574   0.00723   10.4711   -0.0011   0.01640   38.5583  -0.00097   0.13355
+ 58  1    10.6100   0.07000   1800.00   30.0000   38.5826   0.00903   10.6329   -0.0229   0.32650   38.6019   -0.0193   2.13133
+ 59  1    12.5300   0.07000   500.000   30.0000   35.5180   0.01265   12.7425   -0.2125   3.03587   35.6349   -0.1169   9.24408
+ 60  1    12.9200   0.07000   700.000   30.0000   35.5144   0.01204   13.1171   -0.1971   2.81581   35.6230   -0.1086   9.01646
+ 61  1    13.1700   0.07000   900.000   30.0000   35.5517   0.00783   13.4183   -0.2483   3.54699   35.6898   -0.1381   17.6424
+ 62  1    13.6100   0.07000   1100.00   30.0000   35.5668   0.00723   13.7609   -0.1509   2.15510   35.6508   -0.0840   11.6232
+ 63  1    13.4700   0.07000   1300.00   30.0000   35.9148   0.00843   13.5186   -0.0486   0.69496   35.9432   -0.0284   3.36540
+ 64  1    13.1400   0.07000   1400.00   30.0000   36.1876   0.00783   13.2453   -0.1053   1.50442   36.2517   -0.0640   8.17827
+ 65  1    12.9700   0.07000   1500.00   30.0000   36.4430   0.00964   13.0179   -0.0479   0.68395   36.4731   -0.0301   3.12487
+ 66  1    12.6200   0.07000   1600.00   30.0000   36.8585   0.00723   12.5623   0.05770   0.82427   36.8202   0.03828   5.29719
+ 67  1    12.2400   0.07000   1700.00   30.0000   37.1735   0.01024   12.2875   -0.0475   0.67915   37.2066   -0.0331   3.23579
+ 68  1    9.89000   0.07000   500.000   30.0000   37.1705   0.00482   10.0303   -0.1403   2.00438   37.2668   -0.0963   19.9979
+ 69  1    10.2500   0.07000   700.000   30.0000   37.1771   0.00542   10.3962   -0.1462   2.08833   37.2779   -0.1008   18.6008
+ 70  1    10.6100   0.07000   900.000   30.0000   37.2036   0.00662   10.7343   -0.1243   1.77593   37.2898   -0.0862   13.0150
+ 71  1    10.9600   0.07000   1100.00   30.0000   37.2102   0.00662   11.1020   -0.1420   2.02793   37.3091   -0.0989   14.9338
+ 72  1    11.3500   0.07000   1300.00   30.0000   37.1530   0.00723   11.5622   -0.2122   3.03078   37.3006   -0.1476   20.4307
+ 73  1    11.5900   0.07000   1400.00   30.0000   37.1102   0.00783   11.8130   -0.2230   3.18534   37.2648   -0.1546   19.7464
+ 74  1    11.7800   0.07000   1500.00   30.0000   37.0994   0.00843   12.0174   -0.2374   3.39099   37.2641   -0.1647   19.5341
+ 75  1    12.9500   0.07000   500.000   30.0000   35.5481   0.00783   12.6874   0.26256   3.75088   35.4056   0.14248   18.1989
+ 76  1    13.1200   0.07000   600.000   30.0000   35.4993   0.00843   12.9605   0.15951   2.27878   35.4129   0.08642   10.2501
+ 77  1    13.3300   0.07000   700.000   30.0000   35.4794   0.00783   13.1811   0.14887   2.12676   35.3989   0.08057   10.2915
+ 78  1    13.5600   0.07000   800.000   30.0000   35.4138   0.00843   13.4865   0.07346   1.04949   35.3742   0.03957   4.69292
+ 79  1    13.7700   0.07000   900.000   30.0000   35.3735   0.00843   13.7458   0.02421   0.34582   35.3605   0.01300   1.54199
+ 80  1    13.9800   0.07000   1000.00   30.0000   35.3542   0.00903   13.9661   0.01390   0.19864   35.3467   0.00746   0.82601
+ 81  1    14.2300   0.07000   1100.00   30.0000   35.3156   0.00964   14.2225   0.00751   0.10733   35.3116   0.00402   0.41689
+ 82  1    14.4700   0.07000   1200.00   30.0000   35.2518   0.01084   14.5267   -0.0567   0.81051   35.2820   -0.0302   2.78294
+ 83  1    14.7500   0.07000   1300.00   30.0000   35.2042   0.00964   14.8010   -0.0510   0.72821   35.2312   -0.0270   2.79745
+ 84  1    15.0100   0.07000   1400.00   30.0000   35.1639   0.00964   15.0619   -0.0519   0.74125   35.1912   -0.0273   2.83467
+ 85  1    15.2200   0.07000   1500.00   30.0000   35.1422   0.01024   15.2874   -0.0674   0.96327   35.1777   -0.0355   3.46308
+ 86  1    15.3600   0.07000   1600.00   30.0000   35.1988   0.00903   15.3643   -0.0043   0.06132   35.2011   -0.0023   0.25084
+ 87  1    15.3200   0.07000   1700.00   30.0000   35.3096   0.01024   15.3412   -0.0212   0.30253   35.3210   -0.0114   1.11412
+ 88  1    15.1700   0.07000   1800.00   30.0000   35.5457   0.01084   15.0948   0.07516   1.07373   35.5040   0.04173   3.84994
+ 89  1    20.3900   0.07000   800.000   30.0000   32.3780   0.00662   20.5010   -0.1110   1.58544   32.4171   -0.0390   5.89104
+ 90  1    20.1500   0.07000   500.000   30.0000   32.3244   0.00482   20.1247   0.02530   0.36147   32.3157   0.00877   1.82116
+ 91  1    20.2400   0.07000   600.000   30.0000   32.3275   0.00542   20.2922   -0.0522   0.74515   32.3456   -0.0181   3.34811
+ 92  1    20.3700   0.07000   700.000   30.0000   32.3660   0.00542   20.3583   0.01172   0.16749   32.3619   0.00410   0.75662
+ 93  1    20.4400   0.07000   800.000   30.0000   32.3913   0.00482   20.4632   -0.0232   0.33180   32.3995   -0.0082   1.69526
+ 94  1    20.5200   0.07000   900.000   30.0000   32.4383   0.00542   20.5075   0.01255   0.17926   32.4338   0.00444   0.81855
+ 95  1    20.4600   0.07000   1000.00   30.0000   32.5099   0.00482   20.4839   -0.0239   0.34161   32.5185   -0.0086   1.77919
+ 96  1    20.2500   0.07000   1100.00   30.0000   32.5900   0.00542   20.4397   -0.1897   2.70933   32.6592   -0.0691   12.7569
+ 97  1    20.0300   0.07000   1200.00   30.0000   32.7339   0.00662   20.2255   -0.1955   2.79271   32.8068   -0.0729   10.9995
+ 98  1    19.7400   0.07000   1300.00   30.0000   32.9321   0.00542   19.8777   -0.1377   1.96781   32.9849   -0.0528   9.74520
+ 99  1    19.3700   0.07000   1400.00   30.0000   33.1820   0.00542   19.4148   -0.0448   0.64054   33.1998   -0.0178   3.28406
+100  1    19.0100   0.07000   1500.00   30.0000   33.5096   0.00662   18.7882   0.22180   3.16851   33.4179   0.09167   13.8379
+101  1    18.5500   0.07000   1600.00   30.0000   33.8203   0.00602   18.2390   0.31102   4.44320   33.6862   0.13414   22.2751
+102  1    18.0600   0.07000   1700.00   30.0000   34.1491   0.00602   17.6834   0.37658   5.37970   33.9792   0.16998   28.2257
+103  1    17.4500   0.07000   1800.00   30.0000   34.4822   0.00903   17.1543   0.29567   4.22382   34.3418   0.14039   15.5418
+104  1    14.8100   0.07000   500.000   30.0000   34.5821   0.00723   14.5730   0.23695   3.38505   34.4694   0.11271   15.5960
+105  1    16.2300   0.07000   1300.00   30.0000   34.6068   0.00542   15.9816   0.24844   3.54919   34.4873   0.11958   22.0636
+
+EOSFIT-7.6>fit
+     105 data for V will be used in least-squares
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 16-OCT-2026 at 10:33
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  51.1100           :Reference pressure volume: units are cm^3/mol
+      K0:  13.6800           :Bulk modulus: units are GPa
+      Kp:  4.96000           :dK/dP: dimensionless
+     Kpp: -0.4218            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+ 
+   Temperature of reference:   300.00 K
+ 
+   ThMGD:  118.000           :Debye temperature in K
+   Natom:  2.00000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  2.22000           :Gruneisen parameter at Tref,Pref
+       q:  1.43000           :Gruneisen power law in V/V0
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+    Do you want to change these EoS parameters or the EoS type? (Y/N) <N>?n
+
+ SELECT PARAMETERS TO REFINE IN LEAST-SQUARES FIT:
+           REFINE V0     (Y/N)?n
+           REFINE K0     (Y/N)?n
+           REFINE Kp     (Y/N)?n
+     Parameters for thermal model
+           REFINE ThMGD  (Y/N)?n
+           REFINE Gamm0  (Y/N)?y
+           REFINE q      (Y/N)?y
+
+ SELECT WEIGHTING SCHEME:
+     SIGMAS FOR P   PRESENT, USE IN WEIGHTS (Y/N)?y
+     SIGMAS FOR T   PRESENT, USE IN WEIGHTS (Y/N)?y
+     SIGMAS FOR V   PRESENT, USE IN WEIGHTS (Y/N)?y
+
+     EQUATION FITTED WITH WEIGHTS DERIVED FROM sigma(P), sigma(T), sigma(V),
+
+
+
+
+   RESULTS FROM CYCLE  1
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      0        51.11000  [NOT REFINED]
+ K0      0        13.68000  [NOT REFINED]
+ Kp      0         4.96000  [NOT REFINED]
+ Kpp     0        -0.42182  [IMPLIED VALUE]
+     Parameters for thermal model
+ ThMGD   0       118.00000  [NOT REFINED]
+ Natom   0         2.00000  [FIXED VALUE]
+ Gamm0   1         2.21407         -0.00593          0.06226          -0.10
+ q       1         1.42931         -0.00069          0.09150          -0.01
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  REFERENCE TEMPERATURE = 300.00
+ W-CHI^2 =   2.30 (AND ESD'S RESCALED BY W-CHI^2)
+
+
+   RESULTS FROM CYCLE  2
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      0        51.11000  [NOT REFINED]
+ K0      0        13.68000  [NOT REFINED]
+ Kp      0         4.96000  [NOT REFINED]
+ Kpp     0        -0.42182  [IMPLIED VALUE]
+     Parameters for thermal model
+ ThMGD   0       118.00000  [NOT REFINED]
+ Natom   0         2.00000  [FIXED VALUE]
+ Gamm0   1         2.21408          0.00001          0.06221           0.00
+ q       1         1.42932          0.00001          0.09168           0.00
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  REFERENCE TEMPERATURE = 300.00
+ W-CHI^2 =   2.30 (AND ESD'S RESCALED BY W-CHI^2)
+
+
+***********************MESSAGE FROM LEAST SQUARES***********************
+Least Squares converged, indicated by small shift/esd
+************************************************************************
+
+
+
+   RESULTS AFTER FINAL REFINEMENT CYCLE
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      0        51.11000  [NOT REFINED]
+ K0      0        13.68000  [NOT REFINED]
+ Kp      0         4.96000  [NOT REFINED]
+ Kpp     0        -0.42182  [IMPLIED VALUE]
+     Parameters for thermal model
+ ThMGD   0       118.00000  [NOT REFINED]
+ Natom   0         2.00000  [FIXED VALUE]
+ Gamm0   1         2.21408          0.00001          0.06221           0.00
+ q       1         1.42932          0.00001          0.09168           0.00
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  REFERENCE TEMPERATURE = 300.00
+ W-CHI^2 =   2.30 (AND ESD'S RESCALED BY W-CHI^2)
+
+ INPUT <CR> TO CONTINUE
+
+  THE 105 LOADED DATA ARE AS FOLLOWS:
+<-------------------------Observed Values---------------------------><----------------Calculated Values -------------------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd       Wt
+              GPA                                  CM^3/MOL               GPa                       cm^3/mol
+  1  1    2.43000   0.07000   500.000   30.0000   45.7635   0.00662   2.39879   0.03121   0.44590   45.7010   0.06247   9.43027   114.91839
+  2  1    2.66000   0.07000   600.000   30.0000   45.7610   0.00662   2.60532   0.05468   0.78119   45.6515   0.10954   16.5352   114.79848
+  3  1    2.83000   0.07000   700.000   30.0000   45.8008   0.00783   2.79127   0.03873   0.55323   45.7224   0.07840   10.0143   114.63229
+  4  1    2.97000   0.07000   800.000   30.0000   45.9260   0.00783   2.93616   0.03384   0.48342   45.8562   0.06987   8.92525   114.47156
+  5  1    2.96000   0.07000   900.000   30.0000   46.4289   0.00843   2.90796   0.05204   0.74338   46.3145   0.11438   13.5661   113.96019
+  6  1    2.95000   0.07000   1000.00   30.0000   46.7710   0.01144   2.96437   -0.0144   0.20523   46.8043   -0.0334   2.91552   113.49170
+  7  1    2.92000   0.07000   1100.00   30.0000   47.4412   0.01445   2.89574   0.02426   0.34663   47.3801   0.06108   4.22587   112.75204
+  8  1    2.89000   0.07000   1200.00   30.0000   48.1416   0.01506   2.84051   0.04949   0.70706   48.0058   0.13577   9.01798   112.14536
+  9  1    5.03000   0.07000   500.000   30.0000   41.6485   0.00783   5.05690   -0.0269   0.38422   41.6813   -0.0327   4.18074   118.67319
+ 10  1    5.28000   0.07000   600.000   30.0000   41.5859   0.00783   5.30544   -0.0254   0.36342   41.6167   -0.0308   3.93321   118.56433
+ 11  1    5.40000   0.07000   700.000   30.0000   41.6690   0.00662   5.43425   -0.0343   0.48930   41.7110   -0.0420   6.34482   118.55131
+ 12  1    5.48000   0.07000   800.000   30.0000   41.7882   0.00662   5.53521   -0.0552   0.78867   41.8573   -0.0691   10.4248   118.37523
+ 13  1    5.54000   0.07000   900.000   30.0000   41.9797   0.00723   5.58146   -0.0415   0.59222   42.0329   -0.0532   7.36275   118.08273
+ 14  1    5.56000   0.07000   1000.00   30.0000   42.2802   0.00843   5.54977   0.01023   0.14616   42.2666   0.01362   1.61529   117.63098
+ 15  1    5.54000   0.07000   1100.00   30.0000   42.6319   0.00903   5.49108   0.04892   0.69881   42.5640   0.06798   7.52575   117.22794
+ 16  1    5.49000   0.07000   1200.00   30.0000   43.0131   0.00843   5.42485   0.06515   0.93077   42.9180   0.09509   11.2785   116.95255
+ 17  1    5.44000   0.07000   1300.00   30.0000   43.3998   0.00903   5.36908   0.07092   1.01318   43.2909   0.10889   12.0540   116.54015
+ 18  1    5.44000   0.07000   1400.00   30.0000   43.8990   0.01024   5.25830   0.18170   2.59570   43.6045   0.29446   28.7621   115.98198
+ 19  1    8.34000   0.07000   500.000   30.0000   38.4965   0.01265   8.24671   0.09329   1.33269   38.4211   0.07544   5.96494   119.20637
+ 20  1    8.30000   0.07000   600.000   30.0000   38.7133   0.01024   8.17421   0.12579   1.79701   38.6087   0.10461   10.2182   120.09358
+ 21  1    8.30000   0.07000   700.000   30.0000   38.8561   0.00843   8.19657   0.10343   1.47751   38.7682   0.08789   10.4247   120.56970
+ 22  1    8.29000   0.07000   800.000   30.0000   39.0355   0.00723   8.18086   0.10914   1.55916   38.9404   0.09507   13.1556   120.71931
+ 23  1    8.25000   0.07000   900.000   30.0000   39.2523   0.00662   8.12940   0.12060   1.72292   39.1441   0.10817   16.3291   120.63444
+ 24  1    8.17000   0.07000   1000.00   30.0000   39.4932   0.00662   8.05988   0.11012   1.57318   39.3911   0.10214   15.4186   120.38679
+ 25  1    8.10000   0.07000   1100.00   30.0000   39.7485   0.00602   7.98454   0.11546   1.64937   39.6377   0.11084   18.4054   120.25146
+ 26  1    7.98000   0.07000   1200.00   30.0000   40.0773   0.00723   7.84606   0.13394   1.91338   39.9431   0.13425   18.5779   119.70459
+ 27  1    7.77000   0.07000   1300.00   30.0000   40.5959   0.00783   7.54554   0.22446   3.20653   40.3564   0.23943   30.5837   119.12937
+ 28  1    7.53000   0.07000   1400.00   30.0000   41.1077   0.00903   7.28486   0.24514   3.50202   40.8285   0.27921   30.9092   118.46784
+ 29  1    7.29000   0.07000   1500.00   30.0000   41.5546   0.00903   7.10789   0.18211   2.60159   41.3336   0.22099   24.4641   118.09982
+ 30  1    6.95000   0.07000   1600.00   30.0000   42.0779   0.01265   6.89527   0.05473   0.78180   42.0060   0.07187   5.68291   117.03981
+ 31  1    6.71000   0.07000   1700.00   30.0000   42.7313   0.01084   6.62008   0.08992   1.28457   42.6031   0.12824   11.8306   116.85950
+ 32  1    5.93000   0.07000   500.000   30.0000   40.5669   0.00783   6.01074   -0.0807   1.15341   40.6530   -0.0861   10.9922   119.64364
+ 33  1    6.18000   0.07000   600.000   30.0000   40.5007   0.00783   6.26796   -0.0880   1.25651   40.5939   -0.0932   11.9078   119.52431
+ 34  1    6.32000   0.07000   700.000   30.0000   40.4537   0.00783   6.50735   -0.1874   2.67649   40.6529   -0.1992   25.4387   119.45518
+ 35  1    6.53000   0.07000   800.000   30.0000   40.3941   0.00843   6.75912   -0.2291   3.27316   40.6370   -0.2429   28.8127   119.30827
+ 36  1    6.76000   0.07000   900.000   30.0000   40.3261   0.00783   7.01932   -0.2593   3.70462   40.5998   -0.2737   34.9613   119.44400
+ 37  1    7.03000   0.07000   1000.00   30.0000   40.2990   0.00783   7.24026   -0.2103   3.00377   40.5199   -0.2209   28.2171   119.43330
+ 38  1    7.38000   0.07000   1100.00   30.0000   40.1942   0.00783   7.53671   -0.1567   2.23874   40.3564   -0.1622   20.7180   119.50119
+ 39  1    7.71000   0.07000   1200.00   30.0000   40.0653   0.00723   7.85798   -0.1480   2.11398   40.2162   -0.1508   20.8736   119.71502
+ 40  1    8.04000   0.07000   1300.00   30.0000   39.9310   0.00662   8.18632   -0.1463   2.09030   40.0779   -0.1469   22.1694   119.93739
+ 41  1    8.35000   0.07000   1400.00   30.0000   39.8870   0.00602   8.42476   -0.0748   1.06795   39.9615   -0.0744   12.3560   120.07796
+ 42  1    8.73000   0.07000   1500.00   30.0000   39.8720   0.00602   8.63405   0.09595   1.37070   39.7775   0.09448   15.6885   120.08443
+ 43  1    8.71000   0.07000   1600.00   30.0000   39.9226   0.00662   8.77737   -0.0674   0.96239   39.9902   -0.0676   10.2094   119.92230
+ 44  1    8.71000   0.07000   1700.00   30.0000   40.0611   0.00662   8.83454   -0.1245   1.77913   40.1891   -0.1281   19.3310   119.79121
+ 45  1    8.62000   0.07000   1800.00   30.0000   40.1803   0.00843   8.91329   -0.2933   4.18991   40.4910   -0.3106   36.8448   119.32345
+ 46  1    7.32000   0.07000   600.000   30.0000   39.3908   0.00482   7.39966   -0.0797   1.13793   39.4640   -0.0732   15.1853   121.12174
+ 47  1    7.52000   0.07000   700.000   30.0000   39.3685   0.00542   7.61641   -0.0964   1.37734   39.4571   -0.0886   16.3401   120.91635
+ 48  1    7.78000   0.07000   800.000   30.0000   39.3324   0.00542   7.84856   -0.0686   0.97945   39.3951   -0.0627   11.5681   120.87064
+ 49  1    8.03000   0.07000   900.000   30.0000   39.2921   0.00602   8.08551   -0.0555   0.79298   39.3426   -0.0506   8.39568   120.73319
+ 50  1    8.26000   0.07000   1000.00   30.0000   39.2029   0.00602   8.37669   -0.1167   1.66701   39.3086   -0.1056   17.5433   120.77867
+<-------------------------Observed Values---------------------------><----------------Calculated Values -------------------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd       Wt
+              GPA                                  CM^3/MOL               GPa                       cm^3/mol
+ 51  1    8.59000   0.07000   1100.00   30.0000   39.1108   0.00602   8.67210   -0.0821   1.17284   39.1842   -0.0734   12.1932   120.83353
+ 52  1    8.95000   0.07000   1200.00   30.0000   38.9705   0.00602   9.02326   -0.0733   1.04659   39.0349   -0.0644   10.6970   120.94102
+ 53  1    9.32000   0.07000   1300.00   30.0000   38.8494   0.00662   9.35447   -0.0345   0.49235   38.8793   -0.0298   4.50149   120.88238
+ 54  1    9.66000   0.07000   1400.00   30.0000   38.7537   0.00662   9.65776   0.00224   0.03202   38.7518   0.00191   0.28851   120.95279
+ 55  1    10.0200   0.07000   1500.00   30.0000   38.6736   0.00964   9.94357   0.07643   1.09189   38.6091   0.06443   6.68720   120.02333
+ 56  1    10.3000   0.07000   1600.00   30.0000   38.5953   0.00723   10.2279   0.07210   1.02998   38.5350   0.06029   8.34247   120.90195
+ 57  1    10.4700   0.07000   1700.00   30.0000   38.5574   0.00723   10.4645   0.00546   0.07793   38.5528   0.00456   0.63133   120.92556
+ 58  1    10.6100   0.07000   1800.00   30.0000   38.5826   0.00903   10.6258   -0.0158   0.22533   38.5959   -0.0133   1.47002   120.29945
+ 59  1    12.5300   0.07000   500.000   30.0000   35.5180   0.01265   12.7416   -0.2116   3.02353   35.6344   -0.1164   9.20668   118.27661
+ 60  1    12.9200   0.07000   700.000   30.0000   35.5144   0.01204   13.1154   -0.1954   2.79086   35.6220   -0.1076   8.93538   118.63460
+ 61  1    13.1700   0.07000   900.000   30.0000   35.5517   0.00783   13.4157   -0.2457   3.50930   35.6883   -0.1366   17.4534   122.53402
+ 62  1    13.6100   0.07000   1100.00   30.0000   35.5668   0.00723   13.7573   -0.1473   2.10466   35.6488   -0.0820   11.3498   122.90202
+ 63  1    13.4700   0.07000   1300.00   30.0000   35.9148   0.00843   13.5142   -0.0442   0.63126   35.9406   -0.0258   3.05683   121.86880
+ 64  1    13.1400   0.07000   1400.00   30.0000   36.1876   0.00783   13.2404   -0.1004   1.43389   36.2487   -0.0610   7.79284   122.18710
+ 65  1    12.9700   0.07000   1500.00   30.0000   36.4430   0.00964   13.0125   -0.0425   0.60652   36.4697   -0.0267   2.76974   120.87592
+ 66  1    12.6200   0.07000   1600.00   30.0000   36.8585   0.00723   12.5564   0.06363   0.90893   36.8163   0.04220   5.83931   122.14570
+ 67  1    12.2400   0.07000   1700.00   30.0000   37.1735   0.01024   12.2811   -0.0411   0.58734   37.2021   -0.0286   2.79759   120.35006
+ 68  1    9.89000   0.07000   500.000   30.0000   37.1705   0.00482   10.0294   -0.1394   1.99156   37.2662   -0.0957   19.8688   123.52452
+ 69  1    10.2500   0.07000   700.000   30.0000   37.1771   0.00542   10.3944   -0.1444   2.06244   37.2766   -0.0996   18.3678   122.94899
+ 70  1    10.6100   0.07000   900.000   30.0000   37.2036   0.00662   10.7316   -0.1216   1.73689   37.2879   -0.0843   12.7271   122.31505
+ 71  1    10.9600   0.07000   1100.00   30.0000   37.2102   0.00662   11.0983   -0.1383   1.97570   37.3066   -0.0964   14.5462   122.23937
+ 72  1    11.3500   0.07000   1300.00   30.0000   37.1530   0.00723   11.5576   -0.2076   2.96541   37.2974   -0.1444   19.9847   121.98455
+ 73  1    11.5900   0.07000   1400.00   30.0000   37.1102   0.00783   11.8079   -0.2179   3.11345   37.2613   -0.1511   19.2947   121.71603
+ 74  1    11.7800   0.07000   1500.00   30.0000   37.0994   0.00843   12.0119   -0.2319   3.31252   37.2602   -0.1608   19.0758   121.40671
+ 75  1    12.9500   0.07000   500.000   30.0000   35.5481   0.00783   12.6866   0.26343   3.76323   35.4052   0.14294   18.2578   123.08595
+ 76  1    13.1200   0.07000   600.000   30.0000   35.4993   0.00843   12.9592   0.16082   2.29739   35.4122   0.08712   10.3333   122.35677
+ 77  1    13.3300   0.07000   700.000   30.0000   35.4794   0.00783   13.1794   0.15062   2.15169   35.3979   0.08151   10.4114   122.71050
+ 78  1    13.5600   0.07000   800.000   30.0000   35.4138   0.00843   13.4844   0.07565   1.08072   35.3731   0.04073   4.83093   122.13170
+ 79  1    13.7700   0.07000   900.000   30.0000   35.3735   0.00843   13.7432   0.02683   0.38335   35.3590   0.01442   1.71030   122.07191
+ 80  1    13.9800   0.07000   1000.00   30.0000   35.3542   0.00903   13.9630   0.01697   0.24249   35.3451   0.00911   1.00802   121.49355
+ 81  1    14.2300   0.07000   1100.00   30.0000   35.3156   0.00964   14.2190   0.01102   0.15749   35.3097   0.00589   0.61167   120.88882
+ 82  1    14.4700   0.07000   1200.00   30.0000   35.2518   0.01084   14.5228   -0.0528   0.75408   35.2799   -0.0281   2.58833   119.59249
+ 83  1    14.7500   0.07000   1300.00   30.0000   35.2042   0.00964   14.7966   -0.0466   0.66549   35.2289   -0.0246   2.55516   120.83427
+ 84  1    15.0100   0.07000   1400.00   30.0000   35.1639   0.00964   15.0571   -0.0471   0.67225   35.1886   -0.0248   2.56981   120.81557
+ 85  1    15.2200   0.07000   1500.00   30.0000   35.1422   0.01024   15.2822   -0.0622   0.88794   35.1749   -0.0327   3.19107   120.17847
+ 86  1    15.3600   0.07000   1600.00   30.0000   35.1988   0.00903   15.3586   0.00143   0.02045   35.1981   0.00076   0.08404   121.41190
+ 87  1    15.3200   0.07000   1700.00   30.0000   35.3096   0.01024   15.3350   -0.0150   0.21420   35.3177   -0.0081   0.78957   120.25014
+ 88  1    15.1700   0.07000   1800.00   30.0000   35.5457   0.01084   15.0882   0.08182   1.16891   35.5003   0.04541   4.18919   119.74986
+ 89  1    20.3900   0.07000   800.000   30.0000   32.3780   0.00662   20.4990   -0.1090   1.55645   32.4163   -0.0383   5.78336   123.90911
+ 90  1    20.1500   0.07000   500.000   30.0000   32.3244   0.00482   20.1239   0.02610   0.37283   32.3154   0.00905   1.87896   127.17476
+ 91  1    20.2400   0.07000   600.000   30.0000   32.3275   0.00542   20.2910   -0.0510   0.72795   32.3452   -0.0177   3.27069   126.04202
+ 92  1    20.3700   0.07000   700.000   30.0000   32.3660   0.00542   20.3567   0.01334   0.19057   32.3613   0.00466   0.85937   125.86479
+ 93  1    20.4400   0.07000   800.000   30.0000   32.3913   0.00482   20.4612   -0.0212   0.30278   32.3987   -0.0075   1.54640   126.54198
+ 94  1    20.5200   0.07000   900.000   30.0000   32.4383   0.00542   20.5050   0.01500   0.21425   32.4330   0.00531   0.97903   125.66044
+ 95  1    20.4600   0.07000   1000.00   30.0000   32.5099   0.00482   20.4810   -0.0210   0.30060   32.5175   -0.0075   1.56540   126.36364
+ 96  1    20.2500   0.07000   1100.00   30.0000   32.5900   0.00542   20.4364   -0.1864   2.66222   32.6579   -0.0679   12.5331   125.54816
+ 97  1    20.0300   0.07000   1200.00   30.0000   32.7339   0.00662   20.2218   -0.1918   2.73944   32.8054   -0.0715   10.7882   123.85401
+ 98  1    19.7400   0.07000   1300.00   30.0000   32.9321   0.00542   19.8736   -0.1336   1.90825   32.9833   -0.0512   9.44819   125.42532
+ 99  1    19.3700   0.07000   1400.00   30.0000   33.1820   0.00542   19.4102   -0.0402   0.57455   33.1979   -0.0160   2.94341   125.32632
+100  1    19.0100   0.07000   1500.00   30.0000   33.5096   0.00662   18.7831   0.22688   3.24116   33.4158   0.09375   14.1523   123.90093
+101  1    18.5500   0.07000   1600.00   30.0000   33.8203   0.00602   18.2334   0.31658   4.52251   33.6838   0.13651   22.6685   124.48306
+102  1    18.0600   0.07000   1700.00   30.0000   34.1491   0.00602   17.6774   0.38261   5.46583   33.9765   0.17266   28.6716   124.36094
+103  1    17.4500   0.07000   1800.00   30.0000   34.4822   0.00903   17.1478   0.30218   4.31685   34.3387   0.14344   15.8792   121.24995
+104  1    14.8100   0.07000   500.000   30.0000   34.5821   0.00723   14.5722   0.23780   3.39711   34.4690   0.11310   15.6509   123.86336
+105  1    16.2300   0.07000   1300.00   30.0000   34.6068   0.00542   15.9772   0.25278   3.61110   34.4852   0.12164   22.4437   124.64989
+
+  FITTING STATISTICS FOR 2 PARAMETERS FITTED TO 105 DATA:
+      CHI^2 (WEIGHTED)=   2.2999
+      MAXIMUM DELTA-PRESSURE= 0.383
+
+
+CORRELATION COEFFICIENTS (IN %)
+  VARIABLE      Gamm0     q
+    Gamm0:     100.0      95.8
+    q    :      95.8     100.0
+
+
+  VARIANCE-COVARIANCE MATRIX RESCALED
+  VARIABLE     Gamm0     q
+    Gamm0:   0.00387   0.00546
+    q    :   0.00546   0.00841
+
+ UPDATE EOS PARAMETERS (Y/N)?y
+                                       FURTHER CALCULATIONS (Y/N)?n
+
+EOSFIT-7.6>fit
+     105 data for V will be used in least-squares
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 16-OCT-2026 at 10:33
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  51.1100           :Reference pressure volume: units are cm^3/mol
+      K0:  13.6800           :Bulk modulus: units are GPa
+      Kp:  4.96000           :dK/dP: dimensionless
+     Kpp: -0.4218            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+ 
+   Temperature of reference:   300.00 K
+ 
+   ThMGD:  118.000           :Debye temperature in K
+   Natom:  2.00000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  2.21(6)           :Gruneisen parameter at Tref,Pref
+       q:  1.43(9)           :Gruneisen power law in V/V0
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+    Do you want to change these EoS parameters or the EoS type? (Y/N) <N>?n
+
+ SELECT PARAMETERS TO REFINE IN LEAST-SQUARES FIT:
+           REFINE V0     (Y/N)?n
+           REFINE K0     (Y/N)?n
+           REFINE Kp     (Y/N)?n
+     Parameters for thermal model
+           REFINE ThMGD  (Y/N)?n
+           REFINE Gamm0  (Y/N)?y
+           REFINE q      (Y/N)?y
+
+ SELECT WEIGHTING SCHEME:
+     SIGMAS FOR P   PRESENT, USE IN WEIGHTS (Y/N)?y
+     SIGMAS FOR T   PRESENT, USE IN WEIGHTS (Y/N)?y
+     SIGMAS FOR V   PRESENT, USE IN WEIGHTS (Y/N)?y
+
+     EQUATION FITTED WITH WEIGHTS DERIVED FROM sigma(P), sigma(T), sigma(V),
+
+
+
+
+   RESULTS FROM CYCLE  1
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      0        51.11000  [NOT REFINED]
+ K0      0        13.68000  [NOT REFINED]
+ Kp      0         4.96000  [NOT REFINED]
+ Kpp     0        -0.42182  [IMPLIED VALUE]
+     Parameters for thermal model
+ ThMGD   0       118.00000  [NOT REFINED]
+ Natom   0         2.00000  [FIXED VALUE]
+ Gamm0   1         2.21407         -0.00001          0.06221          -0.00
+ q       1         1.42931         -0.00001          0.09168          -0.00
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  REFERENCE TEMPERATURE = 300.00
+ W-CHI^2 =   2.30 (AND ESD'S RESCALED BY W-CHI^2)
+
+
+***********************MESSAGE FROM LEAST SQUARES***********************
+Least Squares converged, indicated by small shift/esd
+************************************************************************
+
+
+
+   RESULTS AFTER FINAL REFINEMENT CYCLE
+ PARA REF          NEW            SHIFT            E.S.D.       SHIFT/ERROR
+ V0      0        51.11000  [NOT REFINED]
+ K0      0        13.68000  [NOT REFINED]
+ Kp      0         4.96000  [NOT REFINED]
+ Kpp     0        -0.42182  [IMPLIED VALUE]
+     Parameters for thermal model
+ ThMGD   0       118.00000  [NOT REFINED]
+ Natom   0         2.00000  [FIXED VALUE]
+ Gamm0   1         2.21407         -0.00001          0.06221          -0.00
+ q       1         1.42931         -0.00001          0.09168          -0.00
+     Dataset scale factors
+ Sca 1   0         1.00000  [FIXED VALUE]
+  REFERENCE TEMPERATURE = 300.00
+ W-CHI^2 =   2.30 (AND ESD'S RESCALED BY W-CHI^2)
+
+ INPUT <CR> TO CONTINUE
+
+  THE 105 LOADED DATA ARE AS FOLLOWS:
+<-------------------------Observed Values---------------------------><----------------Calculated Values -------------------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd       Wt
+              GPA                                  CM^3/MOL               GPa                       cm^3/mol
+  1  1    2.43000   0.07000   500.000   30.0000   45.7635   0.00662   2.39879   0.03121   0.44591   45.7010   0.06247   9.42970   114.91800
+  2  1    2.66000   0.07000   600.000   30.0000   45.7610   0.00662   2.60532   0.05468   0.78120   45.6515   0.10954   16.5352   114.79848
+  3  1    2.83000   0.07000   700.000   30.0000   45.8008   0.00783   2.79127   0.03873   0.55325   45.7224   0.07840   10.0143   114.63187
+  4  1    2.97000   0.07000   800.000   30.0000   45.9260   0.00783   2.93616   0.03384   0.48345   45.8562   0.06988   8.92622   114.47079
+  5  1    2.96000   0.07000   900.000   30.0000   46.4289   0.00843   2.90796   0.05204   0.74341   46.3145   0.11438   13.5670   113.96017
+  6  1    2.95000   0.07000   1000.00   30.0000   46.7710   0.01144   2.96436   -0.0144   0.20518   46.8043   -0.0334   2.91485   113.49170
+  7  1    2.92000   0.07000   1100.00   30.0000   47.4412   0.01445   2.89573   0.02427   0.34669   47.3801   0.06108   4.22640   112.75204
+  8  1    2.89000   0.07000   1200.00   30.0000   48.1416   0.01506   2.84050   0.04950   0.70712   48.0058   0.13579   9.01925   112.14492
+  9  1    5.03000   0.07000   500.000   30.0000   41.6485   0.00783   5.05690   -0.0269   0.38421   41.6813   -0.0327   4.18074   118.67319
+ 10  1    5.28000   0.07000   600.000   30.0000   41.5859   0.00783   5.30544   -0.0254   0.36341   41.6167   -0.0308   3.93321   118.56362
+ 11  1    5.40000   0.07000   700.000   30.0000   41.6690   0.00662   5.43425   -0.0342   0.48928   41.7110   -0.0420   6.34424   118.55210
+ 12  1    5.48000   0.07000   800.000   30.0000   41.7882   0.00662   5.53521   -0.0552   0.78865   41.8573   -0.0691   10.4248   118.37523
+ 13  1    5.54000   0.07000   900.000   30.0000   41.9797   0.00723   5.58145   -0.0415   0.59220   42.0329   -0.0532   7.36222   118.08187
+ 14  1    5.56000   0.07000   1000.00   30.0000   42.2802   0.00843   5.54977   0.01023   0.14618   42.2666   0.01362   1.61529   117.63027
+ 15  1    5.54000   0.07000   1100.00   30.0000   42.6319   0.00903   5.49108   0.04892   0.69884   42.5640   0.06798   7.52575   117.22803
+ 16  1    5.49000   0.07000   1200.00   30.0000   43.0131   0.00843   5.42484   0.06516   0.93080   42.9180   0.09509   11.2785   116.95334
+ 17  1    5.44000   0.07000   1300.00   30.0000   43.3998   0.00903   5.36907   0.07093   1.01322   43.2909   0.10890   12.0553   116.54022
+ 18  1    5.44000   0.07000   1400.00   30.0000   43.8990   0.01024   5.25830   0.18170   2.59574   43.6045   0.29446   28.7621   115.98285
+ 19  1    8.34000   0.07000   500.000   30.0000   38.4965   0.01265   8.24671   0.09329   1.33269   38.4211   0.07544   5.96494   119.20637
+ 20  1    8.30000   0.07000   600.000   30.0000   38.7133   0.01024   8.17421   0.12579   1.79701   38.6087   0.10461   10.2182   120.09358
+ 21  1    8.30000   0.07000   700.000   30.0000   38.8561   0.00843   8.19657   0.10343   1.47751   38.7682   0.08789   10.4242   120.56970
+ 22  1    8.29000   0.07000   800.000   30.0000   39.0355   0.00723   8.18086   0.10914   1.55918   38.9404   0.09507   13.1556   120.71931
+ 23  1    8.25000   0.07000   900.000   30.0000   39.2523   0.00662   8.12939   0.12061   1.72294   39.1441   0.10817   16.3291   120.63425
+ 24  1    8.17000   0.07000   1000.00   30.0000   39.4932   0.00662   8.05988   0.11012   1.57318   39.3911   0.10214   15.4186   120.38519
+ 25  1    8.10000   0.07000   1100.00   30.0000   39.7485   0.00602   7.98454   0.11546   1.64937   39.6377   0.11085   18.4067   120.25137
+ 26  1    7.98000   0.07000   1200.00   30.0000   40.0773   0.00723   7.84606   0.13394   1.91340   39.9431   0.13425   18.5774   119.70530
+ 27  1    7.77000   0.07000   1300.00   30.0000   40.5959   0.00783   7.54554   0.22446   3.20655   40.3564   0.23943   30.5832   119.12847
+ 28  1    7.53000   0.07000   1400.00   30.0000   41.1077   0.00903   7.28486   0.24514   3.50205   40.8285   0.27921   30.9092   118.46774
+ 29  1    7.29000   0.07000   1500.00   30.0000   41.5546   0.00903   7.10789   0.18211   2.60162   41.3336   0.22100   24.4649   118.09913
+ 30  1    6.95000   0.07000   1600.00   30.0000   42.0779   0.01265   6.89527   0.05473   0.78184   42.0060   0.07187   5.68321   117.04034
+ 31  1    6.71000   0.07000   1700.00   30.0000   42.7313   0.01084   6.62008   0.08992   1.28462   42.6031   0.12825   11.8314   116.85950
+ 32  1    5.93000   0.07000   500.000   30.0000   40.5669   0.00783   6.01074   -0.0807   1.15341   40.6530   -0.0861   10.9922   119.64353
+ 33  1    6.18000   0.07000   600.000   30.0000   40.5007   0.00783   6.26795   -0.0880   1.25650   40.5939   -0.0932   11.9073   119.52420
+ 34  1    6.32000   0.07000   700.000   30.0000   40.4537   0.00783   6.50735   -0.1874   2.67648   40.6529   -0.1992   25.4392   119.45599
+ 35  1    6.53000   0.07000   800.000   30.0000   40.3941   0.00843   6.75912   -0.2291   3.27315   40.6370   -0.2429   28.8127   119.30827
+ 36  1    6.76000   0.07000   900.000   30.0000   40.3261   0.00783   7.01932   -0.2593   3.70462   40.5998   -0.2737   34.9618   119.44391
+ 37  1    7.03000   0.07000   1000.00   30.0000   40.2990   0.00783   7.24026   -0.2103   3.00376   40.5199   -0.2209   28.2171   119.43330
+ 38  1    7.38000   0.07000   1100.00   30.0000   40.1942   0.00783   7.53671   -0.1567   2.23872   40.3564   -0.1622   20.7176   119.50039
+ 39  1    7.71000   0.07000   1200.00   30.0000   40.0653   0.00723   7.85798   -0.1480   2.11397   40.2162   -0.1508   20.8736   119.71491
+ 40  1    8.04000   0.07000   1300.00   30.0000   39.9310   0.00662   8.18632   -0.1463   2.09029   40.0779   -0.1469   22.1717   119.93757
+ 41  1    8.35000   0.07000   1400.00   30.0000   39.8870   0.00602   8.42476   -0.0748   1.06794   39.9615   -0.0744   12.3560   120.07636
+ 42  1    8.73000   0.07000   1500.00   30.0000   39.8720   0.00602   8.63405   0.09595   1.37073   39.7775   0.09447   15.6879   120.08443
+ 43  1    8.71000   0.07000   1600.00   30.0000   39.9226   0.00662   8.77737   -0.0674   0.96237   39.9902   -0.0676   10.2094   119.92211
+ 44  1    8.71000   0.07000   1700.00   30.0000   40.0611   0.00662   8.83454   -0.1245   1.77912   40.1891   -0.1281   19.3305   119.79121
+ 45  1    8.62000   0.07000   1800.00   30.0000   40.1803   0.00843   8.91329   -0.2933   4.18989   40.4910   -0.3106   36.8443   119.32345
+ 46  1    7.32000   0.07000   600.000   30.0000   39.3908   0.00482   7.39966   -0.0797   1.13793   39.4640   -0.0732   15.1853   121.12174
+ 47  1    7.52000   0.07000   700.000   30.0000   39.3685   0.00542   7.61641   -0.0964   1.37734   39.4571   -0.0886   16.3401   120.91635
+ 48  1    7.78000   0.07000   800.000   30.0000   39.3324   0.00542   7.84856   -0.0686   0.97944   39.3951   -0.0627   11.5681   120.87064
+ 49  1    8.03000   0.07000   900.000   30.0000   39.2921   0.00602   8.08551   -0.0555   0.79298   39.3426   -0.0506   8.39505   120.73338
+ 50  1    8.26000   0.07000   1000.00   30.0000   39.2029   0.00602   8.37669   -0.1167   1.66701   39.3086   -0.1056   17.5433   120.77867
+<-------------------------Observed Values---------------------------><----------------Calculated Values -------------------------------->
+  N USE         P      esdP      T(K)      esdT       V      esd(V)      Pcal    deltaP delta/esd    V  cal    deltaV   delV/esd       Wt
+              GPA                                  CM^3/MOL               GPa                       cm^3/mol
+ 51  1    8.59000   0.07000   1100.00   30.0000   39.1108   0.00602   8.67210   -0.0821   1.17284   39.1842   -0.0734   12.1932   120.83353
+ 52  1    8.95000   0.07000   1200.00   30.0000   38.9705   0.00602   9.02326   -0.0733   1.04658   39.0349   -0.0644   10.6964   120.94102
+ 53  1    9.32000   0.07000   1300.00   30.0000   38.8494   0.00662   9.35447   -0.0345   0.49235   38.8793   -0.0298   4.50149   120.88216
+ 54  1    9.66000   0.07000   1400.00   30.0000   38.7537   0.00662   9.65776   0.00224   0.03202   38.7518   0.00191   0.28851   120.95438
+ 55  1    10.0200   0.07000   1500.00   30.0000   38.6736   0.00964   9.94357   0.07643   1.09189   38.6091   0.06443   6.68720   120.02177
+ 56  1    10.3000   0.07000   1600.00   30.0000   38.5953   0.00723   10.2279   0.07210   1.02998   38.5350   0.06029   8.34247   120.90059
+ 57  1    10.4700   0.07000   1700.00   30.0000   38.5574   0.00723   10.4645   0.00546   0.07793   38.5528   0.00456   0.63133   120.92397
+ 58  1    10.6100   0.07000   1800.00   30.0000   38.5826   0.00903   10.6258   -0.0158   0.22533   38.5959   -0.0133   1.47002   120.29816
+ 59  1    12.5300   0.07000   500.000   30.0000   35.5180   0.01265   12.7416   -0.2116   3.02354   35.6344   -0.1164   9.20668   118.27514
+ 60  1    12.9200   0.07000   700.000   30.0000   35.5144   0.01204   13.1154   -0.1954   2.79086   35.6220   -0.1076   8.93538   118.63609
+ 61  1    13.1700   0.07000   900.000   30.0000   35.5517   0.00783   13.4157   -0.2457   3.50932   35.6883   -0.1366   17.4534   122.53283
+ 62  1    13.6100   0.07000   1100.00   30.0000   35.5668   0.00723   13.7573   -0.1473   2.10468   35.6488   -0.0820   11.3498   122.90324
+ 63  1    13.4700   0.07000   1300.00   30.0000   35.9148   0.00843   13.5142   -0.0442   0.63128   35.9406   -0.0258   3.05683   121.86998
+ 64  1    13.1400   0.07000   1400.00   30.0000   36.1876   0.00783   13.2404   -0.1004   1.43390   36.2487   -0.0610   7.79284   122.18710
+ 65  1    12.9700   0.07000   1500.00   30.0000   36.4430   0.00964   13.0125   -0.0425   0.60654   36.4697   -0.0267   2.77014   120.87706
+ 66  1    12.6200   0.07000   1600.00   30.0000   36.8585   0.00723   12.5564   0.06362   0.90892   36.8163   0.04219   5.83878   122.14570
+ 67  1    12.2400   0.07000   1700.00   30.0000   37.1735   0.01024   12.2811   -0.0411   0.58735   37.2021   -0.0286   2.79759   120.35006
+ 68  1    9.89000   0.07000   500.000   30.0000   37.1705   0.00482   10.0294   -0.1394   1.99156   37.2662   -0.0957   19.8688   123.52432
+ 69  1    10.2500   0.07000   700.000   30.0000   37.1771   0.00542   10.3944   -0.1444   2.06244   37.2766   -0.0996   18.3678   122.94899
+ 70  1    10.6100   0.07000   900.000   30.0000   37.2036   0.00662   10.7316   -0.1216   1.73689   37.2879   -0.0843   12.7271   122.31344
+ 71  1    10.9600   0.07000   1100.00   30.0000   37.2102   0.00662   11.0983   -0.1383   1.97570   37.3066   -0.0964   14.5456   122.23937
+ 72  1    11.3500   0.07000   1300.00   30.0000   37.1530   0.00723   11.5576   -0.2076   2.96542   37.2974   -0.1444   19.9847   121.98455
+ 73  1    11.5900   0.07000   1400.00   30.0000   37.1102   0.00783   11.8079   -0.2179   3.11345   37.2613   -0.1511   19.2947   121.71603
+ 74  1    11.7800   0.07000   1500.00   30.0000   37.0994   0.00843   12.0119   -0.2319   3.31252   37.2602   -0.1608   19.0758   121.40671
+ 75  1    12.9500   0.07000   500.000   30.0000   35.5481   0.00783   12.6866   0.26343   3.76323   35.4052   0.14294   18.2578   123.08595
+ 76  1    13.1200   0.07000   600.000   30.0000   35.4993   0.00843   12.9592   0.16082   2.29739   35.4122   0.08712   10.3333   122.35632
+ 77  1    13.3300   0.07000   700.000   30.0000   35.4794   0.00783   13.1794   0.15062   2.15169   35.3979   0.08151   10.4119   122.71050
+ 78  1    13.5600   0.07000   800.000   30.0000   35.4138   0.00843   13.4844   0.07565   1.08070   35.3731   0.04074   4.83228   122.13014
+ 79  1    13.7700   0.07000   900.000   30.0000   35.3735   0.00843   13.7432   0.02683   0.38334   35.3590   0.01442   1.70985   122.07191
+ 80  1    13.9800   0.07000   1000.00   30.0000   35.3542   0.00903   13.9630   0.01697   0.24248   35.3451   0.00911   1.00845   121.49249
+ 81  1    14.2300   0.07000   1100.00   30.0000   35.3156   0.00964   14.2190   0.01102   0.15748   35.3097   0.00589   0.61167   120.88882
+ 82  1    14.4700   0.07000   1200.00   30.0000   35.2518   0.01084   14.5228   -0.0528   0.75408   35.2799   -0.0281   2.58868   119.59345
+ 83  1    14.7500   0.07000   1300.00   30.0000   35.2042   0.00964   14.7966   -0.0466   0.66550   35.2289   -0.0246   2.55556   120.83427
+ 84  1    15.0100   0.07000   1400.00   30.0000   35.1639   0.00964   15.0571   -0.0471   0.67226   35.1886   -0.0248   2.56981   120.81557
+ 85  1    15.2200   0.07000   1500.00   30.0000   35.1422   0.01024   15.2822   -0.0622   0.88797   35.1749   -0.0327   3.19145   120.17847
+ 86  1    15.3600   0.07000   1600.00   30.0000   35.1988   0.00903   15.3586   0.00143   0.02042   35.1981   0.00076   0.08361   121.41239
+ 87  1    15.3200   0.07000   1700.00   30.0000   35.3096   0.01024   15.3350   -0.0150   0.21424   35.3177   -0.0081   0.78957   120.24968
+ 88  1    15.1700   0.07000   1800.00   30.0000   35.5457   0.01084   15.0882   0.08182   1.16888   35.5003   0.04541   4.18954   119.74889
+ 89  1    20.3900   0.07000   800.000   30.0000   32.3780   0.00662   20.4990   -0.1090   1.55645   32.4164   -0.0383   5.78393   123.90801
+ 90  1    20.1500   0.07000   500.000   30.0000   32.3244   0.00482   20.1239   0.02610   0.37283   32.3154   0.00905   1.87896   127.17476
+ 91  1    20.2400   0.07000   600.000   30.0000   32.3275   0.00542   20.2910   -0.0510   0.72795   32.3452   -0.0177   3.27069   126.04426
+ 92  1    20.3700   0.07000   700.000   30.0000   32.3660   0.00542   20.3567   0.01334   0.19057   32.3613   0.00466   0.85937   125.86386
+ 93  1    20.4400   0.07000   800.000   30.0000   32.3913   0.00482   20.4612   -0.0212   0.30281   32.3987   -0.0075   1.54640   126.54198
+ 94  1    20.5200   0.07000   900.000   30.0000   32.4383   0.00542   20.5050   0.01500   0.21422   32.4330   0.00531   0.97903   125.66044
+ 95  1    20.4600   0.07000   1000.00   30.0000   32.5099   0.00482   20.4810   -0.0210   0.30060   32.5175   -0.0075   1.56461   126.36282
+ 96  1    20.2500   0.07000   1100.00   30.0000   32.5900   0.00542   20.4364   -0.1864   2.66228   32.6580   -0.0679   12.5338   125.54816
+ 97  1    20.0300   0.07000   1200.00   30.0000   32.7339   0.00662   20.2218   -0.1918   2.73950   32.8054   -0.0715   10.7882   123.85401
+ 98  1    19.7400   0.07000   1300.00   30.0000   32.9321   0.00542   19.8736   -0.1336   1.90830   32.9833   -0.0512   9.44889   125.42296
+ 99  1    19.3700   0.07000   1400.00   30.0000   33.1820   0.00542   19.4102   -0.0402   0.57458   33.1980   -0.0160   2.94482   125.32873
+100  1    19.0100   0.07000   1500.00   30.0000   33.5096   0.00662   18.7831   0.22688   3.24110   33.4158   0.09375   14.1523   123.90186
+101  1    18.5500   0.07000   1600.00   30.0000   33.8203   0.00602   18.2334   0.31657   4.52246   33.6838   0.13651   22.6685   124.48546
+102  1    18.0600   0.07000   1700.00   30.0000   34.1491   0.00602   17.6774   0.38261   5.46581   33.9765   0.17266   28.6716   124.36094
+103  1    17.4500   0.07000   1800.00   30.0000   34.4822   0.00903   17.1478   0.30218   4.31679   34.3387   0.14344   15.8792   121.24796
+104  1    14.8100   0.07000   500.000   30.0000   34.5821   0.00723   14.5722   0.23780   3.39711   34.4690   0.11310   15.6509   123.86494
+105  1    16.2300   0.07000   1300.00   30.0000   34.6068   0.00542   15.9772   0.25278   3.61107   34.4852   0.12164   22.4437   124.64666
+
+  FITTING STATISTICS FOR 2 PARAMETERS FITTED TO 105 DATA:
+      CHI^2 (WEIGHTED)=   2.2999
+      MAXIMUM DELTA-PRESSURE= 0.383
+
+
+CORRELATION COEFFICIENTS (IN %)
+  VARIABLE      Gamm0     q
+    Gamm0:     100.0      95.8
+    q    :      95.8     100.0
+
+
+  VARIANCE-COVARIANCE MATRIX RESCALED
+  VARIABLE     Gamm0     q
+    Gamm0:   0.00387   0.00546
+    q    :   0.00546   0.00841
+
+ UPDATE EOS PARAMETERS (Y/N)?y
+                                       FURTHER CALCULATIONS (Y/N)?n
+
+EOSFIT-7.6>save /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/fitted.eos
+ 
+ 
+  EOS Information
+-------------------
+ 
+    Title: 
+Eos Saved: 16-OCT-2026 at 10:33
+ 
+   System: 
+    Class: Volume
+   Pscale: GPa
+   Vscale: cm^3/mol
+   Stoichiometry:            1.000
+ 
+  Compressibility
+-------------------
+ 
+    Model: Birch-Murnaghan
+    Order:  3
+   Pressure of reference:    0.000
+ 
+      V0:  51.1100           :Reference pressure volume: units are cm^3/mol
+      K0:  13.6800           :Bulk modulus: units are GPa
+      Kp:  4.96000           :dK/dP: dimensionless
+     Kpp: -0.4218            :d2K/dP2: units are inverse GPa [IMPLIED VALUE]
+ 
+ 
+  Thermal Expansion
+-------------------
+ 
+   Model: Mie-Gruneisen-Debye
+ 
+   Temperature of reference:   300.00 K
+ 
+   ThMGD:  118.000           :Debye temperature in K
+   Natom:  2.00000           :Number of atoms per formula unit [FIXED VALUE]
+   Gamm0:  2.21(6)           :Gruneisen parameter at Tref,Pref
+       q:  1.43(9)           :Gruneisen power law in V/V0
+ 
+  Scale factors for data groups
+---------------------------------
+   Sca 1:  1.00000           :Scale factor for data group 1 [FIXED VALUE]
+ 
+
+      Do you want to save this EoS to file (Y/N) <Y>?y
+
+
+Successfully opened file for eos
+Named /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/fitted.eos
+
+
+     Eos parameters written to file /Users/clemens/Programming/peritheos/docs/data/rubidium-halides-farla-2025-case3-eosfit7c/rbi/weighted_lvp_only_printed_theta/fitted.eos
+
+
+EOSFIT-7.6>
+***** Macro completed
+
+EOSFIT-7.6>

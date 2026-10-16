@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **362 primary papers**: **260** support the 652 audited catalog records and **102** were investigated without adding a production record.
+The register covers **363 primary papers**: **261** support the 655 audited catalog records and **102** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -39,7 +39,7 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Original unreproduced; independent refit available | 2 |
-| Reproduced | 168 |
+| Reproduced | 169 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 13 |
 | Coefficient parity not achieved | 14 |
@@ -1156,6 +1156,7 @@ the primary-source and refit ledgers.
 | [Errandonea et al. (2006)](https://doi.org/10.1103/physrevb.73.092106) | Partly reproduced | 2 | 1 parity; 1 direct refit unavailable | 1 bundled; 1 parameterization only |
 | [Exploring the High-Pressure Equation of State in Earth’s Mantle with a Focus on the MgSiO3−MgO System (2025)](https://doi.org/10.15407/mfint.47.06.0601) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [EXTREME COMPRESSION BEHAVIOUR OF SOLIDS BASED ON THE ROY-ROY INVERTED EQUATION OF STATE (2008)](https://doi.org/10.1142/s0217979208038910) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Farla et al. (2025)](https://doi.org/10.1063/5.0248905) | Reproduced | 3 | 3 similar | 3 bundled |
 | [Faust and Knittle (1994), natural chondrodite](https://doi.org/10.1029/94GL01592) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Fedotenko et al. (2020)](https://doi.org/10.1016/j.jallcom.2020.156179) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Fei et al. (2000)](https://doi.org/10.2138/am-2000-11-1229) | Reproduced | 1 | 1 similar | 1 plot only/digitized |

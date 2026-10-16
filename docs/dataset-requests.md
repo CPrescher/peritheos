@@ -25,6 +25,15 @@ experimental observations.
 | [Nisr et al. (2017), hydrous silica](#nisr-et-al-2017-hydrous-silica) | Optional follow-up for exact regression and calibration replay; published coefficients already reproduced | Resolve the original fit objective, weights and Au pressure reduction | Not contacted | 2026-09-19 |
 | [Maltby et al. (2024), fcc argon](#maltby-et-al-2024-fcc-argon) | Contact authors for sample-state and neighbour-table clarification | Reproduce Table 8 and the original multiproperty fit before promoting a replacement | Not contacted; precise request drafted | 2026-09-24 |
 
+### October 2026 additions: optional workflow recovery
+
+The following requests do not block use of the accepted equations. They concern
+exact original fit or calibration replay. No new author outreach is authorized.
+
+| Source | Evidence already recovered | Remaining optional evidence | Contact status |
+|---|---|---|---|
+| Farla (2025) rubidium halides | Primary numerical supplement, historical CsCl implementation, independent weighted fits and direct EosFit7c replay | Original saved EosFit7/GSAS-II projects, exact row flags, unrounded input/errors/correlations, raw ruby wavelengths and saved CsCl runtime settings | Not contacted; user excludes author contact |
+
 ### Morard et al. (2026): FeS
 
 Paper: [FeS phase diagram and thermal Equation of State under high pressure](https://doi.org/10.1103/h4pj-rvxx).

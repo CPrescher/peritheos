@@ -1,0 +1,94 @@
+{
+  "audit_date": "2026-10-16",
+  "source_doi": "10.1063/5.0248905",
+  "source_version": "DESY final accepted manuscript; Table I and Figure 1 caption",
+  "source_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+  "reference_temperature_k": 300,
+  "atoms_per_formula_unit": 2,
+  "fixed_parameter_order": [
+    "molar_v0_cm3_mol",
+    "K0_gpa",
+    "K0_prime",
+    "theta0_k"
+  ],
+  "free_parameter_order": [
+    "gamma0",
+    "q"
+  ],
+  "variants": {
+    "rbcl": {
+      "compound": "rbcl",
+      "label": "RbCl Case 3",
+      "fixed_parameters": [
+        36.25,
+        19.93,
+        4.99,
+        177
+      ],
+      "published_thermal_parameters": [
+        1.96,
+        1.04
+      ],
+      "published_thermal_esd": [
+        0.04,
+        0.09
+      ]
+    },
+    "rbbr_dac": {
+      "compound": "rbbr",
+      "label": "RbBr Case 3, DAC Kprime",
+      "fixed_parameters": [
+        41.74,
+        16.32,
+        5.26,
+        145
+      ],
+      "published_thermal_parameters": [
+        2.17,
+        1.49
+      ],
+      "published_thermal_esd": [
+        0.13,
+        0.23
+      ]
+    },
+    "rbbr_kprime_4p98": {
+      "compound": "rbbr",
+      "label": "RbBr Case 3, Kprime fixed at 4.98",
+      "fixed_parameters": [
+        41.55,
+        17.55,
+        4.98,
+        145
+      ],
+      "published_thermal_parameters": [
+        2.11,
+        1.5
+      ],
+      "published_thermal_esd": [
+        0.18,
+        0.32
+      ]
+    },
+    "rbi": {
+      "compound": "rbi",
+      "label": "RbI Case 3",
+      "fixed_parameters": [
+        51.11,
+        13.68,
+        4.96,
+        118
+      ],
+      "published_thermal_parameters": [
+        2.22,
+        1.43
+      ],
+      "published_thermal_esd": [
+        0.07,
+        0.1
+      ]
+    }
+  },
+  "qualification": "Printed Case 3 anchors are held exact in these diagnostic thermal refits; anchor uncertainty/covariance and original author input precision are not recovered. Both explicitly printed RbBr alternatives are retained. Precise-theta variants test constants from the corrected author evaluator, not recovered Case 3 files.",
+  "rights": "Numerical parameter facts transcribed with provenance; contributor CC0 applies to transcription and metadata only."
+}

@@ -1,0 +1,327 @@
+{
+  "audit_date": "2026-10-15",
+  "repository": "https://gitlab.desy.de/robert.farla/eoscross",
+  "sources": [
+    {
+      "id": "cscl_module",
+      "commit": "9518e36112be23504b84c4f595eab0b0207a3539",
+      "commit_date": "2024-08-23T10:47:44+02:00",
+      "path": "EosCross/calibrants/Dewaele_2020.py",
+      "url": "https://gitlab.desy.de/robert.farla/eoscross/-/blob/9518e36112be23504b84c4f595eab0b0207a3539/EosCross/calibrants/Dewaele_2020.py",
+      "sha256": "f7c86cdaa9548f5afc8cbd25af3673692500960da65116e507f7b714b1e6b24e",
+      "parameter_dictionaries_si": {
+        "_params_Dewaele_CsCl": {
+          "V_0": 4.2179e-05,
+          "K_0": 16740000000.0,
+          "Kprime_0": 5.703,
+          "Debye_0": 151.0,
+          "grueneisen_0": 1.99,
+          "q_0": 1.18,
+          "n": 2.0,
+          "T_0": 300.0,
+          "P_0": 0.0,
+          "Z": 1.0
+        }
+      }
+    },
+    {
+      "id": "cscl_gui",
+      "commit": "9518e36112be23504b84c4f595eab0b0207a3539",
+      "commit_date": "2024-08-23T10:47:44+02:00",
+      "path": "EosCross/MBase_CsCl+Pt.py",
+      "url": "https://gitlab.desy.de/robert.farla/eoscross/-/blob/9518e36112be23504b84c4f595eab0b0207a3539/EosCross/MBase_CsCl%2BPt.py",
+      "sha256": "1586e9639e597eba7a3a11eddcca1e0396e67f67d2cfb7eaa6e9abc2609f0b20"
+    },
+    {
+      "id": "cscl_single",
+      "commit": "9518e36112be23504b84c4f595eab0b0207a3539",
+      "commit_date": "2024-08-23T10:47:44+02:00",
+      "path": "EosCross/single/CsCl1_Dewaele2020.py",
+      "url": "https://gitlab.desy.de/robert.farla/eoscross/-/blob/9518e36112be23504b84c4f595eab0b0207a3539/EosCross/single/CsCl1_Dewaele2020.py",
+      "sha256": "0832c03f7fc58fa714eba609e48de74ab7ce5b700b0c9c00fecaccb9a73c3976"
+    },
+    {
+      "id": "dependencies",
+      "commit": "9518e36112be23504b84c4f595eab0b0207a3539",
+      "commit_date": "2024-08-23T10:47:44+02:00",
+      "path": "EosCross/requirements.txt",
+      "url": "https://gitlab.desy.de/robert.farla/eoscross/-/blob/9518e36112be23504b84c4f595eab0b0207a3539/EosCross/requirements.txt",
+      "sha256": "4a759e674466ab43e6c0dfba9f0178d5e6d3ef2af3415afe806547e241dcc7a2"
+    },
+    {
+      "id": "rubidium_corrected",
+      "commit": "ed3b7109042f43211812cd64cd1dc1c176ca08b6",
+      "commit_date": "2025-05-05T16:32:27+02:00",
+      "path": "EosCross/calibrants/Farla_2025.py",
+      "url": "https://gitlab.desy.de/robert.farla/eoscross/-/blob/ed3b7109042f43211812cd64cd1dc1c176ca08b6/EosCross/calibrants/Farla_2025.py",
+      "sha256": "a670a76582429f7f001af8aad0208d2902976f926e5a4949e1a09a3ab453d904",
+      "parameter_dictionaries_si": {
+        "_params_Farla_RbCl": {
+          "V_0": 3.625e-05,
+          "K_0": 19890000000.0,
+          "Kprime_0": 5.0,
+          "Debye_0": 177.04,
+          "grueneisen_0": 1.96,
+          "q_0": 1.05,
+          "n": 2.0,
+          "T_0": 300.0,
+          "P_0": 0.0,
+          "Z": 1.0
+        },
+        "_params_Farla_RbBr": {
+          "V_0": 4.174e-05,
+          "K_0": 16280000000.0,
+          "Kprime_0": 5.28,
+          "Debye_0": 144.96,
+          "grueneisen_0": 2.18,
+          "q_0": 1.52,
+          "n": 2.0,
+          "T_0": 300.0,
+          "P_0": 0.0,
+          "Z": 1.0
+        },
+        "_params_Farla_RbI": {
+          "V_0": 5.111e-05,
+          "K_0": 13690000000.0,
+          "Kprime_0": 4.95,
+          "Debye_0": 117.98,
+          "grueneisen_0": 2.21,
+          "q_0": 1.42,
+          "n": 2.0,
+          "T_0": 300.0,
+          "P_0": 0.0,
+          "Z": 1.0
+        }
+      }
+    },
+    {
+      "id": "rubidium_initial",
+      "commit": "7b34d091878ae3952c3222d51256fa367ff0e91d",
+      "commit_date": "2025-05-05T16:26:27+02:00",
+      "path": "EosCross/calibrants/Farla_2025.py",
+      "url": "https://gitlab.desy.de/robert.farla/eoscross/-/blob/7b34d091878ae3952c3222d51256fa367ff0e91d/EosCross/calibrants/Farla_2025.py",
+      "sha256": "64de991f7fd6fe3891d2370d9894af049d3c91bf4f0cacae60a3e3eac326484d",
+      "parameter_dictionaries_si": {
+        "_params_Farla_RbCl": {
+          "V_0": 3.624e-05,
+          "K_0": 20467430000.0,
+          "Kprime_0": 4.93095,
+          "Debye_0": 177.04,
+          "grueneisen_0": 1.99761,
+          "q_0": 1.39675,
+          "n": 2.0,
+          "T_0": 300.0,
+          "P_0": 0.0,
+          "Z": 1.0
+        },
+        "_params_Farla_RbBr": {
+          "V_0": 4.17e-05,
+          "K_0": 17044230000.0,
+          "Kprime_0": 5.12548,
+          "Debye_0": 144.96,
+          "grueneisen_0": 2.21528,
+          "q_0": 1.89904,
+          "n": 2.0,
+          "T_0": 300.0,
+          "P_0": 0.0,
+          "Z": 1.0
+        },
+        "_params_Farla_RbI": {
+          "V_0": 5.109e-05,
+          "K_0": 14171430000.0,
+          "Kprime_0": 4.86818,
+          "Debye_0": 117.98,
+          "grueneisen_0": 2.27564,
+          "q_0": 1.84641,
+          "n": 2.0,
+          "T_0": 300.0,
+          "P_0": 0.0,
+          "Z": 1.0
+        }
+      }
+    }
+  ],
+  "cscl_gui_defaults": {
+    "reference_lattice_a_angstrom": 4.1221,
+    "avogadro_used_mol_inverse": 6.0221367e+23,
+    "n": 2,
+    "temperature_ref_k": 300,
+    "runtime_reference_volume_override": true,
+    "source": "cscl_gui and cscl_single"
+  },
+  "cscl_model": {
+    "static": "Vinet",
+    "thermal": "reference-subtracted integrated Mie-Gruneisen-Debye",
+    "reported_thermal_attribution": "Source code names Decker 1971; supplement footnote says 1973. Code identification resolves implementation, not bibliographic identity."
+  },
+  "burnman_dependency": {
+    "pinned_version": "1.2.0",
+    "wheel_sha256": "160b4d3d98bf637339b9846b53c33e867d3770d43f7bf5782ef12ec62757a3e9",
+    "metadata_url": "https://pypi.org/pypi/burnman/1.2.0/json",
+    "source_hashes": {
+      "burnman/constants.py": "9f2fe500d311a105f947aa393d1761949b1a7ec9cdeee2df9649c7421ec72926",
+      "burnman/classes/calibrant.py": "939c8d1c0f3e15ca4e3728a12aeaff7d58848437d1e213b339d1fc1b62695fc7",
+      "burnman/eos/mie_grueneisen_debye.py": "a7470dd4bbbe973c94b7c84d472c95aa9298952a5c267a7cd073af7614d07fa8",
+      "burnman/eos/vinet.py": "7d2825ede5dbdc3c9e3bd5bc6701cf14e0905f990ab68ee5d4a056b2e8bad1b0",
+      "burnman/eos/debye.py": "c649b5ec419840cdf189295aa8847d90cf428a5f8ddc347033aed52552b39552"
+    },
+    "inspected_laws": "gamma=gamma0*(V/V0)^q; theta=theta0*exp[(gamma0-gamma)/q]; R from scipy.constants; Pth=gamma*ED/V"
+  },
+  "file_recovery": {
+    "original_eosfit_files_found": false,
+    "original_gsas_files_found": false,
+    "public_eoscross_refs_inspected": [
+      "refs/remotes/origin/EosCross_v1.1 ef05eb0b2d8299d196ca22e4a1088fe309b91b10",
+      "refs/remotes/origin/EosCross_v1.2 9ea9a92821c5f8ea2714098b2907235210097464",
+      "refs/remotes/origin/EosCross_v1.21 fc16942c599c0c9b6c19ea1422c4dfef989cd0a0",
+      "refs/remotes/origin/EosCross_v1.3 9518e36112be23504b84c4f595eab0b0207a3539",
+      "refs/remotes/origin/EosCross_v1.4beta e9f6a4d6c18c77536deecba7c04d391cb6a1f3c3",
+      "refs/remotes/origin/EosCross_v2.0 c02efbdd0048bb37a36165134b15280c42092b3a",
+      "refs/remotes/origin/HEAD f5b2249bac5ac3d27b9f245f4ef4c8e12aa1271b",
+      "refs/remotes/origin/main f5b2249bac5ac3d27b9f245f4ef4c8e12aa1271b",
+      "refs/tags/v0.2.0 0f83b442840d7f9b647e7d53018a284ccc53e952"
+    ],
+    "eoscross_historical_data_extensions_found": 0,
+    "public_projects": [
+      {
+        "project": "robert.farla/aeMTanalyser",
+        "tree_entries": 32,
+        "files": 30
+      },
+      {
+        "project": "robert.farla/edxrdpeaktracker",
+        "tree_entries": 22,
+        "files": 20
+      },
+      {
+        "project": "robert.farla/pressurecalib",
+        "tree_entries": 14,
+        "files": 12
+      },
+      {
+        "project": "robert.farla/aedataanalyser",
+        "tree_entries": 32,
+        "files": 30
+      },
+      {
+        "project": "robert.farla/ch2en",
+        "tree_entries": 14,
+        "files": 12
+      },
+      {
+        "project": "robert.farla/aster15logviewer",
+        "tree_entries": 15,
+        "files": 13
+      },
+      {
+        "project": "robert.farla/gsaslstprocessor",
+        "tree_entries": 14,
+        "files": 12
+      },
+      {
+        "project": "robert.farla/edxrd_stress",
+        "tree_entries": 17,
+        "files": 15
+      },
+      {
+        "project": "robert.farla/nxs2gsas",
+        "tree_entries": 15,
+        "files": 13
+      },
+      {
+        "project": "robert.farla/edxrdframeviewer",
+        "tree_entries": 16,
+        "files": 14
+      },
+      {
+        "project": "robert.farla/auto2theta",
+        "tree_entries": 15,
+        "files": 13
+      },
+      {
+        "project": "robert.farla/aedataprocessor",
+        "tree_entries": 18,
+        "files": 16
+      },
+      {
+        "project": "robert.farla/eoscross",
+        "tree_entries": 96,
+        "files": 88
+      }
+    ],
+    "figshare_collection": {
+      "id": 7686305,
+      "articles": [
+        28515917
+      ],
+      "article_versions": [
+        1
+      ],
+      "file_ids": [
+        52698776
+      ]
+    },
+    "datacite_related_dois": [
+      "10.3204/pubdb-2024-06513",
+      "10.60893/figshare.jap.28515917.v1",
+      "10.60893/figshare.jap.28515917"
+    ],
+    "no_author_contact": true,
+    "qualification": "Public searches cannot establish universal absence. Deposits expose one DOCX and no original regression/project archive; older public evaluator coefficients are not recovered EoSFit7 fits.",
+    "public_projects_inventoried": 13,
+    "inventory_scope": "Recursive default-branch trees of 13 public user projects, including EosCross. All available EosCross branch/tag histories additionally searched; other project histories not exhaustively searched.",
+    "eoscross_historical_extension_search": [
+      "eos",
+      "dat",
+      "gpx",
+      "gsa",
+      "gda",
+      "csv",
+      "xls",
+      "xlsx",
+      "zip",
+      "tar",
+      "gz",
+      "mcr",
+      "lst",
+      "exp"
+    ],
+    "public_searches": [
+      {
+        "url": "https://api.figshare.com/v2/collections/7686305/articles",
+        "finding": "One article, 28515917; one DOCX file, 52698776, at version 1."
+      },
+      {
+        "url": "https://api.datacite.org/dois?query=relatedIdentifiers.relatedIdentifier:10.1063/5.0248905",
+        "finding": "Three related records: DESY and versioned/unversioned Figshare supplement DOIs."
+      },
+      {
+        "url": "https://gitlab.desy.de/api/v4/users/2529/projects?per_page=100",
+        "finding": "13 public projects inventoried; no original fitting/project archive identified."
+      },
+      {
+        "url": "https://gitlab.desy.de/api/v4/projects/5538/releases",
+        "finding": "No public releases; packages and wiki endpoints also empty."
+      },
+      {
+        "url": "https://zenodo.org/api/records?q=%22rubidium%20halides%22&size=25",
+        "finding": "No hits on audit date."
+      },
+      {
+        "url": "https://zenodo.org/api/records?q=creators.name%3AFarla&size=25",
+        "finding": "12 records; no original files identified for this paper."
+      },
+      {
+        "url": "https://api.figshare.com/v2/articles/search",
+        "query": {
+          "search_for": "Thermal equations of state of B2-structured rubidium halides"
+        },
+        "finding": "Relevant result is the same DOCX supplement."
+      }
+    ]
+  },
+  "rights": {
+    "source_software": "EosCross repository MIT; calibrant source headers attribute BurnMan under GPL v2 or later. Full source code is not copied into these numerical input facts.",
+    "numerical_facts": "Coefficients/constants transcribed with provenance; contributor CC0 scope remains transcription/normalization/metadata only."
+  }
+}

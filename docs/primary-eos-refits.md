@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **652** EOS records. **228** achieve uncertainty parity, **156** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[75](#parity-not-achieved)** do not achieve parity, **177** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **655** EOS records. **228** achieve uncertainty parity, **159** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[75](#parity-not-achieved)** do not achieve parity, **177** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -646,7 +646,10 @@ use `--check` in continuous integration to detect stale generated files.
 | [`pyrope_milani_2015_bm3_1`](https://doi.org/10.1016/j.lithos.2015.03.017) | `pyrope_milani_2015_table_a2_compression` | 12 | `V0` 1506.15 → 1506.15; `K0` 163.7 → 163.739; `K0_prime` 6.4 → 6.36875 | 0.0177237/0.00382681 | parity |
 | [`qandilite_lv_2016_bm2`](https://link.springer.com/article/10.1007/s00269-015-0794-1) | `qandilite_lv_2016_table1_pv` | 18 | `V0` 603.21 → 603.193; `K0` 172 → 172.111 | 0.128393/0.12836 | parity |
 | [`qandilite_lv_2016_bm3`](https://link.springer.com/article/10.1007/s00269-015-0794-1) | `qandilite_lv_2016_table1_pv` | 18 | `V0` 603.1 → 603.07; `K0` 175 → 175.512; `K0_prime` 3.5 → 3.49472 | 0.127302/0.126399 | parity |
+| [`rbbr_b2_farla_2025_bm3_mgd_cscl`](https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf) | `rbbr_farla_2025_observations` | 123 | `K0` 16.28 → 16.3159; `K0_prime` 5.28 → 5.25587; `gamma0` 2.18 → 2.16648; `q` 1.52 → 1.47418 | 0.159487/0.15676 | [similar](#investigation-rbbr_b2_farla_2025_bm3_mgd_cscl) — Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications. |
 | [`rbcl_b2_campbell_1994_bm3_1`](https://doi.org/10.1029/94JB00127) | `rbcl_campbell_1994_table1_compression` | 24 | `K0` 17.9 → 17.8808; `K0_prime` 5.23 → 5.23815 | 0.289865/0.279065 | parity — Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted with the paper's hypothetical zero-pressure density held fixed. The refit recovers K0 and K0' within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl). |
+| [`rbcl_b2_farla_2025_bm3_mgd_cscl`](https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf) | `rbcl_farla_2025_observations` | 122 | `K0` 19.89 → 19.9219; `K0_prime` 5 → 4.99518; `gamma0` 1.96 → 1.96391; `q` 1.05 → 1.05924 | 0.154429/0.155163 | [similar](#investigation-rbcl_b2_farla_2025_bm3_mgd_cscl) — Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications. |
+| [`rbi_b2_farla_2025_bm3_mgd_cscl`](https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf) | `rbi_farla_2025_observations` | 121 | `K0` 13.69 → 13.7551; `K0_prime` 4.95 → 4.93389; `gamma0` 2.21 → 2.19251; `q` 1.42 → 1.41792 | 0.127808/0.12894 | [similar](#investigation-rbi_b2_farla_2025_bm3_mgd_cscl) — Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications. |
 | [`rhenium_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`rhenium_anzellini_2014_vinet_1`](https://doi.org/10.1063/1.4863300) | `rhenium_anzellini_2014_table3_compression` | 59 | `V0` 29.4666 → 29.4712; `K0` 352.6 → 349.324; `K0_prime` 4.56 → 4.65097 | 0.613188/0.604048 | parity |
 | [`rhenium_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `rhenium_anzellini_2014_table3_compression` | 59 | `V0` 29.474 → 29.4765; `K0` 350.5 → 349.467; `K0_prime` 3.98 → 4.01284 | —/0.574492 | [similar](#investigation-rhenium_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
@@ -909,7 +912,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **231** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **234** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests or a dedicated partial-source reconstruction does
@@ -4988,6 +4991,72 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-rbbr_b2_farla_2025_bm3_mgd_cscl"></a>
+
+### `rbbr_b2_farla_2025_bm3_mgd_cscl`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `rbbr_farla_2025_observations` with 123 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 16.28 | 16.3159 | 0.22% | — | yes |
+| `K0_prime` | 5.28 | 5.25587 | 0.46% | — | yes |
+| `gamma0` | 2.18 | 2.16648 | 0.62% | — | yes |
+| `q` | 1.52 | 1.47418 | 3.01% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 1.19-26.47 GPa; fit kind: `iterated_effective_variance_bm3_mgd`; objective: `iterated frozen diagonal effective P/V/T variance`; published/refit pressure RMSE: 0.159487/0.15676 GPa; reduced chi-square: —; free parameters: ``; source-fixed parameters: `V0, Tr, theta0, n`.
+
+**Source/data scope.** All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.
+
+**Registered source-fit note.** Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`, `gamma0`, `q`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-rbcl_b2_farla_2025_bm3_mgd_cscl"></a>
+
+### `rbcl_b2_farla_2025_bm3_mgd_cscl`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `rbcl_farla_2025_observations` with 122 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 19.89 | 19.9219 | 0.16% | — | yes |
+| `K0_prime` | 5 | 4.99518 | 0.10% | — | yes |
+| `gamma0` | 1.96 | 1.96391 | 0.20% | — | yes |
+| `q` | 1.05 | 1.05924 | 0.88% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 0.54-26.05 GPa; fit kind: `iterated_effective_variance_bm3_mgd`; objective: `iterated frozen diagonal effective P/V/T variance`; published/refit pressure RMSE: 0.154429/0.155163 GPa; reduced chi-square: —; free parameters: ``; source-fixed parameters: `V0, Tr, theta0, n`.
+
+**Source/data scope.** All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.
+
+**Registered source-fit note.** Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`, `gamma0`, `q`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-rbi_b2_farla_2025_bm3_mgd_cscl"></a>
+
+### `rbi_b2_farla_2025_bm3_mgd_cscl`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `rbi_farla_2025_observations` with 121 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 13.69 | 13.7551 | 0.48% | — | yes |
+| `K0_prime` | 4.95 | 4.93389 | 0.33% | — | yes |
+| `gamma0` | 2.21 | 2.19251 | 0.79% | — | yes |
+| `q` | 1.42 | 1.41792 | 0.15% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 0.54-26.05 GPa; fit kind: `iterated_effective_variance_bm3_mgd`; objective: `iterated frozen diagonal effective P/V/T variance`; published/refit pressure RMSE: 0.127808/0.12894 GPa; reduced chi-square: —; free parameters: ``; source-fixed parameters: `V0, Tr, theta0, n`.
+
+**Source/data scope.** All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.
+
+**Registered source-fit note.** Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`, `gamma0`, `q`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-rhenium_dewaele_2019_mao_vinet"></a>
 

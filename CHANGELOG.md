@@ -5,6 +5,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Add Farla (2025) B2 RbCl/RbBr/RbI thermal records and primary numerical datasets.
+  Retain conditional fit similarity, benchmark precision and composite-CsCl
+  calibration qualifications; preserve the existing RbCl static default.
+
 ## [0.12.0] - 2026-10-09
 
 This release expands the pressure-scale catalog and its primary-data audits,
