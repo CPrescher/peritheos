@@ -90,7 +90,7 @@ def main():
             raise SystemExit("Corrected diopside P-V-T dataset is stale")
         print("Corrected diopside P-V-T dataset reproduces")
     else:
-        OUTPUT.write_text(payload, encoding="utf-8")
+        OUTPUT.write_bytes((payload).encode("utf-8"))
         print(OUTPUT)
 
 

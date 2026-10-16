@@ -755,7 +755,7 @@ def main():
     products[REPORT] = json.dumps(report, indent=2, allow_nan=False) + "\n"
     for path, payload in products.items():
         if args.write:
-            path.write_text(payload, encoding="utf-8")
+            path.write_bytes((payload).encode("utf-8"))
         if args.check:
             if path == REPORT:
                 from scripts.brucite_replay_checks import check_report

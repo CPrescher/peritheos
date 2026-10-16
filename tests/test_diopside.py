@@ -378,3 +378,22 @@ def test_diopside_corrected_dataset_is_reusable_and_preserves_correction_provena
     assert metadata["used_by_eos_records"] == []
     assert document["eos_records"][1]["recommended_refit_dataset"] == IDENTIFIER
     assert document["eos_records"][1]["fit_datasets"] == ["diopside_zhao_1998_table1"]
+
+
+def test_corrected_dataset_writer_preserves_canonical_bytes(tmp_path, monkeypatch):
+    import sys
+
+    from scripts import diopside_correct_dataset as correction
+
+    target = tmp_path / "corrected.csv"
+    monkeypatch.setattr(correction, "OUTPUT", target)
+    monkeypatch.setattr(sys, "argv", ["diopside_correct_dataset"])
+    correction.main()
+    saved = json.loads(
+        (ROOT / "docs/data/diopside-plot-check.json").read_text(encoding="utf-8")
+    )
+    expected = correction.corrected_csv(saved["row15"]["digitized_pressure_gpa"])
+    assert target.read_bytes() == expected.encode("utf-8")
+    assert b"\r" not in target.read_bytes()
+    monkeypatch.setattr(sys, "argv", ["diopside_correct_dataset", "--check"])
+    correction.main()

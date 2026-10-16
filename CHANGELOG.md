@@ -66,6 +66,8 @@ individual scientific qualifications.
 - Make brucite regression checks independent of local staging files and include
   their fixtures in the standalone Rust crate. Keep unfinished Brown NaCl and
   Fe-ringwoodite investigations outside this release.
+- Preserve UTF-8 source text, archived path syntax and canonical dataset bytes
+  across platforms, including regeneration on Windows.
 - Reconcile source/refit ledgers and the material manifest for all 672 stored
   records in 232 documents (669 executable records across 229 materials).
 - Preserve small floating-point EOS coefficients through Rust JSON round trips

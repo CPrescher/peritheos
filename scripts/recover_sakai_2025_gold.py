@@ -255,8 +255,8 @@ def recover(workbook, dewaele_pdf, output_dir):
         "source_url": WORKBOOK_URL,
         "sheets": selected,
     }
-    (output_dir / "sakai-2025-au-workbook-cells.json").write_text(
-        json.dumps(raw, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    output_dir / "sakai-2025-au-workbook-cells.json".write_bytes(
+        (json.dumps(raw, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
     )
     rows = paired_rows(sheets)
     write_csv(output_dir / "sakai-2025-au-calibration-paired-volumes.csv", rows)
