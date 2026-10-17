@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""Export source-bound observation metadata for an immutable material revision.
+
+The views may come from a local unreleased change. The manifest records their
+content hash separately from the scientific source revision; it never repins EOS.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from peritheos.observations import (  # noqa: E402
+    observation_material_fingerprint,
+    observation_registry,
+    observation_source_fingerprint,
+    validate_observation_view,
+)
+
+
+def export_observation_views(revision: str) -> dict:
+    def git(*args: str) -> bytes:
+        return subprocess.check_output(["git", "-C", str(ROOT), *args])
+
+    commit = git("rev-parse", "--verify", revision + "^{commit}").decode().strip()
+    registry_bytes = (ROOT / "peritheos/data/observation-views.json").read_bytes()
+    entries = []
+    rejected = []
+    for entry in observation_registry()["datasets"]:
+        path = "peritheos/data/materials/" + entry["material_id"] + ".eosmat"
+        try:
+            document = json.loads(git("show", commit + ":" + path))
+        except subprocess.CalledProcessError:
+            rejected.append(
+                {
+                    "material_id": entry["material_id"],
+                    "dataset_id": entry["dataset_id"],
+                    "reason": "material_absent",
+                }
+            )
+            continue
+        dataset = next(
+            (
+                d
+                for d in document.get("datasets", [])
+                if d["identifier"] == entry["dataset_id"]
+            ),
+            None,
+        )
+        if (
+            dataset is None
+            or observation_source_fingerprint(dataset) != entry["declaration_sha256"]
+            or observation_material_fingerprint(document)
+            != entry["material_identity_sha256"]
+        ):
+            rejected.append(
+                {
+                    "material_id": entry["material_id"],
+                    "dataset_id": entry["dataset_id"],
+                    "reason": "source_binding_differs",
+                }
+            )
+            continue
+        records = {r["identifier"] for r in document["eos_records"]}
+        calibrations = {
+            r["identifier"]: r.get("pressure_calibration")
+            for r in document["eos_records"]
+        }
+        if any(
+            entry["record_pressure_calibration_sha256"].get(rid)
+            != observation_source_fingerprint(
+                {"pressure_calibration": calibrations.get(rid)}
+            )
+            for v in entry["views"]
+            for rid in v["eos_records"]
+        ):
+            rejected.append(
+                {
+                    "material_id": entry["material_id"],
+                    "dataset_id": entry["dataset_id"],
+                    "reason": "record_pressure_calibration_differs",
+                }
+            )
+            continue
+        entry["record_pressure_calibrations"] = {
+            rid: calibrations[rid]
+            for view in entry["views"]
+            for rid in view["eos_records"]
+        }
+        # An upstream record deletion must not remove a still-valid archived view.
+        for view in entry["views"]:
+            validate_observation_view(view, dataset, records)
+        entries.append(entry)
+    return {
+        "format": "peritheos.observation-view-export",
+        "format_version": 1,
+        "scientific_revision": commit,
+        "view_registry_sha256": hashlib.sha256(registry_bytes).hexdigest(),
+        "view_registry_origin": "explicit local Peritheos metadata export; not a scientific release",
+        "datasets": entries,
+        "incompatible_datasets": rejected,
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--revision", required=True)
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args()
+    result = (
+        json.dumps(
+            export_observation_views(args.revision), ensure_ascii=False, indent=2
+        )
+        + "\n"
+    )
+    if args.output:
+        args.output.write_text(result)
+    else:
+        sys.stdout.write(result)
+
+
+if __name__ == "__main__":
+    main()

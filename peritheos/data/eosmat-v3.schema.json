@@ -397,6 +397,13 @@
             "$ref": "#/$defs/dataset_pressure_reduction"
           },
           "description": "Explicit pressure coordinates for linked EOS records. One declaration per EOS per dataset. Absence is unresolved; all reductions share the dataset observations."
+        },
+        "observation_views": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/observation_view"
+          },
+          "description": "Explicit source rows and display coordinates per EOS; source tables remain unchanged."
         }
       },
       "oneOf": [
@@ -2541,6 +2548,393 @@
           "additionalProperties": false
         }
       ]
+    },
+    "observation_view": {
+      "type": "object",
+      "required": [
+        "identifier",
+        "eos_records",
+        "evidence_kind",
+        "notes",
+        "coordinates"
+      ],
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "eos_records": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "evidence_kind": {
+          "enum": [
+            "experimental",
+            "digitized",
+            "shock",
+            "experimental_reduction",
+            "simulation",
+            "model_output",
+            "source_comparison"
+          ]
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "row_selection": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "column",
+              "values"
+            ],
+            "properties": {
+              "column": {
+                "type": "string",
+                "minLength": 1
+              },
+              "values": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "phase_reviewed": {
+          "type": "boolean"
+        },
+        "coordinates": {
+          "type": "object",
+          "required": [
+            "pressure",
+            "volume"
+          ],
+          "properties": {
+            "pressure": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "column"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "column"
+                    },
+                    "column": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "value",
+                    "unit",
+                    "reference"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "constant"
+                    },
+                    "value": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "unit": {
+                      "const": "GPa"
+                    },
+                    "reference": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "volume_column",
+                    "row_selection",
+                    "pair_by",
+                    "eos_record",
+                    "temperature_k",
+                    "reference"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "calibrant_eos"
+                    },
+                    "volume_column": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "row_selection": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "column",
+                          "values"
+                        ],
+                        "properties": {
+                          "column": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "values": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                              "type": [
+                                "string",
+                                "number"
+                              ]
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "pair_by": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "eos_record": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "temperature_k": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "reference": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "column",
+                    "source_calibration",
+                    "target_calibration",
+                    "reference"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "ruby_scale"
+                    },
+                    "column": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "source_calibration": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "target_calibration": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "reference": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "volume": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "column",
+                    "unit"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "column"
+                    },
+                    "column": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "unit": {
+                      "const": "angstrom^3/conventional_unit_cell"
+                    },
+                    "factor": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "reciprocal": {
+                      "type": "boolean"
+                    },
+                    "reference": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "unit",
+                    "columns",
+                    "constraints",
+                    "reference"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "lattice"
+                    },
+                    "unit": {
+                      "const": "angstrom^3/conventional_unit_cell"
+                    },
+                    "geometry": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "columns": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "constraints": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": [
+                          "string",
+                          "number"
+                        ]
+                      }
+                    },
+                    "reference": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "temperature": {
+              "type": "object",
+              "required": [
+                "column"
+              ],
+              "properties": {
+                "column": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "uncertainties": {
+          "type": "object",
+          "required": [],
+          "properties": {
+            "pressure": {
+              "type": "string",
+              "minLength": 1
+            },
+            "volume": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "fit_selection": {
+          "type": "object",
+          "required": [],
+          "properties": {
+            "flag_column": {
+              "type": "string",
+              "minLength": 1
+            },
+            "row_selection": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "column",
+                  "values"
+                ],
+                "properties": {
+                  "column": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "values": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": [
+                        "string",
+                        "number"
+                      ]
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "pressure_above_gpa": {
+              "type": "number",
+              "minimum": 0
+            },
+            "pressure_below_gpa": {
+              "type": "number",
+              "minimum": 0
+            },
+            "notes": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
     }
   }
 }
