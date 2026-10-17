@@ -111,6 +111,60 @@ def export_observation_views(revision: str) -> dict:
         for view in entry["views"]:
             validate_observation_view(view, dataset, records)
         entries.append(entry)
+    # New contributions can declare views directly on datasets; a sidecar entry
+    # must not be required for new materials to reach downstream applications.
+    paths = (
+        git("ls-tree", "-r", "--name-only", commit, "peritheos/data/materials")
+        .decode()
+        .splitlines()
+    )
+    for path in paths:
+        if not path.endswith(".eosmat"):
+            continue
+        document = json.loads(git("show", commit + ":" + path))
+        records = {r["identifier"]: r for r in document.get("eos_records", [])}
+        for dataset in document.get("datasets", []):
+            views = dataset.get("observation_views", [])
+            if not views:
+                continue
+            for view in views:
+                validate_observation_view(view, dataset, set(records))
+            existing = next(
+                (
+                    e
+                    for e in entries
+                    if e["material_id"] == document["identifier"]
+                    and e["dataset_id"] == dataset["identifier"]
+                ),
+                None,
+            )
+            if existing and {
+                r for v in existing["views"] for r in v["eos_records"]
+            }.intersection(r for v in views for r in v["eos_records"]):
+                raise ValueError("Duplicate embedded and registry observation views")
+            if existing is None:
+                existing = {
+                    "material_id": document["identifier"],
+                    "dataset_id": dataset["identifier"],
+                    "declaration_sha256": observation_source_fingerprint(dataset),
+                    "material_identity_sha256": observation_material_fingerprint(
+                        document
+                    ),
+                    "views": [],
+                    "record_pressure_calibration_sha256": {},
+                    "record_pressure_calibrations": {},
+                }
+                entries.append(existing)
+            existing["views"].extend(views)
+            for view in views:
+                for identifier in view["eos_records"]:
+                    calibration = records[identifier].get("pressure_calibration")
+                    existing["record_pressure_calibrations"][identifier] = calibration
+                    existing["record_pressure_calibration_sha256"][identifier] = (
+                        observation_source_fingerprint(
+                            {"pressure_calibration": calibration}
+                        )
+                    )
     return {
         "format": "peritheos.observation-view-export",
         "format_version": 1,

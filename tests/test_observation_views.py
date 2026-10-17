@@ -1,7 +1,9 @@
 """Observation contracts preserve source evidence while making coordinates explicit."""
 
 import copy
+import importlib.util
 import json
+import subprocess
 from pathlib import Path
 
 import jsonschema
@@ -267,3 +269,52 @@ def test_duplicate_calibrants_are_omitted_without_averaging():
     assert not len(data.row_indices)
     assert len(data.omissions) == 67
     assert {x["reason"] for x in data.omissions} == {"ambiguous_calibrant"}
+
+
+def test_immutable_export_includes_embedded_views_without_a_registry_entry(
+    tmp_path, monkeypatch
+):
+    document, _, _, _ = fixture()
+    material = tmp_path / "peritheos/data/materials/coesite.eosmat"
+    material.parent.mkdir(parents=True)
+    material.write_text(json.dumps(document))
+    registry = tmp_path / "peritheos/data/observation-views.json"
+    registry.write_text(
+        json.dumps(
+            {
+                "format": "peritheos.observation-views",
+                "format_version": 1,
+                "datasets": [],
+            }
+        )
+    )
+    subprocess.run(["git", "init", "-q", str(tmp_path)], check=True)
+    subprocess.run(["git", "-C", str(tmp_path), "add", "."], check=True)
+    subprocess.run(
+        [
+            "git",
+            "-C",
+            str(tmp_path),
+            "-c",
+            "user.name=Fixture",
+            "-c",
+            "user.email=fixture@example.invalid",
+            "commit",
+            "-qm",
+            "isolated observation fixture",
+        ],
+        check=True,
+    )
+    spec = importlib.util.spec_from_file_location(
+        "observation_export_fixture", ROOT / "scripts/export_observation_views.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    monkeypatch.setattr(module, "ROOT", tmp_path)
+    result = module.export_observation_views("HEAD")
+    assert len(result["datasets"]) == 1
+    assert (
+        result["datasets"][0]["views"] == document["datasets"][0]["observation_views"]
+    )
+    assert not result["incompatible_datasets"]
+    assert result["view_registry_origin"].startswith("immutable Peritheos commit")
