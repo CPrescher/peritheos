@@ -11,14 +11,47 @@ All notable changes to Peritheos are documented here. The project follows
   observations, with explicit cold-then-hot fitting and conditional statistics.
   Preserve published coefficients and the default; original-author thermal-fit
   parity remains unresolved.
+- Add only the source-checked published brucite 300/473/673 K isotherms,
+  primary neutron structure and all printed observations. Mark the full Fukui
+  thermal EOS as not recommended because published-data parity was not achieved;
+  retain the unresolved 873 K/source reconstruction and all diagnostic refits
+  outside executable catalog selection.
+- Correct finite-difference uncertainty steps for very small coefficients,
+  including temperature-dependent expansivity curvature.
 - Add the measured Fe-bearing phase E of Crichton and Ross (2000), with the
   published BM3 coefficients, all eleven primary rows and reported errors,
   and a documented phase-specific diffraction peak-position fallback. Record
   fit parity within reported uncertainty, coefficient and curve differences,
   and the reproducible residual plot; keep exact-workflow provenance separate.
+- Support a linear temperature derivative of `K0_prime` in
+  `ThermalReferenceStateEOS` / `AlphaKT` through optional `dKprime_dT` (K^-1),
+  including native evaluation, fitting, uncertainty propagation and `.eosmat`
+  interchange. Omission retains existing behavior; unsupported reference
+  families reject nonzero shifts.
+- Add two Katsura (2022) forsterite thermal records, retaining the full-precision
+  author-script option and the printed-table alternative with scoped conditional
+  numerical parity. Preserve the static default and original-2009 fit hold.
+- Add diffraction-ready diopside with independent Thompson (2008) static and
+  Zhao (1998) thermal records. Retain original numerical tables and a separate
+  graph-corroborated corrected analysis dataset; exact author workflow is unverified.
 - Add Farla (2025) B2 RbCl/RbBr/RbI thermal records and primary numerical datasets.
   Retain conditional fit similarity, benchmark precision and composite-CsCl
   calibration qualifications; preserve the existing RbCl static default.
+- Add a generated per-material coverage overview and active material-gap queue.
+
+### Fixed
+
+- Mark seven unreproduced Fu CaSiO3, Baty experimental Pd and Sakai Fe-Ni
+  thermal records as not recommended; hold the wadsleyite default pending source
+  mapping review. Preserve every published coefficient and observation.
+- Correct fifteen scientific audit comparisons: sample columns, phase/medium
+  selections, thermodynamic path, ruby-scale re-reduction and coupled spin fits.
+- Reconcile source/refit ledgers and the material manifest for all 663 stored
+  records in 232 documents (659 executable records across 228 materials).
+- Preserve small floating-point EOS coefficients through Rust JSON round trips
+  using the exact-rounding reader; retain source numeric values and defaults.
+- Reconcile catalog tests, source links and documentation counts after the first
+  material-gap batch.
 
 ## [0.12.0] - 2026-10-09
 

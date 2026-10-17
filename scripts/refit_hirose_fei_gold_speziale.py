@@ -356,9 +356,21 @@ def catalog_objects(report):
                 "fixed_parameters",
                 "refit_parameters",
             ],
+            "primary_source_check": {
+                "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+                "doi": "10.1016/j.pepi.2008.03.002",
+                "locations": [
+                    "Hirose (2008), Table 1 and Section 3.1 / Table 2 fit #2",
+                    "Fei (2004), Table 1",
+                    "Speziale (2001), Equation (11) and recorded author confirmation",
+                    "Peritheos staged regression and derived-data report",
+                ],
+                "finding": NOTE,
+            },
             "primary_data_check": {
                 "status": "bundled",
                 "dataset_identifiers": [DATASET_ID],
+                "finding": "All 47 source observations are retained with paired MgO volumes; the pressure targets are explicitly recalculated, not historical author pressures.",
             },
             "independent_numerical_check": {
                 "script": "scripts/refit_hirose_fei_gold_speziale.py",

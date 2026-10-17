@@ -6,6 +6,7 @@ import pytest
 
 from peritheos import list_eos_record_documents
 from scripts.validate_primary_eos_refits import (
+    check_ledger_values,
     shen_cu_pressure_gpa,
     shen_cu_reference_volume_a3,
 )
@@ -19,13 +20,37 @@ def load_ledger():
     return json.loads(LEDGER_PATH.read_text(encoding="utf-8"))
 
 
+def test_ledger_check_tolerates_only_small_calculated_roundoff():
+    import copy
+
+    saved = {
+        "status": "similar",
+        "observations": 14,
+        "parameters": [{"published": 118.0, "refit": 117.86417767}],
+    }
+    current = copy.deepcopy(saved)
+    current["parameters"][0]["refit"] += 1e-6
+    check_ledger_values(saved, current)
+    current["parameters"][0]["published"] += 1e-10
+    with pytest.raises(ValueError, match="published"):
+        check_ledger_values(saved, current)
+    current = copy.deepcopy(saved)
+    current["parameters"][0]["refit"] += 0.1
+    with pytest.raises(ValueError, match="calculated value"):
+        check_ledger_values(saved, current)
+    for field, value in [("status", "parity"), ("observations", 15)]:
+        current = {**saved, field: value}
+        with pytest.raises(ValueError, match=field):
+            check_ledger_values(saved, current)
+
+
 def test_primary_refit_ledger_covers_every_bundled_record_once():
     ledger = load_ledger()
     identifiers = [item["record_identifier"] for item in ledger["records"]]
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 652
+    assert len(identifiers) == len(set(identifiers)) == 663
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -33,12 +58,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 652, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 663, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "not_refittable": 177,
-        "parity": 228,
-        "parity_not_achieved": 75,
-        "similar": 156,
+        "not_refittable": 178,
+        "parity": 246,
+        "parity_not_achieved": 60,
+        "similar": 163,
         "source_reconstruction": 16,
     }
     assert all(
@@ -46,6 +71,25 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
         for item in ledger["records"]
         if item["status"] == "not_refittable"
     )
+
+
+def test_integrated_additions_keep_source_workflow_and_conditional_results_separate():
+    records = {r["record_identifier"]: r for r in load_ledger()["records"]}
+    for identifier in ("diopside_thompson_2008_bm3", "diopside_zhao_1998_thermal_bm3"):
+        record = records[identifier]
+        assert record["status"] == "parity"
+        assert record["parity_basis"] == "within_reported_parameter_errors"
+        assert record["original_author_workflow_parity"] is False
+    thermal = records["diopside_zhao_1998_thermal_bm3"]
+    assert thermal["dataset_identifiers"] == ["diopside_zhao_1998_table1_corrected_pvt"]
+    assert thermal["original_source_dataset_identifiers"] == [
+        "diopside_zhao_1998_table1"
+    ]
+    for compound in ("rbcl", "rbbr", "rbi"):
+        record = records[f"{compound}_b2_farla_2025_bm3_mgd_cscl"]
+        assert record["status"] == "similar"
+        assert record["original_author_workflow_parity"] is False
+        assert record["original_author_coefficient_rounding_parity"] is False
 
 
 def test_primary_refit_regression_examples_and_documentation_coverage():

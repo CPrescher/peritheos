@@ -20,7 +20,7 @@ def test_paper_investigation_ledger_is_complete_and_current():
         for row in audit
     }
 
-    assert len(paper_keys) == 260
+    assert len(paper_keys) == 265
     assert len(nonproduction) >= 41
     assert {row["outcome"] for row in nonproduction} == {
         "withheld_unreproduced",
@@ -60,3 +60,18 @@ def test_source_reconstruction_does_not_count_as_an_independent_paper_refit():
         classify(Counter(parity=1, source_reconstruction=2)) == "partial_reproduction"
     )
     assert classify(Counter(not_refittable=1)) == "direct_refit_unavailable"
+
+
+def test_brucite_thermal_nonparity_is_not_hidden_by_isotherm_agreement():
+    from scripts.generate_paper_investigation_ledger import build_papers
+
+    papers, _ = build_papers()
+    paper = next(
+        p
+        for p in papers
+        if str(p.get("doi", "")).lower() == "10.1007/s00269-003-0353-z"
+    )
+    assert paper["outcome"] == "partial_reproduction"
+    assert "not reproduced and not recommended" in paper["reproduction_summary"]
+    assert len(paper["records"]) == 3
+    assert all("refit" not in r["record_identifier"] for r in paper["records"])

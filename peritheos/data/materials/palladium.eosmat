@@ -784,7 +784,7 @@
     "audit_date": "2026-09-03"
    },
    "scientific_validation": {
-    "status": "primary_source_validated",
+    "status": "not_reproduced",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
     "audit_date": "2026-09-01",
     "verified_fields": [
@@ -823,8 +823,15 @@
       "Supplementary Table S1"
      ],
      "finding": "All 78 pressure and atomic-volume observations from supplementary Table S1 are bundled. Conventional-cell volumes are four times the published fcc atomic volumes."
-    }
-   }
+    },
+    "reproduction_status": "not_reproduced",
+    "usage_recommendation": "not_recommended_for_quantitative_use",
+    "recommendation_date": "2026-10-17",
+    "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+    "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The verified experimental Table S1 observations and source equation do not recover the published experimental BM3 fit under the completed audit checks."
+   },
+   "catalog_access": "explicit_selection",
+   "default": false
   }
  ],
  "datasets": [

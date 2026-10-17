@@ -1,0 +1,1270 @@
+{
+  "identifier": "brucite_source_audit_2026_10_16",
+  "audit_date": "2026-10-16",
+  "volume_basis": {
+    "cell": "primitive hexagonal setting of trigonal P -3 m 1; conventional cell is also primitive",
+    "Z": 1,
+    "atoms_per_formula_unit": 5,
+    "molar_conversion": "V_m [cm^3/mol formula units] = V_cell [angstrom^3] * 0.602214076 / Z",
+    "energy_terms": "No Debye, atom-normalized heat capacity, shock Hugoniot or fluid H2O EOS is imported."
+  },
+  "sources": {
+    "fukui_2003": {
+      "doi": "10.1007/s00269-003-0353-z",
+      "citation": "Fukui H, Ohtaka O, Suzuki T, Funakoshi K (2003), Physics and Chemistry of Minerals 30, 511-516",
+      "title": "Thermal expansion of Mg(OH)2 brucite under high pressure and pressure dependence of entropy",
+      "url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+      "publisher_url": "https://link.springer.com/article/10.1007/s00269-003-0353-z",
+      "version": "Final six-page publisher typeset article, copyright Springer-Verlag 2003",
+      "pdf_sha256": "a8c7cd597528b1269eacf8448d31008dfc198b21bd13d5ea651578b9da70ba52",
+      "supplement_search": "Publisher landing page and final article inspected; no official supplementary-data link identified. All published numerical sample observations are in Tables 1 and 4. No author files requested.",
+      "source_data_license": "unspecified; article copyright Springer-Verlag 2003; no open-data licence identified",
+      "table1": {
+        "location": "Table 1, p. 512",
+        "columns": [
+          "temperature_k",
+          "lattice_a_angstrom",
+          "lattice_c_angstrom",
+          "c_over_a",
+          "cell_volume_a3"
+        ],
+        "uncertainties": "Parentheses are estimated standard deviations of the last significant digit. No row temperature errors; ambient temperature fluctuation below 0.2 K is an apparatus statement, not a row standard uncertainty.",
+        "rows": [
+          [
+            "299.3",
+            "3.1476(4)",
+            "4.7705(6)",
+            "1.5156",
+            "40.930(12)"
+          ],
+          [
+            "299.3",
+            "3.1477(7)",
+            "4.7694(10)",
+            "1.5152",
+            "40.925(22)"
+          ],
+          [
+            "349.2",
+            "3.1481(16)",
+            "4.7807(25)",
+            "1.5186",
+            "41.031(47)"
+          ],
+          [
+            "356.4",
+            "3.1486(13)",
+            "4.7867(15)",
+            "1.5203",
+            "41.096(37)"
+          ],
+          [
+            "397",
+            "3.1490(7)",
+            "4.7902(10)",
+            "1.5212",
+            "41.136(22)"
+          ],
+          [
+            "418",
+            "3.1507(3)",
+            "4.7979(4)",
+            "1.5228",
+            "41.247(10)"
+          ],
+          [
+            "456.6",
+            "3.1514(11)",
+            "4.8098(13)",
+            "1.5262",
+            "41.367(31)"
+          ],
+          [
+            "469.8",
+            "3.1521(6)",
+            "4.8063(8)",
+            "1.5248",
+            "41.356(18)"
+          ],
+          [
+            "515.1",
+            "3.1532(2)",
+            "4.8215(2)",
+            "1.5291",
+            "41.516(5)"
+          ],
+          [
+            "571.5",
+            "3.1549(7)",
+            "4.8348(9)",
+            "1.5325",
+            "41.675(20)"
+          ],
+          [
+            "592.9",
+            "3.1550(8)",
+            "4.8411(10)",
+            "1.5344",
+            "41.732(23)"
+          ]
+        ]
+      },
+      "table4": {
+        "location": "Table 4, p. 514",
+        "columns": [
+          "temperature_k",
+          "pressure_gpa",
+          "lattice_a_angstrom",
+          "lattice_c_angstrom",
+          "c_over_a",
+          "cell_volume_a3"
+        ],
+        "uncertainties": "Lattice/volume parentheses: estimated standard deviations. Pressure parentheses: errors propagated from estimated standard deviations of gold lattice parameter, excluding pressure-scale systematic uncertainty. No row temperature errors.",
+        "rows": [
+          [
+            "300",
+            "-0.06(13)",
+            "3.1450(12)",
+            "4.7773(31)",
+            "1.5190",
+            "40.922(43)"
+          ],
+          [
+            "300",
+            "0.00(6)",
+            "3.1445(15)",
+            "4.7773(26)",
+            "1.5192",
+            "40.909(50)"
+          ],
+          [
+            "300",
+            "4.00(7)",
+            "3.0990(10)",
+            "4.5773(24)",
+            "1.4771",
+            "38.069(32)"
+          ],
+          [
+            "300",
+            "5.80(6)",
+            "3.0791(5)",
+            "4.5002(11)",
+            "1.4615",
+            "36.950(15)"
+          ],
+          [
+            "300",
+            "7.32(8)",
+            "3.0643(5)",
+            "4.4588(12)",
+            "1.4551",
+            "36.258(16)"
+          ],
+          [
+            "300",
+            "7.50(13)",
+            "3.0702(71)",
+            "4.4424(160)",
+            "1.4470",
+            "36.264(212)"
+          ],
+          [
+            "300",
+            "10.35(10)",
+            "3.0380(8)",
+            "4.3984(17)",
+            "1.4478",
+            "35.156(24)"
+          ],
+          [
+            "300",
+            "13.44(13)",
+            "3.0141(2)",
+            "4.3421(6)",
+            "1.4406",
+            "34.162(7)"
+          ],
+          [
+            "300",
+            "14.38(11)",
+            "3.0101(14)",
+            "4.3384(31)",
+            "1.4413",
+            "34.043(40)"
+          ],
+          [
+            "300",
+            "16.05(12)",
+            "2.9971(9)",
+            "4.3166(21)",
+            "1.4403",
+            "33.579(27)"
+          ],
+          [
+            "300",
+            "18.26(15)",
+            "2.9824(23)",
+            "4.2836(58)",
+            "1.4363",
+            "32.996(64)"
+          ],
+          [
+            "300",
+            "19.86(10)",
+            "2.9662(19)",
+            "4.2657(43)",
+            "1.4381",
+            "32.502(53)"
+          ],
+          [
+            "300",
+            "22.56(12)",
+            "2.9532(14)",
+            "4.2444(33)",
+            "1.4372",
+            "32.058(41)"
+          ],
+          [
+            "473",
+            "9.59(11)",
+            "3.0448(19)",
+            "4.4055(37)",
+            "1.4469",
+            "35.371(54)"
+          ],
+          [
+            "473",
+            "11.36(9)",
+            "3.0294(10)",
+            "4.3651(33)",
+            "1.4409",
+            "34.694(34)"
+          ],
+          [
+            "473",
+            "13.43(12)",
+            "3.0148(32)",
+            "4.3464(74)",
+            "1.4417",
+            "34.212(93)"
+          ],
+          [
+            "473",
+            "15.15(15)",
+            "3.0027(26)",
+            "4.3064(49)",
+            "1.4342",
+            "33.626(70)"
+          ],
+          [
+            "473",
+            "16.52(7)",
+            "2.9907(80)",
+            "4.2957(211)",
+            "1.4364",
+            "33.437(242)"
+          ],
+          [
+            "473",
+            "5.95(3)",
+            "3.0780(3)",
+            "4.4953(7)",
+            "1.4605",
+            "36.883(10)"
+          ],
+          [
+            "473",
+            "8.28(7)",
+            "3.0584(168)",
+            "4.4548(319)",
+            "1.4566",
+            "36.088(474)"
+          ],
+          [
+            "473",
+            "10.24(5)",
+            "3.0411(29)",
+            "4.3967(56)",
+            "1.4458",
+            "35.214(81)"
+          ],
+          [
+            "673",
+            "9.07(6)",
+            "3.0520(28)",
+            "4.4291(66)",
+            "1.4512",
+            "35.729(85)"
+          ],
+          [
+            "673",
+            "11.00(5)",
+            "3.0350(29)",
+            "4.3861(40)",
+            "1.4451",
+            "34.979(75)"
+          ],
+          [
+            "673",
+            "13.05(5)",
+            "3.0222(2)",
+            "4.3510(5)",
+            "1.4397",
+            "34.416(7)"
+          ],
+          [
+            "673",
+            "14.56(6)",
+            "3.0043(42)",
+            "4.3274(56)",
+            "1.4404",
+            "33.826(104)"
+          ],
+          [
+            "673",
+            "16.09(12)",
+            "2.9985(33)",
+            "4.3211(116)",
+            "1.4411",
+            "33.647(117)"
+          ],
+          [
+            "673",
+            "5.62(5)",
+            "3.0852(11)",
+            "4.5225(32)",
+            "1.4659",
+            "37.280(38)"
+          ],
+          [
+            "673",
+            "7.96(5)",
+            "3.0629(9)",
+            "4.4600(39)",
+            "1.4561",
+            "36.235(38)"
+          ],
+          [
+            "673",
+            "9.85(6)",
+            "3.0441(29)",
+            "4.4144(47)",
+            "1.4502",
+            "35.426(77)"
+          ],
+          [
+            "873",
+            "8.75(4)",
+            "3.0540(8)",
+            "4.4670(19)",
+            "1.4627",
+            "36.081(24)"
+          ],
+          [
+            "873",
+            "10.46(3)",
+            "3.0367(7)",
+            "4.4172(21)",
+            "1.4546",
+            "35.276(24)"
+          ],
+          [
+            "873",
+            "12.44(11)",
+            "3.0237(16)",
+            "4.3887(22)",
+            "1.4515",
+            "34.749(31)"
+          ],
+          [
+            "873",
+            "14.00(9)",
+            "3.0080(36)",
+            "4.3748(126)",
+            "1.4544",
+            "34.280(128)"
+          ],
+          [
+            "873",
+            "15.48(5)",
+            "3.0010(37)",
+            "4.3451(51)",
+            "1.4479",
+            "33.890(72)"
+          ],
+          [
+            "873",
+            "5.21(5)",
+            "3.0875(7)",
+            "4.5660(19)",
+            "1.4789",
+            "37.695(23)"
+          ],
+          [
+            "873",
+            "7.52(4)",
+            "3.0659(8)",
+            "4.4951(23)",
+            "1.4662",
+            "36.593(26)"
+          ],
+          [
+            "873",
+            "9.49(6)",
+            "3.0493(14)",
+            "4.4519(27)",
+            "1.4600",
+            "35.848(39)"
+          ]
+        ]
+      },
+      "parameters": {
+        "V0_a3": {
+          "value": 40.917,
+          "error": 0.012,
+          "location": "Table 2, p. 513",
+          "determination": "ambient thermal-expansion regression anchor at 300 K, not separately printed compression-regression V0"
+        },
+        "alpha_per_k": {
+          "value": 6.69e-05,
+          "error": 1.8e-06,
+          "location": "Table 3, p. 513",
+          "law": "constant instantaneous volumetric alpha; exponential integral from 300 K; alpha1 absent (not a reported fitted zero)"
+        },
+        "isotherms": [
+          {
+            "temperature_k": 300,
+            "K0_gpa": 41.8,
+            "K0_error_gpa": 1.3,
+            "K0_prime": 6.6,
+            "K0_prime_error": 0.3,
+            "alternate_K0_prime_error": 0.4,
+            "location": "Table 5 and duplicated Table 6, p. 515; Kprime error 0.3 in Table 5, 0.4 in Table 6"
+          },
+          {
+            "temperature_k": 473,
+            "K0_gpa": 32.6,
+            "K0_error_gpa": 2.5,
+            "K0_prime": 8.3,
+            "K0_prime_error": 1.1,
+            "location": "Table 6, p. 515"
+          },
+          {
+            "temperature_k": 673,
+            "K0_gpa": 28.8,
+            "K0_error_gpa": 2.1,
+            "K0_prime": 9.0,
+            "K0_prime_error": 1.1,
+            "location": "Table 6, p. 515"
+          },
+          {
+            "temperature_k": 873,
+            "K0_gpa": 23.9,
+            "K0_error_gpa": 1.4,
+            "K0_prime": 10.0,
+            "K0_prime_error": 0.9,
+            "location": "Table 6, p. 515"
+          }
+        ],
+        "dK0_dT_gpa_per_k": {
+          "value": -0.0319,
+          "error": 0.0029,
+          "location": "p. 513 last isothermal-elastic-properties paragraph"
+        },
+        "dK0_prime_dT_per_k": {
+          "value": 0.00571,
+          "error": 0.00045,
+          "location": "same paragraph"
+        },
+        "thermal_linear_intercepts": "Temperature slopes are reported but no separately regressed linear-intercept values are printed; cannot silently equate these with the measured 300 K slice."
+      },
+      "pressure_calibration": {
+        "material": "Au",
+        "reference": "Anderson OL, Isaak DG, Yamamoto S (1989), Anharmonicity and the equation of state for gold, Journal of Applied Physics 65, 1534-1543",
+        "doi": "10.1063/1.342969",
+        "location": "p. 512 high-pressure experiments; p. 516 bibliography",
+        "paired_calibrant_readings": "not tabulated",
+        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
+      },
+      "phase_scope": {
+        "ambient_dehydration_temperature_k": 600.6,
+        "ambient_expansion_observed_temperature_k": [
+          299.3,
+          592.9
+        ],
+        "pressure_temperature_groups": "300 K: -0.06 to 22.56 GPa; 473 K: 5.95 to 16.52; 673 K: 5.62 to 16.09; 873 K: 5.21 to 15.48. Bounds do not define a rectangle of phase stability.",
+        "hydrogen_order": "p. 515 explicitly discusses a higher-order hydrogen transition of unresolved order. At 300 K secondary OH dipoles appear around 2 GPa and saturate above 8 GPa. The BM3 fits are empirical lattice-average fits; no resolved H-phase boundary model or phase-specific EOS is supplied.",
+        "diffraction_limit": "Ambient H positions cannot be propagated through the pressure-induced disorder as a structural refinement; anisotropic a,c response cannot be recovered from scalar V(P,T) alone."
+      },
+      "table2": {
+        "location": "Table 2, p. 513",
+        "reference_temperature_k": 300,
+        "a0_angstrom": "3.1472(2)",
+        "c0_angstrom": "4.7699(11)",
+        "V0_a3": "40.917(12)",
+        "determination": "Reference cell constants from ambient thermal expansion regression, not an additional observed PVT row."
+      },
+      "visual_checks": [
+        "Final PDF pp. 512-515 rendered and inspected; all 48 observation rows checked against extracted tokens.",
+        "Table 5/6 Kprime error discrepancy visually confirmed: 6.6(3) versus 6.6(4).",
+        "PDF text font maps minus before first Table 4 pressure as a closing parenthesis; visually verified -0.06(13)."
+      ],
+      "figure6c_audit": {
+        "source_location": "Fig. 6(c), p. 515, original embedded raster image18, 1292x3452 pixels",
+        "image_sha256": "04541544ddb4222fe6dcdd7e498b3de6ae3622fb2c4efcaf9de9dffaad80bb6d",
+        "axis_pixels": {
+          "pressure_0_x": 216,
+          "pressure_16_x": 1258,
+          "ratio_1_y": 2397,
+          "ratio_075_y": 3297
+        },
+        "manual_coordinate_uncertainty_pixels": 5,
+        "coordinate_uncertainty_kind": "Conservative graphical reading tolerance, not an experimental standard deviation",
+        "filled_marker_centers": [
+          {
+            "source_row": 35,
+            "x": 555,
+            "y": 2820
+          },
+          {
+            "source_row": 36,
+            "x": 706,
+            "y": 2910
+          },
+          {
+            "source_row": 30,
+            "x": 786,
+            "y": 2955
+          },
+          {
+            "source_row": 37,
+            "x": 834,
+            "y": 2974
+          },
+          {
+            "source_row": 31,
+            "x": 897,
+            "y": 3021
+          },
+          {
+            "source_row": 32,
+            "x": 1026,
+            "y": 3066
+          },
+          {
+            "source_row": 33,
+            "x": 1128,
+            "y": 3108
+          },
+          {
+            "source_row": 34,
+            "x": 1224,
+            "y": 3141
+          }
+        ],
+        "solid_curve_checkpoints": [
+          {
+            "x": 346,
+            "y": 2614
+          },
+          {
+            "x": 476,
+            "y": 2749
+          },
+          {
+            "x": 998,
+            "y": 3055
+          },
+          {
+            "x": 1063,
+            "y": 3083
+          }
+        ],
+        "purpose": "Independent graphical diagnostic only. No plotted calculated curve or graphical marker enters the regressions, which use printed Table 4 observations."
+      }
+    },
+    "fei_mao_1993": {
+      "doi": "10.1029/93JB00701",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JB00701",
+      "status": "primary_publisher_abstract_only; full article PDF access returned HTTP 403; no repository copy located in OpenAlex or geology repository search",
+      "abstract_parameters": {
+        "K0_300_gpa": 54.3,
+        "K0_300_error_gpa": 1.5,
+        "Kprime_300": 4.7,
+        "Kprime_300_error": 0.2,
+        "K0_600_gpa": 48.8,
+        "K0_600_error_gpa": 1.0,
+        "Kprime_600": 4.74,
+        "Kprime_600_error": 0.12,
+        "dK_dT_gpa_per_k": -0.018,
+        "dK_dT_error_gpa_per_k": 0.008,
+        "ambient_mean_alpha_per_k": 8e-05,
+        "ambient_mean_alpha_error_per_k": 4e-06
+      },
+      "hold": "No executable record: full final equation, authoritative V0, observations, calibrant, uncertainty treatment, and high-pressure phase scope could not be audited. Subsequent papers attribute nonhydrostatic bias; neither their V0 nor coefficients substituted."
+    },
+    "xia_1998": {
+      "doi": "10.2138/am-1998-0107",
+      "url": "https://www.rruff.net/doclib/am/vol83/AM83_68.pdf",
+      "version": "Final publisher article, American Mineralogist 83, 68-74",
+      "pdf_sha256": "d3486a46b087504e1045a90d72c38880fd02ef635aafd773039dec696d19b59a",
+      "equations": "Eq 1 BM3; Eqs 5-8 linear K(T), linear Kprime(T), V0(T)=V0 exp(integral_300^T (alpha0+alpha1*T)dT). Table 7 does not specify dKprime/dT or fitted V0. Table 7 full PVT parameters differ from abstract/300K-only parameters.",
+      "table7_volume": {
+        "K0_gpa": "38.7(15)",
+        "K0_prime": "7.0(8)",
+        "dK_dT_gpa_per_k": "-0.015(4)",
+        "alpha0_per_k": "7.3(3)e-5",
+        "alpha1_per_k2": "3.6(13)e-8"
+      },
+      "hold": "No executable thermal record: V0 and dKprime/dT unspecified in final parameter table; source combined fit also uses unrecovered Fei-Mao ambient observations. Equation 7 integral is visually verified; do not infer missing derivative as zero. Table 6 extends to 1040 K/9.24 GPa despite abstract 873 K/11 GPa.",
+      "source_data_license": "unspecified; retain article attribution",
+      "table6": {
+        "location": "Table 6, p. 71; all 54 rows, including 1040 K observation",
+        "columns": [
+          "pressure_gpa",
+          "temperature_k",
+          "lattice_a_angstrom",
+          "lattice_c_angstrom",
+          "cell_volume_a3"
+        ],
+        "rows": [
+          [
+            "9.24",
+            "877",
+            "3.064(1)",
+            "4.457(1)",
+            "36.26(2)"
+          ],
+          [
+            "8.95",
+            "769",
+            "3.063(1)",
+            "4.445(1)",
+            "36.13(2)"
+          ],
+          [
+            "8.97",
+            "671",
+            "3.061(1)",
+            "4.437(1)",
+            "36.00(2)"
+          ],
+          [
+            "8.68",
+            "572",
+            "3.060(1)",
+            "4.429(1)",
+            "35.92(2)"
+          ],
+          [
+            "8.50",
+            "478",
+            "3.058(1)",
+            "4.424(1)",
+            "35.83(2)"
+          ],
+          [
+            "8.40",
+            "299",
+            "3.054(1)",
+            "4.414(1)",
+            "35.67(2)"
+          ],
+          [
+            "7.75",
+            "874",
+            "3.080(1)",
+            "4.503(1)",
+            "37.00(2)"
+          ],
+          [
+            "7.55",
+            "770",
+            "3.079(1)",
+            "4.489(1)",
+            "36.86(2)"
+          ],
+          [
+            "7.53",
+            "672",
+            "3.075(1)",
+            "4.484(1)",
+            "36.73(2)"
+          ],
+          [
+            "7.23",
+            "575",
+            "3.075(1)",
+            "4.473(1)",
+            "36.65(2)"
+          ],
+          [
+            "7.11",
+            "471",
+            "3.073(1)",
+            "4.465(1)",
+            "36.52(2)"
+          ],
+          [
+            "6.79",
+            "301",
+            "3.068(1)",
+            "4.457(1)",
+            "36.35(2)"
+          ],
+          [
+            "8.71",
+            "1040",
+            "3.072(1)",
+            "4.492(1)",
+            "36.73(2)"
+          ],
+          [
+            "8.29",
+            "873",
+            "3.072(1)",
+            "4.477(1)",
+            "36.61(2)"
+          ],
+          [
+            "8.36",
+            "772",
+            "3.070(1)",
+            "4.469(1)",
+            "36.49(2)"
+          ],
+          [
+            "8.13",
+            "674",
+            "3.070(1)",
+            "4.460(1)",
+            "36.40(2)"
+          ],
+          [
+            "7.97",
+            "522",
+            "3.067(1)",
+            "4.449(1)",
+            "36.26(2)"
+          ],
+          [
+            "7.63",
+            "415",
+            "3.065(1)",
+            "4.443(1)",
+            "36.17(2)"
+          ],
+          [
+            "7.59",
+            "300",
+            "3.062(1)",
+            "4.440(1)",
+            "36.06(2)"
+          ],
+          [
+            "6.85",
+            "872",
+            "3.089(1)",
+            "4.528(1)",
+            "37.43(2)"
+          ],
+          [
+            "6.66",
+            "773",
+            "3.089(1)",
+            "4.518(1)",
+            "37.29(2)"
+          ],
+          [
+            "6.45",
+            "670",
+            "3.086(1)",
+            "4.509(1)",
+            "37.18(2)"
+          ],
+          [
+            "6.30",
+            "573",
+            "3.084(1)",
+            "4.501(1)",
+            "37.09(2)"
+          ],
+          [
+            "6.13",
+            "471",
+            "3.083(1)",
+            "4.494(1)",
+            "37.01(2)"
+          ],
+          [
+            "5.87",
+            "301",
+            "3.080(1)",
+            "4.486(1)",
+            "36.87(2)"
+          ],
+          [
+            "7.29",
+            "869",
+            "3.084(1)",
+            "4.512(1)",
+            "37.16(2)"
+          ],
+          [
+            "7.09",
+            "769",
+            "3.084(1)",
+            "4.498(1)",
+            "37.05(2)"
+          ],
+          [
+            "6.90",
+            "671",
+            "3.081(1)",
+            "4.490(1)",
+            "36.91(2)"
+          ],
+          [
+            "6.75",
+            "574",
+            "3.079(1)",
+            "4.485(1)",
+            "36.84(2)"
+          ],
+          [
+            "6.62",
+            "474",
+            "3.078(1)",
+            "4.479(1)",
+            "36.77(2)"
+          ],
+          [
+            "6.38",
+            "301",
+            "3.075(1)",
+            "4.471(1)",
+            "36.61(2)"
+          ],
+          [
+            "4.94",
+            "875",
+            "3.105(1)",
+            "4.580(1)",
+            "38.26(2)"
+          ],
+          [
+            "4.83",
+            "769",
+            "3.104(1)",
+            "4.570(1)",
+            "38.13(2)"
+          ],
+          [
+            "4.66",
+            "671",
+            "3.102(1)",
+            "4.560(1)",
+            "38.01(2)"
+          ],
+          [
+            "4.47",
+            "573",
+            "3.100(1)",
+            "4.550(1)",
+            "37.88(2)"
+          ],
+          [
+            "4.32",
+            "471",
+            "3.099(1)",
+            "4.544(1)",
+            "37.80(2)"
+          ],
+          [
+            "4.12",
+            "301",
+            "3.095(1)",
+            "4.534(1)",
+            "37.63(2)"
+          ],
+          [
+            "6.02",
+            "874",
+            "3.097(1)",
+            "4.555(1)",
+            "37.84(2)"
+          ],
+          [
+            "5.68",
+            "773",
+            "3.096(1)",
+            "4.543(1)",
+            "37.71(2)"
+          ],
+          [
+            "5.53",
+            "673",
+            "3.094(1)",
+            "4.533(1)",
+            "37.60(2)"
+          ],
+          [
+            "5.35",
+            "573",
+            "3.091(1)",
+            "4.527(1)",
+            "37.47(2)"
+          ],
+          [
+            "5.24",
+            "473",
+            "3.090(1)",
+            "4.520(1)",
+            "37.39(2)"
+          ],
+          [
+            "5.05",
+            "301",
+            "3.088(1)",
+            "4.510(1)",
+            "37.25(2)"
+          ],
+          [
+            "4.71",
+            "877",
+            "3.111(1)",
+            "4.606(1)",
+            "38.62(2)"
+          ],
+          [
+            "4.57",
+            "770",
+            "3.110(1)",
+            "4.593(1)",
+            "38.47(2)"
+          ],
+          [
+            "4.39",
+            "672",
+            "3.108(1)",
+            "4.582(1)",
+            "38.34(2)"
+          ],
+          [
+            "4.24",
+            "573",
+            "3.106(1)",
+            "4.573(1)",
+            "38.21(2)"
+          ],
+          [
+            "4.07",
+            "471",
+            "3.105(1)",
+            "4.566(1)",
+            "38.13(2)"
+          ],
+          [
+            "3.79",
+            "301",
+            "3.103(1)",
+            "4.555(1)",
+            "37.97(2)"
+          ],
+          [
+            "3.86",
+            "774",
+            "3.113(1)",
+            "4.619(1)",
+            "38.88(2)"
+          ],
+          [
+            "3.68",
+            "674",
+            "3.112(1)",
+            "4.613(1)",
+            "38.70(2)"
+          ],
+          [
+            "3.50",
+            "573",
+            "3.112(1)",
+            "4.600(1)",
+            "38.66(2)"
+          ],
+          [
+            "3.33",
+            "473",
+            "3.112(1)",
+            "4.593(1)",
+            "38.51(2)"
+          ],
+          [
+            "3.06",
+            "301",
+            "3.110(1)",
+            "4.586(1)",
+            "38.41(2)"
+          ]
+        ],
+        "uncertainties": "Parenthetical errors retained; confidence convention not explicitly defined. Source says pressure uncertainty <0.2 GPa overall; it is not a row-wise sigma. No row temperature errors or paired NaCl lattice readings."
+      },
+      "visual_checks": [
+        "Final PDF pp. 71, 73-74 rendered and inspected. All 54 Table 6 rows transcribed from the page image, including 37.39(2) at 5.24 GPa/473 K where OCR reads 37.35(2).",
+        "Table 7 derivative sign is negative, -0.015(4) GPa/K; OCR loses the minus.",
+        "Eq. (7) is exponential integrated alpha, not direct linear expansion."
+      ]
+    },
+    "structure": {
+      "reference": {
+        "authors": [
+          "He, Xuejing"
+        ],
+        "year": 2023,
+        "title": "Hydrogen-bonding configurations of magnesium hydroxyfluoride and fluorine-doped magnesium hydroxide under high pressure",
+        "source": "Doctoral thesis, University of Tokyo",
+        "locator": "Table 4.3, pp. 81-82; Section 4.3.1.1, p. 80",
+        "doi": "10.15083/0002012205"
+      },
+      "access_url": "https://repository.dl.itc.u-tokyo.ac.jp/record/2012205/files/A40857.pdf",
+      "source_kind": "Primary doctoral thesis: directly inspected neutron powder refinement of fluorine-free hydrogenated Mg(OH)2, not its substituted/deuterated samples",
+      "pdf_sha256": "c32fc2f616d638fb4c4e474d06583ba3cf58526a3f2f95402f67d0e9079203be",
+      "archive_terms": "Institutional repository made thesis public 2025-03-28; source-data licence unspecified. Contributor factual transcription rights only are CC0.",
+      "cell": {
+        "a_angstrom": "3.14771(3)",
+        "b_angstrom": "3.14771(3)",
+        "c_angstrom": "4.77163(5)",
+        "alpha_deg": 90,
+        "beta_deg": 90,
+        "gamma_deg": 120,
+        "printed_volume_a3": 40.9437,
+        "volume_error_a3": 0.0007,
+        "space_group": "P -3 m 1",
+        "space_group_number": 164,
+        "Z": 1
+      },
+      "sites": [
+        {
+          "label": "Mg1",
+          "element": "Mg",
+          "wyckoff": "1a",
+          "x": "0",
+          "y": "0",
+          "z": "0",
+          "occupancy": 1
+        },
+        {
+          "label": "O1",
+          "element": "O",
+          "wyckoff": "2d",
+          "x": "1/3",
+          "y": "2/3",
+          "z": "0.2189(2)",
+          "occupancy": 1
+        },
+        {
+          "label": "H1",
+          "element": "H",
+          "wyckoff": "2d",
+          "x": "1/3",
+          "y": "2/3",
+          "z": "0.4108(4)",
+          "occupancy": 1
+        }
+      ],
+      "atomic_displacements_a2": {
+        "Mg_Uiso": "0.0057(3)",
+        "O_Uiso": "0.0047",
+        "H_U11": "0.0394(5)",
+        "H_U33": "0.0171(10)",
+        "H_U12": "0.0197(2)"
+      },
+      "refinement": {
+        "wRp": 0.0101,
+        "Rp": 0.007,
+        "R_F_squared": 0.095,
+        "Nobs": 173,
+        "chi_squared": 4.275,
+        "O_H_angstrom": "0.915(2)",
+        "motion_corrected_O_H_angstrom": 0.9528,
+        "H_O_angstrom": "2.535(2)",
+        "O_O_angstrom": "3.240(2)",
+        "O_H_O_angle_deg": "134.20(4)"
+      },
+      "normalization": "Exact special-position thirds; no lattice rescaling or changes to refined z. Preserve mean H position, not a site shifted to match the motion-corrected O-H bond length. Coordinates specify the ambient average single-site model, not perfectly immobile protons.",
+      "acceptance_limit": "Direct primary structural verification resolved. Ambient average structure only; no pressure-dependent coordinates, disordered phase or anisotropic compression model implied.",
+      "cif_file": "brucite-he-2023-table43.cif",
+      "visual_check": "Table 4.3 and continuation directly inspected at PDF pages 89-90 (printed pp. 81-82); F-free Mg(OH)2 explicitly separated from Table 4.5 fluorinated and Table 4.7 deuterated samples."
+    },
+    "structure_zigan_1967_archive": {
+      "reference": {
+        "authors": [
+          "Zigan",
+          "Rothbauer"
+        ],
+        "year": 1967,
+        "title": "Neutronenbeugungsmessungen am Brucit",
+        "source": "Neues Jahrbuch fuer Mineralogie, Monatshefte",
+        "volume": "1967",
+        "locator": "137-143"
+      },
+      "access_url": "https://qiserver.ugr.es/cod/1000054.cif",
+      "source_kind": "COD 1000054 archival transcription of primary neutron structure; primary article itself not accessed",
+      "archive_terms": "CIF header: all data placed in public domain by contributors. This is an archive statement, not a new claim to rights in the original paper.",
+      "cell": {
+        "a_angstrom": "3.142(1)",
+        "b_angstrom": "3.142(1)",
+        "c_angstrom": "4.766(2)",
+        "alpha_deg": 90,
+        "beta_deg": 90,
+        "gamma_deg": 120,
+        "printed_volume_a3": 40.7,
+        "space_group": "P -3 m 1",
+        "space_group_number": 164,
+        "Z": 1
+      },
+      "sites": [
+        {
+          "label": "Mg1",
+          "element": "Mg",
+          "wyckoff": "1a",
+          "x": "0",
+          "y": "0",
+          "z": "0",
+          "occupancy": 1
+        },
+        {
+          "label": "O1",
+          "element": "O",
+          "wyckoff": "2d",
+          "x": "1/3",
+          "y": "2/3",
+          "z": "0.2216(7)",
+          "occupancy": 1
+        },
+        {
+          "label": "H1",
+          "element": "H",
+          "wyckoff": "2d",
+          "x": "1/3",
+          "y": "2/3",
+          "z": "0.4303(12)",
+          "occupancy": 1
+        }
+      ],
+      "normalization": "Replace archive rounded special coordinates .3333/.6667 by exact 1/3,2/3; no refined z or lattice rescaling. Ambient ordered-H reference model only.",
+      "acceptance_limit": "Archived numerical diffraction model is complete and auditable; direct primary-paper confirmation remains an integration limitation."
+    },
+    "duffy_1995_phase": {
+      "doi": "10.2138/am-1995-3-403",
+      "citation": "Duffy TS, Meade C, Fei Y, Mao HK, Hemley RJ (1995), American Mineralogist 80, 222-230",
+      "url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/duffy_am_1995.pdf",
+      "pdf_sha256": "a0b2d0f7c1bb67f6726f97a031212ed9a9ed1fcc32019da37d7e0c5d4a82ea9a",
+      "primary_findings": {
+        "new_modes_gpa": 4.4,
+        "weak_mode_after_pressure_cycling_gpa": 1.1,
+        "locations": "pp. 225-226, Fig. 4",
+        "interpretation": "New Raman modes establish structural change; the weak 1.1 GPa feature may be an irreversible remnant of the higher-pressure change, not a measured fresh-compression equilibrium boundary."
+      }
+    },
+    "wu_2026_phase": {
+      "doi": "10.3390/molecules31101631",
+      "citation": "Wu M, Dai L, Hu H, Li C (2026), Molecules 31, 1631",
+      "url": "https://mdpi-res.com/d_attachment/molecules/molecules-31-01631/article_deploy/molecules-31-01631.pdf",
+      "pdf_sha256": "ada2e5018035c47d4db25c043ae5e92e3c39b2bfe386f7a499a68ec5e2935911",
+      "source_data_license": "CC BY 4.0; source attribution retained; no source text or figures redistributed",
+      "room_temperature_onsets_gpa": {
+        "nonhydrostatic": 5.7,
+        "methanol_ethanol_4_to_1": 3.6
+      },
+      "reported_boundary": {
+        "intercept_gpa": 8.664,
+        "intercept_error_gpa": 1.511,
+        "slope_gpa_per_k": -0.008,
+        "slope_error_gpa_per_k": 0.002,
+        "temperature_k": [
+          298,
+          873
+        ],
+        "pressure_gpa": [
+          0,
+          7
+        ]
+      },
+      "source_inconsistencies": [
+        "Section 4 assigns 573 K to 1.8 GPa and 823 K to 3.2 GPa, then claims decreasing transition temperature with pressure; these assignments contradict that trend and the stated fitted line. Preserve both printed assignments; do not silently swap.",
+        "Room-temperature onsets depend on pressure medium and do not define a universal boundary.",
+        "Conductivity-based boundary is not a direct phase-resolved diffraction refinement."
+      ],
+      "use": "Evidence for pressure/temperature/medium dependence only. No automatic phase boundary evaluator or new disordered-phase EOS."
+    },
+    "sun_2025_phase": {
+      "title": "Stability and physical properties of brucite at high pressures and temperatures: Implication for Earth\u2019s deep water cycle",
+      "doi": "10.1016/j.gsf.2024.101940",
+      "year": 2025,
+      "url": "https://zhangdongzhou.github.io/pub/Sun_GeoFront_2025.pdf",
+      "pdf_sha256": "6e590246c3ac9d428c170c13b1a2336194028d11c7a05e04feb1501fdf9334f6",
+      "source_kind": "Directly inspected final primary article, Geoscience Frontiers 16, 101940, Sections 3 and 4.1, pp. 3-5; Fig. 4",
+      "primary_findings": [
+        "No detectable change in polycrystalline XRD up to 63 GPa/800 K before dehydration; full-profile refinements favor the layered average P -3 m 1 lattice over proposed P -3 and P 41 21 2 alternatives at representative conditions.",
+        "X-rays and average-lattice refinements do not uniquely establish H ordering. These results support a bulk lattice-average EOS over Fukui\u2019s measured range, not a universal H-order phase boundary or equilibrium-stability claim."
+      ],
+      "source_inconsistencies": [
+        "Fig. 4 labels comparison at 14 GPa/600 K while Section 4.1 says 15 GPa/600 K. Both retained; neither sets a boundary.",
+        "Section 4 discussion of some dehydration observations conflicts with Section 3; those statements are not used to install a dehydration boundary."
+      ],
+      "parameter_import": "None. Sun numerical EOS coefficients and supplements are outside this Fukui-specific integration."
+    }
+  },
+  "rights": {
+    "source_data": "Source licences as given per source; unspecified is not CC0. Factual numerical observations are transcribed with attribution.",
+    "contributor_rights": "CC0-1.0 applies only to Peritheos contributors own rights in transcription, normalization, metadata and arrangement; no third-party text, figures, articles or source rights are dedicated."
+  },
+  "catalog_disposition": {
+    "accepted_pressure_gpa": [
+      0,
+      22.56
+    ],
+    "accepted_static_temperature_k": [
+      300,
+      300
+    ],
+    "qualified_thermal_temperature_k": [
+      300,
+      873
+    ],
+    "thermal_interpolation_pressure_gpa": [
+      5.95,
+      15.48
+    ],
+    "scope_basis": "Layered brucite lattice-average empirical volume EOS, including H rearrangement. Fukui treats the H change as higher order; Sun (2025) directly observes the layered average lattice beyond this range. No evidence makes 0.5 GPa a bulk lattice phase boundary. Ambient atom sites are a reference only; no H-order-resolved or phase-equilibrium EOS is claimed.",
+    "held_isotherms_k": [],
+    "source_isotherm_ranges_gpa": {
+      "300": [
+        0,
+        22.56
+      ],
+      "473": [
+        5.95,
+        16.52
+      ],
+      "673": [
+        5.62,
+        16.09
+      ],
+      "873": [
+        5.21,
+        15.48
+      ]
+    },
+    "thermal_status": "Separate reproducible Peritheos unweighted fit to all 37 observations; original published-slope reconstruction remains not_reproduced and explicit-selection. Thermal validity uses the common measured pressure interval; isotherms retain their own larger ranges.",
+    "source_873k_status": "Printed coefficients preserved as qualified explicit-selection record; graphical normalization inconsistency diagnosed, exact author intent unrecovered. Independent 873 K table-data refit provided separately.",
+    "remaining_limitations": [
+      "Exact author normalization and fitting workflow unavailable; no corrected source coefficient asserted",
+      "Paired Au observations unavailable",
+      "Source covariance unavailable; new fit covariance conditional on fixed source V0 and alpha",
+      "No atomic high-pressure H refinement or phase-equilibrium/dehydration model"
+    ]
+  }
+}

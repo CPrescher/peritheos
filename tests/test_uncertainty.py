@@ -21,9 +21,38 @@ from peritheos.eos.thermal import (
     MieGruneisenEinstein,
     Sokolova2016,
     ThermalModifiedTait,
+    ThermalReferenceStateEOS,
 )
 from peritheos.fitting import fit_rt_eos, fit_thermal_eos
 from peritheos.uncertainty import EOSUncertainty, ParameterUncertainty
+
+
+@pytest.mark.parametrize("law", ["linear_temperature", "linear_reference_temperature"])
+@pytest.mark.parametrize("curvature", [0.0, 4.4e-8])
+def test_small_expansion_curvature_uncertainty_uses_local_derivative(law, curvature):
+    eos = ThermalReferenceStateEOS(
+        BM3(40.9262, 41.8, 6.6),
+        300,
+        6.0665e-5,
+        -0.0319,
+        alpha1=curvature,
+        thermal_expansion_law=law,
+        dKprime_dT=0.00571,
+    )
+    sigma = 4e-8
+    uncertainty = EOSUncertainty(eos, parameter_errors={"alpha1": sigma})
+    t, v = 873.0, 35.5
+    factor = 0.5 * (
+        (t - 300) ** 2 if law == "linear_reference_temperature" else t * t - 300**2
+    )
+    exponent = eos.alpha0 * (t - 300) + curvature * factor
+    reference = BM3(
+        40.9262 * np.exp(exponent), 41.8 - 0.0319 * (t - 300), 6.6 + 0.00571 * (t - 300)
+    )
+    # dP/d(alpha1) = K(V,T) * d(log V0)/d(alpha1).
+    expected = abs(reference.bulk_modulus(v) * factor * sigma)
+    result = uncertainty.pressure(v, t)
+    assert result.standard_error == pytest.approx(expected, rel=1e-6)
 
 
 class BoundaryEOS(EosBase):

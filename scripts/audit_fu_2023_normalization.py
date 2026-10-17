@@ -90,7 +90,9 @@ def audit():
     )
 
     record = Material.from_eosmat(
-        get_material_document("ca_perovskite"), record_identifiers=[RECORD]
+        get_material_document("ca_perovskite"),
+        record_identifiers=[RECORD],
+        require_primary_validation=False,
     ).get_eos_record(RECORD)
     all_v = np.concatenate([x["sun_v"], x["g_v"]])
     all_t = np.concatenate([x["sun_t"], x["g_t"]])

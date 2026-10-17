@@ -171,7 +171,7 @@
     "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
    },
    "scientific_validation": {
-    "status": "primary_source_validated",
+    "status": "deferred",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
     "audit_date": "2026-09-01",
     "verified_fields": [
@@ -209,7 +209,15 @@
       "Table 1, page L11307-3"
      ],
      "finding": "All 85 wadsleyite P-T-V/V0 observations printed in Table 1."
-    }
+    },
+    "usage_recommendation": "on_hold_not_recommended_pending_source_mapping_review",
+    "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+    "recommendation_date": "2026-10-17",
+    "unresolved": [
+     "Pressure calibration and MGD reference-state/Debye convention mapping remain unresolved.",
+     "Direct replay of all 85 source rows gives 1.89443 GPa pressure RMS and 3.46380 GPa maximum residual."
+    ],
+    "recommendation_reason": "Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected."
    },
    "experimental_temperature_range_k": [
     300.0,
@@ -356,5 +364,12 @@
     "wadsleyite_katsura_2009_bm3_1"
    ]
   }
- ]
+ ],
+ "recommendation_hold": {
+  "record": "wadsleyite_katsura_2009_bm3_1",
+  "date": "2026-10-17",
+  "status": "on_hold",
+  "reason": "Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected.",
+  "audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md"
+ }
 }

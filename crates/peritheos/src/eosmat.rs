@@ -3172,6 +3172,9 @@ fn build_thermal(
         ));
     }
     let model = component_model_identifier(component, true)?;
+    if component.parameters.contains_key("dKprime_dT") && model != "thermal_reference_state" {
+        return Err("dKprime_dT requires AlphaKT / thermal_reference_state".to_owned());
+    }
     if let Some(zero_point) = configuration(component, "zero_point_pressure") {
         if !matches!(zero_point, "included" | "omitted")
             || (zero_point == "included"
@@ -3413,7 +3416,9 @@ fn build_thermal(
                         })
                     }
                 };
-                model.with_temperature_laws(coefficients, beta("kprime_log_coefficient"))
+                model
+                    .with_temperature_laws(coefficients, beta("kprime_log_coefficient"))?
+                    .with_linear_pressure_derivative(beta("dKprime_dT"))
             })
             .map(ThermalModel::ThermalReferenceState)
         }

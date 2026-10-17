@@ -1,5 +1,32 @@
 # References
 
+- Fukui, H., Ohtaka, O., Suzuki, T. & Funakoshi, K. (2003). Thermal expansion
+  of Mg(OH)2 brucite under high pressure and pressure dependence of entropy.
+  *Physics and Chemistry of Minerals*, **30**, 511–516.
+  [doi:10.1007/s00269-003-0353-z](https://doi.org/10.1007/s00269-003-0353-z).
+  Published 300/473/673 K isotherms retained; full thermal EOS not recommended
+  because published-data parity was not achieved. All 48 observations retained. See the [brucite audit](literature-reproductions/brucite.md).
+- He, Xuejing (2023). *Hydrogen-bonding configurations of magnesium
+  hydroxyfluoride and fluorine-doped magnesium hydroxide under high pressure*.
+  Doctoral thesis, University of Tokyo, Table 4.3, pp. 81–82.
+  [Institutional repository](https://doi.org/10.15083/0002012205).
+  Direct primary neutron structure of the fluorine-free hydrogenated sample;
+  the thesis became public in March 2025.
+- Xia, X., Weidner, D. J. & Zhao, H. (1998). Equation of state of brucite:
+  Single-crystal Brillouin spectroscopy study and polycrystalline
+  pressure-volume-temperature measurement. *American Mineralogist*, **83**, 68–74.
+  [doi:10.2138/am-1998-0107](https://doi.org/10.2138/am-1998-0107).
+  All 54 Table 6 observations retained; incomplete thermal alternative held.
+- Duffy, T. S., Meade, C., Fei, Y., Mao, H.-K. & Hemley, R. J. (1995).
+  High-pressure phase transition in brucite, Mg(OH)2.
+  *American Mineralogist*, **80**, 222–230.
+  [doi:10.2138/am-1995-3-403](https://doi.org/10.2138/am-1995-3-403).
+- Wu, M., Dai, L., Hu, H. & Li, C. (2026). Hydrogen-Disordering Transformation
+  and High-Temperature and High-Pressure Phase Diagram of Brucite: Insights
+  from Raman Spectroscopy and Electrical Conductivity. *Molecules*, **31**, 1631.
+  [doi:10.3390/molecules31101631](https://doi.org/10.3390/molecules31101631).
+  Phase annotations only; contradictory printed P–T assignments are preserved
+  without installing a universal phase-boundary evaluator.
 - Crichton, W. A. & Ross, N. L. (2000). Equation of state of phase E.
   *Mineralogical Magazine*, **64**, 561–567.
   [doi:10.1180/002646100549427](https://doi.org/10.1180/002646100549427).

@@ -1,8 +1,8 @@
 # Material catalog
 
 Peritheos exposes the complete bundled library through the normal executable
-API. `list_materials()` returns 224 `Material` objects and
-`list_eos_records()` returns their 647 `EOSRecord` objects. Both are ordered by
+API. `list_materials()` returns 228 `Material` objects and
+`list_eos_records()` returns their 659 `EOSRecord` objects. Both are ordered by
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
 
@@ -10,12 +10,33 @@ Thorianite and cotunnite-type ThO2 have separate experimental thermal records
 from Chidester et al. (2018); see the [source audit](literature-reproductions/chidester-2018-tho2.md)
 for their phase-dependent data selections and reference-state limits.
 
+The [coverage overview](catalog-coverage.md) reports current material-level
+static/thermal/Hugoniot coverage, calibration readiness and ledger differences.
+The [material backlog](material-eos-candidates.md) separates open gaps,
+completed additions and evidence-dependent holds.
+
 Fe-bearing phase E (`phase_e_fe0072`) preserves the Crichton–Ross (2000)
 measured composition and published static BM3. Its independent refit achieves
 parity within reported uncertainty; the [audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md)
 show the small coefficient and pressure-curve differences. Its phase-specific
 diffraction fallback supplies indexed peak positions with uniform display
 markers; it does not assert sample-specific atomic occupancies or intensities.
+
+Brucite (`brucite`) retains the individually source-checked Fukui (2003)
+300/473/673 K BM3 isotherms and a primary ambient neutron structure.
+**The full published thermal EOS is not recommended: parity with the published
+P–V–T data was not achieved.** The unresolved 873 K curve, continuous source
+reconstruction and all Peritheos refits are withheld from executable selection
+and preserved as audit evidence. These three isotherms do not provide a
+continuous temperature model. The [audit](literature-reproductions/brucite.md)
+documents the normalization discrepancy and diagnostic fits.
+
+Seven additional published EOSs are explicitly not recommended: Fu's cubic
+CaSiO3 thermal fit, Baty's experimental Pd BM3 and Sakai's five Fe-Ni thermal
+variants. They remain available only for diagnostic selection, with
+`not_reproduced` status. Wadsleyite's sole EOS is deferred and absent from
+executable discovery; no replacement default is selected. See the
+[recommendation dispositions](research/eos-recommendation-dispositions-2026-10-17.md).
 
 ## EOS record categories
 

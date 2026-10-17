@@ -51,8 +51,8 @@ def test_material_readme_inventory_matches_bundled_datasets():
         (data_root / "materials/README.md").read_text(encoding="utf-8").split()
     )
     expected = (
-        f"contains {len(datasets)} distinct primary datasets with "
-        f"{sum(datasets.values()):,} source rows, represented by "
+        f"contains {len(datasets)} distinct datasets with "
+        f"{sum(datasets.values()):,} retained rows, represented by "
         f"{material_links} material-document links to "
         f"{len(record_identifiers)} EOS records"
     )

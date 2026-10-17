@@ -2327,7 +2327,7 @@
     }
    },
    "scientific_validation": {
-    "status": "primary_source_validated",
+    "status": "not_reproduced",
     "audit_date": "2026-09-10",
     "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
     "verified_fields": [
@@ -2356,7 +2356,12 @@
       "Tables 1–4; Sections 2 and 3.3–3.4"
      ],
      "finding": "Primary observations bundled with errors and calibrant values where published."
-    }
+    },
+    "reproduction_status": "not_reproduced",
+    "usage_recommendation": "not_recommended_for_quantitative_use",
+    "recommendation_date": "2026-10-17",
+    "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+    "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
    },
    "thermal": {
     "type": "Dewaele2006",
@@ -2395,7 +2400,9 @@
      "n",
      "beta"
     ]
-   }
+   },
+   "catalog_access": "explicit_selection",
+   "default": false
   },
   {
    "determination_method": "experimental",
@@ -2515,7 +2522,7 @@
     }
    },
    "scientific_validation": {
-    "status": "primary_source_validated",
+    "status": "not_reproduced",
     "audit_date": "2026-09-10",
     "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
     "verified_fields": [
@@ -2544,7 +2551,12 @@
       "Tables 1–4; Sections 2 and 3.3–3.4"
      ],
      "finding": "Primary observations bundled with errors and calibrant values where published."
-    }
+    },
+    "reproduction_status": "not_reproduced",
+    "usage_recommendation": "not_recommended_for_quantitative_use",
+    "recommendation_date": "2026-10-17",
+    "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+    "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
    },
    "thermal": {
     "type": "Dewaele2006",
@@ -2583,7 +2595,9 @@
      "n",
      "gamma_inf"
     ]
-   }
+   },
+   "catalog_access": "explicit_selection",
+   "default": false
   },
   {
    "determination_method": "experimental",
@@ -2703,7 +2717,7 @@
     }
    },
    "scientific_validation": {
-    "status": "primary_source_validated",
+    "status": "not_reproduced",
     "audit_date": "2026-09-10",
     "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
     "verified_fields": [
@@ -2732,7 +2746,12 @@
       "Tables 1–4; Sections 2 and 3.3–3.4"
      ],
      "finding": "Primary observations bundled with errors and calibrant values where published."
-    }
+    },
+    "reproduction_status": "not_reproduced",
+    "usage_recommendation": "not_recommended_for_quantitative_use",
+    "recommendation_date": "2026-10-17",
+    "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+    "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
    },
    "thermal": {
     "type": "Dewaele2006",
@@ -2771,7 +2790,9 @@
      "n",
      "beta"
     ]
-   }
+   },
+   "catalog_access": "explicit_selection",
+   "default": false
   },
   {
    "determination_method": "experimental",
@@ -2891,7 +2912,7 @@
     }
    },
    "scientific_validation": {
-    "status": "primary_source_validated",
+    "status": "not_reproduced",
     "audit_date": "2026-09-10",
     "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
     "verified_fields": [
@@ -2920,7 +2941,12 @@
       "Tables 1–4; Sections 2 and 3.3–3.4"
      ],
      "finding": "Primary observations bundled with errors and calibrant values where published."
-    }
+    },
+    "reproduction_status": "not_reproduced",
+    "usage_recommendation": "not_recommended_for_quantitative_use",
+    "recommendation_date": "2026-10-17",
+    "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+    "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
    },
    "thermal": {
     "type": "Dewaele2006",
@@ -2960,7 +2986,9 @@
      "beta",
      "theta0"
     ]
-   }
+   },
+   "catalog_access": "explicit_selection",
+   "default": false
   },
   {
    "determination_method": "experimental",
@@ -3080,7 +3108,7 @@
     }
    },
    "scientific_validation": {
-    "status": "primary_source_validated",
+    "status": "not_reproduced",
     "audit_date": "2026-09-10",
     "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
     "verified_fields": [
@@ -3109,7 +3137,12 @@
       "Tables 1–4; Sections 2 and 3.3–3.4"
      ],
      "finding": "Primary observations bundled with errors and calibrant values where published."
-    }
+    },
+    "reproduction_status": "not_reproduced",
+    "usage_recommendation": "not_recommended_for_quantitative_use",
+    "recommendation_date": "2026-10-17",
+    "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+    "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
    },
    "thermal": {
     "type": "Dewaele2006",
@@ -3150,7 +3183,9 @@
      "gamma_inf",
      "theta0"
     ]
-   }
+   },
+   "catalog_access": "explicit_selection",
+   "default": false
   }
  ],
  "datasets": [

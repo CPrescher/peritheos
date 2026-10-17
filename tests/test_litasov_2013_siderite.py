@@ -207,8 +207,25 @@ def test_thermal_mapping_covariance_and_inversion_on_primary_states():
     # High-T source state (row 84) compared with the conditional fit error and
     # the printed pressure bound, not claimed as independent holdout validation.
     prediction = record.pressure_with_uncertainty(247.82, 1673)
-    assert prediction.standard_error == pytest.approx(0.30756958, rel=1e-5)
-    assert abs(record.pressure(247.82, 1673) - 32.10) < prediction.standard_error + 0.1
+    # Independent complex-step derivatives avoid the old unit-sized finite-
+    # difference floor, which stepped far outside the tiny alpha1 coefficient.
+    scales = np.array([1, 1, 1e-5, 1e-8, 1])
+    gradient = []
+    for index in range(5):
+        shifted = scaled.astype(complex)
+        shifted[index] += 1e-24j
+        gradient.append(
+            np.imag(thermal_pressure(shifted, 247.82, 1673)) / 1e-24 / scales[index]
+        )
+    jacobian = np.array(gradient)
+    expected_error = np.sqrt(
+        jacobian @ np.array(record.parameter_covariance) @ jacobian
+    )
+    assert expected_error == pytest.approx(0.0969189701, rel=1e-7)
+    assert prediction.standard_error == pytest.approx(expected_error, rel=1e-5)
+    # A fit-point residual is not guaranteed to lie inside one conditional
+    # parameter standard error plus a reported coordinate bound.
+    assert abs(record.pressure(247.82, 1673) - 32.10) == pytest.approx(0.2574785491)
     covariance = np.array(record.parameter_covariance)
     np.testing.assert_allclose(
         covariance,

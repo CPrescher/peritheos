@@ -1,5 +1,12 @@
 # Iron: Brown (2000), Dubrovinsky (2000), Yamazaki (2012), Sakai (2014), and Dewaele (2006)
 
+> Current disposition (17 October 2026): the five Sakai (2014) Fe-Ni thermal
+> variants are **not recommended** and are retained as explicit-selection
+> `not_reproduced` records. Historical acceptance statements below are superseded
+> for those five variants; all published coefficients and observations are unchanged.
+> See the [recommendation dispositions](../research/eos-recommendation-dispositions-2026-10-17.md).
+
+
 The five primary papers and available official supplements were read from the
 user's Zotero library on 2026-09-10. Attachment and item keys, filenames and
 SHA-256 hashes are recorded in

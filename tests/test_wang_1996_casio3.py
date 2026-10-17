@@ -200,6 +200,9 @@ def test_thermal_addition_preserves_all_previous_scientific_content():
     ]
     for record in doc["eos_records"]:
         record.pop("scientific_validation")
+        if record["identifier"] == "ca_perovskite_fu_2023_bm3_mgd_refit":
+            record.pop("catalog_access", None)
+            record.pop("default", None)
     payload = json.dumps(doc, sort_keys=True, separators=(",", ":")).encode()
     assert (
         hashlib.sha256(payload).hexdigest()

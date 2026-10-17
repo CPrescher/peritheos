@@ -16,6 +16,7 @@ access. External software catalogs are not treated as scientific authority.
 
 from __future__ import annotations
 
+import copy
 import json
 from collections import Counter
 from pathlib import Path
@@ -3343,6 +3344,16 @@ def deferred_reason(record: dict[str, Any], doi: str | None) -> str:
 
 
 def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
+    from scripts.apply_eos_recommendation_holds import NOT_RECOMMENDED, WADSLEYITE
+
+    if (
+        record["identifier"] in set(NOT_RECOMMENDED) | {WADSLEYITE}
+        and record.get("scientific_validation", {}).get("recommendation_date")
+        == "2026-10-17"
+    ):
+        # A generic transcription re-audit must not undo a reviewed source
+        # discrepancy or reactivate a held default without new source evidence.
+        return copy.deepcopy(record)
     result = dict(record)
     # ``audit_corrections`` is generated entirely by this script. Rebuild it
     # from the current rules so moved or withdrawn corrections cannot remain
@@ -3782,6 +3793,13 @@ def main() -> None:
                 entry["usage_recommendation"] = check["usage_recommendation"]
             if "reproduction_status" in check:
                 entry["reproduction_status"] = check["reproduction_status"]
+            for field in (
+                "recommendation_date",
+                "recommendation_audit",
+                "recommendation_reason",
+            ):
+                if field in check:
+                    entry[field] = check[field]
             entries.append(entry)
         document["eos_records"] = records
         path.write_text(
@@ -3884,6 +3902,13 @@ def aggregate_existing_audits() -> None:
                 entry["usage_recommendation"] = check["usage_recommendation"]
             if "reproduction_status" in check:
                 entry["reproduction_status"] = check["reproduction_status"]
+            for field in (
+                "recommendation_date",
+                "recommendation_audit",
+                "recommendation_reason",
+            ):
+                if field in check:
+                    entry[field] = check[field]
             entries.append(entry)
             pressure_calibrations.append(record["pressure_calibration"])
 

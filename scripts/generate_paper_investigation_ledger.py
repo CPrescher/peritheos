@@ -48,6 +48,15 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1007/s00269-003-0353-z": (
+        "Full published thermal EOS: parity not achieved, not recommended. "
+        "Only individually source-checked 300/473/673 K isotherms remain executable. "
+        "The original 873 K normalization and continuous source reconstruction are unresolved. "
+        "All seven Peritheos refits are historical diagnostics, withheld from executable "
+        "selection; numerical replay of those fits is not publication parity or a "
+        "validated replacement. Further model development is outside this curation task. "
+        "See the [audit](literature-reproductions/brucite.md)."
+    ),
     "10.1180/002646100549427": (
         "Fe-bearing phase E volume EOS successfully recovered: parity within "
         "reported uncertainty on all 11 primary rows. Published coefficients "
@@ -162,6 +171,26 @@ PAPER_SCOPE_NOTES = {
 # Keep the historical record ledger, but do not turn refit reproducibility
 # into a claim that every published author fit was reproduced.
 PAPER_REPRODUCTION_OVERRIDES = {
+    "10.2138/am-2022-8435": {
+        "outcome": "partial_reproduction",
+        "summary": "Bridgmanite fits retained; published CaSiO3 thermal parameterization not reproduced and not recommended. Its historical _refit identifier denotes Fu's published coefficients, not the separately attributed Peritheos refit.",
+    },
+    "10.1063/5.0179469": {
+        "outcome": "partial_reproduction",
+        "summary": "Experimental Pd BM3 fit not reproduced and not recommended; separate 0 K DFT record and current material default preserved.",
+    },
+    "10.1016/j.pepi.2013.12.010": {
+        "outcome": "partial_reproduction",
+        "summary": "Five Fe-Ni thermal records not recommended: about 7.1 GPa RMS on the P7 hot data versus about 1.1 GPa reported. Separate isotherms retain their source-specific qualifications; Table 8 checkpoints do not resolve the thermal-data discrepancy.",
+    },
+    "10.1029/2009gl038107": {
+        "outcome": "withheld_unreproduced",
+        "summary": "Wadsleyite default on hold and deferred pending pressure-calibration and MGD mapping review; published coefficients and all 85 source rows preserved, no replacement default selected.",
+    },
+    "10.1007/s00269-003-0353-z": {
+        "outcome": "partial_reproduction",
+        "summary": "Three individual isotherms source-checked; full published thermal EOS not reproduced and not recommended. Unresolved source curves and all independent refits withheld as diagnostic evidence",
+    },
     "10.1029/95jb03254": {
         "outcome": "partial_reproduction",
         "summary": (

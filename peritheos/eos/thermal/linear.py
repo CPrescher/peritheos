@@ -272,6 +272,12 @@ class ThermalReferenceStateEOS(ThermalEOS):
     Hirose et al. (2008), Table 2, fit #2, with the intercept constrained by
     the stated reference bulk modulus. They define a mechanical P-V-T
     surface, not a caloric free-energy model.
+
+    ``dKprime_dT`` adds a linear ``dKprime_dT*(T-Tr)`` change to ``K0_prime``
+    (K^-1), as in Fukui et al. (2003), doi:10.1007/s00269-003-0353-z.
+    The linear and logarithmic terms are additive and both vanish at ``Tr``.
+    Nonzero shifts support BM3, Baonza, Murnaghan, Morse3, NaturalStrain3,
+    SunMorse3, SunMorse4 and Vinet. Other reference families reject them.
     """
 
     _constructor_configuration_names = (
@@ -294,6 +300,7 @@ class ThermalReferenceStateEOS(ThermalEOS):
         beta2: float = 0.0,
         beta3: float = 0.0,
         kprime_log_coefficient: float = 0.0,
+        dKprime_dT: float = 0.0,
     ) -> None:
         super().__init__(rt_eos)
         self.Tr = validate_positive_scalar(Tr, "Tr")
@@ -306,6 +313,7 @@ class ThermalReferenceStateEOS(ThermalEOS):
         self.kprime_log_coefficient = validate_finite_scalar(
             kprime_log_coefficient, "kprime_log_coefficient"
         )
+        self.dKprime_dT = validate_finite_scalar(dKprime_dT, "dKprime_dT")
         if bulk_modulus_law not in {"linear_temperature", "reciprocal_cubic"}:
             raise EosValidationError("Invalid bulk_modulus_law")
         self.bulk_modulus_law = bulk_modulus_law
@@ -313,7 +321,9 @@ class ThermalReferenceStateEOS(ThermalEOS):
             raise EosValidationError("dK_dT must be zero with cubic compressibility")
         if bulk_modulus_law == "linear_temperature" and any((beta1, beta2, beta3)):
             raise EosValidationError("beta coefficients require reciprocal_cubic")
-        if self.kprime_log_coefficient and type(rt_eos).__name__ not in {
+        if (self.kprime_log_coefficient or self.dKprime_dT) and type(
+            rt_eos
+        ).__name__ not in {
             "BM3",
             "Baonza",
             "Murnaghan",
@@ -382,6 +392,7 @@ class ThermalReferenceStateEOS(ThermalEOS):
                 self.beta2,
                 self.beta3,
                 self.kprime_log_coefficient,
+                self.dKprime_dT,
             )
 
     def configuration_values(self) -> dict[str, str]:
@@ -430,13 +441,16 @@ class ThermalReferenceStateEOS(ThermalEOS):
         if not np.isfinite(K0) or K0 <= 0.0:
             raise EosValidationError("Temperature produces a non-positive bulk modulus")
         parameters = {"V0": float(V0), "K0": float(K0)}
-        if self.kprime_log_coefficient:
+        if self.kprime_log_coefficient or self.dKprime_dT:
             parameters["K0_prime"] = (
-                self.rt_eos.K0_prime
-                + self.kprime_log_coefficient
-                * delta_temperature
-                * np.log(temperature / self.Tr)
+                self.rt_eos.K0_prime + self.dKprime_dT * delta_temperature
             )
+            if self.kprime_log_coefficient:
+                parameters["K0_prime"] += (
+                    self.kprime_log_coefficient
+                    * delta_temperature
+                    * np.log(temperature / self.Tr)
+                )
         return self.rt_eos.with_parameters(**parameters)
 
     def pressure(self, V: NumericType, T: NumericType) -> NumericType:

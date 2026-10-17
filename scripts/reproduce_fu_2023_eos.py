@@ -57,7 +57,7 @@ def reproduce() -> dict[str, object]:
 
     ca_document = get_material_document("ca_perovskite")
     ca_model = Material.from_eosmat(
-        ca_document, record_identifiers=[CA_RECORD]
+        ca_document, record_identifiers=[CA_RECORD], require_primary_validation=False
     ).get_eos_record(CA_RECORD)
     checkpoints = {}
     for temperature in (300.0, 1200.0, 2200.0):

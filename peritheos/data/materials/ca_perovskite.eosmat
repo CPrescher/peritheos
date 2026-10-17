@@ -3748,7 +3748,7 @@
     "audit_date": "2026-09-05"
    },
    "scientific_validation": {
-    "status": "primary_source_validated",
+    "status": "not_reproduced",
     "note": "Primary-source validation verifies the published joint Sun (2016)–Gréaux (2019) equation conventions and Table S3 coefficients only. The published joint fit is NOT REPRODUCED from the 174 candidate observations; its exact row selection, objective, weights and covariance are undisclosed. The discrepancy remains unresolved and does not establish that every prediction is invalid.",
     "audit_date": "2026-09-08",
     "verified_fields": [
@@ -3789,12 +3789,17 @@
     },
     "reproduction_status": "not_reproduced",
     "fit_reproduction_note": "Multiple explicit candidate-data weightings do not recover the published Table S3 coefficients. The normalization audit verifies Peritheos formula/molar consistency; a single global atom-count factor does not reconcile pressure and elastic observations. No coefficient or observation correction is justified by this audit.",
-    "usage_recommendation": "Retain unchanged as the Fu (2023) published joint literature parameterization for qualified comparison, with an explicit non-reproduction warning. Do not describe it as a reproduced fit or silently substitute the independent Peritheos candidate-data refit. Treat the high-temperature discrepancy as unresolved; the 300 K cubic branch is an extrapolated reference.",
-    "qualification_date": "2026-10-08"
+    "usage_recommendation": "not_recommended_for_quantitative_use",
+    "qualification_date": "2026-10-08",
+    "recommendation_date": "2026-10-17",
+    "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+    "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published thermal parameterization retains an unresolved high-temperature discrepancy against the reconstructed source observations; source normalization checks do not reconcile it."
    },
    "supporting_datasets": [
     "ca_perovskite_fu_2023_candidate_composite_external"
-   ]
+   ],
+   "catalog_access": "explicit_selection",
+   "default": false
   },
   {
    "determination_method": "theoretical",

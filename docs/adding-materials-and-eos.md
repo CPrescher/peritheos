@@ -47,7 +47,9 @@ A bundled, executable EOS record must satisfy all of the following:
 5. **Numerical reproduction.** At least one independently specified source
    result is reproduced within a tolerance justified by reported uncertainty,
    printed precision, or digitization error. Reference-state identities alone
-   are necessary tests but are not independent literature reproduction.
+   are necessary tests but are not independent literature reproduction. A
+   passing checkpoint does not override an unresolved discrepancy elsewhere
+   within the record's claimed scope; apply the stopping rule below.
 6. **Primary observations when available.** All recoverable rows relevant to
    the represented fit are bundled or checksummed and linked to the record,
    including reported coordinate uncertainties and calibrant observations.
@@ -199,7 +201,41 @@ refit using the published row selection, objective, weights, fixed parameters,
 and fitting order. Report coefficient differences and curve or residual
 statistics even when the refit does not recover the published coefficients.
 Failure to achieve parameter parity is evidence to investigate and disclose;
-it is not permission to replace the publication silently.
+it is not permission to develop a replacement model as part of curation.
+
+### Stopping rule: unresolved reproduction discrepancies
+
+If the published EOS or its reported agreement with the source data cannot be
+reproduced within justified tolerances after checking transcription, equation
+mapping, units, reference state, and the reported fitting protocol, document
+the discrepancy and **do not recommend the affected EOS**. A documented
+non-parity outcome completes the curation investigation; producing a better
+fit is not required.
+
+Preserve the published coefficients and observations unchanged. Record the
+literal source calculation, quantitative differences, comparison tolerances,
+affected pressure/temperature range, checks performed, and unresolved inputs
+or contradictions. Mark the affected parameterization `not_reproduced` and
+explicitly not recommended; use `deferred` when the source/model mapping is
+incomplete. Do not promote it as validated or use it as a recommended default.
+Any retained executable diagnostic must be explicitly identified as such and
+not recommended for scientific predictions or pressure calibration. Keep
+catalog descriptions and scientific ledgers consistent with that finding.
+
+Source-supported diagnostic checks may clarify the discrepancy. Stop before
+trying successive alternative EOS families, thermal laws, extra parameters,
+or new fitting protocols to create a replacement. Existing exploratory refits
+remain diagnostic evidence; smaller residuals or reproduction of their own
+coefficients do not establish published-EOS parity or a validated replacement.
+Replacement-model development requires an explicit user request as a separate
+research task and remains distinct from curation of the original publication.
+
+Scope the finding to the affected parameterization and domain. Individually
+verified isotherms may be retained without implying validation of an unresolved
+continuous thermal EOS. Missing author-workflow details alone do not establish
+a numerical reproduction failure when the published parameterization passes
+independent source benchmarks. For unavailable observations, follow the
+parameterization-only validation route above.
 
 A new Peritheos refit is always a separate record. Use `record_kind: refit`, a
 `_refit` identifier suffix, and complete `fit_provenance`. Add
@@ -307,6 +343,9 @@ the change affects a bundled record or its primary dataset.
       tolerance.
 - [ ] An available primary fit has been independently refitted and the outcome
       is recorded without overwriting the published record.
+- [ ] Unresolved reproduction discrepancies are documented and the affected
+      EOS is explicitly not recommended; replacement-model development has
+      not been substituted for the curation outcome.
 - [ ] Pressure calibration, experimental coverage, phase boundaries, and
       source contradictions are explicit.
 - [ ] The `.eosmat` record validates, executes, inverts, and round-trips in

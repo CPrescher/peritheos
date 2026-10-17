@@ -197,7 +197,7 @@ states and inverts those pressures back to their input volumes. Peritheos's
 separate native joint fitter also recovers the independent SciPy fit. At the
 high-temperature Table 2 state V = 247.82 Å³, T = 1673 K, the refit predicts
 32.35748 GPa against the printed 32.10 GPa; its conditional parameter-only
-pressure standard error is 0.30757 GPa. This is an in-sample check, not an
+pressure standard error is 0.096919 GPa, independently checked with complex-step derivatives of the source equation. The former 0.30757 GPa value came from a unit-sized finite-difference floor applied to the tiny expansivity-curvature coefficient. The unchanged point residual is 0.257479 GPa; a conditional parameter standard error alone is not a guaranteed observation-error envelope. This is an in-sample check, not an
 independent validation experiment. Out-of-envelope calls are rejected when
 `check_validity=True`.
 

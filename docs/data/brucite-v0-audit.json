@@ -1,0 +1,890 @@
+{
+  "audit_date": "2026-10-16",
+  "software": {
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "optimizer": "scipy.optimize.least_squares; explicit bounds/tolerances in script"
+  },
+  "source": {
+    "doi": "10.1007/s00269-003-0353-z",
+    "url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+    "pdf_sha256": "a8c7cd597528b1269eacf8448d31008dfc198b21bd13d5ea651578b9da70ba52",
+    "locations": "Table 4 observations, Tables 5-6 moduli, Eq. (1) and Tables 2-3 expansion"
+  },
+  "table4_csv_sha256": "75f41a98f09ff132927697af0da45bc9a89a4e354f7d32d7ffad7648963a1b56",
+  "objectives": {
+    "unweighted_pressure": "Minimize sum((P_BM3(V_observed;V0,K0_fixed,Kprime_fixed)-P_observed)^2), in GPa^2",
+    "pressure_sigma": "Minimize sum((pressure residual / reported pressure standard deviation)^2)",
+    "effective_sigma": "Minimize sum((pressure residual / sqrt(sigma_P^2+(K_T*sigma_V/V)^2))^2); parameter-dependent variance, diagnostic rather than confirmed author likelihood"
+  },
+  "covariance_convention": "SSE/(n-1) * inverse(J.T @ J), using the selected residual objective. Local linear conditional uncertainty only: published moduli treated as exact; their errors/covariance and pressure-scale systematics excluded. No author confidence level or workflow inferred.",
+  "isotherms": [
+    {
+      "temperature_k": 300,
+      "observations": 13,
+      "source_rows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "fixed_published_moduli": {
+        "K0_gpa": 41.8,
+        "K0_prime": 6.6
+      },
+      "printed_expansion_V0_a3": 40.917,
+      "printed_expansion_curve": {
+        "pressure_rmse_gpa": 0.22790990500597397,
+        "maximum_absolute_pressure_residual_gpa": 0.4401215188100771
+      },
+      "fits": {
+        "unweighted_pressure": {
+          "V0_a3": 40.941674825109374,
+          "conditional_standard_error_a3": 0.0237266949050688,
+          "conditional_covariance_a6": [
+            [
+              0.0005629560511182177
+            ]
+          ],
+          "degrees_of_freedom": 12,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            0.08012402173725215,
+            0.03346119483861654,
+            -0.14168477774692434,
+            0.1922399563690611,
+            0.22215663447502898,
+            0.027878410343198823,
+            0.0919478261793909,
+            0.15575031435959197,
+            -0.3676064033772235,
+            -0.3251618456040539,
+            -0.1701748213294607,
+            0.4386508583865094,
+            -0.09950614260488067
+          ],
+          "mean_pressure_residual_gpa": 0.010621171232777437,
+          "pressure_rmse_gpa": 0.21830709458335323,
+          "maximum_absolute_pressure_residual_gpa": 0.4386508583865094,
+          "minus_printed_expansion_a3": 0.024674825109372023,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": null
+        },
+        "pressure_sigma": {
+          "V0_a3": 40.92438480769658,
+          "conditional_standard_error_a3": 0.02497507815088287,
+          "conditional_covariance_a6": [
+            [
+              0.000623754528642707
+            ]
+          ],
+          "degrees_of_freedom": 12,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            0.06243637233155989,
+            0.01573644734196636,
+            -0.16934457219859933,
+            0.15943713701621043,
+            0.1857333636872509,
+            -0.008511880469860955,
+            0.048947492615106114,
+            0.10582024622704722,
+            -0.41843770175735706,
+            -0.3796670163961853,
+            -0.22968187958076314,
+            0.37453777466463123,
+            -0.16807374015313314
+          ],
+          "mean_pressure_residual_gpa": -0.032389842820932824,
+          "pressure_rmse_gpa": 0.22307726901702193,
+          "maximum_absolute_pressure_residual_gpa": 0.41843770175735706,
+          "minus_printed_expansion_a3": 0.0073848076965816745,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": null
+        },
+        "effective_sigma": {
+          "V0_a3": 40.91814376339176,
+          "conditional_standard_error_a3": 0.024247506231077593,
+          "conditional_covariance_a6": [
+            [
+              0.0005879415584261467
+            ]
+          ],
+          "degrees_of_freedom": 12,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            0.05606206533683286,
+            0.00934876315538118,
+            -0.17931484362455263,
+            0.14761221910829203,
+            0.1726028400002244,
+            -0.021630510863079877,
+            0.033445115207161535,
+            0.08781879104021861,
+            -0.4367641713307613,
+            -0.39931841563061,
+            -0.2511371521994299,
+            0.3514213788118816,
+            -0.19279662854909319
+          ],
+          "mean_pressure_residual_gpa": -0.047896196118271894,
+          "pressure_rmse_gpa": 0.22705800736047665,
+          "maximum_absolute_pressure_residual_gpa": 0.4367641713307613,
+          "minus_printed_expansion_a3": 0.001143763391759478,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": null
+        }
+      },
+      "printed_rounding_corner_sensitivity": {
+        "K0_perturbation_gpa": [
+          -0.05,
+          0.05
+        ],
+        "Kprime_perturbation": [
+          -0.05,
+          0.05
+        ],
+        "unweighted_V0_range_a3": [
+          40.91653041716581,
+          40.967042309090395
+        ],
+        "is_confidence_interval": false
+      }
+    },
+    {
+      "temperature_k": 473,
+      "observations": 8,
+      "source_rows": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "fixed_published_moduli": {
+        "K0_gpa": 32.6,
+        "K0_prime": 8.3
+      },
+      "printed_expansion_V0_a3": 41.393312112806804,
+      "printed_expansion_curve": {
+        "pressure_rmse_gpa": 0.33630739972845325,
+        "maximum_absolute_pressure_residual_gpa": 0.5827339497893345
+      },
+      "fits": {
+        "unweighted_pressure": {
+          "V0_a3": 41.47434693773462,
+          "conditional_standard_error_a3": 0.03795416776665272,
+          "conditional_covariance_a6": [
+            [
+              0.0014405188508592201
+            ]
+          ],
+          "degrees_of_freedom": 7,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            0.12538646954477706,
+            0.35252643373503645,
+            -0.1257373393807537,
+            0.302246690245477,
+            -0.3209693690328237,
+            0.156766729731193,
+            -0.40993362614633355,
+            -0.08473467814984481
+          ],
+          "mean_pressure_residual_gpa": -0.0005560861816590323,
+          "pressure_rmse_gpa": 0.2621979882742057,
+          "maximum_absolute_pressure_residual_gpa": 0.40993362614633355,
+          "minus_printed_expansion_a3": 0.08103482492781922,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": 7.820500239344013e-05
+        },
+        "pressure_sigma": {
+          "V0_a3": 41.47393003568681,
+          "conditional_standard_error_a3": 0.03670972626844627,
+          "conditional_covariance_a6": [
+            [
+              0.001347604002704254
+            ]
+          ],
+          "degrees_of_freedom": 7,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            0.12440555470656811,
+            0.3514281014061851,
+            -0.1269272304181399,
+            0.30093561810199887,
+            -0.3223220100928472,
+            0.1560074466620005,
+            -0.4108029870761465,
+            -0.08574172484832765
+          ],
+          "mean_pressure_residual_gpa": -0.0016271539448385886,
+          "pressure_rmse_gpa": 0.26220024783998536,
+          "maximum_absolute_pressure_residual_gpa": 0.4108029870761465,
+          "minus_printed_expansion_a3": 0.08061792288000902,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": 7.81468977886286e-05
+        },
+        "effective_sigma": {
+          "V0_a3": 41.39169877911897,
+          "conditional_standard_error_a3": 0.013809307174034844,
+          "conditional_covariance_a6": [
+            [
+              0.00019069696462685018
+            ]
+          ],
+          "degrees_of_freedom": 7,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            -0.06812487294836878,
+            0.13581826690492882,
+            -0.36053447197172517,
+            0.04350727933038634,
+            -0.587921949728619,
+            0.007037013491784094,
+            -0.5814077099711055,
+            -0.2834084895987843
+          ],
+          "mean_pressure_residual_gpa": -0.21187936681143793,
+          "pressure_rmse_gpa": 0.3389363185939297,
+          "maximum_absolute_pressure_residual_gpa": 0.587921949728619,
+          "minus_printed_expansion_a3": -0.0016133336878354498,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": 6.667470249374654e-05
+        }
+      },
+      "printed_rounding_corner_sensitivity": {
+        "K0_perturbation_gpa": [
+          -0.05,
+          0.05
+        ],
+        "Kprime_perturbation": [
+          -0.05,
+          0.05
+        ],
+        "unweighted_V0_range_a3": [
+          41.45202178697403,
+          41.49685155335465
+        ],
+        "is_confidence_interval": false
+      }
+    },
+    {
+      "temperature_k": 673,
+      "observations": 8,
+      "source_rows": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "fixed_published_moduli": {
+        "K0_gpa": 28.8,
+        "K0_prime": 9.0
+      },
+      "printed_expansion_V0_a3": 41.95087641595446,
+      "printed_expansion_curve": {
+        "pressure_rmse_gpa": 0.23027507836968086,
+        "maximum_absolute_pressure_residual_gpa": 0.5071162310700625
+      },
+      "fits": {
+        "unweighted_pressure": {
+          "V0_a3": 41.93994027311923,
+          "conditional_standard_error_a3": 0.03454485502581336,
+          "conditional_covariance_a6": [
+            [
+              0.0011933470087544626
+            ]
+          ],
+          "degrees_of_freedom": 7,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            -0.015811861533309823,
+            0.14535188604041593,
+            -0.1167316875157951,
+            0.4738235926680101,
+            -0.3688527949057967,
+            -0.010347655576727455,
+            -0.14970541481493171,
+            0.011587987848432846
+          ],
+          "mean_pressure_residual_gpa": -0.0038357434737127383,
+          "pressure_rmse_gpa": 0.22864211132050857,
+          "maximum_absolute_pressure_residual_gpa": 0.4738235926680101,
+          "minus_printed_expansion_a3": -0.010936142835234364,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": 6.620101007208916e-05
+        },
+        "pressure_sigma": {
+          "V0_a3": 41.92554053085203,
+          "conditional_standard_error_a3": 0.030242936697316487,
+          "conditional_covariance_a6": [
+            [
+              0.0009146352200778922
+            ]
+          ],
+          "degrees_of_freedom": 7,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            -0.04749341103866733,
+            0.10933488176510409,
+            -0.1563584929616848,
+            0.4300488969135703,
+            -0.41396572477305504,
+            -0.03452447147593318,
+            -0.17873728136099487,
+            -0.021783692710002356
+          ],
+          "mean_pressure_residual_gpa": -0.0391849119552079,
+          "pressure_rmse_gpa": 0.23145757655412832,
+          "maximum_absolute_pressure_residual_gpa": 0.4300488969135703,
+          "minus_printed_expansion_a3": -0.02533588510242879,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": 6.528036412431784e-05
+        },
+        "effective_sigma": {
+          "V0_a3": 41.974390535895395,
+          "conditional_standard_error_a3": 0.013518501752544376,
+          "conditional_covariance_a6": [
+            [
+              0.0001827498896335454
+            ]
+          ],
+          "degrees_of_freedom": 7,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            0.06021097985247792,
+            0.23176853585282764,
+            -0.021661169723168783,
+            0.5788376987142065,
+            -0.26063064110089407,
+            0.04768236721501928,
+            -0.08003510849480655,
+            0.09166278892463176
+          ],
+          "mean_pressure_residual_gpa": 0.08097943140503672,
+          "pressure_rmse_gpa": 0.24440589413969785,
+          "maximum_absolute_pressure_residual_gpa": 0.5788376987142065,
+          "minus_printed_expansion_a3": 0.02351411994093411,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": 6.84023017494933e-05
+        }
+      },
+      "printed_rounding_corner_sensitivity": {
+        "K0_perturbation_gpa": [
+          -0.05,
+          0.05
+        ],
+        "Kprime_perturbation": [
+          -0.05,
+          0.05
+        ],
+        "unweighted_V0_range_a3": [
+          41.916972990129196,
+          41.96308346703788
+        ],
+        "is_confidence_interval": false
+      }
+    },
+    {
+      "temperature_k": 873,
+      "observations": 8,
+      "source_rows": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "fixed_published_moduli": {
+        "K0_gpa": 23.9,
+        "K0_prime": 10.0
+      },
+      "printed_expansion_V0_a3": 42.515951061625515,
+      "printed_expansion_curve": {
+        "pressure_rmse_gpa": 0.486257144044042,
+        "maximum_absolute_pressure_residual_gpa": 0.6724251855101837
+      },
+      "fits": {
+        "unweighted_pressure": {
+          "V0_a3": 42.71409467453981,
+          "conditional_standard_error_a3": 0.02583802259582644,
+          "conditional_covariance_a6": [
+            [
+              0.0006676034116624375
+            ]
+          ],
+          "degrees_of_freedom": 7,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            -0.06355745627055498,
+            0.356003158216172,
+            -0.030631603999088597,
+            -0.023799102222767488,
+            -0.08410704915586109,
+            0.12781629652910098,
+            -0.017952261819567994,
+            -0.22239481052304377
+          ],
+          "mean_pressure_residual_gpa": 0.005172146344298634,
+          "pressure_rmse_gpa": 0.1602635439540834,
+          "maximum_absolute_pressure_residual_gpa": 0.356003158216172,
+          "minus_printed_expansion_a3": 0.1981436129142935,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": 7.501453265289911e-05
+        },
+        "pressure_sigma": {
+          "V0_a3": 42.67800780981237,
+          "conditional_standard_error_a3": 0.033412177918104864,
+          "conditional_covariance_a6": [
+            [
+              0.0011163736332310942
+            ]
+          ],
+          "degrees_of_freedom": 7,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            -0.13764099963701604,
+            0.27076879056787995,
+            -0.12397622506345662,
+            -0.12495928600075246,
+            -0.19223114805702934,
+            0.07226629403054119,
+            -0.08564433130951077,
+            -0.29956148663676885
+          ],
+          "mean_pressure_residual_gpa": -0.07762229901326412,
+          "pressure_rmse_gpa": 0.18113978634026978,
+          "maximum_absolute_pressure_residual_gpa": 0.29956148663676885,
+          "minus_printed_expansion_a3": 0.16205674818685623,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": 7.353948230442973e-05
+        },
+        "effective_sigma": {
+          "V0_a3": 42.68387532286658,
+          "conditional_standard_error_a3": 0.03161220508738485,
+          "conditional_covariance_a6": [
+            [
+              0.0009993315104868804
+            ]
+          ],
+          "degrees_of_freedom": 7,
+          "solver_success": true,
+          "pressure_residuals_gpa": [
+            -0.12561815246402475,
+            0.28460236444199083,
+            -0.1088256417436817,
+            -0.10853952945300449,
+            -0.17468050426657378,
+            0.08127968466486202,
+            -0.07465934240868943,
+            -0.28703798939733716
+          ],
+          "mean_pressure_residual_gpa": -0.06418488882830731,
+          "pressure_rmse_gpa": 0.17517375884584505,
+          "maximum_absolute_pressure_residual_gpa": 0.28703798939733716,
+          "minus_printed_expansion_a3": 0.16792426124106186,
+          "equivalent_constant_alpha_from_source_300k_anchor_per_k": 7.377940175134266e-05
+        }
+      },
+      "printed_rounding_corner_sensitivity": {
+        "K0_perturbation_gpa": [
+          -0.05,
+          0.05
+        ],
+        "Kprime_perturbation": [
+          -0.05,
+          0.05
+        ],
+        "unweighted_V0_range_a3": [
+          42.689546713198204,
+          42.73882199516691
+        ],
+        "is_confidence_interval": false
+      }
+    }
+  ],
+  "temperature_law_comparisons": {
+    "fukui_2003_table3": {
+      "alpha0_per_k": 6.69e-05,
+      "alpha1_per_k2": 0,
+      "common_V300_a3": 40.917,
+      "V0_at_isotherms_a3": [
+        40.917,
+        41.393312112806804,
+        41.95087641595446,
+        42.515951061625515
+      ],
+      "reference_volume_rmse_a3_by_mode": {
+        "unweighted_pressure": 0.10788417446977851,
+        "pressure_sigma": 0.09145775196917998,
+        "effective_sigma": 0.08478706031912779
+      }
+    },
+    "fei_mao_1993_as_listed_by_fukui": {
+      "alpha0_per_k": 8e-05,
+      "alpha1_per_k2": 0,
+      "common_V300_a3": 40.917,
+      "V0_at_isotherms_a3": [
+        40.917,
+        41.48722815681636,
+        42.15636260812853,
+        42.8362893185003
+      ],
+      "reference_volume_rmse_a3_by_mode": {
+        "unweighted_pressure": 0.125044922830478,
+        "pressure_sigma": 0.14014567667346764,
+        "effective_sigma": 0.12793653830689355
+      }
+    },
+    "xia_1998_as_listed_by_fukui": {
+      "alpha0_per_k": 7.3e-05,
+      "alpha1_per_k2": 3.6e-08,
+      "common_V300_a3": 40.917,
+      "V0_at_isotherms_a3": [
+        40.917,
+        41.53688163302141,
+        42.32201274739967,
+        43.184124816501985
+      ],
+      "reference_volume_rmse_a3_by_mode": {
+        "unweighted_pressure": 0.3047241150059148,
+        "pressure_sigma": 0.32301783307827714,
+        "effective_sigma": 0.3131174408570839
+      }
+    },
+    "redfern_wood_1992_as_listed_by_fukui": {
+      "alpha0_per_k": 2.3e-06,
+      "alpha1_per_k2": 2.37e-07,
+      "common_V300_a3": 40.917,
+      "V0_at_isotherms_a3": [
+        40.917,
+        41.58711613950877,
+        42.751770559125106,
+        44.367659354426536
+      ],
+      "reference_volume_rmse_a3_by_mode": {
+        "unweighted_pressure": 0.9228583726266235,
+        "pressure_sigma": 0.9421310990674636,
+        "effective_sigma": 0.9324212591942215
+      }
+    }
+  },
+  "temperature_law_comparison_scope": "All Table 3 expansion laws compared with the same V300=40.917 A^3 anchor and exponential integral. Other authors' actual reference volumes/validity are not substituted; this is not validation of those EOSs. Extrapolation beyond ambient measurement intervals is diagnostic.",
+  "constant_alpha_trend_fits": {
+    "unweighted_pressure_fixed_300k_anchor": {
+      "V300_a3": 40.917,
+      "alpha_per_k": 7.277879878728966e-05,
+      "reference_volume_rmse_a3": 0.06270597565127244,
+      "reference_volume_residuals_a3": [
+        -0.024674825109372023,
+        -0.038915079111944806,
+        0.1030266175629393,
+        -0.05468494515481126
+      ],
+      "objective": "Unweighted volume residuals to four conditionally inferred V0 values, not a direct fit to ambient observations or original author workflow"
+    },
+    "unweighted_pressure_free_300k_anchor": {
+      "V300_a3": 40.92715738641591,
+      "alpha_per_k": 7.222411303820058e-05,
+      "reference_volume_rmse_a3": 0.06239674397103008,
+      "reference_volume_residuals_a3": [
+        -0.014517438693467,
+        -0.032605961842378406,
+        0.10476366208695964,
+        -0.05765487806759495
+      ],
+      "objective": "Unweighted volume residuals to four conditionally inferred V0 values, not a direct fit to ambient observations or original author workflow"
+    },
+    "pressure_sigma_fixed_300k_anchor": {
+      "V300_a3": 40.917,
+      "alpha_per_k": 7.153668152017725e-05,
+      "reference_volume_rmse_a3": 0.0597746416439346,
+      "reference_volume_residuals_a3": [
+        -0.0073848076965816745,
+        -0.047401126580055575,
+        0.09795195543355817,
+        -0.04894939606993631
+      ],
+      "objective": "Unweighted volume residuals to four conditionally inferred V0 values, not a direct fit to ambient observations or original author workflow"
+    },
+    "pressure_sigma_free_300k_anchor": {
+      "V300_a3": 40.920849252098165,
+      "alpha_per_k": 7.132645132631497e-05,
+      "reference_volume_rmse_a3": 0.05972815463011249,
+      "reference_volume_residuals_a3": [
+        -0.0035355555984182274,
+        -0.04501073061771166,
+        0.09860981122090351,
+        -0.05007443388519306
+      ],
+      "objective": "Unweighted volume residuals to four conditionally inferred V0 values, not a direct fit to ambient observations or original author workflow"
+    },
+    "effective_sigma_fixed_300k_anchor": {
+      "V300_a3": 40.917,
+      "alpha_per_k": 7.189448417275564e-05,
+      "reference_volume_rmse_a3": 0.04036069066981908,
+      "reference_volume_residuals_a3": [
+        -0.001143763391759478,
+        0.03739450564824409,
+        0.05471079633291254,
+        -0.046076164365373984
+      ],
+      "objective": "Unweighted volume residuals to four conditionally inferred V0 values, not a direct fit to ambient observations or original author workflow"
+    },
+    "effective_sigma_free_300k_anchor": {
+      "V300_a3": 40.88706238439519,
+      "alpha_per_k": 7.353015748163248e-05,
+      "reference_volume_rmse_a3": 0.0359568241251552,
+      "reference_volume_residuals_a3": [
+        -0.03108137899656782,
+        0.018798540366816496,
+        0.04959076246689875,
+        -0.03732146624088983
+      ],
+      "objective": "Unweighted volume residuals to four conditionally inferred V0 values, not a direct fit to ambient observations or original author workflow"
+    }
+  },
+  "ambient_linear_alpha_diagnostics": {
+    "unweighted_volume_fixed_300k_anchor": {
+      "V300_a3": 40.917,
+      "alpha_300_per_k": 6.354730263568295e-05,
+      "dalpha_dT_per_k2": 2.862348408545707e-08,
+      "alpha0_for_alpha0_plus_alpha1T_per_k": 5.496025741004582e-05,
+      "parameter_covariance": {
+        "parameter_order": [
+          "alpha_300_per_k",
+          "dalpha_dT_per_k2"
+        ],
+        "matrix": [
+          [
+            1.3781708235329193e-11,
+            -1.1011235844923612e-13
+          ],
+          [
+            -1.1011235844923612e-13,
+            9.48916965320555e-16
+          ]
+        ]
+      },
+      "parameter_standard_errors": {
+        "alpha_300_per_k": 3.7123723190608444e-06,
+        "dalpha_dT_per_k2": 3.080449586213926e-08
+      },
+      "source_rows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "volume_rmse_a3": 0.02021870401418338,
+      "V0_at_isotherms_a3": [
+        40.917,
+        41.38703402999224,
+        41.98195767640564,
+        42.6342187967674
+      ],
+      "conditional_V0_standard_errors_at_isotherms_a3": [
+        0.0,
+        0.009691906021643578,
+        0.0374360250388156,
+        0.13059241534969795
+      ],
+      "qualification": "New diagnostic alpha(T)=alpha(300)+dalpha/dT*(T-300), fitted only to the 11 ambient observations. Extrapolation to 873 K, not proof of the author's law. Residual-scaled local covariance omits systematics and model uncertainty."
+    },
+    "unweighted_volume_free_300k_anchor": {
+      "V300_a3": 40.92621695911146,
+      "alpha_300_per_k": 6.06652928357754e-05,
+      "dalpha_dT_per_k2": 4.389573894208234e-08,
+      "alpha0_for_alpha0_plus_alpha1T_per_k": 4.7496571153150695e-05,
+      "parameter_covariance": {
+        "parameter_order": [
+          "V300_a3",
+          "alpha_300_per_k",
+          "dalpha_dT_per_k2"
+        ],
+        "matrix": [
+          [
+            0.00021145436352405374,
+            -6.611291384611574e-08,
+            3.503501867596126e-10
+          ],
+          [
+            -6.611291384611568e-08,
+            3.543327361374518e-11,
+            -2.274875280559491e-13
+          ],
+          [
+            3.503501867596123e-10,
+            -2.2748752805594906e-13,
+            1.5969131984071902e-15
+          ]
+        ]
+      },
+      "parameter_standard_errors": {
+        "V300_a3": 0.01454147047323804,
+        "alpha_300_per_k": 5.952585456232038e-06,
+        "dalpha_dT_per_k2": 3.996139635206946e-08
+      },
+      "source_rows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "volume_rmse_a3": 0.019729386831575834,
+      "V0_at_isotherms_a3": [
+        40.92621695911146,
+        41.385179456052974,
+        41.99088615806489,
+        42.680331519777454
+      ],
+      "conditional_V0_standard_errors_at_isotherms_a3": [
+        0.01454147047323804,
+        0.010448571600740818,
+        0.04123410097090755,
+        0.15363971627947015
+      ],
+      "qualification": "New diagnostic alpha(T)=alpha(300)+dalpha/dT*(T-300), fitted only to the 11 ambient observations. Extrapolation to 873 K, not proof of the author's law. Residual-scaled local covariance omits systematics and model uncertainty."
+    },
+    "volume_sigma_fixed_300k_anchor": {
+      "V300_a3": 40.917,
+      "alpha_300_per_k": 6.5262056371761e-05,
+      "dalpha_dT_per_k2": 1.9289974798297465e-08,
+      "alpha0_for_alpha0_plus_alpha1T_per_k": 5.9475063932271765e-05,
+      "parameter_covariance": {
+        "parameter_order": [
+          "alpha_300_per_k",
+          "dalpha_dT_per_k2"
+        ],
+        "matrix": [
+          [
+            9.232721414000348e-12,
+            -8.306279344640454e-14
+          ],
+          [
+            -8.306279344640456e-14,
+            7.699891180331764e-16
+          ]
+        ]
+      },
+      "parameter_standard_errors": {
+        "alpha_300_per_k": 3.0385393553482812e-06,
+        "dalpha_dT_per_k2": 2.774867777089886e-08
+      },
+      "source_rows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "volume_rmse_a3": 0.0207609357810594,
+      "V0_at_isotherms_a3": [
+        40.917,
+        41.393531521958224,
+        41.981551386924494,
+        42.61079018718586
+      ],
+      "conditional_V0_standard_errors_at_isotherms_a3": [
+        0.0,
+        0.005657295769023579,
+        0.0351276072815609,
+        0.12168907213408595
+      ],
+      "qualification": "New diagnostic alpha(T)=alpha(300)+dalpha/dT*(T-300), fitted only to the 11 ambient observations. Extrapolation to 873 K, not proof of the author's law. Residual-scaled local covariance omits systematics and model uncertainty."
+    },
+    "volume_sigma_free_300k_anchor": {
+      "V300_a3": 40.928544553343556,
+      "alpha_300_per_k": 6.209587173145051e-05,
+      "dalpha_dT_per_k2": 3.6011260094124036e-08,
+      "alpha0_for_alpha0_plus_alpha1T_per_k": 5.1292493703213304e-05,
+      "parameter_covariance": {
+        "parameter_order": [
+          "V300_a3",
+          "alpha_300_per_k",
+          "dalpha_dT_per_k2"
+        ],
+        "matrix": [
+          [
+            0.00011596247466796514,
+            -3.1797345685271476e-08,
+            1.6792224989430425e-10
+          ],
+          [
+            -3.179734568527145e-08,
+            1.7800549826600775e-11,
+            -1.2774877966555756e-13
+          ],
+          [
+            1.6792224989430422e-10,
+            -1.2774877966555756e-13,
+            1.000563193857563e-15
+          ]
+        ]
+      },
+      "parameter_standard_errors": {
+        "V300_a3": 0.010768587403553223,
+        "alpha_300_per_k": 4.219069782144018e-06,
+        "dalpha_dT_per_k2": 3.1631680225014334e-08
+      },
+      "source_rows": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "volume_rmse_a3": 0.020633674387480323,
+      "V0_at_isotherms_a3": [
+        40.928544553343556,
+        41.392893304029194,
+        41.9926497040149,
+        42.662505172357136
+      ],
+      "conditional_V0_standard_errors_at_isotherms_a3": [
+        0.010768587403553223,
+        0.005642112086381197,
+        0.03635358550595563,
+        0.13011623877382938
+      ],
+      "qualification": "New diagnostic alpha(T)=alpha(300)+dalpha/dT*(T-300), fitted only to the 11 ambient observations. Extrapolation to 873 K, not proof of the author's law. Residual-scaled local covariance omits systematics and model uncertainty."
+    }
+  },
+  "conclusion": "The inferred reference volume near 42.7 A^3 at 873 K is robust across the three tested objectives and printed rounding corners. At 473 K the apparent unweighted offset is weighting-sensitive: effective-P/V weighting recovers the printed expansion volume closely. No single tested Table 3 expansion law consistently accounts for all inferred volumes. An independently fitted linear-temperature expansivity from the ambient observations extrapolates to about 42.68 A^3, a plausible explanation, but its curvature is weakly constrained and its 873 K prediction has about 0.15 A^3 conditional standard error. Actual author inputs/law cannot be uniquely recovered; no published parameter is changed.",
+  "catalog_mutated": false
+}

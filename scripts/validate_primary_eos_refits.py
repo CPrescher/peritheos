@@ -114,6 +114,8 @@ NOGUCHI_RECORD_ID = "ca_perovskite_noguchi_2013_bm2_mgd_1"
 
 
 SOLOMATOVA_RECORD_SOURCES = {
+    "mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1": "fp48",
+    "mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2": "fp48",
     "mg090fe010o_solomatova_2016_hs_bm3_reference_1": "mg090_marq",
     "mg090fe010o_solomatova_2016_ls_bm3_reference_2": "mg090_marq",
     "mg083fe017o_solomatova_2016_hs_bm3_reference_1": "mg083_lin",
@@ -142,6 +144,7 @@ MODEL_CLASSES = {
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
+    "mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3": "The tabulated P-density observations are Hugoniot states, whereas this BM3 is a shock-reduced reference isentrope. Directly fitting the Hugoniot states to this isentrope is not a source-EOS reproduction. The thermal reduction inputs are not recoverable from this table; retain the shock observations without an invalid isentropic regression.",
     "platinum_matsui_2009_vinet_300k": "The unchanged 300 K Vinet branch and separately registered tabulated thermal scale reproduce the published pressure parameterization. Electronic Table I is recovered, with linear interpolation explicitly a numerical implementation choice. Marsh inputs, original Hugoniot/expansion sampling, weights and joint-fit objective remain unresolved; original author fit is not reproduced.",
     "fe088sio3_bridgmanite_ismailova_2016_300k_bm2": "Supplementary Table S2 bundles only four selected crystallographic states, while Figure 3A plots substantially more compression and decompression markers for the published BM2 fit. The source gives no complete row list, inclusion/exclusion flags, regression objective, numerical weights, or row-wise Ne calibrant volumes. The four exact rows are checkpoint data, not a defensible reconstruction of the source fit input.",
     "iron_dewaele_2006_vinet_thermal": "The bundled EPAPS rows constrain the near-room-temperature Vinet reference isotherm. The high-temperature Gruneisen coefficients were determined with separate shock-wave data and the anharmonic/electronic terms with ab-initio pressures, so the complete thermal fit input is not available for an independent joint refit.",
@@ -216,11 +219,32 @@ MAO_1991_BRIDGMANITE_RECORDS = {
 # These tables report one-sigma uncertainties on a cubic lattice parameter.
 # Convert sigma_a to sigma_V with the first-order derivative of V=a^3.
 CUBIC_LATTICE_SIGMA_DATASETS = {
+    "ferropericlase_fe27_jacobsen_2002_table5_compression",
+    "magnesiowustite_fe56_jacobsen_2002_table4_compression",
+    "magnesiowustite_fe75_jacobsen_2002_table5_compression",
     "cscl_campbell_1994_table1_compression",
     "rbcl_campbell_1994_table1_compression",
 }
 
 FIT_QUALIFICATIONS = {
+    **{
+        f"mg0215fe0762vac0023o_finkelstein_2017_bm3_{suffix}": (
+            "Correct cubic sample volumes and source medium/phase fit mask. "
+            "This diagnostic does not replay the ambient V0 prior or neon K0-prime "
+            "prior, or the unpublished MINUTI P-V covariance treatment. "
+            "Its coefficient comparison is conditional, not author-workflow parity. "
+            "See literature-reproductions/finkelstein-2017-mw78.md for the prior-constrained source audit."
+        )
+        for suffix in ("helium_1", "neon_cubic_2")
+    },
+    **{
+        f"mgfe94o_{phase}_dobrosavljevic_2019_bm3_1": (
+            "Phase-specific source inclusion flags are applied. This diagnostic "
+            "does not replay the MINUTI volume objective and Gaussian parameter priors; "
+            "a different conditional coefficient estimate alone does not establish a source-EOS failure."
+        )
+        for phase in ("b1", "rhombohedral")
+    },
     "platinum_fei_2007_vinet_300k": "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The separate platinum_fei_2007_vinet_mgd audit reconstructs the paired Au pressure reduction and a qualified joint thermal fit; the author's complete objective and confidence convention remain unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure.",
     **{
         f"fesi_b2_fischer_2014_{model}_refit": (
@@ -383,6 +407,17 @@ PRESSURE_COLUMNS = {
 
 VOLUME_COLUMNS = {
     **{
+        dataset: "lattice_a_angstrom"
+        for dataset in (
+            "ferropericlase_fe27_jacobsen_2002_table5_compression",
+            "magnesiowustite_fe56_jacobsen_2002_table4_compression",
+            "magnesiowustite_fe75_jacobsen_2002_table5_compression",
+        )
+    },
+    "jacobsen_2005_table1_compression#mg073fe027o_jacobsen_2005_bm3_1": "mg073fe027o_derived_volume_a3",
+    "jacobsen_2005_table1_compression#fe093o_b1_jacobsen_2005_bm3_1": "fe093o_b1_derived_volume_a3",
+    "magnesiowustite_mw78_finkelstein_2017_table2_compression": "cubic_volume_a3",
+    **{
         f"fischer_2014_table_s2_pvt#fesi_b2_fischer_2014_{model}_refit": "b2_volume_a3"
         for model in ("bm3", "vinet")
     },
@@ -438,6 +473,16 @@ VOLUME_SIGMA_COLUMNS = {
 }
 
 PHASE_FILTERS = {
+    "mg073fe027o_jacobsen_2005_bm3_1": {"mg073fe027o_fit_included": "1"},
+    "fe093o_b1_jacobsen_2005_bm3_1": {"fe093o_b1_fit_included": "1"},
+    "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1": {
+        "used_in_helium_cubic_fit": "1"
+    },
+    "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2": {
+        "used_in_neon_cubic_fit": "1"
+    },
+    "mgfe94o_b1_dobrosavljevic_2019_bm3_1": {"used_in_b1_fit": "1"},
+    "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1": {"used_in_rhombohedral_fit": "1"},
     **{
         f"fesi_b2_fischer_2014_{model}_refit": {"phase": "B2"}
         for model in ("bm3", "vinet")
@@ -920,6 +965,9 @@ def _select_rows(
         if all(str(row.get(name, "")) == expected for name, expected in filters.items())
     ]
     detail = ", ".join(f"{key}={value}" for key, value in filters.items()) or "all rows"
+    if record_id == "e_feooh_hc_low_spin_thompson_2017_bm3_1":
+        selected = [row for row in selected if _number(row.get("pressure_gpa")) >= 30.0]
+        detail = "12 hydrogen-centered rows at 30-140 GPa; HOC/transition rows excluded by the source fit protocol"
     if record_id == "fe073si027_d03_fischer_2014_vinet_1":
         selected = [row for row in selected if _number(row.get("temperature_k")) > 300]
         detail = (
@@ -2539,7 +2587,11 @@ def _fit_record(
         "mgal2o4_cafe2o4_sueda_2009_table1_pvt",
     }:
         source_protocol_unweighted = True
-    material = Material.from_eosmat(document, record_identifiers=[record_id])
+    # Reproduction audits must be able to evaluate held and not-reproduced
+    # source records. This explicit acceptance does not change catalog access.
+    material = Material.from_eosmat(
+        document, record_identifiers=[record_id], require_primary_validation=False
+    )
     executable = material.eos_records[0].eos
     thermal = isinstance(executable, ThermalEOS)
     static_initial, static_fixed = _static_parameters(record)
@@ -5006,7 +5058,9 @@ def _dewaele_2019_outcome(
     pressure_fit = refit["unweighted_pressure_residual_fit"]
     return {
         "status": "similar",
-        "dataset_identifiers": record["fit_datasets"],
+        "dataset_identifiers": record.get(
+            "fit_datasets", ["iron_dewaele_2006_epaps_compression"]
+        ),
         "observations": refit["rows"],
         "selection": refit["scope"],
         "observed_pressure_range_gpa": refit["pressure_range_gpa"],
@@ -5248,15 +5302,40 @@ def validate_all() -> dict[str, Any]:
                 "fixed_parameters": list(record.get("fixed_parameters", ()))
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
+                **{
+                    key: record["scientific_validation"][key]
+                    for key in (
+                        "usage_recommendation",
+                        "recommendation_reason",
+                        "recommendation_date",
+                        "recommendation_audit",
+                    )
+                    if key in record["scientific_validation"]
+                },
             }
-            if record["identifier"] == "phase_e_fe0072_crichton_ross_2000_bm3":
+            if material_id == "brucite":
+                from scripts.brucite_reproduce import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "phase_e_fe0072_crichton_ross_2000_bm3":
                 from scripts.reproduce_phase_e_crichton_ross_2000 import ledger_outcome
 
                 outcome = ledger_outcome(record)
+            elif record["identifier"].startswith("diopside_"):
+                from scripts.catalog_addition_outcomes import diopside_outcome
+
+                outcome = diopside_outcome(record)
             elif "_farla_2025_" in record["identifier"]:
                 from scripts.catalog_addition_outcomes import rubidium_outcome
 
                 outcome = rubidium_outcome(record)
+            elif (
+                record["identifier"]
+                == "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit"
+            ):
+                from scripts.refit_hirose_fei_gold_speziale import ledger_outcome
+
+                outcome = ledger_outcome(record)
             elif record["identifier"] in {
                 "forsterite_katsura_2022_author_script_bm3_mgd",
                 "forsterite_katsura_2022_bm3_mgd",
@@ -5305,10 +5384,10 @@ def validate_all() -> dict[str, Any]:
                 outcome = _campbell_2009_outcome(material_id, record)
             elif record["identifier"] in SOLOMATOVA_RECORD_SOURCES:
                 outcome = _solomatova_outcome(record)
-            elif (
-                record["identifier"] in dewaele_refits
-                and check["status"] == "bundled"
-                and "fit_datasets" in record
+            elif record["identifier"] in dewaele_refits and (
+                (check["status"] == "bundled" and "fit_datasets" in record)
+                or record["identifier"]
+                in {"iron_dewaele_2019_mao_vinet", "iron_dewaele_2019_dor_vinet"}
             ):
                 outcome = _dewaele_2019_outcome(
                     document, record, dewaele_refits[record["identifier"]]
@@ -5525,6 +5604,12 @@ def validate_all() -> dict[str, Any]:
                         "dataset_identifiers": identifiers,
                         "reason": f"{type(error).__name__}: {error}",
                     }
+            if record["scientific_validation"].get("recommendation_reason"):
+                outcome["qualification"] = (
+                    outcome.get("qualification", "")
+                    + " "
+                    + record["scientific_validation"]["recommendation_reason"]
+                ).strip()
             results.append({**base, **outcome})
 
     from scripts.forsterite_reproduce_katsura_2022 import LEDGER_PARITY_POLICY
@@ -5550,6 +5635,9 @@ def validate_all() -> dict[str, Any]:
                 " For explicitly registered Peritheos refits, parity verifies the "
                 "stored coefficients under the documented selection and objective; "
                 "it does not imply reproduction of source-author coefficients."
+                " Diopside parity is conditional agreement within reported error "
+                "widths, including a graph-corroborated corrected Zhao analysis "
+                "dataset; exact original inputs and workflow remain unrecovered."
                 " Phase E (Crichton and Ross 2000) achieves fit parity within "
                 "reported parameter error widths, with small pressure-curve "
                 "differences relative to the observation errors. Exact author "
@@ -5745,6 +5833,10 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "only for the script vector. Script-specific errors and exact bootstrap ",
         "reproduction remain unavailable. See the ",
         "[source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
+        "Diopside accepts conditional parameter parity within reported error widths; ",
+        "Zhao uses a separate corrected analysis dataset with the graph-corroborated ",
+        "row-15 pressure. Original observations and published coefficients remain ",
+        "unchanged; exact original author inputs and workflow are not recovered.",
         "Phase E (Crichton and Ross 2000) achieves fit parity within reported ",
         "parameter errors on all 11 primary rows. Weighted-refit coefficient ",
         "shifts are below 0.123 reported error widths and the largest curve ",
@@ -6137,6 +6229,80 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     return "\n".join(line.rstrip() for line in lines)
 
 
+def check_ledger_values(
+    saved, current, *, path="ledger", calculated=False, absolute_tolerance=1e-10
+):
+    """Keep source facts exact while allowing optimizer/BLAS output roundoff.
+
+    Only explicitly calculated fields use a 1e-5 relative / 1e-10 absolute
+    tolerance (coefficient-scaled for differences). Published coefficients,
+    source strings, row counts, booleans,
+    classifications and dictionary/list structure must match exactly.
+    """
+    if isinstance(current, dict):
+        if not isinstance(saved, dict) or saved.keys() != current.keys():
+            raise ValueError(f"{path}: fields differ")
+        for key, value in current.items():
+            derived = (
+                calculated
+                or key
+                in {
+                    "refit",
+                    "refit_error",
+                    "difference",
+                    "relative_difference",
+                    "reduced_chi_square",
+                }
+                or key.startswith("rmse_")
+                or key.endswith("_rmse_gpa")
+            )
+            if key in {
+                "published",
+                "published_error",
+                "source_parameters",
+                "fixed_parameters",
+            }:
+                derived = False
+            tolerance = absolute_tolerance
+            # Subtracting nearly equal coefficients amplifies relative roundoff
+            # in the difference. Compare it on the original coefficient scale.
+            if key == "difference" and isinstance(
+                current.get("published"), (int, float)
+            ):
+                tolerance = max(tolerance, abs(current["published"]) * 1e-5)
+            elif key == "relative_difference":
+                tolerance = max(tolerance, 1e-5)
+            check_ledger_values(
+                saved[key],
+                value,
+                path=f"{path}.{key}",
+                calculated=derived,
+                absolute_tolerance=tolerance,
+            )
+    elif isinstance(current, list):
+        if not isinstance(saved, list) or len(saved) != len(current):
+            raise ValueError(f"{path}: list length differs")
+        for index, (left, right) in enumerate(zip(saved, current)):
+            check_ledger_values(
+                left,
+                right,
+                path=f"{path}[{index}]",
+                calculated=calculated,
+                absolute_tolerance=absolute_tolerance,
+            )
+    elif isinstance(current, float) and calculated:
+        if not isinstance(saved, (int, float)) or not math.isclose(
+            saved, current, rel_tol=1e-5, abs_tol=absolute_tolerance
+        ):
+            raise ValueError(
+                f"{path}: calculated value differs ({saved!r}, {current!r})"
+            )
+    elif isinstance(saved, bool) != isinstance(current, bool) or saved != current:
+        raise ValueError(
+            f"{path}: source/assessment value differs ({saved!r}, {current!r})"
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="fail if outputs differ")
@@ -6153,8 +6319,12 @@ def main() -> int:
         current_markdown = (
             args.markdown.read_text(encoding="utf-8") if args.markdown.exists() else ""
         )
-        if current_json != json_text or current_markdown != markdown_text:
-            print("primary EOS refit documentation is stale", file=sys.stderr)
+        try:
+            check_ledger_values(json.loads(current_json), json.loads(json_text))
+            if current_markdown != markdown_text:
+                raise ValueError("rendered Markdown differs")
+        except (ValueError, TypeError) as error:
+            print(f"primary EOS refit documentation is stale: {error}", file=sys.stderr)
             return 1
         return 0
     args.json.parent.mkdir(parents=True, exist_ok=True)

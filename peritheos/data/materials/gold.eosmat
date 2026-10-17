@@ -4172,11 +4172,23 @@
      "status": "bundled",
      "dataset_identifiers": [
       "gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt"
-     ]
+     ],
+     "finding": "All 47 source observations are retained with paired MgO volumes; the pressure targets are explicitly recalculated, not historical author pressures."
     },
     "independent_numerical_check": {
      "script": "scripts/refit_hirose_fei_gold_speziale.py",
      "report": "docs/data/hirose-2008-fei-2004-gold-speziale-2001-refit.json"
+    },
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+     "doi": "10.1016/j.pepi.2008.03.002",
+     "locations": [
+      "Hirose (2008), Table 1 and Section 3.1 / Table 2 fit #2",
+      "Fei (2004), Table 1",
+      "Speziale (2001), Equation (11) and recorded author confirmation",
+      "Peritheos staged regression and derived-data report"
+     ],
+     "finding": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity."
     }
    }
   }

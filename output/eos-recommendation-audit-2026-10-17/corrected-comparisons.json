@@ -1,0 +1,717 @@
+{
+  "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "mgfe94o_dobrosavljevic_2019_table_s1_compression"
+    ],
+    "observations": 12,
+    "selection": "used_in_rhombohedral_fit=1; reference-T rows",
+    "observed_pressure_range_gpa": [
+      34.5,
+      88.7
+    ],
+    "observed_volume_range": [
+      13.844,
+      16.674
+    ],
+    "observed_temperature_range_k": [
+      300.0,
+      300.0
+    ],
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "atomic_volume_angstrom3",
+      "temperature": "temperature_k"
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "errors_in_variables",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 19.18,
+        "published_error": 0.2,
+        "refit": 19.115613545119064,
+        "refit_error": 0.17300757199259845,
+        "difference": -0.06438645488093542,
+        "relative_difference": 0.0033569580229893337,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 217.0,
+        "published_error": 19.0,
+        "refit": 223.12956656902736,
+        "refit_error": 17.465930485705304,
+        "difference": 6.129566569027361,
+        "relative_difference": 0.028246850548513183,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 2.06,
+        "published_error": 0.22,
+        "refit": 1.9859298555331004,
+        "refit_error": 0.19513032733985566,
+        "difference": -0.07407014446689963,
+        "relative_difference": 0.03595638080917458,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.728146404151984,
+    "rmse_gpa": 0.38758173839038973,
+    "reduced_chi_square": 1.4377782192900168,
+    "degrees_of_freedom": 9,
+    "solver_success": true,
+    "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+    "qualification": "Phase-specific source inclusion flags are applied. This diagnostic does not replay the MINUTI volume objective and Gaussian parameter priors; a different conditional coefficient estimate alone does not establish a source-EOS failure."
+  },
+  "mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3": {
+    "status": "not_refittable",
+    "reason": "The tabulated P-density observations are Hugoniot states, whereas this BM3 is a shock-reduced reference isentrope. Directly fitting the Hugoniot states to this isentrope is not a source-EOS reproduction. The thermal reduction inputs are not recoverable from this table; retain the shock observations without an invalid isentropic regression.",
+    "dataset_identifiers": [
+      "mg092fe008sio3_gong_2004_table1_shock"
+    ]
+  },
+  "e_feooh_hc_low_spin_thompson_2017_bm3_1": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "epsilon_feooh_thompson_2017_supplement_table_s1"
+    ],
+    "observations": 12,
+    "selection": "12 hydrogen-centered rows at 30-140 GPa; HOC/transition rows excluded by the source fit protocol",
+    "observed_pressure_range_gpa": [
+      30.01,
+      139.99
+    ],
+    "observed_volume_range": [
+      42.4,
+      52.64
+    ],
+    "observed_temperature_range_k": null,
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "unit_cell_volume_a3",
+      "temperature": null
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "pressure_residuals",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 58.62,
+        "published_error": 0.05,
+        "refit": 58.612018832577284,
+        "refit_error": 0.06210522074790147,
+        "difference": -0.007981167422713042,
+        "relative_difference": 0.00013615092839838012,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 223.0,
+        "published_error": 2.0,
+        "refit": 223.41826498267838,
+        "refit_error": 2.5871453534956586,
+        "difference": 0.4182649826783802,
+        "relative_difference": 0.0018756277250151579,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 4.07,
+        "published_error": 0.03,
+        "refit": 4.066535392676584,
+        "refit_error": 0.037065851740301234,
+        "difference": -0.0034646073234165797,
+        "relative_difference": 0.0008512548706183243,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.10819370267206042,
+    "rmse_gpa": 0.09518132012614243,
+    "reduced_chi_square": 0.012079311601273606,
+    "degrees_of_freedom": 9,
+    "solver_success": true,
+    "solver_message": "`ftol` termination condition is satisfied."
+  },
+  "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "magnesiowustite_mw78_finkelstein_2017_table2_compression"
+    ],
+    "observations": 17,
+    "selection": "used_in_helium_cubic_fit=1",
+    "observed_pressure_range_gpa": [
+      1.823,
+      55.542
+    ],
+    "observed_volume_range": [
+      62.4,
+      77.87
+    ],
+    "observed_temperature_range_k": null,
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "cubic_volume_a3",
+      "temperature": null
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "errors_in_variables",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 78.87,
+        "published_error": 0.06,
+        "refit": 78.85314164125613,
+        "refit_error": 0.0705865614187149,
+        "difference": -0.016858358743874646,
+        "relative_difference": 0.0002137486844665227,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 148.0,
+        "published_error": 3.0,
+        "refit": 147.72606441163126,
+        "refit_error": 2.8733997810428007,
+        "difference": -0.27393558836874377,
+        "relative_difference": 0.001850916137626647,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 4.09,
+        "published_error": 0.12,
+        "refit": 4.088739860047382,
+        "refit_error": 0.1398876454257973,
+        "difference": -0.001260139952617756,
+        "relative_difference": 0.00030810267790165184,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.2779224098597078,
+    "rmse_gpa": 0.03229434866087353,
+    "reduced_chi_square": 0.7368277272336742,
+    "degrees_of_freedom": 14,
+    "solver_success": true,
+    "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+    "qualification": "Correct cubic sample volumes and source medium/phase fit mask. This diagnostic does not replay the ambient V0 prior or neon K0-prime prior, or the unpublished MINUTI P-V covariance treatment. Its coefficient comparison is conditional, not author-workflow parity. See literature-reproductions/finkelstein-2017-mw78.md for the prior-constrained source audit."
+  },
+  "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "magnesiowustite_mw78_finkelstein_2017_table2_compression"
+    ],
+    "observations": 5,
+    "selection": "used_in_neon_cubic_fit=1",
+    "observed_pressure_range_gpa": [
+      1.314,
+      19.244
+    ],
+    "observed_volume_range": [
+      71.5,
+      78.12
+    ],
+    "observed_temperature_range_k": null,
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "cubic_volume_a3",
+      "temperature": null
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "errors_in_variables",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 78.742,
+        "published_error": 0.014,
+        "refit": 78.75104668295108,
+        "refit_error": 0.623035262644541,
+        "difference": 0.009046682951080243,
+        "relative_difference": 0.00011489018504838894,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 163.0,
+        "published_error": 1.0,
+        "refit": 161.75412858859644,
+        "refit_error": 59.877002312442706,
+        "difference": -1.2458714114035558,
+        "relative_difference": 0.007643382892046355,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 4.02,
+        "published_error": 0.1,
+        "refit": 4.164434928652056,
+        "refit_error": 6.765151208001336,
+        "difference": 0.1444349286520561,
+        "relative_difference": 0.03592908672936719,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.11825128942282512,
+    "rmse_gpa": 0.10073571217432044,
+    "reduced_chi_square": 0.02751642144773445,
+    "degrees_of_freedom": 2,
+    "solver_success": true,
+    "solver_message": "`ftol` termination condition is satisfied.",
+    "qualification": "Correct cubic sample volumes and source medium/phase fit mask. This diagnostic does not replay the ambient V0 prior or neon K0-prime prior, or the unpublished MINUTI P-V covariance treatment. Its coefficient comparison is conditional, not author-workflow parity. See literature-reproductions/finkelstein-2017-mw78.md for the prior-constrained source audit."
+  },
+  "mg073fe027o_jacobsen_2005_bm3_1": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "jacobsen_2005_table1_compression"
+    ],
+    "observations": 16,
+    "selection": "mg073fe027o_fit_included=1",
+    "observed_pressure_range_gpa": [
+      0.0,
+      51.1
+    ],
+    "observed_volume_range": [
+      62.292219,
+      77.303332
+    ],
+    "observed_temperature_range_k": null,
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "mg073fe027o_derived_volume_a3",
+      "temperature": null
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "errors_in_variables",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 77.3,
+        "published_error": 0.09,
+        "refit": 77.30314037763132,
+        "refit_error": 0.40735834370565643,
+        "difference": 0.003140377631325464,
+        "relative_difference": 4.062584257859591e-05,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 154.0,
+        "published_error": 3.0,
+        "refit": 154.18965180594438,
+        "refit_error": 15.761195298086387,
+        "difference": 0.18965180594437925,
+        "relative_difference": 0.00123150523340506,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 4.0,
+        "published_error": 0.1,
+        "refit": 3.994193607998538,
+        "refit_error": 0.6848338020820797,
+        "difference": -0.005806392001462157,
+        "relative_difference": 0.0014515980003655393,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.19391116066080588,
+    "rmse_gpa": 0.1752415301662709,
+    "reduced_chi_square": 0.041334685496081436,
+    "degrees_of_freedom": 13,
+    "solver_success": true,
+    "solver_message": "`ftol` termination condition is satisfied."
+  },
+  "magnesiowustite_fe75_jacobsen_2002_bm3_1": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "magnesiowustite_fe75_jacobsen_2002_table5_compression"
+    ],
+    "observations": 7,
+    "selection": "all rows",
+    "observed_pressure_range_gpa": [
+      0.0001,
+      7.179
+    ],
+    "observed_volume_range": [
+      74.85479508229638,
+      78.08389552020105
+    ],
+    "observed_temperature_range_k": null,
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "lattice_a_angstrom",
+      "temperature": null
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "errors_in_variables",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 78.082,
+        "published_error": 0.003,
+        "refit": 78.08155886879042,
+        "refit_error": 0.46085105467415965,
+        "difference": -0.00044113120956978946,
+        "relative_difference": 5.64958901628787e-06,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 151.3,
+        "published_error": 0.6,
+        "refit": 151.43998489909333,
+        "refit_error": 97.81736686394719,
+        "difference": 0.1399848990933208,
+        "relative_difference": 0.0009252141380920078,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 5.55,
+        "published_error": 0.19,
+        "refit": 5.510939259134723,
+        "refit_error": 28.212481150457645,
+        "difference": -0.03906074086527678,
+        "relative_difference": 0.007037971327076897,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.005057308845039083,
+    "rmse_gpa": 0.005024700379593284,
+    "reduced_chi_square": 4.418556173482458e-05,
+    "degrees_of_freedom": 4,
+    "solver_success": true,
+    "solver_message": "`ftol` termination condition is satisfied."
+  },
+  "fe093o_b1_jacobsen_2005_bm3_1": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "jacobsen_2005_table1_compression"
+    ],
+    "observations": 7,
+    "selection": "fe093o_b1_fit_included=1",
+    "observed_pressure_range_gpa": [
+      0.0,
+      22.8
+    ],
+    "observed_volume_range": [
+      70.21498,
+      79.396112
+    ],
+    "observed_temperature_range_k": null,
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "fe093o_b1_derived_volume_a3",
+      "temperature": null
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "errors_in_variables",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 79.41,
+        "published_error": 0.04,
+        "refit": 79.43764935328304,
+        "refit_error": 0.4348013830455283,
+        "difference": 0.027649353283038636,
+        "relative_difference": 0.0003481847787814965,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 146.0,
+        "published_error": 2.0,
+        "refit": 144.54631340959483,
+        "refit_error": 11.507025908735983,
+        "difference": -1.4536865904051695,
+        "relative_difference": 0.009956757468528558,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.11999826697901608,
+    "rmse_gpa": 0.08706907560791009,
+    "reduced_chi_square": 0.011099816093970271,
+    "degrees_of_freedom": 5,
+    "solver_success": true,
+    "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied."
+  },
+  "ferropericlase_fe27_jacobsen_2002_bm3_1": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "ferropericlase_fe27_jacobsen_2002_table5_compression"
+    ],
+    "observations": 10,
+    "selection": "all rows",
+    "observed_pressure_range_gpa": [
+      0.0001,
+      9.292
+    ],
+    "observed_volume_range": [
+      72.54353934219797,
+      76.33509985604168
+    ],
+    "observed_temperature_range_k": null,
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "lattice_a_angstrom",
+      "temperature": null
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "errors_in_variables",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 76.336,
+        "published_error": 0.002,
+        "refit": 76.3372719637499,
+        "refit_error": 0.4057749645489165,
+        "difference": 0.001271963749900351,
+        "relative_difference": 1.6662698463377058e-05,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 158.4,
+        "published_error": 0.4,
+        "refit": 158.13064123124323,
+        "refit_error": 72.36350216099802,
+        "difference": -0.2693587687567742,
+        "relative_difference": 0.0017004972775048878,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 5.49,
+        "published_error": 0.11,
+        "refit": 5.561134592304525,
+        "refit_error": 16.59016335694912,
+        "difference": 0.07113459230452435,
+        "relative_difference": 0.012957120638346874,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.005738353912981327,
+    "rmse_gpa": 0.0054450996350423955,
+    "reduced_chi_square": 4.235825871307182e-05,
+    "degrees_of_freedom": 7,
+    "solver_success": true,
+    "solver_message": "`ftol` termination condition is satisfied."
+  },
+  "magnesiowustite_fe56_jacobsen_2002_bm3_1": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "magnesiowustite_fe56_jacobsen_2002_table4_compression"
+    ],
+    "observations": 11,
+    "selection": "all rows",
+    "observed_pressure_range_gpa": [
+      0.0001,
+      8.923
+    ],
+    "observed_volume_range": [
+      73.69022640438223,
+      77.45259408188775
+    ],
+    "observed_temperature_range_k": null,
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "lattice_a_angstrom",
+      "temperature": null
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "errors_in_variables",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 77.453,
+        "published_error": 0.004,
+        "refit": 77.4591445103815,
+        "refit_error": 0.3179066817503627,
+        "difference": 0.00614451038150321,
+        "relative_difference": 7.933211601233276e-05,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 155.8,
+        "published_error": 0.9,
+        "refit": 154.43190869631033,
+        "refit_error": 70.41763032770102,
+        "difference": -1.3680913036896811,
+        "relative_difference": 0.008781073836262395,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 5.53,
+        "published_error": 0.23,
+        "refit": 5.877310178213007,
+        "refit_error": 17.87305531650858,
+        "difference": 0.34731017821300636,
+        "relative_difference": 0.06280473385406986,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.01287278435078881,
+    "rmse_gpa": 0.010702395423896774,
+    "reduced_chi_square": 0.00015750854180272386,
+    "degrees_of_freedom": 8,
+    "solver_success": true,
+    "solver_message": "`ftol` termination condition is satisfied."
+  },
+  "mgfe94o_b1_dobrosavljevic_2019_bm3_1": {
+    "status": "parity",
+    "dataset_identifiers": [
+      "mgfe94o_dobrosavljevic_2019_table_s1_compression"
+    ],
+    "observations": 14,
+    "selection": "used_in_b1_fit=1; reference-T rows",
+    "observed_pressure_range_gpa": [
+      1.5,
+      23.3
+    ],
+    "observed_volume_range": [
+      70.056,
+      78.008
+    ],
+    "observed_temperature_range_k": [
+      300.0,
+      300.0
+    ],
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "atomic_volume_angstrom3",
+      "temperature": "temperature_k"
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "errors_in_variables",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 78.88,
+        "published_error": 0.056,
+        "refit": 78.83719608651616,
+        "refit_error": 0.12773947199246283,
+        "difference": -0.042803913483837164,
+        "relative_difference": 0.0005426459620161912,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0",
+        "published": 155.3,
+        "published_error": 2.2,
+        "refit": 159.74023853240206,
+        "refit_error": 9.472157638240265,
+        "difference": 4.440238532402049,
+        "relative_difference": 0.02859136208887346,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 3.79,
+        "published_error": 0.11,
+        "refit": 3.338436432393742,
+        "refit_error": 0.8656985220111578,
+        "difference": -0.45156356760625815,
+        "relative_difference": 0.11914606005442167,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 0.2405614708793054,
+    "rmse_gpa": 0.09566063199171472,
+    "reduced_chi_square": 0.8096311802812604,
+    "degrees_of_freedom": 11,
+    "solver_success": true,
+    "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+    "qualification": "Phase-specific source inclusion flags are applied. This diagnostic does not replay the MINUTI volume objective and Gaussian parameter priors; a different conditional coefficient estimate alone does not establish a source-EOS failure."
+  }
+}

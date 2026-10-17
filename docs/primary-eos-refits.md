@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **657** EOS records. **230** achieve uncertainty parity, **159** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[75](#parity-not-achieved)** do not achieve parity, **177** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **663** EOS records. **246** achieve uncertainty parity, **163** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[60](#parity-not-achieved)** do not achieve parity, **178** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -48,6 +48,10 @@ alternative retains theta0=768 K. Table errors are a comparison scale
 only for the script vector. Script-specific errors and exact bootstrap
 reproduction remain unavailable. See the
 [source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).
+Diopside accepts conditional parameter parity within reported error widths;
+Zhao uses a separate corrected analysis dataset with the graph-corroborated
+row-15 pressure. Original observations and published coefficients remain
+unchanged; exact original author inputs and workflow are not recovered.
 Phase E (Crichton and Ross 2000) achieves fit parity within reported
 parameter errors on all 11 primary rows. Weighted-refit coefficient
 shifts are below 0.123 reported error widths and the largest curve
@@ -158,6 +162,9 @@ use `--check` in continuous integration to detect stale generated files.
 | [`bridgmanite_liu_2011_gga_static_bm3`](https://cjcp.ustc.edu.cn/hxwlxb/cn/article/pdf/preview/10.1088/1674-0068/24/06/703-710.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The calculated 0-150 GPa volume series is plotted in Figure 1 but not tabulated; Table I provides the complete fitted coefficients. |
 | [`bridgmanite_dorogokupets_2015_298k_rydberg_stacey`](https://doi.org/10.1016/j.rgg.2015.01.011) | `dorogokupets_2015_bridgmanite_298k_reconstruction` | 19 | `K0` 252 → 256.443; `K0_prime` 4.38 → 3.85018 | 1.57842/0.30177 | [parity_not_achieved](#investigation-bridgmanite_dorogokupets_2015_298k_rydberg_stacey) — Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair. |
 | [`bridgmanite_hamahata_2000_md_300k_bm3`](https://www.jstage.jst.go.jp/article/jmps/95/8/95_8_236/_pdf/-char/en) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The complete fit coefficients are printed; the simulated 300 K volumes are plotted but not tabulated, so no pseudo-observations were digitized. |
+| [`brucite_fukui_2003_300k_bm3`](https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1) | `brucite_fukui_2003_table1, brucite_fukui_2003_table4` | 13 | `K0` 41.8 → 42.0177; `K0_prime` 6.6 → 6.60348 | 0.22791/0.216761 | parity — Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim. |
+| [`brucite_fukui_2003_473k_bm3`](https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1) | `brucite_fukui_2003_table1, brucite_fukui_2003_table4` | 8 | `K0` 32.6 → 33.6915; `K0_prime` 8.3 → 8.08523 | 0.336307/0.262561 | parity — Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim. |
+| [`brucite_fukui_2003_673k_bm3`](https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1) | `brucite_fukui_2003_table1, brucite_fukui_2003_table4` | 8 | `K0` 28.8 → 29.0322; `K0_prime` 9 → 8.84493 | 0.230275/0.228074 | parity — Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim. |
 | [`ca0988mg0918fe0078mn0016c2o6_dolomite_mao_2011_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519) | `ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized` | 7 | `V0` 321.77 → 320.646; `K0` 94.1 → 98.6354 | 0.39916/0.347943 | parity |
 | [`ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519) | `ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized` | 7 | `V0` 239.2 → 239.666; `K0` 164 → 172.344 | 2.95506/1.46558 | parity |
 | [`ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519) | `ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized` | 18 | `V0` 231.8 → 228.739; `K0` 184 → 209.404 | 2.91521/0.858602 | [similar](#investigation-ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2) |
@@ -185,7 +192,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`ca_perovskite_wang_weidner_1994_bm2`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/94GL00976) | `ca_perovskite_wang_weidner_1994_figure3_digitized` | 4 | `V0` 45.83 → 45.8322; `K0` 280 → 279.271 | 0.241749/0.241676 | parity — Complete plot-scope check: Wang and Weidner state that the BM2 used only the four room-temperature Figure 3 points above 2.0 GPa and fixed K0'=4. All four marker centers are bundled and an unweighted pressure-residual refit recovers V0 and K0 within the published uncertainties. This is not a numerical-table reproduction: the source does not publish the four P-V rows, residual coordinate, weights, covariance, or confidence convention. See the [dedicated Wang-Weidner reproduction](literature-reproductions/wang-weidner-1994-casio3.md). |
 | [`ca_perovskite_caracas_2005_bm4_4`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
 | [`ca_perovskite_liu_2007_lda_static_bm3`](https://iopscience.iop.org/article/10.1088/0953-8984/19/24/246103) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The source plots its calculated EOS but does not tabulate the energy-volume grid. |
-| [`ca_perovskite_fu_2023_bm3_mgd_refit`](http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip) | `fu-2023-casio3-refit-audit.json` | 174 | `rt_eos.V0` 45.4 → 45.1346; `rt_eos.K0` 248 → 258.271; `mu0` 126 → 129.662; `mu0_prime` 1.6 → 1.48479; `gamma0` 1.42 → 2.44196; `q` 2.65 → 1.83946; `eta_s0` 1.54 → 1.37236 | —/— | [parity_not_achieved](#investigation-ca_perovskite_fu_2023_bm3_mgd_refit) — The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gréaux XLSX and are now bundled as attributed numerical transcriptions. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded. |
+| [`ca_perovskite_fu_2023_bm3_mgd_refit`](http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip) | `fu-2023-casio3-refit-audit.json` | 174 | `rt_eos.V0` 45.4 → 45.1346; `rt_eos.K0` 248 → 258.271; `mu0` 126 → 129.662; `mu0_prime` 1.6 → 1.48479; `gamma0` 1.42 → 2.44196; `q` 2.65 → 1.83946; `eta_s0` 1.54 → 1.37236 | —/— | [parity_not_achieved](#investigation-ca_perovskite_fu_2023_bm3_mgd_refit) — The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gréaux XLSX and are now bundled as attributed numerical transcriptions. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published thermal parameterization retains an unresolved high-temperature discrepancy against the reconstructed source observations; source normalization checks do not reconcile it. |
 | [`ca_perovskite_karki_crain_1998_static_bm3`](https://repository.lsu.edu/geo_pubs/1504/) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source reports the complete EOS coefficients and plotted calculated curves but no reusable energy-volume table or fit covariance. |
 | [`ca_perovskite_ono_2013_bm3_log_thermal`](https://www.mdpi.com/1099-4300/15/10/4300) | `source_parameterization_only` | — | — | —/— | not_refittable — The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance. |
 | [`ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit`](http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip) | `fu-2023-casio3-refit-audit.json` | 174 | `rt_eos.V0` 45.1346 → 45.1346; `rt_eos.K0` 258.271 → 258.271; `gamma0` 2.44196 → 2.44196; `q` 1.83946 → 1.83946 | —/— | parity — This opt-in EOS record stores the pressure-producing subset of the audited unweighted seven-parameter joint fit. Parity here verifies the stored coefficients against the audit artifact; it does not imply parity with Fu Table S3 or knowledge of Fu's unpublished weights. |
@@ -236,9 +243,11 @@ use `--check` in continuous integration to detect stale generated files.
 | [`diamond_benedict_2014_double_debye_4`](https://arxiv.org/pdf/1311.4577) | `diamond_benedict_2014_supplement_solid_dft_md` | 96 | `rt_eos.V0` 45.6272 → 45.4383; `rt_eos.K0` 432.4 → 434.769; `rt_eos.K0_prime` 3.793 → 3.81536; `Vp` 0.335493 → 0.304273; `theta_a0` 1887.8 → 2162.57; `a_a` -5.2473 → -4.75903; `b_a` 0.913 → -0.0067749; `theta_b0` 1887.8 → 1887.98; `a_b` 2.78971 → 1.65621; `b_b` 0.429 → 0.560571; `theta_1_0` 1887.8 → 1770.94; `a_1` 1.40482 → 1.41578; `b_1` 0.499 → 0.445064; `alpha0` 3.79e-05 → 6.09924e-05; `Ve` 0.348381 → 0.175475; `kappa` 0 → 1 | 3.17793/0.941549 | [parity_not_achieved](#investigation-diamond_benedict_2014_double_debye_4) |
 | [`diamond_correa_2008_dewaele_anchored`](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106) | `diamond_dewaele_2008_table1_pvt, diamond_correa_2008_figure8_dft_md_vector_digitized` | 80 | — | —/— | [source_reconstruction](#investigation-diamond_correa_2008_dewaele_anchored) — Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified. |
 | [`diamond_benedict_2014_dewaele_anchored`](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106) | `diamond_dewaele_2008_table1_pvt, diamond_benedict_2014_supplement_solid_dft_md` | 119 | — | —/— | [source_reconstruction](#investigation-diamond_benedict_2014_dewaele_anchored) — Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified. |
+| [`diopside_thompson_2008_bm3`](https://rruff.net/doclib/am/vol93/AM93_177.pdf) | `diopside_thompson_2008_table1` | 14 | `V0` 438.66 → 438.655; `K0` 118 → 117.864; `K0_prime` 3.8 → 3.79629 | 0.0373972/0.0365869 | parity — Conditional parameter parity within reported error widths on all 14 printed rows using effective P/V variance. Source confidence and exact author weights/covariance are not recovered; no combined-two-sigma or original-author workflow parity is asserted. |
+| [`diopside_zhao_1998_thermal_bm3`](https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_25/_pdf) | `diopside_zhao_1998_table1_corrected_pvt` | 32 | `K0` 109.1 → 107.725; `K0_prime` 4.84 → 5.12249; `alpha0` 2.32e-05 → 2.29725e-05; `alpha1` 1.88e-08 → 1.90259e-08; `dK_dT` -0.0205 → -0.0202076 | 0.0645585/0.0579203 | parity — Conditional parameter parity within reported error widths using the separate corrected analysis dataset: row 15 pressure is the rounded Figure 2 reading 4.58 GPa, not the printed 6.95 GPa. Its +/-0.05 GPa graphical bound is not a statistical error. All 32 rows, including the repeated ambient row, are retained; V0 and Tr are fixed. Original source tables and published coefficients are preserved. Exact original fit inputs, selection, weighting and covariance remain unrecovered. |
 | [`e_feooh_gleason_2008_bm2_1`](https://www.osti.gov/servlets/purl/950968) | `epsilon_feooh_gleason_2008_deposit_table2_pvt` | 49 | `K0` 158 → 158.099 | 0.945732/0.945698 | parity — Source-protocol reconstruction, not an assertion of an independently measured epsilon-FeOOH thermal EOS. All 49 hot Table 2 volumes are reduced to 300 K with the paper's alpha0=2.3e-5 K^-1 before the pooled fixed-V0 BM2 fit. This recovers K0=158.099 GPa; fitting the raw hot volumes as though they lay on the reference isotherm instead gives 175.624 GPa. The correction is numerically identifiable but not printed in the epsilon-specific prose, and the source weights are unavailable. |
 | [`e_feooh_suzuki_2016_bm3_thermal_2`](https://www.jstage.jst.go.jp/article/jmps/111/6/111_160719c/_pdf) | `epsilon_feooh_suzuki_2016_table1_pvt` | 33 | `rt_eos.K0` 135 → 132.295; `rt_eos.K0_prime` 6.1 → 6.8618; `alpha0` 2.6e-05 → 3.04128e-05; `alpha1` 1e-07 → 1.11709e-07; `dK_dT` -0.05 → -0.0609132 | 0.10202/0.091436 | parity |
-| [`e_feooh_hc_low_spin_thompson_2017_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014168) | `epsilon_feooh_thompson_2017_supplement_table_s1` | 17 | `V0` 58.62 → 59.5867; `K0` 223 → 185.921; `K0_prime` 4.07 → 4.65126 | 1.56406/0.530797 | [parity_not_achieved](#investigation-e_feooh_hc_low_spin_thompson_2017_bm3_1) |
+| [`e_feooh_hc_low_spin_thompson_2017_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014168) | `epsilon_feooh_thompson_2017_supplement_table_s1` | 12 | `V0` 58.62 → 58.612; `K0` 223 → 223.418; `K0_prime` 4.07 → 4.06654 | 0.108194/0.0951813 | parity |
 | [`fayalite_b_jina_2021_bm3_1`](https://doi.org/10.5194/ejm-33-519-2021) | `fayalite_bejina_2021_table1_pvt_elastic` | 11 | `V0` 307.84 → 307.831; `K0` 130.4 → 130.415 | 0.0587831/0.0490737 | parity |
 | [`fe_shen_2026_vinet_1`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | 42 | `K0` 162.1 → 162.351; `K0_prime` 5.4 → 5.34542 | —/0.215069 | parity — Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them. |
 | [`fe073si027_d03_fischer_2014_vinet_1`](https://doi.org/10.1002/2013JB010898) | `fischer_2012_table_s2_pvt` | 66 | `gamma0` 1.9 → 1.86122 | 2.08223/2.07236 | parity — Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the [Fischer audit](literature-reproductions/fischer-2014-fesi.md). |
@@ -278,12 +287,12 @@ use `--check` in continuous integration to detect stale generated files.
 | [`feh2_p_pin_2014_vinet_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext) | `feh2_pepin_2014_figure3_digitized` | 14 | `V0` 67.8895 → 68.2307; `K0` 127.2 → 123.323 | 1.38079/0.32265 | parity |
 | [`feh3_p_pin_2014_vinet_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext) | `feh3_pepin_2014_figure3_digitized` | 15 | `V0` 18.5499 → 18.6078; `K0` 190.1 → 185.697 | 0.977788/0.168549 | parity |
 | [`feo_fischer_2011_bm3_2`](https://doi.org/10.1016/j.epsl.2011.02.025) | `feo_fischer_2011_table_s1_pvt` | 42 | `rt_eos.K0` 149.4 → 144.508; `rt_eos.K0_prime` 3.6 → 3.71562; `gamma0` 1.41 → 1.6302 | 3.31981/3.30233 | parity — Conditional current-study thermal reproduction: all 42 numerical B1 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. V0, theta0, q, Tr, and n are held fixed exactly as the source specifies. Fischer's published global fit also includes Campbell, Ozawa, and Seagle rows. All identifiable source tables are now bundled, but Campbell's fcc-Fe calibration is retained only as deferred source evidence because of unresolved coefficient-refit discrepancies. It is not an executable calibration; Fischer's final combined row selection remains unresolved. The source also does not state its regression weights, residual variable, covariance, or optimizer; this result remains a current-study-only diagnostic rather than an exact global-fit reproduction. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md). |
-| [`fe093o_b1_jacobsen_2005_bm3_1`](https://doi.org/10.1107/S0909049505022326) | `jacobsen_2005_table1_compression` | 9 | `V0` 79.41 → 59.7395; `K0` 146 → 133.662 | 148.962/0.0161316 | [parity_not_achieved](#investigation-fe093o_b1_jacobsen_2005_bm3_1) |
+| [`fe093o_b1_jacobsen_2005_bm3_1`](https://doi.org/10.1107/S0909049505022326) | `jacobsen_2005_table1_compression` | 7 | `V0` 79.41 → 79.4376; `K0` 146 → 144.546 | 0.119998/0.0870691 | parity |
 | [`feo_leonov_2017_hs_bm3_1`](https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Independent equation checkpoints verify transcription without claiming a refit. |
 | [`feo_holland_2013_fper_modified_tait`](https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf) | `official_parameter_artifact` | — | — | —/— | not_refittable — The official tc-ds62 fper block provides all four coefficients. |
 | [`feo_campbell_2009_bm3_mgd`](https://doi.org/10.1016/j.epsl.2009.07.022) | `feo_campbell_2009_table_s2_pvt` | 25 | `rt_eos.K0` 146.9 → 152.012; `gamma0` 1.42 → 1.35015; `q` 1.3 → 0.750804 | 1.31606/0.514985 | [parity_not_achieved](#investigation-feo_campbell_2009_bm3_mgd) — Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md. |
 | [`feo_b8_2_fischer_2011_bm3_1`](https://doi.org/10.1016/j.epsl.2011.02.025) | `feo_fischer_2011_table_s1_pvt, feo_ozawa_2010_table2_pvt` | 29 | `rt_eos.V0` 39.843 → 39.8745; `rt_eos.K0` 137.8 → 137.863; `gamma0` 1.73 → 1.66616 | 2.54487/2.53178 | parity — Recovered combined thermal reproduction: all 21 numerical B8 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. One-peak detections have no volume and are excluded; the three two-peak volumes whose errors are unconstrained use Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. The unweighted 29-row fit recovers every free coefficient within its published uncertainty. Fischer does not state its regression weights, residual variable, covariance, or optimizer, so this establishes numerical parameter parity rather than exact procedural identity. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md). |
-| [`ferropericlase_fe27_jacobsen_2002_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490) | `ferropericlase_fe27_jacobsen_2002_table5_compression` | 10 | `V0` 76.336 → 113.015; `K0` 158.4 → 37.1717; `K0_prime` 5.49 → 5.97834 | 25.4926/0.000593341 | [parity_not_achieved](#investigation-ferropericlase_fe27_jacobsen_2002_bm3_1) |
+| [`ferropericlase_fe27_jacobsen_2002_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490) | `ferropericlase_fe27_jacobsen_2002_table5_compression` | 10 | `V0` 76.336 → 76.3373; `K0` 158.4 → 158.131; `K0_prime` 5.49 → 5.56113 | 0.00573835/0.0054451 | parity |
 | [`fes_ono_2006_bm3_1`](https://doi.org/10.2138/am.2006.2347) | `fes_ono_2006_table1_compression` | 8 | `V0` 99.5 → 99.4532; `K0` 156 → 156.159 | 1.07899/0.0622987 | parity |
 | [`fes_vi_morard_2026_bm3_mgd`](https://doi.org/10.1103/h4pj-rvxx) | `fes_morard_2026_author_without_additional_cold_pvt` | 167 | `eos.V0` 102.289 → 102.095; `eos.K0` 115.5 → 115.439; `eos.K0_prime` 4.99 → 4.9917; `thermal.gamma0` 2.42 → 2.46418 | 1.9161/1.63361 | [similar](#investigation-fes_vi_morard_2026_bm3_mgd) — Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md. |
 | [`fesi_b2_fischer_2014_bm3_refit`](https://doi.org/10.1002/2013JB010898) | `fischer_2014_table_s2_pvt` | 114 | `rt_eos.K0` 230.948 → 230.948; `gamma0` 2.60912 → 2.60912; `q` 1.72883 → 1.72882 | 2.40747/2.40747 | parity — Stored Peritheos refit reproduction using all 114 single-phase B2 rows and physical n=2 per FeSi formula. Parity compares against independently fitted Peritheos coefficients, not Fischer's published B2 parameters, which remain withheld. Unweighted pressure residuals; V0, K0-prime and theta0 are conditional fixed assumptions. Full covariance, weighting/reference sensitivities and pressure-block holdouts are in the [Fischer audit](literature-reproductions/fischer-2014-fesi.md). No validated core extrapolation. |
@@ -322,6 +331,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`gold_yokoo_2009_bm3_300k`](https://doi.org/10.1103/PhysRevB.80.104114) | `gold_yokoo_2009_table3_isochores, tsuchiya_kawamura_2002_table1_electronic_pressure` | 0 | — | —/— | not_refittable — Table II publishes separate 300 K BM3/Vinet fits. Table III is derived full thermal model output, not independent observations. Corrected upstream electronic pressure nodes are recovered. Complete Au shock/ambient selections, numerical electronic energy/DOS, original objective/weights and exact cold/phonon normalization remain unavailable. See [Au audit](literature-reproductions/yokoo-2009-gold.md). |
 | [`gold_yokoo_2009_vinet_300k`](https://doi.org/10.1103/PhysRevB.80.104114) | `gold_yokoo_2009_table3_isochores, tsuchiya_kawamura_2002_table1_electronic_pressure` | 0 | — | —/— | not_refittable — Table II publishes separate 300 K BM3/Vinet fits. Table III is derived full thermal model output, not independent observations. Corrected upstream electronic pressure nodes are recovered. Complete Au shock/ambient selections, numerical electronic energy/DOS, original objective/weights and exact cold/phonon normalization remain unavailable. See [Au audit](literature-reproductions/yokoo-2009-gold.md). |
 | [`gold_yokoo_2009_pvt_reconstruction`](https://doi.org/10.1103/PhysRevB.80.104114) | `gold_yokoo_2009_table3_isochores, tsuchiya_kawamura_2002_table1_electronic_pressure` | 0 | — | —/0.00892268 | source_reconstruction — Numerically checked diagnostic reconstruction of published table outputs. The published analytical PVT parameterization remains unreproduced: Au uses altered phonon coefficients and Pt adds an empirical pressure correction. This source-output status does not validate the published Yokoo pressure standard. The separate pressure-convention audit rules out cold-reference offsets and tests last-digit rounding; no caloric or original-fit inputs are required for PVT evaluation. |
+| [`gold_hirose_2008_fei_2004_speziale_2001_bm3_refit`](https://doi.org/10.1016/j.pepi.2008.03.002) | `gold_hirose_2008_fei_2004_speziale_2001_recalculated_pvt` | 47 | `rt_eos.K0_prime` 5.58115 → 5.58115; `beta1` 1.09175e-06 → 1.09175e-06; `beta2` 3.96648e-10 → 3.96648e-10; `beta3` 1.65378e-13 → 1.65378e-13; `kprime_log_coefficient` 0.000358322 → 0.000358322 | —/0.396463 | parity — Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity. |
 | [`graphite_hanfland_1989_murnaghan_1`](https://doi.org/10.1103/PhysRevB.39.12598) | `graphite_hanfland_1989_figure2_digitized` | 10 | `V0` 35.12 → 35.2896; `K0` 33.8 → 31.3506; `K0_prime` 8.9 → 9.14073 | 0.342942/0.153054 | parity |
 | [`hydrous_silica_cacl2_nisr_2017_bm2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055) | `nisr_2017_silica_tables_s1_s4` | 8 | `V0` 47.23 → 47.2678; `K0` 286 → 284.218 | 0.190944/0.180529 | parity — Coefficient parity within published 1-sigma widths, not recovery of an unpublished weighting protocol. Pressure errors, gold volumes and source covariance are absent. Printed zero volume errors are retained, never treated as infinite weights. Volume-objective sensitivity fits are in the paper-specific reproduction. |
 | [`hydrous_stishovite_nisr_2017_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055) | `nisr_2017_silica_tables_s1_s4` | 7 | `K0` 257 → 256.917 | 0.853457/0.85345 | parity — Coefficient parity within published 1-sigma widths, not recovery of an unpublished weighting protocol. Pressure errors, gold volumes and source covariance are absent. Printed zero volume errors are retained, never treated as infinite weights. Volume-objective sensitivity fits are in the paper-specific reproduction. |
@@ -334,8 +344,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`iron_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`iron_mao_1990_bm3_1`](https://doi.org/10.1029/JB095iB13p21737) | `iron_mao_1990_table1_compression` | 32 | `V0` 22.35 → 22.6574; `K0` 165 → 135.032; `K0_prime` 5.33 → 6.07789 | 5.84592/4.53187 | [similar](#investigation-iron_mao_1990_bm3_1) |
 | [`iron_shen_2026_vinet_2`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | 380 | `K0` 168.55 → 169.011; `K0_prime` 5.53 → 5.49755 | —/0.727366 | parity — Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them. |
-| [`iron_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `iron_dewaele_2006_epaps_compression` | 63 | `V0` 22.418 → 23.5216; `K0` 164.5 → 101.058; `K0_prime` 4.96 → 6.63486 | 8.30781/2.08896 | [parity_not_achieved](#investigation-iron_dewaele_2019_mao_vinet) |
-| [`iron_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `iron_dewaele_2006_epaps_compression` | 63 | `V0` 22.354 → 23.5216; `K0` 168.4 → 101.058; `K0_prime` 5.33 → 6.63486 | 3.69918/2.08896 | [parity_not_achieved](#investigation-iron_dewaele_2019_dor_vinet) |
+| [`iron_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `iron_dewaele_2006_epaps_compression` | 53 | `V0` 22.418 → 22.416; `K0` 164.5 → 164.638; `K0_prime` 4.96 → 4.96211 | —/0.819378 | [similar](#investigation-iron_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`iron_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `iron_dewaele_2006_epaps_compression` | 53 | `V0` 22.354 → 22.352; `K0` 168.4 → 168.65; `K0_prime` 5.33 → 5.32808 | —/0.940726 | [similar](#investigation-iron_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`iron_zhang_2025_fit1_birch_murnaghan_3_mgd`](https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf) | `iron_zhang_2025_tables_s1_s3_s4_pvt` | 1313 | `rt_eos.V0` 22.4372 → 22.4364; `rt_eos.K0` 174.7 → 174.668; `rt_eos.K0_prime` 4.79 → 4.7902; `theta0` 1209 → 1207.47; `gamma0` 2.86 → 2.85703; `q` 0.84 → 0.837227 | 4.50261/4.50233 | parity — Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset. |
 | [`iron_zhang_2025_fit2_birch_murnaghan_3_mgd`](https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf) | `iron_zhang_2025_tables_s1_s3_s4_pvt` | 1313 | `rt_eos.K0` 175.1 → 175.131; `rt_eos.K0_prime` 4.787 → 4.78703; `theta0` 1205 → 1201.63; `gamma0` 2.86 → 2.85664; `q` 0.84 → 0.840226 | 4.5027/4.50245 | parity — Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset. |
 | [`iron_zhang_2025_fit5_vinet_mgd`](https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf) | `iron_zhang_2025_tables_s1_s3_s4_pvt` | 1313 | `rt_eos.K0` 151.6 → 151.566; `rt_eos.K0_prime` 5.845 → 5.84469; `theta0` 960 → 962.294; `gamma0` 3.51 → 3.50837; `q` 1.28 → 1.27637 | 5.08289/5.08242 | parity — Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset. |
@@ -396,8 +406,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`lead_hcp_kuznetsov_2002_bm3_3`](https://doi.org/10.1016/S0038-1098(02)00112-6) | `lead_hcp_kuznetsov_2002_figure3_digitized` | — | — | —/— | not_refittable — The bundled Figure 3 coordinates are plot-digitized room-temperature and source-reduced markers, not the complete original P-V-T observations used to fit the nine-coefficient hcp thermal BM3 surface. The original rows, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md). |
 | [`li_hanfland_1999_vinet_1`](https://doi.org/10.1016/S0038-1098(99)00322-1) | `lithium_hanfland_1999_table1_compression` | 26 | `K0` 11.32 → 11.3157; `K0_prime` 3.62 → 3.61677 | 0.036204/0.0338053 | parity |
 | [`lif_b1_dewaele_2019_vinet_1`](https://doi.org/10.3390/min9110684) | `lif_dewaele_2019_table4_pv` | 60 | `V0` 65.484 → 65.5743; `K0` 64.6 → 62.1506; `K0_prime` 4.62 → 5.01115 | 2.10041/0.254799 | parity |
-| [`magnesiowustite_fe56_jacobsen_2002_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490) | `magnesiowustite_fe56_jacobsen_2002_table4_compression` | 11 | `V0` 77.453 → 113.002; `K0` 155.8 → 37.1669; `K0_prime` 5.53 → 5.97778 | 24.0928/0.00117493 | [parity_not_achieved](#investigation-magnesiowustite_fe56_jacobsen_2002_bm3_1) |
-| [`magnesiowustite_fe75_jacobsen_2002_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490) | `magnesiowustite_fe75_jacobsen_2002_table5_compression` | 7 | `V0` 78.082 → 113.014; `K0` 151.3 → 37.188; `K0_prime` 5.55 → 5.97109 | 23.2769/0.000571467 | [parity_not_achieved](#investigation-magnesiowustite_fe75_jacobsen_2002_bm3_1) |
+| [`magnesiowustite_fe56_jacobsen_2002_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490) | `magnesiowustite_fe56_jacobsen_2002_table4_compression` | 11 | `V0` 77.453 → 77.4591; `K0` 155.8 → 154.432; `K0_prime` 5.53 → 5.87731 | 0.0128728/0.0107024 | parity |
+| [`magnesiowustite_fe75_jacobsen_2002_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490) | `magnesiowustite_fe75_jacobsen_2002_table5_compression` | 7 | `V0` 78.082 → 78.0816; `K0` 151.3 → 151.44; `K0_prime` 5.55 → 5.51094 | 0.00505731/0.0050247 | parity |
 | [`magnesite_ross_1997_bm3_1`](https://rruff.info/doclib/am/vol82/AM82_682.pdf) | `magnesite_ross_1997_table1_pv` | 19 | `V0` 279.41 → 279.377; `K0` 117 → 117.484; `K0_prime` 2.3 → 2.45516 | 0.0972132/0.0952766 | parity |
 | [`magnesite_vocadlo_1999_bm3_2`](https://doi.org/10.2138/am-1999-1017) | `magnesite_vocadlo_1999_table1_energy_volume` | 9 | `V0` 287.49 → 287.49; `K0` 99 → 98.9999; `K0_prime` 4.28 → 4.28 | 3.99464e-05/1.37182e-05 | [similar](#investigation-magnesite_vocadlo_1999_bm3_2) |
 | [`magnesite_yu_2024_bm3_mgd_3`](https://doi.org/10.1029/2023JB028026) | `magnesite_yu_2024_table_s1_pvt` | 74 | `rt_eos.K0` 105 → 105.64; `rt_eos.K0_prime` 4.49 → 4.4771; `theta0` 850 → 657.565; `gamma0` 1.7 → 1.97358; `q` 0.9 → 1.32292 | 1.03046/0.699666 | [similar](#investigation-magnesite_yu_2024_bm3_mgd_3) |
@@ -406,13 +416,13 @@ use `--check` in continuous integration to detect stale generated files.
 | [`majorite_yagi_1992_bm3_1`](https://doi.org/10.1016/0031-9201(92)90063-2) | `majorite_yagi_1992_table1_compression` | 10 | `K0` 161.2 → 160.734 | 0.23388/0.233256 | [similar](#investigation-majorite_yagi_1992_bm3_1) |
 | [`manganese_alpha_magad_weiss_2021_bm3_1`](https://doi.org/10.1103/PhysRevB.103.014101) | `manganese_alpha_magad_weiss_2021_figure2_digitized` | 19 | `K0` 204 → 203.836; `K0_prime` 3.7 → 3.6876 | 2.57626/2.52697 | parity |
 | [`mg0125fe0875o_leonov_2017_hs_bm3_1`](https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. |
-| [`mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1`](https://doi.org/10.2138/am-2017-5966) | `magnesiowustite_mw78_finkelstein_2017_table2_compression` | 29 | `V0` 78.87 → 157.74; `K0` 148 → 337.791; `K0_prime` 4.09 → 9.6577 | 34.4238/17.0485 | [parity_not_achieved](#investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1) |
-| [`mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2`](https://doi.org/10.2138/am-2017-5966) | `magnesiowustite_mw78_finkelstein_2017_table2_compression` | 29 | `V0` 78.742 → 157.484; `K0` 163 → 360.366; `K0_prime` 4.02 → 9.41478 | 34.6793/17.046 | [parity_not_achieved](#investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2) |
+| [`mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1`](https://doi.org/10.2138/am-2017-5966) | `magnesiowustite_mw78_finkelstein_2017_table2_compression` | 17 | `V0` 78.87 → 78.8531; `K0` 148 → 147.726; `K0_prime` 4.09 → 4.08874 | 0.277922/0.0322943 | parity — Correct cubic sample volumes and source medium/phase fit mask. This diagnostic does not replay the ambient V0 prior or neon K0-prime prior, or the unpublished MINUTI P-V covariance treatment. Its coefficient comparison is conditional, not author-workflow parity. See literature-reproductions/finkelstein-2017-mw78.md for the prior-constrained source audit. |
+| [`mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2`](https://doi.org/10.2138/am-2017-5966) | `magnesiowustite_mw78_finkelstein_2017_table2_compression` | 5 | `V0` 78.742 → 78.751; `K0` 163 → 161.754; `K0_prime` 4.02 → 4.16443 | 0.118251/0.100736 | parity — Correct cubic sample volumes and source medium/phase fit mask. This diagnostic does not replay the ambient V0 prior or neon K0-prime prior, or the unpublished MINUTI P-V covariance treatment. Its coefficient comparison is conditional, not author-workflow parity. See literature-reproductions/finkelstein-2017-mw78.md for the prior-constrained source audit. |
 | [`mg025fe075o_leonov_2017_hs_bm3_1`](https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. |
 | [`mg0375fe0625o_leonov_2017_hs_bm3_1`](https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. |
 | [`mg042fe058o_fei_2007_hs_b1_bm3`](https://doi.org/10.1029/2007GL030712) | `mg042fe058o_fei_2007_table_s3_pv` | 7 | `K0` 153 → 153.177 | 0.487881/0.487255 | [similar](#investigation-mg042fe058o_fei_2007_hs_b1_bm3) — Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees. |
-| [`mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `mg0490fe0483ti0027o_solomatova_2016_table1_pv` | 45 | `V0` 77.29 → 76.6303; `K0` 160 → 202.391; `K0_prime` 4.12 → 2.31737 | 6.0955/0.464109 | [parity_not_achieved](#investigation-mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1) |
-| [`mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `mg0490fe0483ti0027o_solomatova_2016_table1_pv` | 45 | `V0` 73.64 → 78.5805; `K0` 173 → 135.945 | 9.90668/0.974308 | [parity_not_achieved](#investigation-mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2) |
+| [`mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `mg0490fe0483ti0027o_solomatova_2016_table1_pv` | 45 | `V0` 77.29 → 77.29; `K0` 160 → 160.696; `K0_prime` 4.12 → 4.09756 | —/— | [similar](#investigation-mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1) — Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction. |
+| [`mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `mg0490fe0483ti0027o_solomatova_2016_table1_pv` | 45 | `V0` 73.64 → 73.6732; `K0` 173 → 170.824; `K0_prime` 4 → 4 | —/— | [similar](#investigation-mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2) — Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction. |
 | [`mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1`](https://doi.org/10.1029/2020JB019964) | `mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters` | 44 | `V0` 172.1 → 171.284; `K0` 229 → 236.22 | 0.963506/0.00533524 | parity |
 | [`mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2`](https://doi.org/10.1029/2020JB019964) | `mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters` | 44 | `V0` 172 → 171.284; `K0` 230 → 236.22 | 0.959159/0.00533524 | parity |
 | [`mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3`](https://doi.org/10.1029/2020JB019964) | `mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters` | 44 | `V0` 170.7 → 171.284; `K0` 240 → 236.22 | 1.078/0.00533522 | parity |
@@ -428,7 +438,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mg0625fe0375o_leonov_2017_hs_bm3_1`](https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. |
 | [`mg065fe035o_solomatova_2016_hs_bm3_reference_1`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `mg065fe035o_chen_2012_table1_pv` | 36 | `V0` 77.1 → 77.2637; `K0` 162 → 159.946; `K0_prime` 3.99 → 3.99298 | —/— | [similar](#investigation-mg065fe035o_solomatova_2016_hs_bm3_reference_1) — Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction. |
 | [`mg065fe035o_solomatova_2016_ls_bm3_reference_2`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `mg065fe035o_chen_2012_table1_pv` | 36 | `V0` 73.77 → 73.8409; `K0` 171 → 170.141; `K0_prime` 4 → 4 | —/— | [similar](#investigation-mg065fe035o_solomatova_2016_ls_bm3_reference_2) — Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction. |
-| [`mg073fe027o_jacobsen_2005_bm3_1`](https://doi.org/10.1107/S0909049505022326) | `jacobsen_2005_table1_compression` | 9 | `V0` 77.3 → 57.963; `K0` 154 → 196.545; `K0_prime` 4 → 2.38146 | 138.333/0.0124624 | [parity_not_achieved](#investigation-mg073fe027o_jacobsen_2005_bm3_1) |
+| [`mg073fe027o_jacobsen_2005_bm3_1`](https://doi.org/10.1107/S0909049505022326) | `jacobsen_2005_table1_compression` | 16 | `V0` 77.3 → 77.3031; `K0` 154 → 154.19; `K0_prime` 4 → 3.99419 | 0.193911/0.175242 | parity |
 | [`mg075fe025o_matsui_2012_bm3_mgd_1`](https://www.rruff.net/odr/view/downloadfile/81129) | `mg075fe025o_matsui_2012_table2_pvt` | 30 | `rt_eos.V0` 76.372 → 76.405; `rt_eos.K0_prime` 4.22 → 4.18523; `gamma0` 1.64 → 1.60814; `q` 0.7 → 0.643043 | 0.14261/0.13709 | parity |
 | [`mg075fe025o_mao_2011_high_spin_bm3_1`](https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf) | `mg075fe025o_mao_2011_figure1_300k_digitized` | 15 | `K0` 162 → 163.046 | 0.249171/0.147003 | parity |
 | [`mg075fe025o_mao_2011_low_spin_bm3_1`](https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf) | `mg075fe025o_mao_2011_figure1_300k_digitized` | 18 | `V0` 74.4 → 74.4715; `K0` 166 → 165.662 | 0.494282/0.397069 | parity |
@@ -470,7 +480,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mg090fe010o_marquardt_2009b_ls_bm3_s1_11`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 187 → 187.043 | 1.01678/0.266037 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_11) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties. |
 | [`mg090fe010o_marquardt_2009b_ls_bm3_s1_12`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 199 → 198.521 | 1.15774/0.297171 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_12) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties. |
 | [`mg092fe008o_yang_2015_hs_bm3_reference`](https://www.nature.com/articles/srep17188) | `source_parameterization_only` | — | — | —/— | not_refittable — No machine-readable P-V table is published. Analytical BM3 checkpoints and inverse-volume round trips independently verify executable transcription of the source coefficients. |
-| [`mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2003GL019132) | `mg092fe008sio3_gong_2004_table1_shock` | 13 | `V0` 163.137 → 231.512; `K0` 260.1 → 13.005; `K0_prime` 4.18 → 15.4726 | 27.0578/7.27472 | [parity_not_achieved](#investigation-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3) |
+| [`mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2003GL019132) | `mg092fe008sio3_gong_2004_table1_shock` | — | — | —/— | not_refittable — The tabulated P-density observations are Hugoniot states, whereas this BM3 is a shock-reduced reference isentrope. Directly fitting the Hugoniot states to this isentrope is not a source-EOS reproduction. The thermal reduction inputs are not recoverable from this table; retain the shock observations without an invalid isentropic regression. |
 | [`mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. |
 | [`mg09375al0125si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. |
 | [`mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1`](https://arxiv.org/pdf/2003.12348) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve. |
@@ -509,8 +519,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mgfe60o_richet_1989_bm2_1`](https://doi.org/10.1029/JB094iB03p03037) | `mgfe60o_richet_1989_table2_compression` | 14 | `K0` 149 → 153.217 | 1.04024/0.601213 | parity |
 | [`mgfe60o_solomatova_2016_hs_bm3_reference_1`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `transition_constraints_only` | — | — | —/— | not_refittable — Lin et al. report the 84-102 GPa spectroscopic interval and an approximately 1.6% volume drop at 95 GPa, but no P-V series for this composition; those constraints are not observations. |
 | [`mgfe60o_solomatova_2016_ls_bm3_reference_2`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `transition_constraints_only` | — | — | —/— | not_refittable — Lin et al. report the 84-102 GPa spectroscopic interval and an approximately 1.6% volume drop at 95 GPa, but no P-V series for this composition; those constraints are not observations. |
-| [`mgfe94o_b1_dobrosavljevic_2019_bm3_1`](https://www.mdpi.com/2075-163X/9/12/762) | `mgfe94o_dobrosavljevic_2019_table_s1_compression` | 28 | `V0` 78.88 → 78.6969; `K0` 155.3 → 168.771; `K0_prime` 3.79 → 2.71444 | 6.36656/0.341005 | [parity_not_achieved](#investigation-mgfe94o_b1_dobrosavljevic_2019_bm3_1) |
-| [`mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1`](https://www.mdpi.com/2075-163X/9/12/762) | `mgfe94o_dobrosavljevic_2019_table_s1_compression` | 28 | `V0` 19.18 → 19.6742; `K0` 217 → 168.771; `K0_prime` 2.06 → 2.71444 | 2.41035/0.341005 | [parity_not_achieved](#investigation-mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1) |
+| [`mgfe94o_b1_dobrosavljevic_2019_bm3_1`](https://www.mdpi.com/2075-163X/9/12/762) | `mgfe94o_dobrosavljevic_2019_table_s1_compression` | 14 | `V0` 78.88 → 78.8372; `K0` 155.3 → 159.74; `K0_prime` 3.79 → 3.33844 | 0.240561/0.0956606 | parity — Phase-specific source inclusion flags are applied. This diagnostic does not replay the MINUTI volume objective and Gaussian parameter priors; a different conditional coefficient estimate alone does not establish a source-EOS failure. |
+| [`mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1`](https://www.mdpi.com/2075-163X/9/12/762) | `mgfe94o_dobrosavljevic_2019_table_s1_compression` | 12 | `V0` 19.18 → 19.1156; `K0` 217 → 223.13; `K0_prime` 2.06 → 1.98593 | 0.728146/0.387582 | parity — Phase-specific source inclusion flags are applied. This diagnostic does not replay the MINUTI volume objective and Gaussian parameter priors; a different conditional coefficient estimate alone does not establish a source-EOS failure. |
 | [`mggeo3_post_perovskite_kubo_2006_bm3_1`](https://duffy.princeton.edu/sites/g/files/toruqf616/files/media/kubo-2006-georeslet.pdf) | `mggeo3_post_perovskite_kubo_2006_table_s1_pv` | 22 | `V0` 179.2 → 178.665; `K0` 207 → 210.581 | 1.39451/0.812029 | parity |
 | [`mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2`](https://duffy.princeton.edu/sites/g/files/toruqf616/files/media/kubo-2006-georeslet.pdf) | `mggeo3_post_perovskite_kubo_2006_table_s1_pv` | 22 | `V0` 175.9 → 175.456; `K0` 245 → 248.679 | 1.35613/0.749397 | parity |
 | [`mggeo3_post_perovskite_hirose_2005_bm3_fixed_1`](https://www.rruff.net/doclib/am/vol90/AM90_262.pdf) | `mggeo3_post_perovskite_hirose_2005_table3_pv` | 9 | `V0` 183.1 → 183.935; `K0` 192 → 186.785 | 0.871727/0.57065 | parity |
@@ -518,7 +528,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mgo_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`mgo_b1_tange_2009_vinet`](https://doi.org/10.1029/2008JB005813) | `mgo_dubrovinsky_1997_cod_thermal_expansion, mgo_fiquet_1999_cod_thermal_expansion, mgo_li_2006_table1_elasticity, mgo_marsh_1980_lasl_single_crystal_hugoniot` | 164 | `K0_prime` 4.367 → 4.28527; `gamma0` 1.442 → 1.43678; `a` 0.138 → 0.147146; `b` 5.4 → 5.38459 | —/— | [similar](#investigation-mgo_b1_tange_2009_vinet) — The 164-row approximate reconstruction recovers all four independent Fit 3 coefficients within the numerical similarity limits, including over the tested 1-3% Zha-weight range. It is classified as similar, not parity, because the exact Zha rows and legacy weights are unpublished, one Fiquet state is unresolved, the Zha block is curve-based, and the restricted local inputs are not redistributed. |
 | [`mgo_duffy_1995_bm3_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.74.1371/fulltext) | `mgo_duffy_1995_figure2_digitized` | 17 | `K0` 177 → 178.49; `K0_prime` 4 → 3.85959 | 5.04655/2.6251 | parity |
-| [`mgo_speziale_2001_bm3_2`](https://doi.org/10.1029/2000JB900318) | `mgo_speziale_2001_table1_compression` | 32 | `V0` 74.71 → 74.7114; `K0_prime` 3.99 → 3.99628 | 0.290939/0.287769 | parity |
+| [`mgo_speziale_2001_bm3_2`](https://duffy.princeton.edu/sites/g/files/toruqf616/files/speziale_et_al-2001-jgrse.pdf) | `mgo_speziale_2001_table1_compression` | 32 | `rt_eos.V0` 74.71 → 74.7114; `rt_eos.K0_prime` 3.99 → 3.99628 | 0.290939/0.287769 | parity |
 | [`mgo_li_2006_bm3_absolute_acoustic`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005JB004251) | `mgo_li_2006_table1_elasticity` | 11 | `K0` 161.177 → 161.188; `K0_prime` 4.23791 → 4.25565 | VP 0.02/0.0216486; VS 0.015/0.0147384 km/s | [similar](#investigation-mgo_li_2006_bm3_absolute_acoustic) — Direct reproduction of the source measurement-to-coefficient chain, not a pressure-volume refit: the preferred decompression density, VP, and VS rows plus the independently measured ambient anchor are fitted to the published third-order acoustic finite-strain equations. Equation 4 then maps the fitted adiabatic K0S and K0S-prime to the stored isothermal K0T and K0T-prime; paragraph 10's K0T-in-L2/M2 approximation accounts for the measured isothermal strains. The calculated Table 1 pressures are downstream BM3 outputs and are never used as observations. The source does not publish its exact weights, iterative adiabatic-foot correction, covariance, or propagated isothermal errors, so the unweighted rounded-table reconstruction is classified as numerically similar rather than strict parity. |
 | [`mgo_jacobsen_2008_bm3_kcl_mao1978`](https://doi.org/10.2138/am.2008.2988) | `mgo_jacobsen_2008_table2_kcl_compression` | 26 | `V0` 74.698 → 74.7433; `K0` 164.1 → 162.668; `K0_prime` 4.05 → 4.08928 | 0.331141/0.316033 | parity |
 | [`mgo_jacobsen_2008_bm3_helium_mao1986`](https://doi.org/10.2138/am.2008.2988) | `mgo_jacobsen_2008_table1_helium_compression` | 52 | `V0` 74.687 → 74.6213; `K0` 159.6 → 162.221; `K0_prime` 3.74 → 3.66506 | 0.317688/0.289178 | parity |
@@ -623,7 +633,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`palladium_fedotenko_2020_bm2_2`](https://doi.org/10.1016/j.jallcom.2020.156179) | `palladium_fedotenko_2020_table1_compression` | 15 | `K0` 203 → 202.667 | 0.934246/0.93349 | parity |
 | [`palladium_frost_2023_vinet_1`](https://doi.org/10.1063/5.0161038) | `palladium_frost_2023_tables_i_iii_compression` | 93 | `V0` 58.678 → 58.7665; `K0` 189.3 → 184.191; `K0_prime` 5.473 → 5.60371 | 0.771992/0.276359 | [similar](#investigation-palladium_frost_2023_vinet_1) — Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve). |
 | [`palladium_frost_2023_bm3_2`](https://doi.org/10.1063/5.0161038) | `palladium_frost_2023_tables_i_iii_compression` | 93 | `V0` 58.588 → 58.6846; `K0` 197.5 → 191.477; `K0_prime` 4.996 → 5.14738 | 0.845419/0.293082 | [similar](#investigation-palladium_frost_2023_bm3_2) — Complete-table reproduction: the alternative BM3 is fitted to the same 93 supplementary Pd rows with the source-stated pressure and volume uncertainties. The result is numerically similar, but K0' is just outside combined two-sigma parity and the exact source weighting convention is not reported. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve). |
-| [`palladium_baty_2024_bm3_1`](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_table_s1_compression` | 78 | `V0` 58.88 → 59.9603; `K0` 190 → 152.057; `K0_prime` 5.3 → 6.09936 | 1.27312/0.704337 | [parity_not_achieved](#investigation-palladium_baty_2024_bm3_1) — Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024). |
+| [`palladium_baty_2024_bm3_1`](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_table_s1_compression` | 78 | `V0` 58.88 → 59.9603; `K0` 190 → 152.057; `K0_prime` 5.3 → 6.09936 | 1.27312/0.704337 | [parity_not_achieved](#investigation-palladium_baty_2024_bm3_1) — Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The verified experimental Table S1 observations and source equation do not recover the published experimental BM3 fit under the completed audit checks. |
 | [`pbs_b1_knorr_2003_bm3_1`](https://arxiv.org/abs/cond-mat/0210013) | `lead_sulfide_knorr_2003_figure2_digitized` | 33 | `V0` 207.895 → 207.859; `K0` 51 → 50.6492; `K0_prime` 4.3 → 4.71011 | 0.0263763/0.0106853 | parity |
 | [`perovskite_orthorhombic_knittle_1987_bm3_1`](https://www.science.org/doi/epdf/10.1126/science.235.4789.668) | `mgfe_perovskite_knittle_1987_table2_compression` | 5 | `V0` 162.77 → 165.729; `K0` 266 → 194.747; `K0_prime` 3.9 → 5.49081 | 2.8805/1.4557 | [similar](#investigation-perovskite_orthorhombic_knittle_1987_bm3_1) |
 | [`phase_d_ant_a_shieh_2000_bm2_1`](https://doi.org/10.1016/S0012-821X(00)00033-9) | `phase_d_shieh_2000_table2_pv` | 6 | `K0` 134 → 139.465 | 1.26057/0.746702 | parity |
@@ -728,7 +738,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`tungsten_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `tungsten_dewaele_2004_table1_compression` | 42 | `V0` 31.716 → 31.7155; `K0` 298.6 → 298.571; `K0_prime` 4.37 → 4.3673 | —/0.579488 | [similar](#investigation-tungsten_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`tungsten_dewaele_2004_mao_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `tungsten_dewaele_2004_table1_compression` | 42 | `K0` 298.3 → 298.692; `K0_prime` 3.81 → 3.80193 | 0.578538/0.476182 | parity |
 | [`vanadium_bcc_crichton_2016_bm3_thermal`](https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf) | `vanadium_crichton_2016_figure2_points` | 29 | — | —/— | not_refittable — Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization. |
-| [`wadsleyite_katsura_2009_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009GL038107) | `wadsleyite_katsura_2009_table1_pvt` | 85 | `rt_eos.K0_prime` 4.1 → 3.88876; `gamma0` 1.64 → 1.12567; `q` 1.5 → 1.35014 | 1.89443/0.070938 | [parity_not_achieved](#investigation-wadsleyite_katsura_2009_bm3_1) |
+| [`wadsleyite_katsura_2009_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009GL038107) | `wadsleyite_katsura_2009_table1_pvt` | 85 | `rt_eos.K0_prime` 4.1 → 3.88876; `gamma0` 1.64 → 1.12567; `q` 1.5 → 1.35014 | 1.89443/0.070938 | [parity_not_achieved](#investigation-wadsleyite_katsura_2009_bm3_1) — Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected. |
 | [`wollastonite_sagatova_2021_gga_300k_vinet`](https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. |
 | [`zinc_hcp_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `zinc_dewaele_2008_table2_compression` | 43 | `V0` 30.294 → 30.2925; `K0` 64.3 → 64.3339; `K0_prime` 5.3 → 5.29741 | —/0.59413 | [similar](#investigation-zinc_hcp_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`zinc_hcp_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `zinc_dewaele_2008_table2_compression` | 43 | `V0` 30.31 → 30.3094; `K0` 62.2 → 62.2552; `K0_prime` 5.705 → 5.70359 | —/0.654374 | [similar](#investigation-zinc_hcp_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
@@ -784,7 +794,6 @@ Exact source-equation reconstruction with no composite coefficient optimization:
 - [`coo_clendenen_1966_murnaghan_1`](#investigation-coo_clendenen_1966_murnaghan_1): outside similarity limits (K0_prime 3.9 → 5.1481)
 - [`diamond_correa_2008_double_debye_log_moment_5`](#investigation-diamond_correa_2008_double_debye_log_moment_5): outside similarity limits (Vp 0.335493 → 0.453158; theta_a0 1887.8 → 8800.19; a_a -5.2473 → 0.34053; b_a 0.913 → -1.69049; theta_b0 1887.8 → 2882.08; b_b 0.429 → 0.243306; theta_0_0 1887.8 → 37756; a_0 2.17531 → 1.50765; b_0 0.202 → 0.370766)
 - [`diamond_benedict_2014_double_debye_4`](#investigation-diamond_benedict_2014_double_debye_4): outside similarity limits (b_a 0.913 → -0.0067749; a_b 2.78971 → 1.65621; b_b 0.429 → 0.560571; alpha0 3.79e-05 → 6.09924e-05; Ve 0.348381 → 0.175475; kappa 0 → 1)
-- [`e_feooh_hc_low_spin_thompson_2017_bm3_1`](#investigation-e_feooh_hc_low_spin_thompson_2017_bm3_1): outside similarity limits (K0 223 → 185.921)
 - [`fe09ni01_hcp_sakai_2014_p1_bm3`](#investigation-fe09ni01_hcp_sakai_2014_p1_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 - [`fe09ni01_hcp_sakai_2014_p1_vinet`](#investigation-fe09ni01_hcp_sakai_2014_p1_vinet): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 - [`fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3`](#investigation-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
@@ -802,14 +811,10 @@ Exact source-equation reconstruction with no composite coefficient optimization:
 - [`fe09ni01_hcp_sakai_2014_type4_2_thermal`](#investigation-fe09ni01_hcp_sakai_2014_type4_2_thermal): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 - [`fe09ni01_hcp_sakai_2014_type4_3_thermal`](#investigation-fe09ni01_hcp_sakai_2014_type4_3_thermal): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 - [`fe_fcc_campbell_2009_bm3_mgd`](#investigation-fe_fcc_campbell_2009_bm3_mgd): parity_not_achieved
-- [`fe093o_b1_jacobsen_2005_bm3_1`](#investigation-fe093o_b1_jacobsen_2005_bm3_1): outside similarity limits (V0 79.41 → 59.7395)
 - [`feo_campbell_2009_bm3_mgd`](#investigation-feo_campbell_2009_bm3_mgd): outside similarity limits (q 1.3 → 0.750804)
-- [`ferropericlase_fe27_jacobsen_2002_bm3_1`](#investigation-ferropericlase_fe27_jacobsen_2002_bm3_1): outside similarity limits (V0 76.336 → 113.015; K0 158.4 → 37.1717)
 - [`goethite_gleason_2008_bm3_1`](#investigation-goethite_gleason_2008_bm3_1): outside similarity limits (rt_eos.K0 140.3 → 183.338; rt_eos.K0_prime 4.6 → 0)
 - [`gold_dorfman_2012_tange_mgo_k0_fixed_vinet`](#investigation-gold_dorfman_2012_tange_mgo_k0_fixed_vinet): outside similarity limits (K0_prime 5.88 → 5.86027)
 - [`gold_dorfman_2012_tange_mgo_k0_free_vinet`](#investigation-gold_dorfman_2012_tange_mgo_k0_free_vinet): outside similarity limits (K0 167 → 178.713; K0_prime 5.84 → 5.46833)
-- [`iron_dewaele_2019_mao_vinet`](#investigation-iron_dewaele_2019_mao_vinet): outside similarity limits (K0 164.5 → 101.058; K0_prime 4.96 → 6.63486)
-- [`iron_dewaele_2019_dor_vinet`](#investigation-iron_dewaele_2019_dor_vinet): outside similarity limits (V0 22.354 → 23.5216; K0 168.4 → 101.058; K0_prime 5.33 → 6.63486)
 - [`iron_sakai_2014_p1_bm3`](#investigation-iron_sakai_2014_p1_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 - [`iron_sakai_2014_p1_v0_mao_bm3`](#investigation-iron_sakai_2014_p1_v0_mao_bm3): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 - [`iron_sakai_2014_p1_v0_mao_vinet`](#investigation-iron_sakai_2014_p1_v0_mao_vinet): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
@@ -824,19 +829,9 @@ Exact source-equation reconstruction with no composite coefficient optimization:
 - [`iron_miozzi_2020_bm3_mgd`](#investigation-iron_miozzi_2020_bm3_mgd): outside similarity limits (gamma0 1.11 → 1.22374; q 0.3 → 1.36126)
 - [`lead_hcp_dewaele_2019_mao_vinet`](#investigation-lead_hcp_dewaele_2019_mao_vinet): outside similarity limits (K0_prime 4.4 → 3.30377)
 - [`lead_hcp_dewaele_2019_dor_vinet`](#investigation-lead_hcp_dewaele_2019_dor_vinet): outside similarity limits (K0_prime 4.77 → 3.30377)
-- [`magnesiowustite_fe56_jacobsen_2002_bm3_1`](#investigation-magnesiowustite_fe56_jacobsen_2002_bm3_1): outside similarity limits (V0 77.453 → 113.002; K0 155.8 → 37.1669)
-- [`magnesiowustite_fe75_jacobsen_2002_bm3_1`](#investigation-magnesiowustite_fe75_jacobsen_2002_bm3_1): outside similarity limits (V0 78.082 → 113.014; K0 151.3 → 37.188)
-- [`mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1`](#investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1): outside similarity limits (V0 78.87 → 157.74; K0 148 → 337.791; K0_prime 4.09 → 9.6577)
-- [`mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2`](#investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2): outside similarity limits (V0 78.742 → 157.484; K0 163 → 360.366; K0_prime 4.02 → 9.41478)
-- [`mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1`](#investigation-mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1): outside similarity limits (K0 160 → 202.391; K0_prime 4.12 → 2.31737)
-- [`mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2`](#investigation-mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2): outside similarity limits (V0 73.64 → 78.5805; K0 173 → 135.945)
-- [`mg073fe027o_jacobsen_2005_bm3_1`](#investigation-mg073fe027o_jacobsen_2005_bm3_1): outside similarity limits (V0 77.3 → 57.963; K0 154 → 196.545; K0_prime 4 → 2.38146)
 - [`mg075fe025o_solomatova_2016_hs_bm3_reference_1`](#investigation-mg075fe025o_solomatova_2016_hs_bm3_reference_1): parity_not_achieved
 - [`mg075fe025o_solomatova_2016_ls_bm3_reference_2`](#investigation-mg075fe025o_solomatova_2016_ls_bm3_reference_2): parity_not_achieved
 - [`mg080fe020o_fei_2007_ls_b1_bm3`](#investigation-mg080fe020o_fei_2007_ls_b1_bm3): outside similarity limits (K0 170 → 144.186)
-- [`mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3`](#investigation-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3): outside similarity limits (V0 163.137 → 231.512; K0 260.1 → 13.005; K0_prime 4.18 → 15.4726)
-- [`mgfe94o_b1_dobrosavljevic_2019_bm3_1`](#investigation-mgfe94o_b1_dobrosavljevic_2019_bm3_1): outside similarity limits (K0_prime 3.79 → 2.71444)
-- [`mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1`](#investigation-mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1): outside similarity limits (K0 217 → 168.771)
 - [`mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey`](#investigation-mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey): Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.
 - [`molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet`](#investigation-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet): outside similarity limits (K0_prime 4.19 → 4.1381)
 - [`molybdenum_dorfman_2012_tange_mgo_k0_free_vinet`](#investigation-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet): outside similarity limits (K0 271 → 255.46; K0_prime 3.89 → 4.2951)
@@ -925,7 +920,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **234** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **223** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests or a dedicated partial-source reconstruction does
@@ -1742,27 +1737,6 @@ the missing source fit detail is recovered.
 - The lowest checked pressure is 40.4769 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
-<a id="investigation-e_feooh_hc_low_spin_thompson_2017_bm3_1"></a>
-
-### `e_feooh_hc_low_spin_thompson_2017_bm3_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `epsilon_feooh_thompson_2017_supplement_table_s1` with 17 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 58.62 | 59.5867 ± 0.110773 | 1.65% | no | yes |
-| `K0` | 223 | 185.921 ± 4.58313 | 16.63% | no | no |
-| `K0_prime` | 4.07 | 4.65126 ± 0.104886 | 14.28% | no | yes |
-
-**Fit diagnostics.** Observed pressure range: 0.01-139.99 GPa; source-declared range: 30-140 GPa; fit kind: `isothermal_pv`; objective: `pressure_residuals`; published/refit pressure RMSE: 1.56406/0.530797 GPa; reduced chi-square: 0.34212; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** All 17 printed static GGA+U structural rows are transcribed. The 12 rows at 30.01-139.99 GPa represent the unambiguous HC fit interval; the five lower-pressure rows are retained to expose the HOC/transition region and its unresolved parameter/data contradiction. Row-level uncertainties are not reported.
-
-**Registered source-fit note.** This record represents only the volumetric BM3 fit for the hydrogen-centered low-spin ferromagnetic Pnnm branch. The paper's self-consistent Hubbard U changes with pressure; it is part of the computational protocol, not an EOS coefficient. Table 3 elastic moduli and velocities come from stress-strain elastic tensors and Voigt-Reuss-Hill averaging and are not substituted for the volumetric K0 or K0'. All three BM3 parameters were fitted. Published parameter errors are retained, but their confidence level and covariance are unavailable.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
 <a id="investigation-fe09ni01_hcp_sakai_2014_p1_bm3"></a>
 
 ### `fe09ni01_hcp_sakai_2014_p1_bm3`
@@ -2191,27 +2165,6 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
 
-<a id="investigation-fe093o_b1_jacobsen_2005_bm3_1"></a>
-
-### `fe093o_b1_jacobsen_2005_bm3_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `jacobsen_2005_table1_compression` with 9 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 79.41 | 59.7395 ± 0.131263 | 24.77% | no | no |
-| `K0` | 146 | 133.662 ± 2.16124 | 8.45% | no | yes |
-
-**Fit diagnostics.** Observed pressure range: 27.7-51.1 GPa; source-declared range: 0-22.8 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 148.962/0.0161316 GPa; reduced chi-square: 2.67974; free parameters: `V0, K0`; source-fixed parameters: `K0_prime`.
-
-**Source/data scope.** The complete multiphase table is transcribed, including all seven cubic Fe0.93O lattice parameters and estimated standard deviations. Conventional-cell volumes and propagated standard deviations are transparent derived columns.
-
-**Registered source-fit note.** Published cubic-phase fit to the seven Table 1 observations from 0 to 22.8 GPa. The source calls the fitted equation third-order Birch-Murnaghan even though fixing K0'=4 reduces it numerically to BM2; BM3 is retained to preserve the source model declaration and fixed parameter. Parenthesized parameter errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.
-
-**Assessment and likely origin.**
-- The lowest checked pressure is 27.7 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
 <a id="investigation-feo_campbell_2009_bm3_mgd"></a>
 
 ### `feo_campbell_2009_bm3_mgd`
@@ -2229,27 +2182,6 @@ the missing source fit detail is recovered.
 **Source/data scope.** Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.
 
 **Registered source-fit note.** Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. The published fit also includes Seagle et al. (2008). Its 81 V-T rows are linked, but exact row-wise pressures and Campbell recalibration are not published. Independent refits therefore report a current-study subset and a nominal-isobar sensitivity reconstruction. The starting Fe1-xO powder equilibrates with metallic Fe; Sections 2.1, 3 and 5 explicitly identify the selected oxide as stoichiometric Fe1.00O in B1, not Fe0.94O, rhombohedral wustite or B8. Stoichiometry follows the Stolen-Grønvold model-B field (above 5 GPa at 900 K, boundary slope below -120 K/GPa), not a direct per-row chemical assay.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
-<a id="investigation-ferropericlase_fe27_jacobsen_2002_bm3_1"></a>
-
-### `ferropericlase_fe27_jacobsen_2002_bm3_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `ferropericlase_fe27_jacobsen_2002_table5_compression` with 10 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 76.336 | 113.015 ± 2.62929 | 48.05% | no | no |
-| `K0` | 158.4 | 37.1717 ± 23.9319 | 76.53% | no | no |
-| `K0_prime` | 5.49 | 5.97834 ± 7.18397 | 8.90% | yes | yes |
-
-**Fit diagnostics.** Observed pressure range: 0.0001-9.292 GPa; source-declared range: 0.0001-9.292 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 25.4926/0.000593341 GPa; reduced chi-square: 5.02943e-07; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** All 10 printed Fe27 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly.
-
-**Registered source-fit note.** The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.
 
 **Assessment and likely origin.**
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
@@ -2530,43 +2462,45 @@ the missing source fit detail is recovered.
 
 ### `iron_dewaele_2019_mao_vinet`
 
-**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `iron_dewaele_2006_epaps_compression` with 63 selected observations.
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `iron_dewaele_2006_epaps_compression` with 53 selected observations.
 
 | Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
 |---|---:|---:|---:|:---:|:---:|
-| `V0` | 22.418 | 23.5216 ± 0.153175 | 4.92% | no | yes |
-| `K0` | 164.5 | 101.058 ± 6.83165 | 38.57% | no | no |
-| `K0_prime` | 4.96 | 6.63486 ± 0.177782 | 33.77% | no | no |
+| `V0` | 22.418 | 22.416 | 0.01% | — | yes |
+| `K0` | 164.5 | 164.638 | 0.08% | — | yes |
+| `K0_prime` | 4.96 | 4.96211 | 0.04% | — | yes |
 
-**Fit diagnostics.** Observed pressure range: 0-205 GPa; source-declared range: 17-204 GPa; fit kind: `isothermal_pv`; objective: `pressure_residuals`; published/refit pressure RMSE: 8.30781/2.08896 GPa; reduced chi-square: 4.58192; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+**Fit diagnostics.** Observed pressure range: 17.5657-188.868 GPa; source-declared range: 17-204 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.819378 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
 
 **Source/data scope.** All 63 supplementary observations and raw gauge fields are bundled. The 53 hcp rows reproduce the 2019 Mao and Dorogokupets Vinet coefficients within 0.0011 A^3/atom, 0.25 GPa, and 0.0022 in K0 prime under an unweighted pressure-residual fit.
 
 **Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
 **Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+- The lowest checked pressure is 17.5657 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 
 <a id="investigation-iron_dewaele_2019_dor_vinet"></a>
 
 ### `iron_dewaele_2019_dor_vinet`
 
-**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `iron_dewaele_2006_epaps_compression` with 63 selected observations.
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `iron_dewaele_2006_epaps_compression` with 53 selected observations.
 
 | Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
 |---|---:|---:|---:|:---:|:---:|
-| `V0` | 22.354 | 23.5216 ± 0.153175 | 5.22% | no | no |
-| `K0` | 168.4 | 101.058 ± 6.83165 | 39.99% | no | no |
-| `K0_prime` | 5.33 | 6.63486 ± 0.177782 | 24.48% | no | no |
+| `V0` | 22.354 | 22.352 | 0.01% | — | yes |
+| `K0` | 168.4 | 168.65 | 0.15% | — | yes |
+| `K0_prime` | 5.33 | 5.32808 | 0.04% | — | yes |
 
-**Fit diagnostics.** Observed pressure range: 0-205 GPa; source-declared range: 17-204 GPa; fit kind: `isothermal_pv`; objective: `pressure_residuals`; published/refit pressure RMSE: 3.69918/2.08896 GPa; reduced chi-square: 4.58192; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+**Fit diagnostics.** Observed pressure range: 17.7-205 GPa; source-declared range: 17-204 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.940726 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
 
 **Source/data scope.** All 63 supplementary observations and raw gauge fields are bundled. The 53 hcp rows reproduce the 2019 Mao and Dorogokupets Vinet coefficients within 0.0011 A^3/atom, 0.25 GPa, and 0.0022 in K0 prime under an unweighted pressure-residual fit.
 
 **Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
 **Assessment and likely origin.**
-- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+- The lowest checked pressure is 17.7 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 
 <a id="investigation-iron_sakai_2014_p1_bm3"></a>
 
@@ -3276,48 +3210,6 @@ the missing source fit detail is recovered.
 - The lowest checked pressure is 10.527 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
-<a id="investigation-magnesiowustite_fe56_jacobsen_2002_bm3_1"></a>
-
-### `magnesiowustite_fe56_jacobsen_2002_bm3_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `magnesiowustite_fe56_jacobsen_2002_table4_compression` with 11 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 77.453 | 113.002 ± 1.99596 | 45.90% | no | no |
-| `K0` | 155.8 | 37.1669 ± 22.6741 | 76.14% | no | no |
-| `K0_prime` | 5.53 | 5.97778 ± 7.52691 | 8.10% | yes | yes |
-
-**Fit diagnostics.** Observed pressure range: 0.0001-8.923 GPa; source-declared range: 0.0001-8.923 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 24.0928/0.00117493 GPa; reduced chi-square: 1.89815e-06; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** All 11 printed Fe56 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly.
-
-**Registered source-fit note.** The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
-<a id="investigation-magnesiowustite_fe75_jacobsen_2002_bm3_1"></a>
-
-### `magnesiowustite_fe75_jacobsen_2002_bm3_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `magnesiowustite_fe75_jacobsen_2002_table5_compression` with 7 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 78.082 | 113.014 ± 2.77116 | 44.74% | no | no |
-| `K0` | 151.3 | 37.188 ± 31.4806 | 75.42% | no | no |
-| `K0_prime` | 5.55 | 5.97109 ± 11.5566 | 7.59% | yes | yes |
-
-**Fit diagnostics.** Observed pressure range: 0.0001-7.179 GPa; source-declared range: 0.0001-7.179 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 23.2769/0.000571467 GPa; reduced chi-square: 5.71513e-07; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** All 7 printed Fe75 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly; Table 5's three blank Fe75 entries are not invented as observations.
-
-**Registered source-fit note.** The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
 <a id="investigation-magnesite_vocadlo_1999_bm3_2"></a>
 
 ### `magnesite_vocadlo_1999_bm3_2`
@@ -3382,48 +3274,6 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
 
-<a id="investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1"></a>
-
-### `mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `magnesiowustite_mw78_finkelstein_2017_table2_compression` with 29 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 78.87 | 157.74 ± 69.112 | 100.00% | yes | no |
-| `K0` | 148 | 337.791 ± 5.19245 | 128.24% | no | no |
-| `K0_prime` | 4.09 | 9.6577 ± 1.88614 | 136.13% | no | no |
-
-**Fit diagnostics.** Observed pressure range: 1.314-55.542 GPa; source-declared range: 1.823-55.542 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 34.4238/17.0485 GPa; reduced chi-square: 324.362; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** All 30 Table 2 rows are bundled: one ambient observation, 17 helium observations, and 12 neon observations. Both cubic and hexagonal indexing results, all printed uncertainties, and both ruby wavelengths are retained.
-
-**Registered source-fit note.** Canonical equilibrium-oriented record. V0 is fitted under a 78.94 +/- 0.1 A^3 ambient prior rather than fixed; K0 and K0_prime are freely varied. Parenthetical values are the source's 1-sigma fit uncertainties, stored with null confidence because they are standard errors rather than interval half-widths. The 300 K reference is nominal room temperature and no row-wise temperature observations are reported.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
-<a id="investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2"></a>
-
-### `mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `magnesiowustite_mw78_finkelstein_2017_table2_compression` with 29 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 78.742 | 157.484 ± 67.3342 | 100.00% | yes | no |
-| `K0` | 163 | 360.366 ± 4.93034 | 121.08% | no | no |
-| `K0_prime` | 4.02 | 9.41478 ± 1.70824 | 134.20% | no | no |
-
-**Fit diagnostics.** Observed pressure range: 1.314-55.542 GPa; source-declared range: 1.314-19.244 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 34.6793/17.046 GPa; reduced chi-square: 324.264; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** All 30 Table 2 rows are bundled. The five-row neon cubic fit selection and seven-row excluded neon hexagonal selection are explicit, and both cell indexings remain available for every pressure.
-
-**Registered source-fit note.** Published stress-sensitive low-pressure neon alternative. V0 and K0_prime were constrained by priors, not fixed, so fixed_parameters is empty. The authors attribute the stiffer curve relative to helium to neon crystallization and nonhydrostaticity; this record is intentionally not the default. Parenthetical values are 1-sigma fit uncertainties.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
 <a id="investigation-mg042fe058o_fei_2007_hs_b1_bm3"></a>
 
 ### `mg042fe058o_fei_2007_hs_b1_bm3`
@@ -3447,38 +3297,39 @@ the missing source fit detail is recovered.
 
 ### `mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1`
 
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `mg0490fe0483ti0027o_solomatova_2016_table1_pv` with 45 selected observations.
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg0490fe0483ti0027o_solomatova_2016_table1_pv` with 45 selected observations.
 
 | Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
 |---|---:|---:|---:|:---:|:---:|
-| `V0` | 77.29 | 76.6303 ± 0.213908 | 0.85% | no | yes |
-| `K0` | 160 | 202.391 ± 7.15311 | 26.49% | no | no |
-| `K0_prime` | 4.12 | 2.31737 ± 0.134273 | 43.75% | no | no |
+| `V0` | 77.29 | 77.29 | — | — | yes |
+| `K0` | 160 | 160.696 | — | — | yes |
+| `K0_prime` | 4.12 | 4.09756 | — | — | yes |
 
-**Fit diagnostics.** Observed pressure range: 0-82.9 GPa; source-declared range: 0-82.9 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 6.0955/0.464109 GPa; reduced chi-square: 0.406106; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 0-82.9 GPa; fit kind: `coupled_bm3_three_level_spin_crossover`; objective: `equal-weight approximate volume residuals plus Table 2 priors`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `V0_HS, K0_HS, K0_prime_HS, V0_LS, K0_LS, omega0`; source-fixed parameters: `none`.
 
 **Source/data scope.** All 45 measured Fp48 P-V observations and the complete 36-row derived crossover grid are bundled. Outside the crossover, the respective branch reproduces the source values.
 
 **Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2"></a>
 
 ### `mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2`
 
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `mg0490fe0483ti0027o_solomatova_2016_table1_pv` with 45 selected observations.
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg0490fe0483ti0027o_solomatova_2016_table1_pv` with 45 selected observations.
 
 | Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
 |---|---:|---:|---:|:---:|:---:|
-| `V0` | 73.64 | 78.5805 ± 0.226794 | 6.71% | no | no |
-| `K0` | 173 | 135.945 ± 2.70389 | 21.42% | no | no |
+| `V0` | 73.64 | 73.6732 | — | — | yes |
+| `K0` | 173 | 170.824 | — | — | yes |
+| `K0_prime` | 4 | 4 | — | — | yes |
 
-**Fit diagnostics.** Observed pressure range: 0-82.9 GPa; source-declared range: 0-82.9 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 9.90668/0.974308 GPa; reduced chi-square: 2.12546; free parameters: `V0, K0`; source-fixed parameters: `K0_prime`.
+**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 0-82.9 GPa; fit kind: `coupled_bm3_three_level_spin_crossover`; objective: `equal-weight approximate volume residuals plus Table 2 priors`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `V0_HS, K0_HS, K0_prime_HS, V0_LS, K0_LS, omega0`; source-fixed parameters: `K0_prime`.
 
 **Source/data scope.** All 45 measured Fp48 P-V observations and the complete 36-row derived crossover grid are bundled. Outside the crossover, the respective branch reproduces the source values.
 
 **Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1"></a>
 
@@ -3593,28 +3444,6 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
-
-<a id="investigation-mg073fe027o_jacobsen_2005_bm3_1"></a>
-
-### `mg073fe027o_jacobsen_2005_bm3_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `jacobsen_2005_table1_compression` with 9 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 77.3 | 57.963 ± 0.489411 | 25.02% | no | no |
-| `K0` | 154 | 196.545 ± 21.3963 | 27.63% | yes | no |
-| `K0_prime` | 4 | 2.38146 ± 0.474165 | 40.46% | no | no |
-
-**Fit diagnostics.** Observed pressure range: 27.7-51.1 GPa; source-declared range: 0-51.1 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 138.333/0.0124624 GPa; reduced chi-square: 2.05571; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** The complete multiphase table is transcribed, including all 16 Fe27 cubic lattice parameters and estimated standard deviations. Conventional-cell volumes and propagated standard deviations are transparent derived columns.
-
-**Registered source-fit note.** Published fit to all 16 Table 1 Fe27 observations from 0 to 51.1 GPa. V0, K0, and K0' are free parameters; none was fixed. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.
-
-**Assessment and likely origin.**
-- The lowest checked pressure is 27.7 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
 <a id="investigation-mg075fe025o_solomatova_2016_hs_bm3_reference_1"></a>
 
@@ -4056,28 +3885,6 @@ the missing source fit detail is recovered.
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
-<a id="investigation-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3"></a>
-
-### `mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `mg092fe008sio3_gong_2004_table1_shock` with 13 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 163.137 | 231.512 ± 166.637 | 41.91% | — | no |
-| `K0` | 260.1 | 13.005 ± 161.19 | 95.00% | yes | no |
-| `K0_prime` | 4.18 | 15.4726 ± 121.56 | 270.16% | yes | no |
-
-**Fit diagnostics.** Observed pressure range: 47.75-140.64 GPa; source-declared range: 47.75-140.64 GPa; fit kind: `isothermal_pv`; objective: `pressure_residuals`; published/refit pressure RMSE: 27.0578/7.27472 GPa; reduced chi-square: 30.4276; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** All 13 printed shock states and their uncertainties are bundled.
-
-**Registered source-fit note.** Accepted LitCurate source row 447. This equilibrium BM3 is the source's shock-reduced reference isentrope, not the directly measured principal Hugoniot and not an independently fitted 298 K isotherm. The AIP proceedings DOI 10.1063/1.1780510 repeats this same data set and is not represented as a second record.
-
-**Assessment and likely origin.**
-- The lowest checked pressure is 47.75 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
 <a id="investigation-mg0991fe0008mn0001co3_redfern_1993_bm3_2"></a>
 
 ### `mg0991fe0008mn0001co3_redfern_1993_bm3_2`
@@ -4115,48 +3922,6 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - The magnitude is similar for `V0`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
-
-<a id="investigation-mgfe94o_b1_dobrosavljevic_2019_bm3_1"></a>
-
-### `mgfe94o_b1_dobrosavljevic_2019_bm3_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `mgfe94o_dobrosavljevic_2019_table_s1_compression` with 28 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 78.88 | 78.6969 ± 0.0649977 | 0.23% | no | yes |
-| `K0` | 155.3 | 168.771 ± 2.3742 | 8.67% | no | yes |
-| `K0_prime` | 3.79 | 2.71444 ± 0.0553975 | 28.38% | no | no |
-
-**Fit diagnostics.** Observed pressure range: 1.5-88.7 GPa; source-declared range: 1.5-23.3 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 6.36656/0.341005 GPa; reduced chi-square: 1.84414; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** All 28 printed rows are preserved. Fourteen B1 rows are selected, the two anomalous B1 rows are retained with explicit exclusion reasons, and all 12 rhombohedral rows remain in the shared dataset.
-
-**Registered source-fit note.** Published B1 parameterization on the Dewaele-2008 ruby scale. V0 is stored on the conventional eight-atom cell basis. K0-prime was constrained by a finite prior and is therefore listed as free, not fixed. No numerical covariance matrix is available.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
-<a id="investigation-mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1"></a>
-
-### `mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `mgfe94o_dobrosavljevic_2019_table_s1_compression` with 28 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 19.18 | 19.6742 ± 0.0162494 | 2.58% | no | yes |
-| `K0` | 217 | 168.771 ± 2.3742 | 22.23% | no | no |
-| `K0_prime` | 2.06 | 2.71444 ± 0.0553975 | 31.77% | no | yes |
-
-**Fit diagnostics.** Observed pressure range: 1.5-88.7 GPa; source-declared range: 34.5-88.7 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 2.41035/0.341005 GPa; reduced chi-square: 1.84414; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
-
-**Source/data scope.** All 28 printed rows are preserved in the shared dataset; all 12 rows identified as fully rhombohedral are selected for this fit.
-
-**Registered source-fit note.** Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is stored on a two-atom, one-formula-unit primitive EOS basis because the source does not publish a complete conventional-cell metric. All three coefficients were free; no numerical covariance matrix is available.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
 <a id="investigation-mggeo3_post_perovskite_hirose_2005_bm3_free_2"></a>
 
@@ -5936,6 +5701,7 @@ the missing source fit detail is recovered.
 - `mg0875fe0125o_leonov_2017_hs_bm3_1`: Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.
 - `mg090fe010o_marquardt_2009b_hs_bm3`: EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective.
 - `mg092fe008o_yang_2015_hs_bm3_reference`: No machine-readable P-V table is published. Analytical BM3 checkpoints and inverse-volume round trips independently verify executable transcription of the source coefficients.
+- `mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3`: The tabulated P-density observations are Hugoniot states, whereas this BM3 is a shock-reduced reference isentrope. Directly fitting the Hugoniot states to this isentrope is not a source-EOS reproduction. The thermal reduction inputs are not recoverable from this table; retain the shock observations without an invalid isentropic regression.
 - `mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`: The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
 - `mg09375al0125si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`: The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
 - `mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1`: The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve.
