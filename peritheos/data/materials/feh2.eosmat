@@ -1,354 +1,190 @@
 {
- "format_version": 3,
- "name": "FeH2",
- "formula": "FeH2",
- "symmetry": "TETRAGONAL",
- "lattice": {
-  "a": 2.714,
-  "b": 2.714,
-  "c": 9.2142,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "I4/mmm",
- "space_group_number": 139,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/FeH2_tetragonal.jcpds. The I4/mmm structure is from Pepin et al., Phys. Rev. Lett. 113, 265504 (2014), doi:10.1103/PhysRevLett.113.265504. Fe was experimentally refined at 67 GPa; the two H sites were obtained by DFT because hydrogen positions could not be determined from the X-ray data. Fractional coordinates are paired here with the legacy reference lattice to enable full-range reflection generation; the legacy peaks are retained.",
- "peaks": [
-  [
-   2,
-   1,
-   1,
-   1.2033,
-   10.0
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "feh2",
+  "name": "FeH2",
+  "formula": "FeH2",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "symmetry": "TETRAGONAL",
+  "space_group": "I4/mmm",
+  "space_group_number": 139,
+  "lattice": {"a": 2.714, "b": 2.714, "c": 9.2142, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Fe", "wyckoff": "4e", "x": 0.0, "y": 0.0, "z": 0.853, "occupancy": 1.0},
+    {"element": "H", "wyckoff": "4c", "x": 0.0, "y": 0.5, "z": 0.0, "occupancy": 1.0},
+    {"element": "H", "wyckoff": "4d", "x": 0.0, "y": 0.5, "z": 0.25, "occupancy": 1.0}
   ],
-  [
-   2,
-   0,
-   0,
-   1.357,
-   10.0
+  "peaks": [
+    [2, 1, 1, 1.2033, 10.0],
+    [2, 0, 0, 1.357, 10.0],
+    [1, 1, 4, 1.4745, 50.0],
+    [0, 0, 6, 1.5357, 10.0],
+    [1, 1, 2, 1.7715, 10.0],
+    [1, 1, 0, 1.9191, 50.0],
+    [1, 0, 3, 2.0338, 100.0],
+    [0, 0, 4, 2.3036, 50.0],
+    [1, 0, 1, 2.6034, 100.0],
+    [0, 0, 2, 4.6071, 50.0]
   ],
-  [
-   1,
-   1,
-   4,
-   1.4745,
-   50.0
-  ],
-  [
-   0,
-   0,
-   6,
-   1.5357,
-   10.0
-  ],
-  [
-   1,
-   1,
-   2,
-   1.7715,
-   10.0
-  ],
-  [
-   1,
-   1,
-   0,
-   1.9191,
-   50.0
-  ],
-  [
-   1,
-   0,
-   3,
-   2.0338,
-   100.0
-  ],
-  [
-   0,
-   0,
-   4,
-   2.3036,
-   50.0
-  ],
-  [
-   1,
-   0,
-   1,
-   2.6034,
-   100.0
-  ],
-  [
-   0,
-   0,
-   2,
-   4.6071,
-   50.0
-  ]
- ],
- "eos_records": [
-  {
-   "label": "Pepin et al. (2014), Vinet",
-   "reference": {
-    "authors": [
-     "Pépin",
-     "Dewaele",
-     "Geneste",
-     "Loubeyre",
-     "Mezouar"
-    ],
-    "year": 2014,
-    "title": "New Iron Hydrides under High Pressure",
-    "source": "Phys. Rev. Lett.",
-    "volume": "113",
-    "locator": "265504",
-    "doi": "10.1103/PhysRevLett.113.265504"
-   },
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 67.8895,
-     "K0": 127.2,
-     "K0_prime": 5.0
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": 0.7174,
-    "K0": 8.1,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "experimental_pressure_range_gpa": [
-    23.0,
-    87.0
-   ],
-   "notes": "Experimental Vinet fit: molar V0 = 10.221(108) cm^3/mol and K0 = 127.2(81) GPa, with K0' fixed at 5. V0 and its uncertainty were converted to the Z=4 tetragonal cell.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet discussion; Figure 3; Table I, experimental FeH2 and FeH3 rows."
-   },
-   "identifier": "feh2_p_pin_2014_vinet_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/FeH2_tetragonal.jcpds. The I4/mmm structure is from Pepin et al., Phys. Rev. Lett. 113, 265504 (2014), doi:10.1103/PhysRevLett.113.265504. Fe was experimentally refined at 67 GPa; the two H sites were obtained by DFT because hydrogen positions could not be determined from the X-ray data. Fractional coordinates are paired here with the legacy reference lattice to enable full-range reflection generation; the legacy peaks are retained.",
+  "eos_records": [
+    {
+      "identifier": "feh2_p_pin_2014_vinet_1",
+      "label": "Pepin et al. (2014), Vinet",
+      "determination_method": "experimental",
       "reference": {
-       "authors": [
-        "Dewaele",
-        "Loubeyre",
-        "Mezouar"
-       ],
-       "year": 2004,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.70.094112"
+        "authors": ["Pépin", "Dewaele", "Geneste", "Loubeyre", "Mezouar"],
+        "year": 2014,
+        "title": "New Iron Hydrides under High Pressure",
+        "source": "Phys. Rev. Lett.",
+        "volume": "113",
+        "locator": "265504",
+        "doi": "10.1103/PhysRevLett.113.265504"
       },
-      "source_location": "Experimental methods; small Au piece, reference 18",
-      "reference_eos_record": "gold_dewaele_2004_vinet_5"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext",
-     "locations": [
-      "Vinet discussion",
-      "Figure 3",
-      "Table I, experimental FeH2 and FeH3 rows"
-     ],
-     "finding": "Molar volumes were converted to the represented conventional cells.",
-     "doi": "10.1103/physrevlett.113.265504"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "feh2.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "feh2_pepin_2014_figure3_digitized"
-     ],
-     "source_locations": [
-      "Figure 3; Table I"
-     ],
-     "finding": "The experimental FeH2 and FeH3 compression observations are plotted in Figure 3 but not tabulated. Table I contains only the fitted Vinet parameters and theoretical comparison values."
+      "eos": {
+        "type": "Vinet",
+        "parameters": {"V0": 67.8895, "K0": 127.2, "K0_prime": 5.0},
+        "model": "vinet"
+      },
+      "parameter_errors": {"V0": 0.7174, "K0": 8.1, "K0_prime": null},
+      "fixed_parameters": ["K0_prime"],
+      "experimental_pressure_range_gpa": [23.0, 87.0],
+      "notes": "Experimental Vinet fit: molar V0 = 10.221(108) cm^3/mol and K0 = 127.2(81) GPa, with K0' fixed at 5. V0 and its uncertainty were converted to the Z=4 tetragonal cell.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+              "year": 2004,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.70.094112"
+            },
+            "source_location": "Experimental methods; small Au piece, reference 18",
+            "reference_eos_record": "gold_dewaele_2004_vinet_5"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext",
+          "locations": ["Vinet discussion", "Figure 3", "Table I, experimental FeH2 and FeH3 rows"],
+          "finding": "Molar volumes were converted to the represented conventional cells.",
+          "doi": "10.1103/physrevlett.113.265504"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "feh2.json"
+        },
+        "primary_data_check": {
+          "status": "plot_only",
+          "audit_date": "2026-09-03",
+          "digitized_dataset_identifiers": ["feh2_pepin_2014_figure3_digitized"],
+          "source_locations": ["Figure 3; Table I"],
+          "finding": "The experimental FeH2 and FeH3 compression observations are plotted in Figure 3 but not tabulated. Table I contains only the fitted Vinet parameters and theoretical comparison values."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet discussion; Figure 3; Table I, experimental FeH2 and FeH3 rows."
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "feh2_pepin_2014_figure3_digitized",
-   "kind": "pressure_molar_volume_digitized",
-   "description": "Fourteen plotted FeH2 observations digitized from Figure 3. The paper's stated experimental uncertainties (2% in pressure and 0.05 cm^3/mol in volume) are included separately from digitization uncertainty; the caption notes that the rendered error bars do not exceed the marker size.",
-   "reference": {
-    "authors": [
-     "Pépin",
-     "Dewaele",
-     "Geneste",
-     "Loubeyre",
-     "Mezouar"
-    ],
-    "year": 2014,
-    "source": "Phys. Rev. Lett.",
-    "volume": "113",
-    "locator": "265504",
-    "doi": "10.1103/PhysRevLett.113.265504"
-   },
-   "source_location": "Figure 3, green downward triangles",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "molar_volume_cm3_per_mol",
-     "quantity": "molar_volume",
-     "unit": "cm^3/mol",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "pressure_error_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "molar_volume_error_cm3_per_mol",
-     "quantity": "molar_volume",
-     "unit": "cm^3/mol",
-     "role": "uncertainty",
-     "of": "molar_volume_cm3_per_mol"
-    },
-    {
-     "name": "volume_error_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "uncertainty",
-     "of": "volume_a3_conventional_cell"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "molar_volume_digitization_uncertainty_cm3_per_mol",
-     "quantity": "molar_volume",
-     "unit": "cm^3/mol",
-     "role": "uncertainty",
-     "of": "molar_volume_cm3_per_mol"
+      "identifier": "feh2_pepin_2014_figure3_digitized",
+      "kind": "pressure_molar_volume_digitized",
+      "description": "Fourteen plotted FeH2 observations digitized from Figure 3. The paper's stated experimental uncertainties (2% in pressure and 0.05 cm^3/mol in volume) are included separately from digitization uncertainty; the caption notes that the rendered error bars do not exceed the marker size.",
+      "reference": {
+        "authors": ["Pépin", "Dewaele", "Geneste", "Loubeyre", "Mezouar"],
+        "year": 2014,
+        "source": "Phys. Rev. Lett.",
+        "volume": "113",
+        "locator": "265504",
+        "doi": "10.1103/PhysRevLett.113.265504"
+      },
+      "source_location": "Figure 3, green downward triangles",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "molar_volume_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "pressure_error_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "molar_volume_error_cm3_per_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "uncertainty",
+          "of": "molar_volume_cm3_per_mol"
+        },
+        {
+          "name": "volume_error_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty",
+          "of": "volume_a3_conventional_cell"
+        },
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "molar_volume_digitization_uncertainty_cm3_per_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "uncertainty",
+          "of": "molar_volume_cm3_per_mol"
+        }
+      ],
+      "resource": {
+        "path": "datasets/feh2-pepin-2014-figure3-digitized.csv",
+        "sha256": "1ded4e978d2bb66b63611927ca495482f688ec884893ba9ecb5ad69cabec89c9",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["feh2_p_pin_2014_vinet_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Extracted vector triangle coordinates from the official APS PDF and calibrated them against the printed axes. Molar volumes were converted to the represented Z=4 conventional cell with the exact molar-to-particle conversion.",
+        "source_pdf_sha256": "3960a74d0505da682219e4f6feb344db6820b9055cd2517004334f9a11ebac6c",
+        "axis_calibration_pixels_600dpi": {
+          "pressure": [
+            [875.5, 0.0],
+            [2208.5, 160.0]
+          ],
+          "molar_volume": [
+            [686.5, 9.0],
+            [1205.0, 7.0]
+          ]
+        },
+        "quality_control": {"published_vinet_rms_pressure_residual_gpa": 1.3808, "published_vinet_max_abs_pressure_residual_gpa": 3.4713},
+        "digitized_on": "2026-09-03"
+      },
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext"
     }
-   ],
-   "resource": {
-    "path": "datasets/feh2-pepin-2014-figure3-digitized.csv",
-    "sha256": "1ded4e978d2bb66b63611927ca495482f688ec884893ba9ecb5ad69cabec89c9",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "feh2_p_pin_2014_vinet_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Extracted vector triangle coordinates from the official APS PDF and calibrated them against the printed axes. Molar volumes were converted to the represented Z=4 conventional cell with the exact molar-to-particle conversion.",
-    "source_pdf_sha256": "3960a74d0505da682219e4f6feb344db6820b9055cd2517004334f9a11ebac6c",
-    "axis_calibration_pixels_600dpi": {
-     "pressure": [
-      [
-       875.5,
-       0.0
-      ],
-      [
-       2208.5,
-       160.0
-      ]
-     ],
-     "molar_volume": [
-      [
-       686.5,
-       9.0
-      ],
-      [
-       1205.0,
-       7.0
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_vinet_rms_pressure_residual_gpa": 1.3808,
-     "published_vinet_max_abs_pressure_residual_gpa": 3.4713
-    },
-    "digitized_on": "2026-09-03"
-   },
-   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext"
-  }
- ],
- "atom_sites": [
-  {
-   "element": "Fe",
-   "wyckoff": "4e",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.853,
-   "occupancy": 1.0
-  },
-  {
-   "element": "H",
-   "wyckoff": "4c",
-   "x": 0.0,
-   "y": 0.5,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "H",
-   "wyckoff": "4d",
-   "x": 0.0,
-   "y": 0.5,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "format": "peritheos.material",
- "identifier": "feh2",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

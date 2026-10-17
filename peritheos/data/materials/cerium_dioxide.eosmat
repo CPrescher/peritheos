@@ -1,257 +1,152 @@
 {
- "format_version": 3,
- "name": "Cerium dioxide (fluorite)",
- "formula": "CeO2",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 5.411,
-  "b": null,
-  "c": null,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Fm-3m",
- "space_group_number": 225,
- "atom_sites": [
-  {
-   "element": "Ce",
-   "wyckoff": "4a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8c",
-   "x": 0.25,
-   "y": 0.25,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "The ambient fluorite cell is the value measured in the EoS study. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Gerward et al. (2005), room-temperature BM3",
-   "reference": {
-    "authors": [
-     "Gerward",
-     "Staun Olsen",
-     "Petit",
-     "Vaitheeswaran",
-     "Kanchana",
-     "Svane"
-    ],
-    "year": 2005,
-    "title": "Bulk modulus of CeO2 and PrO2—An experimental and theoretical study",
-    "source": "J. Alloys Compd.",
-    "volume": "400",
-    "locator": "56-61",
-    "doi": "10.1016/j.jallcom.2005.04.008"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 158.428242,
-     "K0": 220.0,
-     "K0_prime": 4.4
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.087837,
-    "K0": 9.0,
-    "K0_prime": 0.4
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    20.0
-   ],
-   "temperature_ref": 298.0,
-   "notes": "Room-temperature powder XRD fit of the cubic fluorite phase. The equation fits K0 and K0_prime using measured a0=5.411(1) A; V0=a0^3 and its error is propagated as 3*a0^2*sigma_a.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), pages 57-58; section 4, pages 58-59; Tables 1 and 2; Figure 3."
-   },
-   "identifier": "cerium_dioxide_gerward_2005_bm3_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "cerium_dioxide",
+  "name": "Cerium dioxide (fluorite)",
+  "formula": "CeO2",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 5.411, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Ce", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8c", "x": 0.25, "y": 0.25, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The ambient fluorite cell is the value measured in the EoS study. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+  "eos_records": [
+    {
+      "identifier": "cerium_dioxide_gerward_2005_bm3_1",
+      "label": "Gerward et al. (2005), room-temperature BM3",
+      "determination_method": "experimental",
       "reference": {
-       "authors": [
-        "Mao",
-        "Xu",
-        "Bell"
-       ],
-       "year": 1986,
-       "source": "J. Geophys. Res.",
-       "doi": "10.1029/JB091iB05p04673"
+        "authors": ["Gerward", "Staun Olsen", "Petit", "Vaitheeswaran", "Kanchana", "Svane"],
+        "year": 2005,
+        "title": "Bulk modulus of CeO2 and PrO2—An experimental and theoretical study",
+        "source": "J. Alloys Compd.",
+        "volume": "400",
+        "locator": "56-61",
+        "doi": "10.1016/j.jallcom.2005.04.008"
       },
-      "source_location": "Experimental pressure determination",
-      "reference_calibration_record": "ruby_mao_1986"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://people.iith.ac.in/kanchana/publications/2005/17.pdf",
-     "locations": [
-      "Equation (1), pages 57-58",
-      "section 4, pages 58-59",
-      "Tables 1 and 2",
-      "Figure 3"
-     ],
-     "finding": "The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.",
-     "doi": "10.1016/j.jallcom.2005.04.008"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "cerium_dioxide.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "cerium_dioxide_gerward_2005_figure3a_digitized"
-     ],
-     "source_locations": [
-      "Figure 3; Tables 1 and 2"
-     ],
-     "finding": "The room-temperature experimental CeO2 and PrO2 compression points are plotted in Figure 3 but not tabulated. Tables 1 and 2 contain fitted EOS summaries and theoretical results, not row-level observations."
+      "temperature_ref": 298.0,
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 158.428242, "K0": 220.0, "K0_prime": 4.4},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.087837, "K0": 9.0, "K0_prime": 0.4},
+      "fixed_parameters": ["V0"],
+      "experimental_pressure_range_gpa": [0.0, 20.0],
+      "notes": "Room-temperature powder XRD fit of the cubic fluorite phase. The equation fits K0 and K0_prime using measured a0=5.411(1) A; V0=a0^3 and its error is propagated as 3*a0^2*sigma_a.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experimental pressure determination",
+            "reference_calibration_record": "ruby_mao_1986"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://people.iith.ac.in/kanchana/publications/2005/17.pdf",
+          "locations": ["Equation (1), pages 57-58", "section 4, pages 58-59", "Tables 1 and 2", "Figure 3"],
+          "finding": "The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.",
+          "doi": "10.1016/j.jallcom.2005.04.008"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "cerium_dioxide.json"
+        },
+        "primary_data_check": {
+          "status": "plot_only",
+          "audit_date": "2026-09-03",
+          "digitized_dataset_identifiers": ["cerium_dioxide_gerward_2005_figure3a_digitized"],
+          "source_locations": ["Figure 3; Tables 1 and 2"],
+          "finding": "The room-temperature experimental CeO2 and PrO2 compression points are plotted in Figure 3 but not tabulated. Tables 1 and 2 contain fitted EOS summaries and theoretical results, not row-level observations."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), pages 57-58; section 4, pages 58-59; Tables 1 and 2; Figure 3."
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "cerium_dioxide_gerward_2005_figure3a_digitized",
-   "kind": "pressure_lattice_volume_digitized",
-   "description": "Twenty-one plotted room-temperature CeO2 fluorite compression observations digitized from Figure 3a; cell volumes are calculated as a^3 from the plotted cubic lattice parameter.",
-   "reference": {
-    "authors": [
-     "Gerward",
-     "Staun Olsen",
-     "Petit",
-     "Vaitheeswaran",
-     "Kanchana",
-     "Svane"
-    ],
-    "year": 2005,
-    "source": "J. Alloys Compd.",
-    "volume": "400",
-    "locator": "56-61",
-    "doi": "10.1016/j.jallcom.2005.04.008"
-   },
-   "source_location": "Figure 3a, filled-square experimental series",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "lattice_parameter_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "volume_angstrom3",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "lattice_parameter_digitization_uncertainty_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_parameter_angstrom"
+      "identifier": "cerium_dioxide_gerward_2005_figure3a_digitized",
+      "kind": "pressure_lattice_volume_digitized",
+      "description": "Twenty-one plotted room-temperature CeO2 fluorite compression observations digitized from Figure 3a; cell volumes are calculated as a^3 from the plotted cubic lattice parameter.",
+      "reference": {
+        "authors": ["Gerward", "Staun Olsen", "Petit", "Vaitheeswaran", "Kanchana", "Svane"],
+        "year": 2005,
+        "source": "J. Alloys Compd.",
+        "volume": "400",
+        "locator": "56-61",
+        "doi": "10.1016/j.jallcom.2005.04.008"
+      },
+      "source_location": "Figure 3a, filled-square experimental series",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "lattice_parameter_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "volume_angstrom3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "lattice_parameter_digitization_uncertainty_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_parameter_angstrom"
+        }
+      ],
+      "resource": {
+        "path": "datasets/cerium-dioxide-gerward-2005-figure3a-digitized.csv",
+        "sha256": "1155f396b67174ef9648b07bddfc564ce2600ec05e3f542c932a88a6e13ebe64",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["cerium_dioxide_gerward_2005_bm3_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Extracted the 600 dpi one-bit figure stencil from the locally archived PDF; located filled-square centers by distance-transform maxima; applied affine axis calibration; calculated V=a^3.",
+        "source_pdf_sha256": "57e8f02dc98dcd52201957071ca2404ce46d0e4471099dde22baffbd3b7e167e",
+        "axis_calibration_pixels_600dpi": {
+          "pressure": [
+            [247.0, 0.0],
+            [1827.0, 20.0]
+          ],
+          "lattice_parameter": [
+            [25.0, 5.42],
+            [131.0, 5.4]
+          ]
+        },
+        "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.2189, "published_bm3_max_abs_pressure_residual_gpa": 0.4276},
+        "digitized_on": "2026-09-03"
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/cerium-dioxide-gerward-2005-figure3a-digitized.csv",
-    "sha256": "1155f396b67174ef9648b07bddfc564ce2600ec05e3f542c932a88a6e13ebe64",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "cerium_dioxide_gerward_2005_bm3_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Extracted the 600 dpi one-bit figure stencil from the locally archived PDF; located filled-square centers by distance-transform maxima; applied affine axis calibration; calculated V=a^3.",
-    "source_pdf_sha256": "57e8f02dc98dcd52201957071ca2404ce46d0e4471099dde22baffbd3b7e167e",
-    "axis_calibration_pixels_600dpi": {
-     "pressure": [
-      [
-       247.0,
-       0.0
-      ],
-      [
-       1827.0,
-       20.0
-      ]
-     ],
-     "lattice_parameter": [
-      [
-       25.0,
-       5.42
-      ],
-      [
-       131.0,
-       5.4
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 0.2189,
-     "published_bm3_max_abs_pressure_residual_gpa": 0.4276
-    },
-    "digitized_on": "2026-09-03"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "cerium_dioxide",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

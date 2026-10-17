@@ -5,535 +5,34 @@
   "name": "Diopside",
   "formula": "CaMgSi2O6",
   "phase": "C2/c clinopyroxene",
-  "aliases": [
-    "CaMgSi2O6",
-    "calcium magnesium silicate diopside"
-  ],
-  "cell_contents": "Four CaMgSi2O6 formula units (40 atoms) per conventional unique-b C-centered monoclinic cell. All EOS volumes use this same Z=4 basis.",
-  "units": {
-    "pressure": "GPa",
-    "temperature": "K",
-    "volume": "angstrom^3/conventional_unit_cell"
-  },
-  "symmetry": "MONOCLINIC",
-  "lattice": {
-    "a": 9.7397,
-    "b": 8.9174,
-    "c": 5.2503,
-    "alpha": 90.0,
-    "beta": 105.866,
-    "gamma": 90.0
-  },
+  "aliases": ["CaMgSi2O6", "calcium magnesium silicate diopside"],
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "cell_contents": "Four CaMgSi2O6 formula units (40 atoms) per conventional unique-b C-centered monoclinic cell. All EOS volumes use this same Z=4 basis.",
+  "symmetry": "MONOCLINIC",
   "space_group": "C2/c",
   "space_group_number": 15,
+  "lattice": {"a": 9.7397, "b": 8.9174, "c": 5.2503, "alpha": 90.0, "beta": 105.866, "gamma": 90.0},
   "atom_sites": [
-    {
-      "label": "Mg1",
-      "element": "Mg",
-      "wyckoff": "4e",
-      "x": 0.0,
-      "y": 0.908083,
-      "z": 0.25,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Ca2",
-      "element": "Ca",
-      "wyckoff": "4e",
-      "x": 0.0,
-      "y": 0.301478,
-      "z": 0.25,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Si",
-      "element": "Si",
-      "wyckoff": "8f",
-      "x": 0.286187,
-      "y": 0.093189,
-      "z": 0.229355,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O1",
-      "element": "O",
-      "wyckoff": "8f",
-      "x": 0.11554,
-      "y": 0.0869,
-      "z": 0.14186,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O2",
-      "element": "O",
-      "wyckoff": "8f",
-      "x": 0.36094,
-      "y": 0.25019,
-      "z": 0.31776,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O3",
-      "element": "O",
-      "wyckoff": "8f",
-      "x": 0.35073,
-      "y": 0.01744,
-      "z": 0.99543,
-      "occupancy": 1.0
-    }
+    {"label": "Mg1", "element": "Mg", "wyckoff": "4e", "x": 0.0, "y": 0.908083, "z": 0.25, "occupancy": 1.0},
+    {"label": "Ca2", "element": "Ca", "wyckoff": "4e", "x": 0.0, "y": 0.301478, "z": 0.25, "occupancy": 1.0},
+    {"label": "Si", "element": "Si", "wyckoff": "8f", "x": 0.286187, "y": 0.093189, "z": 0.229355, "occupancy": 1.0},
+    {"label": "O1", "element": "O", "wyckoff": "8f", "x": 0.11554, "y": 0.0869, "z": 0.14186, "occupancy": 1.0},
+    {"label": "O2", "element": "O", "wyckoff": "8f", "x": 0.36094, "y": 0.25019, "z": 0.31776, "occupancy": 1.0},
+    {"label": "O3", "element": "O", "wyckoff": "8f", "x": 0.35073, "y": 0.01744, "z": 0.99543, "occupancy": 1.0}
   ],
   "peaks": [],
-  "source": {
-    "structure_reference": {
-      "authors": [
-        "Thompson",
-        "Downs"
-      ],
-      "year": 2008,
-      "title": "The crystal structure of diopside at pressure to 10 GPa",
-      "source": "American Mineralogist",
-      "volume": "93",
-      "locator": "177-186",
-      "doi": "10.2138/am.2008.2684"
-    },
-    "structure_location": "Tables 1 and 2, pages 179-180: observed room-temperature 1-atm refinement; not the adjacent ideal geometric model columns. Mg1 and Ca2 occupy 4e (0,y,1/4); Si and three oxygens occupy general 8f.",
-    "structure_reference_pressure_gpa": 0.0001,
-    "structure_reference_temperature": "room temperature; exact numerical temperature unreported",
-    "structure_sample": "Natural clear colorless DeKalb, New York diopside, Smithsonian R18685. The published refinement models the nominal CaMgSi2O6 endmember with full Mg, Ca, Si and O sites; no new claim of analytical sample purity or trace-element detection limits is made.",
-    "structure_dataset": "datasets/diopside-thompson-2008-table2-ambient-structure.csv",
-    "structure_dataset_sha256": "8c1b0a2aa253e479a9e5b86674ecd0db6373ef0fd6babb10544bbf32cd6bce95",
-    "occupancy_provenance": "Full nominal site populations follow the chemical identity and atom assignments of the published observed refinement; occupancies are not independently refined or reported with errors.",
-    "structure_metric_volume_a3": 438.6312279050658,
-    "structure_printed_volume_a3": 438.63,
-    "structure_cell_vs_eos": "The observed structural cell (438.63(3) A^3) differs from the Thompson fitted V0 (438.66(2) A^3) and Zhao ambient volume anchor (438.67(6) A^3). No cell rescaling or cross-source coefficient mixing is applied."
-  },
   "notes": "Independent source parameterizations, not a combined fit. Thompson (2008) static BM3 is the room-temperature default; Zhao (1998) thermal BM3 supplies the published high-temperature parameterization. Equation and parameter parity are established within source precision and reported errors after accounting for a graph-corroborated table error. Original observations and published coefficients are preserved; source-table discrepancies are recorded as provenance. See docs/literature-reproductions/diopside.md. Conventional Z=4 cell volumes; mechanical P-V-T models do not define caloric free energies.",
-  "datasets": [
-    {
-      "identifier": "diopside_thompson_2008_table1",
-      "kind": "pressure_volume_lattice_parameters",
-      "description": "All 14 printed Table 1 rows, without corrections or exclusions.",
-      "reference": {
-        "authors": [
-          "Thompson",
-          "Downs"
-        ],
-        "year": 2008,
-        "title": "The crystal structure of diopside at pressure to 10 GPa",
-        "source": "American Mineralogist",
-        "volume": "93",
-        "locator": "177-186",
-        "doi": "10.2138/am.2008.2684"
-      },
-      "source_location": "Table 1, page 179",
-      "source_url": "https://doi.org/10.2138/am.2008.2684",
-      "columns": [
-        {
-          "name": "source_row",
-          "quantity": "source_row",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "run",
-          "quantity": "run",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "pressure_gpa",
-          "quantity": "pressure",
-          "unit": "GPa",
-          "role": "value"
-        },
-        {
-          "name": "pressure_error_gpa",
-          "quantity": "pressure",
-          "unit": "GPa",
-          "role": "bound",
-          "of": "pressure_gpa"
-        },
-        {
-          "name": "intensity_collected",
-          "quantity": "intensity_collected",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "lattice_a_angstrom",
-          "quantity": "lattice_parameter_a",
-          "unit": "angstrom",
-          "role": "value"
-        },
-        {
-          "name": "lattice_a_error_angstrom",
-          "quantity": "lattice_parameter_a",
-          "unit": "angstrom",
-          "role": "bound",
-          "of": "lattice_a_angstrom"
-        },
-        {
-          "name": "lattice_b_angstrom",
-          "quantity": "lattice_parameter_b",
-          "unit": "angstrom",
-          "role": "value"
-        },
-        {
-          "name": "lattice_b_error_angstrom",
-          "quantity": "lattice_parameter_b",
-          "unit": "angstrom",
-          "role": "bound",
-          "of": "lattice_b_angstrom"
-        },
-        {
-          "name": "lattice_c_angstrom",
-          "quantity": "lattice_parameter_c",
-          "unit": "angstrom",
-          "role": "value"
-        },
-        {
-          "name": "lattice_c_error_angstrom",
-          "quantity": "lattice_parameter_c",
-          "unit": "angstrom",
-          "role": "bound",
-          "of": "lattice_c_angstrom"
-        },
-        {
-          "name": "beta_deg",
-          "quantity": "monoclinic_beta_angle",
-          "unit": "degree",
-          "role": "value"
-        },
-        {
-          "name": "beta_error_deg",
-          "quantity": "monoclinic_beta_angle",
-          "unit": "degree",
-          "role": "bound",
-          "of": "beta_deg"
-        },
-        {
-          "name": "cell_volume_a3",
-          "quantity": "conventional_unit_cell_volume",
-          "unit": "angstrom^3",
-          "role": "value"
-        },
-        {
-          "name": "cell_volume_error_a3",
-          "quantity": "conventional_unit_cell_volume",
-          "unit": "angstrom^3",
-          "role": "bound",
-          "of": "cell_volume_a3"
-        }
-      ],
-      "resource": {
-        "path": "datasets/diopside-thompson-2008-table1.csv",
-        "sha256": "50941c3229e2a57eec2ee4a8c61bef3f37c4b487c4595d50b12325b7f55d963c",
-        "media_type": "text/csv"
-      },
-      "used_by_eos_records": [
-        "diopside_thompson_2008_bm3"
-      ],
-      "license": "Source reuse license unspecified. CC0 applies only to contributor transcription, normalization and metadata rights; see datasets/diopside.LICENSE.md.",
-      "uncertainty": {
-        "confidence": "not_reported",
-        "meaning": "Printed parenthesized last-digit errors, expanded without assigning an unreported confidence convention; blank does not mean zero."
-      },
-      "notes": "Original numerical notation and row order also retained in diopside-thompson-2008-table1-original.txt. Source temperature is room temperature, without a numerical temperature or row-wise temperature errors; no temperatures have been added to this observation table. Ruby wavelengths are not printed."
-    },
-    {
-      "identifier": "diopside_zhao_1998_table1",
-      "kind": "pressure_volume_temperature_lattice_parameters",
-      "description": "All 32 printed Table 1 rows, without corrections or exclusions.",
-      "reference": {
-        "authors": [
-          "Zhao",
-          "Von Dreele",
-          "Zhang",
-          "Weidner"
-        ],
-        "year": 1998,
-        "title": "Thermoelastic Equation of State of Monoclinic Pyroxene: CaMgSi2O6 Diopside",
-        "source": "The Review of High Pressure Science and Technology",
-        "volume": "7",
-        "locator": "25-27",
-        "doi": "10.4131/jshpreview.7.25"
-      },
-      "source_location": "Table 1, page 26",
-      "source_url": "https://doi.org/10.4131/jshpreview.7.25",
-      "columns": [
-        {
-          "name": "source_row",
-          "quantity": "source_row",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "pressure_gpa",
-          "quantity": "pressure",
-          "unit": "GPa",
-          "role": "value"
-        },
-        {
-          "name": "pressure_error_gpa",
-          "quantity": "pressure",
-          "unit": "GPa",
-          "role": "bound",
-          "of": "pressure_gpa"
-        },
-        {
-          "name": "temperature_k",
-          "quantity": "temperature",
-          "unit": "K",
-          "role": "value"
-        },
-        {
-          "name": "temperature_error_k",
-          "quantity": "temperature",
-          "unit": "K",
-          "role": "bound",
-          "of": "temperature_k"
-        },
-        {
-          "name": "lattice_a_angstrom",
-          "quantity": "lattice_parameter_a",
-          "unit": "angstrom",
-          "role": "value"
-        },
-        {
-          "name": "lattice_a_error_angstrom",
-          "quantity": "lattice_parameter_a",
-          "unit": "angstrom",
-          "role": "bound",
-          "of": "lattice_a_angstrom"
-        },
-        {
-          "name": "lattice_b_angstrom",
-          "quantity": "lattice_parameter_b",
-          "unit": "angstrom",
-          "role": "value"
-        },
-        {
-          "name": "lattice_b_error_angstrom",
-          "quantity": "lattice_parameter_b",
-          "unit": "angstrom",
-          "role": "bound",
-          "of": "lattice_b_angstrom"
-        },
-        {
-          "name": "lattice_c_angstrom",
-          "quantity": "lattice_parameter_c",
-          "unit": "angstrom",
-          "role": "value"
-        },
-        {
-          "name": "lattice_c_error_angstrom",
-          "quantity": "lattice_parameter_c",
-          "unit": "angstrom",
-          "role": "bound",
-          "of": "lattice_c_angstrom"
-        },
-        {
-          "name": "beta_deg",
-          "quantity": "monoclinic_beta_angle",
-          "unit": "degree",
-          "role": "value"
-        },
-        {
-          "name": "beta_error_deg",
-          "quantity": "monoclinic_beta_angle",
-          "unit": "degree",
-          "role": "bound",
-          "of": "beta_deg"
-        },
-        {
-          "name": "cell_volume_a3",
-          "quantity": "conventional_unit_cell_volume",
-          "unit": "angstrom^3",
-          "role": "value"
-        },
-        {
-          "name": "cell_volume_error_a3",
-          "quantity": "conventional_unit_cell_volume",
-          "unit": "angstrom^3",
-          "role": "bound",
-          "of": "cell_volume_a3"
-        }
-      ],
-      "resource": {
-        "path": "datasets/diopside-zhao-1998-table1.csv",
-        "sha256": "0aacfc8305498647641704a2e7e17eb6ce5276d4d8abb98f867c0f72d73f81f7",
-        "media_type": "text/csv"
-      },
-      "used_by_eos_records": [
-        "diopside_zhao_1998_thermal_bm3"
-      ],
-      "license": "Source reuse license unspecified. CC0 applies only to contributor transcription, normalization and metadata rights; see datasets/diopside.LICENSE.md.",
-      "uncertainty": {
-        "confidence": "not_reported",
-        "meaning": "Printed parenthesized last-digit errors, expanded without assigning an unreported confidence convention; blank does not mean zero."
-      },
-      "notes": "Original numerical notation and row order also retained in diopside-zhao-1998-table1-original.txt. Rows 1 and 32 duplicate the ambient observation; row 15 prints P=6.95 GPa at 1072 K, inconsistent with the published curve. Ambient metric volumes and some compressed lattice entries also disagree with printed volumes. No NaCl lattice readings or row-wise pressure/temperature errors are printed. For continued P-V-T analysis, use the separately registered diopside_zhao_1998_table1_corrected_pvt dataset; this resource remains the original transcription.",
-      "preferred_for_refitting": false
-    },
-    {
-      "identifier": "diopside_zhao_1998_table1_corrected_pvt",
-      "kind": "corrected_pressure_volume_temperature",
-      "description": "Reusable P-V-T view of all 32 Zhao Table 1 rows: row 15 pressure corrected to the independently digitized Figure 2 reading 4.58 GPa; original pressure and per-row provenance retained. Inconsistent lattice dimensions are excluded from this P-V-T view.",
-      "reference": {
-        "authors": [
-          "Zhao",
-          "Von Dreele",
-          "Zhang",
-          "Weidner"
-        ],
-        "year": 1998,
-        "title": "Thermoelastic Equation of State of Monoclinic Pyroxene: CaMgSi2O6 Diopside",
-        "source": "The Review of High Pressure Science and Technology",
-        "volume": "7",
-        "locator": "25-27",
-        "doi": "10.4131/jshpreview.7.25"
-      },
-      "source_location": "Table 1 and Figure 2, page 26; Peritheos documented analysis correction",
-      "source_url": "https://doi.org/10.4131/jshpreview.7.25",
-      "columns": [
-        {
-          "name": "source_row",
-          "quantity": "source_row",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "pressure_gpa",
-          "quantity": "pressure",
-          "unit": "GPa",
-          "role": "value"
-        },
-        {
-          "name": "pressure_error_gpa",
-          "quantity": "pressure",
-          "unit": "GPa",
-          "role": "bound",
-          "of": "pressure_gpa"
-        },
-        {
-          "name": "temperature_k",
-          "quantity": "temperature",
-          "unit": "K",
-          "role": "value"
-        },
-        {
-          "name": "temperature_error_k",
-          "quantity": "temperature",
-          "unit": "K",
-          "role": "bound",
-          "of": "temperature_k"
-        },
-        {
-          "name": "cell_volume_a3",
-          "quantity": "conventional_unit_cell_volume",
-          "unit": "angstrom^3",
-          "role": "value"
-        },
-        {
-          "name": "cell_volume_error_a3",
-          "quantity": "conventional_unit_cell_volume",
-          "unit": "angstrom^3",
-          "role": "bound",
-          "of": "cell_volume_a3"
-        },
-        {
-          "name": "source_pressure_gpa",
-          "quantity": "original_reported_pressure",
-          "unit": "GPa",
-          "role": "value"
-        },
-        {
-          "name": "pressure_correction_applied",
-          "quantity": "pressure_correction_applied",
-          "unit": "1",
-          "role": "flag"
-        },
-        {
-          "name": "pressure_graphical_reading_bound_gpa",
-          "quantity": "graphical_pressure_reading_bound",
-          "unit": "GPa",
-          "role": "bound",
-          "of": "pressure_gpa",
-          "notes": "Conservative digitization reading bound; not an experimental standard uncertainty."
-        },
-        {
-          "name": "pressure_source",
-          "quantity": "pressure_source",
-          "unit": "1",
-          "role": "flag"
-        },
-        {
-          "name": "duplicate_of_source_row",
-          "quantity": "duplicate_of_source_row",
-          "unit": "1",
-          "role": "flag"
-        },
-        {
-          "name": "quality_notes",
-          "quantity": "quality_notes",
-          "unit": "1",
-          "role": "flag"
-        },
-        {
-          "name": "correction_note",
-          "quantity": "correction_note",
-          "unit": "1",
-          "role": "flag"
-        }
-      ],
-      "resource": {
-        "path": "datasets/diopside-zhao-1998-table1-corrected-pvt.csv",
-        "sha256": "fa03931094fa921db21ec3b0ef91216d6a7dd13db95670cfd7621ae5f0516c24",
-        "media_type": "text/csv"
-      },
-      "used_by_eos_records": [],
-      "related_eos_records": [
-        "diopside_zhao_1998_thermal_bm3"
-      ],
-      "derived_from_dataset": "diopside_zhao_1998_table1",
-      "preferred_for_refitting": true,
-      "derivation": {
-        "date": "2026-10-16",
-        "method": "Retain source P-V-T values, row order and errors; replace only row 15 pressure with the independently digitized Figure 2 pressure rounded to 0.01 GPa. No EOS-derived pressure is substituted.",
-        "changed_source_rows": [
-          15
-        ],
-        "changed_fields": [
-          "pressure_gpa"
-        ],
-        "original_pressure_column": "source_pressure_gpa",
-        "plot_report": "docs/data/diopside-plot-check.json",
-        "generator": "python -m scripts.diopside_correct_dataset",
-        "author_issued_erratum": false
-      },
-      "license": "Source reuse license unspecified. CC0 applies only to contributor transcription, normalization and metadata rights; see datasets/diopside.LICENSE.md.",
-      "uncertainty": {
-        "source_errors": "As reported, with confidence convention unreported; blank errors are missing, not zero.",
-        "graphical_bound": "Row 15 +/-0.05 GPa is a graphical reading bound only; it is not an experimental sigma.",
-        "graphical_bound_column": "pressure_graphical_reading_bound_gpa"
-      },
-      "notes": "All 32 rows retained. Row 32 is marked as a repeated ambient entry of row 1, without automatic exclusion. Temperatures, printed volumes and their errors remain unchanged. The original lattice values remain in the source dataset because no defensible corrections exist. This analysis dataset was not the original author fit input. See datasets/diopside-zhao-1998-corrected-pvt.README.md."
-    }
-  ],
   "eos_records": [
     {
       "identifier": "diopside_thompson_2008_bm3",
       "label": "Thompson and Downs (2008), room-temperature BM3",
-      "default": true,
       "record_kind": "published",
-      "equation_kind": "isothermal",
       "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "default": true,
       "reference": {
-        "authors": [
-          "Thompson",
-          "Downs"
-        ],
+        "authors": ["Thompson", "Downs"],
         "year": 2008,
         "title": "The crystal structure of diopside at pressure to 10 GPa",
         "source": "American Mineralogist",
@@ -541,69 +40,27 @@
         "locator": "177-186",
         "doi": "10.2138/am.2008.2684"
       },
+      "temperature_ref": 300.0,
       "eos": {
         "type": "BM3",
         "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 438.66,
-          "K0": 118.0,
-          "K0_prime": 3.8
-        }
+        "parameters": {"V0": 438.66, "K0": 118.0, "K0_prime": 3.8}
       },
-      "parameter_errors": {
-        "V0": 0.02,
-        "K0": 1.0,
-        "K0_prime": 0.3
-      },
+      "parameter_errors": {"V0": 0.02, "K0": 1.0, "K0_prime": 0.3},
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "fixed_parameters": [],
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        0.0001,
-        10.16
-      ],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.0001, 10.16],
       "pressure_range_status": "reported_exactly",
-      "fit_datasets": [
-        "diopside_thompson_2008_table1"
-      ],
-      "parameter_provenance": {
-        "determination_method": "Isothermal compression and/or simultaneous P-V-T diffraction measurements; no acoustic or adiabatic bulk modulus is substituted.",
-        "equation": "Thompson (2008), Results and discussion, page 179: third-order Birch-Murnaghan fit to all weighted Table 1 data.",
-        "V0": "Results and discussion, page 179 and Table 3, page 180: fitted 438.66(2) A^3, distinct from first observed ambient 438.63(3) A^3.",
-        "K0": "Results and discussion and Table 3: 118(1) GPa.",
-        "K0_prime": "Results and discussion: 3.8(3); Table 3 instead prints 3.8(2). The prose uncertainty 0.3 is retained with this discrepancy explicitly recorded.",
-        "temperature_ref": "300 K is the computational nominal room-temperature reference; the source does not report an exact experimental temperature. No finite-temperature dependence is inferred."
+      "validity": {
+        "pressure_gpa": [0.0001, 10.16],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
+          "Static source room temperature is nominally 300 K."
+        ]
       },
       "notes": "Independent static diffraction EOS, not combined with Zhao thermal coefficients. The source also reports a fixed-Kprime=4 alternative (K0=117.1(2) GPa, V0=438.66(2) A^3), retained in the audit rather than conflated with this free-Kprime record. Source P is Mao (1978) ruby scale. Room temperature is represented nominally as 300 K.",
-      "fit_provenance": {
-        "software": {
-          "name": "Levenberg-Marquardt; Press et al. (1992)",
-          "version": "not reported"
-        },
-        "dataset": "diopside_thompson_2008_table1",
-        "selection": {
-          "included_rows": 14,
-          "excluded_bundled_rows": 0
-        },
-        "objective": "Weighted Table 1 regression; exact residual orientation and weighting not reported.",
-        "refined_parameters": [
-          "V0",
-          "K0",
-          "K0_prime"
-        ],
-        "fixed_parameters": [],
-        "statistics": {
-          "observations": 14
-        },
-        "source_covariance": "not_reported"
-      },
-      "experimental_configuration": {
-        "apparatus": "4-pin Merrill-Bassett diamond-anvil cell; Picker single-crystal diffractometer",
-        "pressure_medium": "15:4:1 methanol:ethanol:water",
-        "pressure_standard": "Ruby R1/R2 Lorentzian peak fits, Mao et al. (1978)",
-        "sample": "Natural DeKalb diopside, Smithsonian R18685; cell reloaded with same crystal after gasket began to fail at 5 GPa."
-      },
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-10-15",
@@ -614,12 +71,7 @@
             "scope": "All nonambient reported pressures",
             "reference_calibration_record": "ruby_mao_1978",
             "reference": {
-              "authors": [
-                "Mao",
-                "Bell",
-                "Shaner",
-                "Steinberg"
-              ],
+              "authors": ["Mao", "Bell", "Shaner", "Steinberg"],
               "year": 1978,
               "source": "Journal of Applied Physics",
               "doi": "10.1063/1.325277"
@@ -650,24 +102,17 @@
         "primary_source_check": {
           "doi": "10.2138/am.2008.2684",
           "access_url": "https://rruff.net/doclib/am/vol93/AM93_177.pdf",
-          "locations": [
-            "Tables 1-3 and experimental/results text, pages 179-180"
-          ],
+          "locations": ["Tables 1-3 and experimental/results text, pages 179-180"],
           "finding": "Thompson (2008), Results and discussion, page 179: third-order Birch-Murnaghan fit to all weighted Table 1 data."
         },
         "primary_data_check": {
           "status": "bundled",
-          "dataset_identifiers": [
-            "diopside_thompson_2008_table1"
-          ],
+          "dataset_identifiers": ["diopside_thompson_2008_table1"],
           "finding": "Every printed relevant P-V(-T) row, original notation and reported errors retained. Calibrant readings not printed."
         },
         "numerical_reproduction": {
           "observations": 14,
-          "published_curve_all_rows": {
-            "pressure_rmse_gpa": 0.03739721229323705,
-            "maximum_absolute_pressure_residual_gpa": 0.06822660516580337
-          },
+          "published_curve_all_rows": {"pressure_rmse_gpa": 0.03739721229323705, "maximum_absolute_pressure_residual_gpa": 0.06822660516580337},
           "metric_minus_printed_volume_a3": [
             0.0012279050658321466,
             -0.004505649846862525,
@@ -686,11 +131,7 @@
           ],
           "diagnostic_objective": "Effective pressure variance sigma_P^2+(K*sigma_V/V)^2; ambient P treated as imposed reference. Parameter-dependent weights; source says weighted Levenberg-Marquardt but does not specify this objective.",
           "diagnostic_refit": {
-            "coefficients": {
-              "V0": 438.6553948430803,
-              "K0": 117.8641776706991,
-              "K0_prime": 3.7962907042955125
-            },
+            "coefficients": {"V0": 438.6553948430803, "K0": 117.8641776706991, "K0_prime": 3.7962907042955125},
             "success": true,
             "pressure_rmse_gpa": 0.03658693276345292,
             "maximum_absolute_pressure_residual_gpa": 0.07353301752737185
@@ -699,35 +140,41 @@
         },
         "audit_report": "docs/literature-reproductions/diopside.md"
       },
-      "validity": {
-        "pressure_gpa": [
-          0.0001,
-          10.16
-        ],
-        "temperature_k": [
-          300.0,
-          300.0
-        ],
-        "notes": [
-          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
-          "Static source room temperature is nominally 300 K."
-        ]
+      "parameter_provenance": {
+        "determination_method": "Isothermal compression and/or simultaneous P-V-T diffraction measurements; no acoustic or adiabatic bulk modulus is substituted.",
+        "equation": "Thompson (2008), Results and discussion, page 179: third-order Birch-Murnaghan fit to all weighted Table 1 data.",
+        "V0": "Results and discussion, page 179 and Table 3, page 180: fitted 438.66(2) A^3, distinct from first observed ambient 438.63(3) A^3.",
+        "K0": "Results and discussion and Table 3: 118(1) GPa.",
+        "K0_prime": "Results and discussion: 3.8(3); Table 3 instead prints 3.8(2). The prose uncertainty 0.3 is retained with this discrepancy explicitly recorded.",
+        "temperature_ref": "300 K is the computational nominal room-temperature reference; the source does not report an exact experimental temperature. No finite-temperature dependence is inferred."
+      },
+      "fit_provenance": {
+        "software": {"name": "Levenberg-Marquardt; Press et al. (1992)", "version": "not reported"},
+        "dataset": "diopside_thompson_2008_table1",
+        "selection": {"included_rows": 14, "excluded_bundled_rows": 0},
+        "objective": "Weighted Table 1 regression; exact residual orientation and weighting not reported.",
+        "refined_parameters": ["V0", "K0", "K0_prime"],
+        "fixed_parameters": [],
+        "statistics": {"observations": 14},
+        "source_covariance": "not_reported"
+      },
+      "fit_datasets": ["diopside_thompson_2008_table1"],
+      "experimental_configuration": {
+        "apparatus": "4-pin Merrill-Bassett diamond-anvil cell; Picker single-crystal diffractometer",
+        "pressure_medium": "15:4:1 methanol:ethanol:water",
+        "pressure_standard": "Ruby R1/R2 Lorentzian peak fits, Mao et al. (1978)",
+        "sample": "Natural DeKalb diopside, Smithsonian R18685; cell reloaded with same crystal after gasket began to fail at 5 GPa."
       }
     },
     {
       "identifier": "diopside_zhao_1998_thermal_bm3",
       "label": "Zhao et al. (1998), published thermal BM3",
-      "default": false,
       "record_kind": "published",
-      "equation_kind": "thermal",
       "determination_method": "experimental",
+      "equation_kind": "thermal",
+      "default": false,
       "reference": {
-        "authors": [
-          "Zhao",
-          "Von Dreele",
-          "Zhang",
-          "Weidner"
-        ],
+        "authors": ["Zhao", "Von Dreele", "Zhang", "Weidner"],
         "year": 1998,
         "title": "Thermoelastic Equation of State of Monoclinic Pyroxene: CaMgSi2O6 Diopside",
         "source": "The Review of High Pressure Science and Technology",
@@ -735,106 +182,37 @@
         "locator": "25-27",
         "doi": "10.4131/jshpreview.7.25"
       },
+      "temperature_ref": 300.0,
       "eos": {
         "type": "BM3",
         "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 438.67,
-          "K0": 109.1,
-          "K0_prime": 4.84
-        }
-      },
-      "parameter_errors": {
-        "V0": null,
-        "K0": 4.0,
-        "K0_prime": 0.6
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "fixed_parameters": [],
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        0.0,
-        8.18
-      ],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [
-        300.0,
-        1280.0
-      ],
-      "fit_datasets": [
-        "diopside_zhao_1998_table1"
-      ],
-      "parameter_provenance": {
-        "determination_method": "Isothermal compression and/or simultaneous P-V-T diffraction measurements; no acoustic or adiabatic bulk modulus is substituted.",
-        "equation": "Zhao (1998), Equation (1), page 26: third-order Eulerian finite strain, with VT=V0 exp(integral alpha dT), alpha=a+bT, KT=KT0+dK/dT*(T-300 K), Kprime independent of T.",
-        "V0": "438.67 A^3 is the printed 300 K ambient volume in Table 1 rows 1 and 32, used as the ambient volume defined by Equation (1). The source does not separately give a fitted V0 or specify whether it was refined. Its observed error 0.06 A^3 is retained in the dataset, not relabeled as a regression error.",
-        "K0": "109.1 GPa and Kprime=4.84 in abstract and Figure 2; rounded prose 109(4) GPa and 4.8(6) supplies reported errors.",
-        "K0_prime": "Figure 2 and abstract: 4.84; prose reports 4.8(6). Page 27 pressure-correction demonstration instead uses 4.85 and dK/dT=-0.0206; those alternate rounded numbers are not mixed in.",
-        "temperature_ref": "Equation (1) explicitly anchors KT at 300 K; integration is anchored there so VT(300)=V0.",
-        "thermal": "Page 26 final paragraph: a=2.32(5)e-5 K^-1, b=1.88(7)e-8 K^-2, dK/dT=-2.05(4)e-2 GPa/K. a is the T=0 intercept, not alpha at 300 K. c/T^2 and higher T derivatives are neglected by the source."
+        "parameters": {"V0": 438.67, "K0": 109.1, "K0_prime": 4.84}
       },
       "thermal": {
         "type": "AlphaKT",
         "model": "thermal_reference_state",
         "thermal_expansion_law": "linear_temperature",
         "reference_volume_law": "integrated_expansivity",
-        "parameters": {
-          "Tr": 300.0,
-          "alpha0": 2.32e-05,
-          "alpha1": 1.88e-08,
-          "dK_dT": -0.0205
-        },
-        "parameter_errors": {
-          "Tr": null,
-          "alpha0": 5e-07,
-          "alpha1": 7e-10,
-          "dK_dT": 0.0004
-        },
-        "fixed_parameters": [
-          "Tr"
+        "parameters": {"Tr": 300.0, "alpha0": 2.32e-05, "alpha1": 1.88e-08, "dK_dT": -0.0205},
+        "parameter_errors": {"Tr": null, "alpha0": 5e-07, "alpha1": 7e-10, "dK_dT": 0.0004},
+        "fixed_parameters": ["Tr"]
+      },
+      "parameter_errors": {"V0": null, "K0": 4.0, "K0_prime": 0.6},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.0, 8.18],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [300.0, 1280.0],
+      "validity": {
+        "pressure_gpa": [0.0, 8.18],
+        "temperature_k": [300.0, 1280.0],
+        "notes": [
+          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
+          "Published-model and parameter parity established with the documented table-error treatment; source inconsistencies remain recorded as provenance. Published coefficients and original observations are preserved."
         ]
       },
       "notes": "Published-model and parameter parity established within graphical precision and reported parameter errors using the independently digitized Figure 2 pressure for source row 15 in the audit calculation. The original 32-row table, duplicate ambient entries, printed errors and published EOS coefficients are preserved. Source-table pressure and lattice inconsistencies are documented provenance, not an EOS acceptance blocker. V0 is the source ambient-volume anchor. Exact original fit inputs and regression workflow are not recovered. The independent Thompson static record remains the room-temperature default; use this thermal record for elevated-temperature evaluation. The separately bundled corrected P-V-T dataset is recommended for refitting; its row-15 pressure is 4.58 GPa with a separate graphical reading bound.",
-      "fit_provenance": {
-        "software": {
-          "name": "not reported for EOS regression; modified GSAS used for diffraction reduction",
-          "version": "not reported"
-        },
-        "dataset": "diopside_zhao_1998_table1",
-        "selection": {
-          "bundled_rows": 32,
-          "source_selection": "Only hydrostatic observations after the first heating cycle; exact fit-row indices, handling of duplicate ambient rows and row 15 are unreported."
-        },
-        "objective": "not reported",
-        "refined_parameters": [
-          "K0",
-          "K0_prime",
-          "alpha0",
-          "alpha1",
-          "dK_dT"
-        ],
-        "fixed_parameters": [],
-        "statistics": {
-          "bundled_observations": 32
-        },
-        "source_V0_treatment": "not reported",
-        "source_weights": "not_reported",
-        "source_covariance": "not_reported",
-        "reproduction": {
-          "dataset": "diopside_zhao_1998_table1_corrected_pvt",
-          "report": "docs/data/diopside-plot-check.json",
-          "selection": "All 32 rows, including the marked repeated ambient entry; only row 15 pressure corrected to 4.58 GPa.",
-          "objective": "Unweighted pressure residuals with V0=438.67 A^3 and Tr=300 K fixed.",
-          "original_author_input": false
-        }
-      },
-      "experimental_configuration": {
-        "apparatus": "DIA-6 SAM-85 multi-anvil press; NSLS X-17B energy-dispersive diffraction",
-        "temperature_measurement": "Printed W-26%Rh/W thermocouple; composition retained as printed, not silently changed to Re. No row-wise T uncertainties reported.",
-        "pressure_standard": "Layer-packed NaCl, Decker (1971)",
-        "path": "Cold compression to maximum load, heating to maximum T, subsequent cooling and decompression; hydrostatic states only used for EOS according to source."
-      },
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-10-15",
@@ -845,9 +223,7 @@
             "scope": "All nonambient reported pressures",
             "material": "NaCl",
             "reference": {
-              "authors": [
-                "Decker"
-              ],
+              "authors": ["Decker"],
               "year": 1971,
               "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
               "source": "Journal of Applied Physics",
@@ -879,32 +255,19 @@
         "primary_source_check": {
           "doi": "10.4131/jshpreview.7.25",
           "access_url": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_25/_pdf",
-          "locations": [
-            "Equation (1), Table 1 and Figure 2, page 26; discussion page 27"
-          ],
+          "locations": ["Equation (1), Table 1 and Figure 2, page 26; discussion page 27"],
           "finding": "Zhao (1998), Equation (1), page 26: third-order Eulerian finite strain, with VT=V0 exp(integral alpha dT), alpha=a+bT, KT=KT0+dK/dT*(T-300 K), Kprime independent of T."
         },
         "primary_data_check": {
           "status": "bundled",
-          "dataset_identifiers": [
-            "diopside_zhao_1998_table1"
-          ],
+          "dataset_identifiers": ["diopside_zhao_1998_table1"],
           "finding": "Every printed relevant P-V(-T) row, original notation and reported errors retained. Calibrant readings not printed."
         },
         "numerical_reproduction": {
           "observations": 32,
-          "duplicate_ambient_source_rows": [
-            1,
-            32
-          ],
-          "published_curve_all_rows": {
-            "pressure_rmse_gpa": 0.426861235534794,
-            "maximum_absolute_pressure_residual_gpa": 2.386976092548756
-          },
-          "published_curve_without_row15_diagnostic_only": {
-            "pressure_rmse_gpa": 0.06552064301005417,
-            "maximum_absolute_pressure_residual_gpa": 0.13656627535733445
-          },
+          "duplicate_ambient_source_rows": [1, 32],
+          "published_curve_all_rows": {"pressure_rmse_gpa": 0.426861235534794, "maximum_absolute_pressure_residual_gpa": 2.386976092548756},
+          "published_curve_without_row15_diagnostic_only": {"pressure_rmse_gpa": 0.06552064301005417, "maximum_absolute_pressure_residual_gpa": 0.13656627535733445},
           "row15_printed_pressure_gpa": 6.95,
           "row15_predicted_pressure_gpa": 4.563023907451244,
           "source_mean_alpha_300_1300_per_k": 3.82e-05,
@@ -961,9 +324,7 @@
               "maximum_absolute_pressure_residual_gpa": 2.1842412903610873
             },
             {
-              "excluded_source_rows": [
-                15
-              ],
+              "excluded_source_rows": [15],
               "observations": 31,
               "coefficients": {
                 "K0": 107.48355278152043,
@@ -1001,13 +362,7 @@
           "original_observations_preserved": true,
           "published_coefficients_preserved": true,
           "exact_original_author_workflow_recovered": false,
-          "parameters_within_reported_errors": [
-            "K0",
-            "K0_prime",
-            "alpha0",
-            "alpha1",
-            "dK_dT"
-          ],
+          "parameters_within_reported_errors": ["K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
           "parameter_check_report": "docs/data/diopside-plot-check.json"
         },
         "corrected_dataset": {
@@ -1018,24 +373,294 @@
           "published_coefficients_preserved": true
         }
       },
-      "validity": {
-        "pressure_gpa": [
-          0.0,
-          8.18
-        ],
-        "temperature_k": [
-          300.0,
-          1280.0
-        ],
-        "notes": [
-          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
-          "Published-model and parameter parity established with the documented table-error treatment; source inconsistencies remain recorded as provenance. Published coefficients and original observations are preserved."
-        ]
+      "parameter_provenance": {
+        "determination_method": "Isothermal compression and/or simultaneous P-V-T diffraction measurements; no acoustic or adiabatic bulk modulus is substituted.",
+        "equation": "Zhao (1998), Equation (1), page 26: third-order Eulerian finite strain, with VT=V0 exp(integral alpha dT), alpha=a+bT, KT=KT0+dK/dT*(T-300 K), Kprime independent of T.",
+        "V0": "438.67 A^3 is the printed 300 K ambient volume in Table 1 rows 1 and 32, used as the ambient volume defined by Equation (1). The source does not separately give a fitted V0 or specify whether it was refined. Its observed error 0.06 A^3 is retained in the dataset, not relabeled as a regression error.",
+        "K0": "109.1 GPa and Kprime=4.84 in abstract and Figure 2; rounded prose 109(4) GPa and 4.8(6) supplies reported errors.",
+        "K0_prime": "Figure 2 and abstract: 4.84; prose reports 4.8(6). Page 27 pressure-correction demonstration instead uses 4.85 and dK/dT=-0.0206; those alternate rounded numbers are not mixed in.",
+        "temperature_ref": "Equation (1) explicitly anchors KT at 300 K; integration is anchored there so VT(300)=V0.",
+        "thermal": "Page 26 final paragraph: a=2.32(5)e-5 K^-1, b=1.88(7)e-8 K^-2, dK/dT=-2.05(4)e-2 GPa/K. a is the T=0 intercept, not alpha at 300 K. c/T^2 and higher T derivatives are neglected by the source."
+      },
+      "fit_provenance": {
+        "software": {
+          "name": "not reported for EOS regression; modified GSAS used for diffraction reduction",
+          "version": "not reported"
+        },
+        "dataset": "diopside_zhao_1998_table1",
+        "selection": {
+          "bundled_rows": 32,
+          "source_selection": "Only hydrostatic observations after the first heating cycle; exact fit-row indices, handling of duplicate ambient rows and row 15 are unreported."
+        },
+        "objective": "not reported",
+        "refined_parameters": ["K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
+        "fixed_parameters": [],
+        "statistics": {"bundled_observations": 32},
+        "source_V0_treatment": "not reported",
+        "source_weights": "not_reported",
+        "source_covariance": "not_reported",
+        "reproduction": {
+          "dataset": "diopside_zhao_1998_table1_corrected_pvt",
+          "report": "docs/data/diopside-plot-check.json",
+          "selection": "All 32 rows, including the marked repeated ambient entry; only row 15 pressure corrected to 4.58 GPa.",
+          "objective": "Unweighted pressure residuals with V0=438.67 A^3 and Tr=300 K fixed.",
+          "original_author_input": false
+        }
+      },
+      "fit_datasets": ["diopside_zhao_1998_table1"],
+      "experimental_configuration": {
+        "apparatus": "DIA-6 SAM-85 multi-anvil press; NSLS X-17B energy-dispersive diffraction",
+        "temperature_measurement": "Printed W-26%Rh/W thermocouple; composition retained as printed, not silently changed to Re. No row-wise T uncertainties reported.",
+        "pressure_standard": "Layer-packed NaCl, Decker (1971)",
+        "path": "Cold compression to maximum load, heating to maximum T, subsequent cooling and decompression; hydrostatic states only used for EOS according to source."
       },
       "recommended_refit_dataset": "diopside_zhao_1998_table1_corrected_pvt",
-      "analysis_datasets": [
-        "diopside_zhao_1998_table1_corrected_pvt"
-      ]
+      "analysis_datasets": ["diopside_zhao_1998_table1_corrected_pvt"]
     }
-  ]
+  ],
+  "datasets": [
+    {
+      "identifier": "diopside_thompson_2008_table1",
+      "kind": "pressure_volume_lattice_parameters",
+      "description": "All 14 printed Table 1 rows, without corrections or exclusions.",
+      "reference": {
+        "authors": ["Thompson", "Downs"],
+        "year": 2008,
+        "title": "The crystal structure of diopside at pressure to 10 GPa",
+        "source": "American Mineralogist",
+        "volume": "93",
+        "locator": "177-186",
+        "doi": "10.2138/am.2008.2684"
+      },
+      "source_location": "Table 1, page 179",
+      "source_url": "https://doi.org/10.2138/am.2008.2684",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "value"},
+        {"name": "run", "quantity": "run", "unit": "1", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "pressure_error_gpa", "quantity": "pressure", "unit": "GPa", "role": "bound", "of": "pressure_gpa"},
+        {"name": "intensity_collected", "quantity": "intensity_collected", "unit": "1", "role": "value"},
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_error_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "bound",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_b_error_angstrom",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "bound",
+          "of": "lattice_b_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_error_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "bound",
+          "of": "lattice_c_angstrom"
+        },
+        {"name": "beta_deg", "quantity": "monoclinic_beta_angle", "unit": "degree", "role": "value"},
+        {
+          "name": "beta_error_deg",
+          "quantity": "monoclinic_beta_angle",
+          "unit": "degree",
+          "role": "bound",
+          "of": "beta_deg"
+        },
+        {"name": "cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "cell_volume_error_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "bound",
+          "of": "cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/diopside-thompson-2008-table1.csv",
+        "sha256": "50941c3229e2a57eec2ee4a8c61bef3f37c4b487c4595d50b12325b7f55d963c",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["diopside_thompson_2008_bm3"],
+      "license": "Source reuse license unspecified. CC0 applies only to contributor transcription, normalization and metadata rights; see datasets/diopside.LICENSE.md.",
+      "uncertainty": {
+        "confidence": "not_reported",
+        "meaning": "Printed parenthesized last-digit errors, expanded without assigning an unreported confidence convention; blank does not mean zero."
+      },
+      "notes": "Original numerical notation and row order also retained in diopside-thompson-2008-table1-original.txt. Source temperature is room temperature, without a numerical temperature or row-wise temperature errors; no temperatures have been added to this observation table. Ruby wavelengths are not printed."
+    },
+    {
+      "identifier": "diopside_zhao_1998_table1",
+      "kind": "pressure_volume_temperature_lattice_parameters",
+      "description": "All 32 printed Table 1 rows, without corrections or exclusions.",
+      "reference": {
+        "authors": ["Zhao", "Von Dreele", "Zhang", "Weidner"],
+        "year": 1998,
+        "title": "Thermoelastic Equation of State of Monoclinic Pyroxene: CaMgSi2O6 Diopside",
+        "source": "The Review of High Pressure Science and Technology",
+        "volume": "7",
+        "locator": "25-27",
+        "doi": "10.4131/jshpreview.7.25"
+      },
+      "source_location": "Table 1, page 26",
+      "source_url": "https://doi.org/10.4131/jshpreview.7.25",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "pressure_error_gpa", "quantity": "pressure", "unit": "GPa", "role": "bound", "of": "pressure_gpa"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "temperature_error_k", "quantity": "temperature", "unit": "K", "role": "bound", "of": "temperature_k"},
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_error_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "bound",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_b_error_angstrom",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "bound",
+          "of": "lattice_b_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_error_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "bound",
+          "of": "lattice_c_angstrom"
+        },
+        {"name": "beta_deg", "quantity": "monoclinic_beta_angle", "unit": "degree", "role": "value"},
+        {
+          "name": "beta_error_deg",
+          "quantity": "monoclinic_beta_angle",
+          "unit": "degree",
+          "role": "bound",
+          "of": "beta_deg"
+        },
+        {"name": "cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "cell_volume_error_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "bound",
+          "of": "cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/diopside-zhao-1998-table1.csv",
+        "sha256": "0aacfc8305498647641704a2e7e17eb6ce5276d4d8abb98f867c0f72d73f81f7",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["diopside_zhao_1998_thermal_bm3"],
+      "license": "Source reuse license unspecified. CC0 applies only to contributor transcription, normalization and metadata rights; see datasets/diopside.LICENSE.md.",
+      "uncertainty": {
+        "confidence": "not_reported",
+        "meaning": "Printed parenthesized last-digit errors, expanded without assigning an unreported confidence convention; blank does not mean zero."
+      },
+      "notes": "Original numerical notation and row order also retained in diopside-zhao-1998-table1-original.txt. Rows 1 and 32 duplicate the ambient observation; row 15 prints P=6.95 GPa at 1072 K, inconsistent with the published curve. Ambient metric volumes and some compressed lattice entries also disagree with printed volumes. No NaCl lattice readings or row-wise pressure/temperature errors are printed. For continued P-V-T analysis, use the separately registered diopside_zhao_1998_table1_corrected_pvt dataset; this resource remains the original transcription.",
+      "preferred_for_refitting": false
+    },
+    {
+      "identifier": "diopside_zhao_1998_table1_corrected_pvt",
+      "kind": "corrected_pressure_volume_temperature",
+      "description": "Reusable P-V-T view of all 32 Zhao Table 1 rows: row 15 pressure corrected to the independently digitized Figure 2 reading 4.58 GPa; original pressure and per-row provenance retained. Inconsistent lattice dimensions are excluded from this P-V-T view.",
+      "reference": {
+        "authors": ["Zhao", "Von Dreele", "Zhang", "Weidner"],
+        "year": 1998,
+        "title": "Thermoelastic Equation of State of Monoclinic Pyroxene: CaMgSi2O6 Diopside",
+        "source": "The Review of High Pressure Science and Technology",
+        "volume": "7",
+        "locator": "25-27",
+        "doi": "10.4131/jshpreview.7.25"
+      },
+      "source_location": "Table 1 and Figure 2, page 26; Peritheos documented analysis correction",
+      "source_url": "https://doi.org/10.4131/jshpreview.7.25",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "pressure_error_gpa", "quantity": "pressure", "unit": "GPa", "role": "bound", "of": "pressure_gpa"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "temperature_error_k", "quantity": "temperature", "unit": "K", "role": "bound", "of": "temperature_k"},
+        {"name": "cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "cell_volume_error_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "bound",
+          "of": "cell_volume_a3"
+        },
+        {"name": "source_pressure_gpa", "quantity": "original_reported_pressure", "unit": "GPa", "role": "value"},
+        {"name": "pressure_correction_applied", "quantity": "pressure_correction_applied", "unit": "1", "role": "flag"},
+        {
+          "name": "pressure_graphical_reading_bound_gpa",
+          "quantity": "graphical_pressure_reading_bound",
+          "unit": "GPa",
+          "role": "bound",
+          "of": "pressure_gpa",
+          "notes": "Conservative digitization reading bound; not an experimental standard uncertainty."
+        },
+        {"name": "pressure_source", "quantity": "pressure_source", "unit": "1", "role": "flag"},
+        {"name": "duplicate_of_source_row", "quantity": "duplicate_of_source_row", "unit": "1", "role": "flag"},
+        {"name": "quality_notes", "quantity": "quality_notes", "unit": "1", "role": "flag"},
+        {"name": "correction_note", "quantity": "correction_note", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/diopside-zhao-1998-table1-corrected-pvt.csv",
+        "sha256": "fa03931094fa921db21ec3b0ef91216d6a7dd13db95670cfd7621ae5f0516c24",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "related_eos_records": ["diopside_zhao_1998_thermal_bm3"],
+      "derived_from_dataset": "diopside_zhao_1998_table1",
+      "preferred_for_refitting": true,
+      "derivation": {
+        "date": "2026-10-16",
+        "method": "Retain source P-V-T values, row order and errors; replace only row 15 pressure with the independently digitized Figure 2 pressure rounded to 0.01 GPa. No EOS-derived pressure is substituted.",
+        "changed_source_rows": [15],
+        "changed_fields": ["pressure_gpa"],
+        "original_pressure_column": "source_pressure_gpa",
+        "plot_report": "docs/data/diopside-plot-check.json",
+        "generator": "python -m scripts.diopside_correct_dataset",
+        "author_issued_erratum": false
+      },
+      "license": "Source reuse license unspecified. CC0 applies only to contributor transcription, normalization and metadata rights; see datasets/diopside.LICENSE.md.",
+      "uncertainty": {
+        "source_errors": "As reported, with confidence convention unreported; blank errors are missing, not zero.",
+        "graphical_bound": "Row 15 +/-0.05 GPa is a graphical reading bound only; it is not an experimental sigma.",
+        "graphical_bound_column": "pressure_graphical_reading_bound_gpa"
+      },
+      "notes": "All 32 rows retained. Row 32 is marked as a repeated ambient entry of row 1, without automatic exclusion. Temperatures, printed volumes and their errors remain unchanged. The original lattice values remain in the source dataset because no defensible corrections exist. This analysis dataset was not the original author fit input. See datasets/diopside-zhao-1998-corrected-pvt.README.md."
+    }
+  ],
+  "source": {
+    "structure_reference": {
+      "authors": ["Thompson", "Downs"],
+      "year": 2008,
+      "title": "The crystal structure of diopside at pressure to 10 GPa",
+      "source": "American Mineralogist",
+      "volume": "93",
+      "locator": "177-186",
+      "doi": "10.2138/am.2008.2684"
+    },
+    "structure_location": "Tables 1 and 2, pages 179-180: observed room-temperature 1-atm refinement; not the adjacent ideal geometric model columns. Mg1 and Ca2 occupy 4e (0,y,1/4); Si and three oxygens occupy general 8f.",
+    "structure_reference_pressure_gpa": 0.0001,
+    "structure_reference_temperature": "room temperature; exact numerical temperature unreported",
+    "structure_sample": "Natural clear colorless DeKalb, New York diopside, Smithsonian R18685. The published refinement models the nominal CaMgSi2O6 endmember with full Mg, Ca, Si and O sites; no new claim of analytical sample purity or trace-element detection limits is made.",
+    "structure_dataset": "datasets/diopside-thompson-2008-table2-ambient-structure.csv",
+    "structure_dataset_sha256": "8c1b0a2aa253e479a9e5b86674ecd0db6373ef0fd6babb10544bbf32cd6bce95",
+    "occupancy_provenance": "Full nominal site populations follow the chemical identity and atom assignments of the published observed refinement; occupancies are not independently refined or reported with errors.",
+    "structure_metric_volume_a3": 438.6312279050658,
+    "structure_printed_volume_a3": 438.63,
+    "structure_cell_vs_eos": "The observed structural cell (438.63(3) A^3) differs from the Thompson fitted V0 (438.66(2) A^3) and Zhao ambient volume anchor (438.67(6) A^3). No cell rescaling or cross-source coefficient mixing is applied."
+  }
 }

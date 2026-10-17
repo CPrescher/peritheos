@@ -1,5 +1,9 @@
 # Material catalog
 
+Browse the [readable material summaries](material-summaries/index.md) for
+parameter comparisons, uncertainties, calibration, selection holds and source
+qualifications. These sheets are generated from the complete EOSMAT documents.
+
 Peritheos exposes the complete bundled library through the normal executable
 API. `list_materials()` returns 228 `Material` objects and
 `list_eos_records()` returns their 659 `EOSRecord` objects. Both are ordered by

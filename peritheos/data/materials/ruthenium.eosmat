@@ -1,254 +1,167 @@
 {
- "format_version": 3,
- "name": "Ruthenium",
- "formula": "Ru",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 2.704989,
-  "b": null,
-  "c": 4.280159,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P63/mmc",
- "space_group_number": 194,
- "atom_sites": [
-  {
-   "element": "Ru",
-   "wyckoff": "2c",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "The reference cell is constrained to the fitted 300 K V0 while retaining the ambient axial ratio. PhaseSmith calculates powder reflections and intensities from the ideal hcp structure.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Anzellini et al. (2019), BM3",
-   "reference": {
-    "authors": [
-     "Anzellini",
-     "Errandonea",
-     "Cazorla",
-     "MacLeod",
-     "Monteseguro",
-     "Boccato",
-     "Bandiello",
-     "Anichtchenko",
-     "Popescu",
-     "Beavers"
-    ],
-    "year": 2019,
-    "title": "Thermal equation of state of ruthenium characterized by resistively heated diamond anvil cell",
-    "source": "Sci. Rep.",
-    "volume": "9",
-    "locator": "14459",
-    "doi": "10.1038/s41598-019-51037-8"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 27.122,
-     "K0": 323.4,
-     "K0_prime": 4.15
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.006,
-    "K0": 1.1,
-    "K0_prime": 0.019
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    151.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; Table 3."
-   },
-   "identifier": "ruthenium_anzellini_2019_bm3_1",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "ruthenium",
+  "name": "Ruthenium",
+  "formula": "Ru",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 2.704989, "b": null, "c": 4.280159, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Ru", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The reference cell is constrained to the fitted 300 K V0 while retaining the ambient axial ratio. PhaseSmith calculates powder reflections and intensities from the ideal hcp structure.",
+  "eos_records": [
+    {
+      "identifier": "ruthenium_anzellini_2019_bm3_1",
+      "label": "Anzellini et al. (2019), BM3",
+      "determination_method": "experimental",
       "reference": {
-       "authors": [
-        "Dorogokupets",
-        "Oganov"
-       ],
-       "year": 2007,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.75.024115"
+        "authors": [
+          "Anzellini",
+          "Errandonea",
+          "Cazorla",
+          "MacLeod",
+          "Monteseguro",
+          "Boccato",
+          "Bandiello",
+          "Anichtchenko",
+          "Popescu",
+          "Beavers"
+        ],
+        "year": 2019,
+        "title": "Thermal equation of state of ruthenium characterized by resistively heated diamond anvil cell",
+        "source": "Sci. Rep.",
+        "volume": "9",
+        "locator": "14459",
+        "doi": "10.1038/s41598-019-51037-8"
       },
-      "source_location": "Methods; room-temperature run",
-      "scope": "room-temperature DAC run",
-      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
-     },
-     {
-      "kind": "equation_of_state",
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 27.122, "K0": 323.4, "K0_prime": 4.15},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.006, "K0": 1.1, "K0_prime": 0.019},
+      "fixed_parameters": [],
+      "experimental_pressure_range_gpa": [0.0, 151.0],
+      "notes": "Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).",
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Methods; room-temperature run",
+            "scope": "room-temperature DAC run",
+            "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Dewaele", "Belonoshko", "Garbarino", "Occelli", "Bouvier", "Hanfland", "Mezouar"],
+              "year": 2012,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.85.214105"
+            },
+            "source_location": "Methods; KCl thermal EOS for resistively heated run",
+            "reference_eos_record": "kcl_b2_dewaele_2012_vinet_3",
+            "scope": "high-temperature run"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "The exact ruby formula is documented but not executable; the KCl EOS component is executable."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1038/s41598-019-51037-8",
+          "locations": ["Equation-of-state section", "Table 3"],
+          "doi": "10.1038/s41598-019-51037-8"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "ruthenium.json"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-03",
+          "dataset_identifiers": ["ruthenium_anzellini_2019_table1_compression"],
+          "source_locations": ["Table 1"],
+          "finding": "All 116 room-temperature Ru compression observations printed in Table 1."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; Table 3."
+      }
+    }
+  ],
+  "datasets": [
+    {
+      "identifier": "ruthenium_anzellini_2019_table1_compression",
+      "kind": "pressure_volume_lattice_parameters",
+      "description": "All 116 room-temperature Ru compression observations printed in Table 1.",
+      "source_location": "Table 1",
+      "source_url": "https://www.nature.com/articles/s41598-019-51037-8",
+      "license": "CC BY 4.0",
+      "columns": [
+        {"name": "run", "quantity": "run_identifier", "unit": "1", "role": "flag"},
+        {"name": "printed_block", "quantity": "printed_table_block", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {"name": "axial_ratio", "quantity": "c_over_a", "unit": "1", "role": "value"},
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        }
+      ],
+      "resource": {
+        "path": "datasets/ruthenium-anzellini-2019-table1-compression.csv",
+        "sha256": "c5d624926643a6ea9c4442e7f011a8344de11ec4e1f066dd0dd80c0da8494880",
+        "media_type": "text/csv"
+      },
+      "notes": "The two horizontal blocks of the printed table were normalized into reading order. Pressures are the values reported by the authors; pointwise uncertainties are not tabulated.",
       "reference": {
-       "authors": [
-        "Dewaele",
-        "Belonoshko",
-        "Garbarino",
-        "Occelli",
-        "Bouvier",
-        "Hanfland",
-        "Mezouar"
-       ],
-       "year": 2012,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.85.214105"
+        "authors": [
+          "Anzellini",
+          "Errandonea",
+          "Cazorla",
+          "MacLeod",
+          "Monteseguro",
+          "Boccato",
+          "Bandiello",
+          "Anichtchenko",
+          "Popescu",
+          "Beavers"
+        ],
+        "year": 2019,
+        "source": "Sci. Rep.",
+        "volume": "9",
+        "locator": "14459",
+        "doi": "10.1038/s41598-019-51037-8"
       },
-      "source_location": "Methods; KCl thermal EOS for resistively heated run",
-      "reference_eos_record": "kcl_b2_dewaele_2012_vinet_3",
-      "scope": "high-temperature run"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "The exact ruby formula is documented but not executable; the KCl EOS component is executable."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1038/s41598-019-51037-8",
-     "locations": [
-      "Equation-of-state section",
-      "Table 3"
-     ],
-     "doi": "10.1038/s41598-019-51037-8"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "ruthenium.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "ruthenium_anzellini_2019_table1_compression"
-     ],
-     "source_locations": [
-      "Table 1"
-     ],
-     "finding": "All 116 room-temperature Ru compression observations printed in Table 1."
+      "used_by_eos_records": ["ruthenium_anzellini_2019_bm3_1"]
     }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "ruthenium",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "ruthenium_anzellini_2019_table1_compression",
-   "kind": "pressure_volume_lattice_parameters",
-   "description": "All 116 room-temperature Ru compression observations printed in Table 1.",
-   "source_location": "Table 1",
-   "source_url": "https://www.nature.com/articles/s41598-019-51037-8",
-   "license": "CC BY 4.0",
-   "columns": [
-    {
-     "name": "run",
-     "quantity": "run_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "printed_block",
-     "quantity": "printed_table_block",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "axial_ratio",
-     "quantity": "c_over_a",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/ruthenium-anzellini-2019-table1-compression.csv",
-    "sha256": "c5d624926643a6ea9c4442e7f011a8344de11ec4e1f066dd0dd80c0da8494880",
-    "media_type": "text/csv"
-   },
-   "notes": "The two horizontal blocks of the printed table were normalized into reading order. Pressures are the values reported by the authors; pointwise uncertainties are not tabulated.",
-   "reference": {
-    "authors": [
-     "Anzellini",
-     "Errandonea",
-     "Cazorla",
-     "MacLeod",
-     "Monteseguro",
-     "Boccato",
-     "Bandiello",
-     "Anichtchenko",
-     "Popescu",
-     "Beavers"
-    ],
-    "year": 2019,
-    "source": "Sci. Rep.",
-    "volume": "9",
-    "locator": "14459",
-    "doi": "10.1038/s41598-019-51037-8"
-   },
-   "used_by_eos_records": [
-    "ruthenium_anzellini_2019_bm3_1"
-   ]
-  }
- ]
+  ]
 }

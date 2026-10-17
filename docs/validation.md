@@ -77,6 +77,10 @@ are unavailable. Sixteen further records have source reconstructions without an 
 EOS refit. There are no unresolved extraction or solver failures. The
 machine-readable results are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
+Refresh these totals with `python -m scripts.generate_validation_summary` after
+updating the ledger. Its `--check` option verifies synchronization without
+rerunning the scientific fits.
+
 The [source-audit index](source-audits.md) links the detailed publication-level
 investigations behind these classifications.
 

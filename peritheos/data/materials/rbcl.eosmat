@@ -1,823 +1,541 @@
 {
- "format_version": 3,
- "name": "Rubidium chloride (B2)",
- "formula": "RbCl",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 3.9304963153,
-  "b": null,
-  "c": null,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 1,
- "space_group": "Pm-3m",
- "space_group_number": 221,
- "atom_sites": [
-  {
-   "element": "Rb",
-   "wyckoff": "1a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Cl",
-   "wyckoff": "1b",
-   "x": 0.5,
-   "y": 0.5,
-   "z": 0.5,
-   "occupancy": 1.0
-  }
- ],
- "notes": "High-pressure CsCl-type B2 RbCl. The phase is not quenchable to zero pressure. The lattice is therefore the hypothetical zero-pressure reference implied by Campbell and Heinz's rho02=3.3068(10) Mg/m^3, not a directly observed ambient cell.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Campbell and Heinz (1994), RbCl-B2 BM3",
-   "reference": {
-    "authors": [
-     "Campbell",
-     "Heinz"
-    ],
-    "year": 1994,
-    "title": "High-pressure acoustic wave velocities and equations of state of the alkali chlorides",
-    "source": "J. Geophys. Res.",
-    "volume": "99",
-    "locator": "11765-11774",
-    "doi": "10.1029/94JB00127"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 60.7214565241,
-     "K0": 17.9,
-     "K0_prime": 5.23
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.0183626033,
-    "K0": 1.0,
-    "K0_prime": 0.29
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    1.11,
-    32.3
-   ],
-   "temperature_ref": 298.0,
-   "pressure_range_status": "reported_exactly",
-   "notes": "Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression observations in Table 1. Campbell and Heinz fixed the non-quenchable phase's hypothetical zero-pressure density at rho02=3.3068(10) Mg/m^3 and report K0=17.9(10) GPa and K0'=5.23(29). Peritheos converts that density to the one-formula-unit reference volume using M(RbCl)=120.9208 g/mol; its uncertainty is propagated from the reported density error.",
-   "determination_method": "experimental",
-   "identifier": "rbcl_b2_campbell_1994_bm3_1",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Au",
-      "reference": {
-       "authors": [
-        "Heinz",
-        "Jeanloz"
-       ],
-       "year": 1984,
-       "source": "J. Appl. Phys.",
-       "doi": "10.1063/1.333139"
-      },
-      "source_location": "Experimental method, page 11766",
-      "notes": "Gold was the internal pressure standard; strain-anisotropy corrections followed Meng et al. (1993)."
-     }
-    ],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The exact measured gold lattice parameters and row-wise strain-anisotropy corrections are not published."
-    },
-    "audit_date": "2026-09-04",
-    "notes": "The pressure-standard lineage is explicit, but the reported pressures cannot be recalculated from the paper alone."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-04",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/94JB00127",
-     "locations": [
-      "page 11767, Table 1, separate RbCl and CsCl compression blocks",
-      "page 11767, Figures 2-3 and Eulerian finite-strain fits"
-     ],
-     "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations.",
-     "doi": "10.1029/94jb00127"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-04",
-     "dataset_identifiers": [
-      "rbcl_campbell_1994_table1_compression"
-     ],
-     "source_locations": [
-      "Table 1, page 11767"
-     ],
-     "finding": "All 24 room-temperature RbCl-B2 pressure-lattice-parameter observations printed in Table 1."
-    }
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 11767, Table 1, separate RbCl and CsCl compression blocks; page 11767, Figures 2-3 and Eulerian finite-strain fits.",
-    "V0": "Derived from Campbell and Heinz (1994), pages 11767-11768: fixed hypothetical rho02=3.3068(10) Mg/m^3 and M(RbCl)=120.9208 g/mol",
-    "K0": "Campbell and Heinz (1994), pages 11767-11768 and Figure 3",
-    "K0_prime": "Campbell and Heinz (1994), pages 11767-11768 and Figure 3",
-    "equation": "Campbell and Heinz (1994), pages 11767-11768: third-order Eulerian finite-strain equation"
-   }
-  },
-  {
-   "identifier": "rbcl_b2_farla_2025_bm3_mgd_cscl",
-   "label": "Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)",
-   "record_kind": "published",
-   "equation_kind": "thermal",
-   "determination_method": "hybrid",
-   "default": false,
-   "reference": {
-    "authors": [
-     "Farla",
-     "Néri",
-     "Pöppelbaum",
-     "Glazyrin"
-    ],
-    "year": 2025,
-    "title": "Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI",
-    "source": "Journal of Applied Physics",
-    "volume": "137",
-    "locator": "115901",
-    "doi": "10.1063/5.0248905"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 60.19454118505194,
-     "K0": 19.89,
-     "K0_prime": 5.0
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.049816172015215404,
-    "K0": 0.08,
-    "K0_prime": 0.02
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "V0"
-   ],
-   "temperature_ref": 300.0,
-   "thermal": {
-    "type": "MieGruneisenDebye",
-    "model": "mie_gruneisen_debye",
-    "debye_temperature_law": "integrated_gruneisen",
-    "thermal_pressure_reference": "reference_temperature",
-    "parameters": {
-     "Tr": 300.0,
-     "theta0": 177,
-     "gamma0": 1.96,
-     "q": 1.05,
-     "n": 2.0
-    },
-    "parameter_errors": {
-     "Tr": null,
-     "theta0": null,
-     "gamma0": 0.04,
-     "q": 0.09,
-     "n": null
-    },
-    "fixed_parameters": [
-     "Tr",
-     "theta0",
-     "n"
-    ]
-   },
-   "source_parameters": {
-    "V0_molar_cm3_mol": 36.25,
-    "V0_molar_error_cm3_mol": 0.03,
-    "V0_cell_angstrom3": 60.2,
-    "V0_cell_error_angstrom3": 0.02,
-    "uncertainty_convention": "EoSFit7 estimated standard deviations; confidence level and covariance not supplied. Fixed does not mean error-free."
-   },
-   "experimental_pressure_range_gpa": [
-    0.54,
-    26.05
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    1800.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "range_provenance": {
-    "source": "Supplement S1-S4; main text Experimental Runs and Conclusion",
-    "dac": {
-     "temperature_k": 300.0,
-     "pressure_gpa": [
-      0.54,
-      26.05
-     ]
-    },
-    "lvp": {
-     "temperature_k": [
-      300.0,
-      1800.0
-     ],
-     "cscl_pressure_gpa": [
-      2.43,
-      20.52
-     ]
-    },
-    "note": "Marginal data bounds, not a rectangle of measured states or phase-stability guarantee. Hot data end near 21 GPa; 26 GPa data are DAC at 300 K."
-   },
-   "validity": {
-    "pressure_gpa": [
-     0.54,
-     26.05
-    ],
-    "temperature_k": [
-     300.0,
-     1800.0
-    ],
-    "notes": [
-     "Only the B2 solid branch. B1 transition and melting curves are not encoded; confirm phase before using as a marker.",
-     "Bounds describe marginal coverage; high-temperature data reach about 21 GPa, not 26 GPa.",
-     "The zero-pressure reference is hypothetical and is not stable ambient B2 material."
-    ]
-   },
-   "fit_datasets": [
-    "rbcl_farla_2025_observations"
-   ],
-   "fit_data_sources": [
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "rbcl",
+  "name": "Rubidium chloride (B2)",
+  "formula": "RbCl",
+  "phase": "B2 (CsCl-type), cubic Pm-3m",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 1,
+  "symmetry": "CUBIC",
+  "space_group": "Pm-3m",
+  "space_group_number": 221,
+  "lattice": {"a": 3.9304963153, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Rb", "wyckoff": "1a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Cl", "wyckoff": "1b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "High-pressure CsCl-type B2 RbCl. The phase is not quenchable to zero pressure. The lattice is therefore the hypothetical zero-pressure reference implied by Campbell and Heinz's rho02=3.3068(10) Mg/m^3, not a directly observed ambient cell.",
+  "eos_records": [
     {
-     "source": "Farla et al. (2025), combined DAC+LVP",
-     "dataset_identifier": "rbcl_farla_2025_observations",
-     "availability": "bundled_transcribed",
-     "selection": "Complete printed scope retained; independent diagnostic fits disclose cold-LVP exclusions and sensitivity. Exact author row flags unavailable."
+      "identifier": "rbcl_b2_campbell_1994_bm3_1",
+      "label": "Campbell and Heinz (1994), RbCl-B2 BM3",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Campbell", "Heinz"],
+        "year": 1994,
+        "title": "High-pressure acoustic wave velocities and equations of state of the alkali chlorides",
+        "source": "J. Geophys. Res.",
+        "volume": "99",
+        "locator": "11765-11774",
+        "doi": "10.1029/94JB00127"
+      },
+      "temperature_ref": 298.0,
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 60.7214565241, "K0": 17.9, "K0_prime": 5.23},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.0183626033, "K0": 1.0, "K0_prime": 0.29},
+      "fixed_parameters": ["V0"],
+      "experimental_pressure_range_gpa": [1.11, 32.3],
+      "pressure_range_status": "reported_exactly",
+      "notes": "Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression observations in Table 1. Campbell and Heinz fixed the non-quenchable phase's hypothetical zero-pressure density at rho02=3.3068(10) Mg/m^3 and report K0=17.9(10) GPa and K0'=5.23(29). Peritheos converts that density to the one-formula-unit reference volume using M(RbCl)=120.9208 g/mol; its uncertainty is propagated from the reported density error.",
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference": {
+              "authors": ["Heinz", "Jeanloz"],
+              "year": 1984,
+              "source": "J. Appl. Phys.",
+              "doi": "10.1063/1.333139"
+            },
+            "source_location": "Experimental method, page 11766",
+            "notes": "Gold was the internal pressure standard; strain-anisotropy corrections followed Meng et al. (1993)."
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The exact measured gold lattice parameters and row-wise strain-anisotropy corrections are not published."
+        },
+        "audit_date": "2026-09-04",
+        "notes": "The pressure-standard lineage is explicit, but the reported pressures cannot be recalculated from the paper alone."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-04",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1029/94JB00127",
+          "locations": [
+            "page 11767, Table 1, separate RbCl and CsCl compression blocks",
+            "page 11767, Figures 2-3 and Eulerian finite-strain fits"
+          ],
+          "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations.",
+          "doi": "10.1029/94jb00127"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-04",
+          "dataset_identifiers": ["rbcl_campbell_1994_table1_compression"],
+          "source_locations": ["Table 1, page 11767"],
+          "finding": "All 24 room-temperature RbCl-B2 pressure-lattice-parameter observations printed in Table 1."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 11767, Table 1, separate RbCl and CsCl compression blocks; page 11767, Figures 2-3 and Eulerian finite-strain fits.",
+        "V0": "Derived from Campbell and Heinz (1994), pages 11767-11768: fixed hypothetical rho02=3.3068(10) Mg/m^3 and M(RbCl)=120.9208 g/mol",
+        "K0": "Campbell and Heinz (1994), pages 11767-11768 and Figure 3",
+        "K0_prime": "Campbell and Heinz (1994), pages 11767-11768 and Figure 3",
+        "equation": "Campbell and Heinz (1994), pages 11767-11768: third-order Eulerian finite-strain equation"
+      }
+    },
+    {
+      "identifier": "rbcl_b2_farla_2025_bm3_mgd_cscl",
+      "label": "Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)",
+      "record_kind": "published",
+      "determination_method": "hybrid",
+      "equation_kind": "thermal",
+      "default": false,
+      "reference": {
+        "authors": ["Farla", "Néri", "Pöppelbaum", "Glazyrin"],
+        "year": 2025,
+        "title": "Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI",
+        "source": "Journal of Applied Physics",
+        "volume": "137",
+        "locator": "115901",
+        "doi": "10.1063/5.0248905"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 60.19454118505194, "K0": 19.89, "K0_prime": 5.0}
+      },
+      "thermal": {
+        "type": "MieGruneisenDebye",
+        "model": "mie_gruneisen_debye",
+        "debye_temperature_law": "integrated_gruneisen",
+        "thermal_pressure_reference": "reference_temperature",
+        "parameters": {"Tr": 300.0, "theta0": 177, "gamma0": 1.96, "q": 1.05, "n": 2.0},
+        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": 0.04, "q": 0.09, "n": null},
+        "fixed_parameters": ["Tr", "theta0", "n"]
+      },
+      "parameter_errors": {"V0": 0.049816172015215404, "K0": 0.08, "K0_prime": 0.02},
+      "parameter_error_confidence": null,
+      "fixed_parameters": ["V0"],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.54, 26.05],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [300.0, 1800.0],
+      "validity": {
+        "pressure_gpa": [0.54, 26.05],
+        "temperature_k": [300.0, 1800.0],
+        "notes": [
+          "Only the B2 solid branch. B1 transition and melting curves are not encoded; confirm phase before using as a marker.",
+          "Bounds describe marginal coverage; high-temperature data reach about 21 GPa, not 26 GPa.",
+          "The zero-pressure reference is hypothetical and is not stable ambient B2 material."
+        ]
+      },
+      "notes": "Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.",
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-10-15",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "material": "ruby",
+            "reference": {
+              "authors": ["Shen et al."],
+              "year": 2020,
+              "title": "Toward an international practical pressure scale: A proposal for an IPPS ruby gauge (IPPS-Ruby2020)",
+              "source": "High Pressure Research"
+            },
+            "source_location": "DAC methods, reference 23; Table S1",
+            "notes": "Reported ruby pressures and errors bundled; original fluorescence wavelengths are absent."
+          },
+          {
+            "kind": "equation_of_state",
+            "material": "CsCl",
+            "reference": {
+              "authors": ["Dewaele"],
+              "year": 2020,
+              "title": "Compression of CsCl and CsBr in the megabar range",
+              "source": "High Pressure Research"
+            },
+            "source_location": "Table S2, footnote a; main refs 2 and 16",
+            "notes": "Preferred case 1 retains reported CsCl pressures. Historical EosCross v1.3 (commit 9518e361) recovers Vinet plus integrated Debye MGD coefficients and GUI defaults. GUI a0=4.1221 A overrides module V0; legacy NA=6.0221367e23. The default replay matches 104/109 distinct gauge rows within pressure/volume rounding; five discrepancies remain. Supplement Decker 1973 versus code/main Decker 1971 attribution is retained.",
+            "implementation_source": "https://gitlab.desy.de/robert.farla/eoscross/-/blob/9518e36112be23504b84c4f595eab0b0207a3539/EosCross/calibrants/Dewaele_2020.py"
+          },
+          {
+            "kind": "equation_of_state",
+            "material": "Mo",
+            "reference": {
+              "authors": ["Huang et al."],
+              "year": 2016,
+              "doi": "10.1038/srep19923",
+              "source": "Scientific Reports"
+            },
+            "source_location": "Table S2, footnote c",
+            "notes": "Comparison marker and alternative case 2; measured Mo conventional volumes and reported pressures/errors retained, not used for case 1."
+          },
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Matsui et al."],
+              "year": 2009,
+              "doi": "10.1063/1.3054331",
+              "source": "Journal of Applied Physics"
+            },
+            "source_location": "Table S2, footnote b; main reference 30",
+            "notes": "Comparison marker, not case-1 fitting pressure. Supplement says Matsui 2007; main bibliography says Matsui 2009. Both attribution tokens retained in audit."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Independent family follow-up replays recovered historical CsCl module/GUI defaults; no shared calibrant record is bundled. All 109 gauge pressures agree within reported errors plus rounding, with five beyond pressure/volume rounding. Saved runtime a0, raw ruby wavelengths and full source covariance remain unavailable. Public code propagates diagonal V,T input errors into PVT covariance; that is not evidence of full fitting-workflow recovery."
+        },
+        "notes": "Above about 1100 K the paper observes Mo/Pt apparent pressures lower than CsCl (up to ~1/~3 GPa); it prefers CsCl. It also questions CsCl behavior for BT815 at 17-19 GPa and high T. No correction is inferred here."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-10-15",
+        "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+          "doi": "10.1063/5.0248905",
+          "locations": [
+            "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
+            "Official supplement section 1, Tables S1, S2, S5"
+          ],
+          "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-10-15",
+          "dataset_identifiers": ["rbcl_farla_2025_observations", "rbcl_farla_2025_benchmarks"],
+          "source_locations": ["Tables S1, S2, S5"],
+          "finding": "All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.",
+          "reconstruction_assessment": {
+            "equation_validated": true,
+            "published_curve_consistency": "All 54 source ratios pass individual-state coefficient sensitivity envelopes. A 2026-10-16 minimax/leave-one-out diagnostic finds a common vector within coefficient half-digit bounds for 53/54 entries; 5 GPa/1500 K predicts 0.9283 versus printed 0.9282. A one-cell alternative is diagnostic only; the primary table is unchanged and literal table parity is not claimed.",
+            "independent_refit": "Unweighted baseline and conditional effective-variance fits retained. Follow-up iterates frozen weights without a pressure-error floor; differences are below 1.65 reported parameter esds but do not all round to the publication. No replacement coefficients added.",
+            "author_fit_parity": false,
+            "author_workflow_parity": false
+          }
+        },
+        "unresolved_issues": [
+          "Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved."
+        ],
+        "independent_numerical_check": {
+          "script": "scripts/reproduce_rubidium_halides_farla_2025.py",
+          "report": "docs/data/rubidium-halides-farla-2025-reproduction.json",
+          "audit_report": "docs/literature-reproductions/rubidium-halides-farla-2025.md",
+          "source_table": "S5",
+          "benchmark_rows": 54,
+          "max_absolute_source_ratio_difference": 0.0006993948117919313,
+          "outside_coefficient_rounding_envelope": 0,
+          "max_native_reference_ratio_difference": 9.325873406851315e-15,
+          "independent_fit_rows": 122,
+          "source_pressure_rmse_gpa": 0.15442869781174814,
+          "source_pressure_max_abs_gpa": 0.4032462712536873,
+          "author_fit_parity": false,
+          "author_workflow_parity": false,
+          "follow_up_script": "scripts/investigate_rubidium_halides_farla_2025.py",
+          "follow_up_report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
+          "iterated_weight_max_difference_reported_esd": 0.39930413766797734,
+          "joint_rounded_table_solution_found": false,
+          "discrepancy_script": "scripts/audit_rubidium_halides_farla_2025_discrepancies.py",
+          "discrepancy_report": "docs/data/rubidium-halides-farla-2025-discrepancies.json",
+          "compatible_benchmark_rows_after_single_omission": 53,
+          "localized_benchmark_discrepancy": {
+            "pressure_gpa": 5,
+            "temperature_k": 1500,
+            "printed_ratio": 0.9282,
+            "diagnostic_ratio_rounded": 0.9283,
+            "source_table_modified": false
+          },
+          "cscl_historical_execution_report": "docs/data/rubidium-halides-farla-2025-burnman-replay.json",
+          "direct_eosfit_console": {
+            "audit_date": "2026-10-16",
+            "version": "7.60",
+            "script": "scripts/run_rubidium_halides_farla_2025_eosfit.py",
+            "report": "docs/data/rubidium-halides-farla-2025-eosfit7c/manifest.json",
+            "converged_cases": 6,
+            "published_max_difference_reported_esd": 0.4033750000000058,
+            "maximum_k0_difference_from_independent_irls_gpa": 0.0003256689865622775,
+            "author_fit_parity": false,
+            "qualification": "Direct diagnostic executable fits of printed observations, not recovered author files. Native refit errors/covariance remain separate from the published record."
+          },
+          "constrained_case3_diagnostic": {
+            "audit_date": "2026-10-16",
+            "script": "scripts/run_rubidium_halides_farla_2025_case3_eosfit.py",
+            "report": "docs/data/rubidium-halides-farla-2025-case3-eosfit7c/manifest.json",
+            "variants": ["rbcl"],
+            "canonical_published_record_case": 1,
+            "case3_parameters_replace_canonical_record": false,
+            "qualification": "Separate Case 3 thermal refits with fixed static anchors. Diagnostic sub-last-digit examples reproduce Case 3 thermal coefficient rounding, not original author inputs or Case 1 fit parity."
+          }
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Hybrid: experimentally fitted DAC/LVP parameters with fixed Debye temperatures derived from DFT elastic constants of Haddadi et al. (2009), as explicitly described in the official supplement. Main-text reference 41 instead lists Kumara Swamy et al. (1996); the supplement resolves the actual calculation source.",
+        "equation": "Main Eqs. (1), (6)-(9): 300 K BM3 plus gamma(V)[ED(V,T)-ED(V,300)]/V; theta=theta0 exp[(gamma0-gamma)/q], gamma=gamma0(V/V0)^q. Integrated law, not theta0(V/V0)^[-gamma(V)].",
+        "V0": "Table I, case 1: fixed DAC-derived 36.25 +/- 0.03 cm^3/mol; convert by 1e24/NA to the Z=1 conventional cell. Printed cell alternative 60.2 +/- 0.02 A^3 retained without replacing the molar value.",
+        "K0": "Table I, case 1: freely fitted with weighted P,V,T errors using EoSFit7.",
+        "K0_prime": "Table I, case 1: freely fitted with weighted P,V,T errors using EoSFit7.",
+        "gamma0": "Table I, case 1: fitted jointly with K0, K0_prime, q; V0 and theta0 fixed.",
+        "q": "Table I, case 1; Eq. (9), logarithmic volume dependence of gamma.",
+        "theta0": "Table I and supplement section 1: 177 K fixed; DFT elastic constants via Haddadi et al. (2009), not a free fit parameter.",
+        "n": "Eq. (7): two atoms per formula unit. Z=1, so two atoms per conventional Pm-3m cell.",
+        "Tr": "Main text section 3 and Eqs. (2),(6): 300 K."
+      },
+      "source_parameters": {
+        "V0_molar_cm3_mol": 36.25,
+        "V0_molar_error_cm3_mol": 0.03,
+        "V0_cell_angstrom3": 60.2,
+        "V0_cell_error_angstrom3": 0.02,
+        "uncertainty_convention": "EoSFit7 estimated standard deviations; confidence level and covariance not supplied. Fixed does not mean error-free."
+      },
+      "range_provenance": {
+        "source": "Supplement S1-S4; main text Experimental Runs and Conclusion",
+        "dac": {
+          "temperature_k": 300.0,
+          "pressure_gpa": [0.54, 26.05]
+        },
+        "lvp": {
+          "temperature_k": [300.0, 1800.0],
+          "cscl_pressure_gpa": [2.43, 20.52]
+        },
+        "note": "Marginal data bounds, not a rectangle of measured states or phase-stability guarantee. Hot data end near 21 GPa; 26 GPa data are DAC at 300 K."
+      },
+      "fit_datasets": ["rbcl_farla_2025_observations"],
+      "fit_data_sources": [
+        {
+          "source": "Farla et al. (2025), combined DAC+LVP",
+          "dataset_identifier": "rbcl_farla_2025_observations",
+          "availability": "bundled_transcribed",
+          "selection": "Complete printed scope retained; independent diagnostic fits disclose cold-LVP exclusions and sensitivity. Exact author row flags unavailable."
+        }
+      ]
     }
-   ],
-   "parameter_provenance": {
-    "determination_method": "Hybrid: experimentally fitted DAC/LVP parameters with fixed Debye temperatures derived from DFT elastic constants of Haddadi et al. (2009), as explicitly described in the official supplement. Main-text reference 41 instead lists Kumara Swamy et al. (1996); the supplement resolves the actual calculation source.",
-    "equation": "Main Eqs. (1), (6)-(9): 300 K BM3 plus gamma(V)[ED(V,T)-ED(V,300)]/V; theta=theta0 exp[(gamma0-gamma)/q], gamma=gamma0(V/V0)^q. Integrated law, not theta0(V/V0)^[-gamma(V)].",
-    "V0": "Table I, case 1: fixed DAC-derived 36.25 +/- 0.03 cm^3/mol; convert by 1e24/NA to the Z=1 conventional cell. Printed cell alternative 60.2 +/- 0.02 A^3 retained without replacing the molar value.",
-    "K0": "Table I, case 1: freely fitted with weighted P,V,T errors using EoSFit7.",
-    "K0_prime": "Table I, case 1: freely fitted with weighted P,V,T errors using EoSFit7.",
-    "gamma0": "Table I, case 1: fitted jointly with K0, K0_prime, q; V0 and theta0 fixed.",
-    "q": "Table I, case 1; Eq. (9), logarithmic volume dependence of gamma.",
-    "theta0": "Table I and supplement section 1: 177 K fixed; DFT elastic constants via Haddadi et al. (2009), not a free fit parameter.",
-    "n": "Eq. (7): two atoms per formula unit. Z=1, so two atoms per conventional Pm-3m cell.",
-    "Tr": "Main text section 3 and Eqs. (2),(6): 300 K."
-   },
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "audit_date": "2026-10-15",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "material": "ruby",
+  ],
+  "datasets": [
+    {
+      "identifier": "rbcl_campbell_1994_table1_compression",
+      "kind": "pressure_volume",
+      "description": "All 24 room-temperature RbCl-B2 compression observations printed in the RbCl block of Table 1.",
       "reference": {
-       "authors": [
-        "Shen et al."
-       ],
-       "year": 2020,
-       "title": "Toward an international practical pressure scale: A proposal for an IPPS ruby gauge (IPPS-Ruby2020)",
-       "source": "High Pressure Research"
+        "authors": ["Campbell", "Heinz"],
+        "year": 1994,
+        "source": "J. Geophys. Res.",
+        "volume": "99",
+        "locator": "11765-11774",
+        "doi": "10.1029/94JB00127"
       },
-      "source_location": "DAC methods, reference 23; Table S1",
-      "notes": "Reported ruby pressures and errors bundled; original fluorescence wavelengths are absent."
-     },
-     {
-      "kind": "equation_of_state",
-      "material": "CsCl",
-      "reference": {
-       "authors": [
-        "Dewaele"
-       ],
-       "year": 2020,
-       "title": "Compression of CsCl and CsBr in the megabar range",
-       "source": "High Pressure Research"
-      },
-      "source_location": "Table S2, footnote a; main refs 2 and 16",
-      "notes": "Preferred case 1 retains reported CsCl pressures. Historical EosCross v1.3 (commit 9518e361) recovers Vinet plus integrated Debye MGD coefficients and GUI defaults. GUI a0=4.1221 A overrides module V0; legacy NA=6.0221367e23. The default replay matches 104/109 distinct gauge rows within pressure/volume rounding; five discrepancies remain. Supplement Decker 1973 versus code/main Decker 1971 attribution is retained.",
-      "implementation_source": "https://gitlab.desy.de/robert.farla/eoscross/-/blob/9518e36112be23504b84c4f595eab0b0207a3539/EosCross/calibrants/Dewaele_2020.py"
-     },
-     {
-      "kind": "equation_of_state",
-      "material": "Mo",
-      "reference": {
-       "authors": [
-        "Huang et al."
-       ],
-       "year": 2016,
-       "doi": "10.1038/srep19923",
-       "source": "Scientific Reports"
-      },
-      "source_location": "Table S2, footnote c",
-      "notes": "Comparison marker and alternative case 2; measured Mo conventional volumes and reported pressures/errors retained, not used for case 1."
-     },
-     {
-      "kind": "equation_of_state",
-      "material": "Pt",
-      "reference": {
-       "authors": [
-        "Matsui et al."
-       ],
-       "year": 2009,
-       "doi": "10.1063/1.3054331",
-       "source": "Journal of Applied Physics"
-      },
-      "source_location": "Table S2, footnote b; main reference 30",
-      "notes": "Comparison marker, not case-1 fitting pressure. Supplement says Matsui 2007; main bibliography says Matsui 2009. Both attribution tokens retained in audit."
-     }
-    ],
-    "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "Independent family follow-up replays recovered historical CsCl module/GUI defaults; no shared calibrant record is bundled. All 109 gauge pressures agree within reported errors plus rounding, with five beyond pressure/volume rounding. Saved runtime a0, raw ruby wavelengths and full source covariance remain unavailable. Public code propagates diagonal V,T input errors into PVT covariance; that is not evidence of full fitting-workflow recovery."
-    },
-    "notes": "Above about 1100 K the paper observes Mo/Pt apparent pressures lower than CsCl (up to ~1/~3 GPa); it prefers CsCl. It also questions CsCl behavior for BT815 at 17-19 GPa and high T. No correction is inferred here."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "audit_date": "2026-10-15",
-    "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
-     "doi": "10.1063/5.0248905",
-     "locations": [
-      "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
-      "Official supplement section 1, Tables S1, S2, S5"
-     ],
-     "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-10-15",
-     "dataset_identifiers": [
-      "rbcl_farla_2025_observations",
-      "rbcl_farla_2025_benchmarks"
-     ],
-     "source_locations": [
-      "Tables S1, S2, S5"
-     ],
-     "finding": "All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.",
-     "reconstruction_assessment": {
-      "equation_validated": true,
-      "published_curve_consistency": "All 54 source ratios pass individual-state coefficient sensitivity envelopes. A 2026-10-16 minimax/leave-one-out diagnostic finds a common vector within coefficient half-digit bounds for 53/54 entries; 5 GPa/1500 K predicts 0.9283 versus printed 0.9282. A one-cell alternative is diagnostic only; the primary table is unchanged and literal table parity is not claimed.",
-      "independent_refit": "Unweighted baseline and conditional effective-variance fits retained. Follow-up iterates frozen weights without a pressure-error floor; differences are below 1.65 reported parameter esds but do not all round to the publication. No replacement coefficients added.",
-      "author_fit_parity": false,
-      "author_workflow_parity": false
-     }
-    },
-    "unresolved_issues": [
-     "Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved."
-    ],
-    "independent_numerical_check": {
-     "script": "scripts/reproduce_rubidium_halides_farla_2025.py",
-     "report": "docs/data/rubidium-halides-farla-2025-reproduction.json",
-     "audit_report": "docs/literature-reproductions/rubidium-halides-farla-2025.md",
-     "source_table": "S5",
-     "benchmark_rows": 54,
-     "max_absolute_source_ratio_difference": 0.0006993948117919313,
-     "outside_coefficient_rounding_envelope": 0,
-     "max_native_reference_ratio_difference": 9.325873406851315e-15,
-     "independent_fit_rows": 122,
-     "source_pressure_rmse_gpa": 0.15442869781174814,
-     "source_pressure_max_abs_gpa": 0.4032462712536873,
-     "author_fit_parity": false,
-     "author_workflow_parity": false,
-     "follow_up_script": "scripts/investigate_rubidium_halides_farla_2025.py",
-     "follow_up_report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
-     "iterated_weight_max_difference_reported_esd": 0.39930413766797734,
-     "joint_rounded_table_solution_found": false,
-     "discrepancy_script": "scripts/audit_rubidium_halides_farla_2025_discrepancies.py",
-     "discrepancy_report": "docs/data/rubidium-halides-farla-2025-discrepancies.json",
-     "compatible_benchmark_rows_after_single_omission": 53,
-     "localized_benchmark_discrepancy": {
-      "pressure_gpa": 5,
-      "temperature_k": 1500,
-      "printed_ratio": 0.9282,
-      "diagnostic_ratio_rounded": 0.9283,
-      "source_table_modified": false
-     },
-     "cscl_historical_execution_report": "docs/data/rubidium-halides-farla-2025-burnman-replay.json",
-     "direct_eosfit_console": {
-      "audit_date": "2026-10-16",
-      "version": "7.60",
-      "script": "scripts/run_rubidium_halides_farla_2025_eosfit.py",
-      "report": "docs/data/rubidium-halides-farla-2025-eosfit7c/manifest.json",
-      "converged_cases": 6,
-      "published_max_difference_reported_esd": 0.4033750000000058,
-      "maximum_k0_difference_from_independent_irls_gpa": 0.0003256689865622775,
-      "author_fit_parity": false,
-      "qualification": "Direct diagnostic executable fits of printed observations, not recovered author files. Native refit errors/covariance remain separate from the published record."
-     },
-     "constrained_case3_diagnostic": {
-      "audit_date": "2026-10-16",
-      "script": "scripts/run_rubidium_halides_farla_2025_case3_eosfit.py",
-      "report": "docs/data/rubidium-halides-farla-2025-case3-eosfit7c/manifest.json",
-      "variants": [
-       "rbcl"
+      "source_location": "Table 1, page 11767, RbCl block",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {"name": "lattice_parameter_a", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_parameter_a_uncertainty",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_parameter_a"
+        }
       ],
-      "canonical_published_record_case": 1,
-      "case3_parameters_replace_canonical_record": false,
-      "qualification": "Separate Case 3 thermal refits with fixed static anchors. Diagnostic sub-last-digit examples reproduce Case 3 thermal coefficient rounding, not original author inputs or Case 1 fit parity."
-     }
+      "resource": {
+        "path": "datasets/rbcl-campbell-1994-table1-compression.csv",
+        "sha256": "b26a2c31e320c7ca402898a7346d894442c1fecd1cb994536f8e37db65ec0798",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["rbcl_b2_campbell_1994_bm3_1"],
+      "notes": "Parenthesized last-digit uncertainties are expanded explicitly. The final three RbCl rows at 28.0, 30.1, and 32.3 GPa were absent from the previously mislabeled 21-row CsCl resource and are restored from the page image.",
+      "source_url": "https://doi.org/10.1029/94JB00127"
+    },
+    {
+      "identifier": "rbcl_farla_2025_observations",
+      "kind": "pressure_volume_temperature",
+      "description": "All DAC and LVP rows with literal numerical tokens and every published CsCl/Pt/Mo input and error.",
+      "reference": {
+        "authors": ["Farla", "Néri", "Pöppelbaum", "Glazyrin"],
+        "year": 2025,
+        "title": "Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI",
+        "source": "Journal of Applied Physics",
+        "volume": "137",
+        "locator": "115901",
+        "doi": "10.1063/5.0248905"
+      },
+      "source_location": "Tables S1 and S2, complete printed rows",
+      "source_url": "https://doi.org/10.60893/figshare.jap.28515917.v1",
+      "columns": [
+        {"name": "source_table", "quantity": "source_table", "unit": "text", "role": "value"},
+        {"name": "source_row", "quantity": "source_row", "unit": "dimensionless", "role": "value"},
+        {"name": "run", "quantity": "run", "unit": "text", "role": "value"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_uncertainty_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {"name": "pressure_gpa_source_token", "quantity": "pressure_gpa_source_token", "unit": "text", "role": "value"},
+        {"name": "volume_a3_source_token", "quantity": "volume_a3_source_token", "unit": "text", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure_uncertainty_gpa",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_uncertainty_a3",
+          "quantity": "volume_uncertainty_a3",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        },
+        {"name": "cscl_volume_a3", "quantity": "cscl_volume_a3", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "cscl_volume_a3_source_token",
+          "quantity": "cscl_volume_a3_source_token",
+          "unit": "text",
+          "role": "value"
+        },
+        {
+          "name": "cscl_volume_uncertainty_a3",
+          "quantity": "cscl_volume_uncertainty_a3",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "cscl_volume_a3"
+        },
+        {"name": "cscl_pressure_gpa", "quantity": "cscl_pressure_gpa", "unit": "GPa", "role": "value"},
+        {
+          "name": "cscl_pressure_gpa_source_token",
+          "quantity": "cscl_pressure_gpa_source_token",
+          "unit": "text",
+          "role": "value"
+        },
+        {
+          "name": "cscl_pressure_uncertainty_gpa",
+          "quantity": "cscl_pressure_uncertainty_gpa",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "cscl_pressure_gpa"
+        },
+        {"name": "pt_volume_a3", "quantity": "pt_volume_a3", "unit": "angstrom^3", "role": "value"},
+        {"name": "pt_volume_a3_source_token", "quantity": "pt_volume_a3_source_token", "unit": "text", "role": "value"},
+        {
+          "name": "pt_volume_uncertainty_a3",
+          "quantity": "pt_volume_uncertainty_a3",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "pt_volume_a3"
+        },
+        {"name": "pt_pressure_gpa", "quantity": "pt_pressure_gpa", "unit": "GPa", "role": "value"},
+        {
+          "name": "pt_pressure_gpa_source_token",
+          "quantity": "pt_pressure_gpa_source_token",
+          "unit": "text",
+          "role": "value"
+        },
+        {
+          "name": "pt_pressure_uncertainty_gpa",
+          "quantity": "pt_pressure_uncertainty_gpa",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pt_pressure_gpa"
+        },
+        {"name": "mo_volume_a3", "quantity": "mo_volume_a3", "unit": "angstrom^3", "role": "value"},
+        {"name": "mo_volume_a3_source_token", "quantity": "mo_volume_a3_source_token", "unit": "text", "role": "value"},
+        {
+          "name": "mo_volume_uncertainty_a3",
+          "quantity": "mo_volume_uncertainty_a3",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "mo_volume_a3"
+        },
+        {"name": "mo_pressure_gpa", "quantity": "mo_pressure_gpa", "unit": "GPa", "role": "value"},
+        {
+          "name": "mo_pressure_gpa_source_token",
+          "quantity": "mo_pressure_gpa_source_token",
+          "unit": "text",
+          "role": "value"
+        },
+        {
+          "name": "mo_pressure_uncertainty_gpa",
+          "quantity": "mo_pressure_uncertainty_gpa",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "mo_pressure_gpa"
+        },
+        {"name": "density_g_cm3", "quantity": "density_g_cm3", "unit": "g/cm^3", "role": "value"},
+        {
+          "name": "density_g_cm3_source_token",
+          "quantity": "density_g_cm3_source_token",
+          "unit": "text",
+          "role": "value"
+        }
+      ],
+      "resource": {
+        "path": "datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
+        "sha256": "9a529939f327081dc2bfa32708112710dee8150dc188e23ce31ea043c87188ff",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["rbcl_b2_farla_2025_bm3_mgd_cscl"],
+      "license": "Source supplement: CC BY 4.0, AIP Figshare version 1. Contributor CC0 scope: transcription, normalization and metadata rights held by contributors only; see rubidium-halides-farla-2025.LICENSE.md.",
+      "notes": "Pressure is reported IPPS-Ruby2020 in S1 and reported CsCl pressure in S2-S4. LVP temperature uncertainty 30 K is assigned by the authors. Printed (0) pressure errors remain zero tokens with unresolved precision, not proof of exact pressure. Blank readings remain blank. Source S3/S4 mislabel sample-volume heading VRbCl-B2; normalized identity follows each table title and density. RbI retains the single blank sample row."
+    },
+    {
+      "identifier": "rbcl_farla_2025_benchmarks",
+      "kind": "calculated_eos_benchmark",
+      "description": "Published model calculations, not measured observations; most states exceed experimental coverage.",
+      "reference": {
+        "authors": ["Farla", "Néri", "Pöppelbaum", "Glazyrin"],
+        "year": 2025,
+        "title": "Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI",
+        "source": "Journal of Applied Physics",
+        "volume": "137",
+        "locator": "115901",
+        "doi": "10.1063/5.0248905"
+      },
+      "source_location": "Table S5, all 54 calculated ratios, including molten flags",
+      "source_url": "https://doi.org/10.60893/figshare.jap.28515917.v1",
+      "columns": [
+        {"name": "source_table", "quantity": "source_table", "unit": "text", "role": "value"},
+        {"name": "source_row", "quantity": "source_row", "unit": "dimensionless", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "volume_ratio", "quantity": "volume_ratio", "unit": "dimensionless", "role": "value"},
+        {"name": "volume_ratio_source_token", "quantity": "volume_ratio_source_token", "unit": "text", "role": "value"},
+        {"name": "molten_source_flag", "quantity": "molten_source_flag", "unit": "dimensionless", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
+        "sha256": "03ebe170f3694fde161b503734bdf43130d0b8df2f9903ddfd84cd9a5de08c50",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["rbcl_b2_farla_2025_bm3_mgd_cscl"],
+      "license": "Source supplement: CC BY 4.0, AIP Figshare version 1. Contributor CC0 scope: transcription, normalization and metadata rights held by contributors only; see rubidium-halides-farla-2025.LICENSE.md.",
+      "notes": "Ratios printed to 4 decimals. Table footnote marks 5 GPa/2500 K molten for all three compounds. These states are never fit inputs or a solid-phase validity extension."
     }
-   },
-   "notes": "Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved."
-  }
- ],
- "format": "peritheos.material",
- "identifier": "rbcl",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "phase": "B2 (CsCl-type), cubic Pm-3m",
- "datasets": [
-  {
-   "identifier": "rbcl_campbell_1994_table1_compression",
-   "kind": "pressure_volume",
-   "description": "All 24 room-temperature RbCl-B2 compression observations printed in the RbCl block of Table 1.",
-   "reference": {
-    "authors": [
-     "Campbell",
-     "Heinz"
-    ],
-    "year": 1994,
-    "source": "J. Geophys. Res.",
-    "volume": "99",
-    "locator": "11765-11774",
-    "doi": "10.1029/94JB00127"
-   },
-   "source_location": "Table 1, page 11767, RbCl block",
-   "columns": [
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "lattice_parameter_a",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_parameter_a_uncertainty",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_parameter_a"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rbcl-campbell-1994-table1-compression.csv",
-    "sha256": "b26a2c31e320c7ca402898a7346d894442c1fecd1cb994536f8e37db65ec0798",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "rbcl_b2_campbell_1994_bm3_1"
-   ],
-   "notes": "Parenthesized last-digit uncertainties are expanded explicitly. The final three RbCl rows at 28.0, 30.1, and 32.3 GPa were absent from the previously mislabeled 21-row CsCl resource and are restored from the page image.",
-   "source_url": "https://doi.org/10.1029/94JB00127"
-  },
-  {
-   "identifier": "rbcl_farla_2025_observations",
-   "kind": "pressure_volume_temperature",
-   "description": "All DAC and LVP rows with literal numerical tokens and every published CsCl/Pt/Mo input and error.",
-   "reference": {
-    "authors": [
-     "Farla",
-     "Néri",
-     "Pöppelbaum",
-     "Glazyrin"
-    ],
-    "year": 2025,
-    "title": "Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI",
-    "source": "Journal of Applied Physics",
-    "volume": "137",
-    "locator": "115901",
-    "doi": "10.1063/5.0248905"
-   },
-   "source_location": "Tables S1 and S2, complete printed rows",
-   "source_url": "https://doi.org/10.60893/figshare.jap.28515917.v1",
-   "columns": [
-    {
-     "name": "source_table",
-     "quantity": "source_table",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "source_row",
-     "quantity": "source_row",
-     "unit": "dimensionless",
-     "role": "value"
-    },
-    {
-     "name": "run",
-     "quantity": "run",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "temperature_uncertainty_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "uncertainty",
-     "of": "temperature_k"
-    },
-    {
-     "name": "pressure_gpa_source_token",
-     "quantity": "pressure_gpa_source_token",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_source_token",
-     "quantity": "volume_a3_source_token",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure_uncertainty_gpa",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "volume_uncertainty_a3",
-     "quantity": "volume_uncertainty_a3",
-     "unit": "angstrom^3",
-     "role": "uncertainty",
-     "of": "volume_a3"
-    },
-    {
-     "name": "cscl_volume_a3",
-     "quantity": "cscl_volume_a3",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "cscl_volume_a3_source_token",
-     "quantity": "cscl_volume_a3_source_token",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "cscl_volume_uncertainty_a3",
-     "quantity": "cscl_volume_uncertainty_a3",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "cscl_volume_a3"
-    },
-    {
-     "name": "cscl_pressure_gpa",
-     "quantity": "cscl_pressure_gpa",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "cscl_pressure_gpa_source_token",
-     "quantity": "cscl_pressure_gpa_source_token",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "cscl_pressure_uncertainty_gpa",
-     "quantity": "cscl_pressure_uncertainty_gpa",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "cscl_pressure_gpa"
-    },
-    {
-     "name": "pt_volume_a3",
-     "quantity": "pt_volume_a3",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "pt_volume_a3_source_token",
-     "quantity": "pt_volume_a3_source_token",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "pt_volume_uncertainty_a3",
-     "quantity": "pt_volume_uncertainty_a3",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "pt_volume_a3"
-    },
-    {
-     "name": "pt_pressure_gpa",
-     "quantity": "pt_pressure_gpa",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pt_pressure_gpa_source_token",
-     "quantity": "pt_pressure_gpa_source_token",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "pt_pressure_uncertainty_gpa",
-     "quantity": "pt_pressure_uncertainty_gpa",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pt_pressure_gpa"
-    },
-    {
-     "name": "mo_volume_a3",
-     "quantity": "mo_volume_a3",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "mo_volume_a3_source_token",
-     "quantity": "mo_volume_a3_source_token",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "mo_volume_uncertainty_a3",
-     "quantity": "mo_volume_uncertainty_a3",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "mo_volume_a3"
-    },
-    {
-     "name": "mo_pressure_gpa",
-     "quantity": "mo_pressure_gpa",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "mo_pressure_gpa_source_token",
-     "quantity": "mo_pressure_gpa_source_token",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "mo_pressure_uncertainty_gpa",
-     "quantity": "mo_pressure_uncertainty_gpa",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "mo_pressure_gpa"
-    },
-    {
-     "name": "density_g_cm3",
-     "quantity": "density_g_cm3",
-     "unit": "g/cm^3",
-     "role": "value"
-    },
-    {
-     "name": "density_g_cm3_source_token",
-     "quantity": "density_g_cm3_source_token",
-     "unit": "text",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
-    "sha256": "9a529939f327081dc2bfa32708112710dee8150dc188e23ce31ea043c87188ff",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "rbcl_b2_farla_2025_bm3_mgd_cscl"
-   ],
-   "license": "Source supplement: CC BY 4.0, AIP Figshare version 1. Contributor CC0 scope: transcription, normalization and metadata rights held by contributors only; see rubidium-halides-farla-2025.LICENSE.md.",
-   "notes": "Pressure is reported IPPS-Ruby2020 in S1 and reported CsCl pressure in S2-S4. LVP temperature uncertainty 30 K is assigned by the authors. Printed (0) pressure errors remain zero tokens with unresolved precision, not proof of exact pressure. Blank readings remain blank. Source S3/S4 mislabel sample-volume heading VRbCl-B2; normalized identity follows each table title and density. RbI retains the single blank sample row."
-  },
-  {
-   "identifier": "rbcl_farla_2025_benchmarks",
-   "kind": "calculated_eos_benchmark",
-   "description": "Published model calculations, not measured observations; most states exceed experimental coverage.",
-   "reference": {
-    "authors": [
-     "Farla",
-     "Néri",
-     "Pöppelbaum",
-     "Glazyrin"
-    ],
-    "year": 2025,
-    "title": "Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI",
-    "source": "Journal of Applied Physics",
-    "volume": "137",
-    "locator": "115901",
-    "doi": "10.1063/5.0248905"
-   },
-   "source_location": "Table S5, all 54 calculated ratios, including molten flags",
-   "source_url": "https://doi.org/10.60893/figshare.jap.28515917.v1",
-   "columns": [
-    {
-     "name": "source_table",
-     "quantity": "source_table",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "source_row",
-     "quantity": "source_row",
-     "unit": "dimensionless",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "volume_ratio",
-     "unit": "dimensionless",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio_source_token",
-     "quantity": "volume_ratio_source_token",
-     "unit": "text",
-     "role": "value"
-    },
-    {
-     "name": "molten_source_flag",
-     "quantity": "molten_source_flag",
-     "unit": "dimensionless",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
-    "sha256": "03ebe170f3694fde161b503734bdf43130d0b8df2f9903ddfd84cd9a5de08c50",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "rbcl_b2_farla_2025_bm3_mgd_cscl"
-   ],
-   "license": "Source supplement: CC BY 4.0, AIP Figshare version 1. Contributor CC0 scope: transcription, normalization and metadata rights held by contributors only; see rubidium-halides-farla-2025.LICENSE.md.",
-   "notes": "Ratios printed to 4 decimals. Table footnote marks 5 GPa/2500 K molten for all three compounds. These states are never fit inputs or a solid-phase validity extension."
-  }
- ]
+  ]
 }

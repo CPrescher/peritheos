@@ -1,239 +1,140 @@
 {
- "format_version": 3,
- "name": "Magnesium (hcp)",
- "formula": "Mg",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 3.2052572812,
-  "b": null,
-  "c": 5.203735196,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P63/mmc",
- "space_group_number": 194,
- "atom_sites": [
-  {
-   "element": "Mg",
-   "wyckoff": "2c",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Ambient hcp magnesium; the lattice preserves the fitted V0 and the ambient axial ratio.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Stinton et al. (2014), hcp Vinet",
-   "reference": {
-    "authors": [
-     "Stinton",
-     "MacLeod",
-     "Cynn",
-     "Errandonea",
-     "Evans",
-     "Proctor",
-     "Meng",
-     "McMahon"
-    ],
-    "year": 2014,
-    "title": "Equation of state and high-pressure/high-temperature phase diagram of magnesium",
-    "source": "Phys. Rev. B",
-    "volume": "90",
-    "locator": "134105",
-    "doi": "10.1103/PhysRevB.90.134105"
-   },
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 46.299,
-     "K0": 30.9,
-     "K0_prime": 4.56
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": 0.0016,
-    "K0": 0.4,
-    "K0_prime": 0.06
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    61.0
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Room-temperature hcp fit; V0 is the two-atom hexagonal cell volume.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: 300 K EOS section; Vinet fit table for hcp and bcc Mg."
-   },
-   "identifier": "magnesium_hcp_stinton_2014_vinet_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://link.aps.org/accepted/10.1103/PhysRevB.90.134105",
-     "locations": [
-      "300 K EOS section",
-      "Vinet fit table for hcp and bcc Mg"
-     ],
-     "doi": "10.1103/physrevb.90.134105"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "magnesium_hcp.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "magnesium_stinton_2014_figure1_hcp_digitized"
-     ],
-     "source_locations": [
-      "Figure 1; Table I"
-     ],
-     "finding": "The room-temperature hcp- and bcc-Mg pressure-volume observations used for the EOS fits are plotted in Figure 1 but not tabulated. Table I contains only fitted EOS parameters, and the article provides no supplemental-data pointer."
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "magnesium_hcp",
+  "name": "Magnesium (hcp)",
+  "formula": "Mg",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 3.2052572812, "b": null, "c": 5.203735196, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Ambient hcp magnesium; the lattice preserves the fitted V0 and the ambient axial ratio.",
+  "eos_records": [
+    {
+      "identifier": "magnesium_hcp_stinton_2014_vinet_1",
+      "label": "Stinton et al. (2014), hcp Vinet",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Stinton", "MacLeod", "Cynn", "Errandonea", "Evans", "Proctor", "Meng", "McMahon"],
+        "year": 2014,
+        "title": "Equation of state and high-pressure/high-temperature phase diagram of magnesium",
+        "source": "Phys. Rev. B",
+        "volume": "90",
+        "locator": "134105",
+        "doi": "10.1103/PhysRevB.90.134105"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "parameters": {"V0": 46.299, "K0": 30.9, "K0_prime": 4.56},
+        "model": "vinet"
+      },
+      "parameter_errors": {"V0": 0.0016, "K0": 0.4, "K0_prime": 0.06},
+      "fixed_parameters": ["V0"],
+      "experimental_pressure_range_gpa": [0.0, 61.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "notes": "Room-temperature hcp fit; V0 is the two-atom hexagonal cell volume.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://link.aps.org/accepted/10.1103/PhysRevB.90.134105",
+          "locations": ["300 K EOS section", "Vinet fit table for hcp and bcc Mg"],
+          "doi": "10.1103/physrevb.90.134105"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "magnesium_hcp.json"
+        },
+        "primary_data_check": {
+          "status": "plot_only",
+          "audit_date": "2026-09-03",
+          "digitized_dataset_identifiers": ["magnesium_stinton_2014_figure1_hcp_digitized"],
+          "source_locations": ["Figure 1; Table I"],
+          "finding": "The room-temperature hcp- and bcc-Mg pressure-volume observations used for the EOS fits are plotted in Figure 1 but not tabulated. Table I contains only fitted EOS parameters, and the article provides no supplemental-data pointer."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: 300 K EOS section; Vinet fit table for hcp and bcc Mg."
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "magnesium_stinton_2014_figure1_hcp_digitized",
-   "kind": "pressure_atomic_volume_digitized",
-   "description": "Thirty-nine plotted 300 K hcp-Mg observations from cells 1 and 2 digitized from Figure 1. The comparison data of Nishimura et al. and the duplicated inset markers were excluded.",
-   "reference": {
-    "authors": [
-     "Stinton",
-     "MacLeod",
-     "Cynn",
-     "Errandonea",
-     "Evans",
-     "Proctor",
-     "Meng",
-     "McMahon"
-    ],
-    "year": 2014,
-    "source": "Phys. Rev. B",
-    "volume": "90",
-    "locator": "134105",
-    "doi": "10.1103/PhysRevB.90.134105"
-   },
-   "source_location": "Figure 1, main panel, filled-square and filled-diamond hcp series",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "atomic_volume_angstrom3",
-     "quantity": "volume",
-     "unit": "angstrom^3/atom",
-     "role": "value"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "atomic_volume_digitization_uncertainty_angstrom3",
-     "quantity": "volume",
-     "unit": "angstrom^3/atom",
-     "role": "uncertainty",
-     "of": "atomic_volume_angstrom3"
-    },
-    {
-     "name": "experimental_series",
-     "quantity": "experimental_series",
-     "unit": "dimensionless",
-     "role": "flag"
+      "identifier": "magnesium_stinton_2014_figure1_hcp_digitized",
+      "kind": "pressure_atomic_volume_digitized",
+      "description": "Thirty-nine plotted 300 K hcp-Mg observations from cells 1 and 2 digitized from Figure 1. The comparison data of Nishimura et al. and the duplicated inset markers were excluded.",
+      "reference": {
+        "authors": ["Stinton", "MacLeod", "Cynn", "Errandonea", "Evans", "Proctor", "Meng", "McMahon"],
+        "year": 2014,
+        "source": "Phys. Rev. B",
+        "volume": "90",
+        "locator": "134105",
+        "doi": "10.1103/PhysRevB.90.134105"
+      },
+      "source_location": "Figure 1, main panel, filled-square and filled-diamond hcp series",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "atomic_volume_angstrom3", "quantity": "volume", "unit": "angstrom^3/atom", "role": "value"},
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "atomic_volume_digitization_uncertainty_angstrom3",
+          "quantity": "volume",
+          "unit": "angstrom^3/atom",
+          "role": "uncertainty",
+          "of": "atomic_volume_angstrom3"
+        },
+        {"name": "experimental_series", "quantity": "experimental_series", "unit": "dimensionless", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/magnesium-stinton-2014-figure1-hcp-digitized.csv",
+        "sha256": "a0a39ed32a49780501c44838f4947c87f9c2dfb6cf55c16fcf959a55ecaf2d35",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["magnesium_hcp_stinton_2014_vinet_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Direct extraction of the filled square and diamond vector marker centers from the locally archived publication PDF, followed by affine axis calibration.",
+        "source_pdf_sha256": "bd75da140d8514eccf8316aaacfff0fca09468a1f61eba372f21d135e85302b6",
+        "axis_calibration_pdf_points": {
+          "pressure": [
+            [71.441, 0.0],
+            [119.916, 50.0]
+          ],
+          "atomic_volume": [
+            [583.7, 8.0],
+            [621.625, 12.0]
+          ]
+        },
+        "quality_control": {"published_vinet_rms_pressure_residual_gpa": 0.3368, "published_vinet_max_abs_pressure_residual_gpa": 0.8888},
+        "digitized_on": "2026-09-03"
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/magnesium-stinton-2014-figure1-hcp-digitized.csv",
-    "sha256": "a0a39ed32a49780501c44838f4947c87f9c2dfb6cf55c16fcf959a55ecaf2d35",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "magnesium_hcp_stinton_2014_vinet_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Direct extraction of the filled square and diamond vector marker centers from the locally archived publication PDF, followed by affine axis calibration.",
-    "source_pdf_sha256": "bd75da140d8514eccf8316aaacfff0fca09468a1f61eba372f21d135e85302b6",
-    "axis_calibration_pdf_points": {
-     "pressure": [
-      [
-       71.441,
-       0.0
-      ],
-      [
-       119.916,
-       50.0
-      ]
-     ],
-     "atomic_volume": [
-      [
-       583.7,
-       8.0
-      ],
-      [
-       621.625,
-       12.0
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_vinet_rms_pressure_residual_gpa": 0.3368,
-     "published_vinet_max_abs_pressure_residual_gpa": 0.8888
-    },
-    "digitized_on": "2026-09-03"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "magnesium_hcp",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

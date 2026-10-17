@@ -1,764 +1,469 @@
 {
- "format": "peritheos.material",
- "format_version": 3,
- "identifier": "lead_hcp",
- "name": "Lead (hcp)",
- "formula": "Pb",
- "phase": "hexagonal close-packed lead, high-pressure phase",
- "cell_contents": "Two Pb atoms in the conventional hcp cell; lattice-shape parameters are not inferred from the EOS table.",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "formula_units_per_cell": 2,
- "symmetry": "HEXAGONAL",
- "space_group": "P63/mmc",
- "space_group_number": 194,
- "atom_sites": [],
- "peaks": [],
- "source": {
-  "space_group_assignment": {
-   "basis": "Derived from the explicitly identified elemental hcp phase and its two-atom conventional cell, using the A3 (hP2) structure prototype.",
-   "phase_reference": {
-    "authors": [
-     "Dewaele"
-    ],
-    "year": 2019,
-    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-    "source": "Minerals",
-    "doi": "10.3390/min9110684"
-   },
-   "prototype_reference": {
-    "title": "The AFLOW Library of Crystallographic Prototypes: Part 1",
-    "doi": "10.1016/j.commatsci.2017.01.017",
-    "url": "https://aflow.org/p/A_hP2_194_c-001/",
-    "source_location": "A_hP2_194_c-001: hexagonal close-packed A3 prototype, space group P63/mmc (194)."
-   },
-   "notes": "This supplies symmetry metadata only; no lattice parameters or refined atomic coordinates are inferred from the EOS volume."
-  }
- },
- "notes": "Phase-specific card created for the hcp-Pb compression fits of Dewaele (2019).",
- "eos_records": [
-  {
-   "determination_method": "experimental",
-   "identifier": "lead_hcp_dewaele_2019_mao_vinet",
-   "label": "Dewaele (2019), Pb MAO-scale Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Dewaele"
-    ],
-    "year": 2019,
-    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-    "source": "Minerals",
-    "doi": "10.3390/min9110684"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 56.126,
-     "K0": 71.8,
-     "K0_prime": 4.4
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.11,
-    "K0": 2.1,
-    "K0_prime": 0.08
-   },
-   "parameter_error_confidence": 0.95,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    13.0,
-    131.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "validity": {
-    "pressure_gpa": [
-     13.0,
-     131.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
-    ]
-   },
-   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "source_location": "mao_ruby_scale",
-      "reference_calibration_record": "ruby_mao_1986"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
-    },
-    "audit_date": "2026-09-06"
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-    "V0": "Table 1",
-    "K0": "Table 1",
-    "K0_prime": "Table 1"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-     "doi": "10.3390/min9110684",
-     "locations": [
-      "Equation (1)",
-      "Table 1"
-     ],
-     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-    },
-    "primary_data_check": {
-     "status": "combined_primary_data_partially_bundled",
-     "audit_date": "2026-09-07",
-     "digitized_dataset_identifiers": [
-      "lead_hcp_kuznetsov_2002_figure3_digitized"
-     ],
-     "source_locations": [
-      "Dewaele (2019), Table 2",
-      "Kuznetsov et al. (2002), Figure 3"
-     ],
-     "finding": "The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim."
-    }
-   },
-   "source_lineage": [
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "lead_hcp",
+  "name": "Lead (hcp)",
+  "formula": "Pb",
+  "phase": "hexagonal close-packed lead, high-pressure phase",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "cell_contents": "Two Pb atoms in the conventional hcp cell; lattice-shape parameters are not inferred from the EOS table.",
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "atom_sites": [],
+  "peaks": [],
+  "notes": "Phase-specific card created for the hcp-Pb compression fits of Dewaele (2019).",
+  "eos_records": [
     {
-     "role": "scientific equation and coefficients",
-     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-     "doi": "10.3390/min9110684"
-    }
-   ]
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "lead_hcp_dewaele_2019_dor_vinet",
-   "label": "Dewaele (2019), Pb DOR-scale Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Dewaele"
-    ],
-    "year": 2019,
-    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-    "source": "Minerals",
-    "doi": "10.3390/min9110684"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 56.116,
-     "K0": 70.0,
-     "K0_prime": 4.77
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.11,
-    "K0": 2.1,
-    "K0_prime": 0.08
-   },
-   "parameter_error_confidence": 0.95,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    13.0,
-    131.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "validity": {
-    "pressure_gpa": [
-     13.0,
-     131.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
-    ]
-   },
-   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "source_location": "dor_ruby_scale",
-      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
-    },
-    "audit_date": "2026-09-06"
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-    "V0": "Table 1",
-    "K0": "Table 1",
-    "K0_prime": "Table 1"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-     "doi": "10.3390/min9110684",
-     "locations": [
-      "Equation (1)",
-      "Table 1"
-     ],
-     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-    },
-    "primary_data_check": {
-     "status": "combined_primary_data_partially_bundled",
-     "audit_date": "2026-09-07",
-     "digitized_dataset_identifiers": [
-      "lead_hcp_kuznetsov_2002_figure3_digitized"
-     ],
-     "source_locations": [
-      "Dewaele (2019), Table 2",
-      "Kuznetsov et al. (2002), Figure 3"
-     ],
-     "finding": "The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim."
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "scientific equation and coefficients",
-     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-     "doi": "10.3390/min9110684"
-    }
-   ]
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "lead_hcp_kuznetsov_2002_bm3_3",
-   "label": "Kuznetsov et al. (2002), 296 K hcp BM3 slice",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "A. Kuznetsov",
-     "V. Dmitriev",
-     "L. Dubrovinsky",
-     "V. Prakapenka",
-     "H.-P. Weber"
-    ],
-    "year": 2002,
-    "title": "FCC-HCP phase boundary in lead",
-    "source": "Solid State Communications",
-    "volume": "122",
-    "locator": "125-127",
-    "doi": "10.1016/S0038-1098(02)00112-6"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 59.816,
-     "K0": 54.2,
-     "K0_prime": 3.61
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 296.0,
-   "experimental_pressure_range_gpa": [
-    12.0,
-    40.0
-   ],
-   "pressure_range_status": "reported_qualitatively",
-   "experimental_temperature_range_k": [
-    296.0,
-    296.0
-   ],
-   "validity": {
-    "pressure_gpa": [
-     12.0,
-     40.0
-    ],
-    "temperature_k": [
-     296.0,
-     296.0
-    ],
-    "notes": [
-     "296 K slice of a P-V-T model fitted to experiments extending to 40 GPa and 800 K.",
-     "At room temperature transformation begins near 12 GPa and fcc-hcp coexistence persists to about 20 GPa; this is not a sharp equilibrium stability boundary."
-    ]
-   },
-   "notes": "Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit_fortes_2019_fcc_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Tables 1-2; Figures 2-3.",
-    "equation": "Equation 1, third-order Birch-Murnaghan pressure.",
-    "reference_state": "Equations 2-3 define tau=T-T0 with T0=296 K.",
-    "V0": "Table 2 hcp V0=29.908 A^3/atom, converted to 59.816 A^3 per two-atom hcp cell.",
-    "K0": "Table 2 hcp B0=54.2 GPa.",
-    "K0_prime": "Table 2 hcp B0_prime=3.61.",
-    "published_uncertainties": "not reported",
-    "covariance": "not published"
-   },
-   "published_fit_provenance": {
-    "software": {
-     "name": "not reported",
-     "version": "not reported"
-    },
-    "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
-    "selection": {
-     "pressure_range_gpa": [
-      0.0,
-      40.0
-     ],
-     "temperature_range_k": [
-      296.0,
-      800.0
-     ],
-     "predicate": "phase-specific hcp observations; exhaustive row selection not reported",
-     "included_rows": null,
-     "excluded_rows": null
-    },
-    "objective": "fit to experimental data; residual coordinate not reported",
-    "weights": "not reported",
-    "refined_parameters": [
-     "V0_296",
-     "alpha_0",
-     "alpha_1",
-     "alpha_2",
-     "K0_296",
-     "b_1",
-     "b_2",
-     "K0_prime_296",
-     "b_prime"
-    ],
-    "fixed_parameters": [],
-    "statistics": {
-     "observations": null,
-     "covariance": "not published",
-     "error_scaling": "not reported"
-    },
-    "reproduction": {
-     "script": "scripts/audit_fortes_2019_fcc_pb.py",
-     "scope_status": "published_surface_executable_fit_not_independently_reproducible",
-     "partial_dataset": "lead_hcp_kuznetsov_2002_figure3_digitized",
-     "partial_fit_is_reported_fit": false,
-     "reason": "Figure 3 is a plot of direct and source-reduced markers, not the complete original P-V-T table or regression protocol."
-    }
-   },
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "NaCl",
+      "identifier": "lead_hcp_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Pb MAO-scale Vinet",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "J. M. Brown"
-       ],
-       "year": 1999,
-       "source": "Journal of Applied Physics",
-       "volume": "86",
-       "locator": "5801",
-       "doi": "10.1063/1.371596"
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
       },
-      "source_location": "Experimental section and reference 7",
-      "scope": "NaCl pressure medium and high-temperature pressure calibrant"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The Brown (1999) NaCl calibration is identified, but row-wise NaCl observations are not published."
-    },
-    "audit_date": "2026-09-08"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-08",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity",
-     "thermal_coefficients",
-     "fit_protocol",
-     "primary_data_limits",
-     "pressure_calibration",
-     "numerical_reproduction"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
-     "doi": "10.1016/S0038-1098(02)00112-6",
-     "locations": [
-      "Equations 1-3",
-      "Tables 1-2",
-      "Figures 2-3"
-     ],
-     "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61."
-    },
-    "primary_data_check": {
-     "status": "combined_primary_data_partially_bundled",
-     "audit_date": "2026-09-08",
-     "digitized_dataset_identifiers": [
-      "lead_hcp_kuznetsov_2002_figure3_digitized"
-     ],
-     "source_locations": [
-      "Table 1 and Figure 3"
-     ],
-     "finding": "The slice reproduces seven digitized solid room-temperature hcp markers with 0.266 GPa pressure RMSE. All 21 direct and source-reduced markers give 0.642 GPa RMSE; the complete original P-V-T rows and fit protocol are unavailable.",
-     "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "scientific equation, coefficients, phase assignment, and calibration context",
-     "citation": "Kuznetsov et al. (2002), Equations 1-3 and Tables 1-2",
-     "doi": "10.1016/S0038-1098(02)00112-6"
-    }
-   ]
-  }
- ],
- "datasets": [
-  {
-   "identifier": "lead_dewaele_2019_table2_compression",
-   "kind": "pressure_volume",
-   "description": "All 17 hcp-Pb pressure-volume observations printed in Dewaele (2019), Table 2, in measurement order.",
-   "reference": {
-    "authors": [
-     "Dewaele"
-    ],
-    "year": 2019,
-    "source": "Minerals",
-    "doi": "10.3390/min9110684"
-   },
-   "source_location": "Table 2",
-   "source_url": "https://www.mdpi.com/2075-163X/9/11/684",
-   "columns": [
-    {
-     "name": "pressure_dorogokupets_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "atomic_volume_a3",
-     "quantity": "atomic_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/lead-dewaele-2019-table2-compression.csv",
-    "sha256": "37d1dbcbd19c4e750785552bde3af89c044504c6c5b551a63b7ff9ee0405172f",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "lead_hcp_dewaele_2019_mao_vinet",
-    "lead_hcp_dewaele_2019_dor_vinet"
-   ],
-   "notes": "Dorogokupets ruby pressures; convert only these rows for the Mao alternative. Combined exploratory fits also use the separately linked Kuznetsov digitization on its unchanged Brown-NaCl scale."
-  },
-  {
-   "identifier": "lead_hcp_kuznetsov_2002_figure3_digitized",
-   "kind": "pressure_volume_digitized",
-   "description": "Twenty-one hcp-Pb square-marker centers digitized from Figure 3. Open squares are high-temperature observations reduced to room temperature by the source authors; solid squares are room-temperature observations. Overlapped markers carry wider digitization uncertainties and explicit confidence labels.",
-   "reference": {
-    "authors": [
-     "Kuznetsov",
-     "Dmitriev",
-     "Dubrovinsky",
-     "Prakapenka",
-     "Weber"
-    ],
-    "year": 2002,
-    "source": "Solid State Communications",
-    "volume": "122",
-    "locator": "125-127",
-    "doi": "10.1016/S0038-1098(02)00112-6"
-   },
-   "source_location": "Figure 3, square-marker hcp series",
-   "columns": [
-    {
-     "name": "point_id",
-     "quantity": "source_marker",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "phase",
-     "quantity": "phase",
-     "unit": "text",
-     "role": "flag"
-    },
-    {
-     "name": "symbol_fill",
-     "quantity": "plot_marker_fill",
-     "unit": "text",
-     "role": "flag"
-    },
-    {
-     "name": "marker_confidence",
-     "quantity": "digitization_confidence",
-     "unit": "text",
-     "role": "flag"
-    },
-    {
-     "name": "pixel_x",
-     "quantity": "source_figure_x",
-     "unit": "pixel",
-     "role": "value"
-    },
-    {
-     "name": "pixel_y",
-     "quantity": "source_figure_y",
-     "unit": "pixel",
-     "role": "value"
-    },
-    {
-     "name": "v_over_v0_fcc",
-     "quantity": "relative_volume",
-     "unit": "dimensionless",
-     "role": "value"
-    },
-    {
-     "name": "reduced_pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "atomic_volume_a3_per_atom",
-     "quantity": "volume",
-     "unit": "angstrom^3/atom",
-     "role": "value"
-    },
-    {
-     "name": "estimated_v_over_v0_uncertainty",
-     "quantity": "relative_volume",
-     "unit": "dimensionless",
-     "role": "bound",
-     "of": "v_over_v0_fcc"
-    },
-    {
-     "name": "estimated_pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "bound",
-     "of": "reduced_pressure_gpa"
-    }
-   ],
-   "resource": {
-    "path": "datasets/lead-hcp-kuznetsov-2002-figure3-digitized.csv",
-    "sha256": "d89597df2dcb6736d178652bb831633fe99546a36ebdbe4de9f5dcad8f42de23",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "lead_hcp_dewaele_2019_mao_vinet",
-    "lead_hcp_dewaele_2019_dor_vinet",
-    "lead_hcp_kuznetsov_2002_bm3_3"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Extracted the native one-bit Figure 3 image from the author-hosted article PDF, fitted linear transforms to all labeled major ticks, and measured the centers of the hcp square markers. Atomic volumes use the source Table 2 fcc reference volume V0=30.307 angstrom^3/atom.",
-    "source_pdf_sha256": "c4bfc71c5d4186f7f3159015bafa51552349f9e0f4ba305d13604673d0b3a61d",
-    "source_figure_sha256": "572ee1e5ec46850a8c5528116b72312e0f773758cb06223fa32415ec56b92d81",
-    "source_figure_pixels": [
-     1713,
-     1312
-    ],
-    "axis_calibration_pixels_source_figure": {
-     "v_over_v0_fcc": [
-      [
-       441.5,
-       0.7
-      ],
-      [
-       637.5,
-       0.75
-      ],
-      [
-       834.0,
-       0.8
-      ],
-      [
-       1028.5,
-       0.85
-      ],
-      [
-       1224.5,
-       0.9
-      ],
-      [
-       1419.0,
-       0.95
-      ],
-      [
-       1613.5,
-       1.0
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {"V0": 56.126, "K0": 71.8, "K0_prime": 4.4}
+      },
+      "parameter_errors": {"V0": 0.11, "K0": 2.1, "K0_prime": 0.08},
+      "parameter_error_confidence": 0.95,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [13.0, 131.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [13.0, 131.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+      },
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "mao_ruby_scale",
+            "reference_calibration_record": "ruby_mao_1986"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+        "audit_date": "2026-09-06",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+          "doi": "10.3390/min9110684",
+          "locations": ["Equation (1)", "Table 1"],
+          "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+        },
+        "primary_data_check": {
+          "status": "combined_primary_data_partially_bundled",
+          "audit_date": "2026-09-07",
+          "digitized_dataset_identifiers": ["lead_hcp_kuznetsov_2002_figure3_digitized"],
+          "source_locations": ["Dewaele (2019), Table 2", "Kuznetsov et al. (2002), Figure 3"],
+          "finding": "The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+        "V0": "Table 1",
+        "K0": "Table 1",
+        "K0_prime": "Table 1"
+      },
+      "source_lineage": [
+        {
+          "role": "scientific equation and coefficients",
+          "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+          "doi": "10.3390/min9110684"
+        }
       ]
-     ],
-     "reduced_pressure_gpa": [
-      [
-       967.5,
-       0.0
-      ],
-      [
-       855.0,
-       5.0
-      ],
-      [
-       742.5,
-       10.0
-      ],
-      [
-       630.5,
-       15.0
-      ],
-      [
-       518.5,
-       20.0
-      ],
-      [
-       406.5,
-       25.0
-      ],
-      [
-       294.0,
-       30.0
-      ],
-      [
-       181.5,
-       35.0
-      ],
-      [
-       69.5,
-       40.0
+    },
+    {
+      "identifier": "lead_hcp_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Pb DOR-scale Vinet",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {"V0": 56.116, "K0": 70.0, "K0_prime": 4.77}
+      },
+      "parameter_errors": {"V0": 0.11, "K0": 2.1, "K0_prime": 0.08},
+      "parameter_error_confidence": 0.95,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [13.0, 131.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [13.0, 131.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+      },
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "dor_ruby_scale",
+            "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+        "audit_date": "2026-09-06",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+          "doi": "10.3390/min9110684",
+          "locations": ["Equation (1)", "Table 1"],
+          "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+        },
+        "primary_data_check": {
+          "status": "combined_primary_data_partially_bundled",
+          "audit_date": "2026-09-07",
+          "digitized_dataset_identifiers": ["lead_hcp_kuznetsov_2002_figure3_digitized"],
+          "source_locations": ["Dewaele (2019), Table 2", "Kuznetsov et al. (2002), Figure 3"],
+          "finding": "The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+        "V0": "Table 1",
+        "K0": "Table 1",
+        "K0_prime": "Table 1"
+      },
+      "source_lineage": [
+        {
+          "role": "scientific equation and coefficients",
+          "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+          "doi": "10.3390/min9110684"
+        }
       ]
-     ]
-    },
-    "quality_control": {
-     "scope": "plot recovery, not an exact replacement for the authors' numerical rows",
-     "marker_overlap": "Several hcp squares overlap the fcc-circle series and fitted curves; confidence and uncertainty columns preserve that limitation.",
-     "fit_protocol": "Dewaele (2019) does not identify the exact Kuznetsov subset, weights, or treatment of the Brown NaCl pressure scale used in its merged fit."
-    },
-    "digitized_on": "2026-09-07"
-   }
-  },
-  {
-   "identifier": "lead_dewaele_2019_figure2_vector",
-   "kind": "pressure_volume_digitized",
-   "description": "Figure 2 vector marker coordinates: nine Kuznetsov squares and 17 current-run circles. Select series explicitly; curve vertices are stored in a separate diagnostic resource.",
-   "reference": {
-    "authors": [
-     "Dewaele"
-    ],
-    "year": 2019,
-    "source": "Minerals",
-    "doi": "10.3390/min9110684"
-   },
-   "source_location": "Page 4, Figure 2",
-   "source_url": "https://www.mdpi.com/2075-163X/9/11/684",
-   "columns": [
-    {
-     "name": "series",
-     "quantity": "source_series",
-     "unit": "1",
-     "role": "flag"
     },
     {
-     "name": "pdf_object_or_vertex_index",
-     "quantity": "source_object_index",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pdf_x_pt",
-     "quantity": "pdf_x_coordinate",
-     "unit": "pt",
-     "role": "flag"
-    },
-    {
-     "name": "pdf_y_from_top_pt",
-     "quantity": "pdf_y_coordinate_from_top",
-     "unit": "pt",
-     "role": "flag"
-    },
-    {
-     "name": "plotted_pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "atomic_volume_a3",
-     "quantity": "atomic_volume",
-     "unit": "angstrom^3",
-     "role": "value"
+      "identifier": "lead_hcp_kuznetsov_2002_bm3_3",
+      "label": "Kuznetsov et al. (2002), 296 K hcp BM3 slice",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["A. Kuznetsov", "V. Dmitriev", "L. Dubrovinsky", "V. Prakapenka", "H.-P. Weber"],
+        "year": 2002,
+        "title": "FCC-HCP phase boundary in lead",
+        "source": "Solid State Communications",
+        "volume": "122",
+        "locator": "125-127",
+        "doi": "10.1016/S0038-1098(02)00112-6"
+      },
+      "temperature_ref": 296.0,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 59.816, "K0": 54.2, "K0_prime": 3.61}
+      },
+      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [12.0, 40.0],
+      "pressure_range_status": "reported_qualitatively",
+      "experimental_temperature_range_k": [296.0, 296.0],
+      "validity": {
+        "pressure_gpa": [12.0, 40.0],
+        "temperature_k": [296.0, 296.0],
+        "notes": [
+          "296 K slice of a P-V-T model fitted to experiments extending to 40 GPa and 800 K.",
+          "At room temperature transformation begins near 12 GPa and fcc-hcp coexistence persists to about 20 GPa; this is not a sharp equilibrium stability boundary."
+        ]
+      },
+      "notes": "Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit_fortes_2019_fcc_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "NaCl",
+            "reference": {
+              "authors": ["J. M. Brown"],
+              "year": 1999,
+              "source": "Journal of Applied Physics",
+              "volume": "86",
+              "locator": "5801",
+              "doi": "10.1063/1.371596"
+            },
+            "source_location": "Experimental section and reference 7",
+            "scope": "NaCl pressure medium and high-temperature pressure calibrant"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The Brown (1999) NaCl calibration is identified, but row-wise NaCl observations are not published."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-08",
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "published_uncertainties",
+          "validity",
+          "thermal_coefficients",
+          "fit_protocol",
+          "primary_data_limits",
+          "pressure_calibration",
+          "numerical_reproduction"
+        ],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+          "doi": "10.1016/S0038-1098(02)00112-6",
+          "locations": ["Equations 1-3", "Tables 1-2", "Figures 2-3"],
+          "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61."
+        },
+        "primary_data_check": {
+          "status": "combined_primary_data_partially_bundled",
+          "audit_date": "2026-09-08",
+          "digitized_dataset_identifiers": ["lead_hcp_kuznetsov_2002_figure3_digitized"],
+          "source_locations": ["Table 1 and Figure 3"],
+          "finding": "The slice reproduces seven digitized solid room-temperature hcp markers with 0.266 GPa pressure RMSE. All 21 direct and source-reduced markers give 0.642 GPa RMSE; the complete original P-V-T rows and fit protocol are unavailable.",
+          "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Tables 1-2; Figures 2-3.",
+        "equation": "Equation 1, third-order Birch-Murnaghan pressure.",
+        "reference_state": "Equations 2-3 define tau=T-T0 with T0=296 K.",
+        "V0": "Table 2 hcp V0=29.908 A^3/atom, converted to 59.816 A^3 per two-atom hcp cell.",
+        "K0": "Table 2 hcp B0=54.2 GPa.",
+        "K0_prime": "Table 2 hcp B0_prime=3.61.",
+        "published_uncertainties": "not reported",
+        "covariance": "not published"
+      },
+      "source_lineage": [
+        {
+          "role": "scientific equation, coefficients, phase assignment, and calibration context",
+          "citation": "Kuznetsov et al. (2002), Equations 1-3 and Tables 1-2",
+          "doi": "10.1016/S0038-1098(02)00112-6"
+        }
+      ],
+      "published_fit_provenance": {
+        "software": {"name": "not reported", "version": "not reported"},
+        "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
+        "selection": {
+          "pressure_range_gpa": [0.0, 40.0],
+          "temperature_range_k": [296.0, 800.0],
+          "predicate": "phase-specific hcp observations; exhaustive row selection not reported",
+          "included_rows": null,
+          "excluded_rows": null
+        },
+        "objective": "fit to experimental data; residual coordinate not reported",
+        "weights": "not reported",
+        "refined_parameters": ["V0_296", "alpha_0", "alpha_1", "alpha_2", "K0_296", "b_1", "b_2", "K0_prime_296", "b_prime"],
+        "fixed_parameters": [],
+        "statistics": {"observations": null, "covariance": "not published", "error_scaling": "not reported"},
+        "reproduction": {
+          "script": "scripts/audit_fortes_2019_fcc_pb.py",
+          "scope_status": "published_surface_executable_fit_not_independently_reproducible",
+          "partial_dataset": "lead_hcp_kuznetsov_2002_figure3_digitized",
+          "partial_fit_is_reported_fit": false,
+          "reason": "Figure 3 is a plot of direct and source-reduced markers, not the complete original P-V-T table or regression protocol."
+        }
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/lead-dewaele-2019-figure2-vector.csv",
-    "sha256": "22ed15f7087ab70db1958e379a6edd761e9046166a73390a8a1d313259b180b2",
-    "media_type": "text/csv"
-   },
-   "provenance": {
-    "type": "pdf_vector_digitization",
-    "source_pdf_sha256": "8ae1bb7611c6925a6a66ac39ed3b6c5bd435df304e7939f2de0362346cb9466d",
-    "calibration_resource": "datasets/lead-dewaele-2019-figure2-vector-source.json"
-   },
-   "used_by_eos_records": [
-    "lead_hcp_dewaele_2019_mao_vinet",
-    "lead_hcp_dewaele_2019_dor_vinet"
-   ],
-   "notes": "Source-consistency diagnostic only. The replotted Kuznetsov points lack independently recoverable original measurement temperatures and are excluded from active observation fits. Figure 2's curve/table comparison remains documented; it is not an adopted EOS fit."
+  ],
+  "datasets": [
+    {
+      "identifier": "lead_dewaele_2019_table2_compression",
+      "kind": "pressure_volume",
+      "description": "All 17 hcp-Pb pressure-volume observations printed in Dewaele (2019), Table 2, in measurement order.",
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
+      "source_location": "Table 2",
+      "source_url": "https://www.mdpi.com/2075-163X/9/11/684",
+      "columns": [
+        {"name": "pressure_dorogokupets_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "atomic_volume_a3", "quantity": "atomic_volume", "unit": "angstrom^3", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/lead-dewaele-2019-table2-compression.csv",
+        "sha256": "37d1dbcbd19c4e750785552bde3af89c044504c6c5b551a63b7ff9ee0405172f",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["lead_hcp_dewaele_2019_mao_vinet", "lead_hcp_dewaele_2019_dor_vinet"],
+      "notes": "Dorogokupets ruby pressures; convert only these rows for the Mao alternative. Combined exploratory fits also use the separately linked Kuznetsov digitization on its unchanged Brown-NaCl scale."
+    },
+    {
+      "identifier": "lead_hcp_kuznetsov_2002_figure3_digitized",
+      "kind": "pressure_volume_digitized",
+      "description": "Twenty-one hcp-Pb square-marker centers digitized from Figure 3. Open squares are high-temperature observations reduced to room temperature by the source authors; solid squares are room-temperature observations. Overlapped markers carry wider digitization uncertainties and explicit confidence labels.",
+      "reference": {
+        "authors": ["Kuznetsov", "Dmitriev", "Dubrovinsky", "Prakapenka", "Weber"],
+        "year": 2002,
+        "source": "Solid State Communications",
+        "volume": "122",
+        "locator": "125-127",
+        "doi": "10.1016/S0038-1098(02)00112-6"
+      },
+      "source_location": "Figure 3, square-marker hcp series",
+      "columns": [
+        {"name": "point_id", "quantity": "source_marker", "unit": "1", "role": "flag"},
+        {"name": "phase", "quantity": "phase", "unit": "text", "role": "flag"},
+        {"name": "symbol_fill", "quantity": "plot_marker_fill", "unit": "text", "role": "flag"},
+        {"name": "marker_confidence", "quantity": "digitization_confidence", "unit": "text", "role": "flag"},
+        {"name": "pixel_x", "quantity": "source_figure_x", "unit": "pixel", "role": "value"},
+        {"name": "pixel_y", "quantity": "source_figure_y", "unit": "pixel", "role": "value"},
+        {"name": "v_over_v0_fcc", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
+        {"name": "reduced_pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "atomic_volume_a3_per_atom", "quantity": "volume", "unit": "angstrom^3/atom", "role": "value"},
+        {
+          "name": "estimated_v_over_v0_uncertainty",
+          "quantity": "relative_volume",
+          "unit": "dimensionless",
+          "role": "bound",
+          "of": "v_over_v0_fcc"
+        },
+        {
+          "name": "estimated_pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "bound",
+          "of": "reduced_pressure_gpa"
+        }
+      ],
+      "resource": {
+        "path": "datasets/lead-hcp-kuznetsov-2002-figure3-digitized.csv",
+        "sha256": "d89597df2dcb6736d178652bb831633fe99546a36ebdbe4de9f5dcad8f42de23",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["lead_hcp_dewaele_2019_mao_vinet", "lead_hcp_dewaele_2019_dor_vinet", "lead_hcp_kuznetsov_2002_bm3_3"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Extracted the native one-bit Figure 3 image from the author-hosted article PDF, fitted linear transforms to all labeled major ticks, and measured the centers of the hcp square markers. Atomic volumes use the source Table 2 fcc reference volume V0=30.307 angstrom^3/atom.",
+        "source_pdf_sha256": "c4bfc71c5d4186f7f3159015bafa51552349f9e0f4ba305d13604673d0b3a61d",
+        "source_figure_sha256": "572ee1e5ec46850a8c5528116b72312e0f773758cb06223fa32415ec56b92d81",
+        "source_figure_pixels": [1713, 1312],
+        "axis_calibration_pixels_source_figure": {
+          "v_over_v0_fcc": [
+            [441.5, 0.7],
+            [637.5, 0.75],
+            [834.0, 0.8],
+            [1028.5, 0.85],
+            [1224.5, 0.9],
+            [1419.0, 0.95],
+            [1613.5, 1.0]
+          ],
+          "reduced_pressure_gpa": [
+            [967.5, 0.0],
+            [855.0, 5.0],
+            [742.5, 10.0],
+            [630.5, 15.0],
+            [518.5, 20.0],
+            [406.5, 25.0],
+            [294.0, 30.0],
+            [181.5, 35.0],
+            [69.5, 40.0]
+          ]
+        },
+        "quality_control": {
+          "scope": "plot recovery, not an exact replacement for the authors' numerical rows",
+          "marker_overlap": "Several hcp squares overlap the fcc-circle series and fitted curves; confidence and uncertainty columns preserve that limitation.",
+          "fit_protocol": "Dewaele (2019) does not identify the exact Kuznetsov subset, weights, or treatment of the Brown NaCl pressure scale used in its merged fit."
+        },
+        "digitized_on": "2026-09-07"
+      }
+    },
+    {
+      "identifier": "lead_dewaele_2019_figure2_vector",
+      "kind": "pressure_volume_digitized",
+      "description": "Figure 2 vector marker coordinates: nine Kuznetsov squares and 17 current-run circles. Select series explicitly; curve vertices are stored in a separate diagnostic resource.",
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
+      "source_location": "Page 4, Figure 2",
+      "source_url": "https://www.mdpi.com/2075-163X/9/11/684",
+      "columns": [
+        {"name": "series", "quantity": "source_series", "unit": "1", "role": "flag"},
+        {"name": "pdf_object_or_vertex_index", "quantity": "source_object_index", "unit": "1", "role": "flag"},
+        {"name": "pdf_x_pt", "quantity": "pdf_x_coordinate", "unit": "pt", "role": "flag"},
+        {"name": "pdf_y_from_top_pt", "quantity": "pdf_y_coordinate_from_top", "unit": "pt", "role": "flag"},
+        {"name": "plotted_pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "atomic_volume_a3", "quantity": "atomic_volume", "unit": "angstrom^3", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/lead-dewaele-2019-figure2-vector.csv",
+        "sha256": "22ed15f7087ab70db1958e379a6edd761e9046166a73390a8a1d313259b180b2",
+        "media_type": "text/csv"
+      },
+      "provenance": {
+        "type": "pdf_vector_digitization",
+        "source_pdf_sha256": "8ae1bb7611c6925a6a66ac39ed3b6c5bd435df304e7939f2de0362346cb9466d",
+        "calibration_resource": "datasets/lead-dewaele-2019-figure2-vector-source.json"
+      },
+      "used_by_eos_records": ["lead_hcp_dewaele_2019_mao_vinet", "lead_hcp_dewaele_2019_dor_vinet"],
+      "notes": "Source-consistency diagnostic only. The replotted Kuznetsov points lack independently recoverable original measurement temperatures and are excluded from active observation fits. Figure 2's curve/table comparison remains documented; it is not an adopted EOS fit."
+    }
+  ],
+  "source": {
+    "space_group_assignment": {
+      "basis": "Derived from the explicitly identified elemental hcp phase and its two-atom conventional cell, using the A3 (hP2) structure prototype.",
+      "phase_reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
+      "prototype_reference": {
+        "title": "The AFLOW Library of Crystallographic Prototypes: Part 1",
+        "doi": "10.1016/j.commatsci.2017.01.017",
+        "url": "https://aflow.org/p/A_hP2_194_c-001/",
+        "source_location": "A_hP2_194_c-001: hexagonal close-packed A3 prototype, space group P63/mmc (194)."
+      },
+      "notes": "This supplies symmetry metadata only; no lattice parameters or refined atomic coordinates are inferred from the EOS volume."
+    }
   }
- ]
 }

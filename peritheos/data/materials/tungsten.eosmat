@@ -1,1338 +1,958 @@
 {
- "format_version": 3,
- "name": "Tungsten",
- "formula": "W",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 3.1648,
-  "b": null,
-  "c": null,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 2,
- "space_group": "Im-3m",
- "space_group_number": 229,
- "atom_sites": [
-  {
-   "element": "W",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is the default, with Cu-referenced Shen and Smith and Sokolova et al. fits as alternatives. The legacy Hixson-Fritz BM3 record was removed because the cited shock paper publishes Hugoniot-derived tabular isotherms, not the migrated standalone BM3 reduction.",
- "peaks": [],
- "eos_records": [
-  {
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
-   },
-   "identifier": "tungsten_sakai_2025_rydberg_stacey_1",
-   "label": "Sakai et al. (2025), W generalized Rydberg-Stacey scale",
-   "reference": {
-    "authors": [
-     "Sakai",
-     "Kadobayashi",
-     "Nakamoto",
-     "Dekura",
-     "Ishimatsu",
-     "Kawaguchi-Imada",
-     "Seto",
-     "Sekizawa",
-     "Nitta",
-     "Shimizu"
-    ],
-    "year": 2025,
-    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
-    "source": "Communications Materials",
-    "volume": "6",
-    "locator": "68",
-    "doi": "10.1038/s43246-025-00792-5"
-   },
-   "equation_kind": "isothermal",
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 2,
-    "molar_mass_g_mol": 183.84
-   },
-   "eos": {
-    "type": "RydbergStacey",
-    "model": "rydberg_stacey",
-    "parameters": {
-     "V0": 31.724,
-     "K0": 296,
-     "K0_prime": 4.415,
-     "K_infinity_prime": 1.6666666666666667
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": 0.016,
-    "K_infinity_prime": null
-   },
-   "parameter_error_confidence": null,
-   "fixed_parameters": [
-    "V0",
-    "K0",
-    "K_infinity_prime"
-   ],
-   "pressure_range_status": "reported_exactly",
-   "temperature_ref": 300,
-   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "tungsten",
+  "name": "Tungsten",
+  "formula": "W",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "symmetry": "CUBIC",
+  "space_group": "Im-3m",
+  "space_group_number": 229,
+  "lattice": {"a": 3.1648, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "W", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is the default, with Cu-referenced Shen and Smith and Sokolova et al. fits as alternatives. The legacy Hixson-Fritz BM3 record was removed because the cited shock paper publishes Hugoniot-derived tabular isotherms, not the migrated standalone BM3 reduction.",
+  "eos_records": [
+    {
+      "identifier": "tungsten_sakai_2025_rydberg_stacey_1",
+      "label": "Sakai et al. (2025), W generalized Rydberg-Stacey scale",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "Sakai",
-        "Kadobayashi",
-        "Nakamoto",
-        "Dekura",
-        "Ishimatsu",
-        "Kawaguchi-Imada",
-        "Seto",
-        "Sekizawa",
-        "Nitta",
-        "Shimizu"
-       ],
-       "year": 2025,
-       "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
-       "source": "Communications Materials",
-       "volume": "6",
-       "locator": "68",
-       "doi": "10.1038/s43246-025-00792-5"
+        "authors": [
+          "Sakai",
+          "Kadobayashi",
+          "Nakamoto",
+          "Dekura",
+          "Ishimatsu",
+          "Kawaguchi-Imada",
+          "Seto",
+          "Sekizawa",
+          "Nitta",
+          "Shimizu"
+        ],
+        "year": 2025,
+        "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+        "source": "Communications Materials",
+        "volume": "6",
+        "locator": "68",
+        "doi": "10.1038/s43246-025-00792-5"
       },
-      "reference_eos_record": "copper_sakai_2025_rydberg_stacey_1",
-      "source_location": "Figure 1, Table 2, and Supplementary Table S8",
-      "scope": "Cross-calibration through the Sakai et al. Cu-anchored material network"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "The exact Cu-anchored R-S pressure scale and the official simultaneous-volume workbooks are available."
+      "temperature_ref": 300,
+      "eos": {
+        "type": "RydbergStacey",
+        "model": "rydberg_stacey",
+        "parameters": {"V0": 31.724, "K0": 296, "K0_prime": 4.415, "K_infinity_prime": 1.6666666666666667}
+      },
+      "parameter_errors": {"V0": null, "K0": null, "K0_prime": 0.016, "K_infinity_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": ["V0", "K0", "K_infinity_prime"],
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 183.84},
+      "experimental_pressure_range_gpa": [0, 395],
+      "pressure_range_status": "reported_exactly",
+      "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": [
+                "Sakai",
+                "Kadobayashi",
+                "Nakamoto",
+                "Dekura",
+                "Ishimatsu",
+                "Kawaguchi-Imada",
+                "Seto",
+                "Sekizawa",
+                "Nitta",
+                "Shimizu"
+              ],
+              "year": 2025,
+              "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+              "source": "Communications Materials",
+              "volume": "6",
+              "locator": "68",
+              "doi": "10.1038/s43246-025-00792-5"
+            },
+            "reference_eos_record": "copper_sakai_2025_rydberg_stacey_1",
+            "source_location": "Figure 1, Table 2, and Supplementary Table S8",
+            "scope": "Cross-calibration through the Sakai et al. Cu-anchored material network"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The exact Cu-anchored R-S pressure scale and the official simultaneous-volume workbooks are available."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1038/s43246-025-00792-5",
+          "locations": ["Equation (1)", "Table 2", "Supplementary Data 1, Tables S8-S10", "Official R-S EoS workbook"],
+          "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+          "doi": "10.1038/s43246-025-00792-5"
+        },
+        "primary_data_check": {
+          "status": "derived_output_only",
+          "audit_date": "2026-09-05",
+          "source_locations": ["Supplementary Data 1, Table S9"],
+          "finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
+      },
+      "source_lineage": [
+        {
+          "role": "scientific fit, equation, and coefficients",
+          "citation": "Sakai et al. (2025), Equation (1), Table 2, and Supplementary Tables S8-S10",
+          "doi": "10.1038/s43246-025-00792-5"
+        },
+        {
+          "role": "official executable formula and curve checkpoint",
+          "citation": "Sakai et al. (2025), R-S EoS workbook and Supplementary Data 1 Table S9",
+          "doi": "10.1038/s43246-025-00792-5"
+        }
+      ]
     },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1038/s43246-025-00792-5",
-     "locations": [
-      "Equation (1)",
-      "Table 2",
-      "Supplementary Data 1, Tables S8-S10",
-      "Official R-S EoS workbook"
-     ],
-     "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
-     "doi": "10.1038/s43246-025-00792-5"
-    },
-    "primary_data_check": {
-     "status": "derived_output_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Supplementary Data 1, Table S9"
-     ],
-     "finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance."
-    }
-   },
-   "source_lineage": [
     {
-     "role": "scientific fit, equation, and coefficients",
-     "citation": "Sakai et al. (2025), Equation (1), Table 2, and Supplementary Tables S8-S10",
-     "doi": "10.1038/s43246-025-00792-5"
-    },
-    {
-     "role": "official executable formula and curve checkpoint",
-     "citation": "Sakai et al. (2025), R-S EoS workbook and Supplementary Data 1 Table S9",
-     "doi": "10.1038/s43246-025-00792-5"
-    }
-   ],
-   "experimental_pressure_range_gpa": [
-    0,
-    395
-   ]
-  },
-  {
-   "label": "Dewaele et al. (2004), Vinet",
-   "reference": {
-    "authors": [
-     "Dewaele",
-     "Loubeyre",
-     "Mezouar"
-    ],
-    "year": 2004,
-    "title": "Equations of state of six metals above 94 GPa",
-    "source": "Phys. Rev. B",
-    "volume": "70",
-    "locator": "094112",
-    "doi": "10.1103/PhysRevB.70.094112"
-   },
-   "default": true,
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 31.724,
-     "K0": 295.2,
-     "K0_prime": 4.32
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 3.9,
-    "K0_prime": 0.11
-   },
-   "parameter_error_confidence": 0.95,
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    153.0
-   ],
-   "notes": "Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'_R scale. Source-fixed parameters: V0. Published atomic V0 is converted to the material card's conventional-cell basis.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Figure 2 caption; Tables I and II."
-   },
-   "identifier": "tungsten_dewaele_2004_vinet_2",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
+      "identifier": "tungsten_dewaele_2004_vinet_2",
+      "label": "Dewaele et al. (2004), Vinet",
+      "determination_method": "experimental",
+      "default": true,
       "reference": {
-       "authors": [
-        "Dewaele",
-        "Loubeyre",
-        "Mezouar"
-       ],
-       "year": 2004,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.70.094112"
+        "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+        "year": 2004,
+        "title": "Equations of state of six metals above 94 GPa",
+        "source": "Phys. Rev. B",
+        "volume": "70",
+        "locator": "094112",
+        "doi": "10.1103/PhysRevB.70.094112"
       },
-      "source_location": "Equation (1) and Table I revised P'_R column; A=1904 GPa, B=9.5",
-      "reference_calibration_record": "ruby_dewaele_2004",
-      "scope": "all Table I observations for this metal"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "Both source-calculated pressure columns and all sample volumes are bundled. Raw ruby R1 wavelengths are not printed; either monotonic scale can be inverted at the table's rounded precision to check or transform the pressure reduction."
+      "temperature_ref": 298.0,
+      "eos": {
+        "type": "Vinet",
+        "parameters": {"V0": 31.724, "K0": 295.2, "K0_prime": 4.32},
+        "model": "vinet"
+      },
+      "parameter_errors": {"V0": null, "K0": 3.9, "K0_prime": 0.11},
+      "parameter_error_confidence": 0.95,
+      "fixed_parameters": ["V0"],
+      "experimental_pressure_range_gpa": [0.0, 153.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 153.0],
+        "temperature_k": [298.0, 298.0],
+        "notes": ["Published Table I data envelope, not a phase-stability or extrapolation guarantee."]
+      },
+      "notes": "Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'_R scale. Source-fixed parameters: V0. Published atomic V0 is converted to the material card's conventional-cell basis.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+              "year": 2004,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.70.094112"
+            },
+            "source_location": "Equation (1) and Table I revised P'_R column; A=1904 GPa, B=9.5",
+            "reference_calibration_record": "ruby_dewaele_2004",
+            "scope": "all Table I observations for this metal"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "Both source-calculated pressure columns and all sample volumes are bundled. Raw ruby R1 wavelengths are not printed; either monotonic scale can be inverted at the table's rounded precision to check or transform the pressure reduction."
+        },
+        "audit_date": "2026-09-07"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+          "doi": "10.1103/physrevb.70.094112",
+          "locations": ["Equation (1)", "Figure 2 caption", "Tables I and II"],
+          "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients."
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "tungsten.json"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-07",
+          "dataset_identifiers": ["tungsten_dewaele_2004_table1_compression"],
+          "source_locations": ["Table I, journal page 094112-4"],
+          "finding": "All available Table I observations for this metal are directly transcribed with both printed ruby-pressure reductions and the common atomic-volume uncertainty."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Figure 2 caption; Tables I and II."
+      }
     },
-    "audit_date": "2026-09-07"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
-     "doi": "10.1103/physrevb.70.094112",
-     "locations": [
-      "Equation (1)",
-      "Figure 2 caption",
-      "Tables I and II"
-     ],
-     "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients."
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "tungsten.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-07",
-     "dataset_identifiers": [
-      "tungsten_dewaele_2004_table1_compression"
-     ],
-     "source_locations": [
-      "Table I, journal page 094112-4"
-     ],
-     "finding": "All available Table I observations for this metal are directly transcribed with both printed ruby-pressure reductions and the common atomic-volume uncertainty."
-    }
-   },
-   "temperature_ref": 298.0,
-   "pressure_range_status": "reported_exactly",
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     153.0
-    ],
-    "temperature_k": [
-     298.0,
-     298.0
-    ],
-    "notes": [
-     "Published Table I data envelope, not a phase-stability or extrapolation guarantee."
-    ]
-   }
-  },
-  {
-   "label": "Shen and Smith (2026), Cu-referenced Vinet",
-   "reference": {
-    "authors": [
-     "Shen",
-     "Smith"
-    ],
-    "year": 2026,
-    "title": "Simultaneous x-ray diffraction measurements of nine pressure calibrants to 140 GPa",
-    "source": "Phys. Rev. B",
-    "volume": "113",
-    "locator": "144113",
-    "doi": "10.1103/fxgq-96sg"
-   },
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 31.704,
-     "K0": 307.0,
-     "K0_prime": 4.02
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 0.8,
-    "K0_prime": 0.03
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    140.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.8 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
-   },
-   "identifier": "tungsten_shen_2026_vinet_3",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
+    {
+      "identifier": "tungsten_shen_2026_vinet_3",
+      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "determination_method": "experimental",
       "reference": {
-       "authors": [
-        "Fratanduono et al."
-       ],
-       "year": 2020,
-       "source": "Phys. Rev. Lett.",
-       "doi": "10.1103/PhysRevLett.124.015701"
+        "authors": ["Shen", "Smith"],
+        "year": 2026,
+        "title": "Simultaneous x-ray diffraction measurements of nine pressure calibrants to 140 GPa",
+        "source": "Phys. Rev. B",
+        "volume": "113",
+        "locator": "144113",
+        "doi": "10.1103/fxgq-96sg"
       },
-      "source_location": "Experimental methods and Section III.E; Cu-anchored reduced-300 K volumes",
-      "scope": "all fitted observations",
-      "reference_eos_record": "copper_fratanduono_2020_vinet3_298k"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "Reconstructed from Fratanduono et al. (2020) Supplemental Material Eq. (2) with the main article Table I central 298 K coefficients (rho0=8.939 g/cm3, K0=133.6 GPa, eta=6.29, beta=2.06, psi=1.65). Each target volume is paired with the Cu volume from the same experiment and run; no unpublished pressure weights or covariance are inferred."
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "parameters": {"V0": 31.704, "K0": 307.0, "K0_prime": 4.02},
+        "model": "vinet"
+      },
+      "parameter_errors": {"V0": null, "K0": 0.8, "K0_prime": 0.03},
+      "fixed_parameters": ["V0"],
+      "experimental_pressure_range_gpa": [0.0, 140.0],
+      "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.8 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fratanduono et al."],
+              "year": 2020,
+              "source": "Phys. Rev. Lett.",
+              "doi": "10.1103/PhysRevLett.124.015701"
+            },
+            "source_location": "Experimental methods and Section III.E; Cu-anchored reduced-300 K volumes",
+            "scope": "all fitted observations",
+            "reference_eos_record": "copper_fratanduono_2020_vinet3_298k"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "Reconstructed from Fratanduono et al. (2020) Supplemental Material Eq. (2) with the main article Table I central 298 K coefficients (rho0=8.939 g/cm3, K0=133.6 GPa, eta=6.29, beta=2.06, psi=1.65). Each target volume is paired with the Cu volume from the same experiment and run; no unpublished pressure weights or covariance are inferred."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1103/fxgq-96sg",
+          "locations": [
+            "Equation (4), page 8",
+            "Table I and footnotes, page 4",
+            "Table II, pages 9-12",
+            "Section III.E, pages 8 and 12-14",
+            "Experimental methods, page 2",
+            "Supplemental Table S1, official Excel workbook",
+            "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
+          ],
+          "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+          "doi": "10.1103/fxgq-96sg"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "tungsten.json"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-03",
+          "dataset_identifiers": ["shen_smith_2026_table_s1_simultaneous_volumes"],
+          "source_locations": ["Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"],
+          "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
+      }
     },
-    "audit_date": "2026-09-08"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1103/fxgq-96sg",
-     "locations": [
-      "Equation (4), page 8",
-      "Table I and footnotes, page 4",
-      "Table II, pages 9-12",
-      "Section III.E, pages 8 and 12-14",
-      "Experimental methods, page 2",
-      "Supplemental Table S1, official Excel workbook",
-      "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
-     ],
-     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
-     "doi": "10.1103/fxgq-96sg"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "tungsten.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "shen_smith_2026_table_s1_simultaneous_volumes"
-     ],
-     "source_locations": [
-      "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"
-     ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
-    }
-   }
-  },
-  {
-   "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
-   "reference": {
-    "authors": [
-     "Sokolova",
-     "Dorogokupets",
-     "Litasov"
-    ],
-    "year": 2013,
-    "title": "Self-consistent pressure scales based on the equations of state for ruby, diamond, MgO, B2–NaCl, as well as Au, Pt, and other metals to 4 Mbar and 3000 K",
-    "source": "Russian Geology and Geophysics",
-    "volume": "54",
-    "locator": "181-199",
-    "details": "Tables 1 and 4",
-    "doi": "10.1016/j.rgg.2013.01.005"
-   },
-   "eos": {
-    "type": "Holzapfel",
-    "parameters": {
-     "V0": 31.72293444117844,
-     "K0": 308.0,
-     "K0_prime": 4.12,
-     "n": 1.0,
-     "Z": 74.0
-    },
-    "model": "holzapfel",
-    "parameter_errors": {
-     "n": null,
-     "Z": null
-    },
-    "fixed_parameters": [
-     "n",
-     "Z"
-    ]
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "fixed_parameters": [],
-   "pressure_range_status": "reference_parameterization",
-   "temperature_ref": 298.15,
-   "thermal": {
-    "type": "Sokolova2016",
-    "parameters": {
-     "Tr": 298.15,
-     "QE1o": 172.0,
-     "mE1": 1.5,
-     "QE2o": 309.0,
-     "mE2": 1.5,
-     "delta": -0.686,
-     "t": -0.591,
-     "a_0": 0.0,
-     "m": 0.0,
-     "g": 2.77,
-     "e_0": 100.1,
-     "n": 1.0
-    },
-    "parameter_errors": {
-     "Tr": null,
-     "QE1o": null,
-     "mE1": null,
-     "QE2o": null,
-     "mE2": null,
-     "delta": null,
-     "t": null,
-     "a_0": null,
-     "m": null,
-     "g": null,
-     "e_0": null,
-     "n": null
-    },
-    "fixed_parameters": [
-     "n"
-    ],
-    "model": "multi_oscillator_gruneisen_thermal_pressure"
-   },
-   "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Sokolova (2013), Tables 1 and 4: joint synthesis of shock, ultrasonic, diffraction, expansion and thermochemical measurements. The 2016 workbook implements the fit; it does not supply a separate theoretical fit grid."
-   },
-   "identifier": "tungsten_sokolova_2013_holzapfel_4",
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "self_consistent",
+    {
+      "identifier": "tungsten_sokolova_2013_holzapfel_4",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "determination_method": "experimental",
       "reference": {
-       "authors": [
-        "Sokolova",
-        "Dorogokupets",
-        "Litasov"
-       ],
-       "year": 2013,
-       "source": "Russian Geology and Geophysics",
-       "doi": "10.1016/j.rgg.2013.01.005"
+        "authors": ["Sokolova", "Dorogokupets", "Litasov"],
+        "year": 2013,
+        "title": "Self-consistent pressure scales based on the equations of state for ruby, diamond, MgO, B2–NaCl, as well as Au, Pt, and other metals to 4 Mbar and 3000 K",
+        "source": "Russian Geology and Geophysics",
+        "volume": "54",
+        "locator": "181-199",
+        "details": "Tables 1 and 4",
+        "doi": "10.1016/j.rgg.2013.01.005"
       },
-      "source_location": "Equations 1-15 and Tables 1 and 4; simultaneous optimization"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "This is a jointly optimized pressure-scale model rather than a fit reduced with one external reference EOS."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
-     "locations": [
-      "Equations 1-15",
-      "Table 1 input reference values",
-      "Table 4 optimized parameters for all eleven markers",
-      "Figures 3-11 cross-calibration tests"
-     ],
-     "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
-     "doi": "10.1016/j.rgg.2013.01.005"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "tungsten.json"
-    },
-    "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-08",
-     "source_locations": [
-      "Sokolova et al. (2013), Tables 1-4 and Equation (20)",
-      "Dorogokupets and Oganov (2007), two-stage optimization protocol",
-      "Sokolova et al. (2016), official mmc1-mmc11 workbooks"
-     ],
-     "comparison_dataset_identifiers": [
-      "tungsten_dewaele_2004_table1_compression"
-     ],
-     "manifest": "datasets/sokolova-2013-global-calibration-manifest.json",
-     "finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit."
-    },
-    "source_reconstruction": {
-     "status": "coupled_cross_calibration_reconstructed",
-     "result": "docs/data/sokolova-2013-global-calibration.json",
-     "observations": 392,
-     "markers": 11,
-     "independent_eos_refit": false
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "reference volume, composition, and shock inputs",
-     "citation": "Sokolova et al. (2013), Table 1",
-     "doi": "10.1016/j.rgg.2013.01.005"
-    },
-    {
-     "role": "final cross-calibrated Holzapfel and thermal coefficients",
-     "citation": "Sokolova et al. (2013), Table 4",
-     "doi": "10.1016/j.rgg.2013.01.005"
-    },
-    {
-     "role": "preceding simultaneous-optimization fit",
-     "citation": "Dorogokupets et al. (2012), Table 4",
-     "doi": "10.5800/GT-2012-3-2-0067"
-    },
-    {
-     "role": "spreadsheet implementation, conventions, and corrections",
-     "citation": "Sokolova et al. (2016), equations 1-12, Tables 1-3, and Appendix A",
-     "doi": "10.1016/j.cageo.2016.06.002"
-    }
-   ],
-   "audit_corrections": [
-    {
-     "path": "eos.parameters.n",
-     "source_value": null,
-     "value": 1.0,
-     "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
-     "primary_reference": {
-      "doi": "10.1016/j.cageo.2016.06.002",
-      "location": "Equations (1)-(3) and Table 2"
-     }
-    },
-    {
-     "path": "eos.parameters.Z",
-     "source_value": null,
-     "value": 74.0,
-     "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
-     "primary_reference": {
-      "doi": "10.1016/j.cageo.2016.06.002",
-      "location": "Equations (1)-(3) and Table 2"
-     }
-    },
-    {
-     "path": "thermal.parameters.n",
-     "source_value": null,
-     "value": 1.0,
-     "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
-     "primary_reference": {
-      "doi": "10.1016/j.cageo.2016.06.002",
-      "location": "Equations (1)-(3) and Table 2"
-     }
-    }
-   ]
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "tungsten_dewaele_2019_mao_vinet",
-   "label": "Dewaele (2019), W MAO-scale Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Dewaele"
-    ],
-    "year": 2019,
-    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-    "source": "Minerals",
-    "doi": "10.3390/min9110684"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 31.724,
-     "K0": 298.3,
-     "K0_prime": 3.82
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.032,
-    "K0": 4.1,
-    "K0_prime": 0.11
-   },
-   "parameter_error_confidence": 0.95,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    155.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     155.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
-    ]
-   },
-   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "source_location": "mao_ruby_scale",
-      "reference_calibration_record": "ruby_mao_1986"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
-    },
-    "audit_date": "2026-09-06"
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-    "V0": "Table 1",
-    "K0": "Table 1",
-    "K0_prime": "Table 1"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-     "doi": "10.3390/min9110684",
-     "locations": [
-      "Equation (1)",
-      "Table 1"
-     ],
-     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-07",
-     "dataset_identifiers": [
-      "tungsten_dewaele_2004_table1_compression"
-     ],
-     "source_locations": [
-      "tungsten-dewaele-2004-table1-compression.csv",
-      "Dewaele (2019), Equation (1) and Table 1"
-     ],
-     "finding": "All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
-     "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
-     "fit_scope": "complete",
-     "record_parameter_comparison": {
-      "absolute_parameter_difference": [
-       9.605573989546201e-05,
-       0.01710714508038791,
-       0.004828792016433159
+      "temperature_ref": 298.15,
+      "eos": {
+        "type": "Holzapfel",
+        "parameters": {"V0": 31.72293444117844, "K0": 308.0, "K0_prime": 4.12, "n": 1.0, "Z": 74.0},
+        "model": "holzapfel",
+        "parameter_errors": {"n": null, "Z": null},
+        "fixed_parameters": ["n", "Z"]
+      },
+      "thermal": {
+        "type": "Sokolova2016",
+        "parameters": {
+          "Tr": 298.15,
+          "QE1o": 172.0,
+          "mE1": 1.5,
+          "QE2o": 309.0,
+          "mE2": 1.5,
+          "delta": -0.686,
+          "t": -0.591,
+          "a_0": 0.0,
+          "m": 0.0,
+          "g": 2.77,
+          "e_0": 100.1,
+          "n": 1.0
+        },
+        "parameter_errors": {
+          "Tr": null,
+          "QE1o": null,
+          "mE1": null,
+          "QE2o": null,
+          "mE2": null,
+          "delta": null,
+          "t": null,
+          "a_0": null,
+          "m": null,
+          "g": null,
+          "e_0": null,
+          "n": null
+        },
+        "fixed_parameters": ["n"],
+        "model": "multi_oscillator_gruneisen_thermal_pressure"
+      },
+      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+      "fixed_parameters": [],
+      "pressure_range_status": "reference_parameterization",
+      "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "self_consistent",
+            "reference": {
+              "authors": ["Sokolova", "Dorogokupets", "Litasov"],
+              "year": 2013,
+              "source": "Russian Geology and Geophysics",
+              "doi": "10.1016/j.rgg.2013.01.005"
+            },
+            "source_location": "Equations 1-15 and Tables 1 and 4; simultaneous optimization"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "This is a jointly optimized pressure-scale model rather than a fit reduced with one external reference EOS."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-06",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
+          "locations": [
+            "Equations 1-15",
+            "Table 1 input reference values",
+            "Table 4 optimized parameters for all eleven markers",
+            "Figures 3-11 cross-calibration tests"
+          ],
+          "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+          "doi": "10.1016/j.rgg.2013.01.005"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "tungsten.json"
+        },
+        "primary_data_check": {
+          "status": "parameterization_only",
+          "audit_date": "2026-09-08",
+          "source_locations": [
+            "Sokolova et al. (2013), Tables 1-4 and Equation (20)",
+            "Dorogokupets and Oganov (2007), two-stage optimization protocol",
+            "Sokolova et al. (2016), official mmc1-mmc11 workbooks"
+          ],
+          "comparison_dataset_identifiers": ["tungsten_dewaele_2004_table1_compression"],
+          "manifest": "datasets/sokolova-2013-global-calibration-manifest.json",
+          "finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit."
+        },
+        "source_reconstruction": {
+          "status": "coupled_cross_calibration_reconstructed",
+          "result": "docs/data/sokolova-2013-global-calibration.json",
+          "observations": 392,
+          "markers": 11,
+          "independent_eos_refit": false
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Sokolova (2013), Tables 1 and 4: joint synthesis of shock, ultrasonic, diffraction, expansion and thermochemical measurements. The 2016 workbook implements the fit; it does not supply a separate theoretical fit grid."
+      },
+      "source_lineage": [
+        {
+          "role": "reference volume, composition, and shock inputs",
+          "citation": "Sokolova et al. (2013), Table 1",
+          "doi": "10.1016/j.rgg.2013.01.005"
+        },
+        {
+          "role": "final cross-calibrated Holzapfel and thermal coefficients",
+          "citation": "Sokolova et al. (2013), Table 4",
+          "doi": "10.1016/j.rgg.2013.01.005"
+        },
+        {
+          "role": "preceding simultaneous-optimization fit",
+          "citation": "Dorogokupets et al. (2012), Table 4",
+          "doi": "10.5800/GT-2012-3-2-0067"
+        },
+        {
+          "role": "spreadsheet implementation, conventions, and corrections",
+          "citation": "Sokolova et al. (2016), equations 1-12, Tables 1-3, and Appendix A",
+          "doi": "10.1016/j.cageo.2016.06.002"
+        }
       ],
-      "max_abs_gpa": 1.6090718821525343,
-      "parameters": [
-       15.861903944260105,
-       298.2828928549196,
-       3.8151712079835667
-      ],
-      "rmse_gpa": 0.5773964095092282,
-      "within_reported_95pct_errors": true
-     }
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "scientific equation and coefficients",
-     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-     "doi": "10.3390/min9110684"
-    }
-   ],
-   "fit_datasets": [
-    "tungsten_dewaele_2004_table1_compression"
-   ]
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "tungsten_dewaele_2019_dor_vinet",
-   "label": "Dewaele (2019), W DOR-scale Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Dewaele"
-    ],
-    "year": 2019,
-    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-    "source": "Minerals",
-    "doi": "10.3390/min9110684"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 31.716,
-     "K0": 298.6,
-     "K0_prime": 4.37
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.032,
-    "K0": 4.1,
-    "K0_prime": 0.11
-   },
-   "parameter_error_confidence": 0.95,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    155.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     155.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
-    ]
-   },
-   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "source_location": "dor_ruby_scale",
-      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
-    },
-    "audit_date": "2026-09-06"
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-    "V0": "Table 1",
-    "K0": "Table 1",
-    "K0_prime": "Table 1"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-     "doi": "10.3390/min9110684",
-     "locations": [
-      "Equation (1)",
-      "Table 1"
-     ],
-     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-07",
-     "dataset_identifiers": [
-      "tungsten_dewaele_2004_table1_compression"
-     ],
-     "source_locations": [
-      "tungsten-dewaele-2004-table1-compression.csv",
-      "Dewaele (2019), Equation (1) and Table 1"
-     ],
-     "finding": "All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
-     "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
-     "fit_scope": "complete",
-     "record_parameter_comparison": {
-      "absolute_parameter_difference": [
-       0.00027428531123341315,
-       0.02920692845071926,
-       0.002696093094493257
-      ],
-      "max_abs_gpa": 1.6571624350563923,
-      "parameters": [
-       15.857725714688767,
-       298.5707930715493,
-       4.367303906905507
-      ],
-      "rmse_gpa": 0.5794876562451563,
-      "within_reported_95pct_errors": true
-     }
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "scientific equation and coefficients",
-     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-     "doi": "10.3390/min9110684"
-    }
-   ],
-   "fit_datasets": [
-    "tungsten_dewaele_2004_table1_compression"
-   ]
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "tungsten_dewaele_2004_mao_ruby_vinet",
-   "label": "Dewaele et al. (2004), W mao ruby Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Dewaele",
-     "Loubeyre",
-     "Mezouar"
-    ],
-    "year": 2004,
-    "title": "Equations of state of six metals above 94 GPa",
-    "source": "Physical Review B",
-    "doi": "10.1103/PhysRevB.70.094112"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 31.724,
-     "K0": 298.3,
-     "K0_prime": 3.81
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 3.6,
-    "K0_prime": 0.1
-   },
-   "parameter_error_confidence": 0.95,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "V0"
-   ],
-   "temperature_ref": 298.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    144.3
-   ],
-   "pressure_range_status": "reported_exactly",
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     144.3
-    ],
-    "temperature_k": [
-     298.0,
-     298.0
-    ],
-    "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
-    ]
-   },
-   "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "source_location": "Table I classical P_R column; Mao et al. (1986), A=1904 GPa, B=7.665",
-      "reference_calibration_record": "ruby_mao_1986",
-      "scope": "all Table I observations for this metal"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "Both source-calculated pressure columns and all sample volumes are bundled. Raw ruby R1 wavelengths are not printed; either monotonic scale can be inverted at the table's rounded precision to check or transform the pressure reduction."
-    },
-    "audit_date": "2026-09-07"
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Figure 2 caption; Tables I and II.",
-    "V0": "Tables I and II",
-    "K0": "Tables I and II",
-    "K0_prime": "Tables I and II"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
-     "doi": "10.1103/physrevb.70.094112",
-     "locations": [
-      "Equation (1)",
-      "Figure 2 caption",
-      "Tables I and II"
-     ],
-     "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-07",
-     "dataset_identifiers": [
-      "tungsten_dewaele_2004_table1_compression"
-     ],
-     "source_locations": [
-      "Table I, journal page 094112-4"
-     ],
-     "finding": "All available Table I observations for this metal are directly transcribed with both printed ruby-pressure reductions and the common atomic-volume uncertainty."
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "scientific equation and coefficients",
-     "citation": "Equations of state of six metals above 94 GPa, Equation (1), Figure 2 caption, Tables I and II",
-     "doi": "10.1103/PhysRevB.70.094112"
-    }
-   ]
-  }
- ],
- "format": "peritheos.material",
- "identifier": "tungsten",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "tungsten_sakai_2025_table_s9_rs_eos_grid",
-   "kind": "derived_pressure_volume_grid",
-   "description": "Official 26-row Table S9 W compression grid calculated from the published Rydberg-Stacey coefficients; retained as an exact implementation checkpoint, not as independent fit input.",
-   "reference": {
-    "authors": [
-     "Sakai",
-     "Kadobayashi",
-     "Nakamoto",
-     "Dekura",
-     "Ishimatsu",
-     "Kawaguchi-Imada",
-     "Seto",
-     "Sekizawa",
-     "Nitta",
-     "Shimizu"
-    ],
-    "year": 2025,
-    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
-    "source": "Communications Materials",
-    "volume": "6",
-    "locator": "68",
-    "doi": "10.1038/s43246-025-00792-5"
-   },
-   "source_location": "Supplementary Data 1, Table S9",
-   "source_url": "https://doi.org/10.1038/s43246-025-00792-5",
-   "columns": [
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
+      "audit_corrections": [
+        {
+          "path": "eos.parameters.n",
+          "source_value": null,
+          "value": 1.0,
+          "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
+          "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
+        },
+        {
+          "path": "eos.parameters.Z",
+          "source_value": null,
+          "value": 74.0,
+          "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
+          "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
+        },
+        {
+          "path": "thermal.parameters.n",
+          "source_value": null,
+          "value": 1.0,
+          "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
+          "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
+        }
+      ]
     },
     {
-     "name": "volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/tungsten-sakai-2025-table-s9-rs-eos-grid.csv",
-    "sha256": "96efd4a74899ae8c6e3d17214c2a26eb32aa71057d36fe87940b6b82fe19dd01",
-    "media_type": "text/csv"
-   },
-   "provenance": {
-    "type": "transcribed_from_official_derived_table",
-    "official_workbook_sha256": "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9",
-    "notes": "Table S9 is formula-generated from Table 2 coefficients. It verifies transcription and equation implementation but cannot independently refit the coefficients."
-   },
-   "used_by_eos_records": [
-    "tungsten_sakai_2025_rydberg_stacey_1"
-   ]
-  },
-  {
-   "identifier": "tungsten_dewaele_2004_table1_compression",
-   "kind": "pressure_volume",
-   "description": "All 42 Table I tungsten atomic-volume observations, with both printed ruby-pressure reductions.",
-   "reference": {
-    "authors": [
-     "Dewaele",
-     "Loubeyre",
-     "Mezouar"
-    ],
-    "year": 2004,
-    "source": "Phys. Rev. B",
-    "volume": "70",
-    "locator": "094112",
-    "doi": "10.1103/PhysRevB.70.094112"
-   },
-   "source_location": "Table I, journal page 094112-4",
-   "columns": [
-    {
-     "name": "ruby_pressure_classical_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value",
-     "pressure_scale": {
-      "calibration_record": "ruby_mao_1986",
+      "identifier": "tungsten_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), W MAO-scale Vinet",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "Dewaele",
-        "Loubeyre",
-        "Mezouar"
-       ],
-       "year": 2004,
-       "source": "Phys. Rev. B",
-       "volume": "70",
-       "locator": "094112",
-       "doi": "10.1103/PhysRevB.70.094112"
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
       },
-      "source_location": "Table I classical P_R; Equation (1), A=1904 GPa, B=7.665"
-     }
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {"V0": 31.724, "K0": 298.3, "K0_prime": 3.82}
+      },
+      "parameter_errors": {"V0": 0.032, "K0": 4.1, "K0_prime": 0.11},
+      "parameter_error_confidence": 0.95,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.0, 155.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 155.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+      },
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "mao_ruby_scale",
+            "reference_calibration_record": "ruby_mao_1986"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+        "audit_date": "2026-09-06",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+          "doi": "10.3390/min9110684",
+          "locations": ["Equation (1)", "Table 1"],
+          "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-07",
+          "dataset_identifiers": ["tungsten_dewaele_2004_table1_compression"],
+          "source_locations": ["tungsten-dewaele-2004-table1-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+          "finding": "All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+          "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+          "fit_scope": "complete",
+          "record_parameter_comparison": {
+            "absolute_parameter_difference": [9.605573989546201e-05, 0.01710714508038791, 0.004828792016433159],
+            "max_abs_gpa": 1.6090718821525343,
+            "parameters": [15.861903944260105, 298.2828928549196, 3.8151712079835667],
+            "rmse_gpa": 0.5773964095092282,
+            "within_reported_95pct_errors": true
+          }
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+        "V0": "Table 1",
+        "K0": "Table 1",
+        "K0_prime": "Table 1"
+      },
+      "source_lineage": [
+        {
+          "role": "scientific equation and coefficients",
+          "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+          "doi": "10.3390/min9110684"
+        }
+      ],
+      "fit_datasets": ["tungsten_dewaele_2004_table1_compression"]
     },
     {
-     "name": "ruby_pressure_revised_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value",
-     "pressure_scale": {
-      "calibration_record": "ruby_dewaele_2004",
+      "identifier": "tungsten_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), W DOR-scale Vinet",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "Dewaele",
-        "Loubeyre",
-        "Mezouar"
-       ],
-       "year": 2004,
-       "source": "Phys. Rev. B",
-       "volume": "70",
-       "locator": "094112",
-       "doi": "10.1103/PhysRevB.70.094112"
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
       },
-      "source_location": "Table I revised P'_R; Equation (1), A=1904 GPa, B=9.5"
-     }
-    },
-    {
-     "name": "atomic_volume_a3",
-     "quantity": "atomic_volume",
-     "unit": "angstrom^3/atom",
-     "role": "value"
-    },
-    {
-     "name": "atomic_volume_uncertainty_a3",
-     "quantity": "atomic_volume",
-     "unit": "angstrom^3/atom",
-     "role": "bound",
-     "of": "atomic_volume_a3"
-    }
-   ],
-   "resource": {
-    "path": "datasets/tungsten-dewaele-2004-table1-compression.csv",
-    "sha256": "d73f1d9114c974be80175c6ade256bf17cb4a529e911480e6cd1e337394ef523",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "tungsten_dewaele_2004_mao_ruby_vinet",
-    "tungsten_dewaele_2004_vinet_2",
-    "tungsten_dewaele_2019_mao_vinet",
-    "tungsten_dewaele_2019_dor_vinet"
-   ],
-   "transcription": {
-    "type": "direct_table_transcription",
-    "method": "Manual transcription from the publisher PDF with source row order and printed decimal precision retained.",
-    "source_artifact": {
-     "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
-     "media_type": "application/pdf",
-     "sha256": "1f9e02e4a77f49a868b1a6261290465bdb00597b1660691b1790c7502ec9aeeb"
-    }
-   },
-   "license": "No explicit open data-reuse license is stated. APS copyright applies to the article; this factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
-   "notes": "Table I groups Cu/W/Al in the first two runs and Au/Pt/Ta in the last three runs. Blank metal cells are omitted rather than imputed. P_R is the classical Mao et al. (1986) reduction (A=1904 GPa, B=7.665); P'_R is the Dewaele et al. revision (A=1904 GPa, B=9.5). The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but prints neither row-wise pressure errors nor raw R1 wavelengths.",
-   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
-   "pressure_reductions": [
-    {
-     "eos_record": "tungsten_dewaele_2004_mao_ruby_vinet",
-     "reference": {
-      "authors": [
-       "Dewaele",
-       "Loubeyre",
-       "Mezouar"
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {"V0": 31.716, "K0": 298.6, "K0_prime": 4.37}
+      },
+      "parameter_errors": {"V0": 0.032, "K0": 4.1, "K0_prime": 0.11},
+      "parameter_error_confidence": 0.95,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.0, 155.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 155.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+      },
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "dor_ruby_scale",
+            "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+        "audit_date": "2026-09-06",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+          "doi": "10.3390/min9110684",
+          "locations": ["Equation (1)", "Table 1"],
+          "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-07",
+          "dataset_identifiers": ["tungsten_dewaele_2004_table1_compression"],
+          "source_locations": ["tungsten-dewaele-2004-table1-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+          "finding": "All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+          "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+          "fit_scope": "complete",
+          "record_parameter_comparison": {
+            "absolute_parameter_difference": [0.00027428531123341315, 0.02920692845071926, 0.002696093094493257],
+            "max_abs_gpa": 1.6571624350563923,
+            "parameters": [15.857725714688767, 298.5707930715493, 4.367303906905507],
+            "rmse_gpa": 0.5794876562451563,
+            "within_reported_95pct_errors": true
+          }
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+        "V0": "Table 1",
+        "K0": "Table 1",
+        "K0_prime": "Table 1"
+      },
+      "source_lineage": [
+        {
+          "role": "scientific equation and coefficients",
+          "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+          "doi": "10.3390/min9110684"
+        }
       ],
-      "year": 2004,
-      "title": "Equations of state of six metals above 94 GPa",
-      "source": "Physical Review B",
-      "doi": "10.1103/PhysRevB.70.094112"
-     },
-     "status": "as_reported",
-     "pressure_column": "ruby_pressure_classical_gpa",
-     "target_calibration_record": "ruby_mao_1986",
-     "row_scope": "all_rows",
-     "source_location": "Table I and Equation (1)",
-     "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+      "fit_datasets": ["tungsten_dewaele_2004_table1_compression"]
     },
     {
-     "eos_record": "tungsten_dewaele_2004_vinet_2",
-     "reference": {
-      "authors": [
-       "Dewaele",
-       "Loubeyre",
-       "Mezouar"
-      ],
-      "year": 2004,
-      "title": "Equations of state of six metals above 94 GPa",
-      "source": "Phys. Rev. B",
-      "volume": "70",
-      "locator": "094112",
-      "doi": "10.1103/PhysRevB.70.094112"
-     },
-     "status": "as_reported",
-     "pressure_column": "ruby_pressure_revised_gpa",
-     "target_calibration_record": "ruby_dewaele_2004",
-     "row_scope": "all_rows",
-     "source_location": "Table I and Equation (1)",
-     "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
-    },
-    {
-     "eos_record": "tungsten_dewaele_2019_mao_vinet",
-     "reference": {
-      "authors": [
-       "Dewaele"
-      ],
-      "year": 2019,
-      "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-      "source": "Minerals",
-      "doi": "10.3390/min9110684"
-     },
-     "status": "as_reported",
-     "pressure_column": "ruby_pressure_classical_gpa",
-     "target_calibration_record": "ruby_mao_1986",
-     "row_scope": "all_rows",
-     "source_location": "Table 1 and Sections 2-4; source rows: Dewaele et al. (2004), Table I; reproduced in scripts/audit_dewaele_2019_static_dac.py",
-     "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
-    },
-    {
-     "eos_record": "tungsten_dewaele_2019_dor_vinet",
-     "reference": {
-      "authors": [
-       "Dewaele"
-      ],
-      "year": 2019,
-      "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-      "source": "Minerals",
-      "doi": "10.3390/min9110684"
-     },
-     "status": "transformed",
-     "pressure_column": "ruby_pressure_classical_gpa",
-     "target_calibration_record": "ruby_dorogokupets_oganov_2007",
-     "row_scope": "all_rows",
-     "convention": "same_corrected_ruby_r1_ratio",
-     "source_location": "Table 1 and Sections 2-4; source rows: Dewaele et al. (2004), Table I; reproduced in scripts/audit_dewaele_2019_static_dac.py",
-     "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+      "identifier": "tungsten_dewaele_2004_mao_ruby_vinet",
+      "label": "Dewaele et al. (2004), W mao ruby Vinet",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+        "year": 2004,
+        "title": "Equations of state of six metals above 94 GPa",
+        "source": "Physical Review B",
+        "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "temperature_ref": 298.0,
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {"V0": 31.724, "K0": 298.3, "K0_prime": 3.81}
+      },
+      "parameter_errors": {"V0": null, "K0": 3.6, "K0_prime": 0.1},
+      "parameter_error_confidence": 0.95,
+      "fixed_parameters": ["V0"],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.0, 144.3],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 144.3],
+        "temperature_k": [298.0, 298.0],
+        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+      },
+      "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Table I classical P_R column; Mao et al. (1986), A=1904 GPa, B=7.665",
+            "reference_calibration_record": "ruby_mao_1986",
+            "scope": "all Table I observations for this metal"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "Both source-calculated pressure columns and all sample volumes are bundled. Raw ruby R1 wavelengths are not printed; either monotonic scale can be inverted at the table's rounded precision to check or transform the pressure reduction."
+        },
+        "audit_date": "2026-09-07"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+          "doi": "10.1103/physrevb.70.094112",
+          "locations": ["Equation (1)", "Figure 2 caption", "Tables I and II"],
+          "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-07",
+          "dataset_identifiers": ["tungsten_dewaele_2004_table1_compression"],
+          "source_locations": ["Table I, journal page 094112-4"],
+          "finding": "All available Table I observations for this metal are directly transcribed with both printed ruby-pressure reductions and the common atomic-volume uncertainty."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Figure 2 caption; Tables I and II.",
+        "V0": "Tables I and II",
+        "K0": "Tables I and II",
+        "K0_prime": "Tables I and II"
+      },
+      "source_lineage": [
+        {
+          "role": "scientific equation and coefficients",
+          "citation": "Equations of state of six metals above 94 GPa, Equation (1), Figure 2 caption, Tables I and II",
+          "doi": "10.1103/PhysRevB.70.094112"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
-   "kind": "simultaneous_unit_cell_volumes",
-   "description": "All 3,511 non-missing unit-cell volume measurements and standard errors from the two Supplemental Table S1 worksheets.",
-   "reference": {
-    "authors": [
-     "Shen",
-     "Smith"
-    ],
-    "year": 2026,
-    "source": "Phys. Rev. B",
-    "volume": "113",
-    "locator": "144113",
-    "doi": "10.1103/fxgq-96sg"
-   },
-   "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "experiment",
-     "quantity": "experiment_identifier",
-     "unit": "dimensionless",
-     "role": "flag"
+      "identifier": "tungsten_sakai_2025_table_s9_rs_eos_grid",
+      "kind": "derived_pressure_volume_grid",
+      "description": "Official 26-row Table S9 W compression grid calculated from the published Rydberg-Stacey coefficients; retained as an exact implementation checkpoint, not as independent fit input.",
+      "reference": {
+        "authors": [
+          "Sakai",
+          "Kadobayashi",
+          "Nakamoto",
+          "Dekura",
+          "Ishimatsu",
+          "Kawaguchi-Imada",
+          "Seto",
+          "Sekizawa",
+          "Nitta",
+          "Shimizu"
+        ],
+        "year": 2025,
+        "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+        "source": "Communications Materials",
+        "volume": "6",
+        "locator": "68",
+        "doi": "10.1038/s43246-025-00792-5"
+      },
+      "source_location": "Supplementary Data 1, Table S9",
+      "source_url": "https://doi.org/10.1038/s43246-025-00792-5",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {"name": "volume_ratio", "quantity": "relative_volume", "unit": "1", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/tungsten-sakai-2025-table-s9-rs-eos-grid.csv",
+        "sha256": "96efd4a74899ae8c6e3d17214c2a26eb32aa71057d36fe87940b6b82fe19dd01",
+        "media_type": "text/csv"
+      },
+      "provenance": {
+        "type": "transcribed_from_official_derived_table",
+        "official_workbook_sha256": "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9",
+        "notes": "Table S9 is formula-generated from Table 2 coefficients. It verifies transcription and equation implementation but cannot independently refit the coefficients."
+      },
+      "used_by_eos_records": ["tungsten_sakai_2025_rydberg_stacey_1"]
     },
     {
-     "name": "run_number",
-     "quantity": "run_number",
-     "unit": "dimensionless",
-     "role": "flag"
+      "identifier": "tungsten_dewaele_2004_table1_compression",
+      "kind": "pressure_volume",
+      "description": "All 42 Table I tungsten atomic-volume observations, with both printed ruby-pressure reductions.",
+      "reference": {
+        "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+        "year": 2004,
+        "source": "Phys. Rev. B",
+        "volume": "70",
+        "locator": "094112",
+        "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Table I, journal page 094112-4",
+      "columns": [
+        {
+          "name": "ruby_pressure_classical_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value",
+          "pressure_scale": {
+            "calibration_record": "ruby_mao_1986",
+            "reference": {
+              "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+              "year": 2004,
+              "source": "Phys. Rev. B",
+              "volume": "70",
+              "locator": "094112",
+              "doi": "10.1103/PhysRevB.70.094112"
+            },
+            "source_location": "Table I classical P_R; Equation (1), A=1904 GPa, B=7.665"
+          }
+        },
+        {
+          "name": "ruby_pressure_revised_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value",
+          "pressure_scale": {
+            "calibration_record": "ruby_dewaele_2004",
+            "reference": {
+              "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+              "year": 2004,
+              "source": "Phys. Rev. B",
+              "volume": "70",
+              "locator": "094112",
+              "doi": "10.1103/PhysRevB.70.094112"
+            },
+            "source_location": "Table I revised P'_R; Equation (1), A=1904 GPa, B=9.5"
+          }
+        },
+        {"name": "atomic_volume_a3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "value"},
+        {
+          "name": "atomic_volume_uncertainty_a3",
+          "quantity": "atomic_volume",
+          "unit": "angstrom^3/atom",
+          "role": "bound",
+          "of": "atomic_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/tungsten-dewaele-2004-table1-compression.csv",
+        "sha256": "d73f1d9114c974be80175c6ade256bf17cb4a529e911480e6cd1e337394ef523",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [
+        "tungsten_dewaele_2004_mao_ruby_vinet",
+        "tungsten_dewaele_2004_vinet_2",
+        "tungsten_dewaele_2019_mao_vinet",
+        "tungsten_dewaele_2019_dor_vinet"
+      ],
+      "transcription": {
+        "type": "direct_table_transcription",
+        "method": "Manual transcription from the publisher PDF with source row order and printed decimal precision retained.",
+        "source_artifact": {
+          "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+          "media_type": "application/pdf",
+          "sha256": "1f9e02e4a77f49a868b1a6261290465bdb00597b1660691b1790c7502ec9aeeb"
+        }
+      },
+      "license": "No explicit open data-reuse license is stated. APS copyright applies to the article; this factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
+      "notes": "Table I groups Cu/W/Al in the first two runs and Au/Pt/Ta in the last three runs. Blank metal cells are omitted rather than imputed. P_R is the classical Mao et al. (1986) reduction (A=1904 GPa, B=7.665); P'_R is the Dewaele et al. revision (A=1904 GPa, B=9.5). The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but prints neither row-wise pressure errors nor raw R1 wavelengths.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+      "pressure_reductions": [
+        {
+          "eos_record": "tungsten_dewaele_2004_mao_ruby_vinet",
+          "reference": {
+            "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+            "year": 2004,
+            "title": "Equations of state of six metals above 94 GPa",
+            "source": "Physical Review B",
+            "doi": "10.1103/PhysRevB.70.094112"
+          },
+          "status": "as_reported",
+          "pressure_column": "ruby_pressure_classical_gpa",
+          "target_calibration_record": "ruby_mao_1986",
+          "row_scope": "all_rows",
+          "source_location": "Table I and Equation (1)",
+          "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+        },
+        {
+          "eos_record": "tungsten_dewaele_2004_vinet_2",
+          "reference": {
+            "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+            "year": 2004,
+            "title": "Equations of state of six metals above 94 GPa",
+            "source": "Phys. Rev. B",
+            "volume": "70",
+            "locator": "094112",
+            "doi": "10.1103/PhysRevB.70.094112"
+          },
+          "status": "as_reported",
+          "pressure_column": "ruby_pressure_revised_gpa",
+          "target_calibration_record": "ruby_dewaele_2004",
+          "row_scope": "all_rows",
+          "source_location": "Table I and Equation (1)",
+          "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+        },
+        {
+          "eos_record": "tungsten_dewaele_2019_mao_vinet",
+          "reference": {
+            "authors": ["Dewaele"],
+            "year": 2019,
+            "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+            "source": "Minerals",
+            "doi": "10.3390/min9110684"
+          },
+          "status": "as_reported",
+          "pressure_column": "ruby_pressure_classical_gpa",
+          "target_calibration_record": "ruby_mao_1986",
+          "row_scope": "all_rows",
+          "source_location": "Table 1 and Sections 2-4; source rows: Dewaele et al. (2004), Table I; reproduced in scripts/audit_dewaele_2019_static_dac.py",
+          "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+        },
+        {
+          "eos_record": "tungsten_dewaele_2019_dor_vinet",
+          "reference": {
+            "authors": ["Dewaele"],
+            "year": 2019,
+            "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+            "source": "Minerals",
+            "doi": "10.3390/min9110684"
+          },
+          "status": "transformed",
+          "pressure_column": "ruby_pressure_classical_gpa",
+          "target_calibration_record": "ruby_dorogokupets_oganov_2007",
+          "row_scope": "all_rows",
+          "convention": "same_corrected_ruby_r1_ratio",
+          "source_location": "Table 1 and Sections 2-4; source rows: Dewaele et al. (2004), Table I; reproduced in scripts/audit_dewaele_2019_static_dac.py",
+          "notes": "Alternative pressure reduction of the same dataset observations. Preserve rounded source pressures; raw R1 wavelengths and row temperatures are unreported. Scale uncertainties are shared and are not propagated as independent row errors."
+        }
+      ]
     },
     {
-     "name": "phase",
-     "quantity": "phase_identifier",
-     "unit": "dimensionless",
-     "role": "flag"
-    },
-    {
-     "name": "measurement_sequence",
-     "quantity": "measurement_sequence",
-     "unit": "dimensionless",
-     "role": "flag"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_standard_error_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_error",
-     "of": "unit_cell_volume_a3"
+      "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "kind": "simultaneous_unit_cell_volumes",
+      "description": "All 3,511 non-missing unit-cell volume measurements and standard errors from the two Supplemental Table S1 worksheets.",
+      "reference": {
+        "authors": ["Shen", "Smith"],
+        "year": 2026,
+        "source": "Phys. Rev. B",
+        "volume": "113",
+        "locator": "144113",
+        "doi": "10.1103/fxgq-96sg"
+      },
+      "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
+      "columns": [
+        {"name": "experiment", "quantity": "experiment_identifier", "unit": "dimensionless", "role": "flag"},
+        {"name": "run_number", "quantity": "run_number", "unit": "dimensionless", "role": "flag"},
+        {"name": "phase", "quantity": "phase_identifier", "unit": "dimensionless", "role": "flag"},
+        {"name": "measurement_sequence", "quantity": "measurement_sequence", "unit": "dimensionless", "role": "flag"},
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "unit_cell_volume_standard_error_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_error",
+          "of": "unit_cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/shen-smith-2026-table-s1-volumes.csv",
+        "sha256": "1e8841829f67a7bdbcd654d3a4b87dcdbbaa81bc700b73e9c1800ae71d989f36",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["tungsten_shen_2026_vinet_3"],
+      "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
+      "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
     }
-   ],
-   "resource": {
-    "path": "datasets/shen-smith-2026-table-s1-volumes.csv",
-    "sha256": "1e8841829f67a7bdbcd654d3a4b87dcdbbaa81bc700b73e9c1800ae71d989f36",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "tungsten_shen_2026_vinet_3"
-   ],
-   "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
-   "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
-  }
- ]
+  ]
 }

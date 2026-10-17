@@ -1,1436 +1,959 @@
 {
- "format_version": 3,
- "name": "SiO2 stishovite",
- "formula": "SiO2",
- "symmetry": "TETRAGONAL",
- "lattice": {
-  "a": 4.1772,
-  "b": 4.1772,
-  "c": 2.66505,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P42/mnm",
- "space_group_number": 136,
- "atom_sites": [
-  {
-   "element": "Si",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4f",
-   "x": 0.3062,
-   "y": 0.3062,
-   "z": 0.0,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/sio2-stv_Andr.jcpds. Ambient stishovite coordinates: Baur and Khan, Acta Crystallographica B27, 2133-2139 (1971).",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Andrault et al. (2003)",
-   "reference": {
-    "authors": [
-     "Andrault",
-     "Angel",
-     "Mosenfelder",
-     "Le Bihan"
-    ],
-    "year": 2003,
-    "title": "Equation of state of stishovite to lower mantle pressures",
-    "source": "American Mineralogist",
-    "volume": "88",
-    "locator": "301-307",
-    "doi": "10.2138/am-2003-2-307"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 46.5025,
-     "K0": 309.9,
-     "K0_prime": 4.59
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.61,
-    "K0": 1.1,
-    "K0_prime": 0.23
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    53.0
-   ],
-   "notes": "Andrault et al. report V0 = 46.51(61) A^3, K0 = 309.9(1.1) GPa, and K0' = 4.59(23). The stored V0 retains the more precise ambient lattice product.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1 and 2, journal pages 303-304; EOS discussion and Figure 2, journal page 304."
-   },
-   "identifier": "sio2_stv_andr_andrault_2003_bm3_1",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "sio2_stv_andr",
+  "name": "SiO2 stishovite",
+  "formula": "SiO2",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "symmetry": "TETRAGONAL",
+  "space_group": "P42/mnm",
+  "space_group_number": 136,
+  "lattice": {"a": 4.1772, "b": 4.1772, "c": 2.66505, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Si", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4f", "x": 0.3062, "y": 0.3062, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/sio2-stv_Andr.jcpds. Ambient stishovite coordinates: Baur and Khan, Acta Crystallographica B27, 2133-2139 (1971).",
+  "eos_records": [
+    {
+      "identifier": "sio2_stv_andr_andrault_2003_bm3_1",
+      "label": "Andrault et al. (2003)",
+      "determination_method": "experimental",
       "reference": {
-       "authors": [
-        "Angel",
-        "Allan",
-        "Miletich",
-        "Finger"
-       ],
-       "year": 1997,
-       "source": "J. Appl. Crystallogr.",
-       "doi": "10.1107/S0021889897000861"
+        "authors": ["Andrault", "Angel", "Mosenfelder", "Le Bihan"],
+        "year": 2003,
+        "title": "Equation of state of stishovite to lower mantle pressures",
+        "source": "American Mineralogist",
+        "volume": "88",
+        "locator": "301-307",
+        "doi": "10.2138/am-2003-2-307"
       },
-      "source_location": "Experimental accuracy and precision; Table 1",
-      "scope": "single-crystal series",
-      "reference_eos_record": "alpha_quartz_angel_1997_bm3_1"
-     },
-     {
-      "kind": "equation_of_state",
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 46.5025, "K0": 309.9, "K0_prime": 4.59},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.61, "K0": 1.1, "K0_prime": 0.23},
+      "fixed_parameters": [],
+      "experimental_pressure_range_gpa": [0.0, 53.0],
+      "notes": "Andrault et al. report V0 = 46.51(61) A^3, K0 = 309.9(1.1) GPa, and K0' = 4.59(23). The stored V0 retains the more precise ambient lattice product.",
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Angel", "Allan", "Miletich", "Finger"],
+              "year": 1997,
+              "source": "J. Appl. Crystallogr.",
+              "doi": "10.1107/S0021889897000861"
+            },
+            "source_location": "Experimental accuracy and precision; Table 1",
+            "scope": "single-crystal series",
+            "reference_eos_record": "alpha_quartz_angel_1997_bm3_1"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Brown"],
+              "year": 1999,
+              "source": "J. Appl. Phys.",
+              "volume": "86",
+              "locator": "5801-5808"
+            },
+            "source_location": "Powder-diffraction procedure; Table 2",
+            "scope": "powder observations using NaCl-B1"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Sata", "Shen", "Rivers", "Sutton"],
+              "year": 2002,
+              "source": "Phys. Rev. B",
+              "volume": "65",
+              "locator": "114114"
+            },
+            "source_location": "Powder-diffraction procedure; Table 2",
+            "scope": "powder observations using NaCl-B2"
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "The quartz EOS is bundled, and Table 2 preserves the measured NaCl-B1/B2 volumes. Recalculation of the complete combined set additionally requires executable Brown (1999) NaCl-B1 and Sata et al. (2002) NaCl-B2 records."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.2138/am-2003-2-307",
+          "locations": ["Tables 1 and 2, journal pages 303-304", "EOS discussion and Figure 2, journal page 304"],
+          "finding": "The combined BM3 fit uses the new single-crystal quartz-calibrated observations in Table 1 and the laser-annealed NaCl-calibrated powder observations in Table 2. Both tables are bundled with lattice parameters, conventional-cell volumes, pressure-standard volumes, and printed uncertainties.",
+          "doi": "10.2138/am-2003-2-307"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "sio2_stv_andr.json"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-03",
+          "dataset_identifiers": ["stishovite_andrault_2003_tables1_2_compression"],
+          "source_locations": ["Table 1, journal page 303", "Table 2, journal page 304"],
+          "finding": "All 11 single-crystal sample observations and all 13 powder sample observations underlying the reported combined stishovite EOS are tabulated and bundled. The ambient NaCl-B1 standard-only entry in Table 2 is documented in the dataset notes but omitted because it has no paired SiO2 measurement."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1 and 2, journal pages 303-304; EOS discussion and Figure 2, journal page 304."
+      }
+    },
+    {
+      "identifier": "sio2_stv_andr_wang_2012_vinet_mgd_2",
+      "label": "Wang et al. (2012), principal Vinet-MGD presentation",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "thermal",
       "reference": {
-       "authors": [
-        "Brown"
-       ],
-       "year": 1999,
-       "source": "J. Appl. Phys.",
-       "volume": "86",
-       "locator": "5801-5808"
+        "authors": ["Wang", "Tange", "Irifune", "Funakoshi"],
+        "year": 2012,
+        "title": "P-V-T equation of state of stishovite up to mid-lower mantle conditions",
+        "source": "J. Geophys. Res. Solid Earth",
+        "volume": "117",
+        "locator": "B06209",
+        "doi": "10.1029/2011JB009100"
       },
-      "source_location": "Powder-diffraction procedure; Table 2",
-      "scope": "powder observations using NaCl-B1"
-     },
-     {
-      "kind": "equation_of_state",
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "parameters": {"V0": 46.55, "K0": 292.0, "K0_prime": 5.01},
+        "model": "vinet"
+      },
+      "thermal": {
+        "type": "AsymptoticPowerLawMieGruneisenDebye",
+        "parameters": {"Tr": 300.0, "theta0": 1130.0, "gamma0": 1.67, "a": 1.0, "b": 3.0, "n": 3.0},
+        "parameter_errors": {"theta0": 110.0, "gamma0": 0.07, "b": 0.4},
+        "fixed_parameters": ["Tr", "a", "n"],
+        "model": "asymptotic_power_law_mie_gruneisen_debye"
+      },
+      "parameter_errors": {"V0": null, "K0": 2.0, "K0_prime": 0.12},
+      "fixed_parameters": ["V0"],
+      "experimental_pressure_range_gpa": [16.85, 54.5],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [300.0, 1700.0],
+      "notes": "This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0*(V/V0)^b and theta(V)=theta0*exp[-gamma0*((V/V0)^b-1)/b]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.",
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Tsuchiya"],
+              "year": 2003,
+              "source": "J. Geophys. Res. Solid Earth",
+              "volume": "108",
+              "locator": "2462",
+              "doi": "10.1029/2003JB002446"
+            },
+            "source_location": "Experimental procedures, paragraphs 7-8; Results, paragraph 12",
+            "scope": "pressures calculated from simultaneous Au volume and measured temperature"
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "All 56 paired Au conventional-cell volumes and temperatures are bundled, but the Tsuchiya (2003) ab initio Au thermal EOS is not an executable Peritheos pressure-standard record. Exact pressure re-reduction therefore awaits that separate calibration record."
+        },
+        "audit_date": "2026-09-04"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Equation, parameters, reference state, uncertainties, material identity, calibration, complete observations, and numerical values were checked against the primary publication; LitCurate was used only to discover the DOI.",
+        "audit_date": "2026-09-04",
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "composition",
+          "volume_basis",
+          "published_uncertainties",
+          "fixed_parameters",
+          "validity",
+          "pressure_calibration",
+          "primary_data"
+        ],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1029/2011JB009100",
+          "locations": [
+            "Equations 1-8 and analytical methods, paragraphs 9 and 13-14",
+            "Tables 1-3",
+            "Experimental procedures, paragraphs 6-8",
+            "Discussion, paragraph 24"
+          ],
+          "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
+          "doi": "10.1029/2011JB009100"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-04",
+          "dataset_identifiers": ["stishovite_wang_2012_table1_pvt"],
+          "source_locations": ["Primary article Table 1", "Publisher-listed tab-delimited supplement jgrb17202-sup-0001-t01.txt"],
+          "finding": "All 56 Table 1 observations are bundled with data identifiers, temperature, pressure, tetragonal lattice parameters, conventional-cell volume, simultaneous Au volume, and every printed parenthetical e.s.d. The publisher's supplement endpoint was unavailable to this audit client, so the transcription was verified against the complete official HTML rendering of Table 1."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-8 and analytical methods, paragraphs 9 and 13-14; Tables 1-3; Experimental procedures, paragraphs 6-8; Discussion, paragraph 24.",
+        "V0": "Table 2 and paragraphs 11 and 14; fixed at 46.55 A^3 after rounding the recovered ambient conventional-cell measurement 46.553(19) A^3",
+        "K0": "Table 2, Morse-Rydberg (Vinet) column",
+        "K0_prime": "Table 2, Morse-Rydberg (Vinet) column",
+        "theta0": "Table 2, Morse-Rydberg (Vinet) column",
+        "gamma0": "Table 2, Morse-Rydberg (Vinet) column",
+        "a": "Equation 7 and paragraph 14; fixed at 1 because it could not be constrained",
+        "b": "Table 2, Morse-Rydberg (Vinet) column",
+        "n": "Equation 5 atom count applied to SiO2 stoichiometry"
+      },
+      "fit_datasets": ["stishovite_wang_2012_table1_pvt"]
+    },
+    {
+      "identifier": "sio2_stv_andr_driver_2010_qmc_300k_vinet",
+      "label": "Driver et al. (2010), QMC 300 K Vinet",
+      "record_kind": "published",
+      "determination_method": "theoretical",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "Sata",
-        "Shen",
-        "Rivers",
-        "Sutton"
-       ],
-       "year": 2002,
-       "source": "Phys. Rev. B",
-       "volume": "65",
-       "locator": "114114"
+        "authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"],
+        "year": 2010,
+        "title": "Quantum Monte Carlo computations of phase stability, equations of state, and elasticity of high-pressure silica",
+        "source": "Proceedings of the National Academy of Sciences",
+        "volume": "107",
+        "locator": "9519-9524",
+        "doi": "10.1073/pnas.0912130107"
       },
-      "source_location": "Powder-diffraction procedure; Table 2",
-      "scope": "powder observations using NaCl-B2"
-     }
-    ],
-    "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "The quartz EOS is bundled, and Table 2 preserves the measured NaCl-B1/B2 volumes. Recalculation of the complete combined set additionally requires executable Brown (1999) NaCl-B1 and Sata et al. (2002) NaCl-B2 records."
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {"V0": 47.12273825, "K0": 305.0, "K0_prime": 3.7}
+      },
+      "parameter_errors": {"V0": 0.11854777, "K0": 20.0, "K0_prime": 0.6},
+      "fixed_parameters": [],
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
+      "experimental_pressure_range_gpa": [0.0, 45.0],
+      "pressure_range_status": "theoretical",
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "validity": {
+        "pressure_gpa": [0.0, 45.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Restricted to the rutile stishovite side of the source's continuous stishovite-CaCl2 sequence."]
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {"kind": "ab_initio", "source_location": "Methods"}
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "Quantum Monte Carlo thermal EOS."},
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
+        "audit_date": "2026-09-05",
+        "verified_fields": [
+          "canonical_doi",
+          "composition",
+          "phase",
+          "equation",
+          "parameters",
+          "uncertainties",
+          "volume_basis",
+          "reference_state",
+          "theoretical_method"
+        ],
+        "primary_source_check": {
+          "access_url": "https://arxiv.org/pdf/1001.2066",
+          "doi": "10.1073/pnas.0912130107",
+          "locations": ["Equations of States section", "Figure 1b", "Table 1"],
+          "finding": "The source reports the QMC 300 K stishovite Vinet row directly."
+        },
+        "primary_data_check": {
+          "status": "parameterization_and_plot_only",
+          "audit_date": "2026-09-05",
+          "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1b; Table 1.",
+        "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
+        "parameters": "Table 1, stishovite QMC column.",
+        "volume_conversion": "159.0(4) bohr3 per SiO2 converted to A3 and multiplied by Z=2."
+      }
     },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.2138/am-2003-2-307",
-     "locations": [
-      "Tables 1 and 2, journal pages 303-304",
-      "EOS discussion and Figure 2, journal page 304"
-     ],
-     "finding": "The combined BM3 fit uses the new single-crystal quartz-calibrated observations in Table 1 and the laser-annealed NaCl-calibrated powder observations in Table 2. Both tables are bundled with lattice parameters, conventional-cell volumes, pressure-standard volumes, and printed uncertainties.",
-     "doi": "10.2138/am-2003-2-307"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "sio2_stv_andr.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "stishovite_andrault_2003_tables1_2_compression"
-     ],
-     "source_locations": [
-      "Table 1, journal page 303",
-      "Table 2, journal page 304"
-     ],
-     "finding": "All 11 single-crystal sample observations and all 13 powder sample observations underlying the reported combined stishovite EOS are tabulated and bundled. The ambient NaCl-B1 standard-only entry in Table 2 is documented in the dataset notes but omitted because it has no paired SiO2 measurement."
-    }
-   }
-  },
-  {
-   "label": "Wang et al. (2012), principal Vinet-MGD presentation",
-   "reference": {
-    "authors": [
-     "Wang",
-     "Tange",
-     "Irifune",
-     "Funakoshi"
-    ],
-    "year": 2012,
-    "title": "P-V-T equation of state of stishovite up to mid-lower mantle conditions",
-    "source": "J. Geophys. Res. Solid Earth",
-    "volume": "117",
-    "locator": "B06209",
-    "doi": "10.1029/2011JB009100"
-   },
-   "record_kind": "published",
-   "equation_kind": "thermal",
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 46.55,
-     "K0": 292.0,
-     "K0_prime": 5.01
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 2.0,
-    "K0_prime": 0.12
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "temperature_ref": 300.0,
-   "thermal": {
-    "type": "AsymptoticPowerLawMieGruneisenDebye",
-    "parameters": {
-     "Tr": 300.0,
-     "theta0": 1130.0,
-     "gamma0": 1.67,
-     "a": 1.0,
-     "b": 3.0,
-     "n": 3.0
-    },
-    "parameter_errors": {
-     "theta0": 110.0,
-     "gamma0": 0.07,
-     "b": 0.4
-    },
-    "fixed_parameters": [
-     "Tr",
-     "a",
-     "n"
-    ],
-    "model": "asymptotic_power_law_mie_gruneisen_debye"
-   },
-   "fit_datasets": [
-    "stishovite_wang_2012_table1_pvt"
-   ],
-   "experimental_pressure_range_gpa": [
-    16.85,
-    54.5
-   ],
-   "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [
-    300.0,
-    1700.0
-   ],
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-8 and analytical methods, paragraphs 9 and 13-14; Tables 1-3; Experimental procedures, paragraphs 6-8; Discussion, paragraph 24.",
-    "V0": "Table 2 and paragraphs 11 and 14; fixed at 46.55 A^3 after rounding the recovered ambient conventional-cell measurement 46.553(19) A^3",
-    "K0": "Table 2, Morse-Rydberg (Vinet) column",
-    "K0_prime": "Table 2, Morse-Rydberg (Vinet) column",
-    "theta0": "Table 2, Morse-Rydberg (Vinet) column",
-    "gamma0": "Table 2, Morse-Rydberg (Vinet) column",
-    "a": "Equation 7 and paragraph 14; fixed at 1 because it could not be constrained",
-    "b": "Table 2, Morse-Rydberg (Vinet) column",
-    "n": "Equation 5 atom count applied to SiO2 stoichiometry"
-   },
-   "notes": "This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0*(V/V0)^b and theta(V)=theta0*exp[-gamma0*((V/V0)^b-1)/b]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.",
-   "determination_method": "experimental",
-   "identifier": "sio2_stv_andr_wang_2012_vinet_mgd_2",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
+    {
+      "identifier": "sio2_stv_andr_holland_2013_stv_modified_tait",
+      "label": "Holland et al. (2013), stv modified Tait",
+      "record_kind": "published",
+      "determination_method": "unknown",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "Tsuchiya"
-       ],
-       "year": 2003,
-       "source": "J. Geophys. Res. Solid Earth",
-       "volume": "108",
-       "locator": "2462",
-       "doi": "10.1029/2003JB002446"
+        "authors": ["Holland", "Hudson", "Powell", "Harte"],
+        "year": 2013,
+        "title": "New Thermodynamic Models and Calculated Phase Equilibria in NCFMAS for Basic and Ultrabasic Compositions through the Transition Zone into the Uppermost Lower Mantle",
+        "source": "Journal of Petrology",
+        "volume": "54",
+        "locator": "1901-1920",
+        "doi": "10.1093/petrology/egt035"
       },
-      "source_location": "Experimental procedures, paragraphs 7-8; Results, paragraph 12",
-      "scope": "pressures calculated from simultaneous Au volume and measured temperature"
-     }
-    ],
-    "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "All 56 paired Au conventional-cell volumes and temperatures are bundled, but the Tsuchiya (2003) ab initio Au thermal EOS is not an executable Peritheos pressure-standard record. Exact pressure re-reduction therefore awaits that separate calibration record."
+      "temperature_ref": 298.15,
+      "eos": {
+        "type": "ModifiedTait",
+        "model": "modified_tait",
+        "parameters": {"V0": 46.52830466, "K0": 309.0, "K0_prime": 4.6, "K0_double_prime": -0.015}
+      },
+      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null},
+      "fixed_parameters": [],
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
+      "experimental_pressure_range_gpa": [0.0001, 30.0],
+      "pressure_range_status": "reference_parameterization",
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "validity": {
+        "pressure_gpa": [0.0001, 30.0],
+        "temperature_k": [298.15, 298.15],
+        "notes": ["Stishovite thermodynamic endmember reference isotherm."]
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "self_consistent",
+            "source_location": "Thermodynamic data section and official tc-ds62 parameter artifact",
+            "scope": "self-consistent thermodynamic endmember reference isotherm",
+            "notes": "This database endmember parameterization does not use an experimental pressure gauge."
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "No separate experimental pressure calibration applies to the published thermodynamic-model coefficients."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Complete four-coefficient modified-Tait endmember.",
+        "audit_date": "2026-09-05",
+        "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "units", "volume_basis", "reference_state"],
+        "primary_source_check": {
+          "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
+          "doi": "10.1093/petrology/egt035",
+          "locations": ["Table 1", "Thermodynamic data section"],
+          "finding": "The stv endmember is a distinct modified-Tait reference isotherm."
+        },
+        "primary_data_check": {
+          "status": "official_parameter_artifact",
+          "audit_date": "2026-09-05",
+          "source_url": "https://hpxeosandthermocalc.org/wp-content/uploads/2025/05/tc-thermoinput-metabasite-2022-01-30.zip",
+          "sha256": "46fa2ecb4fccdeaf44984da81342455d10e920012ab8d6db35b0bc94a7e0781c",
+          "finding": "The official tc-ds62 stv block provides all four coefficients."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Table 1 and the official tc-ds62 endmember block establish the coefficients, but the existing audit does not trace this endmember's individual EOS constraints to measurements versus calculations. Determination remains unknown pending that source tracing; self_consistent is not a determination method.",
+        "parameters": "Article Table 1 and official tc-ds62 stv block.",
+        "unit_conversion": "V0=1.401 J/bar/mol, K0=3090 kbar, K0''=-0.00150 kbar^-1; converted to executable units and Z=2."
+      }
     },
-    "audit_date": "2026-09-04"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Equation, parameters, reference state, uncertainties, material identity, calibration, complete observations, and numerical values were checked against the primary publication; LitCurate was used only to discover the DOI.",
-    "audit_date": "2026-09-04",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "composition",
-     "volume_basis",
-     "published_uncertainties",
-     "fixed_parameters",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/2011JB009100",
-     "locations": [
-      "Equations 1-8 and analytical methods, paragraphs 9 and 13-14",
-      "Tables 1-3",
-      "Experimental procedures, paragraphs 6-8",
-      "Discussion, paragraph 24"
-     ],
-     "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
-     "doi": "10.1029/2011JB009100"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-04",
-     "dataset_identifiers": [
-      "stishovite_wang_2012_table1_pvt"
-     ],
-     "source_locations": [
-      "Primary article Table 1",
-      "Publisher-listed tab-delimited supplement jgrb17202-sup-0001-t01.txt"
-     ],
-     "finding": "All 56 Table 1 observations are bundled with data identifiers, temperature, pressure, tetragonal lattice parameters, conventional-cell volume, simultaneous Au volume, and every printed parenthetical e.s.d. The publisher's supplement endpoint was unavailable to this audit client, so the transcription was verified against the complete official HTML rendering of Table 1."
-    }
-   }
-  },
-  {
-   "determination_method": "theoretical",
-   "identifier": "sio2_stv_andr_driver_2010_qmc_300k_vinet",
-   "label": "Driver et al. (2010), QMC 300 K Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Driver",
-     "Cohen",
-     "Wu",
-     "Militzer",
-     "Lopez Rios",
-     "Towler",
-     "Needs",
-     "Wilkins"
-    ],
-    "year": 2010,
-    "title": "Quantum Monte Carlo computations of phase stability, equations of state, and elasticity of high-pressure silica",
-    "source": "Proceedings of the National Academy of Sciences",
-    "volume": "107",
-    "locator": "9519-9524",
-    "doi": "10.1073/pnas.0912130107"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 47.12273825,
-     "K0": 305.0,
-     "K0_prime": 3.7
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.11854777,
-    "K0": 20.0,
-    "K0_prime": 0.6
-   },
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    45.0
-   ],
-   "pressure_range_status": "theoretical",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 2.0,
-    "molar_mass_g_mol": 60.083
-   },
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     45.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Restricted to the rutile stishovite side of the source's continuous stishovite-CaCl2 sequence."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1b; Table 1.",
-    "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
-    "parameters": "Table 1, stishovite QMC column.",
-    "volume_conversion": "159.0(4) bohr3 per SiO2 converted to A3 and multiplied by Z=2."
-   },
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "ab_initio",
-      "source_location": "Methods"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "Quantum Monte Carlo thermal EOS."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "equation",
-     "parameters",
-     "uncertainties",
-     "volume_basis",
-     "reference_state",
-     "theoretical_method"
-    ],
-    "primary_source_check": {
-     "access_url": "https://arxiv.org/pdf/1001.2066",
-     "doi": "10.1073/pnas.0912130107",
-     "locations": [
-      "Equations of States section",
-      "Figure 1b",
-      "Table 1"
-     ],
-     "finding": "The source reports the QMC 300 K stishovite Vinet row directly."
-    },
-    "primary_data_check": {
-     "status": "parameterization_and_plot_only",
-     "audit_date": "2026-09-05",
-     "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."
-    }
-   }
-  },
-  {
-   "determination_method": "unknown",
-   "identifier": "sio2_stv_andr_holland_2013_stv_modified_tait",
-   "label": "Holland et al. (2013), stv modified Tait",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Holland",
-     "Hudson",
-     "Powell",
-     "Harte"
-    ],
-    "year": 2013,
-    "title": "New Thermodynamic Models and Calculated Phase Equilibria in NCFMAS for Basic and Ultrabasic Compositions through the Transition Zone into the Uppermost Lower Mantle",
-    "source": "Journal of Petrology",
-    "volume": "54",
-    "locator": "1901-1920",
-    "doi": "10.1093/petrology/egt035"
-   },
-   "eos": {
-    "type": "ModifiedTait",
-    "model": "modified_tait",
-    "parameters": {
-     "V0": 46.52830466,
-     "K0": 309.0,
-     "K0_prime": 4.6,
-     "K0_double_prime": -0.015
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null,
-    "K0_double_prime": null
-   },
-   "fixed_parameters": [],
-   "temperature_ref": 298.15,
-   "experimental_pressure_range_gpa": [
-    0.0001,
-    30.0
-   ],
-   "pressure_range_status": "reference_parameterization",
-   "experimental_temperature_range_k": [
-    298.15,
-    298.15
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 2.0,
-    "molar_mass_g_mol": 60.083
-   },
-   "validity": {
-    "pressure_gpa": [
-     0.0001,
-     30.0
-    ],
-    "temperature_k": [
-     298.15,
-     298.15
-    ],
-    "notes": [
-     "Stishovite thermodynamic endmember reference isotherm."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Table 1 and the official tc-ds62 endmember block establish the coefficients, but the existing audit does not trace this endmember's individual EOS constraints to measurements versus calculations. Determination remains unknown pending that source tracing; self_consistent is not a determination method.",
-    "parameters": "Article Table 1 and official tc-ds62 stv block.",
-    "unit_conversion": "V0=1.401 J/bar/mol, K0=3090 kbar, K0''=-0.00150 kbar^-1; converted to executable units and Z=2."
-   },
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "self_consistent",
-      "source_location": "Thermodynamic data section and official tc-ds62 parameter artifact",
-      "scope": "self-consistent thermodynamic endmember reference isotherm",
-      "notes": "This database endmember parameterization does not use an experimental pressure gauge."
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "No separate experimental pressure calibration applies to the published thermodynamic-model coefficients."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Complete four-coefficient modified-Tait endmember.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "equation",
-     "parameters",
-     "units",
-     "volume_basis",
-     "reference_state"
-    ],
-    "primary_source_check": {
-     "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
-     "doi": "10.1093/petrology/egt035",
-     "locations": [
-      "Table 1",
-      "Thermodynamic data section"
-     ],
-     "finding": "The stv endmember is a distinct modified-Tait reference isotherm."
-    },
-    "primary_data_check": {
-     "status": "official_parameter_artifact",
-     "audit_date": "2026-09-05",
-     "source_url": "https://hpxeosandthermocalc.org/wp-content/uploads/2025/05/tc-thermoinput-metabasite-2022-01-30.zip",
-     "sha256": "46fa2ecb4fccdeaf44984da81342455d10e920012ab8d6db35b0bc94a7e0781c",
-     "finding": "The official tc-ds62 stv block provides all four coefficients."
-    }
-   }
-  },
-  {
-   "determination_method": "theoretical",
-   "identifier": "stishovite_akber_knutson_2002_vibc_300k_bm3",
-   "label": "Akber-Knutson et al. (2002), VIBC 300 K BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Akber-Knutson",
-     "Bukowinski",
-     "Matas"
-    ],
-    "year": 2002,
-    "title": "On the structure and compressibility of CaSiO3 perovskite",
-    "source": "Geophysical Research Letters",
-    "volume": "29",
-    "locator": "4-1-4-4",
-    "doi": "10.1029/2001GL013523"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 46.53,
-     "K0": 313.2,
-     "K0_prime": 4.4
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.01,
-    "K0": 1.9,
-    "K0_prime": 0.1
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    150.0
-   ],
-   "pressure_range_status": "theoretical",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 2.0,
-    "molar_mass_g_mol": 60.083
-   },
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     150.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Rutile-type stishovite benchmark calculated with the same VIBC potential used for the CaSiO3 analysis."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Calculated states/theory determine this EOS; source: Table 1; Methods.",
-    "equation": "Third-order Birch-Murnaghan.",
-    "parameters": "Table 1, VIBC row.",
-    "method": "Variational induced breathing plus parameterized Si-O covalent correction; thermally corrected to 300 K."
-   },
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "other",
-      "source_location": "Method and Table 1",
-      "notes": "Variational induced-breathing theoretical potential."
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "Theoretical energy-volume calculation."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523",
-     "doi": "10.1029/2001gl013523",
-     "locations": [
-      "Table 1",
-      "Methods"
-     ],
-     "finding": "Complete source-owned 300 K stishovite VIBC coefficients."
-    },
-    "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-05",
-     "finding": "The paper tabulates coefficients but not the calculated energy-volume grid."
-    }
-   }
-  },
-  {
-   "determination_method": "theoretical",
-   "identifier": "stishovite_zhang_bukowinski_1991_mpib_bm3",
-   "label": "Zhang and Bukowinski (1991), MPIB stishovite",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Zhang",
-     "Bukowinski"
-    ],
-    "year": 1991,
-    "title": "Modified potential-induced-breathing model of potentials between close-shell ions",
-    "source": "Physical Review B",
-    "volume": "44",
-    "locator": "2495-2503",
-    "doi": "10.1103/PhysRevB.44.2495"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 45.54,
-     "K0": 378.0,
-     "K0_prime": 6.4
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": 3.5
-   },
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    120.0
-   ],
-   "pressure_range_status": "theoretical",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 2.0,
-    "molar_mass_g_mol": 60.083
-   },
-   "parameter_provenance": {
-    "determination_method": "Calculated states/theory determine this EOS; source: Section III.C; Figures 9-11; Table VI.",
-    "equation": "Section III.C and Figure 11 provide the calculated finite-strain EOS.",
-    "parameters": "Table VI: V0=45.54 A3, K0=378 GPa, K0'=6.4+/-3.5.",
-    "reference_state": "Table VI does not restate temperature; 300 K follows the paper's Debye EOS and experimental comparison convention and is documented as inferred."
-   },
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "other",
-      "source_location": "Sections II-III, MPIB model",
-      "notes": "Modified potential-induced-breathing theoretical model."
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "Theoretical EOS."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext",
-     "doi": "10.1103/physrevb.44.2495",
-     "locations": [
-      "Section III.C",
-      "Figures 9-11",
-      "Table VI"
-     ],
-     "finding": "Complete stishovite coefficients."
-    },
-    "primary_data_check": {
-     "status": "parameterization_and_plot_only",
-     "audit_date": "2026-09-05",
-     "finding": "Calculated states are plotted but not tabulated."
-    }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "stishovite_nisr_2017_dry_bm3",
-   "label": "Nisr et al. (2017), dry reference stishovite BM3",
-   "reference": {
-    "authors": [
-     "Nisr",
-     "Leinenweber",
-     "Prakapenka",
-     "Prescher",
-     "Tkachev",
-     "Shim"
-    ],
-    "year": 2017,
-    "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
-    "source": "Journal of Geophysical Research: Solid Earth",
-    "volume": "122",
-    "locator": "6972-6983",
-    "doi": "10.1002/2017JB014055"
-   },
-   "record_kind": "published",
-   "default": false,
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 46.569,
-     "K0": 312.0,
-     "K0_prime": 4.59
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 2.0,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "V0",
-    "K0_prime"
-   ],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    62.934
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "range_provenance": {
-    "pressure": {
-     "source_location": "Section 3.3; official Table S1",
-     "basis": "reported_exactly",
-     "notes": "Marginal fit-data range, not a phase stability boundary. Ambient 1 bar treated as zero pressure by the published BM convention."
-    },
-    "temperature": {
-     "source_location": "Section 2; Figure 5",
-     "basis": "reported_exactly"
-    }
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2, 3.1-3.3 and 4.2; Tables 1-4; Figures 2-5; Erratum, page 6983; Supporting Text S1 and Tables S1-S4.",
-    "equation": "Section 3.3 cites Birch (1978): P=3K0/2*(eta^7-eta^5)*[1+3/4*(K0_prime-4)*(eta^2-1)], eta=(V0/V)^(1/3). K0_prime=4 reduces exactly to BM2. No thermal term.",
-    "V0": "Table 3 and Section 3.3: fixed to source ambient volume; keep final EOS table value despite differing ambient structural tables.",
-    "K0": "Table 3",
-    "K0_prime": "Section 3.3: fixed 4 for CaCl2 type; fixed 4.59 adopted from Andrault et al. (2003) for both stishovites.",
-    "uncertainty": "Tables 3-4: estimated 1 sigma. No source covariance or weighting protocol. Null fixed-parameter errors do not mean error-free measurement.",
-    "volume_normalization": "angstrom cubed per conventional primitive rutile/orthorhombic cell, Z=2; no molar or atom conversion."
-   },
-   "fit_datasets": [
-    "nisr_2017_silica_tables_s1_s4"
-   ],
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "audit_date": "2026-09-19",
-    "methods": [
-     {
-      "kind": "equation_of_state",
+    {
+      "identifier": "stishovite_akber_knutson_2002_vibc_300k_bm3",
+      "label": "Akber-Knutson et al. (2002), VIBC 300 K BM3",
+      "record_kind": "published",
+      "determination_method": "theoretical",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
-       ],
-       "year": 2007,
-       "source": "PNAS",
-       "doi": "10.1073/pnas.0609013104"
+        "authors": ["Akber-Knutson", "Bukowinski", "Matas"],
+        "year": 2002,
+        "title": "On the structure and compressibility of CaSiO3 perovskite",
+        "source": "Geophysical Research Letters",
+        "volume": "29",
+        "locator": "4-1-4-4",
+        "doi": "10.1029/2001GL013523"
       },
-      "source_location": "Section 2: pressure from separate Au foil, individual XRD peaks, in the same He-loaded DAC chamber.",
-      "notes": "Fei (2007) publishes both BM3 and Vinet Au fits; Nisr does not specify the variant. No exact reference_eos_record is asserted."
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "Official Tables S1-S4 contain sample P,V,lattice observations, no paired Au lattice/volume readings and no pressure uncertainties. Variant ambiguity also prevents an exact re-reduction."
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 46.53, "K0": 313.2, "K0_prime": 4.4}
+      },
+      "parameter_errors": {"V0": 0.01, "K0": 1.9, "K0_prime": 0.1},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "pressure_range_status": "theoretical",
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Rutile-type stishovite benchmark calculated with the same VIBC potential used for the CaSiO3 analysis."]
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "other",
+            "source_location": "Method and Table 1",
+            "notes": "Variational induced-breathing theoretical potential."
+          }
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "Theoretical energy-volume calculation."},
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523",
+          "doi": "10.1029/2001gl013523",
+          "locations": ["Table 1", "Methods"],
+          "finding": "Complete source-owned 300 K stishovite VIBC coefficients."
+        },
+        "primary_data_check": {
+          "status": "parameterization_only",
+          "audit_date": "2026-09-05",
+          "finding": "The paper tabulates coefficients but not the calculated energy-volume grid."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Calculated states/theory determine this EOS; source: Table 1; Methods.",
+        "equation": "Third-order Birch-Murnaghan.",
+        "parameters": "Table 1, VIBC row.",
+        "method": "Variational induced breathing plus parameterized Si-O covalent correction; thermally corrected to 300 K."
+      }
+    },
+    {
+      "identifier": "stishovite_zhang_bukowinski_1991_mpib_bm3",
+      "label": "Zhang and Bukowinski (1991), MPIB stishovite",
+      "record_kind": "published",
+      "determination_method": "theoretical",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Zhang", "Bukowinski"],
+        "year": 1991,
+        "title": "Modified potential-induced-breathing model of potentials between close-shell ions",
+        "source": "Physical Review B",
+        "volume": "44",
+        "locator": "2495-2503",
+        "doi": "10.1103/PhysRevB.44.2495"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 45.54, "K0": 378.0, "K0_prime": 6.4}
+      },
+      "parameter_errors": {"V0": null, "K0": null, "K0_prime": 3.5},
+      "fixed_parameters": [],
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
+      "experimental_pressure_range_gpa": [0.0, 120.0],
+      "pressure_range_status": "theoretical",
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "other",
+            "source_location": "Sections II-III, MPIB model",
+            "notes": "Modified potential-induced-breathing theoretical model."
+          }
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "Theoretical EOS."},
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext",
+          "doi": "10.1103/physrevb.44.2495",
+          "locations": ["Section III.C", "Figures 9-11", "Table VI"],
+          "finding": "Complete stishovite coefficients."
+        },
+        "primary_data_check": {
+          "status": "parameterization_and_plot_only",
+          "audit_date": "2026-09-05",
+          "finding": "Calculated states are plotted but not tabulated."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Calculated states/theory determine this EOS; source: Section III.C; Figures 9-11; Table VI.",
+        "equation": "Section III.C and Figure 11 provide the calculated finite-strain EOS.",
+        "parameters": "Table VI: V0=45.54 A3, K0=378 GPa, K0'=6.4+/-3.5.",
+        "reference_state": "Table VI does not restate temperature; 300 K follows the paper's Debye EOS and experimental comparison convention and is documented as inferred."
+      }
+    },
+    {
+      "identifier": "stishovite_nisr_2017_dry_bm3",
+      "label": "Nisr et al. (2017), dry reference stishovite BM3",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "default": false,
+      "reference": {
+        "authors": ["Nisr", "Leinenweber", "Prakapenka", "Prescher", "Tkachev", "Shim"],
+        "year": 2017,
+        "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "122",
+        "locator": "6972-6983",
+        "doi": "10.1002/2017JB014055"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 46.569, "K0": 312.0, "K0_prime": 4.59}
+      },
+      "parameter_errors": {"V0": null, "K0": 2.0, "K0_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": ["V0", "K0_prime"],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.0, 62.934],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "notes": "Source-owned new dry reference specimen (10 GPa, 1473 K, 1 h synthesis), co-compressed with hydrous sample in He. Distinct dataset and pressure scale from Andrault (2003); only K0_prime is adopted. Table 3 EOS V0=46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612; preserve both. All S1 volumes are source-refined tetragonal values; article describes onset of dry post-stishovite distortion near 60 GPa. Full 0-62.934 GPa fit is the authors' reference curve, not a claim of rutile stability throughout. No dry CaCl2 EOS is fitted in this paper; Table 4 dry row cites Andrault (2003). Existing ambient crystallography is retained separately from this EOS reference cell.",
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "PNAS",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Section 2: pressure from separate Au foil, individual XRD peaks, in the same He-loaded DAC chamber.",
+            "notes": "Fei (2007) publishes both BM3 and Vinet Au fits; Nisr does not specify the variant. No exact reference_eos_record is asserted."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Official Tables S1-S4 contain sample P,V,lattice observations, no paired Au lattice/volume readings and no pressure uncertainties. Variant ambiguity also prevents an exact re-reduction."
+        }
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-09-19",
+        "note": "Corrected publication and official supplement audited; independent source-row fits reproduce coefficients within published 1-sigma errors. See docs/literature-reproductions/nisr-2017-hydrous-silica.md.",
+        "primary_source_check": {
+          "doi": "10.1002/2017JB014055",
+          "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
+          "locations": [
+            "Sections 2, 3.1-3.3 and 4.2",
+            "Tables 1-4",
+            "Figures 2-5",
+            "Erratum, page 6983",
+            "Supporting Text S1 and Tables S1-S4"
+          ],
+          "finding": "Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved."
+        },
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "published_uncertainties",
+          "validity",
+          "primary_data",
+          "independent_refit"
+        ],
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-19",
+          "dataset_identifiers": ["nisr_2017_silica_tables_s1_s4"],
+          "finding": "All 43 S1-S4 rows bundled, including eight phase-resolved coexistence entries, all printed lattice/volume sigmas and Rwp values. Au readings and pressure errors absent."
+        },
+        "unresolved": [
+          "Original least-squares dependent variable and weights are unspecified; diagnostic objective is explicit.",
+          "Pressure marker variant and row-wise marker observations unavailable."
+        ]
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2, 3.1-3.3 and 4.2; Tables 1-4; Figures 2-5; Erratum, page 6983; Supporting Text S1 and Tables S1-S4.",
+        "equation": "Section 3.3 cites Birch (1978): P=3K0/2*(eta^7-eta^5)*[1+3/4*(K0_prime-4)*(eta^2-1)], eta=(V0/V)^(1/3). K0_prime=4 reduces exactly to BM2. No thermal term.",
+        "V0": "Table 3 and Section 3.3: fixed to source ambient volume; keep final EOS table value despite differing ambient structural tables.",
+        "K0": "Table 3",
+        "K0_prime": "Section 3.3: fixed 4 for CaCl2 type; fixed 4.59 adopted from Andrault et al. (2003) for both stishovites.",
+        "uncertainty": "Tables 3-4: estimated 1 sigma. No source covariance or weighting protocol. Null fixed-parameter errors do not mean error-free measurement.",
+        "volume_normalization": "angstrom cubed per conventional primitive rutile/orthorhombic cell, Z=2; no molar or atom conversion."
+      },
+      "source_lineage": [
+        {
+          "role": "authoritative_eos",
+          "doi": "10.1002/2017JB014055",
+          "version": "Corrected 26 October 2017; Erratum corrects dry c and V0 in Table 2 only.",
+          "citation": "Nisr et al. (2017), JGR: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055."
+        },
+        {
+          "role": "primary_observations",
+          "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014055&file=jgrb52249-sup-0001-Supplementary.pdf",
+          "version": "Official supplement currently served by Wiley; June 8 2017 DRAFT footer retained, no corrected S1 provided.",
+          "citation": "Nisr et al. (2017), JGR: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055."
+        }
+      ],
+      "range_provenance": {
+        "pressure": {
+          "source_location": "Section 3.3; official Table S1",
+          "basis": "reported_exactly",
+          "notes": "Marginal fit-data range, not a phase stability boundary. Ambient 1 bar treated as zero pressure by the published BM convention."
+        },
+        "temperature": {"source_location": "Section 2; Figure 5", "basis": "reported_exactly"}
+      },
+      "fit_datasets": ["nisr_2017_silica_tables_s1_s4"],
+      "parameter_uncertainty_convention": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified."
     }
-   },
-   "source_lineage": [
+  ],
+  "datasets": [
     {
-     "role": "authoritative_eos",
-     "doi": "10.1002/2017JB014055",
-     "version": "Corrected 26 October 2017; Erratum corrects dry c and V0 in Table 2 only.",
-     "citation": "Nisr et al. (2017), JGR: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055."
+      "identifier": "stishovite_andrault_2003_tables1_2_compression",
+      "kind": "pressure_lattice_volume_with_pressure_standard",
+      "description": "The complete new stishovite compression data used for the 2003 combined EOS: 11 hydrostatic single-crystal observations from Table 1 and 13 laser-annealed powder observations from Table 2.",
+      "reference": {
+        "authors": ["Andrault", "Angel", "Mosenfelder", "Le Bihan"],
+        "year": 2003,
+        "source": "American Mineralogist",
+        "volume": "88",
+        "locator": "301-307",
+        "doi": "10.2138/am-2003-2-307"
+      },
+      "source_location": "Tables 1 and 2, journal pages 303-304",
+      "source_url": "https://doi.org/10.2138/am-2003-2-307",
+      "columns": [
+        {"name": "series", "quantity": "experimental_series", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_esd_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "nacl_b1_volume_a3",
+          "quantity": "pressure_standard_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "nacl_b1_volume_esd_a3",
+          "quantity": "pressure_standard_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "nacl_b1_volume_a3"
+        },
+        {
+          "name": "nacl_b2_volume_a3",
+          "quantity": "pressure_standard_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "nacl_b2_volume_esd_a3",
+          "quantity": "pressure_standard_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "nacl_b2_volume_a3"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_esd_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_esd_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_esd_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3_conventional_cell"
+        }
+      ],
+      "resource": {
+        "path": "datasets/stishovite-andrault-2003-tables1-2-compression.csv",
+        "sha256": "161676994efbd1aebad18c305598f18e82294dae8bc93d7cbd316b7b6eaf5821",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["sio2_stv_andr_andrault_2003_bm3_1"],
+      "uncertainty": {
+        "powder_pressure_relative_uncertainty_fraction": 0.03,
+        "scope": "The single-crystal row-wise e.s.d.s are printed in Table 1. For the powder series, the authors estimate pressure reproducibility at about 3% and use this estimate in EOS weighting; Table 2 does not print row-wise pressure errors."
+      },
+      "notes": "The ambient NaCl-B1 volume 179.818(13) A^3 printed without a paired stishovite observation is not represented as a sample-data row. Table 3 reproduces and recalibrates the authors' 1998 high-pressure transition data and is not part of the new Table 1+2 stishovite EOS fit represented by this record.",
+      "provenance": {
+        "type": "transcribed_from_table",
+        "method": "Transcribed all paired SiO2 rows from Tables 1 and 2 verbatim and retained both NaCl calibrant volumes at B1-B2 coexistence.",
+        "source_pdf_sha256": "763a38bc358770b1277c50eb7cf1eec23164b9a3fcc18b62fb4abb5745987e4e",
+        "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.6225, "published_bm3_max_abs_pressure_residual_gpa": 1.1326},
+        "transcribed_on": "2026-09-04"
+      }
     },
     {
-     "role": "primary_observations",
-     "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014055&file=jgrb52249-sup-0001-Supplementary.pdf",
-     "version": "Official supplement currently served by Wiley; June 8 2017 DRAFT footer retained, no corrected S1 provided.",
-     "citation": "Nisr et al. (2017), JGR: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055."
+      "identifier": "stishovite_wang_2012_table1_pvt",
+      "kind": "pressure_temperature_lattice_volume_with_pressure_standard",
+      "description": "All 56 in situ stishovite P-V-T observations and simultaneous Au pressure-marker volumes used for the Wang et al. (2012) EOS fit.",
+      "reference": {
+        "authors": ["Wang", "Tange", "Irifune", "Funakoshi"],
+        "year": 2012,
+        "source": "J. Geophys. Res. Solid Earth",
+        "volume": "117",
+        "locator": "B06209",
+        "doi": "10.1029/2011JB009100"
+      },
+      "source_location": "Primary article Table 1; publisher-listed tab-delimited supplement jgrb17202-sup-0001-t01.txt",
+      "source_url": "https://doi.org/10.1029/2011JB009100",
+      "columns": [
+        {"name": "data_number", "quantity": "observation_identifier", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_esd_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_esd_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_esd_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_esd_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3_conventional_cell"
+        },
+        {
+          "name": "au_volume_a3_conventional_cell",
+          "quantity": "pressure_standard_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "au_volume_esd_a3_conventional_cell",
+          "quantity": "pressure_standard_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "au_volume_a3_conventional_cell"
+        }
+      ],
+      "resource": {
+        "path": "datasets/stishovite-wang-2012-table1-pvt.csv",
+        "sha256": "96a78c2c408ad945f5a5245c7270c927616a919f75de6508e531f00a4a34b251",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["sio2_stv_andr_wang_2012_vinet_mgd_2"],
+      "uncertainty": {
+        "reported_as": "parenthetical estimated standard deviations in the last printed digits",
+        "covariance": "not_reported",
+        "temperature": "No row-wise temperature uncertainty is tabulated; pressure effects on thermocouple emf were neglected."
+      },
+      "notes": "The conventional tetragonal unit-cell volume is a^2*c and contains Z=2 SiO2 formula units. Pressures were calculated from the paired Au volume and temperature using Tsuchiya (2003). The publisher lists tab-delimited supplements for Tables 1-4; Table 1 contains the primary observations, Table 2 the fitted parameters, and Tables 3-4 calculated P-V-T and thermoelastic-property grids.",
+      "provenance": {
+        "type": "transcribed_from_table",
+        "method": "Transcribed all rows from the publisher's complete official HTML rendering of Table 1 and expanded every parenthetical e.s.d. by its printed decimal place.",
+        "quality_control": {
+          "row_count": 56,
+          "published_vinet_mgd_pressure_rmse_gpa": 0.2134406,
+          "published_vinet_mgd_max_abs_pressure_residual_gpa": 0.5501378,
+          "unweighted_joint_refit": {
+            "K0_gpa": 292.8961,
+            "K0_prime": 4.977,
+            "theta0_k": 1133.8747,
+            "gamma0": 1.66318,
+            "b": 2.95754,
+            "pressure_rmse_gpa": 0.2086286
+          }
+        },
+        "transcribed_on": "2026-09-04"
+      }
+    },
+    {
+      "identifier": "nisr_2017_silica_tables_s1_s4",
+      "kind": "pressure_lattice_volume",
+      "description": "Complete official supplement: 20 dry S1, 7 hydrous rutile S2, 8 coexistence S3, 8 hydrous CaCl2 S4 rows. Identical shared resource linked to each phase record; record selection is explicit.",
+      "reference": {
+        "authors": ["Nisr", "Leinenweber", "Prakapenka", "Prescher", "Tkachev", "Shim"],
+        "year": 2017,
+        "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "122",
+        "locator": "6972-6983",
+        "doi": "10.1002/2017JB014055"
+      },
+      "source_location": "Official supporting information, Text S1 and Tables S1-S4, pp. X-3 to X-5",
+      "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014055&file=jgrb52249-sup-0001-Supplementary.pdf",
+      "columns": [
+        {"name": "table", "quantity": "source_table", "unit": "1", "role": "flag"},
+        {"name": "phase", "quantity": "phase", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "volume_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_sigma_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_b_sigma_angstrom",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_b_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_sigma_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {"name": "rwp_background_subtracted_percent", "quantity": "rietveld_residual", "unit": "%", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/nisr-2017-silica-tables-s1-s4.csv",
+        "sha256": "2fa7b1d2a800d22bc61d2479933166404d3061f35346e3421e36254bd8c8ba63",
+        "media_type": "text/csv"
+      },
+      "row_count": 43,
+      "used_by_eos_records": ["stishovite_nisr_2017_dry_bm3"],
+      "uncertainty_convention": "Printed sigma columns retained. Volume sigmas of zero at S3 hydrous rutile 38.334 GPa and S4 44.857 GPa are unusable weights, not exact data. Pressure sigmas absent. Figure 4 calls plotted error bars 1 sigma.",
+      "notes": "No paired Au observations. T=300 K from article, not an added measured column. S1 ambient V=46.612 differs from corrected article 46.569(11); S2 ambient V=47.191 differs from Table 2 47.198(21) and its lattice product. Preserve all independently reported values. Supplement gives no run labels.",
+      "source_provenance": {
+        "source_pdf_sha256": "bd1dcde5c4256d170e1d0627bad922efd67b3798bfbcf9b75a7aa0c29e7cae9c",
+        "manifest": "datasets/nisr-2017-source-manifest.json",
+        "license": "No separate data license stated; attributed factual numeric transcription."
+      }
+    },
+    {
+      "identifier": "nisr_2017_corrected_table2_ambient",
+      "kind": "ambient_structure_and_composition",
+      "reference": {
+        "authors": ["Nisr", "Leinenweber", "Prakapenka", "Prescher", "Tkachev", "Shim"],
+        "year": 2017,
+        "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "122",
+        "locator": "6972-6983",
+        "doi": "10.1002/2017JB014055"
+      },
+      "source_location": "Corrected publication of record, Table 2, 1 bar and 300 K; Erratum p. 6983",
+      "columns": [
+        {"name": "composition_flag", "quantity": "composition", "unit": "1", "role": "flag"},
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_sigma_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_sigma_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "volume_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3"
+        },
+        {"name": "water_wt_percent", "quantity": "water_content", "unit": "wt%", "role": "value"},
+        {
+          "name": "water_uncertainty_wt_percent",
+          "quantity": "water_content",
+          "unit": "wt%",
+          "role": "uncertainty",
+          "of": "water_wt_percent"
+        }
+      ],
+      "rows": [
+        [0, 4.1805, 0.0009, 2.6647, 0.0009, 46.569, 0.011, 0, null],
+        [1, 4.2068, 0.0009, 2.6669, 0.0009, 47.198, 0.021, 3.2, 0.5]
+      ],
+      "used_by_eos_records": ["stishovite_nisr_2017_dry_bm3"],
+      "notes": "composition_flag=0 dry, 1 hydrous. Structural/composition benchmarks, not substituted for S1/S2 fit observations. Source correction changes the dry c and V only. Hydrous water is volume-calibrated; original Spektor calibration would give 2.7 wt%."
     }
-   ],
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "audit_date": "2026-09-19",
-    "note": "Corrected publication and official supplement audited; independent source-row fits reproduce coefficients within published 1-sigma errors. See docs/literature-reproductions/nisr-2017-hydrous-silica.md.",
-    "primary_source_check": {
-     "doi": "10.1002/2017JB014055",
-     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014055",
-     "locations": [
-      "Sections 2, 3.1-3.3 and 4.2",
-      "Tables 1-4",
-      "Figures 2-5",
-      "Erratum, page 6983",
-      "Supporting Text S1 and Tables S1-S4"
-     ],
-     "finding": "Three source-owned experimental fits with explicit phase selections and fixed parameters. Comparison rows are prior-paper fits. Original source values, correction scope and remaining inconsistencies preserved."
-    },
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity",
-     "primary_data",
-     "independent_refit"
-    ],
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-19",
-     "dataset_identifiers": [
-      "nisr_2017_silica_tables_s1_s4"
-     ],
-     "finding": "All 43 S1-S4 rows bundled, including eight phase-resolved coexistence entries, all printed lattice/volume sigmas and Rwp values. Au readings and pressure errors absent."
-    },
-    "unresolved": [
-     "Original least-squares dependent variable and weights are unspecified; diagnostic objective is explicit.",
-     "Pressure marker variant and row-wise marker observations unavailable."
-    ]
-   },
-   "notes": "Source-owned new dry reference specimen (10 GPa, 1473 K, 1 h synthesis), co-compressed with hydrous sample in He. Distinct dataset and pressure scale from Andrault (2003); only K0_prime is adopted. Table 3 EOS V0=46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612; preserve both. All S1 volumes are source-refined tetragonal values; article describes onset of dry post-stishovite distortion near 60 GPa. Full 0-62.934 GPa fit is the authors' reference curve, not a claim of rutile stability throughout. No dry CaCl2 EOS is fitted in this paper; Table 4 dry row cites Andrault (2003). Existing ambient crystallography is retained separately from this EOS reference cell.",
-   "parameter_covariance": null,
-   "parameter_error_confidence": null,
-   "parameter_uncertainty_convention": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified."
-  }
- ],
- "datasets": [
-  {
-   "identifier": "stishovite_andrault_2003_tables1_2_compression",
-   "kind": "pressure_lattice_volume_with_pressure_standard",
-   "description": "The complete new stishovite compression data used for the 2003 combined EOS: 11 hydrostatic single-crystal observations from Table 1 and 13 laser-annealed powder observations from Table 2.",
-   "reference": {
-    "authors": [
-     "Andrault",
-     "Angel",
-     "Mosenfelder",
-     "Le Bihan"
-    ],
-    "year": 2003,
-    "source": "American Mineralogist",
-    "volume": "88",
-    "locator": "301-307",
-    "doi": "10.2138/am-2003-2-307"
-   },
-   "source_location": "Tables 1 and 2, journal pages 303-304",
-   "source_url": "https://doi.org/10.2138/am-2003-2-307",
-   "columns": [
-    {
-     "name": "series",
-     "quantity": "experimental_series",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_esd_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "nacl_b1_volume_a3",
-     "quantity": "pressure_standard_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "nacl_b1_volume_esd_a3",
-     "quantity": "pressure_standard_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "nacl_b1_volume_a3"
-    },
-    {
-     "name": "nacl_b2_volume_a3",
-     "quantity": "pressure_standard_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "nacl_b2_volume_esd_a3",
-     "quantity": "pressure_standard_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "nacl_b2_volume_a3"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_esd_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_esd_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_esd_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3_conventional_cell"
-    }
-   ],
-   "resource": {
-    "path": "datasets/stishovite-andrault-2003-tables1-2-compression.csv",
-    "sha256": "161676994efbd1aebad18c305598f18e82294dae8bc93d7cbd316b7b6eaf5821",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "sio2_stv_andr_andrault_2003_bm3_1"
-   ],
-   "uncertainty": {
-    "powder_pressure_relative_uncertainty_fraction": 0.03,
-    "scope": "The single-crystal row-wise e.s.d.s are printed in Table 1. For the powder series, the authors estimate pressure reproducibility at about 3% and use this estimate in EOS weighting; Table 2 does not print row-wise pressure errors."
-   },
-   "notes": "The ambient NaCl-B1 volume 179.818(13) A^3 printed without a paired stishovite observation is not represented as a sample-data row. Table 3 reproduces and recalibrates the authors' 1998 high-pressure transition data and is not part of the new Table 1+2 stishovite EOS fit represented by this record.",
-   "provenance": {
-    "type": "transcribed_from_table",
-    "method": "Transcribed all paired SiO2 rows from Tables 1 and 2 verbatim and retained both NaCl calibrant volumes at B1-B2 coexistence.",
-    "source_pdf_sha256": "763a38bc358770b1277c50eb7cf1eec23164b9a3fcc18b62fb4abb5745987e4e",
-    "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 0.6225,
-     "published_bm3_max_abs_pressure_residual_gpa": 1.1326
-    },
-    "transcribed_on": "2026-09-04"
-   }
-  },
-  {
-   "identifier": "stishovite_wang_2012_table1_pvt",
-   "kind": "pressure_temperature_lattice_volume_with_pressure_standard",
-   "description": "All 56 in situ stishovite P-V-T observations and simultaneous Au pressure-marker volumes used for the Wang et al. (2012) EOS fit.",
-   "reference": {
-    "authors": [
-     "Wang",
-     "Tange",
-     "Irifune",
-     "Funakoshi"
-    ],
-    "year": 2012,
-    "source": "J. Geophys. Res. Solid Earth",
-    "volume": "117",
-    "locator": "B06209",
-    "doi": "10.1029/2011JB009100"
-   },
-   "source_location": "Primary article Table 1; publisher-listed tab-delimited supplement jgrb17202-sup-0001-t01.txt",
-   "source_url": "https://doi.org/10.1029/2011JB009100",
-   "columns": [
-    {
-     "name": "data_number",
-     "quantity": "observation_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_esd_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_esd_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_esd_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_esd_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3_conventional_cell"
-    },
-    {
-     "name": "au_volume_a3_conventional_cell",
-     "quantity": "pressure_standard_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "au_volume_esd_a3_conventional_cell",
-     "quantity": "pressure_standard_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "au_volume_a3_conventional_cell"
-    }
-   ],
-   "resource": {
-    "path": "datasets/stishovite-wang-2012-table1-pvt.csv",
-    "sha256": "96a78c2c408ad945f5a5245c7270c927616a919f75de6508e531f00a4a34b251",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "sio2_stv_andr_wang_2012_vinet_mgd_2"
-   ],
-   "uncertainty": {
-    "reported_as": "parenthetical estimated standard deviations in the last printed digits",
-    "covariance": "not_reported",
-    "temperature": "No row-wise temperature uncertainty is tabulated; pressure effects on thermocouple emf were neglected."
-   },
-   "notes": "The conventional tetragonal unit-cell volume is a^2*c and contains Z=2 SiO2 formula units. Pressures were calculated from the paired Au volume and temperature using Tsuchiya (2003). The publisher lists tab-delimited supplements for Tables 1-4; Table 1 contains the primary observations, Table 2 the fitted parameters, and Tables 3-4 calculated P-V-T and thermoelastic-property grids.",
-   "provenance": {
-    "type": "transcribed_from_table",
-    "method": "Transcribed all rows from the publisher's complete official HTML rendering of Table 1 and expanded every parenthetical e.s.d. by its printed decimal place.",
-    "quality_control": {
-     "row_count": 56,
-     "published_vinet_mgd_pressure_rmse_gpa": 0.2134406,
-     "published_vinet_mgd_max_abs_pressure_residual_gpa": 0.5501378,
-     "unweighted_joint_refit": {
-      "K0_gpa": 292.8961,
-      "K0_prime": 4.977,
-      "theta0_k": 1133.8747,
-      "gamma0": 1.66318,
-      "b": 2.95754,
-      "pressure_rmse_gpa": 0.2086286
-     }
-    },
-    "transcribed_on": "2026-09-04"
-   }
-  },
-  {
-   "identifier": "nisr_2017_silica_tables_s1_s4",
-   "kind": "pressure_lattice_volume",
-   "description": "Complete official supplement: 20 dry S1, 7 hydrous rutile S2, 8 coexistence S3, 8 hydrous CaCl2 S4 rows. Identical shared resource linked to each phase record; record selection is explicit.",
-   "reference": {
-    "authors": [
-     "Nisr",
-     "Leinenweber",
-     "Prakapenka",
-     "Prescher",
-     "Tkachev",
-     "Shim"
-    ],
-    "year": 2017,
-    "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
-    "source": "Journal of Geophysical Research: Solid Earth",
-    "volume": "122",
-    "locator": "6972-6983",
-    "doi": "10.1002/2017JB014055"
-   },
-   "source_location": "Official supporting information, Text S1 and Tables S1-S4, pp. X-3 to X-5",
-   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014055&file=jgrb52249-sup-0001-Supplementary.pdf",
-   "columns": [
-    {
-     "name": "table",
-     "quantity": "source_table",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "phase",
-     "quantity": "phase",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_sigma_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_b_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_b_sigma_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_b_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_sigma_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "rwp_background_subtracted_percent",
-     "quantity": "rietveld_residual",
-     "unit": "%",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/nisr-2017-silica-tables-s1-s4.csv",
-    "sha256": "2fa7b1d2a800d22bc61d2479933166404d3061f35346e3421e36254bd8c8ba63",
-    "media_type": "text/csv"
-   },
-   "row_count": 43,
-   "used_by_eos_records": [
-    "stishovite_nisr_2017_dry_bm3"
-   ],
-   "uncertainty_convention": "Printed sigma columns retained. Volume sigmas of zero at S3 hydrous rutile 38.334 GPa and S4 44.857 GPa are unusable weights, not exact data. Pressure sigmas absent. Figure 4 calls plotted error bars 1 sigma.",
-   "notes": "No paired Au observations. T=300 K from article, not an added measured column. S1 ambient V=46.612 differs from corrected article 46.569(11); S2 ambient V=47.191 differs from Table 2 47.198(21) and its lattice product. Preserve all independently reported values. Supplement gives no run labels.",
-   "source_provenance": {
-    "source_pdf_sha256": "bd1dcde5c4256d170e1d0627bad922efd67b3798bfbcf9b75a7aa0c29e7cae9c",
-    "manifest": "datasets/nisr-2017-source-manifest.json",
-    "license": "No separate data license stated; attributed factual numeric transcription."
-   }
-  },
-  {
-   "identifier": "nisr_2017_corrected_table2_ambient",
-   "kind": "ambient_structure_and_composition",
-   "reference": {
-    "authors": [
-     "Nisr",
-     "Leinenweber",
-     "Prakapenka",
-     "Prescher",
-     "Tkachev",
-     "Shim"
-    ],
-    "year": 2017,
-    "title": "Phase transition and equation of state of dense hydrous silica up to 63 GPa",
-    "source": "Journal of Geophysical Research: Solid Earth",
-    "volume": "122",
-    "locator": "6972-6983",
-    "doi": "10.1002/2017JB014055"
-   },
-   "source_location": "Corrected publication of record, Table 2, 1 bar and 300 K; Erratum p. 6983",
-   "columns": [
-    {
-     "name": "composition_flag",
-     "quantity": "composition",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_sigma_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_sigma_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3"
-    },
-    {
-     "name": "water_wt_percent",
-     "quantity": "water_content",
-     "unit": "wt%",
-     "role": "value"
-    },
-    {
-     "name": "water_uncertainty_wt_percent",
-     "quantity": "water_content",
-     "unit": "wt%",
-     "role": "uncertainty",
-     "of": "water_wt_percent"
-    }
-   ],
-   "rows": [
-    [
-     0,
-     4.1805,
-     0.0009,
-     2.6647,
-     0.0009,
-     46.569,
-     0.011,
-     0,
-     null
-    ],
-    [
-     1,
-     4.2068,
-     0.0009,
-     2.6669,
-     0.0009,
-     47.198,
-     0.021,
-     3.2,
-     0.5
-    ]
-   ],
-   "used_by_eos_records": [
-    "stishovite_nisr_2017_dry_bm3"
-   ],
-   "notes": "composition_flag=0 dry, 1 hydrous. Structural/composition benchmarks, not substituted for S1/S2 fit observations. Source correction changes the dry c and V only. Hydrous water is volume-calibrated; original Spektor calibration would give 2.7 wt%."
-  }
- ],
- "format": "peritheos.material",
- "identifier": "sio2_stv_andr",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

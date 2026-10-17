@@ -1,410 +1,197 @@
 {
- "format_version": 3,
- "name": "Fe3S",
- "formula": "Fe3S",
- "symmetry": "TETRAGONAL",
- "lattice": {
-  "a": 9.144,
-  "b": 9.144,
-  "c": 4.509,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 8,
- "space_group": "I-4",
- "space_group_number": 82,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Fe3S-Fei.jcpds, JCPDS/dac_user_jcpds/Fe3S_calc.jcpds. Fei et al., American Mineralogist 85, 1830-1833 (2000), doi:10.2138/am-2000-11-1229, identify the phase as Fe3P-type I-4; the reported cell and density imply Z=8. The atom sites are an explicitly approximate Fe3P-type proxy based on the near-end-member Fe3P schreibersite refinement Htr of Britvin et al., American Mineralogist 106, 1520-1529 (2021), doi:10.2138/am-2021-7766: its P site is replaced by S while the three Fe sites are retained. These coordinates were not refined for the Fe3S specimen and must not be presented as its original structure; calculated intensities are approximate, while the legacy Fe3S peaks remain authoritative where available.",
- "peaks": [
-  [
-   0,
-   1,
-   3,
-   1.4831,
-   1.0
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "fe3s",
+  "name": "Fe3S",
+  "formula": "Fe3S",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 8,
+  "symmetry": "TETRAGONAL",
+  "space_group": "I-4",
+  "space_group_number": 82,
+  "lattice": {"a": 9.144, "b": 9.144, "c": 4.509, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Fe", "wyckoff": "8g", "x": 0.92035, "y": 0.10599, "z": 0.76758, "occupancy": 1.0},
+    {"element": "Fe", "wyckoff": "8g", "x": 0.63956, "y": 0.0311, "z": 0.01317, "occupancy": 1.0},
+    {"element": "Fe", "wyckoff": "8g", "x": 0.82813, "y": 0.21928, "z": 0.24521, "occupancy": 1.0},
+    {"element": "S", "wyckoff": "8g", "x": 0.70781, "y": 0.04476, "z": 0.5104, "occupancy": 1.0}
   ],
-  [
-   4,
-   2,
-   2,
-   1.5146,
-   4.0
+  "peaks": [
+    [0, 1, 3, 1.4831, 1.0],
+    [4, 2, 2, 1.5146, 4.0],
+    [3, 3, 2, 1.5579, 3.0],
+    [5, 3, 0, 1.5682, 3.0],
+    [2, 5, 1, 1.5891, 3.0],
+    [0, 4, 2, 1.6052, 4.0],
+    [5, 0, 1, 1.6947, 14.0],
+    [3, 1, 2, 1.778, 32.0],
+    [5, 1, 0, 1.7933, 26.0],
+    [2, 2, 2, 1.8492, 23.0],
+    [1, 4, 1, 1.9901, 90.0],
+    [2, 0, 2, 2.022, 10.0],
+    [4, 2, 0, 2.0447, 35.0],
+    [1, 1, 2, 2.1288, 58.0],
+    [3, 3, 0, 2.1553, 28.0],
+    [3, 2, 1, 2.2104, 100.0],
+    [0, 3, 1, 2.5252, 17.0],
+    [1, 2, 1, 3.0291, 4.0]
   ],
-  [
-   3,
-   3,
-   2,
-   1.5579,
-   3.0
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Fe3S-Fei.jcpds, JCPDS/dac_user_jcpds/Fe3S_calc.jcpds. Fei et al., American Mineralogist 85, 1830-1833 (2000), doi:10.2138/am-2000-11-1229, identify the phase as Fe3P-type I-4; the reported cell and density imply Z=8. The atom sites are an explicitly approximate Fe3P-type proxy based on the near-end-member Fe3P schreibersite refinement Htr of Britvin et al., American Mineralogist 106, 1520-1529 (2021), doi:10.2138/am-2021-7766: its P site is replaced by S while the three Fe sites are retained. These coordinates were not refined for the Fe3S specimen and must not be presented as its original structure; calculated intensities are approximate, while the legacy Fe3S peaks remain authoritative where available.",
+  "eos_records": [
+    {
+      "identifier": "fe3s_fei_2000_bm3_1",
+      "label": "Fei et al Am. Mineral. 85, 1830, 2000",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Fei", "Li", "Bertka", "Prewitt"],
+        "year": 2000,
+        "title": "Structure type and bulk modulus of Fe3S, a new iron-sulfur compound",
+        "source": "American Mineralogist",
+        "volume": "85",
+        "locator": "1830-1833",
+        "doi": "10.2138/am-2000-11-1229"
+      },
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 377.0, "K0": 150.0, "K0_prime": 4.0},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.2, "K0": 2.0, "K0_prime": null},
+      "fixed_parameters": ["K0_prime"],
+      "experimental_pressure_range_gpa": [0.0, 40.0],
+      "notes": "Fei et al. report V0 = 377.0(2) A^3 and K0 = 150 +/- 2 GPa with K0' fixed at 4.0.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "source": "J. Appl. Phys.",
+              "volume": "65",
+              "locator": "1534-1543"
+            },
+            "source_location": "Experimental methods and compression discussion",
+            "scope": "primary pressure calibrant for all observations",
+            "reference_eos_record": "gold_anderson_1989_bm3_1"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Birch"],
+              "year": 1978,
+              "source": "J. Geophys. Res.",
+              "volume": "83",
+              "locator": "1257-1268"
+            },
+            "source_location": "Experimental methods and compression discussion",
+            "scope": "independent NaCl cross-check below the B1-B2 transition"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The primary Anderson gold EOS is bundled and monotonic; the digitized source-scale pressures can be inverted for approximate pressure-scale conversion. Raw Au lattice parameters were not published."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "NaCl pressures were generally lower than Au pressures; above the NaCl B1-B2 transition near 29 GPa, pressure was calculated from Au alone."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.2138/am-2000-11-1229",
+          "locations": ["Experimental methods, journal pages 1830-1831", "Figure 2 and EOS discussion, journal pages 1832-1833"],
+          "finding": "Figure 2 provides 13 readable Fe3S compression markers. They were digitized from the supplied primary paper; the constrained K0'=4 BM3 fit is the EOS variant represented by this record.",
+          "doi": "10.2138/am-2000-11-1229"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "fe3s.json"
+        },
+        "primary_data_check": {
+          "status": "plot_only",
+          "audit_date": "2026-09-04",
+          "digitized_dataset_identifiers": ["fe3s_fei_2000_figure2_digitized"],
+          "source_locations": ["Figure 2, journal page 1833"],
+          "finding": "The 13 solid-circle compression observations are published only in Figure 2 and are bundled as a digitized dataset. The figure contains no plotted error bars; digitization uncertainty is stored separately."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods, journal pages 1830-1831; Figure 2 and EOS discussion, journal pages 1832-1833."
+      }
+    }
   ],
-  [
-   5,
-   3,
-   0,
-   1.5682,
-   3.0
-  ],
-  [
-   2,
-   5,
-   1,
-   1.5891,
-   3.0
-  ],
-  [
-   0,
-   4,
-   2,
-   1.6052,
-   4.0
-  ],
-  [
-   5,
-   0,
-   1,
-   1.6947,
-   14.0
-  ],
-  [
-   3,
-   1,
-   2,
-   1.778,
-   32.0
-  ],
-  [
-   5,
-   1,
-   0,
-   1.7933,
-   26.0
-  ],
-  [
-   2,
-   2,
-   2,
-   1.8492,
-   23.0
-  ],
-  [
-   1,
-   4,
-   1,
-   1.9901,
-   90.0
-  ],
-  [
-   2,
-   0,
-   2,
-   2.022,
-   10.0
-  ],
-  [
-   4,
-   2,
-   0,
-   2.0447,
-   35.0
-  ],
-  [
-   1,
-   1,
-   2,
-   2.1288,
-   58.0
-  ],
-  [
-   3,
-   3,
-   0,
-   2.1553,
-   28.0
-  ],
-  [
-   3,
-   2,
-   1,
-   2.2104,
-   100.0
-  ],
-  [
-   0,
-   3,
-   1,
-   2.5252,
-   17.0
-  ],
-  [
-   1,
-   2,
-   1,
-   3.0291,
-   4.0
+  "datasets": [
+    {
+      "identifier": "fe3s_fei_2000_figure2_digitized",
+      "kind": "pressure_volume_digitized",
+      "description": "Thirteen Fe3S room-temperature compression markers digitized from Figure 2. The solid BM3 fit curve was not sampled as data.",
+      "reference": {
+        "authors": ["Fei", "Li", "Bertka", "Prewitt"],
+        "year": 2000,
+        "source": "American Mineralogist",
+        "volume": "85",
+        "locator": "1830-1833",
+        "doi": "10.2138/am-2000-11-1229"
+      },
+      "source_location": "Figure 2, journal page 1833",
+      "source_url": "https://doi.org/10.2138/am-2000-11-1229",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_digitization_uncertainty_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty",
+          "of": "volume_a3_conventional_cell"
+        }
+      ],
+      "resource": {
+        "path": "datasets/fe3s-fei-2000-figure2-digitized.csv",
+        "sha256": "24da84d561d828293853457e213b5a0af97f13dc00d19e5dc74a962305902aec",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["fe3s_fei_2000_bm3_1"],
+      "uncertainty": {
+        "published_error_bars": "none plotted",
+        "scope": "The paper cautions that non-hydrostatic deviatoric stress may affect the fitted bulk modulus, but does not publish row-wise experimental uncertainties in Figure 2."
+      },
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Rendered the supplied primary PDF at 300 dpi, calibrated the linear pressure and volume axes from major ticks, and digitized only solid-circle marker centers.",
+        "source_pdf_sha256": "7c7213038597849b5771b87f04c4bd982a6697099e72853ebc9f3c88e526d0de",
+        "source_figure_sha256": "59f841dc430fe841e8c94101ec13db7fe8510eba986726b5e729d73697a7d31e",
+        "axis_calibration_pixels_source_figure": {
+          "pressure": [
+            [354.5, 0.0],
+            [1044.5, 40.0]
+          ],
+          "volume": [
+            [320.5, 370.0],
+            [708.5, 320.0]
+          ]
+        },
+        "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.9921, "published_bm3_max_abs_pressure_residual_gpa": 1.9745},
+        "digitized_on": "2026-09-04"
+      }
+    }
   ]
- ],
- "eos_records": [
-  {
-   "label": "Fei et al Am. Mineral. 85, 1830, 2000",
-   "reference": {
-    "authors": [
-     "Fei",
-     "Li",
-     "Bertka",
-     "Prewitt"
-    ],
-    "year": 2000,
-    "title": "Structure type and bulk modulus of Fe3S, a new iron-sulfur compound",
-    "source": "American Mineralogist",
-    "volume": "85",
-    "locator": "1830-1833",
-    "doi": "10.2138/am-2000-11-1229"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 377.0,
-     "K0": 150.0,
-     "K0_prime": 4.0
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.2,
-    "K0": 2.0,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    40.0
-   ],
-   "notes": "Fei et al. report V0 = 377.0(2) A^3 and K0 = 150 +/- 2 GPa with K0' fixed at 4.0.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods, journal pages 1830-1831; Figure 2 and EOS discussion, journal pages 1832-1833."
-   },
-   "identifier": "fe3s_fei_2000_bm3_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Anderson",
-        "Isaak",
-        "Yamamoto"
-       ],
-       "year": 1989,
-       "source": "J. Appl. Phys.",
-       "volume": "65",
-       "locator": "1534-1543"
-      },
-      "source_location": "Experimental methods and compression discussion",
-      "scope": "primary pressure calibrant for all observations",
-      "reference_eos_record": "gold_anderson_1989_bm3_1"
-     },
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Birch"
-       ],
-       "year": 1978,
-       "source": "J. Geophys. Res.",
-       "volume": "83",
-       "locator": "1257-1268"
-      },
-      "source_location": "Experimental methods and compression discussion",
-      "scope": "independent NaCl cross-check below the B1-B2 transition"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "The primary Anderson gold EOS is bundled and monotonic; the digitized source-scale pressures can be inverted for approximate pressure-scale conversion. Raw Au lattice parameters were not published."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "NaCl pressures were generally lower than Au pressures; above the NaCl B1-B2 transition near 29 GPa, pressure was calculated from Au alone."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.2138/am-2000-11-1229",
-     "locations": [
-      "Experimental methods, journal pages 1830-1831",
-      "Figure 2 and EOS discussion, journal pages 1832-1833"
-     ],
-     "finding": "Figure 2 provides 13 readable Fe3S compression markers. They were digitized from the supplied primary paper; the constrained K0'=4 BM3 fit is the EOS variant represented by this record.",
-     "doi": "10.2138/am-2000-11-1229"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "fe3s.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-04",
-     "digitized_dataset_identifiers": [
-      "fe3s_fei_2000_figure2_digitized"
-     ],
-     "source_locations": [
-      "Figure 2, journal page 1833"
-     ],
-     "finding": "The 13 solid-circle compression observations are published only in Figure 2 and are bundled as a digitized dataset. The figure contains no plotted error bars; digitization uncertainty is stored separately."
-    }
-   }
-  }
- ],
- "atom_sites": [
-  {
-   "element": "Fe",
-   "wyckoff": "8g",
-   "x": 0.92035,
-   "y": 0.10599,
-   "z": 0.76758,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Fe",
-   "wyckoff": "8g",
-   "x": 0.63956,
-   "y": 0.0311,
-   "z": 0.01317,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Fe",
-   "wyckoff": "8g",
-   "x": 0.82813,
-   "y": 0.21928,
-   "z": 0.24521,
-   "occupancy": 1.0
-  },
-  {
-   "element": "S",
-   "wyckoff": "8g",
-   "x": 0.70781,
-   "y": 0.04476,
-   "z": 0.5104,
-   "occupancy": 1.0
-  }
- ],
- "datasets": [
-  {
-   "identifier": "fe3s_fei_2000_figure2_digitized",
-   "kind": "pressure_volume_digitized",
-   "description": "Thirteen Fe3S room-temperature compression markers digitized from Figure 2. The solid BM3 fit curve was not sampled as data.",
-   "reference": {
-    "authors": [
-     "Fei",
-     "Li",
-     "Bertka",
-     "Prewitt"
-    ],
-    "year": 2000,
-    "source": "American Mineralogist",
-    "volume": "85",
-    "locator": "1830-1833",
-    "doi": "10.2138/am-2000-11-1229"
-   },
-   "source_location": "Figure 2, journal page 1833",
-   "source_url": "https://doi.org/10.2138/am-2000-11-1229",
-   "columns": [
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_digitization_uncertainty_a3",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "uncertainty",
-     "of": "volume_a3_conventional_cell"
-    }
-   ],
-   "resource": {
-    "path": "datasets/fe3s-fei-2000-figure2-digitized.csv",
-    "sha256": "24da84d561d828293853457e213b5a0af97f13dc00d19e5dc74a962305902aec",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "fe3s_fei_2000_bm3_1"
-   ],
-   "uncertainty": {
-    "published_error_bars": "none plotted",
-    "scope": "The paper cautions that non-hydrostatic deviatoric stress may affect the fitted bulk modulus, but does not publish row-wise experimental uncertainties in Figure 2."
-   },
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Rendered the supplied primary PDF at 300 dpi, calibrated the linear pressure and volume axes from major ticks, and digitized only solid-circle marker centers.",
-    "source_pdf_sha256": "7c7213038597849b5771b87f04c4bd982a6697099e72853ebc9f3c88e526d0de",
-    "source_figure_sha256": "59f841dc430fe841e8c94101ec13db7fe8510eba986726b5e729d73697a7d31e",
-    "axis_calibration_pixels_source_figure": {
-     "pressure": [
-      [
-       354.5,
-       0.0
-      ],
-      [
-       1044.5,
-       40.0
-      ]
-     ],
-     "volume": [
-      [
-       320.5,
-       370.0
-      ],
-      [
-       708.5,
-       320.0
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 0.9921,
-     "published_bm3_max_abs_pressure_residual_gpa": 1.9745
-    },
-    "digitized_on": "2026-09-04"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "fe3s",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
 }

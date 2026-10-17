@@ -1,1381 +1,890 @@
 {
- "format": "peritheos.material",
- "format_version": 3,
- "identifier": "mg061fe039o",
- "family_id": "mg_fe_monoxide",
- "name": "(Mg0.61Fe0.39)O B1 ferropericlase",
- "formula": "Mg0.61Fe0.39O",
- "phase": "B1 ferropericlase",
- "aliases": [
-  "B1 (Mg,Fe)O",
-  "magnesiowüstite"
- ],
- "cell_contents": "Four formula units per conventional rocksalt cell.",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 4.26332611,
-  "b": 4.26332611,
-  "c": 4.26332611,
-  "alpha": 90,
-  "beta": 90,
-  "gamma": 90
- },
- "formula_units_per_cell": 4,
- "space_group": "Fm-3m",
- "space_group_number": 225,
- "atom_sites": [
-  {
-   "element": "Mg",
-   "wyckoff": "4a",
-   "x": 0,
-   "y": 0,
-   "z": 0,
-   "occupancy": 0.61,
-   "site_multiplicity": 4
-  },
-  {
-   "element": "Fe",
-   "wyckoff": "4a",
-   "x": 0,
-   "y": 0,
-   "z": 0,
-   "occupancy": 0.39,
-   "site_multiplicity": 4
-  },
-  {
-   "element": "O",
-   "wyckoff": "4b",
-   "x": 0.5,
-   "y": 0.5,
-   "z": 0.5,
-   "occupancy": 1,
-   "site_multiplicity": 4
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "mg061fe039o",
+  "name": "(Mg0.61Fe0.39)O B1 ferropericlase",
+  "formula": "Mg0.61Fe0.39O",
+  "phase": "B1 ferropericlase",
+  "aliases": ["B1 (Mg,Fe)O", "magnesiowüstite"],
+  "family_id": "mg_fe_monoxide",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "cell_contents": "Four formula units per conventional rocksalt cell.",
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 4.26332611, "b": 4.26332611, "c": 4.26332611, "alpha": 90, "beta": 90, "gamma": 90},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "4a", "x": 0, "y": 0, "z": 0, "occupancy": 0.61, "site_multiplicity": 4},
+    {"element": "Fe", "wyckoff": "4a", "x": 0, "y": 0, "z": 0, "occupancy": 0.39, "site_multiplicity": 4},
+    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1, "site_multiplicity": 4}
+  ],
+  "peaks": [],
+  "notes": "Solomatova et al. (2016) records are paired MINUTI reference branches without an implemented mixer. Fei et al. (2007, GRL) records are the original separately fitted HS and LS compression EOSs; their coefficients and source ownership are distinct.",
+  "eos_records": [
+    {
+      "identifier": "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1",
+      "label": "Solomatova et al. (2016), fei hs BM3 reference branch",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
+      },
+      "temperature_ref": 300,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 77.49, "K0": 161, "K0_prime": 4.25}
+      },
+      "parameter_errors": {"V0": 0.03, "K0": 3, "K0_prime": 0.24},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "experimental_temperature_range_k": [300, 300],
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": [
+          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
+          "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
+        ]
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+          "doi": "10.2138/am-2016-5510",
+          "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
+          "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+        },
+        "primary_data_check": {
+          "status": "complete_earlier_primary_table",
+          "audit_date": "2026-09-08",
+          "dataset_identifiers": ["mg061fe039o_fei_2007_table_s2_pv"],
+          "source_locations": ["Fei et al. (2007), Auxiliary Table S2", "Solomatova et al. (2016), Tables 2 and 7"],
+          "finding": "All 77 fp39 rows from official Table S2 are bundled. The 38 compression rows enter the coupled reconstruction and the 39 decompression rows remain preserved but excluded; no analytical checkpoint or repeated coefficient is treated as an observation."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+        "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+        "V0": "Table 7 HS column: 77.49 A^3 per conventional B1 cell.",
+        "K0": "Table 7 HS column: 161 GPa.",
+        "K0_prime": "Table 7 high-spin K0' column.",
+        "original_dataset": "Solomatova et al. refit the P-V data of Fei et al. (2007), DOI 10.1029/2007GL030712.",
+        "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+      },
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 56.6,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 17.2,
+        "mixer_implemented": false
+      }
+    },
+    {
+      "identifier": "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2",
+      "label": "Solomatova et al. (2016), fei ls BM3 reference branch",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
+      },
+      "temperature_ref": 300,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 74.83, "K0": 162, "K0_prime": 4}
+      },
+      "parameter_errors": {"V0": 0.38, "K0": 4, "K0_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": ["K0_prime"],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "experimental_temperature_range_k": [300, 300],
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": [
+          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
+          "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
+        ]
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+          "doi": "10.2138/am-2016-5510",
+          "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
+          "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+        },
+        "primary_data_check": {
+          "status": "complete_earlier_primary_table",
+          "audit_date": "2026-09-08",
+          "dataset_identifiers": ["mg061fe039o_fei_2007_table_s2_pv"],
+          "source_locations": ["Fei et al. (2007), Auxiliary Table S2", "Solomatova et al. (2016), Tables 2 and 7"],
+          "finding": "All 77 fp39 rows from official Table S2 are bundled. The 38 compression rows enter the coupled reconstruction and the 39 decompression rows remain preserved but excluded; no analytical checkpoint or repeated coefficient is treated as an observation."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+        "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+        "V0": "Table 7 LS column: 74.83 A^3 per conventional B1 cell.",
+        "K0": "Table 7 LS column: 162 GPa.",
+        "K0_prime": "Table 7: low-spin K0' fixed to 4.",
+        "original_dataset": "Solomatova et al. refit the P-V data of Fei et al. (2007), DOI 10.1029/2007GL030712.",
+        "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+      },
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 56.6,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 17.2,
+        "mixer_implemented": false
+      }
+    },
+    {
+      "identifier": "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3",
+      "label": "Solomatova et al. (2016), zhuravlev hs BM3 reference branch",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
+      },
+      "temperature_ref": 300,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 77.41, "K0": 160, "K0_prime": 4.07}
+      },
+      "parameter_errors": {"V0": 0.07, "K0": 1, "K0_prime": 0.05},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "experimental_temperature_range_k": [300, 300],
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": [
+          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
+          "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
+        ]
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+          "doi": "10.2138/am-2016-5510",
+          "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
+          "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+        },
+        "primary_data_check": {
+          "status": "complete_earlier_primary_table",
+          "audit_date": "2026-09-08",
+          "dataset_identifiers": ["mg061fe039o_zhuravlev_2010_table5_pv"],
+          "source_locations": ["Zhuravlev et al. (2010), Table 5", "Solomatova et al. (2016), Tables 2 and 7"],
+          "finding": "All 71 Zhuravlev observations are bundled with path identity preserved. The coupled reconstruction uses only the 54 compression rows; the 17 decompression rows document hysteresis and are excluded. The result is numerically similar to both Table 7 branches."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+        "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+        "V0": "Table 7 HS column: 77.41 A^3 per conventional B1 cell.",
+        "K0": "Table 7 HS column: 160 GPa.",
+        "K0_prime": "Table 7 high-spin K0' column.",
+        "original_dataset": "Solomatova et al. refit the P-V data of Zhuravlev et al. (2010), DOI 10.1007/s00269-009-0347-6.",
+        "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+      },
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 73.5,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 10.3,
+        "mixer_implemented": false
+      }
+    },
+    {
+      "identifier": "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
+      "label": "Solomatova et al. (2016), zhuravlev ls BM3 reference branch",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
+      },
+      "temperature_ref": 300,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 73.56, "K0": 170, "K0_prime": 4}
+      },
+      "parameter_errors": {"V0": 0.19, "K0": 2, "K0_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": ["K0_prime"],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "experimental_temperature_range_k": [300, 300],
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": [
+          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
+          "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
+        ]
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+          "doi": "10.2138/am-2016-5510",
+          "locations": ["Tables 1-3", "Table 7", "Figures 3 and 6-10"],
+          "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+        },
+        "primary_data_check": {
+          "status": "complete_earlier_primary_table",
+          "audit_date": "2026-09-08",
+          "dataset_identifiers": ["mg061fe039o_zhuravlev_2010_table5_pv"],
+          "source_locations": ["Zhuravlev et al. (2010), Table 5", "Solomatova et al. (2016), Tables 2 and 7"],
+          "finding": "All 71 Zhuravlev observations are bundled with path identity preserved. The coupled reconstruction uses only the 54 compression rows; the 17 decompression rows document hysteresis and are excluded. The result is numerically similar to both Table 7 branches."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+        "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+        "V0": "Table 7 LS column: 73.56 A^3 per conventional B1 cell.",
+        "K0": "Table 7 LS column: 170 GPa.",
+        "K0_prime": "Table 7: low-spin K0' fixed to 4.",
+        "original_dataset": "Solomatova et al. refit the P-V data of Zhuravlev et al. (2010), DOI 10.1007/s00269-009-0347-6.",
+        "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+      },
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 73.5,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 10.3,
+        "mixer_implemented": false
+      }
+    },
+    {
+      "identifier": "mg061fe039o_zhuravlev_2010_high_spin_bm2_5",
+      "label": "Zhuravlev et al. (2010), high-spin BM2",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Zhuravlev", "Jackson", "Wolf", "Wicks", "Yan", "Clark", "Prakapenka"],
+        "year": 2010,
+        "title": "Isothermal compression behavior of (Mg,Fe)O using neon as a pressure medium",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "37",
+        "locator": "465-474",
+        "doi": "10.1007/s00269-009-0347-6"
+      },
+      "temperature_ref": 300,
+      "eos": {
+        "type": "BM2",
+        "model": "birch_murnaghan_2",
+        "parameters": {"V0": 77.4, "K0": 161}
+      },
+      "parameter_errors": {"V0": 0.2, "K0": 3},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "experimental_pressure_range_gpa": [15.5, 70.9],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [300, 300],
+      "validity": {
+        "pressure_gpa": [15.5, 70.9],
+        "temperature_k": [300, 300],
+        "notes": [
+          "High-spin compression branch only; the first volume collapse occurs at 72.2 GPa.",
+          "BM2 makes K0_prime=4 part of the equation definition."
+        ]
+      },
+      "notes": "This is Zhuravlev et al.'s source-owned high-spin EOS, distinct from the later Solomatova et al. coupled crossover branches fitted to the full compression trajectory. The paper states that the printed pressure uncertainties describe drift during acquisition and that the true pressure uncertainty is likely closer to 3%; exact EOS-FIT weights and covariance are not published.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Jacobsen", "Holl", "Adams", "Fischer", "Martin", "Bina", "Lin", "Prakapenka", "Kubo", "Dera"],
+              "year": 2008,
+              "title": "Compression of single-crystal magnesium oxide to 118 GPa and a ruby pressure gauge for helium pressure media",
+              "source": "American Mineralogist",
+              "volume": "93",
+              "locator": "1823-1828",
+              "doi": "10.2138/am.2008.2988"
+            },
+            "source_location": "Experimental section, Equation 1, and Table 5",
+            "scope": "all Table 5 pressure observations",
+            "notes": "The source used A=1904 GPa, B=10.32, and lambda0=694.24 nm for the Jacobsen helium-medium ruby scale."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 5 prints reduced pressures and pressure drift but not the row-wise ruby R1 wavelengths required to rerun Equation 1."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Validated directly against the primary article and its complete Table 5 pressure-volume series.",
+        "audit_date": "2026-09-08",
+        "verified_fields": [
+          "canonical_doi",
+          "composition",
+          "phase",
+          "spin_branch",
+          "equation",
+          "parameters",
+          "fixed_parameters",
+          "units",
+          "reference_state",
+          "published_uncertainties",
+          "validity",
+          "pressure_calibration",
+          "primary_data"
+        ],
+        "primary_source_check": {
+          "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Zhuravlevetal_PCM2010.pdf",
+          "doi": "10.1007/s00269-009-0347-6",
+          "locations": ["Experimental section and Equation 1", "Table 5", "Table 6", "Figure 9"],
+          "finding": "The paper fits 43 compression observations from 15.5 to 70.9 GPa as high spin. Its displayed solid curve and leading reported fit are BM2 with V0=77.4(2) A^3 and K0=161(3) GPa; Table 6's three other rows are equation-form and free-derivative sensitivity fits."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-08",
+          "dataset_identifiers": ["mg061fe039o_zhuravlev_2010_table5_pv"],
+          "source_locations": ["Table 5, compression rows through 70.9 GPa"],
+          "finding": "All 43 source-declared high-spin fit observations and their printed pressure and volume uncertainties are bundled. The 11 later compression rows and all 17 decompression rows remain preserved but excluded from this EOS fit."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental section and Equation 1; Table 5; Table 6; Figure 9.",
+        "equation": "Table 6 BM2 row and Figure 9 caption: second-order Birch-Murnaghan EOS fit to compression observations through 70.9 GPa.",
+        "V0": "Table 6: 77.4(2) A^3 per conventional B1 cell.",
+        "K0": "Table 6: 161(3) GPa.",
+        "K0_prime": "Table 6 prints [4], fixed; represented implicitly by BM2.",
+        "alternative_fits": "Table 6 also reports fixed-K0-prime Vinet V0=77.2(2) A^3, K0=166(3) GPa; free-derivative BM3 V0=77.7(9) A^3, K0=153(25) GPa, K0_prime=4.2(7); and free-derivative Vinet V0=77.8(9) A^3, K0=147(27) GPa, K0_prime=4.6(9). These sensitivity fits are documented but are not separate production records."
+      },
+      "fit_provenance": {
+        "software": {"name": "EOS-FIT", "version": "5.2"},
+        "dataset": "mg061fe039o_zhuravlev_2010_table5_pv",
+        "selection": {"compression_path": "compression", "pressure_gpa_max": 70.9, "flag": "used_in_zhuravlev_2010_hs_fit=1"},
+        "objective": "Weighted least squares based on the reported pressure and volume uncertainties; the source does not publish the complete EOS-FIT control file.",
+        "refined_parameters": ["V0", "K0"],
+        "fixed_parameters": ["K0_prime"],
+        "statistics": {"weighted_chi_square": 2.5}
+      },
+      "fit_datasets": ["mg061fe039o_zhuravlev_2010_table5_pv"]
+    },
+    {
+      "identifier": "mg061fe039o_fei_2007_hs_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg061fe039o high-spin B1 compression BM3",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
+        "year": 2007,
+        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+        "source": "Geophysical Research Letters",
+        "volume": "34",
+        "locator": "L17307",
+        "doi": "10.1029/2007GL030712"
+      },
+      "temperature_ref": 300,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 77.48, "K0": 156, "K0_prime": 4}
+      },
+      "parameter_errors": {"V0": null, "K0": 2, "K0_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": ["K0_prime"],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "experimental_temperature_range_k": [300, 300],
+      "validity": {
+        "pressure_gpa": [0, 55],
+        "temperature_k": [300, 300],
+        "notes": [
+          "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
+          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+        ]
+      },
+      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Brown"],
+              "year": 1999,
+              "title": "The NaCl pressure standard",
+              "source": "Journal of Applied Physics",
+              "volume": "86",
+              "locator": "5801-5808"
+            },
+            "source_location": "Paragraph 6; Tables S1-S3",
+            "scope": "NaCl B1; nominally below 26 GPa, with actual row phase identified from lattice branch.",
+            "notes": "Conventional B1 NaCl cell has four formula units."
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fei"],
+              "authors_truncated": true,
+              "year": 2007,
+              "title": "Toward an internally consistent pressure scale",
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Paragraph 6 and reference list; Tables S1-S3",
+            "scope": "NaCl B2; nominally above 26 GPa.",
+            "notes": "B2 NaCl cell has one formula unit. This pressure-standard DOI differs from the GRL sample EOS DOI."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Row-wise NaCl lattice parameters and printed errors are bundled, along with original P_NaCl pressures. Exact Brown B1 and Fei B2 standards are not both present in the shared executable material catalog. No substitute calibration or recalculated pressures are used."
+        },
+        "audit_date": "2026-09-08",
+        "notes": "The row nacl_phase is inferred from its lattice branch: a>4 A is B1, a<4 A is B2. Table S1 has B1 at 29.30 GPa, so a universal 26 GPa cutoff would mislabel observations."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-09-08",
+        "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+        "verified_fields": [
+          "canonical_doi",
+          "composition",
+          "phase",
+          "spin_branch",
+          "compression_path",
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "published_uncertainties",
+          "pressure_calibration",
+          "dataset_transcription"
+        ],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1029/2007GL030712",
+          "doi": "10.1029/2007GL030712",
+          "locations": ["Figures 1-3 captions", "paragraphs 6-15", "Tables S1-S3"],
+          "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+          "zotero_item_key": "33JIXYGF",
+          "zotero_attachment_key": "FKWA95NJ",
+          "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-08",
+          "dataset_identifiers": ["mg061fe039o_fei_2007_table_s2_pv"],
+          "source_locations": ["Table S2", "Figure 2", "paragraphs 12-14"],
+          "finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context."
+        },
+        "usage_recommendation": "consult_source_audit_before_quantitative_use",
+        "reproduction_summary": {
+          "report": "docs/literature-reproductions/fei-2007-ferropericlase.md",
+          "refit_ledger": "docs/data/primary-eos-refits.json",
+          "fit_kind": "independent_validation_refit",
+          "status": "parity",
+          "published_curve_pressure_rmse_gpa": 0.9370626385443614,
+          "selection": "Validation only: compression rows with -0.1 <= P <= 55 GPa, using the published approximate 0-55 GPa branch interval. Exact source row masks and least-squares weights are not published.",
+          "observations": 13
+        },
+        "usage_notes": "Source coefficient transcription verified. Independent refit is validation only, with approximate row selection and unweighted pressure residuals. Stay within the stated spin/phase regime."
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figures 1-3 captions; paragraphs 6-15; Tables S1-S3.",
+        "equation": "Paragraphs 12 and 14 identify third-order Birch-Murnaghan; captions of Figures 1-3 give K0-prime=4. This is algebraically BM2, stored as the source-named BM3 only; no duplicate BM2 entry.",
+        "V0": "Figure 2: 77.48 A^3 per conventional B1 cell (Z=4). Measured reference volume; no uncertainty printed.",
+        "K0": "Figure 2: 156 GPa. Paragraph 12 uncertainty 2 GPa.",
+        "K0_prime": "Fixed at 4; no fitted error.",
+        "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
+        "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
+      },
+      "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
+      "validation_selection": {
+        "pressure_gpa": [-0.1, 55],
+        "compression_path": "compression",
+        "notes": "Validation only: compression rows with -0.1 <= P <= 55 GPa, using the published approximate 0-55 GPa branch interval. Exact source row masks and least-squares weights are not published."
+      },
+      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
+    },
+    {
+      "identifier": "mg061fe039o_fei_2007_ls_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg061fe039o low-spin B1 compression BM3",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
+        "year": 2007,
+        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+        "source": "Geophysical Research Letters",
+        "volume": "34",
+        "locator": "L17307",
+        "doi": "10.1029/2007GL030712"
+      },
+      "temperature_ref": 300,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 73.6, "K0": 170, "K0_prime": 4}
+      },
+      "parameter_errors": {"V0": 0.1, "K0": 3, "K0_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": ["K0_prime"],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "experimental_temperature_range_k": [300, 300],
+      "validity": {
+        "pressure_gpa": [60, 148],
+        "temperature_k": [300, 300],
+        "notes": [
+          "Published low-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
+          "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
+        ]
+      },
+      "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Brown"],
+              "year": 1999,
+              "title": "The NaCl pressure standard",
+              "source": "Journal of Applied Physics",
+              "volume": "86",
+              "locator": "5801-5808"
+            },
+            "source_location": "Paragraph 6; Tables S1-S3",
+            "scope": "NaCl B1; nominally below 26 GPa, with actual row phase identified from lattice branch.",
+            "notes": "Conventional B1 NaCl cell has four formula units."
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fei"],
+              "authors_truncated": true,
+              "year": 2007,
+              "title": "Toward an internally consistent pressure scale",
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Paragraph 6 and reference list; Tables S1-S3",
+            "scope": "NaCl B2; nominally above 26 GPa.",
+            "notes": "B2 NaCl cell has one formula unit. This pressure-standard DOI differs from the GRL sample EOS DOI."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Row-wise NaCl lattice parameters and printed errors are bundled, along with original P_NaCl pressures. Exact Brown B1 and Fei B2 standards are not both present in the shared executable material catalog. No substitute calibration or recalculated pressures are used."
+        },
+        "audit_date": "2026-09-08",
+        "notes": "The row nacl_phase is inferred from its lattice branch: a>4 A is B1, a<4 A is B2. Table S1 has B1 at 29.30 GPa, so a universal 26 GPa cutoff would mislabel observations."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-09-08",
+        "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+        "verified_fields": [
+          "canonical_doi",
+          "composition",
+          "phase",
+          "spin_branch",
+          "compression_path",
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "published_uncertainties",
+          "pressure_calibration",
+          "dataset_transcription"
+        ],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1029/2007GL030712",
+          "doi": "10.1029/2007GL030712",
+          "locations": ["Figures 1-3 captions", "paragraphs 6-15", "Tables S1-S3"],
+          "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+          "zotero_item_key": "33JIXYGF",
+          "zotero_attachment_key": "FKWA95NJ",
+          "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-08",
+          "dataset_identifiers": ["mg061fe039o_fei_2007_table_s2_pv"],
+          "source_locations": ["Table S2", "Figure 2", "paragraphs 12-14"],
+          "finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context."
+        },
+        "usage_recommendation": "consult_source_audit_before_quantitative_use",
+        "reproduction_summary": {
+          "report": "docs/literature-reproductions/fei-2007-ferropericlase.md",
+          "refit_ledger": "docs/data/primary-eos-refits.json",
+          "fit_kind": "independent_validation_refit",
+          "status": "parity",
+          "published_curve_pressure_rmse_gpa": 4.047495658376884,
+          "selection": "Validation only: compression rows with 60 <= P <= 148 GPa, using the published approximate 60-148 GPa branch interval. Exact source row masks and least-squares weights are not published.",
+          "observations": 24
+        },
+        "usage_notes": "Source coefficient transcription verified. Independent refit is validation only, with approximate row selection and unweighted pressure residuals. The fp39 LS published-curve pressure RMSE is 4.0475 GPa on the selected compression rows."
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figures 1-3 captions; paragraphs 6-15; Tables S1-S3.",
+        "equation": "Paragraphs 12 and 14 identify third-order Birch-Murnaghan; captions of Figures 1-3 give K0-prime=4. This is algebraically BM2, stored as the source-named BM3 only; no duplicate BM2 entry.",
+        "V0": "Figure 2: 73.6 A^3 per conventional B1 cell (Z=4). Paragraph 14 fitted low-spin zero-pressure volume with uncertainty 0.1 A^3; this is an extrapolated reference volume.",
+        "K0": "Figure 2: 170 GPa. Paragraph 14 reports 170(3) GPa for both low-spin compositions.",
+        "K0_prime": "Fixed at 4; no fitted error.",
+        "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
+        "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
+      },
+      "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
+      "validation_selection": {
+        "pressure_gpa": [60, 148],
+        "compression_path": "compression",
+        "notes": "Validation only: compression rows with 60 <= P <= 148 GPa, using the published approximate 60-148 GPa branch interval. Exact source row masks and least-squares weights are not published."
+      },
+      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
+    }
+  ],
+  "datasets": [
+    {
+      "identifier": "mg061fe039o_fei_2007_table_s2_pv",
+      "kind": "static_compression",
+      "description": "Complete Table S2: 77 printed observations, preserving source order and sample IDs.",
+      "reference": {
+        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
+        "year": 2007,
+        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+        "source": "Geophysical Research Letters",
+        "volume": "34",
+        "locator": "L17307",
+        "doi": "10.1029/2007GL030712"
+      },
+      "source_location": "Official auxiliary Table S2",
+      "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/suppl/10.1029/2007GL030712",
+      "columns": [
+        {"name": "source_order", "quantity": "metadata", "unit": "1", "role": "value"},
+        {"name": "sample_name", "quantity": "metadata", "unit": "1", "role": "value"},
+        {
+          "name": "nacl_lattice_a_angstrom",
+          "quantity": "calibrant_lattice_parameter",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "nacl_lattice_error_angstrom",
+          "quantity": "calibrant_lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "sample_lattice_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "sample_lattice_error_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty"
+        },
+        {"name": "compression_path", "quantity": "metadata", "unit": "1", "role": "value"},
+        {"name": "nacl_phase", "quantity": "metadata", "unit": "1", "role": "value"},
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_error_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty"
+        },
+        {"name": "sample_volume_interpretation", "quantity": "metadata", "unit": "1", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/mg061fe039o-fei-2007-table-s2-pv.csv",
+        "sha256": "263f5c5ae3f780290827874235fe11442916eb0729f36cf161479bf1d6f81ccc",
+        "media_type": "text/csv"
+      },
+      "original_resource": {
+        "path": "datasets/fei-2007/grl23467-sup-0003-ts02.txt",
+        "sha256": "8ed867f9eaa9b937576bea6854eff14df4eaffd74210d765bd886b035c335f5a",
+        "media_type": "text/plain",
+        "custody": "Official auxiliary file supplied by user; preserved byte-for-byte."
+      },
+      "used_by_eos_records": [
+        "mg061fe039o_fei_2007_hs_b1_bm3",
+        "mg061fe039o_fei_2007_ls_b1_bm3",
+        "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1",
+        "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2"
+      ],
+      "notes": "Only original lattice parameters, printed errors and pressure columns are reported observations. Volume a^3 and its first-order error 3a^2*error(a), path assignment, and NaCl phase are curator derivations. Printed 0.0000 errors remain literal zeros (not exact measurements); missing errors remain blank. No pressure uncertainties are invented. The fp39 mw39c block is decompression (paragraph 8/Figure 2 and reversed pressure sequence); no separate decompression EOS is published. For mw58 at >=44 GPa the scalar a_mw58 does not specify a full rhombohedral cell, so volume and its error are deliberately blank. The 42.75 GPa B1 row is retained, although the caption rounds the HS fit limit to 42 GPa. Linked full tables contain observations outside the fitted branch; use record validation_selection explicitly."
+    },
+    {
+      "identifier": "mg061fe039o_zhuravlev_2010_table5_pv",
+      "kind": "pressure_volume",
+      "description": "Complete Table 5 P-V series: 54 compression and 17 decompression observations at 300 K.",
+      "reference": {
+        "authors": ["Zhuravlev", "Jackson", "Wolf", "Wicks", "Yan", "Clark", "Prakapenka"],
+        "year": 2010,
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "37",
+        "locator": "465-474",
+        "doi": "10.1007/s00269-009-0347-6"
+      },
+      "source_location": "Table 5, page 8",
+      "source_url": "https://web.gps.caltech.edu/~jackson/pdf/Zhuravlevetal_PCM2010.pdf",
+      "columns": [
+        {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_sigma_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3_conventional_cell"
+        },
+        {"name": "compression_path", "quantity": "compression_path", "unit": "1", "role": "flag"},
+        {"name": "used_in_solomatova_2016_fit", "quantity": "reconstructed_fit_selection", "unit": "1", "role": "flag"},
+        {"name": "used_in_zhuravlev_2010_hs_fit", "quantity": "source_fit_selection", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/mg061fe039o-zhuravlev-2010-table5-pv.csv",
+        "sha256": "7109f75899eb7025fa4233bbb955ad630412fe08ba0b80c08f1a5505ff4d5908",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [
+        "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3",
+        "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
+        "mg061fe039o_zhuravlev_2010_high_spin_bm2_5"
+      ],
+      "uncertainty": {
+        "reported_as": "One-sigma pressure and volume uncertainties printed row by row in Table 5.",
+        "covariance": "not_reported"
+      },
+      "provenance": {
+        "type": "transcribed_from_primary_table",
+        "method": "Complete manual transcription with compression and decompression paths kept distinct.",
+        "transcribed_on": "2026-09-08"
+      },
+      "notes": "Solomatova's fitted midpoint and the source's 72.2-76.6 GPa compression collapse identify the compression path as the reconstruction input. Decompression is preserved but excluded because the source documents metastable low-spin persistence and hysteresis to about 65 GPa."
+    }
+  ],
+  "source": {
+    "structure_reference": {
+      "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+      "year": 2016,
+      "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+      "source": "American Mineralogist",
+      "volume": "101",
+      "locator": "1084-1093",
+      "doi": "10.2138/am-2016-5510"
+    },
+    "structure_location": "B1 assignment in the introduction and X-ray diffraction results"
   }
- ],
- "peaks": [],
- "source": {
-  "structure_reference": {
-   "authors": [
-    "Solomatova",
-    "Jackson",
-    "Sturhahn",
-    "Wicks",
-    "Zhao",
-    "Toellner",
-    "Kalkan",
-    "Steinhardt"
-   ],
-   "year": 2016,
-   "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-   "source": "American Mineralogist",
-   "volume": "101",
-   "locator": "1084-1093",
-   "doi": "10.2138/am-2016-5510"
-  },
-  "structure_location": "B1 assignment in the introduction and X-ray diffraction results"
- },
- "notes": "Solomatova et al. (2016) records are paired MINUTI reference branches without an implemented mixer. Fei et al. (2007, GRL) records are the original separately fitted HS and LS compression EOSs; their coefficients and source ownership are distinct.",
- "eos_records": [
-  {
-   "determination_method": "experimental",
-   "identifier": "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1",
-   "label": "Solomatova et al. (2016), fei hs BM3 reference branch",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Solomatova",
-     "Jackson",
-     "Sturhahn",
-     "Wicks",
-     "Zhao",
-     "Toellner",
-     "Kalkan",
-     "Steinhardt"
-    ],
-    "year": 2016,
-    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-    "source": "American Mineralogist",
-    "volume": "101",
-    "locator": "1084-1093",
-    "doi": "10.2138/am-2016-5510"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 77.49,
-     "K0": 161,
-     "K0_prime": 4.25
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.03,
-    "K0": 3,
-    "K0_prime": 0.24
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300,
-   "experimental_temperature_range_k": [
-    300,
-    300
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 52.6046
-   },
-   "spin_crossover_context": {
-    "branch": "high_spin_reference",
-    "transition_pressure_gpa": 56.6,
-    "transition_pressure_sigma_gpa": null,
-    "transition_width_20_80_gpa": 17.2,
-    "mixer_implemented": false
-   },
-   "validity": {
-    "pressure_gpa": [
-     0,
-     140
-    ],
-    "temperature_k": [
-     300,
-     300
-    ],
-    "notes": [
-     "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-     "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-    "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
-    "V0": "Table 7 HS column: 77.49 A^3 per conventional B1 cell.",
-    "K0": "Table 7 HS column: 161 GPa.",
-    "K0_prime": "Table 7 high-spin K0' column.",
-    "original_dataset": "Solomatova et al. refit the P-V data of Fei et al. (2007), DOI 10.1029/2007GL030712.",
-    "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-     "doi": "10.2138/am-2016-5510",
-     "locations": [
-      "Tables 1-3",
-      "Table 7",
-      "Figures 3 and 6-10"
-     ],
-     "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
-    },
-    "primary_data_check": {
-     "status": "complete_earlier_primary_table",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "mg061fe039o_fei_2007_table_s2_pv"
-     ],
-     "source_locations": [
-      "Fei et al. (2007), Auxiliary Table S2",
-      "Solomatova et al. (2016), Tables 2 and 7"
-     ],
-     "finding": "All 77 fp39 rows from official Table S2 are bundled. The 38 compression rows enter the coupled reconstruction and the 39 decompression rows remain preserved but excluded; no analytical checkpoint or repeated coefficient is treated as an observation."
-    }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2",
-   "label": "Solomatova et al. (2016), fei ls BM3 reference branch",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Solomatova",
-     "Jackson",
-     "Sturhahn",
-     "Wicks",
-     "Zhao",
-     "Toellner",
-     "Kalkan",
-     "Steinhardt"
-    ],
-    "year": 2016,
-    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-    "source": "American Mineralogist",
-    "volume": "101",
-    "locator": "1084-1093",
-    "doi": "10.2138/am-2016-5510"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 74.83,
-     "K0": 162,
-     "K0_prime": 4
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.38,
-    "K0": 4,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "temperature_ref": 300,
-   "experimental_temperature_range_k": [
-    300,
-    300
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 52.6046
-   },
-   "spin_crossover_context": {
-    "branch": "low_spin_reference",
-    "transition_pressure_gpa": 56.6,
-    "transition_pressure_sigma_gpa": null,
-    "transition_width_20_80_gpa": 17.2,
-    "mixer_implemented": false
-   },
-   "validity": {
-    "pressure_gpa": [
-     0,
-     140
-    ],
-    "temperature_k": [
-     300,
-     300
-    ],
-    "notes": [
-     "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-     "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-    "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
-    "V0": "Table 7 LS column: 74.83 A^3 per conventional B1 cell.",
-    "K0": "Table 7 LS column: 162 GPa.",
-    "K0_prime": "Table 7: low-spin K0' fixed to 4.",
-    "original_dataset": "Solomatova et al. refit the P-V data of Fei et al. (2007), DOI 10.1029/2007GL030712.",
-    "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-     "doi": "10.2138/am-2016-5510",
-     "locations": [
-      "Tables 1-3",
-      "Table 7",
-      "Figures 3 and 6-10"
-     ],
-     "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
-    },
-    "primary_data_check": {
-     "status": "complete_earlier_primary_table",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "mg061fe039o_fei_2007_table_s2_pv"
-     ],
-     "source_locations": [
-      "Fei et al. (2007), Auxiliary Table S2",
-      "Solomatova et al. (2016), Tables 2 and 7"
-     ],
-     "finding": "All 77 fp39 rows from official Table S2 are bundled. The 38 compression rows enter the coupled reconstruction and the 39 decompression rows remain preserved but excluded; no analytical checkpoint or repeated coefficient is treated as an observation."
-    }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3",
-   "label": "Solomatova et al. (2016), zhuravlev hs BM3 reference branch",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Solomatova",
-     "Jackson",
-     "Sturhahn",
-     "Wicks",
-     "Zhao",
-     "Toellner",
-     "Kalkan",
-     "Steinhardt"
-    ],
-    "year": 2016,
-    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-    "source": "American Mineralogist",
-    "volume": "101",
-    "locator": "1084-1093",
-    "doi": "10.2138/am-2016-5510"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 77.41,
-     "K0": 160,
-     "K0_prime": 4.07
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.07,
-    "K0": 1,
-    "K0_prime": 0.05
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300,
-   "experimental_temperature_range_k": [
-    300,
-    300
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 52.6046
-   },
-   "spin_crossover_context": {
-    "branch": "high_spin_reference",
-    "transition_pressure_gpa": 73.5,
-    "transition_pressure_sigma_gpa": null,
-    "transition_width_20_80_gpa": 10.3,
-    "mixer_implemented": false
-   },
-   "validity": {
-    "pressure_gpa": [
-     0,
-     140
-    ],
-    "temperature_k": [
-     300,
-     300
-    ],
-    "notes": [
-     "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-     "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-    "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
-    "V0": "Table 7 HS column: 77.41 A^3 per conventional B1 cell.",
-    "K0": "Table 7 HS column: 160 GPa.",
-    "K0_prime": "Table 7 high-spin K0' column.",
-    "original_dataset": "Solomatova et al. refit the P-V data of Zhuravlev et al. (2010), DOI 10.1007/s00269-009-0347-6.",
-    "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-     "doi": "10.2138/am-2016-5510",
-     "locations": [
-      "Tables 1-3",
-      "Table 7",
-      "Figures 3 and 6-10"
-     ],
-     "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
-    },
-    "primary_data_check": {
-     "status": "complete_earlier_primary_table",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "mg061fe039o_zhuravlev_2010_table5_pv"
-     ],
-     "source_locations": [
-      "Zhuravlev et al. (2010), Table 5",
-      "Solomatova et al. (2016), Tables 2 and 7"
-     ],
-     "finding": "All 71 Zhuravlev observations are bundled with path identity preserved. The coupled reconstruction uses only the 54 compression rows; the 17 decompression rows document hysteresis and are excluded. The result is numerically similar to both Table 7 branches."
-    }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
-   "label": "Solomatova et al. (2016), zhuravlev ls BM3 reference branch",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Solomatova",
-     "Jackson",
-     "Sturhahn",
-     "Wicks",
-     "Zhao",
-     "Toellner",
-     "Kalkan",
-     "Steinhardt"
-    ],
-    "year": 2016,
-    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-    "source": "American Mineralogist",
-    "volume": "101",
-    "locator": "1084-1093",
-    "doi": "10.2138/am-2016-5510"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 73.56,
-     "K0": 170,
-     "K0_prime": 4
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.19,
-    "K0": 2,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "temperature_ref": 300,
-   "experimental_temperature_range_k": [
-    300,
-    300
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 52.6046
-   },
-   "spin_crossover_context": {
-    "branch": "low_spin_reference",
-    "transition_pressure_gpa": 73.5,
-    "transition_pressure_sigma_gpa": null,
-    "transition_width_20_80_gpa": 10.3,
-    "mixer_implemented": false
-   },
-   "validity": {
-    "pressure_gpa": [
-     0,
-     140
-    ],
-    "temperature_k": [
-     300,
-     300
-    ],
-    "notes": [
-     "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-     "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-    "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
-    "V0": "Table 7 LS column: 73.56 A^3 per conventional B1 cell.",
-    "K0": "Table 7 LS column: 170 GPa.",
-    "K0_prime": "Table 7: low-spin K0' fixed to 4.",
-    "original_dataset": "Solomatova et al. refit the P-V data of Zhuravlev et al. (2010), DOI 10.1007/s00269-009-0347-6.",
-    "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-     "doi": "10.2138/am-2016-5510",
-     "locations": [
-      "Tables 1-3",
-      "Table 7",
-      "Figures 3 and 6-10"
-     ],
-     "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
-    },
-    "primary_data_check": {
-     "status": "complete_earlier_primary_table",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "mg061fe039o_zhuravlev_2010_table5_pv"
-     ],
-     "source_locations": [
-      "Zhuravlev et al. (2010), Table 5",
-      "Solomatova et al. (2016), Tables 2 and 7"
-     ],
-     "finding": "All 71 Zhuravlev observations are bundled with path identity preserved. The coupled reconstruction uses only the 54 compression rows; the 17 decompression rows document hysteresis and are excluded. The result is numerically similar to both Table 7 branches."
-    }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg061fe039o_zhuravlev_2010_high_spin_bm2_5",
-   "label": "Zhuravlev et al. (2010), high-spin BM2",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Zhuravlev",
-     "Jackson",
-     "Wolf",
-     "Wicks",
-     "Yan",
-     "Clark",
-     "Prakapenka"
-    ],
-    "year": 2010,
-    "title": "Isothermal compression behavior of (Mg,Fe)O using neon as a pressure medium",
-    "source": "Physics and Chemistry of Minerals",
-    "volume": "37",
-    "locator": "465-474",
-    "doi": "10.1007/s00269-009-0347-6"
-   },
-   "eos": {
-    "type": "BM2",
-    "model": "birch_murnaghan_2",
-    "parameters": {
-     "V0": 77.4,
-     "K0": 161
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.2,
-    "K0": 3
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "fit_datasets": [
-    "mg061fe039o_zhuravlev_2010_table5_pv"
-   ],
-   "fit_provenance": {
-    "software": {
-     "name": "EOS-FIT",
-     "version": "5.2"
-    },
-    "dataset": "mg061fe039o_zhuravlev_2010_table5_pv",
-    "selection": {
-     "compression_path": "compression",
-     "pressure_gpa_max": 70.9,
-     "flag": "used_in_zhuravlev_2010_hs_fit=1"
-    },
-    "objective": "Weighted least squares based on the reported pressure and volume uncertainties; the source does not publish the complete EOS-FIT control file.",
-    "refined_parameters": [
-     "V0",
-     "K0"
-    ],
-    "fixed_parameters": [
-     "K0_prime"
-    ],
-    "statistics": {
-     "weighted_chi_square": 2.5
-    }
-   },
-   "temperature_ref": 300,
-   "experimental_pressure_range_gpa": [
-    15.5,
-    70.9
-   ],
-   "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [
-    300,
-    300
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 52.6046
-   },
-   "validity": {
-    "pressure_gpa": [
-     15.5,
-     70.9
-    ],
-    "temperature_k": [
-     300,
-     300
-    ],
-    "notes": [
-     "High-spin compression branch only; the first volume collapse occurs at 72.2 GPa.",
-     "BM2 makes K0_prime=4 part of the equation definition."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental section and Equation 1; Table 5; Table 6; Figure 9.",
-    "equation": "Table 6 BM2 row and Figure 9 caption: second-order Birch-Murnaghan EOS fit to compression observations through 70.9 GPa.",
-    "V0": "Table 6: 77.4(2) A^3 per conventional B1 cell.",
-    "K0": "Table 6: 161(3) GPa.",
-    "K0_prime": "Table 6 prints [4], fixed; represented implicitly by BM2.",
-    "alternative_fits": "Table 6 also reports fixed-K0-prime Vinet V0=77.2(2) A^3, K0=166(3) GPa; free-derivative BM3 V0=77.7(9) A^3, K0=153(25) GPa, K0_prime=4.2(7); and free-derivative Vinet V0=77.8(9) A^3, K0=147(27) GPa, K0_prime=4.6(9). These sensitivity fits are documented but are not separate production records."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "reference": {
-       "authors": [
-        "Jacobsen",
-        "Holl",
-        "Adams",
-        "Fischer",
-        "Martin",
-        "Bina",
-        "Lin",
-        "Prakapenka",
-        "Kubo",
-        "Dera"
-       ],
-       "year": 2008,
-       "title": "Compression of single-crystal magnesium oxide to 118 GPa and a ruby pressure gauge for helium pressure media",
-       "source": "American Mineralogist",
-       "volume": "93",
-       "locator": "1823-1828",
-       "doi": "10.2138/am.2008.2988"
-      },
-      "source_location": "Experimental section, Equation 1, and Table 5",
-      "scope": "all Table 5 pressure observations",
-      "notes": "The source used A=1904 GPa, B=10.32, and lambda0=694.24 nm for the Jacobsen helium-medium ruby scale."
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "Table 5 prints reduced pressures and pressure drift but not the row-wise ruby R1 wavelengths required to rerun Equation 1."
-    },
-    "audit_date": "2026-09-08"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Validated directly against the primary article and its complete Table 5 pressure-volume series.",
-    "audit_date": "2026-09-08",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
-     "equation",
-     "parameters",
-     "fixed_parameters",
-     "units",
-     "reference_state",
-     "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
-    ],
-    "primary_source_check": {
-     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Zhuravlevetal_PCM2010.pdf",
-     "doi": "10.1007/s00269-009-0347-6",
-     "locations": [
-      "Experimental section and Equation 1",
-      "Table 5",
-      "Table 6",
-      "Figure 9"
-     ],
-     "finding": "The paper fits 43 compression observations from 15.5 to 70.9 GPa as high spin. Its displayed solid curve and leading reported fit are BM2 with V0=77.4(2) A^3 and K0=161(3) GPa; Table 6's three other rows are equation-form and free-derivative sensitivity fits."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "mg061fe039o_zhuravlev_2010_table5_pv"
-     ],
-     "source_locations": [
-      "Table 5, compression rows through 70.9 GPa"
-     ],
-     "finding": "All 43 source-declared high-spin fit observations and their printed pressure and volume uncertainties are bundled. The 11 later compression rows and all 17 decompression rows remain preserved but excluded from this EOS fit."
-    }
-   },
-   "notes": "This is Zhuravlev et al.'s source-owned high-spin EOS, distinct from the later Solomatova et al. coupled crossover branches fitted to the full compression trajectory. The paper states that the printed pressure uncertainties describe drift during acquisition and that the true pressure uncertainty is likely closer to 3%; exact EOS-FIT weights and covariance are not published."
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg061fe039o_fei_2007_hs_b1_bm3",
-   "label": "Fei et al. (2007), GRL, mg061fe039o high-spin B1 compression BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Fei",
-     "Zhang",
-     "Corgne",
-     "Watson",
-     "Ricolleau",
-     "Meng",
-     "Prakapenka"
-    ],
-    "year": 2007,
-    "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
-    "source": "Geophysical Research Letters",
-    "volume": "34",
-    "locator": "L17307",
-    "doi": "10.1029/2007GL030712"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 77.48,
-     "K0": 156,
-     "K0_prime": 4
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 2,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "temperature_ref": 300,
-   "experimental_temperature_range_k": [
-    300,
-    300
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 52.6046
-   },
-   "fit_datasets": [
-    "mg061fe039o_fei_2007_table_s2_pv"
-   ],
-   "validity": {
-    "pressure_gpa": [
-     0,
-     55
-    ],
-    "temperature_k": [
-     300,
-     300
-    ],
-    "notes": [
-     "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-     "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
-    ]
-   },
-   "validation_selection": {
-    "pressure_gpa": [
-     -0.1,
-     55
-    ],
-    "compression_path": "compression",
-    "notes": "Validation only: compression rows with -0.1 <= P <= 55 GPa, using the published approximate 0-55 GPa branch interval. Exact source row masks and least-squares weights are not published."
-   },
-   "spin_path_context": {
-    "spin": "high-spin",
-    "phase": "B1",
-    "path": "compression",
-    "separate_decompression_fit_published": false
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figures 1-3 captions; paragraphs 6-15; Tables S1-S3.",
-    "equation": "Paragraphs 12 and 14 identify third-order Birch-Murnaghan; captions of Figures 1-3 give K0-prime=4. This is algebraically BM2, stored as the source-named BM3 only; no duplicate BM2 entry.",
-    "V0": "Figure 2: 77.48 A^3 per conventional B1 cell (Z=4). Measured reference volume; no uncertainty printed.",
-    "K0": "Figure 2: 156 GPa. Paragraph 12 uncertainty 2 GPa.",
-    "K0_prime": "Fixed at 4; no fitted error.",
-    "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
-    "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
-   },
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Brown"
-       ],
-       "year": 1999,
-       "title": "The NaCl pressure standard",
-       "source": "Journal of Applied Physics",
-       "volume": "86",
-       "locator": "5801-5808"
-      },
-      "source_location": "Paragraph 6; Tables S1-S3",
-      "scope": "NaCl B1; nominally below 26 GPa, with actual row phase identified from lattice branch.",
-      "notes": "Conventional B1 NaCl cell has four formula units."
-     },
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Fei"
-       ],
-       "authors_truncated": true,
-       "year": 2007,
-       "title": "Toward an internally consistent pressure scale",
-       "source": "Proceedings of the National Academy of Sciences",
-       "volume": "104",
-       "locator": "9182-9186",
-       "doi": "10.1073/pnas.0609013104"
-      },
-      "source_location": "Paragraph 6 and reference list; Tables S1-S3",
-      "scope": "NaCl B2; nominally above 26 GPa.",
-      "notes": "B2 NaCl cell has one formula unit. This pressure-standard DOI differs from the GRL sample EOS DOI."
-     }
-    ],
-    "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "Row-wise NaCl lattice parameters and printed errors are bundled, along with original P_NaCl pressures. Exact Brown B1 and Fei B2 standards are not both present in the shared executable material catalog. No substitute calibration or recalculated pressures are used."
-    },
-    "audit_date": "2026-09-08",
-    "notes": "The row nacl_phase is inferred from its lattice branch: a>4 A is B1, a<4 A is B2. Table S1 has B1 at 29.30 GPa, so a universal 26 GPa cutoff would mislabel observations."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "audit_date": "2026-09-08",
-    "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
-     "compression_path",
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "published_uncertainties",
-     "pressure_calibration",
-     "dataset_transcription"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/2007GL030712",
-     "doi": "10.1029/2007GL030712",
-     "locations": [
-      "Figures 1-3 captions",
-      "paragraphs 6-15",
-      "Tables S1-S3"
-     ],
-     "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-     "zotero_item_key": "33JIXYGF",
-     "zotero_attachment_key": "FKWA95NJ",
-     "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "mg061fe039o_fei_2007_table_s2_pv"
-     ],
-     "source_locations": [
-      "Table S2",
-      "Figure 2",
-      "paragraphs 12-14"
-     ],
-     "finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context."
-    },
-    "usage_recommendation": "consult_source_audit_before_quantitative_use",
-    "reproduction_summary": {
-     "report": "docs/literature-reproductions/fei-2007-ferropericlase.md",
-     "refit_ledger": "docs/data/primary-eos-refits.json",
-     "fit_kind": "independent_validation_refit",
-     "status": "parity",
-     "published_curve_pressure_rmse_gpa": 0.9370626385443614,
-     "selection": "Validation only: compression rows with -0.1 <= P <= 55 GPa, using the published approximate 0-55 GPa branch interval. Exact source row masks and least-squares weights are not published.",
-     "observations": 13
-    },
-    "usage_notes": "Source coefficient transcription verified. Independent refit is validation only, with approximate row selection and unweighted pressure residuals. Stay within the stated spin/phase regime."
-   },
-   "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter."
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg061fe039o_fei_2007_ls_b1_bm3",
-   "label": "Fei et al. (2007), GRL, mg061fe039o low-spin B1 compression BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Fei",
-     "Zhang",
-     "Corgne",
-     "Watson",
-     "Ricolleau",
-     "Meng",
-     "Prakapenka"
-    ],
-    "year": 2007,
-    "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
-    "source": "Geophysical Research Letters",
-    "volume": "34",
-    "locator": "L17307",
-    "doi": "10.1029/2007GL030712"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 73.6,
-     "K0": 170,
-     "K0_prime": 4
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.1,
-    "K0": 3,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "temperature_ref": 300,
-   "experimental_temperature_range_k": [
-    300,
-    300
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 52.6046
-   },
-   "fit_datasets": [
-    "mg061fe039o_fei_2007_table_s2_pv"
-   ],
-   "validity": {
-    "pressure_gpa": [
-     60,
-     148
-    ],
-    "temperature_k": [
-     300,
-     300
-    ],
-    "notes": [
-     "Published low-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
-     "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
-    ]
-   },
-   "validation_selection": {
-    "pressure_gpa": [
-     60,
-     148
-    ],
-    "compression_path": "compression",
-    "notes": "Validation only: compression rows with 60 <= P <= 148 GPa, using the published approximate 60-148 GPa branch interval. Exact source row masks and least-squares weights are not published."
-   },
-   "spin_path_context": {
-    "spin": "low-spin",
-    "phase": "B1",
-    "path": "compression",
-    "separate_decompression_fit_published": false
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Figures 1-3 captions; paragraphs 6-15; Tables S1-S3.",
-    "equation": "Paragraphs 12 and 14 identify third-order Birch-Murnaghan; captions of Figures 1-3 give K0-prime=4. This is algebraically BM2, stored as the source-named BM3 only; no duplicate BM2 entry.",
-    "V0": "Figure 2: 73.6 A^3 per conventional B1 cell (Z=4). Paragraph 14 fitted low-spin zero-pressure volume with uncertainty 0.1 A^3; this is an extrapolated reference volume.",
-    "K0": "Figure 2: 170 GPa. Paragraph 14 reports 170(3) GPa for both low-spin compositions.",
-    "K0_prime": "Fixed at 4; no fitted error.",
-    "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
-    "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
-   },
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Brown"
-       ],
-       "year": 1999,
-       "title": "The NaCl pressure standard",
-       "source": "Journal of Applied Physics",
-       "volume": "86",
-       "locator": "5801-5808"
-      },
-      "source_location": "Paragraph 6; Tables S1-S3",
-      "scope": "NaCl B1; nominally below 26 GPa, with actual row phase identified from lattice branch.",
-      "notes": "Conventional B1 NaCl cell has four formula units."
-     },
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Fei"
-       ],
-       "authors_truncated": true,
-       "year": 2007,
-       "title": "Toward an internally consistent pressure scale",
-       "source": "Proceedings of the National Academy of Sciences",
-       "volume": "104",
-       "locator": "9182-9186",
-       "doi": "10.1073/pnas.0609013104"
-      },
-      "source_location": "Paragraph 6 and reference list; Tables S1-S3",
-      "scope": "NaCl B2; nominally above 26 GPa.",
-      "notes": "B2 NaCl cell has one formula unit. This pressure-standard DOI differs from the GRL sample EOS DOI."
-     }
-    ],
-    "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "Row-wise NaCl lattice parameters and printed errors are bundled, along with original P_NaCl pressures. Exact Brown B1 and Fei B2 standards are not both present in the shared executable material catalog. No substitute calibration or recalculated pressures are used."
-    },
-    "audit_date": "2026-09-08",
-    "notes": "The row nacl_phase is inferred from its lattice branch: a>4 A is B1, a<4 A is B2. Table S1 has B1 at 29.30 GPa, so a universal 26 GPa cutoff would mislabel observations."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "audit_date": "2026-09-08",
-    "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
-     "compression_path",
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "published_uncertainties",
-     "pressure_calibration",
-     "dataset_transcription"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/2007GL030712",
-     "doi": "10.1029/2007GL030712",
-     "locations": [
-      "Figures 1-3 captions",
-      "paragraphs 6-15",
-      "Tables S1-S3"
-     ],
-     "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-     "zotero_item_key": "33JIXYGF",
-     "zotero_attachment_key": "FKWA95NJ",
-     "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "mg061fe039o_fei_2007_table_s2_pv"
-     ],
-     "source_locations": [
-      "Table S2",
-      "Figure 2",
-      "paragraphs 12-14"
-     ],
-     "finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context."
-    },
-    "usage_recommendation": "consult_source_audit_before_quantitative_use",
-    "reproduction_summary": {
-     "report": "docs/literature-reproductions/fei-2007-ferropericlase.md",
-     "refit_ledger": "docs/data/primary-eos-refits.json",
-     "fit_kind": "independent_validation_refit",
-     "status": "parity",
-     "published_curve_pressure_rmse_gpa": 4.047495658376884,
-     "selection": "Validation only: compression rows with 60 <= P <= 148 GPa, using the published approximate 60-148 GPa branch interval. Exact source row masks and least-squares weights are not published.",
-     "observations": 24
-    },
-    "usage_notes": "Source coefficient transcription verified. Independent refit is validation only, with approximate row selection and unweighted pressure residuals. The fp39 LS published-curve pressure RMSE is 4.0475 GPa on the selected compression rows."
-   },
-   "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter."
-  }
- ],
- "datasets": [
-  {
-   "identifier": "mg061fe039o_fei_2007_table_s2_pv",
-   "kind": "static_compression",
-   "description": "Complete Table S2: 77 printed observations, preserving source order and sample IDs.",
-   "reference": {
-    "authors": [
-     "Fei",
-     "Zhang",
-     "Corgne",
-     "Watson",
-     "Ricolleau",
-     "Meng",
-     "Prakapenka"
-    ],
-    "year": 2007,
-    "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
-    "source": "Geophysical Research Letters",
-    "volume": "34",
-    "locator": "L17307",
-    "doi": "10.1029/2007GL030712"
-   },
-   "source_location": "Official auxiliary Table S2",
-   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/suppl/10.1029/2007GL030712",
-   "columns": [
-    {
-     "name": "source_order",
-     "quantity": "metadata",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "sample_name",
-     "quantity": "metadata",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "nacl_lattice_a_angstrom",
-     "quantity": "calibrant_lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "nacl_lattice_error_angstrom",
-     "quantity": "calibrant_lattice_parameter",
-     "unit": "angstrom",
-     "role": "uncertainty"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "sample_lattice_a_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "sample_lattice_error_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "uncertainty"
-    },
-    {
-     "name": "compression_path",
-     "quantity": "metadata",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "nacl_phase",
-     "quantity": "metadata",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_error_a3",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "uncertainty"
-    },
-    {
-     "name": "sample_volume_interpretation",
-     "quantity": "metadata",
-     "unit": "1",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/mg061fe039o-fei-2007-table-s2-pv.csv",
-    "sha256": "263f5c5ae3f780290827874235fe11442916eb0729f36cf161479bf1d6f81ccc",
-    "media_type": "text/csv"
-   },
-   "original_resource": {
-    "path": "datasets/fei-2007/grl23467-sup-0003-ts02.txt",
-    "sha256": "8ed867f9eaa9b937576bea6854eff14df4eaffd74210d765bd886b035c335f5a",
-    "media_type": "text/plain",
-    "custody": "Official auxiliary file supplied by user; preserved byte-for-byte."
-   },
-   "used_by_eos_records": [
-    "mg061fe039o_fei_2007_hs_b1_bm3",
-    "mg061fe039o_fei_2007_ls_b1_bm3",
-    "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1",
-    "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2"
-   ],
-   "notes": "Only original lattice parameters, printed errors and pressure columns are reported observations. Volume a^3 and its first-order error 3a^2*error(a), path assignment, and NaCl phase are curator derivations. Printed 0.0000 errors remain literal zeros (not exact measurements); missing errors remain blank. No pressure uncertainties are invented. The fp39 mw39c block is decompression (paragraph 8/Figure 2 and reversed pressure sequence); no separate decompression EOS is published. For mw58 at >=44 GPa the scalar a_mw58 does not specify a full rhombohedral cell, so volume and its error are deliberately blank. The 42.75 GPa B1 row is retained, although the caption rounds the HS fit limit to 42 GPa. Linked full tables contain observations outside the fitted branch; use record validation_selection explicitly."
-  },
-  {
-   "identifier": "mg061fe039o_zhuravlev_2010_table5_pv",
-   "kind": "pressure_volume",
-   "description": "Complete Table 5 P-V series: 54 compression and 17 decompression observations at 300 K.",
-   "reference": {
-    "authors": [
-     "Zhuravlev",
-     "Jackson",
-     "Wolf",
-     "Wicks",
-     "Yan",
-     "Clark",
-     "Prakapenka"
-    ],
-    "year": 2010,
-    "source": "Physics and Chemistry of Minerals",
-    "volume": "37",
-    "locator": "465-474",
-    "doi": "10.1007/s00269-009-0347-6"
-   },
-   "source_location": "Table 5, page 8",
-   "source_url": "https://web.gps.caltech.edu/~jackson/pdf/Zhuravlevetal_PCM2010.pdf",
-   "columns": [
-    {
-     "name": "source_order",
-     "quantity": "source_row",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_sigma_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3_conventional_cell"
-    },
-    {
-     "name": "compression_path",
-     "quantity": "compression_path",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "used_in_solomatova_2016_fit",
-     "quantity": "reconstructed_fit_selection",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "used_in_zhuravlev_2010_hs_fit",
-     "quantity": "source_fit_selection",
-     "unit": "1",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/mg061fe039o-zhuravlev-2010-table5-pv.csv",
-    "sha256": "7109f75899eb7025fa4233bbb955ad630412fe08ba0b80c08f1a5505ff4d5908",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3",
-    "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
-    "mg061fe039o_zhuravlev_2010_high_spin_bm2_5"
-   ],
-   "uncertainty": {
-    "reported_as": "One-sigma pressure and volume uncertainties printed row by row in Table 5.",
-    "covariance": "not_reported"
-   },
-   "provenance": {
-    "type": "transcribed_from_primary_table",
-    "method": "Complete manual transcription with compression and decompression paths kept distinct.",
-    "transcribed_on": "2026-09-08"
-   },
-   "notes": "Solomatova's fitted midpoint and the source's 72.2-76.6 GPa compression collapse identify the compression path as the reconstruction input. Decompression is preserved but excluded because the source documents metastable low-spin persistence and hysteresis to about 65 GPa."
-  }
- ]
 }

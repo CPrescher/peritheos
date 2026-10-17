@@ -1,631 +1,424 @@
 {
- "format": "peritheos.material",
- "format_version": 3,
- "identifier": "mgal2o4_cati2o4",
- "name": "MgAl2O4 calcium-titanate phase",
- "formula": "MgAl2O4",
- "phase": "calcium-titanate-type orthorhombic phase, Cmcm",
- "aliases": [
-  "CaTi2O4-type MgAl2O4",
-  "high-pressure MgAl2O4"
- ],
- "cell_contents": "Mg4Al8O16 (4 MgAl2O4 formula units) in the conventional C-centered orthorhombic Cmcm cell",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "symmetry": "ORTHORHOMBIC",
- "lattice": {
-  "a": 2.778,
-  "b": 9.211,
-  "c": 9.394,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Cmcm",
- "space_group_number": 63,
- "atom_sites": [],
- "peaks": [],
- "source": {
-  "structure_reference": {
-   "authors": [
-    "Funamori",
-    "Jeanloz",
-    "Nguyen",
-    "Kavner",
-    "Caldwell",
-    "Fujino",
-    "Miyajima",
-    "Shinmei",
-    "Tomioka"
-   ],
-   "year": 1998,
-   "title": "High-pressure transformations in MgAl2O4",
-   "source": "Journal of Geophysical Research: Solid Earth",
-   "volume": "103",
-   "locator": "20813-20818",
-   "doi": "10.1029/98JB01575"
-  },
-  "structure_location": "Section 3.2 and Table 2: recovered run-4 cell a=2.778(2), b=9.211(11), c=9.394(3) A, V=240.3(4) A3, Z=4; TEM extinctions and pattern calculation support CaTi2O4-type Cmcm"
- },
- "notes": "The stored lattice is the recovered run-4 MgAl2O4 cell. TEM narrows the symmetry and the source assigns Cmcm using the CaTi2O4 prototype, but it does not refine target Mg/Al/O coordinates, so atom sites are not inferred. The lattice product differs slightly from the separately reported V0 because printed quantities are rounded.",
- "eos_records": [
-  {
-   "determination_method": "experimental",
-   "identifier": "mgal2o4_cati2o4_funamori_1998_bm2_1",
-   "label": "Funamori et al. (1998), CaTi2O4-type MgAl2O4 BM2",
-   "default": true,
-   "default_for": "equilibrium",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Funamori",
-     "Jeanloz",
-     "Nguyen",
-     "Kavner",
-     "Caldwell",
-     "Fujino",
-     "Miyajima",
-     "Shinmei",
-     "Tomioka"
-    ],
-    "year": 1998,
-    "title": "High-pressure transformations in MgAl2O4",
-    "source": "Journal of Geophysical Research: Solid Earth",
-    "volume": "103",
-    "locator": "20813-20818",
-    "doi": "10.1029/98JB01575"
-   },
-   "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-3 TEM confirms MgAl2O4 composition and runs 3-4 establish the CaTi2O4-type product",
-   "eos": {
-    "type": "BM2",
-    "model": "birch_murnaghan_2",
-    "parameters": {
-     "V0": 240.3,
-     "K0": 206.0
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.4,
-    "K0": 3.0
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    64.3
-   ],
-   "pressure_range_status": "reported_exactly",
-   "fit_datasets": [
-    "mgal2o4_cati2o4_funamori_1998_text_pv"
-   ],
-   "experimental_configuration": {
-    "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
-    "laser_heating": "2000-3000 K for about 60 minutes",
-    "measurement_temperature": "room temperature after heating; no numerical value reported",
-    "diffraction": "laboratory XRD and TEM for recovered run 3; synchrotron XRD at SSRL beamline 10-2 for run 4",
-    "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
-    "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 64.3 GPa state is their post-heating average"
-   },
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     64.3
-    ],
-    "notes": [
-     "The only nonzero-pressure volume is the in-situ run-4 observation after laser heating; the zero-pressure volume is measured after recovery.",
-     "The interval describes the two observations constraining the source parameterization, not a continuous stability field.",
-     "K0'=4 is fixed by the second-order Birch finite-strain model.",
-     "This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental method; Table 1; Sections 3.2-3.3; Table 2; Figure 4.",
-    "equation": "Section 3.3: Birch second-order finite-strain EOS with Eulerian strain and K0'=4.",
-    "V0": "Section 3.3 and Table 2: 240.3(4) A3 for the recovered CaTi2O4-type conventional cell, Z=4.",
-    "K0": "Section 3.3: 206(+/-3) GPa, calculated as the normalized pressure of the single in-situ run-4 state after holding the separately measured V0 fixed.",
-    "implicit_K0_prime": "Second-order Birch finite strain fixes K0'=4; it is assumed rather than fitted or stored as a BM2 parameter.",
-    "construction_states": "Recovered run-4 zero-pressure cell fixes V0; the in-situ run-4 cell at the mean post-heating pressure of 64.3 GPa then determines K0 algebraically. Run 3 establishes phase identity but has no usable in-situ volume. This is not a regression fit.",
-    "uncertainties": "The source says bulk-modulus uncertainty is calculated from the difference between ruby- and Pt-derived post-heating pressures; no covariance or confidence convention is published."
-   },
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "mgal2o4_cati2o4",
+  "name": "MgAl2O4 calcium-titanate phase",
+  "formula": "MgAl2O4",
+  "phase": "calcium-titanate-type orthorhombic phase, Cmcm",
+  "aliases": ["CaTi2O4-type MgAl2O4", "high-pressure MgAl2O4"],
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "cell_contents": "Mg4Al8O16 (4 MgAl2O4 formula units) in the conventional C-centered orthorhombic Cmcm cell",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Cmcm",
+  "space_group_number": 63,
+  "lattice": {"a": 2.778, "b": 9.211, "c": 9.394, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [],
+  "peaks": [],
+  "notes": "The stored lattice is the recovered run-4 MgAl2O4 cell. TEM narrows the symmetry and the source assigns Cmcm using the CaTi2O4 prototype, but it does not refine target Mg/Al/O coordinates, so atom sites are not inferred. The lattice product differs slightly from the separately reported V0 because printed quantities are rounded.",
+  "eos_records": [
+    {
+      "identifier": "mgal2o4_cati2o4_funamori_1998_bm2_1",
+      "label": "Funamori et al. (1998), CaTi2O4-type MgAl2O4 BM2",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "default": true,
       "reference": {
-       "authors": [
-        "Mao",
-        "Bell",
-        "Shaner",
-        "Steinberg"
-       ],
-       "year": 1978,
-       "source": "Journal of Applied Physics",
-       "doi": "10.1063/1.325277"
+        "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
+        "year": 1998,
+        "title": "High-pressure transformations in MgAl2O4",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "103",
+        "locator": "20813-20818",
+        "doi": "10.1029/98JB01575"
       },
-      "source_location": "Experimental method and Table 1",
-      "scope": "post-heating ruby pressure",
-      "reference_calibration_record": "ruby_mao_1978"
-     },
-     {
-      "kind": "equation_of_state",
-      "material": "Pt",
+      "eos": {
+        "type": "BM2",
+        "model": "birch_murnaghan_2",
+        "parameters": {"V0": 240.3, "K0": 206.0}
+      },
+      "parameter_errors": {"V0": 0.4, "K0": 3.0},
+      "parameter_error_confidence": null,
+      "fixed_parameters": ["V0"],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.0, 64.3],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 64.3],
+        "notes": [
+          "The only nonzero-pressure volume is the in-situ run-4 observation after laser heating; the zero-pressure volume is measured after recovery.",
+          "The interval describes the two observations constraining the source parameterization, not a continuous stability field.",
+          "K0'=4 is fixed by the second-order Birch finite-strain model.",
+          "This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work."
+        ]
+      },
+      "notes": "This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Bell", "Shaner", "Steinberg"],
+              "year": 1978,
+              "source": "Journal of Applied Physics",
+              "doi": "10.1063/1.325277"
+            },
+            "source_location": "Experimental method and Table 1",
+            "scope": "post-heating ruby pressure",
+            "reference_calibration_record": "ruby_mao_1978"
+          },
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Holmes", "Moriarty", "Gathers", "Nellis"],
+              "year": 1989,
+              "source": "Journal of Applied Physics",
+              "doi": "10.1063/1.344177"
+            },
+            "source_location": "Experimental method and Table 1",
+            "scope": "post-heating Pt pressure",
+            "reference_eos_record": "platinum_holmes_1989_vinet_1"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The source prints both reduced post-heating pressures but not the paired ruby wavelength or Pt lattice measurement, so the pressure reduction cannot be rerun independently."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration. Retained as the source-reported historical endpoint curve, but later multi-point CaTi2O4-type EOS measurements are preferred for quantitative use.",
+        "audit_date": "2026-09-05",
+        "verified_fields": [
+          "canonical_doi",
+          "composition",
+          "phase",
+          "cell_basis",
+          "equation",
+          "parameters",
+          "fixed_parameter_status",
+          "units",
+          "reference_state",
+          "published_uncertainties",
+          "pressure_calibration",
+          "primary_data",
+          "numerical_reproduction"
+        ],
+        "primary_source_check": {
+          "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
+          "doi": "10.1029/98JB01575",
+          "locations": ["Experimental method", "Table 1", "Sections 3.2-3.3", "Table 2", "Figure 4"],
+          "finding": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure. The authors construct its second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from the one usable compressed run-4 cell; run-2 CaTi2O4-type peaks were too weak and overlapped for a reliable cell volume."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-05",
+          "dataset_identifiers": ["mgal2o4_cati2o4_funamori_1998_text_pv"],
+          "source_locations": ["Section 3.2, Tables 1-2"],
+          "finding": "The complete observations used by the source construction are bundled from printed pressure and lattice values. There is exactly one informative finite-pressure state; the source reports no supplementary materials, and the audit found no associated repository series."
+        },
+        "independent_refit": {
+          "classification": "not_refittable",
+          "method": "Analytical reproduction of the source's one-point construction: fixed recovered V0, K0'=4 implicit in BM2, and K0 equal to the normalized pressure of the rounded high-pressure lattice product.",
+          "parameters": {"V0": 240.3, "K0": 206.40137542},
+          "informative_finite_pressure_observations": 1,
+          "degrees_of_freedom_for_residual_test": 0,
+          "pressure_bracket_half_range_k0_gpa": 2.88897726,
+          "published_curve_pressure_residual_gpa": -0.12504006,
+          "finding": "The analytically reconstructed K0 differs from the published value by 0.40 GPa because the printed axes are rounded. Applying the same calculation to the ruby/Pt pressure bracket gives a 2.89 GPa half-range, reproducing the published +/-3 GPa uncertainty after rounding; there is no independent regression residual test."
+        },
+        "usage_recommendation": "not_recommended_for_quantitative_use"
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental method; Table 1; Sections 3.2-3.3; Table 2; Figure 4.",
+        "equation": "Section 3.3: Birch second-order finite-strain EOS with Eulerian strain and K0'=4.",
+        "V0": "Section 3.3 and Table 2: 240.3(4) A3 for the recovered CaTi2O4-type conventional cell, Z=4.",
+        "K0": "Section 3.3: 206(+/-3) GPa, calculated as the normalized pressure of the single in-situ run-4 state after holding the separately measured V0 fixed.",
+        "implicit_K0_prime": "Second-order Birch finite strain fixes K0'=4; it is assumed rather than fitted or stored as a BM2 parameter.",
+        "construction_states": "Recovered run-4 zero-pressure cell fixes V0; the in-situ run-4 cell at the mean post-heating pressure of 64.3 GPa then determines K0 algebraically. Run 3 establishes phase identity but has no usable in-situ volume. This is not a regression fit.",
+        "uncertainties": "The source says bulk-modulus uncertainty is calculated from the difference between ruby- and Pt-derived post-heating pressures; no covariance or confidence convention is published."
+      },
+      "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-3 TEM confirms MgAl2O4 composition and runs 3-4 establish the CaTi2O4-type product",
+      "fit_datasets": ["mgal2o4_cati2o4_funamori_1998_text_pv"],
+      "experimental_configuration": {
+        "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
+        "laser_heating": "2000-3000 K for about 60 minutes",
+        "measurement_temperature": "room temperature after heating; no numerical value reported",
+        "diffraction": "laboratory XRD and TEM for recovered run 3; synchrotron XRD at SSRL beamline 10-2 for run 4",
+        "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
+        "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 64.3 GPa state is their post-heating average"
+      }
+    },
+    {
+      "identifier": "mgal2o4_cati2o4_ono_2006_bm2_2",
+      "label": "Ono et al. (2006), CaTi2O4-type MgAl2O4 BM2",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "default": false,
       "reference": {
-       "authors": [
-        "Holmes",
-        "Moriarty",
-        "Gathers",
-        "Nellis"
-       ],
-       "year": 1989,
-       "source": "Journal of Applied Physics",
-       "doi": "10.1063/1.344177"
+        "authors": ["Ono", "Kikegawa", "Ohishi"],
+        "year": 2006,
+        "title": "The stability and compressibility of MgAl2O4 high-pressure polymorphs",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "33",
+        "locator": "200-206",
+        "doi": "10.1007/s00269-006-0068-z"
       },
-      "source_location": "Experimental method and Table 1",
-      "scope": "post-heating Pt pressure",
-      "reference_eos_record": "platinum_holmes_1989_vinet_1"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The source prints both reduced post-heating pressures but not the paired ruby wavelength or Pt lattice measurement, so the pressure reduction cannot be rerun independently."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration. Retained as the source-reported historical endpoint curve, but later multi-point CaTi2O4-type EOS measurements are preferred for quantitative use.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "cell_basis",
-     "equation",
-     "parameters",
-     "fixed_parameter_status",
-     "units",
-     "reference_state",
-     "published_uncertainties",
-     "pressure_calibration",
-     "primary_data",
-     "numerical_reproduction"
-    ],
-    "primary_source_check": {
-     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
-     "doi": "10.1029/98JB01575",
-     "locations": [
-      "Experimental method",
-      "Table 1",
-      "Sections 3.2-3.3",
-      "Table 2",
-      "Figure 4"
-     ],
-     "finding": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure. The authors construct its second-order Birch curve by fixing recovered V0, assuming K0'=4, and calculating K0 from the one usable compressed run-4 cell; run-2 CaTi2O4-type peaks were too weak and overlapped for a reliable cell volume."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "mgal2o4_cati2o4_funamori_1998_text_pv"
-     ],
-     "source_locations": [
-      "Section 3.2, Tables 1-2"
-     ],
-     "finding": "The complete observations used by the source construction are bundled from printed pressure and lattice values. There is exactly one informative finite-pressure state; the source reports no supplementary materials, and the audit found no associated repository series."
-    },
-    "independent_refit": {
-     "classification": "not_refittable",
-     "method": "Analytical reproduction of the source's one-point construction: fixed recovered V0, K0'=4 implicit in BM2, and K0 equal to the normalized pressure of the rounded high-pressure lattice product.",
-     "parameters": {
-      "V0": 240.3,
-      "K0": 206.40137542
-     },
-     "informative_finite_pressure_observations": 1,
-     "degrees_of_freedom_for_residual_test": 0,
-     "pressure_bracket_half_range_k0_gpa": 2.88897726,
-     "published_curve_pressure_residual_gpa": -0.12504006,
-     "finding": "The analytically reconstructed K0 differs from the published value by 0.40 GPa because the printed axes are rounded. Applying the same calculation to the ruby/Pt pressure bracket gives a 2.89 GPa half-range, reproducing the published +/-3 GPa uncertainty after rounding; there is no independent regression residual test."
-    },
-    "usage_recommendation": "not_recommended_for_quantitative_use"
-   },
-   "notes": "This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit."
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mgal2o4_cati2o4_ono_2006_bm2_2",
-   "label": "Ono et al. (2006), CaTi2O4-type MgAl2O4 BM2",
-   "default": false,
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Ono",
-     "Kikegawa",
-     "Ohishi"
-    ],
-    "year": 2006,
-    "title": "The stability and compressibility of MgAl2O4 high-pressure polymorphs",
-    "source": "Physics and Chemistry of Minerals",
-    "volume": "33",
-    "locator": "200-206",
-    "doi": "10.1007/s00269-006-0068-z"
-   },
-   "sample_composition": "Synthetic powdered MgAl2O4 spinel mixed with Pt; CaTi2O4-type Cmcm product, not the natural MORB aluminous phase.",
-   "eos": {
-    "type": "BM2",
-    "model": "birch_murnaghan_2",
-    "parameters": {
-     "V0": 238.9,
-     "K0": 219.0
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM2",
+        "model": "birch_murnaghan_2",
+        "parameters": {"V0": 238.9, "K0": 219.0}
+      },
+      "parameter_errors": {"V0": 0.9, "K0": 6.0},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.0, 91.2],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "validity": {
+        "pressure_gpa": [0.0, 91.2],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The nonzero Table 3 measurements span 42.7-91.2 GPa; two recovered ambient cells are also printed. This is not a continuous equilibrium stability field.",
+          "The approximately 45-117 GPa high-temperature phase-stability observations are separate from the 300 K EOS; no thermal extension is published.",
+          "K0-prime=4 is implicit in BM2, not a fitted parameter."
+        ]
+      },
+      "notes": "The structural lattice remains independently sourced to Funamori (1998); it is not the fitted Ono reference volume. No epsilon-phase EOS or cited theoretical/comparison fit is reassigned to this paper. See docs/literature-reproductions/ono-2006-mgal2o4-cati2o4.md.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Holmes", "Moriarty", "Gathers", "Nellis"],
+              "year": 1989,
+              "source": "Journal of Applied Physics",
+              "doi": "10.1063/1.344177"
+            },
+            "source_location": "Experimental, p. 201; Table 3 footnote",
+            "scope": "300 K Table 3 pressures. The Tsuchiya-Kawamura electronic thermal correction mentioned for heated experiments is not a thermal MgAl2O4 EOS.",
+            "reference_eos_record": "platinum_holmes_1989_vinet_1"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 3 gives pressures but no paired Pt volumes or lattice parameters; no raw calibrant observations are invented."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-09-08",
+        "note": "Primary version-of-record PDF reviewed, with visual checks of pp. 203-204; published coefficients retained independently of diagnostic refits.",
+        "verified_fields": [
+          "composition",
+          "phase",
+          "cell_basis",
+          "equation",
+          "parameters",
+          "fixed_parameter_status",
+          "units",
+          "reference_state",
+          "published_uncertainties",
+          "pressure_calibration",
+          "primary_data",
+          "numerical_reproduction"
+        ],
+        "primary_source_check": {
+          "access_url": "https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content",
+          "doi": "10.1007/s00269-006-0068-z",
+          "locations": ["Experimental, p. 201", "Results, pp. 202-203", "Tables 2-3", "Figures 4-5"],
+          "finding": "Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-08",
+          "dataset_identifiers": ["mgal2o4_cati2o4_ono_2006_table3"],
+          "source_locations": ["Table 3, p. 204"],
+          "finding": "All 14 Table 3 rows are retained, including both recovered ambient cells. No row-resolved pressure errors or Pt volumes are printed. Parentheses are described only as errors, with no confidence convention. Printed (0) errors are preserved as rounding to zero, not exact observations. Weighting and any exclusion of recovered cells from the original regression are unspecified. The independent diagnostic uses unweighted pressure residuals, with an explicitly labeled high-pressure-only sensitivity fit."
+        },
+        "independent_refit": {
+          "classification": "parity",
+          "method": "Unweighted pressure residuals for all 14 Table 3 rows; independent printed BM2 equation, free V0 and K0. Source weighting and selection unspecified.",
+          "parameters": {"V0": 238.88074708162654, "K0": 219.0469702127159},
+          "published_rmse_gpa": 1.3262475763533859,
+          "finding": "Both coefficients recover the published values within their printed errors. Excluding the two ambient rows shifts K0 to 241.53 GPa; this sensitivity is documented without changing the published record."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental, p. 201; Results, pp. 202-203; Tables 2-3; Figures 4-5.",
+        "equation": "Unnumbered Birch-Murnaghan equation, p. 203; K0-prime fixed to 4 reduces exactly to BM2.",
+        "V0": "Results, p. 203: fitted V0=238.9(9) A3 conventional Cmcm cell; the body resolves the abstract notation 238.9(+/-9) as +/-0.9 A3.",
+        "K0": "Results, p. 203: 219(6) GPa.",
+        "temperature_ref": "Table 3 and Figure 4 explicitly specify 300 K.",
+        "cell_basis": "Table 2 conventional orthorhombic cell, consistent with the existing Funamori Z=4 Cmcm material; Figure 5 separately uses formula-unit volume.",
+        "uncertainties": "Printed parenthetical errors retained; confidence level, covariance, and fit weights are not given.",
+        "fit_selection": "All 14 Table 3 rows are retained, including both recovered ambient cells. No row-resolved pressure errors or Pt volumes are printed. Parentheses are described only as errors, with no confidence convention. Printed (0) errors are preserved as rounding to zero, not exact observations. Weighting and any exclusion of recovered cells from the original regression are unspecified. The independent diagnostic uses unweighted pressure residuals, with an explicitly labeled high-pressure-only sensitivity fit."
+      },
+      "sample_composition": "Synthetic powdered MgAl2O4 spinel mixed with Pt; CaTi2O4-type Cmcm product, not the natural MORB aluminous phase.",
+      "fit_datasets": ["mgal2o4_cati2o4_ono_2006_table3"],
+      "experimental_configuration": {
+        "apparatus": "laser-heated diamond-anvil cell",
+        "pressure_medium": "Ar for CaTi2O4-type runs #1-5 (Table 1); MgO and NaCl runs investigate epsilon phase",
+        "diffraction": "angle-dispersive synchrotron XRD, BL13A Photon Factory and BL10XU SPring-8",
+        "measurement_temperature": "300 K (Table 3 and Figure 4)"
+      }
     }
-   },
-   "parameter_errors": {
-    "V0": 0.9,
-    "K0": 6.0
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    91.2
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "fit_datasets": [
-    "mgal2o4_cati2o4_ono_2006_table3"
-   ],
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     91.2
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "The nonzero Table 3 measurements span 42.7-91.2 GPa; two recovered ambient cells are also printed. This is not a continuous equilibrium stability field.",
-     "The approximately 45-117 GPa high-temperature phase-stability observations are separate from the 300 K EOS; no thermal extension is published.",
-     "K0-prime=4 is implicit in BM2, not a fitted parameter."
-    ]
-   },
-   "experimental_configuration": {
-    "apparatus": "laser-heated diamond-anvil cell",
-    "pressure_medium": "Ar for CaTi2O4-type runs #1-5 (Table 1); MgO and NaCl runs investigate epsilon phase",
-    "diffraction": "angle-dispersive synchrotron XRD, BL13A Photon Factory and BL10XU SPring-8",
-    "measurement_temperature": "300 K (Table 3 and Figure 4)"
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental, p. 201; Results, pp. 202-203; Tables 2-3; Figures 4-5.",
-    "equation": "Unnumbered Birch-Murnaghan equation, p. 203; K0-prime fixed to 4 reduces exactly to BM2.",
-    "V0": "Results, p. 203: fitted V0=238.9(9) A3 conventional Cmcm cell; the body resolves the abstract notation 238.9(+/-9) as +/-0.9 A3.",
-    "K0": "Results, p. 203: 219(6) GPa.",
-    "temperature_ref": "Table 3 and Figure 4 explicitly specify 300 K.",
-    "cell_basis": "Table 2 conventional orthorhombic cell, consistent with the existing Funamori Z=4 Cmcm material; Figure 5 separately uses formula-unit volume.",
-    "uncertainties": "Printed parenthetical errors retained; confidence level, covariance, and fit weights are not given.",
-    "fit_selection": "All 14 Table 3 rows are retained, including both recovered ambient cells. No row-resolved pressure errors or Pt volumes are printed. Parentheses are described only as errors, with no confidence convention. Printed (0) errors are preserved as rounding to zero, not exact observations. Weighting and any exclusion of recovered cells from the original regression are unspecified. The independent diagnostic uses unweighted pressure residuals, with an explicitly labeled high-pressure-only sensitivity fit."
-   },
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Pt",
+  ],
+  "datasets": [
+    {
+      "identifier": "mgal2o4_cati2o4_funamori_1998_text_pv",
+      "kind": "pressure_volume_lattice_parameters",
+      "description": "Recovered ambient and single in-situ run-4 pressure-volume states used for the CaTi2O4-type MgAl2O4 one-point BM2 construction.",
       "reference": {
-       "authors": [
-        "Holmes",
-        "Moriarty",
-        "Gathers",
-        "Nellis"
-       ],
-       "year": 1989,
-       "source": "Journal of Applied Physics",
-       "doi": "10.1063/1.344177"
+        "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
+        "year": 1998,
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "103",
+        "locator": "20813-20818",
+        "doi": "10.1029/98JB01575"
       },
-      "source_location": "Experimental, p. 201; Table 3 footnote",
-      "scope": "300 K Table 3 pressures. The Tsuchiya-Kawamura electronic thermal correction mentioned for heated experiments is not a thermal MgAl2O4 EOS.",
-      "reference_eos_record": "platinum_holmes_1989_vinet_1"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "Table 3 gives pressures but no paired Pt volumes or lattice parameters; no raw calibrant observations are invented."
+      "source_location": "Section 3.2, Tables 1-2",
+      "source_url": "https://doi.org/10.1029/98JB01575",
+      "columns": [
+        {"name": "source_order", "quantity": "source_order", "unit": "1", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_ruby_after_heating_gpa",
+          "quantity": "ruby_pressure_after_heating",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "pressure_pt_after_heating_gpa",
+          "quantity": "platinum_pressure_after_heating",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {"name": "a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "a_standard_deviation_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "a_angstrom"
+        },
+        {"name": "b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {
+          "name": "b_standard_deviation_angstrom",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "b_angstrom"
+        },
+        {"name": "c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "c_standard_deviation_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "c_angstrom"
+        },
+        {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_standard_deviation_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "volume_a3_conventional_cell"
+        },
+        {"name": "observation_kind", "quantity": "observation_kind", "unit": "1", "role": "flag"},
+        {"name": "fit_included", "quantity": "fit_selection", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/mgal2o4-cati2o4-funamori-1998-text-pv.csv",
+        "sha256": "a0a299230ab34aae5acea5ed50d917d363637d6dacd1fc4b525a5a3b32de6257",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["mgal2o4_cati2o4_funamori_1998_bm2_1"],
+      "notes": "The source prints the ambient volume directly. The high-pressure volume is the product of its printed axes; its standard deviation is propagated independently from their printed standard deviations."
     },
-    "audit_date": "2026-09-08"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "audit_date": "2026-09-08",
-    "note": "Primary version-of-record PDF reviewed, with visual checks of pp. 203-204; published coefficients retained independently of diagnostic refits.",
-    "verified_fields": [
-     "composition",
-     "phase",
-     "cell_basis",
-     "equation",
-     "parameters",
-     "fixed_parameter_status",
-     "units",
-     "reference_state",
-     "published_uncertainties",
-     "pressure_calibration",
-     "primary_data",
-     "numerical_reproduction"
-    ],
-    "primary_source_check": {
-     "access_url": "https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content",
-     "doi": "10.1007/s00269-006-0068-z",
-     "locations": [
-      "Experimental, p. 201",
-      "Results, pp. 202-203",
-      "Tables 2-3",
-      "Figures 4-5"
-     ],
-     "finding": "Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "mgal2o4_cati2o4_ono_2006_table3"
-     ],
-     "source_locations": [
-      "Table 3, p. 204"
-     ],
-     "finding": "All 14 Table 3 rows are retained, including both recovered ambient cells. No row-resolved pressure errors or Pt volumes are printed. Parentheses are described only as errors, with no confidence convention. Printed (0) errors are preserved as rounding to zero, not exact observations. Weighting and any exclusion of recovered cells from the original regression are unspecified. The independent diagnostic uses unweighted pressure residuals, with an explicitly labeled high-pressure-only sensitivity fit."
-    },
-    "independent_refit": {
-     "classification": "parity",
-     "method": "Unweighted pressure residuals for all 14 Table 3 rows; independent printed BM2 equation, free V0 and K0. Source weighting and selection unspecified.",
-     "parameters": {
-      "V0": 238.88074708162654,
-      "K0": 219.0469702127159
-     },
-     "published_rmse_gpa": 1.3262475763533859,
-     "finding": "Both coefficients recover the published values within their printed errors. Excluding the two ambient rows shifts K0 to 241.53 GPa; this sensitivity is documented without changing the published record."
+    {
+      "identifier": "mgal2o4_cati2o4_ono_2006_table3",
+      "kind": "pressure_volume_lattice_parameters",
+      "description": "Ono et al. (2006) Table 3: CaTi2O4-type MgAl2O4 at 300 K.",
+      "reference": {
+        "authors": ["Ono", "Kikegawa", "Ohishi"],
+        "year": 2006,
+        "title": "The stability and compressibility of MgAl2O4 high-pressure polymorphs",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "33",
+        "locator": "200-206",
+        "doi": "10.1007/s00269-006-0068-z"
+      },
+      "source_location": "Table 3, p. 204",
+      "source_url": "https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content",
+      "columns": [
+        {"name": "source_order", "quantity": "source_order", "unit": "1", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "a_angstrom_error",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "a_angstrom"
+        },
+        {"name": "b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {
+          "name": "b_angstrom_error",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "b_angstrom"
+        },
+        {"name": "c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "c_angstrom_error",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "c_angstrom"
+        },
+        {"name": "volume_a3", "quantity": "volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_a3_error",
+          "quantity": "volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/mgal2o4-cati2o4-ono-2006-table3.csv",
+        "sha256": "73bf672869748681d8ae18ef86b0d5b761aae9468fe0bcd956abb3f84cb46b57",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["mgal2o4_cati2o4_ono_2006_bm2_2"],
+      "notes": "All 14 Table 3 rows are retained, including both recovered ambient cells. No row-resolved pressure errors or Pt volumes are printed. Parentheses are described only as errors, with no confidence convention. Printed (0) errors are preserved as rounding to zero, not exact observations. Weighting and any exclusion of recovered cells from the original regression are unspecified. The independent diagnostic uses unweighted pressure residuals, with an explicitly labeled high-pressure-only sensitivity fit."
     }
-   },
-   "notes": "The structural lattice remains independently sourced to Funamori (1998); it is not the fitted Ono reference volume. No epsilon-phase EOS or cited theoretical/comparison fit is reassigned to this paper. See docs/literature-reproductions/ono-2006-mgal2o4-cati2o4.md."
+  ],
+  "source": {
+    "structure_reference": {
+      "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
+      "year": 1998,
+      "title": "High-pressure transformations in MgAl2O4",
+      "source": "Journal of Geophysical Research: Solid Earth",
+      "volume": "103",
+      "locator": "20813-20818",
+      "doi": "10.1029/98JB01575"
+    },
+    "structure_location": "Section 3.2 and Table 2: recovered run-4 cell a=2.778(2), b=9.211(11), c=9.394(3) A, V=240.3(4) A3, Z=4; TEM extinctions and pattern calculation support CaTi2O4-type Cmcm"
   }
- ],
- "datasets": [
-  {
-   "identifier": "mgal2o4_cati2o4_funamori_1998_text_pv",
-   "kind": "pressure_volume_lattice_parameters",
-   "description": "Recovered ambient and single in-situ run-4 pressure-volume states used for the CaTi2O4-type MgAl2O4 one-point BM2 construction.",
-   "reference": {
-    "authors": [
-     "Funamori",
-     "Jeanloz",
-     "Nguyen",
-     "Kavner",
-     "Caldwell",
-     "Fujino",
-     "Miyajima",
-     "Shinmei",
-     "Tomioka"
-    ],
-    "year": 1998,
-    "source": "Journal of Geophysical Research: Solid Earth",
-    "volume": "103",
-    "locator": "20813-20818",
-    "doi": "10.1029/98JB01575"
-   },
-   "source_location": "Section 3.2, Tables 1-2",
-   "source_url": "https://doi.org/10.1029/98JB01575",
-   "columns": [
-    {
-     "name": "source_order",
-     "quantity": "source_order",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_ruby_after_heating_gpa",
-     "quantity": "ruby_pressure_after_heating",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_pt_after_heating_gpa",
-     "quantity": "platinum_pressure_after_heating",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "a_standard_deviation_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "a_angstrom"
-    },
-    {
-     "name": "b_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "b_standard_deviation_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "b_angstrom"
-    },
-    {
-     "name": "c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "c_standard_deviation_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "c_angstrom"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "volume_standard_deviation_a3",
-     "quantity": "volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "volume_a3_conventional_cell"
-    },
-    {
-     "name": "observation_kind",
-     "quantity": "observation_kind",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "fit_included",
-     "quantity": "fit_selection",
-     "unit": "1",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/mgal2o4-cati2o4-funamori-1998-text-pv.csv",
-    "sha256": "a0a299230ab34aae5acea5ed50d917d363637d6dacd1fc4b525a5a3b32de6257",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "mgal2o4_cati2o4_funamori_1998_bm2_1"
-   ],
-   "notes": "The source prints the ambient volume directly. The high-pressure volume is the product of its printed axes; its standard deviation is propagated independently from their printed standard deviations."
-  },
-  {
-   "identifier": "mgal2o4_cati2o4_ono_2006_table3",
-   "kind": "pressure_volume_lattice_parameters",
-   "description": "Ono et al. (2006) Table 3: CaTi2O4-type MgAl2O4 at 300 K.",
-   "reference": {
-    "authors": [
-     "Ono",
-     "Kikegawa",
-     "Ohishi"
-    ],
-    "year": 2006,
-    "title": "The stability and compressibility of MgAl2O4 high-pressure polymorphs",
-    "source": "Physics and Chemistry of Minerals",
-    "volume": "33",
-    "locator": "200-206",
-    "doi": "10.1007/s00269-006-0068-z"
-   },
-   "source_location": "Table 3, p. 204",
-   "source_url": "https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content",
-   "columns": [
-    {
-     "name": "source_order",
-     "quantity": "source_order",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "a_angstrom_error",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "a_angstrom"
-    },
-    {
-     "name": "b_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "b_angstrom_error",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "b_angstrom"
-    },
-    {
-     "name": "c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "c_angstrom_error",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "c_angstrom"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_error",
-     "quantity": "volume",
-     "unit": "angstrom^3",
-     "role": "uncertainty",
-     "of": "volume_a3"
-    }
-   ],
-   "resource": {
-    "path": "datasets/mgal2o4-cati2o4-ono-2006-table3.csv",
-    "sha256": "73bf672869748681d8ae18ef86b0d5b761aae9468fe0bcd956abb3f84cb46b57",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "mgal2o4_cati2o4_ono_2006_bm2_2"
-   ],
-   "notes": "All 14 Table 3 rows are retained, including both recovered ambient cells. No row-resolved pressure errors or Pt volumes are printed. Parentheses are described only as errors, with no confidence convention. Printed (0) errors are preserved as rounding to zero, not exact observations. Weighting and any exclusion of recovered cells from the original regression are unspecified. The independent diagnostic uses unweighted pressure residuals, with an explicitly labeled high-pressure-only sensitivity fit."
-  }
- ]
 }

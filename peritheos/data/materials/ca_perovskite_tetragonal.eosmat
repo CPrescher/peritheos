@@ -1,1172 +1,787 @@
 {
- "format_version": 3,
- "name": "Tetragonal CaSiO3 perovskite (davemaoite)",
- "formula": "CaSiO3",
- "aliases": [
-  "Davemaoite",
-  "Tetragonal Ca-perovskite"
- ],
- "symmetry": "TETRAGONAL",
- "formula_units_per_cell": 4,
- "space_group": "I4/mcm",
- "space_group_number": 140,
- "phase": "pure tetragonal CaSiO3 perovskite (davemaoite), I4/mcm",
- "cell_contents": "4 CaSiO3 formula units per conventional I4/mcm unit cell",
- "notes": "Pure tetragonal CaSiO3 perovskite. The conventional I4/mcm cell has Z=4; published Sun et al. parameters normalized to Z=1 are multiplied by four only where volume is concerned.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Sun et al. (2022), 300 K tetragonal CaSiO3 BM3 (K0' fixed)",
-   "reference": {
-    "authors": [
-     "Sun",
-     "Bian",
-     "Zhang",
-     "Lin",
-     "Prakapenka",
-     "Mao"
-    ],
-    "year": 2022,
-    "title": "High-pressure experimental study of tetragonal CaSiO3-perovskite to 200 GPa",
-    "source": "American Mineralogist",
-    "volume": "107",
-    "locator": "110-115",
-    "doi": "10.2138/am-2021-7913"
-   },
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    21.5,
-    199.2
-   ],
-   "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "validity": {
-    "pressure_gpa": [
-     30.0,
-     150.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Intended Peritheos application range is 30-150 GPa at 300 K, within the direct 21.5-199.2 GPa P-V coverage.",
-     "This is the quenched tetragonal I4/mcm phase; it is not a thermal EOS or a cubic-phase parameterization."
-    ]
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 182.4,
-     "K0": 229.0,
-     "K0_prime": 4.0
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.8,
-    "K0": 4.0,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "fit_datasets": [
-    "ca_perovskite_tetragonal_sun_2022_table1_pv"
-   ],
-   "fit_provenance": {
-    "source_fit": "Sun et al. (2022), Table 2 fixed-K0' row",
-    "software": {
-     "name": "Peritheos/SciPy least_squares",
-     "version": "0.7.0"
-    },
-    "dataset": "ca_perovskite_tetragonal_sun_2022_table1_pv",
-    "selection": {
-     "predicate": "all Table 1 rows",
-     "included_rows": 23,
-     "excluded_rows": 0,
-     "subsets": {
-      "sun_2016_reanalyzed": 14,
-      "sun_2022_new": 9
-     },
-     "notes": "The first 14 rows are explicitly footnoted to Sun et al. (2016) and reanalyzed on the common scale; the final nine are new 2022 measurements. No exclusions are stated."
-    },
-    "objective": "ordinary_unweighted_pressure_residuals_inferred_from_numerical_reproduction",
-    "weights": [],
-    "weighting_note": "No weighting rule is stated. Unweighted pressure-residual fitting reproduces both Table 2 alternatives and their uncertainties after rounding; uncertainty-weighted fits do not.",
-    "refined_parameters": [
-     "V0",
-     "K0"
-    ],
-    "fixed_parameters": [
-     "K0_prime",
-     "temperature_k"
-    ],
-    "fixed_parameter_values": {
-     "K0_prime": 4.0,
-     "temperature_k": 300.0
-    },
-    "alternate_source_fit": {
-     "refined_parameters": [
-      "V0",
-      "K0",
-      "K0_prime"
-     ],
-     "published_normalized_z1": {
-      "V0": 45.6,
-      "K0": 227.0,
-      "K0_prime": 4.0
-     },
-     "published_uncertainties": {
-      "V0": 0.4,
-      "K0": 21.0,
-      "K0_prime": 0.3
-     }
-    },
-    "covariance_scaling": "absolute_sigma=False; covariance scaled by residual variance, inferred from reproduction of both published uncertainty sets",
-    "statistics": {
-     "observations": 23,
-     "degrees_of_freedom": 21,
-     "pressure_rmse_gpa": 1.932991397121,
-     "published_parameterization_pressure_rmse_gpa": 2.004658836946,
-     "reduced_chi_square": 4.092308669089
-    },
-    "protocol_status": "all-row selection and BM3 forms are explicit; residual direction and covariance scaling are inferred by discriminating numerical fits"
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Birch-Murnaghan equation and Z normalization, pages 111-112; Table 1, page 112; Table 2, page 112; phase assignment and temperature discussion, pages 110-113.",
-    "V0": "Sun et al. (2022), Table 2 fixed-K0' fit: 45.6(2) A^3 at published normalized Z=1, multiplied by 4 for the conventional I4/mcm Z=4 cell",
-    "K0": "Sun et al. (2022), Table 2 fixed-K0' fit: 229(4) GPa",
-    "K0_prime": "Sun et al. (2022), Table 2: fixed at 4",
-    "additional": {
-     "alternate_free_fit": "Table 2 also reports V0=45.6(4) A^3 per formula unit, K0=227(21) GPa, and K0'=4.0(3); Peritheos uses the better-constrained fixed-derivative fit."
-    }
-   },
-   "notes": "Selected fixed-K0'=4 BM3 fit: the published Z=1 V0=45.6(2) A^3 is stored as 182.4(8) A^3 for the conventional Z=4 I4/mcm cell, while K0=229(4) GPa is unchanged. The direct 300 K P-V data span 21.5-199.2 GPa; routine use is intentionally limited to 30-150 GPa. Table 1 combines 14 Sun et al. (2016) quenched observations reanalyzed on the common Pt scale with nine new 2022 observations. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces both the free- and fixed-K0' Table 2 alternatives after rounding.",
-   "determination_method": "experimental",
-   "identifier": "ca_perovskite_tetragonal_sun_2022_bm3_1",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Pt",
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "ca_perovskite_tetragonal",
+  "name": "Tetragonal CaSiO3 perovskite (davemaoite)",
+  "formula": "CaSiO3",
+  "phase": "pure tetragonal CaSiO3 perovskite (davemaoite), I4/mcm",
+  "aliases": ["Davemaoite", "Tetragonal Ca-perovskite"],
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "cell_contents": "4 CaSiO3 formula units per conventional I4/mcm unit cell",
+  "symmetry": "TETRAGONAL",
+  "space_group": "I4/mcm",
+  "space_group_number": 140,
+  "peaks": [],
+  "notes": "Pure tetragonal CaSiO3 perovskite. The conventional I4/mcm cell has Z=4; published Sun et al. parameters normalized to Z=1 are multiplied by four only where volume is concerned.",
+  "eos_records": [
+    {
+      "identifier": "ca_perovskite_tetragonal_sun_2022_bm3_1",
+      "label": "Sun et al. (2022), 300 K tetragonal CaSiO3 BM3 (K0' fixed)",
+      "determination_method": "experimental",
       "reference": {
-       "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
-       ],
-       "year": 2007,
-       "source": "Proc. Natl. Acad. Sci. USA",
-       "doi": "10.1073/pnas.0609013104"
+        "authors": ["Sun", "Bian", "Zhang", "Lin", "Prakapenka", "Mao"],
+        "year": 2022,
+        "title": "High-pressure experimental study of tetragonal CaSiO3-perovskite to 200 GPa",
+        "source": "American Mineralogist",
+        "volume": "107",
+        "locator": "110-115",
+        "doi": "10.2138/am-2021-7913"
       },
-      "source_location": "Experimental methods and Table 2; Pt pressure standard with literature results reanalyzed on the Fei et al. self-consistent scale",
-      "scope": "all fitted tetragonal CaSiO3 observations"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The pressure reduction is reconstructed as the Fei et al. (2007) Pt Vinet-MGD scale: conventional fcc Z=4 V0=60.38 A^3, K0=277 GPa, K0'=5.08, Tr=300 K, theta0=230 K, gamma0=2.72, q=0.5, n=1, with theta=theta0*(V/V0)^[-gamma(V)]. It is executable as the compatibility-catalog record pt_fcc_fei_2007 but is not a shared .eosmat cross-reference. Exact row-wise recalculation remains impossible because neither the 2016 nor 2022 table publishes Pt volumes. The 300 K application to 199.2 GPa also exceeds Fei et al.'s direct Pt experimental pressure envelope of 0-94 GPa."
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 182.4, "K0": 229.0, "K0_prime": 4.0},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.8, "K0": 4.0, "K0_prime": null},
+      "fixed_parameters": ["K0_prime"],
+      "experimental_pressure_range_gpa": [21.5, 199.2],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "validity": {
+        "pressure_gpa": [30.0, 150.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Intended Peritheos application range is 30-150 GPa at 300 K, within the direct 21.5-199.2 GPa P-V coverage.",
+          "This is the quenched tetragonal I4/mcm phase; it is not a thermal EOS or a cubic-phase parameterization."
+        ]
+      },
+      "notes": "Selected fixed-K0'=4 BM3 fit: the published Z=1 V0=45.6(2) A^3 is stored as 182.4(8) A^3 for the conventional Z=4 I4/mcm cell, while K0=229(4) GPa is unchanged. The direct 300 K P-V data span 21.5-199.2 GPa; routine use is intentionally limited to 30-150 GPa. Table 1 combines 14 Sun et al. (2016) quenched observations reanalyzed on the common Pt scale with nine new 2022 observations. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces both the free- and fixed-K0' Table 2 alternatives after rounding.",
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proc. Natl. Acad. Sci. USA",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental methods and Table 2; Pt pressure standard with literature results reanalyzed on the Fei et al. self-consistent scale",
+            "scope": "all fitted tetragonal CaSiO3 observations"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The pressure reduction is reconstructed as the Fei et al. (2007) Pt Vinet-MGD scale: conventional fcc Z=4 V0=60.38 A^3, K0=277 GPa, K0'=5.08, Tr=300 K, theta0=230 K, gamma0=2.72, q=0.5, n=1, with theta=theta0*(V/V0)^[-gamma(V)]. It is executable as the compatibility-catalog record pt_fcc_fei_2007 but is not a shared .eosmat cross-reference. Exact row-wise recalculation remains impossible because neither the 2016 nor 2022 table publishes Pt volumes. The 300 K application to 199.2 GPa also exceeds Fei et al.'s direct Pt experimental pressure envelope of 0-94 GPa."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-05",
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "published_uncertainties",
+          "validity",
+          "pressure_calibration"
+        ],
+        "primary_source_check": {
+          "access_url": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
+          "locations": [
+            "Birch-Murnaghan equation and Z normalization, pages 111-112",
+            "Table 1, page 112",
+            "Table 2, page 112",
+            "phase assignment and temperature discussion, pages 110-113"
+          ],
+          "finding": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell. All 23 Table 1 rows were transcribed, with the 14 reanalyzed 2016 and nine new 2022 observations distinguished, and independently reproduce both Table 2 fits.",
+          "doi": "10.2138/am-2021-7913"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-08",
+          "dataset_identifiers": ["ca_perovskite_tetragonal_sun_2022_table1_pv"],
+          "source_locations": ["Table 1, page 112"],
+          "finding": "All 23 factual P-V and lattice-parameter observations and printed uncertainties in Table 1 are transcribed at source precision for scientific validation. No explicit open data-reuse license was identified; the CSV contains no article prose, table image, or typographic arrangement and is not asserted to be openly licensed."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Birch-Murnaghan equation and Z normalization, pages 111-112; Table 1, page 112; Table 2, page 112; phase assignment and temperature discussion, pages 110-113.",
+        "V0": "Sun et al. (2022), Table 2 fixed-K0' fit: 45.6(2) A^3 at published normalized Z=1, multiplied by 4 for the conventional I4/mcm Z=4 cell",
+        "K0": "Sun et al. (2022), Table 2 fixed-K0' fit: 229(4) GPa",
+        "K0_prime": "Sun et al. (2022), Table 2: fixed at 4",
+        "additional": {
+          "alternate_free_fit": "Table 2 also reports V0=45.6(4) A^3 per formula unit, K0=227(21) GPa, and K0'=4.0(3); Peritheos uses the better-constrained fixed-derivative fit."
+        }
+      },
+      "fit_provenance": {
+        "source_fit": "Sun et al. (2022), Table 2 fixed-K0' row",
+        "software": {"name": "Peritheos/SciPy least_squares", "version": "0.7.0"},
+        "dataset": "ca_perovskite_tetragonal_sun_2022_table1_pv",
+        "selection": {
+          "predicate": "all Table 1 rows",
+          "included_rows": 23,
+          "excluded_rows": 0,
+          "subsets": {"sun_2016_reanalyzed": 14, "sun_2022_new": 9},
+          "notes": "The first 14 rows are explicitly footnoted to Sun et al. (2016) and reanalyzed on the common scale; the final nine are new 2022 measurements. No exclusions are stated."
+        },
+        "objective": "ordinary_unweighted_pressure_residuals_inferred_from_numerical_reproduction",
+        "weights": [],
+        "weighting_note": "No weighting rule is stated. Unweighted pressure-residual fitting reproduces both Table 2 alternatives and their uncertainties after rounding; uncertainty-weighted fits do not.",
+        "refined_parameters": ["V0", "K0"],
+        "fixed_parameters": ["K0_prime", "temperature_k"],
+        "fixed_parameter_values": {"K0_prime": 4.0, "temperature_k": 300.0},
+        "alternate_source_fit": {
+          "refined_parameters": ["V0", "K0", "K0_prime"],
+          "published_normalized_z1": {"V0": 45.6, "K0": 227.0, "K0_prime": 4.0},
+          "published_uncertainties": {"V0": 0.4, "K0": 21.0, "K0_prime": 0.3}
+        },
+        "covariance_scaling": "absolute_sigma=False; covariance scaled by residual variance, inferred from reproduction of both published uncertainty sets",
+        "statistics": {
+          "observations": 23,
+          "degrees_of_freedom": 21,
+          "pressure_rmse_gpa": 1.932991397121,
+          "published_parameterization_pressure_rmse_gpa": 2.004658836946,
+          "reduced_chi_square": 4.092308669089
+        },
+        "protocol_status": "all-row selection and BM3 forms are explicit; residual direction and covariance scaling are inferred by discriminating numerical fits"
+      },
+      "fit_datasets": ["ca_perovskite_tetragonal_sun_2022_table1_pv"]
     },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity",
-     "pressure_calibration"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
-     "locations": [
-      "Birch-Murnaghan equation and Z normalization, pages 111-112",
-      "Table 1, page 112",
-      "Table 2, page 112",
-      "phase assignment and temperature discussion, pages 110-113"
-     ],
-     "finding": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell. All 23 Table 1 rows were transcribed, with the 14 reanalyzed 2016 and nine new 2022 observations distinguished, and independently reproduce both Table 2 fits.",
-     "doi": "10.2138/am-2021-7913"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "ca_perovskite_tetragonal_sun_2022_table1_pv"
-     ],
-     "source_locations": [
-      "Table 1, page 112"
-     ],
-     "finding": "All 23 factual P-V and lattice-parameter observations and printed uncertainties in Table 1 are transcribed at source precision for scientific validation. No explicit open data-reuse license was identified; the CSV contains no article prose, table image, or typographic arrangement and is not asserted to be openly licensed."
-    }
-   }
-  },
-  {
-   "determination_method": "theoretical",
-   "identifier": "ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet",
-   "label": "Sagatova et al. (2021), tetragonal CaSiO3 LDA 300 K Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Sagatova",
-     "Shatskiy",
-     "Sagatov",
-     "Litasov"
-    ],
-    "year": 2021,
-    "title": "Phase Relations in CaSiO3 System up to 100 GPa and 2500 K",
-    "source": "Geochemistry International",
-    "volume": "59",
-    "locator": "791-800",
-    "doi": "10.1134/S0016702921080073"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 178.808,
-     "K0": 244.0,
-     "K0_prime": 4.2
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    100.0
-   ],
-   "pressure_range_status": "theoretical",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4.0,
-    "molar_mass_g_mol": 116.162
-   },
-   "validity": {
-    "pressure_gpa": [
-     13.0,
-     100.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 2; Phase relations; Figure 7.",
-    "equation": "Vinet EOS, Methods.",
-    "parameters": "Table 2, this-work LDA Ca-pv row.",
-    "volume_conversion": "44.702 A3 per formula unit multiplied by Z=4."
-   },
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "ab_initio",
-      "source_location": "Methods"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "First-principles pressure-volume relation."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021",
-     "doi": "10.1134/s0016702921080073",
-     "locations": [
-      "Methods",
-      "Table 2",
-      "Phase relations",
-      "Figure 7"
-     ],
-     "finding": "Complete source-owned LDA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase."
-    },
-    "primary_data_check": {
-     "status": "parameterization_and_plot_only",
-     "audit_date": "2026-09-05",
-     "finding": "The 300 and 2000 K P-V curves are plotted in Figure 7, but calculated P-V points are not tabulated."
-    }
-   }
-  },
-  {
-   "determination_method": "theoretical",
-   "identifier": "ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet",
-   "label": "Sagatova et al. (2021), tetragonal CaSiO3 GGA 300 K Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Sagatova",
-     "Shatskiy",
-     "Sagatov",
-     "Litasov"
-    ],
-    "year": 2021,
-    "title": "Phase Relations in CaSiO3 System up to 100 GPa and 2500 K",
-    "source": "Geochemistry International",
-    "volume": "59",
-    "locator": "791-800",
-    "doi": "10.1134/S0016702921080073"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 187.312,
-     "K0": 212.0,
-     "K0_prime": 4.2
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    100.0
-   ],
-   "pressure_range_status": "theoretical",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4.0,
-    "molar_mass_g_mol": 116.162
-   },
-   "validity": {
-    "pressure_gpa": [
-     13.0,
-     100.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 2; Phase relations; Figure 7.",
-    "equation": "Vinet EOS, Methods.",
-    "parameters": "Table 2, this-work GGA Ca-pv row.",
-    "volume_conversion": "46.828 A3 per formula unit multiplied by Z=4."
-   },
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "ab_initio",
-      "source_location": "Methods"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "First-principles pressure-volume relation."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021",
-     "doi": "10.1134/s0016702921080073",
-     "locations": [
-      "Methods",
-      "Table 2",
-      "Phase relations",
-      "Figure 7"
-     ],
-     "finding": "Complete source-owned GGA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase."
-    },
-    "primary_data_check": {
-     "status": "parameterization_and_plot_only",
-     "audit_date": "2026-09-05",
-     "finding": "The 300 and 2000 K P-V curves are plotted in Figure 7, but calculated P-V points are not tabulated."
-    }
-   }
-  },
-  {
-   "determination_method": "theoretical",
-   "identifier": "ca_perovskite_tetragonal_caracas_2005_bm3_1",
-   "label": "Caracas et al. (2005), static I4/mcm BM3",
-   "reference": {
-    "authors": [
-     "Caracas",
-     "Wentzcovitch",
-     "Price",
-     "Brodholt"
-    ],
-    "year": 2005,
-    "title": "CaSiO3 perovskite at lower mantle pressures",
-    "source": "Geophysical Research Letters",
-    "volume": "32",
-    "locator": "L06306",
-    "doi": "10.1029/2004GL022144"
-   },
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 116.161
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 178.148,
-     "K0": 249,
-     "K0_prime": 4.09
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 0,
-   "experimental_pressure_range_gpa": [
-    0,
-    160
-   ],
-   "pressure_range_status": "theoretical",
-   "experimental_temperature_range_k": [
-    0,
-    0
-   ],
-   "validity": {
-    "pressure_gpa": [
-     0,
-     160
-    ],
-    "temperature_k": [
-     0,
-     0
-    ],
-    "notes": [
-     "Static-lattice DFT branch; not an ambient-stability claim."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Table 1; Section 4; Table 2.",
-    "equation": "Section 4 and Table 2: third-order Birch-Murnaghan fit.",
-    "parameters": "Table 2, I4/mcm column.",
-    "volume_basis": "Source V0/Z multiplied by Z=4 for this material card's conventional-cell basis."
-   },
-   "notes": "Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "ab_initio",
+    {
+      "identifier": "ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet",
+      "label": "Sagatova et al. (2021), tetragonal CaSiO3 LDA 300 K Vinet",
+      "record_kind": "published",
+      "determination_method": "theoretical",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "Caracas",
-        "Wentzcovitch",
-        "Price",
-        "Brodholt"
-       ],
-       "year": 2005,
-       "title": "CaSiO3 perovskite at lower mantle pressures",
-       "source": "Geophysical Research Letters",
-       "volume": "32",
-       "locator": "L06306",
-       "doi": "10.1029/2004GL022144"
+        "authors": ["Sagatova", "Shatskiy", "Sagatov", "Litasov"],
+        "year": 2021,
+        "title": "Phase Relations in CaSiO3 System up to 100 GPa and 2500 K",
+        "source": "Geochemistry International",
+        "volume": "59",
+        "locator": "791-800",
+        "doi": "10.1134/S0016702921080073"
       },
-      "source_location": "Sections 2 and 4"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "Theoretical EOS; no experimental pressure reference."
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {"V0": 178.808, "K0": 244.0, "K0_prime": 4.2}
+      },
+      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 116.162},
+      "experimental_pressure_range_gpa": [0.0, 100.0],
+      "pressure_range_status": "theoretical",
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "validity": {
+        "pressure_gpa": [13.0, 100.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell."
+        ]
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {"kind": "ab_initio", "source_location": "Methods"}
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "First-principles pressure-volume relation."},
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021",
+          "doi": "10.1134/s0016702921080073",
+          "locations": ["Methods", "Table 2", "Phase relations", "Figure 7"],
+          "finding": "Complete source-owned LDA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase."
+        },
+        "primary_data_check": {
+          "status": "parameterization_and_plot_only",
+          "audit_date": "2026-09-05",
+          "finding": "The 300 and 2000 K P-V curves are plotted in Figure 7, but calculated P-V points are not tabulated."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 2; Phase relations; Figure 7.",
+        "equation": "Vinet EOS, Methods.",
+        "parameters": "Table 2, this-work LDA Ca-pv row.",
+        "volume_conversion": "44.702 A3 per formula unit multiplied by Z=4."
+      }
     },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
-     "doi": "10.1029/2004gl022144",
-     "locations": [
-      "Section 2",
-      "Table 1",
-      "Section 4",
-      "Table 2"
-     ],
-     "finding": "Explicit source BM3 fit for I4/mcm (a0a0c-)."
-    },
-    "primary_data_check": {
-     "status": "theoretical_parameterization_only",
-     "audit_date": "2026-09-05",
-     "finding": "Complete coefficients and density checkpoints are published; the underlying E(V) grid is not."
-    }
-   },
-   "source_lineage": [
     {
-     "role": "scientific calculation, fit, and coefficients",
-     "citation": "Caracas et al. (2005), Section 4 and Table 2",
-     "doi": "10.1029/2004GL022144"
-    }
-   ]
-  },
-  {
-   "determination_method": "theoretical",
-   "identifier": "ca_perovskite_tetragonal_caracas_2005_bm4_2",
-   "label": "Caracas et al. (2005), static I4/mcm BM4",
-   "reference": {
-    "authors": [
-     "Caracas",
-     "Wentzcovitch",
-     "Price",
-     "Brodholt"
-    ],
-    "year": 2005,
-    "title": "CaSiO3 perovskite at lower mantle pressures",
-    "source": "Geophysical Research Letters",
-    "volume": "32",
-    "locator": "L06306",
-    "doi": "10.1029/2004GL022144"
-   },
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 116.161
-   },
-   "eos": {
-    "type": "BM4",
-    "model": "birch_murnaghan_4",
-    "parameters": {
-     "V0": 178.188,
-     "K0": 247,
-     "K0_prime": 4.213,
-     "K0_double_prime": -0.002
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null,
-    "K0_double_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 0,
-   "experimental_pressure_range_gpa": [
-    0,
-    160
-   ],
-   "pressure_range_status": "theoretical",
-   "experimental_temperature_range_k": [
-    0,
-    0
-   ],
-   "validity": {
-    "pressure_gpa": [
-     0,
-     160
-    ],
-    "temperature_k": [
-     0,
-     0
-    ],
-    "notes": [
-     "Static-lattice DFT branch; not an ambient-stability claim."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Table 1; Section 4; Table 2.",
-    "equation": "Section 4 and Table 2: fourth-order Birch-Murnaghan fit.",
-    "parameters": "Table 2, I4/mcm column.",
-    "volume_basis": "Source V0/Z multiplied by Z=4 for this material card's conventional-cell basis."
-   },
-   "notes": "Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "ab_initio",
+      "identifier": "ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet",
+      "label": "Sagatova et al. (2021), tetragonal CaSiO3 GGA 300 K Vinet",
+      "record_kind": "published",
+      "determination_method": "theoretical",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "Caracas",
-        "Wentzcovitch",
-        "Price",
-        "Brodholt"
-       ],
-       "year": 2005,
-       "title": "CaSiO3 perovskite at lower mantle pressures",
-       "source": "Geophysical Research Letters",
-       "volume": "32",
-       "locator": "L06306",
-       "doi": "10.1029/2004GL022144"
+        "authors": ["Sagatova", "Shatskiy", "Sagatov", "Litasov"],
+        "year": 2021,
+        "title": "Phase Relations in CaSiO3 System up to 100 GPa and 2500 K",
+        "source": "Geochemistry International",
+        "volume": "59",
+        "locator": "791-800",
+        "doi": "10.1134/S0016702921080073"
       },
-      "source_location": "Sections 2 and 4"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "Theoretical EOS; no experimental pressure reference."
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {"V0": 187.312, "K0": 212.0, "K0_prime": 4.2}
+      },
+      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 116.162},
+      "experimental_pressure_range_gpa": [0.0, 100.0],
+      "pressure_range_status": "theoretical",
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "validity": {
+        "pressure_gpa": [13.0, 100.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell."
+        ]
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {"kind": "ab_initio", "source_location": "Methods"}
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "First-principles pressure-volume relation."},
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021",
+          "doi": "10.1134/s0016702921080073",
+          "locations": ["Methods", "Table 2", "Phase relations", "Figure 7"],
+          "finding": "Complete source-owned GGA room-temperature Ca-pv Vinet fit; I4/mcm is the relevant 300 K phase."
+        },
+        "primary_data_check": {
+          "status": "parameterization_and_plot_only",
+          "audit_date": "2026-09-05",
+          "finding": "The 300 and 2000 K P-V curves are plotted in Figure 7, but calculated P-V points are not tabulated."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 2; Phase relations; Figure 7.",
+        "equation": "Vinet EOS, Methods.",
+        "parameters": "Table 2, this-work GGA Ca-pv row.",
+        "volume_conversion": "46.828 A3 per formula unit multiplied by Z=4."
+      }
     },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
-     "doi": "10.1029/2004gl022144",
-     "locations": [
-      "Section 2",
-      "Table 1",
-      "Section 4",
-      "Table 2"
-     ],
-     "finding": "Explicit source BM4 fit for I4/mcm (a0a0c-)."
-    },
-    "primary_data_check": {
-     "status": "theoretical_parameterization_only",
-     "audit_date": "2026-09-05",
-     "finding": "Complete coefficients and density checkpoints are published; the underlying E(V) grid is not."
-    }
-   },
-   "source_lineage": [
     {
-     "role": "scientific calculation, fit, and coefficients",
-     "citation": "Caracas et al. (2005), Section 4 and Table 2",
-     "doi": "10.1029/2004GL022144"
-    }
-   ]
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "ca_perovskite_tetragonal_chen_2018_vinet",
-   "label": "Chen et al. (2018), 300 K Ne-medium Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Chen",
-     "Shim",
-     "Leinenweber",
-     "Prakapenka",
-     "Meng",
-     "Prescher"
-    ],
-    "year": 2018,
-    "title": "Crystal structure of CaSiO3 perovskite at 28-62 GPa and 300 K under quasi-hydrostatic stress conditions",
-    "source": "American Mineralogist",
-    "volume": "103",
-    "locator": "462-468",
-    "doi": "10.2138/am-2018-6087"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 185.2,
-     "K0": 223.0,
-     "K0_prime": 4.0
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.4,
-    "K0": 6.0,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": 0.9544997361036416,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    28.824,
-    62.477
-   ],
-   "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4.0,
-    "molar_mass_g_mol": 116.161
-   },
-   "validity": {
-    "pressure_gpa": [
-     28.824,
-     62.477
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Thermally stress-annealed tetragonal I4/mcm CaSiO3 in a neon pressure medium.",
-     "The fitted zero-pressure volume is an extrapolated EOS parameter because CaSiO3 perovskite is unstable at one bar."
-    ]
-   },
-   "fit_datasets": [
-    "ca_perovskite_tetragonal_chen_2018_table1_compression"
-   ],
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods, pages 463-464; EOS discussion, page 465; Figure 5, page 466; Tables 1-2, page 467.",
-    "equation": "EOS discussion, Figure 5, and Table 2: the pressure-volume data were fitted to the Vinet equation; Table 2 defines the abbreviation V as Vinet.",
-    "fit_scope": "The EOS discussion explicitly says the I4/mcm Rietveld results were fitted. All seven I4/mcm rows in Table 1 are retained in source order; no exclusion is reported. The parallel P4/mmm refinements are preserved in the dataset as a diagnostic branch but are not source-fit inputs.",
-    "parameters": "EOS discussion and Table 2 report V0=46.3(1) A3 on the one-formula-unit normalized basis and K0=223(6) GPa, with K0'=4.0 fixed.",
-    "parameter_uncertainties": "Table 2 states that parenthetical parameter uncertainties are 2-sigma values. No covariance matrix is published.",
-    "volume_conversion": "V0 multiplied by four for the conventional I4/mcm Z=4 card basis: 46.3*4=185.2 A3; uncertainty 0.1*4=0.4 A3.",
-    "phase": "Rietveld refinement identifies tetragonal I4/mcm with octahedral rotation about c.",
-    "weights": "The source does not identify the fitted residual variable, numerical weights, fit software, or covariance convention. Table 1 gives no pressure uncertainties; its lattice-parameter parentheses are 2-sigma. The reproducibility audit therefore reports unweighted-pressure and propagated-volume-uncertainty sensitivity fits without asserting either as the source objective."
-   },
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Pt",
+      "identifier": "ca_perovskite_tetragonal_caracas_2005_bm3_1",
+      "label": "Caracas et al. (2005), static I4/mcm BM3",
+      "record_kind": "published",
+      "determination_method": "theoretical",
+      "equation_kind": "isothermal",
       "reference": {
-       "authors": [
-        "Ye",
-        "Prakapenka",
-        "Meng",
-        "Shim"
-       ],
-       "year": 2017,
-       "title": "Intercomparison of the gold, platinum, and MgO pressure scales up to 140 GPa and 2500 K",
-       "source": "Journal of Geophysical Research: Solid Earth",
-       "volume": "122",
-       "locator": "3450-3464",
-       "doi": "10.1002/2016JB013811"
+        "authors": ["Caracas", "Wentzcovitch", "Price", "Brodholt"],
+        "year": 2005,
+        "title": "CaSiO3 perovskite at lower mantle pressures",
+        "source": "Geophysical Research Letters",
+        "volume": "32",
+        "locator": "L06306",
+        "doi": "10.1029/2004GL022144"
       },
-      "source_location": "Experimental methods and Table 1 note",
-      "scope": "all seven Table 1 observations"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The Pt scale is identified exactly, but Table 1 reports only reduced sample pressures. Row-wise Pt lattice parameters or volumes are not published, so the pressure reduction cannot be recalculated."
-    },
-    "audit_date": "2026-09-07"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "The final article and accepted manuscript verify the published 300 K Vinet equation, coefficients and seven I4/mcm Table 1 observations. The former BM2 attribution was corrected from the primary source. Numerical diagnostics on the rounded table do not fully reconstruct the authors' fit: pressure errors, objective weights, software, unrounded lattice values and covariance are unpublished.",
-    "audit_date": "2026-09-07",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "fixed_parameters",
-     "fit_scope",
-     "validity",
-     "pressure_calibration",
-     "primary_observations"
-    ],
-    "primary_source_check": {
-     "access_url": "https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf",
-     "doi": "10.2138/am-2018-6087",
-     "locations": [
-      "Experimental methods, pages 463-464",
-      "EOS discussion, page 465",
-      "Figure 5, page 466",
-      "Tables 1-2, page 467"
-     ],
-     "finding": "The paper reports a seven-observation I4/mcm 300 K Vinet fit, K0'=4 fixed, with V0 fitted because the phase is unstable at ambient pressure."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-07",
-     "source_locations": [
-      "Table 1, page 467"
-     ],
-     "dataset_identifiers": [
-      "ca_perovskite_tetragonal_chen_2018_table1_compression"
-     ],
-     "finding": "All seven source-order Table 1 rows and both I4/mcm and P4/mmm refinements are transcribed at printed precision. Derived cell volumes are calculated without intermediate rounding. The publisher PDF and author manuscript were not redistributed; the bundle is limited to factual numerical values and audit metadata."
-    },
-    "reproduction_status": "qualified_numerical_check",
-    "fit_reproduction_note": "The published curve has pressure RMSE 0.6885 GPa and maximum absolute residual 1.627 GPa over the seven I4/mcm rows. Alternative justified objectives shift the fit; agreement from duplicating P4/mmm refinements as extra measurements contradicts the reported fit scope. No independent production refit is added.",
-    "usage_recommendation": "Use the unchanged published 300 K Vinet parameterization for qualified comparison in its measured 28.824-62.477 GPa range. V0 is an extrapolation and K0' is fixed at 4. Retain the reported 2-sigma lattice and parameter errors without inventing pressure errors or source weights. P4/mmm refinements are parallel structural diagnostics, not additional independent fit observations.",
-    "qualification_date": "2026-10-08"
-   },
-   "notes": "Accepted LitCurate source record litcurate_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published."
-  }
- ],
- "format": "peritheos.material",
- "identifier": "ca_perovskite_tetragonal",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "ca_perovskite_tetragonal_sun_2022_table1_pv",
-   "kind": "pressure_volume_lattice",
-   "description": "All 23 tetragonal CaSiO3 observations printed in Sun et al. (2022) Table 1: 14 reanalyzed Sun et al. (2016) rows plus nine new measurements.",
-   "reference": {
-    "authors": [
-     "Sun",
-     "Bian",
-     "Zhang",
-     "Lin",
-     "Prakapenka",
-     "Mao"
-    ],
-    "year": 2022,
-    "title": "High-pressure experimental study of tetragonal CaSiO3-perovskite to 200 GPa",
-    "source": "American Mineralogist",
-    "volume": "107",
-    "locator": "Table 1, page 112",
-    "doi": "10.2138/am-2021-7913"
-   },
-   "source_location": "Author-hosted publisher PDF, Table 1, page 112",
-   "source_url": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
-   "license": "No explicit open data-reuse license is stated. Mineralogical Society of America/author copyright applies to the article; this source-attributed factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
-   "source_artifact": {
-    "filename": "SunCaPvAM2022.pdf",
-    "download_url": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
-    "sha256": "c5f91444328a49522612ab661e5e13ba2c60fa321534131673082f58a8554fbf",
-    "retrieved": "2026-09-07"
-   },
-   "columns": [
-    {
-     "name": "source_order",
-     "quantity": "source_order",
-     "unit": "1",
-     "role": "flag"
+      "temperature_ref": 0,
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 178.148, "K0": 249, "K0_prime": 4.09}
+      },
+      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 116.161},
+      "experimental_pressure_range_gpa": [0, 160],
+      "pressure_range_status": "theoretical",
+      "experimental_temperature_range_k": [0, 0],
+      "validity": {
+        "pressure_gpa": [0, 160],
+        "temperature_k": [0, 0],
+        "notes": ["Static-lattice DFT branch; not an ambient-stability claim."]
+      },
+      "notes": "Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "reference": {
+              "authors": ["Caracas", "Wentzcovitch", "Price", "Brodholt"],
+              "year": 2005,
+              "title": "CaSiO3 perovskite at lower mantle pressures",
+              "source": "Geophysical Research Letters",
+              "volume": "32",
+              "locator": "L06306",
+              "doi": "10.1029/2004GL022144"
+            },
+            "source_location": "Sections 2 and 4"
+          }
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "Theoretical EOS; no experimental pressure reference."},
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
+          "doi": "10.1029/2004gl022144",
+          "locations": ["Section 2", "Table 1", "Section 4", "Table 2"],
+          "finding": "Explicit source BM3 fit for I4/mcm (a0a0c-)."
+        },
+        "primary_data_check": {
+          "status": "theoretical_parameterization_only",
+          "audit_date": "2026-09-05",
+          "finding": "Complete coefficients and density checkpoints are published; the underlying E(V) grid is not."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Table 1; Section 4; Table 2.",
+        "equation": "Section 4 and Table 2: third-order Birch-Murnaghan fit.",
+        "parameters": "Table 2, I4/mcm column.",
+        "volume_basis": "Source V0/Z multiplied by Z=4 for this material card's conventional-cell basis."
+      },
+      "source_lineage": [
+        {
+          "role": "scientific calculation, fit, and coefficients",
+          "citation": "Caracas et al. (2005), Section 4 and Table 2",
+          "doi": "10.1029/2004GL022144"
+        }
+      ]
     },
     {
-     "name": "source_subset",
-     "quantity": "source_subset",
-     "unit": "1",
-     "role": "flag"
+      "identifier": "ca_perovskite_tetragonal_caracas_2005_bm4_2",
+      "label": "Caracas et al. (2005), static I4/mcm BM4",
+      "record_kind": "published",
+      "determination_method": "theoretical",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Caracas", "Wentzcovitch", "Price", "Brodholt"],
+        "year": 2005,
+        "title": "CaSiO3 perovskite at lower mantle pressures",
+        "source": "Geophysical Research Letters",
+        "volume": "32",
+        "locator": "L06306",
+        "doi": "10.1029/2004GL022144"
+      },
+      "temperature_ref": 0,
+      "eos": {
+        "type": "BM4",
+        "model": "birch_murnaghan_4",
+        "parameters": {"V0": 178.188, "K0": 247, "K0_prime": 4.213, "K0_double_prime": -0.002}
+      },
+      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null},
+      "parameter_error_confidence": null,
+      "fixed_parameters": [],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 116.161},
+      "experimental_pressure_range_gpa": [0, 160],
+      "pressure_range_status": "theoretical",
+      "experimental_temperature_range_k": [0, 0],
+      "validity": {
+        "pressure_gpa": [0, 160],
+        "temperature_k": [0, 0],
+        "notes": ["Static-lattice DFT branch; not an ambient-stability claim."]
+      },
+      "notes": "Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "reference": {
+              "authors": ["Caracas", "Wentzcovitch", "Price", "Brodholt"],
+              "year": 2005,
+              "title": "CaSiO3 perovskite at lower mantle pressures",
+              "source": "Geophysical Research Letters",
+              "volume": "32",
+              "locator": "L06306",
+              "doi": "10.1029/2004GL022144"
+            },
+            "source_location": "Sections 2 and 4"
+          }
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "Theoretical EOS; no experimental pressure reference."},
+        "audit_date": "2026-09-05"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
+          "doi": "10.1029/2004gl022144",
+          "locations": ["Section 2", "Table 1", "Section 4", "Table 2"],
+          "finding": "Explicit source BM4 fit for I4/mcm (a0a0c-)."
+        },
+        "primary_data_check": {
+          "status": "theoretical_parameterization_only",
+          "audit_date": "2026-09-05",
+          "finding": "Complete coefficients and density checkpoints are published; the underlying E(V) grid is not."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Table 1; Section 4; Table 2.",
+        "equation": "Section 4 and Table 2: fourth-order Birch-Murnaghan fit.",
+        "parameters": "Table 2, I4/mcm column.",
+        "volume_basis": "Source V0/Z multiplied by Z=4 for this material card's conventional-cell basis."
+      },
+      "source_lineage": [
+        {
+          "role": "scientific calculation, fit, and coefficients",
+          "citation": "Caracas et al. (2005), Section 4 and Table 2",
+          "doi": "10.1029/2004GL022144"
+        }
+      ]
     },
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "a_uncertainty_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "a_angstrom"
-    },
-    {
-     "name": "c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "c_uncertainty_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "c_angstrom"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_uncertainty_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "uncertainty",
-     "of": "volume_a3_conventional_cell"
+      "identifier": "ca_perovskite_tetragonal_chen_2018_vinet",
+      "label": "Chen et al. (2018), 300 K Ne-medium Vinet",
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Chen", "Shim", "Leinenweber", "Prakapenka", "Meng", "Prescher"],
+        "year": 2018,
+        "title": "Crystal structure of CaSiO3 perovskite at 28-62 GPa and 300 K under quasi-hydrostatic stress conditions",
+        "source": "American Mineralogist",
+        "volume": "103",
+        "locator": "462-468",
+        "doi": "10.2138/am-2018-6087"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "model": "vinet",
+        "parameters": {"V0": 185.2, "K0": 223.0, "K0_prime": 4.0}
+      },
+      "parameter_errors": {"V0": 0.4, "K0": 6.0, "K0_prime": null},
+      "parameter_error_confidence": 0.9544997361036416,
+      "fixed_parameters": ["K0_prime"],
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 116.161},
+      "experimental_pressure_range_gpa": [28.824, 62.477],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "validity": {
+        "pressure_gpa": [28.824, 62.477],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Thermally stress-annealed tetragonal I4/mcm CaSiO3 in a neon pressure medium.",
+          "The fitted zero-pressure volume is an extrapolated EOS parameter because CaSiO3 perovskite is unstable at one bar."
+        ]
+      },
+      "notes": "Accepted LitCurate source record litcurate_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published.",
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Pt",
+            "reference": {
+              "authors": ["Ye", "Prakapenka", "Meng", "Shim"],
+              "year": 2017,
+              "title": "Intercomparison of the gold, platinum, and MgO pressure scales up to 140 GPa and 2500 K",
+              "source": "Journal of Geophysical Research: Solid Earth",
+              "volume": "122",
+              "locator": "3450-3464",
+              "doi": "10.1002/2016JB013811"
+            },
+            "source_location": "Experimental methods and Table 1 note",
+            "scope": "all seven Table 1 observations"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The Pt scale is identified exactly, but Table 1 reports only reduced sample pressures. Row-wise Pt lattice parameters or volumes are not published, so the pressure reduction cannot be recalculated."
+        },
+        "audit_date": "2026-09-07"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "The final article and accepted manuscript verify the published 300 K Vinet equation, coefficients and seven I4/mcm Table 1 observations. The former BM2 attribution was corrected from the primary source. Numerical diagnostics on the rounded table do not fully reconstruct the authors' fit: pressure errors, objective weights, software, unrounded lattice values and covariance are unpublished.",
+        "audit_date": "2026-09-07",
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "published_uncertainties",
+          "fixed_parameters",
+          "fit_scope",
+          "validity",
+          "pressure_calibration",
+          "primary_observations"
+        ],
+        "primary_source_check": {
+          "access_url": "https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf",
+          "doi": "10.2138/am-2018-6087",
+          "locations": [
+            "Experimental methods, pages 463-464",
+            "EOS discussion, page 465",
+            "Figure 5, page 466",
+            "Tables 1-2, page 467"
+          ],
+          "finding": "The paper reports a seven-observation I4/mcm 300 K Vinet fit, K0'=4 fixed, with V0 fitted because the phase is unstable at ambient pressure."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-07",
+          "source_locations": ["Table 1, page 467"],
+          "dataset_identifiers": ["ca_perovskite_tetragonal_chen_2018_table1_compression"],
+          "finding": "All seven source-order Table 1 rows and both I4/mcm and P4/mmm refinements are transcribed at printed precision. Derived cell volumes are calculated without intermediate rounding. The publisher PDF and author manuscript were not redistributed; the bundle is limited to factual numerical values and audit metadata."
+        },
+        "reproduction_status": "qualified_numerical_check",
+        "fit_reproduction_note": "The published curve has pressure RMSE 0.6885 GPa and maximum absolute residual 1.627 GPa over the seven I4/mcm rows. Alternative justified objectives shift the fit; agreement from duplicating P4/mmm refinements as extra measurements contradicts the reported fit scope. No independent production refit is added.",
+        "usage_recommendation": "Use the unchanged published 300 K Vinet parameterization for qualified comparison in its measured 28.824-62.477 GPa range. V0 is an extrapolation and K0' is fixed at 4. Retain the reported 2-sigma lattice and parameter errors without inventing pressure errors or source weights. P4/mmm refinements are parallel structural diagnostics, not additional independent fit observations.",
+        "qualification_date": "2026-10-08"
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods, pages 463-464; EOS discussion, page 465; Figure 5, page 466; Tables 1-2, page 467.",
+        "equation": "EOS discussion, Figure 5, and Table 2: the pressure-volume data were fitted to the Vinet equation; Table 2 defines the abbreviation V as Vinet.",
+        "fit_scope": "The EOS discussion explicitly says the I4/mcm Rietveld results were fitted. All seven I4/mcm rows in Table 1 are retained in source order; no exclusion is reported. The parallel P4/mmm refinements are preserved in the dataset as a diagnostic branch but are not source-fit inputs.",
+        "parameters": "EOS discussion and Table 2 report V0=46.3(1) A3 on the one-formula-unit normalized basis and K0=223(6) GPa, with K0'=4.0 fixed.",
+        "parameter_uncertainties": "Table 2 states that parenthetical parameter uncertainties are 2-sigma values. No covariance matrix is published.",
+        "volume_conversion": "V0 multiplied by four for the conventional I4/mcm Z=4 card basis: 46.3*4=185.2 A3; uncertainty 0.1*4=0.4 A3.",
+        "phase": "Rietveld refinement identifies tetragonal I4/mcm with octahedral rotation about c.",
+        "weights": "The source does not identify the fitted residual variable, numerical weights, fit software, or covariance convention. Table 1 gives no pressure uncertainties; its lattice-parameter parentheses are 2-sigma. The reproducibility audit therefore reports unweighted-pressure and propagated-volume-uncertainty sensitivity fits without asserting either as the source objective."
+      },
+      "fit_datasets": ["ca_perovskite_tetragonal_chen_2018_table1_compression"]
     }
-   ],
-   "resource": {
-    "path": "datasets/ca-perovskite-tetragonal-sun-2022-table1-pv.csv",
-    "sha256": "c05a0bd7e76d8d969ce8cb4e2de0a00b2541b96cd4ebefc211187621ff584028",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "ca_perovskite_tetragonal_sun_2022_bm3_1"
-   ],
-   "uncertainty": {
-    "rows": "All parenthetical pressure, lattice, and volume uncertainties are transcribed literally and scaled to the last printed digit.",
-    "fit": "The source does not state weights or a confidence convention. Numerical protocol discrimination supports ordinary unweighted pressure residuals with residual-variance covariance scaling."
-   },
-   "notes": "The source normalizes a and c by two and volume by Z=4 for its plotted/fitted Z=1 basis. The CSV preserves the printed conventional I4/mcm values; Peritheos fits conventional-cell volume. All 23 rows are included. The CSV contains only factual numbers and minimal subset labels, not article prose, table imagery, or the publisher's layout."
-  },
-  {
-   "identifier": "ca_perovskite_tetragonal_chen_2018_table1_compression",
-   "kind": "pressure_lattice_parameters_and_derived_volumes",
-   "description": "All seven 300 K CaSiO3 perovskite rows printed in Chen et al. (2018) Table 1, preserving the parallel I4/mcm and P4/mmm Rietveld refinements; the published EOS uses the I4/mcm branch.",
-   "source_location": "Table 1, article page 467",
-   "source_url": "https://doi.org/10.2138/am-2018-6087",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "source_order",
-     "quantity": "source_row_order",
-     "unit": "1",
-     "role": "flag"
+      "identifier": "ca_perovskite_tetragonal_sun_2022_table1_pv",
+      "kind": "pressure_volume_lattice",
+      "description": "All 23 tetragonal CaSiO3 observations printed in Sun et al. (2022) Table 1: 14 reanalyzed Sun et al. (2016) rows plus nine new measurements.",
+      "reference": {
+        "authors": ["Sun", "Bian", "Zhang", "Lin", "Prakapenka", "Mao"],
+        "year": 2022,
+        "title": "High-pressure experimental study of tetragonal CaSiO3-perovskite to 200 GPa",
+        "source": "American Mineralogist",
+        "volume": "107",
+        "locator": "Table 1, page 112",
+        "doi": "10.2138/am-2021-7913"
+      },
+      "source_location": "Author-hosted publisher PDF, Table 1, page 112",
+      "source_url": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
+      "license": "No explicit open data-reuse license is stated. Mineralogical Society of America/author copyright applies to the article; this source-attributed factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
+      "source_artifact": {
+        "filename": "SunCaPvAM2022.pdf",
+        "download_url": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
+        "sha256": "c5f91444328a49522612ab661e5e13ba2c60fa321534131673082f58a8554fbf",
+        "retrieved": "2026-09-07"
+      },
+      "columns": [
+        {"name": "source_order", "quantity": "source_order", "unit": "1", "role": "flag"},
+        {"name": "source_subset", "quantity": "source_subset", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "a_uncertainty_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "a_angstrom"
+        },
+        {"name": "c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "c_uncertainty_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "c_angstrom"
+        },
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_uncertainty_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty",
+          "of": "volume_a3_conventional_cell"
+        }
+      ],
+      "resource": {
+        "path": "datasets/ca-perovskite-tetragonal-sun-2022-table1-pv.csv",
+        "sha256": "c05a0bd7e76d8d969ce8cb4e2de0a00b2541b96cd4ebefc211187621ff584028",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["ca_perovskite_tetragonal_sun_2022_bm3_1"],
+      "uncertainty": {
+        "rows": "All parenthetical pressure, lattice, and volume uncertainties are transcribed literally and scaled to the last printed digit.",
+        "fit": "The source does not state weights or a confidence convention. Numerical protocol discrimination supports ordinary unweighted pressure residuals with residual-variance covariance scaling."
+      },
+      "notes": "The source normalizes a and c by two and volume by Z=4 for its plotted/fitted Z=1 basis. The CSV preserves the printed conventional I4/mcm values; Peritheos fits conventional-cell volume. All 23 rows are included. The CSV contains only factual numbers and minimal subset labels, not article prose, table imagery, or the publisher's layout."
     },
     {
-     "name": "run_id",
-     "quantity": "experimental_run_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_pt_ye_gpa",
-     "quantity": "pressure_from_platinum_eos",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "i4mcm_tilting_angle_deg",
-     "quantity": "i4mcm_octahedral_tilting_angle",
-     "unit": "degree",
-     "role": "value"
-    },
-    {
-     "name": "i4mcm_tilting_angle_2sigma_deg",
-     "quantity": "i4mcm_octahedral_tilting_angle",
-     "unit": "degree",
-     "role": "uncertainty",
-     "of": "i4mcm_tilting_angle_deg"
-    },
-    {
-     "name": "i4mcm_lattice_a_angstrom",
-     "quantity": "i4mcm_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "i4mcm_lattice_a_2sigma_angstrom",
-     "quantity": "i4mcm_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "i4mcm_lattice_a_angstrom"
-    },
-    {
-     "name": "i4mcm_lattice_c_angstrom",
-     "quantity": "i4mcm_lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "i4mcm_lattice_c_2sigma_angstrom",
-     "quantity": "i4mcm_lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "i4mcm_lattice_c_angstrom"
-    },
-    {
-     "name": "i4mcm_volume_a3_conventional_cell",
-     "quantity": "i4mcm_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "i4mcm_volume_1sigma_a3_conventional_cell",
-     "quantity": "i4mcm_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "i4mcm_volume_a3_conventional_cell"
-    },
-    {
-     "name": "p4mmm_tilting_angle_deg",
-     "quantity": "p4mmm_octahedral_tilting_angle",
-     "unit": "degree",
-     "role": "value"
-    },
-    {
-     "name": "p4mmm_lattice_a_angstrom",
-     "quantity": "p4mmm_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "p4mmm_lattice_a_2sigma_angstrom",
-     "quantity": "p4mmm_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "p4mmm_lattice_a_angstrom"
-    },
-    {
-     "name": "p4mmm_lattice_c_angstrom",
-     "quantity": "p4mmm_lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "p4mmm_lattice_c_2sigma_angstrom",
-     "quantity": "p4mmm_lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "p4mmm_lattice_c_angstrom"
-    },
-    {
-     "name": "p4mmm_volume_a3_conventional_cell",
-     "quantity": "p4mmm_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "p4mmm_volume_1sigma_a3_conventional_cell",
-     "quantity": "p4mmm_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "p4mmm_volume_a3_conventional_cell"
-    },
-    {
-     "name": "used_in_published_fit",
-     "quantity": "published_fit_inclusion",
-     "unit": "1",
-     "role": "flag"
+      "identifier": "ca_perovskite_tetragonal_chen_2018_table1_compression",
+      "kind": "pressure_lattice_parameters_and_derived_volumes",
+      "description": "All seven 300 K CaSiO3 perovskite rows printed in Chen et al. (2018) Table 1, preserving the parallel I4/mcm and P4/mmm Rietveld refinements; the published EOS uses the I4/mcm branch.",
+      "source_location": "Table 1, article page 467",
+      "source_url": "https://doi.org/10.2138/am-2018-6087",
+      "columns": [
+        {"name": "source_order", "quantity": "source_row_order", "unit": "1", "role": "flag"},
+        {"name": "run_id", "quantity": "experimental_run_identifier", "unit": "1", "role": "flag"},
+        {"name": "pressure_pt_ye_gpa", "quantity": "pressure_from_platinum_eos", "unit": "GPa", "role": "value"},
+        {
+          "name": "i4mcm_tilting_angle_deg",
+          "quantity": "i4mcm_octahedral_tilting_angle",
+          "unit": "degree",
+          "role": "value"
+        },
+        {
+          "name": "i4mcm_tilting_angle_2sigma_deg",
+          "quantity": "i4mcm_octahedral_tilting_angle",
+          "unit": "degree",
+          "role": "uncertainty",
+          "of": "i4mcm_tilting_angle_deg"
+        },
+        {
+          "name": "i4mcm_lattice_a_angstrom",
+          "quantity": "i4mcm_lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "i4mcm_lattice_a_2sigma_angstrom",
+          "quantity": "i4mcm_lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "i4mcm_lattice_a_angstrom"
+        },
+        {
+          "name": "i4mcm_lattice_c_angstrom",
+          "quantity": "i4mcm_lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "i4mcm_lattice_c_2sigma_angstrom",
+          "quantity": "i4mcm_lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "i4mcm_lattice_c_angstrom"
+        },
+        {
+          "name": "i4mcm_volume_a3_conventional_cell",
+          "quantity": "i4mcm_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "i4mcm_volume_1sigma_a3_conventional_cell",
+          "quantity": "i4mcm_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "i4mcm_volume_a3_conventional_cell"
+        },
+        {
+          "name": "p4mmm_tilting_angle_deg",
+          "quantity": "p4mmm_octahedral_tilting_angle",
+          "unit": "degree",
+          "role": "value"
+        },
+        {
+          "name": "p4mmm_lattice_a_angstrom",
+          "quantity": "p4mmm_lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "p4mmm_lattice_a_2sigma_angstrom",
+          "quantity": "p4mmm_lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "p4mmm_lattice_a_angstrom"
+        },
+        {
+          "name": "p4mmm_lattice_c_angstrom",
+          "quantity": "p4mmm_lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "p4mmm_lattice_c_2sigma_angstrom",
+          "quantity": "p4mmm_lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "p4mmm_lattice_c_angstrom"
+        },
+        {
+          "name": "p4mmm_volume_a3_conventional_cell",
+          "quantity": "p4mmm_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "p4mmm_volume_1sigma_a3_conventional_cell",
+          "quantity": "p4mmm_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "p4mmm_volume_a3_conventional_cell"
+        },
+        {"name": "used_in_published_fit", "quantity": "published_fit_inclusion", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/ca-perovskite-tetragonal-chen-2018-table1-compression.csv",
+        "sha256": "021fbe144c850d18dccec643cf253760595af28869877aa91d8f4a525eb770e0",
+        "media_type": "text/csv"
+      },
+      "uncertainty": {
+        "reported_as": "Table 1 states that parenthetical lattice-parameter and tilting-angle uncertainties are 2-sigma values in the last digits. Pressure uncertainty is not tabulated.",
+        "derived_volume": "The 1-sigma volume columns use first-order independent-error propagation after dividing the printed 2-sigma lattice uncertainties by two.",
+        "covariance": "not_reported"
+      },
+      "artifact_provenance": {
+        "version_of_record_url": "https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf",
+        "author_manuscript_url": "https://www.researchgate.net/profile/Sang-Heon-Shim/publication/323517011_Crystal_structure_of_CaSiO3_perovskite_at_28-62_GPa_and_300_K_under_quasi-hydrostatic_stress_conditions/links/5e02cd4b4585159aa49853cf/Crystal-structure-of-CaSiO3-perovskite-at-28-62-GPa-and-300-K-under-quasi-hydrostatic-stress-conditions.pdf",
+        "retrieved": "2026-09-07",
+        "verification": "Table 1 was visually checked in both lossless PDF manifestations; Table 2 and the EOS text were checked in the same artifacts.",
+        "redistribution": "Neither PDF is bundled. MSA's publishing policy reserves the version-of-record copyright, and the accessible author copy is marked as author content subject to copyright. This CSV contains only directly transcribed numerical facts, identifiers, and derived quantities."
+      },
+      "reference": {
+        "authors": ["Chen", "Shim", "Leinenweber", "Prakapenka", "Meng", "Prescher"],
+        "year": 2018,
+        "source": "American Mineralogist",
+        "volume": "103",
+        "locator": "462-468",
+        "doi": "10.2138/am-2018-6087"
+      },
+      "used_by_eos_records": ["ca_perovskite_tetragonal_chen_2018_vinet"],
+      "notes": "Every printed Table 1 data cell is retained at source precision. I4/mcm volumes are derived as a^2*c for the conventional Z=4 cell; P4/mmm volumes are derived as a^2*c for its Z=1 cell. The source states that the I4/mcm results define the Vinet fit and reports no exclusions. No fit software, residual direction, pressure uncertainties, weights, or parameter covariance are published."
     }
-   ],
-   "resource": {
-    "path": "datasets/ca-perovskite-tetragonal-chen-2018-table1-compression.csv",
-    "sha256": "021fbe144c850d18dccec643cf253760595af28869877aa91d8f4a525eb770e0",
-    "media_type": "text/csv"
-   },
-   "uncertainty": {
-    "reported_as": "Table 1 states that parenthetical lattice-parameter and tilting-angle uncertainties are 2-sigma values in the last digits. Pressure uncertainty is not tabulated.",
-    "derived_volume": "The 1-sigma volume columns use first-order independent-error propagation after dividing the printed 2-sigma lattice uncertainties by two.",
-    "covariance": "not_reported"
-   },
-   "artifact_provenance": {
-    "version_of_record_url": "https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf",
-    "author_manuscript_url": "https://www.researchgate.net/profile/Sang-Heon-Shim/publication/323517011_Crystal_structure_of_CaSiO3_perovskite_at_28-62_GPa_and_300_K_under_quasi-hydrostatic_stress_conditions/links/5e02cd4b4585159aa49853cf/Crystal-structure-of-CaSiO3-perovskite-at-28-62-GPa-and-300-K-under-quasi-hydrostatic-stress-conditions.pdf",
-    "retrieved": "2026-09-07",
-    "verification": "Table 1 was visually checked in both lossless PDF manifestations; Table 2 and the EOS text were checked in the same artifacts.",
-    "redistribution": "Neither PDF is bundled. MSA's publishing policy reserves the version-of-record copyright, and the accessible author copy is marked as author content subject to copyright. This CSV contains only directly transcribed numerical facts, identifiers, and derived quantities."
-   },
-   "reference": {
-    "authors": [
-     "Chen",
-     "Shim",
-     "Leinenweber",
-     "Prakapenka",
-     "Meng",
-     "Prescher"
-    ],
-    "year": 2018,
-    "source": "American Mineralogist",
-    "volume": "103",
-    "locator": "462-468",
-    "doi": "10.2138/am-2018-6087"
-   },
-   "used_by_eos_records": [
-    "ca_perovskite_tetragonal_chen_2018_vinet"
-   ],
-   "notes": "Every printed Table 1 data cell is retained at source precision. I4/mcm volumes are derived as a^2*c for the conventional Z=4 cell; P4/mmm volumes are derived as a^2*c for its Z=1 cell. The source states that the I4/mcm results define the Vinet fit and reports no exclusions. No fit software, residual direction, pressure uncertainties, weights, or parameter covariance are published."
-  }
- ]
+  ]
 }

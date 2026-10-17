@@ -11,6 +11,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_validation_narrative_matches_primary_refit_ledger():
+    subprocess.run(
+        [sys.executable, "-m", "scripts.generate_validation_summary", "--check"],
+        cwd=ROOT,
+        check=True,
+    )
     summary = json.loads(
         (ROOT / "docs/data/primary-eos-refits.json").read_text(encoding="utf-8")
     )["summary"]

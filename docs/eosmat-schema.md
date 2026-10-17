@@ -12,6 +12,11 @@ is distributed as `peritheos/data/eosmat-v3.schema.json` and uses JSON Schema
 draft 2020-12. This page explains the fields and consumer behavior that cannot
 be conveyed by shape validation alone.
 
+For a small starting example and formatting instructions, see
+[Reading and editing EOSMAT](eosmat-authoring.md). The generated
+[material summaries](material-summaries/index.md) provide parameter comparisons
+and scientific qualifications without requiring readers to navigate the JSON.
+
 ## Top-level document
 
 | Field | Required | Meaning |

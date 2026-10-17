@@ -1,459 +1,277 @@
 {
- "format_version": 3,
- "name": "Molybdenum carbide Mo2C",
- "formula": "Mo2C",
- "symmetry": "ORTHORHOMBIC",
- "lattice": {
-  "a": 4.724,
-  "b": 6.004,
-  "c": 5.199,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Pbcn",
- "space_group_number": 60,
- "atom_sites": [
-  {
-   "element": "Mo",
-   "wyckoff": "8d",
-   "x": 0.24617,
-   "y": 0.12796,
-   "z": 0.07926,
-   "occupancy": 1.0
-  },
-  {
-   "element": "C",
-   "wyckoff": "4c",
-   "x": 0.0,
-   "y": 0.38546,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Mo2C-Haines.jcpds. Orthorhombic Mo2C coordinates from the Rietveld refinement of Chasvin et al., Molecular Catalysis 439, 163-170 (2017), doi:10.1016/j.mcat.2017.07.003.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "EOS from Haines et al. 2001",
-   "reference": {
-    "authors": [
-     "Haines",
-     "Léger",
-     "Chateau",
-     "Lowther"
-    ],
-    "year": 2001,
-    "title": "Experimental and theoretical investigation of Mo2C at high pressure",
-    "source": "J. Phys.: Condens. Matter",
-    "volume": "13",
-    "locator": "2447-2454",
-    "doi": "10.1088/0953-8984/13/11/303"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 148.9071,
-     "K0": 307.0,
-     "K0_prime": 6.2
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.049,
-    "K0": 5.0,
-    "K0_prime": 0.3
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    46.0
-   ],
-   "notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: section 2, ambient lattice constants and pressure methods; section 4.1, pages 2449-2450; Figure 2, Birch-Murnaghan fit through 46 GPa."
-   },
-   "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
-     "locations": [
-      "section 2, ambient lattice constants and pressure methods",
-      "section 4.1, pages 2449-2450",
-      "Figure 2, Birch-Murnaghan fit through 46 GPa"
-     ],
-     "finding": "The experimental EOS is fitted to relative volume. The measured ambient hexagonal subcell was converted to the equivalent four-formula-unit orthorhombic conventional-cell volume used by the record.",
-     "doi": "10.1088/0953-8984/13/11/303"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "molybenum_carbide_mo2c.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "molybdenum_carbide_haines_2001_figure2_digitized"
-     ],
-     "source_locations": [
-      "Figure 2; Table 1"
-     ],
-     "finding": "The Mo2C compression observations used for the BM3 fit are plotted in Figure 2. Table 1 provides selected structural and fitted summaries rather than the row-level pressure-volume array."
-    }
-   },
-   "temperature_ref": 300.0,
-   "audit_corrections": [
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "molybenum_carbide_mo2c",
+  "name": "Molybdenum carbide Mo2C",
+  "formula": "Mo2C",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbcn",
+  "space_group_number": 60,
+  "lattice": {"a": 4.724, "b": 6.004, "c": 5.199, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mo", "wyckoff": "8d", "x": 0.24617, "y": 0.12796, "z": 0.07926, "occupancy": 1.0},
+    {"element": "C", "wyckoff": "4c", "x": 0.0, "y": 0.38546, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Mo2C-Haines.jcpds. Orthorhombic Mo2C coordinates from the Rietveld refinement of Chasvin et al., Molecular Catalysis 439, 163-170 (2017), doi:10.1016/j.mcat.2017.07.003.",
+  "eos_records": [
     {
-     "path": "fixed_parameters",
-     "source_value": [],
-     "value": [
-      "V0"
-     ],
-     "reason": "Figure 2 and its caption express the fitted observations as V/V0 and publish only K0 and K0'; the measured ambient reference volume is therefore held fixed during the reproduction.",
-     "primary_reference": {
-      "doi": "10.1088/0953-8984/13/11/303",
-      "location": "section 2, section 4.1, and Figure 2"
-     }
-    },
-    {
-     "path": "eos.parameters.V0",
-     "source_value": 147.4587,
-     "value": 148.9071,
-     "reason": "Use the measured ambient volume of the sample normalized in the primary relative-volume EOS, not unrelated literature orthorhombic lattice constants.",
-     "primary_reference": {
-      "doi": "10.1088/0953-8984/13/11/303",
-      "location": "section 2, section 4.1, and Figure 2"
-     }
-    },
-    {
-     "path": "parameter_errors.V0",
-     "source_value": null,
-     "value": 0.049,
-     "reason": "Propagated from a=3.0128(4) A and c=4.7357(9) A for V=4*(sqrt(3)/2)*a^2*c.",
-     "primary_reference": {
-      "doi": "10.1088/0953-8984/13/11/303",
-      "location": "section 2, section 4.1, and Figure 2"
-     }
-    },
-    {
-     "path": "experimental_pressure_range_gpa",
-     "source_value": [
-      0.0,
-      50.0
-     ],
-     "value": [
-      0.0,
-      46.0
-     ],
-     "reason": "Section 2 states that the second experimental run reached 46 GPa.",
-     "primary_reference": {
-      "doi": "10.1088/0953-8984/13/11/303",
-      "location": "section 2, section 4.1, and Figure 2"
-     }
-    }
-   ]
-  },
-  {
-   "label": "Haines et al. (2001) Figure 2 direct BM3 refit",
-   "reference": {
-    "authors": [
-     "Haines",
-     "Léger",
-     "Chateau",
-     "Lowther"
-    ],
-    "year": 2001,
-    "title": "Experimental and theoretical investigation of Mo2C at high pressure",
-    "source": "J. Phys.: Condens. Matter",
-    "volume": "13",
-    "locator": "2447-2454",
-    "doi": "10.1088/0953-8984/13/11/303"
-   },
-   "record_kind": "refit",
-   "derived_from_record": "molybenum_carbide_mo2c_haines_2001_bm3_1",
-   "fit_provenance": {
-    "software": {
-     "name": "Peritheos",
-     "version": "0.6.0"
-    },
-    "dataset": "molybdenum_carbide_haines_2001_figure2_digitized",
-    "selection": {
-     "predicate": "all Figure 2 markers",
-     "included_rows": 16,
-     "excluded_rows": 0
-    },
-    "objective": "errors_in_variables",
-    "weights": [
-     "pressure_digitization_uncertainty_gpa",
-     "volume_ratio_digitization_uncertainty"
-    ],
-    "refined_parameters": [
-     "K0",
-     "K0_prime"
-    ],
-    "fixed_parameters": [
-     "V0"
-    ],
-    "covariance_scaling": "absolute_sigma=True; digitization uncertainties treated as one-standard-deviation errors",
-    "statistics": {
-     "observations": 16,
-     "free_parameters": 2,
-     "chi_square": 13.626497585148972,
-     "reduced_chi_square": 0.9733212560820694,
-     "degrees_of_freedom": 14,
-     "pressure_residual_rmse_gpa": 0.37453767113271197,
-     "max_absolute_pressure_residual_gpa": 0.65771138566015,
-     "parameter_correlation": {
-      "parameter_order": [
-       "K0",
-       "K0_prime"
-      ],
-      "matrix": [
-       [
-        1.0,
-        -0.9720601471624124
-       ],
-       [
-        -0.9720601471624124,
-        1.0
-       ]
+      "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_1",
+      "label": "EOS from Haines et al. 2001",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Haines", "Léger", "Chateau", "Lowther"],
+        "year": 2001,
+        "title": "Experimental and theoretical investigation of Mo2C at high pressure",
+        "source": "J. Phys.: Condens. Matter",
+        "volume": "13",
+        "locator": "2447-2454",
+        "doi": "10.1088/0953-8984/13/11/303"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 148.9071, "K0": 307.0, "K0_prime": 6.2},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.049, "K0": 5.0, "K0_prime": 0.3},
+      "fixed_parameters": ["V0"],
+      "experimental_pressure_range_gpa": [0.0, 46.0],
+      "notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
+          "locations": [
+            "section 2, ambient lattice constants and pressure methods",
+            "section 4.1, pages 2449-2450",
+            "Figure 2, Birch-Murnaghan fit through 46 GPa"
+          ],
+          "finding": "The experimental EOS is fitted to relative volume. The measured ambient hexagonal subcell was converted to the equivalent four-formula-unit orthorhombic conventional-cell volume used by the record.",
+          "doi": "10.1088/0953-8984/13/11/303"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "molybenum_carbide_mo2c.json"
+        },
+        "primary_data_check": {
+          "status": "plot_only",
+          "audit_date": "2026-09-03",
+          "digitized_dataset_identifiers": ["molybdenum_carbide_haines_2001_figure2_digitized"],
+          "source_locations": ["Figure 2; Table 1"],
+          "finding": "The Mo2C compression observations used for the BM3 fit are plotted in Figure 2. Table 1 provides selected structural and fitted summaries rather than the row-level pressure-volume array."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: section 2, ambient lattice constants and pressure methods; section 4.1, pages 2449-2450; Figure 2, Birch-Murnaghan fit through 46 GPa."
+      },
+      "audit_corrections": [
+        {
+          "path": "fixed_parameters",
+          "source_value": [],
+          "value": ["V0"],
+          "reason": "Figure 2 and its caption express the fitted observations as V/V0 and publish only K0 and K0'; the measured ambient reference volume is therefore held fixed during the reproduction.",
+          "primary_reference": {"doi": "10.1088/0953-8984/13/11/303", "location": "section 2, section 4.1, and Figure 2"}
+        },
+        {
+          "path": "eos.parameters.V0",
+          "source_value": 147.4587,
+          "value": 148.9071,
+          "reason": "Use the measured ambient volume of the sample normalized in the primary relative-volume EOS, not unrelated literature orthorhombic lattice constants.",
+          "primary_reference": {"doi": "10.1088/0953-8984/13/11/303", "location": "section 2, section 4.1, and Figure 2"}
+        },
+        {
+          "path": "parameter_errors.V0",
+          "source_value": null,
+          "value": 0.049,
+          "reason": "Propagated from a=3.0128(4) A and c=4.7357(9) A for V=4*(sqrt(3)/2)*a^2*c.",
+          "primary_reference": {"doi": "10.1088/0953-8984/13/11/303", "location": "section 2, section 4.1, and Figure 2"}
+        },
+        {
+          "path": "experimental_pressure_range_gpa",
+          "source_value": [0.0, 50.0],
+          "value": [0.0, 46.0],
+          "reason": "Section 2 states that the second experimental run reached 46 GPa.",
+          "primary_reference": {"doi": "10.1088/0953-8984/13/11/303", "location": "section 2, section 4.1, and Figure 2"}
+        }
       ]
-     }
     },
-    "reproduction": {
-     "script": "scripts/validate_primary_eos_refits.py",
-     "solver": "scipy.optimize.least_squares",
-     "maximum_function_evaluations": 5000
+    {
+      "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_refit",
+      "label": "Haines et al. (2001) Figure 2 direct BM3 refit",
+      "record_kind": "refit",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Haines", "Léger", "Chateau", "Lowther"],
+        "year": 2001,
+        "title": "Experimental and theoretical investigation of Mo2C at high pressure",
+        "source": "J. Phys.: Condens. Matter",
+        "volume": "13",
+        "locator": "2447-2454",
+        "doi": "10.1088/0953-8984/13/11/303"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 148.9071, "K0": 325.87419826054304, "K0_prime": 4.9092021387052664},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": null, "K0": 9.50029103042738, "K0_prime": 0.6513930636044009},
+      "fixed_parameters": ["V0"],
+      "parameter_covariance": {
+        "parameter_order": ["K0", "K0_prime"],
+        "matrix": [
+          [90.25552966281894, -6.015520032543208],
+          [-6.015520032543208, 0.42431292331192705]
+        ]
+      },
+      "experimental_pressure_range_gpa": [0.0, 45.499],
+      "notes": "Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute_sigma=True. The unchanged record molybenum_carbide_mo2c_haines_2001_bm3_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-04",
+        "notes": "The refit uses the pressures printed graphically by the source; no replacement pressure scale is inferred."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",
+        "audit_date": "2026-09-04",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
+          "locations": ["section 4.1, pages 2449-2450", "Figure 2 and caption", "docs/literature-reproductions.md"],
+          "finding": "The source plots 16 relative-volume observations and identifies a BM3 curve with K0=307 GPa and K0'=6.2. This separate record is the reproducible Peritheos errors-in-variables fit to all digitized marker centers with measured V0 fixed; it is not presented as a published coefficient set.",
+          "doi": "10.1088/0953-8984/13/11/303"
+        },
+        "primary_data_check": {
+          "status": "plot_only",
+          "audit_date": "2026-09-04",
+          "digitized_dataset_identifiers": ["molybdenum_carbide_haines_2001_figure2_digitized"],
+          "source_locations": ["Figure 2"],
+          "finding": "All 16 separable Figure 2 marker centers are bundled with explicit digitization uncertainties and pressure-medium flags."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: section 4.1, pages 2449-2450; Figure 2 and caption; docs/literature-reproductions.md.",
+        "V0": "Fixed to the measured ambient reference volume used by Haines et al. (2001) for Figure 2 relative volumes.",
+        "K0": "Peritheos errors-in-variables refit of all 16 digitized Figure 2 markers.",
+        "K0_prime": "Peritheos errors-in-variables refit of all 16 digitized Figure 2 markers.",
+        "equation": "Third-order Birch-Murnaghan equation identified in the Figure 2 caption."
+      },
+      "derived_from_record": "molybenum_carbide_mo2c_haines_2001_bm3_1",
+      "fit_provenance": {
+        "software": {"name": "Peritheos", "version": "0.6.0"},
+        "dataset": "molybdenum_carbide_haines_2001_figure2_digitized",
+        "selection": {"predicate": "all Figure 2 markers", "included_rows": 16, "excluded_rows": 0},
+        "objective": "errors_in_variables",
+        "weights": ["pressure_digitization_uncertainty_gpa", "volume_ratio_digitization_uncertainty"],
+        "refined_parameters": ["K0", "K0_prime"],
+        "fixed_parameters": ["V0"],
+        "covariance_scaling": "absolute_sigma=True; digitization uncertainties treated as one-standard-deviation errors",
+        "statistics": {
+          "observations": 16,
+          "free_parameters": 2,
+          "chi_square": 13.626497585148972,
+          "reduced_chi_square": 0.9733212560820694,
+          "degrees_of_freedom": 14,
+          "pressure_residual_rmse_gpa": 0.37453767113271197,
+          "max_absolute_pressure_residual_gpa": 0.65771138566015,
+          "parameter_correlation": {
+            "parameter_order": ["K0", "K0_prime"],
+            "matrix": [
+              [1.0, -0.9720601471624124],
+              [-0.9720601471624124, 1.0]
+            ]
+          }
+        },
+        "reproduction": {
+          "script": "scripts/validate_primary_eos_refits.py",
+          "solver": "scipy.optimize.least_squares",
+          "maximum_function_evaluations": 5000
+        }
+      },
+      "fit_datasets": ["molybdenum_carbide_haines_2001_figure2_digitized"]
     }
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 148.9071,
-     "K0": 325.87419826054304,
-     "K0_prime": 4.9092021387052664
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 9.50029103042738,
-    "K0_prime": 0.6513930636044009
-   },
-   "parameter_covariance": {
-    "parameter_order": [
-     "K0",
-     "K0_prime"
-    ],
-    "matrix": [
-     [
-      90.25552966281894,
-      -6.015520032543208
-     ],
-     [
-      -6.015520032543208,
-      0.42431292331192705
-     ]
-    ]
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    45.499
-   ],
-   "temperature_ref": 300.0,
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: section 4.1, pages 2449-2450; Figure 2 and caption; docs/literature-reproductions.md.",
-    "V0": "Fixed to the measured ambient reference volume used by Haines et al. (2001) for Figure 2 relative volumes.",
-    "K0": "Peritheos errors-in-variables refit of all 16 digitized Figure 2 markers.",
-    "K0_prime": "Peritheos errors-in-variables refit of all 16 digitized Figure 2 markers.",
-    "equation": "Third-order Birch-Murnaghan equation identified in the Figure 2 caption."
-   },
-   "fit_datasets": [
-    "molybdenum_carbide_haines_2001_figure2_digitized"
-   ],
-   "notes": "Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute_sigma=True. The unchanged record molybenum_carbide_mo2c_haines_2001_bm3_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.",
-   "determination_method": "experimental",
-   "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_refit",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-04",
-    "notes": "The refit uses the pressures printed graphically by the source; no replacement pressure scale is inferred."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",
-    "audit_date": "2026-09-04",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
-     "locations": [
-      "section 4.1, pages 2449-2450",
-      "Figure 2 and caption",
-      "docs/literature-reproductions.md"
-     ],
-     "finding": "The source plots 16 relative-volume observations and identifies a BM3 curve with K0=307 GPa and K0'=6.2. This separate record is the reproducible Peritheos errors-in-variables fit to all digitized marker centers with measured V0 fixed; it is not presented as a published coefficient set.",
-     "doi": "10.1088/0953-8984/13/11/303"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-04",
-     "digitized_dataset_identifiers": [
-      "molybdenum_carbide_haines_2001_figure2_digitized"
-     ],
-     "source_locations": [
-      "Figure 2"
-     ],
-     "finding": "All 16 separable Figure 2 marker centers are bundled with explicit digitization uncertainties and pressure-medium flags."
-    }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "molybdenum_carbide_haines_2001_figure2_digitized",
-   "kind": "pressure_volume_ratio_digitized",
-   "description": "Sixteen plotted room-temperature Mo2C compression observations digitized from Figure 2, retaining the pressure-medium regimes encoded by the marker shapes.",
-   "reference": {
-    "authors": [
-     "Haines",
-     "Léger",
-     "Chateau",
-     "Lowther"
-    ],
-    "year": 2001,
-    "source": "J. Phys.: Condens. Matter",
-    "volume": "13",
-    "locator": "2447-2454",
-    "doi": "10.1088/0953-8984/13/11/303"
-   },
-   "source_location": "Figure 2",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "relative_volume",
-     "unit": "dimensionless",
-     "role": "value"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_ratio_digitization_uncertainty",
-     "quantity": "relative_volume",
-     "unit": "dimensionless",
-     "role": "uncertainty",
-     "of": "volume_ratio"
-    },
-    {
-     "name": "pressure_medium",
-     "quantity": "pressure_medium",
-     "unit": "dimensionless",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/molybdenum-carbide-haines-2001-figure2-digitized.csv",
-    "sha256": "ae5e74920b526b0e3bc94bca6e1e3abd908088ce6caa077efa7d243981c4a218",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "molybenum_carbide_mo2c_haines_2001_bm3_1",
-    "molybenum_carbide_mo2c_haines_2001_bm3_refit"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Direct extraction of vector circle and square marker centers from the publisher PDF, followed by affine calibration to the printed axes.",
-    "source_pdf_sha256": "b0aeabeee53267a80e9c77f3fd2399fc783c69c0bbc31b43215f89ee7ced143f",
-    "axis_calibration_pdf_points": {
-     "pressure": [
-      [
-       192.414,
-       0.0
+      "identifier": "molybdenum_carbide_haines_2001_figure2_digitized",
+      "kind": "pressure_volume_ratio_digitized",
+      "description": "Sixteen plotted room-temperature Mo2C compression observations digitized from Figure 2, retaining the pressure-medium regimes encoded by the marker shapes.",
+      "reference": {
+        "authors": ["Haines", "Léger", "Chateau", "Lowther"],
+        "year": 2001,
+        "source": "J. Phys.: Condens. Matter",
+        "volume": "13",
+        "locator": "2447-2454",
+        "doi": "10.1088/0953-8984/13/11/303"
+      },
+      "source_location": "Figure 2",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_ratio", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_ratio_digitization_uncertainty",
+          "quantity": "relative_volume",
+          "unit": "dimensionless",
+          "role": "uncertainty",
+          "of": "volume_ratio"
+        },
+        {"name": "pressure_medium", "quantity": "pressure_medium", "unit": "dimensionless", "role": "flag"}
       ],
-      [
-       354.244,
-       50.0
-      ]
-     ],
-     "volume_ratio": [
-      [
-       508.185,
-       0.89
-      ],
-      [
-       745.542,
-       1.01
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 0.704,
-     "published_bm3_max_abs_pressure_residual_gpa": 1.6335
-    },
-    "digitized_on": "2026-09-03"
-   },
-   "source_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf"
-  }
- ],
- "format": "peritheos.material",
- "identifier": "molybenum_carbide_mo2c",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+      "resource": {
+        "path": "datasets/molybdenum-carbide-haines-2001-figure2-digitized.csv",
+        "sha256": "ae5e74920b526b0e3bc94bca6e1e3abd908088ce6caa077efa7d243981c4a218",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["molybenum_carbide_mo2c_haines_2001_bm3_1", "molybenum_carbide_mo2c_haines_2001_bm3_refit"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Direct extraction of vector circle and square marker centers from the publisher PDF, followed by affine calibration to the printed axes.",
+        "source_pdf_sha256": "b0aeabeee53267a80e9c77f3fd2399fc783c69c0bbc31b43215f89ee7ced143f",
+        "axis_calibration_pdf_points": {
+          "pressure": [
+            [192.414, 0.0],
+            [354.244, 50.0]
+          ],
+          "volume_ratio": [
+            [508.185, 0.89],
+            [745.542, 1.01]
+          ]
+        },
+        "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.704, "published_bm3_max_abs_pressure_residual_gpa": 1.6335},
+        "digitized_on": "2026-09-03"
+      },
+      "source_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf"
+    }
+  ]
 }

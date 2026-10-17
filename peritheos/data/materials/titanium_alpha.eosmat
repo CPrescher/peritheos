@@ -1,205 +1,115 @@
 {
- "format_version": 3,
- "name": "Titanium (alpha)",
- "formula": "Ti",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 2.9503229616,
-  "b": null,
-  "c": 4.6833235701,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P63/mmc",
- "space_group_number": 194,
- "atom_sites": [
-  {
-   "element": "Ti",
-   "wyckoff": "2c",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Ambient alpha-Ti; lattice scaled to the fitted V0 while preserving the ambient axial ratio.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Dewaele et al. (2015), alpha Vinet",
-   "reference": {
-    "authors": [
-     "Dewaele",
-     "Stutzmann",
-     "Bouchet",
-     "Bottin",
-     "Occelli",
-     "Mezouar"
-    ],
-    "year": 2015,
-    "title": "High pressure-temperature phase diagram and equation of state of titanium",
-    "source": "Phys. Rev. B",
-    "volume": "91",
-    "locator": "134108",
-    "doi": "10.1103/PhysRevB.91.134108"
-   },
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 35.304,
-     "K0": 110.4,
-     "K0_prime": 4.0
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": 0.04,
-    "K0": 2.7,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": 0.95,
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    10.0
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Low-pressure alpha-phase Vinet fit; K0' was fixed at 4.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section IV; Table III, experimental alpha and omega Vinet rows."
-   },
-   "identifier": "titanium_alpha_dewaele_2015_vinet_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1103/PhysRevB.91.134108",
-     "locations": [
-      "Section IV",
-      "Table III, experimental alpha and omega Vinet rows"
-     ],
-     "finding": "Per-atom V0 values were converted to conventional-cell volumes.",
-     "doi": "10.1103/physrevb.91.134108"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "titanium_alpha.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "titanium_alpha_dewaele_2015_table4_compression"
-     ],
-     "source_locations": [
-      "Table IV, alpha-Ti columns"
-     ],
-     "finding": "All four alpha-Ti lattice-parameter observations printed in Table IV before transformation to omega-Ti."
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "titanium_alpha",
+  "name": "Titanium (alpha)",
+  "formula": "Ti",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 2.9503229616, "b": null, "c": 4.6833235701, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Ti", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Ambient alpha-Ti; lattice scaled to the fitted V0 while preserving the ambient axial ratio.",
+  "eos_records": [
+    {
+      "identifier": "titanium_alpha_dewaele_2015_vinet_1",
+      "label": "Dewaele et al. (2015), alpha Vinet",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Dewaele", "Stutzmann", "Bouchet", "Bottin", "Occelli", "Mezouar"],
+        "year": 2015,
+        "title": "High pressure-temperature phase diagram and equation of state of titanium",
+        "source": "Phys. Rev. B",
+        "volume": "91",
+        "locator": "134108",
+        "doi": "10.1103/PhysRevB.91.134108"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "Vinet",
+        "parameters": {"V0": 35.304, "K0": 110.4, "K0_prime": 4.0},
+        "model": "vinet"
+      },
+      "parameter_errors": {"V0": 0.04, "K0": 2.7, "K0_prime": null},
+      "parameter_error_confidence": 0.95,
+      "fixed_parameters": ["K0_prime"],
+      "experimental_pressure_range_gpa": [0.0, 10.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "notes": "Low-pressure alpha-phase Vinet fit; K0' was fixed at 4.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1103/PhysRevB.91.134108",
+          "locations": ["Section IV", "Table III, experimental alpha and omega Vinet rows"],
+          "finding": "Per-atom V0 values were converted to conventional-cell volumes.",
+          "doi": "10.1103/physrevb.91.134108"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "titanium_alpha.json"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-03",
+          "dataset_identifiers": ["titanium_alpha_dewaele_2015_table4_compression"],
+          "source_locations": ["Table IV, alpha-Ti columns"],
+          "finding": "All four alpha-Ti lattice-parameter observations printed in Table IV before transformation to omega-Ti."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section IV; Table III, experimental alpha and omega Vinet rows."
+      }
     }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "titanium_alpha",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "titanium_alpha_dewaele_2015_table4_compression",
-   "kind": "pressure_lattice_parameters",
-   "description": "All four alpha-Ti lattice-parameter observations printed in Table IV before transformation to omega-Ti.",
-   "source_location": "Table IV, alpha-Ti columns",
-   "source_url": "https://doi.org/10.1103/PhysRevB.91.134108",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "run",
-     "quantity": "run_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gauge",
-     "quantity": "pressure_gauge",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
+      "identifier": "titanium_alpha_dewaele_2015_table4_compression",
+      "kind": "pressure_lattice_parameters",
+      "description": "All four alpha-Ti lattice-parameter observations printed in Table IV before transformation to omega-Ti.",
+      "source_location": "Table IV, alpha-Ti columns",
+      "source_url": "https://doi.org/10.1103/PhysRevB.91.134108",
+      "columns": [
+        {"name": "run", "quantity": "run_identifier", "unit": "1", "role": "flag"},
+        {"name": "pressure_gauge", "quantity": "pressure_gauge", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/titanium-alpha-dewaele-2015-table4-compression.csv",
+        "sha256": "4cde5144013ccdfa81cf15860ff5d1268c68f077e2abc2afcf8d41e39c92e4ff",
+        "media_type": "text/csv"
+      },
+      "notes": "Table IV states that run 1 pressure was determined from ruby fluorescence and defines formula-unit volume as a^2*c*sqrt(3)/4. Pointwise uncertainties are not tabulated.",
+      "reference": {
+        "authors": ["Dewaele", "Stutzmann", "Bouchet", "Bottin", "Occelli", "Mezouar"],
+        "year": 2015,
+        "source": "Phys. Rev. B",
+        "volume": "91",
+        "locator": "134108",
+        "doi": "10.1103/PhysRevB.91.134108"
+      },
+      "used_by_eos_records": ["titanium_alpha_dewaele_2015_vinet_1"]
     }
-   ],
-   "resource": {
-    "path": "datasets/titanium-alpha-dewaele-2015-table4-compression.csv",
-    "sha256": "4cde5144013ccdfa81cf15860ff5d1268c68f077e2abc2afcf8d41e39c92e4ff",
-    "media_type": "text/csv"
-   },
-   "notes": "Table IV states that run 1 pressure was determined from ruby fluorescence and defines formula-unit volume as a^2*c*sqrt(3)/4. Pointwise uncertainties are not tabulated.",
-   "reference": {
-    "authors": [
-     "Dewaele",
-     "Stutzmann",
-     "Bouchet",
-     "Bottin",
-     "Occelli",
-     "Mezouar"
-    ],
-    "year": 2015,
-    "source": "Phys. Rev. B",
-    "volume": "91",
-    "locator": "134108",
-    "doi": "10.1103/PhysRevB.91.134108"
-   },
-   "used_by_eos_records": [
-    "titanium_alpha_dewaele_2015_vinet_1"
-   ]
-  }
- ]
+  ]
 }

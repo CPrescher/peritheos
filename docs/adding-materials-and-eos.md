@@ -10,6 +10,11 @@ materials, literature EOS records, refits, and reusable equation families.
 The [`.eosmat` schema reference](eosmat-schema.md) remains the authority for
 individual fields.
 
+Start authoring with the small [EOSMAT template and editing guide](eosmat-authoring.md).
+Use the generated [material summaries](material-summaries/index.md) to inspect
+existing parameterizations and their qualifications. The template is fictional
+and deliberately unaudited; the acceptance requirements below still apply.
+
 ## First classify the contribution
 
 | Contribution | What changes | Main review burden |

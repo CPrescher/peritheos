@@ -1,580 +1,211 @@
 {
- "format_version": 3,
- "name": "Phase A",
- "formula": "Mg7Si2O14H6",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 7.8603,
-  "b": 7.8603,
-  "c": 9.573,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P63",
- "space_group_number": 173,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Mg7Si2O8(OH)6-phaseA.jcpds, JCPDS/dac_user_jcpds/Users data/Mg7Si2O8(OH)6-phaseA_.jcpds, JCPDS/dac_user_jcpds/Users data/Mg7Si2O8(OH)6-phaseA_1.jcpds. Mg, Si, and O coordinates are from Horiuchi et al., American Mineralogist 64, 593-598 (1979), COD 9000724. The two ambient-pressure H sites are from the deuterated neutron refinement of Kagi et al., Phys. Chem. Miner. 27, 225-233 (2000), doi:10.1007/s002690050251. The legacy peaks are retained.",
- "peaks": [
-  [
-   2,
-   4,
-   5,
-   1.0678,
-   6.0
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "mg7si2o8",
+  "name": "Phase A",
+  "formula": "Mg7Si2O14H6",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63",
+  "space_group_number": 173,
+  "lattice": {"a": 7.8603, "b": 7.8603, "c": 9.573, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "6c", "x": 0.3722, "y": 0.4547, "z": 0.3857, "occupancy": 1.0},
+    {"element": "Mg", "wyckoff": "6c", "x": 0.2252, "y": 0.2438, "z": 0.1127, "occupancy": 1.0},
+    {"element": "Mg", "wyckoff": "2b", "x": 0.33333, "y": 0.66667, "z": 0.1029, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "2b", "x": 0.66667, "y": 0.33333, "z": 0.1741, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.4018, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "6c", "x": 0.2001, "y": 0.0274, "z": -0.024, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "6c", "x": 0.4766, "y": 0.0988, "z": 0.4844, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "6c", "x": 0.4538, "y": 0.2947, "z": 0.232, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "6c", "x": 0.1704, "y": 0.4367, "z": 0.2398, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "2b", "x": 0.66667, "y": 0.33333, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.2323, "occupancy": 1.0},
+    {"element": "H", "wyckoff": "6c", "x": 0.455, "y": 0.161, "z": 0.405, "occupancy": 1.0},
+    {"element": "H", "wyckoff": "6c", "x": 0.038, "y": 0.361, "z": 0.24, "occupancy": 1.0}
   ],
-  [
-   2,
-   3,
-   6,
-   1.116,
-   3.4
+  "peaks": [
+    [2, 4, 5, 1.0678, 6.0],
+    [2, 3, 6, 1.116, 3.4],
+    [2, 4, 2, 1.2424, 3.6],
+    [4, 1, 4, 1.2621, 3.7],
+    [1, 0, 7, 1.3408, 3.4],
+    [2, 1, 6, 1.3559, 4.5],
+    [1, 2, 6, 1.3559, 8.7],
+    [2, 0, 6, 1.4447, 3.4],
+    [2, 3, 2, 1.4847, 12.8],
+    [1, 4, 0, 1.4855, 3.6],
+    [4, 1, 0, 1.4855, 48.2],
+    [4, 0, 3, 1.5016, 4.9],
+    [1, 2, 5, 1.536, 40.4],
+    [2, 3, 1, 1.5413, 3.3],
+    [3, 1, 3, 1.6249, 4.6],
+    [3, 0, 4, 1.6466, 7.1],
+    [1, 2, 4, 1.7524, 15.3],
+    [1, 3, 2, 1.7563, 6.5],
+    [2, 1, 3, 2.0029, 4.7],
+    [1, 2, 3, 2.0029, 38.7],
+    [2, 1, 2, 2.2662, 35.2],
+    [1, 2, 2, 2.2662, 64.8],
+    [3, 0, 0, 2.2691, 7.4],
+    [0, 0, 4, 2.3932, 7.2],
+    [1, 1, 3, 2.4773, 18.6],
+    [2, 1, 1, 2.4847, 6.0],
+    [2, 0, 2, 2.7738, 64.0],
+    [1, 0, 3, 2.8893, 15.8],
+    [1, 1, 2, 3.0374, 3.9],
+    [2, 0, 1, 3.2069, 7.6],
+    [1, 1, 1, 3.6357, 38.1],
+    [1, 0, 2, 3.9154, 9.4],
+    [1, 1, 0, 3.9302, 27.7],
+    [1, 0, 1, 5.5476, 3.2],
+    [1, 0, 0, 6.8072, 5.1]
   ],
-  [
-   2,
-   4,
-   2,
-   1.2424,
-   3.6
-  ],
-  [
-   4,
-   1,
-   4,
-   1.2621,
-   3.7
-  ],
-  [
-   1,
-   0,
-   7,
-   1.3408,
-   3.4
-  ],
-  [
-   2,
-   1,
-   6,
-   1.3559,
-   4.5
-  ],
-  [
-   1,
-   2,
-   6,
-   1.3559,
-   8.7
-  ],
-  [
-   2,
-   0,
-   6,
-   1.4447,
-   3.4
-  ],
-  [
-   2,
-   3,
-   2,
-   1.4847,
-   12.8
-  ],
-  [
-   1,
-   4,
-   0,
-   1.4855,
-   3.6
-  ],
-  [
-   4,
-   1,
-   0,
-   1.4855,
-   48.2
-  ],
-  [
-   4,
-   0,
-   3,
-   1.5016,
-   4.9
-  ],
-  [
-   1,
-   2,
-   5,
-   1.536,
-   40.4
-  ],
-  [
-   2,
-   3,
-   1,
-   1.5413,
-   3.3
-  ],
-  [
-   3,
-   1,
-   3,
-   1.6249,
-   4.6
-  ],
-  [
-   3,
-   0,
-   4,
-   1.6466,
-   7.1
-  ],
-  [
-   1,
-   2,
-   4,
-   1.7524,
-   15.3
-  ],
-  [
-   1,
-   3,
-   2,
-   1.7563,
-   6.5
-  ],
-  [
-   2,
-   1,
-   3,
-   2.0029,
-   4.7
-  ],
-  [
-   1,
-   2,
-   3,
-   2.0029,
-   38.7
-  ],
-  [
-   2,
-   1,
-   2,
-   2.2662,
-   35.2
-  ],
-  [
-   1,
-   2,
-   2,
-   2.2662,
-   64.8
-  ],
-  [
-   3,
-   0,
-   0,
-   2.2691,
-   7.4
-  ],
-  [
-   0,
-   0,
-   4,
-   2.3932,
-   7.2
-  ],
-  [
-   1,
-   1,
-   3,
-   2.4773,
-   18.6
-  ],
-  [
-   2,
-   1,
-   1,
-   2.4847,
-   6.0
-  ],
-  [
-   2,
-   0,
-   2,
-   2.7738,
-   64.0
-  ],
-  [
-   1,
-   0,
-   3,
-   2.8893,
-   15.8
-  ],
-  [
-   1,
-   1,
-   2,
-   3.0374,
-   3.9
-  ],
-  [
-   2,
-   0,
-   1,
-   3.2069,
-   7.6
-  ],
-  [
-   1,
-   1,
-   1,
-   3.6357,
-   38.1
-  ],
-  [
-   1,
-   0,
-   2,
-   3.9154,
-   9.4
-  ],
-  [
-   1,
-   1,
-   0,
-   3.9302,
-   27.7
-  ],
-  [
-   1,
-   0,
-   1,
-   5.5476,
-   3.2
-  ],
-  [
-   1,
-   0,
-   0,
-   6.8072,
-   5.1
-  ]
- ],
- "eos_records": [
-  {
-   "label": "(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht",
-   "reference": {
-    "authors": [
-     "Crichton",
-     "Ross"
-    ],
-    "year": 2002,
-    "title": "Equation of state of dense hydrous magnesium silicate phase A, Mg7Si2O8(OH)6",
-    "source": "American Mineralogist",
-    "volume": "87",
-    "locator": "333-338",
-    "doi": "10.2138/am-2002-2-316"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 512.56,
-     "K0": 97.5,
-     "K0_prime": 5.97
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.03,
-    "K0": 0.4,
-    "K0_prime": 0.14
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    7.6
-   ],
-   "notes": "Hydrous phase A, Mg7Si2O8(OH)6. Crichton and Ross report V0 = 512.56(3) A^3, K0 = 97.5(4) GPa, and K0' = 5.97(14). The formula is stored in parser-compatible expanded form.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, journal page 335; Table 2 and EOS discussion, journal page 335."
-   },
-   "identifier": "mg7si2o8_crichton_2002_bm3_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Mg7Si2O8(OH)6-phaseA.jcpds, JCPDS/dac_user_jcpds/Users data/Mg7Si2O8(OH)6-phaseA_.jcpds, JCPDS/dac_user_jcpds/Users data/Mg7Si2O8(OH)6-phaseA_1.jcpds. Mg, Si, and O coordinates are from Horiuchi et al., American Mineralogist 64, 593-598 (1979), COD 9000724. The two ambient-pressure H sites are from the deuterated neutron refinement of Kagi et al., Phys. Chem. Miner. 27, 225-233 (2000), doi:10.1007/s002690050251. The legacy peaks are retained.",
+  "eos_records": [
+    {
+      "identifier": "mg7si2o8_crichton_2002_bm3_1",
+      "label": "(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht",
+      "determination_method": "experimental",
       "reference": {
-       "authors": [
-        "Angel",
-        "Allan",
-        "Miletich",
-        "Finger"
-       ],
-       "year": 1997,
-       "source": "J. Appl. Crystallogr.",
-       "doi": "10.1107/S0021889897000861"
+        "authors": ["Crichton", "Ross"],
+        "year": 2002,
+        "title": "Equation of state of dense hydrous magnesium silicate phase A, Mg7Si2O8(OH)6",
+        "source": "American Mineralogist",
+        "volume": "87",
+        "locator": "333-338",
+        "doi": "10.2138/am-2002-2-316"
       },
-      "source_location": "Experimental section; quartz single-crystal pressure standard",
-      "scope": "all Table 1 observations",
-      "reference_eos_record": "alpha_quartz_angel_1997_bm3_1"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact quartz EOS is bundled, but Table 1 reports only the derived pressures rather than the simultaneously measured quartz volumes."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.2138/am-2002-2-316",
-     "locations": [
-      "Table 1, journal page 335",
-      "Table 2 and EOS discussion, journal page 335"
-     ],
-     "finding": "Table 1 provides the complete pressure, a, c, and conventional-cell-volume series with estimated standard deviations; Table 2 provides the fitted volume and axial EOS parameters.",
-     "doi": "10.2138/am-2002-2-316"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "mg7si2o8.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "phase_a_crichton_2002_table1_compression"
-     ],
-     "source_locations": [
-      "Table 1, journal page 335"
-     ],
-     "finding": "All 12 rows printed in Table 1 are bundled with pressure, a, c, volume, and their parenthesized estimated standard deviations."
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 512.56, "K0": 97.5, "K0_prime": 5.97},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.03, "K0": 0.4, "K0_prime": 0.14},
+      "fixed_parameters": [],
+      "experimental_pressure_range_gpa": [0.0, 7.6],
+      "notes": "Hydrous phase A, Mg7Si2O8(OH)6. Crichton and Ross report V0 = 512.56(3) A^3, K0 = 97.5(4) GPa, and K0' = 5.97(14). The formula is stored in parser-compatible expanded form.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Angel", "Allan", "Miletich", "Finger"],
+              "year": 1997,
+              "source": "J. Appl. Crystallogr.",
+              "doi": "10.1107/S0021889897000861"
+            },
+            "source_location": "Experimental section; quartz single-crystal pressure standard",
+            "scope": "all Table 1 observations",
+            "reference_eos_record": "alpha_quartz_angel_1997_bm3_1"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact quartz EOS is bundled, but Table 1 reports only the derived pressures rather than the simultaneously measured quartz volumes."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.2138/am-2002-2-316",
+          "locations": ["Table 1, journal page 335", "Table 2 and EOS discussion, journal page 335"],
+          "finding": "Table 1 provides the complete pressure, a, c, and conventional-cell-volume series with estimated standard deviations; Table 2 provides the fitted volume and axial EOS parameters.",
+          "doi": "10.2138/am-2002-2-316"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "mg7si2o8.json"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-03",
+          "dataset_identifiers": ["phase_a_crichton_2002_table1_compression"],
+          "source_locations": ["Table 1, journal page 335"],
+          "finding": "All 12 rows printed in Table 1 are bundled with pressure, a, c, volume, and their parenthesized estimated standard deviations."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, journal page 335; Table 2 and EOS discussion, journal page 335."
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "phase_a_crichton_2002_table1_compression",
-   "kind": "pressure_lattice_volume",
-   "description": "All 12 phase-A unit-cell observations printed in Table 1, preserving the reported pressure, hexagonal a and c parameters, conventional-cell volume, and parenthesized estimated standard deviations.",
-   "reference": {
-    "authors": [
-     "Crichton",
-     "Ross"
-    ],
-    "year": 2002,
-    "source": "American Mineralogist",
-    "volume": "87",
-    "locator": "333-338",
-    "doi": "10.2138/am-2002-2-316"
-   },
-   "source_location": "Table 1, journal page 335",
-   "source_url": "https://doi.org/10.2138/am-2002-2-316",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_esd_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_esd_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_esd_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_esd_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3_conventional_cell"
+      "identifier": "phase_a_crichton_2002_table1_compression",
+      "kind": "pressure_lattice_volume",
+      "description": "All 12 phase-A unit-cell observations printed in Table 1, preserving the reported pressure, hexagonal a and c parameters, conventional-cell volume, and parenthesized estimated standard deviations.",
+      "reference": {
+        "authors": ["Crichton", "Ross"],
+        "year": 2002,
+        "source": "American Mineralogist",
+        "volume": "87",
+        "locator": "333-338",
+        "doi": "10.2138/am-2002-2-316"
+      },
+      "source_location": "Table 1, journal page 335",
+      "source_url": "https://doi.org/10.2138/am-2002-2-316",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_esd_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_esd_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_esd_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_esd_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3_conventional_cell"
+        }
+      ],
+      "resource": {
+        "path": "datasets/phase-a-crichton-2002-table1-compression.csv",
+        "sha256": "8a686fece59341bec332557073ff976f814f976e3357a2bd7debe4db1ddd033f",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["mg7si2o8_crichton_2002_bm3_1"],
+      "notes": "The table already reports conventional-cell volumes, so they are retained directly rather than recalculated from a and c. The paper defines all parenthesized figures as estimated standard deviations of the last quoted digits.",
+      "provenance": {
+        "type": "transcribed_from_table",
+        "method": "Transcribed Table 1 verbatim, including the ambient row and all printed e.s.d.s.",
+        "source_pdf_sha256": "2d552551f49313686337d9c9b0179e5d30dc1b5ddc88b19967a07a1680f6d632",
+        "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.0081, "published_bm3_max_abs_pressure_residual_gpa": 0.0174},
+        "transcribed_on": "2026-09-04"
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/phase-a-crichton-2002-table1-compression.csv",
-    "sha256": "8a686fece59341bec332557073ff976f814f976e3357a2bd7debe4db1ddd033f",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "mg7si2o8_crichton_2002_bm3_1"
-   ],
-   "notes": "The table already reports conventional-cell volumes, so they are retained directly rather than recalculated from a and c. The paper defines all parenthesized figures as estimated standard deviations of the last quoted digits.",
-   "provenance": {
-    "type": "transcribed_from_table",
-    "method": "Transcribed Table 1 verbatim, including the ambient row and all printed e.s.d.s.",
-    "source_pdf_sha256": "2d552551f49313686337d9c9b0179e5d30dc1b5ddc88b19967a07a1680f6d632",
-    "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 0.0081,
-     "published_bm3_max_abs_pressure_residual_gpa": 0.0174
-    },
-    "transcribed_on": "2026-09-04"
-   }
-  }
- ],
- "atom_sites": [
-  {
-   "element": "Mg",
-   "wyckoff": "6c",
-   "x": 0.3722,
-   "y": 0.4547,
-   "z": 0.3857,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Mg",
-   "wyckoff": "6c",
-   "x": 0.2252,
-   "y": 0.2438,
-   "z": 0.1127,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Mg",
-   "wyckoff": "2b",
-   "x": 0.33333,
-   "y": 0.66667,
-   "z": 0.1029,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Si",
-   "wyckoff": "2b",
-   "x": 0.66667,
-   "y": 0.33333,
-   "z": 0.1741,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Si",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.4018,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "6c",
-   "x": 0.2001,
-   "y": 0.0274,
-   "z": -0.024,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "6c",
-   "x": 0.4766,
-   "y": 0.0988,
-   "z": 0.4844,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "6c",
-   "x": 0.4538,
-   "y": 0.2947,
-   "z": 0.232,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "6c",
-   "x": 0.1704,
-   "y": 0.4367,
-   "z": 0.2398,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "2b",
-   "x": 0.66667,
-   "y": 0.33333,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.2323,
-   "occupancy": 1.0
-  },
-  {
-   "element": "H",
-   "wyckoff": "6c",
-   "x": 0.455,
-   "y": 0.161,
-   "z": 0.405,
-   "occupancy": 1.0
-  },
-  {
-   "element": "H",
-   "wyckoff": "6c",
-   "x": 0.038,
-   "y": 0.361,
-   "z": 0.24,
-   "occupancy": 1.0
-  }
- ],
- "format": "peritheos.material",
- "identifier": "mg7si2o8",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

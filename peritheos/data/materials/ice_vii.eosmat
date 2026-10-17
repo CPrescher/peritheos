@@ -1,474 +1,296 @@
 {
- "format_version": 3,
- "name": "Ice VII",
- "formula": "H2O",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 3.4616289204,
-  "b": 3.4616289204,
-  "c": 3.4616289204,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 2,
- "space_group": "Pn-3m",
- "space_group_number": 224,
- "atom_sites": [
-  {
-   "element": "O",
-   "wyckoff": "2a",
-   "x": 0.25,
-   "y": 0.25,
-   "z": 0.25,
-   "occupancy": 1.0
-  },
-  {
-   "element": "H",
-   "wyckoff": "8e",
-   "x": 0.41,
-   "y": 0.41,
-   "z": 0.41,
-   "occupancy": 0.5
-  }
- ],
- "notes": "Average hydrogen-disordered Pn-3m single-site model from Gajda et al., IUCrJ 12, 288-294 (2025), doi:10.1107/S2052252525002581: O at 2a and half-occupied H at 8e. The paper cautions that the local disorder is more complex than this average model; it is used here for powder X-ray lines. The lattice is set to the default 300 K PVT-fit V0.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Bezacier et al. (2014), PVT BM2",
-   "reference": {
-    "authors": [
-     "Bezacier",
-     "Journaux",
-     "Perrillat",
-     "Cardon",
-     "Hanfland",
-     "Daniel"
-    ],
-    "year": 2014,
-    "title": "Equations of state of ice VI and ice VII at high pressure and high temperature",
-    "source": "Journal of Chemical Physics",
-    "volume": "141",
-    "locator": "104505",
-    "doi": "10.1063/1.4894421"
-   },
-   "default": true,
-   "eos": {
-    "type": "BM2",
-    "parameters": {
-     "V0": 41.480265898,
-     "K0": 20.15
-    },
-    "model": "birch_murnaghan_2"
-   },
-   "parameter_errors": {
-    "V0": 0.0332107813,
-    "K0": 0.17
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    2.55,
-    10.11
-   ],
-   "experimental_temperature_range_k": [
-    300.5,
-    451.2
-   ],
-   "temperature_ref": 300.0,
-   "thermal": {
-    "type": "AlphaKT",
-    "parameters": {
-     "alpha0": 0.0001158,
-     "dK_dT": 0.0,
-     "Tr": 300.0
-    },
-    "parameter_errors": {
-     "alpha0": 5.4e-06,
-     "dK_dT": null,
-     "Tr": null
-    },
-    "fixed_parameters": [
-     "dK_dT",
-     "Tr"
-    ],
-    "model": "thermal_reference_state"
-   },
-   "notes": "Joint PVT fit for pure H2O ice VII. Published molar V0=12.49(1) cm^3/mol is converted to the Z=2 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VII measurements tabulated in the paper.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; BM2 P-V-T fits for ice VI and ice VII."
-   },
-   "identifier": "ice_vii_bezacier_2014_bm2_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1063/1.4894421",
-     "locations": [
-      "Primary abstract",
-      "BM2 P-V-T fits for ice VI and ice VII"
-     ],
-     "finding": "Molar volumes were converted with Z=10 for ice VI and Z=2 for ice VII.",
-     "doi": "10.1063/1.4894421"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "ice_vii.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "ice_vii_bezacier_2014_table1_pvt"
-     ],
-     "source_locations": [
-      "Table I, journal pages 104505-2 to 104505-4"
-     ],
-     "finding": "All 92 H2O ice-VII P-V-T observations printed in Table I, from 2.14 to 10.11 GPa and 300.5 to 451.2 K."
-    }
-   },
-   "audit_corrections": [
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "ice_vii",
+  "name": "Ice VII",
+  "formula": "H2O",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "symmetry": "CUBIC",
+  "space_group": "Pn-3m",
+  "space_group_number": 224,
+  "lattice": {"a": 3.4616289204, "b": 3.4616289204, "c": 3.4616289204, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "O", "wyckoff": "2a", "x": 0.25, "y": 0.25, "z": 0.25, "occupancy": 1.0},
+    {"element": "H", "wyckoff": "8e", "x": 0.41, "y": 0.41, "z": 0.41, "occupancy": 0.5}
+  ],
+  "peaks": [],
+  "notes": "Average hydrogen-disordered Pn-3m single-site model from Gajda et al., IUCrJ 12, 288-294 (2025), doi:10.1107/S2052252525002581: O at 2a and half-occupied H at 8e. The paper cautions that the local disorder is more complex than this average model; it is used here for powder X-ray lines. The lattice is set to the default 300 K PVT-fit V0.",
+  "eos_records": [
     {
-     "path": "thermal.parameters.Tr",
-     "source_value": null,
-     "value": 300.0,
-     "reason": "The thermal reference temperature in equations (2)-(3) was stored only at record level by the migration.",
-     "primary_reference": {
-      "doi": "10.1063/1.4894421",
-      "location": "equations (1)-(3) and Table II"
-     }
-    }
-   ]
-  },
-  {
-   "label": "Frank et al. (2004), 300 K BM3",
-   "reference": {
-    "authors": [
-     "Frank",
-     "Fei",
-     "Hu"
-    ],
-    "year": 2004,
-    "title": "Constraining the equation of state of fluid H2O to 80 GPa using the melting curve, bulk modulus, and thermal expansivity of Ice VII",
-    "source": "Geochimica et Cosmochimica Acta",
-    "volume": "68",
-    "locator": "2781-2790",
-    "doi": "10.1016/j.gca.2003.12.007"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 41.1813688659,
-     "K0": 21.1,
-     "K0_prime": 4.4
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.3321078134,
-    "K0": 1.3,
-    "K0_prime": 0.1
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    6.57,
-    60.52
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Independent 300 K compression fit. Published molar V0=12.4(1) cm^3/mol is converted to the Z=2 cubic cell. The fit used all three BM3 variables simultaneously; the numeric pressure domain is the range of the authors' 300 K compression data.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (2), pages 2782-2783; section 3.1, pages 2782-2783; Table 1; Figure 2."
-   },
-   "identifier": "ice_vii_frank_2004_bm3_2",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
+      "identifier": "ice_vii_bezacier_2014_bm2_1",
+      "label": "Bezacier et al. (2014), PVT BM2",
+      "determination_method": "experimental",
+      "default": true,
       "reference": {
-       "authors": [
-        "Anderson",
-        "Isaak",
-        "Yamamoto"
-       ],
-       "year": 1989,
-       "source": "J. Appl. Phys.",
-       "doi": "10.1063/1.342969"
+        "authors": ["Bezacier", "Journaux", "Perrillat", "Cardon", "Hanfland", "Daniel"],
+        "year": 2014,
+        "title": "Equations of state of ice VI and ice VII at high pressure and high temperature",
+        "source": "Journal of Chemical Physics",
+        "volume": "141",
+        "locator": "104505",
+        "doi": "10.1063/1.4894421"
       },
-      "source_location": "Experimental section and Table 1; Au internal calibrant",
-      "reference_eos_record": "gold_anderson_1989_bm3_1"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM2",
+        "parameters": {"V0": 41.480265898, "K0": 20.15},
+        "model": "birch_murnaghan_2"
+      },
+      "thermal": {
+        "type": "AlphaKT",
+        "parameters": {"alpha0": 0.0001158, "dK_dT": 0.0, "Tr": 300.0},
+        "parameter_errors": {"alpha0": 5.4e-06, "dK_dT": null, "Tr": null},
+        "fixed_parameters": ["dK_dT", "Tr"],
+        "model": "thermal_reference_state"
+      },
+      "parameter_errors": {"V0": 0.0332107813, "K0": 0.17},
+      "fixed_parameters": [],
+      "experimental_pressure_range_gpa": [2.55, 10.11],
+      "experimental_temperature_range_k": [300.5, 451.2],
+      "notes": "Joint PVT fit for pure H2O ice VII. Published molar V0=12.49(1) cm^3/mol is converted to the Z=2 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VII measurements tabulated in the paper.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.1063/1.4894421",
+          "locations": ["Primary abstract", "BM2 P-V-T fits for ice VI and ice VII"],
+          "finding": "Molar volumes were converted with Z=10 for ice VI and Z=2 for ice VII.",
+          "doi": "10.1063/1.4894421"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "ice_vii.json"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-03",
+          "dataset_identifiers": ["ice_vii_bezacier_2014_table1_pvt"],
+          "source_locations": ["Table I, journal pages 104505-2 to 104505-4"],
+          "finding": "All 92 H2O ice-VII P-V-T observations printed in Table I, from 2.14 to 10.11 GPa and 300.5 to 451.2 K."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; BM2 P-V-T fits for ice VI and ice VII."
+      },
+      "audit_corrections": [
+        {
+          "path": "thermal.parameters.Tr",
+          "source_value": null,
+          "value": 300.0,
+          "reason": "The thermal reference temperature in equations (2)-(3) was stored only at record level by the migration.",
+          "primary_reference": {"doi": "10.1063/1.4894421", "location": "equations (1)-(3) and Table II"}
+        }
+      ]
     },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://lweb.cfa.harvard.edu/~lzeng/papers/frank_fei_hu_2004.pdf",
-     "locations": [
-      "Equation (2), pages 2782-2783",
-      "section 3.1, pages 2782-2783",
-      "Table 1",
-      "Figure 2"
-     ],
-     "finding": "The stored record is the simultaneous three-parameter 300 K BM3 fit; its molar V0 is converted to the two-formula-unit cubic cell.",
-     "doi": "10.1016/j.gca.2003.12.007"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "ice_vii.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "ice_vii_frank_2004_table1_pvt"
-     ],
-     "source_locations": [
-      "Table 1, pages 2783-2784"
-     ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+    {
+      "identifier": "ice_vii_frank_2004_bm3_2",
+      "label": "Frank et al. (2004), 300 K BM3",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Frank", "Fei", "Hu"],
+        "year": 2004,
+        "title": "Constraining the equation of state of fluid H2O to 80 GPa using the melting curve, bulk modulus, and thermal expansivity of Ice VII",
+        "source": "Geochimica et Cosmochimica Acta",
+        "volume": "68",
+        "locator": "2781-2790",
+        "doi": "10.1016/j.gca.2003.12.007"
+      },
+      "temperature_ref": 300.0,
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 41.1813688659, "K0": 21.1, "K0_prime": 4.4},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.3321078134, "K0": 1.3, "K0_prime": 0.1},
+      "fixed_parameters": [],
+      "experimental_pressure_range_gpa": [6.57, 60.52],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "notes": "Independent 300 K compression fit. Published molar V0=12.4(1) cm^3/mol is converted to the Z=2 cubic cell. The fit used all three BM3 variables simultaneously; the numeric pressure domain is the range of the authors' 300 K compression data.",
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "source": "J. Appl. Phys.",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "Experimental section and Table 1; Au internal calibrant",
+            "reference_eos_record": "gold_anderson_1989_bm3_1"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://lweb.cfa.harvard.edu/~lzeng/papers/frank_fei_hu_2004.pdf",
+          "locations": ["Equation (2), pages 2782-2783", "section 3.1, pages 2782-2783", "Table 1", "Figure 2"],
+          "finding": "The stored record is the simultaneous three-parameter 300 K BM3 fit; its molar V0 is converted to the two-formula-unit cubic cell.",
+          "doi": "10.1016/j.gca.2003.12.007"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "ice_vii.json"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-03",
+          "dataset_identifiers": ["ice_vii_frank_2004_table1_pvt"],
+          "source_locations": ["Table 1, pages 2783-2784"],
+          "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (2), pages 2782-2783; section 3.1, pages 2782-2783; Table 1; Figure 2."
+      }
     }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "ice_vii",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "ice_vii_frank_2004_table1_pvt",
-   "kind": "pressure_volume_temperature",
-   "description": "Complete 71-row H2O ice-VII pressure-volume-temperature table, including five explicit no-ice observations.",
-   "reference": {
-    "authors": [
-     "Frank",
-     "Fei",
-     "Hu"
-    ],
-    "year": 2004,
-    "source": "Geochimica et Cosmochimica Acta",
-    "volume": "68",
-    "locator": "2781-2790",
-    "doi": "10.1016/j.gca.2003.12.007"
-   },
-   "source_location": "Table 1, pages 2783-2784",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "experiment",
-     "quantity": "observation_identifier",
-     "unit": "1",
-     "role": "flag"
+      "identifier": "ice_vii_frank_2004_table1_pvt",
+      "kind": "pressure_volume_temperature",
+      "description": "Complete 71-row H2O ice-VII pressure-volume-temperature table, including five explicit no-ice observations.",
+      "reference": {
+        "authors": ["Frank", "Fei", "Hu"],
+        "year": 2004,
+        "source": "Geochimica et Cosmochimica Acta",
+        "volume": "68",
+        "locator": "2781-2790",
+        "doi": "10.1016/j.gca.2003.12.007"
+      },
+      "source_location": "Table 1, pages 2783-2784",
+      "columns": [
+        {"name": "experiment", "quantity": "observation_identifier", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "pressure_2sigma_gpa", "quantity": "pressure", "unit": "GPa", "role": "bound", "of": "pressure_gpa"},
+        {
+          "name": "gold_lattice_parameter_a",
+          "quantity": "calibrant_lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "gold_lattice_parameter_a_2sigma",
+          "quantity": "calibrant_lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "bound",
+          "of": "gold_lattice_parameter_a"
+        },
+        {"name": "ice_lattice_parameter_a", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "ice_lattice_parameter_a_2sigma",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "bound",
+          "of": "ice_lattice_parameter_a"
+        },
+        {"name": "ice_molar_volume_cm3_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+        {
+          "name": "ice_molar_volume_2sigma_cm3_mol",
+          "quantity": "molar_volume",
+          "unit": "cm^3/mol",
+          "role": "bound",
+          "of": "ice_molar_volume_cm3_mol"
+        },
+        {"name": "ice_observed", "quantity": "phase_observed", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/ice-vii-frank-2004-table1-pvt.csv",
+        "sha256": "5b542319b55e9eef34374455e820261d3c259bc8aa205c82d7979913e6030e23",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["ice_vii_frank_2004_bm3_2"],
+      "notes": "The source describes the tabulated uncertainties as 2-sigma standard deviations from the mean. Gold lattice parameters used for the internal Anderson et al. (1989) pressure calibration are retained.",
+      "source_url": "https://doi.org/10.1016/j.gca.2003.12.007"
     },
     {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_2sigma_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "bound",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "gold_lattice_parameter_a",
-     "quantity": "calibrant_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "gold_lattice_parameter_a_2sigma",
-     "quantity": "calibrant_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "bound",
-     "of": "gold_lattice_parameter_a"
-    },
-    {
-     "name": "ice_lattice_parameter_a",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "ice_lattice_parameter_a_2sigma",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "bound",
-     "of": "ice_lattice_parameter_a"
-    },
-    {
-     "name": "ice_molar_volume_cm3_mol",
-     "quantity": "molar_volume",
-     "unit": "cm^3/mol",
-     "role": "value"
-    },
-    {
-     "name": "ice_molar_volume_2sigma_cm3_mol",
-     "quantity": "molar_volume",
-     "unit": "cm^3/mol",
-     "role": "bound",
-     "of": "ice_molar_volume_cm3_mol"
-    },
-    {
-     "name": "ice_observed",
-     "quantity": "phase_observed",
-     "unit": "1",
-     "role": "flag"
+      "identifier": "ice_vii_bezacier_2014_table1_pvt",
+      "kind": "pressure_volume_temperature_lattice_parameters",
+      "description": "All 92 H2O ice-VII P-V-T observations printed in Table I, from 2.14 to 10.11 GPa and 300.5 to 451.2 K.",
+      "source_location": "Table I, journal pages 104505-2 to 104505-4",
+      "source_url": "https://doi.org/10.1063/1.4894421",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_uncertainty_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "unit_cell_volume_uncertainty_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "unit_cell_volume_a3"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_uncertainty_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_a_angstrom"
+        }
+      ],
+      "resource": {
+        "path": "datasets/ice-vii-bezacier-2014-table1-pvt.csv",
+        "sha256": "a03278032de32694cb9f8b813df8938add9a7e18b7bbd2a2781e3eefeba9272e",
+        "media_type": "text/csv"
+      },
+      "notes": "Pressure was determined from the temperature-calibrated ruby R1 shift. Parenthesized tabular errors are retained as generic published uncertainties because the article does not name their statistic; the common temperature error is explicitly +/-0.4 K.",
+      "reference": {
+        "authors": ["Bezacier", "Journaux", "Perrillat", "Cardon", "Hanfland", "Daniel"],
+        "year": 2014,
+        "source": "Journal of Chemical Physics",
+        "volume": "141",
+        "locator": "104505",
+        "doi": "10.1063/1.4894421"
+      },
+      "used_by_eos_records": ["ice_vii_bezacier_2014_bm2_1"]
     }
-   ],
-   "resource": {
-    "path": "datasets/ice-vii-frank-2004-table1-pvt.csv",
-    "sha256": "5b542319b55e9eef34374455e820261d3c259bc8aa205c82d7979913e6030e23",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "ice_vii_frank_2004_bm3_2"
-   ],
-   "notes": "The source describes the tabulated uncertainties as 2-sigma standard deviations from the mean. Gold lattice parameters used for the internal Anderson et al. (1989) pressure calibration are retained.",
-   "source_url": "https://doi.org/10.1016/j.gca.2003.12.007"
-  },
-  {
-   "identifier": "ice_vii_bezacier_2014_table1_pvt",
-   "kind": "pressure_volume_temperature_lattice_parameters",
-   "description": "All 92 H2O ice-VII P-V-T observations printed in Table I, from 2.14 to 10.11 GPa and 300.5 to 451.2 K.",
-   "source_location": "Table I, journal pages 104505-2 to 104505-4",
-   "source_url": "https://doi.org/10.1063/1.4894421",
-   "columns": [
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "temperature_uncertainty_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "uncertainty",
-     "of": "temperature_k"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_uncertainty_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "uncertainty",
-     "of": "unit_cell_volume_a3"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_uncertainty_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_a_angstrom"
-    }
-   ],
-   "resource": {
-    "path": "datasets/ice-vii-bezacier-2014-table1-pvt.csv",
-    "sha256": "a03278032de32694cb9f8b813df8938add9a7e18b7bbd2a2781e3eefeba9272e",
-    "media_type": "text/csv"
-   },
-   "notes": "Pressure was determined from the temperature-calibrated ruby R1 shift. Parenthesized tabular errors are retained as generic published uncertainties because the article does not name their statistic; the common temperature error is explicitly +/-0.4 K.",
-   "reference": {
-    "authors": [
-     "Bezacier",
-     "Journaux",
-     "Perrillat",
-     "Cardon",
-     "Hanfland",
-     "Daniel"
-    ],
-    "year": 2014,
-    "source": "Journal of Chemical Physics",
-    "volume": "141",
-    "locator": "104505",
-    "doi": "10.1063/1.4894421"
-   },
-   "used_by_eos_records": [
-    "ice_vii_bezacier_2014_bm2_1"
-   ]
-  }
- ]
+  ]
 }

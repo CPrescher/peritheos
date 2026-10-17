@@ -1,297 +1,150 @@
 {
- "format_version": 3,
- "name": "Orthoenstatite",
- "formula": "MgSiO3",
- "symmetry": "ORTHORHOMBIC",
- "lattice": {
-  "a": 18.2217129037,
-  "b": 8.8176679905,
-  "c": 5.1813305555,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 16,
- "space_group": "Pbca",
- "space_group_number": 61,
- "atom_sites": [
-  {
-   "element": "Mg",
-   "wyckoff": "8c",
-   "x": 0.376,
-   "y": 0.6544,
-   "z": 0.8663,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Mg",
-   "wyckoff": "8c",
-   "x": 0.3769,
-   "y": 0.4854,
-   "z": 0.3609,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Si",
-   "wyckoff": "8c",
-   "x": 0.2716,
-   "y": 0.3411,
-   "z": 0.0494,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Si",
-   "wyckoff": "8c",
-   "x": 0.474,
-   "y": 0.3373,
-   "z": 0.7988,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8c",
-   "x": 0.1832,
-   "y": 0.3386,
-   "z": 0.0349,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8c",
-   "x": 0.3118,
-   "y": 0.5022,
-   "z": 0.043,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8c",
-   "x": 0.3036,
-   "y": 0.2252,
-   "z": 0.8302,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8c",
-   "x": 0.5628,
-   "y": 0.3382,
-   "z": 0.8009,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8c",
-   "x": 0.4337,
-   "y": 0.4841,
-   "z": 0.688,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8c",
-   "x": 0.447,
-   "y": 0.1961,
-   "z": 0.6004,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Pbca structure coordinates from Yang and Ghose, Am. Mineral. 80, 9-20 (1995); lattice scaled uniformly to the EoS V0.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Angel and Jackson (2002), BM3",
-   "reference": {
-    "authors": [
-     "Angel",
-     "Jackson"
-    ],
-    "year": 2002,
-    "title": "Elasticity and equation of state of orthoenstatite, MgSiO3",
-    "source": "Am. Mineral.",
-    "volume": "87",
-    "locator": "558-561",
-    "doi": "10.2138/am-2002-0419"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 832.5,
-     "K0": 105.8,
-     "K0_prime": 8.5
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.2,
-    "K0": 0.5,
-    "K0_prime": 0.3
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    8.5
-   ],
-   "experimental_temperature_range_k": [
-    298.0,
-    298.0
-   ],
-   "temperature_ref": 298.0,
-   "notes": "Combined room-pressure/high-pressure fit reported after reanalysis of the static compression data.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Summary, page 561."
-   },
-   "identifier": "orthoenstatite_angel_2002_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Angel_Jackson_AmMin02_87_558.pdf",
-     "locations": [
-      "Abstract",
-      "Table 1",
-      "Summary, page 561"
-     ],
-     "finding": "The recommended BM3 parameters combine two compression experiments, Brillouin data, and high-pressure ultrasonic data.",
-     "doi": "10.2138/am-2002-0419"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "orthoenstatite.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "orthoenstatite_angel_jackson_2002_figure2b_digitized"
-     ],
-     "source_locations": [
-      "Figures 1 and 2; Table 1"
-     ],
-     "finding": "The orthoenstatite compression observations are shown graphically and combined with elasticity constraints; the article's table reports fitted elastic/EOS summaries rather than a row-level P-V dataset."
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "orthoenstatite",
+  "name": "Orthoenstatite",
+  "formula": "MgSiO3",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 16,
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbca",
+  "space_group_number": 61,
+  "lattice": {"a": 18.2217129037, "b": 8.8176679905, "c": 5.1813305555, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "8c", "x": 0.376, "y": 0.6544, "z": 0.8663, "occupancy": 1.0},
+    {"element": "Mg", "wyckoff": "8c", "x": 0.3769, "y": 0.4854, "z": 0.3609, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "8c", "x": 0.2716, "y": 0.3411, "z": 0.0494, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "8c", "x": 0.474, "y": 0.3373, "z": 0.7988, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8c", "x": 0.1832, "y": 0.3386, "z": 0.0349, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8c", "x": 0.3118, "y": 0.5022, "z": 0.043, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8c", "x": 0.3036, "y": 0.2252, "z": 0.8302, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8c", "x": 0.5628, "y": 0.3382, "z": 0.8009, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8c", "x": 0.4337, "y": 0.4841, "z": 0.688, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8c", "x": 0.447, "y": 0.1961, "z": 0.6004, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Pbca structure coordinates from Yang and Ghose, Am. Mineral. 80, 9-20 (1995); lattice scaled uniformly to the EoS V0.",
+  "eos_records": [
+    {
+      "identifier": "orthoenstatite_angel_2002_bm3_1",
+      "label": "Angel and Jackson (2002), BM3",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Angel", "Jackson"],
+        "year": 2002,
+        "title": "Elasticity and equation of state of orthoenstatite, MgSiO3",
+        "source": "Am. Mineral.",
+        "volume": "87",
+        "locator": "558-561",
+        "doi": "10.2138/am-2002-0419"
+      },
+      "temperature_ref": 298.0,
+      "eos": {
+        "type": "BM3",
+        "parameters": {"V0": 832.5, "K0": 105.8, "K0_prime": 8.5},
+        "model": "birch_murnaghan_3"
+      },
+      "parameter_errors": {"V0": 0.2, "K0": 0.5, "K0_prime": 0.3},
+      "fixed_parameters": [],
+      "experimental_pressure_range_gpa": [0.0, 8.5],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "notes": "Combined room-pressure/high-pressure fit reported after reanalysis of the static compression data.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+        "audit_date": "2026-09-01",
+        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+        "primary_source_check": {
+          "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Angel_Jackson_AmMin02_87_558.pdf",
+          "locations": ["Abstract", "Table 1", "Summary, page 561"],
+          "finding": "The recommended BM3 parameters combine two compression experiments, Brillouin data, and high-pressure ultrasonic data.",
+          "doi": "10.2138/am-2002-0419"
+        },
+        "migration_source": {
+          "project": "Dioptas",
+          "version": "0.10.0",
+          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+          "file": "orthoenstatite.json"
+        },
+        "primary_data_check": {
+          "status": "plot_only",
+          "audit_date": "2026-09-03",
+          "digitized_dataset_identifiers": ["orthoenstatite_angel_jackson_2002_figure2b_digitized"],
+          "source_locations": ["Figures 1 and 2; Table 1"],
+          "finding": "The orthoenstatite compression observations are shown graphically and combined with elasticity constraints; the article's table reports fitted elastic/EOS summaries rather than a row-level P-V dataset."
+        }
+      },
+      "parameter_provenance": {
+        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Summary, page 561."
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "orthoenstatite_angel_jackson_2002_figure2b_digitized",
-   "kind": "pressure_volume_ratio_digitized",
-   "description": "Fifteen visually resolved markers from the 17 new single-crystal compression measurements plotted as closed symbols in Figure 2b. The plotted finite-strain coordinates were transformed back to pressure and V/V0; overlapping markers cannot be separated from the figure.",
-   "reference": {
-    "authors": [
-     "Angel",
-     "Jackson"
-    ],
-    "year": 2002,
-    "source": "Am. Mineral.",
-    "volume": "87",
-    "locator": "558-561",
-    "doi": "10.2138/am-2002-0419"
-   },
-   "source_location": "Figure 2b, closed-symbol new compression series",
-   "columns": [
+  ],
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "relative_volume",
-     "unit": "dimensionless",
-     "role": "value"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_ratio_digitization_uncertainty",
-     "quantity": "relative_volume",
-     "unit": "dimensionless",
-     "role": "uncertainty",
-     "of": "volume_ratio"
+      "identifier": "orthoenstatite_angel_jackson_2002_figure2b_digitized",
+      "kind": "pressure_volume_ratio_digitized",
+      "description": "Fifteen visually resolved markers from the 17 new single-crystal compression measurements plotted as closed symbols in Figure 2b. The plotted finite-strain coordinates were transformed back to pressure and V/V0; overlapping markers cannot be separated from the figure.",
+      "reference": {
+        "authors": ["Angel", "Jackson"],
+        "year": 2002,
+        "source": "Am. Mineral.",
+        "volume": "87",
+        "locator": "558-561",
+        "doi": "10.2138/am-2002-0419"
+      },
+      "source_location": "Figure 2b, closed-symbol new compression series",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_ratio", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_ratio_digitization_uncertainty",
+          "quantity": "relative_volume",
+          "unit": "dimensionless",
+          "role": "uncertainty",
+          "of": "volume_ratio"
+        }
+      ],
+      "resource": {
+        "path": "datasets/orthoenstatite-angel-jackson-2002-figure2b-digitized.csv",
+        "sha256": "0b82b983333a96f184b0da0630202db69fbc67fdc16bb7c1e3d0bee46fd4f959",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["orthoenstatite_angel_2002_bm3_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Rasterized the locally archived publication PDF at 300 dpi; detected closed-square centers by distance-transform maxima; calibrated the Eulerian-strain and normalized-stress axes; converted f and F to V/V0 and pressure using the definitions printed in the article.",
+        "source_pdf_sha256": "faf82ffefcc3d1230687bbea74ae0c3c3c03daae561778f22be2452a227a450e",
+        "axis_calibration_pixels_300dpi": {
+          "eulerian_strain": [
+            [378.0, 0.0],
+            [542.0, 0.005]
+          ],
+          "normalized_stress_gpa": [
+            [1549.0, 95.0],
+            [1443.0, 100.0]
+          ]
+        },
+        "transformation": {"volume_ratio": "(1 + 2 f)^(-3/2)", "pressure_gpa": "3 f (1 + 2 f)^(5/2) F"},
+        "quality_control": {"recommended_bm3_rms_pressure_residual_gpa": 0.2256, "recommended_bm3_max_abs_pressure_residual_gpa": 0.3635},
+        "digitized_on": "2026-09-03"
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/orthoenstatite-angel-jackson-2002-figure2b-digitized.csv",
-    "sha256": "0b82b983333a96f184b0da0630202db69fbc67fdc16bb7c1e3d0bee46fd4f959",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "orthoenstatite_angel_2002_bm3_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Rasterized the locally archived publication PDF at 300 dpi; detected closed-square centers by distance-transform maxima; calibrated the Eulerian-strain and normalized-stress axes; converted f and F to V/V0 and pressure using the definitions printed in the article.",
-    "source_pdf_sha256": "faf82ffefcc3d1230687bbea74ae0c3c3c03daae561778f22be2452a227a450e",
-    "axis_calibration_pixels_300dpi": {
-     "eulerian_strain": [
-      [
-       378.0,
-       0.0
-      ],
-      [
-       542.0,
-       0.005
-      ]
-     ],
-     "normalized_stress_gpa": [
-      [
-       1549.0,
-       95.0
-      ],
-      [
-       1443.0,
-       100.0
-      ]
-     ]
-    },
-    "transformation": {
-     "volume_ratio": "(1 + 2 f)^(-3/2)",
-     "pressure_gpa": "3 f (1 + 2 f)^(5/2) F"
-    },
-    "quality_control": {
-     "recommended_bm3_rms_pressure_residual_gpa": 0.2256,
-     "recommended_bm3_max_abs_pressure_residual_gpa": 0.3635
-    },
-    "digitized_on": "2026-09-03"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "orthoenstatite",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

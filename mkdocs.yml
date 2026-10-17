@@ -31,6 +31,7 @@ nav:
   - Home: index.md
   - Getting started: getting-started.md
   - Material catalog: catalog.md
+  - Readable material summaries: material-summaries/index.md
   - Observation datasets: datasets.md
   - Dataset pressure reductions: dataset-pressure-reductions.md
   - EOS models: models.md
@@ -55,6 +56,7 @@ nav:
   - Pressure-scale normalization: pressure-scale-normalization.md
   - Dioptas integration: dioptas-integration.md
   - EOSMAT schema: eosmat-schema.md
+  - Reading and editing EOSMAT: eosmat-authoring.md
   - Advanced DAC analysis: dac-thermal-pressure.md
   - Units and reference states: units.md
   - API reference: api.md
@@ -97,6 +99,7 @@ nav:
       - Rust migration completion record: rust-completion-plan.md
       - SciRS2 feasibility audit: scirs2-feasibility.md
 markdown_extensions:
+  - md_in_html
   - tables
   - fenced_code
   - pymdownx.arithmatex:

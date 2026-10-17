@@ -1252,11 +1252,16 @@ def load_eosmat(path: str | Path) -> dict[str, Any]:
 
 
 def save_eosmat(path: str | Path, document: Mapping[str, Any]) -> None:
-    """Validate and save a Dioptas-compatible `.eosmat` document."""
+    """Validate and save readable, Dioptas-compatible EOSMAT JSON.
+
+    Material identity comes first, with short numerical groups on one line.
+    All field values, array order, and unknown extension fields are retained.
+    """
+    from peritheos._eosmat_format import format_eosmat
+
     validate_eosmat_document(document)
-    with Path(path).open("w", encoding="utf-8") as stream:
-        json.dump(document, stream, indent=1, ensure_ascii=False, allow_nan=False)
-        stream.write("\n")
+    payload = format_eosmat(document)
+    Path(path).write_text(payload, encoding="utf-8")
 
 
 def list_material_documents() -> tuple[str, ...]:
