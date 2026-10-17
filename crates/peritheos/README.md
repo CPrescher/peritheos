@@ -8,7 +8,7 @@ For the 0.13 release series, add the crate from crates.io:
 
 ```toml
 [dependencies]
-peritheos = "0.13"
+peritheos = "0.14"
 ```
 
 Repository development can instead use

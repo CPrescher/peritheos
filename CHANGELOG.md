@@ -5,6 +5,23 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-10-17
+
+### Added
+
+- Add source-bound observation views with explicit evidence kind, phase/sample
+  selections, pressure coordinates, volume conversions and uncertainty roles.
+- Resolve paired calibrant pressures through the existing complete EOS evaluator;
+  Shen–Smith NaCl-B1/B2 expose all 67/131 measured sample volumes with Cu pressures.
+- Add a source-preserving catalog migration, coverage census and immutable-revision
+  export for downstream applications. Missing temperatures remain unknown; model
+  grids and source reductions remain distinct from independent measurements.
+
+### Compatibility
+
+- Keep all v0.13.0 EOS coefficients, defaults, source tables and scientific
+  qualifications unchanged. The optional EOSMAT v3 metadata is backward compatible.
+
 ## [0.13.0] - 2026-10-17
 
 This release expands thermal EOS coverage for forsterite, diopside, brucite and
