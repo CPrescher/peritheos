@@ -2372,7 +2372,23 @@ def _material_from_eosmat(
             for identifier in dataset.get("used_by_eos_records", ())
             if identifier in selected_record_identifiers
         ]
-        if used_by or not dataset.get("used_by_eos_records"):
+        if "observation_views" in dataset:
+            views = []
+            for view in dataset["observation_views"]:
+                links = [
+                    identifier
+                    for identifier in view["eos_records"]
+                    if identifier in selected_record_identifiers
+                ]
+                if links:
+                    view["eos_records"] = links
+                    views.append(view)
+            dataset["observation_views"] = views
+        if (
+            used_by
+            or dataset.get("observation_views")
+            or not dataset.get("used_by_eos_records")
+        ):
             dataset["used_by_eos_records"] = used_by
             if "pressure_reductions" in dataset:
                 dataset["pressure_reductions"] = [
