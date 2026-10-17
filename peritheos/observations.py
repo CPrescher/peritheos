@@ -155,7 +155,9 @@ def validate_observation_view(
     if not isinstance(view.get("phase_reviewed", False), bool):
         fail("phase_reviewed must be boolean")
     coordinates = view.get("coordinates")
-    object_keys(coordinates, {"pressure", "volume", "temperature"}, "coordinates")
+    coordinates = object_keys(
+        coordinates, {"pressure", "volume", "temperature"}, "coordinates"
+    )
     pressure = coordinates.get("pressure", {})
     if not isinstance(pressure, Mapping):
         fail("pressure coordinate must be an object")
