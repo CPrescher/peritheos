@@ -109,7 +109,7 @@ def test_reference_convention_sensitivities_do_not_restore_literal_table(audit):
 def test_omitted_ratio_extrema_both_round_to_the_same_alternative(audit):
     result = audit["rbcl_benchmark_diagnostics"]["omitted_prediction_range"]
     low, high = result["minimization"], result["maximization"]
-    assert low["optimizer_success"] and high["optimizer_success"]
+    assert low["optimizer_success"] and high["optimizer_success"], (low, high)
     assert 0.92825 < low["ratio"] < high["ratio"] < 0.92835
     assert low["minimum_scaled_constraint"] > -1e-7
     assert high["minimum_scaled_constraint"] > -1e-7
@@ -128,32 +128,49 @@ def test_one_cell_alternative_is_explicitly_a_diagnostic(audit):
     assert audit["author_contact"] == "none"
 
 
-@pytest.mark.parametrize("retry_outcome", ["converged", "stalled", "infeasible"])
-def test_minimax_retry_requires_actual_convergence_and_feasibility(
-    monkeypatch, retry_outcome
+@pytest.mark.parametrize(
+    "retry_outcome", ["converged", "stalled", "infeasible", "worse_objective"]
+)
+@pytest.mark.parametrize("diagnostic", ["minimax", "extrema"])
+def test_rounding_retry_requires_convergence_feasibility_and_consistent_objective(
+    monkeypatch, retry_outcome, diagnostic
 ):
     from scripts import audit_rubidium_halides_farla_2025_discrepancies as module
 
     real_minimize = module.minimize
     calls = []
+    localized = module.rbcl_minimax(exclude=(3,))
 
     def numerical_stall(*args, **kwargs):
         fit = real_minimize(*args, **kwargs)
         calls.append(kwargs["options"])
-        if len(calls) == 1:
+        if len(calls) % 2 == 1:
             fit.success = False
             fit.status = 8
         elif retry_outcome == "stalled":
             fit.success = False
         elif retry_outcome == "infeasible":
-            fit.x[-1] = 0
+            fit.x[:] = 1
+            if diagnostic == "minimax":
+                fit.x[-1] = 0
+            assert min(kwargs["constraints"][0]["fun"](fit.x)) < -1e-7
+        elif retry_outcome == "worse_objective":
+            fit.fun += 1
         return fit
 
     monkeypatch.setattr(module, "minimize", numerical_stall)
-    result = module.rbcl_minimax(exclude=(3,))
-    assert len(calls) == 2
-    assert calls[1]["ftol"] == 1e-9
-    assert result["optimizer_success"] is (retry_outcome == "converged")
-    if retry_outcome == "converged":
-        assert result["minimum_scaled_constraint"] >= -1e-7
-        assert result["all_retained_within_ratio_rounding"]
+    if diagnostic == "minimax":
+        results = [module.rbcl_minimax(exclude=(3,))]
+    else:
+        interval = module.rbcl_omitted_prediction_range(localized)
+        results = [interval["minimization"], interval["maximization"]]
+    assert len(calls) == 2 * len(results)
+    assert all(call["ftol"] == 1e-9 for call in calls[1::2])
+    for result in results:
+        assert result["optimizer_success"] is (retry_outcome == "converged")
+        if retry_outcome == "converged":
+            assert result["minimum_scaled_constraint"] >= -1e-7
+            if diagnostic == "minimax":
+                assert result["all_retained_within_ratio_rounding"]
+            else:
+                assert 0.92825 < result["ratio"] < 0.92835

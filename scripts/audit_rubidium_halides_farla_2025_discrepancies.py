@@ -121,6 +121,37 @@ def cscl_input_intervals():
     }
 
 
+def _minimize_rounding_diagnostic(objective, start, bounds, constraints):
+    """Require convergence and feasibility when retrying a precision-floor stall."""
+    fit = minimize(
+        objective,
+        start,
+        method="SLSQP",
+        bounds=bounds,
+        constraints=[{"type": "ineq", "fun": constraints}],
+        options={"ftol": 1e-11, "maxiter": 500},
+    )
+    if not fit.success and fit.status in {8, 9}:
+        # Both diagnostics scale their objective by a half-last-digit. SLSQP can
+        # stall at finite-difference precision on active rounding constraints.
+        # Preserve the source data, bounds and model when relaxing that precision.
+        retry = minimize(
+            objective,
+            fit.x,
+            method="SLSQP",
+            bounds=bounds,
+            constraints=[{"type": "ineq", "fun": constraints}],
+            options={"ftol": 1e-9, "maxiter": 1500},
+        )
+        if (
+            retry.success
+            and min(constraints(retry.x)) >= -1e-7
+            and retry.fun <= fit.fun + 1e-7
+        ):
+            fit = retry
+    return fit
+
+
 def rbcl_minimax(
     *,
     exclude=(),
@@ -180,32 +211,12 @@ def rbcl_minimax(
             ((pressure - evaluate(z, ratio + half_width)) / scale)[keep],
         ]
 
-    fit = minimize(
+    fit = _minimize_rounding_diagnostic(
         lambda z: float(z[-1]),
         start,
-        method="SLSQP",
-        bounds=[(-1, 1)] * sum(variable) + [(0, 20)],
-        constraints=[{"type": "ineq", "fun": constraints}],
-        options={"ftol": 1e-11, "maxiter": 500},
+        [(-1, 1)] * sum(variable) + [(0, 20)],
+        constraints,
     )
-    if not fit.success and fit.status in {8, 9}:
-        # SLSQP can stall at the finite-difference precision floor on an active
-        # rounding constraint. Retry from that point with an objective tolerance
-        # of 1e-9 of a half-last-digit, retaining the same data, bounds and model.
-        retry = minimize(
-            lambda z: float(z[-1]),
-            fit.x,
-            method="SLSQP",
-            bounds=[(-1, 1)] * sum(variable) + [(0, 20)],
-            constraints=[{"type": "ineq", "fun": constraints}],
-            options={"ftol": 1e-9, "maxiter": 1500},
-        )
-        if (
-            retry.success
-            and min(constraints(retry.x)) >= -1e-7
-            and retry.fun <= fit.fun + 1e-7
-        ):
-            fit = retry
     candidate = parameters(fit.x)
     calculated = np.array(
         [
@@ -296,17 +307,16 @@ def rbcl_omitted_prediction_range(localized):
     start = (np.array(localized["candidate_parameters"][:4]) - center) / 0.005
     extrema = []
     for sign in (1, -1):
-        fit = minimize(
+        fit = _minimize_rounding_diagnostic(
             lambda z: sign * (predicted(z) - ratio[index]) / 5e-5,
             start,
-            method="SLSQP",
-            bounds=[(-1, 1)] * 4,
-            constraints=[{"type": "ineq", "fun": constraints}],
-            options={"ftol": 1e-11, "maxiter": 500},
+            [(-1, 1)] * 4,
+            constraints,
         )
         extrema.append(
             {
                 "optimizer_success": bool(fit.success),
+                "optimizer_message": fit.message,
                 "minimum_scaled_constraint": float(min(constraints(fit.x))),
                 "ratio": float(predicted(fit.x)),
                 "candidate_coefficients": (center + fit.x * 0.005).tolist(),
