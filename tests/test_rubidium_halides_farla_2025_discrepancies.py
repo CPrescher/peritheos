@@ -70,7 +70,14 @@ def test_no_single_reference_lattice_or_temperature_shift_fixes_all_rows(audit):
 def test_only_the_5gpa_1500k_omission_restores_common_vector_consistency(audit):
     result = audit["rbcl_benchmark_diagnostics"]
     assert len(result["leave_one_out"]) == 54
-    assert all(r["optimizer_success"] for r in result["leave_one_out"])
+    assert all(r["optimizer_success"] for r in result["leave_one_out"]), [
+        (
+            r["omitted_index"],
+            r["half_last_digits"],
+        )
+        for r in result["leave_one_out"]
+        if not r["optimizer_success"]
+    ]
     assert result["single_omissions_with_compatible_remaining_table"] == [3]
     local = result["localized_candidate"]
     assert local["retained_rows"] == 53
@@ -89,7 +96,11 @@ def test_only_the_5gpa_1500k_omission_restores_common_vector_consistency(audit):
 def test_reference_convention_sensitivities_do_not_restore_literal_table(audit):
     cases = audit["rbcl_benchmark_diagnostics"]["full_table_cases"]
     assert len(cases) == 5
-    assert all(r["optimizer_success"] for r in cases.values())
+    assert all(r["optimizer_success"] for r in cases.values()), {
+        name: (r["optimizer_message"], r["minimum_scaled_constraint"])
+        for name, r in cases.items()
+        if not r["optimizer_success"]
+    }
     assert all(r["minimum_scaled_constraint"] > -1e-7 for r in cases.values())
     assert all(r["minimax_half_last_digits"] > 1.07 for r in cases.values())
     assert all(not r["all_retained_within_ratio_rounding"] for r in cases.values())
@@ -115,3 +126,34 @@ def test_one_cell_alternative_is_explicitly_a_diagnostic(audit):
     assert not audit["author_fit_parity"]
     assert not audit["original_input_files_recovered"]
     assert audit["author_contact"] == "none"
+
+
+@pytest.mark.parametrize("retry_outcome", ["converged", "stalled", "infeasible"])
+def test_minimax_retry_requires_actual_convergence_and_feasibility(
+    monkeypatch, retry_outcome
+):
+    from scripts import audit_rubidium_halides_farla_2025_discrepancies as module
+
+    real_minimize = module.minimize
+    calls = []
+
+    def numerical_stall(*args, **kwargs):
+        fit = real_minimize(*args, **kwargs)
+        calls.append(kwargs["options"])
+        if len(calls) == 1:
+            fit.success = False
+            fit.status = 8
+        elif retry_outcome == "stalled":
+            fit.success = False
+        elif retry_outcome == "infeasible":
+            fit.x[-1] = 0
+        return fit
+
+    monkeypatch.setattr(module, "minimize", numerical_stall)
+    result = module.rbcl_minimax(exclude=(3,))
+    assert len(calls) == 2
+    assert calls[1]["ftol"] == 1e-9
+    assert result["optimizer_success"] is (retry_outcome == "converged")
+    if retry_outcome == "converged":
+        assert result["minimum_scaled_constraint"] >= -1e-7
+        assert result["all_retained_within_ratio_rounding"]

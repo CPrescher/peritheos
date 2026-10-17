@@ -188,6 +188,24 @@ def rbcl_minimax(
         constraints=[{"type": "ineq", "fun": constraints}],
         options={"ftol": 1e-11, "maxiter": 500},
     )
+    if not fit.success and fit.status in {8, 9}:
+        # SLSQP can stall at the finite-difference precision floor on an active
+        # rounding constraint. Retry from that point with an objective tolerance
+        # of 1e-9 of a half-last-digit, retaining the same data, bounds and model.
+        retry = minimize(
+            lambda z: float(z[-1]),
+            fit.x,
+            method="SLSQP",
+            bounds=[(-1, 1)] * sum(variable) + [(0, 20)],
+            constraints=[{"type": "ineq", "fun": constraints}],
+            options={"ftol": 1e-9, "maxiter": 1500},
+        )
+        if (
+            retry.success
+            and min(constraints(retry.x)) >= -1e-7
+            and retry.fun <= fit.fun + 1e-7
+        ):
+            fit = retry
     candidate = parameters(fit.x)
     calculated = np.array(
         [

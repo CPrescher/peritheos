@@ -57,6 +57,9 @@ individual scientific qualifications.
 
 ### Fixed
 
+- Retry stalled RbCl rounding diagnostics at an explicit numerical precision
+  floor, requiring genuine solver convergence, feasibility and a consistent
+  objective before accepting the result. Source observations are unchanged.
 - Correct the siderite uncertainty regression and documentation using independent
   analytic derivatives; small-coefficient finite differences no longer inflate
   the conditional pressure error.
