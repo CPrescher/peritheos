@@ -73,6 +73,12 @@ from peritheos.materials import (
     Material,
     material_from_dict,
 )
+from peritheos.observations import (
+    DatasetObservations,
+    observation_registry,
+    plan_dataset_observations,
+    resolve_dataset_observations,
+)
 from peritheos.pressure_calibrations import (
     CalibrationPathRecalculation,
     CommonPressureCalibrationRoutes,
@@ -108,7 +114,7 @@ from peritheos.uncertainty import (
     PredictionUncertainty,
 )
 
-__version__ = "0.13.0"
+__version__ = "0.14.0"
 
 __all__ = [
     "CalibrationPathRecalculation",
@@ -152,6 +158,10 @@ __all__ = [
     "MaterialGroup",
     "PredictionUncertainty",
     "PressureVolumeData",
+    "DatasetObservations",
+    "observation_registry",
+    "plan_dataset_observations",
+    "resolve_dataset_observations",
     "PressureScaleRecalculation",
     "RubyFluorescenceCalibration",
     "RubyPressureScaleRecalculation",

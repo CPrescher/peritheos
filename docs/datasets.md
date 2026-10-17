@@ -1,5 +1,8 @@
 # Loading observation datasets
 
+For explicit sample/phase selection, volume conversion and calibrant-derived
+plot coordinates, see [source observation views](observation-views.md).
+
 Material cards can include the observations used to fit or validate their EOS
 records. Peritheos exposes those tables as typed, read-only NumPy columns. The
 same API works for small tables embedded directly in an `.eosmat` document and
