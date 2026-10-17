@@ -9,18 +9,18 @@ between a validated equation and a fully reproduced original fitting procedure.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 227 bundled material documents and 650 EOS records pass the
-format-3 validator; 224 documents construct executable materials. The
+separate. All 232 bundled material documents and 672 EOS records pass the
+format-3 validator; 229 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe and FeS-VI source cards do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 650 bundled records: 640 are
-`primary_source_validated`, seven explicit-selection implementations are
+The primary-source audit covers all 672 bundled records: 660 are
+`primary_source_validated`, nine explicit-selection implementations are
 `not_reproduced` (Maltby, the Chen diagnostic, and three Miozzi hcp-Fe
-parameterizations, and the two Yokoo table-output diagnostics), and three records are `deferred`: the two Campbell Fe/FeO
+parameterizations, the two Yokoo table-output diagnostics, and the qualified brucite thermal reconstruction and original 873 K curve), and three records are `deferred`: the two Campbell Fe/FeO
 records retain unresolved combined-data refit discrepancies, and the Morard
 FeS record does not reproduce the published ±3 GPa residual bound.
 The deferred records preserve source parameters for inspection and are
@@ -44,13 +44,21 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 650
+fit for every record with sufficient direct observations and documents all 672
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 226 parity matches and 156 additional numerically similar results.
+diagnostics. The current campaign finds 244 parity matches and 159 additional numerically similar results.
+The Crichton–Ross (2000) phase E fit achieves parity within reported parameter
+errors: all three coefficient shifts are below 0.123 reported error widths,
+and the largest pressure-curve difference is about 0.0096 GPa. Its published
+coefficients remain unchanged. Exact author-workflow availability is a separate
+provenance assessment, not a failed-fit classification. See the
+[coefficient comparisons and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).
 For opt-in Peritheos refits, including the provisional Ross + Errandonea argon
 refit, parity verifies the stored fit under its documented selection and
 objective; it does not imply reproduction of published author coefficients.
+The Fei (2007) NaCl-B2 staged thermal refit is available under this same
+qualification; the published parent still lacks thermal-fit parity.
 For the opt-in Litasov siderite thermal refit, parity means reproducing the
 stored Peritheos fit, not resolving the two conflicting published thermal
 parameter sets, which remain non-executable source evidence.
@@ -59,10 +67,10 @@ error widths, with comparable refit standard errors and an unspecified source
 confidence convention. Sakai (2011) contributes eight conditional fixed-V0
 parity matches within printed error widths, with weighting and marker-averaging
 qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
-[75 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 177 records cannot be
+[76 direct refits](primary-eos-refits.md#parity-not-achieved) do not
+recover at least one published coefficient, while 176 records cannot be
 directly refitted because row-level inputs or an executable source reduction
-are unavailable. Sixteen further records have source reconstructions without an independent
+are unavailable. Seventeen further records have source reconstructions without an independent
 EOS refit. There are no unresolved extraction or solver failures. The
 machine-readable results are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).

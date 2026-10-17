@@ -1,0 +1,535 @@
+{
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "phase_e_fe0072",
+  "name": "Phase E (Fe-bearing, Crichton–Ross 2000)",
+  "formula": "Mg1.96Fe0.072Si1.04H3.7O6",
+  "phase": "dense hydrous magnesium silicate phase E, Fe-bearing cation-disordered R-3m",
+  "units": {
+    "pressure": "GPa",
+    "temperature": "K",
+    "volume": "angstrom^3/conventional_unit_cell"
+  },
+  "symmetry": "HEXAGONAL",
+  "crystal_system": "trigonal",
+  "formula_units_per_cell": 1,
+  "space_group": "R-3m",
+  "space_group_number": 166,
+  "lattice": {
+    "a": 2.9655,
+    "b": 2.9655,
+    "c": 13.8703,
+    "alpha": 90.0,
+    "beta": 90.0,
+    "gamma": 120.0
+  },
+  "atom_sites": [],
+  "peaks": [
+    [
+      0,
+      0,
+      3,
+      4.6234333333,
+      1.0
+    ],
+    [
+      1,
+      0,
+      1,
+      2.5252754553,
+      1.0
+    ],
+    [
+      0,
+      1,
+      2,
+      2.4083673006,
+      1.0
+    ],
+    [
+      1,
+      0,
+      4,
+      2.0638012026,
+      1.0
+    ],
+    [
+      0,
+      1,
+      5,
+      1.8845701892,
+      1.0
+    ],
+    [
+      1,
+      1,
+      0,
+      1.48275,
+      1.0
+    ],
+    [
+      0,
+      1,
+      8,
+      1.4369816609,
+      1.0
+    ],
+    [
+      0,
+      2,
+      1,
+      1.2786313604,
+      1.0
+    ]
+  ],
+  "sample_composition": {
+    "reported_formula": "Mg1.96(7)Fe0.072(5)Si1.04(5)H3.7(8)O6",
+    "elements": {
+      "Mg": 1.96,
+      "Fe": 0.072,
+      "Si": 1.04,
+      "H": 3.7,
+      "O": 6
+    },
+    "reported_errors": {
+      "Mg": 0.07,
+      "Fe": 0.005,
+      "Si": 0.05,
+      "H": 0.8,
+      "O": null
+    },
+    "reported_h2o_wt_percent": 18.7,
+    "normalization": "Six oxygens per conventional hexagonal cell; Z=1 for this empirical O6 formula.",
+    "method": "EMPA mean; H2O inferred from analytical deficit from 100%, not directly measured H. Beam damage contributes to low totals and large H error. Fe valence and site partition are not determined.",
+    "source_location": "Crichton and Ross (2000), p. 562, Experimental"
+  },
+  "notes": "Measured Fe-bearing non-stoichiometric sample, not an ideal endmember. Conventional hexagonal axes of trigonal R-3m, six O per cell, Z=1 on the empirical O6 basis. Cell parameters are observed ambient values; fitted V0 is separate. Position-only fallback: no sample-specific atomic occupancies or hydrogen coordinates are asserted. Peak intensities of 1 are display markers only. No anisotropic high-pressure lattice evolution is supplied; volume-only scaling is an approximation.",
+  "source": {
+    "structure": {
+      "reference": {
+        "authors": [
+          "Kudoh, Y.",
+          "Finger, L. W.",
+          "Hazen, R. M.",
+          "Prewitt, C. T.",
+          "Kanzaki, M.",
+          "Veblen, D. R."
+        ],
+        "year": 1993,
+        "title": "Phase E: A high pressure hydrous silicate with unique crystal chemistry",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "19",
+        "locator": "357–360",
+        "doi": "10.1007/BF00202972"
+      },
+      "source_location": "Kudoh et al. (1993), pp. 357–358, Table 1 and footnote a",
+      "cell_reference": {
+        "authors": [
+          "Crichton, W. A.",
+          "Ross, N. L."
+        ],
+        "year": 2000,
+        "title": "Equation of state of phase E",
+        "source": "Mineralogical Magazine",
+        "volume": "64",
+        "locator": "561–567",
+        "doi": "10.1180/002646100549427"
+      },
+      "cell_source_location": "Crichton and Ross (2000), Table 1, p. 562, ambient row",
+      "conventional_cell": "R-centered conventional hexagonal cell, not a primitive rhombohedral cell; O6 basis, Z=1.",
+      "fallback_reference": {
+        "authors": [
+          "Shieh, S. R.",
+          "Mao, H.-K.",
+          "Konzett, J.",
+          "Hemley, R. J."
+        ],
+        "year": 2000,
+        "title": "In-situ high pressure X-ray diffraction of phase E to 15 GPa",
+        "source": "American Mineralogist",
+        "volume": "85",
+        "locator": "765–769",
+        "doi": "10.2138/am-2000-5-616"
+      },
+      "fallback_source_location": "Shieh et al. (2000), Figure 1, p. 766: eight indexed phase E peaks",
+      "fallback": "Eight observed phase E hkl identities from a different, Fe-free phase E sample; d spacings recalculated for the Crichton–Ross measured cell. Phase topology and indexing only are transferred, not composition, cell size, occupancy, observed d, or intensity. Equal marker intensities are not measured or calculated diffraction intensities. No hydrogen-site or quantitative intensity inference is supported.",
+      "occupied_site_assessment": "Kudoh Table 1 gives partially occupied Mg1(3), Mg2(3), Si(6), and full O(6) for two different Fe-free samples. Neither is substituted for this Fe-bearing composition. Hydrogen was not located. Use the documented peak fallback."
+    },
+    "eos": {
+      "reference": {
+        "authors": [
+          "Crichton, W. A.",
+          "Ross, N. L."
+        ],
+        "year": 2000,
+        "title": "Equation of state of phase E",
+        "source": "Mineralogical Magazine",
+        "volume": "64",
+        "locator": "561–567",
+        "doi": "10.1180/002646100549427"
+      },
+      "source_location": "Table 1, p. 562; free BM3 results and F–f relation, p. 563"
+    },
+    "source_manifest": "datasets/phase-e-crichton-ross-2000-source.json"
+  },
+  "datasets": [
+    {
+      "identifier": "phase_e_crichton_ross_2000_table1",
+      "kind": "pressure_volume",
+      "reference": {
+        "authors": [
+          "Crichton, W. A.",
+          "Ross, N. L."
+        ],
+        "year": 2000,
+        "title": "Equation of state of phase E",
+        "source": "Mineralogical Magazine",
+        "volume": "64",
+        "locator": "561–567",
+        "doi": "10.1180/002646100549427"
+      },
+      "source_location": "Table 1, p. 562; all 11 symmetry-constrained cell measurements",
+      "source_url": "https://triage19.com/products/MM/MM064P0561.pdf",
+      "license": "Source data reuse license unspecified; see phase-e-crichton-ross-2000.LICENSE.md. CC0-1.0 covers only contributor-held transcription, normalization, metadata and arrangement rights.",
+      "columns": [
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "pressure_sigma_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "a_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "a_sigma_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "a_angstrom"
+        },
+        {
+          "name": "c_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "c_sigma_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "c_angstrom"
+        },
+        {
+          "name": "volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "volume_a3"
+        }
+      ],
+      "rows": [
+        [
+          0.0001,
+          null,
+          2.9655,
+          0.0002,
+          13.8703,
+          0.0005,
+          105.633,
+          0.016
+        ],
+        [
+          0.296,
+          0.003,
+          2.9623,
+          0.00030000000000000003,
+          13.8552,
+          0.0006000000000000001,
+          105.294,
+          0.021
+        ],
+        [
+          1.128,
+          0.004,
+          2.9541,
+          0.0002,
+          13.814,
+          0.00030000000000000003,
+          104.401,
+          0.013000000000000001
+        ],
+        [
+          1.987,
+          0.004,
+          2.946,
+          0.00030000000000000003,
+          13.7742,
+          0.0004,
+          103.529,
+          0.018000000000000002
+        ],
+        [
+          2.973,
+          0.004,
+          2.9374,
+          0.00030000000000000003,
+          13.7336,
+          0.0004,
+          102.623,
+          0.021
+        ],
+        [
+          3.944,
+          0.006,
+          2.9296,
+          0.0002,
+          13.6959,
+          0.0004,
+          101.794,
+          0.017
+        ],
+        [
+          4.443,
+          0.006,
+          2.9255,
+          0.00030000000000000003,
+          13.6767,
+          0.0005,
+          101.367,
+          0.02
+        ],
+        [
+          5.301,
+          0.007,
+          2.9187,
+          0.00030000000000000003,
+          13.6445,
+          0.0005,
+          100.665,
+          0.019
+        ],
+        [
+          5.539,
+          0.005,
+          2.917,
+          0.00030000000000000003,
+          13.637,
+          0.0006000000000000001,
+          100.492,
+          0.02
+        ],
+        [
+          6.139,
+          0.008,
+          2.9126,
+          0.00030000000000000003,
+          13.6152,
+          0.0006000000000000001,
+          100.025,
+          0.02
+        ],
+        [
+          6.671,
+          0.008,
+          2.909,
+          0.00030000000000000003,
+          13.5972,
+          0.0006000000000000001,
+          99.648,
+          0.018000000000000002
+        ]
+      ],
+      "used_by_eos_records": [
+        "phase_e_fe0072_crichton_ross_2000_bm3"
+      ],
+      "uncertainty": {
+        "reported_as": "estimated standard deviations in parentheses, last quoted decimal places",
+        "confidence_level": null,
+        "covariance": "not_reported",
+        "missing": "Ambient pressure has no reported esd; preserve null, not zero.",
+        "temperature": "Room temperature only; no numerical temperature or uncertainty reported."
+      },
+      "notes": "Original quartz-derived pressures retained. No quartz volumes, quartz cell uncertainties, ruby readings, or reflection-setting angles are published. Ambient P=0.0001 GPa is distinct from the fitted zero-pressure V0."
+    }
+  ],
+  "eos_records": [
+    {
+      "identifier": "phase_e_fe0072_crichton_ross_2000_bm3",
+      "label": "Crichton and Ross (2000), Fe-bearing phase E, free BM3",
+      "reference": {
+        "authors": [
+          "Crichton, W. A.",
+          "Ross, N. L."
+        ],
+        "year": 2000,
+        "title": "Equation of state of phase E",
+        "source": "Mineralogical Magazine",
+        "volume": "64",
+        "locator": "561–567",
+        "doi": "10.1180/002646100549427"
+      },
+      "default_for": "equilibrium",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "determination_method": "experimental",
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+          "V0": 105.627,
+          "K0": 92.9,
+          "K0_prime": 7.3
+        }
+      },
+      "parameter_errors": {
+        "V0": 0.007,
+        "K0": 0.7,
+        "K0_prime": 0.2
+      },
+      "fixed_parameters": [],
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "temperature_ref": 298.0,
+      "temperature_ref_provenance": {
+        "kind": "assumed_room_temperature",
+        "reported_condition": "room temperature",
+        "note": "298 K is a nominal exchange reference only; the article does not report a numerical experimental temperature."
+      },
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        6.671
+      ],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [
+          0.0,
+          6.671
+        ],
+        "notes": [
+          "Room-temperature static compression only; upper bound is experimental coverage, not a phase-stability boundary.",
+          "Zero pressure is the model reference; lowest observed pressure is 0.0001 GPa. No numerical experimental temperature range is asserted."
+        ]
+      },
+      "fit_datasets": [
+        "phase_e_crichton_ross_2000_table1"
+      ],
+      "parameter_provenance": {
+        "determination_method": "Single-crystal hydrostatic compression of the measured Fe-bearing phase E sample; quartz experimental pressure scale.",
+        "V0": "p. 563, Results: 105.627(7) conventional hexagonal-cell angstrom^3, freely refined; not the ambient Table 1 observation 105.633(16).",
+        "K0": "p. 563: isothermal KT=92.9(7) GPa, freely refined.",
+        "K0_prime": "p. 563: 7.3(2), freely refined; not fixed to 4.",
+        "equation": "Third-order Birch–Murnaghan with f=((V0/V)^(2/3)-1)/2, F=P/[3 f (1+2 f)^(5/2)] and F=K0[1+1.5(Kprime-4)f]; p. 563 F–f discussion.",
+        "errors": "Parenthetical reported errors retained; confidence level and fitted covariance matrix are not supplied.",
+        "range": "Table 1 exact extrema; room temperature reported qualitatively.",
+        "fit_objective": "Author thesis (2000), Section 2.11, Eq. 2.31, p. 45: pressure-residual weighted least squares, chi_w_squared divided by n-m; pressure and propagated volume esds combined. Exact numerical implementation unresolved."
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-10-16",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": [
+                "Angel, R. J.",
+                "Allan, D. R.",
+                "Miletich, R.",
+                "Finger, L. W."
+              ],
+              "year": 1997,
+              "title": "The Use of Quartz as an Internal Pressure Standard in High-Pressure Crystallography",
+              "source": "Journal of Applied Crystallography",
+              "volume": "30",
+              "locator": "461–466",
+              "doi": "10.1107/S0021889897000861"
+            },
+            "source_location": "Crichton–Ross p. 562 Experimental; p. 563 weighting paragraph",
+            "scope": "Reported Table 1 pressures",
+            "notes": "Quartz unit-cell volume with Angel et al. (1997); no paired quartz readings supplied.",
+            "reference_eos_record": "alpha_quartz_angel_1997_bm3_1"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Cannot independently recalculate pressures or original sigma_P from quartz volumes: paired marker measurements are absent. Do not reverse-generate them from tabulated P."
+        },
+        "auxiliary_checks": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "p. 562 Experimental",
+            "scope": "Approximate pressure checks only",
+            "notes": "Ruby chip present; calibration version and measured shifts not reported. Ruby is not the quantitative Table 1 pressure scale.",
+            "status": "unresolved"
+          }
+        ]
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "audit_date": "2026-10-16",
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "composition",
+          "published_uncertainties",
+          "primary_observations",
+          "diffraction_fallback"
+        ],
+        "primary_source_check": {
+          "access_url": "https://triage19.com/products/MM/MM064P0561.pdf",
+          "doi": "10.1180/002646100549427",
+          "locations": [
+            "Full article pp. 561–567",
+            "Table 1 p. 562",
+            "Results and F–f discussion p. 563",
+            "Axial fits pp. 563–564"
+          ],
+          "finding": "Publication-of-record PDF inspected in full, Table 1 checked visually. Published BM3 retained; source residual benchmarks reproduced and independent refits establish parity within reported uncertainty. Exact implementation provenance is separately documented and does not negate fit recovery."
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "dataset_identifiers": [
+            "phase_e_crichton_ross_2000_table1"
+          ],
+          "finding": "All 11 P,a,c,V rows and every reported esd; absent ambient pressure esd is null. No original calibrant readings in source or publisher-listed supplements."
+        },
+        "reproduction_scope": {
+          "source_equation": "validated_against_all_11_source_rows",
+          "coefficient_agreement": "conditional_within_reported_errors",
+          "exact_author_workflow": "not_reproduced",
+          "fit_recovery": "parity_within_reported_uncertainty",
+          "exact_workflow_provenance_is_separate": true
+        },
+        "unresolved_issues": [
+          "No atomic refinement for this exact Fe-bearing sample; position-only phase E indexing fallback.",
+          "Hydrogen inferred by analytical deficit; nominal six-O composition has uncertain charge closure."
+        ],
+        "note": "Published volume EOS successfully recovered: parity within reported uncertainty, with coefficient/curve differences documented. Original author-workflow provenance is assessed separately.",
+        "workflow_provenance_limitations": [
+          "Original unrounded data, quartz readings, covariance, software/version, exact effective-error/weight iteration, and ambient-pressure error treatment absent. Author thesis Eq. 2.31 recovers pressure-residual WLS and reduced chi normalization, not the complete implementation."
+        ]
+      },
+      "notes": "Only the physical volume BM3 is executable. Axial BM3-on-edge-cubes fits are supporting data, not volume EOS records. Published parameters remain unchanged. Independent refits are diagnostic outputs in the material-specific reproduction report, not replacement published coefficients. Room temperature is represented nominally as 298 K."
+    }
+  ]
+}

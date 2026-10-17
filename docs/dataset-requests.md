@@ -25,6 +25,27 @@ experimental observations.
 | [Nisr et al. (2017), hydrous silica](#nisr-et-al-2017-hydrous-silica) | Optional follow-up for exact regression and calibration replay; published coefficients already reproduced | Resolve the original fit objective, weights and Au pressure reduction | Not contacted | 2026-09-19 |
 | [Maltby et al. (2024), fcc argon](#maltby-et-al-2024-fcc-argon) | Contact authors for sample-state and neighbour-table clarification | Reproduce Table 8 and the original multiproperty fit before promoting a replacement | Not contacted; precise request drafted | 2026-09-24 |
 
+### October 2026 additions: optional workflow recovery
+
+The following requests do not block use of the accepted equations. They concern
+exact original fit or calibration replay. No new author outreach is authorized.
+
+| Source | Evidence already recovered | Remaining optional evidence | Contact status |
+|---|---|---|---|
+| Katsura (2022) forsterite | Author workbook and MATLAB fitting/geotherm code; both published coefficient vectors; 51 observations | Original six-column `Olivine_PVT2021.xlsx`, exact pressure-branch selection, temperature errors and bootstrap settings; script-specific covariance/errors if available | Not contacted |
+| Katsura (2009) forsterite | Final article and all 52 Table 1 rows | Complete earlier thermal-expansion inputs and combined-fit selection/normalization; this is distinct from the accepted 2022 records | Not contacted |
+| Zhao (1998) diopside | Complete source table, published equation/coefficients, plot-corroborated row-15 error and separately corrected reusable dataset | Exact original selected fit input, unrounded row-15 pressure, V0 treatment, weighting/covariance and paired NaCl readings | Not contacted |
+| [Crichton–Ross (2000) phase E](literature-reproductions/phase-e-crichton-ross-2000.md) | All eleven primary P,a,c,V rows/errors, author-thesis comparison, published BM3 and parity within reported uncertainty, coefficient differences and residual plot | Optional original unrounded fit table/settings and covariance; paired quartz volumes/errors for independent pressure recalculation. These inputs do not block use or parity of the accepted EOS; no further outreach is needed for integration | Not contacted |
+| Farla (2025) rubidium halides | Primary numerical supplement, historical CsCl implementation, independent weighted fits and direct EosFit7c replay | Original saved EosFit7/GSAS-II projects, exact row flags, unrounded input/errors/correlations, raw ruby wavelengths and saved CsCl runtime settings | Not contacted; user excludes author contact |
+
+See the [forsterite audit](literature-reproductions/forsterite-katsura-2009-2022.md),
+[diopside audit](literature-reproductions/diopside.md) and
+[rubidium-halide audit](literature-reproductions/rubidium-halides-farla-2025.md).
+The diopside parameter comparisons have conditional parity within reported
+error widths; rubidium fits are similar and do not reproduce every coefficient
+at publication rounding. Running EosFit independently is not recovery of the
+original author workflow or original saved projects.
+
 ### Morard et al. (2026): FeS
 
 Paper: [FeS phase diagram and thermal Equation of State under high pressure](https://doi.org/10.1103/h4pj-rvxx).
@@ -176,6 +197,38 @@ The publisher page lists corresponding author Øivind Wilhelmsen at
 `oivind.wilhelmsen@ntnu.no`. A [specific draft request](author-requests/maltby-2024.md)
 is prepared. No message has been sent, and no additional data or permissions
 have been received. This request remains open.
+
+## Brucite: broad thermal and disordered-phase extensions
+
+**Status: not contacted.** The [brucite audit](literature-reproductions/brucite.md)
+now supports published-range lattice-average isotherms and separately attributed
+Peritheos 873 K/thermal table-data refits. These optional requests concern exact
+author-workflow recovery, calibration re-reduction and alternative sources; they
+do not block the independent fits. The original source curves keep their qualifications.
+
+- **Fukui et al. (2003), [DOI](https://doi.org/10.1007/s00269-003-0353-z):**
+  full-precision V0 used for each isotherm; the static fit’s fixed/free V0 choice;
+  original objective, weights and covariance; independently regressed thermal
+  intercepts; clarification of the 873 K normalization mismatch (graphical V0 about 42.70 A^3
+  versus printed-expansion 42.516 A^3); paired Au lattice
+  readings and row temperature information. Final primary article and all
+  48 printed observations are already recovered. No missing marker reading is
+  replaced by an inverse-EOS calculation.
+- **Xia et al. (1998), [DOI](https://doi.org/10.2138/am-1998-0107):** final
+  combined-fit V0 and dKprime/dT, omitted from Table 7, and the exact adopted
+  Fei–Mao ambient data. All 54 Table 6 rows are already preserved.
+- **Fei and Mao (1993), [DOI](https://doi.org/10.1029/93JB00701):** accessible
+  final full article and authoritative reference volume/data before any
+  executable alternative can be accepted. The publisher abstract alone is
+  insufficient; publisher and institutional/public-repository searches have
+  not recovered the full paper.
+- **Wu et al. (2026), [DOI](https://doi.org/10.3390/molecules31101631):**
+  clarification of Section 4’s 1.8/3.2 GPa and 573/823 K assignments versus its
+  negative-slope fitted boundary. Printed values are retained without swapping.
+
+The primary ambient structural gap is resolved through He (2023), Table 4.3;
+the old Zigan/Rothbauer article is no longer required to establish the catalog
+structure. None of these requests has been sent.
 
 ## Maintaining the list
 

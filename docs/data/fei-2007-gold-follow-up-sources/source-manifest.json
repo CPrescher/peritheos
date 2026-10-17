@@ -1,0 +1,154 @@
+{
+  "scope": "Fei (2007) Au follow-up evidence only; no new numerical fit observations or historical reducer recovered.",
+  "access_date": "2026-10-12",
+  "report": "docs/literature-reproductions/fei-2007-gold-follow-up.md",
+  "conditional_parity_unchanged": {
+    "K0_prime": 5.995326273385395,
+    "q": 0.6191486316881784,
+    "cold_rows": 37,
+    "hot_rows": 28,
+    "author_fit_reproduced": false
+  },
+  "recovered_sources": [
+    {
+      "file": "ye-2017-intercomparison.pdf",
+      "url": "https://www.osti.gov/servlets/purl/1368221",
+      "doi": "10.1002/2016JB013811",
+      "version": "Publisher-formatted article with DOI and journal pagination; inspected page 3457 / PDF page 8, Eq. 3",
+      "bytes": 1471806,
+      "sha256": "7909231471322842035149f14354e69c6c2f4a6c0b229755366fe10261cd3ec5",
+      "role": "Later primary reanalysis, not Fei/Hirose historical code or fit input",
+      "bundled": false,
+      "distribution_note": "The locally inspected article is not redistributed; retrieve it from the recorded official URL."
+    },
+    {
+      "file": "gao-wayback-prefix-query.json",
+      "url": "https://web.archive.org/cdx/search/cdx?url=netfiles.uiuc.edu%2Fliligao2%2F&matchType=prefix&output=json&filter=statuscode%3A200&collapse=urlkey",
+      "bytes": 226,
+      "sha256": "ed005ecd1b4727151dc384f06fbbc11042556725cf04e732627da13fbf2eea92",
+      "role": "Bounded archive discovery response; one 2006 homepage capture, no reducer recovered. Not proof of archive-wide absence."
+    }
+  ],
+  "existing_primary_files_inspected": [
+    {
+      "file": "/Users/clemens/Zotero/storage/2DS57FBL/Hirose et al. - 2008 - Simultaneous volume measurements of Au and MgO to 140   GPa and thermal equation of state of Au base.pdf",
+      "sha256": "83c61450294d40e0ae6fed9a3dbbd4fdb5ef52c54a642f9c13ab540c32ba8d91",
+      "doi": "10.1016/j.pepi.2008.03.002",
+      "locations": [
+        "Table 1, p.150",
+        "Section 2.2, p.151",
+        "Section 4, p.153"
+      ],
+      "role": "Author statement identifying the two first-cycle high-pressure observations used by Fei (2007)"
+    },
+    {
+      "file": "/tmp/peritheos-au-validation/fei.txt",
+      "sha256": "c1fc19bf30bb1c7e8730fd2b88bf8b652940307ed3049285839037439b14f6f5",
+      "doi": "10.1073/pnas.0609013104",
+      "role": "Existing extracted original-paper text; PDF hash remains inherited, not independently reverified"
+    },
+    {
+      "file": "docs/data/speziale-2001-author-confirmation.json",
+      "sha256": "472b86e18a73b2884d5ee84dea953a24d005556688be4558b918508f7773c80d",
+      "role": "User-supplied author reply, recorded 2026-10-09; original email date and headers unavailable; confirms 2001 prescription only"
+    },
+    {
+      "file": "docs/data/fei-2007-gold-reproduction.json",
+      "sha256": "d091fa20e855450fc9a3e172711ce7a1a6bb10813ce0cbb372fdcdd2b96a4764",
+      "role": "Existing conditional replay read without rerunning or regenerating"
+    }
+  ],
+  "web_primary_evidence": [
+    {
+      "url": "https://doi.org/10.1007/s00269-010-0367-2",
+      "full_text_route": "https://www.researchgate.net/publication/225361067_P-V-T_equations_of_state_of_MgO_and_thermodynamics",
+      "locations": [
+        "Introduction: separates later Fei/Hirose family from Gao/Wu/Zha",
+        "Other versions section; Figures 3-4 and Table 1 Fit 4",
+        "Footnote on 51.041 and 24.619 J/mol/K"
+      ],
+      "qualification": "Published author reanalysis accessible as indexed full article. Its alternative regression is not historical reducer recovery; no new fit run here."
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2010JB007959",
+      "locations": [
+        "Paragraphs 1-2"
+      ],
+      "qualification": "Primary correction explicitly distinguishes recalculated Speziale boundaries from original published Fei/Hirose boundaries"
+    },
+    {
+      "url": "https://www.ideals.illinois.edu/items/18462",
+      "locations": [
+        "Gao 2010 thesis Appendix B, indexed text pp.133 onward"
+      ],
+      "qualification": "Repository record and indexed appendix documentation only; full thesis bytes, software binary and source code unrecovered"
+    },
+    {
+      "url": "https://sites.google.com/carnegiescience.edu/yingweifei/publications",
+      "qualification": "Publication listing inspected; no historical Au regression file identified"
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005GL024468",
+      "locations": [
+        "Supporting Information inventory"
+      ],
+      "qualification": "Lists 1012-byte Table 1 supplement; bytes remain unrecovered"
+    }
+  ],
+  "failed_or_nonpublication_retrievals": [
+    {
+      "url": "https://www.ideals.illinois.edu/items/18462",
+      "result": "HTTP Error 403: Forbidden",
+      "requested_pdf_recovered": false
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2005GL024468&file=grl20669-sup-0001-t01.txt",
+      "result": "HTTP Error 403: Forbidden",
+      "requested_pdf_recovered": false
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/suppl/10.1029/2005GL024468/supinfo/grl20669-sup-0001-t01.txt",
+      "result": "HTTP Error 403: Forbidden",
+      "requested_pdf_recovered": false
+    },
+    {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC1890468/fullTextXML",
+      "result": "HTTP Error 500: ",
+      "requested_pdf_recovered": false
+    },
+    {
+      "url": "https://iopscience.iop.org/article/10.1088/1742-6596/215/1/012198/pdf",
+      "result": "HTTP 200 returned HTML instead of requested PDF",
+      "requested_pdf_recovered": false
+    },
+    {
+      "url": "https://netfiles.uiuc.edu/liligao2/",
+      "result": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "requested_pdf_recovered": false
+    },
+    {
+      "url": "https://ideals-main.s3.us-east-2.amazonaws.com/institutions/uiuc/storage/18462/Gao_Lili.pdf",
+      "result": "HTTP Error 403: Forbidden",
+      "requested_pdf_recovered": false
+    },
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=netfiles.uiuc.edu/liligao2/*&output=json&collapse=urlkey",
+      "result": "HTTP Error 503: Service Unavailable",
+      "requested_pdf_recovered": false
+    },
+    {
+      "url": "https://link.springer.com/content/pdf/10.1007/s00269-010-0367-2.pdf",
+      "result": "HTTP 200 returned HTML instead of requested PDF",
+      "requested_pdf_recovered": false
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/cms/asset/0cac2d67-36b0-4d76-b854-1a9f15d13cfb/jgrb52101-math-0008.png",
+      "result": "HTTP Error 403: Forbidden",
+      "requested_pdf_recovered": false
+    }
+  ],
+  "rights": "Third-party articles, tables and code retain their respective source rights; no separate license or CC0 grant inferred. Archival availability does not establish reuse rights.",
+  "shared_generated_files_requiring_reconciliation": [],
+  "changes_to_existing_reports_materials_ledgers_calibration_or_coverage": false,
+  "author_contact_or_messages_sent": false
+}

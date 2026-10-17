@@ -1,0 +1,2537 @@
+{
+  "source_recovery": {
+    "paired_rows": 326,
+    "rows_by_table": {
+      "S1": 139,
+      "S2": 33,
+      "S3": 54,
+      "S4": 19,
+      "S7": 81
+    },
+    "dewaele_2018_rows": 84,
+    "dewaele_2018_excluded_below_200_gpa": [
+      1,
+      2,
+      3,
+      4,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      68,
+      69,
+      70,
+      71,
+      72
+    ]
+  },
+  "full_sequential_calibration_reproduced": false,
+  "original_weights_recovered": false,
+  "original_covariance_recovered": false,
+  "author_fit_parity": false,
+  "conditional_numerical_parity_achieved": true,
+  "uncertainty_parity_achieved": false,
+  "reconstruction_assessment": {
+    "status": "conditional_numerical_parity_achieved",
+    "conditional_numerical_parity_achieved": true,
+    "scope": "Au K0_prime central value at published precision",
+    "criterion": "Successful independently refitted K0_prime rounds to Table 2 at three decimal places",
+    "fitted_parameter": "K0_prime",
+    "published_value": 5.78,
+    "reconstructed_value": 5.780096584423864,
+    "difference": 9.658442386406563e-05,
+    "published_decimal_places": 3,
+    "rows": 210,
+    "assumed_residual": "equal_pressure_residuals",
+    "fixed_parameters_from_paper": {
+      "V0": 67.716,
+      "K0": 167.0,
+      "K_infinity_prime": 1.6666666666666667
+    },
+    "calibrants": "published rounded Sakai Table 2 W, MgO, Re; reconstructed IPPS-Ruby2020",
+    "uncertainty_parity_achieved": false,
+    "full_sequential_calibration_reproduced": false,
+    "author_fit_parity": false,
+    "author_fit_parity_scope": "exact original fitting procedure and uncertainty",
+    "original_weights_recovered": false,
+    "original_covariance_recovered": false
+  },
+  "native_vs_independent_max_difference_gpa": 0.0,
+  "table_s4_published_curve_residual": {
+    "rmse_gpa": 5.721623374350944,
+    "max_abs_gpa": 17.6448174845992,
+    "calculated_pressure_range_gpa": [
+      -0.06808868973291296,
+      368.18847013194016
+    ]
+  },
+  "cu_anchor_conversion_diagnostic": {
+    "kind": "fit_to_calculated_external_scale_inputs",
+    "rows": 35,
+    "k0_prime": 5.202434877759662,
+    "k_infinity_prime": 2.0037163298321303,
+    "rmse_gpa": 0.054102222071256256,
+    "max_abs_gpa": 0.13835896066120768,
+    "selection": "Table S14 E/F; <=1200 GPa; 1209.215 GPa last row retained in archive but not fit",
+    "optimizer_success": true,
+    "author_fit_parity": false
+  },
+  "conditional_au_fits": [
+    {
+      "rows": 210,
+      "assumed_residual": "equal_pressure_residuals",
+      "k0_prime": 5.780096584423864,
+      "published_k0_prime": 5.78,
+      "difference": 9.658442386406563e-05,
+      "rmse": 3.1415999152476832,
+      "residual_unit": "GPa",
+      "optimizer_success": true,
+      "author_fit_parity": false,
+      "author_covariance_recovered": false,
+      "conditional_numerical_parity_achieved": true,
+      "uncertainty_parity_achieved": false,
+      "source_selection": "all five Table S8 Au input families, 300 K only; Dewaele2018 <200 GPa excluded",
+      "missing_input": "author weights, original ruby shifts, exact upstream regressions and unrounded reductions",
+      "calibrants": "published rounded Sakai Table 2 W, MgO, Re; reconstructed IPPS-Ruby2020"
+    },
+    {
+      "rows": 210,
+      "assumed_residual": "equal_volume_residuals",
+      "k0_prime": 5.787771542079804,
+      "published_k0_prime": 5.78,
+      "difference": 0.007771542079804128,
+      "rmse": 0.1844028266590475,
+      "residual_unit": "angstrom^3",
+      "optimizer_success": true,
+      "author_fit_parity": false,
+      "author_covariance_recovered": false,
+      "conditional_numerical_parity_achieved": false,
+      "uncertainty_parity_achieved": false,
+      "source_selection": "all five Table S8 Au input families, 300 K only; Dewaele2018 <200 GPa excluded",
+      "missing_input": "author weights, original ruby shifts, exact upstream regressions and unrounded reductions",
+      "calibrants": "published rounded Sakai Table 2 W, MgO, Re; reconstructed IPPS-Ruby2020"
+    }
+  ],
+  "measurement_only_sequential_branch": [
+    {
+      "path": "Cu -> W (S3) -> Au (S4)",
+      "w_fit": {
+        "rows": 54,
+        "assumed_residual": "equal_pressure_residuals",
+        "k0_prime": 4.41791233813544,
+        "published_k0_prime": 4.415,
+        "difference": 0.002912338135439896,
+        "rmse": 7.878878596764494,
+        "residual_unit": "GPa",
+        "optimizer_success": true,
+        "author_fit_parity": false,
+        "author_covariance_recovered": false
+      },
+      "au_fit": {
+        "rows": 19,
+        "assumed_residual": "equal_pressure_residuals",
+        "k0_prime": 5.71551718225336,
+        "published_k0_prime": 5.78,
+        "difference": -0.06448281774664011,
+        "rmse": 4.292998152093009,
+        "residual_unit": "GPa",
+        "optimizer_success": true,
+        "author_fit_parity": false,
+        "author_covariance_recovered": false
+      },
+      "scope": "measured rows only; external Table S8 inputs omitted"
+    },
+    {
+      "path": "Cu -> W (S3) -> Au (S4)",
+      "w_fit": {
+        "rows": 54,
+        "assumed_residual": "equal_volume_residuals",
+        "k0_prime": 4.423582055704823,
+        "published_k0_prime": 4.415,
+        "difference": 0.008582055704822622,
+        "rmse": 0.19167317935858189,
+        "residual_unit": "angstrom^3",
+        "optimizer_success": true,
+        "author_fit_parity": false,
+        "author_covariance_recovered": false
+      },
+      "au_fit": {
+        "rows": 19,
+        "assumed_residual": "equal_volume_residuals",
+        "k0_prime": 5.709307773344136,
+        "published_k0_prime": 5.78,
+        "difference": -0.07069222665586405,
+        "rmse": 0.17118250467753993,
+        "residual_unit": "angstrom^3",
+        "optimizer_success": true,
+        "author_fit_parity": false,
+        "author_covariance_recovered": false
+      },
+      "scope": "measured rows only; external Table S8 inputs omitted"
+    }
+  ],
+  "pressure_reductions": [
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "5",
+      "volume_a3": 67.719684,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 31.731302,
+      "calculated_pressure_gpa": -0.06808868973291296,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "6",
+      "volume_a3": 67.737567,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 31.725321,
+      "calculated_pressure_gpa": -0.012324168440772231,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "7",
+      "volume_a3": 64.770484,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 30.876258,
+      "calculated_pressure_gpa": 8.510739391878277,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "8",
+      "volume_a3": 57.653964,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 28.412496,
+      "calculated_pressure_gpa": 41.56711808745951,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "9",
+      "volume_a3": 45.120987,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 22.945291,
+      "calculated_pressure_gpa": 193.8169320228973,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "10",
+      "volume_a3": 45.551086,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 22.905955,
+      "calculated_pressure_gpa": 195.55949933037255,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "11",
+      "volume_a3": 45.37458,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 22.648331,
+      "calculated_pressure_gpa": 207.3009643917399,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "12",
+      "volume_a3": 44.37441,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 22.235061,
+      "calculated_pressure_gpa": 227.39098063044185,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "13",
+      "volume_a3": 43.514786,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 21.78155,
+      "calculated_pressure_gpa": 251.36880929497343,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "14",
+      "volume_a3": 43.085886,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 21.565644,
+      "calculated_pressure_gpa": 263.55312576242017,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "15",
+      "volume_a3": 42.714673,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 21.379721,
+      "calculated_pressure_gpa": 274.4689846859333,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "16",
+      "volume_a3": 42.343705,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 21.152119,
+      "calculated_pressure_gpa": 288.3914602909699,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "17",
+      "volume_a3": 42.038888,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 21.02217,
+      "calculated_pressure_gpa": 296.62834025494385,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "18",
+      "volume_a3": 41.65016,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 20.866445,
+      "calculated_pressure_gpa": 306.7856732580476,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "19",
+      "volume_a3": 41.318757,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 20.72143,
+      "calculated_pressure_gpa": 316.5348942989692,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "20",
+      "volume_a3": 41.290745,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 20.563943,
+      "calculated_pressure_gpa": 327.45133357305764,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "21",
+      "volume_a3": 40.9479,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 20.43696,
+      "calculated_pressure_gpa": 336.51107405321085,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "22",
+      "volume_a3": 40.639103,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 20.218587,
+      "calculated_pressure_gpa": 352.6508526294706,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Sakai 2025 Table S4",
+      "source_row": "23",
+      "volume_a3": 40.108848,
+      "calibrant": "tungsten",
+      "calibrant_volume_a3": 20.017223,
+      "calculated_pressure_gpa": 368.18847013194016,
+      "included_in_diagnostic": true,
+      "selection_note": ""
+    },
+    {
+      "source": "Hirose 2008 Table 1",
+      "source_row": 1,
+      "volume_a3": 64.36308446036888,
+      "calibrant": "mgo",
+      "calibrant_volume_a3": 70.42657715369735,
+      "calculated_pressure_gpa": 10.7061629951754,
+      "included_in_diagnostic": true,
+      "selection_note": "300 K rows only"
+    },
+    {
+      "source": "Hirose 2008 Table 1",
+      "source_row": 2,
+      "volume_a3": 61.53396941600988,
+      "calibrant": "mgo",
+      "calibrant_volume_a3": 66.92143798748795,
+      "calculated_pressure_gpa": 22.247327061882164,
+      "included_in_diagnostic": true,
+      "selection_note": "300 K rows only"
+    },
+    {
+      "source": "Hirose 2008 Table 1",
+      "source_row": 3,
+      "volume_a3": 58.768588225439004,
+      "calibrant": "mgo",
+      "calibrant_volume_a3": 63.51690066995627,
+      "calculated_pressure_gpa": 36.59260448502691,
+      "included_in_diagnostic": true,
+      "selection_note": "300 K rows only"
+    },
+    {
+      "source": "Hirose 2008 Table 1",
+      "source_row": 4,
+      "volume_a3": 55.401330624292235,
+      "calibrant": "mgo",
+      "calibrant_volume_a3": 59.210922604417945,
+      "calculated_pressure_gpa": 60.662785752916676,
+      "included_in_diagnostic": true,
+      "selection_note": "300 K rows only"
+    },
+    {
+      "source": "Hirose 2008 Table 1",
+      "source_row": 5,
+      "volume_a3": 55.393919269463595,
+      "calibrant": "mgo",
+      "calibrant_volume_a3": 59.131658268143475,
+      "calculated_pressure_gpa": 61.18193275252882,
+      "included_in_diagnostic": true,
+      "selection_note": "300 K rows only"
+    },
+    {
+      "source": "Hirose 2008 Table 1",
+      "source_row": 6,
+      "volume_a3": 52.89865466998888,
+      "calibrant": "mgo",
+      "calibrant_volume_a3": 55.73596394137191,
+      "calculated_pressure_gpa": 86.62123052727944,
+      "included_in_diagnostic": true,
+      "selection_note": "300 K rows only"
+    },
+    {
+      "source": "Hirose 2008 Table 1",
+      "source_row": 7,
+      "volume_a3": 51.05572723268135,
+      "calibrant": "mgo",
+      "calibrant_volume_a3": 53.39056241779714,
+      "calculated_pressure_gpa": 108.516070357582,
+      "included_in_diagnostic": true,
+      "selection_note": "300 K rows only"
+    },
+    {
+      "source": "Hirose 2008 Table 1",
+      "source_row": 8,
+      "volume_a3": 50.043110605296235,
+      "calibrant": "mgo",
+      "calibrant_volume_a3": 52.09111774252071,
+      "calculated_pressure_gpa": 122.51111219201178,
+      "included_in_diagnostic": true,
+      "selection_note": "300 K rows only"
+    },
+    {
+      "source": "Hirose 2008 Table 1",
+      "source_row": 9,
+      "volume_a3": 48.554819692365264,
+      "calibrant": "mgo",
+      "calibrant_volume_a3": 50.24912797897474,
+      "calculated_pressure_gpa": 145.03810764799553,
+      "included_in_diagnostic": true,
+      "selection_note": "300 K rows only"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 1,
+      "volume_a3": 64.44743868435698,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.65964611062456,
+      "calculated_pressure_gpa": 10.427095464659734,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 2,
+      "volume_a3": 62.926063609375,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.303666236930248,
+      "calculated_pressure_gpa": 15.533459193009241,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 3,
+      "volume_a3": 60.55493270210899,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 27.741578079941068,
+      "calculated_pressure_gpa": 24.30927082685023,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 4,
+      "volume_a3": 57.73623962500001,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 27.00858076057894,
+      "calculated_pressure_gpa": 37.20986724119379,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 5,
+      "volume_a3": 44.039333539144,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.321772304453262,
+      "calculated_pressure_gpa": 230.27296768927084,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 6,
+      "volume_a3": 43.804055918251,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.118402082883424,
+      "calculated_pressure_gpa": 241.9955879797575,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 7,
+      "volume_a3": 42.87867510500101,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.666707508204272,
+      "calculated_pressure_gpa": 269.85844594374953,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 8,
+      "volume_a3": 42.581671488,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.53067994536321,
+      "calculated_pressure_gpa": 278.7742108774356,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 9,
+      "volume_a3": 42.391727220032,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.435951019689078,
+      "calculated_pressure_gpa": 285.1344903832732,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 10,
+      "volume_a3": 41.648411472247,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.0262249292561,
+      "calculated_pressure_gpa": 314.1509761119506,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 11,
+      "volume_a3": 41.605171596451,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.046065621240317,
+      "calculated_pressure_gpa": 312.6872567747526,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 12,
+      "volume_a3": 40.98868488423901,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 19.74076648995316,
+      "calculated_pressure_gpa": 335.90869960878774,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 13,
+      "volume_a3": 40.424237567999995,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 19.46851901087149,
+      "calculated_pressure_gpa": 357.93525549321913,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 14,
+      "volume_a3": 40.06488180823201,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 19.263005901270716,
+      "calculated_pressure_gpa": 375.44089322166604,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 15,
+      "volume_a3": 39.693696892928,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 19.073961214631538,
+      "calculated_pressure_gpa": 392.2488823748849,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 16,
+      "volume_a3": 39.376872991260996,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.92334327728121,
+      "calculated_pressure_gpa": 406.146541444029,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 17,
+      "volume_a3": 39.310936408008,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.90217343639561,
+      "calculated_pressure_gpa": 408.1369926444265,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 18,
+      "volume_a3": 38.95821900000001,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.691934591539138,
+      "calculated_pressure_gpa": 428.4168002200564,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 19,
+      "volume_a3": 38.717382887,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.56883094248696,
+      "calculated_pressure_gpa": 440.73706578020847,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 20,
+      "volume_a3": 38.494639972125,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.440138964967332,
+      "calculated_pressure_gpa": 453.98265657787186,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 21,
+      "volume_a3": 38.248908463557,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.37679354572672,
+      "calculated_pressure_gpa": 460.6436608444083,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 22,
+      "volume_a3": 38.011007575366996,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.22379134012198,
+      "calculated_pressure_gpa": 477.1282703133398,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 23,
+      "volume_a3": 37.828159559009,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.135823710721226,
+      "calculated_pressure_gpa": 486.86629991243103,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 24,
+      "volume_a3": 37.686350534183,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.066651514383544,
+      "calculated_pressure_gpa": 494.6608155810058,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 25,
+      "volume_a3": 37.551624232303,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.99267982475059,
+      "calculated_pressure_gpa": 503.13248542979676,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 26,
+      "volume_a3": 37.403796589307,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.912421485081776,
+      "calculated_pressure_gpa": 512.4866846097262,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 27,
+      "volume_a3": 37.246318883136,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.8537160332361,
+      "calculated_pressure_gpa": 519.4380315508449,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 28,
+      "volume_a3": 37.08928380754901,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.75707929475443,
+      "calculated_pressure_gpa": 531.0859600438362,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 29,
+      "volume_a3": 36.919384059592005,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.6459566116715,
+      "calculated_pressure_gpa": 544.8029601974174,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 30,
+      "volume_a3": 36.79644875858099,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.61442719425121,
+      "calculated_pressure_gpa": 548.7592479196517,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 31,
+      "volume_a3": 36.67709826562499,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.528433204882873,
+      "calculated_pressure_gpa": 559.6971641977301,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 32,
+      "volume_a3": 36.561310759,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.467194504467738,
+      "calculated_pressure_gpa": 567.6200447467592,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 33,
+      "volume_a3": 36.416095396136,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.392904307531992,
+      "calculated_pressure_gpa": 577.3837925080552,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 34,
+      "volume_a3": 36.31730570489599,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.321715923325147,
+      "calculated_pressure_gpa": 586.8994996914782,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 35,
+      "volume_a3": 36.159614090432,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.24253838554004,
+      "calculated_pressure_gpa": 597.6703994828049,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 36,
+      "volume_a3": 35.999108745859,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 17.160632986222616,
+      "calculated_pressure_gpa": 609.0243797570421,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 37,
+      "volume_a3": 65.92947152479198,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.736603446787,
+      "calculated_pressure_gpa": 9.366414496442314,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 38,
+      "volume_a3": 65.26099229958098,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.677285971289724,
+      "calculated_pressure_gpa": 10.18264382247313,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 39,
+      "volume_a3": 64.46672999267298,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.514133319149767,
+      "calculated_pressure_gpa": 12.474114568652235,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 40,
+      "volume_a3": 63.478224424971,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.329967036086032,
+      "calculated_pressure_gpa": 15.144646703950485,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 41,
+      "volume_a3": 63.163669640624995,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.277289980412036,
+      "calculated_pressure_gpa": 15.925280797750423,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 42,
+      "volume_a3": 62.646455813696,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.189686797978283,
+      "calculated_pressure_gpa": 17.240362076133486,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 43,
+      "volume_a3": 62.11325050922701,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.068656787838023,
+      "calculated_pressure_gpa": 19.09247339911478,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 44,
+      "volume_a3": 61.65796376621601,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 27.966074971200733,
+      "calculated_pressure_gpa": 20.694912183298136,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 45,
+      "volume_a3": 61.11177042086899,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 27.828274495651165,
+      "calculated_pressure_gpa": 22.89572172934397,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 46,
+      "volume_a3": 60.559558983,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 27.756929336857326,
+      "calculated_pressure_gpa": 24.05732582822392,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 47,
+      "volume_a3": 59.71228396805599,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 27.493825327138563,
+      "calculated_pressure_gpa": 28.47565188463865,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 48,
+      "volume_a3": 56.35368795221899,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 26.604188175718434,
+      "calculated_pressure_gpa": 45.113470180794785,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 49,
+      "volume_a3": 54.031587435125,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 25.91634854328022,
+      "calculated_pressure_gpa": 60.002668534569274,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 50,
+      "volume_a3": 53.774736268625006,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 25.805083845292522,
+      "calculated_pressure_gpa": 62.59624974151939,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 51,
+      "volume_a3": 52.924446653625004,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 25.482009209293278,
+      "calculated_pressure_gpa": 70.44171386391591,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 52,
+      "volume_a3": 49.422782100392,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 24.02495725445007,
+      "calculated_pressure_gpa": 112.45176960161442,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 53,
+      "volume_a3": 44.780476137830995,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.722584667052157,
+      "calculated_pressure_gpa": 208.5470006924435,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 54,
+      "volume_a3": 44.814532608,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.71010830470264,
+      "calculated_pressure_gpa": 209.19694312476074,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 55,
+      "volume_a3": 44.814532608,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.70728949412898,
+      "calculated_pressure_gpa": 209.34401350988995,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 56,
+      "volume_a3": 44.550103625,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.581957704100432,
+      "calculated_pressure_gpa": 215.96882811911908,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 57,
+      "volume_a3": 44.170406613549,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.34667714423481,
+      "calculated_pressure_gpa": 228.87068411139606,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 58,
+      "volume_a3": 43.42120316179201,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.924297453475702,
+      "calculated_pressure_gpa": 253.65073739823768,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 59,
+      "volume_a3": 42.680519796122994,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.514628678084836,
+      "calculated_pressure_gpa": 279.84307187635363,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 60,
+      "volume_a3": 42.24236236728299,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.28987930683378,
+      "calculated_pressure_gpa": 295.1930173227365,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 61,
+      "volume_a3": 42.227808999767,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.316433191611587,
+      "calculated_pressure_gpa": 293.34147606467076,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 62,
+      "volume_a3": 41.26032950387499,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 19.819286236816062,
+      "calculated_pressure_gpa": 329.79126771089216,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 63,
+      "volume_a3": 40.846194146519004,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 19.597020864503833,
+      "calculated_pressure_gpa": 347.3779256794658,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 64,
+      "volume_a3": 40.247815483000004,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 19.29891669166335,
+      "calculated_pressure_gpa": 372.3255069451535,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 65,
+      "volume_a3": 39.843994273875005,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 19.07798000855582,
+      "calculated_pressure_gpa": 391.88430915089964,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 66,
+      "volume_a3": 39.449836002088,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.885010906443195,
+      "calculated_pressure_gpa": 409.75748191659835,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 67,
+      "volume_a3": 38.782654259049,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 18.533029523321584,
+      "calculated_pressure_gpa": 444.3838368620817,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 68,
+      "volume_a3": 66.58278504129099,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.978040221793016,
+      "calculated_pressure_gpa": 6.1344231529228646,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 69,
+      "volume_a3": 64.28361792537898,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.638461767830073,
+      "calculated_pressure_gpa": 10.721715247055208,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 70,
+      "volume_a3": 62.831188293874995,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.28809459479588,
+      "calculated_pressure_gpa": 15.764547404971962,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 71,
+      "volume_a3": 61.69074477869699,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 28.008275549411593,
+      "calculated_pressure_gpa": 20.032026425991425,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 72,
+      "volume_a3": 47.045880999999994,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 22.656731078510504,
+      "calculated_pressure_gpa": 164.23430497231166,
+      "included_in_diagnostic": false,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 73,
+      "volume_a3": 45.335081738393,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.837019864201604,
+      "calculated_pressure_gpa": 202.6615227244643,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 74,
+      "volume_a3": 45.08760619468801,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.698477741955305,
+      "calculated_pressure_gpa": 209.8043052349083,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 75,
+      "volume_a3": 44.750218208527,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.542200019395057,
+      "calculated_pressure_gpa": 218.10581030057136,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 76,
+      "volume_a3": 44.095475916289004,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 21.26920552922928,
+      "calculated_pressure_gpa": 233.25633424673313,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 77,
+      "volume_a3": 43.24355099999999,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.794980933934124,
+      "calculated_pressure_gpa": 261.6791448701135,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 78,
+      "volume_a3": 43.02585157392101,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.67610992362641,
+      "calculated_pressure_gpa": 269.25146706017233,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 79,
+      "volume_a3": 42.665865959807,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.600093985742458,
+      "calculated_pressure_gpa": 274.1929423131998,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 80,
+      "volume_a3": 42.43916021984101,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.42414103772948,
+      "calculated_pressure_gpa": 285.9363174499493,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 81,
+      "volume_a3": 42.231447028224004,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.325379065763943,
+      "calculated_pressure_gpa": 292.7200263042159,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 82,
+      "volume_a3": 42.042546467647995,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.2228077868363,
+      "calculated_pressure_gpa": 299.9161216299572,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 83,
+      "volume_a3": 41.890384817,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.104072684146868,
+      "calculated_pressure_gpa": 308.44300175040513,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2018 Tables 4-5",
+      "source_row": 84,
+      "volume_a3": 41.53317166159099,
+      "calibrant": "rhenium",
+      "calibrant_volume_a3": 20.004297046593514,
+      "calculated_pressure_gpa": 315.77585887648473,
+      "included_in_diagnostic": true,
+      "selection_note": "exclude below 200 GPa on recalculated Re scale (Sakai Fig. S6)"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 1,
+      "volume_a3": 66.864,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 2.235503213460585,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 2,
+      "volume_a3": 66.568,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 3.382459641458671,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 3,
+      "volume_a3": 65.976,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 4.929688595200217,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 4,
+      "volume_a3": 65.492,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 6.671732126628147,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 5,
+      "volume_a3": 65.104,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 7.770104183180652,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 6,
+      "volume_a3": 64.68,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 9.17172000873001,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 7,
+      "volume_a3": 64.336,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 10.527116113906287,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 8,
+      "volume_a3": 63.916,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 11.987022961103817,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 9,
+      "volume_a3": 63.52,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 13.451099150970137,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 10,
+      "volume_a3": 63.16,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 15.020656324980544,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 11,
+      "volume_a3": 62.856,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 16.137306163217985,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 12,
+      "volume_a3": 62.568,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 17.40896494621496,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 13,
+      "volume_a3": 62.128,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 19.194083228426457,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 14,
+      "volume_a3": 61.76,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 20.88220279406182,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 15,
+      "volume_a3": 61.444,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 22.523695382552635,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 16,
+      "volume_a3": 61.052,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 24.169540213130404,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 17,
+      "volume_a3": 60.628,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 26.491175999227544,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 18,
+      "volume_a3": 60.348,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 28.198888492128095,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 19,
+      "volume_a3": 59.844,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 30.44086575110328,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 20,
+      "volume_a3": 67.408,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 1.121174407148281,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 21,
+      "volume_a3": 67.864,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 0.0,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 22,
+      "volume_a3": 56.316,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 54.122060023947114,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 23,
+      "volume_a3": 55.524,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 60.76628208509189,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 24,
+      "volume_a3": 54.716,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 68.09640240139322,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 25,
+      "volume_a3": 54.168,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 72.96967208345391,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 26,
+      "volume_a3": 53.356,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 81.67296517441707,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 27,
+      "volume_a3": 52.12,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 94.8108720505843,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 28,
+      "volume_a3": 59.612,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 31.42917326911217,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 29,
+      "volume_a3": 58.836,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 36.86224642280392,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 30,
+      "volume_a3": 58.256,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 40.32972099651456,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 31,
+      "volume_a3": 57.328,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 46.45830344996743,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 32,
+      "volume_a3": 56.636,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 51.667555254962174,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 33,
+      "volume_a3": 55.96,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 57.11780075561916,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 34,
+      "volume_a3": 54.54,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 69.17787098920363,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 35,
+      "volume_a3": 53.72,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 77.42406373312808,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 36,
+      "volume_a3": 53.112,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 83.74688028746968,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Dewaele 2004 Table I",
+      "source_row": 37,
+      "volume_a3": 52.64,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 90.09269877108956,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Mao1986 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 1,
+      "volume_a3": 64.39922725178701,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 9.842721886492427,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 2,
+      "volume_a3": 63.65023909098301,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 12.417097652240722,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 3,
+      "volume_a3": 61.667328584512006,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 20.472940378724925,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 4,
+      "volume_a3": 60.084288670463,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 27.440054771082554,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 5,
+      "volume_a3": 58.936532959295995,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 33.7142477246529,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 6,
+      "volume_a3": 57.776582225179,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 40.88877950334989,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 7,
+      "volume_a3": 56.951087560424,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 47.26946571550207,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 8,
+      "volume_a3": 56.124697705903,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 54.55096045107494,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 9,
+      "volume_a3": 55.10191637487699,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 62.33502549606182,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 10,
+      "volume_a3": 54.31506692731101,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 68.52498560389533,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 11,
+      "volume_a3": 53.29321249996799,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 77.81396498093348,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 12,
+      "volume_a3": 53.28046800918901,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 78.51332174993601,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 13,
+      "volume_a3": 53.29321249996799,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 78.713142609971,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 14,
+      "volume_a3": 66.706068199616,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 2.233622500715175,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 15,
+      "volume_a3": 66.62714946400001,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 3.3854412262382563,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 16,
+      "volume_a3": 66.02253919171298,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 4.924780100793831,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 17,
+      "volume_a3": 65.70451209420798,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 6.673040856537368,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 18,
+      "volume_a3": 65.18807680693602,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 7.765896917166334,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 19,
+      "volume_a3": 64.693691305984,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 9.16695195873301,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 20,
+      "volume_a3": 64.384768512,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 10.528484541550913,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 21,
+      "volume_a3": 63.95201199900001,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 12.019460996723307,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 22,
+      "volume_a3": 63.545082142625,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 13.411267215636805,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 23,
+      "volume_a3": 63.18270391978899,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 15.002166585439841,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 24,
+      "volume_a3": 62.902335832999995,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 16.096069744210673,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 25,
+      "volume_a3": 62.57077300000001,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 17.389029014238208,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 26,
+      "volume_a3": 62.179146498113,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 19.179568784672092,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 27,
+      "volume_a3": 61.79853562265599,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 20.870934719413697,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 28,
+      "volume_a3": 61.44283453600001,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 22.562585568838813,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 29,
+      "volume_a3": 61.083847794887,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 24.154981826416893,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 30,
+      "volume_a3": 60.628981474125005,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 26.444472515052848,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 31,
+      "volume_a3": 60.38854346233699,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 28.236585497081602,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 32,
+      "volume_a3": 59.955520242618995,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 30.42733737775974,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 33,
+      "volume_a3": 67.47879422412801,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 1.1216898541961382,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 34,
+      "volume_a3": 67.95227543794302,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 0.0,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 35,
+      "volume_a3": 56.24351890314399,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 54.052113867036226,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 36,
+      "volume_a3": 55.463263059456004,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 60.73798608642416,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 37,
+      "volume_a3": 54.664326545407995,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 68.02571287961614,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 38,
+      "volume_a3": 54.08305561751299,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 72.91918774143404,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 39,
+      "volume_a3": 53.26347851562501,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 81.6107741909462,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 40,
+      "volume_a3": 52.053885698472,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 94.7051697640076,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 41,
+      "volume_a3": 59.41030680800001,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 31.423273009339685,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 42,
+      "volume_a3": 58.736850830848,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 36.802776211061385,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 43,
+      "volume_a3": 58.03701874781301,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 40.290746402181405,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 44,
+      "volume_a3": 57.37846379300001,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 46.47171723764126,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 45,
+      "volume_a3": 56.52583878615201,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 51.65788003492623,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 46,
+      "volume_a3": 55.88755759533701,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 57.045436247381005,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 47,
+      "volume_a3": 54.465798473416,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 69.12413153215248,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 48,
+      "volume_a3": 53.59542562792701,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 77.31443996555218,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 49,
+      "volume_a3": 53.08530683428701,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 83.70932258270987,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 50,
+      "volume_a3": 52.56159529357899,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 89.90628616448132,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 51,
+      "volume_a3": 65.92947152479198,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 4.746002495519993,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 52,
+      "volume_a3": 63.92323071590401,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 11.323640169546673,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 53,
+      "volume_a3": 62.55186182553599,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 16.593340830270137,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 54,
+      "volume_a3": 61.35412304312101,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 22.06501202481025,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 55,
+      "volume_a3": 60.236287999999995,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 28.834021013923227,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 56,
+      "volume_a3": 58.718720308032005,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 36.603492812011595,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 57,
+      "volume_a3": 57.597425530658995,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 44.97606217230466,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 58,
+      "volume_a3": 56.336051245374996,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 53.45351961409335,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 59,
+      "volume_a3": 55.110605016375,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 62.93395510619297,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 60,
+      "volume_a3": 66.199118039677,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 4.48777540214179,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 61,
+      "volume_a3": 64.404047312704,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 10.031549585729353,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 62,
+      "volume_a3": 63.00203259067099,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 15.201048467954491,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 63,
+      "volume_a3": 61.634555868500996,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 20.97043577252549,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 64,
+      "volume_a3": 60.28239896099999,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 27.937879756887476,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 65,
+      "volume_a3": 58.610015515583996,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 37.89889184752817,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 66,
+      "volume_a3": 57.32938551087901,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 46.272287232605386,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 67,
+      "volume_a3": 56.19509004412699,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 54.850276234221994,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 68,
+      "volume_a3": 54.876332114001,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 65.5295637952514,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 69,
+      "volume_a3": 61.35412304312101,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 22.36355325384596,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 70,
+      "volume_a3": 60.148741966741,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 28.037447443588118,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 71,
+      "volume_a3": 58.393008582335995,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 38.49681340788954,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 72,
+      "volume_a3": 57.36061390549599,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 45.37488768035359,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 73,
+      "volume_a3": 56.256731601013,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 53.25399346888871,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 74,
+      "volume_a3": 55.58551855494399,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 58.54231297272518,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 75,
+      "volume_a3": 54.902329586343,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 64.43137300714723,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 76,
+      "volume_a3": 54.35379987199999,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 68.9244139676007,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 77,
+      "volume_a3": 53.787559452992,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 74.51734206049744,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 78,
+      "volume_a3": 53.34421078598401,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 79.01287775286855,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 79,
+      "volume_a3": 52.789237764697006,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 85.20841861503435,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 80,
+      "volume_a3": 52.16270328454401,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 92.20562002364598,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 81,
+      "volume_a3": 51.570235465048,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 99.20505972753126,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 82,
+      "volume_a3": 51.093721064043,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 106.3066488232931,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 83,
+      "volume_a3": 50.648893110999,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 111.9093566331894,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 84,
+      "volume_a3": 50.251579102807995,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 118.01369692298287,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 85,
+      "volume_a3": 49.876670241,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 123.91921538980448,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    },
+    {
+      "source": "Takemura-Dewaele 2008 Table III",
+      "source_row": 86,
+      "volume_a3": 49.42682244009901,
+      "calibrant": "IPPS-Ruby2020",
+      "calibrant_volume_a3": null,
+      "calculated_pressure_gpa": 130.52685968094687,
+      "included_in_diagnostic": true,
+      "selection_note": "inferred shift from rounded Dorogokupets-Oganov Eq. 16 pressures"
+    }
+  ]
+}

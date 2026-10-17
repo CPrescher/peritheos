@@ -534,7 +534,7 @@
    "dataset_identifiers": [
     "gold_hirose_2008_table1"
    ],
-   "notes": "Published shared MgO pressure basis, not an Au-to-MgO volume function. Room-temperature anchor only; paired raw lattice parameters retained."
+   "notes": "Published shared MgO pressure basis, not an Au-to-MgO volume function. Executable 300 K BM3 anchor only; paired raw lattice parameters retained. Availability and author confirmation of the published Speziale thermal model do not make the separate historical thermal ancestry executable."
   },
   {
    "identifier": "gold_hirose_2008_to_mgo_speziale_2001_thermal",
@@ -562,7 +562,7 @@
    "dataset_identifiers": [
     "gold_hirose_2008_table1"
    ],
-   "notes": "Published shared MgO pressure basis, not an Au-to-MgO volume function. Thermal anchor is not bundled; edge retained as evidence only."
+   "notes": "Published shared MgO pressure basis, not an Au-to-MgO volume function. The published Speziale VariableQMieGruneisenDebye EOS is bundled as mgo_speziale_2001_bm3_2 and its Debye-temperature integration is author-confirmed. The target mgo_speziale_2001_thermal denotes the unrecovered historical Hirose reduction, not that executable published EOS. Later Fei/Hirose reported hot pressures are not reproduced by the published model; this edge remains non-executable evidence only. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json."
   }
  ],
  "measurement_notes": [

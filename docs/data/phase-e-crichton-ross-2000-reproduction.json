@@ -1,0 +1,250 @@
+{
+  "material": "phase_e_fe0072",
+  "record": "phase_e_fe0072_crichton_ross_2000_bm3",
+  "source_doi": "10.1180/002646100549427",
+  "observations": 11,
+  "table_sha256": "82a02c2ccafd64a09f21ad506f0b04359848b6b49e236a7d7a8c002904cb8cf4",
+  "fit_recovery": {
+    "status": "parity_within_reported_uncertainty",
+    "assessment": "The published physical volume EOS is successfully recovered within its reported uncertainties. Small central-value differences are reported, not treated as a failed reproduction.",
+    "comparison_fit": "iterated_effective_variance",
+    "all_coefficients_within_published_errors": true,
+    "max_coefficient_shift_over_published_error": 0.12212880457395517,
+    "coefficient_differences": {
+      "V0": 0.0005239134268890666,
+      "K0": -0.08549016320176861,
+      "K0_prime": -0.02278310378634263
+    },
+    "max_curve_difference_gpa_on_2000_point_volume_grid": 0.009574440238959703,
+    "max_curve_difference_over_combined_observation_error": 0.3646853133003022,
+    "all_curve_differences_within_combined_observation_errors": true,
+    "published_coefficients_preserved": true,
+    "exact_workflow_provenance_is_separate": true
+  },
+  "source_equation_validation": {
+    "status": "validated",
+    "published_parameters": {
+      "V0": 105.627,
+      "K0": 92.9,
+      "K0_prime": 7.3
+    },
+    "pressure_residuals_gpa": [
+      -0.005375816021736539,
+      0.0007374638438093495,
+      0.003680997396269259,
+      0.017755862460302918,
+      0.0030948064533351527,
+      -0.018286985763978247,
+      -0.004337006561360823,
+      0.017776772430627474,
+      0.003913266447795216,
+      0.02369709452929669,
+      0.008104562964130757
+    ],
+    "max_abs_pressure_residual_gpa": 0.02369709452929669,
+    "pressure_rmse_gpa": 0.012356921019492,
+    "conditional_effective_variance_chi2_per_dof": 0.401686595431483,
+    "source_chi_w_squared": 0.4,
+    "source_chi_printed_precision_tolerance": 0.05,
+    "source_max_residual_gpa": 0.02,
+    "printed_precision_tolerance_gpa": 0.005,
+    "matches_source_max_residual_at_printed_precision": true,
+    "native_max_pressure_difference_gpa": 4.263256414560601e-14,
+    "native_max_volume_roundtrip_difference_a3": 5.542233338928781e-13,
+    "curve_checkpoints": [
+      {
+        "volume_a3": 105.627,
+        "independent_bm3_pressure_gpa": 0.0
+      },
+      {
+        "volume_a3": 104.0,
+        "independent_bm3_pressure_gpa": 1.5258779793794912
+      },
+      {
+        "volume_a3": 102.0,
+        "independent_bm3_pressure_gpa": 3.6841217878654966
+      },
+      {
+        "volume_a3": 100.0,
+        "independent_bm3_pressure_gpa": 6.196492213716718
+      },
+      {
+        "volume_a3": 99.648,
+        "independent_bm3_pressure_gpa": 6.679104562964131
+      }
+    ]
+  },
+  "conditional_coefficient_agreement": {
+    "status": "within_reported_errors",
+    "weights": "sigma_eff_P^2 = sigma_P^2 + (dP/dV * sigma_V)^2",
+    "assumptions": [
+      "Printed P and V esds treated as uncorrelated; source covariance absent.",
+      "Ambient pressure variance contribution omitted conditionally; missing esd stays null in source data.",
+      "All V0,K0,Kprime free, all 11 rows, unless explicitly labeled sensitivity subset.",
+      "IRLS holds weights fixed during each solve and recomputes between solves.",
+      "Direct effective variance differentiates through its parameter-dependent denominator.",
+      "No fitted parameter errors claimed; printed source errors used only for coefficient comparison."
+    ],
+    "fits": {
+      "unweighted_pressure": {
+        "classification": "independent_diagnostic_refit",
+        "observations": 11,
+        "parameters": {
+          "V0": 105.62505536645799,
+          "K0": 93.13266987769866,
+          "K0_prime": 7.148175616378098
+        },
+        "delta_over_published_error": {
+          "V0": -0.2778047917157015,
+          "K0": 0.33238553956950667,
+          "K0_prime": -0.7591219181095088
+        },
+        "all_within_published_errors": true,
+        "max_abs_pressure_residual_gpa": 0.021194399987367163,
+        "pressure_rmse_gpa": 0.010571057890197895,
+        "effective_variance_chi2": 2.8044442085394246,
+        "effective_variance_chi2_per_dof": 0.35055552606742807,
+        "weight_iterations": 1,
+        "refined_parameters": [
+          "V0",
+          "K0",
+          "K0_prime"
+        ],
+        "fixed_parameters": [],
+        "objective": "unweighted_pressure",
+        "ambient_pressure_esd_assumption": "Pressure esd unreported: omit its variance term; retain volume esd.",
+        "parameter_uncertainties": null,
+        "covariance": null
+      },
+      "iterated_effective_variance": {
+        "classification": "independent_diagnostic_refit",
+        "observations": 11,
+        "parameters": {
+          "V0": 105.62752391342688,
+          "K0": 92.81450983679824,
+          "K0_prime": 7.277216896213657
+        },
+        "delta_over_published_error": {
+          "V0": 0.07484477526986666,
+          "K0": -0.12212880457395517,
+          "K0_prime": -0.11391551893171314
+        },
+        "all_within_published_errors": true,
+        "max_abs_pressure_residual_gpa": 0.022878522937008317,
+        "pressure_rmse_gpa": 0.010738316186002777,
+        "effective_variance_chi2": 2.7179834581477307,
+        "effective_variance_chi2_per_dof": 0.33974793226846633,
+        "weight_iterations": 5,
+        "refined_parameters": [
+          "V0",
+          "K0",
+          "K0_prime"
+        ],
+        "fixed_parameters": [],
+        "objective": "iterated_effective_variance",
+        "ambient_pressure_esd_assumption": "Pressure esd unreported: omit its variance term; retain volume esd.",
+        "parameter_uncertainties": null,
+        "covariance": null
+      },
+      "direct_effective_variance": {
+        "classification": "independent_diagnostic_refit",
+        "observations": 11,
+        "parameters": {
+          "V0": 105.62750396213188,
+          "K0": 92.8119725442101,
+          "K0_prime": 7.279091733832869
+        },
+        "delta_over_published_error": {
+          "V0": 0.0719945902695989,
+          "K0": -0.12575350827130397,
+          "K0_prime": -0.10454133083565242
+        },
+        "all_within_published_errors": true,
+        "max_abs_pressure_residual_gpa": 0.022878786195131617,
+        "pressure_rmse_gpa": 0.010745728289702392,
+        "effective_variance_chi2": 2.71791822953733,
+        "effective_variance_chi2_per_dof": 0.33973977869216626,
+        "weight_iterations": 1,
+        "refined_parameters": [
+          "V0",
+          "K0",
+          "K0_prime"
+        ],
+        "fixed_parameters": [],
+        "objective": "direct_effective_variance",
+        "ambient_pressure_esd_assumption": "Pressure esd unreported: omit its variance term; retain volume esd.",
+        "parameter_uncertainties": null,
+        "covariance": null
+      },
+      "iterated_without_ambient": {
+        "classification": "independent_diagnostic_refit",
+        "observations": 10,
+        "parameters": {
+          "V0": 105.61745856005297,
+          "K0": 93.49701557987333,
+          "K0_prime": 7.0637175142984505
+        },
+        "delta_over_published_error": {
+          "V0": -1.3630628495755153,
+          "K0": 0.8528793998190412,
+          "K0_prime": -1.1814124285077465
+        },
+        "all_within_published_errors": false,
+        "max_abs_pressure_residual_gpa": 0.020361910928787808,
+        "pressure_rmse_gpa": 0.010663441769652907,
+        "effective_variance_chi2": 2.373095268025769,
+        "effective_variance_chi2_per_dof": 0.33901360971796696,
+        "weight_iterations": 4,
+        "refined_parameters": [
+          "V0",
+          "K0",
+          "K0_prime"
+        ],
+        "fixed_parameters": [],
+        "objective": "iterated_effective_variance",
+        "ambient_pressure_esd_assumption": "Ambient row excluded as a sensitivity check.",
+        "parameter_uncertainties": null,
+        "covariance": null
+      }
+    },
+    "source_reported_chi_w_squared": 0.4,
+    "source_chi_definition": "Author thesis Eq. 2.31 defines reduced pressure-residual chi squared (n-m); exact combined-error weights and their iteration remain unspecified."
+  },
+  "exact_author_workflow_reproduction": {
+    "status": "not_reproduced",
+    "provenance_only": true,
+    "does_not_negate_fit_parity": true,
+    "unavailable_details": [
+      "Original unrounded P,a,c,V and quartz observations absent.",
+      "Fit software/version, precise combined-error weight implementation/iteration and ambient esd handling not supplied; thesis Eq. 2.31 does recover pressure WLS and n-m normalization.",
+      "Measurement covariance and fitted parameter covariance not supplied."
+    ]
+  },
+  "calibration_recalculation": "missing_calibrant_observations",
+  "cell_consistency": {
+    "max_abs_lattice_vs_printed_volume_a3": 0.0036756785204516973,
+    "all_within_printed_rounding_bounds": true,
+    "ambient_cell_volume_a3": 105.63609608754884,
+    "basis": "R-centered conventional hexagonal cell, empirical O6 formula, Z=1"
+  },
+  "structure_site_audit": [
+    {
+      "sample": 1,
+      "table1_site_totals": {
+        "Mg": 2.031,
+        "Si": 1.158,
+        "O": 6.0
+      }
+    },
+    {
+      "sample": 2,
+      "table1_site_totals": {
+        "Mg": 2.169,
+        "Si": 1.014,
+        "O": 6.0
+      }
+    }
+  ],
+  "diffraction_scope": "Eight indexed position markers only; no target-sample occupied-site or intensity model.",
+  "thermal": "Deferred: Wang 2022 is a distinct Fe-free composition."
+}

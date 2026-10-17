@@ -993,6 +993,10 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             thermal_parameters = _require_mapping(
                 thermal.get("parameters"), f"{location}.thermal.parameters"
             )
+            if "dKprime_dT" in thermal_parameters and thermal_type != "AlphaKT":
+                raise EosmatError(
+                    f"{location}.thermal.parameters.dKprime_dT requires AlphaKT"
+                )
             for name, value in thermal_parameters.items():
                 parameter_location = f"{location}.thermal.parameters.{name}"
                 if (

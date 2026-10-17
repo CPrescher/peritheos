@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 650,
+    "records": 672,
     "deferred": 3,
-    "not_reproduced": 7,
-    "primary_source_validated": 640
+    "not_reproduced": 9,
+    "primary_source_validated": 660
   },
   "records": [
     {
@@ -1450,6 +1450,229 @@
         ],
         "finding": "The source explicitly fits the 300 K simulated volumes to BM3 and reports rho0, K_T0, and K'_T0."
       }
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_fukui_2003_300k_bm3",
+      "label": "Fukui et al. (2003), 300 K lattice-average BM3",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "Primary equation, coefficients, units, uncertainties and source PVT observations directly checked. Published parameters preserved; exact author regression is not reproduced. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
+      }
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_fukui_2003_473k_bm3",
+      "label": "Fukui et al. (2003), 473 K lattice-average BM3",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "Primary equation, coefficients, units, uncertainties and source PVT observations directly checked. Published parameters preserved; exact author regression is not reproduced. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
+      }
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_fukui_2003_673k_bm3",
+      "label": "Fukui et al. (2003), 673 K lattice-average BM3",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "Primary equation, coefficients, units, uncertainties and source PVT observations directly checked. Published parameters preserved; exact author regression is not reproduced. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
+      }
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_fukui_2003_873k_bm3",
+      "label": "Fukui et al. (2003), 873 K lattice-average BM3",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "not_reproduced",
+      "note": "Primary equation, coefficients, units, uncertainties and source PVT observations directly checked. Published parameters preserved; exact author regression is not reproduced. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Printed Table 4/6 and Fig. 6(c) normalization are inconsistent: the plotted markers imply V0 about 42.70 A^3 rather than the printed expansion's 42.516 A^3. Original source curve has 0.486 GPa RMS residual; select the independent table refit for data-based use.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
+      }
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_fukui_2003_300k_anchored_thermal",
+      "label": "Fukui (2003), published slopes with 300 K anchors; qualified reconstruction",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "not_reproduced",
+      "note": "Qualified literal reconstruction, not recovery of the author's fitted continuous surface. Source normalization inconsistency remains recorded; separately attributed Peritheos fits are available.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ]
+      },
+      "usage_recommendation": "Explicit source-comparison selection only within the common measured pressure interval. Prefer the independent thermal refit for reproducible table-data interpolation; neither model is a phase-equilibrium calculation or pressure standard."
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_peritheos_fukui_2003_873k_bm3_refit",
+      "label": "Peritheos unweighted fit to Fukui (2003) Table 4, 873 K BM3",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "Independent Peritheos refit: primary observations and fixed reference-volume law verified, optimizer and covariance reproducible. Coefficients belong to Peritheos, not Fukui. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "All selected printed Table 4 observations retained with original errors; source Eq. (1)/Tables 2-3 supply fixed V0(T). Optimized coefficients are explicitly attributed to Peritheos."
+      },
+      "usage_recommendation": "Use within the represented measured/interpolation domain. Conditional model-fit covariance excludes source V0/alpha uncertainty and calibrant systematics; residual scatter is not pressure-standard accuracy."
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_peritheos_fukui_2003_thermal_refit",
+      "label": "Peritheos unweighted fit to Fukui (2003) Table 4, continuous thermal BM3",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "Independent Peritheos refit: primary observations and fixed reference-volume law verified, optimizer and covariance reproducible. Coefficients belong to Peritheos, not Fukui. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "All selected printed Table 4 observations retained with original errors; source Eq. (1)/Tables 2-3 supply fixed V0(T). Optimized coefficients are explicitly attributed to Peritheos."
+      },
+      "usage_recommendation": "Use within the represented measured/interpolation domain. Conditional model-fit covariance excludes source V0/alpha uncertainty and calibrant systematics; residual scatter is not pressure-standard accuracy."
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_peritheos_fukui_2003_curved_expansion_300k_bm3_refit",
+      "label": "Peritheos curved expansion + Fukui published 300 K moduli; refit",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
+      },
+      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_peritheos_fukui_2003_curved_expansion_473k_bm3_refit",
+      "label": "Peritheos curved expansion + Fukui published 473 K moduli; refit",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
+      },
+      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_peritheos_fukui_2003_curved_expansion_673k_bm3_refit",
+      "label": "Peritheos curved expansion + Fukui published 673 K moduli; refit",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
+      },
+      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_peritheos_fukui_2003_curved_expansion_873k_bm3_refit",
+      "label": "Peritheos curved expansion + Fukui published 873 K moduli; refit",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
+      },
+      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
+    },
+    {
+      "material": "brucite",
+      "file": "brucite.eosmat",
+      "record": "brucite_peritheos_fukui_2003_curved_expansion_thermal_refit",
+      "label": "Peritheos curved expansion + Fukui published thermal slopes; refit",
+      "doi": "10.1007/s00269-003-0353-z",
+      "status": "primary_source_validated",
+      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-003-0353-z",
+        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+        "source_equation_validated": true,
+        "locations": [
+          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+        ],
+        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
+      },
+      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
     },
     {
       "material": "ca0988mg0918fe0078mn0016c2o6_dolomite",
@@ -2965,6 +3188,40 @@
       }
     },
     {
+      "material": "diopside",
+      "file": "diopside.eosmat",
+      "record": "diopside_thompson_2008_bm3",
+      "label": "Thompson and Downs (2008), room-temperature BM3",
+      "doi": "10.2138/am.2008.2684",
+      "status": "primary_source_validated",
+      "note": "Published BM3 equation validated against complete primary Table 1; independently weighted diagnostic fit is within each published parameter error. Original-author objective and covariance remain unreported.",
+      "primary_source_check": {
+        "doi": "10.2138/am.2008.2684",
+        "access_url": "https://rruff.net/doclib/am/vol93/AM93_177.pdf",
+        "locations": [
+          "Tables 1-3 and experimental/results text, pages 179-180"
+        ],
+        "finding": "Thompson (2008), Results and discussion, page 179: third-order Birch-Murnaghan fit to all weighted Table 1 data."
+      }
+    },
+    {
+      "material": "diopside",
+      "file": "diopside.eosmat",
+      "record": "diopside_zhao_1998_thermal_bm3",
+      "label": "Zhao et al. (1998), published thermal BM3",
+      "doi": "10.4131/jshpreview.7.25",
+      "status": "primary_source_validated",
+      "note": "Published equation and curves validated; all five varied coefficients of the independent refit agree within their reported errors after accounting for the plot-corroborated row-15 table error. Table inconsistencies are retained as provenance. Exact original numerical fit inputs and regression workflow are not recovered.",
+      "primary_source_check": {
+        "doi": "10.4131/jshpreview.7.25",
+        "access_url": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_25/_pdf",
+        "locations": [
+          "Equation (1), Table 1 and Figure 2, page 26; discussion page 27"
+        ],
+        "finding": "Zhao (1998), Equation (1), page 26: third-order Eulerian finite strain, with VT=V0 exp(integral alpha dT), alpha=a+bT, KT=KT0+dK/dT*(T-300 K), Kprime independent of T."
+      }
+    },
+    {
       "material": "e_feooh",
       "file": "e_feooh.eosmat",
       "record": "e_feooh_gleason_2008_bm2_1",
@@ -4083,6 +4340,77 @@
       }
     },
     {
+      "material": "forsterite",
+      "file": "forsterite.eosmat",
+      "record": "forsterite_katsura_2022_author_script_bm3_mgd",
+      "label": "Katsura (2022), author script full-precision BM3-MGD (recommended thermal option)",
+      "doi": "10.1029/2021jb023562",
+      "status": "primary_source_validated",
+      "note": "Author-owned Geotherm calculation v2.m supplies the recommended full-precision olivine coefficient vector; both deposited scripts use theta0=760 K. Exact Debye evaluation is compared with a literal translation of the geotherm script. The reconstructed-input fit achieves conditional numerical parameter parity within printed Table 2 error widths. Exact bootstrap fitting and uncertainty reproduction remain unverified.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.5281/zenodo.5903286",
+        "doi": "10.1029/2021JB023562",
+        "locations": [
+          "Geotherm calculation v2.m: V00_lat_phase, KT0_phase, Theta0_phase, KT0P_phase, gamma0_phase, q_phase, n_phase, Z_phase; first/olivine entries",
+          "Section 2.2; Equations (7)-(11), pp. 4-5",
+          "Table 2, p. 5",
+          "Zenodo 5644426, Olivine worksheet, rows 4-54",
+          "Zenodo 5903286, author EOS fitting and geotherm scripts"
+        ]
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-10-15",
+        "dataset_identifiers": [
+          "forsterite_katsura_2022_olivine_pvt"
+        ],
+        "source_locations": [
+          "Zenodo 5644426, Olivine worksheet, A1:AO54"
+        ],
+        "finding": "All 51 rows and all 41 source columns recovered, including raw MgO ratios/brackets, original and corrected temperatures, both pressure assignments, author-saved error/spread columns, and sample volume ratios. Full workbook and formula/cached-value evidence retained. The original 2009 Table 1 has now been recovered separately: 52 rows, 50 matched to this workbook plus two ambient references. M375006 is absent from the printed table. The original author-specific fitting export remains unavailable."
+      },
+      "reproduction_status": "parity",
+      "parity_basis": "within_reported_parameter_errors",
+      "recommended_thermal_record": "forsterite_katsura_2022_author_script_bm3_mgd",
+      "recommended": true,
+      "reproduction_qualification": "Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit."
+    },
+    {
+      "material": "forsterite",
+      "file": "forsterite.eosmat",
+      "record": "forsterite_katsura_2022_bm3_mgd",
+      "label": "Katsura (2022), corrected forsterite BM3-MGD, final Table 2",
+      "doi": "10.1029/2021jb023562",
+      "status": "primary_source_validated",
+      "note": "Equations (7)-(11), final Table 2 and author-owned Zenodo workbook/code checked. The reconstructed-input ordinary fit recovers the three free Table 2 coefficients within printed error widths, achieving conditional numerical parity. The full-precision author-script record remains the recommended thermal option. Exact bootstrap reproduction and the original 2009 combined fit remain unverified.",
+      "primary_source_check": {
+        "access_url": "https://epub.uni-bayreuth.de/id/eprint/6715/",
+        "doi": "10.1029/2021JB023562",
+        "locations": [
+          "Section 2.2; Equations (7)-(11), pp. 4-5",
+          "Table 2, p. 5",
+          "Zenodo 5644426, Olivine worksheet, rows 4-54",
+          "Zenodo 5903286, author EOS fitting and geotherm scripts"
+        ]
+      },
+      "primary_data_check": {
+        "status": "bundled",
+        "audit_date": "2026-10-15",
+        "dataset_identifiers": [
+          "forsterite_katsura_2022_olivine_pvt"
+        ],
+        "source_locations": [
+          "Zenodo 5644426, Olivine worksheet, A1:AO54"
+        ],
+        "finding": "All 51 rows and all 41 source columns recovered, including raw MgO ratios/brackets, original and corrected temperatures, both pressure assignments, author-saved error/spread columns, and sample volume ratios. Full workbook and formula/cached-value evidence retained. The original 2009 Table 1 has now been recovered separately: 52 rows, 50 matched to this workbook plus two ambient references. M375006 is absent from the printed table. The original author-specific fitting export remains unavailable."
+      },
+      "reproduction_status": "parity",
+      "parity_basis": "within_reported_parameter_errors",
+      "recommended_thermal_record": "forsterite_katsura_2022_author_script_bm3_mgd",
+      "recommended": false,
+      "reproduction_qualification": "Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit."
+    },
+    {
       "material": "geo2_rutile",
       "file": "geo2_rutile.eosmat",
       "record": "geo2_rutile_hazen_1981_bm3_1",
@@ -4639,6 +4967,27 @@
         ],
         "finding": "Equations 1-12 and Table III supply the pressure reconstruction inputs; numerical output agreement is validated separately from original author-fit reproduction."
       }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit",
+      "label": "Peritheos refit: Hirose (2008) + Fei (2004), Au on author-confirmed Speziale (2001) MgO",
+      "doi": "10.1016/j.pepi.2008.03.002",
+      "status": "primary_source_validated",
+      "note": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+        "doi": "10.1016/j.pepi.2008.03.002",
+        "locations": [
+          "Hirose (2008), Table 1 and Section 3.1 / Table 2 fit #2",
+          "Fei (2004), Table 1",
+          "Speziale (2001), Equation (11) and recorded author confirmation",
+          "Peritheos staged regression and derived-data report"
+        ],
+        "finding": "Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity."
+      },
+      "reproduction_status": "independent_refit_reproduced"
     },
     {
       "material": "graphite",
@@ -10250,6 +10599,27 @@
       }
     },
     {
+      "material": "nacl_b2",
+      "file": "nacl_b2.eosmat",
+      "record": "nacl_b2_fei_2007_staged_thermal_refit",
+      "label": "Peritheos refit: Fei (2007) NaCl-B2 digitized cold + 1000 K data",
+      "doi": "10.1073/pnas.0609013104",
+      "status": "primary_source_validated",
+      "note": "Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited from the published record. Equal pressure weights are an analyst choice. Duplicate Figure 4 cold markers, other-paper comparisons and calculated curve vertices are excluded. This is a conditional figure-data refit, not reproduction of the authors' fit or independent validation of pressure accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, source weights and calibration covariance remain unavailable. Conditional stage errors are archived in fit statistics only; catalog parameter errors and covariance are unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty are not propagated. Coverage consists of separate 300 and 1000 K series, not a validated P-T rectangle.",
+      "primary_source_check": {
+        "access_url": "https://www.pnas.org/doi/10.1073/pnas.0609013104",
+        "doi": "10.1073/pnas.0609013104",
+        "locations": [
+          "Table 1 and Equations 2-3, page 9183",
+          "Figures 3-4 and NaCl paragraphs, page 9184",
+          "Methods, pages 9185-9186"
+        ],
+        "source_pdf_sha256": "19109c9685f6862c733ffc14ada22077d61553152b18dab13eb295e8d1da3306",
+        "finding": "Source authority applies to the digitized markers and inherited equation/fixed parameters. K0, K0-prime and q are independently refitted Peritheos values, not published Fei coefficients."
+      },
+      "reproduction_status": "independent_refit_reproduced"
+    },
+    {
       "material": "namg2al5sio12_cf",
       "file": "namg2al5sio12_cf.eosmat",
       "record": "namg2al5sio12_cf_kawai_2012_bm3_1",
@@ -10789,6 +11159,35 @@
         "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
         "doi": "10.1016/s0012-821x(00)00033-9"
       }
+    },
+    {
+      "material": "phase_e_fe0072",
+      "file": "phase_e_fe0072.eosmat",
+      "record": "phase_e_fe0072_crichton_ross_2000_bm3",
+      "label": "Crichton and Ross (2000), Fe-bearing phase E, free BM3",
+      "doi": "10.1180/002646100549427",
+      "status": "primary_source_validated",
+      "note": "Published volume EOS successfully recovered: parity within reported uncertainty, with coefficient/curve differences documented. Original author-workflow provenance is assessed separately.",
+      "primary_source_check": {
+        "access_url": "https://triage19.com/products/MM/MM064P0561.pdf",
+        "doi": "10.1180/002646100549427",
+        "locations": [
+          "Full article pp. 561–567",
+          "Table 1 p. 562",
+          "Results and F–f discussion p. 563",
+          "Axial fits pp. 563–564"
+        ],
+        "finding": "Publication-of-record PDF inspected in full, Table 1 checked visually. Published BM3 retained; source residual benchmarks reproduced and independent refits establish parity within reported uncertainty. Exact implementation provenance is separately documented and does not negate fit recovery."
+      },
+      "reproduction_status": "parity_within_reported_uncertainty",
+      "reproduction_scope": {
+        "source_equation": "validated_against_all_11_source_rows",
+        "coefficient_agreement": "conditional_within_reported_errors",
+        "exact_author_workflow": "not_reproduced",
+        "fit_recovery": "parity_within_reported_uncertainty",
+        "exact_workflow_provenance_is_separate": true
+      },
+      "reproduction_report": "docs/literature-reproductions/phase-e-crichton-ross-2000.md"
     },
     {
       "material": "phase_egg",
@@ -11475,6 +11874,24 @@
       }
     },
     {
+      "material": "rbbr",
+      "file": "rbbr.eosmat",
+      "record": "rbbr_b2_farla_2025_bm3_mgd_cscl",
+      "label": "Farla et al. (2025), RbBr-B2 BM3-MGD, CsCl pressures (case 1)",
+      "doi": "10.1063/5.0248905",
+      "status": "primary_source_validated",
+      "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
+      "primary_source_check": {
+        "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+        "doi": "10.1063/5.0248905",
+        "locations": [
+          "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
+          "Official supplement section 1, Tables S1, S3, S6"
+        ],
+        "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
+      }
+    },
+    {
       "material": "rbcl",
       "file": "rbcl.eosmat",
       "record": "rbcl_b2_campbell_1994_bm3_1",
@@ -11490,6 +11907,42 @@
         ],
         "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations.",
         "doi": "10.1029/94jb00127"
+      }
+    },
+    {
+      "material": "rbcl",
+      "file": "rbcl.eosmat",
+      "record": "rbcl_b2_farla_2025_bm3_mgd_cscl",
+      "label": "Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)",
+      "doi": "10.1063/5.0248905",
+      "status": "primary_source_validated",
+      "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
+      "primary_source_check": {
+        "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+        "doi": "10.1063/5.0248905",
+        "locations": [
+          "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
+          "Official supplement section 1, Tables S1, S2, S5"
+        ],
+        "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
+      }
+    },
+    {
+      "material": "rbi",
+      "file": "rbi.eosmat",
+      "record": "rbi_b2_farla_2025_bm3_mgd_cscl",
+      "label": "Farla et al. (2025), RbI-B2 BM3-MGD, CsCl pressures (case 1)",
+      "doi": "10.1063/5.0248905",
+      "status": "primary_source_validated",
+      "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
+      "primary_source_check": {
+        "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+        "doi": "10.1063/5.0248905",
+        "locations": [
+          "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
+          "Official supplement section 1, Tables S1, S4, S7"
+        ],
+        "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
       }
     },
     {

@@ -1,0 +1,2292 @@
+{
+  "source_doi": "10.1063/5.0248905",
+  "audit_date": "2026-10-15",
+  "parameter_order": [
+    "K0_gpa",
+    "K0_prime",
+    "gamma0",
+    "q"
+  ],
+  "limitations": [
+    "Printed parameters and calculated ratios have finite precision.",
+    "Conditional independent fits assume diagonal PVT errors and a 0.005 GPa diagnostic floor for printed-zero DAC errors; not EoSFit7 workflow parity.",
+    "Cold LVP rows are separately included as a sensitivity case; source row flags and original EoSFit7 project files are unavailable.",
+    "Benchmarks beyond data coverage and molten flags do not extend validity."
+  ],
+  "compounds": {
+    "rbcl": {
+      "debye_anchor": {
+        "bulk_gpa": 18.35,
+        "shear_gpa": 9.18,
+        "density_g_cm3": 3.337,
+        "molar_mass_g_mol": 120.92,
+        "source_average_speed_m_s": 1849.6,
+        "calculated_average_speed_m_s": 1849.2884525855914,
+        "calculated_theta_k": 177.02211430876105,
+        "source_fixed_theta_k": 177.0,
+        "source": "Official supplement section 1, DFT-derived K and G"
+      },
+      "benchmarks": {
+        "rows": 54,
+        "max_absolute_ratio_difference": 0.0006993948117919313,
+        "max_native_reference_ratio_difference": 9.325873406851315e-15,
+        "outside_last_digit_rounding": 49,
+        "outside_coefficient_rounding_envelope": 0,
+        "states": [
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.8472,
+            "reference_ratio": 0.8472096492724588,
+            "difference": 9.649272458833735e-06,
+            "rounding_sensitivity_envelope": 0.00011486051572063278,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.3322676295501878e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.858,
+            "reference_ratio": 0.8579830759630003,
+            "difference": -1.6924036999710346e-05,
+            "rounding_sensitivity_envelope": 0.00014870231202535606,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.3306690738754696e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.8892,
+            "reference_ratio": 0.889133603958191,
+            "difference": -6.639604180902481e-05,
+            "rounding_sensitivity_envelope": 0.00025292196529336783,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 5.551115123125783e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.9282,
+            "reference_ratio": 0.9280678024323535,
+            "difference": -0.00013219756764648594,
+            "rounding_sensitivity_envelope": 0.0004010635449083255,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.3298697960381105e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.98,
+            "reference_ratio": 0.9795768239437891,
+            "difference": -0.0004231760562108944,
+            "rounding_sensitivity_envelope": 0.0006344072301195436,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 6.994405055138486e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 1.0563,
+            "reference_ratio": 1.055600605188208,
+            "difference": -0.0006993948117919313,
+            "rounding_sensitivity_envelope": 0.001347643060841569,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 8.881784197001252e-15,
+            "molten_source_flag": true
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.7704,
+            "reference_ratio": 0.770391529552493,
+            "difference": -8.470447506958578e-06,
+            "rounding_sensitivity_envelope": 0.00015596487085112738,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -7.105427357601002e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.7769,
+            "reference_ratio": 0.7768162594648478,
+            "difference": -8.374053515225466e-05,
+            "rounding_sensitivity_envelope": 0.00017905822375508524,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.3298697960381105e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.7946,
+            "reference_ratio": 0.7945393058894117,
+            "difference": -6.069411058828855e-05,
+            "rounding_sensitivity_envelope": 0.00024488859850969045,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.6637359812630166e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.8149,
+            "reference_ratio": 0.8147307044606432,
+            "difference": -0.0001692955393567397,
+            "rounding_sensitivity_envelope": 0.0003253147646900045,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.3314683517128287e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.8382,
+            "reference_ratio": 0.8380270139664123,
+            "difference": -0.00017298603358761877,
+            "rounding_sensitivity_envelope": 0.000426153369216814,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.6653345369377348e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.8658,
+            "reference_ratio": 0.8654676937873526,
+            "difference": -0.00033230621264745963,
+            "rounding_sensitivity_envelope": 0.0005571050091645102,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -9.325873406851315e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.7196,
+            "reference_ratio": 0.7195548150829939,
+            "difference": -4.51849170061136e-05,
+            "rounding_sensitivity_envelope": 0.00018279310443414793,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.1086244689504383e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.7241,
+            "reference_ratio": 0.7240535468066671,
+            "difference": -4.645319333285158e-05,
+            "rounding_sensitivity_envelope": 0.00020054919391088716,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.887379141862766e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.7363,
+            "reference_ratio": 0.7362364414305252,
+            "difference": -6.355856947470873e-05,
+            "rounding_sensitivity_envelope": 0.0002496930724764701,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.10702591327572e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.7498,
+            "reference_ratio": 0.7496293206191866,
+            "difference": -0.00017067938081338774,
+            "rounding_sensitivity_envelope": 0.0003064297717529973,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.3314683517128287e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.7646,
+            "reference_ratio": 0.7643988652980691,
+            "difference": -0.0002011347019308385,
+            "rounding_sensitivity_envelope": 0.00037262160984242174,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.4432899320127035e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.7811,
+            "reference_ratio": 0.7808211731089275,
+            "difference": -0.00027882689107250336,
+            "rounding_sensitivity_envelope": 0.0004509559532484053,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 5.329070518200751e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.682,
+            "reference_ratio": 0.6819224546047123,
+            "difference": -7.754539528770366e-05,
+            "rounding_sensitivity_envelope": 0.00020174414315344275,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.7755575615628914e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.6854,
+            "reference_ratio": 0.685343542237256,
+            "difference": -5.645776274398884e-05,
+            "rounding_sensitivity_envelope": 0.00021622031401936077,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.6645352591003757e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.6946,
+            "reference_ratio": 0.6945231769387687,
+            "difference": -7.682306123124594e-05,
+            "rounding_sensitivity_envelope": 0.00025571622651277546,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 4.440892098500626e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.7046,
+            "reference_ratio": 0.7044256111156996,
+            "difference": -0.00017438888430043598,
+            "rounding_sensitivity_envelope": 0.00029998074837268016,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.7755575615628914e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.7153,
+            "reference_ratio": 0.7150996125861632,
+            "difference": -0.00020038741383687775,
+            "rounding_sensitivity_envelope": 0.00034979603065777296,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.551914400963142e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.7269,
+            "reference_ratio": 0.7266517952525327,
+            "difference": -0.0002482047474673399,
+            "rounding_sensitivity_envelope": 0.0004062805827165283,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.6645352591003757e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.628,
+            "reference_ratio": 0.6279134653806719,
+            "difference": -8.653461932806028e-05,
+            "rounding_sensitivity_envelope": 0.0002268350095503468,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.7755575615628914e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.6303,
+            "reference_ratio": 0.6301799307713445,
+            "difference": -0.00012006922865548386,
+            "rounding_sensitivity_envelope": 0.00023742433446961026,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 5.218048215738236e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.6363,
+            "reference_ratio": 0.6362126774663843,
+            "difference": -8.732253361565245e-05,
+            "rounding_sensitivity_envelope": 0.0002659801320300581,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 5.10702591327572e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.6427,
+            "reference_ratio": 0.6425951376508532,
+            "difference": -0.00010486234914686143,
+            "rounding_sensitivity_envelope": 0.00029702436572598965,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.6653345369377348e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.6495,
+            "reference_ratio": 0.6493180724955508,
+            "difference": -0.00018192750444911976,
+            "rounding_sensitivity_envelope": 0.00033071875278157246,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.3306690738754696e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.6566,
+            "reference_ratio": 0.6564064644230667,
+            "difference": -0.00019353557693324586,
+            "rounding_sensitivity_envelope": 0.00036738169988038136,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.884981308350689e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.5897,
+            "reference_ratio": 0.5896192244181965,
+            "difference": -8.077558180352717e-05,
+            "rounding_sensitivity_envelope": 0.00024268582335696393,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 6.5503158452884236e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.5914,
+            "reference_ratio": 0.5912846846542066,
+            "difference": -0.00011531534579345415,
+            "rounding_sensitivity_envelope": 0.00025102362477436577,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 0.0,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.5958,
+            "reference_ratio": 0.5957060271592632,
+            "difference": -9.397284073675571e-05,
+            "rounding_sensitivity_envelope": 0.0002734443443537293,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.3322676295501878e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.6005,
+            "reference_ratio": 0.6003384404775867,
+            "difference": -0.00016155952241336813,
+            "rounding_sensitivity_envelope": 0.0002974528879102822,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.9984014443252818e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.6053,
+            "reference_ratio": 0.6051615779584683,
+            "difference": -0.0001384220415316939,
+            "rounding_sensitivity_envelope": 0.0003230408419290287,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 9.992007221626409e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.6103,
+            "reference_ratio": 0.6101821625634358,
+            "difference": -0.0001178374365641277,
+            "rounding_sensitivity_envelope": 0.000350325802258139,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.329070518200751e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.5367,
+            "reference_ratio": 0.5366383174432641,
+            "difference": -6.168255673588696e-05,
+            "rounding_sensitivity_envelope": 0.000261357062660289,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 4.218847493575595e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.5378,
+            "reference_ratio": 0.5376965696226396,
+            "difference": -0.00010343037736038063,
+            "rounding_sensitivity_envelope": 0.00026717336623405805,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.2212453270876722e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.5406,
+            "reference_ratio": 0.5405057385593062,
+            "difference": -9.426144069379916e-05,
+            "rounding_sensitivity_envelope": 0.0002828567841679563,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.55351295663786e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.5436,
+            "reference_ratio": 0.543421801686874,
+            "difference": -0.00017819831312593237,
+            "rounding_sensitivity_envelope": 0.000299418211759056,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 0.0,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.5466,
+            "reference_ratio": 0.5464228183486244,
+            "difference": -0.00017718165137559083,
+            "rounding_sensitivity_envelope": 0.0003167452506038837,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.219646771412954e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.5497,
+            "reference_ratio": 0.5495073482643298,
+            "difference": -0.00019265173567017957,
+            "rounding_sensitivity_envelope": 0.0003348567868212193,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.6645352591003757e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.5004,
+            "reference_ratio": 0.5002337693610032,
+            "difference": -0.00016623063899678936,
+            "rounding_sensitivity_envelope": 0.0002716577414732024,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.3314683517128287e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.5011,
+            "reference_ratio": 0.5009919037095864,
+            "difference": -0.00010809629041363955,
+            "rounding_sensitivity_envelope": 0.00027609287518848833,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.4424906541753444e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.5031,
+            "reference_ratio": 0.5030086948265561,
+            "difference": -9.130517344391187e-05,
+            "rounding_sensitivity_envelope": 0.0002881264321605903,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.440892098500626e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.5052,
+            "reference_ratio": 0.5050935613600307,
+            "difference": -0.00010643863996928626,
+            "rounding_sensitivity_envelope": 0.0003007596242223853,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.3322676295501878e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.5074,
+            "reference_ratio": 0.5072268606402123,
+            "difference": -0.00017313935978768846,
+            "rounding_sensitivity_envelope": 0.00031385844014642503,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.2212453270876722e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.5096,
+            "reference_ratio": 0.5094058056577887,
+            "difference": -0.00019419434221135123,
+            "rounding_sensitivity_envelope": 0.0003274118680896054,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.9968028886505635e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.473,
+            "reference_ratio": 0.4728748148682202,
+            "difference": -0.0001251851317797814,
+            "rounding_sensitivity_envelope": 0.00027788325110983945,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.1649348980190553e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.4736,
+            "reference_ratio": 0.4734567352563146,
+            "difference": -0.00014326474368542286,
+            "rounding_sensitivity_envelope": 0.0002814473608329704,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 7.216449660063518e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.4751,
+            "reference_ratio": 0.4750089523595898,
+            "difference": -9.104764041023561e-05,
+            "rounding_sensitivity_envelope": 0.00029118523264532457,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.9976021664879227e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.4767,
+            "reference_ratio": 0.47661016515451887,
+            "difference": -8.98348454811404e-05,
+            "rounding_sensitivity_envelope": 0.0003013811086047313,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 7.771561172376096e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.4784,
+            "reference_ratio": 0.4782430395444342,
+            "difference": -0.00015696045556579108,
+            "rounding_sensitivity_envelope": 0.00031189734869908057,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 4.996003610813204e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.4801,
+            "reference_ratio": 0.4799046350352347,
+            "difference": -0.00019536496476535437,
+            "rounding_sensitivity_envelope": 0.0003227142429828633,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.552713678800501e-15,
+            "molten_source_flag": false
+          }
+        ]
+      },
+      "dac_refit": {
+        "rows": 16,
+        "objective": "unweighted_pressure_residual",
+        "parameter_order": [
+          "molar_V0_cm3_mol",
+          "K0_gpa",
+          "K0_prime"
+        ],
+        "fit_parameters": [
+          36.232662208673354,
+          19.81302875488771,
+          5.032189269475385
+        ],
+        "pressure_rmse_gpa": 0.03542135405579359,
+        "success": true,
+        "author_fit_parity": false
+      },
+      "independent_fits": [
+        {
+          "rows": 122,
+          "include_cold_lvp": false,
+          "objective": "independent_PVT_effective_variance",
+          "fixed": {
+            "molar_V0_cm3_mol": 36.25,
+            "theta0_k": 177.0,
+            "n": 2,
+            "Tr_k": 300
+          },
+          "source_parameters": [
+            19.89,
+            5.0,
+            1.96,
+            1.05
+          ],
+          "fit_parameters": [
+            19.725086971434745,
+            5.048128707013665,
+            1.984282653731442,
+            1.0457023815065338
+          ],
+          "fit_minus_source": [
+            -0.16491302856525536,
+            0.04812870701366467,
+            0.024282653731442005,
+            -0.004297618493466215
+          ],
+          "fit_minus_source_over_reported_esd": [
+            -2.061412857065692,
+            2.4064353506832337,
+            0.6070663432860501,
+            -0.04775131659406906
+          ],
+          "source_pressure_rmse_gpa": 0.15442869781174814,
+          "source_pressure_max_abs_gpa": 0.4032462712536873,
+          "fitted_pressure_rmse_gpa": 0.15182345926644725,
+          "success": true,
+          "author_fit_parity": false,
+          "author_workflow_parity": false
+        },
+        {
+          "rows": 122,
+          "include_cold_lvp": false,
+          "objective": "unweighted_P",
+          "fixed": {
+            "molar_V0_cm3_mol": 36.25,
+            "theta0_k": 177.0,
+            "n": 2,
+            "Tr_k": 300
+          },
+          "source_parameters": [
+            19.89,
+            5.0,
+            1.96,
+            1.05
+          ],
+          "fit_parameters": [
+            19.320763267951776,
+            5.161969751614899,
+            2.0179056681353056,
+            1.0398238155116357
+          ],
+          "fit_minus_source": [
+            -0.5692367320482248,
+            0.16196975161489924,
+            0.05790566813530562,
+            -0.010176184488364326
+          ],
+          "fit_minus_source_over_reported_esd": [
+            -7.11545915060281,
+            8.098487580744962,
+            1.4476417033826405,
+            -0.1130687165373814
+          ],
+          "source_pressure_rmse_gpa": 0.15442869781174814,
+          "source_pressure_max_abs_gpa": 0.4032462712536873,
+          "fitted_pressure_rmse_gpa": 0.1488513555114798,
+          "success": true,
+          "author_fit_parity": false,
+          "author_workflow_parity": false
+        },
+        {
+          "rows": 125,
+          "include_cold_lvp": true,
+          "objective": "independent_PVT_effective_variance",
+          "fixed": {
+            "molar_V0_cm3_mol": 36.25,
+            "theta0_k": 177.0,
+            "n": 2,
+            "Tr_k": 300
+          },
+          "source_parameters": [
+            19.89,
+            5.0,
+            1.96,
+            1.05
+          ],
+          "fit_parameters": [
+            19.738473959804576,
+            5.0444499723580565,
+            1.983276738364064,
+            1.0463566040104813
+          ],
+          "fit_minus_source": [
+            -0.15152604019542437,
+            0.04444997235805648,
+            0.023276738364063965,
+            -0.003643395989518794
+          ],
+          "fit_minus_source_over_reported_esd": [
+            -1.8940755024428046,
+            2.222498617902824,
+            0.5819184591015991,
+            -0.04048217766131994
+          ],
+          "source_pressure_rmse_gpa": 0.1534557702422185,
+          "source_pressure_max_abs_gpa": 0.4032462712536873,
+          "fitted_pressure_rmse_gpa": 0.15126706656905714,
+          "success": true,
+          "author_fit_parity": false,
+          "author_workflow_parity": false
+        }
+      ]
+    },
+    "rbbr": {
+      "debye_anchor": {
+        "bulk_gpa": 15.86,
+        "shear_gpa": 8.04,
+        "density_g_cm3": 3.966,
+        "molar_mass_g_mol": 165.37,
+        "source_average_speed_m_s": 1586.9,
+        "calculated_average_speed_m_s": 1587.017841745686,
+        "calculated_theta_k": 144.9719498305368,
+        "source_fixed_theta_k": 145.0,
+        "source": "Official supplement section 1, DFT-derived K and G"
+      },
+      "benchmarks": {
+        "rows": 54,
+        "max_absolute_ratio_difference": 0.001490196674477362,
+        "max_native_reference_ratio_difference": 1.021405182655144e-14,
+        "outside_last_digit_rounding": 31,
+        "outside_coefficient_rounding_envelope": 0,
+        "states": [
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.8293,
+            "reference_ratio": 0.8292847644453095,
+            "difference": -1.5235554690518072e-05,
+            "rounding_sensitivity_envelope": 0.00012776770462508686,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.773959005888173e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.8394,
+            "reference_ratio": 0.8393474638329689,
+            "difference": -5.25361670311586e-05,
+            "rounding_sensitivity_envelope": 0.0001582333619951692,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -9.992007221626409e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.8691,
+            "reference_ratio": 0.8689613265520214,
+            "difference": -0.00013867344797857672,
+            "rounding_sensitivity_envelope": 0.00025551776752397724,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.2212453270876722e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.9079,
+            "reference_ratio": 0.9076699740538541,
+            "difference": -0.00023002594614596195,
+            "rounding_sensitivity_envelope": 0.0004065482020362332,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 8.659739592076221e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.9642,
+            "reference_ratio": 0.963689902354071,
+            "difference": -0.0005100976459289086,
+            "rounding_sensitivity_envelope": 0.000692639025896119,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -6.217248937900877e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 1.0728,
+            "reference_ratio": 1.0713098033255226,
+            "difference": -0.001490196674477362,
+            "rounding_sensitivity_envelope": 0.0023280404069275836,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -6.661338147750939e-15,
+            "molten_source_flag": true
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.7504,
+            "reference_ratio": 0.7503830364011667,
+            "difference": -1.6963598833297233e-05,
+            "rounding_sensitivity_envelope": 0.00016806258503899158,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.7755575615628914e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.7559,
+            "reference_ratio": 0.7558916674704662,
+            "difference": -8.332529533805477e-06,
+            "rounding_sensitivity_envelope": 0.00018775003846916433,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.4416913763379853e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.7711,
+            "reference_ratio": 0.7710932685158043,
+            "difference": -6.731484195721116e-06,
+            "rounding_sensitivity_envelope": 0.0002442213190113673,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 9.992007221626409e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.7886,
+            "reference_ratio": 0.7885478552639417,
+            "difference": -5.214473605830161e-05,
+            "rounding_sensitivity_envelope": 0.00031462016655004474,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.021405182655144e-14,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.8091,
+            "reference_ratio": 0.8089514644744348,
+            "difference": -0.00014853552556526317,
+            "rounding_sensitivity_envelope": 0.00040571219050667404,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.4416913763379853e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.8337,
+            "reference_ratio": 0.8334832292727321,
+            "difference": -0.00021677072726788982,
+            "rounding_sensitivity_envelope": 0.0005298997516024528,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.220446049250313e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.6995,
+            "reference_ratio": 0.6994800857883925,
+            "difference": -1.991421160751905e-05,
+            "rounding_sensitivity_envelope": 0.00019225123847799725,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.220446049250313e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.7031,
+            "reference_ratio": 0.703152373474932,
+            "difference": 5.237347493203259e-05,
+            "rounding_sensitivity_envelope": 0.0002068691693808466,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 5.551115123125783e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.7131,
+            "reference_ratio": 0.7130482763349646,
+            "difference": -5.172366503536363e-05,
+            "rounding_sensitivity_envelope": 0.0002471918228255154,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.3306690738754696e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.724,
+            "reference_ratio": 0.7239235012003329,
+            "difference": -7.649879966709072e-05,
+            "rounding_sensitivity_envelope": 0.0002939679002083084,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.5543122344752192e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.736,
+            "reference_ratio": 0.7359375184059442,
+            "difference": -6.248159405575215e-05,
+            "rounding_sensitivity_envelope": 0.00034903647204143626,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.4424906541753444e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.7495,
+            "reference_ratio": 0.7493402763517609,
+            "difference": -0.00015972364823912955,
+            "rounding_sensitivity_envelope": 0.00041507884115966063,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 5.329070518200751e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.6622,
+            "reference_ratio": 0.6622758346518204,
+            "difference": 7.58346518203723e-05,
+            "rounding_sensitivity_envelope": 0.00020846594401403013,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.3314683517128287e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.6649,
+            "reference_ratio": 0.6649748680577311,
+            "difference": 7.486805773104788e-05,
+            "rounding_sensitivity_envelope": 0.00022007911231270433,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -9.992007221626409e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.6721,
+            "reference_ratio": 0.6721622652352398,
+            "difference": 6.22652352397779e-05,
+            "rounding_sensitivity_envelope": 0.00025149858670592826,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.220446049250313e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.6799,
+            "reference_ratio": 0.6798892793347187,
+            "difference": -1.0720665281294117e-05,
+            "rounding_sensitivity_envelope": 0.0002866619192811781,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.3322676295501878e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.6882,
+            "reference_ratio": 0.6882028818457228,
+            "difference": 2.881845722724208e-06,
+            "rounding_sensitivity_envelope": 0.00032629295204456563,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.1086244689504383e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.6972,
+            "reference_ratio": 0.6971885899585325,
+            "difference": -1.1410041467541099e-05,
+            "rounding_sensitivity_envelope": 0.0003713717782464265,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 5.551115123125783e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.6094,
+            "reference_ratio": 0.6094107856623765,
+            "difference": 1.0785662376444627e-05,
+            "rounding_sensitivity_envelope": 0.00022882058013951596,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -9.992007221626409e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.6111,
+            "reference_ratio": 0.6111171000609092,
+            "difference": 1.7100060909269743e-05,
+            "rounding_sensitivity_envelope": 0.00023700432240204012,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.4416913763379853e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.6156,
+            "reference_ratio": 0.6156107502805405,
+            "difference": 1.0750280540428037e-05,
+            "rounding_sensitivity_envelope": 0.00025875368359762894,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.551115123125783e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.6203,
+            "reference_ratio": 0.6203377326782776,
+            "difference": 3.7732678277668796e-05,
+            "rounding_sensitivity_envelope": 0.00028224445233027693,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 4.551914400963142e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.6253,
+            "reference_ratio": 0.6252967111355928,
+            "difference": -3.2888644071471518e-06,
+            "rounding_sensitivity_envelope": 0.00030764351045731717,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.7755575615628914e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.6305,
+            "reference_ratio": 0.6305053272704706,
+            "difference": 5.3272704706452956e-06,
+            "rounding_sensitivity_envelope": 0.00033519502617385675,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.9984014443252818e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.5722,
+            "reference_ratio": 0.572213708724951,
+            "difference": 1.3708724950989293e-05,
+            "rounding_sensitivity_envelope": 0.00024094622294890673,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -6.439293542825908e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.5734,
+            "reference_ratio": 0.5734276329455598,
+            "difference": 2.7632945559741273e-05,
+            "rounding_sensitivity_envelope": 0.0002472211238873145,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -7.771561172376096e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.5766,
+            "reference_ratio": 0.5766095067367123,
+            "difference": 9.506736712294739e-06,
+            "rounding_sensitivity_envelope": 0.00026377669696120984,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 6.106226635438361e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.5799,
+            "reference_ratio": 0.5799212359966369,
+            "difference": 2.1235996636947974e-05,
+            "rounding_sensitivity_envelope": 0.00028134942675751005,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 6.439293542825908e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.5833,
+            "reference_ratio": 0.5833535444559428,
+            "difference": 5.3544455942744484e-05,
+            "rounding_sensitivity_envelope": 0.0002999746869273345,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.3306690738754696e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.5869,
+            "reference_ratio": 0.5869110592555816,
+            "difference": 1.1059255581646887e-05,
+            "rounding_sensitivity_envelope": 0.0003197393065033138,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.1102230246251565e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.521,
+            "reference_ratio": 0.5210284317723571,
+            "difference": 2.8431772357118135e-05,
+            "rounding_sensitivity_envelope": 0.00025425544276636567,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.219646771412954e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.5217,
+            "reference_ratio": 0.5217662401600496,
+            "difference": 6.624016004952438e-05,
+            "rounding_sensitivity_envelope": 0.000258475252506557,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.2212453270876722e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.5236,
+            "reference_ratio": 0.5236937291485853,
+            "difference": 9.372914858529757e-05,
+            "rounding_sensitivity_envelope": 0.0002695586516737791,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -7.66053886991358e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.5256,
+            "reference_ratio": 0.525679617094899,
+            "difference": 7.961709489900937e-05,
+            "rounding_sensitivity_envelope": 0.00028113054282475345,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.2212453270876722e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.5277,
+            "reference_ratio": 0.5277138115607856,
+            "difference": 1.3811560785614851e-05,
+            "rounding_sensitivity_envelope": 0.0002931593568070767,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 0.0,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.5297,
+            "reference_ratio": 0.5297958366652731,
+            "difference": 9.583666527313017e-05,
+            "rounding_sensitivity_envelope": 0.00030566162051537946,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.887379141862766e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.4859,
+            "reference_ratio": 0.48598895110155377,
+            "difference": 8.895110155376917e-05,
+            "rounding_sensitivity_envelope": 0.0002608914107831761,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.6637359812630166e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.4864,
+            "reference_ratio": 0.48650150412613324,
+            "difference": 0.000101504126133245,
+            "rounding_sensitivity_envelope": 0.0002640298461764112,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.55351295663786e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.4878,
+            "reference_ratio": 0.4878397325103372,
+            "difference": 3.973251033717595e-05,
+            "rounding_sensitivity_envelope": 0.0002722722195647231,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.829470157119431e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.4891,
+            "reference_ratio": 0.4892120272493481,
+            "difference": 0.00011202724934811226,
+            "rounding_sensitivity_envelope": 0.0002808130161821631,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.495603971894525e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.4905,
+            "reference_ratio": 0.4906098034100917,
+            "difference": 0.00010980341009170225,
+            "rounding_sensitivity_envelope": 0.00028960867882222294,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.551115123125783e-17,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.492,
+            "reference_ratio": 0.49203189190673646,
+            "difference": 3.18919067364698e-05,
+            "rounding_sensitivity_envelope": 0.0002986589827677688,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.218048215738236e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.4596,
+            "reference_ratio": 0.4597025863792007,
+            "difference": 0.00010258637920068647,
+            "rounding_sensitivity_envelope": 0.0002644470259921594,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -6.050715484207103e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.46,
+            "reference_ratio": 0.46008688419805516,
+            "difference": 8.688419805513714e-05,
+            "rounding_sensitivity_envelope": 0.00026692271334289306,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.385380947269368e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.461,
+            "reference_ratio": 0.46109053868105965,
+            "difference": 9.053868105962648e-05,
+            "rounding_sensitivity_envelope": 0.0002734327124355229,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.9968028886505635e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.462,
+            "reference_ratio": 0.462117063462254,
+            "difference": 0.00011706346225398567,
+            "rounding_sensitivity_envelope": 0.00028015064172760005,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.1102230246251565e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.4631,
+            "reference_ratio": 0.4631592358169709,
+            "difference": 5.923581697087066e-05,
+            "rounding_sensitivity_envelope": 0.0002870317603622163,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 6.106226635438361e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.4641,
+            "reference_ratio": 0.46421585099847706,
+            "difference": 0.00011585099847705171,
+            "rounding_sensitivity_envelope": 0.00029407102877327394,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.0531133177191805e-15,
+            "molten_source_flag": false
+          }
+        ]
+      },
+      "dac_refit": {
+        "rows": 17,
+        "objective": "unweighted_pressure_residual",
+        "parameter_order": [
+          "molar_V0_cm3_mol",
+          "K0_gpa",
+          "K0_prime"
+        ],
+        "fit_parameters": [
+          41.675608012854546,
+          16.669544858730358,
+          5.188860483846833
+        ],
+        "pressure_rmse_gpa": 0.11335740717351003,
+        "success": true,
+        "author_fit_parity": false
+      },
+      "independent_fits": [
+        {
+          "rows": 123,
+          "include_cold_lvp": false,
+          "objective": "independent_PVT_effective_variance",
+          "fixed": {
+            "molar_V0_cm3_mol": 41.74,
+            "theta0_k": 145.0,
+            "n": 2,
+            "Tr_k": 300
+          },
+          "source_parameters": [
+            16.28,
+            5.28,
+            2.18,
+            1.52
+          ],
+          "fit_parameters": [
+            16.357761658275688,
+            5.2437377736240585,
+            2.1643501186539864,
+            1.4718031888288816
+          ],
+          "fit_minus_source": [
+            0.07776165827568704,
+            -0.036262226375941786,
+            -0.01564988134601375,
+            -0.0481968111711184
+          ],
+          "fit_minus_source_over_reported_esd": [
+            1.944041456892176,
+            -1.8131113187970893,
+            -0.11178486675724106,
+            -0.20082004654632668
+          ],
+          "source_pressure_rmse_gpa": 0.15948654363882814,
+          "source_pressure_max_abs_gpa": 0.4572823103308714,
+          "fitted_pressure_rmse_gpa": 0.15826221866226173,
+          "success": true,
+          "author_fit_parity": false,
+          "author_workflow_parity": false
+        },
+        {
+          "rows": 123,
+          "include_cold_lvp": false,
+          "objective": "unweighted_P",
+          "fixed": {
+            "molar_V0_cm3_mol": 41.74,
+            "theta0_k": 145.0,
+            "n": 2,
+            "Tr_k": 300
+          },
+          "source_parameters": [
+            16.28,
+            5.28,
+            2.18,
+            1.52
+          ],
+          "fit_parameters": [
+            15.823274419116947,
+            5.406441273158625,
+            2.215143269985242,
+            1.4017024196430834
+          ],
+          "fit_minus_source": [
+            -0.45672558088305415,
+            0.1264412731586244,
+            0.035143269985241865,
+            -0.11829758035691662
+          ],
+          "fit_minus_source_over_reported_esd": [
+            -11.418139522076354,
+            6.322063657931221,
+            0.2510233570374419,
+            -0.49290658482048594
+          ],
+          "source_pressure_rmse_gpa": 0.15948654363882814,
+          "source_pressure_max_abs_gpa": 0.4572823103308714,
+          "fitted_pressure_rmse_gpa": 0.14911314019240124,
+          "success": true,
+          "author_fit_parity": false,
+          "author_workflow_parity": false
+        },
+        {
+          "rows": 126,
+          "include_cold_lvp": true,
+          "objective": "independent_PVT_effective_variance",
+          "fixed": {
+            "molar_V0_cm3_mol": 41.74,
+            "theta0_k": 145.0,
+            "n": 2,
+            "Tr_k": 300
+          },
+          "source_parameters": [
+            16.28,
+            5.28,
+            2.18,
+            1.52
+          ],
+          "fit_parameters": [
+            16.359743331995812,
+            5.243121211236904,
+            2.164711836976681,
+            1.4726447743540427
+          ],
+          "fit_minus_source": [
+            0.07974333199581096,
+            -0.03687878876309636,
+            -0.015288163023319257,
+            -0.04735522564595729
+          ],
+          "fit_minus_source_over_reported_esd": [
+            1.993583299895274,
+            -1.843939438154818,
+            -0.1092011644522804,
+            -0.19731344019148872
+          ],
+          "source_pressure_rmse_gpa": 0.15989076623631154,
+          "source_pressure_max_abs_gpa": 0.4572823103308714,
+          "fitted_pressure_rmse_gpa": 0.15870234141417244,
+          "success": true,
+          "author_fit_parity": false,
+          "author_workflow_parity": false
+        }
+      ]
+    },
+    "rbi": {
+      "debye_anchor": {
+        "bulk_gpa": 12.57,
+        "shear_gpa": 6.39,
+        "density_g_cm3": 4.157,
+        "molar_mass_g_mol": 212.37,
+        "source_average_speed_m_s": 1382.0,
+        "calculated_average_speed_m_s": 1381.8558965535888,
+        "calculated_theta_k": 117.96736664702583,
+        "source_fixed_theta_k": 118.0,
+        "source": "Official supplement section 1, DFT-derived K and G"
+      },
+      "benchmarks": {
+        "rows": 54,
+        "max_absolute_ratio_difference": 0.00024011957888880886,
+        "max_native_reference_ratio_difference": 7.771561172376096e-15,
+        "outside_last_digit_rounding": 52,
+        "outside_coefficient_rounding_envelope": 0,
+        "states": [
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.8072,
+            "reference_ratio": 0.8071219368198626,
+            "difference": -7.80631801374776e-05,
+            "rounding_sensitivity_envelope": 0.0001496115807972986,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.329070518200751e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.8163,
+            "reference_ratio": 0.816210826225577,
+            "difference": -8.917377442307917e-05,
+            "rounding_sensitivity_envelope": 0.0001772176307044459,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.886579864025407e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.8423,
+            "reference_ratio": 0.842247072639612,
+            "difference": -5.292736038808865e-05,
+            "rounding_sensitivity_envelope": 0.00026140777015504766,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.662137425588298e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.8746,
+            "reference_ratio": 0.8745616688400496,
+            "difference": -3.833115995044434e-05,
+            "rounding_sensitivity_envelope": 0.00038017205763596904,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 6.661338147750939e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.9171,
+            "reference_ratio": 0.9170382801216458,
+            "difference": -6.171987835423831e-05,
+            "rounding_sensitivity_envelope": 0.0005665234168190702,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.7763568394002505e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.9794,
+            "reference_ratio": 0.9793696480221605,
+            "difference": -3.0351977839515598e-05,
+            "rounding_sensitivity_envelope": 0.0009262911400125306,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 7.771561172376096e-15,
+            "molten_source_flag": true
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.7228,
+            "reference_ratio": 0.7226743070492824,
+            "difference": -0.00012569295071762632,
+            "rounding_sensitivity_envelope": 0.00019718740254826556,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.1102230246251565e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.7277,
+            "reference_ratio": 0.7275617091396761,
+            "difference": -0.00013829086032390858,
+            "rounding_sensitivity_envelope": 0.00021505149680001718,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 5.551115123125783e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.7409,
+            "reference_ratio": 0.7408269079346226,
+            "difference": -7.309206537742252e-05,
+            "rounding_sensitivity_envelope": 0.00026497051532060054,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.55351295663786e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.7558,
+            "reference_ratio": 0.7556950845023919,
+            "difference": -0.0001049154976081601,
+            "rounding_sensitivity_envelope": 0.000324654162289667,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.6637359812630166e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.7727,
+            "reference_ratio": 0.7725466611180317,
+            "difference": -0.00015333888196833456,
+            "rounding_sensitivity_envelope": 0.0003977236507904991,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.4424906541753444e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 10.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.7921,
+            "reference_ratio": 0.791966336399398,
+            "difference": -0.00013366360060207416,
+            "rounding_sensitivity_envelope": 0.0004898806254869436,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.9984014443252818e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.6694,
+            "reference_ratio": 0.6692906078404152,
+            "difference": -0.00010939215958483128,
+            "rounding_sensitivity_envelope": 0.0002249292662974744,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.1094237467877974e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.6726,
+            "reference_ratio": 0.6725203568621875,
+            "difference": -7.964313781250176e-05,
+            "rounding_sensitivity_envelope": 0.00023819333898179024,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.3306690738754696e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.6812,
+            "reference_ratio": 0.6811129498978944,
+            "difference": -8.705010210563469e-05,
+            "rounding_sensitivity_envelope": 0.0002740780421501887,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.773959005888173e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.6906,
+            "reference_ratio": 0.6904068689116161,
+            "difference": -0.00019313108838392434,
+            "rounding_sensitivity_envelope": 0.0003146006155871961,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.5543122344752192e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.7007,
+            "reference_ratio": 0.7004903408464117,
+            "difference": -0.0002096591535882819,
+            "rounding_sensitivity_envelope": 0.0003608243777125708,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.3306690738754696e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 15.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.7117,
+            "reference_ratio": 0.7114976887207897,
+            "difference": -0.0002023112792103321,
+            "rounding_sensitivity_envelope": 0.0004141594484917743,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.1094237467877974e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.6309,
+            "reference_ratio": 0.6307495437063304,
+            "difference": -0.00015045629366960966,
+            "rounding_sensitivity_envelope": 0.0002432015786834107,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.6637359812630166e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.6333,
+            "reference_ratio": 0.6331107031985369,
+            "difference": -0.00018929680146306804,
+            "rounding_sensitivity_envelope": 0.00025373742119406126,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.220446049250313e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.6395,
+            "reference_ratio": 0.6393300044725135,
+            "difference": -0.00016999552748642177,
+            "rounding_sensitivity_envelope": 0.0002817836720615585,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.2212453270876722e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.6461,
+            "reference_ratio": 0.6459365336890805,
+            "difference": -0.00016346631091945785,
+            "rounding_sensitivity_envelope": 0.00031254957872839937,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.3306690738754696e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.6531,
+            "reference_ratio": 0.6529551316821636,
+            "difference": -0.00014486831783644405,
+            "rounding_sensitivity_envelope": 0.00034647260871268346,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.3314683517128287e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 20.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.6606,
+            "reference_ratio": 0.6604330977211521,
+            "difference": -0.00016690227884785802,
+            "rounding_sensitivity_envelope": 0.00038409941510453847,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.774758283725532e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.5768,
+            "reference_ratio": 0.5766193951636922,
+            "difference": -0.0001806048363077739,
+            "rounding_sensitivity_envelope": 0.0002657343060339434,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.1102230246251565e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.5783,
+            "reference_ratio": 0.5781028140647014,
+            "difference": -0.00019718593529860495,
+            "rounding_sensitivity_envelope": 0.00027315740157152766,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -6.106226635438361e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.5821,
+            "reference_ratio": 0.5819737218684985,
+            "difference": -0.00012627813150145606,
+            "rounding_sensitivity_envelope": 0.0002926227419286553,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.773959005888173e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.5862,
+            "reference_ratio": 0.5860121471625716,
+            "difference": -0.00018785283742850378,
+            "rounding_sensitivity_envelope": 0.0003133629242455582,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 6.328271240363392e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.5904,
+            "reference_ratio": 0.5902154801722352,
+            "difference": -0.00018451982776479525,
+            "rounding_sensitivity_envelope": 0.0003354866324770722,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 4.6629367034256575e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 30.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.5948,
+            "reference_ratio": 0.5945935264304781,
+            "difference": -0.0002064735695218589,
+            "rounding_sensitivity_envelope": 0.00035913785653541306,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -6.661338147750939e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.5391,
+            "reference_ratio": 0.5389513943392483,
+            "difference": -0.00014860566075169945,
+            "rounding_sensitivity_envelope": 0.00027888878719140584,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.220446049250313e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.5402,
+            "reference_ratio": 0.5400030054613559,
+            "difference": -0.00019699453864407968,
+            "rounding_sensitivity_envelope": 0.0002845806661366856,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.774758283725532e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.5429,
+            "reference_ratio": 0.5427362044263426,
+            "difference": -0.00016379557365742148,
+            "rounding_sensitivity_envelope": 0.0002994140278431756,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.4432899320127035e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.5457,
+            "reference_ratio": 0.5455625415542223,
+            "difference": -0.00013745844577761623,
+            "rounding_sensitivity_envelope": 0.00031499311305050457,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.220446049250313e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.5487,
+            "reference_ratio": 0.5484750525447062,
+            "difference": -0.00022494745529377802,
+            "rounding_sensitivity_envelope": 0.0003313444333005233,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.220446049250313e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 40.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.5517,
+            "reference_ratio": 0.5514761527043273,
+            "difference": -0.00022384729567270778,
+            "rounding_sensitivity_envelope": 0.000348520578437711,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -7.771561172376096e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.4878,
+            "reference_ratio": 0.48765429569059365,
+            "difference": -0.00014570430940635815,
+            "rounding_sensitivity_envelope": 0.00029295771749788255,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -6.106226635438361e-16,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.4885,
+            "reference_ratio": 0.4882910183048071,
+            "difference": -0.00020898169519290022,
+            "rounding_sensitivity_envelope": 0.00029678723191712273,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.55351295663786e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.4901,
+            "reference_ratio": 0.4899412278393712,
+            "difference": -0.00015877216062876176,
+            "rounding_sensitivity_envelope": 0.00030672791727454627,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.551115123125783e-17,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.4918,
+            "reference_ratio": 0.49163320695680224,
+            "difference": -0.0001667930431977771,
+            "rounding_sensitivity_envelope": 0.0003170258841540041,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -2.275957200481571e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.4936,
+            "reference_ratio": 0.4933598804211112,
+            "difference": -0.00024011957888880886,
+            "rounding_sensitivity_envelope": 0.00032766250668070927,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.609823385706477e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 60.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.4953,
+            "reference_ratio": 0.4951207588207249,
+            "difference": -0.00017924117927509142,
+            "rounding_sensitivity_envelope": 0.00033864863688382594,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -4.052314039881821e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.4531,
+            "reference_ratio": 0.4528838715459605,
+            "difference": -0.0002161284540395103,
+            "rounding_sensitivity_envelope": 0.0002996851288751878,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.3314683517128287e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.4535,
+            "reference_ratio": 0.45332535564064524,
+            "difference": -0.00017464435935476974,
+            "rounding_sensitivity_envelope": 0.00030253523948115533,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.7208456881689926e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.4547,
+            "reference_ratio": 0.45446897144872916,
+            "difference": -0.00023102855127082877,
+            "rounding_sensitivity_envelope": 0.0003099322549653449,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.942091015256665e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.4558,
+            "reference_ratio": 0.4556368864917218,
+            "difference": -0.00016311350827818982,
+            "rounding_sensitivity_envelope": 0.00031754657467531475,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.27675647831893e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.457,
+            "reference_ratio": 0.4568231413367311,
+            "difference": -0.00017685866326894173,
+            "rounding_sensitivity_envelope": 0.0003253507250815579,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.219646771412954e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 80.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.4582,
+            "reference_ratio": 0.4580268775972383,
+            "difference": -0.0001731224027616829,
+            "rounding_sensitivity_envelope": 0.00033334443217115093,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.27675647831893e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 300.0,
+            "source_ratio": 0.4272,
+            "reference_ratio": 0.4269793925632914,
+            "difference": -0.0002206074367085975,
+            "rounding_sensitivity_envelope": 0.0003030832939643957,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -5.551115123125783e-17,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 500.0,
+            "source_ratio": 0.4275,
+            "reference_ratio": 0.42731005550368273,
+            "difference": -0.0001899444963172625,
+            "rounding_sensitivity_envelope": 0.000305333229100041,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 2.7755575615628914e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 1000.0,
+            "source_ratio": 0.4284,
+            "reference_ratio": 0.4281668005359637,
+            "difference": -0.00023319946403632663,
+            "rounding_sensitivity_envelope": 0.0003111783866331985,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 3.3306690738754696e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 1500.0,
+            "source_ratio": 0.4292,
+            "reference_ratio": 0.4290398205033721,
+            "difference": -0.0001601794966279435,
+            "rounding_sensitivity_envelope": 0.00031717432226458506,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -1.6653345369377348e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 2000.0,
+            "source_ratio": 0.4301,
+            "reference_ratio": 0.42992411328756946,
+            "difference": -0.00017588671243051746,
+            "rounding_sensitivity_envelope": 0.00032329203002440796,
+            "within_rounding_envelope": true,
+            "native_reference_difference": 1.942890293094024e-15,
+            "molten_source_flag": false
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 2500.0,
+            "source_ratio": 0.431,
+            "reference_ratio": 0.43081882629197127,
+            "difference": -0.00018117370802872568,
+            "rounding_sensitivity_envelope": 0.0003295282107614927,
+            "within_rounding_envelope": true,
+            "native_reference_difference": -3.7192471324942744e-15,
+            "molten_source_flag": false
+          }
+        ]
+      },
+      "dac_refit": {
+        "rows": 16,
+        "objective": "unweighted_pressure_residual",
+        "parameter_order": [
+          "molar_V0_cm3_mol",
+          "K0_gpa",
+          "K0_prime"
+        ],
+        "fit_parameters": [
+          51.06282842338207,
+          13.699070891083556,
+          4.9729929589958
+        ],
+        "pressure_rmse_gpa": 0.029126860520486943,
+        "success": true,
+        "author_fit_parity": false
+      },
+      "independent_fits": [
+        {
+          "rows": 121,
+          "include_cold_lvp": false,
+          "objective": "independent_PVT_effective_variance",
+          "fixed": {
+            "molar_V0_cm3_mol": 51.11,
+            "theta0_k": 118.0,
+            "n": 2,
+            "Tr_k": 300
+          },
+          "source_parameters": [
+            13.69,
+            4.95,
+            2.21,
+            1.42
+          ],
+          "fit_parameters": [
+            13.591206397324228,
+            4.98810760770441,
+            2.231327693843493,
+            1.4135039290810958
+          ],
+          "fit_minus_source": [
+            -0.0987936026757712,
+            0.038107607704409574,
+            0.0213276938434932,
+            -0.00649607091890414
+          ],
+          "fit_minus_source_over_reported_esd": [
+            -2.46984006689428,
+            3.8107607704409574,
+            0.3046813406213314,
+            -0.0649607091890414
+          ],
+          "source_pressure_rmse_gpa": 0.12780834540828995,
+          "source_pressure_max_abs_gpa": 0.3952445221393184,
+          "fitted_pressure_rmse_gpa": 0.12628948924863515,
+          "success": true,
+          "author_fit_parity": false,
+          "author_workflow_parity": false
+        },
+        {
+          "rows": 121,
+          "include_cold_lvp": false,
+          "objective": "unweighted_P",
+          "fixed": {
+            "molar_V0_cm3_mol": 51.11,
+            "theta0_k": 118.0,
+            "n": 2,
+            "Tr_k": 300
+          },
+          "source_parameters": [
+            13.69,
+            4.95,
+            2.21,
+            1.42
+          ],
+          "fit_parameters": [
+            13.440603569834899,
+            5.040766528432174,
+            2.274115528441289,
+            1.4407210124350265
+          ],
+          "fit_minus_source": [
+            -0.24939643016510082,
+            0.09076652843217392,
+            0.0641155284412891,
+            0.020721012435026553
+          ],
+          "fit_minus_source_over_reported_esd": [
+            -6.234910754127521,
+            9.076652843217392,
+            0.9159361205898441,
+            0.20721012435026553
+          ],
+          "source_pressure_rmse_gpa": 0.12780834540828995,
+          "source_pressure_max_abs_gpa": 0.3952445221393184,
+          "fitted_pressure_rmse_gpa": 0.1254199494949861,
+          "success": true,
+          "author_fit_parity": false,
+          "author_workflow_parity": false
+        },
+        {
+          "rows": 124,
+          "include_cold_lvp": true,
+          "objective": "independent_PVT_effective_variance",
+          "fixed": {
+            "molar_V0_cm3_mol": 51.11,
+            "theta0_k": 118.0,
+            "n": 2,
+            "Tr_k": 300
+          },
+          "source_parameters": [
+            13.69,
+            4.95,
+            2.21,
+            1.42
+          ],
+          "fit_parameters": [
+            13.595255063137435,
+            4.986768685021988,
+            2.2310423158696935,
+            1.414297223966738
+          ],
+          "fit_minus_source": [
+            -0.0947449368625648,
+            0.036768685021987935,
+            0.021042315869693518,
+            -0.005702776033261969
+          ],
+          "fit_minus_source_over_reported_esd": [
+            -2.36862342156412,
+            3.6768685021987935,
+            0.30060451242419306,
+            -0.05702776033261969
+          ],
+          "source_pressure_rmse_gpa": 0.12737175642016174,
+          "source_pressure_max_abs_gpa": 0.3952445221393184,
+          "fitted_pressure_rmse_gpa": 0.1259719820411676,
+          "success": true,
+          "author_fit_parity": false,
+          "author_workflow_parity": false
+        }
+      ]
+    }
+  }
+}

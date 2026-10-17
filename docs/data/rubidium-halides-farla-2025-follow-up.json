@@ -1,0 +1,985 @@
+{
+  "audit_date": "2026-10-15",
+  "source_doi": "10.1063/5.0248905",
+  "parameter_order": [
+    "K0_gpa",
+    "K0_prime",
+    "gamma0",
+    "q"
+  ],
+  "author_inputs": "datasets/rubidium-halides-farla-2025-author-inputs.json",
+  "original_eosfit_files_recovered": false,
+  "author_contact": "none",
+  "calibration": {
+    "module_si": {
+      "unique_rows": 109,
+      "repeated_source_rows": 327,
+      "within_pressure_rounding": 93,
+      "within_pressure_and_volume_rounding": 97,
+      "within_reported_pressure_error_plus_rounding": 109,
+      "rmse_gpa": 0.010890395368503704,
+      "max_abs_difference_gpa": 0.0702186354113481,
+      "propagated_sigma_matches_printed_rounding": 109,
+      "outliers_beyond_rounding": [
+        {
+          "observation_index": 16,
+          "source_row_s2": 20,
+          "run": "BT792",
+          "temperature_k": 1100.0,
+          "cscl_volume_a3": 60.468,
+          "source_pressure_gpa": 5.54,
+          "calculated_pressure_gpa": 5.532678878699219,
+          "calculated_minus_source_gpa": -0.007321121300781108,
+          "rounding_allowance_gpa": 0.005289801784284727,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 3.199047573340522
+        },
+        {
+          "observation_index": 17,
+          "source_row_s2": 21,
+          "run": "BT792",
+          "temperature_k": 1200.0,
+          "cscl_volume_a3": 60.901,
+          "source_pressure_gpa": 5.49,
+          "calculated_pressure_gpa": 5.515923146518929,
+          "calculated_minus_source_gpa": 0.02592314651892913,
+          "rounding_allowance_gpa": 0.005277934071188923,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -11.3097978563801
+        },
+        {
+          "observation_index": 18,
+          "source_row_s2": 22,
+          "run": "BT792",
+          "temperature_k": 1300.0,
+          "cscl_volume_a3": 61.389,
+          "source_pressure_gpa": 5.44,
+          "calculated_pressure_gpa": 5.480352031189937,
+          "calculated_minus_source_gpa": 0.040352031189936355,
+          "rounding_allowance_gpa": 0.0052651568424907326,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -17.57566312841277
+        },
+        {
+          "observation_index": 19,
+          "source_row_s2": 23,
+          "run": "BT792",
+          "temperature_k": 1400.0,
+          "cscl_volume_a3": 61.773,
+          "source_pressure_gpa": 5.44,
+          "calculated_pressure_gpa": 5.5102186354113485,
+          "calculated_minus_source_gpa": 0.0702186354113481,
+          "rounding_allowance_gpa": 0.005255424249900216,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -30.544951450934605
+        },
+        {
+          "observation_index": 21,
+          "source_row_s2": 26,
+          "run": "BT793",
+          "temperature_k": 600.0,
+          "cscl_volume_a3": 55.269,
+          "source_pressure_gpa": 8.3,
+          "calculated_pressure_gpa": 8.294102797359766,
+          "calculated_minus_source_gpa": -0.005897202640234411,
+          "rounding_allowance_gpa": 0.0054745732320721175,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.6334860547260632
+        },
+        {
+          "observation_index": 51,
+          "source_row_s2": 56,
+          "run": "BT793",
+          "temperature_k": 900.0,
+          "cscl_volume_a3": 56.315,
+          "source_pressure_gpa": 8.03,
+          "calculated_pressure_gpa": 8.024563682999398,
+          "calculated_minus_source_gpa": -0.005436317000601321,
+          "rounding_allowance_gpa": 0.005428853076735791,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.409472975032827
+        },
+        {
+          "observation_index": 64,
+          "source_row_s2": 70,
+          "run": "BT795",
+          "temperature_k": 900.0,
+          "cscl_volume_a3": 51.571,
+          "source_pressure_gpa": 13.17,
+          "calculated_pressure_gpa": 13.164288825359538,
+          "calculated_minus_source_gpa": -0.005711174640461891,
+          "rounding_allowance_gpa": 0.005673973798594574,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.5739822462816164
+        },
+        {
+          "observation_index": 65,
+          "source_row_s2": 71,
+          "run": "BT795",
+          "temperature_k": 1100.0,
+          "cscl_volume_a3": 51.574,
+          "source_pressure_gpa": 13.61,
+          "calculated_pressure_gpa": 13.604322769868517,
+          "calculated_minus_source_gpa": -0.005677230131482247,
+          "rounding_allowance_gpa": 0.005672965484987742,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.555365748891518
+        },
+        {
+          "observation_index": 74,
+          "source_row_s2": 80,
+          "run": "BT795",
+          "temperature_k": 1100.0,
+          "cscl_volume_a3": 53.758,
+          "source_pressure_gpa": 10.96,
+          "calculated_pressure_gpa": 10.95320931425671,
+          "calculated_minus_source_gpa": -0.006790685743290226,
+          "rounding_allowance_gpa": 0.005545657384561693,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 3.0329236931870582
+        },
+        {
+          "observation_index": 78,
+          "source_row_s2": 84,
+          "run": "BT795",
+          "temperature_k": 300.0,
+          "cscl_volume_a3": 52.947,
+          "source_pressure_gpa": 10.03,
+          "calculated_pressure_gpa": 10.098802462632902,
+          "calculated_minus_source_gpa": 0.06880246263290246,
+          "rounding_allowance_gpa": 0.005593105055910925,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -31.87846403576873
+        },
+        {
+          "observation_index": 107,
+          "source_row_s2": 114,
+          "run": "BT815",
+          "temperature_k": 1800.0,
+          "cscl_volume_a3": 49.998,
+          "source_pressure_gpa": 17.45,
+          "calculated_pressure_gpa": 17.44403564663357,
+          "calculated_minus_source_gpa": -0.005964353366429975,
+          "rounding_allowance_gpa": 0.005781473836198643,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.695462443237602
+        },
+        {
+          "observation_index": 108,
+          "source_row_s2": 115,
+          "run": "BT815",
+          "temperature_k": 500.0,
+          "cscl_volume_a3": 49.854,
+          "source_pressure_gpa": 14.81,
+          "calculated_pressure_gpa": 14.803631343599202,
+          "calculated_minus_source_gpa": -0.006368656400798756,
+          "rounding_allowance_gpa": 0.005798057509301842,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.916527994106218
+        }
+      ]
+    },
+    "module_legacy_na": {
+      "unique_rows": 109,
+      "repeated_source_rows": 327,
+      "within_pressure_rounding": 93,
+      "within_pressure_and_volume_rounding": 100,
+      "within_reported_pressure_error_plus_rounding": 109,
+      "rmse_gpa": 0.0108925285997878,
+      "max_abs_difference_gpa": 0.07023990977546823,
+      "propagated_sigma_matches_printed_rounding": 109,
+      "outliers_beyond_rounding": [
+        {
+          "observation_index": 16,
+          "source_row_s2": 20,
+          "run": "BT792",
+          "temperature_k": 1100.0,
+          "cscl_volume_a3": 60.468,
+          "source_pressure_gpa": 5.54,
+          "calculated_pressure_gpa": 5.532702506453423,
+          "calculated_minus_source_gpa": -0.007297493546577272,
+          "rounding_allowance_gpa": 0.005289802695674801,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 3.188723602709615
+        },
+        {
+          "observation_index": 17,
+          "source_row_s2": 21,
+          "run": "BT792",
+          "temperature_k": 1200.0,
+          "cscl_volume_a3": 60.901,
+          "source_pressure_gpa": 5.49,
+          "calculated_pressure_gpa": 5.515945968954741,
+          "calculated_minus_source_gpa": 0.02594596895474055,
+          "rounding_allowance_gpa": 0.005277934953915704,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -11.319756405051749
+        },
+        {
+          "observation_index": 18,
+          "source_row_s2": 22,
+          "run": "BT792",
+          "temperature_k": 1300.0,
+          "cscl_volume_a3": 61.389,
+          "source_pressure_gpa": 5.44,
+          "calculated_pressure_gpa": 5.480373978897963,
+          "calculated_minus_source_gpa": 0.04037397889796246,
+          "rounding_allowance_gpa": 0.005265157694117058,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -17.58522495993998
+        },
+        {
+          "observation_index": 19,
+          "source_row_s2": 23,
+          "run": "BT792",
+          "temperature_k": 1400.0,
+          "cscl_volume_a3": 61.773,
+          "source_pressure_gpa": 5.44,
+          "calculated_pressure_gpa": 5.510239909775469,
+          "calculated_minus_source_gpa": 0.07023990977546823,
+          "rounding_allowance_gpa": 0.0052554250779187585,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -30.554209722457017
+        },
+        {
+          "observation_index": 21,
+          "source_row_s2": 26,
+          "run": "BT793",
+          "temperature_k": 600.0,
+          "cscl_volume_a3": 55.269,
+          "source_pressure_gpa": 8.3,
+          "calculated_pressure_gpa": 8.29413816291499,
+          "calculated_minus_source_gpa": -0.005861837085010535,
+          "rounding_allowance_gpa": 0.005474574582463916,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.6176938714454536
+        },
+        {
+          "observation_index": 74,
+          "source_row_s2": 80,
+          "run": "BT795",
+          "temperature_k": 1100.0,
+          "cscl_volume_a3": 53.758,
+          "source_pressure_gpa": 10.96,
+          "calculated_pressure_gpa": 10.953248865364856,
+          "calculated_minus_source_gpa": -0.006751134635145206,
+          "rounding_allowance_gpa": 0.005545658904053781,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 3.015259475014318
+        },
+        {
+          "observation_index": 78,
+          "source_row_s2": 84,
+          "run": "BT795",
+          "temperature_k": 300.0,
+          "cscl_volume_a3": 52.947,
+          "source_pressure_gpa": 10.03,
+          "calculated_pressure_gpa": 10.098844804352508,
+          "calculated_minus_source_gpa": 0.0688448043525085,
+          "rounding_allowance_gpa": 0.005593106675880861,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -31.898172734977095
+        },
+        {
+          "observation_index": 107,
+          "source_row_s2": 114,
+          "run": "BT815",
+          "temperature_k": 1800.0,
+          "cscl_volume_a3": 49.998,
+          "source_pressure_gpa": 17.45,
+          "calculated_pressure_gpa": 17.4440883286364,
+          "calculated_minus_source_gpa": -0.005911671363598714,
+          "rounding_allowance_gpa": 0.005781475891120209,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.6716543011734757
+        },
+        {
+          "observation_index": 108,
+          "source_row_s2": 115,
+          "run": "BT815",
+          "temperature_k": 500.0,
+          "cscl_volume_a3": 49.854,
+          "source_pressure_gpa": 14.81,
+          "calculated_pressure_gpa": 14.80368498862319,
+          "calculated_minus_source_gpa": -0.006315011376811341,
+          "rounding_allowance_gpa": 0.005798059588207778,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.8919636034405016
+        }
+      ]
+    },
+    "gui_defaults_legacy_na": {
+      "unique_rows": 109,
+      "repeated_source_rows": 327,
+      "within_pressure_rounding": 102,
+      "within_pressure_and_volume_rounding": 104,
+      "within_reported_pressure_error_plus_rounding": 109,
+      "rmse_gpa": 0.011042680741259683,
+      "max_abs_difference_gpa": 0.07090187135216297,
+      "propagated_sigma_matches_printed_rounding": 109,
+      "outliers_beyond_rounding": [
+        {
+          "observation_index": 16,
+          "source_row_s2": 20,
+          "run": "BT792",
+          "temperature_k": 1100.0,
+          "cscl_volume_a3": 60.468,
+          "source_pressure_gpa": 5.54,
+          "calculated_pressure_gpa": 5.533459944244853,
+          "calculated_minus_source_gpa": -0.006540055755147378,
+          "rounding_allowance_gpa": 0.005289833583253518,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": 2.8578310646446425
+        },
+        {
+          "observation_index": 17,
+          "source_row_s2": 21,
+          "run": "BT792",
+          "temperature_k": 1200.0,
+          "cscl_volume_a3": 60.901,
+          "source_pressure_gpa": 5.49,
+          "calculated_pressure_gpa": 5.51667089074104,
+          "calculated_minus_source_gpa": 0.026670890741039344,
+          "rounding_allowance_gpa": 0.005277964880137205,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -11.636344999327775
+        },
+        {
+          "observation_index": 18,
+          "source_row_s2": 22,
+          "run": "BT792",
+          "temperature_k": 1300.0,
+          "cscl_volume_a3": 61.389,
+          "source_pressure_gpa": 5.44,
+          "calculated_pressure_gpa": 5.481064013993396,
+          "calculated_minus_source_gpa": 0.04106401399339532,
+          "rounding_allowance_gpa": 0.005265186575920673,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -17.886262878071648
+        },
+        {
+          "observation_index": 19,
+          "source_row_s2": 23,
+          "run": "BT792",
+          "temperature_k": 1400.0,
+          "cscl_volume_a3": 61.773,
+          "source_pressure_gpa": 5.44,
+          "calculated_pressure_gpa": 5.510901871352163,
+          "calculated_minus_source_gpa": 0.07090187135216297,
+          "rounding_allowance_gpa": 0.005255453168549913,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -30.842999693136562
+        },
+        {
+          "observation_index": 78,
+          "source_row_s2": 84,
+          "run": "BT795",
+          "temperature_k": 300.0,
+          "cscl_volume_a3": 52.947,
+          "source_pressure_gpa": 10.03,
+          "calculated_pressure_gpa": 10.100276621012181,
+          "calculated_minus_source_gpa": 0.0702766210121819,
+          "rounding_allowance_gpa": 0.005593161456309943,
+          "reported_pressure_error_gpa": 0.07,
+          "implied_temperature_shift_k": -32.56545609165062
+        }
+      ]
+    },
+    "qualification": "GUI defaults and module inputs are recovered from public historical code. A saved runtime session is absent. Implied temperature shifts diagnose a pressure discrepancy only; they are not evidence of actual temperatures or author-applied corrections. Source observations remain unchanged."
+  },
+  "compounds": {
+    "rbcl": {
+      "iterated_weight_refits": {
+        "literal_printed_errors": {
+          "rows": 122,
+          "cycles": 5,
+          "converged": true,
+          "theta0_k": 177.0,
+          "R_j_mol_k": 8.314462618,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": false,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            19.921940727841257,
+            4.995184896218001,
+            1.9639111476753601,
+            1.0592376167051918
+          ],
+          "fit_minus_source": [
+            0.03194072784125623,
+            -0.004815103781998786,
+            0.00391114767536016,
+            0.009237616705191742
+          ],
+          "fit_minus_source_over_reported_esd": [
+            0.3992590980157029,
+            -0.24075518909993932,
+            0.09777869188400401,
+            0.10264018561324159
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 0.3992590980157029,
+          "pressure_rmse_gpa": 0.15516257838688707,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "diagnostic_floor_0p005": {
+          "rows": 122,
+          "cycles": 6,
+          "converged": true,
+          "theta0_k": 177.0,
+          "R_j_mol_k": 8.314462618,
+          "pressure_floor_gpa": 0.005,
+          "include_cold_lvp": false,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            19.763890680456722,
+            5.0375514169765685,
+            1.9775215105225743,
+            1.051785387964771
+          ],
+          "fit_minus_source": [
+            -0.12610931954327853,
+            0.0375514169765685,
+            0.017521510522574335,
+            0.0017853879647709014
+          ],
+          "fit_minus_source_over_reported_esd": [
+            -1.5763664942909816,
+            1.8775708488284248,
+            0.4380377630643584,
+            0.019837644053010018
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 1.8775708488284248,
+          "pressure_rmse_gpa": 0.15228116730567318,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "author_theta_and_eosfit_R": {
+          "rows": 122,
+          "cycles": 5,
+          "converged": true,
+          "theta0_k": 177.04,
+          "R_j_mol_k": 8.314,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": false,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            19.92194433101344,
+            4.995183969067875,
+            1.964022615918639,
+            1.0592241458278446
+          ],
+          "fit_minus_source": [
+            0.03194433101343819,
+            -0.004816030932125237,
+            0.00402261591863895,
+            0.009224145827844588
+          ],
+          "fit_minus_source_over_reported_esd": [
+            0.39930413766797734,
+            -0.24080154660626185,
+            0.10056539796597375,
+            0.1024905091982732
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 0.39930413766797734,
+          "pressure_rmse_gpa": 0.1551621462385239,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "include_cold_lvp": {
+          "rows": 125,
+          "cycles": 5,
+          "converged": true,
+          "theta0_k": 177.04,
+          "R_j_mol_k": 8.314,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": true,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            19.926779330633302,
+            4.993888379433887,
+            1.9635960766675644,
+            1.0594119206579855
+          ],
+          "fit_minus_source": [
+            0.0367793306333013,
+            -0.006111620566112919,
+            0.0035960766675644518,
+            0.009411920657985462
+          ],
+          "fit_minus_source_over_reported_esd": [
+            0.45974163291626624,
+            -0.30558102830564593,
+            0.0899019166891113,
+            0.10457689619983847
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 0.45974163291626624,
+          "pressure_rmse_gpa": 0.1542136934335477,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "reconstructed_cscl_targets": {
+          "rows": 122,
+          "cycles": 7,
+          "converged": true,
+          "theta0_k": 177.04,
+          "R_j_mol_k": 8.314,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": false,
+          "pressure_targets": "reconstructed_CsCl_GUI_defaults_for_LVP",
+          "fit_parameters": [
+            19.92019353223992,
+            4.995679942999526,
+            1.9706121010123117,
+            1.0697327478108856
+          ],
+          "fit_minus_source": [
+            0.030193532239920273,
+            -0.004320057000474442,
+            0.010612101012311692,
+            0.01973274781088552
+          ],
+          "fit_minus_source_over_reported_esd": [
+            0.3774191529990034,
+            -0.2160028500237221,
+            0.2653025253077923,
+            0.21925275345428358
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 0.3774191529990034,
+          "pressure_rmse_gpa": 0.15585448085624912,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        }
+      },
+      "joint_benchmark_rounding": {
+        "rows": 54,
+        "fixed_molar_v0_cm3_mol": 36.25,
+        "fixed_author_theta0_k": 177.04,
+        "coefficient_half_rounding_bounds": [
+          0.005,
+          0.005,
+          0.005,
+          0.005
+        ],
+        "ratio_half_rounding_interval": 5e-05,
+        "joint_rounded_table_solution_found": false,
+        "optimizer_success": false,
+        "optimizer_message": "Positive directional derivative for linesearch",
+        "candidate_coefficients": [
+          19.88500000000001,
+          5.003939699735544,
+          1.9634445256399942,
+          1.0462778167411773
+        ],
+        "max_absolute_ratio_difference": 7.5761504961247e-05,
+        "outside_ratio_rounding": 2,
+        "outside_states": [
+          {
+            "pressure_gpa": 5.0,
+            "temperature_k": 1500.0,
+            "ratio_difference": 7.5761504961247e-05
+          },
+          {
+            "pressure_gpa": 100.0,
+            "temperature_k": 1500.0,
+            "ratio_difference": 5.098423264732199e-05
+          }
+        ],
+        "qualification": "Calculated-table reconstruction, not original coefficients or a fit to observations. No candidate values are written to catalog records. Success establishes a compatible vector, not its uniqueness or author provenance. Failure is an unresolved diagnostic."
+      }
+    },
+    "rbbr": {
+      "iterated_weight_refits": {
+        "literal_printed_errors": {
+          "rows": 123,
+          "cycles": 4,
+          "converged": true,
+          "theta0_k": 145.0,
+          "R_j_mol_k": 8.314462618,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": false,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            16.31593787701798,
+            5.255871185051541,
+            2.166479029403295,
+            1.4741843779781867
+          ],
+          "fit_minus_source": [
+            0.03593787701797879,
+            -0.024128814948459087,
+            -0.013520970596704984,
+            -0.04581562202181333
+          ],
+          "fit_minus_source_over_reported_esd": [
+            0.8984469254494698,
+            -1.2064407474229544,
+            -0.09657836140503559,
+            -0.1908984250908889
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 1.2064407474229544,
+          "pressure_rmse_gpa": 0.1567603609069775,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "diagnostic_floor_0p005": {
+          "rows": 123,
+          "cycles": 4,
+          "converged": true,
+          "theta0_k": 145.0,
+          "R_j_mol_k": 8.314462618,
+          "pressure_floor_gpa": 0.005,
+          "include_cold_lvp": false,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            16.372116145468755,
+            5.238695270387241,
+            2.160229336125355,
+            1.4802376505824186
+          ],
+          "fit_minus_source": [
+            0.09211614546875424,
+            -0.041304729612758884,
+            -0.019770663874645322,
+            -0.03976234941758139
+          ],
+          "fit_minus_source_over_reported_esd": [
+            2.302903636718856,
+            -2.065236480637944,
+            -0.141219027676038,
+            -0.16567645590658914
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 2.302903636718856,
+          "pressure_rmse_gpa": 0.15840551822470245,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "author_theta_and_eosfit_R": {
+          "rows": 123,
+          "cycles": 4,
+          "converged": true,
+          "theta0_k": 144.96,
+          "R_j_mol_k": 8.314,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": false,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            16.31593782064607,
+            5.255871188261109,
+            2.1665964862389586,
+            1.4741919816287514
+          ],
+          "fit_minus_source": [
+            0.035937820646068985,
+            -0.024128811738891365,
+            -0.013403513761041541,
+            -0.04580801837124859
+          ],
+          "fit_minus_source_over_reported_esd": [
+            0.8984455161517246,
+            -1.2064405869445682,
+            -0.09573938400743957,
+            -0.1908667432135358
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 1.2064405869445682,
+          "pressure_rmse_gpa": 0.1567612459389232,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "include_cold_lvp": {
+          "rows": 126,
+          "cycles": 4,
+          "converged": true,
+          "theta0_k": 144.96,
+          "R_j_mol_k": 8.314,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": true,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            16.31640529394366,
+            5.255743058172111,
+            2.1665683839368994,
+            1.4743184977964254
+          ],
+          "fit_minus_source": [
+            0.03640529394365899,
+            -0.024256941827888845,
+            -0.013431616063100726,
+            -0.04568150220357459
+          ],
+          "fit_minus_source_over_reported_esd": [
+            0.9101323485914747,
+            -1.2128470913944422,
+            -0.09594011473643375,
+            -0.19033959251489413
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 1.2128470913944422,
+          "pressure_rmse_gpa": 0.15733354468591967,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "reconstructed_cscl_targets": {
+          "rows": 123,
+          "cycles": 5,
+          "converged": true,
+          "theta0_k": 144.96,
+          "R_j_mol_k": 8.314,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": false,
+          "pressure_targets": "reconstructed_CsCl_GUI_defaults_for_LVP",
+          "fit_parameters": [
+            16.31585162607454,
+            5.255907998454259,
+            2.175135768801492,
+            1.485569191954521
+          ],
+          "fit_minus_source": [
+            0.035851626074538956,
+            -0.02409200154574087,
+            -0.0048642311985083175,
+            -0.03443080804547893
+          ],
+          "fit_minus_source_over_reported_esd": [
+            0.8962906518634739,
+            -1.2046000772870435,
+            -0.03474450856077369,
+            -0.14346170018949556
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 1.2046000772870435,
+          "pressure_rmse_gpa": 0.1573507597925212,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        }
+      },
+      "joint_benchmark_rounding": {
+        "rows": 54,
+        "fixed_molar_v0_cm3_mol": 41.74,
+        "fixed_author_theta0_k": 144.96,
+        "coefficient_half_rounding_bounds": [
+          0.005,
+          0.005,
+          0.005,
+          0.005
+        ],
+        "ratio_half_rounding_interval": 5e-05,
+        "joint_rounded_table_solution_found": true,
+        "optimizer_success": true,
+        "optimizer_message": "Optimization terminated successfully",
+        "candidate_coefficients": [
+          16.285,
+          5.276687732168118,
+          2.1842670812284615,
+          1.51968772094307
+        ],
+        "max_absolute_ratio_difference": 4.916402723287305e-05,
+        "outside_ratio_rounding": 0,
+        "outside_states": [],
+        "qualification": "Calculated-table reconstruction, not original coefficients or a fit to observations. No candidate values are written to catalog records. Success establishes a compatible vector, not its uniqueness or author provenance. Failure is an unresolved diagnostic."
+      }
+    },
+    "rbi": {
+      "iterated_weight_refits": {
+        "literal_printed_errors": {
+          "rows": 121,
+          "cycles": 4,
+          "converged": true,
+          "theta0_k": 118.0,
+          "R_j_mol_k": 8.314462618,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": false,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            13.755110367011111,
+            4.933891030363035,
+            2.1925146881765416,
+            1.4179206722481745
+          ],
+          "fit_minus_source": [
+            0.06511036701111195,
+            -0.016108969636965398,
+            -0.01748531182345836,
+            -0.0020793277518253994
+          ],
+          "fit_minus_source_over_reported_esd": [
+            1.6277591752777987,
+            -1.6108969636965398,
+            -0.24979016890654798,
+            -0.020793277518253994
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 1.6277591752777987,
+          "pressure_rmse_gpa": 0.12894046047990115,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "diagnostic_floor_0p005": {
+          "rows": 121,
+          "cycles": 4,
+          "converged": true,
+          "theta0_k": 118.0,
+          "R_j_mol_k": 8.314462618,
+          "pressure_floor_gpa": 0.005,
+          "include_cold_lvp": false,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            13.615096776963979,
+            4.980331598573769,
+            2.2262409267092056,
+            1.42293372584576
+          ],
+          "fit_minus_source": [
+            -0.0749032230360207,
+            0.03033159857376866,
+            0.016240926709205628,
+            0.0029337258457600157
+          ],
+          "fit_minus_source_over_reported_esd": [
+            -1.8725805759005176,
+            3.033159857376866,
+            0.23201323870293752,
+            0.029337258457600157
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 3.033159857376866,
+          "pressure_rmse_gpa": 0.12649986153519682,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "author_theta_and_eosfit_R": {
+          "rows": 121,
+          "cycles": 4,
+          "converged": true,
+          "theta0_k": 117.98,
+          "R_j_mol_k": 8.314,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": false,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            13.75511012944171,
+            4.933891087633369,
+            2.1926353280872863,
+            1.41792324785411
+          ],
+          "fit_minus_source": [
+            0.06511012944171135,
+            -0.016108912366631145,
+            -0.017364671912713625,
+            -0.002076752145889982
+          ],
+          "fit_minus_source_over_reported_esd": [
+            1.6277532360427838,
+            -1.6108912366631145,
+            -0.24806674161019462,
+            -0.020767521458899818
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 1.6277532360427838,
+          "pressure_rmse_gpa": 0.12894059213946235,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "include_cold_lvp": {
+          "rows": 124,
+          "cycles": 4,
+          "converged": true,
+          "theta0_k": 117.98,
+          "R_j_mol_k": 8.314,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": true,
+          "pressure_targets": "reported",
+          "fit_parameters": [
+            13.75494964026887,
+            4.933943268191384,
+            2.192672716210435,
+            1.4179257187806296
+          ],
+          "fit_minus_source": [
+            0.06494964026887118,
+            -0.01605673180861622,
+            -0.01732728378956505,
+            -0.0020742812193703664
+          ],
+          "fit_minus_source_over_reported_esd": [
+            1.6237410067217795,
+            -1.605673180861622,
+            -0.247532625565215,
+            -0.020742812193703664
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 1.6237410067217795,
+          "pressure_rmse_gpa": 0.12846267100715647,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        },
+        "reconstructed_cscl_targets": {
+          "rows": 121,
+          "cycles": 4,
+          "converged": true,
+          "theta0_k": 117.98,
+          "R_j_mol_k": 8.314,
+          "pressure_floor_gpa": 0.0,
+          "include_cold_lvp": false,
+          "pressure_targets": "reconstructed_CsCl_GUI_defaults_for_LVP",
+          "fit_parameters": [
+            13.754569877768454,
+            4.934093476063704,
+            2.2042968022644582,
+            1.431404883656537
+          ],
+          "fit_minus_source": [
+            0.06456987776845402,
+            -0.015906523936296324,
+            -0.005703197735541732,
+            0.011404883656537024
+          ],
+          "fit_minus_source_over_reported_esd": [
+            1.6142469442113505,
+            -1.5906523936296324,
+            -0.08147425336488187,
+            0.11404883656537024
+          ],
+          "all_coefficients_round_to_source": false,
+          "max_coefficient_difference_in_reported_esd": 1.6142469442113505,
+          "pressure_rmse_gpa": 0.13011119445773042,
+          "author_input_files_recovered": false,
+          "author_workflow_parity": false
+        }
+      },
+      "joint_benchmark_rounding": {
+        "rows": 54,
+        "fixed_molar_v0_cm3_mol": 51.11,
+        "fixed_author_theta0_k": 117.98,
+        "coefficient_half_rounding_bounds": [
+          0.005,
+          0.005,
+          0.005,
+          0.005
+        ],
+        "ratio_half_rounding_interval": 5e-05,
+        "joint_rounded_table_solution_found": true,
+        "optimizer_success": true,
+        "optimizer_message": "Optimization terminated successfully",
+        "candidate_coefficients": [
+          13.692142640254549,
+          4.954064406792625,
+          2.2099087906365167,
+          1.4162074809251946
+        ],
+        "max_absolute_ratio_difference": 5.0000000004435385e-05,
+        "outside_ratio_rounding": 0,
+        "outside_states": [],
+        "qualification": "Calculated-table reconstruction, not original coefficients or a fit to observations. No candidate values are written to catalog records. Success establishes a compatible vector, not its uniqueness or author provenance. Failure is an unresolved diagnostic."
+      }
+    }
+  }
+}

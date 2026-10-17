@@ -601,6 +601,49 @@ expansivities are separate quantities. The stored numeric parameters are
 thermal models, this construction inherits the volume unit of its reference
 isotherm.
 
+For references with an independently adjustable pressure derivative, the
+optional `dKprime_dT` coefficient (K^-1, default zero) also applies
+
+\[
+K'_0(T)=K'_0(T_r)+\mathtt{dKprime\_dT}(T-T_r)
++\mathtt{kprime\_log\_coefficient}(T-T_r)\ln(T/T_r).
+\]
+
+The linear term represents the temperature-dependent BM3 formulation described
+by Fukui et al. (2003), p. 513,
+[doi:10.1007/s00269-003-0353-z](https://doi.org/10.1007/s00269-003-0353-z).
+The optional logarithmic term retains the Hirose (2008) law. They add to each
+other and both vanish at `Tr`; reference `K0_prime` always means its value at
+`Tr`. These shifts support BM3, Baonza, Murnaghan, Morse3, NaturalStrain3,
+SunMorse3, SunMorse4 and Vinet. Other reference families reject nonzero shifts.
+No `K0_double_prime(T)` law is implied. Both slopes are finite, signed numeric
+coefficients. The shifted reference EOS validates its own parameters at each
+state, including positive `V0(T)` and `K0(T)`.
+
+For example, the following executes a **conditional** brucite audit surface,
+anchoring Fukui's reported temperature slopes to the printed 300 K slice.
+The author's separately regressed line intercepts remain unverified; this
+example does not establish a validated brucite phase range or reproduce the
+author's exact workflow:
+
+```python
+from peritheos.eos.rt import BM3
+from peritheos.eos.thermal import ThermalReferenceStateEOS
+
+eos = ThermalReferenceStateEOS(
+    BM3(V0=40.917, K0=41.8, K0_prime=6.6),
+    Tr=300.0,
+    alpha0=6.69e-5,
+    dK_dT=-0.0319,
+    dKprime_dT=0.00571,
+)
+eos.pressure(34.0, 873.0)  # 14.0514545153 GPa
+```
+
+The model supports pressure, bulk modulus, state inversion, native fitting and
+parameter-covariance propagation for this coefficient. It remains a mechanical
+P-V-T model without a specified caloric free energy.
+
 The separate `reference_volume_law="linear_temperature"` option applies
 
 \[

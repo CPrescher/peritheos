@@ -48,6 +48,44 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1007/s00269-003-0353-z": (
+        "Brucite lattice-average volume EOSs accepted over the measured pressure ranges, "
+        "including H rearrangement; no H-order-resolved equilibrium model claimed. "
+        "300/473/673 K source moduli show conditional unweighted agreement with fixed "
+        "source V0. Original 873 K normalization is inconsistent (Fig. 6 markers imply "
+        "about 42.70 A^3 versus printed expansion's 42.516 A^3); original curve and "
+        "source-slope reconstruction remain qualified explicit selection. Separate "
+        "Peritheos 873 K and thermal table-data refits reproduce their own registered "
+        "coefficients with conditional covariance, not the original author's workflow. "
+        "Additional curved-expansion refits adopt published isotherm moduli; the "
+        "continuous variant uses published slopes with explicit 300 K anchors. "
+        "The shared ambient-data fit and its conditional covariance are Peritheos "
+        "results, not a recovered author expansion law. "
+        "Sun (2025) primary XRD supports layered average-lattice scope; He (2023) "
+        "supplies the primary ambient neutron structure. See the [audit](literature-reproductions/brucite.md)."
+    ),
+    "10.1180/002646100549427": (
+        "Fe-bearing phase E volume EOS successfully recovered: parity within "
+        "reported uncertainty on all 11 primary rows. Published coefficients "
+        "are preserved. Largest weighted-refit shift is 0.123 reported error "
+        "widths; maximum curve difference is about 0.0096 GPa. Exact original "
+        "workflow availability is separate provenance, not a failed-fit "
+        "classification. See the [audit, coefficient differences and residual "
+        "plot](literature-reproductions/phase-e-crichton-ross-2000.md)."
+    ),
+    "10.1029/2021jb023562": (
+        "Conditional numerical parity for the three free forsterite coefficients "
+        "using all 51 reconstructed observations and printed Table 2 error widths. "
+        "The recommended thermal record is "
+        "`forsterite_katsura_2022_author_script_bm3_mgd`: full-precision author-script "
+        "K0-prime=4.21116896988574, gamma0=0.997258584556838, "
+        "q=2.43854091371459, theta0=760 K; V0=289.58 A3 and K0=127.4 GPa are fixed. "
+        "The theta0=768 K printed-table alternative is retained. Table errors "
+        "are comparison widths only for the script vector; script-specific errors "
+        "and exact bootstrap reproduction remain unavailable. The original "
+        "2009 combined fit remains a separate unresolved investigation. See the "
+        "[source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md)."
+    ),
     "10.1103/physrevb.78.104119": (
         "Conditional numerical K0-prime parity on both ruby coordinates using "
         "all 86 observed rows with V0/K0 fixed. Original weights and uncertainty "

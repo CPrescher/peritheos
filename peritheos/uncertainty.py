@@ -340,7 +340,10 @@ class EOSUncertainty:
         derivatives = []
         for name in self.parameter_names:
             value = values[name]
-            scale = max(abs(value), self.standard_errors[name], 1.0)
+            # Coefficients such as d(alpha)/dT can be ~1e-8 in their native
+            # units. A unit-sized floor makes their perturbations nonlocal
+            # and biases derivatives of the integrated exponential law.
+            scale = max(abs(value), self.standard_errors[name]) or 1.0
             step = relative_step * scale
             plus = minus = None
             try:

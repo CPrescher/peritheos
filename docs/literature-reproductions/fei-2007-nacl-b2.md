@@ -171,6 +171,41 @@ must not be invented from marker size or curve stroke width.
 
 ## Remaining source and integration gaps
 
+### Available independent thermal refit
+
+The opt-in `nacl_b2_fei_2007_staged_thermal_refit` record packages the staged
+Figure 3 cold fit followed by the complete Figure 4 hot fit: K0=26.8891 GPa,
+K0-prime=5.24691 and q=0.99339. It inherits the published V0, gamma0, theta0,
+300 K reference and printed variable-exponent Debye law. The published record
+and the material's default selection are preserved.
+
+```python
+from peritheos import get_eos_record
+
+refit = get_eos_record("nacl_b2_fei_2007_staged_thermal_refit")
+pressure_gpa = refit.pressure(volume=22.0, temperature=1000.0)
+```
+
+Its `fit_provenance` records the 24 selected row identifiers, dataset hashes,
+equal-pressure objective, software versions, solver settings and separate
+stage statistics. Duplicate cold observations and calculated curves are
+excluded. Stage-conditional errors remain in fit statistics; executable
+parameter errors and covariance are unset because predictor, calibrant,
+fixed-anchor and inter-stage uncertainty are not propagated. The separate
+300 and 1000 K series establish marginal coverage only.
+
+Replaying this Peritheos refit establishes numerical reproducibility of that
+explicit analysis. The published Fei record remains `parity_not_achieved`;
+the new refit does not resolve the original-author data or workflow gaps.
+
+Regenerate the report and refit with:
+
+```bash
+python -m scripts.reproduce_fei_2007_nacl_b2 --write-refit
+```
+
+### Outstanding author inputs
+
 The inspected PDF has model Table 1, but no numerical experimental NaCl/Pt
 table. The publisher full text likewise supplies the figures and described
 procedure. No article-specific numerical supplement was recovered; the generic
@@ -199,12 +234,8 @@ Optional recovery command:
 python -m scripts.reproduce_fei_2007_nacl_b2 --pdf /path/to/verified/fei2007.pdf
 ```
 
-Only NaCl-specific files are changed. After the parallel investigations finish,
-update shared manifest counts, audit/fit ledgers and generated catalog/docs as
-appropriate; those shared integrations are intentionally left for coordinated
-follow-up. Ruff, the normative NaCl schema, and all nine focused tests pass;
-the tests pass in both the shell's Python 3.13 and repository Python 3.9
-environments. Canonical catalog lookup and thermal discovery also pass in the
-repository environment. The shell's full-catalog lookup separately encounters
-a pre-existing Python/native signature mismatch in the argon Dewaele model;
-direct NaCl document loading works there.
+The independent thermal refit is registered in the material card, source
+audit and fit ledger. The original investigation
+also verified direct NaCl loading in Python 3.13 and repository Python 3.9;
+its Python 3.13 full-catalog lookup encountered an unrelated Python/native
+signature mismatch in the argon Dewaele model.

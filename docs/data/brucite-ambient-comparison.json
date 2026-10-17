@@ -1,0 +1,382 @@
+{
+  "format": "peritheos.brucite-ambient-comparison",
+  "format_version": 1,
+  "joint_report": "docs/data/brucite-mgd-comparison.json",
+  "joint_report_sha256": "948f8ecb5916b926e6acfedbbe6805c1b03f696cfa481e0a197c9406bc6eb4ca",
+  "source_file_sha256": {
+    "brucite-source.json": "71c9a552bdc8cc6f131a38f5af215c0bcbefcd019f4ffdc7056a16e36041d199",
+    "brucite-fukui-2003-table1.csv": "6a55f95a1e0072268fc821c3d13463c4e5366cf7ab4cc95ecf7d911b48cfbc94",
+    "brucite-fukui-2003-table4.csv": "75f41a98f09ff132927697af0da45bc9a89a4e354f7d32d7ffad7648963a1b56"
+  },
+  "ambient_observations": 11,
+  "ambient_temperature_range_k": [
+    299.3,
+    592.9
+  ],
+  "high_pressure_observations_already_in_joint_fits": {
+    "300": 13,
+    "473": 8,
+    "673": 8,
+    "873": 8
+  },
+  "ambient_only_empirical": {
+    "V300_a3": 40.92621695911146,
+    "alpha_300_per_k": 6.06652928357754e-05,
+    "dalpha_dT_per_k2": 4.389573894208234e-08,
+    "alpha0_for_alpha0_plus_alpha1T_per_k": 4.7496571153150695e-05,
+    "parameter_covariance": {
+      "parameter_order": [
+        "V300_a3",
+        "alpha_300_per_k",
+        "dalpha_dT_per_k2"
+      ],
+      "matrix": [
+        [
+          0.00021145436352405374,
+          -6.611291384611574e-08,
+          3.503501867596126e-10
+        ],
+        [
+          -6.611291384611568e-08,
+          3.543327361374518e-11,
+          -2.274875280559491e-13
+        ],
+        [
+          3.503501867596123e-10,
+          -2.2748752805594906e-13,
+          1.5969131984071902e-15
+        ]
+      ]
+    },
+    "parameter_standard_errors": {
+      "V300_a3": 0.01454147047323804,
+      "alpha_300_per_k": 5.952585456232038e-06,
+      "dalpha_dT_per_k2": 3.996139635206946e-08
+    },
+    "source_rows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "volume_rmse_a3": 0.019729386831575834,
+    "V0_at_isotherms_a3": [
+      40.92621695911146,
+      41.385179456052974,
+      41.99088615806489,
+      42.680331519777454
+    ],
+    "conditional_V0_standard_errors_at_isotherms_a3": [
+      0.01454147047323804,
+      0.010448571600740818,
+      0.04123410097090755,
+      0.15363971627947015
+    ],
+    "qualification": "New diagnostic alpha(T)=alpha(300)+dalpha/dT*(T-300), fitted only to the 11 ambient observations. Extrapolation to 873 K, not proof of the author's law. Residual-scaled local covariance omits systematics and model uncertainty."
+  },
+  "conditional_ambient_mgd": {
+    "parameters": {
+      "V0_a3": 40.93243705011265,
+      "K0_gpa": 39.01656296471797,
+      "Kprime": 7.403188107371401,
+      "gamma0": 0.44493146960968855,
+      "q": 5.035091587653485,
+      "theta0_k": 10.000000000000002
+    },
+    "free_parameters": [
+      "V0_a3",
+      "gamma0",
+      "theta0_k"
+    ],
+    "fixed_parameters_from_joint_volume_fit": {
+      "K0_gpa": 39.01656296471797,
+      "Kprime": 7.403188107371401,
+      "q": 5.035091587653485
+    },
+    "source_rows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "objective": "Unweighted sum of squared Vmodel(P=0,T)-Vobserved residuals, all 11 ambient Table 1 rows, in A^6; only V300,gamma0,theta0 optimized. K300,Kprime300,q fixed to the joint volume-objective MGD fit.",
+    "objective_sse": 0.004626763982064528,
+    "solver_success": true,
+    "multistart_sse": [
+      0.004626763982064528,
+      0.004626763982066769,
+      0.004626763982065716,
+      0.004626763982065586
+    ],
+    "active_bounds": {
+      "theta0_k": -1
+    },
+    "bounds_for_free_parameters": {
+      "V0_a3": [
+        40,
+        42
+      ],
+      "gamma0": [
+        0.01,
+        3
+      ],
+      "theta0_k": [
+        10,
+        4000
+      ]
+    },
+    "formal_local_covariance": {
+      "parameter_order": [
+        "V0_a3",
+        "gamma0",
+        "theta0_k"
+      ],
+      "matrix": [
+        [
+          0.00024064195691969736,
+          0.0005188648039607816,
+          249.6425564435433
+        ],
+        [
+          0.0005188648039608752,
+          0.003426896403592357,
+          1365.219124137706
+        ],
+        [
+          249.64255644357652,
+          1365.2191241376775,
+          560732317.7185525
+        ]
+      ]
+    },
+    "uncertainty_qualification": "Formal local SSE/(11-3)*pinv(J.T J), scaled to physical parameters. The theta lower-bound optimum makes symmetric local intervals unreliable. Fixed mechanical/q coefficients come from the joint fit and are treated as exact; their uncertainty and all inter-fit covariance are omitted. This is a conditional thermal refit, not an independent six-parameter ambient determination or a physical theta measurement."
+  },
+  "curves": {
+    "published": {
+      "definition": "Printed constant-alpha ambient law: 40.917*exp(6.69e-5*(T-300))",
+      "ambient_predicted_volumes_a3": [
+        40.91508390175579,
+        40.91508390175579,
+        41.05189937466702,
+        41.07167801666355,
+        41.18338608288882,
+        41.24128528376714,
+        41.34792193118819,
+        41.38445158101485,
+        41.51006029530714,
+        41.66698025029069,
+        41.72667592099151
+      ],
+      "ambient_volume_residuals_a3": [
+        -0.014916098244206921,
+        -0.009916098244204363,
+        0.020899374667024517,
+        -0.024321983336449193,
+        0.047386082888820624,
+        -0.005714716232859018,
+        -0.01907806881180818,
+        0.028451581014849125,
+        -0.005939704692856651,
+        -0.008019749709305302,
+        -0.005324079008488525
+      ],
+      "ambient_volume_rmse_a3": 0.021167445041938793,
+      "formal_zero_pressure_volumes_a3": {
+        "300": 40.917,
+        "473": 41.393312112806804,
+        "673": 41.95087641595446,
+        "873": 42.515951061625515
+      }
+    },
+    "empirical_ambient": {
+      "definition": "Previous purple ambient-only curved expansion fit: free V300,alpha300,beta using all 11 Table 1 rows; no HP data in this regression.",
+      "ambient_predicted_volumes_a3": [
+        40.92447947547777,
+        40.92447947547777,
+        41.05073412588903,
+        41.06935393220078,
+        41.17626096191346,
+        41.232837509569464,
+        41.33912069261354,
+        41.37614999344052,
+        41.50589427497309,
+        41.67324486723827,
+        41.738444733274704
+      ],
+      "ambient_volume_residuals_a3": [
+        -0.005520524522232506,
+        -0.0005205245222299482,
+        0.01973412588903045,
+        -0.026646067799219963,
+        0.04026096191345374,
+        -0.014162490430535968,
+        -0.027879307386456276,
+        0.020149993440519154,
+        -0.010105725026910761,
+        -0.001755132761729783,
+        0.006444733274705072
+      ],
+      "ambient_volume_rmse_a3": 0.019729386831575834,
+      "formal_zero_pressure_volumes_a3": {
+        "300": 40.92621695911146,
+        "473": 41.385179456052974,
+        "673": 41.99088615806489,
+        "873": 42.680331519777454
+      }
+    },
+    "empirical_joint": {
+      "parameters": {
+        "V0_a3": 40.96426954224109,
+        "K0_gpa": 39.66532501751249,
+        "Kprime": 7.168930135961268,
+        "alpha300_per_k": 3.6689730410993726e-05,
+        "dalpha_dT_per_k2": 1.8438674853809862e-07,
+        "K873_gpa": 21.20572768333312,
+        "Kprime873": 10.413695377271598
+      },
+      "definition": "Green seven-parameter joint unweighted volume fit to all 48 rows.",
+      "ambient_predicted_volumes_a3": [
+        40.96321932865021,
+        40.96321932865021,
+        41.04744176068885,
+        41.06116467562853,
+        41.14599368106166,
+        41.194852156945004,
+        41.293567354095934,
+        41.32998441548879,
+        41.465335007078835,
+        41.656493175324016,
+        41.73566093248735
+      ],
+      "ambient_volume_residuals_a3": [
+        0.03321932865021182,
+        0.03821932865021438,
+        0.016441760688849172,
+        -0.03483532437146408,
+        0.009993681061658322,
+        -0.0521478430549962,
+        -0.07343264590406307,
+        -0.026015584511213774,
+        -0.05066499292116333,
+        -0.018506824675981193,
+        0.0036609324873495552
+      ],
+      "ambient_volume_rmse_a3": 0.03797050770533103,
+      "formal_zero_pressure_volumes_a3": {
+        "300": 40.96426954224109,
+        "473": 41.339017639994616,
+        "673": 42.064840682449535,
+        "873": 43.120269909416585
+      }
+    },
+    "mgd_joint": {
+      "parameters": {
+        "V0_a3": 40.94519782053281,
+        "K0_gpa": 39.01656296471797,
+        "Kprime": 7.403188107371401,
+        "gamma0": 0.6076633813661652,
+        "q": 5.035091587653485,
+        "theta0_k": 1120.4127015483152
+      },
+      "definition": "Blue six-parameter joint unweighted volume fit to all 48 rows.",
+      "ambient_predicted_volumes_a3": [
+        40.943972462857396,
+        40.943972462857396,
+        41.04037524315796,
+        41.05575511003691,
+        41.149137253979546,
+        41.20179865958262,
+        41.30628288919901,
+        41.344313798866516,
+        41.483990852360044,
+        41.67893444901146,
+        41.75956607842354
+      ],
+      "ambient_volume_residuals_a3": [
+        0.01397246285739584,
+        0.018972462857398398,
+        0.009375243157961677,
+        -0.04024488996308406,
+        0.013137253979543573,
+        -0.04520134041737833,
+        -0.06071711080098652,
+        -0.011686201133485952,
+        -0.032009147639953994,
+        0.003934449011460117,
+        0.027566078423539864
+      ],
+      "ambient_volume_rmse_a3": 0.030303867106216506,
+      "formal_zero_pressure_volumes_a3": {
+        "300": 40.945197820532826,
+        "473": 41.353712072964825,
+        "673": 42.099513326588934,
+        "873": 43.39634908095215
+      }
+    },
+    "mgd_ambient_conditional": {
+      "parameters": {
+        "V0_a3": 40.93243705011265,
+        "K0_gpa": 39.01656296471797,
+        "Kprime": 7.403188107371401,
+        "gamma0": 0.44493146960968855,
+        "q": 5.035091587653485,
+        "theta0_k": 10.000000000000002
+      },
+      "definition": "Ambient-only optimization of V300,gamma0,theta0 with K300,Kprime300,q held at the joint-fit values; conditional, not independent of HP-derived mechanical parameters.",
+      "ambient_predicted_volumes_a3": [
+        40.93078452490317,
+        40.93078452490317,
+        41.05143815643161,
+        41.06934430655964,
+        41.17283634290272,
+        41.22813804445864,
+        41.333197645475686,
+        41.37020061270232,
+        41.50172077238358,
+        41.67637264515045,
+        41.74620270922913
+      ],
+      "ambient_volume_residuals_a3": [
+        0.0007845249031674939,
+        0.005784524903170052,
+        0.0204381564316094,
+        -0.0266556934403539,
+        0.03683634290271698,
+        -0.018861955541360942,
+        -0.033802354524311795,
+        0.014200612702317983,
+        -0.014279227616420087,
+        0.0013726451504538772,
+        0.014202709229131472
+      ],
+      "ambient_volume_rmse_a3": 0.020508898250771148,
+      "formal_zero_pressure_volumes_a3": {
+        "300": 40.93243705011265,
+        "473": 41.379257499478484,
+        "673": 42.02814186002946,
+        "873": 42.946934531689365
+      }
+    }
+  },
+  "qualifications": [
+    "Both joint models already use the higher-temperature pressure observations up to 873 K; they constrain thermal behaviour at their measured pressures.",
+    "V(P=0,T) above 592.9 K is unmeasured. HP data at the same T constrain it indirectly via pressure extrapolation and the assumed EOS. It is not a measured high-temperature ambient volume.",
+    "Fukui reports ambient dehydration at 600.6 K. Zero-pressure brucite curves at higher T are formal model reference volumes, not stable-phase expansion measurements.",
+    "Conditional ambient-only MGD reaches the 10 K theta lower bound. This signals poor identifiability under its fixed compression/q choices; it does not establish a physical Debye temperature.",
+    "Same volume-objective joint coefficients as the previous P-V figure; no new joint refit or silent coefficient change. Catalog records and source observations unchanged."
+  ]
+}

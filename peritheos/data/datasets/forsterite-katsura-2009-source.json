@@ -1,0 +1,22 @@
+{
+  "source_doi": "10.1016/j.pepi.2008.08.002",
+  "source_version": "User-supplied final published PDF, Table 1, journal p.89 / PDF p.4",
+  "pdf_sha256": "65ec99c9bfcfb8a3fd5d16e8839b0768226a338622fc776dba8ef7397b4a246a",
+  "row_count": 52,
+  "workbook_row_count": 51,
+  "matched_workbook_rows": 50,
+  "workbook_rows_absent_from_printed_table": [
+    {
+      "run_id": "M375006",
+      "workbook_row": 14
+    }
+  ],
+  "table_only_rows": [
+    "1",
+    "12"
+  ],
+  "matching": "Same run and uncorrected T; original Matsui pressure within 0.02 GPa, accommodating printed/deposited rounding differences. Unique matches required.",
+  "uncertainty": "Printed parenthetical errors retained literally. Section 3.1 describes artificially inflated profile errors; no confidence level or temperature sigma is inferred.",
+  "normalization": "2009 Section 3.2 adopts V0,300=290.79 A^3 for its analysis; this differs from the 2022 geotherm script's V0=289.58 A^3. Raw printed volumes remain separate from deposited dimensionless ratios.",
+  "disposition": "Absence of M375006 from Table 1 supports a separate table-matched sensitivity fit, not silent removal from the author-deposited 51-row input."
+}

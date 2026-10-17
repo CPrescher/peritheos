@@ -1,0 +1,9082 @@
+{
+  "source_doi": "10.5281/zenodo.5644426",
+  "worksheet": "Olivine",
+  "source_sha256": "21ee1c63e88051a2249b9fe481aec389df21bff9ac7ad64ee4d0963cb4f71143",
+  "data_rows": [
+    4,
+    54
+  ],
+  "source_columns": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "AA",
+    "AB",
+    "AC",
+    "AD",
+    "AE",
+    "AF",
+    "AG",
+    "AH",
+    "AI",
+    "AJ",
+    "AK",
+    "AL",
+    "AM",
+    "AN",
+    "AO"
+  ],
+  "cells": {
+    "I1": {
+      "value": "T uncorrected",
+      "kind": "text"
+    },
+    "S1": {
+      "value": "T correction",
+      "kind": "text"
+    },
+    "V1": {
+      "value": "T corrected",
+      "kind": "text"
+    },
+    "D2": {
+      "value": "Matsui",
+      "kind": "text"
+    },
+    "I2": {
+      "value": "Tange Vinet",
+      "kind": "text"
+    },
+    "M2": {
+      "value": "Tange BM3",
+      "kind": "text"
+    },
+    "S2": {
+      "value": "T+",
+      "kind": "text"
+    },
+    "T2": {
+      "value": "T-",
+      "kind": "text"
+    },
+    "V2": {
+      "value": "Tange Vinet",
+      "kind": "text"
+    },
+    "Z2": {
+      "value": "Tange BM3",
+      "kind": "text"
+    },
+    "A3": {
+      "value": "Data Label",
+      "kind": "text"
+    },
+    "B3": {
+      "value": "T (K)",
+      "kind": "text"
+    },
+    "C3": {
+      "value": "Load (MN)",
+      "kind": "text"
+    },
+    "D3": {
+      "value": "P (GPa)",
+      "kind": "text"
+    },
+    "E3": {
+      "value": "σP (GPa)",
+      "kind": "text"
+    },
+    "F3": {
+      "value": "V/V0",
+      "kind": "text"
+    },
+    "G3": {
+      "value": "V/V0-",
+      "kind": "text"
+    },
+    "H3": {
+      "value": "V/V0+",
+      "kind": "text"
+    },
+    "I3": {
+      "value": "P+ (GPa)",
+      "kind": "text"
+    },
+    "J3": {
+      "value": "P- (GPa)",
+      "kind": "text"
+    },
+    "K3": {
+      "value": "P (GPa)",
+      "kind": "text"
+    },
+    "L3": {
+      "value": "σP (GPa)",
+      "kind": "text"
+    },
+    "M3": {
+      "value": "P+ (GPa)",
+      "kind": "text"
+    },
+    "N3": {
+      "value": "P- (GPa)",
+      "kind": "text"
+    },
+    "O3": {
+      "value": "P (GPa)",
+      "kind": "text"
+    },
+    "P3": {
+      "value": "σP (GPa)",
+      "kind": "text"
+    },
+    "Q3": {
+      "value": "AveP (GPa)",
+      "kind": "text"
+    },
+    "R3": {
+      "value": "StdP (GPa)",
+      "kind": "text"
+    },
+    "S3": {
+      "value": "T (K)",
+      "kind": "text"
+    },
+    "T3": {
+      "value": "T (K)",
+      "kind": "text"
+    },
+    "U3": {
+      "value": "T (K)",
+      "kind": "text"
+    },
+    "V3": {
+      "value": "P+ (GPa)",
+      "kind": "text"
+    },
+    "W3": {
+      "value": "P- (GPa)",
+      "kind": "text"
+    },
+    "X3": {
+      "value": "P (GPa)",
+      "kind": "text"
+    },
+    "Y3": {
+      "value": "σP (GPa)",
+      "kind": "text"
+    },
+    "Z3": {
+      "value": "P+ (GPa)",
+      "kind": "text"
+    },
+    "AA3": {
+      "value": "P- (GPa)",
+      "kind": "text"
+    },
+    "AB3": {
+      "value": "P (GPa)",
+      "kind": "text"
+    },
+    "AC3": {
+      "value": "σP (GPa)",
+      "kind": "text"
+    },
+    "AD3": {
+      "value": "P (GPa)",
+      "kind": "text"
+    },
+    "AE3": {
+      "value": "σP (GPa)",
+      "kind": "text"
+    },
+    "AF3": {
+      "value": "Vinet P+",
+      "kind": "text"
+    },
+    "AG3": {
+      "value": "Vinet P",
+      "kind": "text"
+    },
+    "AH3": {
+      "value": "Vinet P-",
+      "kind": "text"
+    },
+    "AI3": {
+      "value": "σP",
+      "kind": "text"
+    },
+    "AJ3": {
+      "value": "BM3 P+",
+      "kind": "text"
+    },
+    "AK3": {
+      "value": "BM P",
+      "kind": "text"
+    },
+    "AL3": {
+      "value": "BM P-",
+      "kind": "text"
+    },
+    "AM3": {
+      "value": "σP",
+      "kind": "text"
+    },
+    "AN3": {
+      "value": "V/V0",
+      "kind": "text"
+    },
+    "AO3": {
+      "value": "σV/V0",
+      "kind": "text"
+    },
+    "A4": {
+      "value": "M371008",
+      "kind": "text"
+    },
+    "B4": {
+      "value": "1300",
+      "kind": "number"
+    },
+    "D4": {
+      "value": "0.82090843806104141",
+      "kind": "number"
+    },
+    "E4": {
+      "value": "1.9965595408101389E-2",
+      "kind": "number"
+    },
+    "F4": {
+      "value": "1.0370600000000001",
+      "kind": "number"
+    },
+    "G4": {
+      "value": "1.03691",
+      "kind": "number"
+    },
+    "H4": {
+      "value": "1.03722",
+      "kind": "number"
+    },
+    "I4": {
+      "value": "0.58555551204693312",
+      "kind": "number"
+    },
+    "J4": {
+      "value": "0.54488628855834964",
+      "kind": "number"
+    },
+    "K4": {
+      "value": "0.56522090030264138",
+      "kind": "number",
+      "formula": "(I4+J4)/2"
+    },
+    "L4": {
+      "value": "2.0334611744291742E-2",
+      "kind": "number",
+      "formula": "(I4-J4)/2"
+    },
+    "M4": {
+      "value": "0.57701647397396894",
+      "kind": "number"
+    },
+    "N4": {
+      "value": "0.53647057030643541",
+      "kind": "number"
+    },
+    "O4": {
+      "value": "0.55674352214020217",
+      "kind": "number",
+      "formula": "(M4+N4)/2"
+    },
+    "P4": {
+      "value": "2.0272951833766761E-2",
+      "kind": "number",
+      "formula": "(M4-N4)/2"
+    },
+    "Q4": {
+      "value": "0.56098221122142178",
+      "kind": "number",
+      "formula": "AVERAGE(I4:J4,M4:N4)"
+    },
+    "R4": {
+      "value": "2.39502537369971E-2",
+      "kind": "number",
+      "formula": "STDEV(I4:J4,M4:N4)"
+    },
+    "S4": {
+      "value": "1302.2387557536192",
+      "kind": "number"
+    },
+    "T4": {
+      "value": "1302.0871709601315",
+      "kind": "number"
+    },
+    "U4": {
+      "value": "1302.1629633568755",
+      "kind": "number",
+      "formula": "(S4+T4)/2"
+    },
+    "V4": {
+      "value": "0.59956218789140348",
+      "kind": "number"
+    },
+    "W4": {
+      "value": "0.55794426896567106",
+      "kind": "number"
+    },
+    "X4": {
+      "value": "0.57875322842853727",
+      "kind": "number",
+      "formula": "(V4+W4)/2"
+    },
+    "Y4": {
+      "value": "2.0808959462866206E-2",
+      "kind": "number",
+      "formula": "(V4-W4)/2"
+    },
+    "Z4": {
+      "value": "0.59104297134271366",
+      "kind": "number"
+    },
+    "AA4": {
+      "value": "0.54954792337164271",
+      "kind": "number"
+    },
+    "AB4": {
+      "value": "0.57029544735717819",
+      "kind": "number",
+      "formula": "(Z4+AA4)/2"
+    },
+    "AC4": {
+      "value": "2.0747523985535476E-2",
+      "kind": "number",
+      "formula": "(Z4-AA4)/2"
+    },
+    "AD4": {
+      "value": "0.57452433789285773",
+      "kind": "number",
+      "formula": "AVERAGE(V4,W4,Z4,AA4)"
+    },
+    "AE4": {
+      "value": "2.4484547178211528E-2",
+      "kind": "number",
+      "formula": "STDEV(V4,W4,Z4,AA4)"
+    },
+    "AF4": {
+      "value": "0.58555551204693312",
+      "kind": "number"
+    },
+    "AG4": {
+      "value": "0.56586805975169963",
+      "kind": "number"
+    },
+    "AH4": {
+      "value": "0.54488628855834964",
+      "kind": "number"
+    },
+    "AI4": {
+      "value": "2.0334611744291742E-2",
+      "kind": "number"
+    },
+    "AJ4": {
+      "value": "0.57701647397396894",
+      "kind": "number"
+    },
+    "AK4": {
+      "value": "0.55738909086616228",
+      "kind": "number"
+    },
+    "AL4": {
+      "value": "0.53647057030643541",
+      "kind": "number"
+    },
+    "AM4": {
+      "value": "2.0272951833766761E-2",
+      "kind": "number"
+    },
+    "AN4": {
+      "value": "1.0300114906130446",
+      "kind": "number"
+    },
+    "AO4": {
+      "value": "6.8359338290958633E-4",
+      "kind": "number"
+    },
+    "A5": {
+      "value": "M371011",
+      "kind": "text"
+    },
+    "B5": {
+      "value": "1100",
+      "kind": "number"
+    },
+    "D5": {
+      "value": "0.47360456942003515",
+      "kind": "number"
+    },
+    "E5": {
+      "value": "2.0919488521472025E-2",
+      "kind": "number"
+    },
+    "F5": {
+      "value": "1.0299199999999999",
+      "kind": "number"
+    },
+    "G5": {
+      "value": "1.02976",
+      "kind": "number"
+    },
+    "H5": {
+      "value": "1.0300800000000001",
+      "kind": "number"
+    },
+    "I5": {
+      "value": "0.29488548294096706",
+      "kind": "number"
+    },
+    "J5": {
+      "value": "0.2512344486151239",
+      "kind": "number"
+    },
+    "K5": {
+      "value": "0.27305996577804548",
+      "kind": "number",
+      "formula": "(I5+J5)/2"
+    },
+    "L5": {
+      "value": "2.1825517162921582E-2",
+      "kind": "number",
+      "formula": "(I5-J5)/2"
+    },
+    "M5": {
+      "value": "0.28287098845734171",
+      "kind": "number"
+    },
+    "N5": {
+      "value": "0.23933062931767335",
+      "kind": "number"
+    },
+    "O5": {
+      "value": "0.26110080888750753",
+      "kind": "number",
+      "formula": null
+    },
+    "P5": {
+      "value": "2.177017956983418E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q5": {
+      "value": "0.2670803873327765",
+      "kind": "number",
+      "formula": "AVERAGE(I5:J5,M5:N5)"
+    },
+    "R5": {
+      "value": "2.6099867620329172E-2",
+      "kind": "number",
+      "formula": "STDEV(I5:J5,M5:N5)"
+    },
+    "S5": {
+      "value": "1100.8596147590501",
+      "kind": "number"
+    },
+    "T5": {
+      "value": "1100.731749003173",
+      "kind": "number"
+    },
+    "U5": {
+      "value": "1100.7956818811117",
+      "kind": "number",
+      "formula": null
+    },
+    "V5": {
+      "value": "0.30023361466591503",
+      "kind": "number"
+    },
+    "W5": {
+      "value": "0.2557869299130644",
+      "kind": "number"
+    },
+    "X5": {
+      "value": "0.27801027228948971",
+      "kind": "number",
+      "formula": null
+    },
+    "Y5": {
+      "value": "2.2223342376425315E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z5": {
+      "value": "0.2882180395992382",
+      "kind": "number"
+    },
+    "AA5": {
+      "value": "0.24388252663429189",
+      "kind": "number"
+    },
+    "AB5": {
+      "value": "0.26605028311676504",
+      "kind": "number",
+      "formula": null
+    },
+    "AC5": {
+      "value": "2.2167756482473155E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD5": {
+      "value": "0.27203027770312738",
+      "kind": "number",
+      "formula": "AVERAGE(V5,W5,Z5,AA5)"
+    },
+    "AE5": {
+      "value": "2.654313526258591E-2",
+      "kind": "number",
+      "formula": "STDEV(V5,W5,Z5,AA5)"
+    },
+    "AF5": {
+      "value": "0.29488548294096706",
+      "kind": "number"
+    },
+    "AG5": {
+      "value": "0.2730503067136425",
+      "kind": "number"
+    },
+    "AH5": {
+      "value": "0.2512344486151239",
+      "kind": "number"
+    },
+    "AI5": {
+      "value": "2.1825517162921582E-2",
+      "kind": "number"
+    },
+    "AJ5": {
+      "value": "0.28287098845734171",
+      "kind": "number"
+    },
+    "AK5": {
+      "value": "0.26109154787550004",
+      "kind": "number"
+    },
+    "AL5": {
+      "value": "0.23933062931767335",
+      "kind": "number"
+    },
+    "AM5": {
+      "value": "2.177017956983418E-2",
+      "kind": "number"
+    },
+    "AN5": {
+      "value": "1.025509612532912",
+      "kind": "number"
+    },
+    "AO5": {
+      "value": "6.6355441871920971E-4",
+      "kind": "number"
+    },
+    "A6": {
+      "value": "M371014",
+      "kind": "text"
+    },
+    "B6": {
+      "value": "900",
+      "kind": "number"
+    },
+    "D6": {
+      "value": "0.19543585237258349",
+      "kind": "number"
+    },
+    "E6": {
+      "value": "1.7392527130926087E-2",
+      "kind": "number"
+    },
+    "F6": {
+      "value": "1.0226599999999999",
+      "kind": "number"
+    },
+    "G6": {
+      "value": "1.0225299999999999",
+      "kind": "number"
+    },
+    "H6": {
+      "value": "1.02278",
+      "kind": "number"
+    },
+    "I6": {
+      "value": "6.2969541947021757E-2",
+      "kind": "number"
+    },
+    "J6": {
+      "value": "2.7500078634096425E-2",
+      "kind": "number"
+    },
+    "K6": {
+      "value": "4.5234810290559091E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "L6": {
+      "value": "1.7734731656462666E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M6": {
+      "value": "4.9971423670886583E-2",
+      "kind": "number"
+    },
+    "N6": {
+      "value": "1.4570126815757867E-2",
+      "kind": "number"
+    },
+    "O6": {
+      "value": "3.2270775243322225E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "P6": {
+      "value": "1.7700648427564358E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q6": {
+      "value": "3.8752792766940658E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "R6": {
+      "value": "2.1784807611972285E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S6": {
+      "value": "900.12392613042198",
+      "kind": "number"
+    },
+    "T6": {
+      "value": "900.04626001680754",
+      "kind": "number"
+    },
+    "U6": {
+      "value": "900.08509307361476",
+      "kind": "number",
+      "formula": null
+    },
+    "V6": {
+      "value": "6.3732659245433254E-2",
+      "kind": "number"
+    },
+    "W6": {
+      "value": "2.7784934273060724E-2",
+      "kind": "number"
+    },
+    "X6": {
+      "value": "4.5758796759246989E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Y6": {
+      "value": "1.7973862486186265E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z6": {
+      "value": "5.073308484061867E-2",
+      "kind": "number"
+    },
+    "AA6": {
+      "value": "1.4854456004048888E-2",
+      "kind": "number"
+    },
+    "AB6": {
+      "value": "3.2793770422333779E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AC6": {
+      "value": "1.7939314418284891E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD6": {
+      "value": "3.9276283590790384E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AE6": {
+      "value": "2.2044268921556375E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF6": {
+      "value": "6.2969541947021757E-2",
+      "kind": "number"
+    },
+    "AG6": {
+      "value": "4.4519352991624572E-2",
+      "kind": "number"
+    },
+    "AH6": {
+      "value": "2.7500078634096425E-2",
+      "kind": "number"
+    },
+    "AI6": {
+      "value": "1.7734731656462666E-2",
+      "kind": "number"
+    },
+    "AJ6": {
+      "value": "4.9971423670886583E-2",
+      "kind": "number"
+    },
+    "AK6": {
+      "value": "3.1556907610732932E-2",
+      "kind": "number"
+    },
+    "AL6": {
+      "value": "1.4570126815757867E-2",
+      "kind": "number"
+    },
+    "AM6": {
+      "value": "1.7700648427564358E-2",
+      "kind": "number"
+    },
+    "AN6": {
+      "value": "1.0192646668966903",
+      "kind": "number"
+    },
+    "AO6": {
+      "value": "6.2862999911547722E-4",
+      "kind": "number"
+    },
+    "A7": {
+      "value": "M371017",
+      "kind": "text"
+    },
+    "B7": {
+      "value": "700",
+      "kind": "number"
+    },
+    "D7": {
+      "value": "6.4743119266055055E-2",
+      "kind": "number"
+    },
+    "E7": {
+      "value": "1.5103807466993214E-2",
+      "kind": "number"
+    },
+    "F7": {
+      "value": "1.0148299999999999",
+      "kind": "number"
+    },
+    "G7": {
+      "value": "1.0147299999999999",
+      "kind": "number"
+    },
+    "H7": {
+      "value": "1.01494",
+      "kind": "number"
+    },
+    "I7": {
+      "value": "-2.6263408853503645E-2",
+      "kind": "number"
+    },
+    "J7": {
+      "value": "-5.7341497736312252E-2",
+      "kind": "number"
+    },
+    "K7": {
+      "value": "-4.1802453294907949E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "L7": {
+      "value": "1.5539044441404304E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M7": {
+      "value": "-3.7628837456396891E-2",
+      "kind": "number"
+    },
+    "N7": {
+      "value": "-6.8666506351693801E-2",
+      "kind": "number"
+    },
+    "O7": {
+      "value": "-5.3147671904045346E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "P7": {
+      "value": "1.5518834447648455E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q7": {
+      "value": "-4.7475062599476647E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "R7": {
+      "value": "1.9090191502619293E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S7": {
+      "value": "699.95169682443975",
+      "kind": "number"
+    },
+    "T7": {
+      "value": "699.90455816488372",
+      "kind": "number"
+    },
+    "U7": {
+      "value": "699.92812749466179",
+      "kind": "number",
+      "formula": null
+    },
+    "V7": {
+      "value": "-2.6554588269712021E-2",
+      "kind": "number"
+    },
+    "W7": {
+      "value": "-5.7916829670229486E-2",
+      "kind": "number"
+    },
+    "X7": {
+      "value": "-4.2235708969970753E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Y7": {
+      "value": "1.5681120700258733E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z7": {
+      "value": "-3.7628837456396891E-2",
+      "kind": "number"
+    },
+    "AA7": {
+      "value": "-6.8666506351693801E-2",
+      "kind": "number"
+    },
+    "AB7": {
+      "value": "-5.3147671904045346E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AC7": {
+      "value": "1.5518834447648455E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD7": {
+      "value": "-4.769169043700805E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AE7": {
+      "value": "1.9083452457856646E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF7": {
+      "value": "-2.6263408853503645E-2",
+      "kind": "number"
+    },
+    "AG7": {
+      "value": "-4.106692637633147E-2",
+      "kind": "number"
+    },
+    "AH7": {
+      "value": "-5.7341497736312252E-2",
+      "kind": "number"
+    },
+    "AI7": {
+      "value": "1.5539044441404304E-2",
+      "kind": "number"
+    },
+    "AJ7": {
+      "value": "-3.7628837456396891E-2",
+      "kind": "number"
+    },
+    "AK7": {
+      "value": "-5.241295919057265E-2",
+      "kind": "number"
+    },
+    "AL7": {
+      "value": "-6.8666506351693801E-2",
+      "kind": "number"
+    },
+    "AM7": {
+      "value": "1.5518834447648455E-2",
+      "kind": "number"
+    },
+    "AN7": {
+      "value": "1.0124754672352889",
+      "kind": "number"
+    },
+    "AO7": {
+      "value": "6.0213947979651753E-4",
+      "kind": "number"
+    },
+    "A8": {
+      "value": "M371020",
+      "kind": "text"
+    },
+    "B8": {
+      "value": "500",
+      "kind": "number"
+    },
+    "D8": {
+      "value": "4.8500000000000001E-2",
+      "kind": "number"
+    },
+    "E8": {
+      "value": "2.069118169655856E-2",
+      "kind": "number"
+    },
+    "F8": {
+      "value": "1.0068699999999999",
+      "kind": "number"
+    },
+    "G8": {
+      "value": "1.00674",
+      "kind": "number"
+    },
+    "H8": {
+      "value": "1.00701",
+      "kind": "number"
+    },
+    "I8": {
+      "value": "3.4299948336558028E-3",
+      "kind": "number"
+    },
+    "J8": {
+      "value": "-3.8291735194033505E-2",
+      "kind": "number"
+    },
+    "K8": {
+      "value": "-1.7430870180188851E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "L8": {
+      "value": "2.0860865013844654E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M8": {
+      "value": "-3.4373431508942787E-3",
+      "kind": "number"
+    },
+    "N8": {
+      "value": "-4.5132191656631182E-2",
+      "kind": "number"
+    },
+    "O8": {
+      "value": "-2.428476740376273E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "P8": {
+      "value": "2.0847424252868452E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q8": {
+      "value": "-2.0857818791975791E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "R8": {
+      "value": "2.4403261266759579E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S8": {
+      "value": "499.99999651516083",
+      "kind": "number"
+    },
+    "T8": {
+      "value": "499.96033800821363",
+      "kind": "number"
+    },
+    "U8": {
+      "value": "499.98016726168726",
+      "kind": "number",
+      "formula": null
+    },
+    "V8": {
+      "value": "3.4299749158288595E-3",
+      "kind": "number"
+    },
+    "W8": {
+      "value": "-3.8518429021799694E-2",
+      "kind": "number"
+    },
+    "X8": {
+      "value": "-1.7544227052985417E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Y8": {
+      "value": "2.0974201968814277E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z8": {
+      "value": "-3.4373431508942787E-3",
+      "kind": "number"
+    },
+    "AA8": {
+      "value": "-4.5132191656631182E-2",
+      "kind": "number"
+    },
+    "AB8": {
+      "value": "-2.428476740376273E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AC8": {
+      "value": "2.0847424252868452E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD8": {
+      "value": "-2.0914497228374074E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AE8": {
+      "value": "2.4457441789333151E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF8": {
+      "value": "3.4299948336558028E-3",
+      "kind": "number"
+    },
+    "AG8": {
+      "value": "-1.6665840635160745E-2",
+      "kind": "number"
+    },
+    "AH8": {
+      "value": "-3.8291735194033505E-2",
+      "kind": "number"
+    },
+    "AI8": {
+      "value": "2.0860865013844654E-2",
+      "kind": "number"
+    },
+    "AJ8": {
+      "value": "-3.4373431508942787E-3",
+      "kind": "number"
+    },
+    "AK8": {
+      "value": "-2.3520008564967387E-2",
+      "kind": "number"
+    },
+    "AL8": {
+      "value": "-4.5132191656631182E-2",
+      "kind": "number"
+    },
+    "AM8": {
+      "value": "2.0847424252868452E-2",
+      "kind": "number"
+    },
+    "AN8": {
+      "value": "1.0050911690706852",
+      "kind": "number"
+    },
+    "AO8": {
+      "value": "5.7211935543412923E-4",
+      "kind": "number"
+    },
+    "A9": {
+      "value": "M371023",
+      "kind": "text"
+    },
+    "B9": {
+      "value": "304",
+      "kind": "number"
+    },
+    "D9": {
+      "value": "6.0986859395532188E-2",
+      "kind": "number"
+    },
+    "E9": {
+      "value": "2.0630681035777757E-2",
+      "kind": "number"
+    },
+    "F9": {
+      "value": "0.99975999999999998",
+      "kind": "number"
+    },
+    "G9": {
+      "value": "0.99961999999999995",
+      "kind": "number"
+    },
+    "H9": {
+      "value": "0.99987999999999999",
+      "kind": "number"
+    },
+    "I9": {
+      "value": "8.0098544638688277E-2",
+      "kind": "number"
+    },
+    "J9": {
+      "value": "3.8281386799235768E-2",
+      "kind": "number"
+    },
+    "K9": {
+      "value": "5.9189965718962026E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "L9": {
+      "value": "2.0908578919726254E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M9": {
+      "value": "7.9953852405230605E-2",
+      "kind": "number"
+    },
+    "N9": {
+      "value": "3.8136887319137502E-2",
+      "kind": "number"
+    },
+    "O9": {
+      "value": "5.9045369862184054E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "P9": {
+      "value": "2.0908482543046551E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q9": {
+      "value": "5.9117667790573036E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "R9": {
+      "value": "2.4143236025523481E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S9": {
+      "value": "304.04199548677769",
+      "kind": "number"
+    },
+    "T9": {
+      "value": "304.02010114842625",
+      "kind": "number"
+    },
+    "U9": {
+      "value": "304.03104831760197",
+      "kind": "number",
+      "formula": null
+    },
+    "V9": {
+      "value": "8.0298732810989579E-2",
+      "kind": "number"
+    },
+    "W9": {
+      "value": "3.8377218479441949E-2",
+      "kind": "number"
+    },
+    "X9": {
+      "value": "5.9337975645215764E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Y9": {
+      "value": "2.0960757165773815E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z9": {
+      "value": "7.9953852405230605E-2",
+      "kind": "number"
+    },
+    "AA9": {
+      "value": "3.8136887319137502E-2",
+      "kind": "number"
+    },
+    "AB9": {
+      "value": "5.9045369862184054E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AC9": {
+      "value": "2.0908482543046551E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD9": {
+      "value": "5.9191672753699909E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AE9": {
+      "value": "2.4173825959600086E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF9": {
+      "value": "8.0098544638688277E-2",
+      "kind": "number"
+    },
+    "AG9": {
+      "value": "5.757436231924247E-2",
+      "kind": "number"
+    },
+    "AH9": {
+      "value": "3.8281386799235768E-2",
+      "kind": "number"
+    },
+    "AI9": {
+      "value": "2.0908578919726254E-2",
+      "kind": "number"
+    },
+    "AJ9": {
+      "value": "7.9953852405230605E-2",
+      "kind": "number"
+    },
+    "AK9": {
+      "value": "5.7429970340256459E-2",
+      "kind": "number"
+    },
+    "AL9": {
+      "value": "3.8136887319137502E-2",
+      "kind": "number"
+    },
+    "AM9": {
+      "value": "2.0908482543046551E-2",
+      "kind": "number"
+    },
+    "AN9": {
+      "value": "0.99956250177727712",
+      "kind": "number"
+    },
+    "AO9": {
+      "value": "5.6203545620231606E-4",
+      "kind": "number"
+    },
+    "A10": {
+      "value": "M371029",
+      "kind": "text"
+    },
+    "B10": {
+      "value": "1300",
+      "kind": "number"
+    },
+    "D10": {
+      "value": "0.91735916955017294",
+      "kind": "number"
+    },
+    "E10": {
+      "value": "2.746816338964074E-2",
+      "kind": "number"
+    },
+    "F10": {
+      "value": "1.03633",
+      "kind": "number"
+    },
+    "G10": {
+      "value": "1.0361199999999999",
+      "kind": "number"
+    },
+    "H10": {
+      "value": "1.03654",
+      "kind": "number"
+    },
+    "I10": {
+      "value": "0.6895154063353699",
+      "kind": "number"
+    },
+    "J10": {
+      "value": "0.63418848552142393",
+      "kind": "number"
+    },
+    "K10": {
+      "value": "0.66185194592839691",
+      "kind": "number",
+      "formula": null
+    },
+    "L10": {
+      "value": "2.7663460406972984E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M10": {
+      "value": "0.6806476859234909",
+      "kind": "number"
+    },
+    "N10": {
+      "value": "0.62549808470405743",
+      "kind": "number"
+    },
+    "O10": {
+      "value": "0.65307288531377417",
+      "kind": "number",
+      "formula": null
+    },
+    "P10": {
+      "value": "2.7574800609716732E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q10": {
+      "value": "0.65746241562108554",
+      "kind": "number",
+      "formula": null
+    },
+    "R10": {
+      "value": "3.2292131373771807E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S10": {
+      "value": "1302.6231000511907",
+      "kind": "number"
+    },
+    "T10": {
+      "value": "1302.4191123862993",
+      "kind": "number"
+    },
+    "U10": {
+      "value": "1302.521106218745",
+      "kind": "number",
+      "formula": null
+    },
+    "V10": {
+      "value": "0.7059277402944959",
+      "kind": "number"
+    },
+    "W10": {
+      "value": "0.64932399308858013",
+      "kind": "number"
+    },
+    "X10": {
+      "value": "0.67762586669153801",
+      "kind": "number",
+      "formula": null
+    },
+    "Y10": {
+      "value": "2.8301873602957883E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z10": {
+      "value": "0.69708037339273243",
+      "kind": "number"
+    },
+    "AA10": {
+      "value": "0.64065377226039111",
+      "kind": "number"
+    },
+    "AB10": {
+      "value": "0.66886707282656177",
+      "kind": "number",
+      "formula": null
+    },
+    "AC10": {
+      "value": "2.8213300566170663E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD10": {
+      "value": "0.67324646975904989",
+      "kind": "number",
+      "formula": null
+    },
+    "AE10": {
+      "value": "3.3018627200005986E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF10": {
+      "value": "0.6895154063353699",
+      "kind": "number"
+    },
+    "AG10": {
+      "value": "0.66183572548640957",
+      "kind": "number"
+    },
+    "AH10": {
+      "value": "0.63418848552142393",
+      "kind": "number"
+    },
+    "AI10": {
+      "value": "2.7663460406972984E-2",
+      "kind": "number"
+    },
+    "AJ10": {
+      "value": "0.6806476859234909",
+      "kind": "number"
+    },
+    "AK10": {
+      "value": "0.65305739600689261",
+      "kind": "number"
+    },
+    "AL10": {
+      "value": "0.62549808470405743",
+      "kind": "number"
+    },
+    "AM10": {
+      "value": "2.7574800609716732E-2",
+      "kind": "number"
+    },
+    "AN10": {
+      "value": "1.0291075478370071",
+      "kind": "number"
+    },
+    "AO10": {
+      "value": "8.1384845615670924E-4",
+      "kind": "number"
+    },
+    "A11": {
+      "value": "M371033",
+      "kind": "text"
+    },
+    "B11": {
+      "value": "1300",
+      "kind": "number"
+    },
+    "D11": {
+      "value": "1.3036265164644716",
+      "kind": "number"
+    },
+    "E11": {
+      "value": "2.514209617354924E-2",
+      "kind": "number"
+    },
+    "F11": {
+      "value": "1.0334000000000001",
+      "kind": "number"
+    },
+    "G11": {
+      "value": "1.03322",
+      "kind": "number"
+    },
+    "H11": {
+      "value": "1.03359",
+      "kind": "number"
+    },
+    "I11": {
+      "value": "1.075093983558852",
+      "kind": "number"
+    },
+    "J11": {
+      "value": "1.0255517358100645",
+      "kind": "number"
+    },
+    "K11": {
+      "value": "1.0503228596844583",
+      "kind": "number",
+      "formula": null
+    },
+    "L11": {
+      "value": "2.477112387439373E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M11": {
+      "value": "1.0648425323224622",
+      "kind": "number"
+    },
+    "N11": {
+      "value": "1.0154923028717162",
+      "kind": "number"
+    },
+    "O11": {
+      "value": "1.0401674175970892",
+      "kind": "number",
+      "formula": null
+    },
+    "P11": {
+      "value": "2.4675114725372982E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q11": {
+      "value": "1.0452451386407737",
+      "kind": "number",
+      "formula": null
+    },
+    "R11": {
+      "value": "2.9143739941947865E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S11": {
+      "value": "1304.0106771276398",
+      "kind": "number"
+    },
+    "T11": {
+      "value": "1303.8356285218829",
+      "kind": "number"
+    },
+    "U11": {
+      "value": "1303.9231528247615",
+      "kind": "number",
+      "formula": null
+    },
+    "V11": {
+      "value": "1.1001944193059741",
+      "kind": "number"
+    },
+    "W11": {
+      "value": "1.0495558436046002",
+      "kind": "number"
+    },
+    "X11": {
+      "value": "1.0748751314552871",
+      "kind": "number",
+      "formula": null
+    },
+    "Y11": {
+      "value": "2.5319287850686933E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z11": {
+      "value": "1.0899577848114737",
+      "kind": "number"
+    },
+    "AA11": {
+      "value": "1.0395125858481284",
+      "kind": "number"
+    },
+    "AB11": {
+      "value": "1.064735185329801",
+      "kind": "number",
+      "formula": null
+    },
+    "AC11": {
+      "value": "2.5222599481672603E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD11": {
+      "value": "1.0698051583925441",
+      "kind": "number",
+      "formula": null
+    },
+    "AE11": {
+      "value": "2.9761889675586729E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF11": {
+      "value": "1.075093983558852",
+      "kind": "number"
+    },
+    "AG11": {
+      "value": "1.0509795883631057",
+      "kind": "number"
+    },
+    "AH11": {
+      "value": "1.0255517358100645",
+      "kind": "number"
+    },
+    "AI11": {
+      "value": "2.477112387439373E-2",
+      "kind": "number"
+    },
+    "AJ11": {
+      "value": "1.0648425323224622",
+      "kind": "number"
+    },
+    "AK11": {
+      "value": "1.0408221159567708",
+      "kind": "number"
+    },
+    "AL11": {
+      "value": "1.0154923028717162",
+      "kind": "number"
+    },
+    "AM11": {
+      "value": "2.4675114725372982E-2",
+      "kind": "number"
+    },
+    "AN11": {
+      "value": "1.0265315221163003",
+      "kind": "number"
+    },
+    "AO11": {
+      "value": "9.6504661555702007E-4",
+      "kind": "number"
+    },
+    "A12": {
+      "value": "M371036",
+      "kind": "text"
+    },
+    "B12": {
+      "value": "1500",
+      "kind": "number"
+    },
+    "D12": {
+      "value": "1.7",
+      "kind": "number"
+    },
+    "E12": {
+      "value": "5.3117793628877287E-2",
+      "kind": "number"
+    },
+    "F12": {
+      "value": "1.04036",
+      "kind": "number"
+    },
+    "G12": {
+      "value": "1.0399400000000001",
+      "kind": "number"
+    },
+    "H12": {
+      "value": "1.04077",
+      "kind": "number"
+    },
+    "I12": {
+      "value": "1.4445970488329323",
+      "kind": "number"
+    },
+    "J12": {
+      "value": "1.3376263958271544",
+      "kind": "number"
+    },
+    "K12": {
+      "value": "1.3911117223300433",
+      "kind": "number",
+      "formula": null
+    },
+    "L12": {
+      "value": "5.3485326502888952E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M12": {
+      "value": "1.4397324343334779",
+      "kind": "number"
+    },
+    "N12": {
+      "value": "1.3332258547064351",
+      "kind": "number"
+    },
+    "O12": {
+      "value": "1.3864791445199565",
+      "kind": "number",
+      "formula": null
+    },
+    "P12": {
+      "value": "5.3253289813521398E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q12": {
+      "value": "1.3887954334249999",
+      "kind": "number",
+      "formula": null
+    },
+    "R12": {
+      "value": "6.168372781464488E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S12": {
+      "value": "1506.7485620901605",
+      "kind": "number"
+    },
+    "T12": {
+      "value": "1506.284365475386",
+      "kind": "number"
+    },
+    "U12": {
+      "value": "1506.5164637827734",
+      "kind": "number",
+      "formula": null
+    },
+    "V12": {
+      "value": "1.4869716304112108",
+      "kind": "number"
+    },
+    "W12": {
+      "value": "1.3770838306168427",
+      "kind": "number"
+    },
+    "X12": {
+      "value": "1.4320277305140268",
+      "kind": "number",
+      "formula": null
+    },
+    "Y12": {
+      "value": "5.4943899897184068E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z12": {
+      "value": "1.4821951324631231",
+      "kind": "number"
+    },
+    "AA12": {
+      "value": "1.3727724181062824",
+      "kind": "number"
+    },
+    "AB12": {
+      "value": "1.4274837752847027",
+      "kind": "number",
+      "formula": null
+    },
+    "AC12": {
+      "value": "5.471135717842035E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD12": {
+      "value": "1.4297557528993647",
+      "kind": "number",
+      "formula": null
+    },
+    "AE12": {
+      "value": "6.33639671778818E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF12": {
+      "value": "1.4445970488329323",
+      "kind": "number"
+    },
+    "AG12": {
+      "value": "1.3904048200704597",
+      "kind": "number"
+    },
+    "AH12": {
+      "value": "1.3376263958271544",
+      "kind": "number"
+    },
+    "AI12": {
+      "value": "5.3485326502888952E-2",
+      "kind": "number"
+    },
+    "AJ12": {
+      "value": "1.4397324343334779",
+      "kind": "number"
+    },
+    "AK12": {
+      "value": "1.3857780629811343",
+      "kind": "number"
+    },
+    "AL12": {
+      "value": "1.3332258547064351",
+      "kind": "number"
+    },
+    "AM12": {
+      "value": "5.3253289813521398E-2",
+      "kind": "number"
+    },
+    "AN12": {
+      "value": "1.0296631056307708",
+      "kind": "number"
+    },
+    "AO12": {
+      "value": "7.9771981106402465E-4",
+      "kind": "number"
+    },
+    "A13": {
+      "value": "M371039",
+      "kind": "text"
+    },
+    "B13": {
+      "value": "1700",
+      "kind": "number"
+    },
+    "D13": {
+      "value": "1.8479999999999999",
+      "kind": "number"
+    },
+    "E13": {
+      "value": "1.8999999999999996E-2",
+      "kind": "number"
+    },
+    "F13": {
+      "value": "1.04958",
+      "kind": "number"
+    },
+    "G13": {
+      "value": "1.0494399999999999",
+      "kind": "number"
+    },
+    "H13": {
+      "value": "1.0497399999999999",
+      "kind": "number"
+    },
+    "I13": {
+      "value": "1.5064433684232137",
+      "kind": "number"
+    },
+    "J13": {
+      "value": "1.4697313586031946",
+      "kind": "number"
+    },
+    "K13": {
+      "value": "1.4880873635132041",
+      "kind": "number",
+      "formula": null
+    },
+    "L13": {
+      "value": "1.8356004910009549E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M13": {
+      "value": "1.5105578727461495",
+      "kind": "number"
+    },
+    "N13": {
+      "value": "1.4739921033705379",
+      "kind": "number"
+    },
+    "O13": {
+      "value": "1.4922749880583437",
+      "kind": "number",
+      "formula": null
+    },
+    "P13": {
+      "value": "1.8282884687805812E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q13": {
+      "value": "1.4901811757857739",
+      "kind": "number",
+      "formula": null
+    },
+    "R13": {
+      "value": "2.1291232756378488E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S13": {
+      "value": "1708.7282304114733",
+      "kind": "number"
+    },
+    "T13": {
+      "value": "1708.5325685342229",
+      "kind": "number"
+    },
+    "U13": {
+      "value": "1708.6303994728482",
+      "kind": "number",
+      "formula": null
+    },
+    "V13": {
+      "value": "1.561355058621257",
+      "kind": "number"
+    },
+    "W13": {
+      "value": "1.523411347924803",
+      "kind": "number"
+    },
+    "X13": {
+      "value": "1.54238320327303",
+      "kind": "number",
+      "formula": null
+    },
+    "Y13": {
+      "value": "1.8971855348226985E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z13": {
+      "value": "1.5656932747648735",
+      "kind": "number"
+    },
+    "AA13": {
+      "value": "1.5278940511577375",
+      "kind": "number"
+    },
+    "AB13": {
+      "value": "1.5467936629613055",
+      "kind": "number",
+      "formula": null
+    },
+    "AC13": {
+      "value": "1.8899611803568028E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD13": {
+      "value": "1.5445884331171678",
+      "kind": "number",
+      "formula": null
+    },
+    "AE13": {
+      "value": "2.2012915890609438E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF13": {
+      "value": "1.5064433684232137",
+      "kind": "number"
+    },
+    "AG13": {
+      "value": "1.4893032693221233",
+      "kind": "number"
+    },
+    "AH13": {
+      "value": "1.4697313586031946",
+      "kind": "number"
+    },
+    "AI13": {
+      "value": "1.8356004910009549E-2",
+      "kind": "number"
+    },
+    "AJ13": {
+      "value": "1.5105578727461495",
+      "kind": "number"
+    },
+    "AK13": {
+      "value": "1.4934864376220638",
+      "kind": "number"
+    },
+    "AL13": {
+      "value": "1.4739921033705379",
+      "kind": "number"
+    },
+    "AM13": {
+      "value": "1.8282884687805812E-2",
+      "kind": "number"
+    },
+    "AN13": {
+      "value": "1.0368407917706128",
+      "kind": "number"
+    },
+    "AO13": {
+      "value": "7.5264020912068751E-4",
+      "kind": "number"
+    },
+    "A14": {
+      "value": "M375006",
+      "kind": "text"
+    },
+    "B14": {
+      "value": "1300",
+      "kind": "number"
+    },
+    "D14": {
+      "value": "3.8973076923076917",
+      "kind": "number"
+    },
+    "E14": {
+      "value": "4.699468055003677E-2",
+      "kind": "number"
+    },
+    "F14": {
+      "value": "1.0148200000000001",
+      "kind": "number"
+    },
+    "G14": {
+      "value": "1.0144899999999999",
+      "kind": "number"
+    },
+    "H14": {
+      "value": "1.0151399999999999",
+      "kind": "number"
+    },
+    "I14": {
+      "value": "3.7207358349427797",
+      "kind": "number"
+    },
+    "J14": {
+      "value": "3.6242580535622442",
+      "kind": "number"
+    },
+    "K14": {
+      "value": "3.6724969442525119",
+      "kind": "number",
+      "formula": null
+    },
+    "L14": {
+      "value": "4.8238890690267766E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M14": {
+      "value": "3.6949271637625167",
+      "kind": "number"
+    },
+    "N14": {
+      "value": "3.5991785265312641",
+      "kind": "number"
+    },
+    "O14": {
+      "value": "3.6470528451468907",
+      "kind": "number",
+      "formula": null
+    },
+    "P14": {
+      "value": "4.7874318615626299E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q14": {
+      "value": "3.6597748946997015",
+      "kind": "number",
+      "formula": null
+    },
+    "R14": {
+      "value": "5.7402915417171678E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S14": {
+      "value": "1312.2205300261014",
+      "kind": "number"
+    },
+    "T14": {
+      "value": "1311.9544460275567",
+      "kind": "number"
+    },
+    "U14": {
+      "value": "1312.0874880268291",
+      "kind": "number",
+      "formula": null
+    },
+    "V14": {
+      "value": "3.797396361029358",
+      "kind": "number"
+    },
+    "W14": {
+      "value": "3.6992417116115939",
+      "kind": "number"
+    },
+    "X14": {
+      "value": "3.7483190363204759",
+      "kind": "number",
+      "formula": null
+    },
+    "Y14": {
+      "value": "4.9077324708882042E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z14": {
+      "value": "3.7712905979510034",
+      "kind": "number"
+    },
+    "AA14": {
+      "value": "3.6738837740627419",
+      "kind": "number"
+    },
+    "AB14": {
+      "value": "3.7225871860068729",
+      "kind": "number",
+      "formula": null
+    },
+    "AC14": {
+      "value": "4.8703411944130748E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD14": {
+      "value": "3.7354531111636744",
+      "kind": "number",
+      "formula": null
+    },
+    "AE14": {
+      "value": "5.8376194896330724E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF14": {
+      "value": "3.7207358349427797",
+      "kind": "number"
+    },
+    "AG14": {
+      "value": "3.6717116105357133",
+      "kind": "number"
+    },
+    "AH14": {
+      "value": "3.6242580535622442",
+      "kind": "number"
+    },
+    "AI14": {
+      "value": "4.8238890690267766E-2",
+      "kind": "number"
+    },
+    "AJ14": {
+      "value": "3.6949271637625167",
+      "kind": "number"
+    },
+    "AK14": {
+      "value": "3.6462747954231998",
+      "kind": "number"
+    },
+    "AL14": {
+      "value": "3.5991785265312641",
+      "kind": "number"
+    },
+    "AM14": {
+      "value": "4.7874318615626299E-2",
+      "kind": "number"
+    },
+    "AN14": {
+      "value": "0.99245210711279663",
+      "kind": "number"
+    },
+    "AO14": {
+      "value": "1.1196048694547213E-3",
+      "kind": "number"
+    },
+    "A15": {
+      "value": "M375009",
+      "kind": "text"
+    },
+    "B15": {
+      "value": "1500",
+      "kind": "number"
+    },
+    "D15": {
+      "value": "3.7512383695170581",
+      "kind": "number"
+    },
+    "E15": {
+      "value": "3.4126602526474842E-2",
+      "kind": "number"
+    },
+    "F15": {
+      "value": "1.02495",
+      "kind": "number"
+    },
+    "G15": {
+      "value": "1.02471",
+      "kind": "number"
+    },
+    "H15": {
+      "value": "1.0251999999999999",
+      "kind": "number"
+    },
+    "I15": {
+      "value": "3.4985196412744508",
+      "kind": "number"
+    },
+    "J15": {
+      "value": "3.429679720157174",
+      "kind": "number"
+    },
+    "K15": {
+      "value": "3.4640996807158126",
+      "kind": "number",
+      "formula": null
+    },
+    "L15": {
+      "value": "3.4419960558638385E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M15": {
+      "value": "3.4808761179269112",
+      "kind": "number"
+    },
+    "N15": {
+      "value": "3.4125721319009301",
+      "kind": "number"
+    },
+    "O15": {
+      "value": "3.4467241249139207",
+      "kind": "number",
+      "formula": null
+    },
+    "P15": {
+      "value": "3.4151993012990545E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q15": {
+      "value": "3.4554119028148667",
+      "kind": "number",
+      "formula": null
+    },
+    "R15": {
+      "value": "4.0841541607615682E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S15": {
+      "value": "1514.7890388216988",
+      "kind": "number"
+    },
+    "T15": {
+      "value": "1514.5431037630678",
+      "kind": "number"
+    },
+    "U15": {
+      "value": "1514.6660712923833",
+      "kind": "number",
+      "formula": null
+    },
+    "V15": {
+      "value": "3.5915279397358231",
+      "kind": "number"
+    },
+    "W15": {
+      "value": "3.5211354554639396",
+      "kind": "number"
+    },
+    "X15": {
+      "value": "3.5563316975998811",
+      "kind": "number",
+      "formula": null
+    },
+    "Y15": {
+      "value": "3.5196242135941747E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z15": {
+      "value": "3.5737559741868523",
+      "kind": "number"
+    },
+    "AA15": {
+      "value": "3.5039121948846743",
+      "kind": "number"
+    },
+    "AB15": {
+      "value": "3.5388340845357633",
+      "kind": "number",
+      "formula": null
+    },
+    "AC15": {
+      "value": "3.4921889651089E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD15": {
+      "value": "3.5475828910678224",
+      "kind": "number",
+      "formula": null
+    },
+    "AE15": {
+      "value": "4.1724469789045648E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF15": {
+      "value": "3.4985196412744508",
+      "kind": "number"
+    },
+    "AG15": {
+      "value": "3.4647786501851217",
+      "kind": "number"
+    },
+    "AH15": {
+      "value": "3.429679720157174",
+      "kind": "number"
+    },
+    "AI15": {
+      "value": "3.4419960558638385E-2",
+      "kind": "number"
+    },
+    "AJ15": {
+      "value": "3.4808761179269112",
+      "kind": "number"
+    },
+    "AK15": {
+      "value": "3.4473986525319096",
+      "kind": "number"
+    },
+    "AL15": {
+      "value": "3.4125721319009301",
+      "kind": "number"
+    },
+    "AM15": {
+      "value": "3.4151993012990545E-2",
+      "kind": "number"
+    },
+    "AN15": {
+      "value": "1.0047081400325077",
+      "kind": "number"
+    },
+    "AO15": {
+      "value": "7.1097278073252944E-4",
+      "kind": "number"
+    },
+    "A16": {
+      "value": "M375012",
+      "kind": "text"
+    },
+    "B16": {
+      "value": "1300",
+      "kind": "number"
+    },
+    "D16": {
+      "value": "3.4715471698113212",
+      "kind": "number"
+    },
+    "E16": {
+      "value": "1.9121323175972933E-2",
+      "kind": "number"
+    },
+    "F16": {
+      "value": "1.0177499999999999",
+      "kind": "number"
+    },
+    "G16": {
+      "value": "1.0176099999999999",
+      "kind": "number"
+    },
+    "H16": {
+      "value": "1.0178799999999999",
+      "kind": "number"
+    },
+    "I16": {
+      "value": "3.2607803422679016",
+      "kind": "number"
+    },
+    "J16": {
+      "value": "3.2213475011031631",
+      "kind": "number"
+    },
+    "K16": {
+      "value": "3.2410639216855324",
+      "kind": "number",
+      "formula": null
+    },
+    "L16": {
+      "value": "1.9716420582369221E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M16": {
+      "value": "3.2383490024641888",
+      "kind": "number"
+    },
+    "N16": {
+      "value": "3.1991938382494376",
+      "kind": "number"
+    },
+    "O16": {
+      "value": "3.2187714203568132",
+      "kind": "number",
+      "formula": null
+    },
+    "P16": {
+      "value": "1.9577582107375591E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q16": {
+      "value": "3.2299176710211728",
+      "kind": "number",
+      "formula": null
+    },
+    "R16": {
+      "value": "2.6083158928030925E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S16": {
+      "value": "1310.9322412853767",
+      "kind": "number"
+    },
+    "T16": {
+      "value": "1310.8194147246763",
+      "kind": "number"
+    },
+    "U16": {
+      "value": "1310.8758280050265",
+      "kind": "number",
+      "formula": null
+    },
+    "V16": {
+      "value": "3.3293264814884713",
+      "kind": "number"
+    },
+    "W16": {
+      "value": "3.2891835087128154",
+      "kind": "number"
+    },
+    "X16": {
+      "value": "3.3092549951006434",
+      "kind": "number",
+      "formula": null
+    },
+    "Y16": {
+      "value": "2.0071486387827964E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z16": {
+      "value": "3.3066826266319373",
+      "kind": "number"
+    },
+    "AA16": {
+      "value": "3.2668240439815812",
+      "kind": "number"
+    },
+    "AB16": {
+      "value": "3.2867533353067593",
+      "kind": "number",
+      "formula": null
+    },
+    "AC16": {
+      "value": "1.9929291325178067E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD16": {
+      "value": "3.2980041652037011",
+      "kind": "number",
+      "formula": null
+    },
+    "AE16": {
+      "value": "2.6497843500688005E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF16": {
+      "value": "3.2607803422679016",
+      "kind": "number"
+    },
+    "AG16": {
+      "value": "3.2403263466536583",
+      "kind": "number"
+    },
+    "AH16": {
+      "value": "3.2213475011031631",
+      "kind": "number"
+    },
+    "AI16": {
+      "value": "1.9716420582369221E-2",
+      "kind": "number"
+    },
+    "AJ16": {
+      "value": "3.2383490024641888",
+      "kind": "number"
+    },
+    "AK16": {
+      "value": "3.2180392784672236",
+      "kind": "number"
+    },
+    "AL16": {
+      "value": "3.1991938382494376",
+      "kind": "number"
+    },
+    "AM16": {
+      "value": "1.9577582107375591E-2",
+      "kind": "number"
+    },
+    "AN16": {
+      "value": "1.0026540971770772",
+      "kind": "number"
+    },
+    "AO16": {
+      "value": "9.3336901300097278E-4",
+      "kind": "number"
+    },
+    "A17": {
+      "value": "M375015",
+      "kind": "text"
+    },
+    "B17": {
+      "value": "1500",
+      "kind": "number"
+    },
+    "D17": {
+      "value": "3.9347056504599212",
+      "kind": "number"
+    },
+    "E17": {
+      "value": "2.2374650835264468E-2",
+      "kind": "number"
+    },
+    "F17": {
+      "value": "1.02363",
+      "kind": "number"
+    },
+    "G17": {
+      "value": "1.0234700000000001",
+      "kind": "number"
+    },
+    "H17": {
+      "value": "1.0238",
+      "kind": "number"
+    },
+    "I17": {
+      "value": "3.6735682688488929",
+      "kind": "number"
+    },
+    "J17": {
+      "value": "3.6268646803937612",
+      "kind": "number"
+    },
+    "K17": {
+      "value": "3.650216474621327",
+      "kind": "number",
+      "formula": null
+    },
+    "L17": {
+      "value": "2.3351794227565836E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M17": {
+      "value": "3.6545318261019304",
+      "kind": "number"
+    },
+    "N17": {
+      "value": "3.6082040628693695",
+      "kind": "number"
+    },
+    "O17": {
+      "value": "3.6313679444856497",
+      "kind": "number",
+      "formula": null
+    },
+    "P17": {
+      "value": "2.3163881616280468E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q17": {
+      "value": "3.6407922095534886",
+      "kind": "number",
+      "formula": null
+    },
+    "R17": {
+      "value": "2.8977062760252262E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S17": {
+      "value": "1515.4079897274141",
+      "kind": "number"
+    },
+    "T17": {
+      "value": "1515.243743061756",
+      "kind": "number"
+    },
+    "U17": {
+      "value": "1515.3258663945851",
+      "kind": "number",
+      "formula": null
+    },
+    "V17": {
+      "value": "3.7704852918442135",
+      "kind": "number"
+    },
+    "W17": {
+      "value": "3.7227442807372713",
+      "kind": "number"
+    },
+    "X17": {
+      "value": "3.7466147862907424",
+      "kind": "number",
+      "formula": null
+    },
+    "Y17": {
+      "value": "2.3870505553471144E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z17": {
+      "value": "3.751286377898543",
+      "kind": "number"
+    },
+    "AA17": {
+      "value": "3.7039304878869941",
+      "kind": "number"
+    },
+    "AB17": {
+      "value": "3.7276084328927688",
+      "kind": "number",
+      "formula": null
+    },
+    "AC17": {
+      "value": "2.367794500577447E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD17": {
+      "value": "3.7371116095917558",
+      "kind": "number",
+      "formula": null
+    },
+    "AE17": {
+      "value": "2.956424473153467E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF17": {
+      "value": "3.6735682688488929",
+      "kind": "number"
+    },
+    "AG17": {
+      "value": "3.6509133918063488",
+      "kind": "number"
+    },
+    "AH17": {
+      "value": "3.6268646803937612",
+      "kind": "number"
+    },
+    "AI17": {
+      "value": "2.3351794227565836E-2",
+      "kind": "number"
+    },
+    "AJ17": {
+      "value": "3.6545318261019304",
+      "kind": "number"
+    },
+    "AK17": {
+      "value": "3.6320596315434353",
+      "kind": "number"
+    },
+    "AL17": {
+      "value": "3.6082040628693695",
+      "kind": "number"
+    },
+    "AM17": {
+      "value": "2.3163881616280468E-2",
+      "kind": "number"
+    },
+    "AN17": {
+      "value": "1.0061127255717159",
+      "kind": "number"
+    },
+    "AO17": {
+      "value": "9.8963382314757047E-4",
+      "kind": "number"
+    },
+    "A18": {
+      "value": "M375018",
+      "kind": "text"
+    },
+    "B18": {
+      "value": "1300",
+      "kind": "number"
+    },
+    "D18": {
+      "value": "3.3915000000000002",
+      "kind": "number"
+    },
+    "E18": {
+      "value": "2.0152543263816568E-2",
+      "kind": "number"
+    },
+    "F18": {
+      "value": "1.0183",
+      "kind": "number"
+    },
+    "G18": {
+      "value": "1.01816",
+      "kind": "number"
+    },
+    "H18": {
+      "value": "1.01844",
+      "kind": "number"
+    },
+    "I18": {
+      "value": "3.1805162264874891",
+      "kind": "number"
+    },
+    "J18": {
+      "value": "3.1397480353103964",
+      "kind": "number"
+    },
+    "K18": {
+      "value": "3.1601321308989427",
+      "kind": "number",
+      "formula": null
+    },
+    "L18": {
+      "value": "2.0384095588546369E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M18": {
+      "value": "3.1586480619491444",
+      "kind": "number"
+    },
+    "N18": {
+      "value": "3.1181628595822257",
+      "kind": "number"
+    },
+    "O18": {
+      "value": "3.1384054607656848",
+      "kind": "number",
+      "formula": null
+    },
+    "P18": {
+      "value": "2.024260118345933E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q18": {
+      "value": "3.149268795832314",
+      "kind": "number",
+      "formula": null
+    },
+    "R18": {
+      "value": "2.65994781048461E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S18": {
+      "value": "1310.7021785557827",
+      "kind": "number"
+    },
+    "T18": {
+      "value": "1310.5847060679314",
+      "kind": "number"
+    },
+    "U18": {
+      "value": "1310.6434423118571",
+      "kind": "number",
+      "formula": null
+    },
+    "V18": {
+      "value": "3.2476144322614582",
+      "kind": "number"
+    },
+    "W18": {
+      "value": "3.2061070368675448",
+      "kind": "number"
+    },
+    "X18": {
+      "value": "3.2268607345645015",
+      "kind": "number",
+      "formula": null
+    },
+    "Y18": {
+      "value": "2.0753697696956674E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z18": {
+      "value": "3.2255473254713292",
+      "kind": "number"
+    },
+    "AA18": {
+      "value": "3.1843296744138678",
+      "kind": "number"
+    },
+    "AB18": {
+      "value": "3.2049384999425987",
+      "kind": "number",
+      "formula": null
+    },
+    "AC18": {
+      "value": "2.0608825528730668E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD18": {
+      "value": "3.2158996172535499",
+      "kind": "number",
+      "formula": null
+    },
+    "AE18": {
+      "value": "2.7027539574530364E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF18": {
+      "value": "3.1805162264874891",
+      "kind": "number"
+    },
+    "AG18": {
+      "value": "3.1601242509509015",
+      "kind": "number"
+    },
+    "AH18": {
+      "value": "3.1397480353103964",
+      "kind": "number"
+    },
+    "AI18": {
+      "value": "2.0384095588546369E-2",
+      "kind": "number"
+    },
+    "AJ18": {
+      "value": "3.1586480619491444",
+      "kind": "number"
+    },
+    "AK18": {
+      "value": "3.1383978946164497",
+      "kind": "number"
+    },
+    "AL18": {
+      "value": "3.1181628595822257",
+      "kind": "number"
+    },
+    "AM18": {
+      "value": "2.024260118345933E-2",
+      "kind": "number"
+    },
+    "AN18": {
+      "value": "1.00309969250612",
+      "kind": "number"
+    },
+    "AO18": {
+      "value": "9.2992360797283942E-4",
+      "kind": "number"
+    },
+    "A19": {
+      "value": "M375021",
+      "kind": "text"
+    },
+    "B19": {
+      "value": "1100",
+      "kind": "number"
+    },
+    "D19": {
+      "value": "2.8119999999999998",
+      "kind": "number"
+    },
+    "E19": {
+      "value": "2.2869193252058551E-2",
+      "kind": "number"
+    },
+    "F19": {
+      "value": "1.0134000000000001",
+      "kind": "number"
+    },
+    "G19": {
+      "value": "1.01326",
+      "kind": "number"
+    },
+    "H19": {
+      "value": "1.01356",
+      "kind": "number"
+    },
+    "I19": {
+      "value": "2.6533085376257137",
+      "kind": "number"
+    },
+    "J19": {
+      "value": "2.6084902349720926",
+      "kind": "number"
+    },
+    "K19": {
+      "value": "2.6308993862989034",
+      "kind": "number",
+      "formula": null
+    },
+    "L19": {
+      "value": "2.2409151326810539E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M19": {
+      "value": "2.6313186435639584",
+      "kind": "number"
+    },
+    "N19": {
+      "value": "2.5867555476272983",
+      "kind": "number"
+    },
+    "O19": {
+      "value": "2.6090370955956281",
+      "kind": "number",
+      "formula": null
+    },
+    "P19": {
+      "value": "2.228154796833004E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q19": {
+      "value": "2.6199682409472658",
+      "kind": "number",
+      "formula": null
+    },
+    "R19": {
+      "value": "2.8724174725019057E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S19": {
+      "value": "1106.9473474666179",
+      "kind": "number"
+    },
+    "T19": {
+      "value": "1106.8444260569761",
+      "kind": "number"
+    },
+    "U19": {
+      "value": "1106.8958867617971",
+      "kind": "number",
+      "formula": null
+    },
+    "V19": {
+      "value": "2.6966158090441175",
+      "kind": "number"
+    },
+    "W19": {
+      "value": "2.6511540566250686",
+      "kind": "number"
+    },
+    "X19": {
+      "value": "2.6738849328345928",
+      "kind": "number",
+      "formula": null
+    },
+    "Y19": {
+      "value": "2.2730876209524409E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z19": {
+      "value": "2.6744446421903905",
+      "kind": "number"
+    },
+    "AA19": {
+      "value": "2.6292440101530543",
+      "kind": "number"
+    },
+    "AB19": {
+      "value": "2.6518443261717222",
+      "kind": "number",
+      "formula": null
+    },
+    "AC19": {
+      "value": "2.2600316018668076E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD19": {
+      "value": "2.6628646295031579",
+      "kind": "number",
+      "formula": null
+    },
+    "AE19": {
+      "value": "2.9101674504285566E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF19": {
+      "value": "2.6533085376257137",
+      "kind": "number"
+    },
+    "AG19": {
+      "value": "2.6323841527402783",
+      "kind": "number"
+    },
+    "AH19": {
+      "value": "2.6084902349720926",
+      "kind": "number"
+    },
+    "AI19": {
+      "value": "2.2409151326810539E-2",
+      "kind": "number"
+    },
+    "AJ19": {
+      "value": "2.6313186435639584",
+      "kind": "number"
+    },
+    "AK19": {
+      "value": "2.6105136907549804",
+      "kind": "number"
+    },
+    "AL19": {
+      "value": "2.5867555476272983",
+      "kind": "number"
+    },
+    "AM19": {
+      "value": "2.228154796833004E-2",
+      "kind": "number"
+    },
+    "AN19": {
+      "value": "1.0012916274423524",
+      "kind": "number"
+    },
+    "AO19": {
+      "value": "8.9171477670867486E-4",
+      "kind": "number"
+    },
+    "A20": {
+      "value": "M375024",
+      "kind": "text"
+    },
+    "B20": {
+      "value": "900",
+      "kind": "number"
+    },
+    "D20": {
+      "value": "2.1939999999999995",
+      "kind": "number"
+    },
+    "E20": {
+      "value": "1.9209372712298545E-2",
+      "kind": "number"
+    },
+    "F20": {
+      "value": "1.0089999999999999",
+      "kind": "number"
+    },
+    "G20": {
+      "value": "1.0088600000000001",
+      "kind": "number"
+    },
+    "H20": {
+      "value": "1.00912",
+      "kind": "number"
+    },
+    "I20": {
+      "value": "2.0781977841197072",
+      "kind": "number"
+    },
+    "J20": {
+      "value": "2.0384483493574255",
+      "kind": "number"
+    },
+    "K20": {
+      "value": "2.0583230667385664",
+      "kind": "number",
+      "formula": null
+    },
+    "L20": {
+      "value": "1.9874717381140883E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M20": {
+      "value": "2.0587411998768417",
+      "kind": "number"
+    },
+    "N20": {
+      "value": "2.0191640494281486",
+      "kind": "number"
+    },
+    "O20": {
+      "value": "2.0389526246524952",
+      "kind": "number",
+      "formula": null
+    },
+    "P20": {
+      "value": "1.9788575224346516E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q20": {
+      "value": "2.0486378456955308",
+      "kind": "number",
+      "formula": null
+    },
+    "R20": {
+      "value": "2.5484624301655084E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S20": {
+      "value": "904.06841884449113",
+      "kind": "number"
+    },
+    "T20": {
+      "value": "903.99831518767121",
+      "kind": "number"
+    },
+    "U20": {
+      "value": "904.03336701608123",
+      "kind": "number",
+      "formula": null
+    },
+    "V20": {
+      "value": "2.1032881974136233",
+      "kind": "number"
+    },
+    "W20": {
+      "value": "2.0631055726688716",
+      "kind": "number"
+    },
+    "X20": {
+      "value": "2.0831968850412474",
+      "kind": "number",
+      "formula": null
+    },
+    "Y20": {
+      "value": "2.0091312372375825E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z20": {
+      "value": "2.0836984557248712",
+      "kind": "number"
+    },
+    "AA20": {
+      "value": "2.0436920602071291",
+      "kind": "number"
+    },
+    "AB20": {
+      "value": "2.0636952579660002",
+      "kind": "number",
+      "formula": null
+    },
+    "AC20": {
+      "value": "2.000319775887105E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD20": {
+      "value": "2.073446071503624",
+      "kind": "number",
+      "formula": null
+    },
+    "AE20": {
+      "value": "2.574160682262466E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF20": {
+      "value": "2.0781977841197072",
+      "kind": "number"
+    },
+    "AG20": {
+      "value": "2.0567872420692956",
+      "kind": "number"
+    },
+    "AH20": {
+      "value": "2.0384483493574255",
+      "kind": "number"
+    },
+    "AI20": {
+      "value": "1.9874717381140883E-2",
+      "kind": "number"
+    },
+    "AJ20": {
+      "value": "2.0587411998768417",
+      "kind": "number"
+    },
+    "AK20": {
+      "value": "2.0374236614200254",
+      "kind": "number"
+    },
+    "AL20": {
+      "value": "2.0191640494281486",
+      "kind": "number"
+    },
+    "AM20": {
+      "value": "1.9788575224346516E-2",
+      "kind": "number"
+    },
+    "AN20": {
+      "value": "0.99953339193372004",
+      "kind": "number"
+    },
+    "AO20": {
+      "value": "8.7624320198588035E-4",
+      "kind": "number"
+    },
+    "A21": {
+      "value": "M375027",
+      "kind": "text"
+    },
+    "B21": {
+      "value": "700",
+      "kind": "number"
+    },
+    "D21": {
+      "value": "1.5794999999999999",
+      "kind": "number"
+    },
+    "E21": {
+      "value": "2.0152543263816592E-2",
+      "kind": "number"
+    },
+    "F21": {
+      "value": "1.00482",
+      "kind": "number"
+    },
+    "G21": {
+      "value": "1.0046999999999999",
+      "kind": "number"
+    },
+    "H21": {
+      "value": "1.0049600000000001",
+      "kind": "number"
+    },
+    "I21": {
+      "value": "1.5001436427444816",
+      "kind": "number"
+    },
+    "J21": {
+      "value": "1.4595178175808632",
+      "kind": "number"
+    },
+    "K21": {
+      "value": "1.4798307301626723",
+      "kind": "number",
+      "formula": null
+    },
+    "L21": {
+      "value": "2.0312912581809228E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M21": {
+      "value": "1.485477511043882",
+      "kind": "number"
+    },
+    "N21": {
+      "value": "1.4449707854124298",
+      "kind": "number"
+    },
+    "O21": {
+      "value": "1.4652241482281561",
+      "kind": "number",
+      "formula": null
+    },
+    "P21": {
+      "value": "2.0253362815726095E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q21": {
+      "value": "1.4725274391954142",
+      "kind": "number",
+      "formula": null
+    },
+    "R21": {
+      "value": "2.489296072931103E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S21": {
+      "value": "702.07231871348688",
+      "kind": "number"
+    },
+    "T21": {
+      "value": "702.02029211423962",
+      "kind": "number"
+    },
+    "U21": {
+      "value": "702.04630541386325",
+      "kind": "number",
+      "formula": null
+    },
+    "V21": {
+      "value": "1.5126452091123519",
+      "kind": "number"
+    },
+    "W21": {
+      "value": "1.4717052421872607",
+      "kind": "number"
+    },
+    "X21": {
+      "value": "1.4921752256498064",
+      "kind": "number",
+      "formula": null
+    },
+    "Y21": {
+      "value": "2.0469983462545582E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z21": {
+      "value": "1.4978992184212088",
+      "kind": "number"
+    },
+    "AA21": {
+      "value": "1.4570811852743506",
+      "kind": "number"
+    },
+    "AB21": {
+      "value": "1.4774902018477798",
+      "kind": "number",
+      "formula": null
+    },
+    "AC21": {
+      "value": "2.0409016573429084E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD21": {
+      "value": "1.4848327137487929",
+      "kind": "number",
+      "formula": null
+    },
+    "AE21": {
+      "value": "2.5078186304494949E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF21": {
+      "value": "1.5001436427444816",
+      "kind": "number"
+    },
+    "AG21": {
+      "value": "1.4813861468304281",
+      "kind": "number"
+    },
+    "AH21": {
+      "value": "1.4595178175808632",
+      "kind": "number"
+    },
+    "AI21": {
+      "value": "2.0312912581809228E-2",
+      "kind": "number"
+    },
+    "AJ21": {
+      "value": "1.485477511043882",
+      "kind": "number"
+    },
+    "AK21": {
+      "value": "1.4667752034882335",
+      "kind": "number"
+    },
+    "AL21": {
+      "value": "1.4449707854124298",
+      "kind": "number"
+    },
+    "AM21": {
+      "value": "2.0253362815726095E-2",
+      "kind": "number"
+    },
+    "AN21": {
+      "value": "0.99845044165102403",
+      "kind": "number"
+    },
+    "AO21": {
+      "value": "8.4526445556033997E-4",
+      "kind": "number"
+    },
+    "A22": {
+      "value": "M375030",
+      "kind": "text"
+    },
+    "B22": {
+      "value": "500",
+      "kind": "number"
+    },
+    "D22": {
+      "value": "0.9584999999999998",
+      "kind": "number"
+    },
+    "E22": {
+      "value": "2.1263231174964922E-2",
+      "kind": "number"
+    },
+    "F22": {
+      "value": "1.0010600000000001",
+      "kind": "number"
+    },
+    "G22": {
+      "value": "1.0009300000000001",
+      "kind": "number"
+    },
+    "H22": {
+      "value": "1.0012000000000001",
+      "kind": "number"
+    },
+    "I22": {
+      "value": "0.91611209161665974",
+      "kind": "number"
+    },
+    "J22": {
+      "value": "0.87306139598433963",
+      "kind": "number"
+    },
+    "K22": {
+      "value": "0.89458674380049974",
+      "kind": "number",
+      "formula": null
+    },
+    "L22": {
+      "value": "2.1525347816160056E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M22": {
+      "value": "0.90822855531256297",
+      "kind": "number"
+    },
+    "N22": {
+      "value": "0.86524348918707905",
+      "kind": "number"
+    },
+    "O22": {
+      "value": "0.88673602224982107",
+      "kind": "number",
+      "formula": null
+    },
+    "P22": {
+      "value": "2.1492533062741959E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q22": {
+      "value": "0.8906613830251604",
+      "kind": "number",
+      "formula": null
+    },
+    "R22": {
+      "value": "2.524660360646382E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S22": {
+      "value": "500.82101388614916",
+      "kind": "number"
+    },
+    "T22": {
+      "value": "500.78415212351177",
+      "kind": "number"
+    },
+    "U22": {
+      "value": "500.80258300483047",
+      "kind": "number",
+      "formula": null
+    },
+    "V22": {
+      "value": "0.92080347826444908",
+      "kind": "number"
+    },
+    "W22": {
+      "value": "0.87754219286016943",
+      "kind": "number"
+    },
+    "X22": {
+      "value": "0.8991728355623092",
+      "kind": "number",
+      "formula": null
+    },
+    "Y22": {
+      "value": "2.1630642702139824E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z22": {
+      "value": "0.91288531023541986",
+      "kind": "number"
+    },
+    "AA22": {
+      "value": "0.86969152857238163",
+      "kind": "number"
+    },
+    "AB22": {
+      "value": "0.8912884194039008",
+      "kind": "number",
+      "formula": null
+    },
+    "AC22": {
+      "value": "2.1596890831519111E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD22": {
+      "value": "0.895230627483105",
+      "kind": "number",
+      "formula": null
+    },
+    "AE22": {
+      "value": "2.5369172977923106E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF22": {
+      "value": "0.91611209161665974",
+      "kind": "number"
+    },
+    "AG22": {
+      "value": "0.89537615398374282",
+      "kind": "number"
+    },
+    "AH22": {
+      "value": "0.87306139598433963",
+      "kind": "number"
+    },
+    "AI22": {
+      "value": "2.1525347816160056E-2",
+      "kind": "number"
+    },
+    "AJ22": {
+      "value": "0.90822855531256297",
+      "kind": "number"
+    },
+    "AK22": {
+      "value": "0.88752443939115899",
+      "kind": "number"
+    },
+    "AL22": {
+      "value": "0.86524348918707905",
+      "kind": "number"
+    },
+    "AM22": {
+      "value": "2.1492533062741959E-2",
+      "kind": "number"
+    },
+    "AN22": {
+      "value": "0.99764435344699021",
+      "kind": "number"
+    },
+    "AO22": {
+      "value": "8.3826213010028156E-4",
+      "kind": "number"
+    },
+    "A23": {
+      "value": "M375033",
+      "kind": "text"
+    },
+    "B23": {
+      "value": "305",
+      "kind": "number"
+    },
+    "D23": {
+      "value": "0.42399999999999999",
+      "kind": "number"
+    },
+    "E23": {
+      "value": "1.8999999999999996E-2",
+      "kind": "number"
+    },
+    "F23": {
+      "value": "0.99753000000000003",
+      "kind": "number"
+    },
+    "G23": {
+      "value": "0.99741000000000002",
+      "kind": "number"
+    },
+    "H23": {
+      "value": "0.99765999999999999",
+      "kind": "number"
+    },
+    "I23": {
+      "value": "0.44267541197300636",
+      "kind": "number"
+    },
+    "J23": {
+      "value": "0.40198647096347062",
+      "kind": "number"
+    },
+    "K23": {
+      "value": "0.42233094146823846",
+      "kind": "number",
+      "formula": null
+    },
+    "L23": {
+      "value": "2.034447050476787E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M23": {
+      "value": "0.44242585195250489",
+      "kind": "number"
+    },
+    "N23": {
+      "value": "0.40175029833149362",
+      "kind": "number"
+    },
+    "O23": {
+      "value": "0.42208807514199925",
+      "kind": "number",
+      "formula": null
+    },
+    "P23": {
+      "value": "2.0337776810505637E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q23": {
+      "value": "0.42220950830511883",
+      "kind": "number",
+      "formula": null
+    },
+    "R23": {
+      "value": "2.3488325294913657E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S23": {
+      "value": "305.22815407046721",
+      "kind": "number"
+    },
+    "T23": {
+      "value": "305.20766644656544",
+      "kind": "number"
+    },
+    "U23": {
+      "value": "305.21791025851633",
+      "kind": "number",
+      "formula": null
+    },
+    "V23": {
+      "value": "0.4437638658757232",
+      "kind": "number"
+    },
+    "W23": {
+      "value": "0.40297729817603151",
+      "kind": "number"
+    },
+    "X23": {
+      "value": "0.42337058202587735",
+      "kind": "number",
+      "formula": null
+    },
+    "Y23": {
+      "value": "2.0393283849845845E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z23": {
+      "value": "0.44350526166037518",
+      "kind": "number"
+    },
+    "AA23": {
+      "value": "0.40273295792874431",
+      "kind": "number"
+    },
+    "AB23": {
+      "value": "0.42311910979455974",
+      "kind": "number",
+      "formula": null
+    },
+    "AC23": {
+      "value": "2.0386151865815438E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD23": {
+      "value": "0.42324484591021849",
+      "kind": "number",
+      "formula": null
+    },
+    "AE23": {
+      "value": "2.3544466203590679E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF23": {
+      "value": "0.44267541197300636",
+      "kind": "number"
+    },
+    "AG23": {
+      "value": "0.42313790921389294",
+      "kind": "number"
+    },
+    "AH23": {
+      "value": "0.40198647096347062",
+      "kind": "number"
+    },
+    "AI23": {
+      "value": "2.034447050476787E-2",
+      "kind": "number"
+    },
+    "AJ23": {
+      "value": "0.44242585195250489",
+      "kind": "number"
+    },
+    "AK23": {
+      "value": "0.42289495592790355",
+      "kind": "number"
+    },
+    "AL23": {
+      "value": "0.40175029833149362",
+      "kind": "number"
+    },
+    "AM23": {
+      "value": "2.0337776810505637E-2",
+      "kind": "number"
+    },
+    "AN23": {
+      "value": "0.99674821164195504",
+      "kind": "number"
+    },
+    "AO23": {
+      "value": "8.2957284577435755E-4",
+      "kind": "number"
+    },
+    "A24": {
+      "value": "M375037",
+      "kind": "text"
+    },
+    "B24": {
+      "value": "1500",
+      "kind": "number"
+    },
+    "D24": {
+      "value": "7.3099763079960507",
+      "kind": "number"
+    },
+    "E24": {
+      "value": "5.2449976167773249E-2",
+      "kind": "number"
+    },
+    "F24": {
+      "value": "1.0008699999999999",
+      "kind": "number"
+    },
+    "G24": {
+      "value": "1.00054",
+      "kind": "number"
+    },
+    "H24": {
+      "value": "1.0012000000000001",
+      "kind": "number"
+    },
+    "I24": {
+      "value": "7.137040831688191",
+      "kind": "number"
+    },
+    "J24": {
+      "value": "7.0311065983130554",
+      "kind": "number"
+    },
+    "K24": {
+      "value": "7.0840737150006232",
+      "kind": "number",
+      "formula": null
+    },
+    "L24": {
+      "value": "5.2967116687567817E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M24": {
+      "value": "7.0829662196824197",
+      "kind": "number"
+    },
+    "N24": {
+      "value": "6.9782809425206542",
+      "kind": "number"
+    },
+    "O24": {
+      "value": "7.030623581101537",
+      "kind": "number",
+      "formula": null
+    },
+    "P24": {
+      "value": "5.2342638580882728E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q24": {
+      "value": "7.0573486480510805",
+      "kind": "number",
+      "formula": null
+    },
+    "R24": {
+      "value": "6.8184678976626723E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S24": {
+      "value": "1526.0834013562412",
+      "kind": "number"
+    },
+    "T24": {
+      "value": "1525.794096400535",
+      "kind": "number"
+    },
+    "U24": {
+      "value": "1525.9387488783882",
+      "kind": "number",
+      "formula": null
+    },
+    "V24": {
+      "value": "7.3017796225138278",
+      "kind": "number"
+    },
+    "W24": {
+      "value": "7.1939946405157533",
+      "kind": "number"
+    },
+    "X24": {
+      "value": "7.2478871315147906",
+      "kind": "number",
+      "formula": null
+    },
+    "Y24": {
+      "value": "5.3892490999037257E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z24": {
+      "value": "7.2464721011503821",
+      "kind": "number"
+    },
+    "AA24": {
+      "value": "7.1399785753481089",
+      "kind": "number"
+    },
+    "AB24": {
+      "value": "7.1932253382492455",
+      "kind": "number",
+      "formula": null
+    },
+    "AC24": {
+      "value": "5.3246762901136613E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD24": {
+      "value": "7.220556234882018",
+      "kind": "number",
+      "formula": null
+    },
+    "AE24": {
+      "value": "6.9443378215799018E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF24": {
+      "value": "7.137040831688191",
+      "kind": "number"
+    },
+    "AG24": {
+      "value": "7.0840256997537345",
+      "kind": "number"
+    },
+    "AH24": {
+      "value": "7.0311065983130554",
+      "kind": "number"
+    },
+    "AI24": {
+      "value": "5.2967116687567817E-2",
+      "kind": "number"
+    },
+    "AJ24": {
+      "value": "7.0829662196824197",
+      "kind": "number"
+    },
+    "AK24": {
+      "value": "7.0305773011943584",
+      "kind": "number"
+    },
+    "AL24": {
+      "value": "6.9782809425206542",
+      "kind": "number"
+    },
+    "AM24": {
+      "value": "5.2342638580882728E-2",
+      "kind": "number"
+    },
+    "AN24": {
+      "value": "0.97977024867463425",
+      "kind": "number"
+    },
+    "AO24": {
+      "value": "1.0561227330006383E-3",
+      "kind": "number"
+    },
+    "A25": {
+      "value": "M375040",
+      "kind": "text"
+    },
+    "B25": {
+      "value": "1700",
+      "kind": "number"
+    },
+    "D25": {
+      "value": "7.1050000000000004",
+      "kind": "number"
+    },
+    "E25": {
+      "value": "2.2999999999999996E-2",
+      "kind": "number"
+    },
+    "F25": {
+      "value": "1.0106599999999999",
+      "kind": "number"
+    },
+    "G25": {
+      "value": "1.0105",
+      "kind": "number"
+    },
+    "H25": {
+      "value": "1.0108200000000001",
+      "kind": "number"
+    },
+    "I25": {
+      "value": "6.8408419718071611",
+      "kind": "number"
+    },
+    "J25": {
+      "value": "6.7921020642806731",
+      "kind": "number"
+    },
+    "K25": {
+      "value": "6.8164720180439176",
+      "kind": "number",
+      "formula": null
+    },
+    "L25": {
+      "value": "2.4369953763244023E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M25": {
+      "value": "6.797957701109544",
+      "kind": "number"
+    },
+    "N25": {
+      "value": "6.749825081707808",
+      "kind": "number"
+    },
+    "O25": {
+      "value": "6.773891391408676",
+      "kind": "number",
+      "formula": null
+    },
+    "P25": {
+      "value": "2.4066309700867983E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q25": {
+      "value": "6.7951817047262972",
+      "kind": "number",
+      "formula": null
+    },
+    "R25": {
+      "value": "3.7234722069287657E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S25": {
+      "value": "1731.3670235372854",
+      "kind": "number"
+    },
+    "T25": {
+      "value": "1731.1990616727928",
+      "kind": "number"
+    },
+    "U25": {
+      "value": "1731.2830426050391",
+      "kind": "number",
+      "formula": null
+    },
+    "V25": {
+      "value": "7.0390974494132967",
+      "kind": "number"
+    },
+    "W25": {
+      "value": "6.9892839163398932",
+      "kind": "number"
+    },
+    "X25": {
+      "value": "7.0141906828765954",
+      "kind": "number",
+      "formula": null
+    },
+    "Y25": {
+      "value": "2.4906766536701763E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z25": {
+      "value": "6.9952451439258301",
+      "kind": "number"
+    },
+    "AA25": {
+      "value": "6.9460602375872149",
+      "kind": "number"
+    },
+    "AB25": {
+      "value": "6.9706526907565225",
+      "kind": "number",
+      "formula": null
+    },
+    "AC25": {
+      "value": "2.4592453169307582E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD25": {
+      "value": "6.9924216868165585",
+      "kind": "number",
+      "formula": null
+    },
+    "AE25": {
+      "value": "3.8060602124525042E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF25": {
+      "value": "6.8408419718071611",
+      "kind": "number"
+    },
+    "AG25": {
+      "value": "6.8164612083762446",
+      "kind": "number"
+    },
+    "AH25": {
+      "value": "6.7921020642806731",
+      "kind": "number"
+    },
+    "AI25": {
+      "value": "2.4369953763244023E-2",
+      "kind": "number"
+    },
+    "AJ25": {
+      "value": "6.797957701109544",
+      "kind": "number"
+    },
+    "AK25": {
+      "value": "6.7738810252372215",
+      "kind": "number"
+    },
+    "AL25": {
+      "value": "6.749825081707808",
+      "kind": "number"
+    },
+    "AM25": {
+      "value": "2.4066309700867983E-2",
+      "kind": "number"
+    },
+    "AN25": {
+      "value": "0.98813835891914503",
+      "kind": "number"
+    },
+    "AO25": {
+      "value": "1.1122546096464514E-3",
+      "kind": "number"
+    },
+    "A26": {
+      "value": "M375043",
+      "kind": "text"
+    },
+    "B26": {
+      "value": "1500",
+      "kind": "number"
+    },
+    "D26": {
+      "value": "6.5383031674208141",
+      "kind": "number"
+    },
+    "E26": {
+      "value": "2.9616296189766918E-2",
+      "kind": "number"
+    },
+    "F26": {
+      "value": "1.00583",
+      "kind": "number"
+    },
+    "G26": {
+      "value": "1.0056400000000001",
+      "kind": "number"
+    },
+    "H26": {
+      "value": "1.00603",
+      "kind": "number"
+    },
+    "I26": {
+      "value": "6.3283632960102176",
+      "kind": "number"
+    },
+    "J26": {
+      "value": "6.267452340576332",
+      "kind": "number"
+    },
+    "K26": {
+      "value": "6.2979078182932753",
+      "kind": "number",
+      "formula": null
+    },
+    "L26": {
+      "value": "3.0455477716942791E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M26": {
+      "value": "6.2835766528094465",
+      "kind": "number"
+    },
+    "N26": {
+      "value": "6.2233414181517075",
+      "kind": "number"
+    },
+    "O26": {
+      "value": "6.253459035480577",
+      "kind": "number",
+      "formula": null
+    },
+    "P26": {
+      "value": "3.0117617328869528E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q26": {
+      "value": "6.2756834268869266",
+      "kind": "number",
+      "formula": null
+    },
+    "R26": {
+      "value": "4.3377829539221306E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S26": {
+      "value": "1523.8227433929824",
+      "kind": "number"
+    },
+    "T26": {
+      "value": "1523.6474351706954",
+      "kind": "number"
+    },
+    "U26": {
+      "value": "1523.735089281839",
+      "kind": "number",
+      "formula": null
+    },
+    "V26": {
+      "value": "6.478662337591512",
+      "kind": "number"
+    },
+    "W26": {
+      "value": "6.4166336581163517",
+      "kind": "number"
+    },
+    "X26": {
+      "value": "6.4476479978539318",
+      "kind": "number",
+      "formula": null
+    },
+    "Y26": {
+      "value": "3.1014339737580165E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z26": {
+      "value": "6.4329531774383639",
+      "kind": "number"
+    },
+    "AA26": {
+      "value": "6.3716222517006624",
+      "kind": "number"
+    },
+    "AB26": {
+      "value": "6.4022877145695132",
+      "kind": "number",
+      "formula": null
+    },
+    "AC26": {
+      "value": "3.0665462868850746E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD26": {
+      "value": "6.4249678562117225",
+      "kind": "number",
+      "formula": null
+    },
+    "AE26": {
+      "value": "4.4204355231434407E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF26": {
+      "value": "6.3283632960102176",
+      "kind": "number"
+    },
+    "AG26": {
+      "value": "6.2986723832205449",
+      "kind": "number"
+    },
+    "AH26": {
+      "value": "6.267452340576332",
+      "kind": "number"
+    },
+    "AI26": {
+      "value": "3.0455477716942791E-2",
+      "kind": "number"
+    },
+    "AJ26": {
+      "value": "6.2835766528094465",
+      "kind": "number"
+    },
+    "AK26": {
+      "value": "6.2542155541800089",
+      "kind": "number"
+    },
+    "AL26": {
+      "value": "6.2233414181517075",
+      "kind": "number"
+    },
+    "AM26": {
+      "value": "3.0117617328869528E-2",
+      "kind": "number"
+    },
+    "AN26": {
+      "value": "0.98535835373341008",
+      "kind": "number"
+    },
+    "AO26": {
+      "value": "1.0868321450528482E-3",
+      "kind": "number"
+    },
+    "A27": {
+      "value": "M375046",
+      "kind": "text"
+    },
+    "B27": {
+      "value": "1300",
+      "kind": "number"
+    },
+    "D27": {
+      "value": "6.0310118265440211",
+      "kind": "number"
+    },
+    "E27": {
+      "value": "2.8559149146989694E-2",
+      "kind": "number"
+    },
+    "F27": {
+      "value": "1.0007600000000001",
+      "kind": "number"
+    },
+    "G27": {
+      "value": "1.0005900000000001",
+      "kind": "number"
+    },
+    "H27": {
+      "value": "1.0009399999999999",
+      "kind": "number"
+    },
+    "I27": {
+      "value": "5.8686004332364909",
+      "kind": "number"
+    },
+    "J27": {
+      "value": "5.8124832033498324",
+      "kind": "number"
+    },
+    "K27": {
+      "value": "5.8405418182931612",
+      "kind": "number",
+      "formula": null
+    },
+    "L27": {
+      "value": "2.8058614943329285E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M27": {
+      "value": "5.8240370224014928",
+      "kind": "number"
+    },
+    "N27": {
+      "value": "5.7684650174650995",
+      "kind": "number"
+    },
+    "O27": {
+      "value": "5.7962510199332957",
+      "kind": "number",
+      "formula": null
+    },
+    "P27": {
+      "value": "2.7786002468196624E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q27": {
+      "value": "5.8183964191132285",
+      "kind": "number",
+      "formula": null
+    },
+    "R27": {
+      "value": "4.1151631926958317E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S27": {
+      "value": "1317.6483110321269",
+      "kind": "number"
+    },
+    "T27": {
+      "value": "1317.5172904604306",
+      "kind": "number"
+    },
+    "U27": {
+      "value": "1317.5828007462787",
+      "kind": "number",
+      "formula": null
+    },
+    "V27": {
+      "value": "5.9795936219827128",
+      "kind": "number"
+    },
+    "W27": {
+      "value": "5.9226443463948089",
+      "kind": "number"
+    },
+    "X27": {
+      "value": "5.9511189841887608",
+      "kind": "number",
+      "formula": null
+    },
+    "Y27": {
+      "value": "2.8474637793951985E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z27": {
+      "value": "5.9342010101374125",
+      "kind": "number"
+    },
+    "AA27": {
+      "value": "5.8778134514007112",
+      "kind": "number"
+    },
+    "AB27": {
+      "value": "5.9060072307690614",
+      "kind": "number",
+      "formula": null
+    },
+    "AC27": {
+      "value": "2.8193779368350658E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD27": {
+      "value": "5.9285631074789116",
+      "kind": "number",
+      "formula": null
+    },
+    "AE27": {
+      "value": "4.1818889996968714E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF27": {
+      "value": "5.8686004332364909",
+      "kind": "number"
+    },
+    "AG27": {
+      "value": "5.8413300640567947",
+      "kind": "number"
+    },
+    "AH27": {
+      "value": "5.8124832033498324",
+      "kind": "number"
+    },
+    "AI27": {
+      "value": "2.8058614943329285E-2",
+      "kind": "number"
+    },
+    "AJ27": {
+      "value": "5.8240370224014928",
+      "kind": "number"
+    },
+    "AK27": {
+      "value": "5.7970319397633121",
+      "kind": "number"
+    },
+    "AL27": {
+      "value": "5.7684650174650995",
+      "kind": "number"
+    },
+    "AM27": {
+      "value": "2.7786002468196624E-2",
+      "kind": "number"
+    },
+    "AN27": {
+      "value": "0.9824998957194625",
+      "kind": "number"
+    },
+    "AO27": {
+      "value": "1.0086578167781588E-3",
+      "kind": "number"
+    },
+    "A28": {
+      "value": "M375049",
+      "kind": "text"
+    },
+    "B28": {
+      "value": "1100",
+      "kind": "number"
+    },
+    "D28": {
+      "value": "5.4594999999999994",
+      "kind": "number"
+    },
+    "E28": {
+      "value": "1.9927995383379669E-2",
+      "kind": "number"
+    },
+    "F28": {
+      "value": "0.99626000000000003",
+      "kind": "number"
+    },
+    "G28": {
+      "value": "0.99614000000000003",
+      "kind": "number"
+    },
+    "H28": {
+      "value": "0.99639",
+      "kind": "number"
+    },
+    "I28": {
+      "value": "5.3367326376298445",
+      "kind": "number"
+    },
+    "J28": {
+      "value": "5.2957161276262834",
+      "kind": "number"
+    },
+    "K28": {
+      "value": "5.3162243826280644",
+      "kind": "number",
+      "formula": null
+    },
+    "L28": {
+      "value": "2.0508255001780551E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M28": {
+      "value": "5.2957930178619375",
+      "kind": "number"
+    },
+    "N28": {
+      "value": "5.2551139674329965",
+      "kind": "number"
+    },
+    "O28": {
+      "value": "5.2754534926474665",
+      "kind": "number",
+      "formula": null
+    },
+    "P28": {
+      "value": "2.0339525214470466E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q28": {
+      "value": "5.2958389376377655",
+      "kind": "number",
+      "formula": null
+    },
+    "R28": {
+      "value": "3.3320839766059401E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S28": {
+      "value": "1112.4472226534804",
+      "kind": "number"
+    },
+    "T28": {
+      "value": "1112.3716203240115",
+      "kind": "number"
+    },
+    "U28": {
+      "value": "1112.4094214887459",
+      "kind": "number",
+      "formula": null
+    },
+    "V28": {
+      "value": "5.4145598218736",
+      "kind": "number"
+    },
+    "W28": {
+      "value": "5.3730666051305001",
+      "kind": "number"
+    },
+    "X28": {
+      "value": "5.3938132135020496",
+      "kind": "number",
+      "formula": null
+    },
+    "Y28": {
+      "value": "2.0746608371549957E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z28": {
+      "value": "5.3729455938868371",
+      "kind": "number"
+    },
+    "AA28": {
+      "value": "5.3317992158609728",
+      "kind": "number"
+    },
+    "AB28": {
+      "value": "5.352372404873905",
+      "kind": "number",
+      "formula": null
+    },
+    "AC28": {
+      "value": "2.0573189012932147E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD28": {
+      "value": "5.3730928091879768",
+      "kind": "number",
+      "formula": null
+    },
+    "AE28": {
+      "value": "3.3787060392617453E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF28": {
+      "value": "5.3367326376298445",
+      "kind": "number"
+    },
+    "AG28": {
+      "value": "5.31703774479322",
+      "kind": "number"
+    },
+    "AH28": {
+      "value": "5.2957161276262834",
+      "kind": "number"
+    },
+    "AI28": {
+      "value": "2.0508255001780551E-2",
+      "kind": "number"
+    },
+    "AJ28": {
+      "value": "5.2957930178619375",
+      "kind": "number"
+    },
+    "AK28": {
+      "value": "5.276260325097045",
+      "kind": "number"
+    },
+    "AL28": {
+      "value": "5.2551139674329965",
+      "kind": "number"
+    },
+    "AM28": {
+      "value": "2.0339525214470466E-2",
+      "kind": "number"
+    },
+    "AN28": {
+      "value": "0.98117364559134912",
+      "kind": "number"
+    },
+    "AO28": {
+      "value": "9.7334362993436324E-4",
+      "kind": "number"
+    },
+    "A29": {
+      "value": "M375052",
+      "kind": "text"
+    },
+    "B29": {
+      "value": "900",
+      "kind": "number"
+    },
+    "D29": {
+      "value": "4.8329999999999993",
+      "kind": "number"
+    },
+    "E29": {
+      "value": "2.0037464909513854E-2",
+      "kind": "number"
+    },
+    "F29": {
+      "value": "0.99231000000000003",
+      "kind": "number"
+    },
+    "G29": {
+      "value": "0.99219000000000002",
+      "kind": "number"
+    },
+    "H29": {
+      "value": "0.99243000000000003",
+      "kind": "number"
+    },
+    "I29": {
+      "value": "4.747758794485434",
+      "kind": "number"
+    },
+    "J29": {
+      "value": "4.7075855630306407",
+      "kind": "number"
+    },
+    "K29": {
+      "value": "4.7276721787580378",
+      "kind": "number",
+      "formula": null
+    },
+    "L29": {
+      "value": "2.0086615727396673E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M29": {
+      "value": "4.7133863058605279",
+      "kind": "number"
+    },
+    "N29": {
+      "value": "4.6734806624703715",
+      "kind": "number"
+    },
+    "O29": {
+      "value": "4.6934334841654497",
+      "kind": "number",
+      "formula": null
+    },
+    "P29": {
+      "value": "1.9952821695078171E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q29": {
+      "value": "4.7105528314617438",
+      "kind": "number",
+      "formula": null
+    },
+    "R29": {
+      "value": "3.0416347892516914E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S29": {
+      "value": "908.249875947492",
+      "kind": "number"
+    },
+    "T29": {
+      "value": "908.19354907509228",
+      "kind": "number"
+    },
+    "U29": {
+      "value": "908.22171251129214",
+      "kind": "number",
+      "formula": null
+    },
+    "V29": {
+      "value": "4.7987740501251439",
+      "kind": "number"
+    },
+    "W29": {
+      "value": "4.7582502036856393",
+      "kind": "number"
+    },
+    "X29": {
+      "value": "4.7785121269053921",
+      "kind": "number",
+      "formula": null
+    },
+    "Y29": {
+      "value": "2.0261923219752287E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z29": {
+      "value": "4.7639043436629098",
+      "kind": "number"
+    },
+    "AA29": {
+      "value": "4.7236548493334629",
+      "kind": "number"
+    },
+    "AB29": {
+      "value": "4.7437795964981859",
+      "kind": "number",
+      "formula": null
+    },
+    "AC29": {
+      "value": "2.0124747164723455E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD29": {
+      "value": "4.761145861701789",
+      "kind": "number",
+      "formula": null
+    },
+    "AE29": {
+      "value": "3.0754135930536781E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF29": {
+      "value": "4.747758794485434",
+      "kind": "number"
+    },
+    "AG29": {
+      "value": "4.7276656474626604",
+      "kind": "number"
+    },
+    "AH29": {
+      "value": "4.7075855630306407",
+      "kind": "number"
+    },
+    "AI29": {
+      "value": "2.0086615727396673E-2",
+      "kind": "number"
+    },
+    "AJ29": {
+      "value": "4.7133863058605279",
+      "kind": "number"
+    },
+    "AK29": {
+      "value": "4.6934271409432426",
+      "kind": "number"
+    },
+    "AL29": {
+      "value": "4.6734806624703715",
+      "kind": "number"
+    },
+    "AM29": {
+      "value": "1.9952821695078171E-2",
+      "kind": "number"
+    },
+    "AN29": {
+      "value": "0.97979803385306097",
+      "kind": "number"
+    },
+    "AO29": {
+      "value": "1.0169158704288917E-3",
+      "kind": "number"
+    },
+    "A30": {
+      "value": "M375055",
+      "kind": "text"
+    },
+    "B30": {
+      "value": "700",
+      "kind": "number"
+    },
+    "D30": {
+      "value": "4.2549999999999999",
+      "kind": "number"
+    },
+    "E30": {
+      "value": "2.4556058315617458E-2",
+      "kind": "number"
+    },
+    "F30": {
+      "value": "0.98831000000000002",
+      "kind": "number"
+    },
+    "G30": {
+      "value": "0.98816000000000004",
+      "kind": "number"
+    },
+    "H30": {
+      "value": "0.98845000000000005",
+      "kind": "number"
+    },
+    "I30": {
+      "value": "4.205667661602285",
+      "kind": "number"
+    },
+    "J30": {
+      "value": "4.1561185936833152",
+      "kind": "number"
+    },
+    "K30": {
+      "value": "4.1808931276428005",
+      "kind": "number",
+      "formula": null
+    },
+    "L30": {
+      "value": "2.4774533959484923E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M30": {
+      "value": "4.1798787614351554",
+      "kind": "number"
+    },
+    "N30": {
+      "value": "4.1305833326940498",
+      "kind": "number"
+    },
+    "O30": {
+      "value": "4.1552310470646026",
+      "kind": "number",
+      "formula": null
+    },
+    "P30": {
+      "value": "2.4647714370552798E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q30": {
+      "value": "4.168062087353702",
+      "kind": "number",
+      "formula": null
+    },
+    "R30": {
+      "value": "3.2151293871351204E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S30": {
+      "value": "705.12540749133098",
+      "kind": "number"
+    },
+    "T30": {
+      "value": "705.07568951069072",
+      "kind": "number"
+    },
+    "U30": {
+      "value": "705.10054850101085",
+      "kind": "number",
+      "formula": null
+    },
+    "V30": {
+      "value": "4.2366467631856057",
+      "kind": "number"
+    },
+    "W30": {
+      "value": "4.1867959315215941",
+      "kind": "number"
+    },
+    "X30": {
+      "value": "4.2117213473535999",
+      "kind": "number",
+      "formula": null
+    },
+    "Y30": {
+      "value": "2.4925415832005804E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z30": {
+      "value": "4.2105215122499855",
+      "kind": "number"
+    },
+    "AA30": {
+      "value": "4.1609300749244635",
+      "kind": "number"
+    },
+    "AB30": {
+      "value": "4.1857257935872241",
+      "kind": "number",
+      "formula": null
+    },
+    "AC30": {
+      "value": "2.4795718662760979E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD30": {
+      "value": "4.1987235704704116",
+      "kind": "number",
+      "formula": null
+    },
+    "AE30": {
+      "value": "3.2393295872360756E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF30": {
+      "value": "4.205667661602285",
+      "kind": "number"
+    },
+    "AG30": {
+      "value": "4.1800291538361147",
+      "kind": "number"
+    },
+    "AH30": {
+      "value": "4.1561185936833152",
+      "kind": "number"
+    },
+    "AI30": {
+      "value": "2.4774533959484923E-2",
+      "kind": "number"
+    },
+    "AJ30": {
+      "value": "4.1798787614351554",
+      "kind": "number"
+    },
+    "AK30": {
+      "value": "4.1543717001630718",
+      "kind": "number"
+    },
+    "AL30": {
+      "value": "4.1305833326940498",
+      "kind": "number"
+    },
+    "AM30": {
+      "value": "2.4647714370552798E-2",
+      "kind": "number"
+    },
+    "AN30": {
+      "value": "0.97865329271861001",
+      "kind": "number"
+    },
+    "AO30": {
+      "value": "9.1909850698206335E-4",
+      "kind": "number"
+    },
+    "A31": {
+      "value": "M375058",
+      "kind": "text"
+    },
+    "B31": {
+      "value": "500",
+      "kind": "number"
+    },
+    "D31": {
+      "value": "3.645",
+      "kind": "number"
+    },
+    "E31": {
+      "value": "1.9634153916071879E-2",
+      "kind": "number"
+    },
+    "F31": {
+      "value": "0.98484000000000005",
+      "kind": "number"
+    },
+    "G31": {
+      "value": "0.98472000000000004",
+      "kind": "number"
+    },
+    "H31": {
+      "value": "0.98494999999999999",
+      "kind": "number"
+    },
+    "I31": {
+      "value": "3.6188945103678316",
+      "kind": "number"
+    },
+    "J31": {
+      "value": "3.5788737682881266",
+      "kind": "number"
+    },
+    "K31": {
+      "value": "3.5988841393279793",
+      "kind": "number",
+      "formula": null
+    },
+    "L31": {
+      "value": "2.0010371039852481E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M31": {
+      "value": "3.6038870589650385",
+      "kind": "number"
+    },
+    "N31": {
+      "value": "3.5640099951760931",
+      "kind": "number"
+    },
+    "O31": {
+      "value": "3.5839485270705658",
+      "kind": "number",
+      "formula": null
+    },
+    "P31": {
+      "value": "1.99385318944727E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q31": {
+      "value": "3.5914163331992723",
+      "kind": "number",
+      "formula": null
+    },
+    "R31": {
+      "value": "2.4623786061602711E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S31": {
+      "value": "502.84564424492476",
+      "kind": "number"
+    },
+    "T31": {
+      "value": "502.81916502134686",
+      "kind": "number"
+    },
+    "U31": {
+      "value": "502.83240463313581",
+      "kind": "number",
+      "formula": null
+    },
+    "V31": {
+      "value": "3.6351510388804673",
+      "kind": "number"
+    },
+    "W31": {
+      "value": "3.5949790053958868",
+      "kind": "number"
+    },
+    "X31": {
+      "value": "3.615065022138177",
+      "kind": "number",
+      "formula": null
+    },
+    "Y31": {
+      "value": "2.0086016742290269E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z31": {
+      "value": "3.6199517777251353",
+      "kind": "number"
+    },
+    "AA31": {
+      "value": "3.5799262452408493",
+      "kind": "number"
+    },
+    "AB31": {
+      "value": "3.5999390114829923",
+      "kind": "number",
+      "formula": null
+    },
+    "AC31": {
+      "value": "2.0012766242142987E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD31": {
+      "value": "3.6075020168105842",
+      "kind": "number",
+      "formula": null
+    },
+    "AE31": {
+      "value": "2.4743443312045362E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF31": {
+      "value": "3.6188945103678316",
+      "kind": "number"
+    },
+    "AG31": {
+      "value": "3.5980079520432247",
+      "kind": "number"
+    },
+    "AH31": {
+      "value": "3.5788737682881266",
+      "kind": "number"
+    },
+    "AI31": {
+      "value": "2.0010371039852481E-2",
+      "kind": "number"
+    },
+    "AJ31": {
+      "value": "3.6038870589650385",
+      "kind": "number"
+    },
+    "AK31": {
+      "value": "3.5830756115004117",
+      "kind": "number"
+    },
+    "AL31": {
+      "value": "3.5640099951760931",
+      "kind": "number"
+    },
+    "AM31": {
+      "value": "1.99385318944727E-2",
+      "kind": "number"
+    },
+    "AN31": {
+      "value": "0.97773310093081534",
+      "kind": "number"
+    },
+    "AO31": {
+      "value": "9.5234268870994455E-4",
+      "kind": "number"
+    },
+    "A32": {
+      "value": "M375061",
+      "kind": "text"
+    },
+    "B32": {
+      "value": "308",
+      "kind": "number"
+    },
+    "D32": {
+      "value": "3.1458712220762162",
+      "kind": "number"
+    },
+    "E32": {
+      "value": "2.2912878474779162E-2",
+      "kind": "number"
+    },
+    "F32": {
+      "value": "0.98153999999999997",
+      "kind": "number"
+    },
+    "G32": {
+      "value": "0.98141999999999996",
+      "kind": "number"
+    },
+    "H32": {
+      "value": "0.98168",
+      "kind": "number"
+    },
+    "I32": {
+      "value": "3.1759727050204458",
+      "kind": "number"
+    },
+    "J32": {
+      "value": "3.129874115858466",
+      "kind": "number"
+    },
+    "K32": {
+      "value": "3.1529234104394561",
+      "kind": "number",
+      "formula": null
+    },
+    "L32": {
+      "value": "2.3049294580989921E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M32": {
+      "value": "3.171755023313489",
+      "kind": "number"
+    },
+    "N32": {
+      "value": "3.1257638721087386",
+      "kind": "number"
+    },
+    "O32": {
+      "value": "3.1487594477111136",
+      "kind": "number",
+      "formula": null
+    },
+    "P32": {
+      "value": "2.2995575602375196E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q32": {
+      "value": "3.1508414290752849",
+      "kind": "number",
+      "formula": null
+    },
+    "R32": {
+      "value": "2.6692517937520942E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S32": {
+      "value": "309.43771593248931",
+      "kind": "number"
+    },
+    "T32": {
+      "value": "309.41985326482109",
+      "kind": "number"
+    },
+    "U32": {
+      "value": "309.42878459865517",
+      "kind": "number",
+      "formula": null
+    },
+    "V32": {
+      "value": "3.18282032491443",
+      "kind": "number"
+    },
+    "W32": {
+      "value": "3.1366374162362769",
+      "kind": "number"
+    },
+    "X32": {
+      "value": "3.1597288705753535",
+      "kind": "number",
+      "formula": null
+    },
+    "Y32": {
+      "value": "2.3091454339076556E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z32": {
+      "value": "3.1785160974675608",
+      "kind": "number"
+    },
+    "AA32": {
+      "value": "3.1324421792336463",
+      "kind": "number"
+    },
+    "AB32": {
+      "value": "3.1554791383506036",
+      "kind": "number",
+      "formula": null
+    },
+    "AC32": {
+      "value": "2.3036959116957245E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD32": {
+      "value": "3.1576040044629785",
+      "kind": "number",
+      "formula": null
+    },
+    "AE32": {
+      "value": "2.6745053883426195E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF32": {
+      "value": "3.1759727050204458",
+      "kind": "number"
+    },
+    "AG32": {
+      "value": "3.1546884623170177",
+      "kind": "number"
+    },
+    "AH32": {
+      "value": "3.129874115858466",
+      "kind": "number"
+    },
+    "AI32": {
+      "value": "2.3049294580989921E-2",
+      "kind": "number"
+    },
+    "AJ32": {
+      "value": "3.171755023313489",
+      "kind": "number"
+    },
+    "AK32": {
+      "value": "3.1505205455795622",
+      "kind": "number"
+    },
+    "AL32": {
+      "value": "3.1257638721087386",
+      "kind": "number"
+    },
+    "AM32": {
+      "value": "2.2995575602375196E-2",
+      "kind": "number"
+    },
+    "AN32": {
+      "value": "0.97711467358841153",
+      "kind": "number"
+    },
+    "AO32": {
+      "value": "9.2936683089779343E-4",
+      "kind": "number"
+    },
+    "A33": {
+      "value": "M375067",
+      "kind": "text"
+    },
+    "B33": {
+      "value": "1700",
+      "kind": "number"
+    },
+    "D33": {
+      "value": "11.417",
+      "kind": "number"
+    },
+    "E33": {
+      "value": "2.8000000000000001E-2",
+      "kind": "number"
+    },
+    "F33": {
+      "value": "0.98375999999999997",
+      "kind": "number"
+    },
+    "G33": {
+      "value": "0.98358999999999996",
+      "kind": "number"
+    },
+    "H33": {
+      "value": "0.98392000000000002",
+      "kind": "number"
+    },
+    "I33": {
+      "value": "11.263300951802837",
+      "kind": "number"
+    },
+    "J33": {
+      "value": "11.205015513342421",
+      "kind": "number"
+    },
+    "K33": {
+      "value": "11.234158232572629",
+      "kind": "number",
+      "formula": null
+    },
+    "L33": {
+      "value": "2.9142719230208058E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M33": {
+      "value": "11.157063072611741",
+      "kind": "number"
+    },
+    "N33": {
+      "value": "11.099696021093648",
+      "kind": "number"
+    },
+    "O33": {
+      "value": "11.128379546852695",
+      "kind": "number",
+      "formula": null
+    },
+    "P33": {
+      "value": "2.8683525759046979E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q33": {
+      "value": "11.181268889712662",
+      "kind": "number",
+      "formula": null
+    },
+    "R33": {
+      "value": "6.9601762000775738E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S33": {
+      "value": "1744.7164071600159",
+      "kind": "number"
+    },
+    "T33": {
+      "value": "1744.5609524243723",
+      "kind": "number"
+    },
+    "U33": {
+      "value": "1744.6386797921941",
+      "kind": "number",
+      "formula": null
+    },
+    "V33": {
+      "value": "11.547763392050248",
+      "kind": "number"
+    },
+    "W33": {
+      "value": "11.488462075592349",
+      "kind": "number"
+    },
+    "X33": {
+      "value": "11.518112733821297",
+      "kind": "number",
+      "formula": null
+    },
+    "Y33": {
+      "value": "2.9650658228949744E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z33": {
+      "value": "11.438065153699572",
+      "kind": "number"
+    },
+    "AA33": {
+      "value": "11.379721224431153",
+      "kind": "number"
+    },
+    "AB33": {
+      "value": "11.408893189065363",
+      "kind": "number",
+      "formula": null
+    },
+    "AC33": {
+      "value": "2.9171964634209679E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD33": {
+      "value": "11.463502961443329",
+      "kind": "number",
+      "formula": null
+    },
+    "AE33": {
+      "value": "7.1622247625424809E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF33": {
+      "value": "11.263300951802837",
+      "kind": "number"
+    },
+    "AG33": {
+      "value": "11.233261985845347",
+      "kind": "number"
+    },
+    "AH33": {
+      "value": "11.205015513342421",
+      "kind": "number"
+    },
+    "AI33": {
+      "value": "2.9142719230208058E-2",
+      "kind": "number"
+    },
+    "AJ33": {
+      "value": "11.157063072611741",
+      "kind": "number"
+    },
+    "AK33": {
+      "value": "11.12749763426984",
+      "kind": "number"
+    },
+    "AL33": {
+      "value": "11.099696021093648",
+      "kind": "number"
+    },
+    "AM33": {
+      "value": "2.8683525759046979E-2",
+      "kind": "number"
+    },
+    "AN33": {
+      "value": "0.95695003069012097",
+      "kind": "number"
+    },
+    "AO33": {
+      "value": "1.072181456404102E-3",
+      "kind": "number"
+    },
+    "A34": {
+      "value": "M375070",
+      "kind": "text"
+    },
+    "B34": {
+      "value": "1900",
+      "kind": "number"
+    },
+    "D34": {
+      "value": "11.279327868852459",
+      "kind": "number"
+    },
+    "E34": {
+      "value": "3.7229020937972576E-2",
+      "kind": "number"
+    },
+    "F34": {
+      "value": "0.99226000000000003",
+      "kind": "number"
+    },
+    "G34": {
+      "value": "0.99202999999999997",
+      "kind": "number"
+    },
+    "H34": {
+      "value": "0.99248000000000003",
+      "kind": "number"
+    },
+    "I34": {
+      "value": "11.075627647402985",
+      "kind": "number"
+    },
+    "J34": {
+      "value": "10.99961664618416",
+      "kind": "number"
+    },
+    "K34": {
+      "value": "11.037622146793574",
+      "kind": "number",
+      "formula": null
+    },
+    "L34": {
+      "value": "3.8005500609412657E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M34": {
+      "value": "10.979362013234825",
+      "kind": "number"
+    },
+    "N34": {
+      "value": "10.904641894353594",
+      "kind": "number"
+    },
+    "O34": {
+      "value": "10.942001953794209",
+      "kind": "number",
+      "formula": null
+    },
+    "P34": {
+      "value": "3.7360059440615601E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q34": {
+      "value": "10.989812050293892",
+      "kind": "number",
+      "formula": null
+    },
+    "R34": {
+      "value": "7.0293682848442604E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S34": {
+      "value": "1953.7340121204604",
+      "kind": "number"
+    },
+    "T34": {
+      "value": "1953.4853967124018",
+      "kind": "number"
+    },
+    "U34": {
+      "value": "1953.6097044164312",
+      "kind": "number",
+      "formula": null
+    },
+    "V34": {
+      "value": "11.417357327338483",
+      "kind": "number"
+    },
+    "W34": {
+      "value": "11.339724987673089",
+      "kind": "number"
+    },
+    "X34": {
+      "value": "11.378541157505786",
+      "kind": "number",
+      "formula": null
+    },
+    "Y34": {
+      "value": "3.8816169832696978E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z34": {
+      "value": "11.317744096733477",
+      "kind": "number"
+    },
+    "AA34": {
+      "value": "11.24146077637219",
+      "kind": "number"
+    },
+    "AB34": {
+      "value": "11.279602436552834",
+      "kind": "number",
+      "formula": null
+    },
+    "AC34": {
+      "value": "3.814166018064391E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD34": {
+      "value": "11.329071797029311",
+      "kind": "number",
+      "formula": null
+    },
+    "AE34": {
+      "value": "7.2369038194150137E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF34": {
+      "value": "11.075627647402985",
+      "kind": "number"
+    },
+    "AG34": {
+      "value": "11.036754049406555",
+      "kind": "number"
+    },
+    "AH34": {
+      "value": "10.99961664618416",
+      "kind": "number"
+    },
+    "AI34": {
+      "value": "3.8005500609412657E-2",
+      "kind": "number"
+    },
+    "AJ34": {
+      "value": "10.979362013234825",
+      "kind": "number"
+    },
+    "AK34": {
+      "value": "10.941149055575107",
+      "kind": "number"
+    },
+    "AL34": {
+      "value": "10.904641894353594",
+      "kind": "number"
+    },
+    "AM34": {
+      "value": "3.7360059440615601E-2",
+      "kind": "number"
+    },
+    "AN34": {
+      "value": "0.96356774945783552",
+      "kind": "number"
+    },
+    "AO34": {
+      "value": "1.1308140696047603E-3",
+      "kind": "number"
+    },
+    "A35": {
+      "value": "M375073",
+      "kind": "text"
+    },
+    "B35": {
+      "value": "1700",
+      "kind": "number"
+    },
+    "D35": {
+      "value": "10.907999999999999",
+      "kind": "number"
+    },
+    "E35": {
+      "value": "4.3686382317605618E-2",
+      "kind": "number"
+    },
+    "F35": {
+      "value": "0.98673999999999995",
+      "kind": "number"
+    },
+    "G35": {
+      "value": "0.98648999999999998",
+      "kind": "number"
+    },
+    "H35": {
+      "value": "0.98699999999999999",
+      "kind": "number"
+    },
+    "I35": {
+      "value": "10.754677969753397",
+      "kind": "number"
+    },
+    "J35": {
+      "value": "10.66606209619188",
+      "kind": "number"
+    },
+    "K35": {
+      "value": "10.710370032972637",
+      "kind": "number",
+      "formula": null
+    },
+    "L35": {
+      "value": "4.4307936780758617E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M35": {
+      "value": "10.656395294367613",
+      "kind": "number"
+    },
+    "N35": {
+      "value": "10.569151337808707",
+      "kind": "number"
+    },
+    "O35": {
+      "value": "10.612773316088159",
+      "kind": "number",
+      "formula": null
+    },
+    "P35": {
+      "value": "4.3621978279452911E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q35": {
+      "value": "10.661571674530398",
+      "kind": "number",
+      "formula": null
+    },
+    "R35": {
+      "value": "7.5844708996278543E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S35": {
+      "value": "1743.3439770225041",
+      "kind": "number"
+    },
+    "T35": {
+      "value": "1743.1011268423019",
+      "kind": "number"
+    },
+    "U35": {
+      "value": "1743.2225519324029",
+      "kind": "number",
+      "formula": null
+    },
+    "V35": {
+      "value": "11.030183081274862",
+      "kind": "number"
+    },
+    "W35": {
+      "value": "10.939984832110254",
+      "kind": "number"
+    },
+    "X35": {
+      "value": "10.985083956692558",
+      "kind": "number",
+      "formula": null
+    },
+    "Y35": {
+      "value": "4.5099124582304029E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z35": {
+      "value": "10.928775542544333",
+      "kind": "number"
+    },
+    "AA35": {
+      "value": "10.840006525457063",
+      "kind": "number"
+    },
+    "AB35": {
+      "value": "10.884391034000698",
+      "kind": "number",
+      "formula": null
+    },
+    "AC35": {
+      "value": "4.4384508543634738E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD35": {
+      "value": "10.934737495346628",
+      "kind": "number",
+      "formula": null
+    },
+    "AE35": {
+      "value": "7.777509445773563E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF35": {
+      "value": "10.754677969753397",
+      "kind": "number"
+    },
+    "AG35": {
+      "value": "10.71120789775788",
+      "kind": "number"
+    },
+    "AH35": {
+      "value": "10.66606209619188",
+      "kind": "number"
+    },
+    "AI35": {
+      "value": "4.4307936780758617E-2",
+      "kind": "number"
+    },
+    "AJ35": {
+      "value": "10.656395294367613",
+      "kind": "number"
+    },
+    "AK35": {
+      "value": "10.613598749598619",
+      "kind": "number"
+    },
+    "AL35": {
+      "value": "10.569151337808707",
+      "kind": "number"
+    },
+    "AM35": {
+      "value": "4.3621978279452911E-2",
+      "kind": "number"
+    },
+    "AN35": {
+      "value": "0.95959422459371224",
+      "kind": "number"
+    },
+    "AO35": {
+      "value": "1.0868779803851942E-3",
+      "kind": "number"
+    },
+    "A36": {
+      "value": "M375076",
+      "kind": "text"
+    },
+    "B36": {
+      "value": "1500",
+      "kind": "number"
+    },
+    "D36": {
+      "value": "10.249000000000001",
+      "kind": "number"
+    },
+    "E36": {
+      "value": "3.3030289129827486E-2",
+      "kind": "number"
+    },
+    "F36": {
+      "value": "0.98302",
+      "kind": "number"
+    },
+    "G36": {
+      "value": "0.98284000000000005",
+      "kind": "number"
+    },
+    "H36": {
+      "value": "0.98321999999999998",
+      "kind": "number"
+    },
+    "I36": {
+      "value": "10.1257070057849",
+      "kind": "number"
+    },
+    "J36": {
+      "value": "10.058460608323216",
+      "kind": "number"
+    },
+    "K36": {
+      "value": "10.092083807054058",
+      "kind": "number",
+      "formula": null
+    },
+    "L36": {
+      "value": "3.3623198730841963E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M36": {
+      "value": "10.033094797383335",
+      "kind": "number"
+    },
+    "N36": {
+      "value": "9.9667749022716201",
+      "kind": "number"
+    },
+    "O36": {
+      "value": "9.9999348498274774",
+      "kind": "number",
+      "formula": null
+    },
+    "P36": {
+      "value": "3.3159947555857272E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q36": {
+      "value": "10.046009328440768",
+      "kind": "number",
+      "formula": null
+    },
+    "R36": {
+      "value": "6.5705488222187261E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S36": {
+      "value": "1533.5191279311359",
+      "kind": "number"
+    },
+    "T36": {
+      "value": "1533.3654956423115",
+      "kind": "number"
+    },
+    "U36": {
+      "value": "1533.4423117867236",
+      "kind": "number",
+      "formula": null
+    },
+    "V36": {
+      "value": "10.33835502044427",
+      "kind": "number"
+    },
+    "W36": {
+      "value": "10.270111208818534",
+      "kind": "number"
+    },
+    "X36": {
+      "value": "10.304233114631401",
+      "kind": "number",
+      "formula": null
+    },
+    "Y36": {
+      "value": "3.4121905812868114E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z36": {
+      "value": "10.243110836630438",
+      "kind": "number"
+    },
+    "AA36": {
+      "value": "10.175828830590675",
+      "kind": "number"
+    },
+    "AB36": {
+      "value": "10.209469833610555",
+      "kind": "number",
+      "formula": null
+    },
+    "AC36": {
+      "value": "3.3641003019881488E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD36": {
+      "value": "10.256851474120978",
+      "kind": "number",
+      "formula": null
+    },
+    "AE36": {
+      "value": "6.726099045461563E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF36": {
+      "value": "10.1257070057849",
+      "kind": "number"
+    },
+    "AG36": {
+      "value": "10.093836085158205",
+      "kind": "number"
+    },
+    "AH36": {
+      "value": "10.058460608323216",
+      "kind": "number"
+    },
+    "AI36": {
+      "value": "3.3623198730841963E-2",
+      "kind": "number"
+    },
+    "AJ36": {
+      "value": "10.033094797383335",
+      "kind": "number"
+    },
+    "AK36": {
+      "value": "10.00166327118797",
+      "kind": "number"
+    },
+    "AL36": {
+      "value": "9.9667749022716201",
+      "kind": "number"
+    },
+    "AM36": {
+      "value": "3.3159947555857272E-2",
+      "kind": "number"
+    },
+    "AN36": {
+      "value": "0.9578295356616755",
+      "kind": "number"
+    },
+    "AO36": {
+      "value": "1.0462314858687967E-3",
+      "kind": "number"
+    },
+    "A37": {
+      "value": "M375079",
+      "kind": "text"
+    },
+    "B37": {
+      "value": "1300",
+      "kind": "number"
+    },
+    "D37": {
+      "value": "9.723896725440806",
+      "kind": "number"
+    },
+    "E37": {
+      "value": "3.2720406476692832E-2",
+      "kind": "number"
+    },
+    "F37": {
+      "value": "0.97863",
+      "kind": "number"
+    },
+    "G37": {
+      "value": "0.97843999999999998",
+      "kind": "number"
+    },
+    "H37": {
+      "value": "0.97880999999999996",
+      "kind": "number"
+    },
+    "I37": {
+      "value": "9.6471827376027708",
+      "kind": "number"
+    },
+    "J37": {
+      "value": "9.5802512112124418",
+      "kind": "number"
+    },
+    "K37": {
+      "value": "9.6137169744076054",
+      "kind": "number",
+      "formula": null
+    },
+    "L37": {
+      "value": "3.3465763195164477E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M37": {
+      "value": "9.5608285236907662",
+      "kind": "number"
+    },
+    "N37": {
+      "value": "9.4947083231435627",
+      "kind": "number"
+    },
+    "O37": {
+      "value": "9.5277684234171645",
+      "kind": "number",
+      "formula": null
+    },
+    "P37": {
+      "value": "3.3060100273601734E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q37": {
+      "value": "9.5707426989123849",
+      "kind": "number",
+      "formula": null
+    },
+    "R37": {
+      "value": "6.2750852557362208E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S37": {
+      "value": "1325.453396325348",
+      "kind": "number"
+    },
+    "T37": {
+      "value": "1325.3300266000601",
+      "kind": "number"
+    },
+    "U37": {
+      "value": "1325.3917114627041",
+      "kind": "number",
+      "formula": null
+    },
+    "V37": {
+      "value": "9.8081463388461909",
+      "kind": "number"
+    },
+    "W37": {
+      "value": "9.7404176481504248",
+      "kind": "number"
+    },
+    "X37": {
+      "value": "9.7742819934983078",
+      "kind": "number",
+      "formula": null
+    },
+    "Y37": {
+      "value": "3.3864345347883074E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z37": {
+      "value": "9.7195964885742647",
+      "kind": "number"
+    },
+    "AA37": {
+      "value": "9.6527071586632935",
+      "kind": "number"
+    },
+    "AB37": {
+      "value": "9.6861518236187791",
+      "kind": "number",
+      "formula": null
+    },
+    "AC37": {
+      "value": "3.3444664955485592E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD37": {
+      "value": "9.7302169085585426",
+      "kind": "number",
+      "formula": null
+    },
+    "AE37": {
+      "value": "6.402501032837439E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF37": {
+      "value": "9.6471827376027708",
+      "kind": "number"
+    },
+    "AG37": {
+      "value": "9.6127957042519903",
+      "kind": "number"
+    },
+    "AH37": {
+      "value": "9.5802512112124418",
+      "kind": "number"
+    },
+    "AI37": {
+      "value": "3.3465763195164477E-2",
+      "kind": "number"
+    },
+    "AJ37": {
+      "value": "9.5608285236907662",
+      "kind": "number"
+    },
+    "AK37": {
+      "value": "9.5268585762613505",
+      "kind": "number"
+    },
+    "AL37": {
+      "value": "9.4947083231435627",
+      "kind": "number"
+    },
+    "AM37": {
+      "value": "3.3060100273601734E-2",
+      "kind": "number"
+    },
+    "AN37": {
+      "value": "0.95542364340894126",
+      "kind": "number"
+    },
+    "AO37": {
+      "value": "1.0060504301998821E-3",
+      "kind": "number"
+    },
+    "A38": {
+      "value": "M375082",
+      "kind": "text"
+    },
+    "B38": {
+      "value": "1100",
+      "kind": "number"
+    },
+    "D38": {
+      "value": "9.1479999999999979",
+      "kind": "number"
+    },
+    "E38": {
+      "value": "3.5007142128428488E-2",
+      "kind": "number"
+    },
+    "F38": {
+      "value": "0.97465999999999997",
+      "kind": "number"
+    },
+    "G38": {
+      "value": "0.97448000000000001",
+      "kind": "number"
+    },
+    "H38": {
+      "value": "0.97484999999999999",
+      "kind": "number"
+    },
+    "I38": {
+      "value": "9.1104321375206361",
+      "kind": "number"
+    },
+    "J38": {
+      "value": "9.0421805512364788",
+      "kind": "number"
+    },
+    "K38": {
+      "value": "9.0763063443785583",
+      "kind": "number",
+      "formula": null
+    },
+    "L38": {
+      "value": "3.4125793142078642E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M38": {
+      "value": "9.033828471439751",
+      "kind": "number"
+    },
+    "N38": {
+      "value": "8.9662881939331101",
+      "kind": "number"
+    },
+    "O38": {
+      "value": "9.0000583326864305",
+      "kind": "number",
+      "formula": null
+    },
+    "P38": {
+      "value": "3.3770138753320467E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q38": {
+      "value": "9.0381823385324935",
+      "kind": "number",
+      "formula": null
+    },
+    "R38": {
+      "value": "5.8945577569459888E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S38": {
+      "value": "1118.578854992405",
+      "kind": "number"
+    },
+    "T38": {
+      "value": "1118.4802622417246",
+      "kind": "number"
+    },
+    "U38": {
+      "value": "1118.5295586170648",
+      "kind": "number",
+      "formula": null
+    },
+    "V38": {
+      "value": "9.2272151511510625",
+      "kind": "number"
+    },
+    "W38": {
+      "value": "9.1583317381249856",
+      "kind": "number"
+    },
+    "X38": {
+      "value": "9.1927734446380249",
+      "kind": "number",
+      "formula": null
+    },
+    "Y38": {
+      "value": "3.4441706513038461E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z38": {
+      "value": "9.1488843060784486",
+      "kind": "number"
+    },
+    "AA38": {
+      "value": "9.0807341382511986",
+      "kind": "number"
+    },
+    "AB38": {
+      "value": "9.1148092221648227",
+      "kind": "number",
+      "formula": null
+    },
+    "AC38": {
+      "value": "3.4075083913625015E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD38": {
+      "value": "9.1537913334014256",
+      "kind": "number",
+      "formula": null
+    },
+    "AE38": {
+      "value": "5.9925245009518367E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF38": {
+      "value": "9.1104321375206361",
+      "kind": "number"
+    },
+    "AG38": {
+      "value": "9.0772116055215495",
+      "kind": "number"
+    },
+    "AH38": {
+      "value": "9.0421805512364788",
+      "kind": "number"
+    },
+    "AI38": {
+      "value": "3.4125793142078642E-2",
+      "kind": "number"
+    },
+    "AJ38": {
+      "value": "9.033828471439751",
+      "kind": "number"
+    },
+    "AK38": {
+      "value": "9.0009544027163706",
+      "kind": "number"
+    },
+    "AL38": {
+      "value": "8.9662881939331101",
+      "kind": "number"
+    },
+    "AM38": {
+      "value": "3.3770138753320467E-2",
+      "kind": "number"
+    },
+    "AN38": {
+      "value": "0.95411090421214506",
+      "kind": "number"
+    },
+    "AO38": {
+      "value": "9.5622364879992369E-4",
+      "kind": "number"
+    },
+    "A39": {
+      "value": "M375085",
+      "kind": "text"
+    },
+    "B39": {
+      "value": "900",
+      "kind": "number"
+    },
+    "D39": {
+      "value": "8.7504999999999988",
+      "kind": "number"
+    },
+    "E39": {
+      "value": "3.1018139853962873E-2",
+      "kind": "number"
+    },
+    "F39": {
+      "value": "0.96992",
+      "kind": "number"
+    },
+    "G39": {
+      "value": "0.96975",
+      "kind": "number"
+    },
+    "H39": {
+      "value": "0.97009000000000001",
+      "kind": "number"
+    },
+    "I39": {
+      "value": "8.7439581941399371",
+      "kind": "number"
+    },
+    "J39": {
+      "value": "8.6797279107032743",
+      "kind": "number"
+    },
+    "K39": {
+      "value": "8.7118430524216066",
+      "kind": "number",
+      "formula": null
+    },
+    "L39": {
+      "value": "3.2115141718331408E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M39": {
+      "value": "8.6782116923214847",
+      "kind": "number"
+    },
+    "N39": {
+      "value": "8.6145457956383726",
+      "kind": "number"
+    },
+    "O39": {
+      "value": "8.6463787439799287",
+      "kind": "number",
+      "formula": null
+    },
+    "P39": {
+      "value": "3.1832948341556033E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q39": {
+      "value": "8.6791108982007668",
+      "kind": "number",
+      "formula": null
+    },
+    "R39": {
+      "value": "5.2836267642458114E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S39": {
+      "value": "913.13041593590253",
+      "kind": "number"
+    },
+    "T39": {
+      "value": "913.06143984909897",
+      "kind": "number"
+    },
+    "U39": {
+      "value": "913.09592789250075",
+      "kind": "number",
+      "formula": null
+    },
+    "V39": {
+      "value": "8.8255685835431112",
+      "kind": "number"
+    },
+    "W39": {
+      "value": "8.7609023082522857",
+      "kind": "number"
+    },
+    "X39": {
+      "value": "8.7932354458976985",
+      "kind": "number",
+      "formula": null
+    },
+    "Y39": {
+      "value": "3.2333137645412791E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z39": {
+      "value": "8.7585021369980751",
+      "kind": "number"
+    },
+    "AA39": {
+      "value": "8.6944154879361584",
+      "kind": "number"
+    },
+    "AB39": {
+      "value": "8.7264588124671167",
+      "kind": "number",
+      "formula": null
+    },
+    "AC39": {
+      "value": "3.2043324530958373E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD39": {
+      "value": "8.7598471291824076",
+      "kind": "number",
+      "formula": null
+    },
+    "AE39": {
+      "value": "5.3552253753722759E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF39": {
+      "value": "8.7439581941399371",
+      "kind": "number"
+    },
+    "AG39": {
+      "value": "8.7118283434261361",
+      "kind": "number"
+    },
+    "AH39": {
+      "value": "8.6797279107032743",
+      "kind": "number"
+    },
+    "AI39": {
+      "value": "3.2115141718331408E-2",
+      "kind": "number"
+    },
+    "AJ39": {
+      "value": "8.6782116923214847",
+      "kind": "number"
+    },
+    "AK39": {
+      "value": "8.6463643568608219",
+      "kind": "number"
+    },
+    "AL39": {
+      "value": "8.6145457956383726",
+      "kind": "number"
+    },
+    "AM39": {
+      "value": "3.1832948341556033E-2",
+      "kind": "number"
+    },
+    "AN39": {
+      "value": "0.95275354751566332",
+      "kind": "number"
+    },
+    "AO39": {
+      "value": "9.4015045716767628E-4",
+      "kind": "number"
+    },
+    "A40": {
+      "value": "M375088",
+      "kind": "text"
+    },
+    "B40": {
+      "value": "700",
+      "kind": "number"
+    },
+    "D40": {
+      "value": "8.1850000000000005",
+      "kind": "number"
+    },
+    "E40": {
+      "value": "3.1200961523645376E-2",
+      "kind": "number"
+    },
+    "F40": {
+      "value": "0.96633000000000002",
+      "kind": "number"
+    },
+    "G40": {
+      "value": "0.96616999999999997",
+      "kind": "number"
+    },
+    "H40": {
+      "value": "0.96650000000000003",
+      "kind": "number"
+    },
+    "I40": {
+      "value": "8.1975445621535794",
+      "kind": "number"
+    },
+    "J40": {
+      "value": "8.1340828940492038",
+      "kind": "number"
+    },
+    "K40": {
+      "value": "8.1658137281013907",
+      "kind": "number",
+      "formula": null
+    },
+    "L40": {
+      "value": "3.1730834052187795E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M40": {
+      "value": "8.1468902653025506",
+      "kind": "number"
+    },
+    "N40": {
+      "value": "8.0838792410166533",
+      "kind": "number"
+    },
+    "O40": {
+      "value": "8.1153847531596028",
+      "kind": "number",
+      "formula": null
+    },
+    "P40": {
+      "value": "3.1505512142948611E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q40": {
+      "value": "8.1405992406304968",
+      "kind": "number",
+      "formula": null
+    },
+    "R40": {
+      "value": "4.6697493736293727E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S40": {
+      "value": "708.59496027132548",
+      "kind": "number"
+    },
+    "T40": {
+      "value": "708.54668530294725",
+      "kind": "number"
+    },
+    "U40": {
+      "value": "708.57082278713642",
+      "kind": "number",
+      "formula": null
+    },
+    "V40": {
+      "value": "8.2496955250463877",
+      "kind": "number"
+    },
+    "W40": {
+      "value": "8.1859373689864583",
+      "kind": "number"
+    },
+    "X40": {
+      "value": "8.217816447016423",
+      "kind": "number",
+      "formula": null
+    },
+    "Y40": {
+      "value": "3.1879078029964703E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z40": {
+      "value": "8.1981435697971961",
+      "kind": "number"
+    },
+    "AA40": {
+      "value": "8.1348462681725326",
+      "kind": "number"
+    },
+    "AB40": {
+      "value": "8.1664949189848635",
+      "kind": "number",
+      "formula": null
+    },
+    "AC40": {
+      "value": "3.1648650812331702E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD40": {
+      "value": "8.1921556830006441",
+      "kind": "number",
+      "formula": null
+    },
+    "AE40": {
+      "value": "4.7151262507158898E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF40": {
+      "value": "8.1975445621535794",
+      "kind": "number"
+    },
+    "AG40": {
+      "value": "8.1667612184502492",
+      "kind": "number"
+    },
+    "AH40": {
+      "value": "8.1340828940492038",
+      "kind": "number"
+    },
+    "AI40": {
+      "value": "3.1730834052187795E-2",
+      "kind": "number"
+    },
+    "AJ40": {
+      "value": "8.1468902653025506",
+      "kind": "number"
+    },
+    "AK40": {
+      "value": "8.1163256907160033",
+      "kind": "number"
+    },
+    "AL40": {
+      "value": "8.0838792410166533",
+      "kind": "number"
+    },
+    "AM40": {
+      "value": "3.1505512142948611E-2",
+      "kind": "number"
+    },
+    "AN40": {
+      "value": "0.95185227632883118",
+      "kind": "number"
+    },
+    "AO40": {
+      "value": "9.1829842568095751E-4",
+      "kind": "number"
+    },
+    "A41": {
+      "value": "M375091",
+      "kind": "text"
+    },
+    "B41": {
+      "value": "500",
+      "kind": "number"
+    },
+    "D41": {
+      "value": "7.6707049973132717",
+      "kind": "number"
+    },
+    "E41": {
+      "value": "3.1160872901765745E-2",
+      "kind": "number"
+    },
+    "F41": {
+      "value": "0.96281000000000005",
+      "kind": "number"
+    },
+    "G41": {
+      "value": "0.96265000000000001",
+      "kind": "number"
+    },
+    "H41": {
+      "value": "0.96296000000000004",
+      "kind": "number"
+    },
+    "I41": {
+      "value": "7.6983543586612484",
+      "kind": "number"
+    },
+    "J41": {
+      "value": "7.6376469240259626",
+      "kind": "number"
+    },
+    "K41": {
+      "value": "7.668000641343605",
+      "kind": "number",
+      "formula": null
+    },
+    "L41": {
+      "value": "3.0353717317642914E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M41": {
+      "value": "7.6643322711573996",
+      "kind": "number"
+    },
+    "N41": {
+      "value": "7.6039589938162191",
+      "kind": "number"
+    },
+    "O41": {
+      "value": "7.6341456324868098",
+      "kind": "number",
+      "formula": null
+    },
+    "P41": {
+      "value": "3.0186638670590238E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q41": {
+      "value": "7.6510731369152065",
+      "kind": "number",
+      "formula": null
+    },
+    "R41": {
+      "value": "4.0047156549706267E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S41": {
+      "value": "505.16324477323639",
+      "kind": "number"
+    },
+    "T41": {
+      "value": "505.1333082321359",
+      "kind": "number"
+    },
+    "U41": {
+      "value": "505.14827650268614",
+      "kind": "number",
+      "formula": null
+    },
+    "V41": {
+      "value": "7.7278729892389038",
+      "kind": "number"
+    },
+    "W41": {
+      "value": "7.6669938481569515",
+      "kind": "number"
+    },
+    "X41": {
+      "value": "7.6974334186979281",
+      "kind": "number",
+      "formula": null
+    },
+    "Y41": {
+      "value": "3.0439570540976124E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z41": {
+      "value": "7.6933139708574743",
+      "kind": "number"
+    },
+    "AA41": {
+      "value": "7.6327748221358345",
+      "kind": "number"
+    },
+    "AB41": {
+      "value": "7.6630443964966544",
+      "kind": "number",
+      "formula": null
+    },
+    "AC41": {
+      "value": "3.0269574360819895E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD41": {
+      "value": "7.6802389075972908",
+      "kind": "number",
+      "formula": null
+    },
+    "AE41": {
+      "value": "4.0283305149768925E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF41": {
+      "value": "7.6983543586612484",
+      "kind": "number"
+    },
+    "AG41": {
+      "value": "7.6670089014426459",
+      "kind": "number"
+    },
+    "AH41": {
+      "value": "7.6376469240259626",
+      "kind": "number"
+    },
+    "AI41": {
+      "value": "3.0353717317642914E-2",
+      "kind": "number"
+    },
+    "AJ41": {
+      "value": "7.6643322711573996",
+      "kind": "number"
+    },
+    "AK41": {
+      "value": "7.6331595027489856",
+      "kind": "number"
+    },
+    "AL41": {
+      "value": "7.6039589938162191",
+      "kind": "number"
+    },
+    "AM41": {
+      "value": "3.0186638670590238E-2",
+      "kind": "number"
+    },
+    "AN41": {
+      "value": "0.95083797160959505",
+      "kind": "number"
+    },
+    "AO41": {
+      "value": "8.469114114296114E-4",
+      "kind": "number"
+    },
+    "A42": {
+      "value": "M375094",
+      "kind": "text"
+    },
+    "B42": {
+      "value": "309",
+      "kind": "number"
+    },
+    "D42": {
+      "value": "7.2015000000000011",
+      "kind": "number"
+    },
+    "E42": {
+      "value": "3.3602455267435431E-2",
+      "kind": "number"
+    },
+    "F42": {
+      "value": "0.95984000000000003",
+      "kind": "number"
+    },
+    "G42": {
+      "value": "0.95967000000000002",
+      "kind": "number"
+    },
+    "H42": {
+      "value": "0.96001000000000003",
+      "kind": "number"
+    },
+    "I42": {
+      "value": "7.27306055168191",
+      "kind": "number"
+    },
+    "J42": {
+      "value": "7.205360364536765",
+      "kind": "number"
+    },
+    "K42": {
+      "value": "7.2392104581093371",
+      "kind": "number",
+      "formula": null
+    },
+    "L42": {
+      "value": "3.3850093572572515E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M42": {
+      "value": "7.2549821479370395",
+      "kind": "number"
+    },
+    "N42": {
+      "value": "7.1875654851753126",
+      "kind": "number"
+    },
+    "O42": {
+      "value": "7.2212738165561756",
+      "kind": "number",
+      "formula": null
+    },
+    "P42": {
+      "value": "3.3708331380863488E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q42": {
+      "value": "7.2302421373327563",
+      "kind": "number",
+      "formula": null
+    },
+    "R42": {
+      "value": "4.0356263408607096E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S42": {
+      "value": "311.80227793808331",
+      "kind": "number"
+    },
+    "T42": {
+      "value": "311.78287217062433",
+      "kind": "number"
+    },
+    "U42": {
+      "value": "311.79257505435385",
+      "kind": "number",
+      "formula": null
+    },
+    "V42": {
+      "value": "7.2863113688182519",
+      "kind": "number"
+    },
+    "W42": {
+      "value": "7.2185212338788114",
+      "kind": "number"
+    },
+    "X42": {
+      "value": "7.2524163013485321",
+      "kind": "number",
+      "formula": null
+    },
+    "Y42": {
+      "value": "3.3895067469720264E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z42": {
+      "value": "7.2679836258244679",
+      "kind": "number"
+    },
+    "AA42": {
+      "value": "7.2004800061416283",
+      "kind": "number"
+    },
+    "AB42": {
+      "value": "7.2342318159830477",
+      "kind": "number",
+      "formula": null
+    },
+    "AC42": {
+      "value": "3.3751809841419789E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD42": {
+      "value": "7.2433240586657899",
+      "kind": "number",
+      "formula": null
+    },
+    "AE42": {
+      "value": "4.0442535531722813E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF42": {
+      "value": "7.27306055168191",
+      "kind": "number"
+    },
+    "AG42": {
+      "value": "7.2391950906665601",
+      "kind": "number"
+    },
+    "AH42": {
+      "value": "7.205360364536765",
+      "kind": "number"
+    },
+    "AI42": {
+      "value": "3.3850093572572515E-2",
+      "kind": "number"
+    },
+    "AJ42": {
+      "value": "7.2549821479370395",
+      "kind": "number"
+    },
+    "AK42": {
+      "value": "7.2212586963295493",
+      "kind": "number"
+    },
+    "AL42": {
+      "value": "7.1875654851753126",
+      "kind": "number"
+    },
+    "AM42": {
+      "value": "3.3708331380863488E-2",
+      "kind": "number"
+    },
+    "AN42": {
+      "value": "0.95023128272177748",
+      "kind": "number"
+    },
+    "AO42": {
+      "value": "8.7261476638234308E-4",
+      "kind": "number"
+    },
+    "A43": {
+      "value": "M375100",
+      "kind": "text"
+    },
+    "B43": {
+      "value": "1500",
+      "kind": "number"
+    },
+    "D43": {
+      "value": "12.956431641923333",
+      "kind": "number"
+    },
+    "E43": {
+      "value": "5.1195702944680843E-2",
+      "kind": "number"
+    },
+    "F43": {
+      "value": "0.96794000000000002",
+      "kind": "number"
+    },
+    "G43": {
+      "value": "0.96765999999999996",
+      "kind": "number"
+    },
+    "H43": {
+      "value": "0.96821000000000002",
+      "kind": "number"
+    },
+    "I43": {
+      "value": "12.928972363973113",
+      "kind": "number"
+    },
+    "J43": {
+      "value": "12.823317972861986",
+      "kind": "number"
+    },
+    "K43": {
+      "value": "12.876145168417549",
+      "kind": "number",
+      "formula": null
+    },
+    "L43": {
+      "value": "5.2827195555563478E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M43": {
+      "value": "12.79602134069701",
+      "kind": "number"
+    },
+    "N43": {
+      "value": "12.691937712528663",
+      "kind": "number"
+    },
+    "O43": {
+      "value": "12.743979526612836",
+      "kind": "number",
+      "formula": null
+    },
+    "P43": {
+      "value": "5.204181408417341E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q43": {
+      "value": "12.810062347515194",
+      "kind": "number",
+      "formula": null
+    },
+    "R43": {
+      "value": "9.7409586934973605E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S43": {
+      "value": "1539.4706911938099",
+      "kind": "number"
+    },
+    "T43": {
+      "value": "1539.2609809842336",
+      "kind": "number"
+    },
+    "U43": {
+      "value": "1539.3658360890217",
+      "kind": "number",
+      "formula": null
+    },
+    "V43": {
+      "value": "13.180560661741184",
+      "kind": "number"
+    },
+    "W43": {
+      "value": "13.073523283129621",
+      "kind": "number"
+    },
+    "X43": {
+      "value": "13.127041972435403",
+      "kind": "number",
+      "formula": null
+    },
+    "Y43": {
+      "value": "5.3518689305781741E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z43": {
+      "value": "13.04337710279799",
+      "kind": "number"
+    },
+    "AA43": {
+      "value": "12.937974983734065",
+      "kind": "number"
+    },
+    "AB43": {
+      "value": "12.990676043266028",
+      "kind": "number",
+      "formula": null
+    },
+    "AC43": {
+      "value": "5.2701059531962358E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD43": {
+      "value": "13.058859007850716",
+      "kind": "number",
+      "formula": null
+    },
+    "AE43": {
+      "value": "9.9798079807558476E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF43": {
+      "value": "12.928972363973113",
+      "kind": "number"
+    },
+    "AG43": {
+      "value": "12.875145296600955",
+      "kind": "number"
+    },
+    "AH43": {
+      "value": "12.823317972861986",
+      "kind": "number"
+    },
+    "AI43": {
+      "value": "5.2827195555563478E-2",
+      "kind": "number"
+    },
+    "AJ43": {
+      "value": "12.79602134069701",
+      "kind": "number"
+    },
+    "AK43": {
+      "value": "12.742994919226575",
+      "kind": "number"
+    },
+    "AL43": {
+      "value": "12.691937712528663",
+      "kind": "number"
+    },
+    "AM43": {
+      "value": "5.204181408417341E-2",
+      "kind": "number"
+    },
+    "AN43": {
+      "value": "0.94166285400657279",
+      "kind": "number"
+    },
+    "AO43": {
+      "value": "1.0532969305207876E-3",
+      "kind": "number"
+    },
+    "A44": {
+      "value": "M375103",
+      "kind": "text"
+    },
+    "B44": {
+      "value": "1700",
+      "kind": "number"
+    },
+    "D44": {
+      "value": "13.347878434637799",
+      "kind": "number"
+    },
+    "E44": {
+      "value": "6.1269894728161398E-2",
+      "kind": "number"
+    },
+    "F44": {
+      "value": "0.97284999999999999",
+      "kind": "number"
+    },
+    "G44": {
+      "value": "0.97250999999999999",
+      "kind": "number"
+    },
+    "H44": {
+      "value": "0.97318000000000005",
+      "kind": "number"
+    },
+    "I44": {
+      "value": "13.28249661233998",
+      "kind": "number"
+    },
+    "J44": {
+      "value": "13.156901992521533",
+      "kind": "number"
+    },
+    "K44": {
+      "value": "13.219699302430756",
+      "kind": "number",
+      "formula": null
+    },
+    "L44": {
+      "value": "6.2797309909223387E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M44": {
+      "value": "13.143520113660163",
+      "kind": "number"
+    },
+    "N44": {
+      "value": "13.020007669102633",
+      "kind": "number"
+    },
+    "O44": {
+      "value": "13.081763891381398",
+      "kind": "number",
+      "formula": null
+    },
+    "P44": {
+      "value": "6.1756222278765094E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q44": {
+      "value": "13.150731596906077",
+      "kind": "number",
+      "formula": null
+    },
+    "R44": {
+      "value": "0.10730151267233549",
+      "kind": "number",
+      "formula": null
+    },
+    "S44": {
+      "value": "1749.5305151407551",
+      "kind": "number"
+    },
+    "T44": {
+      "value": "1749.5305151407551",
+      "kind": "number"
+    },
+    "U44": {
+      "value": "1749.5305151407551",
+      "kind": "number",
+      "formula": null
+    },
+    "V44": {
+      "value": "13.600604475171075",
+      "kind": "number"
+    },
+    "W44": {
+      "value": "13.472999129952198",
+      "kind": "number"
+    },
+    "X44": {
+      "value": "13.536801802561637",
+      "kind": "number",
+      "formula": null
+    },
+    "Y44": {
+      "value": "6.3802672609438282E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z44": {
+      "value": "13.456734787595309",
+      "kind": "number"
+    },
+    "AA44": {
+      "value": "13.331305094349588",
+      "kind": "number"
+    },
+    "AB44": {
+      "value": "13.394019940972449",
+      "kind": "number",
+      "formula": null
+    },
+    "AC44": {
+      "value": "6.2714846622860421E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD44": {
+      "value": "13.465410871767043",
+      "kind": "number",
+      "formula": null
+    },
+    "AE44": {
+      "value": "0.1101431281514287",
+      "kind": "number",
+      "formula": null
+    },
+    "AF44": {
+      "value": "13.28249661233998",
+      "kind": "number"
+    },
+    "AG44": {
+      "value": "13.218704777097038",
+      "kind": "number"
+    },
+    "AH44": {
+      "value": "13.156901992521533",
+      "kind": "number"
+    },
+    "AI44": {
+      "value": "6.2797309909223387E-2",
+      "kind": "number"
+    },
+    "AJ44": {
+      "value": "13.143520113660163",
+      "kind": "number"
+    },
+    "AK44": {
+      "value": "13.080786511269409",
+      "kind": "number"
+    },
+    "AL44": {
+      "value": "13.020007669102633",
+      "kind": "number"
+    },
+    "AM44": {
+      "value": "6.1756222278765094E-2",
+      "kind": "number"
+    },
+    "AN44": {
+      "value": "0.94481860426661635",
+      "kind": "number"
+    },
+    "AO44": {
+      "value": "1.1805962875413984E-3",
+      "kind": "number"
+    },
+    "A45": {
+      "value": "M375106",
+      "kind": "text"
+    },
+    "B45": {
+      "value": "1900",
+      "kind": "number"
+    },
+    "D45": {
+      "value": "12.662000000000003",
+      "kind": "number"
+    },
+    "E45": {
+      "value": "3.2000000000000001E-2",
+      "kind": "number"
+    },
+    "F45": {
+      "value": "0.98402999999999996",
+      "kind": "number"
+    },
+    "G45": {
+      "value": "0.98385",
+      "kind": "number"
+    },
+    "H45": {
+      "value": "0.98421999999999998",
+      "kind": "number"
+    },
+    "I45": {
+      "value": "12.49063091371376",
+      "kind": "number"
+    },
+    "J45": {
+      "value": "12.425245434490941",
+      "kind": "number"
+    },
+    "K45": {
+      "value": "12.457938174102351",
+      "kind": "number",
+      "formula": null
+    },
+    "L45": {
+      "value": "3.2692739611409394E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M45": {
+      "value": "12.369722067932342",
+      "kind": "number"
+    },
+    "N45": {
+      "value": "12.305498786353484",
+      "kind": "number"
+    },
+    "O45": {
+      "value": "12.337610427142913",
+      "kind": "number",
+      "formula": null
+    },
+    "P45": {
+      "value": "3.2111640789429075E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q45": {
+      "value": "12.397774300622631",
+      "kind": "number",
+      "formula": null
+    },
+    "R45": {
+      "value": "7.8906510258051607E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S45": {
+      "value": "1958.192534197982",
+      "kind": "number"
+    },
+    "T45": {
+      "value": "1957.9932764808414",
+      "kind": "number"
+    },
+    "U45": {
+      "value": "1958.0929053394116",
+      "kind": "number",
+      "formula": null
+    },
+    "V45": {
+      "value": "12.861559285616087",
+      "kind": "number"
+    },
+    "W45": {
+      "value": "12.794863685979093",
+      "kind": "number"
+    },
+    "X45": {
+      "value": "12.82821148579759",
+      "kind": "number",
+      "formula": null
+    },
+    "Y45": {
+      "value": "3.3347799818496782E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z45": {
+      "value": "12.736165387140904",
+      "kind": "number"
+    },
+    "AA45": {
+      "value": "12.670686751319458",
+      "kind": "number"
+    },
+    "AB45": {
+      "value": "12.703426069230181",
+      "kind": "number",
+      "formula": null
+    },
+    "AC45": {
+      "value": "3.2739317910722932E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD45": {
+      "value": "12.765818777513886",
+      "kind": "number",
+      "formula": null
+    },
+    "AE45": {
+      "value": "8.1525614723001155E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF45": {
+      "value": "12.49063091371376",
+      "kind": "number"
+    },
+    "AG45": {
+      "value": "12.458805190537115",
+      "kind": "number"
+    },
+    "AH45": {
+      "value": "12.425245434490941",
+      "kind": "number"
+    },
+    "AI45": {
+      "value": "3.2692739611409394E-2",
+      "kind": "number"
+    },
+    "AJ45": {
+      "value": "12.369722067932342",
+      "kind": "number"
+    },
+    "AK45": {
+      "value": "12.338462292565797",
+      "kind": "number"
+    },
+    "AL45": {
+      "value": "12.305498786353484",
+      "kind": "number"
+    },
+    "AM45": {
+      "value": "3.2111640789429075E-2",
+      "kind": "number"
+    },
+    "AN45": {
+      "value": "0.95338583955690814",
+      "kind": "number"
+    },
+    "AO45": {
+      "value": "1.1155189580712597E-3",
+      "kind": "number"
+    },
+    "A46": {
+      "value": "M375109",
+      "kind": "text"
+    },
+    "B46": {
+      "value": "1700",
+      "kind": "number"
+    },
+    "D46": {
+      "value": "12.055",
+      "kind": "number"
+    },
+    "E46": {
+      "value": "3.250384592629002E-2",
+      "kind": "number"
+    },
+    "F46": {
+      "value": "0.98009000000000002",
+      "kind": "number"
+    },
+    "G46": {
+      "value": "0.97989999999999999",
+      "kind": "number"
+    },
+    "H46": {
+      "value": "0.98026999999999997",
+      "kind": "number"
+    },
+    "I46": {
+      "value": "11.92224759071863",
+      "kind": "number"
+    },
+    "J46": {
+      "value": "11.855573653942301",
+      "kind": "number"
+    },
+    "K46": {
+      "value": "11.888910622330465",
+      "kind": "number",
+      "formula": null
+    },
+    "L46": {
+      "value": "3.3336968388164578E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M46": {
+      "value": "11.805513628317271",
+      "kind": "number"
+    },
+    "N46": {
+      "value": "11.739910789564",
+      "kind": "number"
+    },
+    "O46": {
+      "value": "11.772712208940636",
+      "kind": "number",
+      "formula": null
+    },
+    "P46": {
+      "value": "3.2801419376635721E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q46": {
+      "value": "11.83081141563555",
+      "kind": "number",
+      "formula": null
+    },
+    "R46": {
+      "value": "7.7193791682977103E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S46": {
+      "value": "1746.4424413132194",
+      "kind": "number"
+    },
+    "T46": {
+      "value": "1746.2703682856381",
+      "kind": "number"
+    },
+    "U46": {
+      "value": "1746.3564047994287",
+      "kind": "number",
+      "formula": null
+    },
+    "V46": {
+      "value": "12.218012350594744",
+      "kind": "number"
+    },
+    "W46": {
+      "value": "12.150209730695209",
+      "kind": "number"
+    },
+    "X46": {
+      "value": "12.184111040644977",
+      "kind": "number",
+      "formula": null
+    },
+    "Y46": {
+      "value": "3.3901309949767366E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z46": {
+      "value": "12.097367501530666",
+      "kind": "number"
+    },
+    "AA46": {
+      "value": "12.030682351464026",
+      "kind": "number"
+    },
+    "AB46": {
+      "value": "12.064024926497346",
+      "kind": "number",
+      "formula": null
+    },
+    "AC46": {
+      "value": "3.3342575033319832E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD46": {
+      "value": "12.124067983571162",
+      "kind": "number",
+      "formula": null
+    },
+    "AE46": {
+      "value": "7.9462207082787228E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF46": {
+      "value": "11.92224759071863",
+      "kind": "number"
+    },
+    "AG46": {
+      "value": "11.887992800488536",
+      "kind": "number"
+    },
+    "AH46": {
+      "value": "11.855573653942301",
+      "kind": "number"
+    },
+    "AI46": {
+      "value": "3.3336968388164578E-2",
+      "kind": "number"
+    },
+    "AJ46": {
+      "value": "11.805513628317271",
+      "kind": "number"
+    },
+    "AK46": {
+      "value": "11.771809376692858",
+      "kind": "number"
+    },
+    "AL46": {
+      "value": "11.739910789564",
+      "kind": "number"
+    },
+    "AM46": {
+      "value": "3.2801419376635721E-2",
+      "kind": "number"
+    },
+    "AN46": {
+      "value": "0.95135988688636197",
+      "kind": "number"
+    },
+    "AO46": {
+      "value": "1.0765800946832861E-3",
+      "kind": "number"
+    },
+    "A47": {
+      "value": "M375112",
+      "kind": "text"
+    },
+    "B47": {
+      "value": "1500",
+      "kind": "number"
+    },
+    "D47": {
+      "value": "11.560513402061854",
+      "kind": "number"
+    },
+    "E47": {
+      "value": "3.2017573299674106E-2",
+      "kind": "number"
+    },
+    "F47": {
+      "value": "0.97557000000000005",
+      "kind": "number"
+    },
+    "G47": {
+      "value": "0.97538999999999998",
+      "kind": "number"
+    },
+    "H47": {
+      "value": "0.97574000000000005",
+      "kind": "number"
+    },
+    "I47": {
+      "value": "11.472592916430326",
+      "kind": "number"
+    },
+    "J47": {
+      "value": "11.408086721054501",
+      "kind": "number"
+    },
+    "K47": {
+      "value": "11.440339818742412",
+      "kind": "number",
+      "formula": null
+    },
+    "L47": {
+      "value": "3.2253097687912735E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M47": {
+      "value": "11.360979634779806",
+      "kind": "number"
+    },
+    "N47": {
+      "value": "11.29740115785458",
+      "kind": "number"
+    },
+    "O47": {
+      "value": "11.329190396317193",
+      "kind": "number",
+      "formula": null
+    },
+    "P47": {
+      "value": "3.1789238462613056E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q47": {
+      "value": "11.384765107529802",
+      "kind": "number",
+      "formula": null
+    },
+    "R47": {
+      "value": "7.4062653860223648E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S47": {
+      "value": "1536.483747932421",
+      "kind": "number"
+    },
+    "T47": {
+      "value": "1536.3464233688767",
+      "kind": "number"
+    },
+    "U47": {
+      "value": "1536.415085650649",
+      "kind": "number",
+      "formula": null
+    },
+    "V47": {
+      "value": "11.7045611668688",
+      "kind": "number"
+    },
+    "W47": {
+      "value": "11.63915681816998",
+      "kind": "number"
+    },
+    "X47": {
+      "value": "11.67185899251939",
+      "kind": "number",
+      "formula": null
+    },
+    "Y47": {
+      "value": "3.2702174349410029E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z47": {
+      "value": "11.58957686902605",
+      "kind": "number"
+    },
+    "AA47": {
+      "value": "11.52513696057493",
+      "kind": "number"
+    },
+    "AB47": {
+      "value": "11.55735691480049",
+      "kind": "number",
+      "formula": null
+    },
+    "AC47": {
+      "value": "3.2219954225560343E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD47": {
+      "value": "11.614607953659938",
+      "kind": "number",
+      "formula": null
+    },
+    "AE47": {
+      "value": "7.5995265459759098E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF47": {
+      "value": "11.472592916430326",
+      "kind": "number"
+    },
+    "AG47": {
+      "value": "11.43940297237156",
+      "kind": "number"
+    },
+    "AH47": {
+      "value": "11.408086721054501",
+      "kind": "number"
+    },
+    "AI47": {
+      "value": "3.2253097687912735E-2",
+      "kind": "number"
+    },
+    "AJ47": {
+      "value": "11.360979634779806",
+      "kind": "number"
+    },
+    "AK47": {
+      "value": "11.328267227306647",
+      "kind": "number"
+    },
+    "AL47": {
+      "value": "11.29740115785458",
+      "kind": "number"
+    },
+    "AM47": {
+      "value": "3.1789238462613056E-2",
+      "kind": "number"
+    },
+    "AN47": {
+      "value": "0.94905678590242193",
+      "kind": "number"
+    },
+    "AO47": {
+      "value": "1.0133635878999004E-3",
+      "kind": "number"
+    },
+    "A48": {
+      "value": "M375115",
+      "kind": "text"
+    },
+    "B48": {
+      "value": "1300",
+      "kind": "number"
+    },
+    "D48": {
+      "value": "11.106500000000002",
+      "kind": "number"
+    },
+    "E48": {
+      "value": "3.1813912051176722E-2",
+      "kind": "number"
+    },
+    "F48": {
+      "value": "0.97094999999999998",
+      "kind": "number"
+    },
+    "G48": {
+      "value": "0.97077999999999998",
+      "kind": "number"
+    },
+    "H48": {
+      "value": "0.97111999999999998",
+      "kind": "number"
+    },
+    "I48": {
+      "value": "11.06345179517294",
+      "kind": "number"
+    },
+    "J48": {
+      "value": "10.999333966723768",
+      "kind": "number"
+    },
+    "K48": {
+      "value": "11.031392880948353",
+      "kind": "number",
+      "formula": null
+    },
+    "L48": {
+      "value": "3.2058914224585955E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M48": {
+      "value": "10.959490997693457",
+      "kind": "number"
+    },
+    "N48": {
+      "value": "10.896186785141541",
+      "kind": "number"
+    },
+    "O48": {
+      "value": "10.927838891417499",
+      "kind": "number",
+      "formula": null
+    },
+    "P48": {
+      "value": "3.1652106275958047E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q48": {
+      "value": "10.979615886182927",
+      "kind": "number",
+      "formula": null
+    },
+    "R48": {
+      "value": "7.019660099483474E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S48": {
+      "value": "1327.9614870389432",
+      "kind": "number"
+    },
+    "T48": {
+      "value": "1327.851956179117",
+      "kind": "number"
+    },
+    "U48": {
+      "value": "1327.9067216090302",
+      "kind": "number",
+      "formula": null
+    },
+    "V48": {
+      "value": "11.240684007713572",
+      "kind": "number"
+    },
+    "W48": {
+      "value": "11.175853109179538",
+      "kind": "number"
+    },
+    "X48": {
+      "value": "11.208268558446555",
+      "kind": "number",
+      "formula": null
+    },
+    "Y48": {
+      "value": "3.2415449267016783E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z48": {
+      "value": "11.133907413757083",
+      "kind": "number"
+    },
+    "AA48": {
+      "value": "11.069919267301314",
+      "kind": "number"
+    },
+    "AB48": {
+      "value": "11.101913340529197",
+      "kind": "number",
+      "formula": null
+    },
+    "AC48": {
+      "value": "3.1994073227884279E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD48": {
+      "value": "11.155090949487878",
+      "kind": "number",
+      "formula": null
+    },
+    "AE48": {
+      "value": "7.1787177415923831E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF48": {
+      "value": "11.06345179517294",
+      "kind": "number"
+    },
+    "AG48": {
+      "value": "11.03137812413129",
+      "kind": "number"
+    },
+    "AH48": {
+      "value": "10.999333966723768",
+      "kind": "number"
+    },
+    "AI48": {
+      "value": "3.2058914224585955E-2",
+      "kind": "number"
+    },
+    "AJ48": {
+      "value": "10.959490997693457",
+      "kind": "number"
+    },
+    "AK48": {
+      "value": "10.927824500001087",
+      "kind": "number"
+    },
+    "AL48": {
+      "value": "10.896186785141541",
+      "kind": "number"
+    },
+    "AM48": {
+      "value": "3.1652106275958047E-2",
+      "kind": "number"
+    },
+    "AN48": {
+      "value": "0.94763635892009579",
+      "kind": "number"
+    },
+    "AO48": {
+      "value": "9.8347558871955871E-4",
+      "kind": "number"
+    },
+    "A49": {
+      "value": "M375118",
+      "kind": "text"
+    },
+    "B49": {
+      "value": "1100",
+      "kind": "number"
+    },
+    "D49": {
+      "value": "10.595000000000001",
+      "kind": "number"
+    },
+    "E49": {
+      "value": "3.1056400306539104E-2",
+      "kind": "number"
+    },
+    "F49": {
+      "value": "0.96680999999999995",
+      "kind": "number"
+    },
+    "G49": {
+      "value": "0.96664000000000005",
+      "kind": "number"
+    },
+    "H49": {
+      "value": "0.96697",
+      "kind": "number"
+    },
+    "I49": {
+      "value": "10.589177981438194",
+      "kind": "number"
+    },
+    "J49": {
+      "value": "10.525664487847916",
+      "kind": "number"
+    },
+    "K49": {
+      "value": "10.557421234643055",
+      "kind": "number",
+      "formula": null
+    },
+    "L49": {
+      "value": "3.1756746795139179E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M49": {
+      "value": "10.496727379469252",
+      "kind": "number"
+    },
+    "N49": {
+      "value": "10.433910050798602",
+      "kind": "number"
+    },
+    "O49": {
+      "value": "10.465318715133927",
+      "kind": "number",
+      "formula": null
+    },
+    "P49": {
+      "value": "3.1408664335325298E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q49": {
+      "value": "10.511369974888492",
+      "kind": "number",
+      "formula": null
+    },
+    "R49": {
+      "value": "6.4479620616669037E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S49": {
+      "value": "1120.6251999548222",
+      "kind": "number"
+    },
+    "T49": {
+      "value": "1120.5406468546951",
+      "kind": "number"
+    },
+    "U49": {
+      "value": "1120.5829234047587",
+      "kind": "number",
+      "formula": null
+    },
+    "V49": {
+      "value": "10.719124462984453",
+      "kind": "number"
+    },
+    "W49": {
+      "value": "10.655065095470697",
+      "kind": "number"
+    },
+    "X49": {
+      "value": "10.687094779227575",
+      "kind": "number",
+      "formula": null
+    },
+    "Y49": {
+      "value": "3.2029683756878313E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z49": {
+      "value": "10.624449738440475",
+      "kind": "number"
+    },
+    "AA49": {
+      "value": "10.561108688944298",
+      "kind": "number"
+    },
+    "AB49": {
+      "value": "10.592779213692387",
+      "kind": "number",
+      "formula": null
+    },
+    "AC49": {
+      "value": "3.1670524748088624E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD49": {
+      "value": "10.63993699645998",
+      "kind": "number",
+      "formula": null
+    },
+    "AE49": {
+      "value": "6.570964277534988E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF49": {
+      "value": "10.589177981438194",
+      "kind": "number"
+    },
+    "AG49": {
+      "value": "10.556444781675058",
+      "kind": "number"
+    },
+    "AH49": {
+      "value": "10.525664487847916",
+      "kind": "number"
+    },
+    "AI49": {
+      "value": "3.1756746795139179E-2",
+      "kind": "number"
+    },
+    "AJ49": {
+      "value": "10.496727379469252",
+      "kind": "number"
+    },
+    "AK49": {
+      "value": "10.464353122199082",
+      "kind": "number"
+    },
+    "AL49": {
+      "value": "10.433910050798602",
+      "kind": "number"
+    },
+    "AM49": {
+      "value": "3.1408664335325298E-2",
+      "kind": "number"
+    },
+    "AN49": {
+      "value": "0.94574352088177183",
+      "kind": "number"
+    },
+    "AO49": {
+      "value": "9.6078120626351079E-4",
+      "kind": "number"
+    },
+    "A50": {
+      "value": "M375121",
+      "kind": "text"
+    },
+    "B50": {
+      "value": "900",
+      "kind": "number"
+    },
+    "D50": {
+      "value": "10.120081956378055",
+      "kind": "number"
+    },
+    "E50": {
+      "value": "2.868143999174376E-2",
+      "kind": "number"
+    },
+    "F50": {
+      "value": "0.96265999999999996",
+      "kind": "number"
+    },
+    "G50": {
+      "value": "0.96250999999999998",
+      "kind": "number"
+    },
+    "H50": {
+      "value": "0.96282000000000001",
+      "kind": "number"
+    },
+    "I50": {
+      "value": "10.139978389101067",
+      "kind": "number"
+    },
+    "J50": {
+      "value": "10.07908245569417",
+      "kind": "number"
+    },
+    "K50": {
+      "value": "10.109530422397619",
+      "kind": "number",
+      "formula": null
+    },
+    "L50": {
+      "value": "3.0447966703448515E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M50": {
+      "value": "10.061617428228427",
+      "kind": "number"
+    },
+    "N50": {
+      "value": "10.001284370596931",
+      "kind": "number"
+    },
+    "O50": {
+      "value": "10.031450899412679",
+      "kind": "number",
+      "formula": null
+    },
+    "P50": {
+      "value": "3.0166528815747995E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q50": {
+      "value": "10.070490660905149",
+      "kind": "number",
+      "formula": null
+    },
+    "R50": {
+      "value": "5.7068988028779799E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S50": {
+      "value": "914.56871456077215",
+      "kind": "number"
+    },
+    "T50": {
+      "value": "914.50827703156097",
+      "kind": "number"
+    },
+    "U50": {
+      "value": "914.53849579616656",
+      "kind": "number",
+      "formula": null
+    },
+    "V50": {
+      "value": "10.230709559215649",
+      "kind": "number"
+    },
+    "W50": {
+      "value": "10.169429181301997",
+      "kind": "number"
+    },
+    "X50": {
+      "value": "10.200069370258824",
+      "kind": "number",
+      "formula": null
+    },
+    "Y50": {
+      "value": "3.0640188956826186E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z50": {
+      "value": "10.150684141415464",
+      "kind": "number"
+    },
+    "AA50": {
+      "value": "10.089982171606311",
+      "kind": "number"
+    },
+    "AB50": {
+      "value": "10.120333156510888",
+      "kind": "number",
+      "formula": null
+    },
+    "AC50": {
+      "value": "3.0350984904576883E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD50": {
+      "value": "10.160201263384856",
+      "kind": "number",
+      "formula": null
+    },
+    "AE50": {
+      "value": "5.7959384373404602E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF50": {
+      "value": "10.139978389101067",
+      "kind": "number"
+    },
+    "AG50": {
+      "value": "10.110499930368725",
+      "kind": "number"
+    },
+    "AH50": {
+      "value": "10.07908245569417",
+      "kind": "number"
+    },
+    "AI50": {
+      "value": "3.0447966703448515E-2",
+      "kind": "number"
+    },
+    "AJ50": {
+      "value": "10.061617428228427",
+      "kind": "number"
+    },
+    "AK50": {
+      "value": "10.032411576287611",
+      "kind": "number"
+    },
+    "AL50": {
+      "value": "10.001284370596931",
+      "kind": "number"
+    },
+    "AM50": {
+      "value": "3.0166528815747995E-2",
+      "kind": "number"
+    },
+    "AN50": {
+      "value": "0.94428509861386056",
+      "kind": "number"
+    },
+    "AO50": {
+      "value": "9.4800216932726356E-4",
+      "kind": "number"
+    },
+    "A51": {
+      "value": "M375124",
+      "kind": "text"
+    },
+    "B51": {
+      "value": "700",
+      "kind": "number"
+    },
+    "D51": {
+      "value": "9.6022452081956366",
+      "kind": "number"
+    },
+    "E51": {
+      "value": "3.1090593432741096E-2",
+      "kind": "number"
+    },
+    "F51": {
+      "value": "0.95898000000000005",
+      "kind": "number"
+    },
+    "G51": {
+      "value": "0.95882999999999996",
+      "kind": "number"
+    },
+    "H51": {
+      "value": "0.95913999999999999",
+      "kind": "number"
+    },
+    "I51": {
+      "value": "9.6385500472544123",
+      "kind": "number"
+    },
+    "J51": {
+      "value": "9.5765348496930063",
+      "kind": "number"
+    },
+    "K51": {
+      "value": "9.6075424484737084",
+      "kind": "number",
+      "formula": null
+    },
+    "L51": {
+      "value": "3.1007598780703027E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M51": {
+      "value": "9.5773189560255148",
+      "kind": "number"
+    },
+    "N51": {
+      "value": "9.5157712516011514",
+      "kind": "number"
+    },
+    "O51": {
+      "value": "9.5465451038133331",
+      "kind": "number",
+      "formula": null
+    },
+    "P51": {
+      "value": "3.0773852212181652E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q51": {
+      "value": "9.5770437761435208",
+      "kind": "number",
+      "formula": null
+    },
+    "R51": {
+      "value": "5.01254372544893E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S51": {
+      "value": "709.64390790269999",
+      "kind": "number"
+    },
+    "T51": {
+      "value": "709.60052620336796",
+      "kind": "number"
+    },
+    "U51": {
+      "value": "709.62221705303398",
+      "kind": "number",
+      "formula": null
+    },
+    "V51": {
+      "value": "9.6971603691088148",
+      "kind": "number"
+    },
+    "W51": {
+      "value": "9.6348773441316364",
+      "kind": "number"
+    },
+    "X51": {
+      "value": "9.6660188566202265",
+      "kind": "number",
+      "formula": null
+    },
+    "Y51": {
+      "value": "3.1141512488589207E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z51": {
+      "value": "9.6347907301093265",
+      "kind": "number"
+    },
+    "AA51": {
+      "value": "9.5729859031897142",
+      "kind": "number"
+    },
+    "AB51": {
+      "value": "9.6038883166495204",
+      "kind": "number",
+      "formula": null
+    },
+    "AC51": {
+      "value": "3.0902413459806155E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD51": {
+      "value": "9.6349535866348734",
+      "kind": "number",
+      "formula": null
+    },
+    "AE51": {
+      "value": "5.0694213714804898E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF51": {
+      "value": "9.6385500472544123",
+      "kind": "number"
+    },
+    "AG51": {
+      "value": "9.6085298104683616",
+      "kind": "number"
+    },
+    "AH51": {
+      "value": "9.5765348496930063",
+      "kind": "number"
+    },
+    "AI51": {
+      "value": "3.1007598780703027E-2",
+      "kind": "number"
+    },
+    "AJ51": {
+      "value": "9.5773189560255148",
+      "kind": "number"
+    },
+    "AK51": {
+      "value": "9.5475251475037162",
+      "kind": "number"
+    },
+    "AL51": {
+      "value": "9.5157712516011514",
+      "kind": "number"
+    },
+    "AM51": {
+      "value": "3.0773852212181652E-2",
+      "kind": "number"
+    },
+    "AN51": {
+      "value": "0.94333263883554641",
+      "kind": "number"
+    },
+    "AO51": {
+      "value": "9.1992508156053441E-4",
+      "kind": "number"
+    },
+    "A52": {
+      "value": "M375127",
+      "kind": "text"
+    },
+    "B52": {
+      "value": "500",
+      "kind": "number"
+    },
+    "D52": {
+      "value": "9.1536412811387891",
+      "kind": "number"
+    },
+    "E52": {
+      "value": "2.9103264421710594E-2",
+      "kind": "number"
+    },
+    "F52": {
+      "value": "0.95528999999999997",
+      "kind": "number"
+    },
+    "G52": {
+      "value": "0.95513999999999999",
+      "kind": "number"
+    },
+    "H52": {
+      "value": "0.95543",
+      "kind": "number"
+    },
+    "I52": {
+      "value": "9.2002616679703682",
+      "kind": "number"
+    },
+    "J52": {
+      "value": "9.1411373466401891",
+      "kind": "number"
+    },
+    "K52": {
+      "value": "9.1706995073052795",
+      "kind": "number",
+      "formula": null
+    },
+    "L52": {
+      "value": "2.9562160665089543E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M52": {
+      "value": "9.1576225434780198",
+      "kind": "number"
+    },
+    "N52": {
+      "value": "9.0988489284309821",
+      "kind": "number"
+    },
+    "O52": {
+      "value": "9.128235735954501",
+      "kind": "number",
+      "formula": null
+    },
+    "P52": {
+      "value": "2.9386807523518854E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q52": {
+      "value": "9.1494676216298902",
+      "kind": "number",
+      "formula": null
+    },
+    "R52": {
+      "value": "4.194513669289502E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S52": {
+      "value": "505.86984470959823",
+      "kind": "number"
+    },
+    "T52": {
+      "value": "505.84319336618535",
+      "kind": "number"
+    },
+    "U52": {
+      "value": "505.85651903789176",
+      "kind": "number",
+      "formula": null
+    },
+    "V52": {
+      "value": "9.2338378314613045",
+      "kind": "number"
+    },
+    "W52": {
+      "value": "9.1745602899402154",
+      "kind": "number"
+    },
+    "X52": {
+      "value": "9.2041990607007591",
+      "kind": "number",
+      "formula": null
+    },
+    "Y52": {
+      "value": "2.9638770760544553E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z52": {
+      "value": "9.1905121209917731",
+      "kind": "number"
+    },
+    "AA52": {
+      "value": "9.1315913581261068",
+      "kind": "number"
+    },
+    "AB52": {
+      "value": "9.161051739558939",
+      "kind": "number",
+      "formula": null
+    },
+    "AC52": {
+      "value": "2.9460381432833138E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD52": {
+      "value": "9.1826254001298491",
+      "kind": "number",
+      "formula": null
+    },
+    "AE52": {
+      "value": "4.2247023305173478E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF52": {
+      "value": "9.2002616679703682",
+      "kind": "number"
+    },
+    "AG52": {
+      "value": "9.1696686632551696",
+      "kind": "number"
+    },
+    "AH52": {
+      "value": "9.1411373466401891",
+      "kind": "number"
+    },
+    "AI52": {
+      "value": "2.9562160665089543E-2",
+      "kind": "number"
+    },
+    "AJ52": {
+      "value": "9.1576225434780198",
+      "kind": "number"
+    },
+    "AK52": {
+      "value": "9.1272111121181432",
+      "kind": "number"
+    },
+    "AL52": {
+      "value": "9.0988489284309821",
+      "kind": "number"
+    },
+    "AM52": {
+      "value": "2.9386807523518854E-2",
+      "kind": "number"
+    },
+    "AN52": {
+      "value": "0.94220077183665152",
+      "kind": "number"
+    },
+    "AO52": {
+      "value": "8.7667450085098159E-4",
+      "kind": "number"
+    },
+    "A53": {
+      "value": "M375130",
+      "kind": "text"
+    },
+    "B53": {
+      "value": "309",
+      "kind": "number"
+    },
+    "D53": {
+      "value": "8.7730739726027398",
+      "kind": "number"
+    },
+    "E53": {
+      "value": "2.7027763503479147E-2",
+      "kind": "number"
+    },
+    "F53": {
+      "value": "0.95203000000000004",
+      "kind": "number"
+    },
+    "G53": {
+      "value": "0.95189999999999997",
+      "kind": "number"
+    },
+    "H53": {
+      "value": "0.95216000000000001",
+      "kind": "number"
+    },
+    "I53": {
+      "value": "8.8541908496307133",
+      "kind": "number"
+    },
+    "J53": {
+      "value": "8.8002153472816236",
+      "kind": "number"
+    },
+    "K53": {
+      "value": "8.8272030984561685",
+      "kind": "number",
+      "formula": null
+    },
+    "L53": {
+      "value": "2.6987751174544883E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M53": {
+      "value": "8.8291142920783869",
+      "kind": "number"
+    },
+    "N53": {
+      "value": "8.7753883943344562",
+      "kind": "number"
+    },
+    "O53": {
+      "value": "8.8022513432064216",
+      "kind": "number",
+      "formula": null
+    },
+    "P53": {
+      "value": "2.6862948871965386E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q53": {
+      "value": "8.8147272208312941",
+      "kind": "number",
+      "formula": null
+    },
+    "R53": {
+      "value": "3.4266132751144741E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "S53": {
+      "value": "312.23302699919316",
+      "kind": "number"
+    },
+    "T53": {
+      "value": "312.21898795153714",
+      "kind": "number"
+    },
+    "U53": {
+      "value": "312.22600747536512",
+      "kind": "number",
+      "formula": null
+    },
+    "V53": {
+      "value": "8.8694308485833631",
+      "kind": "number"
+    },
+    "W53": {
+      "value": "8.815390740551436",
+      "kind": "number"
+    },
+    "X53": {
+      "value": "8.8424107945673995",
+      "kind": "number",
+      "formula": null
+    },
+    "Y53": {
+      "value": "2.7020054015963524E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z53": {
+      "value": "8.8440329366446857",
+      "kind": "number"
+    },
+    "AA53": {
+      "value": "8.7902449544810022",
+      "kind": "number"
+    },
+    "AB53": {
+      "value": "8.8171389455628439",
+      "kind": "number",
+      "formula": null
+    },
+    "AC53": {
+      "value": "2.6893991081841762E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD53": {
+      "value": "8.8297748700651226",
+      "kind": "number",
+      "formula": null
+    },
+    "AE53": {
+      "value": "3.4377349630149399E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AF53": {
+      "value": "8.8541908496307133",
+      "kind": "number"
+    },
+    "AG53": {
+      "value": "8.8271937324595733",
+      "kind": "number"
+    },
+    "AH53": {
+      "value": "8.8002153472816236",
+      "kind": "number"
+    },
+    "AI53": {
+      "value": "2.6987751174544883E-2",
+      "kind": "number"
+    },
+    "AJ53": {
+      "value": "8.8291142920783869",
+      "kind": "number"
+    },
+    "AK53": {
+      "value": "8.8022421051553366",
+      "kind": "number"
+    },
+    "AL53": {
+      "value": "8.7753883943344562",
+      "kind": "number"
+    },
+    "AM53": {
+      "value": "2.6862948871965386E-2",
+      "kind": "number"
+    },
+    "AN53": {
+      "value": "0.94023441217394654",
+      "kind": "number"
+    },
+    "AO53": {
+      "value": "8.9173434275575329E-4",
+      "kind": "number"
+    },
+    "A54": {
+      "value": "M375135",
+      "kind": "text"
+    },
+    "B54": {
+      "value": "1700",
+      "kind": "number"
+    },
+    "D54": {
+      "value": "13.567559544969784",
+      "kind": "number"
+    },
+    "E54": {
+      "value": "7.7553207541661395E-2",
+      "kind": "number"
+    },
+    "F54": {
+      "value": "0.97163999999999995",
+      "kind": "number"
+    },
+    "G54": {
+      "value": "0.97121999999999997",
+      "kind": "number"
+    },
+    "H54": {
+      "value": "0.97206999999999999",
+      "kind": "number"
+    },
+    "I54": {
+      "value": "13.52560684982797",
+      "kind": "number"
+    },
+    "J54": {
+      "value": "13.365226205522383",
+      "kind": "number"
+    },
+    "K54": {
+      "value": "13.445416527675176",
+      "kind": "number",
+      "formula": null
+    },
+    "L54": {
+      "value": "8.0190322152793314E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "M54": {
+      "value": "13.382585334572244",
+      "kind": "number"
+    },
+    "N54": {
+      "value": "13.224875328733527",
+      "kind": "number"
+    },
+    "O54": {
+      "value": "13.303730331652886",
+      "kind": "number",
+      "formula": null
+    },
+    "P54": {
+      "value": "7.8855002919358874E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Q54": {
+      "value": "13.37457342966403",
+      "kind": "number",
+      "formula": null
+    },
+    "R54": {
+      "value": "0.12297991251694829",
+      "kind": "number",
+      "formula": null
+    },
+    "S54": {
+      "value": "1750.4184033679044",
+      "kind": "number"
+    },
+    "T54": {
+      "value": "1750.0340381523097",
+      "kind": "number"
+    },
+    "U54": {
+      "value": "1750.226220760107",
+      "kind": "number",
+      "formula": null
+    },
+    "V54": {
+      "value": "13.847578195255513",
+      "kind": "number"
+    },
+    "W54": {
+      "value": "13.684653006952578",
+      "kind": "number"
+    },
+    "X54": {
+      "value": "13.766115601104046",
+      "kind": "number",
+      "formula": null
+    },
+    "Y54": {
+      "value": "8.1462594151467727E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "Z54": {
+      "value": "13.699481024083553",
+      "kind": "number"
+    },
+    "AA54": {
+      "value": "13.539347072854575",
+      "kind": "number"
+    },
+    "AB54": {
+      "value": "13.619414048469064",
+      "kind": "number",
+      "formula": null
+    },
+    "AC54": {
+      "value": "8.0066975614489166E-2",
+      "kind": "number",
+      "formula": null
+    },
+    "AD54": {
+      "value": "13.692764824786556",
+      "kind": "number",
+      "formula": null
+    },
+    "AE54": {
+      "value": "0.1259829290094365",
+      "kind": "number",
+      "formula": null
+    },
+    "AF54": {
+      "value": "13.52560684982797",
+      "kind": "number"
+    },
+    "AG54": {
+      "value": "13.446267223527038",
+      "kind": "number"
+    },
+    "AH54": {
+      "value": "13.365226205522383",
+      "kind": "number"
+    },
+    "AI54": {
+      "value": "8.0190322152793314E-2",
+      "kind": "number"
+    },
+    "AJ54": {
+      "value": "13.382585334572244",
+      "kind": "number"
+    },
+    "AK54": {
+      "value": "13.304567879750344",
+      "kind": "number"
+    },
+    "AL54": {
+      "value": "13.224875328733527",
+      "kind": "number"
+    },
+    "AM54": {
+      "value": "7.8855002919358874E-2",
+      "kind": "number"
+    },
+    "AN54": {
+      "value": "0.94441123340203281",
+      "kind": "number"
+    },
+    "AO54": {
+      "value": "1.0658456228486428E-3",
+      "kind": "number"
+    }
+  },
+  "notes": "Cached author results retained verbatim; no workbook recalculation."
+}

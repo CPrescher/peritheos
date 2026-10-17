@@ -1,0 +1,670 @@
+{
+  "audit_date": "2026-10-16",
+  "reference": {
+    "authors": [
+      "Crichton, W. A.",
+      "Ross, N. L."
+    ],
+    "year": 2000,
+    "title": "Equation of state of phase E",
+    "source": "Mineralogical Magazine",
+    "volume": "64",
+    "locator": "561–567",
+    "doi": "10.1180/002646100549427"
+  },
+  "transcription": {
+    "table": "Table 1, p. 562",
+    "raw_columns": [
+      "pressure_gpa",
+      "a_angstrom",
+      "c_angstrom",
+      "volume_a3"
+    ],
+    "raw_rows": [
+      [
+        "0.0001",
+        "2.9655(2)",
+        "13.8703(5)",
+        "105.633(16)"
+      ],
+      [
+        "0.296(3)",
+        "2.9623(3)",
+        "13.8552(6)",
+        "105.294(21)"
+      ],
+      [
+        "1.128(4)",
+        "2.9541(2)",
+        "13.8140(3)",
+        "104.401(13)"
+      ],
+      [
+        "1.987(4)",
+        "2.9460(3)",
+        "13.7742(4)",
+        "103.529(18)"
+      ],
+      [
+        "2.973(4)",
+        "2.9374(3)",
+        "13.7336(4)",
+        "102.623(21)"
+      ],
+      [
+        "3.944(6)",
+        "2.9296(2)",
+        "13.6959(4)",
+        "101.794(17)"
+      ],
+      [
+        "4.443(6)",
+        "2.9255(3)",
+        "13.6767(5)",
+        "101.367(20)"
+      ],
+      [
+        "5.301(7)",
+        "2.9187(3)",
+        "13.6445(5)",
+        "100.665(19)"
+      ],
+      [
+        "5.539(5)",
+        "2.9170(3)",
+        "13.6370(6)",
+        "100.492(20)"
+      ],
+      [
+        "6.139(8)",
+        "2.9126(3)",
+        "13.6152(6)",
+        "100.025(20)"
+      ],
+      [
+        "6.671(8)",
+        "2.9090(3)",
+        "13.5972(6)",
+        "99.648(18)"
+      ]
+    ],
+    "normalized_csv": "phase-e-crichton-ross-2000-table1.csv",
+    "sha256": "82a02c2ccafd64a09f21ad506f0b04359848b6b49e236a7d7a8c002904cb8cf4",
+    "normalization": "Parentheses converted to decimal esds; absent esd to null. All rows retained. No fitted or digitized observations.",
+    "review": "All tokens checked against rendered page 562."
+  },
+  "rights": {
+    "source_license": "unspecified",
+    "source_notice": "Copyright 2000 The Mineralogical Society; Cambridge identifies the Mineralogical Society of Great Britain and Ireland.",
+    "contributor_dedication": "CC0-1.0 only to contributor-held transcription, normalization, metadata and arrangement rights.",
+    "excluded": "Article text, figures, publisher/author PDFs, and third-party rights."
+  },
+  "sources": [
+    {
+      "identifier": "phase_e_crichton_ross_2000",
+      "url": "https://triage19.com/products/MM/MM064P0561.pdf",
+      "doi": "10.1180/002646100549427",
+      "sha256": "544226ba5b4c4ce8530ae85e5574e2ae4bc31d930529380b6aacb4fea973412d",
+      "bytes": 174763,
+      "locations": "Full 7-page publication; Table 1 p. 562; volume and axial fits pp. 563–564",
+      "redistributed": false
+    },
+    {
+      "identifier": "phase_e_kudoh_1993",
+      "url": "https://hazen.carnegiescience.edu/sites/default/files/156-PhaseE-PCM.pdf",
+      "doi": "10.1007/BF00202972",
+      "sha256": "3368356e44031b9390eb177787e9f71dccb3e3c9658851b289c2d29c6619144e",
+      "bytes": 415702,
+      "locations": "Full 4-page author-hosted publication; Table 1 p. 358; six-O cell and R-3m pp. 357–358",
+      "redistributed": false
+    },
+    {
+      "identifier": "phase_e_shieh_2000",
+      "url": "https://triage19.com/products/AM/AM085P0765.pdf",
+      "doi": "10.2138/am-2000-5-616",
+      "sha256": "51650f4322213f93e735d23084182a5ae6065ad8e079a748a04c1d4d69376a20",
+      "bytes": 58689,
+      "locations": "Figure 1 p. 766, eight phase E indices; p. 765 distinct sample composition",
+      "redistributed": false
+    },
+    {
+      "identifier": "phase_e_angel_1997",
+      "url": "https://www.rossangel.com/Download/1997_Angel_etal_quartz.pdf",
+      "doi": "10.1107/S0021889897000861",
+      "sha256": "2a62603af4382263049ba00468d281ef56d08a16a6ab246cbd59649a9d40f96a",
+      "bytes": 628028,
+      "locations": "p. 461, abstract, exact quartz pressure standard",
+      "redistributed": false
+    },
+    {
+      "identifier": "phase_e_wang_2022",
+      "url": "https://www.jsg.utexas.edu/lin/files/WangPhaseEElasticityJGR2022.pdf",
+      "doi": "10.1029/2022JB025274",
+      "sha256": "8eea95a64bfeb93c0a94f738712e65b904c34c9a89a245be0034fcc57459ca99",
+      "bytes": 2148782,
+      "locations": "Sections 2 and 3.1, different Fe-free sample; thermal extension deferred",
+      "redistributed": false
+    },
+    {
+      "identifier": "phase_e_crichton_thesis",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10123954/1/Equations_of_state_of_dense_hy.pdf",
+      "sha256": "4cc9d7ea87a585c248884968ba8f64f801c07cc7fc6b5d559b74f67ee1be9c2f",
+      "bytes": 14356761,
+      "locations": "Crichton (2000), Equations of State of Dense Hydrous Silicates, UCL PhD thesis, Section 2.11 pp. 44–45, Eq. 2.31; Chapter 6 pp. 136–145, Table 6.1 p. 138. Printed pp. 45 and 138 visually checked.",
+      "redistributed": false
+    }
+  ],
+  "source_search": {
+    "publisher_landing": "https://www.cambridge.org/core/journals/mineralogical-magazine/article/abs/equation-of-state-of-phase-e/67BB8432C76B549A7929045D9D934E89",
+    "publisher_supplements": "Cambridge article metadata supplementaryMaterials is empty. Its citation PDF URL returned access HTML in this session. Full journal PDF recovered via the Mineralogical Magazine archive mirror.",
+    "kudoh": "Author publications index links the legacy sites/hazen.gl.ciw.edu path (404). The corresponding sites/default/files path supplies the four-page scan. Springer preview omits parts of the space-group symbol; read the scanned original R-3m instead.",
+    "iucr_2020": "Primary HTML and structure summary inspected, DOI 10.1107/S2052252520003036: deuterated, 100 K, Mg2.28Si1.32D2.15O6. Official CIF/HKL downloads returned 403; not used to assign sites or peaks.",
+    "author_contact": "not_contacted",
+    "repository_search": "No candidate-specific author dataset or official numerical supplement located; no claim of exhaustive archive coverage.",
+    "author_thesis": "UCL thesis full PDF recovered and Chapter 6 plus Section 2.11 inspected. Methodological objective/reduced chi normalization recovered; no extra unrounded P-V or quartz table. All Table 6.1 rows preserved separately with four differences from journal Table 1."
+  },
+  "axial_parameterizations": {
+    "source_location": "Crichton–Ross pp. 563–564",
+    "not_volume_eos": true,
+    "method": "BM3 applied separately to a^3 and c^3; effective axial moduli, not independent physical volume bulk moduli.",
+    "a": {
+      "length0_angstrom": 2.965,
+      "length0_error": 0.002,
+      "K_effective_gpa": 94.8,
+      "K_effective_error": 0.6,
+      "Kprime": 6.9,
+      "Kprime_error": 0.2,
+      "fixed_parameters": []
+    },
+    "c": {
+      "length0_angstrom": 13.87,
+      "length0_error": 0.031,
+      "K_effective_gpa": 89.1,
+      "K_effective_error": 1.0,
+      "Kprime": 7.9,
+      "Kprime_error": 0.4,
+      "fixed_parameters": []
+    },
+    "quadratic": {
+      "a_coefficients": [
+        2.965,
+        -0.0101,
+        0.00025
+      ],
+      "a_errors": [
+        0.009,
+        7e-05,
+        1e-05
+      ],
+      "c_coefficients": [
+        13.8692,
+        -0.0495,
+        0.0013
+      ],
+      "c_errors": [
+        0.0008,
+        0.0006,
+        0.0001
+      ],
+      "units": "Lengths in angstrom; P in GPa; coefficients retained as printed."
+    },
+    "quoted_linear_compressibility_gpa_inverse": {
+      "a": 0.00286,
+      "c": 0.00294
+    },
+    "caution": "Quoted linear compressibilities on p. 565 do not equal 1/(3 K_effective) from axial BM3 or zero-pressure derivatives of printed quadratic fits. Preserve them as quoted context only; do not execute or use them to infer volume EOS."
+  },
+  "diffraction_fallback": {
+    "reference": {
+      "authors": [
+        "Shieh, S. R.",
+        "Mao, H.-K.",
+        "Konzett, J.",
+        "Hemley, R. J."
+      ],
+      "year": 2000,
+      "title": "In-situ high pressure X-ray diffraction of phase E to 15 GPa",
+      "source": "American Mineralogist",
+      "volume": "85",
+      "locator": "765–769",
+      "doi": "10.2138/am-2000-5-616"
+    },
+    "source_location": "Figure 1 p. 766",
+    "hkl": [
+      [
+        0,
+        0,
+        3
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        0,
+        4
+      ],
+      [
+        0,
+        1,
+        5
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        8
+      ],
+      [
+        0,
+        2,
+        1
+      ]
+    ],
+    "method": "Identify the eight E-labeled reflections visually, exclude Au peaks and fluorescence. Compute d from the target measured conventional hexagonal cell; all satisfy -h+k+l=3n.",
+    "source_sample": "Fe-free Mg2.23(1)Si1.18(1)H2.80(6)O6, not the target EOS sample.",
+    "intensities": "Uniform display markers; no quantitative or observed intensity transfer."
+  },
+  "structure_samples": {
+    "reference": {
+      "authors": [
+        "Kudoh, Y.",
+        "Finger, L. W.",
+        "Hazen, R. M.",
+        "Prewitt, C. T.",
+        "Kanzaki, M.",
+        "Veblen, D. R."
+      ],
+      "year": 1993,
+      "title": "Phase E: A high pressure hydrous silicate with unique crystal chemistry",
+      "source": "Physics and Chemistry of Minerals",
+      "volume": "19",
+      "locator": "357–360",
+      "doi": "10.1007/BF00202972"
+    },
+    "source_location": "Table 1 p. 358; footnotes a,b; pp. 357–360 disorder discussion",
+    "convention": "All sites at (0,0,z); R-3m conventional hexagonal cell. Oxygen multiplicity 6; Z=1 for O6-normalized empirical formula. B parallel/perpendicular in angstrom^2.",
+    "samples": [
+      {
+        "sample": 1,
+        "reported_formula": "Mg2.08Si1.16H3.20O6",
+        "cell": {
+          "a": "2.9701(1)",
+          "c": "13.882(1)",
+          "volume": "106.05(4)"
+        },
+        "sites": [
+          {
+            "element": "Mg",
+            "label": "Mg1",
+            "multiplicity": 3,
+            "z": "0",
+            "occupancy": "0.664(6)",
+            "b_parallel": "1.44(10)",
+            "b_perpendicular": "1.53(8)"
+          },
+          {
+            "element": "Mg",
+            "label": "Mg2",
+            "multiplicity": 3,
+            "z": "0.5",
+            "occupancy": "0.013(4)",
+            "b_parallel": "1.44(10)",
+            "b_perpendicular": "1.53(8)"
+          },
+          {
+            "element": "Si",
+            "label": "Si",
+            "multiplicity": 6,
+            "z": "0.1296(3)",
+            "occupancy": "0.193(5)",
+            "b_parallel": "0.8(1)",
+            "b_perpendicular": "1.0(1)"
+          },
+          {
+            "element": "O",
+            "label": "O",
+            "multiplicity": 6,
+            "z": "0.2491(1)",
+            "occupancy": "1.0",
+            "b_parallel": "2.3(1)",
+            "b_perpendicular": "2.1(1)"
+          }
+        ]
+      },
+      {
+        "sample": 2,
+        "reported_formula": "Mg2.17Si1.01H3.62O6",
+        "cell": {
+          "a": "2.9853(6)",
+          "c": "13.9482(7)",
+          "volume": "107.65(4)"
+        },
+        "sites": [
+          {
+            "element": "Mg",
+            "label": "Mg1",
+            "multiplicity": 3,
+            "z": "0",
+            "occupancy": "0.687(10)",
+            "b_parallel": "1.55(9)",
+            "b_perpendicular": "1.53(8)"
+          },
+          {
+            "element": "Mg",
+            "label": "Mg2",
+            "multiplicity": 3,
+            "z": "0.5",
+            "occupancy": "0.036(6)",
+            "b_parallel": "1.55(9)",
+            "b_perpendicular": "1.53(8)"
+          },
+          {
+            "element": "Si",
+            "label": "Si",
+            "multiplicity": 6,
+            "z": "0.1300(3)",
+            "occupancy": "0.169(5)",
+            "b_parallel": "0.9(2)",
+            "b_perpendicular": "1.1(1)"
+          },
+          {
+            "element": "O",
+            "label": "O",
+            "multiplicity": 6,
+            "z": "0.2503(1)",
+            "occupancy": "1.0",
+            "b_parallel": "2.6(1)",
+            "b_perpendicular": "2.2(1)"
+          }
+        ]
+      }
+    ],
+    "hydrogen": "Not located; formula H inferred by charge balance in this structure paper. Crichton–Ross H instead derives from EMPA deficit.",
+    "limitations": "Average partially occupied structure; local coupled vacancies cannot be represented as simultaneous locally occupied Mg/Si positions. Absolute unit-cell content cannot be determined without absolute X-ray intensity or accurate density (p. 360). Samples differ from target; no sites copied to card.",
+    "source_discrepancy": "Sample 1 Table 1 occupancies give Mg=3*(0.664+0.013)=2.031, not the printed formula Mg2.08; Si=6*0.193=1.158. Both table and formula are retained without correction. Sample 2 gives Mg=2.169, Si=1.014, consistent with its rounded formula. Neither sample is used as the target atom model."
+  },
+  "thermal_assessment": {
+    "reference_doi": "10.1029/2022JB025274",
+    "source_sample": "Mg2.22(1)Si1.27(2)H2.48(1)O6 (Fe-free)",
+    "status": "deferred_distinct_composition",
+    "reason": "Source-owned HTBM and Table S1 exist, but cannot extend the Fe-bearing Crichton–Ross material. Requires a separately audited material and primary PVT/supplement recovery; no thermal parameters transferred."
+  },
+  "calibration_source_parameters": {
+    "reference": {
+      "doi": "10.1107/S0021889897000861"
+    },
+    "source_location": "Angel et al. (1997), p. 461 abstract",
+    "model": "BM3",
+    "parameters": {
+      "V0": 112.981,
+      "K0": 37.12,
+      "K0_prime": 5.99
+    },
+    "reported_errors": {
+      "V0": 0.002,
+      "K0": 0.09,
+      "K0_prime": 0.04
+    },
+    "units": {
+      "V0": "angstrom^3/conventional_unit_cell",
+      "K0": "GPa",
+      "K0_prime": "dimensionless"
+    },
+    "not_observations": true,
+    "note": "Exact cited quartz scale; no marker readings from the phase E experiment are available. No registry record is added."
+  },
+  "author_thesis_crosscheck": {
+    "reference": {
+      "authors": [
+        "Crichton, Wilson Alexander"
+      ],
+      "year": 2000,
+      "title": "Equations of State of Dense Hydrous Silicates",
+      "source": "University College London PhD thesis",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10123954/"
+    },
+    "source_location": "Section 2.11 pp. 44–45, Eq. 2.31; Table 6.1 p. 138; Results p. 137",
+    "raw_columns": [
+      "pressure_gpa",
+      "a_angstrom",
+      "c_angstrom",
+      "volume_a3"
+    ],
+    "raw_rows": [
+      [
+        "0.0001",
+        "2.9654(2)",
+        "13.8703(5)",
+        "105.633(16)"
+      ],
+      [
+        "0.296(4)",
+        "2.9623(3)",
+        "13.8552(6)",
+        "105.294(21)"
+      ],
+      [
+        "1.128(4)",
+        "2.9541(2)",
+        "13.8140(3)",
+        "104.401(13)"
+      ],
+      [
+        "1.987(4)",
+        "2.9460(3)",
+        "13.7742(4)",
+        "103.529(18)"
+      ],
+      [
+        "2.973(4)",
+        "2.9374(3)",
+        "13.7336(4)",
+        "102.623(21)"
+      ],
+      [
+        "3.944(6)",
+        "2.9295(2)",
+        "13.6959(4)",
+        "101.794(17)"
+      ],
+      [
+        "4.443(6)",
+        "2.9255(3)",
+        "13.6767(5)",
+        "101.367(20)"
+      ],
+      [
+        "5.301(7)",
+        "2.9187(3)",
+        "13.6445(5)",
+        "100.665(19)"
+      ],
+      [
+        "5.539(5)",
+        "2.9170(3)",
+        "13.6370(6)",
+        "100.492(20)"
+      ],
+      [
+        "6.139(8)",
+        "2.9126(3)",
+        "13.6152(6)",
+        "100.025(20)"
+      ],
+      [
+        "6.671(8)",
+        "2.9091(3)",
+        "13.5972(6)",
+        "99.648(18)"
+      ]
+    ],
+    "normalized_rows": [
+      [
+        0.0001,
+        null,
+        2.9654,
+        0.0002,
+        13.8703,
+        0.0005,
+        105.633,
+        0.016
+      ],
+      [
+        0.296,
+        0.004,
+        2.9623,
+        0.00030000000000000003,
+        13.8552,
+        0.0006000000000000001,
+        105.294,
+        0.021
+      ],
+      [
+        1.128,
+        0.004,
+        2.9541,
+        0.0002,
+        13.814,
+        0.00030000000000000003,
+        104.401,
+        0.013000000000000001
+      ],
+      [
+        1.987,
+        0.004,
+        2.946,
+        0.00030000000000000003,
+        13.7742,
+        0.0004,
+        103.529,
+        0.018000000000000002
+      ],
+      [
+        2.973,
+        0.004,
+        2.9374,
+        0.00030000000000000003,
+        13.7336,
+        0.0004,
+        102.623,
+        0.021
+      ],
+      [
+        3.944,
+        0.006,
+        2.9295,
+        0.0002,
+        13.6959,
+        0.0004,
+        101.794,
+        0.017
+      ],
+      [
+        4.443,
+        0.006,
+        2.9255,
+        0.00030000000000000003,
+        13.6767,
+        0.0005,
+        101.367,
+        0.02
+      ],
+      [
+        5.301,
+        0.007,
+        2.9187,
+        0.00030000000000000003,
+        13.6445,
+        0.0005,
+        100.665,
+        0.019
+      ],
+      [
+        5.539,
+        0.005,
+        2.917,
+        0.00030000000000000003,
+        13.637,
+        0.0006000000000000001,
+        100.492,
+        0.02
+      ],
+      [
+        6.139,
+        0.008,
+        2.9126,
+        0.00030000000000000003,
+        13.6152,
+        0.0006000000000000001,
+        100.025,
+        0.02
+      ],
+      [
+        6.671,
+        0.008,
+        2.9091,
+        0.00030000000000000003,
+        13.5972,
+        0.0006000000000000001,
+        99.648,
+        0.018000000000000002
+      ]
+    ],
+    "differences_from_journal": [
+      {
+        "row": 1,
+        "field": "a_angstrom",
+        "thesis": "2.9654(2)",
+        "journal": "2.9655(2)"
+      },
+      {
+        "row": 2,
+        "field": "pressure_gpa",
+        "thesis": "0.296(4)",
+        "journal": "0.296(3)"
+      },
+      {
+        "row": 6,
+        "field": "a_angstrom",
+        "thesis": "2.9295(2)",
+        "journal": "2.9296(2)"
+      },
+      {
+        "row": 11,
+        "field": "a_angstrom",
+        "thesis": "2.9091(3)",
+        "journal": "2.9090(3)"
+      }
+    ],
+    "fit_objective": "Eq. 2.31 explicitly defines chi_w_squared=sum_i w_i(Pobs_i-Pcalc(Vobs_i))^2/(n-m), w_i=sigma_i^-2; sigma combines pressure error and propagated volume error. Actual propagation, weight iteration and ambient esd convention are not specified.",
+    "recommended_staging": "Section 2.11 recommends starting with free V0,K0 and Kprime fixed to 4, then assessing higher order; it does not supply original phase E iteration trace or executable fit code.",
+    "bm3_result": "Same V0=105.627(7), K0=92.9(7), Kprime=7.3(2), chi_w_squared=0.4 as journal.",
+    "bm2_comparison": {
+      "V0": 105.57,
+      "V0_error": 0.03,
+      "K0": 101.5,
+      "K0_error": 0.8,
+      "K0_prime": 4.0,
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "chi_w_squared": 7.3,
+      "interpretation": "Thesis-only lower-order comparison; poorer fit, not installed as an additional record."
+    },
+    "quartz_observations": "No paired phase E quartz readings recovered from Chapter 6; same published P-V values, with version differences noted above.",
+    "source_terms": "Thesis reproduction states author copyright, all rights reserved; ProQuest microform edition notice. Source-data reuse license unspecified.",
+    "selection": "Journal Table 1 has priority for the staged record. Preserve thesis rows as a separate author version; do not merge their a or sigma_P entries into the journal dataset."
+  }
+}

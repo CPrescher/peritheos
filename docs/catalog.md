@@ -1,14 +1,40 @@
 # Material catalog
 
 Peritheos exposes the complete bundled library through the normal executable
-API. `list_materials()` returns 224 `Material` objects and
-`list_eos_records()` returns their 647 `EOSRecord` objects. Both are ordered by
+API. `list_materials()` returns 229 `Material` objects and
+`list_eos_records()` returns their 669 `EOSRecord` objects. Both are ordered by
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
 
 Thorianite and cotunnite-type ThO2 have separate experimental thermal records
 from Chidester et al. (2018); see the [source audit](literature-reproductions/chidester-2018-tho2.md)
 for their phase-dependent data selections and reference-state limits.
+
+The [coverage overview](catalog-coverage.md) reports current material-level
+static/thermal/Hugoniot coverage, calibration readiness and ledger differences.
+The [material backlog](material-eos-candidates.md) separates open gaps,
+completed additions and evidence-dependent holds.
+
+Fe-bearing phase E (`phase_e_fe0072`) preserves the Crichton–Ross (2000)
+measured composition and published static BM3. Its independent refit achieves
+parity within reported uncertainty; the [audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md)
+show the small coefficient and pressure-curve differences. Its phase-specific
+diffraction fallback supplies indexed peak positions with uniform display
+markers; it does not assert sample-specific atomic occupancies or intensities.
+
+Brucite (`brucite`) uses a directly verified fluorine-free neutron reference
+structure. Published Fukui (2003) 300/473/673 K BM3 curves retain their measured
+pressure spans, up to 22.56 GPa at 300 K. Hydrogen rearrangement is annotated
+within a layered lattice-average volume model. Separate Peritheos table-data
+refits provide 873 K use to 15.48 GPa and thermal interpolation over
+5.95–15.48 GPa, 300–873 K, with conditional covariance. The inconsistent
+original 873 K curve and literal source-slope reconstruction retain
+`not_reproduced` and explicit selection. The [brucite audit](literature-reproductions/brucite.md)
+explains the graphical normalization mismatch and the scope of each record.
+The additional curved-expansion refits keep the published isotherm moduli,
+with a separate continuous variant retaining the published slopes and explicit
+300 K anchors. Their expansion coefficients come from an independent ambient-data
+fit; the original source records and material default remain unchanged.
 
 ## EOS record categories
 

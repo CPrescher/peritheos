@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-12",
+  "doi": "10.1029/2012JB009292",
+  "question": "Could Au K0 remain fixed at 167 GPa while Mo and Pt K0 were free?",
+  "trigger": "User asked whether the repeated Au K0=167 could reflect a fixed parameter, as in Sakai 2025.",
+  "published_evidence": {
+    "article_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/dorfman_jgr_12.pdf",
+    "location": "Table 2, printed page 6",
+    "fixed_mode_au_k0": "167 GPa with superscript f (fixed)",
+    "free_mode_au_k0": "167 +/- 3 GPa, without superscript f, under K0 Free for Metals",
+    "interpretation": "The printed table indicates free Au K0 in the second mode; original code remains unrecovered."
+  },
+  "diagnostic_scope": "Same 165 rows and 241 unordered pairs; no AN012 or imputed data. Keep all V0 and the MgO reference fixed; fix only Au K0=167 among the metals, with Mo/Pt K0 and all non-MgO K0_prime free, and NaCl/Ne K0 free.",
+  "dataset_sha256": "c65d843d31085e72b63cc3377042b2e855ea83d958e34846c78c862e3a25246c",
+  "reproducer_sha256": "1be6ae66fde1042cefe9acc99b3bdd8db35221b0297bdccd7b3957474a65d08a",
+  "optimizer": {
+    "method": "scipy.optimize.least_squares, lm",
+    "ftol": 1e-12,
+    "xtol": 1e-12,
+    "gtol": 1e-12,
+    "max_nfev": 10000,
+    "initial": "Published free-metal vector, with Au K0 removed and reinserted as constant 167 at residual evaluation.",
+    "implementation": "Reuse load_dataset, _pairs, _fit_parameters(free), vinet_pressure; residual deltaP/sqrt(meanP) for Equation 3 or deltaP for unweighted."
+  },
+  "results": {
+    "equation_3": {
+      "success": true,
+      "au_k0_gpa": 167.0,
+      "au_k0_prime": 5.864143902896537,
+      "objective_gpa": 12.807529723620501
+    },
+    "unweighted": {
+      "success": true,
+      "au_k0_gpa": 167.0,
+      "au_k0_prime": 5.858958240691856,
+      "objective_gpa2": 1202.1476511715828
+    }
+  },
+  "conclusion": "Neither diagnostic recovers the printed free-mode Au K0_prime=5.84 to displayed precision. This does not prove the authors did or did not apply this constraint; it is not an author-fit reproduction or replacement coefficients."
+}

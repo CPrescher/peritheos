@@ -351,7 +351,7 @@ Thermal `type` and `model` must likewise match:
 
 | `type` | `model` | Main parameters |
 |---|---|---|
-| `AlphaKT` | `thermal_reference_state` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1` |
+| `AlphaKT` | `thermal_reference_state` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1`, `dKprime_dT` |
 | `LinearThermalPressure` | `linear_thermal_pressure` | `Tr`, `alpha_KT` |
 | `SecondOrderTaylorThermalPressure` | `second_order_taylor_thermal_pressure` | `Tr`, `eta0`, `c0`, `c1`, `c2`, `c3`, `c4`, `c5` |
 | `SoundVelocityDebyeHelmholtz` | `sound_velocity_debye_helmholtz` | `Tr`, `molar_mass_g_mol`, `n`, longitudinal/shear velocity intercepts and slopes |
@@ -607,7 +607,7 @@ Debye-temperature field is absent.
 Rust validates the same document-level invariants and additionally constructs
 every built-in model before accepting or writing a document:
 
-```rust,no_run
+```rust
 use peritheos::{load_eosmat, load_eosmat_str};
 
 let mut material = load_eosmat("gold.eosmat")?;
@@ -617,7 +617,7 @@ material.validate()?;
 let json = material.to_json()?;
 let round_tripped = load_eosmat_str(&json)?;
 round_tripped.save("gold-copy.eosmat")?;
-# Ok::<(), Box<dyn std::error::Error>>(())
+Ok::<(), Box<dyn std::error::Error>>(())
 ```
 
 For a decoded `serde_json::Value`, the equivalent free functions are
@@ -641,6 +641,38 @@ See [Dioptas integration](dioptas-integration.md) for application ownership,
 the bundled-library migration, and current round-trip limitations.
 
 ### Cubic reference compressibility
+
+The optional `AlphaKT` numeric parameter `dKprime_dT` (K^-1, default zero)
+sets the linear temperature derivative of `K0_prime`:
+`K0_prime(T)=K0_prime(Tr)+dKprime_dT*(T-Tr)`. It may be fitted or assigned
+uncertainty like other numeric parameters. The existing logarithmic term below
+is additive with this linear term. Both leave the reference isotherm unchanged.
+For example:
+
+```json
+"thermal": {
+  "type": "AlphaKT",
+  "model": "thermal_reference_state",
+  "parameters": {
+    "Tr": 300.0,
+    "alpha0": 6.69e-5,
+    "dK_dT": -0.0319,
+    "dKprime_dT": 0.00571
+  }
+}
+```
+
+This is an additive format-3 extension; omission preserves constant Kprime
+unless a logarithmic term is separately specified. Explicit null, nonfinite
+coefficients, and use on a different thermal model are rejected. Nonzero linear
+and logarithmic terms share the supported reference-family list below; in
+particular BM2 and BM4 reject a nonzero slope. An unknown `K0_double_prime(T)`
+law is not inferred for BM4.
+
+Records with a nonzero `dKprime_dT` require a reader implementing this extension.
+Preserving an unknown numeric parameter without applying it is insufficient:
+consumers must evaluate its stated law or reject the record. The staged
+brucite diagnostic requires this development implementation.
 
 `AlphaKT` / `thermal_reference_state` supports `bulk_modulus_law` with default
 `linear_temperature` or `reciprocal_cubic`. The latter requires `dK_dT=0`

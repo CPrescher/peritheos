@@ -1,0 +1,188 @@
+{
+  "source": "Zhao et al. (1998), DOI 10.4131/jshpreview.7.25, Figures 2-4, pages 26-27",
+  "source_pdf_sha256": "946740290bc4533d4a09895d2f0f06e0869a3342ff468f47d3450925a67a4794",
+  "method": "Manual tick/marker centre readings on the unmodified Figure 2 crop from a 450 dpi page-26 rendering; affine least-squares axis calibration. Coordinates are analysis pixels, not original experimental observations.",
+  "render_dpi": 450,
+  "render_size_pixels": [
+    3157,
+    4513
+  ],
+  "crop_box_pixels": [
+    1610,
+    2279,
+    2968,
+    3335
+  ],
+  "pressure_tick_pixels": [
+    201.0,
+    371.0,
+    541.0,
+    711.0,
+    879.0,
+    1050.0,
+    1221.0
+  ],
+  "pressure_tick_values_gpa": [
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    12.0
+  ],
+  "volume_tick_pixels": [
+    310.0,
+    451.0,
+    592.0,
+    733.0,
+    874.0
+  ],
+  "volume_tick_values_a3": [
+    440.0,
+    430.0,
+    420.0,
+    410.0,
+    400.0
+  ],
+  "parity_assessment": {
+    "assessment_date": "2026-10-16",
+    "equation_mapping_validated": true,
+    "published_curves_agree_at_graphical_resolution": true,
+    "parameter_parity_with_documented_table_error": true,
+    "parameter_checks": {
+      "K0": {
+        "published_value": 109.1,
+        "reported_error": 4.0,
+        "independent_refit_value": 107.72466440881215,
+        "within_reported_error": true
+      },
+      "K0_prime": {
+        "published_value": 4.84,
+        "reported_error": 0.6,
+        "independent_refit_value": 5.122488565130115,
+        "within_reported_error": true
+      },
+      "alpha0": {
+        "published_value": 2.32e-05,
+        "reported_error": 5e-07,
+        "independent_refit_value": 2.2972456391882284e-05,
+        "within_reported_error": true
+      },
+      "alpha1": {
+        "published_value": 1.88e-08,
+        "reported_error": 7e-10,
+        "independent_refit_value": 1.902591653883834e-08,
+        "within_reported_error": true
+      },
+      "dK_dT": {
+        "published_value": -0.0205,
+        "reported_error": 0.0004,
+        "independent_refit_value": -0.020207621644568515,
+        "within_reported_error": true
+      }
+    },
+    "basis": "Five varied coefficients agree within their reported errors when the independently digitized Figure 2 pressure is used for row 15, with V0=438.67 A^3 and Tr=300 K fixed. This is published-model and parameter parity with a documented source-table error, rather than an exact recovery of the original numerical inputs and regression workflow.",
+    "source_table_errors_block_published_eos_acceptance": false,
+    "original_observations_preserved": true,
+    "published_coefficients_preserved": true,
+    "exact_original_author_workflow_recovered": false
+  },
+  "row15": {
+    "marker_centre_pixels": [
+      590.0,
+      428.0
+    ],
+    "digitized_pressure_gpa": 4.580325119462641,
+    "pressure_reading_bound_gpa": 0.05,
+    "digitized_volume_a3": 431.631205673759,
+    "volume_reading_bound_a3": 0.2,
+    "bound_convention": "Conservative graphical reading bounds, not statistical experimental errors or fitted uncertainty.",
+    "table_pressure_gpa": 6.95,
+    "table_volume_a3": 431.66,
+    "table_temperature_k": 1072,
+    "published_eos_pressure_gpa": 4.563023907451244,
+    "finding": "Figure 2 places the matching marker near 4.6 GPa, while the Table 1 pressure would fall in an empty part of the plot. Supports a printed-table error; exact original pressure is not recovered."
+  },
+  "ambient": {
+    "marker_centre_pixels": [
+      201.0,
+      327.0
+    ],
+    "digitized_pressure_gpa": 2.3342563079342682e-05,
+    "digitized_volume_a3": 438.7943262411349,
+    "volume_reading_bound_a3": 0.2,
+    "table_volume_a3": 438.67,
+    "table_lattice_metric_volume_a3": 443.5752871851424,
+    "finding": "The plotted ambient point corroborates the printed volume column near 438.7 A^3; it does not recover the correct individual lattice dimensions."
+  },
+  "figure2_curves": {
+    "cross_section_pressure_gpa": 11.291821296410586,
+    "cross_section_x_pixel": 1160.0,
+    "temperature_labels_k": [
+      300,
+      473,
+      673,
+      873,
+      1073,
+      1273
+    ],
+    "curve_centre_y_pixels": [
+      832.5,
+      815.5,
+      793.5,
+      766.5,
+      737.5,
+      704.5
+    ],
+    "digitized_volumes_a3": [
+      402.9432624113475,
+      404.1489361702128,
+      405.709219858156,
+      407.6241134751773,
+      409.68085106382983,
+      412.0212765957447
+    ],
+    "independent_model_volumes_a3": [
+      403.1866501712346,
+      404.3702221997,
+      405.9583328903311,
+      407.77720879475936,
+      409.8207400224092,
+      412.08157397503817
+    ],
+    "digitized_minus_model_a3": [
+      -0.24338775988707084,
+      -0.221286029487203,
+      -0.24911303217510294,
+      -0.15309531958206435,
+      -0.13988895857937678,
+      -0.06029737929344492
+    ],
+    "finding": "All six curves have the expected ordering and agree within 0.3 A^3 at this graphical cross section. This supports graphical consistency, not numerical identity with the original plotting code. The labelled temperatures are 300, 473, 673, 873, 1073 and 1273 K; the caption's statement of 200 K steps above 300 K is inexact."
+  },
+  "figure3": {
+    "finding": "Volume-temperature plot: raw points and pressure-corrected series are shown, but raw-point pressures are not encoded. It cannot independently determine row 15 pressure or recover the ambient lattice dimensions."
+  },
+  "figure4": {
+    "finding": "The plotted zero-pressure mean expansivity near 3.82e-5 K^-1 is consistent with the adopted alpha(T) coefficients. Figure slope label -1.54(2)e-6 and prose -1.52(2)e-6 differ; this remains a separate secondary-regression discrepancy."
+  },
+  "graphical_interpretation_diagnostic": {
+    "selection": "All 32 original rows; row 15 uses the Figure 2 pressure rounded to 4.58 GPa, exactly as in the separately bundled corrected P-V-T dataset. Original source tables and published coefficients are untouched.",
+    "dataset_identifier": "diopside_zhao_1998_table1_corrected_pvt",
+    "row15_analysis_pressure_gpa": 4.58,
+    "published_curve_pressure_rmse_gpa": 0.06455854469786602,
+    "refit_coefficients": {
+      "K0": 107.72466440881215,
+      "K0_prime": 5.122488565130115,
+      "alpha0": 2.2972456391882284e-05,
+      "alpha1": 1.902591653883834e-08,
+      "dK_dT": -0.020207621644568515
+    },
+    "refit_pressure_rmse_gpa": 0.057920259389445686,
+    "fixed_V0_a3": 438.67,
+    "fixed_Tr_k": 300,
+    "objective": "Unweighted pressure residuals for sensitivity only; graphical bound is not an experimental row uncertainty.",
+    "original_author_workflow_parity": false
+  }
+}

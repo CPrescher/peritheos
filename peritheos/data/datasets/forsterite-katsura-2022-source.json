@@ -1,0 +1,87 @@
+{
+  "audit_date": "2026-10-15",
+  "files": [
+    {
+      "path": "docs/data/forsterite-katsura-2022-sources/forsterite-katsura-2022-author-fitting.m",
+      "sha256": "329741fea264e40267ba20a329457150ef19a3942a0e4684a82470bd2e7a5799",
+      "bytes": 19074,
+      "source_doi": "10.5281/zenodo.5903286",
+      "source_license": "CC-BY-4.0",
+      "creator": "Tomoo Katsura"
+    },
+    {
+      "path": "docs/data/forsterite-katsura-2022-sources/forsterite-katsura-2022-author-geotherm.m",
+      "sha256": "26375509cb6605523f45a8f127a28cde6be0d22de5353e0cee3134a559373251",
+      "bytes": 20857,
+      "source_doi": "10.5281/zenodo.5903286",
+      "source_license": "CC-BY-4.0",
+      "creator": "Tomoo Katsura"
+    },
+    {
+      "path": "docs/data/forsterite-katsura-2022-sources/forsterite-katsura-2022-source.xlsx",
+      "sha256": "21ee1c63e88051a2249b9fe481aec389df21bff9ac7ad64ee4d0963cb4f71143",
+      "bytes": 236702,
+      "source_doi": "10.5281/zenodo.5644426",
+      "source_license": "CC-BY-4.0",
+      "creator": "Tomoo Katsura"
+    }
+  ],
+  "publication": {
+    "doi": "10.1029/2021JB023562",
+    "version": "Final published version",
+    "access_url": "https://epub.uni-bayreuth.de/id/eprint/6715/",
+    "pdf_sha256": "0b074a512952bb20d814ed8dea38cc7c1c32a84508f7cd34452cf07d544b3929",
+    "download_url": "https://d-nb.info/1271218135/34"
+  },
+  "original_2009_access": {
+    "doi": "10.1016/j.pepi.2008.08.002",
+    "full_text_recovered": true,
+    "locations_checked": [
+      "Publisher landing/preview (403 on full page; browser challenge)",
+      "Crossref-linked Elsevier XML API (bibliographic metadata only)",
+      "Okayama author publication page (Full Text link returns to publisher)",
+      "Katsura Bayreuth author publication list (publisher link)",
+      "Local Zotero title search (no match)",
+      "OpenAlex and Semantic Scholar (closed, no repository full text)"
+    ],
+    "missing": [
+      "Takeuchi et al. (1984) numerical thermal-expansion observations/selection used by the original 2009 combined fit",
+      "Exact 2009 joint-fit objective/normalization details remain a separate audit from the 2022 script refit"
+    ],
+    "supplied_pdf_sha256": "65ec99c9bfcfb8a3fd5d16e8839b0768226a338622fc776dba8ef7397b4a246a",
+    "recovery": "User-supplied final article; equations and Table 1 inspected; all 52 Table 1 numerical rows bundled separately."
+  },
+  "recoverable_data": {
+    "worksheet": "Olivine",
+    "rows": [
+      4,
+      54
+    ],
+    "row_count": 51,
+    "column_count": 41,
+    "cell_evidence": "peritheos/data/datasets/forsterite-katsura-2022-olivine-cells.json"
+  },
+  "author_code_qualifications": [
+    "The final table fixes theta0=768 K but both deposited scripts fix 760 K.",
+    "Fitting code reads a separate Olivine_PVT2021.xlsx, not the deposited multi-sheet workbook.",
+    "Random seed/realizations and separate temperature uncertainties are absent."
+  ],
+  "metadata_discrepancies": [
+    "Zenodo dataset description identifies Tange 2012 pressure correction DOI; final article Section 2.2 and workbook identify two Tange 2009 scales."
+  ],
+  "recommended_thermal_record": "forsterite_katsura_2022_author_script_bm3_mgd",
+  "fit_reproduction": {
+    "status": "parity",
+    "parity_basis": "within_reported_parameter_errors",
+    "scope": "Conditional numerical parameter parity of the recommended author-script vector, reconstructed all-51 input, fixed theta0=760 K.",
+    "uncertainty_reference_record": "forsterite_katsura_2022_bm3_mgd",
+    "qualification": "Printed Table 2 bootstrap error widths are the comparison scale only; script-specific errors remain missing and exact bootstrap reproduction remains unverified.",
+    "report": "docs/data/forsterite-katsura-2022-reproduction.json"
+  },
+  "printed_table_alternative": "forsterite_katsura_2022_bm3_mgd",
+  "fitting_input_candidate": {
+    "path": "peritheos/data/datasets/forsterite-katsura-2022-candidate-fitting-input.csv",
+    "sha256": "81ed55e75794c77a999409dd61a54b6744d75e3d786b5bfeb2c58798e882a325",
+    "status": "five_available_columns_of_six; sigmaT missing; exact separate export selection unconfirmed"
+  }
+}

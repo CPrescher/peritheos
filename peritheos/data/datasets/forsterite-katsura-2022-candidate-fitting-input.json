@@ -1,0 +1,22 @@
+{
+  "status": "partial_candidate_reconstruction_not_original_author_export",
+  "source_doi": "10.5281/zenodo.5644426",
+  "source_sheet": "Olivine",
+  "source_rows": [
+    4,
+    54
+  ],
+  "columns_in_author_script_order": [
+    "AD",
+    "AE",
+    "AN",
+    "AO",
+    "U",
+    null
+  ],
+  "pressure_choice": "Author-saved combined AD/AE. Exact separate export selection cannot be confirmed; individual Vinet and BM3 coordinates remain in the complete source transcription.",
+  "missing": [
+    "temperature_sigma_k"
+  ],
+  "notes": "All 51 rows retained. S/T are corrected temperatures evaluated at pressure brackets; their half-span is recoverable but not established as the total sigmaT supplied to the bootstrap. Blank sigmaT must not be silently read as zero. No claim of original bootstrap fit-input parity."
+}

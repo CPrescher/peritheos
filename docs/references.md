@@ -1,5 +1,57 @@
 # References
 
+- Fukui, H., Ohtaka, O., Suzuki, T. & Funakoshi, K. (2003). Thermal expansion
+  of Mg(OH)2 brucite under high pressure and pressure dependence of entropy.
+  *Physics and Chemistry of Minerals*, **30**, 511–516.
+  [doi:10.1007/s00269-003-0353-z](https://doi.org/10.1007/s00269-003-0353-z).
+  Restricted 300 K default and qualified thermal reconstruction; all 48
+  observations retained. See the [brucite audit](literature-reproductions/brucite.md).
+- He, Xuejing (2023). *Hydrogen-bonding configurations of magnesium
+  hydroxyfluoride and fluorine-doped magnesium hydroxide under high pressure*.
+  Doctoral thesis, University of Tokyo, Table 4.3, pp. 81–82.
+  [Institutional repository](https://doi.org/10.15083/0002012205).
+  Direct primary neutron structure of the fluorine-free hydrogenated sample;
+  the thesis became public in March 2025.
+- Xia, X., Weidner, D. J. & Zhao, H. (1998). Equation of state of brucite:
+  Single-crystal Brillouin spectroscopy study and polycrystalline
+  pressure-volume-temperature measurement. *American Mineralogist*, **83**, 68–74.
+  [doi:10.2138/am-1998-0107](https://doi.org/10.2138/am-1998-0107).
+  All 54 Table 6 observations retained; incomplete thermal alternative held.
+- Duffy, T. S., Meade, C., Fei, Y., Mao, H.-K. & Hemley, R. J. (1995).
+  High-pressure phase transition in brucite, Mg(OH)2.
+  *American Mineralogist*, **80**, 222–230.
+  [doi:10.2138/am-1995-3-403](https://doi.org/10.2138/am-1995-3-403).
+- Wu, M., Dai, L., Hu, H. & Li, C. (2026). Hydrogen-Disordering Transformation
+  and High-Temperature and High-Pressure Phase Diagram of Brucite: Insights
+  from Raman Spectroscopy and Electrical Conductivity. *Molecules*, **31**, 1631.
+  [doi:10.3390/molecules31101631](https://doi.org/10.3390/molecules31101631).
+  Phase annotations only; contradictory printed P–T assignments are preserved
+  without installing a universal phase-boundary evaluator.
+- Crichton, W. A. & Ross, N. L. (2000). Equation of state of phase E.
+  *Mineralogical Magazine*, **64**, 561–567.
+  [doi:10.1180/002646100549427](https://doi.org/10.1180/002646100549427).
+  The measured Fe-bearing sample, published BM3, all eleven primary rows and
+  reported errors are bundled. See the [parity assessment, differences and
+  residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).
+- Kudoh, Y., Finger, L. W., Hazen, R. M., Prewitt, C. T., Kanzaki, M. &
+  Veblen, D. R. (1993). Phase E: A high pressure hydrous silicate with unique
+  crystal chemistry. *Physics and Chemistry of Minerals*, **19**, 357–360.
+  [doi:10.1007/BF00202972](https://doi.org/10.1007/BF00202972).
+  Independent structure and disorder provenance; its different-composition
+  site models are retained as evidence rather than assigned to the EOS sample.
+- Shieh, S. R., Mao, H.-K., Konzett, J. & Hemley, R. J. (2000). In-situ high
+  pressure X-ray diffraction of phase E to 15 GPa. *American Mineralogist*,
+  **85**, 765–769.
+  [doi:10.2138/am-2000-5-616](https://doi.org/10.2138/am-2000-5-616).
+  Figure 1 supplies the eight indexed phase E reflections used in the
+  explicitly limited peak-position fallback.
+- Angel, R. J., Allan, D. R., Miletich, R. & Finger, L. W. (1997). The Use of
+  Quartz as an Internal Pressure Standard in High-Pressure Crystallography.
+  *Journal of Applied Crystallography*, **30**, 461–466.
+  [doi:10.1107/S0021889897000861](https://doi.org/10.1107/S0021889897000861).
+  The quantitative pressure standard used by the phase E source; original
+  paired quartz readings are not printed in that phase E experiment.
+
 - Miozzi, F., Matas, J., Guignot, N., Badro, J., Siebert, J. & Fiquet, G.
   (2020). A New Reference for the Thermal Equation of State of Iron.
   *Minerals*, **10**, 100.

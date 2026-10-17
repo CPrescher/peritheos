@@ -977,6 +977,8 @@ pub struct ThermalReferenceState<R> {
     pub compressibility_coefficients: Option<[f64; 3]>,
     /// Coefficient of `(T-Tr) ln(T/Tr)` in the reference pressure derivative.
     pub kprime_log_coefficient: f64,
+    /// Linear temperature derivative of `K0_prime` in K^-1.
+    pub dkprime_dt: f64,
 }
 
 impl<R: ReferenceStateEos> ThermalReferenceState<R> {
@@ -1005,6 +1007,7 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
             reference_volume_law,
             compressibility_coefficients: None,
             kprime_log_coefficient: 0.0,
+            dkprime_dt: 0.0,
         };
         if model.thermal_expansion_law == ThermalExpansionLaw::Constant && model.alpha1 != 0.0 {
             return Err(EosError::InvalidParameter {
@@ -1061,6 +1064,21 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
         Ok(self)
     }
 
+    /// Add `dkprime_dt * (T - Tr)` to the reference pressure derivative.
+    /// This term is additive with the optional logarithmic temperature law.
+    ///
+    /// # Errors
+    /// Rejects nonfinite slopes or reference families without an adjustable
+    /// pressure derivative. The reference state itself is unchanged.
+    pub fn with_linear_pressure_derivative(mut self, dkprime_dt: f64) -> EosResult<Self> {
+        self.dkprime_dt = finite_parameter(dkprime_dt, "dKprime_dT")?;
+        if self.dkprime_dt != 0.0 {
+            // Probe capability, not a physical shift by a dimensional slope.
+            self.rt_eos.with_pressure_derivative_shift(f64::EPSILON)?;
+        }
+        Ok(self)
+    }
+
     fn state_eos(&self, temperature: f64) -> EosResult<R> {
         let temperature = positive_state(temperature, "temperature")?;
         let delta = temperature - self.tr;
@@ -1104,11 +1122,13 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
                 reason: "produces a non-positive bulk modulus",
             });
         }
+        let mut derivative_shift = self.dkprime_dt * delta;
+        if self.kprime_log_coefficient != 0.0 {
+            derivative_shift += self.kprime_log_coefficient * delta * (temperature / self.tr).ln();
+        }
         self.rt_eos
             .with_reference_state(reference_volume, bulk_modulus)?
-            .with_pressure_derivative_shift(
-                self.kprime_log_coefficient * delta * (temperature / self.tr).ln(),
-            )
+            .with_pressure_derivative_shift(derivative_shift)
     }
 }
 

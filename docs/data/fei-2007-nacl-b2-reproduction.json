@@ -54,22 +54,22 @@
     },
     "figure4_1000k": {
       "observations": 12,
-      "rmse_gpa": 2.0008151879693523,
-      "mean_residual_gpa": 0.680301421160026,
-      "max_abs_residual_gpa": 3.4959463082453084,
+      "rmse_gpa": 2.0008151879503355,
+      "mean_residual_gpa": 0.6803014211046078,
+      "max_abs_residual_gpa": 3.4959463081891187,
       "pressure_residuals_gpa": [
-        -0.8604952637819281,
-        0.5885388360793584,
-        0.028811411208224058,
-        0.12155488712326701,
-        0.9196279966511725,
-        2.527041251998085,
-        3.4959463082453084,
-        3.4377570768266708,
-        1.9242270588533472,
-        0.12541324172612178,
-        -0.7768049082733626,
-        -3.3680008427359525
+        -0.8604952638337267,
+        0.5885388360264727,
+        0.028811411154897826,
+        0.1215548870687897,
+        0.9196279965956222,
+        2.5270412519421654,
+        3.4959463081891187,
+        3.4377570767700263,
+        1.9242270587966601,
+        0.12541324166926415,
+        -0.7768049083306181,
+        -3.3680008427933785
       ]
     }
   },
@@ -89,14 +89,14 @@
       "theta0": 290.0
     },
     "parameters": {
-      "K0": 26.88910684272275,
-      "K0_prime": 5.2469124012106825
+      "K0": 26.88910688628862,
+      "K0_prime": 5.246912395711911
     },
     "conditional_standard_errors": {
-      "K0": 2.1296181357073074,
-      "K0_prime": 0.27006889403636436
+      "K0": 2.129618146414732,
+      "K0_prime": 0.2700688894059465
     },
-    "rmse_gpa": 1.872957772286715,
+    "rmse_gpa": 1.8729577722867148,
     "solver_success": true
   },
   "cold_fit_figure4_sensitivity": {
@@ -141,12 +141,12 @@
       "theta0": 290.0
     },
     "parameters": {
-      "q": 0.9812193423087391
+      "q": 0.9812191728750327
     },
     "conditional_standard_errors": {
-      "q": 0.4359800244069485
+      "q": 0.4359799805751579
     },
-    "rmse_gpa": 1.873551060698402,
+    "rmse_gpa": 1.8735510606987282,
     "solver_success": true
   },
   "hot_excluding_touching_points_sensitivity": {
@@ -165,12 +165,12 @@
       "theta0": 290.0
     },
     "parameters": {
-      "q": 0.6715189377405272
+      "q": 0.6715189318200832
     },
     "conditional_standard_errors": {
-      "q": 0.40261228875604466
+      "q": 0.4026122915967163
     },
-    "rmse_gpa": 1.7840097272718185,
+    "rmse_gpa": 1.7840097272713265,
     "solver_success": true
   },
   "hot_q_only_integrated_law_sensitivity": {
@@ -189,12 +189,12 @@
       "theta0": 290.0
     },
     "parameters": {
-      "q": 0.9461044161677808
+      "q": 0.946104706307448
     },
     "conditional_standard_errors": {
-      "q": 0.43538873100494413
+      "q": 0.4353887705712372
     },
-    "rmse_gpa": 1.8737440775557666,
+    "rmse_gpa": 1.873744077556127,
     "solver_success": true
   },
   "staged_cold_then_hot": {
@@ -207,18 +207,18 @@
     ],
     "fixed_parameters": {
       "V0": 41.35,
-      "K0": 26.88910684272275,
-      "K0_prime": 5.2469124012106825,
+      "K0": 26.88910688628862,
+      "K0_prime": 5.246912395711911,
       "gamma0": 1.7,
       "theta0": 290.0
     },
     "parameters": {
-      "q": 0.9933853990496189
+      "q": 0.9933854990920269
     },
     "conditional_standard_errors": {
-      "q": 0.43881448265358847
+      "q": 0.4388146078612062
     },
-    "rmse_gpa": 1.8740067288353497,
+    "rmse_gpa": 1.8740067298343606,
     "solver_success": true
   },
   "hot_q_only_volume_residual_sensitivity": {
@@ -237,12 +237,12 @@
       "theta0": 290.0
     },
     "parameters": {
-      "q": 0.8548431468339167
+      "q": 0.8548425226780204
     },
     "conditional_standard_errors": {
-      "q": 0.34699015211720463
+      "q": 0.3469895321221099
     },
-    "rmse_a3": 0.1464211618927991,
+    "rmse_a3": 0.14642116189307092,
     "solver_success": true
   },
   "figure3_vs_figure4_same_cold_rows": {
@@ -301,9 +301,9 @@
       "law": "printed",
       "vertices": 24,
       "role": "calculated curve, excluded from fits",
-      "rmse_gpa": 0.05538917954661642,
-      "max_abs_residual_gpa": 0.16785995252141106,
-      "max_horizontal_difference_pt": 0.20887955339916323,
+      "rmse_gpa": 0.05538917951688756,
+      "max_abs_residual_gpa": 0.16785995246158336,
+      "max_horizontal_difference_pt": 0.20887955332471556,
       "printed_linewidth_pt": 0.357
     },
     {
@@ -312,9 +312,9 @@
       "law": "integrated",
       "vertices": 24,
       "role": "calculated curve, excluded from fits",
-      "rmse_gpa": 0.024177193496968126,
-      "max_abs_residual_gpa": 0.07553439111686089,
-      "max_horizontal_difference_pt": 0.09399257920530595,
+      "rmse_gpa": 0.024177193482154795,
+      "max_abs_residual_gpa": 0.0755343910607138,
+      "max_horizontal_difference_pt": 0.0939925791354383,
       "printed_linewidth_pt": 0.357
     },
     {
@@ -323,9 +323,9 @@
       "law": "printed",
       "vertices": 24,
       "role": "calculated curve, excluded from fits",
-      "rmse_gpa": 0.06153415936681445,
-      "max_abs_residual_gpa": 0.18096971380589366,
-      "max_horizontal_difference_pt": 0.22519292082921227,
+      "rmse_gpa": 0.06153415930046399,
+      "max_abs_residual_gpa": 0.18096971366122716,
+      "max_horizontal_difference_pt": 0.2251929206491939,
       "printed_linewidth_pt": 0.357
     },
     {
@@ -334,9 +334,9 @@
       "law": "integrated",
       "vertices": 24,
       "role": "calculated curve, excluded from fits",
-      "rmse_gpa": 0.023703273706960067,
-      "max_abs_residual_gpa": 0.08786710707455825,
-      "max_horizontal_difference_pt": 0.10933901629615389,
+      "rmse_gpa": 0.023703273704173407,
+      "max_abs_residual_gpa": 0.08786710693161126,
+      "max_horizontal_difference_pt": 0.10933901611827523,
       "printed_linewidth_pt": 0.357
     }
   ],
@@ -345,8 +345,8 @@
     "pressure_bound_gpa": 0.2868926234040091,
     "volume_bound_a3": 0.06169532532619026,
     "common_offset_q_range": [
-      0.3102616711125015,
-      2.001435807337506
+      0.310261600551717,
+      2.001436116436609
     ],
     "meaning": "One printed stroke-width coordinate perturbations; not source errors, statistical interval, or confidence on q."
   },
