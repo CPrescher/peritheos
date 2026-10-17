@@ -192,7 +192,7 @@ def main() -> None:
         + "\n"
     )
     if args.output:
-        args.output.write_text(result)
+        args.output.write_text(result, encoding="utf-8")
     else:
         sys.stdout.write(result)
 

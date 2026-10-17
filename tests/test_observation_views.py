@@ -318,3 +318,68 @@ def test_immutable_export_includes_embedded_views_without_a_registry_entry(
     )
     assert not result["incompatible_datasets"]
     assert result["view_registry_origin"].startswith("immutable Peritheos commit")
+
+
+@pytest.mark.parametrize(
+    "path,value",
+    [
+        ("row_selections", []),
+        ("coordinates.temperatures", {"column": "t"}),
+        ("coordinates.pressure.columns", "p"),
+        ("coordinates.volume.factors", 10),
+        ("row_selection.0.condition", "wrong"),
+        ("coordinates.temperature", None),
+        ("coordinates.temperature", []),
+        ("coordinates.temperature", "t"),
+        ("uncertainties", None),
+        ("fit_selection", None),
+        ("fit_selection", {"row_selections": []}),
+    ],
+)
+def test_malformed_or_misspelled_view_metadata_fails_before_resolving(path, value):
+    document, record, dataset, view = fixture()
+    target = view
+    keys = path.split(".")
+    for key in keys[:-1]:
+        target = target[int(key) if isinstance(target, list) else key]
+    target[keys[-1]] = value
+    with pytest.raises(jsonschema.ValidationError):
+        jsonschema.validate(view, SCHEMA)
+    with pytest.raises(EosmatError):
+        validate_observation_view(view, dataset, {record})
+    with pytest.raises(EosmatError):
+        resolve_dataset_observations(
+            document, record, "fixture", registry=EMPTY_REGISTRY
+        )
+
+
+def test_partial_material_export_trims_shared_views_and_keeps_view_only_links():
+    from peritheos import Material
+
+    document, first, dataset, view = fixture()
+    source = next(r for r in document["eos_records"] if r["identifier"] == first)
+    second, third = first + "_second", first + "_third"
+    document["eos_records"] = [
+        source,
+        {**copy.deepcopy(source), "identifier": second},
+        {**copy.deepcopy(source), "identifier": third},
+    ]
+    view["eos_records"] = [first, second]
+    another = copy.deepcopy(view)
+    another["identifier"] += "_third"
+    another["eos_records"] = [third]
+    dataset["observation_views"].append(another)
+    # The selected record's only link is the embedded view, rather than legacy backlinks.
+    dataset["used_by_eos_records"] = [second, third]
+    original = copy.deepcopy(document)
+    exported = Material.from_eosmat(document, record_identifiers=[first]).to_eosmat()
+    validate_eosmat_document(exported)
+    retained = exported["datasets"][0]
+    assert retained["used_by_eos_records"] == []
+    assert len(retained["observation_views"]) == 1
+    assert retained["observation_views"][0]["eos_records"] == [first]
+    data = resolve_dataset_observations(
+        exported, first, "fixture", registry=EMPTY_REGISTRY
+    )
+    assert len(data.row_indices) == 2
+    assert document == original

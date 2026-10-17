@@ -5,6 +5,17 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.14.1] - 2026-10-17
+
+### Fixed
+
+- Reject unknown observation-view properties and malformed optional coordinate,
+  uncertainty and fit-selection objects before planning or resolving source rows.
+- Trim shared embedded observation links when exporting selected EOS records;
+  retain datasets linked only by an observation view and drop empty views.
+- Read and write coverage/export JSON explicitly as UTF-8 on every platform.
+- Preserve all v0.14.0 numerical sources, coefficients and observation reductions.
+
 ## [0.14.0] - 2026-10-17
 
 ### Added
