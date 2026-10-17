@@ -30,7 +30,7 @@ def audit_observation_coverage(materials: Path, *, resolve: bool = True) -> dict
     records = []
     material_paths = sorted(materials.glob("*.eosmat"))
     for path in material_paths:
-        document = json.loads(path.read_text())
+        document = json.loads(path.read_text(encoding="utf-8"))
         for record in document["eos_records"]:
             identifier = record["identifier"]
             audit = record.get("scientific_validation", {}).get(
@@ -177,7 +177,9 @@ def main() -> None:
     parser.add_argument("--plans-only", action="store_true")
     args = parser.parse_args()
     report = audit_observation_coverage(args.materials, resolve=not args.plans_only)
-    args.output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
+    args.output.write_text(
+        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
     print(json.dumps(report["counts"], indent=2))
 
 

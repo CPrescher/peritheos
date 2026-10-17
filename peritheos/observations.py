@@ -86,6 +86,31 @@ def validate_observation_view(
     def fail(reason: str) -> NoReturn:
         raise EosmatError(f"Observation view {view.get('identifier')!r}: {reason}")
 
+    if not isinstance(view, Mapping):
+        raise EosmatError("Observation view must be an object")
+
+    def object_keys(value: Any, allowed: set[str], label: str) -> Mapping[str, Any]:
+        if not isinstance(value, Mapping):
+            fail(f"{label} must be an object")
+        if set(value) - allowed:
+            fail(f"{label} has unknown properties")
+        return value
+
+    object_keys(
+        view,
+        {
+            "identifier",
+            "eos_records",
+            "evidence_kind",
+            "notes",
+            "coordinates",
+            "row_selection",
+            "phase_reviewed",
+            "uncertainties",
+            "fit_selection",
+        },
+        "view",
+    )
     if not isinstance(view.get("identifier"), str) or not view["identifier"]:
         fail("identifier is required")
     if view.get("evidence_kind") not in EVIDENCE_KINDS:
@@ -116,8 +141,7 @@ def validate_observation_view(
         if not isinstance(items, list):
             fail("row selection must be an array")
         for item in items:
-            if not isinstance(item, Mapping):
-                fail("row selection must contain objects")
+            object_keys(item, {"column", "values"}, "row selection")
             column(item.get("column"), value=False)
             if not isinstance(item.get("values"), list) or not item["values"]:
                 fail("row selection needs explicit values")
@@ -131,12 +155,34 @@ def validate_observation_view(
     if not isinstance(view.get("phase_reviewed", False), bool):
         fail("phase_reviewed must be boolean")
     coordinates = view.get("coordinates")
-    if not isinstance(coordinates, Mapping):
-        fail("coordinates are required")
+    object_keys(coordinates, {"pressure", "volume", "temperature"}, "coordinates")
     pressure = coordinates.get("pressure", {})
     if not isinstance(pressure, Mapping):
         fail("pressure coordinate must be an object")
     kind = pressure.get("kind")
+    if not isinstance(kind, str):
+        fail("unsupported pressure coordinate")
+    pressure_keys = {
+        "column": {"kind", "column"},
+        "ruby_scale": {
+            "kind",
+            "column",
+            "source_calibration",
+            "target_calibration",
+            "reference",
+        },
+        "constant": {"kind", "value", "unit", "reference"},
+        "calibrant_eos": {
+            "kind",
+            "volume_column",
+            "row_selection",
+            "pair_by",
+            "eos_record",
+            "temperature_k",
+            "reference",
+        },
+    }
+    object_keys(pressure, pressure_keys.get(kind, {"kind"}), "pressure coordinate")
     if kind in {"column", "ruby_scale"}:
         c = column(pressure.get("column"))
         if c["unit"] not in {"GPa", "Pa", "MPa", "kPa", "kbar", "bar", "Mbar"}:
@@ -182,6 +228,12 @@ def validate_observation_view(
     volume = coordinates.get("volume", {})
     if not isinstance(volume, Mapping):
         fail("volume coordinate must be an object")
+    volume_keys = (
+        {"kind", "column", "unit", "factor", "reciprocal", "reference"}
+        if volume.get("kind") == "column"
+        else {"kind", "columns", "constraints", "geometry", "unit", "reference"}
+    )
+    object_keys(volume, volume_keys, "volume coordinate")
     if volume.get("unit") != CELL_UNIT:
         fail("volume output must declare the conventional-cell basis")
     if volume.get("kind") == "column":
@@ -194,8 +246,10 @@ def validate_observation_view(
             if not volume.get("reference"):
                 fail("a volume conversion needs a source/basis reference")
     elif volume.get("kind") == "lattice":
-        supplied = volume.get("columns", {})
-        constraints = volume.get("constraints", {})
+        supplied = object_keys(volume.get("columns"), set(_METRIC), "lattice columns")
+        constraints = object_keys(
+            volume.get("constraints"), set(_METRIC), "lattice constraints"
+        )
         if set(supplied) - set(_METRIC) or set(constraints) - set(_METRIC):
             fail("unknown cell parameter")
         for key in _METRIC:
@@ -227,11 +281,16 @@ def validate_observation_view(
             fail("lattice geometry needs a source/cell-setting reference")
     else:
         fail("unsupported volume coordinate")
-    temperature = coordinates.get("temperature")
-    if temperature is not None:
+    if "temperature" in coordinates:
+        temperature = object_keys(
+            coordinates["temperature"], {"column"}, "temperature coordinate"
+        )
         if column(temperature.get("column"))["unit"] not in {"K", "degC"}:
             fail("temperature must have K or degC units")
-    for axis, name in view.get("uncertainties", {}).items():
+    uncertainties = object_keys(
+        view.get("uncertainties", {}), {"pressure", "volume"}, "uncertainties"
+    )
+    for axis, name in uncertainties.items():
         if axis not in {"pressure", "volume"}:
             fail("unknown uncertainty coordinate")
         c = column(name, value=False)
@@ -243,7 +302,17 @@ def validate_observation_view(
             or c["unit"] != columns[coordinate["column"]]["unit"]
         ):
             fail("uncertainty must describe its selected source coordinate and units")
-    fit = view.get("fit_selection", {})
+    fit = object_keys(
+        view.get("fit_selection", {}),
+        {
+            "flag_column",
+            "row_selection",
+            "pressure_above_gpa",
+            "pressure_below_gpa",
+            "notes",
+        },
+        "fit selection",
+    )
     if "flag_column" in fit:
         column(fit["flag_column"], value=False)
     filters(fit.get("row_selection", []))
