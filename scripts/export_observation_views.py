@@ -19,7 +19,6 @@ sys.path.insert(0, str(ROOT))
 
 from peritheos.observations import (  # noqa: E402
     observation_material_fingerprint,
-    observation_registry,
     observation_source_fingerprint,
     validate_observation_view,
 )
@@ -30,10 +29,24 @@ def export_observation_views(revision: str) -> dict:
         return subprocess.check_output(["git", "-C", str(ROOT), *args])
 
     commit = git("rev-parse", "--verify", revision + "^{commit}").decode().strip()
-    registry_bytes = (ROOT / "peritheos/data/observation-views.json").read_bytes()
+    registry_path = "peritheos/data/observation-views.json"
+    archived = (
+        subprocess.run(
+            ["git", "-C", str(ROOT), "cat-file", "-e", commit + ":" + registry_path],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ).returncode
+        == 0
+    )
+    registry_bytes = (
+        git("show", commit + ":" + registry_path)
+        if archived
+        else (ROOT / registry_path).read_bytes()
+    )
+    registry = json.loads(registry_bytes)
     entries = []
     rejected = []
-    for entry in observation_registry()["datasets"]:
+    for entry in registry["datasets"]:
         path = "peritheos/data/materials/" + entry["material_id"] + ".eosmat"
         try:
             document = json.loads(git("show", commit + ":" + path))
@@ -103,7 +116,11 @@ def export_observation_views(revision: str) -> dict:
         "format_version": 1,
         "scientific_revision": commit,
         "view_registry_sha256": hashlib.sha256(registry_bytes).hexdigest(),
-        "view_registry_origin": "explicit local Peritheos metadata export; not a scientific release",
+        "view_registry_origin": (
+            "immutable Peritheos commit " + commit
+            if archived
+            else "explicit local Peritheos metadata export; not a scientific release"
+        ),
         "datasets": entries,
         "incompatible_datasets": rejected,
     }
