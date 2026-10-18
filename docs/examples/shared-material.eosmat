@@ -1,0 +1,92 @@
+{
+  "format_version": 4,
+  "identifier": "teaching_curated",
+  "name": "Fictional database-style teaching material",
+  "formula": "MgO",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "teaching_curated_bm3",
+      "label": "Illustrative BM3 coefficients; not a literature fit",
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": 74.7,
+        "K0": {"value": 160, "error": 2},
+        "K0_prime": {"value": 4, "fixed": true}
+      },
+      "record_kind": "diagnostic",
+      "reference": {"shared_ref": "teaching_example_2026"},
+      "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [0, 50],
+        "temperature_k": [300, 300],
+        "notes": ["Illustrative evaluation limits, not measured phase stability."]
+      },
+      "evidence": {"shared_ref": "evidence"}
+    },
+    {
+      "identifier": "teaching_curated_vinet",
+      "label": "Separate illustrative Vinet parameterization",
+      "model": "Vinet",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": 74.7,
+        "K0": {"value": 160, "error": 2},
+        "K0_prime": {"value": 4, "fixed": true}
+      },
+      "record_kind": "diagnostic",
+      "reference": {"shared_ref": "teaching_example_2026"},
+      "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [0, 50],
+        "temperature_k": [300, 300],
+        "notes": ["Illustrative evaluation limits, not measured phase stability."]
+      },
+      "evidence": {"shared_ref": "evidence"}
+    }
+  ],
+  "notes": "Fictional, self-contained example of database-style organization. The rows below are calculated checkpoints, not experimental observations or independent fit validation.",
+  "datasets": [
+    {
+      "identifier": "teaching_calculated_checkpoints",
+      "kind": "calculated_checkpoint",
+      "reference": "Calculated from the fictional BM3 record in this file.",
+      "source_location": "EOSMAT authoring example, not a source table",
+      "description": "Model output only; not fit data or experimental validation.",
+      "columns": [
+        {"name": "v", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+        {"name": "p", "quantity": "pressure", "unit": "GPa", "role": "value"}
+      ],
+      "rows": [
+        [74.7, 0.0],
+        [73, 3.8568906753302863],
+        [70, 11.841621921203215]
+      ],
+      "used_by_eos_records": []
+    }
+  ],
+  "shared_metadata": {
+    "teaching_example_2026": {
+      "authors": ["Teaching example"],
+      "year": 2026,
+      "source": "Peritheos authoring documentation",
+      "title": "Fictional parameterization used only to explain EOSMAT fields; no source publication or scientific review is asserted."
+    },
+    "evidence": {
+      "scientific_validation": {
+        "status": "pending_primary_source_check",
+        "note": "Fictional teaching example; creating this file does not establish scientific validation."
+      },
+      "parameter_provenance": {"K0": "Illustrative value and uncertainty, not a published measurement."},
+      "reproduction": {
+        "assessment": {
+          "status": "not_assessed",
+          "scope": "parameter_agreement",
+          "qualifications": ["No observations were fitted. Calculated checkpoints cannot independently validate the coefficients."]
+        }
+      }
+    }
+  }
+}

@@ -117,6 +117,16 @@
         "$ref": "#/$defs/eos_record"
       },
       "description": "Literature EOS parameterizations for this material and phase; may be empty for a structure-only exchange document."
+    },
+    "shared_metadata": {
+      "type": "object",
+      "description": "Optional file-local metadata definitions. A singleton shared_ref object refers to a name here; numerical parameters and datasets never resolve references.",
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+      },
+      "additionalProperties": {
+        "type": "object"
+      }
     }
   },
   "allOf": [
@@ -334,7 +344,7 @@
           "type": "string"
         },
         "reference": {
-          "$ref": "#/$defs/reference"
+          "$ref": "#/$defs/inline_reference"
         },
         "source_location": {
           "type": "string",
@@ -417,46 +427,53 @@
           "type": "string"
         },
         {
-          "type": "object",
-          "required": [
-            "authors",
-            "year",
-            "source"
-          ],
-          "properties": {
-            "authors": {
-              "type": "array",
-              "minItems": 1,
-              "items": {
-                "type": "string"
-              }
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "authors",
+                "year",
+                "source"
+              ],
+              "properties": {
+                "authors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "authors_truncated": {
+                  "type": "boolean"
+                },
+                "year": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "volume": {
+                  "type": "string"
+                },
+                "locator": {
+                  "type": "string"
+                },
+                "details": {
+                  "type": "string"
+                },
+                "doi": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
             },
-            "authors_truncated": {
-              "type": "boolean"
-            },
-            "year": {
-              "type": "integer"
-            },
-            "title": {
-              "type": "string"
-            },
-            "source": {
-              "type": "string"
-            },
-            "volume": {
-              "type": "string"
-            },
-            "locator": {
-              "type": "string"
-            },
-            "details": {
-              "type": "string"
-            },
-            "doi": {
-              "type": "string"
+            {
+              "$ref": "#/$defs/shared_reference"
             }
-          },
-          "additionalProperties": true
+          ]
         }
       ]
     },
@@ -1021,81 +1038,116 @@
       ]
     },
     "fit_provenance": {
-      "type": "object",
-      "required": [
-        "software",
-        "dataset",
-        "selection",
-        "objective",
-        "refined_parameters",
-        "fixed_parameters",
-        "statistics"
-      ],
-      "properties": {
-        "software": {
+      "anyOf": [
+        {
           "type": "object",
           "required": [
-            "name",
-            "version"
+            "software",
+            "dataset",
+            "selection",
+            "objective",
+            "refined_parameters",
+            "fixed_parameters",
+            "statistics"
           ],
           "properties": {
-            "name": {
+            "software": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "name",
+                    "version"
+                  ],
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "version": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "version_date": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                {
+                  "$ref": "#/$defs/shared_reference"
+                }
+              ]
+            },
+            "dataset": {
+              "$ref": "#/$defs/identifier"
+            },
+            "selection": {
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/$defs/shared_reference"
+                }
+              ]
+            },
+            "objective": {
               "type": "string",
               "minLength": 1
             },
-            "version": {
-              "type": "string",
-              "minLength": 1
+            "weights": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/identifier"
+              }
             },
-            "version_date": {
-              "type": "string",
-              "format": "date"
+            "refined_parameters": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "fixed_parameters": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "covariance_scaling": {
+              "type": "string"
+            },
+            "statistics": {
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/$defs/shared_reference"
+                }
+              ]
+            },
+            "reproduction": {
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/$defs/shared_reference"
+                }
+              ]
             }
           },
           "additionalProperties": true
         },
-        "dataset": {
-          "$ref": "#/$defs/identifier"
-        },
-        "selection": {
-          "type": "object"
-        },
-        "objective": {
-          "type": "string",
-          "minLength": 1
-        },
-        "weights": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/identifier"
-          }
-        },
-        "refined_parameters": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "string",
-            "minLength": 1
-          }
-        },
-        "fixed_parameters": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          }
-        },
-        "covariance_scaling": {
-          "type": "string"
-        },
-        "statistics": {
-          "type": "object"
-        },
-        "reproduction": {
-          "type": "object"
+        {
+          "$ref": "#/$defs/shared_reference"
         }
-      },
-      "additionalProperties": true
+      ]
     },
     "derivation": {
       "type": "object",
@@ -1138,114 +1190,8 @@
       "additionalProperties": true
     },
     "scientific_validation": {
-      "type": "object",
-      "required": [
-        "status"
-      ],
-      "properties": {
-        "status": {
-          "enum": [
-            "primary_source_validated",
-            "pending_primary_source_check",
-            "deferred",
-            "not_reproduced"
-          ]
-        },
-        "note": {
-          "type": "string"
-        },
-        "migration_source": {
-          "type": "object"
-        }
-      },
-      "additionalProperties": true
-    },
-    "pressure_calibration_method": {
-      "type": "object",
-      "required": [
-        "kind",
-        "source_location"
-      ],
-      "properties": {
-        "kind": {
-          "enum": [
-            "equation_of_state",
-            "ruby_fluorescence",
-            "other_optical_gauge",
-            "shock_wave",
-            "ultrasonic",
-            "ab_initio",
-            "self_consistent",
-            "ambient_pressure",
-            "other"
-          ]
-        },
-        "reference_eos_record": {
-          "$ref": "#/$defs/identifier",
-          "description": "Globally unique identifier of the exact reference EOS when that executable record is bundled in the Peritheos material library."
-        },
-        "reference_calibration_record": {
-          "$ref": "#/$defs/identifier",
-          "description": "Globally unique identifier of an executable non-EOS pressure calibration, such as a ruby R1 scale, bundled in the Peritheos calibration library."
-        },
-        "reference": {
-          "$ref": "#/$defs/reference"
-        },
-        "source_location": {
-          "type": "string",
-          "minLength": 1
-        },
-        "scope": {
-          "type": "string"
-        },
-        "notes": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": true,
-      "allOf": [
+      "anyOf": [
         {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "equation_of_state"
-              }
-            },
-            "required": [
-              "kind"
-            ]
-          },
-          "then": {
-            "required": [
-              "reference"
-            ]
-          }
-        }
-      ]
-    },
-    "pressure_calibration": {
-      "type": "object",
-      "required": [
-        "status",
-        "methods",
-        "recalculation"
-      ],
-      "properties": {
-        "status": {
-          "enum": [
-            "resolved",
-            "partially_resolved",
-            "not_applicable",
-            "unresolved"
-          ]
-        },
-        "methods": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/pressure_calibration_method"
-          }
-        },
-        "recalculation": {
           "type": "object",
           "required": [
             "status"
@@ -1253,13 +1199,159 @@
           "properties": {
             "status": {
               "enum": [
-                "ready",
-                "missing_calibrant_observations",
-                "reference_eos_not_bundled",
-                "reference_model_not_supported",
-                "not_applicable",
-                "not_possible"
+                "primary_source_validated",
+                "pending_primary_source_check",
+                "deferred",
+                "not_reproduced"
               ]
+            },
+            "note": {
+              "type": "string"
+            },
+            "migration_source": {
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/$defs/shared_reference"
+                }
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        {
+          "$ref": "#/$defs/shared_reference"
+        }
+      ]
+    },
+    "pressure_calibration_method": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "source_location"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "equation_of_state",
+                "ruby_fluorescence",
+                "other_optical_gauge",
+                "shock_wave",
+                "ultrasonic",
+                "ab_initio",
+                "self_consistent",
+                "ambient_pressure",
+                "other"
+              ]
+            },
+            "reference_eos_record": {
+              "$ref": "#/$defs/identifier",
+              "description": "Globally unique identifier of the exact reference EOS when that executable record is bundled in the Peritheos material library."
+            },
+            "reference_calibration_record": {
+              "$ref": "#/$defs/identifier",
+              "description": "Globally unique identifier of an executable non-EOS pressure calibration, such as a ruby R1 scale, bundled in the Peritheos calibration library."
+            },
+            "reference": {
+              "$ref": "#/$defs/reference"
+            },
+            "source_location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scope": {
+              "type": "string"
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "equation_of_state"
+                  }
+                },
+                "required": [
+                  "kind"
+                ]
+              },
+              "then": {
+                "required": [
+                  "reference"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$ref": "#/$defs/shared_reference"
+        }
+      ]
+    },
+    "pressure_calibration": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "status",
+            "methods",
+            "recalculation"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "resolved",
+                "partially_resolved",
+                "not_applicable",
+                "unresolved"
+              ]
+            },
+            "methods": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/pressure_calibration_method"
+              }
+            },
+            "recalculation": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "ready",
+                        "missing_calibrant_observations",
+                        "reference_eos_not_bundled",
+                        "reference_model_not_supported",
+                        "not_applicable",
+                        "not_possible"
+                      ]
+                    },
+                    "notes": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                {
+                  "$ref": "#/$defs/shared_reference"
+                }
+              ]
+            },
+            "audit_date": {
+              "type": "string",
+              "format": "date"
             },
             "notes": {
               "type": "string"
@@ -1267,15 +1359,10 @@
           },
           "additionalProperties": true
         },
-        "audit_date": {
-          "type": "string",
-          "format": "date"
-        },
-        "notes": {
-          "type": "string"
+        {
+          "$ref": "#/$defs/shared_reference"
         }
-      },
-      "additionalProperties": true
+      ]
     },
     "eos_record": {
       "type": "object",
@@ -1565,231 +1652,274 @@
           }
         },
         "evidence": {
-          "type": "object",
-          "properties": {
-            "scientific_validation": {
-              "$ref": "#/$defs/scientific_validation"
-            },
-            "parameter_provenance": {
-              "type": "object"
-            },
-            "source_lineage": {
-              "type": "array",
-              "description": "Ordered scientific-fit, parameter-table, implementation, correction, and experimental-context sources contributing to a composite record.",
-              "items": {
-                "type": "object",
-                "required": [
-                  "role",
-                  "citation"
-                ],
-                "properties": {
-                  "role": {
-                    "type": "string"
-                  },
-                  "citation": {
-                    "type": "string"
-                  },
-                  "doi": {
-                    "type": "string"
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "scientific_validation": {
+                  "$ref": "#/$defs/scientific_validation"
+                },
+                "parameter_provenance": {
+                  "anyOf": [
+                    {
+                      "type": "object"
+                    },
+                    {
+                      "$ref": "#/$defs/shared_reference"
+                    }
+                  ]
+                },
+                "source_lineage": {
+                  "type": "array",
+                  "description": "Ordered scientific-fit, parameter-table, implementation, correction, and experimental-context sources contributing to a composite record.",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "required": [
+                          "role",
+                          "citation"
+                        ],
+                        "properties": {
+                          "role": {
+                            "type": "string"
+                          },
+                          "citation": {
+                            "type": "string"
+                          },
+                          "doi": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": true
+                      },
+                      {
+                        "$ref": "#/$defs/shared_reference"
+                      }
+                    ]
                   }
                 },
-                "additionalProperties": true
+                "fit_provenance": {
+                  "$ref": "#/$defs/fit_provenance"
+                },
+                "reproduction": {
+                  "if": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "required": [
+                          "assessment"
+                        ]
+                      },
+                      {
+                        "$ref": "#/$defs/shared_reference"
+                      }
+                    ]
+                  },
+                  "then": {
+                    "properties": {
+                      "assessment": {
+                        "$ref": "#/$defs/reconstruction_assessment"
+                      }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": true,
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "identifier"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "label"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "record_kind"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "determination_method"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "reference"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "default"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "default_for"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "equation_kind"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "loading_path"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "branch_kind"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "initial_state"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "volume_basis"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "branch_domain"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "derived_from_record"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "pressure_scale_variant_of"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "eos"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "thermal"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "parameter_errors"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "fixed_parameters"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "parameter_error_confidence"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "parameter_covariance"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "volume"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "validity"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "experimental_pressure_range_gpa"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "pressure_range_status"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "experimental_temperature_range_k"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "temperature_ref"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "temperature_ref_provenance"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "pressure_calibration"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "catalog_access"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "model"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "parameters"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "equation_options"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "evidence"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "derivation"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "notes"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "aliases"
+                    ]
+                  }
+                ]
               }
             },
-            "fit_provenance": {
-              "$ref": "#/$defs/fit_provenance"
+            {
+              "$ref": "#/$defs/shared_reference"
             }
-          },
-          "additionalProperties": true,
-          "not": {
-            "anyOf": [
-              {
-                "required": [
-                  "identifier"
-                ]
-              },
-              {
-                "required": [
-                  "label"
-                ]
-              },
-              {
-                "required": [
-                  "record_kind"
-                ]
-              },
-              {
-                "required": [
-                  "determination_method"
-                ]
-              },
-              {
-                "required": [
-                  "reference"
-                ]
-              },
-              {
-                "required": [
-                  "default"
-                ]
-              },
-              {
-                "required": [
-                  "default_for"
-                ]
-              },
-              {
-                "required": [
-                  "equation_kind"
-                ]
-              },
-              {
-                "required": [
-                  "loading_path"
-                ]
-              },
-              {
-                "required": [
-                  "branch_kind"
-                ]
-              },
-              {
-                "required": [
-                  "initial_state"
-                ]
-              },
-              {
-                "required": [
-                  "volume_basis"
-                ]
-              },
-              {
-                "required": [
-                  "branch_domain"
-                ]
-              },
-              {
-                "required": [
-                  "derived_from_record"
-                ]
-              },
-              {
-                "required": [
-                  "pressure_scale_variant_of"
-                ]
-              },
-              {
-                "required": [
-                  "eos"
-                ]
-              },
-              {
-                "required": [
-                  "thermal"
-                ]
-              },
-              {
-                "required": [
-                  "parameter_errors"
-                ]
-              },
-              {
-                "required": [
-                  "fixed_parameters"
-                ]
-              },
-              {
-                "required": [
-                  "parameter_error_confidence"
-                ]
-              },
-              {
-                "required": [
-                  "parameter_covariance"
-                ]
-              },
-              {
-                "required": [
-                  "volume"
-                ]
-              },
-              {
-                "required": [
-                  "validity"
-                ]
-              },
-              {
-                "required": [
-                  "experimental_pressure_range_gpa"
-                ]
-              },
-              {
-                "required": [
-                  "pressure_range_status"
-                ]
-              },
-              {
-                "required": [
-                  "experimental_temperature_range_k"
-                ]
-              },
-              {
-                "required": [
-                  "temperature_ref"
-                ]
-              },
-              {
-                "required": [
-                  "temperature_ref_provenance"
-                ]
-              },
-              {
-                "required": [
-                  "pressure_calibration"
-                ]
-              },
-              {
-                "required": [
-                  "catalog_access"
-                ]
-              },
-              {
-                "required": [
-                  "model"
-                ]
-              },
-              {
-                "required": [
-                  "parameters"
-                ]
-              },
-              {
-                "required": [
-                  "equation_options"
-                ]
-              },
-              {
-                "required": [
-                  "evidence"
-                ]
-              },
-              {
-                "required": [
-                  "derivation"
-                ]
-              },
-              {
-                "required": [
-                  "notes"
-                ]
-              },
-              {
-                "required": [
-                  "aliases"
-                ]
-              }
-            ]
-          }
+          ]
         }
       },
       "additionalProperties": true,
@@ -2590,6 +2720,126 @@
           }
         ]
       }
+    },
+    "shared_reference": {
+      "type": "object",
+      "required": [
+        "shared_ref"
+      ],
+      "properties": {
+        "shared_ref": {
+          "$ref": "#/$defs/identifier"
+        }
+      },
+      "additionalProperties": false
+    },
+    "reconstruction_assessment": {
+      "type": "object",
+      "required": [
+        "status",
+        "scope"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "parity",
+            "similar",
+            "not_reproduced",
+            "not_refittable",
+            "source_reconstruction",
+            "not_assessed"
+          ]
+        },
+        "scope": {
+          "enum": [
+            "parameter_agreement",
+            "author_workflow",
+            "independent_refit",
+            "source_equation"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "report": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "qualifications": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\S"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "not_assessed"
+              }
+            }
+          },
+          "else": {
+            "required": [
+              "basis"
+            ]
+          }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "inline_reference": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "required": [
+            "authors",
+            "year",
+            "source"
+          ],
+          "properties": {
+            "authors": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "authors_truncated": {
+              "type": "boolean"
+            },
+            "year": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "volume": {
+              "type": "string"
+            },
+            "locator": {
+              "type": "string"
+            },
+            "details": {
+              "type": "string"
+            },
+            "doi": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      ]
     }
   },
   "not": {

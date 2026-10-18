@@ -1436,15 +1436,30 @@ def validate_pressure_calibration_references() -> None:
                     )
 
 
-def convert_eosmat(document: Mapping[str, Any], *, version: int = 4) -> dict[str, Any]:
+def convert_eosmat(
+    document: Mapping[str, Any],
+    *,
+    version: int = 4,
+    compact: bool = False,
+    inline: bool = False,
+) -> dict[str, Any]:
     """Convert the native file structure between v3 and v4, without refitting.
 
     V4 is a complete EOSMAT document, directly readable and editable. V3 export
     supports older consumers. No source data or detailed evidence is discarded.
     Optional empty component maps may disappear; parameter/error/fixed meanings,
     all source arrays, numerical values and extension fields are retained.
+
+    ``compact=True`` optionally shares exact repeated metadata inside native v4.
+    ``inline=True`` expands that metadata for older v4 readers. Both retain all
+    definitions, including unused supporting information. These options cannot
+    be combined; v3 exports always expand references.
     """
+    from peritheos._eosmat_metadata import expand_metadata, share_metadata
     from peritheos._eosmat_v4 import to_v3, to_v4
+
+    if compact and (inline or version != 4):
+        raise EosmatError("compact requires v4 and cannot be combined with inline")
 
     if version not in (3, 4):
         raise EosmatError("EOSMAT conversion supports versions 3 and 4")
@@ -1455,6 +1470,11 @@ def convert_eosmat(document: Mapping[str, Any], *, version: int = 4) -> dict[str
     result = copy.deepcopy(dict(document))
     if current != version:
         result = to_v4(result) if version == 4 else to_v3(result)
+    if version == 4:
+        if compact:
+            result = share_metadata(result)
+        elif inline:
+            result = expand_metadata(result)
     validate_eosmat_document(result)
     return result
 

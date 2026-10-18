@@ -7,6 +7,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Improve native EOSMAT for human authoring: explicit units in new files, EOS-first
+  layout, installed validation/formatting commands, optional file-local sharing
+  of identical metadata, and scoped reconstruction assessments. Preserve inline
+  v4/v3 compatibility exports and complete scientific information. Add complete
+  authoring examples, a central label guide and root project-goal guidance.
+
 - Add native EOSMAT v4: one model identifier, adjacent parameter values/errors/
   fixed flags, optional detailed evidence and a smaller standalone file. Python
   and Rust load and save v4 directly. Preserve v2/v3 readers, complete scientific

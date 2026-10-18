@@ -174,6 +174,26 @@ subsequently be added to the returned dictionary. See the
 [standalone authoring workflow](eosmat-authoring.md) for the installed
 `python -m peritheos create` command, uncertainty handling and database contribution.
 
+### Readable files and local metadata sharing
+
+New standalone files display their units explicitly. V4 formatting places EOS
+records before long crystallographic detail, and a record label before its
+coefficients. Ordinary files stay inline; sharing is optional for repeated
+metadata in large database files.
+
+`convert_eosmat(document, version=4, compact=True)` deduplicates exact repeated
+metadata into a file-local `shared_metadata` table. `inline=True` expands local
+references for first-generation v4 readers. The two options are mutually
+exclusive; v3 exports are always expanded. Unused definitions and all original
+scientific fields are retained. Load/save preserves compact files directly;
+model-based reserialization may normalize metadata just as for other EOSMAT files.
+
+The installed commands `python -m peritheos validate FILE` and
+`python -m peritheos format FILE [--check]` validate declarations or format layout
+without scientific inference. See [the authoring guide](eosmat-authoring.md) for
+complete examples, and [native v4](eosmat-v4.md) for the optional standardized
+`evidence.reproduction.assessment` and its explicit comparison scope/basis.
+
 ## Shared `.eosmat` material library
 
 ```python

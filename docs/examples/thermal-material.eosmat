@@ -1,0 +1,25 @@
+{
+  "format_version": 4,
+  "identifier": "teaching_thermal",
+  "name": "Fictional thermal teaching material",
+  "formula": "MgO",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "teaching_thermal_bm3",
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {"V0": 74.7, "K0": 160, "K0_prime": 4},
+      "thermal": {
+        "parameters": {"Tr": 300, "theta0": 760, "gamma0": 1.5, "q": 1, "n": 2},
+        "debye_temperature_law": "integrated_gruneisen",
+        "thermal_pressure_reference": "reference_temperature",
+        "model": "MieGruneisenDebye"
+      },
+      "record_kind": "diagnostic",
+      "reference": "Fictional teaching coefficients; no experimental validation."
+    }
+  ],
+  "notes": "Teaching example only. All coefficients are illustrative; no experimental observations, fit reproduction or recommended pressure standard are claimed."
+}

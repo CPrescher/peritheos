@@ -106,3 +106,12 @@ Patch releases may improve numerical precision, validation, warning text, or
 solver robustness without treating the last floating-point bit or exact error
 message as stable. Published calculations should record the Peritheos version,
 model order, complete parameters, units, and uncertainty convention.
+
+### Optional native EOSMAT metadata sharing
+
+Plain inline v4, historical v3 and legacy v2 remain supported. The native v4
+local-sharing capability is opt-in: an older v4 reader needs `convert --inline`,
+and a v3 reader needs `convert --format-version 3`. Compatibility exports expand
+references and retain unused definitions rather than discarding supporting data.
+The optional reconstruction assessment requires an explicit scope and basis;
+legacy reproduction metadata and existing scientific classifications are retained.

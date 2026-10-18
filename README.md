@@ -12,6 +12,7 @@ Full model, fitting, units, and development documentation is available at
 Rust users can start with the workflow-oriented [Rust API guide](docs/rust-api.md)
 and the runnable examples in the unified Rust crate.
 Release history is recorded in the [changelog](CHANGELOG.md).
+Project goals and guidance for coding agents are in [AGENTS.md](AGENTS.md).
 
 ## Features
 
@@ -142,9 +143,9 @@ from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
 typed discovery examples, [Pressure standards](docs/pressure-standards.md) for
 EOS records commonly used in that application, and
 [Dioptas and `.eosmat`](docs/dioptas-integration.md)
-for the shared material library. The [`.eosmat` schema reference](docs/eosmat-schema.md)
-defines its fields, equation discriminators, defaults, units, and compatibility
-rules.
+for the shared material library. The [native EOSMAT v4 reference](docs/eosmat-v4.md) defines the current file
+structure and units; the [v3 compatibility reference](docs/eosmat-schema.md)
+retains historical fields and advanced scientific semantics.
 
 Create your own standalone material with `create_eosmat()` or
 `python -m peritheos create`, without database registration. The

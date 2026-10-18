@@ -5,6 +5,34 @@ standalone user definitions and complete curated database records in the same
 `.eosmat` file. There is no separate authoring format, database registration or
 required companion file. See the [v4 format reference](eosmat-v4.md).
 
+## Read a file before editing it
+
+Read the file from the top, in this order. You do not need database audit
+metadata to create an EOS for your own calculations.
+
+| Question | Field to read |
+|---|---|
+| Which material and phase? | `name`, `formula`, optional `phase`; `identifier` is its stable machine name |
+| What are the units and cell contents? | `units`, and `formula_units_per_cell` when a model needs it |
+| Which source or alternative am I looking at? | The record's `label`, `identifier` and `reference` |
+| Which equation and coefficients? | `model`, `temperature_ref`, `parameters`; optional `thermal` |
+| What do the errors mean? | Each parameter's `error`/`fixed`, then confidence convention and covariance if available |
+| Where may I use it, and was it reconstructed? | `validity` and `evidence.reproduction`; measured coverage is separate |
+
+Start with one of these complete, editable files:
+
+- [Basic material](examples/simple-material.eosmat): one EOS, explicit units,
+  a fixed coefficient and a clearly marked fictional citation.
+- [Thermal material](examples/thermal-material.eosmat): a cold EOS plus Debye
+  thermal pressure, explicit cell contents and explicit thermal laws.
+- [Database-style material](examples/curated-material.eosmat): two alternatives,
+  uncertainty/provenance, validity and a small calculated-checkpoint table.
+
+Every example uses fictional teaching coefficients and remains unreviewed.
+Calculated checkpoints are labeled as model output; they are not experimental
+observations or independent reproduction evidence. These files are examples to
+edit, not recommended pressure standards.
+
 ## Create a material
 
 ```bash
@@ -16,7 +44,7 @@ python -m peritheos create my_material.eosmat \
 The coefficients above are fictional. Replace them with your material's values.
 Version 4 fixes the exchange units to GPa, kelvin and **conventional-cell Å³**.
 The reference temperature is supplied explicitly. The command creates a native
-v4 file of about 14 lines and refuses to overwrite an existing destination.
+v4 file with its units visible in the header and refuses to overwrite an existing destination.
 Use `--id` if the filename stem is not lower snake case, `--name` for a display
 name and `--reference` to record a source citation.
 
@@ -87,9 +115,15 @@ existing destinations so deliberate edits can be saved. The creation and
 migration commands use new destinations to protect existing files.
 
 ```bash
-python -m scripts.format_eosmat my_material.eosmat
-python -m scripts.format_eosmat --check my_material.eosmat
+python -m peritheos validate my_material.eosmat
+python -m peritheos format my_material.eosmat
+python -m peritheos format --check my_material.eosmat
 ```
+
+These commands are included in the installed package; a repository checkout is
+not needed. `validate` checks structure, model declarations and local references.
+It does not establish experimental accuracy or fit reproduction. `format` changes
+layout only, retaining every JSON value and array order; `--check` is read-only.
 
 For an application whose pinned reader supports only v3:
 
@@ -100,6 +134,33 @@ python -m peritheos convert my_material.eosmat compatible.eosmat --format-versio
 Use `--format-version 3` with `create` if that older format is required directly.
 Full [v3 compatibility fields](eosmat-schema.md) remain documented. New readers
 accept old files, while old readers need the explicit compatibility export.
+
+For the meaning of parity, similarity, source checks, refits and diagnostics,
+use [the central EOS label guide](eos-labels.md).
+
+## Repeated metadata in large database files
+
+Keep ordinary user files inline. For a large file with identical citations or
+source-check objects repeated across records, optional local sharing can reduce
+repetition. It never needs a second file:
+
+```bash
+python -m peritheos convert material.eosmat compact.eosmat --compact
+python -m peritheos convert compact.eosmat inline.eosmat --inline
+```
+
+The new destination is protected from overwriting. In a compact file,
+`{"shared_ref": "source_name"}` means "use exactly this definition from the
+file's `shared_metadata` table". There are no overrides, inherited parameters,
+external lookups or implicit scientific decisions. Only citations, evidence and
+pressure-calibration metadata can use this notation. Coefficients, observations
+and unknown extensions outside those locations are untouched.
+
+The [shared-metadata example](examples/shared-material.eosmat) contains the same
+scientific content as the inline database-style example. Prefer the inline file
+when that is easier to read. The first-generation v4 reader did not implement
+local sharing: use `--inline` for it, or `--format-version 3` for v3 consumers.
+Both compatibility exports retain unused definitions as inert supporting metadata.
 
 ## Inspect database records
 

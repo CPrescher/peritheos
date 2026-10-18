@@ -5,7 +5,7 @@ material library. Dioptas consumes that library and uses the optional
 crystallographic fields to calculate and display diffraction reflections.
 Peritheos preserves those fields but does not need them for EOS calculations.
 
-## One flat material document
+## One flat material document (v3 compatibility example)
 
 There is no nested "Dioptas material containing a Peritheos material". A
 single document stores the shared identity, optional structure, and zero or
@@ -38,7 +38,7 @@ more EOS records:
 }
 ```
 
-Only `format`, `format_version`, `identifier`, `name`, `formula`, `units`, and
+In the historical v3 layout shown here, only `format`, `format_version`, `identifier`, `name`, `formula`, `units`, and
 `eos_records` are required by the canonical format. `symmetry`, lattice, space
 group, formula units per cell, atom sites, lossless CIF source, and fallback
 peaks are optional. This permits both an EOS-only Peritheos material and a
@@ -131,6 +131,7 @@ save_eosmat("copy.eosmat", material)
 
 The reader accepts:
 
+- native Peritheos EOSMAT v4 (with updated readers), including local metadata sharing;
 - canonical Peritheos `.eosmat` format 3; and
 - unmodified Dioptas 0.10.0 material format 2, which has the same flat shape
   but lacks the Peritheos format discriminator and stable identifiers.
@@ -203,3 +204,19 @@ and is not stored as a scientific material role.
 Peritheos remains responsible for the EOS model registry and scientific record
 semantics. Dioptas remains responsible for interpreting structures,
 calculating reflections, and storing GUI/project state.
+
+## Native v4 and consumer compatibility
+
+New standalone files use [native v4](eosmat-v4.md), with one model identifier and
+errors/fixed flags beside parameter values. The basic example above describes
+v3 compatibility, not the required layout of a new v4 file. The installed Python
+and current Rust readers support both layouts. Do not assume a Dioptas release
+or another application's pinned reader includes every new capability:
+
+```bash
+python -m peritheos convert native.eosmat dioptas-compatible.eosmat --format-version 3
+```
+
+For a v4 consumer that predates optional local metadata sharing, export with
+`--inline` instead. Both routes retain complete scientific information and expand
+references; structure, source observations and unknown extensions remain attached.

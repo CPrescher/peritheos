@@ -1,8 +1,9 @@
-"""Create standalone EOSMAT files with ``python -m peritheos create``."""
+"""Create, convert, validate and format installed EOSMAT material files."""
 
 from __future__ import annotations
 
 import argparse
+import json
 import math
 from pathlib import Path
 from typing import Sequence
@@ -74,6 +75,27 @@ def main(argv: Sequence[str] | None = None) -> int:
         "path", type=Path, help="New destination; existing files are kept"
     )
     convert.add_argument("--format-version", type=int, choices=[3, 4], default=4)
+    layout = convert.add_mutually_exclusive_group()
+    layout.add_argument(
+        "--compact",
+        action="store_true",
+        help="Share identical metadata inside native v4",
+    )
+    layout.add_argument(
+        "--inline", action="store_true", help="Expand metadata for older v4 readers"
+    )
+    validate = commands.add_parser(
+        "validate",
+        help="Check file structure, local references and model declarations; not scientific validation",
+    )
+    validate.add_argument("paths", nargs="+", type=Path)
+    formatter = commands.add_parser(
+        "format", help="Format files in place without changing JSON values"
+    )
+    formatter.add_argument("paths", nargs="+", type=Path)
+    formatter.add_argument(
+        "--check", action="store_true", help="Read-only; exit 1 if formatting is needed"
+    )
     args = parser.parse_args(argv)
     if args.command == "create" and bool(args.thermal_model) != bool(
         args.thermal_parameters
@@ -82,9 +104,46 @@ def main(argv: Sequence[str] | None = None) -> int:
             "--thermal-model and --thermal-parameters must be supplied together"
         )
     try:
+        if args.command in {"validate", "format"}:
+            prepared = []
+            for path in args.paths:
+                before = path.read_bytes()
+                document = load_eosmat(path)
+                if args.command == "validate":
+                    print(
+                        f"Valid EOSMAT v{document['format_version']}: {path} (structural validation only)"
+                    )
+                    continue
+                rendered = format_eosmat(document).encode("utf-8")
+                if json.loads(rendered) != document:
+                    raise ValueError(f"Formatting changed JSON contents: {path}")
+                prepared.append((path, before, rendered))
+            if args.command == "validate":
+                return 0
+            changed = [
+                (path, before, rendered)
+                for path, before, rendered in prepared
+                if before != rendered
+            ]
+            if args.check:
+                for path, _, _ in changed:
+                    print(f"Needs formatting: {path}")
+                return int(bool(changed))
+            # Validate every requested file and check ownership before any write.
+            if any(path.read_bytes() != before for path, before, _ in prepared):
+                raise ValueError(
+                    "A source file changed while formatting; no files written"
+                )
+            for path, _, rendered in changed:
+                path.write_bytes(rendered)
+            print(f"Formatted {len(prepared)} EOSMAT files; {len(changed)} changed.")
+            return 0
         if args.command == "convert":
             document = convert_eosmat(
-                load_eosmat(args.source), version=args.format_version
+                load_eosmat(args.source),
+                version=args.format_version,
+                compact=args.compact,
+                inline=args.inline,
             )
         else:
             thermal = None

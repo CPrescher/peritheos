@@ -103,9 +103,81 @@ views are retained. No observation is refitted or recalibrated during conversion
 Other material/record extension fields survive round trips. A collision with a
 new reserved field is reported rather than silently discarding an extension.
 
+## Optional shared metadata, inside the same file
+
+Small files should stay inline. Large files may declare `shared_metadata`, an
+object mapping readable lower-snake-case names to metadata objects:
+
+```json
+"shared_metadata": {
+  "source_example": {
+    "authors": ["Teaching example"],
+    "year": 2026,
+    "source": "Fictional teaching source"
+  }
+}
+```
+
+Inside a record's `reference`, `evidence` or `pressure_calibration`, a singleton
+`{"shared_ref": "source_example"}` substitutes that exact object. References can
+be nested inside those metadata locations. They do not apply to models,
+parameters, structure, datasets or unrelated extensions. No remote reference,
+inheritance, merge or override is supported. Dangling names, cycles, sibling
+fields on a reference and invalid definitions are errors, including in unused
+definitions. Expansion is bounded to 32 reference levels and 100,000 metadata
+nodes when a sharing table is present.
+
+`convert_eosmat(document, compact=True)` shares only exactly repeated objects
+large enough to benefit from sharing; it never merges merely similar sources.
+The result is still a complete native EOSMAT file. Record order, source arrays,
+coefficients, unknown errors and fixed flags are unchanged. Normal load/save
+preserves the authored document; converting a `Material` back to a document can
+normalize model metadata, as for inline files.
+
+`convert_eosmat(document, inline=True)` expands local references. It retains all
+shared definitions, including unused supporting evidence, as inert metadata.
+V3 export also expands them. A first-generation v4 reader needs an inline export;
+local sharing is an opt-in capability, not a requirement for old or new files.
+The updated JSON Schema describes the reference shapes; use the Python or Rust
+semantic validator as well to check resolution, cycles and expanded model data.
+
+## A consistent reconstruction assessment
+
+See [EOS labels and reconstruction status](eos-labels.md) for the complete
+label definitions, default comparison criteria and scope qualifications.
+
+Legacy `reproduction` metadata remains unchanged. New v4 records may place a
+standard `assessment` inside `evidence.reproduction`:
+
+```json
+"evidence": {
+  "reproduction": {
+    "assessment": {
+      "status": "not_assessed",
+      "scope": "parameter_agreement",
+      "qualifications": ["No independent refit has been performed."]
+    }
+  }
+}
+```
+
+`status` is one of `parity`, `similar`, `not_reproduced`, `not_refittable`,
+`source_reconstruction` or `not_assessed`. `scope` is `parameter_agreement`,
+`author_workflow`, `independent_refit` or `source_equation`. An assessed result
+also requires a nonempty `basis` describing the exact comparison criterion.
+Optional `qualifications` is an array of nonempty strings and `report` is a
+nonempty report identifier/path. Unknown additional assessment fields are retained.
+Python, Rust and JSON Schema validate this standard block. Historical free-form
+reproduction findings are not rewritten or used to invent an assessment.
+
+A numerical parameter match is not automatically an author-workflow reproduction,
+a reproduced independent refit does not establish source-author parity, and a
+source-equation checkpoint is not an independent data fit. Neither creation,
+conversion nor successful parsing sets a parity status or recommends an EOS.
+
 ## Migration and compatibility
 
-Python and Rust read v2/v3/v4. New standalone files default to v4; existing
+Python and Rust read v2/v3/v4, including native local-sharing files with updated readers. New standalone files default to v4; existing
 catalog files remain readable without rewriting their scientific data. Older
 applications whose pinned reader supports only v3 need an explicit v3 export:
 

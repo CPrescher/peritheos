@@ -137,7 +137,9 @@ def _pack_parameters(values: Any, errors: Any, fixed: Any) -> dict:
 
 def to_v3(document: Mapping[str, Any]) -> dict[str, Any]:
     """Expand a native v4 document for historical consumers, without inference."""
-    result = _object(document, "document")
+    from peritheos._eosmat_metadata import expand_metadata
+
+    result = expand_metadata(_object(document, "document"))
     if result.get("format_version") != 4:
         raise EosmatError("Expected native EOSMAT format_version 4")
     if "format" in result:

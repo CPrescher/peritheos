@@ -112,7 +112,12 @@ def test_native_round_trip_has_no_hidden_generated_file_and_preserves_extensions
     save_eosmat(path, document)
     assert load_eosmat(path) == document
     assert list(tmp_path.iterdir()) == [path]
-    assert "format" not in document and "units" not in document
+    assert "format" not in document
+    assert document["units"] == {
+        "pressure": "GPa",
+        "temperature": "K",
+        "volume": "angstrom^3/conventional_unit_cell",
+    }
     assert "eos" not in record and "parameter_errors" not in record
     with pytest.raises(ValueError, match="pending_primary_source_check"):
         Material.from_eosmat(document)

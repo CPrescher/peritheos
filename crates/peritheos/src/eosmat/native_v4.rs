@@ -2,6 +2,9 @@
 
 use serde_json::{json, Map, Value};
 
+#[path = "shared_metadata.rs"]
+mod shared_metadata;
+
 use super::{component_model_identifier, invalid_document, EosmatError, RawComponent};
 
 const EVIDENCE_FIELDS: &[&str] = &[
@@ -111,7 +114,8 @@ fn parameters(value: &Value) -> Result<Parameters, EosmatError> {
 }
 
 pub(super) fn expand(document: &Value) -> Result<Value, EosmatError> {
-    let mut result = object(document, "document")?;
+    let expanded_metadata = shared_metadata::expand(document)?;
+    let mut result = object(&expanded_metadata, "document")?;
     if result.contains_key("format") {
         return Err(invalid_document("EOSMAT v4 uses format_version alone"));
     }

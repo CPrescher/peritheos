@@ -160,6 +160,9 @@ def create_eosmat(
     # declaration, rather than replacing it with a model's expanded defaults.
     Material.from_eosmat(document, require_primary_validation=False)
     native = convert_eosmat(document, version=EOSMAT_FORMAT_VERSION)
+    # The version defines these units, but an author should be able to read
+    # them in the file without looking up a specification.
+    native["units"] = copy.deepcopy(document["units"])
     record = native["eos_records"][0]
     record.pop("label", None)
     if reference is None:

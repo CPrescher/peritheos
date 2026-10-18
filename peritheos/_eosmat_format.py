@@ -114,9 +114,26 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
                 if context == "record"
                 else ()
             )
+            if context == "material" and value.get("format_version") == 4:
+                first = (
+                    "format_version",
+                    "identifier",
+                    "name",
+                    "formula",
+                    "phase",
+                    "units",
+                    "formula_units_per_cell",
+                    "eos_records",
+                )
+                priority = (
+                    first
+                    + tuple(key for key in priority if key not in first)
+                    + ("shared_metadata",)
+                )
             if context == "record" and "model" in value:
                 first = (
                     "identifier",
+                    "label",
                     "model",
                     "temperature_ref",
                     "parameters",
