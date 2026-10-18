@@ -1,37 +1,20 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "example_material",
   "name": "Example material",
   "formula": "X",
-  "phase": "fictional example phase",
-  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
-  "formula_units_per_cell": 1,
-  "notes": "Fictional teaching coefficients and cell contents. Replace them with source-supported values before scientific use. No diffraction structure or measured coverage is asserted.",
   "eos_records": [
     {
       "identifier": "example_material_bm3",
-      "label": "Fictional BM3 teaching example",
-      "record_kind": "diagnostic",
-      "determination_method": "unknown",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Example author"],
-        "year": 2026,
-        "source": "Synthetic example; replace with the actual primary citation"
-      },
+      "model": "BM3",
       "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 10.0, "K0": 160.0, "K0_prime": 4.0}
+      "parameters": {
+        "V0": 10.0,
+        "K0": 160.0,
+        "K0_prime": {"value": 4.0, "fixed": true}
       },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
-      "fixed_parameters": ["K0_prime"],
-      "scientific_validation": {
-        "status": "pending_primary_source_check",
-        "note": "Teaching example only. No primary-source validation or fit reproduction has been performed."
-      }
+      "record_kind": "diagnostic",
+      "reference": "Fictional teaching example; replace before scientific use."
     }
   ]
 }

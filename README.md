@@ -146,6 +146,11 @@ for the shared material library. The [`.eosmat` schema reference](docs/eosmat-sc
 defines its fields, equation discriminators, defaults, units, and compatibility
 rules.
 
+Create your own standalone material with `create_eosmat()` or
+`python -m peritheos create`, without database registration. The
+[standalone EOSMAT guide](docs/eosmat-authoring.md) starts with a small file and
+explains how to add uncertainties, thermal models and observations.
+
 ### Room-temperature equations of state
 
 Third-order Birch-Murnaghan equation of state:

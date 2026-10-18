@@ -7,6 +7,16 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Add native EOSMAT v4: one model identifier, adjacent parameter values/errors/
+  fixed flags, optional detailed evidence and a smaller standalone file. Python
+  and Rust load and save v4 directly. Preserve v2/v3 readers, complete scientific
+  metadata and explicit v3 export; add whole-catalog migration checks.
+
+- Add `create_eosmat()` and `python -m peritheos create` for small native v4
+  user files, plus complete-file migration and explicit v3 compatibility export.
+  Preserve supplied uncertainties and formulation choices; new records stay
+  unaudited.
+
 - Add readable EOSMAT formatting through the existing Python writer, a small
   unaudited authoring template, and generated per-material summaries. Preserve
   all scientific values, provenance, record order and version-3 compatibility.

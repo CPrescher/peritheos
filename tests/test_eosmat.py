@@ -100,7 +100,7 @@ def test_complete_material_library_is_bundled_and_valid():
     } == {"coesite_v"}
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
-        document["format_version"] == EOSMAT_FORMAT_VERSION for document in documents
+        document["format_version"] in (3, EOSMAT_FORMAT_VERSION) for document in documents
     )
     assert all(document["identifier"] in identifiers for document in documents)
     assert all(

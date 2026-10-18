@@ -32,6 +32,9 @@ _MATERIAL_KEYS = (
 )
 _RECORD_KEYS = (
     "identifier",
+    "model",
+    "parameters",
+    "equation_options",
     "label",
     "aliases",
     "record_kind",
@@ -68,6 +71,7 @@ _RECORD_KEYS = (
     "derived_from_record",
     "fit_provenance",
     "derivation",
+    "evidence",
 )
 
 
@@ -103,13 +107,22 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
         indent = "  " * depth
         inner = indent + "  "
         if isinstance(value, Mapping):
-            priority = (
+            priority: tuple[str, ...] = (
                 _MATERIAL_KEYS
                 if context == "material"
                 else _RECORD_KEYS
                 if context == "record"
                 else ()
             )
+            if context == "record" and "model" in value:
+                first = (
+                    "identifier",
+                    "model",
+                    "temperature_ref",
+                    "parameters",
+                    "thermal",
+                )
+                priority = first + tuple(key for key in priority if key not in first)
             keys = [key for key in priority if key in value]
             keys.extend(key for key in value if key not in priority)
             lines = []

@@ -1,6 +1,7 @@
 """Peritheos: thermodynamic equations of state calculations."""
 
 from peritheos.acoustics import EulerianFiniteStrainAcoustic
+from peritheos.authoring import create_eosmat
 from peritheos.catalog import (
     DeterminationMethod,
     MaterialFamily,
@@ -29,6 +30,7 @@ from peritheos.eos import EquationOfState
 from peritheos.eosmat import (
     EOSMAT_FORMAT,
     EOSMAT_FORMAT_VERSION,
+    convert_eosmat,
     eosmat_schema,
     get_eos_record_document,
     get_material_document,
@@ -174,6 +176,8 @@ __all__ = [
     "ValidationError",
     "ValidationStatus",
     "__version__",
+    "create_eosmat",
+    "convert_eosmat",
     "eosmat_schema",
     "find_common_pressure_calibration_routes",
     "get_eos_record",

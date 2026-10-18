@@ -7,6 +7,7 @@
 //! built-in model registry.
 
 use crate::experimental::maltby_2024::Maltby2024Published;
+mod native_v4;
 
 use std::collections::HashMap;
 use std::error::Error;
@@ -40,7 +41,8 @@ use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 /// Canonical `.eosmat` format discriminator.
 pub const EOSMAT_FORMAT: &str = "peritheos.material";
 /// Current canonical `.eosmat` format version.
-pub const EOSMAT_FORMAT_VERSION: u64 = 3;
+pub const EOSMAT_FORMAT_VERSION: u64 = 4;
+const PREVIOUS_FORMAT_VERSION: u64 = 3;
 const LEGACY_FORMAT_VERSION: u64 = 2;
 const CELL_ANGSTROM3_TO_FORMULA_MOLAR_J_PER_BAR: f64 = 0.060_221_407_6;
 const HUGONIOT_MASS_BASIS_RELATIVE_TOLERANCE: f64 = 1.0e-3;
@@ -1425,6 +1427,9 @@ pub fn load_eosmat_str(source: &str) -> Result<Material, EosmatError> {
 /// Returns an error for invalid structure, unsupported models, or invalid
 /// model parameters.
 pub fn validate_eosmat_document(document: &Value) -> Result<(), EosmatError> {
+    if document["format_version"].as_u64() == Some(4) {
+        return validate_eosmat_document(&native_v4::expand(document)?);
+    }
     validate_document_structure(document)?;
     construct_material(document.clone()).map(|_| ())
 }
@@ -1441,6 +1446,21 @@ pub fn serialize_eosmat(document: &Value) -> Result<String, EosmatError> {
     let mut serialized = serde_json::to_string_pretty(document)?;
     serialized.push('\n');
     Ok(serialized)
+}
+
+/// Export a complete native v4 document for historical v3 consumers.
+///
+/// # Errors
+/// Returns an error for invalid content or unsupported source versions.
+pub fn export_eosmat_v3(document: &Value) -> Result<Value, EosmatError> {
+    validate_eosmat_document(document)?;
+    match document["format_version"].as_u64() {
+        Some(4) => native_v4::expand(document),
+        Some(3) => Ok(document.clone()),
+        _ => Err(invalid_document(
+            "v3 export requires a v3 or v4 source document",
+        )),
+    }
 }
 
 /// Validate and save a decoded `.eosmat` document.
@@ -1464,6 +1484,20 @@ pub fn save_eosmat(path: impl AsRef<Path>, document: &Value) -> Result<(), Eosma
 ///
 /// Returns an error for an unsupported format or an invalid EOS record.
 pub fn material_from_value(document: Value) -> Result<Material, EosmatError> {
+    if document["format_version"].as_u64() == Some(4) {
+        let normalized = native_v4::expand(&document)?;
+        validate_document_structure(&normalized)?;
+        let mut material = construct_material(normalized)?;
+        for (record, source) in material
+            .eos_records
+            .iter_mut()
+            .zip(document["eos_records"].as_array().unwrap())
+        {
+            record.document = source.clone();
+        }
+        material.document = document;
+        return Ok(material);
+    }
     validate_document_structure(&document)?;
     construct_material(document)
 }
@@ -1474,11 +1508,11 @@ fn construct_material(document: Value) -> Result<Material, EosmatError> {
         .format_version
         .ok_or_else(|| EosmatError::InvalidDocument("missing format_version".to_owned()))?;
     let canonical =
-        raw.format.as_deref() == Some(EOSMAT_FORMAT) && version == EOSMAT_FORMAT_VERSION;
+        raw.format.as_deref() == Some(EOSMAT_FORMAT) && version == PREVIOUS_FORMAT_VERSION;
     let legacy = raw.format.is_none() && version == LEGACY_FORMAT_VERSION;
     if !canonical && !legacy {
         return Err(EosmatError::InvalidDocument(format!(
-            "supported formats are {EOSMAT_FORMAT} version {EOSMAT_FORMAT_VERSION} and legacy Dioptas version {LEGACY_FORMAT_VERSION}"
+            "supported formats are native EOSMAT v{EOSMAT_FORMAT_VERSION}, {EOSMAT_FORMAT} v{PREVIOUS_FORMAT_VERSION}, and legacy Dioptas v{LEGACY_FORMAT_VERSION}"
         )));
     }
 
@@ -1994,11 +2028,11 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
     let document = object_at(document, "document")?;
     let format = document.get("format").and_then(Value::as_str);
     let version = document.get("format_version").and_then(Value::as_u64);
-    let canonical = format == Some(EOSMAT_FORMAT) && version == Some(EOSMAT_FORMAT_VERSION);
+    let canonical = format == Some(EOSMAT_FORMAT) && version == Some(PREVIOUS_FORMAT_VERSION);
     let legacy = document.get("format").is_none() && version == Some(LEGACY_FORMAT_VERSION);
     if !canonical && !legacy {
         return Err(invalid_document(format!(
-            "supported formats are {EOSMAT_FORMAT} version {EOSMAT_FORMAT_VERSION} and legacy Dioptas version {LEGACY_FORMAT_VERSION}"
+            "supported formats are native EOSMAT v{EOSMAT_FORMAT_VERSION}, {EOSMAT_FORMAT} v{PREVIOUS_FORMAT_VERSION}, and legacy Dioptas v{LEGACY_FORMAT_VERSION}"
         )));
     }
 
@@ -2973,6 +3007,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "DebyeAnharmonicHelmholtz" => "debye_anharmonic_helmholtz",
             "LogVolumeThermalPressure" => "log_volume_thermal_pressure",
             "SecondOrderTaylorThermalPressure" => "second_order_taylor_thermal_pressure",
+            "SoundVelocityDebyeHelmholtz" => "sound_velocity_debye_helmholtz",
             "MieGruneisenDebye" => "mie_gruneisen_debye",
             "MieGruneisenEinstein" => "mie_gruneisen_einstein",
             "MultiOscillatorGruneisen" | "Sokolova2016" => {
@@ -2985,6 +3020,8 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
     } else {
         match model_type {
             "Maltby2024" => "maltby_2024_published",
+            "Baonza" => "baonza",
+            "DensityPolynomial3" => "density_polynomial_3",
             "BM2" => "birch_murnaghan_2",
             "BM3" => "birch_murnaghan_3",
             "BM4" => "birch_murnaghan_4",

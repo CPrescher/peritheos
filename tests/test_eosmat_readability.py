@@ -10,7 +10,7 @@ from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator
 
-from peritheos import Material, eosmat_schema, load_eosmat, save_eosmat
+from peritheos import Material, convert_eosmat, eosmat_schema, load_eosmat, save_eosmat
 from peritheos._eosmat_format import format_eosmat
 from peritheos.errors import MaterialError
 from scripts.format_eosmat import format_file
@@ -26,7 +26,7 @@ TEMPLATE = ROOT / "docs/examples/simple-material.eosmat"
 
 
 def test_template_is_valid_but_requires_explicit_unaudited_loading():
-    document = load_eosmat(TEMPLATE)
+    document = convert_eosmat(load_eosmat(TEMPLATE), version=3)
     Draft202012Validator(eosmat_schema()).validate(document)
     with pytest.raises(MaterialError, match="pending_primary_source_check"):
         Material.from_eosmat(document)
@@ -39,7 +39,7 @@ def test_template_is_valid_but_requires_explicit_unaudited_loading():
 def test_readable_writer_preserves_extensions_array_order_and_numerical_precision(
     tmp_path,
 ):
-    document = load_eosmat(TEMPLATE)
+    document = convert_eosmat(load_eosmat(TEMPLATE), version=3)
     document["extension"] = {
         "text": 'Å³, quotes " and backslash \\ and line\nbreak',
         "values": [None, -0.0, 1.2345678901234567, 1e-30, 10**40],
@@ -66,7 +66,7 @@ def test_readable_writer_preserves_extensions_array_order_and_numerical_precisio
 
 
 def test_failed_save_does_not_truncate_an_existing_file(tmp_path):
-    document = load_eosmat(TEMPLATE)
+    document = convert_eosmat(load_eosmat(TEMPLATE), version=3)
     document["extension"] = {"nonfinite": float("nan")}
     path = tmp_path / "existing.eosmat"
     path.write_text("previous contents", encoding="utf-8")
@@ -76,7 +76,7 @@ def test_failed_save_does_not_truncate_an_existing_file(tmp_path):
 
 
 def test_format_check_is_read_only_and_rewrite_is_lossless(tmp_path):
-    document = load_eosmat(TEMPLATE)
+    document = convert_eosmat(load_eosmat(TEMPLATE), version=3)
     path = tmp_path / "material.eosmat"
     original = json.dumps(document).encode()
     path.write_bytes(original)
@@ -97,7 +97,7 @@ def test_format_check_is_read_only_and_rewrite_is_lossless(tmp_path):
 
 
 def test_summary_distinguishes_holds_zero_kelvin_and_restricted_records():
-    document = load_eosmat(TEMPLATE)
+    document = convert_eosmat(load_eosmat(TEMPLATE), version=3)
     record = document["eos_records"][0]
     record["temperature_ref"] = 0.0
     record["scientific_validation"]["status"] = "not_reproduced"
@@ -119,7 +119,7 @@ def test_summary_distinguishes_holds_zero_kelvin_and_restricted_records():
 
 
 def test_summary_keeps_fixed_values_and_null_reference_conventions_distinct():
-    document = load_eosmat(TEMPLATE)
+    document = convert_eosmat(load_eosmat(TEMPLATE), version=3)
     record = document["eos_records"][0]
     record["thermal"] = {
         "parameters": {"Tr": None},
@@ -142,7 +142,7 @@ def test_summary_keeps_fixed_values_and_null_reference_conventions_distinct():
 def test_summary_includes_document_only_and_reference_variant_records():
     document = load_eosmat(ROOT / "peritheos/data/materials/wadsleyite.eosmat")
     assert "Document only" in render_material(document, executable=set(), defaults={})
-    document = load_eosmat(TEMPLATE)
+    document = convert_eosmat(load_eosmat(TEMPLATE), version=3)
     parent = document["eos_records"][0]
     variant = copy.deepcopy(parent)
     variant["identifier"] = "example_scale_variant"
@@ -154,7 +154,7 @@ def test_summary_includes_document_only_and_reference_variant_records():
 
 
 def test_source_checked_record_can_still_be_not_recommended():
-    document = load_eosmat(TEMPLATE)
+    document = convert_eosmat(load_eosmat(TEMPLATE), version=3)
     record = document["eos_records"][0]
     record["scientific_validation"] = {
         "status": "primary_source_validated",

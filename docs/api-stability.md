@@ -29,7 +29,14 @@ improvements that make an annotation more precise are not runtime API changes.
 
 ## `.eosmat` compatibility
 
-The canonical `.eosmat` format version 3 is a public exchange contract.
+Native EOSMAT version 4 simplifies model identifiers, parameter annotations and
+evidence organization. Historical version 3 remains a supported public exchange
+contract, and native Dioptas format-2 files remain readable. New standalone
+creation defaults to v4; load/save retains the input version. Explicit v3 export
+supports consumers pinned to the previous reader. These are two versions of the
+same material format, with one authoritative editable file per material.
+
+The canonical `.eosmat` format version 3 was already published before v4.
 Readers must preserve unknown optional fields, and additive optional fields do
 not require a format-version increment. Removing a field, changing its unit or
 meaning, or making an optional field mandatory requires a new format version

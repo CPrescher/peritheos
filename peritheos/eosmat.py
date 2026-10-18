@@ -24,7 +24,7 @@ from peritheos.pressure_calibrations import (
 )
 
 EOSMAT_FORMAT = "peritheos.material"
-EOSMAT_FORMAT_VERSION = 3
+EOSMAT_FORMAT_VERSION = 4
 _AVOGADRO = 6.022_140_76e23
 _HUGONIOT_MASS_BASIS_RTOL = 1.0e-3
 _MATERIAL_PACKAGE = "peritheos.data.materials"
@@ -179,22 +179,27 @@ def _finite_range(value: Any, location: str) -> tuple[float, float]:
 
 
 def validate_eosmat_document(document: Mapping[str, Any]) -> None:
-    """Validate the shared format-2 structure without executing EOS code.
+    """Validate native v4, historical v3, or legacy v2 EOSMAT structure.
 
     The absent ``format`` discriminator used by native Dioptas 0.10.0 files is
     accepted for backward compatibility. Scientific validation status is
     metadata and is not inferred from structural validity.
     """
     document = _require_mapping(document, "document")
+    if document.get("format_version") == 4:
+        from peritheos._eosmat_v4 import to_v3
+
+        validate_eosmat_document(to_v3(document))
+        return
     format_name = document.get("format")
     version = document.get("format_version")
     is_legacy_dioptas = format_name is None and version == 2
-    is_canonical = format_name == EOSMAT_FORMAT and version == EOSMAT_FORMAT_VERSION
+    is_canonical = format_name == EOSMAT_FORMAT and version == 3
     if not (is_legacy_dioptas or is_canonical):
         if format_name not in (None, EOSMAT_FORMAT):
             raise EosmatError(f"Unsupported material format {format_name!r}")
         raise EosmatError(
-            "Supported eosmat documents are Peritheos format 3 or legacy "
+            "Supported eosmat documents are Peritheos format 3 or 4, or legacy "
             "Dioptas format 2"
         )
 
@@ -1252,7 +1257,7 @@ def load_eosmat(path: str | Path) -> dict[str, Any]:
 
 
 def save_eosmat(path: str | Path, document: Mapping[str, Any]) -> None:
-    """Validate and save readable, Dioptas-compatible EOSMAT JSON.
+    """Validate and save readable EOSMAT JSON, retaining its native version.
 
     Material identity comes first, with short numerical groups on one line.
     All field values, array order, and unknown extension fields are retained.
@@ -1431,15 +1436,43 @@ def validate_pressure_calibration_references() -> None:
                     )
 
 
-def eosmat_schema() -> dict[str, Any]:
-    """Return the bundled normative JSON Schema document."""
-    resource = resources.files("peritheos.data").joinpath("eosmat-v3.schema.json")
+def convert_eosmat(document: Mapping[str, Any], *, version: int = 4) -> dict[str, Any]:
+    """Convert the native file structure between v3 and v4, without refitting.
+
+    V4 is a complete EOSMAT document, directly readable and editable. V3 export
+    supports older consumers. No source data or detailed evidence is discarded.
+    Optional empty component maps may disappear; parameter/error/fixed meanings,
+    all source arrays, numerical values and extension fields are retained.
+    """
+    from peritheos._eosmat_v4 import to_v3, to_v4
+
+    if version not in (3, 4):
+        raise EosmatError("EOSMAT conversion supports versions 3 and 4")
+    validate_eosmat_document(document)
+    current = document.get("format_version")
+    if current not in (3, 4):
+        raise EosmatError("Read legacy v2 with Material.from_eosmat before exporting")
+    result = copy.deepcopy(dict(document))
+    if current != version:
+        result = to_v4(result) if version == 4 else to_v3(result)
+    validate_eosmat_document(result)
+    return result
+
+
+def eosmat_schema(version: int = 3) -> dict[str, Any]:
+    """Return a version-specific schema; the historical default remains v3."""
+    if version not in (3, 4):
+        raise EosmatError("EOSMAT schemas are available for versions 3 and 4")
+    resource = resources.files("peritheos.data").joinpath(
+        f"eosmat-v{version}.schema.json"
+    )
     return json.loads(resource.read_text(encoding="utf-8"))
 
 
 __all__ = [
     "EOSMAT_FORMAT",
     "EOSMAT_FORMAT_VERSION",
+    "convert_eosmat",
     "eosmat_schema",
     "get_eos_record_document",
     "get_material_document",

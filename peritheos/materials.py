@@ -1225,12 +1225,16 @@ class Material:
         )
 
     def to_dict(self) -> dict[str, Any]:
-        """Return the canonical JSON-safe ``.eosmat`` format-3 document."""
+        """Return the canonical JSON-safe ``.eosmat`` document, preserving its version."""
         return self.to_eosmat()
 
-    def to_eosmat(self) -> dict[str, Any]:
-        """Return one executable and Dioptas-compatible material document."""
-        return _material_to_eosmat(self)
+    def to_eosmat(self, *, format_version: int | None = None) -> dict[str, Any]:
+        """Return complete EOSMAT, retaining the loaded version.
+
+        Pass ``format_version=4`` for native structure or ``3`` for historical
+        consumers. Legacy programmatic records retain their v3 export default.
+        """
+        return _material_to_eosmat(self, format_version=format_version)
 
     def to_snapshot_dict(self) -> dict[str, Any]:
         """Return the deprecated executable snapshot-v2 representation."""
@@ -1243,7 +1247,7 @@ class Material:
 
     @classmethod
     def from_dict(cls, document: Mapping[str, Any]) -> "Material":
-        """Load canonical format 3 or the deprecated snapshot format 2."""
+        """Load native format 4, historical format 3, or deprecated snapshot 2."""
         return material_from_dict(document)
 
     @classmethod
@@ -1701,8 +1705,13 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
     return result
 
 
-def _material_to_eosmat(material: Material) -> dict[str, Any]:
+def _material_to_eosmat(
+    material: Material, *, format_version: int | None = None
+) -> dict[str, Any]:
     document = _plain_data(material.eosmat_metadata)
+    native_version = (
+        document.get("format_version", 3) if format_version is None else format_version
+    )
     document.update(
         {
             "format": "peritheos.material",
@@ -1751,10 +1760,10 @@ def _material_to_eosmat(material: Material) -> dict[str, Any]:
         document["datasets"] = _plain_data(material.datasets)
     else:
         document.pop("datasets", None)
-    from peritheos.eosmat import validate_eosmat_document
+    from peritheos.eosmat import convert_eosmat, validate_eosmat_document
 
     validate_eosmat_document(document)
-    return document
+    return convert_eosmat(document, version=native_version)
 
 
 def _equation_component(eos: EquationOfState) -> dict[str, Any]:
@@ -2078,6 +2087,11 @@ def _material_from_eosmat(
     from peritheos.eosmat import validate_eosmat_document
 
     validate_eosmat_document(document)
+    source_version = document.get("format_version", 3)
+    if source_version == 4:
+        from peritheos._eosmat_v4 import to_v3
+
+        document = to_v3(document)
     records_data = document.get("eos_records")
     if not isinstance(records_data, list) or not records_data:
         raise MaterialError("An executable Material requires at least one EOS record")
@@ -2427,9 +2441,12 @@ def _material_from_eosmat(
         peaks=tuple(tuple(peak) for peak in document.get("peaks", ())),
         datasets=tuple(selected_datasets),
         eosmat_metadata={
-            key: _plain_data(value)
-            for key, value in document.items()
-            if key not in known_keys
+            "format_version": 4 if source_version == 4 else 3,
+            **{
+                key: _plain_data(value)
+                for key, value in document.items()
+                if key not in known_keys
+            },
         },
         aliases=tuple(document.get("aliases", ())),
         family_id=document.get("family_id"),
@@ -2437,15 +2454,14 @@ def _material_from_eosmat(
 
 
 def material_from_dict(document: Mapping[str, Any]) -> Material:
-    """Load canonical eosmat format 3 or deprecated executable snapshot 2.
+    """Load native eosmat format 4, historical format 3, or executable snapshot 2.
 
     Model identifiers are resolved through Peritheos's fixed registry. The
     informational ``implementation`` string is never imported or executed.
     """
-    if (
-        document.get("format") == "peritheos.material"
-        or document.get("format_version") == 3
-    ):
+    if document.get("format") == "peritheos.material" or document.get(
+        "format_version"
+    ) in (3, 4):
         return _material_from_eosmat(
             document,
             require_primary_validation=True,

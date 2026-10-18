@@ -1,4 +1,8 @@
-# `.eosmat` schema reference
+# EOSMAT v3 compatibility reference
+
+New files use the simpler [native EOSMAT v4 format](eosmat-v4.md). This page
+documents historical v3 fields, unchanged advanced scientific semantics and
+compatibility exports. Both Python and Rust continue to read v3 directly.
 
 `.eosmat` is Peritheos's material exchange format. A single flat JSON document
 can carry material identity, optional diffraction structure, and any number of
@@ -35,6 +39,7 @@ and scientific qualifications without requiring readers to navigate the JSON.
 | `space_group`, `space_group_number` | no | Optional space-group metadata. |
 | `atom_sites`, `peaks`, `source` | no | Optional diffraction structure, fallback peaks, and source metadata. |
 | `datasets` | no | Primary experimental tables used by one or more EOS records. |
+| `recommendation_hold` | no | An audit hold with `status: on_hold` and `scope: equilibrium_default` suppresses automatic equilibrium default selection, including the first-record fallback. Records remain available by explicit selection. Include the audit, date, and reason. |
 
 `eos_records` may be empty in a structure-only exchange file. Peritheos's
 bundled catalog intentionally contains only materials with at least one EOS
@@ -150,6 +155,7 @@ Each item in `eos_records` describes one source parameterization.
 | `record_kind` | no | `published`, `refit`, `derived`, or `diagnostic`; omission means `published` for backward compatibility. |
 | `determination_method` | bundled records | `experimental`, `theoretical`, `hybrid`, or `unknown`; omission in external/older files means `unknown`. Describes how the represented EOS parameters were determined. |
 | `derived_from_record` | for dependent refits | Identifier of the published or prior record supplying model choices or fixed parameters. Direct dataset refits may omit it. |
+| `pressure_scale_variant_of` | for published scale alternatives | Source EOS identifier in this material. Preserves a published alternative pressure-scale fit as an explicit reference variant; excludes it from normal discovery. The source and variant share the equation family, reference temperature and fixed-parameter choices. This link never creates a pressure-conversion route or claims exact curve equivalence. |
 | `fit_provenance` | for refits | Software/version, dataset, row selection, objective, weights, varied/fixed parameters, and fit statistics. |
 | `derivation` | for derived records | Structured source kind and identifier, transformation method, sampling domain, software, and access/licensing information. |
 | `eos` | yes | Primary equation and parameters: an equilibrium reference isotherm or a Hugoniot path model. |
