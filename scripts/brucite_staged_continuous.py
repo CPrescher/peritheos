@@ -13,6 +13,7 @@ import json
 import numpy as np
 from scipy.linalg import block_diag
 
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import (
     ROOT,
     bm3,
@@ -60,8 +61,10 @@ def runtime_model(report):
 
 def reproduce():
     staged = staged_reproduce()
-    if json.loads(STAGED_REPORT.read_text()) != staged:
-        raise ValueError("Staged-input report is stale")
+    saved = json.loads(STAGED_REPORT.read_text(encoding="utf-8"))
+    check_report(staged, saved)
+    # Fit the archived staged coefficients after verifying their independent replay.
+    staged = saved
     temperatures = np.array([s["temperature_k"] for s in staged["isotherms"]])
     design = np.column_stack([np.ones(4), temperatures - 300])
     values = np.array(
@@ -332,7 +335,7 @@ def write_plots(report):
     temperatures = np.array(report["linear_moduli"]["input_temperatures_k"])
     grid = np.linspace(300, 873, 200)
     line_values = moduli(grid, pars)
-    staged = json.loads(STAGED_REPORT.read_text())
+    staged = json.loads(STAGED_REPORT.read_text(encoding="utf-8"))
     for j, ax in enumerate(axes):
         values = np.array(report["linear_moduli"]["input_K_Kprime"])[:, j]
         sigma = [
@@ -375,10 +378,10 @@ def main():
     report = reproduce()
     payload = json.dumps(report, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if REPORT.read_text() != payload:
-            raise SystemExit("Brucite staged continuous comparison is stale")
+        check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
+
     else:
-        REPORT.write_text(payload)
+        REPORT.write_text(payload, encoding="utf-8")
     if args.plot:
         write_plots(report)
     print("Brucite staged continuous comparison is current.")

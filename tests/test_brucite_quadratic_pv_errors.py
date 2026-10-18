@@ -15,6 +15,7 @@ from scripts.brucite_quadratic_pv_errors import (
     reproduce,
     residual,
 )
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import bm3
 
 
@@ -41,7 +42,7 @@ def test_quadratic_analytic_jacobian_matches_numeric_derivatives():
 
 
 def test_polynomial_conversion_uses_full_squared_term_and_fixed_ambient(report):
-    linear = json.loads(LINEAR_REPORT.read_text())
+    linear = json.loads(LINEAR_REPORT.read_text(encoding="utf-8"))
     assert report["fixed_ambient_law"] == linear["fixed_ambient_law"]
     assert report["fits"]["linear_pv_errors"] == linear["fits"]["joint_pv_errors"]
     fit = report["fits"]["quadratic_pv_errors"]
@@ -136,4 +137,4 @@ def test_improvement_and_independent_checks_remain_qualified(report):
     )
     assert control["reduced_chi_square"] > 2
     assert control["chi_square"] < quadratic["chi_square"]
-    assert report == json.loads(REPORT.read_text())
+    check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))

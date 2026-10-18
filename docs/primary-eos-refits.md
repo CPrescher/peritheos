@@ -792,7 +792,6 @@ Exact source-equation reconstruction with no composite coefficient optimization:
 - [`akimotoite_dorogokupets_2015_298k_rydberg_stacey`](#investigation-akimotoite_dorogokupets_2015_298k_rydberg_stacey): Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.
 - [`b4c_somayazulu_2023_bm3_1`](#investigation-b4c_somayazulu_2023_bm3_1): outside similarity limits (q 2.1 → 1.04991)
 - [`bridgmanite_dorogokupets_2015_298k_rydberg_stacey`](#investigation-bridgmanite_dorogokupets_2015_298k_rydberg_stacey): Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.
-- [`brucite_fukui_2003_873k_bm3`](#investigation-brucite_fukui_2003_873k_bm3): outside similarity limits (K0 23.9 → 25.4761)
 - [`ca_perovskite_fu_2023_bm3_mgd_refit`](#investigation-ca_perovskite_fu_2023_bm3_mgd_refit): outside similarity limits (gamma0 1.42 → 2.44196; q 2.65 → 1.83946)
 - [`coesite_i_iii_bykova_2018_300k_bm3`](#investigation-coesite_i_iii_bykova_2018_300k_bm3): outside similarity limits (K0 103 → 126.328; K0_prime 3.02 → 1.69514)
 - [`coo_clendenen_1966_murnaghan_1`](#investigation-coo_clendenen_1966_murnaghan_1): outside similarity limits (K0_prime 3.9 → 5.1481)
@@ -1319,26 +1318,6 @@ the missing source fit detail is recovered.
 **Source/data scope.** Nineteen recoverable 300-308 K Katsura/Tange observations are reconstructed on the Sokolova MgO scale. The unpublished objective weights, the exact absolute MgO reference behind rounded Katsura V/V0 values, and the joint thermal/acoustic constraints prevent an exact reproduction; the transparent slice fit does not reproduce the published K0/K0_prime pair.
 
 **Registered source-fit note.** Accepted corrected mapping for LitCurate source row 867 (litcurate_7828334f1795f436). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-
-<a id="investigation-brucite_fukui_2003_873k_bm3"></a>
-
-### `brucite_fukui_2003_873k_bm3`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `brucite_fukui_2003_table1, brucite_fukui_2003_table4` with 8 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `K0` | 23.9 | 25.4761 | 6.59% | — | no |
-| `K0_prime` | 10 | 9.68039 | 3.20% | — | yes |
-
-**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 5.21-15.48 GPa; fit kind: `unweighted_pressure_residuals_fixed_source_V0`; objective: `—`; published/refit pressure RMSE: 0.486257/0.158032 GPa; reduced chi-square: —; free parameters: ``; source-fixed parameters: `V0`.
-
-**Source/data scope.** All 48 sample observations, including negative reported pressure, repeated temperatures and errors preserved; original Au readings unavailable.
-
-**Registered source-fit note.** Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
 
 **Assessment and likely origin.**
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.

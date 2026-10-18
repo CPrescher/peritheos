@@ -17,6 +17,8 @@ import warnings
 
 import numpy as np
 
+from scripts.brucite_replay_checks import check_report
+
 with warnings.catch_warnings():
     warnings.filterwarnings(
         "ignore", message=r"`scipy\.odr` is deprecated.*", category=DeprecationWarning
@@ -217,7 +219,7 @@ def native_verification(ambient, coefficients):
 
 def reproduce():
     staged, data = read_data()
-    linear = json.loads(LINEAR_REPORT.read_text())
+    linear = json.loads(LINEAR_REPORT.read_text(encoding="utf-8"))
     if (
         linear["fixed_ambient_law"] != staged["stage1_ambient"]
         or linear["source_sha256"] != staged["source_sha256"]
@@ -601,10 +603,10 @@ def main():
     report = reproduce()
     payload = json.dumps(report, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if REPORT.read_text() != payload:
-            raise SystemExit("Brucite quadratic P/V-errors report is stale")
+        check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
+
     else:
-        REPORT.write_text(payload)
+        REPORT.write_text(payload, encoding="utf-8")
     if args.plot:
         write_plots(report)
     print("Brucite quadratic P/V-errors report is current.")

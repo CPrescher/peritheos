@@ -457,3 +457,30 @@ def test_brucite_refit_requires_curve_parity_within_coefficient_tolerance(monkey
     monkeypatch.setattr(audit, "reproduce", lambda: report)
     with pytest.raises(ValueError, match="stale"):
         audit.ledger_outcome(record)
+
+
+def test_successful_replays_allow_solver_details_but_require_bounded_results():
+    import copy
+
+    saved = {
+        "solver_success": True,
+        "solver_message": "`ftol` termination condition is satisfied.",
+        "multistart": [{"success": True, "nfev": 26, "optimality": 4e-4}],
+        "projection": {"pressure_residual_sigma": [-0.001203]},
+    }
+    replay = copy.deepcopy(saved)
+    replay["solver_message"] = "`xtol` termination condition is satisfied."
+    replay["multistart"][0].update(nfev=29, optimality=6e-5)
+    replay["projection"]["pressure_residual_sigma"][0] += 5e-7
+    check_report(replay, saved)
+    for key, value in [("nfev", 0), ("nfev", True), ("optimality", 0.01)]:
+        invalid = copy.deepcopy(replay)
+        invalid["multistart"][0][key] = value
+        with pytest.raises(ValueError):
+            check_report(invalid, saved)
+    for key, value in [("solver_success", False), ("solver_message", "Failed")]:
+        with pytest.raises(ValueError):
+            check_report({**replay, key: value}, saved)
+    replay["projection"]["pressure_residual_sigma"][0] += 1e-4
+    with pytest.raises(ValueError, match="calculated value"):
+        check_report(replay, saved)

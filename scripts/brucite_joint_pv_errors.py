@@ -15,6 +15,7 @@ import numpy as np
 import scipy
 from scipy.optimize import least_squares
 
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import (
     ROOT,
     bm3,
@@ -35,7 +36,7 @@ UPPER = np.array([80, 15, 20, 20])
 
 
 def read_data():
-    staged = json.loads(STAGED_REPORT.read_text())
+    staged = json.loads(STAGED_REPORT.read_text(encoding="utf-8"))
     for name, checksum in staged["source_sha256"].items():
         path = ROOT / "peritheos/data/datasets" / name
         if hashlib.sha256(path.read_bytes()).hexdigest() != checksum:
@@ -260,7 +261,9 @@ def native_verification(data, ambient, best):
 
 def reproduce():
     staged, data = read_data()
-    line = json.loads(LINE_REPORT.read_text())["linear_moduli"]["parameters"]
+    line = json.loads(LINE_REPORT.read_text(encoding="utf-8"))["linear_moduli"][
+        "parameters"
+    ]
     starts = [[41.8, 6.6, -31.9, 5.71], np.array([line[key] for key in ORDER]) / SCALE]
     baseline, baseline_covariance, baseline_starts = fit_data(data, starts, False)
     best, covariance, multistart = fit_data(data, [baseline.x, *starts], True)
@@ -575,10 +578,10 @@ def main():
     report = reproduce()
     payload = json.dumps(report, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if REPORT.read_text() != payload:
-            raise SystemExit("Brucite joint P/V-errors report is stale")
+        check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
+
     else:
-        REPORT.write_text(payload)
+        REPORT.write_text(payload, encoding="utf-8")
     if args.plot:
         write_plot(report)
     print("Brucite joint P/V-errors report is current.")

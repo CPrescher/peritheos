@@ -15,6 +15,7 @@ from scripts.brucite_joint_pv_errors import (
     reproduce,
     residual,
 )
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_staged_continuous import runtime_model
 
 
@@ -41,7 +42,7 @@ def test_analytic_jacobian_for_both_coordinate_errors():
 
 
 def test_all_rows_fixed_ambient_law_and_exact_chi_square(report):
-    staged = json.loads(STAGED_REPORT.read_text())
+    staged = json.loads(STAGED_REPORT.read_text(encoding="utf-8"))
     assert report["fixed_ambient_law"] == staged["stage1_ambient"]
     assert report["source_rows"] == list(range(1, 38))
     assert [group["observations"] for group in report["per_temperature"]] == [
@@ -128,4 +129,4 @@ def test_different_objectives_and_comparators_remain_distinct(report):
         assert len(fit["row_pressure_residuals_gpa"]) == 37
         assert len(fit["row_volume_residuals_a3"]) == 37
         assert len(fit["projection"]["adjusted_volume_a3"]) == 37
-    assert report == json.loads(REPORT.read_text())
+    check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
