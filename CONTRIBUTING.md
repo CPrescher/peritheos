@@ -25,6 +25,27 @@ uv run pytest -q -W error --cov --cov-report=term-missing
 uv run --group docs mkdocs build --strict
 ```
 
+The development group includes Matplotlib because the reconstruction-report
+tests render figures. Matplotlib remains optional for installed library users.
+The minimum-dependency job runs on both Linux and macOS with Python 3.9,
+NumPy 1.22.0 and SciPy 1.9.3. To reproduce that environment:
+
+```bash
+uv venv --python 3.9 /tmp/peritheos-minimum
+uv pip install --python /tmp/peritheos-minimum/bin/python \
+  --resolution lowest-direct --constraint .github/minimum-test-constraints.txt \
+  --editable . 'pytest>=7.4.4' 'Pillow>=9.2,<13' \
+  'jsonschema>=4.18,<5' 'matplotlib>=3.7,<4'
+/tmp/peritheos-minimum/bin/python -m pytest -q -W error
+```
+
+The constraint file applies only to the old plotting-test stack, whose parser
+otherwise emits third-party deprecation warnings. The development and docs
+groups carry the same bound for Python 3.9, whose last compatible Matplotlib
+still uses those parser APIs. These bounds do not change the scientific
+dependency floors or suppress warnings from Peritheos. See
+[dependency support](docs/api-stability.md#dependency-support) for the NumPy floor.
+
 ## Scientific changes
 
 Changes to an equation, constant, unit convention, fitting statistic, or

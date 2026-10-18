@@ -280,8 +280,12 @@ jobs:
         run: uv run --frozen pytest -q -W error --cov --cov-report=term-missing
 
   minimum-dependencies:
-    name: Minimum direct dependencies / Python 3.9
-    runs-on: ubuntu-latest
+    name: Minimum direct dependencies / ${{ matrix.os }} / Python 3.9
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
 
     steps:
       - name: Check out repository
@@ -303,10 +307,17 @@ jobs:
           uv pip install \
             --python "${RUNNER_TEMP}/peritheos-minimum/bin/python" \
             --resolution lowest-direct \
+            --constraint .github/minimum-test-constraints.txt \
             --editable . \
             'pytest>=7.4.4' \
             'Pillow>=9.2,<13' \
-            'jsonschema>=4.18,<5'
+            'jsonschema>=4.18,<5' \
+            'matplotlib>=3.7,<4'
+
+      - name: Record minimum-dependency versions and numerical backend
+        run: |
+          uv pip freeze --python "${RUNNER_TEMP}/peritheos-minimum/bin/python"
+          "${RUNNER_TEMP}/peritheos-minimum/bin/python" -c 'import numpy; numpy.show_config()'
 
       - name: Run tests against declared dependency floors
         run: |

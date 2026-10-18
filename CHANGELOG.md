@@ -61,6 +61,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Compatibility and scientific limits
 
+- Require NumPy >=1.22.0 to avoid native OpenBLAS crashes with the old macOS
+  ARM64 NumPy 1.21 wheels. Preserve SciPy >=1.9.3 and all scientific calculations.
+  Exercise minimum dependencies on macOS as well as Linux, and include figure
+  rendering dependencies in the development/test environment.
 - Native v4 is an explicit format version; downstream v3 consumers can request
   compatibility exports. Standalone files need no database audit metadata.
 - Research candidates retain their staged/diagnostic status. Passing software

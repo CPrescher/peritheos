@@ -96,6 +96,21 @@ listing/search results keep their meanings. Applications adopt grouping
 explicitly through `group_materials()`. Membership does not select a default
 composition or alter any numerical record.
 
+## Dependency support
+
+The base Python library requires Python >=3.9, NumPy >=1.22.0 and SciPy >=1.9.3.
+Peritheos 0.15.0 raises the NumPy floor from 1.21.0 because the macOS ARM64
+NumPy 1.21 wheels crash in their bundled OpenBLAS matrix routines on the
+tested Apple M4 Pro. Limiting OpenBLAS to one thread does not reliably prevent
+the crashes. This dependency change preserves the scientific equations,
+fitting objectives, coefficients and source observations.
+
+NumPy 1.21.0 previously passed the Linux minimum-dependency CI suite; that result
+does not establish support for its different macOS binary. Minimum direct
+dependencies are now checked on Linux and macOS, in addition to the locked
+current-dependency platform and Python matrix. Passing tests establishes the
+tested software behavior, not physical validation of a model.
+
 ## Compatibility commitments
 
 `volume()` is the preferred pressure-to-volume method. `calculate_volume()` is
