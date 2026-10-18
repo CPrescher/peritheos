@@ -17612,27 +17612,58 @@
       "usage_recommendation": "not_recommended_for_quantitative_use"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "gold_sakai_2025_table_s4_au_w_volumes",
+        "gold_sakai_2025_dewaele_2018_au_re_input",
+        "gold_sakai_2025_dewaele_2004_au_input",
+        "gold_sakai_2025_takemura_2008_au_input",
+        "gold_sakai_2025_hirose_2008_au_mgo_input"
+      ],
       "experimental_pressure_range_gpa": [
         0,
         368
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "conditional_au_published_calibrants",
       "fixed_parameters": [
         "V0",
         "K0",
         "K_infinity_prime"
       ],
+      "full_sequential_calibration_reproduced": false,
       "label": "Sakai et al. (2025), Au generalized Rydberg-Stacey scale",
       "material_identifier": "gold",
       "model": "RydbergStacey",
-      "primary_data_finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
-      "primary_data_status": "derived_output_only",
+      "objective": "equal_pressure_residuals",
+      "observations": 210,
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 9.658442386406563e-05,
+          "parameter": "K0_prime",
+          "published": 5.78,
+          "published_error": 0.004,
+          "refit": 5.780096584423864,
+          "refit_error": null,
+          "relative_difference": 1.671010793495945e-05,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "conditional_central_value_at_published_precision",
+      "primary_data_finding": "All five Table S8 Au input families are retained: 247 numerical rows, of which 235 are RT and 210 enter the documented conditional Au replay. All 19 S4 Au-W and 307 upstream paired-volume rows are recovered, including literal source tokens and missing errors. Table S8 is a lineage index, not numerical upstream observations. Table S9 remains calculated output. Published calibrants and rounding-limited ruby conversions reproduce K0_prime=5.7800966 using explicitly assumed equal pressure residuals; equal volume residuals give 5.7877715. Conditional numerical parity is achieved for the independently refitted Au K0_prime central value at published precision under equal pressure residuals and published upstream calibrants. V0, K0 and K_infinity_prime are fixed at the paper values, not independently recovered. Uncertainty parity, original weights/covariance and full sequential calibration remain unverified.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
-      "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+      "qualification": "Conditional Au K0-prime central-value parity at published three-decimal precision under equal pressure residuals and published upstream calibrants. V0, K0 and K-infinity-prime are fixed, not independently recovered. Original weights, uncertainty/covariance and the full sequential calibration are not reproduced. Calculated Table S9 is a checkpoint, never fit observations.",
+      "reason": "Conditional Au K0-prime central-value parity at published three-decimal precision under equal pressure residuals and published upstream calibrants. V0, K0 and K-infinity-prime are fixed, not independently recovered. Original weights, uncertainty/covariance and the full sequential calibration are not reproduced. Calculated Table S9 is a checkpoint, never fit observations.",
       "record_identifier": "gold_sakai_2025_rydberg_stacey_1",
+      "reproduction_report": "docs/data/sakai-2025-gold-reconstruction.json",
+      "rmse_gpa": 3.1415999152476832,
+      "solver_success": true,
       "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
-      "status": "not_refittable"
+      "status": "parity",
+      "uncertainty_parity_achieved": false
     },
     {
       "absolute_sigma": true,
@@ -17805,9 +17836,12 @@
       ],
       "experimental_pressure_range_gpa": [
         0.0,
-        89.0
+        117.9
       ],
-      "experimental_temperature_range_k": null,
+      "experimental_temperature_range_k": [
+        298.0,
+        2330.0
+      ],
       "fit_kind": "staged_vinet_mgd_conditional_replay",
       "fixed_parameters": [
         "V0",

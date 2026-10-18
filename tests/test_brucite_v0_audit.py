@@ -6,6 +6,7 @@ import numpy as np
 import pytest
 
 from peritheos.eos.rt import BM3
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import observations, reference_volume
 from scripts.brucite_v0_audit import MODES, REPORT, reproduce
 
@@ -57,7 +58,7 @@ def test_fixed_moduli_v0_optimum_and_covariance_against_native_equation(
 
 
 def test_diagnostic_preserves_scope_and_weighting_sensitivity(report):
-    assert report == json.loads(REPORT.read_text())
+    check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
     assert not report["catalog_mutated"]
     all_rows = [row for result in report["isotherms"] for row in result["source_rows"]]
     assert sorted(all_rows) == list(range(1, 38))

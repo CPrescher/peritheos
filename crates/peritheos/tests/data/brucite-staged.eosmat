@@ -1,0 +1,1388 @@
+{
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "brucite",
+  "name": "Brucite",
+  "formula": "Mg(OH)2",
+  "phase": "Layered brucite; ambient ordered-H P -3 m 1 structural reference",
+  "aliases": [
+    "Mg(OH)2",
+    "magnesium hydroxide brucite"
+  ],
+  "units": {
+    "pressure": "GPa",
+    "temperature": "K",
+    "volume": "angstrom^3/conventional_unit_cell"
+  },
+  "cell_contents": "One Mg(OH)2 formula unit, five atoms, in the primitive hexagonal setting of trigonal P -3 m 1. Conventional and primitive cells coincide; all EOS volumes use Z=1.",
+  "symmetry": "TRIGONAL",
+  "space_group": "P -3 m 1",
+  "space_group_number": 164,
+  "formula_units_per_cell": 1,
+  "lattice": {
+    "a": 3.14771,
+    "b": 3.14771,
+    "c": 4.77163,
+    "alpha": 90,
+    "beta": 90,
+    "gamma": 120
+  },
+  "atom_sites": [
+    {
+      "label": "Mg1",
+      "element": "Mg",
+      "wyckoff": "1a",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "occupancy": 1
+    },
+    {
+      "label": "O1",
+      "element": "O",
+      "wyckoff": "2d",
+      "x": 0.3333333333333333,
+      "y": 0.6666666666666666,
+      "z": 0.2189,
+      "occupancy": 1
+    },
+    {
+      "label": "H1",
+      "element": "H",
+      "wyckoff": "2d",
+      "x": 0.3333333333333333,
+      "y": 0.6666666666666666,
+      "z": 0.4108,
+      "occupancy": 1
+    }
+  ],
+  "peaks": [],
+  "source": {
+    "structure_reference": {
+      "authors": [
+        "He, Xuejing"
+      ],
+      "year": 2023,
+      "title": "Hydrogen-bonding configurations of magnesium hydroxyfluoride and fluorine-doped magnesium hydroxide under high pressure",
+      "source": "Doctoral thesis, University of Tokyo",
+      "locator": "Table 4.3, pp. 81-82; Section 4.3.1.1, p. 80",
+      "doi": "10.15083/0002012205"
+    },
+    "structure_source_kind": "Primary doctoral thesis: directly inspected neutron powder refinement of fluorine-free hydrogenated Mg(OH)2, not its substituted/deuterated samples",
+    "structure_access_url": "https://repository.dl.itc.u-tokyo.ac.jp/record/2012205/files/A40857.pdf",
+    "structure_dataset": "datasets/brucite-he-2023-table43.cif",
+    "structure_dataset_sha256": "9983ea18cf364ef6b7378b44b0b0a20e28b29c4d08b6c76399e9d79605b915ff",
+    "structure_metric_volume_a3": 40.94367484945862,
+    "structure_printed_volume_a3": 40.9437,
+    "structure_errors": {
+      "a_angstrom": 3e-05,
+      "c_angstrom": 5e-05,
+      "O_z": 0.0002,
+      "H_z": 0.0004
+    },
+    "structure_refinement": {
+      "wRp": 0.0101,
+      "Rp": 0.007,
+      "R_F_squared": 0.095,
+      "Nobs": 173,
+      "chi_squared": 4.275,
+      "O_H_angstrom": "0.915(2)",
+      "motion_corrected_O_H_angstrom": 0.9528,
+      "H_O_angstrom": "2.535(2)",
+      "O_O_angstrom": "3.240(2)",
+      "O_H_O_angle_deg": "134.20(4)"
+    },
+    "structure_atomic_displacements_a2": {
+      "Mg_Uiso": "0.0057(3)",
+      "O_Uiso": "0.0047",
+      "H_U11": "0.0394(5)",
+      "H_U33": "0.0171(10)",
+      "H_U12": "0.0197(2)"
+    },
+    "structure_normalization": "Exact special-position thirds; no lattice rescaling or changes to refined z. Preserve mean H position, not a site shifted to match the motion-corrected O-H bond length. Coordinates specify the ambient average single-site model, not perfectly immobile protons.",
+    "structure_cell_vs_eos": "Ambient structural cell has a different sample/reference from Fukui V0=40.917(12) A^3; no rescaling applied.",
+    "structure_acceptance_limit": "Direct primary structural verification resolved. Ambient average structure only; no pressure-dependent coordinates, disordered phase or anisotropic compression model implied.",
+    "source_manifest": "datasets/brucite-source.json"
+  },
+  "integration_status": "Historical staged source-equation snapshot. The separate current catalog card includes published-range lattice-average curves and independently attributed table-data refits.",
+  "notes": "Four independently listed isothermal source curves; no thermal model inferred by freezing Kprime. 102 factual observations are recovered. All source-parameter records remain pending. No first-order transition, high-pressure H-order phase, or dehydration product is combined into an accepted EOS. Scalar volume scaling is not an anisotropic high-pressure structural refinement.",
+  "datasets": [
+    {
+      "identifier": "brucite_fukui_2003_table1",
+      "kind": "pressure_volume_temperature_lattice_parameters",
+      "description": "Every printed row of fukui_2003 table1; original errors retained.",
+      "reference": {
+        "authors": [
+          "Fukui",
+          "Ohtaka",
+          "Suzuki",
+          "Funakoshi"
+        ],
+        "year": 2003,
+        "title": "Thermal expansion of Mg(OH)2 brucite under high pressure and pressure dependence of entropy",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "30",
+        "locator": "511-516",
+        "doi": "10.1007/s00269-003-0353-z"
+      },
+      "source_location": "Table 1, p. 512",
+      "source_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+      "columns": [
+        {
+          "name": "source_row",
+          "quantity": "source_row",
+          "unit": "1",
+          "role": "value"
+        },
+        {
+          "name": "temperature_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "value"
+        },
+        {
+          "name": "temperature_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "standard_deviation",
+          "of": "temperature_k"
+        },
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "pressure_error_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "lattice_a_angstrom",
+          "quantity": "lattice_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_a_error_angstrom",
+          "quantity": "lattice_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {
+          "name": "lattice_c_angstrom",
+          "quantity": "lattice_c",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_c_error_angstrom",
+          "quantity": "lattice_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "c_over_a",
+          "quantity": "c_over_a",
+          "unit": "1",
+          "role": "value"
+        },
+        {
+          "name": "cell_volume_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "cell_volume_error_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/brucite-fukui-2003-table1.csv",
+        "media_type": "text/csv",
+        "sha256": "6a55f95a1e0072268fc821c3d13463c4e5366cf7ab4cc95ecf7d911b48cfbc94"
+      },
+      "used_by_eos_records": [
+        "brucite_fukui_2003_300k_bm3",
+        "brucite_fukui_2003_473k_bm3",
+        "brucite_fukui_2003_673k_bm3",
+        "brucite_fukui_2003_873k_bm3"
+      ],
+      "row_count": 11,
+      "uncertainty": {
+        "notes": "Parentheses are estimated standard deviations of the last significant digit. No row temperature errors; ambient temperature fluctuation below 0.2 K is an apparatus statement, not a row standard uncertainty."
+      },
+      "license": "Source-data licence unspecified; contributor transcription/normalization/metadata rights only: CC0-1.0. See datasets/brucite.LICENSE.md.",
+      "rights": {
+        "source_data": "Source licences as given per source; unspecified is not CC0. Factual numerical observations are transcribed with attribution.",
+        "contributor_rights": "CC0-1.0 applies only to Peritheos contributors own rights in transcription, normalization, metadata and arrangement; no third-party text, figures, articles or source rights are dedicated."
+      },
+      "notes": "Blank means not reported or not applicable; it is never an invented zero. Table 1 has no numerical pressure column. Xia rows are recovered evidence for a held alternative, not inputs to the Fukui fits. Raw printed tokens are in datasets/brucite-source.json."
+    },
+    {
+      "identifier": "brucite_fukui_2003_table4",
+      "kind": "pressure_volume_temperature_lattice_parameters",
+      "description": "Every printed row of fukui_2003 table4; original errors retained.",
+      "reference": {
+        "authors": [
+          "Fukui",
+          "Ohtaka",
+          "Suzuki",
+          "Funakoshi"
+        ],
+        "year": 2003,
+        "title": "Thermal expansion of Mg(OH)2 brucite under high pressure and pressure dependence of entropy",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "30",
+        "locator": "511-516",
+        "doi": "10.1007/s00269-003-0353-z"
+      },
+      "source_location": "Table 4, p. 514",
+      "source_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+      "columns": [
+        {
+          "name": "source_row",
+          "quantity": "source_row",
+          "unit": "1",
+          "role": "value"
+        },
+        {
+          "name": "temperature_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "value"
+        },
+        {
+          "name": "temperature_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "standard_deviation",
+          "of": "temperature_k"
+        },
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "pressure_error_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "lattice_a_angstrom",
+          "quantity": "lattice_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_a_error_angstrom",
+          "quantity": "lattice_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {
+          "name": "lattice_c_angstrom",
+          "quantity": "lattice_c",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_c_error_angstrom",
+          "quantity": "lattice_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "c_over_a",
+          "quantity": "c_over_a",
+          "unit": "1",
+          "role": "value"
+        },
+        {
+          "name": "cell_volume_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "cell_volume_error_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/brucite-fukui-2003-table4.csv",
+        "media_type": "text/csv",
+        "sha256": "75f41a98f09ff132927697af0da45bc9a89a4e354f7d32d7ffad7648963a1b56"
+      },
+      "used_by_eos_records": [
+        "brucite_fukui_2003_300k_bm3",
+        "brucite_fukui_2003_473k_bm3",
+        "brucite_fukui_2003_673k_bm3",
+        "brucite_fukui_2003_873k_bm3"
+      ],
+      "row_count": 37,
+      "uncertainty": {
+        "notes": "Lattice/volume parentheses: estimated standard deviations. Pressure parentheses: errors propagated from estimated standard deviations of gold lattice parameter, excluding pressure-scale systematic uncertainty. No row temperature errors."
+      },
+      "license": "Source-data licence unspecified; contributor transcription/normalization/metadata rights only: CC0-1.0. See datasets/brucite.LICENSE.md.",
+      "rights": {
+        "source_data": "Source licences as given per source; unspecified is not CC0. Factual numerical observations are transcribed with attribution.",
+        "contributor_rights": "CC0-1.0 applies only to Peritheos contributors own rights in transcription, normalization, metadata and arrangement; no third-party text, figures, articles or source rights are dedicated."
+      },
+      "notes": "Blank means not reported or not applicable; it is never an invented zero. Table 1 has no numerical pressure column. Xia rows are recovered evidence for a held alternative, not inputs to the Fukui fits. Raw printed tokens are in datasets/brucite-source.json."
+    },
+    {
+      "identifier": "brucite_xia_1998_table6",
+      "kind": "pressure_volume_temperature_lattice_parameters",
+      "description": "Every printed row of xia_1998 table6; original errors retained.",
+      "reference": {
+        "authors": [
+          "Xia",
+          "Weidner",
+          "Zhao"
+        ],
+        "year": 1998,
+        "title": "Equation of state of brucite: Single-crystal Brillouin spectroscopy study and polycrystalline pressure-volume-temperature measurement",
+        "source": "American Mineralogist",
+        "volume": "83",
+        "locator": "68-74",
+        "doi": "10.2138/am-1998-0107"
+      },
+      "source_location": "Table 6, p. 71; all 54 rows, including 1040 K observation",
+      "source_url": "https://www.rruff.net/doclib/am/vol83/AM83_68.pdf",
+      "columns": [
+        {
+          "name": "source_row",
+          "quantity": "source_row",
+          "unit": "1",
+          "role": "value"
+        },
+        {
+          "name": "temperature_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "value"
+        },
+        {
+          "name": "temperature_error_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "pressure_error_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "lattice_a_angstrom",
+          "quantity": "lattice_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_a_error_angstrom",
+          "quantity": "lattice_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_a_angstrom"
+        },
+        {
+          "name": "lattice_c_angstrom",
+          "quantity": "lattice_c",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_c_error_angstrom",
+          "quantity": "lattice_c",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "c_over_a",
+          "quantity": "c_over_a",
+          "unit": "1",
+          "role": "value"
+        },
+        {
+          "name": "cell_volume_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "cell_volume_error_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty",
+          "of": "cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/brucite-xia-1998-table6.csv",
+        "media_type": "text/csv",
+        "sha256": "a90d369351cee748dfa954ba78b66d4adcab205367f1244d7d0902a75c6c14bb"
+      },
+      "used_by_eos_records": [],
+      "row_count": 54,
+      "uncertainty": {
+        "notes": "Parenthetical errors retained; confidence convention not explicitly defined. Source says pressure uncertainty <0.2 GPa overall; it is not a row-wise sigma. No row temperature errors or paired NaCl lattice readings."
+      },
+      "license": "Source-data licence unspecified; contributor transcription/normalization/metadata rights only: CC0-1.0. See datasets/brucite.LICENSE.md.",
+      "rights": {
+        "source_data": "Source licences as given per source; unspecified is not CC0. Factual numerical observations are transcribed with attribution.",
+        "contributor_rights": "CC0-1.0 applies only to Peritheos contributors own rights in transcription, normalization, metadata and arrangement; no third-party text, figures, articles or source rights are dedicated."
+      },
+      "notes": "Blank means not reported or not applicable; it is never an invented zero. Table 1 has no numerical pressure column. Xia rows are recovered evidence for a held alternative, not inputs to the Fukui fits. Raw printed tokens are in datasets/brucite-source.json."
+    }
+  ],
+  "eos_records": [
+    {
+      "identifier": "brucite_fukui_2003_300k_bm3",
+      "label": "Fukui et al. (2003), 300 K lattice-average BM3; staged, phase scope unresolved",
+      "default": true,
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": [
+          "Fukui",
+          "Ohtaka",
+          "Suzuki",
+          "Funakoshi"
+        ],
+        "year": 2003,
+        "title": "Thermal expansion of Mg(OH)2 brucite under high pressure and pressure dependence of entropy",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "30",
+        "locator": "511-516",
+        "doi": "10.1007/s00269-003-0353-z"
+      },
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+          "V0": 40.917,
+          "K0": 41.8,
+          "K0_prime": 6.6
+        }
+      },
+      "temperature_ref": 300,
+      "parameter_errors": {
+        "V0": 0.012,
+        "K0": 1.3,
+        "K0_prime": 0.3
+      },
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "fixed_parameters": [],
+      "parameter_provenance": {
+        "determination_method": "Powder X-ray isothermal compression; V0(T) from independent ambient expansion measurements. No acoustic or shock coefficients substituted.",
+        "equation": "Equation (2), p. 513: ordinary third-order Birch-Murnaghan.",
+        "V0": "Table 2: V0(300)=40.917(12) A^3. For high-T slices, p. 513 states V0 was fixed from ambient expansion using Eq. (1) and Table 3 constant alpha=6.69(18)e-5 K^-1. V0(T)=40.917 exp[6.69e-5(T-300)]. Static compression V0 treatment is not separately stated; Table 2 anchoring is explicit here and subject to integration review. Derived high-T V0 errors are missing because covariance is unreported, not zero.",
+        "K0": "Table 5 and duplicated Table 6, p. 515; Kprime error 0.3 in Table 5, 0.4 in Table 6",
+        "K0_prime": "Table 5 and duplicated Table 6, p. 515; Kprime error 0.3 in Table 5, 0.4 in Table 6",
+        "temperature_ref": "Exact listed isotherm; no interpolation or temperature extrapolation between records."
+      },
+      "experimental_pressure_range_gpa": [
+        -0.06,
+        22.56
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [
+          0,
+          22.56
+        ],
+        "temperature_k": [
+          300,
+          300
+        ],
+        "notes": [
+          "Review-only numerical domain, not accepted thermodynamic phase stability. Records remain pending and require explicit opt-in to execute.",
+          "Historical staged source-equation snapshot. Current catalog accepts the layered lattice-average EOS across the source range, with H-order and source-normalization qualifications recorded separately.",
+          "No state at another temperature is validated by an isothermal record. No continuous EOS crosses the H transition or dehydration boundary."
+        ]
+      },
+      "fit_datasets": [
+        "brucite_fukui_2003_table1",
+        "brucite_fukui_2003_table4"
+      ],
+      "fit_provenance": {
+        "software": {
+          "name": "not reported for EOS fitting",
+          "version": "not reported"
+        },
+        "dataset": "brucite_fukui_2003_table4",
+        "selection": {
+          "temperature_k": 300,
+          "source_rows": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "source_exclusions": "not reported; every printed same-T row retained in diagnostics"
+        },
+        "objective": "not reported; diagnostics compare three explicit objectives",
+        "source_weights": "not reported",
+        "source_covariance": "not reported",
+        "source_software": "not reported for EOS fitting",
+        "refined_parameters": [
+          "K0",
+          "K0_prime"
+        ],
+        "fixed_parameters": [],
+        "statistics": {
+          "observations": 13
+        },
+        "diagnostic_refits": {
+          "unweighted_pressure": {
+            "success": true,
+            "K0_gpa": 42.01773606213582,
+            "K0_prime": 6.603483842879745,
+            "delta_over_reported_errors": [
+              0.1674892785660157,
+              0.011612809599152268
+            ],
+            "pressure_rmse_gpa": 0.21676080817553103,
+            "maximum_absolute_pressure_residual_gpa": 0.4590984910494065
+          },
+          "pressure_sigma": {
+            "success": true,
+            "K0_gpa": 41.594572710619694,
+            "K0_prime": 6.686400167836388,
+            "delta_over_reported_errors": [
+              -0.15802099183100235,
+              0.28800055945462866
+            ],
+            "pressure_rmse_gpa": 0.2207816375166887,
+            "maximum_absolute_pressure_residual_gpa": 0.4151521640890312
+          },
+          "effective_sigma": {
+            "success": true,
+            "K0_gpa": 40.58210303332938,
+            "K0_prime": 7.029868137173733,
+            "delta_over_reported_errors": [
+              -0.9368438205158578,
+              1.4328937905791121
+            ],
+            "pressure_rmse_gpa": 0.2286253221993115,
+            "maximum_absolute_pressure_residual_gpa": 0.5512677442673208
+          }
+        },
+        "diagnostic_refits_are_records": false
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-10-16",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference_eos_record": "gold_anderson_1989_bm3_1",
+            "reference": {
+              "authors": [
+                "Anderson",
+                "Isaak",
+                "Yamamoto"
+              ],
+              "year": 1989,
+              "title": "Anharmonicity and the equation of state for gold",
+              "source": "Journal of Applied Physics",
+              "volume": "65",
+              "locator": "1534-1543",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "High-pressure experiments, p. 512; reference p. 516",
+            "scope": "Every Table 4 pressure; Au mixed with brucite 1:10 by weight"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No paired Au lattice parameters or volumes tabulated; pressure errors alone cannot reconstruct them. No inverse-EOS synthetic marker observations are created."
+        }
+      },
+      "experimental_configuration": {
+        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
+        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
+        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
+        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
+      },
+      "scientific_validation": {
+        "status": "pending_primary_source_check",
+        "audit_date": "2026-10-16",
+        "note": "Source equation and printed coefficients audited; retained as staged research candidate. Direct primary structural verification is resolved using He (2023). Broad phase-resolved acceptance and exact original fit workflow remain unresolved.",
+        "primary_source_check": {
+          "doi": "10.1007/s00269-003-0353-z",
+          "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+          "source_equation_validated": true,
+          "locations": [
+            "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+          ]
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "dataset_identifiers": [
+            "brucite_fukui_2003_table1",
+            "brucite_fukui_2003_table4"
+          ],
+          "finding": "All 48 sample observations, including negative reported pressure, repeated temperatures and errors preserved; original Au readings unavailable."
+        },
+        "numerical_reproduction": {
+          "source_equation_validated": true,
+          "published_curve": {
+            "pressure_rmse_gpa": 0.22790990500597397,
+            "maximum_absolute_pressure_residual_gpa": 0.4401215188100771,
+            "pressure_residuals_gpa": [
+              0.05489446985425371,
+              0.008178716899726426,
+              -0.181141245406077,
+              0.14544602901929427,
+              0.17019744973397355,
+              -0.024033722153734338,
+              0.030605175295299603,
+              0.08452099023517334,
+              -0.4401215188100771,
+              -0.40291850702565135,
+              -0.2550677368819976,
+              0.34718645379899726,
+              -0.1973258854219786
+            ],
+            "max_absolute_effective_sigma_residual": 2.5420487416336193
+          },
+          "conditional_coefficient_agreement": "Pressure-sigma diagnostic fits agree with printed K0 and Kprime within each reported error; objective itself is not source-confirmed.",
+          "author_workflow_reproduced": false
+        },
+        "audit_report": "docs/literature-reproductions/brucite.md"
+      },
+      "notes": "Preserves source K0 and Kprime; high-T V0 derived transparently from the same source. No accepted independent refit. Table 5 prints 300 K Kprime error 0.3, Table 6 prints 0.4; Table 5 convention retained. Unreported coefficient covariance prevents treating propagated parameter errors as an independent validation statistic. Not a continuous thermal record and not an H-order/dehydration phase model."
+    },
+    {
+      "identifier": "brucite_fukui_2003_473k_bm3",
+      "label": "Fukui et al. (2003), 473 K lattice-average BM3; staged, phase scope unresolved",
+      "default": false,
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": [
+          "Fukui",
+          "Ohtaka",
+          "Suzuki",
+          "Funakoshi"
+        ],
+        "year": 2003,
+        "title": "Thermal expansion of Mg(OH)2 brucite under high pressure and pressure dependence of entropy",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "30",
+        "locator": "511-516",
+        "doi": "10.1007/s00269-003-0353-z"
+      },
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+          "V0": 41.393312112806804,
+          "K0": 32.6,
+          "K0_prime": 8.3
+        }
+      },
+      "temperature_ref": 473,
+      "parameter_errors": {
+        "V0": null,
+        "K0": 2.5,
+        "K0_prime": 1.1
+      },
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "fixed_parameters": [
+        "V0"
+      ],
+      "parameter_provenance": {
+        "determination_method": "Powder X-ray isothermal compression; V0(T) from independent ambient expansion measurements. No acoustic or shock coefficients substituted.",
+        "equation": "Equation (2), p. 513: ordinary third-order Birch-Murnaghan.",
+        "V0": "Table 2: V0(300)=40.917(12) A^3. For high-T slices, p. 513 states V0 was fixed from ambient expansion using Eq. (1) and Table 3 constant alpha=6.69(18)e-5 K^-1. V0(T)=40.917 exp[6.69e-5(T-300)]. Static compression V0 treatment is not separately stated; Table 2 anchoring is explicit here and subject to integration review. Derived high-T V0 errors are missing because covariance is unreported, not zero.",
+        "K0": "Table 6, p. 515",
+        "K0_prime": "Table 6, p. 515",
+        "temperature_ref": "Exact listed isotherm; no interpolation or temperature extrapolation between records."
+      },
+      "experimental_pressure_range_gpa": [
+        5.95,
+        16.52
+      ],
+      "experimental_temperature_range_k": [
+        473,
+        473
+      ],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [
+          5.95,
+          16.52
+        ],
+        "temperature_k": [
+          473,
+          473
+        ],
+        "notes": [
+          "Review-only numerical domain, not accepted thermodynamic phase stability. Records remain pending and require explicit opt-in to execute.",
+          "Historical staged source-equation snapshot. Current catalog accepts the layered lattice-average EOS across the source range, with H-order and source-normalization qualifications recorded separately.",
+          "No state at another temperature is validated by an isothermal record. No continuous EOS crosses the H transition or dehydration boundary."
+        ]
+      },
+      "fit_datasets": [
+        "brucite_fukui_2003_table1",
+        "brucite_fukui_2003_table4"
+      ],
+      "fit_provenance": {
+        "software": {
+          "name": "not reported for EOS fitting",
+          "version": "not reported"
+        },
+        "dataset": "brucite_fukui_2003_table4",
+        "selection": {
+          "temperature_k": 473,
+          "source_rows": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "source_exclusions": "not reported; every printed same-T row retained in diagnostics"
+        },
+        "objective": "not reported; diagnostics compare three explicit objectives",
+        "source_weights": "not reported",
+        "source_covariance": "not reported",
+        "source_software": "not reported for EOS fitting",
+        "refined_parameters": [
+          "K0",
+          "K0_prime"
+        ],
+        "fixed_parameters": [
+          "V0"
+        ],
+        "statistics": {
+          "observations": 8
+        },
+        "diagnostic_refits": {
+          "unweighted_pressure": {
+            "success": true,
+            "K0_gpa": 33.69147933768376,
+            "K0_prime": 8.085231366977016,
+            "delta_over_reported_errors": [
+              0.4365917350735032,
+              -0.19524421183907684
+            ],
+            "pressure_rmse_gpa": 0.2625605629411442,
+            "maximum_absolute_pressure_residual_gpa": 0.41400925967519253
+          },
+          "pressure_sigma": {
+            "success": true,
+            "K0_gpa": 31.8680418464292,
+            "K0_prime": 8.992743801416733,
+            "delta_over_reported_errors": [
+              -0.29278326142832045,
+              0.6297670921970292
+            ],
+            "pressure_rmse_gpa": 0.2847123716692072,
+            "maximum_absolute_pressure_residual_gpa": 0.48275042233682797
+          },
+          "effective_sigma": {
+            "success": true,
+            "K0_gpa": 32.30120709720212,
+            "K0_prime": 8.464419287212392,
+            "delta_over_reported_errors": [
+              -0.11951716111915119,
+              0.1494720792839921
+            ],
+            "pressure_rmse_gpa": 0.3226373220941306,
+            "maximum_absolute_pressure_residual_gpa": 0.5798219490595793
+          }
+        },
+        "diagnostic_refits_are_records": false
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-10-16",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference_eos_record": "gold_anderson_1989_bm3_1",
+            "reference": {
+              "authors": [
+                "Anderson",
+                "Isaak",
+                "Yamamoto"
+              ],
+              "year": 1989,
+              "title": "Anharmonicity and the equation of state for gold",
+              "source": "Journal of Applied Physics",
+              "volume": "65",
+              "locator": "1534-1543",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "High-pressure experiments, p. 512; reference p. 516",
+            "scope": "Every Table 4 pressure; Au mixed with brucite 1:10 by weight"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No paired Au lattice parameters or volumes tabulated; pressure errors alone cannot reconstruct them. No inverse-EOS synthetic marker observations are created."
+        }
+      },
+      "experimental_configuration": {
+        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
+        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
+        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
+        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
+      },
+      "scientific_validation": {
+        "status": "pending_primary_source_check",
+        "audit_date": "2026-10-16",
+        "note": "Source equation and printed coefficients audited; retained as staged research candidate. Direct primary structural verification is resolved using He (2023). Broad phase-resolved acceptance and exact original fit workflow remain unresolved.",
+        "primary_source_check": {
+          "doi": "10.1007/s00269-003-0353-z",
+          "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+          "source_equation_validated": true,
+          "locations": [
+            "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+          ]
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "dataset_identifiers": [
+            "brucite_fukui_2003_table1",
+            "brucite_fukui_2003_table4"
+          ],
+          "finding": "All 48 sample observations, including negative reported pressure, repeated temperatures and errors preserved; original Au readings unavailable."
+        },
+        "numerical_reproduction": {
+          "source_equation_validated": true,
+          "published_curve": {
+            "pressure_rmse_gpa": 0.33630739972845325,
+            "maximum_absolute_pressure_residual_gpa": 0.5827339497893345,
+            "pressure_residuals_gpa": [
+              -0.06436565803310401,
+              0.14002874986690372,
+              -0.35597207387265684,
+              0.04853548442830302,
+              -0.5827339497893345,
+              0.009944575919075938,
+              -0.5780771826137858,
+              -0.279548846647085
+            ],
+            "max_absolute_effective_sigma_residual": 1.1986068064457116
+          },
+          "conditional_coefficient_agreement": "Pressure-sigma diagnostic fits agree with printed K0 and Kprime within each reported error; objective itself is not source-confirmed.",
+          "author_workflow_reproduced": false
+        },
+        "audit_report": "docs/literature-reproductions/brucite.md"
+      },
+      "notes": "Preserves source K0 and Kprime; high-T V0 derived transparently from the same source. No accepted independent refit. Table 5 prints 300 K Kprime error 0.3, Table 6 prints 0.4; Table 5 convention retained. Unreported coefficient covariance prevents treating propagated parameter errors as an independent validation statistic. Not a continuous thermal record and not an H-order/dehydration phase model."
+    },
+    {
+      "identifier": "brucite_fukui_2003_673k_bm3",
+      "label": "Fukui et al. (2003), 673 K lattice-average BM3; staged, phase scope unresolved",
+      "default": false,
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": [
+          "Fukui",
+          "Ohtaka",
+          "Suzuki",
+          "Funakoshi"
+        ],
+        "year": 2003,
+        "title": "Thermal expansion of Mg(OH)2 brucite under high pressure and pressure dependence of entropy",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "30",
+        "locator": "511-516",
+        "doi": "10.1007/s00269-003-0353-z"
+      },
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+          "V0": 41.95087641595446,
+          "K0": 28.8,
+          "K0_prime": 9.0
+        }
+      },
+      "temperature_ref": 673,
+      "parameter_errors": {
+        "V0": null,
+        "K0": 2.1,
+        "K0_prime": 1.1
+      },
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "fixed_parameters": [
+        "V0"
+      ],
+      "parameter_provenance": {
+        "determination_method": "Powder X-ray isothermal compression; V0(T) from independent ambient expansion measurements. No acoustic or shock coefficients substituted.",
+        "equation": "Equation (2), p. 513: ordinary third-order Birch-Murnaghan.",
+        "V0": "Table 2: V0(300)=40.917(12) A^3. For high-T slices, p. 513 states V0 was fixed from ambient expansion using Eq. (1) and Table 3 constant alpha=6.69(18)e-5 K^-1. V0(T)=40.917 exp[6.69e-5(T-300)]. Static compression V0 treatment is not separately stated; Table 2 anchoring is explicit here and subject to integration review. Derived high-T V0 errors are missing because covariance is unreported, not zero.",
+        "K0": "Table 6, p. 515",
+        "K0_prime": "Table 6, p. 515",
+        "temperature_ref": "Exact listed isotherm; no interpolation or temperature extrapolation between records."
+      },
+      "experimental_pressure_range_gpa": [
+        5.62,
+        16.09
+      ],
+      "experimental_temperature_range_k": [
+        673,
+        673
+      ],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [
+          5.62,
+          16.09
+        ],
+        "temperature_k": [
+          673,
+          673
+        ],
+        "notes": [
+          "Review-only numerical domain, not accepted thermodynamic phase stability. Records remain pending and require explicit opt-in to execute.",
+          "Historical staged source-equation snapshot. Current catalog accepts the layered lattice-average EOS across the source range, with H-order and source-normalization qualifications recorded separately.",
+          "No state at another temperature is validated by an isothermal record. No continuous EOS crosses the H transition or dehydration boundary."
+        ]
+      },
+      "fit_datasets": [
+        "brucite_fukui_2003_table1",
+        "brucite_fukui_2003_table4"
+      ],
+      "fit_provenance": {
+        "software": {
+          "name": "not reported for EOS fitting",
+          "version": "not reported"
+        },
+        "dataset": "brucite_fukui_2003_table4",
+        "selection": {
+          "temperature_k": 673,
+          "source_rows": [
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "source_exclusions": "not reported; every printed same-T row retained in diagnostics"
+        },
+        "objective": "not reported; diagnostics compare three explicit objectives",
+        "source_weights": "not reported",
+        "source_covariance": "not reported",
+        "source_software": "not reported for EOS fitting",
+        "refined_parameters": [
+          "K0",
+          "K0_prime"
+        ],
+        "fixed_parameters": [
+          "V0"
+        ],
+        "statistics": {
+          "observations": 8
+        },
+        "diagnostic_refits": {
+          "unweighted_pressure": {
+            "success": true,
+            "K0_gpa": 29.032215423927312,
+            "K0_prime": 8.844925732628258,
+            "delta_over_reported_errors": [
+              0.11057877329871957,
+              -0.14097660670158324
+            ],
+            "pressure_rmse_gpa": 0.2280738607809863,
+            "maximum_absolute_pressure_residual_gpa": 0.45592182993128816
+          },
+          "pressure_sigma": {
+            "success": true,
+            "K0_gpa": 30.435152603750577,
+            "K0_prime": 8.095355216322902,
+            "delta_over_reported_errors": [
+              0.778644097024084,
+              -0.8224043487973615
+            ],
+            "pressure_rmse_gpa": 0.24543759447109292,
+            "maximum_absolute_pressure_residual_gpa": 0.562650651778462
+          },
+          "effective_sigma": {
+            "success": true,
+            "K0_gpa": 28.861524156990942,
+            "K0_prime": 9.048109142725824,
+            "delta_over_reported_errors": [
+              0.029297217614734042,
+              0.04373558429620384
+            ],
+            "pressure_rmse_gpa": 0.24607936213184659,
+            "maximum_absolute_pressure_residual_gpa": 0.5925598344250851
+          }
+        },
+        "diagnostic_refits_are_records": false
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-10-16",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference_eos_record": "gold_anderson_1989_bm3_1",
+            "reference": {
+              "authors": [
+                "Anderson",
+                "Isaak",
+                "Yamamoto"
+              ],
+              "year": 1989,
+              "title": "Anharmonicity and the equation of state for gold",
+              "source": "Journal of Applied Physics",
+              "volume": "65",
+              "locator": "1534-1543",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "High-pressure experiments, p. 512; reference p. 516",
+            "scope": "Every Table 4 pressure; Au mixed with brucite 1:10 by weight"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No paired Au lattice parameters or volumes tabulated; pressure errors alone cannot reconstruct them. No inverse-EOS synthetic marker observations are created."
+        }
+      },
+      "experimental_configuration": {
+        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
+        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
+        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
+        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
+      },
+      "scientific_validation": {
+        "status": "pending_primary_source_check",
+        "audit_date": "2026-10-16",
+        "note": "Source equation and printed coefficients audited; retained as staged research candidate. Direct primary structural verification is resolved using He (2023). Broad phase-resolved acceptance and exact original fit workflow remain unresolved.",
+        "primary_source_check": {
+          "doi": "10.1007/s00269-003-0353-z",
+          "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+          "source_equation_validated": true,
+          "locations": [
+            "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+          ]
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "dataset_identifiers": [
+            "brucite_fukui_2003_table1",
+            "brucite_fukui_2003_table4"
+          ],
+          "finding": "All 48 sample observations, including negative reported pressure, repeated temperatures and errors preserved; original Au readings unavailable."
+        },
+        "numerical_reproduction": {
+          "source_equation_validated": true,
+          "published_curve": {
+            "pressure_rmse_gpa": 0.23027507836968086,
+            "maximum_absolute_pressure_residual_gpa": 0.5071162310700625,
+            "pressure_residuals_gpa": [
+              0.008286650887340485,
+              0.17274658765582807,
+              -0.08659254442162734,
+              0.5071162310700625,
+              -0.3345427527928244,
+              0.008044943924741865,
+              -0.12762145302573735,
+              0.03697149185750881
+            ],
+            "max_absolute_effective_sigma_residual": 1.5670063989561438
+          },
+          "conditional_coefficient_agreement": "Pressure-sigma diagnostic fits agree with printed K0 and Kprime within each reported error; objective itself is not source-confirmed.",
+          "author_workflow_reproduced": false
+        },
+        "audit_report": "docs/literature-reproductions/brucite.md"
+      },
+      "notes": "Preserves source K0 and Kprime; high-T V0 derived transparently from the same source. No accepted independent refit. Table 5 prints 300 K Kprime error 0.3, Table 6 prints 0.4; Table 5 convention retained. Unreported coefficient covariance prevents treating propagated parameter errors as an independent validation statistic. Not a continuous thermal record and not an H-order/dehydration phase model."
+    },
+    {
+      "identifier": "brucite_fukui_2003_873k_bm3",
+      "label": "Fukui et al. (2003), 873 K lattice-average BM3; staged, phase scope unresolved",
+      "default": false,
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "determination_method": "experimental",
+      "reference": {
+        "authors": [
+          "Fukui",
+          "Ohtaka",
+          "Suzuki",
+          "Funakoshi"
+        ],
+        "year": 2003,
+        "title": "Thermal expansion of Mg(OH)2 brucite under high pressure and pressure dependence of entropy",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "30",
+        "locator": "511-516",
+        "doi": "10.1007/s00269-003-0353-z"
+      },
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+          "V0": 42.515951061625515,
+          "K0": 23.9,
+          "K0_prime": 10.0
+        }
+      },
+      "temperature_ref": 873,
+      "parameter_errors": {
+        "V0": null,
+        "K0": 1.4,
+        "K0_prime": 0.9
+      },
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "fixed_parameters": [
+        "V0"
+      ],
+      "parameter_provenance": {
+        "determination_method": "Powder X-ray isothermal compression; V0(T) from independent ambient expansion measurements. No acoustic or shock coefficients substituted.",
+        "equation": "Equation (2), p. 513: ordinary third-order Birch-Murnaghan.",
+        "V0": "Table 2: V0(300)=40.917(12) A^3. For high-T slices, p. 513 states V0 was fixed from ambient expansion using Eq. (1) and Table 3 constant alpha=6.69(18)e-5 K^-1. V0(T)=40.917 exp[6.69e-5(T-300)]. Static compression V0 treatment is not separately stated; Table 2 anchoring is explicit here and subject to integration review. Derived high-T V0 errors are missing because covariance is unreported, not zero.",
+        "K0": "Table 6, p. 515",
+        "K0_prime": "Table 6, p. 515",
+        "temperature_ref": "Exact listed isotherm; no interpolation or temperature extrapolation between records."
+      },
+      "experimental_pressure_range_gpa": [
+        5.21,
+        15.48
+      ],
+      "experimental_temperature_range_k": [
+        873,
+        873
+      ],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [
+          5.21,
+          15.48
+        ],
+        "temperature_k": [
+          873,
+          873
+        ],
+        "notes": [
+          "Review-only numerical domain, not accepted thermodynamic phase stability. Records remain pending and require explicit opt-in to execute.",
+          "Historical staged source-equation snapshot. Current catalog accepts the layered lattice-average EOS across the source range, with H-order and source-normalization qualifications recorded separately.",
+          "No state at another temperature is validated by an isothermal record. No continuous EOS crosses the H transition or dehydration boundary."
+        ]
+      },
+      "fit_datasets": [
+        "brucite_fukui_2003_table1",
+        "brucite_fukui_2003_table4"
+      ],
+      "fit_provenance": {
+        "software": {
+          "name": "not reported for EOS fitting",
+          "version": "not reported"
+        },
+        "dataset": "brucite_fukui_2003_table4",
+        "selection": {
+          "temperature_k": 873,
+          "source_rows": [
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37
+          ],
+          "source_exclusions": "not reported; every printed same-T row retained in diagnostics"
+        },
+        "objective": "not reported; diagnostics compare three explicit objectives",
+        "source_weights": "not reported",
+        "source_covariance": "not reported",
+        "source_software": "not reported for EOS fitting",
+        "refined_parameters": [
+          "K0",
+          "K0_prime"
+        ],
+        "fixed_parameters": [
+          "V0"
+        ],
+        "statistics": {
+          "observations": 8
+        },
+        "diagnostic_refits": {
+          "unweighted_pressure": {
+            "success": true,
+            "K0_gpa": 25.476150138588604,
+            "K0_prime": 9.680393337785233,
+            "delta_over_reported_errors": [
+              1.12582152756329,
+              -0.35511851357196317
+            ],
+            "pressure_rmse_gpa": 0.15803246821895256,
+            "maximum_absolute_pressure_residual_gpa": 0.35565052587003443
+          },
+          "pressure_sigma": {
+            "success": true,
+            "K0_gpa": 25.24154433719996,
+            "K0_prime": 9.707174759601566,
+            "delta_over_reported_errors": [
+              0.9582459551428307,
+              -0.3253613782204824
+            ],
+            "pressure_rmse_gpa": 0.1777463362134562,
+            "maximum_absolute_pressure_residual_gpa": 0.3055271810923923
+          },
+          "effective_sigma": {
+            "success": true,
+            "K0_gpa": 25.90375439462722,
+            "K0_prime": 9.317746354147873,
+            "delta_over_reported_errors": [
+              1.4312531390194445,
+              -0.7580596065023629
+            ],
+            "pressure_rmse_gpa": 0.17955807823631867,
+            "maximum_absolute_pressure_residual_gpa": 0.28383290108007664
+          }
+        },
+        "diagnostic_refits_are_records": false
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "audit_date": "2026-10-16",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference_eos_record": "gold_anderson_1989_bm3_1",
+            "reference": {
+              "authors": [
+                "Anderson",
+                "Isaak",
+                "Yamamoto"
+              ],
+              "year": 1989,
+              "title": "Anharmonicity and the equation of state for gold",
+              "source": "Journal of Applied Physics",
+              "volume": "65",
+              "locator": "1534-1543",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "High-pressure experiments, p. 512; reference p. 516",
+            "scope": "Every Table 4 pressure; Au mixed with brucite 1:10 by weight"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No paired Au lattice parameters or volumes tabulated; pressure errors alone cannot reconstruct them. No inverse-EOS synthetic marker observations are created."
+        }
+      },
+      "experimental_configuration": {
+        "sample": "Synthetic commercial Mg(OH)2 reagent, 99.9% purity, Iwatani Chemical Ltd.; Au mixture under pressure.",
+        "apparatus": "SPEED-1500 multi-anvil; BL04B1 SPring-8 energy-dispersive diffraction; MgO medium, graphite sample capsule.",
+        "path": "Compressed, annealed at 900 K for over 10 minutes, collected on cooling.",
+        "temperature": "W97Re3-W75Re25 thermocouple; pressure effect on emf ignored; fluctuations less than 1 K, not row errors"
+      },
+      "scientific_validation": {
+        "status": "pending_primary_source_check",
+        "audit_date": "2026-10-16",
+        "note": "Source equation and printed coefficients audited; retained as staged research candidate. Direct primary structural verification is resolved using He (2023). Broad phase-resolved acceptance and exact original fit workflow remain unresolved. At 873 K the printed curve has an unexplained 0.486 GPa RMS offset and a maximum residual of 6.71 combined observational standard errors; conditional coefficient agreement does not resolve this.",
+        "primary_source_check": {
+          "doi": "10.1007/s00269-003-0353-z",
+          "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
+          "source_equation_validated": true,
+          "locations": [
+            "Eqs. 1-2 and Tables 1-6, pp. 512-515"
+          ]
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "dataset_identifiers": [
+            "brucite_fukui_2003_table1",
+            "brucite_fukui_2003_table4"
+          ],
+          "finding": "All 48 sample observations, including negative reported pressure, repeated temperatures and errors preserved; original Au readings unavailable."
+        },
+        "numerical_reproduction": {
+          "source_equation_validated": true,
+          "published_curve": {
+            "pressure_rmse_gpa": 0.486257144044042,
+            "maximum_absolute_pressure_residual_gpa": 0.6724251855101837,
+            "pressure_residuals_gpa": [
+              -0.4662321872903785,
+              -0.10747652102528171,
+              -0.5383408006497756,
+              -0.5741339717550904,
+              -0.6724251855101837,
+              -0.1738161827396958,
+              -0.38577840712432376,
+              -0.6418809203989291
+            ],
+            "max_absolute_effective_sigma_residual": 6.714386378264875
+          },
+          "conditional_coefficient_agreement": "Pressure-sigma diagnostic fits agree with printed K0 and Kprime within each reported error; objective itself is not source-confirmed.",
+          "author_workflow_reproduced": false
+        },
+        "audit_report": "docs/literature-reproductions/brucite.md"
+      },
+      "notes": "Preserves source K0 and Kprime; high-T V0 derived transparently from the same source. No accepted independent refit. Table 5 prints 300 K Kprime error 0.3, Table 6 prints 0.4; Table 5 convention retained. Unreported coefficient covariance prevents treating propagated parameter errors as an independent validation statistic. Not a continuous thermal record and not an H-order/dehydration phase model."
+    }
+  ]
+}

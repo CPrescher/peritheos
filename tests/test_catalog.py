@@ -142,8 +142,11 @@ def test_missing_calibration_ranges_do_not_claim_unbounded_coverage():
     assert "gold_sokolova_2013_holzapfel_4" not in identifiers(
         search_eos_records(pressure_gpa=0.0)
     )
-    assert "gold_fei_2007_vinet_2" not in identifiers(
+    assert "gold_fei_2007_vinet_2" in identifiers(
         search_eos_records(temperature_k=2000.0)
+    )
+    assert "gold_fei_2007_vinet_2" not in identifiers(
+        search_eos_records(temperature_k=2331.0)
     )
     assert search_eos_records(pressure_gpa=1.0e9) == ()
 

@@ -93,9 +93,9 @@ def extract() -> tuple[str, dict]:
 
 def main() -> None:
     csv_text, evidence = extract()
-    (DATA / f"{PREFIX}-olivine-workbook.csv").write_text(csv_text)
-    (DATA / f"{PREFIX}-olivine-cells.json").write_text(
-        json.dumps(evidence, indent=2, ensure_ascii=False) + "\n"
+    DATA / f"{PREFIX}-olivine-workbook.csv".write_bytes((csv_text).encode("utf-8"))
+    DATA / f"{PREFIX}-olivine-cells.json".write_bytes(
+        (json.dumps(evidence, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
     )
     out = io.StringIO(newline="")
     writer = csv.writer(out, lineterminator="\n")
@@ -110,7 +110,7 @@ def main() -> None:
                 ],
             ]
         )
-    (DATA / f"{PREFIX}-olivine-pvt.csv").write_text(out.getvalue())
+    DATA / f"{PREFIX}-olivine-pvt.csv".write_bytes((out.getvalue()).encode("utf-8"))
     # Candidate six-column export in the author's xlsread order. Missing sT
     # stays empty: using the correction bracket as total sT is not established.
     out = io.StringIO(newline="")
@@ -135,22 +135,33 @@ def main() -> None:
                 "",
             ]
         )
-    (DATA / f"{PREFIX}-candidate-fitting-input.csv").write_text(out.getvalue())
-    (DATA / f"{PREFIX}-candidate-fitting-input.json").write_text(
-        json.dumps(
-            {
-                "status": "partial_candidate_reconstruction_not_original_author_export",
-                "source_doi": "10.5281/zenodo.5644426",
-                "source_sheet": "Olivine",
-                "source_rows": [4, 54],
-                "columns_in_author_script_order": ["AD", "AE", "AN", "AO", "U", None],
-                "pressure_choice": "Author-saved combined AD/AE. Exact separate export selection cannot be confirmed; individual Vinet and BM3 coordinates remain in the complete source transcription.",
-                "missing": ["temperature_sigma_k"],
-                "notes": "All 51 rows retained. S/T are corrected temperatures evaluated at pressure brackets; their half-span is recoverable but not established as the total sigmaT supplied to the bootstrap. Blank sigmaT must not be silently read as zero. No claim of original bootstrap fit-input parity.",
-            },
-            indent=2,
-        )
-        + "\n"
+    DATA / f"{PREFIX}-candidate-fitting-input.csv".write_bytes(
+        (out.getvalue()).encode("utf-8")
+    )
+    DATA / f"{PREFIX}-candidate-fitting-input.json".write_bytes(
+        (
+            json.dumps(
+                {
+                    "status": "partial_candidate_reconstruction_not_original_author_export",
+                    "source_doi": "10.5281/zenodo.5644426",
+                    "source_sheet": "Olivine",
+                    "source_rows": [4, 54],
+                    "columns_in_author_script_order": [
+                        "AD",
+                        "AE",
+                        "AN",
+                        "AO",
+                        "U",
+                        None,
+                    ],
+                    "pressure_choice": "Author-saved combined AD/AE. Exact separate export selection cannot be confirmed; individual Vinet and BM3 coordinates remain in the complete source transcription.",
+                    "missing": ["temperature_sigma_k"],
+                    "notes": "All 51 rows retained. S/T are corrected temperatures evaluated at pressure brackets; their half-span is recoverable but not established as the total sigmaT supplied to the bootstrap. Blank sigmaT must not be silently read as zero. No claim of original bootstrap fit-input parity.",
+                },
+                indent=2,
+            )
+            + "\n"
+        ).encode("utf-8")
     )
 
 

@@ -9,6 +9,7 @@ from jsonschema import Draft202012Validator
 from peritheos import Material, eosmat_schema, get_material
 from peritheos.errors import MaterialError
 from scripts.brucite_curved_expansion import PREFIX, REPORT, ledger_outcome, reproduce
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import bm3, observations, source
 from scripts.brucite_stage import audit_document
 
@@ -21,7 +22,10 @@ def audit_record(identifier):
 
 @pytest.fixture(scope="module")
 def report():
-    return reproduce()
+    # Runtime checks use the registered coefficients; replay agreement is separate.
+    saved = json.loads(REPORT.read_text(encoding="utf-8"))
+    check_report(reproduce(), saved)
+    return saved
 
 
 @pytest.mark.parametrize("index,temperature", [(0, 300), (1, 473), (2, 673), (3, 873)])
@@ -117,7 +121,7 @@ def test_curved_thermal_uses_exact_purple_law_and_published_slopes(report):
 
 
 def test_curved_expansion_covariance_roundtrip_and_registered_fit(report):
-    assert report == json.loads(REPORT.read_text())
+    check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
     doc = audit_document()
     Draft202012Validator(eosmat_schema()).validate(doc)
     m = Material.from_eosmat(doc, require_primary_validation=False)

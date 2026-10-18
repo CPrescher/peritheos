@@ -60,6 +60,7 @@ The current collection contains 179 standalone reports.
 | Errandonea et al. (2006): laser-annealed fcc Ar and hcp coexistence | [`argon-errandonea-2006.md`](literature-reproductions/argon-errandonea-2006.md) |
 | Farla 2025 B2 rubidium halides | [`rubidium-halides-farla-2025.md`](literature-reproductions/rubidium-halides-farla-2025.md) |
 | Fe-bearing phase E: Crichton and Ross (2000) | [`phase-e-crichton-ross-2000.md`](literature-reproductions/phase-e-crichton-ross-2000.md) |
+| Fei 2007 gold author fit evidence follow up | [`fei-2007-gold-follow-up.md`](literature-reproductions/fei-2007-gold-follow-up.md) |
 | Fei 2007 NaCl B2 thermal EOS recovery | [`fei-2007-nacl-b2.md`](literature-reproductions/fei-2007-nacl-b2.md) |
 | Fei et al 2007 solid neon thermal EOS reconstruction | [`fei-2007-neon.md`](literature-reproductions/fei-2007-neon.md) |
 | Fei et al. (2007): Au thermal EOS and conditional fitting replay | [`fei-2007-gold.md`](literature-reproductions/fei-2007-gold.md) |
@@ -150,6 +151,7 @@ The current collection contains 179 standalone reports.
 | Ross et al. (1986): published tables recovered; Monte Carlo reproduction pending | [`argon-ross-1986.md`](literature-reproductions/argon-ross-1986.md) |
 | Sakai et al. (2011): experimental NaCl-B2 on four Pt scales | [`sakai-2011-nacl-b2.md`](literature-reproductions/sakai-2011-nacl-b2.md) |
 | Sakai et al. (2018): rhenium on the Yokoo platinum scale | [`sakai-2018-rhenium.md`](literature-reproductions/sakai-2018-rhenium.md) |
+| Sakai et al. (2025): Au source observations and conditional calibration | [`sakai-2025-gold.md`](literature-reproductions/sakai-2025-gold.md) |
 | Sakai et al. (2025): nine mutually consistent Rydberg-Stacey scales | [`sakai-2025-nine-materials.md`](literature-reproductions/sakai-2025-nine-materials.md) |
 | Sata and Ohfuji: cold FeS-VI EOS audit | [`sata-2010-fes-vi.md`](literature-reproductions/sata-2010-fes-vi.md) |
 | Satta et al. (2025): ambient elasticity of Fe-bearing delta-AlOOH | [`satta-2025-delta-alooh-elasticity.md`](literature-reproductions/satta-2025-delta-alooh-elasticity.md) |
@@ -190,6 +192,7 @@ The current collection contains 179 standalone reports.
 | Yang et al. (2015): (Mg0.92Fe0.08)O ferropericlase | [`yang-2015-ferropericlase.md`](literature-reproductions/yang-2015-ferropericlase.md) |
 | Ye (2017) 300 K fits and Zhu (2025) thermal P-V-T standards | [`zhu-2025-pressure-standards.md`](literature-reproductions/zhu-2025-pressure-standards.md) |
 | Yokoo (2009): diagnostic Au and Pt PVT reconstructions | [`yokoo-2009-pvt-library.md`](literature-reproductions/yokoo-2009-pvt-library.md) |
+| Yokoo 2009 Au evidence needed to reopen the PVT investigation | [`yokoo-2009-au-follow-up.md`](literature-reproductions/yokoo-2009-au-follow-up.md) |
 | Yokoo et al. (2009): Au reference isotherms and thermal-source audit | [`yokoo-2009-gold.md`](literature-reproductions/yokoo-2009-gold.md) |
 | Yokoo et al. (2009): Pt pressure-scale branches and source audit | [`yokoo-2009-platinum.md`](literature-reproductions/yokoo-2009-platinum.md) |
 | Yokoo PVT: audit of the remaining thermal-pressure discrepancy | [`yokoo-2009-pressure-conventions.md`](literature-reproductions/yokoo-2009-pressure-conventions.md) |

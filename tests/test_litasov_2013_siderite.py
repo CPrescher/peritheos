@@ -227,6 +227,38 @@ def test_thermal_mapping_covariance_and_inversion_on_primary_states():
     # parameter standard error plus a reported coordinate bound.
     assert abs(record.pressure(247.82, 1673) - 32.10) == pytest.approx(0.2574785491)
     covariance = np.array(record.parameter_covariance)
+    # Independent analytic BM3 derivatives, including integrated alpha(T).
+    # A unit-sized finite-difference step formerly inflated the alpha1 term.
+    dt = 1673.0 - 300.0
+    k = params["K0"] + params["dK_dT"] * dt
+    vref = params["V0"] * np.exp(
+        params["alpha0"] * dt + 0.5 * params["alpha1"] * (1673.0**2 - 300.0**2)
+    )
+    eta = (vref / 247.82) ** (1 / 3)
+    a = 0.75 * (params["K0_prime"] - 4)
+    shape = 1.5 * (eta**7 - eta**5) * (1 + a * (eta**2 - 1))
+    bulk = (
+        0.5
+        * k
+        * (
+            (7 * eta**7 - 5 * eta**5) * (1 + a * (eta**2 - 1))
+            + 2 * a * (eta**9 - eta**7)
+        )
+    )
+    gradient = np.array(
+        [
+            shape,
+            1.125 * k * (eta**7 - eta**5) * (eta**2 - 1),
+            bulk * dt,
+            0.5 * bulk * (1673.0**2 - 300.0**2),
+            shape * dt,
+        ]
+    )
+    expected_sigma = np.sqrt(gradient @ covariance @ gradient)
+    assert prediction.standard_error == pytest.approx(expected_sigma, rel=1e-5)
+    assert expected_sigma == pytest.approx(0.0969189519, rel=1e-6)
+    assert abs(record.pressure(247.82, 1673) - 32.10) == pytest.approx(0.2574785491)
+
     np.testing.assert_allclose(
         covariance,
         result["estimated_covariance_free_parameters"],

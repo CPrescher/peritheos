@@ -117,7 +117,7 @@ def test_complete_primary_table_null_errors_and_independent_csv():
         100.025,
         99.648,
     ]
-    source = json.loads(SOURCE.read_text())
+    source = json.loads(SOURCE.read_text(encoding="utf-8"))
     assert (
         hashlib.sha256(TABLE.read_bytes()).hexdigest()
         == source["transcription"]["sha256"]
@@ -209,7 +209,7 @@ def test_conditional_refits_do_not_replace_published_parameters():
 
 def test_diffraction_fallback_uses_target_cell_and_separate_provenance():
     doc = document()
-    source = json.loads(SOURCE.read_text())
+    source = json.loads(SOURCE.read_text(encoding="utf-8"))
     assert doc["atom_sites"] == []
     assert len(doc["peaks"]) == 8
     assert [peak[:3] for peak in doc["peaks"]] == source["diffraction_fallback"]["hkl"]
@@ -243,7 +243,7 @@ def test_diffraction_fallback_uses_target_cell_and_separate_provenance():
 
 def test_calibration_axial_and_thermal_scope():
     doc = document()
-    source = json.loads(SOURCE.read_text())
+    source = json.loads(SOURCE.read_text(encoding="utf-8"))
     calibration = doc["eos_records"][0]["pressure_calibration"]
     assert calibration["methods"][0]["reference"]["doi"] == "10.1107/S0021889897000861"
     assert (
@@ -262,7 +262,7 @@ def test_calibration_axial_and_thermal_scope():
 
 
 def test_author_thesis_version_is_preserved_without_merging_tables():
-    source = json.loads(SOURCE.read_text())
+    source = json.loads(SOURCE.read_text(encoding="utf-8"))
     thesis = source["author_thesis_crosscheck"]
     assert len(thesis["raw_rows"]) == 11
     assert len(thesis["differences_from_journal"]) == 4

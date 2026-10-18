@@ -31,7 +31,8 @@ from scripts.brucite_reproduce import (
     reproduce,
     source,
 )
-from scripts.brucite_stage import audit_document, catalog_document, staged_document
+from scripts.brucite_replay_checks import check_report
+from scripts.brucite_stage import audit_document, catalog_document, conditional_thermal_document, staged_document
 from scripts.eosmat_io import read_material
 from scripts.run_eosmat_audit import historical_reconstruction_view
 
@@ -187,8 +188,8 @@ def test_brucite_source_observations_are_independent_checkpoints(candidate):
 
 def test_brucite_conditional_agreement_does_not_claim_exact_reproduction():
     report = reproduce()
-    stored = json.loads(REPORT.read_text())
-    assert report == stored
+    stored = json.loads(REPORT.read_text(encoding="utf-8"))
+    check_report(report, stored)
     assert (
         max(
             abs(x)
@@ -241,7 +242,7 @@ def test_brucite_continuous_thermal_and_calibration_holds(candidate):
 
 
 def test_staged_conditional_surface_keeps_scientific_holds():
-    doc = load_eosmat(STAGED.with_name("brucite-conditional-thermal.eosmat"))
+    doc = conditional_thermal_document()
     Draft202012Validator(eosmat_schema()).validate(doc)
     material = Material.from_eosmat(doc, require_primary_validation=False)
     record = material.get_eos_record("brucite_fukui_2003_conditional_thermal")
@@ -409,3 +410,44 @@ def test_primary_structure_and_phase_sources_do_not_imply_universal_boundary():
     assert len(phase["source_inconsistencies"]) == 3
     assert source()["catalog_disposition"]["held_isotherms_k"] == []
     assert src["sun_2025_phase"]["doi"] == "10.1016/j.gsf.2024.101940"
+
+
+def test_brucite_replay_tolerances_preserve_sources_and_small_coefficients():
+    import copy
+
+    saved = {
+        "published_parameters": [41.8, 6.6],
+        "fit": {"parameters": {"alpha1": 4.4e-8}},
+        "source_rows": [1, 2],
+        "success": True,
+    }
+    replay = copy.deepcopy(saved)
+    replay["fit"]["parameters"]["alpha1"] *= 1 + 1e-6
+    check_report(replay, saved)
+    for field, value in (
+        ("published_parameters", [41.8 + 1e-10, 6.6]),
+        ("source_rows", [1, 3]),
+        ("success", False),
+    ):
+        changed = {**saved, field: value}
+        with pytest.raises(ValueError):
+            check_report(changed, saved)
+    replay["fit"]["parameters"]["alpha1"] = 0.0
+    with pytest.raises(ValueError, match="calculated value"):
+        check_report(replay, saved)
+
+
+def test_brucite_refit_requires_curve_parity_within_coefficient_tolerance(monkeypatch):
+    from scripts import brucite_reproduce as audit
+
+    record = next(
+        r for r in audit_document()["eos_records"]
+        if r["identifier"] == "brucite_peritheos_fukui_2003_thermal_refit"
+    )
+    report = reproduce()
+    # A small correlated-coefficient change may meet the scalar comparison but
+    # must still be rejected when it changes the evaluated pressure curve.
+    report["peritheos_refits"]["continuous_thermal"]["parameters"]["K0"] *= 1.00005
+    monkeypatch.setattr(audit, "reproduce", lambda: report)
+    with pytest.raises(ValueError, match="stale"):
+        audit.ledger_outcome(record)

@@ -16,7 +16,7 @@ from numpy.polynomial.legendre import leggauss
 from scipy.constants import Avogadro, R
 from scipy.optimize import least_squares
 
-from scripts.brucite_curved_expansion import reproduce as curved_report
+from scripts.brucite_curved_expansion import REPORT as CURVED_REPORT
 from scripts.brucite_reproduce import (
     ROOT,
     bm3,
@@ -336,7 +336,7 @@ def reproduce():
                 dataset,
             )
             results[key] = fit
-    curved = curved_report()["fit"]
+    curved = json.loads(CURVED_REPORT.read_text(encoding="utf-8"))["fit"]
     old_parameters = np.array(
         [
             curved["V300_a3"],
@@ -611,10 +611,10 @@ def main():
     report = reproduce()
     payload = json.dumps(report, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if REPORT.read_text() != payload:
+        if REPORT.read_text(encoding="utf-8") != payload:
             raise SystemExit("Brucite MGD comparison is stale")
     else:
-        REPORT.write_text(payload)
+        REPORT.write_text(payload, encoding="utf-8")
     if args.plot:
         write_plot(report)
     print("Brucite MGD comparison is current.")

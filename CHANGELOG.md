@@ -5,6 +5,43 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.14.1] - 2026-10-17
+
+### Fixed
+
+- Reject unknown observation-view properties and malformed optional coordinate,
+  uncertainty and fit-selection objects before planning or resolving source rows.
+- Trim shared embedded observation links when exporting selected EOS records;
+  retain datasets linked only by an observation view and drop empty views.
+- Read and write coverage/export JSON explicitly as UTF-8 on every platform.
+- Preserve all v0.14.0 numerical sources, coefficients and observation reductions.
+
+## [0.14.0] - 2026-10-17
+
+### Added
+
+- Add source-bound observation views with explicit evidence kind, phase/sample
+  selections, pressure coordinates, volume conversions and uncertainty roles.
+- Resolve paired calibrant pressures through the existing complete EOS evaluator;
+  Shen–Smith NaCl-B1/B2 expose all 67/131 measured sample volumes with Cu pressures.
+- Add a source-preserving catalog migration, coverage census and immutable-revision
+  export for downstream applications. Missing temperatures remain unknown; model
+  grids and source reductions remain distinct from independent measurements.
+
+### Compatibility
+
+- Keep all v0.13.0 EOS coefficients, defaults, source tables and scientific
+  qualifications unchanged. The optional EOSMAT v3 metadata is backward compatible.
+
+## [0.13.0] - 2026-10-17
+
+This release expands thermal EOS coverage for forsterite, diopside, brucite and
+rubidium halides, adds Fe-bearing phase E and an optional NaCl-B2 refit, and
+improves uncertainty propagation and lossless interchange. It contains 672
+stored EOS records in 232 material documents, with 669 executable records
+across 229 materials. Published models and independent refits retain their
+individual scientific qualifications.
+
 ### Added
 
 - Improve native EOSMAT for human authoring: explicit units in new files, EOS-first
@@ -1196,7 +1233,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.12.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.13.0...HEAD
+[0.13.0]: https://github.com/CPrescher/peritheos/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/CPrescher/peritheos/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/CPrescher/peritheos/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/CPrescher/peritheos/compare/v0.9.0...v0.10.0

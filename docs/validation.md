@@ -73,7 +73,7 @@ qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-
 [60 direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 178 records cannot be
 directly refitted because row-level inputs or an executable source reduction
-are unavailable. Sixteen further records have source reconstructions without an independent
+are unavailable. Seventeen further records have source reconstructions without an independent
 EOS refit. There are no unresolved extraction or solver failures. The
 machine-readable results are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).

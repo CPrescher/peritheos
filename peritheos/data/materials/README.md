@@ -64,7 +64,8 @@ Assigned errors and overlapping observations remain explicit; the author EOS
 file does not overwrite the paper coefficients.
 Maltby, the Chen
 printed-constant diagnostic, the three Miozzi (2020) hcp-Fe parameterizations,
-and the two Yokoo (2009) Au/Pt table-output reconstructions
+the two Yokoo (2009) Au/Pt table-output reconstructions, and the qualified
+brucite 300 K anchored thermal reconstruction and original 873 K curve
 are explicit-selection `not_reproduced` records; the Chen diagnostic is marked
 DO NOT USE. The Miozzi source coefficients and all 131 official supplementary
 observations are preserved, with unresolved source-fit discrepancies documented
