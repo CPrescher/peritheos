@@ -3,6 +3,9 @@
 Contributions are welcome, particularly independently reproducible validation
 cases, numerical robustness improvements, and documentation clarifications.
 
+The enduring project goals, human-readable EOSMAT principles and shared-checkout
+guidance are collected in [AGENTS.md](AGENTS.md).
+
 ## Development setup
 
 Install [uv](https://docs.astral.sh/uv/) and create the locked development
