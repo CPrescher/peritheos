@@ -51,6 +51,20 @@ still uses those parser APIs. The parser bound does not constrain library users
 or suppress warnings from Peritheos. See
 [dependency support](docs/api-stability.md#dependency-support) for the NumPy floor.
 
+Free-threaded Python CI also renders the diagnostic PDFs. It builds the locked
+FontTools dependency in its supported pure-Python mode because the optional
+compiled font extension enables the GIL. To reproduce this setup separately:
+
+```bash
+UV_PROJECT_ENVIRONMENT=.venv-free-threaded FONTTOOLS_WITH_CYTHON=0 \
+  uv sync --python 3.14t --frozen --no-binary-package fonttools
+UV_PROJECT_ENVIRONMENT=.venv-free-threaded \
+  uv run --python 3.14t --frozen --no-sync pytest -q -W error
+```
+
+CI checks that the PDF backend imports with the GIL disabled. PDF tests and
+warnings-as-errors remain enabled; installed Peritheos does not require FontTools.
+
 ## Scientific changes
 
 Changes to an equation, constant, unit convention, fitting statistic, or

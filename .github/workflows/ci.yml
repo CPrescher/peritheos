@@ -256,8 +256,14 @@ jobs:
           python-version: "3.14t"
           version: "0.12.1"
 
-      - name: Run tests
-        run: uv run --python 3.14t --frozen pytest -q -W error
+      - name: Run tests without enabling the GIL for PDF font handling
+        env:
+          # The locked FontTools extension does not declare free-threaded safety.
+          FONTTOOLS_WITH_CYTHON: "0"
+        run: |
+          uv sync --python 3.14t --frozen --no-binary-package fonttools
+          uv run --python 3.14t --frozen --no-sync python -W error -c 'import sys; import fontTools.misc.bezierTools as bezier; from matplotlib.backends import backend_pdf; assert bezier.__file__.endswith(".py"), bezier.__file__; assert not sys._is_gil_enabled()'
+          uv run --python 3.14t --frozen --no-sync pytest -q -W error
 
   coverage:
     name: Complete Python package coverage
