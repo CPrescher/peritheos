@@ -17,7 +17,22 @@
         "K0": {"value": 134.0, "error": 4.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [27.7, 51.1],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [27.7, 51.1],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Composition-specific to Fe0.93O in the rhombohedrally distorted B1 phase.",
+          "The source first observes the phase at 27.7 GPa; V0 is only the EOS reference parameter and is outside the phase's observed stability interval."
+        ]
+      },
       "determination_method": "experimental",
+      "notes": "Published preferred cross-check fit to all nine rhombohedral Table 1 observations from 27.7 to 51.1 GPa, using a 1 atm reference without an artificial P0 data point. V0 and K0 are free and K0'=4 is fixed. The executable V0 is a metastable zero-pressure extrapolation for a phase observed only above 23 GPa. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
+      "fit_datasets": ["jacobsen_2005_table1_compression"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Jacobsen", "Lin", "Angel", "Shen", "Prakapenka", "Dera", "Mao", "Hemley"],
         "year": 2005,
@@ -27,20 +42,6 @@
         "locator": "577-583",
         "doi": "10.1107/S0909049505022326"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [27.7, 51.1],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [27.7, 51.1],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Composition-specific to Fe0.93O in the rhombohedrally distorted B1 phase.",
-          "The source first observes the phase at 27.7 GPa; V0 is only the EOS reference parameter and is outside the phase's observed stability interval."
-        ]
-      },
-      "notes": "Published preferred cross-check fit to all nine rhombohedral Table 1 observations from 27.7 to 51.1 GPa, using a 1 atm reference without an artificial P0 data point. V0 and K0 are free and K0'=4 is fixed. The executable V0 is a metastable zero-pressure extrapolation for a phase observed only above 23 GPa. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -152,8 +153,7 @@
           "volume_basis": "Table 1 explicitly reports equivalent-hexagonal-cell volumes. The paper's conversion of V0=59.72 A^3 to 11.99 cm^3/mol establishes three formula units per represented cell.",
           "temperature_ref": "The source identifies the ambient lattice measurements as 300 K and reports a room-temperature static compression experiment."
         }
-      },
-      "fit_datasets": ["jacobsen_2005_table1_compression"]
+      }
     }
   ],
   "aliases": ["rhombohedral wustite", "rhombohedral Fe1-xO"],

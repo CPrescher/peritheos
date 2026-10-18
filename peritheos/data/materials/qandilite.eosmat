@@ -16,10 +16,21 @@
         "V0": {"value": 603.21, "error": 0.18},
         "K0": {"value": 172.0, "error": 1.0}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0001, 14.9],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default": true,
+      "notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.",
+      "range_provenance": {
+        "source_location": "Table 1 and abstract",
+        "notes": "Ambient anchor plus 17 DAC states; no decomposition, splitting or new peaks observed. Zero-pressure reference is defined by the EOS."
+      },
+      "parameter_error_convention": "One standard deviation; Table 2 footnote a and Figure 5 caption.",
+      "fit_datasets": ["qandilite_lv_2016_table1_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Lv", "Liu", "Shieh", "Xie", "Wang", "Prescher", "Prakapenka"],
         "year": 2016,
@@ -29,11 +40,6 @@
         "locator": "301–306",
         "doi": "10.1007/s00269-015-0794-1"
       },
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0001, 14.9],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.",
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-09-19",
@@ -121,13 +127,7 @@
           "weight_notes": "Equal weights in independent audit; source numerical weights are unreported.",
           "statistics": {"observations": 18, "free_parameters": 2, "pressure_rmse_gpa": 0.128360254517702}
         }
-      },
-      "parameter_error_convention": "One standard deviation; Table 2 footnote a and Figure 5 caption.",
-      "range_provenance": {
-        "source_location": "Table 1 and abstract",
-        "notes": "Ambient anchor plus 17 DAC states; no decomposition, splitting or new peaks observed. Zero-pressure reference is defined by the EOS."
-      },
-      "fit_datasets": ["qandilite_lv_2016_table1_pv"]
+      }
     },
     {
       "identifier": "qandilite_lv_2016_bm3",
@@ -139,10 +139,21 @@
         "K0": {"value": 175.0, "error": 5.0},
         "K0_prime": {"value": 3.5, "error": 0.7}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0001, 14.9],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default": false,
+      "notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.",
+      "range_provenance": {
+        "source_location": "Table 1 and abstract",
+        "notes": "Ambient anchor plus 17 DAC states; no decomposition, splitting or new peaks observed. Zero-pressure reference is defined by the EOS."
+      },
+      "parameter_error_convention": "One standard deviation; Table 2 footnote a and Figure 5 caption.",
+      "fit_datasets": ["qandilite_lv_2016_table1_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Lv", "Liu", "Shieh", "Xie", "Wang", "Prescher", "Prakapenka"],
         "year": 2016,
@@ -152,11 +163,6 @@
         "locator": "301–306",
         "doi": "10.1007/s00269-015-0794-1"
       },
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0001, 14.9],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.",
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-09-19",
@@ -244,13 +250,7 @@
           "weight_notes": "Equal weights in independent audit; source numerical weights are unreported.",
           "statistics": {"observations": 18, "free_parameters": 3, "pressure_rmse_gpa": 0.12639854464684092}
         }
-      },
-      "parameter_error_convention": "One standard deviation; Table 2 footnote a and Figure 5 caption.",
-      "range_provenance": {
-        "source_location": "Table 1 and abstract",
-        "notes": "Ambient anchor plus 17 DAC states; no decomposition, splitting or new peaks observed. Zero-pressure reference is defined by the EOS."
-      },
-      "fit_datasets": ["qandilite_lv_2016_table1_pv"]
+      }
     }
   ],
   "aliases": ["Mg2TiO4", "magnesium orthotitanate"],

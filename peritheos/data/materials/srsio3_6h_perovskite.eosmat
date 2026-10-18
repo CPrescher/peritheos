@@ -17,9 +17,15 @@
         "K0": {"value": 183.8, "error": 0.6},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 40.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 163.702},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Xiao", "Tan", "Zhou", "Liu", "Xu"],
         "year": 2013,
@@ -29,12 +35,6 @@
         "locator": "2096-2104",
         "doi": "10.2138/am.2013.4470"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 163.702},
-      "experimental_pressure_range_gpa": [0.0, 40.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [

@@ -15,7 +15,10 @@
         "V0": {"value": 367.789, "error": 0.004},
         "K0": {"value": 73.46, "error": 0.27}
       },
+      "experimental_pressure_range_gpa": [0.0, 1.435],
+      "experimental_temperature_range_k": [298.0, 298.0],
       "determination_method": "experimental",
+      "notes": "Second-order Birch-Murnaghan fit to room-temperature single-crystal measurements from ambient pressure to 1.435 GPa; K0_prime=4 is implicit in BM2. The range describes the fitted data, not the calcite stability field.",
       "reference": {
         "authors": ["Redfern", "Angel"],
         "year": 1999,
@@ -25,9 +28,6 @@
         "locator": "102-106",
         "doi": "10.1007/s004100050471"
       },
-      "experimental_pressure_range_gpa": [0.0, 1.435],
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "notes": "Second-order Birch-Murnaghan fit to room-temperature single-crystal measurements from ambient pressure to 1.435 GPa; K0_prime=4 is implicit in BM2. The range describes the fitted data, not the calcite stability field.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

@@ -17,6 +17,7 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 417.0, "error": null, "fixed": true},
@@ -24,10 +25,13 @@
           "q": {"value": 1.0, "error": null, "fixed": true},
           "n": {"value": 2.0, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
+      "experimental_pressure_range_gpa": [131.0, 210.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
+      "notes": "Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. The current-study supplement contributes 21 numerical B8 volumes; one-peak detections have no volume and are excluded, while Figure 3 assigns +/-0.1 cm^3/mol plotting errors when two-peak uncertainties could not be constrained. Ozawa's printed Table 2 contributes 8 B8 P-V-T rows and is bundled at printed precision. Fischer's exact combined row selection and regression weights/objective are not printed. The source explicitly warns against extrapolating this EOS far beyond the B8 data range.",
+      "fit_datasets": ["feo_fischer_2011_table_s1_pvt", "feo_ozawa_2010_table2_pvt"],
       "reference": {
         "authors": ["Fischer", "Campbell", "Shofner", "Lord", "Dera", "Prakapenka"],
         "year": 2011,
@@ -37,9 +41,6 @@
         "locator": "496-502",
         "doi": "10.1016/j.epsl.2011.02.025"
       },
-      "experimental_pressure_range_gpa": [131.0, 210.0],
-      "pressure_range_status": "reported_qualitatively",
-      "notes": "Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. The current-study supplement contributes 21 numerical B8 volumes; one-peak detections have no volume and are excluded, while Figure 3 assigns +/-0.1 cm^3/mol plotting errors when two-peak uncertainties could not be constrained. Ozawa's printed Table 2 contributes 8 B8 P-V-T rows and is bundled at printed precision. Fischer's exact combined row selection and regression weights/objective are not printed. The source explicitly warns against extrapolating this EOS far beyond the B8 data range.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -126,8 +127,7 @@
           "n": "Two atoms per FeO formula unit; this is the Debye energy normalization, not a fitted coefficient.",
           "fit_scope": "Equation-of-state section and Figure 3: present B8 observations plus Ozawa et al. (2010); Kondo et al. (2004) and Fei and Mao (1994) are plotted for comparison and are not fit inputs."
         }
-      },
-      "fit_datasets": ["feo_fischer_2011_table_s1_pvt", "feo_ozawa_2010_table2_pvt"]
+      }
     }
   ],
   "aliases": ["nickeline-type FeO", "NiAs-type FeO"],

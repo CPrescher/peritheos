@@ -18,6 +18,7 @@
         "K0_prime": {"value": 4.91, "error": 0.59, "fixed": true}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 417.0, "error": null, "fixed": true},
@@ -25,14 +26,26 @@
           "q": {"value": 1.0, "error": null, "fixed": true},
           "n": {"value": 1.0, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 63.03555479484396],
+      "experimental_temperature_range_k": [300.0, 2395.535],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default_for": "equilibrium",
       "default": true,
+      "sample_composition": "15.9 wt% Si, Fe0.73Si0.27, homogeneous microprobe composition, Fischer et al. (2012)",
+      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. The inherited 2012 protocol fits K0/K0_prime to 32 room-temperature observations, then gamma0 to 66 high-temperature rows with the published static coefficients held fixed; the independent script reports both stages. The Fe–16Si Vinet alternative is a 2014 source-owned reanalysis of 2012 observations. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
+      "range_provenance": {
+        "source_location": "2012 official Table S2, source worksheet row numbers retained",
+        "selection": "phase=D03",
+        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
+      },
+      "fit_datasets": ["fischer_2012_table_s2_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
@@ -42,12 +55,6 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 63.03555479484396],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 2395.535],
-      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. The inherited 2012 protocol fits K0/K0_prime to 32 room-temperature observations, then gamma0 to 66 high-temperature rows with the published static coefficients held fixed; the independent script reports both stages. The Fe–16Si Vinet alternative is a 2014 source-owned reanalysis of 2012 observations. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -148,14 +155,7 @@
           "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
           "Tr": "300 K thermal-energy subtraction."
         }
-      },
-      "sample_composition": "15.9 wt% Si, Fe0.73Si0.27, homogeneous microprobe composition, Fischer et al. (2012)",
-      "range_provenance": {
-        "source_location": "2012 official Table S2, source worksheet row numbers retained",
-        "selection": "phase=D03",
-        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
-      },
-      "fit_datasets": ["fischer_2012_table_s2_pvt"]
+      }
     }
   ],
   "aliases": ["Fe16Si D03", "Fe–15.9 wt% Si D03"],

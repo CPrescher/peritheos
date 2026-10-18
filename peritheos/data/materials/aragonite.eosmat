@@ -16,17 +16,21 @@
         "K0": {"value": 64.81, "error": 3.48}
       },
       "thermal": {
-        "thermal_expansion_law": "constant",
-        "reference_volume_law": "linear_temperature",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 298.0, "error": null, "fixed": true},
           "alpha0": {"value": 6.5e-05, "error": 1e-06},
           "dK_dT": {"value": -0.018, "error": 0.002}
         },
-        "model": "AlphaKT"
+        "thermal_expansion_law": "constant",
+        "reference_volume_law": "linear_temperature"
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 8.18],
+      "experimental_temperature_range_k": [298.0, 973.0],
       "determination_method": "experimental",
       "default": true,
+      "notes": "Staged second-order Birch-Murnaghan P-V-T parameterization from Martinez et al. (1996). Each Table 6 isotherm fixes K0'=4; Equation (2) supplies the reported linear K0(T) slope, and Equation (3) uses the reported mean expansion coefficient in the direct relation V0(T)=V0(298 K)*[1+alpha_bar*(T-298 K)]. Table 6 reports the 298 K V0=227.5+/-0.8 A^3 and sigma(K0)=3.48 GPa; the prose and Table 7 instead summarize the K0 error as approximately 4.3 GPa. Table 6 contains fitted isotherms through 973 K. The source reports no parameter covariance or confidence convention, and the stored pressure/temperature extrema are an experimental envelope rather than a rectangular validity guarantee.",
       "reference": {
         "authors": ["Martinez", "Zhang", "Reeder"],
         "year": 1996,
@@ -36,10 +40,6 @@
         "locator": "611-624",
         "doi": "10.2138/am-1996-5-608"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 8.18],
-      "experimental_temperature_range_k": [298.0, 973.0],
-      "notes": "Staged second-order Birch-Murnaghan P-V-T parameterization from Martinez et al. (1996). Each Table 6 isotherm fixes K0'=4; Equation (2) supplies the reported linear K0(T) slope, and Equation (3) uses the reported mean expansion coefficient in the direct relation V0(T)=V0(298 K)*[1+alpha_bar*(T-298 K)]. Table 6 reports the 298 K V0=227.5+/-0.8 A^3 and sigma(K0)=3.48 GPa; the prose and Table 7 instead summarize the K0 error as approximately 4.3 GPa. Table 6 contains fitted isotherms through 973 K. The source reports no parameter covariance or confidence convention, and the stored pressure/temperature extrema are an experimental envelope rather than a rectangular validity guarantee.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

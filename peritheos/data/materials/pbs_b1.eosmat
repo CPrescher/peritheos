@@ -16,7 +16,9 @@
         "K0": {"value": 51.0, "error": 1.2},
         "K0_prime": {"value": 4.3, "error": 0.9}
       },
+      "experimental_pressure_range_gpa": [0.0, 6.0],
       "determination_method": "experimental",
+      "notes": "Room-temperature B1-PbS Birch-Murnaghan fit: K0=51.0+/-1.2 GPa and K0'=4.3+/-0.9. V0=207.8955+/-0.0421 A^3 is calculated from the reported cubic a=5.9240(4) A. The B1/B16 coexistence interval ends near 6 GPa.",
       "reference": {
         "authors": ["Knorr", "Ehm", "Hytha", "Winkler", "Depmeier"],
         "year": 2003,
@@ -26,8 +28,6 @@
         "locator": "297-303",
         "doi": "10.1140/epjb/e2003-00034-6"
       },
-      "experimental_pressure_range_gpa": [0.0, 6.0],
-      "notes": "Room-temperature B1-PbS Birch-Murnaghan fit: K0=51.0+/-1.2 GPa and K0'=4.3+/-0.9. V0=207.8955+/-0.0421 A^3 is calculated from the reported cubic a=5.9240(4) A. The B1/B16 coexistence interval ends near 6 GPa.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

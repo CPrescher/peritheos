@@ -16,7 +16,9 @@
         "K0": {"value": 307.0, "error": 5.0},
         "K0_prime": {"value": 6.2, "error": 0.3}
       },
+      "experimental_pressure_range_gpa": [0.0, 46.0],
       "determination_method": "experimental",
+      "notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.",
       "reference": {
         "authors": ["Haines", "Léger", "Chateau", "Lowther"],
         "year": 2001,
@@ -26,8 +28,6 @@
         "locator": "2447-2454",
         "doi": "10.1088/0953-8984/13/11/303"
       },
-      "experimental_pressure_range_gpa": [0.0, 46.0],
-      "notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -113,8 +113,19 @@
         "K0": {"value": 325.87419826054304, "error": 9.50029103042738},
         "K0_prime": {"value": 4.9092021387052664, "error": 0.6513930636044009}
       },
-      "record_kind": "refit",
+      "experimental_pressure_range_gpa": [0.0, 45.499],
       "determination_method": "experimental",
+      "record_kind": "refit",
+      "notes": "Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute_sigma=True. The unchanged record molybenum_carbide_mo2c_haines_2001_bm3_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.",
+      "derived_from_record": "molybenum_carbide_mo2c_haines_2001_bm3_1",
+      "fit_datasets": ["molybdenum_carbide_haines_2001_figure2_digitized"],
+      "parameter_covariance": {
+        "parameter_order": ["K0", "K0_prime"],
+        "matrix": [
+          [90.25552966281894, -6.015520032543208],
+          [-6.015520032543208, 0.42431292331192705]
+        ]
+      },
       "reference": {
         "authors": ["Haines", "Léger", "Chateau", "Lowther"],
         "year": 2001,
@@ -124,15 +135,6 @@
         "locator": "2447-2454",
         "doi": "10.1088/0953-8984/13/11/303"
       },
-      "parameter_covariance": {
-        "parameter_order": ["K0", "K0_prime"],
-        "matrix": [
-          [90.25552966281894, -6.015520032543208],
-          [-6.015520032543208, 0.42431292331192705]
-        ]
-      },
-      "experimental_pressure_range_gpa": [0.0, 45.499],
-      "notes": "Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute_sigma=True. The unchanged record molybenum_carbide_mo2c_haines_2001_bm3_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -143,7 +145,6 @@
         "audit_date": "2026-09-04",
         "notes": "The refit uses the pressures printed graphically by the source; no replacement pressure scale is inferred."
       },
-      "derived_from_record": "molybenum_carbide_mo2c_haines_2001_bm3_1",
       "evidence": {
         "scientific_validation": {
           "status": "primary_source_validated",
@@ -202,8 +203,7 @@
             "maximum_function_evaluations": 5000
           }
         }
-      },
-      "fit_datasets": ["molybdenum_carbide_haines_2001_figure2_digitized"]
+      }
     }
   ],
   "symmetry": "ORTHORHOMBIC",

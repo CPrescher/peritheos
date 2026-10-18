@@ -17,22 +17,7 @@
         "K0": {"value": 225.0, "error": null},
         "K0_prime": {"value": 4.42, "error": null}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Cohen", "Lin"],
-        "year": 2014,
-        "title": "Prediction of a potential high-pressure structure of FeSiO3",
-        "source": "Physical Review B",
-        "volume": "90",
-        "locator": "140102(R)",
-        "doi": "10.1103/PhysRevB.90.140102"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
       "experimental_pressure_range_gpa": [-10.0, 150.0],
       "pressure_range_status": "theoretical",
       "validity": {
@@ -44,7 +29,23 @@
           "The source energy grid corresponds to -10, 0, 25, 50, 75, 100, 125, and 150 GPa."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
+      "sample_composition": "Stoichiometric FeSiO3 perovskite; static high-spin antiferromagnetic GGA+U model crystal.",
       "notes": "Retain as a directly published Vinet parameterization. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Cohen", "Lin"],
+        "year": 2014,
+        "title": "Prediction of a potential high-pressure structure of FeSiO3",
+        "source": "Physical Review B",
+        "volume": "90",
+        "locator": "140102(R)",
+        "doi": "10.1103/PhysRevB.90.140102"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -122,8 +123,7 @@
           "uncertainties": "The source publishes no coefficient uncertainties or covariance.",
           "method": "Quantum ESPRESSO PAW-PBE GGA+U, U=6.0 eV, 20-atom cell, 4x4x4 k mesh, 80 Ry cutoff; high-spin antiferromagnetic state."
         }
-      },
-      "sample_composition": "Stoichiometric FeSiO3 perovskite; static high-spin antiferromagnetic GGA+U model crystal."
+      }
     },
     {
       "identifier": "fesio3_bridgmanite_holland_2013_fpv_modified_tait",
@@ -136,9 +136,18 @@
         "K0_prime": {"value": 4.14, "error": null},
         "K0_double_prime": {"value": -0.016, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0001, 30.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reference_parameterization",
+      "validity": {
+        "pressure_gpa": [0.0001, 30.0],
+        "temperature_k": [298.15, 298.15],
+        "notes": ["Ideal FeSiO3 perovskite thermodynamic endmember, not an ambient stable phase or individual experiment."]
+      },
       "determination_method": "unknown",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
       "reference": {
         "authors": ["Holland", "Hudson", "Powell", "Harte"],
         "year": 2013,
@@ -147,15 +156,6 @@
         "volume": "54",
         "locator": "1901-1920",
         "doi": "10.1093/petrology/egt035"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
-      "experimental_pressure_range_gpa": [0.0001, 30.0],
-      "pressure_range_status": "reference_parameterization",
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "validity": {
-        "pressure_gpa": [0.0001, 30.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": ["Ideal FeSiO3 perovskite thermodynamic endmember, not an ambient stable phase or individual experiment."]
       },
       "pressure_calibration": {
         "status": "not_applicable",

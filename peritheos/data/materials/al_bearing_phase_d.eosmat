@@ -17,24 +17,10 @@
         "K0": {"value": 143.0, "error": 5.0},
         "K0_prime": {"value": 5.8, "error": 0.7}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Xu", "Gréaux", "Inoue", "Noda", "Sun", "Kuwahara", "Higo"],
-        "year": 2020,
-        "title": "Sound Velocities of Al-Bearing Phase D up to 22 GPa and 1300 K",
-        "source": "Geophysical Research Letters",
-        "volume": "47",
-        "locator": "e2020GL088877",
-        "doi": "10.1029/2020GL088877"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 20.53],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0, 20.53],
         "temperature_k": [300.0, 300.0],
@@ -44,7 +30,30 @@
           "The lower volume-ratio bound is the smallest 300 K observation, 78.01/86.71."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "experimental_configuration": {
+        "sample": "Sintered polycrystalline Al-bearing phase D synthesized at 24 GPa and 1373 K for 1 h; reported EDS oxides 20.7 wt% MgO, 44.5 wt% SiO2, and 18.8 wt% Al2O3 with about 16.0 wt% H2O estimated by total deficit",
+        "pressure_cell": "Kawai-type multianvil apparatus at SPring-8 BL04B1",
+        "diffraction": "In situ energy-dispersive synchrotron X-ray diffraction",
+        "temperature_measurement": "W97Re3-W75Re25 thermocouple",
+        "fit_software": "EosFit",
+        "fit_selection": "All eight author-deposited 300 K P-V states from 0 to 20.53 GPa"
+      },
       "notes": "Published room-temperature BM3. V0 was fixed to the in situ 300 K zero-pressure observation; K0 and K0' were fitted. Parenthetical parameter errors have no stated confidence convention, and no covariance matrix or scalar fit statistic is published. The broader experiment used Au and NaCl pressure standards, while the article's Table 1 explicitly labels this represented BM3 as the Tsuchiya (2003) gold-scale fit. The article also publishes high-temperature BM3 and pressure-scale-free elastic parameterizations, but the narrative and Table 1 disagree on their fit interval, fixed/free choices, alpha(T) form, and coefficients; none is silently approximated as a Peritheos thermal EOS.",
+      "fit_datasets": ["al_bearing_phase_d_xu_2020_earthchem_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Xu", "Gréaux", "Inoue", "Noda", "Sun", "Kuwahara", "Higo"],
+        "year": 2020,
+        "title": "Sound Velocities of Al-Bearing Phase D up to 22 GPa and 1300 K",
+        "source": "Geophysical Research Letters",
+        "volume": "47",
+        "locator": "e2020GL088877",
+        "doi": "10.1029/2020GL088877"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -169,16 +178,7 @@
           "fit_selection": "Final article, Section 3.1: room-temperature observations through 20.5 GPa; EarthChem workbook Table 3 exposes eight 300 K rows ending at 20.53 GPa",
           "volume_basis": "The final article and EarthChem workbook report a, c, and V for the conventional trigonal phase-D cell. The P-31m phase-D cell has Z=1, so the tabulated cell volume is also volume per approximate O6 formula unit."
         }
-      },
-      "experimental_configuration": {
-        "sample": "Sintered polycrystalline Al-bearing phase D synthesized at 24 GPa and 1373 K for 1 h; reported EDS oxides 20.7 wt% MgO, 44.5 wt% SiO2, and 18.8 wt% Al2O3 with about 16.0 wt% H2O estimated by total deficit",
-        "pressure_cell": "Kawai-type multianvil apparatus at SPring-8 BL04B1",
-        "diffraction": "In situ energy-dispersive synchrotron X-ray diffraction",
-        "temperature_measurement": "W97Re3-W75Re25 thermocouple",
-        "fit_software": "EosFit",
-        "fit_selection": "All eight author-deposited 300 K P-V states from 0 to 20.53 GPa"
-      },
-      "fit_datasets": ["al_bearing_phase_d_xu_2020_earthchem_pvt"]
+      }
     }
   ],
   "aliases": ["Al-phase D", "Al-bearing PhD"],

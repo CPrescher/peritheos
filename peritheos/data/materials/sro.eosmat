@@ -17,7 +17,11 @@
         "K0": {"value": 91.3, "error": 2.7},
         "K0_prime": {"value": 4.3, "error": 0.3}
       },
+      "experimental_pressure_range_gpa": [0.0, 34.05],
+      "experimental_temperature_range_k": [293.15, 299.15],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "notes": "Volumetric BM3 fit to all 23+/-3 degC SrO data through 34.05 GPa. K0=91.3+/-2.7 GPa and K0'=4.3+/-0.3 are one-standard-deviation fit errors. The fixed V0 error represents the paper's stated 0.3% volume accuracy. Between about 7 and 30.7 GPa the nominal B1 cell shows a small tetragonal distortion, but the paper reports no volume discontinuity and deliberately fits all data together. No parameter covariance is published.",
       "reference": {
         "authors": ["Liu", "Bassett"],
         "year": 1973,
@@ -27,10 +31,6 @@
         "locator": "8470-8473",
         "doi": "10.1029/JB078i035p08470"
       },
-      "experimental_pressure_range_gpa": [0.0, 34.05],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [293.15, 299.15],
-      "notes": "Volumetric BM3 fit to all 23+/-3 degC SrO data through 34.05 GPa. K0=91.3+/-2.7 GPa and K0'=4.3+/-0.3 are one-standard-deviation fit errors. The fixed V0 error represents the paper's stated 0.3% volume accuracy. Between about 7 and 30.7 GPa the nominal B1 cell shows a small tetragonal distortion, but the paper reports no volume discontinuity and deliberately fits all data together. No parameter covariance is published.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

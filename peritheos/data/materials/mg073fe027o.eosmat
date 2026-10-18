@@ -17,7 +17,22 @@
         "K0": {"value": 154.0, "error": 3.0},
         "K0_prime": {"value": 4.0, "error": 0.1}
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 51.1],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 51.1],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Composition-specific to Mg0.73Fe0.27O in the cubic B1 phase.",
+          "The source reports no phase transition or rhombohedral distortion over the experimental range."
+        ]
+      },
       "determination_method": "experimental",
+      "notes": "Published fit to all 16 Table 1 Fe27 observations from 0 to 51.1 GPa. V0, K0, and K0' are free parameters; none was fixed. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
+      "fit_datasets": ["jacobsen_2005_table1_compression"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Jacobsen", "Lin", "Angel", "Shen", "Prakapenka", "Dera", "Mao", "Hemley"],
         "year": 2005,
@@ -27,20 +42,6 @@
         "locator": "577-583",
         "doi": "10.1107/S0909049505022326"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 51.1],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 51.1],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Composition-specific to Mg0.73Fe0.27O in the cubic B1 phase.",
-          "The source reports no phase transition or rhombohedral distortion over the experimental range."
-        ]
-      },
-      "notes": "Published fit to all 16 Table 1 Fe27 observations from 0 to 51.1 GPa. V0, K0, and K0' are free parameters; none was fixed. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -125,8 +126,7 @@
           "volume_basis": "Table 1 reports cubic lattice parameter a; V=a^3 is the conventional B1 cell containing four Mg0.73Fe0.27O formula units.",
           "temperature_ref": "The source identifies the ambient lattice measurements as 300 K and reports a room-temperature static compression experiment."
         }
-      },
-      "fit_datasets": ["jacobsen_2005_table1_compression"]
+      }
     }
   ],
   "aliases": ["Fe27", "ferropericlase", "magnesiowustite"],

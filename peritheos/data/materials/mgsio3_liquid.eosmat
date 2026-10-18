@@ -17,9 +17,26 @@
         "K0": {"value": 125.0, "error": null},
         "K0_prime": {"value": 4.0, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 206.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reference_parameterization",
+      "validity": {
+        "pressure_gpa": [0.0, 206.0],
+        "temperature_k": [298.15, 298.15],
+        "notes": [
+          "This executable BM3 is the source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not an ambient liquid isotherm.",
+          "The source's Gruneisen, heat-capacity, and transition-energy terms are not implied by this cold/reference-curve record."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 100.387},
+      "sample_composition": "Stoichiometric MgSiO3 high-pressure melt candidate constrained by shock states from MgSiO3 glass and enstatite starting materials.",
+      "notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states.",
+      "fit_datasets": ["mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Akins", "Luo", "Asimow", "Ahrens"],
         "year": 2004,
@@ -29,21 +46,6 @@
         "locator": "L14612",
         "doi": "10.1029/2004GL020237"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [0.0, 206.0],
-      "pressure_range_status": "reference_parameterization",
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "validity": {
-        "pressure_gpa": [0.0, 206.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": [
-          "This executable BM3 is the source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not an ambient liquid isotherm.",
-          "The source's Gruneisen, heat-capacity, and transition-energy terms are not implied by this cold/reference-curve record."
-        ]
-      },
-      "notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -149,9 +151,7 @@
             "doi": "10.1029/2008JB005900"
           }
         ]
-      },
-      "sample_composition": "Stoichiometric MgSiO3 high-pressure melt candidate constrained by shock states from MgSiO3 glass and enstatite starting materials.",
-      "fit_datasets": ["mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt"]
+      }
     }
   ],
   "aliases": ["molten MgSiO3", "MgSiO3 melt"],

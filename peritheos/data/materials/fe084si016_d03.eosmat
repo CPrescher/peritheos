@@ -17,11 +17,24 @@
         "K0": {"value": 183, "error": 4},
         "K0_prime": {"value": 5.59, "error": 0.51}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 28.788509683548785],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default_for": "equilibrium",
       "default": true,
+      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
+      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
+      "range_provenance": {
+        "source_location": "2014 official Table S1, source worksheet row numbers retained",
+        "selection": "phase=D03",
+        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
+      },
+      "fit_datasets": ["fischer_2014_table_s1_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
@@ -31,12 +44,6 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 28.788509683548785],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -117,14 +124,7 @@
           "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
           "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged."
         }
-      },
-      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
-      "range_provenance": {
-        "source_location": "2014 official Table S1, source worksheet row numbers retained",
-        "selection": "phase=D03",
-        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
-      },
-      "fit_datasets": ["fischer_2014_table_s1_pvt"]
+      }
     },
     {
       "identifier": "fe084si016_d03_fischer_2014_vinet_2",
@@ -136,10 +136,23 @@
         "K0": {"value": 182, "error": 3.9},
         "K0_prime": {"value": 5.59, "error": 0.51}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 28.788509683548785],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default": false,
+      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
+      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
+      "range_provenance": {
+        "source_location": "2014 official Table S1, source worksheet row numbers retained",
+        "selection": "phase=D03",
+        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
+      },
+      "fit_datasets": ["fischer_2014_table_s1_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
@@ -149,12 +162,6 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 28.788509683548785],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -235,14 +242,7 @@
           "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
           "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged."
         }
-      },
-      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
-      "range_provenance": {
-        "source_location": "2014 official Table S1, source worksheet row numbers retained",
-        "selection": "phase=D03",
-        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
-      },
-      "fit_datasets": ["fischer_2014_table_s1_pvt"]
+      }
     }
   ],
   "aliases": ["Fe9Si d03", "Fe–8.75 wt% Si d03"],

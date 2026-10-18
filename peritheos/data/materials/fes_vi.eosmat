@@ -18,7 +18,7 @@
         "K0_prime": {"value": 4.99, "error": 0.51}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300, "error": null, "fixed": true},
           "theta0": {"value": 417, "error": null, "fixed": true},
@@ -26,10 +26,50 @@
           "q": {"value": 1, "error": null, "fixed": true},
           "n": {"value": 2, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [29.59643816464321, 149.9480701694589],
+      "experimental_temperature_range_k": [300, 2590.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "default": false,
+      "notes": "One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. The deferred integrated-MGD implementation is available only by explicitly loading this record with require_primary_validation=False; it is excluded from the normal catalog.",
+      "range_provenance": {
+        "source_location": "Table S1, Sheet1 A3:M148; Section III.D and Figure 6",
+        "notes": "Marginal source coverage, not a rectangular phase-stability field. Thermal observations span 29.5964-149.9481 GPa and 1220-2590 K; 300 K denotes the separately fitted literature reference isotherm. The paper describes a 40-150 GPa model range. All supplied rows are retained; neither FeS-VI stability nor common-model applicability below 40 GPa is asserted."
+      },
+      "fit_datasets": ["fes_morard_2026_table_s1_pvt"],
+      "author_input_followup": {
+        "manifest": "datasets/morard_2026_author_sources/manifest.json",
+        "audit_report": "docs/data/fes-author-eosfit/manifest.json",
+        "source_model_resource": "datasets/morard_2026_author_sources/FeS6.eos",
+        "saved_author_parameters": {
+          "V0_cm3_mol": 15.37,
+          "K0_gpa": 115.49,
+          "K0_prime": 4.99,
+          "gamma0": 2.41671,
+          "Tr_k": 298,
+          "theta0_k": 417,
+          "q": 1,
+          "n": 2,
+          "q_compromise": false
+        },
+        "dataset_identifiers": [
+          "fes_morard_2026_author_without_additional_cold_pvt",
+          "fes_morard_2026_author_literature_cold_pv",
+          "fes_sata_2010_table1_vi_pv"
+        ],
+        "publication_fit_mask_confirmed": true,
+        "author_used_inputs_confirmed": true,
+        "author_used_inputs_confirmation": "User confirms the supplied data and EOS files are all inputs used by Guillaume Morard; recorded 2026-10-03. These are treated as the author-used inputs, not missing-data candidates.",
+        "publication_selection_provenance": "User-reported personal communication from Guillaume Morard confirms exclusion of the 11 unsuitable quenched observations; recorded 2026-10-03.",
+        "staged_audit_report": "docs/data/fes-author-staged/manifest.json",
+        "parameter_comparison_report": "docs/data/fes-author-staged/parameter-comparison.json",
+        "parameter_reproduction_assessment": "Similar within reported uncertainties for reproduced-cold staged fits: all cold coefficients lie within published error widths; equal-weight gamma0 lies within the published width and weighted gamma0 intervals overlap. Printed-cold-fixed gamma0 refit differs beyond overlapping error intervals. The residual-envelope discrepancy is a separate source-output claim, not evidence that the data cannot be fitted.",
+        "cold_row_attribution": "Figure 6 and Section III.D identify the paper's cold data/fit as Sata (2008) and Ohfuji (2007) literature data. The eleven additional 300 K points match the GSAS deposit but are not individually attributed in the paper; original-study authorship remains unconfirmed.",
+        "reference_temperature_qualification": "The paper shows a 300 K isotherm and uses ambient-temperature literature data; it does not explicitly state the EosFit Tref setting. The printed-coefficient source record uses 300 K as its declared audit interpretation, whereas the supplied saved file explicitly sets Tref=298 K."
+      },
       "reference": {
         "authors": ["Morard", "Antonangeli", "Miozzi", "Baron", "Edmund", "Cerantola", "Mezouar"],
         "year": 2026,
@@ -39,11 +79,6 @@
         "locator": "063605",
         "doi": "10.1103/h4pj-rvxx"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [29.59643816464321, 149.9480701694589],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 2590.0],
-      "notes": "One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. The deferred integrated-MGD implementation is available only by explicitly loading this record with require_primary_validation=False; it is excluded from the normal catalog.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-10-02",
@@ -134,41 +169,6 @@
           "determination_method": "Experimental cold compression and LH-DAC PVT fits; fixed Debye temperature adopted from measured hcp-Fe EOS, fixed q is an analytical model choice. Section III.D.",
           "debye_temperature_law": "Full integrated MGD confirmed for the supplied March 2024 FeS6.eos (Thermal=7, Param14=0, q=1). The printed source coefficients and 300 K reference are retained; the supplied author-used file has different V0, gamma0 and Tref. The user confirms these are the complete author-used inputs; numerical publication parity remains unresolved."
         }
-      },
-      "range_provenance": {
-        "source_location": "Table S1, Sheet1 A3:M148; Section III.D and Figure 6",
-        "notes": "Marginal source coverage, not a rectangular phase-stability field. Thermal observations span 29.5964-149.9481 GPa and 1220-2590 K; 300 K denotes the separately fitted literature reference isotherm. The paper describes a 40-150 GPa model range. All supplied rows are retained; neither FeS-VI stability nor common-model applicability below 40 GPa is asserted."
-      },
-      "fit_datasets": ["fes_morard_2026_table_s1_pvt"],
-      "author_input_followup": {
-        "manifest": "datasets/morard_2026_author_sources/manifest.json",
-        "audit_report": "docs/data/fes-author-eosfit/manifest.json",
-        "source_model_resource": "datasets/morard_2026_author_sources/FeS6.eos",
-        "saved_author_parameters": {
-          "V0_cm3_mol": 15.37,
-          "K0_gpa": 115.49,
-          "K0_prime": 4.99,
-          "gamma0": 2.41671,
-          "Tr_k": 298,
-          "theta0_k": 417,
-          "q": 1,
-          "n": 2,
-          "q_compromise": false
-        },
-        "dataset_identifiers": [
-          "fes_morard_2026_author_without_additional_cold_pvt",
-          "fes_morard_2026_author_literature_cold_pv",
-          "fes_sata_2010_table1_vi_pv"
-        ],
-        "publication_fit_mask_confirmed": true,
-        "author_used_inputs_confirmed": true,
-        "author_used_inputs_confirmation": "User confirms the supplied data and EOS files are all inputs used by Guillaume Morard; recorded 2026-10-03. These are treated as the author-used inputs, not missing-data candidates.",
-        "publication_selection_provenance": "User-reported personal communication from Guillaume Morard confirms exclusion of the 11 unsuitable quenched observations; recorded 2026-10-03.",
-        "staged_audit_report": "docs/data/fes-author-staged/manifest.json",
-        "parameter_comparison_report": "docs/data/fes-author-staged/parameter-comparison.json",
-        "parameter_reproduction_assessment": "Similar within reported uncertainties for reproduced-cold staged fits: all cold coefficients lie within published error widths; equal-weight gamma0 lies within the published width and weighted gamma0 intervals overlap. Printed-cold-fixed gamma0 refit differs beyond overlapping error intervals. The residual-envelope discrepancy is a separate source-output claim, not evidence that the data cannot be fitted.",
-        "cold_row_attribution": "Figure 6 and Section III.D identify the paper's cold data/fit as Sata (2008) and Ohfuji (2007) literature data. The eleven additional 300 K points match the GSAS deposit but are not individually attributed in the paper; original-study authorship remains unconfirmed.",
-        "reference_temperature_qualification": "The paper shows a 300 K isotherm and uses ambient-temperature literature data; it does not explicitly state the EosFit Tref setting. The printed-coefficient source record uses 300 K as its declared audit interpretation, whereas the supplied saved file explicitly sets Tref=298 K."
       }
     }
   ],

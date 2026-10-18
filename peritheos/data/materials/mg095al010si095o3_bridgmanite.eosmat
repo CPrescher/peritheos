@@ -16,30 +16,10 @@
         "V0": {"value": 163.234, "error": 0.008},
         "K0": {"value": 251.5, "error": 1.3}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Daniel", "Bass", "Fiquet", "Cardon", "Zhang", "Hanfland"],
-        "year": 2004,
-        "title": "Effect of aluminium on the compressibility of silicate perovskite",
-        "source": "Geophysical Research Letters",
-        "volume": "31",
-        "locator": "L15608",
-        "doi": "10.1029/2004GL020213"
-      },
       "parameter_error_confidence": 0.6826894921370859,
-      "parameter_covariance": {
-        "parameter_order": ["V0", "K0"],
-        "matrix": [
-          [6.4e-05, -0.00468],
-          [-0.00468, 1.69]
-        ]
-      },
       "experimental_pressure_range_gpa": [0.37, 39.97],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.37, 39.97],
         "temperature_k": [300.0, 300.0],
@@ -50,7 +30,37 @@
           "The BM2 family enforces K0_prime=4 by definition; V0 and K0 are the two free coefficients."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "sample_composition": "Fe-free Al.05-Pv; nominal Mg0.95Al0.10Si0.95O3 coupled-substitution formula, with same-batch EMP analysis of 5.1+/-0.2 wt.% Al2O3 and Mg/Si=0.99+/-0.01",
+      "experimental_configuration": {
+        "sample": "Polycrystalline chip from one multi-anvil synthesis run, one of three pieces compressed in separate experiments; trace stishovite at no more than approximately 1% is reported for the same batch.",
+        "pressure_medium": "neon loaded at approximately 200 MPa",
+        "pressure_cell": "membrane diamond-anvil cells with 400 micrometre culets and rhenium gaskets",
+        "pressure_gauge": "Mao et al. (1986) ruby fluorescence below 25 GPa and Hemley et al. (1989) neon EOS above 25 GPa",
+        "diffraction": "angle-dispersive synchrotron X-ray diffraction at ESRF ID09; 0.4169 A wavelength and Le Bail profile refinements",
+        "annealing": "all observations above 26 GPa were laser annealed at pressure for at least five minutes before diffraction"
+      },
       "notes": "Preferred second-order Birch-Murnaghan fit. K0_prime=4 is intrinsic to BM2, so V0 and K0 are the only free EOS parameters and fixed_parameters is empty. The one-sigma covariance is reconstructed transparently from the published marginal errors and correlation.",
+      "fit_datasets": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"],
+      "parameter_covariance": {
+        "parameter_order": ["V0", "K0"],
+        "matrix": [
+          [6.4e-05, -0.00468],
+          [-0.00468, 1.69]
+        ]
+      },
+      "reference": {
+        "authors": ["Daniel", "Bass", "Fiquet", "Cardon", "Zhang", "Hanfland"],
+        "year": 2004,
+        "title": "Effect of aluminium on the compressibility of silicate perovskite",
+        "source": "Geophysical Research Letters",
+        "volume": "31",
+        "locator": "L15608",
+        "doi": "10.1029/2004GL020213"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -185,17 +195,7 @@
             "doi": "10.1007/BF00308114"
           }
         ]
-      },
-      "sample_composition": "Fe-free Al.05-Pv; nominal Mg0.95Al0.10Si0.95O3 coupled-substitution formula, with same-batch EMP analysis of 5.1+/-0.2 wt.% Al2O3 and Mg/Si=0.99+/-0.01",
-      "experimental_configuration": {
-        "sample": "Polycrystalline chip from one multi-anvil synthesis run, one of three pieces compressed in separate experiments; trace stishovite at no more than approximately 1% is reported for the same batch.",
-        "pressure_medium": "neon loaded at approximately 200 MPa",
-        "pressure_cell": "membrane diamond-anvil cells with 400 micrometre culets and rhenium gaskets",
-        "pressure_gauge": "Mao et al. (1986) ruby fluorescence below 25 GPa and Hemley et al. (1989) neon EOS above 25 GPa",
-        "diffraction": "angle-dispersive synchrotron X-ray diffraction at ESRF ID09; 0.4169 A wavelength and Le Bail profile refinements",
-        "annealing": "all observations above 26 GPa were laser annealed at pressure for at least five minutes before diffraction"
-      },
-      "fit_datasets": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"]
+      }
     },
     {
       "identifier": "mg095al010si095o3_bridgmanite_daniel_2004_bm3_2",
@@ -207,23 +207,10 @@
         "K0": {"value": 251.5, "error": 2.7},
         "K0_prime": {"value": 4.0, "error": 0.3}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Daniel", "Bass", "Fiquet", "Cardon", "Zhang", "Hanfland"],
-        "year": 2004,
-        "title": "Effect of aluminium on the compressibility of silicate perovskite",
-        "source": "Geophysical Research Letters",
-        "volume": "31",
-        "locator": "L15608",
-        "doi": "10.1029/2004GL020213"
-      },
       "parameter_error_confidence": 0.6826894921370859,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.37, 39.97],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.37, 39.97],
         "temperature_k": [300.0, 300.0],
@@ -234,7 +221,30 @@
           "V0, K0, and K0_prime were all free; the source finds no significant departure of K0_prime from 4."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "sample_composition": "Fe-free Al.05-Pv; nominal Mg0.95Al0.10Si0.95O3 coupled-substitution formula, with same-batch EMP analysis of 5.1+/-0.2 wt.% Al2O3 and Mg/Si=0.99+/-0.01",
+      "experimental_configuration": {
+        "sample": "Polycrystalline chip from one multi-anvil synthesis run, one of three pieces compressed in separate experiments; trace stishovite at no more than approximately 1% is reported for the same batch.",
+        "pressure_medium": "neon loaded at approximately 200 MPa",
+        "pressure_cell": "membrane diamond-anvil cells with 400 micrometre culets and rhenium gaskets",
+        "pressure_gauge": "Mao et al. (1986) ruby fluorescence below 25 GPa and Hemley et al. (1989) neon EOS above 25 GPa",
+        "diffraction": "angle-dispersive synchrotron X-ray diffraction at ESRF ID09; 0.4169 A wavelength and Le Bail profile refinements",
+        "annealing": "all observations above 26 GPa were laser annealed at pressure for at least five minutes before diffraction"
+      },
       "notes": "Third-order Birch-Murnaghan alternative with V0, K0, and K0_prime all fitted. Its derivative is statistically indistinguishable from 4 and the paper therefore favors the BM2 representation.",
+      "fit_datasets": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Daniel", "Bass", "Fiquet", "Cardon", "Zhang", "Hanfland"],
+        "year": 2004,
+        "title": "Effect of aluminium on the compressibility of silicate perovskite",
+        "source": "Geophysical Research Letters",
+        "volume": "31",
+        "locator": "L15608",
+        "doi": "10.1029/2004GL020213"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -369,17 +379,7 @@
             "doi": "10.1007/BF00308114"
           }
         ]
-      },
-      "sample_composition": "Fe-free Al.05-Pv; nominal Mg0.95Al0.10Si0.95O3 coupled-substitution formula, with same-batch EMP analysis of 5.1+/-0.2 wt.% Al2O3 and Mg/Si=0.99+/-0.01",
-      "experimental_configuration": {
-        "sample": "Polycrystalline chip from one multi-anvil synthesis run, one of three pieces compressed in separate experiments; trace stishovite at no more than approximately 1% is reported for the same batch.",
-        "pressure_medium": "neon loaded at approximately 200 MPa",
-        "pressure_cell": "membrane diamond-anvil cells with 400 micrometre culets and rhenium gaskets",
-        "pressure_gauge": "Mao et al. (1986) ruby fluorescence below 25 GPa and Hemley et al. (1989) neon EOS above 25 GPa",
-        "diffraction": "angle-dispersive synchrotron X-ray diffraction at ESRF ID09; 0.4169 A wavelength and Le Bail profile refinements",
-        "annealing": "all observations above 26 GPa were laser annealed at pressure for at least five minutes before diffraction"
-      },
-      "fit_datasets": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"]
+      }
     }
   ],
   "aliases": ["Al.05-Pv", "5 mol% Al2O3 silicate perovskite", "aluminous MgSiO3 perovskite"],

@@ -16,7 +16,11 @@
         "K0": {"value": 110.4, "error": 2.7},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [0.0, 10.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Low-pressure alpha-phase Vinet fit; K0' was fixed at 4.",
       "reference": {
         "authors": ["Dewaele", "Stutzmann", "Bouchet", "Bottin", "Occelli", "Mezouar"],
         "year": 2015,
@@ -26,10 +30,6 @@
         "locator": "134108",
         "doi": "10.1103/PhysRevB.91.134108"
       },
-      "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 10.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Low-pressure alpha-phase Vinet fit; K0' was fixed at 4.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

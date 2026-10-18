@@ -15,7 +15,10 @@
         "K0": {"value": 190.5, "error": null},
         "K0_prime": {"value": 3.9, "error": null}
       },
+      "experimental_pressure_range_gpa": [0.0, 30.8],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "notes": "Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative; calculated pressures are insensitive to their exact individual values when the pair is properly balanced. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.",
       "reference": {
         "authors": ["Clendenen", "Drickamer"],
         "year": 1966,
@@ -25,9 +28,6 @@
         "locator": "4223-4228",
         "doi": "10.1063/1.1726610"
       },
-      "experimental_pressure_range_gpa": [0.0, 30.8],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative; calculated pressures are insensitive to their exact individual values when the pair is properly balanced. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

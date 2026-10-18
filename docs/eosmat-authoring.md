@@ -125,6 +125,15 @@ not needed. `validate` checks structure, model declarations and local references
 It does not establish experimental accuracy or fit reproduction. `format` changes
 layout only, retaining every JSON value and array order; `--check` is read-only.
 
+In v4, saved records put model, reference temperature, coefficients and thermal
+terms first, followed by uncertainty confidence, experimental coverage, validity
+and usage qualifications. Thermal blocks use `model`, then `parameters`, then
+the explicit law/reference choices. Full covariance, citations, calibration and
+audit evidence follow the practical information. Material-level recommendation
+holds appear before the EOS list. These are formatting choices; field names and
+scientific meanings are unchanged, and readers accept any JSON key order.
+See the [native reading order](eosmat-v4.md#reading-order-in-saved-files).
+
 For an application whose pinned reader supports only v3:
 
 ```bash

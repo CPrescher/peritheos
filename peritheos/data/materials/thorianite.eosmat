@@ -18,16 +18,21 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "thermal": {
+        "model": "LinearThermalPressure",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha_KT": {"value": 0.0035, "error": 0.0003}
-        },
-        "model": "LinearThermalPressure"
+        }
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0, 28],
+      "experimental_temperature_range_k": [300, 2135],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default_for": "equilibrium",
+      "notes": "Only T=300 K rows with P<15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.",
+      "fit_datasets": ["thorianite_chidester_2018_table_s1"],
       "reference": {
         "authors": ["Chidester", "Pardo", "Fischer", "Thompson", "Heinz", "Prescher", "Prakapenka", "Campbell"],
         "year": 2018,
@@ -35,10 +40,6 @@
         "source": "American Mineralogist 103, 749–756",
         "doi": "10.2138/am-2018-6212"
       },
-      "experimental_pressure_range_gpa": [0, 28],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 2135],
-      "notes": "Only T=300 K rows with P<15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -103,8 +104,7 @@
             "alpha_KT": "Table 1 and Equation 3 p.754: fitted constant product alpha*K_T in GPa/K, not constant alpha and not Debye MGD."
           }
         }
-      },
-      "fit_datasets": ["thorianite_chidester_2018_table_s1"]
+      }
     }
   ],
   "aliases": ["tho2_fluorite"],

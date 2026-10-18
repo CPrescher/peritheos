@@ -17,8 +17,13 @@
         "K0_prime": {"value": 5.51, "error": 0.08},
         "K_infinity_prime": {"value": 1.6666666666666667, "error": null, "fixed": true}
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 324],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "reference": {
         "authors": [
           "Sakai",
@@ -39,11 +44,6 @@
         "locator": "68",
         "doi": "10.1038/s43246-025-00792-5"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [0, 324],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -125,7 +125,9 @@
         "K0": {"value": 165.0, "error": 4.0},
         "K0_prime": {"value": 5.33, "error": 0.09}
       },
+      "experimental_pressure_range_gpa": [19.2, 300.0],
       "determination_method": "experimental",
+      "notes": "Mao et al. report V0 = 22.35(3) A^3, K0 = 165(4) GPa, and K0' = 5.33(9) for the two-atom hcp cell. The legacy volume was also corrected for the hexagonal sin(120 degree) factor.",
       "reference": {
         "authors": ["Mao", "Wu", "Chen", "Shu", "Jephcoat"],
         "year": 1990,
@@ -135,8 +137,6 @@
         "locator": "21737-21742",
         "doi": "10.1029/JB095iB13p21737"
       },
-      "experimental_pressure_range_gpa": [19.2, 300.0],
-      "notes": "Mao et al. report V0 = 22.35(3) A^3, K0 = 165(4) GPa, and K0' = 5.33(9) for the two-atom hcp cell. The legacy volume was also corrected for the hexagonal sin(120 degree) factor.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -200,7 +200,9 @@
         "K0": {"value": 168.55, "error": 0.6},
         "K0_prime": {"value": 5.53, "error": 0.03}
       },
+      "experimental_pressure_range_gpa": [16.0, 140.0],
       "determination_method": "experimental",
+      "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.6 GPa and K0' +/- 0.03. The hcp phase data are above 16 GPa.",
       "reference": {
         "authors": ["Shen", "Smith"],
         "year": 2026,
@@ -210,8 +212,6 @@
         "locator": "144113",
         "doi": "10.1103/fxgq-96sg"
       },
-      "experimental_pressure_range_gpa": [16.0, 140.0],
-      "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.6 GPa and K0' +/- 0.03. The hcp phase data are above 16 GPa.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -283,18 +283,7 @@
         "K0": {"value": 164.5, "error": 7.9},
         "K0_prime": {"value": 4.96, "error": 0.16}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [17.0, 204.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -302,7 +291,18 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -367,18 +367,7 @@
         "K0": {"value": 168.4, "error": 7.9},
         "K0_prime": {"value": 5.33, "error": 0.16}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [17.0, 204.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -386,7 +375,18 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -452,6 +452,7 @@
         "K0_prime": {"value": 4.79, "error": 0.014}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 1209.0, "error": 73.0},
@@ -460,22 +461,25 @@
           "n": {"value": 1.0, "error": null, "fixed": true}
         },
         "debye_temperature_law": "integrated_gruneisen",
-        "gas_constant_j_mol_k": 8.314,
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "published",
-      "determination_method": "hybrid",
-      "equation_kind": "thermal",
-      "reference": {
-        "authors": ["Zhang", "Zhang", "Kuang", "Xiong"],
-        "year": 2025,
-        "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
-        "source": "Crystals",
-        "volume": "15",
-        "locator": "221",
-        "doi": "10.3390/cryst15030221"
+        "gas_constant_j_mol_k": 8.314
       },
       "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [10.7, 1374.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [10.7, 1374.0],
+        "temperature_k": [298.0, 12000.0],
+        "notes": [
+          "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
+          "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
+        ]
+      },
+      "determination_method": "hybrid",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Published mixed-input thermal EOS Fit #1; Supplementary Table S6 reports RMSE=4.504302 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. This is the authors' preferred relaxed-V0 solution.",
+      "fit_datasets": ["iron_zhang_2025_tables_s1_s3_s4_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0", "q"],
         "matrix": [
@@ -494,18 +498,15 @@
           [-0.0004211791289979745, 0.014549, 4.7259e-05, 0.52581, 0.0036313, 0.0020943]
         ]
       },
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [10.7, 1374.0],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [10.7, 1374.0],
-        "temperature_k": [298.0, 12000.0],
-        "notes": [
-          "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
-          "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
-        ]
+      "reference": {
+        "authors": ["Zhang", "Zhang", "Kuang", "Xiong"],
+        "year": 2025,
+        "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
+        "source": "Crystals",
+        "volume": "15",
+        "locator": "221",
+        "doi": "10.3390/cryst15030221"
       },
-      "notes": "Published mixed-input thermal EOS Fit #1; Supplementary Table S6 reports RMSE=4.504302 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. This is the authors' preferred relaxed-V0 solution.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -652,8 +653,7 @@
             "objective_inference": "An independently computed unweighted Jacobian covariance matches Table S5 within 0.6%; no row weights are stated by the source."
           }
         }
-      },
-      "fit_datasets": ["iron_zhang_2025_tables_s1_s3_s4_pvt"]
+      }
     },
     {
       "identifier": "iron_zhang_2025_fit2_birch_murnaghan_3_mgd",
@@ -666,6 +666,7 @@
         "K0_prime": {"value": 4.787, "error": 0.009}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 1205.0, "error": 73.0},
@@ -674,22 +675,25 @@
           "n": {"value": 1.0, "error": null, "fixed": true}
         },
         "debye_temperature_law": "integrated_gruneisen",
-        "gas_constant_j_mol_k": 8.314,
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "published",
-      "determination_method": "hybrid",
-      "equation_kind": "thermal",
-      "reference": {
-        "authors": ["Zhang", "Zhang", "Kuang", "Xiong"],
-        "year": 2025,
-        "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
-        "source": "Crystals",
-        "volume": "15",
-        "locator": "221",
-        "doi": "10.3390/cryst15030221"
+        "gas_constant_j_mol_k": 8.314
       },
       "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [10.7, 1374.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [10.7, 1374.0],
+        "temperature_k": [298.0, 12000.0],
+        "notes": [
+          "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
+          "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
+        ]
+      },
+      "determination_method": "hybrid",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Published mixed-input thermal EOS Fit #2; Supplementary Table S6 reports RMSE=4.504408 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
+      "fit_datasets": ["iron_zhang_2025_tables_s1_s3_s4_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0", "q"],
         "matrix": [
@@ -701,18 +705,15 @@
           [0.0, -0.0066644, 0.0001888, 0.67663, 0.0035072, 0.0019348]
         ]
       },
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [10.7, 1374.0],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [10.7, 1374.0],
-        "temperature_k": [298.0, 12000.0],
-        "notes": [
-          "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
-          "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
-        ]
+      "reference": {
+        "authors": ["Zhang", "Zhang", "Kuang", "Xiong"],
+        "year": 2025,
+        "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
+        "source": "Crystals",
+        "volume": "15",
+        "locator": "221",
+        "doi": "10.3390/cryst15030221"
       },
-      "notes": "Published mixed-input thermal EOS Fit #2; Supplementary Table S6 reports RMSE=4.504408 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -859,8 +860,7 @@
             "objective_inference": "An independently computed unweighted Jacobian covariance matches Table S5 within 0.6%; no row weights are stated by the source."
           }
         }
-      },
-      "fit_datasets": ["iron_zhang_2025_tables_s1_s3_s4_pvt"]
+      }
     },
     {
       "identifier": "iron_zhang_2025_fit5_vinet_mgd",
@@ -873,6 +873,7 @@
         "K0_prime": {"value": 5.845, "error": 0.01}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 960.0, "error": 69.0},
@@ -881,22 +882,25 @@
           "n": {"value": 1.0, "error": null, "fixed": true}
         },
         "debye_temperature_law": "integrated_gruneisen",
-        "gas_constant_j_mol_k": 8.314,
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "published",
-      "determination_method": "hybrid",
-      "equation_kind": "thermal",
-      "reference": {
-        "authors": ["Zhang", "Zhang", "Kuang", "Xiong"],
-        "year": 2025,
-        "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
-        "source": "Crystals",
-        "volume": "15",
-        "locator": "221",
-        "doi": "10.3390/cryst15030221"
+        "gas_constant_j_mol_k": 8.314
       },
       "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [10.7, 1374.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [10.7, 1374.0],
+        "temperature_k": [298.0, 12000.0],
+        "notes": [
+          "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
+          "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
+        ]
+      },
+      "determination_method": "hybrid",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Published mixed-input thermal EOS Fit #5; Supplementary Table S6 reports RMSE=5.084659 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
+      "fit_datasets": ["iron_zhang_2025_tables_s1_s3_s4_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0", "q"],
         "matrix": [
@@ -908,18 +912,15 @@
           [0.0, -0.0061313, 0.00022626, 0.69938, 0.0048411, 0.0024021]
         ]
       },
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [10.7, 1374.0],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [10.7, 1374.0],
-        "temperature_k": [298.0, 12000.0],
-        "notes": [
-          "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
-          "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
-        ]
+      "reference": {
+        "authors": ["Zhang", "Zhang", "Kuang", "Xiong"],
+        "year": 2025,
+        "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
+        "source": "Crystals",
+        "volume": "15",
+        "locator": "221",
+        "doi": "10.3390/cryst15030221"
       },
-      "notes": "Published mixed-input thermal EOS Fit #5; Supplementary Table S6 reports RMSE=5.084659 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1066,8 +1067,7 @@
             "objective_inference": "An independently computed unweighted Jacobian covariance matches Table S5 within 0.6%; no row weights are stated by the source."
           }
         }
-      },
-      "fit_datasets": ["iron_zhang_2025_tables_s1_s3_s4_pvt"]
+      }
     },
     {
       "identifier": "iron_dewaele_2006_vinet_thermal",
@@ -1080,6 +1080,7 @@
         "K0_prime": {"value": 5.38, "error": 0.16}
       },
       "thermal": {
+        "model": "Dewaele2006",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 417.0, "error": null, "fixed": true},
@@ -1092,12 +1093,25 @@
           "electronic_g": {"value": 1.339, "error": null, "fixed": true},
           "n": {"value": 1.0, "error": null, "fixed": true}
         },
-        "gas_constant_j_mol_k": 8.314,
-        "model": "Dewaele2006"
+        "gas_constant_j_mol_k": 8.314
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [17.0, 197.0],
+      "experimental_temperature_range_k": [298.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 364.0],
+        "temperature_k": [300.0, 7000.0],
+        "notes": [
+          "The 17-197 GPa static compression observations are near room temperature; the high-temperature extension is constrained by shock-wave data to 200 GPa and ab-initio anharmonic and electronic pressures.",
+          "The authors plot 298, 5000, 6000, and 7000 K isotherms through the Earth's core pressure range; this is a proposed pressure-scale domain, not a direct static P-V-T data envelope."
+        ]
+      },
       "determination_method": "hybrid",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Source-specific implementation of Equations (1)-(2): a 300 K Vinet reference isotherm plus reference-subtracted single-Debye, intrinsic-anharmonic, and electronic thermal pressures. The published atomic V0 and uncertainty are doubled for the two-atom conventional hcp cell used by this material document.",
       "reference": {
         "authors": ["Dewaele", "Loubeyre", "Occelli", "Mezouar", "Dorogokupets", "Torrent"],
         "year": 2006,
@@ -1107,20 +1121,6 @@
         "locator": "215504",
         "doi": "10.1103/PhysRevLett.97.215504"
       },
-      "parameter_error_confidence": 0.95,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [17.0, 197.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 364.0],
-        "temperature_k": [300.0, 7000.0],
-        "notes": [
-          "The 17-197 GPa static compression observations are near room temperature; the high-temperature extension is constrained by shock-wave data to 200 GPa and ab-initio anharmonic and electronic pressures.",
-          "The authors plot 298, 5000, 6000, and 7000 K isotherms through the Earth's core pressure range; this is a proposed pressure-scale domain, not a direct static P-V-T data envelope."
-        ]
-      },
-      "notes": "Source-specific implementation of Equations (1)-(2): a 300 K Vinet reference isotherm plus reference-subtracted single-Debye, intrinsic-anharmonic, and electronic thermal pressures. The published atomic V0 and uncertainty are doubled for the two-atom conventional hcp cell used by this material document.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1227,9 +1227,24 @@
         "K0": {"value": 172.7, "error": 1.4},
         "K0_prime": {"value": 4.79, "error": 0.05}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [18.72, 204.6],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [18.72, 204.6],
+        "temperature_k": [300, 300],
+        "notes": [
+          "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
+      "fit_datasets": ["iron_fei_2016_table_s1"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Murphy", "Shibazaki", "Shahar", "Huang"],
         "year": 2016,
@@ -1239,20 +1254,6 @@
         "locator": "6837–6843",
         "doi": "10.1002/2016GL069456"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [18.72, 204.6],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [18.72, 204.6],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
-        ]
-      },
-      "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -1318,8 +1319,7 @@
           "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
           "K0_prime": "Section 3.1, p. 6840"
         }
-      },
-      "fit_datasets": ["iron_fei_2016_table_s1"]
+      }
     },
     {
       "identifier": "iron_fei_2016_free_density_bm3",
@@ -1331,9 +1331,24 @@
         "K0": {"value": 191.44, "error": 5.3},
         "K0_prime": {"value": 4.52, "error": 0.08}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [18.72, 204.6],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [18.72, 204.6],
+        "temperature_k": [300, 300],
+        "notes": [
+          "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
+      "fit_datasets": ["iron_fei_2016_table_s1"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Murphy", "Shibazaki", "Shahar", "Huang"],
         "year": 2016,
@@ -1343,20 +1358,6 @@
         "locator": "6837–6843",
         "doi": "10.1002/2016GL069456"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [18.72, 204.6],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [18.72, 204.6],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
-        ]
-      },
-      "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -1422,8 +1423,7 @@
           "K0": "Section 3.1, p. 6840, equation (1) and following paragraph",
           "K0_prime": "Section 3.1, p. 6840"
         }
-      },
-      "fit_datasets": ["iron_fei_2016_table_s1"]
+      }
     },
     {
       "identifier": "iron_fei_2016_bm3_debye_quadratic",
@@ -1436,6 +1436,7 @@
         "K0_prime": {"value": 4.79, "error": 0.05}
       },
       "thermal": {
+        "model": "DebyeQuadraticThermalPressure",
         "parameters": {
           "Tr": {"value": 300, "error": null, "fixed": true},
           "theta0": {"value": 422, "error": null, "fixed": true},
@@ -1444,12 +1445,26 @@
           "n": {"value": 1, "error": null, "fixed": true},
           "A": {"value": 5.788650000000002e-07, "error": null},
           "m": {"value": 0.34, "error": null}
-        },
-        "model": "DebyeQuadraticThermalPressure"
+        }
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [53.96, 99.69],
+      "experimental_temperature_range_k": [1208, 1795],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [53.96, 99.69],
+        "temperature_k": [1208, 1795],
+        "notes": [
+          "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved. Thermal pressure adds MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2). No thermal fit errors are reported. Independent gamma_e=2 and k=1.34 define an empirical pressure surface, not a thermodynamically consistent caloric potential. Do not infer caloric observables. Table S2 is only the static subset of the thermal fit.",
+      "fit_datasets": ["iron_fei_2016_table_s1", "iron_fei_2016_table_s2"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Fei", "Murphy", "Shibazaki", "Shahar", "Huang"],
         "year": 2016,
@@ -1459,20 +1474,6 @@
         "locator": "6837–6843",
         "doi": "10.1002/2016GL069456"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [53.96, 99.69],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [1208, 1795],
-      "validity": {
-        "pressure_gpa": [53.96, 99.69],
-        "temperature_k": [1208, 1795],
-        "notes": [
-          "Conservative coverage of the linked source observations, not a rectangular phase-stability guarantee. The 300 K synthesis reaches 280 GPa; the thermal synthesis also uses shock data near 200 GPa/5000 K. Core conditions are extrapolation."
-        ]
-      },
-      "notes": "Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved. Thermal pressure adds MGD with integrated gamma(V) plus A*(V/V0)^m*(T^2-300^2). No thermal fit errors are reported. Independent gamma_e=2 and k=1.34 define an empirical pressure surface, not a thermodynamically consistent caloric potential. Do not infer caloric observables. Table S2 is only the static subset of the thermal fit.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -1545,8 +1546,7 @@
           "thermal.A": "Equation (2), p. 6841: gamma_e=2 fixed; beta0=0.07 J/kg/K^2 fitted; A=gamma_e*beta0*rho0_SI/(2*1e9)=5.78865e-7 GPa/K^2.",
           "thermal.m": "p. 6841: k=1.34 fitted; m=k-1=0.34 after dividing specific energy by specific volume."
         }
-      },
-      "fit_datasets": ["iron_fei_2016_table_s1", "iron_fei_2016_table_s2"]
+      }
     },
     {
       "identifier": "iron_sakai_2014_p1_bm3",
@@ -1558,9 +1558,20 @@
         "K0": {"value": 179.6, "error": 2.2},
         "K0_prime": {"value": 4.91, "error": 0.12}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 279.2],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 279.2],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -1568,17 +1579,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 279.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 279.2],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -1639,9 +1639,20 @@
         "K0": {"value": 174.7, "error": 2.2},
         "K0_prime": {"value": 5.37, "error": 0.12}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 279.2],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 279.2],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -1649,17 +1660,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 279.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 279.2],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -1720,9 +1720,20 @@
         "K0": {"value": 164.8, "error": 2.2},
         "K0_prime": {"value": 5.18, "error": 0.13}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 279.2],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 279.2],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -1730,17 +1741,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 279.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 279.2],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -1801,9 +1801,20 @@
         "K0": {"value": 160.1, "error": 2.1},
         "K0_prime": {"value": 5.65, "error": 0.12}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 279.2],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 279.2],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -1811,17 +1822,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 279.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 279.2],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -1882,9 +1882,20 @@
         "K0": {"value": 155.3, "error": 2.2},
         "K0_prime": {"value": 5.37, "error": 0.14}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 279.2],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 279.2],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -1892,17 +1903,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 279.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 279.2],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -1963,9 +1963,20 @@
         "K0": {"value": 150.8, "error": 2.0},
         "K0_prime": {"value": 5.84, "error": 0.12}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 279.2],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 279.2],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -1973,17 +1984,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 279.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 279.2],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2044,21 +2044,10 @@
         "K0": {"value": 184.2, "error": 2.2},
         "K0_prime": {"value": 4.78, "error": 0.12}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-        "year": 2014,
-        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-        "doi": "10.1016/j.pepi.2013.12.010"
-      },
       "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "experimental_pressure_range_gpa": [24.2, 304.7],
-      "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [24.2, 304.7],
         "temperature_k": [300, 300],
@@ -2067,7 +2056,18 @@
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "reference": {
+        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2125,21 +2125,10 @@
         "K0": {"value": 179.2, "error": 2.2},
         "K0_prime": {"value": 5.24, "error": 0.12}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-        "year": 2014,
-        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-        "doi": "10.1016/j.pepi.2013.12.010"
-      },
       "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "experimental_pressure_range_gpa": [24.2, 304.7],
-      "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [24.2, 304.7],
         "temperature_k": [300, 300],
@@ -2148,7 +2137,18 @@
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "reference": {
+        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2206,21 +2206,10 @@
         "K0": {"value": 185.0, "error": 2.3},
         "K0_prime": {"value": 4.94, "error": 0.12}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-        "year": 2014,
-        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-        "doi": "10.1016/j.pepi.2013.12.010"
-      },
       "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "experimental_pressure_range_gpa": [24.2, 304.7],
-      "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [24.2, 304.7],
         "temperature_k": [300, 300],
@@ -2229,7 +2218,18 @@
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "reference": {
+        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2290,21 +2290,10 @@
         "K0": {"value": 180.0, "error": 2.3},
         "K0_prime": {"value": 5.4, "error": 0.13}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-        "year": 2014,
-        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-        "doi": "10.1016/j.pepi.2013.12.010"
-      },
       "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "experimental_pressure_range_gpa": [24.2, 304.7],
-      "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [24.2, 304.7],
         "temperature_k": [300, 300],
@@ -2313,7 +2302,18 @@
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "reference": {
+        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2374,9 +2374,20 @@
         "K0": {"value": 195.1, "error": 2.4},
         "K0_prime": {"value": 4.93, "error": 0.12}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 299.0],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 299.0],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -2384,17 +2395,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 299.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 299.0],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2455,9 +2455,20 @@
         "K0": {"value": 189.9, "error": 2.4},
         "K0_prime": {"value": 5.39, "error": 0.13}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 299.0],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 299.0],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -2465,17 +2476,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 299.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 299.0],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2536,21 +2536,10 @@
         "K0": {"value": 196.0, "error": 2.5},
         "K0_prime": {"value": 4.93, "error": 0.13}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-        "year": 2014,
-        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-        "doi": "10.1016/j.pepi.2013.12.010"
-      },
       "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "experimental_pressure_range_gpa": [24.2, 304.7],
-      "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [24.2, 304.7],
         "temperature_k": [300, 300],
@@ -2559,7 +2548,18 @@
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "reference": {
+        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2620,21 +2620,10 @@
         "K0": {"value": 190.8, "error": 2.4},
         "K0_prime": {"value": 5.39, "error": 0.13}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
-        "year": 2014,
-        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
-        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
-        "doi": "10.1016/j.pepi.2013.12.010"
-      },
       "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "experimental_pressure_range_gpa": [24.2, 304.7],
-      "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [24.2, 304.7],
         "temperature_k": [300, 300],
@@ -2643,7 +2632,18 @@
           "No exact pressure extrema for this scale are tabulated; bounds use the envelope of published P1/P4/P6 measurements."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "reference": {
+        "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2704,9 +2704,20 @@
         "K0": {"value": 171.7, "error": 2.4},
         "K0_prime": {"value": 5.49, "error": 0.15}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 304.7],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 304.7],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -2714,17 +2725,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 304.7],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 304.7],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2785,9 +2785,20 @@
         "K0": {"value": 167.2, "error": 2.2},
         "K0_prime": {"value": 5.93, "error": 0.13}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [24.2, 304.7],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [24.2, 304.7],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -2795,17 +2806,6 @@
         "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
         "doi": "10.1016/j.pepi.2013.12.010"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [24.2, 304.7],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [24.2, 304.7],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -2867,6 +2867,7 @@
         "K0_prime": {"value": 4.5, "error": 0.2}
       },
       "thermal": {
+        "model": "Dewaele2006",
         "parameters": {
           "Tr": {"value": 300, "error": null, "fixed": true},
           "theta0": {"value": 1173, "error": 62},
@@ -2879,12 +2880,22 @@
           "n": {"value": 1, "error": null, "fixed": true},
           "gamma_inf": {"value": 0, "error": null, "fixed": true}
         },
-        "parameter_error_confidence": 0.682689492137,
-        "model": "Dewaele2006"
+        "parameter_error_confidence": 0.682689492137
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.682689492137,
+      "experimental_pressure_range_gpa": [19.8, 82.9],
+      "experimental_temperature_range_k": [300, 1900],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [19.8, 82.9],
+        "temperature_k": [300, 1900],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "hybrid",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
       "reference": {
         "authors": [
           "Yamazaki",
@@ -2905,17 +2916,6 @@
         "source": "Geophysical Research Letters 39, L20308",
         "doi": "10.1029/2012GL053540"
       },
-      "parameter_error_confidence": 0.682689492137,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [19.8, 82.9],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 1900],
-      "validity": {
-        "pressure_gpa": [19.8, 82.9],
-        "temperature_k": [300, 1900],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -3004,6 +3004,7 @@
         "K0_prime": {"value": 4.8, "error": 0.2}
       },
       "thermal": {
+        "model": "Dewaele2006",
         "parameters": {
           "Tr": {"value": 300, "error": null, "fixed": true},
           "theta0": {"value": 1168, "error": 61},
@@ -3016,12 +3017,22 @@
           "n": {"value": 1, "error": null, "fixed": true},
           "gamma_inf": {"value": 0, "error": null, "fixed": true}
         },
-        "parameter_error_confidence": 0.682689492137,
-        "model": "Dewaele2006"
+        "parameter_error_confidence": 0.682689492137
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.682689492137,
+      "experimental_pressure_range_gpa": [19.8, 82.9],
+      "experimental_temperature_range_k": [300, 1900],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [19.8, 82.9],
+        "temperature_k": [300, 1900],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "hybrid",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
       "reference": {
         "authors": [
           "Yamazaki",
@@ -3042,17 +3053,6 @@
         "source": "Geophysical Research Letters 39, L20308",
         "doi": "10.1029/2012GL053540"
       },
-      "parameter_error_confidence": 0.682689492137,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [19.8, 82.9],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 1900],
-      "validity": {
-        "pressure_gpa": [19.8, 82.9],
-        "temperature_k": [300, 1900],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Full Debye, anharmonic and electronic pressure, reference-subtracted at 300 K. The power-law gamma is represented exactly by gamma_inf=0, beta=q. Table 1 errors are standard deviations; thermal correction constants adopted from Alfè et al. (2001).",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -3141,6 +3141,7 @@
         "K0_prime": {"value": 5.81, "error": 0.06}
       },
       "thermal": {
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300, "error": null, "fixed": true},
           "alpha0": {"value": 6.93e-05, "error": 3.7e-06},
@@ -3149,13 +3150,32 @@
           "beta2": {"value": 4.6e-10, "error": 8e-12},
           "beta3": {"value": 0, "error": null, "fixed": true}
         },
-        "parameter_error_confidence": null,
         "bulk_modulus_law": "reciprocal_cubic",
-        "model": "AlphaKT"
+        "parameter_error_confidence": null
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [18, 305],
+      "experimental_temperature_range_k": [300, 1700],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [18, 305],
+        "temperature_k": [300, 1700],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "K0 derived exactly from 1/(b1+b2*300+b3*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.",
+      "source_compressibility_coefficients": {
+        "b1": 0.005973,
+        "b1_error": 4.6e-05,
+        "b2": 1.38e-06,
+        "b2_error": 1.7e-08,
+        "b3": 4.6e-10,
+        "b3_error": 8e-12,
+        "conditional_uncorrelated_K0_error_gpa": 1.120101835332648
+      },
       "reference": {
         "authors": ["Dubrovinsky", "Saxena", "Tutti", "Rekhi", "LeBehan"],
         "year": 2000,
@@ -3163,17 +3183,6 @@
         "source": "Physical Review Letters 84, 1720–1723",
         "doi": "10.1103/PhysRevLett.84.1720"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [18, 305],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 1700],
-      "validity": {
-        "pressure_gpa": [18, 305],
-        "temperature_k": [300, 1700],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "K0 derived exactly from 1/(b1+b2*300+b3*300²). No covariance is available to propagate a rigorous K0 uncertainty. Table II gives one expansivity value; constant alpha=6.93e-5/K is the reconstructable law. No dhcp EOS is provided. Original 109+79 P-V-T rows are not tabulated.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -3232,15 +3241,6 @@
             "beta3": "Primary thermal equation and parameter table; fixed/adopted"
           }
         }
-      },
-      "source_compressibility_coefficients": {
-        "b1": 0.005973,
-        "b1_error": 4.6e-05,
-        "b2": 1.38e-06,
-        "b2_error": 1.7e-08,
-        "b3": 4.6e-10,
-        "b3_error": 8e-12,
-        "conditional_uncorrelated_K0_error_gpa": 1.120101835332648
       }
     },
     {
@@ -3253,9 +3253,20 @@
         "K0": {"value": 165.0, "error": null, "fixed": true},
         "K0_prime": {"value": 4.97, "error": 0.04}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [17, 197],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [17, 197],
+        "temperature_k": [300, 300],
+        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
+      "notes": "Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.",
       "reference": {
         "authors": ["Dewaele", "Loubeyre", "Occelli", "Mezouar", "Dorogokupets", "Torrent"],
         "year": 2006,
@@ -3263,17 +3274,6 @@
         "source": "Physical Review Letters 97, 215504",
         "doi": "10.1103/PhysRevLett.97.215504"
       },
-      "parameter_error_confidence": 0.95,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
-      "experimental_pressure_range_gpa": [17, 197],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [17, 197],
-        "temperature_k": [300, 300],
-        "notes": ["Observation envelope; extensions to inner-core conditions are extrapolations."]
-      },
-      "notes": "Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-10",
@@ -3333,21 +3333,10 @@
         "s": {"value": 1.578, "error": null},
         "P0": {"value": 0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "hugoniot",
-      "reference": {
-        "authors": ["Brown", "Fritz", "Hixson"],
-        "year": 2000,
-        "title": "Hugoniot data for iron",
-        "source": "Journal of Applied Physics 88, 5496–5498",
-        "doi": "10.1063/1.1319320"
-      },
       "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "experimental_pressure_range_gpa": [39.6, 191.8],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [39.6, 191.8],
         "temperature_k": [300, 300],
@@ -3356,6 +3345,9 @@
           "Temperature bounds describe only the normalized initial state, not a constant-temperature shock path. The sample is steel, not pure Fe."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "hugoniot",
       "loading_path": "principal",
       "branch_kind": "transformed",
       "initial_state": {
@@ -3366,13 +3358,27 @@
         "pressure_gpa": 0.0,
         "density_g_cm3": 7.85
       },
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "branch_domain": {
         "particle_velocity_km_s": [0.948, 2.885],
         "kind": "experimental_coverage",
         "boundary_status": "inferred",
         "notes": ["Operational subset below 200 GPa used by Fei 2016; not a phase boundary."]
       },
+      "sample_composition": "Approximately 99% low-carbon steel; nominal Fe volume normalization. See source for impurity limits.",
       "notes": "Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.",
+      "source_fit_domain": {
+        "particle_velocity_km_s": [0.948, 4.894],
+        "pressure_gpa": [39.6, 442.1]
+      },
+      "source_quadratic_fit": {"c0": 3.691, "s": 1.788, "q": -0.038, "shock_velocity_rmse_km_s": 0.039},
+      "reference": {
+        "authors": ["Brown", "Fritz", "Hixson"],
+        "year": 2000,
+        "title": "Hugoniot data for iron",
+        "source": "Journal of Applied Physics 88, 5496–5498",
+        "doi": "10.1063/1.1319320"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "audit_date": "2026-09-10",
@@ -3423,28 +3429,33 @@
           "s": "Table III linear fit to all 37 Tables I–II points: published fit",
           "P0": "Table III linear fit to all 37 Tables I–II points: fixed/adopted"
         }
-      },
-      "sample_composition": "Approximately 99% low-carbon steel; nominal Fe volume normalization. See source for impurity limits.",
-      "source_fit_domain": {
-        "particle_velocity_km_s": [0.948, 4.894],
-        "pressure_gpa": [39.6, 442.1]
-      },
-      "source_quadratic_fit": {"c0": 3.691, "s": 1.788, "q": -0.038, "shock_velocity_rmse_km_s": 0.039}
+      }
     },
     {
       "identifier": "iron_miozzi_2020_bm3",
       "label": "Miozzi et al. (2020), 300 K BM3 (not reproduced)",
       "model": "BM3",
       "temperature_ref": 300,
+      "reference_pressure_gpa": 0,
       "parameters": {
         "V0": {"value": 22.8, "error": 0.02},
         "K0": {"value": 129, "error": 6},
         "K0_prime": {"value": 6.2, "error": 0.2}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [10.7, 117.8322],
+      "experimental_temperature_range_k": [298, 300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "default": false,
       "catalog_access": "explicit_selection",
+      "notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "range_provenance": {
+        "notes": "Actual marginal ranges of the supplied hcp rows; no rectangular phase-stability guarantee. Article prose rounds thermal coverage to 45–135 GPa and 1300–3300 K, abstract to 140 GPa/3500 K. Extrapolated 300+ GPa core curves are not measured coverage."
+      },
+      "fit_datasets": ["iron_miozzi_2020_he_pvt", "iron_miozzi_2020_mgo_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Miozzi", "Matas", "Guignot", "Badro", "Siebert", "Fiquet"],
         "year": 2020,
@@ -3454,12 +3465,6 @@
         "locator": "100",
         "doi": "10.3390/min10020100"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [10.7, 117.8322],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298, 300],
-      "notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-10-02",
@@ -3541,11 +3546,6 @@
           "documentation": "docs/literature-reproductions/miozzi-2020-iron.md",
           "reason": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md."
         }
-      },
-      "reference_pressure_gpa": 0,
-      "fit_datasets": ["iron_miozzi_2020_he_pvt", "iron_miozzi_2020_mgo_pvt"],
-      "range_provenance": {
-        "notes": "Actual marginal ranges of the supplied hcp rows; no rectangular phase-stability guarantee. Article prose rounds thermal coverage to 45–135 GPa and 1300–3300 K, abstract to 140 GPa/3500 K. Extrapolated 300+ GPa core curves are not measured coverage."
       }
     },
     {
@@ -3553,15 +3553,26 @@
       "label": "Miozzi et al. (2020), 300 K Vinet (not reproduced)",
       "model": "Vinet",
       "temperature_ref": 300,
+      "reference_pressure_gpa": 0,
       "parameters": {
         "V0": {"value": 22.81, "error": null},
         "K0": {"value": 125, "error": 5},
         "K0_prime": {"value": 6.5, "error": 0.2}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [10.7, 117.8322],
+      "experimental_temperature_range_k": [298, 300],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "default": false,
       "catalog_access": "explicit_selection",
+      "notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
+      "range_provenance": {
+        "notes": "Actual marginal ranges of the supplied hcp rows; no rectangular phase-stability guarantee. Article prose rounds thermal coverage to 45–135 GPa and 1300–3300 K, abstract to 140 GPa/3500 K. Extrapolated 300+ GPa core curves are not measured coverage."
+      },
+      "fit_datasets": ["iron_miozzi_2020_he_pvt", "iron_miozzi_2020_mgo_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Miozzi", "Matas", "Guignot", "Badro", "Siebert", "Fiquet"],
         "year": 2020,
@@ -3571,12 +3582,6 @@
         "locator": "100",
         "doi": "10.3390/min10020100"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [10.7, 117.8322],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298, 300],
-      "notes": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-10-02",
@@ -3658,11 +3663,6 @@
           "documentation": "docs/literature-reproductions/miozzi-2020-iron.md",
           "reason": "Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md."
         }
-      },
-      "reference_pressure_gpa": 0,
-      "fit_datasets": ["iron_miozzi_2020_he_pvt", "iron_miozzi_2020_mgo_pvt"],
-      "range_provenance": {
-        "notes": "Actual marginal ranges of the supplied hcp rows; no rectangular phase-stability guarantee. Article prose rounds thermal coverage to 45–135 GPa and 1300–3300 K, abstract to 140 GPa/3500 K. Extrapolated 300+ GPa core curves are not measured coverage."
       }
     },
     {
@@ -3670,12 +3670,14 @@
       "label": "Miozzi et al. (2020), published BM3–MGD — author-reported n=2",
       "model": "BM3",
       "temperature_ref": 300,
+      "reference_pressure_gpa": 0,
       "parameters": {
         "V0": {"value": 22.81, "error": 0.06642156268695387},
         "K0": {"value": 129, "error": 1},
         "K0_prime": {"value": 6.24, "error": 0.04}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300, "error": null, "fixed": true},
           "theta0": {"value": 420, "error": null, "fixed": true},
@@ -3683,13 +3685,22 @@
           "q": {"value": 0.3, "error": 0.3},
           "n": {"value": 2, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [10.7, 127.9736],
+      "experimental_temperature_range_k": [298, 3399],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "default": false,
       "catalog_access": "explicit_selection",
+      "notes": "Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.",
+      "range_provenance": {
+        "notes": "Actual marginal ranges of the supplied hcp rows; no rectangular phase-stability guarantee. Article prose rounds thermal coverage to 45–135 GPa and 1300–3300 K, abstract to 140 GPa/3500 K. Extrapolated 300+ GPa core curves are not measured coverage."
+      },
+      "fit_datasets": ["iron_miozzi_2020_he_pvt", "iron_miozzi_2020_mgo_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Miozzi", "Matas", "Guignot", "Badro", "Siebert", "Fiquet"],
         "year": 2020,
@@ -3699,12 +3710,6 @@
         "locator": "100",
         "doi": "10.3390/min10020100"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [10.7, 127.9736],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298, 3399],
-      "notes": "Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-10-02",
@@ -3814,11 +3819,6 @@
           "documentation": "docs/literature-reproductions/miozzi-2020-iron.md",
           "reason": "Published coefficients retained with full MGD n=2 at the per-mole-Fe volume (~6.87 cm3/mol), as used in the paper according to personal communication with Miozzi et al. relayed by the user and recorded 2026-10-03. This source-reproduction setting differs from physical per-Fe normalization (n=1). Unchanged coefficients give RMS 2.49886 GPa on the 131 printed-pressure observations; exact author inputs, weights and full source-fit reproduction remain unresolved."
         }
-      },
-      "reference_pressure_gpa": 0,
-      "fit_datasets": ["iron_miozzi_2020_he_pvt", "iron_miozzi_2020_mgo_pvt"],
-      "range_provenance": {
-        "notes": "Actual marginal ranges of the supplied hcp rows; no rectangular phase-stability guarantee. Article prose rounds thermal coverage to 45–135 GPa and 1300–3300 K, abstract to 140 GPa/3500 K. Extrapolated 300+ GPa core curves are not measured coverage."
       }
     },
     {
@@ -3826,13 +3826,14 @@
       "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Tange (2009) MgO pressures, equal weights",
       "model": "BM3",
       "temperature_ref": 300,
+      "reference_pressure_gpa": 0,
       "parameters": {
         "V0": {"value": 22.57831922472848, "error": 0.09211600958124483},
         "K0": {"value": 150.48486842978744, "error": 8.628764287974398},
         "K0_prime": {"value": 5.801500847494674, "error": 0.26640528345081493}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300, "error": null, "fixed": true},
           "theta0": {"value": 420, "error": null, "fixed": true},
@@ -3840,21 +3841,39 @@
           "q": {"value": 0.6430853066402854, "error": 0.23798323515133402},
           "n": {"value": 1, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "refit",
-      "determination_method": "experimental",
-      "default": false,
-      "reference": {
-        "authors": ["Miozzi", "Matas", "Guignot", "Badro", "Siebert", "Fiquet"],
-        "year": 2020,
-        "title": "A New Reference for the Thermal Equation of State of Iron",
-        "source": "Minerals",
-        "volume": "10",
-        "locator": "100",
-        "doi": "10.3390/min10020100"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [10.7, 129.3071497589813],
+      "experimental_temperature_range_k": [298.0, 3399.0],
+      "pressure_range_status": "reference_parameterization",
+      "validity": {
+        "pressure_gpa": [10.7, 129.3071497589813],
+        "temperature_k": [298.0, 3399.0],
+        "notes": [
+          "Marginal observation ranges only; zero-pressure coefficients extrapolated from compressed hcp Fe.",
+          "No independent experimental validation or validated core extrapolation."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "default": false,
+      "notes": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.",
+      "range_provenance": {
+        "notes": "Actual extrema after explicit MgO pressure recalculation; not the supplied pressure bounds or a rectangular stability domain."
+      },
+      "supporting_references": [
+        {
+          "authors": ["Tange", "Nishihara", "Tsuchiya"],
+          "year": 2009,
+          "title": "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments",
+          "source": "J. Geophys. Res. Solid Earth",
+          "volume": "114",
+          "locator": "B03208",
+          "doi": "10.1029/2008JB005813"
+        }
+      ],
+      "fit_datasets": ["iron_miozzi_2020_tange_2009_vinet_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
         "matrix": [
@@ -3865,18 +3884,15 @@
           [0.0030111110272884618, -0.5818145334170111, 0.026390431194532642, 0.0283425080106209, 0.05663602021309514]
         ]
       },
-      "experimental_pressure_range_gpa": [10.7, 129.3071497589813],
-      "pressure_range_status": "reference_parameterization",
-      "experimental_temperature_range_k": [298.0, 3399.0],
-      "validity": {
-        "pressure_gpa": [10.7, 129.3071497589813],
-        "temperature_k": [298.0, 3399.0],
-        "notes": [
-          "Marginal observation ranges only; zero-pressure coefficients extrapolated from compressed hcp Fe.",
-          "No independent experimental validation or validated core extrapolation."
-        ]
+      "reference": {
+        "authors": ["Miozzi", "Matas", "Guignot", "Badro", "Siebert", "Fiquet"],
+        "year": 2020,
+        "title": "A New Reference for the Thermal Equation of State of Iron",
+        "source": "Minerals",
+        "volume": "10",
+        "locator": "100",
+        "doi": "10.3390/min10020100"
       },
-      "notes": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-10-02",
@@ -4011,36 +4027,21 @@
           "display_label": "Independent Peritheos refit — Tange MgO scale",
           "reason": "Independent Peritheos equal-pressure-weight refit of all 131 Miozzi (2020) Fe observations; 116 pressures recalculated from paired MgO V,T using Tange (2009) Fit3-Vinet and 15 He pressures unchanged. This is not Miozzi's published EOS or a reproduction/correction of the original fit. V0,K0,K0_prime,gamma0,q fitted jointly; theta0=420 K, Tr=300 K, n=1 and two Fe atoms/cell fixed. Errors/covariance are conditional local standard errors using RSS/(131-5), assuming independent equal-variance pressure residuals. Calibrant systematics, shared/run correlations, predictor errors, fixed-theta uncertainty and model discrepancy are not included. Measured coverage is a marginal envelope, not a rectangular stability domain or validation for core-condition extrapolation."
         }
-      },
-      "supporting_references": [
-        {
-          "authors": ["Tange", "Nishihara", "Tsuchiya"],
-          "year": 2009,
-          "title": "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments",
-          "source": "J. Geophys. Res. Solid Earth",
-          "volume": "114",
-          "locator": "B03208",
-          "doi": "10.1029/2008JB005813"
-        }
-      ],
-      "reference_pressure_gpa": 0,
-      "range_provenance": {
-        "notes": "Actual extrema after explicit MgO pressure recalculation; not the supplied pressure bounds or a rectangular stability domain."
-      },
-      "fit_datasets": ["iron_miozzi_2020_tange_2009_vinet_pvt"]
+      }
     },
     {
       "identifier": "iron_miozzi_2020_speziale_2001_bm3_mgd_refit",
       "label": "Peritheos refit of Miozzi (2020) hcp-Fe — Speziale (2001) variable-q MgO, n=1",
       "model": "BM3",
       "temperature_ref": 300,
+      "reference_pressure_gpa": 0,
       "parameters": {
         "V0": {"value": 22.703126324406085, "error": 0.09841980257431894},
         "K0": {"value": 139.41957474644457, "error": 8.365236896636842},
         "K0_prime": {"value": 5.86995978066269, "error": 0.27378034810130303}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300, "error": null, "fixed": true},
           "theta0": {"value": 420, "error": null, "fixed": true},
@@ -4048,21 +4049,28 @@
           "q": {"value": 0.42955380447424246, "error": 0.22194307545579658},
           "n": {"value": 1, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "refit",
-      "determination_method": "experimental",
-      "default": false,
-      "reference": {
-        "authors": ["Miozzi", "Matas", "Guignot", "Badro", "Siebert", "Fiquet"],
-        "year": 2020,
-        "title": "A New Reference for the Thermal Equation of State of Iron",
-        "source": "Minerals",
-        "volume": "10",
-        "locator": "100",
-        "doi": "10.3390/min10020100"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [10.7, 126.47120445384469],
+      "experimental_temperature_range_k": [298.0, 3399.0],
+      "pressure_range_status": "reference_parameterization",
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "default": false,
+      "notes": "Independent Peritheos refit, not Miozzi's published coefficients. All 116 MgO-series pressures are recalculated with the Speziale (2001) variable-q Debye model; the 15 He pressures remain unchanged. Equal pressure-residual weights; 36 RT rows first, all rows with cold coefficients fixed second, then V0,K0,K0_prime,gamma0,q free. theta0=420 K, Tr=300 K, n=1 per mole Fe fixed. Local errors/covariance are conditional on this calibration, objective and fixed parameters, excluding calibrant systematics, predictor and inter-row covariance and fixed-theta uncertainty. Original author weights and exact pressure reduction remain unavailable; numerical reproducibility does not establish independent physical accuracy.",
+      "supporting_references": [
+        {
+          "authors": ["Speziale", "Zha", "Duffy", "Hemley", "Mao"],
+          "year": 2001,
+          "title": "Quasi-hydrostatic compression of magnesium oxide to 52 GPa: Implications for the pressure-volume-temperature equation of state",
+          "source": "J. Geophys. Res.",
+          "volume": "106",
+          "locator": "515-528",
+          "doi": "10.1029/2000JB900318"
+        }
+      ],
+      "fit_datasets": ["iron_miozzi_2020_speziale_2001_variable_q_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
         "matrix": [
@@ -4073,10 +4081,15 @@
           [0.00344183886892158, -0.5513088788292667, 0.02582036916033822, 0.024572803228756598, 0.04925872874277741]
         ]
       },
-      "experimental_pressure_range_gpa": [10.7, 126.47120445384469],
-      "pressure_range_status": "reference_parameterization",
-      "experimental_temperature_range_k": [298.0, 3399.0],
-      "notes": "Independent Peritheos refit, not Miozzi's published coefficients. All 116 MgO-series pressures are recalculated with the Speziale (2001) variable-q Debye model; the 15 He pressures remain unchanged. Equal pressure-residual weights; 36 RT rows first, all rows with cold coefficients fixed second, then V0,K0,K0_prime,gamma0,q free. theta0=420 K, Tr=300 K, n=1 per mole Fe fixed. Local errors/covariance are conditional on this calibration, objective and fixed parameters, excluding calibrant systematics, predictor and inter-row covariance and fixed-theta uncertainty. Original author weights and exact pressure reduction remain unavailable; numerical reproducibility does not establish independent physical accuracy.",
+      "reference": {
+        "authors": ["Miozzi", "Matas", "Guignot", "Badro", "Siebert", "Fiquet"],
+        "year": 2020,
+        "title": "A New Reference for the Thermal Equation of State of Iron",
+        "source": "Minerals",
+        "volume": "10",
+        "locator": "100",
+        "doi": "10.3390/min10020100"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-10-03",
@@ -4212,20 +4225,7 @@
           "display_label": "Independent Peritheos refit — Speziale variable-q MgO, n=1",
           "reason": "Independent Peritheos refit, not Miozzi's published coefficients. All 116 MgO-series pressures are recalculated with the Speziale (2001) variable-q Debye model; the 15 He pressures remain unchanged. Equal pressure-residual weights; 36 RT rows first, all rows with cold coefficients fixed second, then V0,K0,K0_prime,gamma0,q free. theta0=420 K, Tr=300 K, n=1 per mole Fe fixed. Local errors/covariance are conditional on this calibration, objective and fixed parameters, excluding calibrant systematics, predictor and inter-row covariance and fixed-theta uncertainty. Original author weights and exact pressure reduction remain unavailable; numerical reproducibility does not establish independent physical accuracy."
         }
-      },
-      "supporting_references": [
-        {
-          "authors": ["Speziale", "Zha", "Duffy", "Hemley", "Mao"],
-          "year": 2001,
-          "title": "Quasi-hydrostatic compression of magnesium oxide to 52 GPa: Implications for the pressure-volume-temperature equation of state",
-          "source": "J. Geophys. Res.",
-          "volume": "106",
-          "locator": "515-528",
-          "doi": "10.1029/2000JB900318"
-        }
-      ],
-      "reference_pressure_gpa": 0,
-      "fit_datasets": ["iron_miozzi_2020_speziale_2001_variable_q_pvt"]
+      }
     }
   ],
   "symmetry": "HEXAGONAL",

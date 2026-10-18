@@ -15,7 +15,9 @@
         "V0": {"value": 52.899988, "error": 0.355452, "fixed": true},
         "K0": {"value": 28.7, "error": 0.6}
       },
+      "experimental_pressure_range_gpa": [2.0, 56.0],
       "determination_method": "experimental",
+      "notes": "Explicit composite B2-KCl reference isotherm. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 constrained over 2-56 GPa. The absolute B2 V0 is 0.8483*62.36=52.899988 A^3/formula unit, using the independently published experimental B1-KCl V0 of Dewaele et al. (2012). Its 0.355452 A^3 uncertainty propagates the Campbell ratio error only; Dewaele et al. report no B1 V0 error or covariance. This composite is not presented as a single-paper Campbell parameter set.",
       "reference": {
         "authors": ["Campbell", "Heinz"],
         "year": 1991,
@@ -25,8 +27,6 @@
         "locator": "495-499",
         "doi": "10.1016/0022-3697(91)90181-X"
       },
-      "experimental_pressure_range_gpa": [2.0, 56.0],
-      "notes": "Explicit composite B2-KCl reference isotherm. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 constrained over 2-56 GPa. The absolute B2 V0 is 0.8483*62.36=52.899988 A^3/formula unit, using the independently published experimental B1-KCl V0 of Dewaele et al. (2012). Its 0.355452 A^3 uncertainty propagates the Campbell ratio error only; Dewaele et al. report no B1 V0 error or covariance. This composite is not presented as a single-paper Campbell parameter set.",
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-10-08",
@@ -146,13 +146,16 @@
         "K0_prime": {"value": 4.4, "error": null}
       },
       "thermal": {
+        "model": "LinearThermalPressure",
         "parameters": {
           "Tr": {"value": 296.15, "error": null, "fixed": true},
           "alpha_KT": {"value": 0.00275, "error": 9e-05}
-        },
-        "model": "LinearThermalPressure"
+        }
       },
+      "experimental_pressure_range_gpa": [3.18, 8.14],
+      "experimental_temperature_range_k": [296.15, 873.15],
       "determination_method": "experimental",
+      "notes": "Walker et al.'s preferred bold Table 3 B2-KCl BE1 result is staged: the fictive V0=53.53 A^3 reference is held fixed while K0=23.7 GPa and K0'=4.4 are fitted to the room-temperature data, then Equation BE1 fits the directly reported alpha0*K0=0.0275+/-0.0009 kbar/K thermal-pressure coefficient to the P-V-T data. The separate italic Table 3 row is a simultaneous four-parameter solution (V0=55.25 A^3, K0=14.8 GPa, K0'=6.9, alpha0=0.00018 K^-1) and is not this record. The paper states that individual parameter errors are not meaningful because of correlation, so only the published error of the identifiable alpha0*K0 product is retained. The represented data span 3.18-8.14 GPa and 23-600 degC.",
       "reference": {
         "authors": ["Walker", "Cranswick", "Verma", "Clark", "Buhre"],
         "year": 2002,
@@ -162,9 +165,6 @@
         "locator": "805-812",
         "doi": "10.2138/am-2002-0701"
       },
-      "experimental_pressure_range_gpa": [3.18, 8.14],
-      "experimental_temperature_range_k": [296.15, 873.15],
-      "notes": "Walker et al.'s preferred bold Table 3 B2-KCl BE1 result is staged: the fictive V0=53.53 A^3 reference is held fixed while K0=23.7 GPa and K0'=4.4 are fitted to the room-temperature data, then Equation BE1 fits the directly reported alpha0*K0=0.0275+/-0.0009 kbar/K thermal-pressure coefficient to the P-V-T data. The separate italic Table 3 row is a simultaneous four-parameter solution (V0=55.25 A^3, K0=14.8 GPa, K0'=6.9, alpha0=0.00018 K^-1) and is not this record. The paper states that individual parameter errors are not meaningful because of correlation, so only the published error of the identifiable alpha0*K0 product is retained. The represented data span 3.18-8.14 GPa and 23-600 degC.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-10-08",
@@ -273,22 +273,11 @@
         "K0_prime": {"value": 5.89, "error": null}
       },
       "thermal": {
+        "model": "LinearThermalPressure",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha_KT": {"value": 0.00224, "error": null}
-        },
-        "model": "LinearThermalPressure"
-      },
-      "determination_method": "hybrid",
-      "default": true,
-      "reference": {
-        "authors": ["Dewaele", "Belonoshko", "Garbarino", "Occelli", "Bouvier", "Hanfland", "Mezouar"],
-        "year": 2012,
-        "title": "High-pressure–high-temperature equation of state of KCl and KBr",
-        "source": "Phys. Rev. B",
-        "volume": "85",
-        "locator": "214105",
-        "doi": "10.1103/PhysRevB.85.214105"
+        }
       },
       "experimental_pressure_range_gpa": [2.6, 165.0],
       "experimental_temperature_range_k": [298.0, 298.0],
@@ -301,7 +290,18 @@
           "Equation (2) and Table V extend the calibration to 200 GPa and 7000 K using molecular-dynamics thermal pressures over V/V0=0.4-1.0; states above 165 GPa or 298 K are not direct static-compression measurements."
         ]
       },
+      "determination_method": "hybrid",
+      "default": true,
       "notes": "Preferred broadly useful B2-KCl pressure calibration. The reference isotherm is the Rydberg-Vinet fit to helium-medium 298 K measurements; the paper writes it as a 300 K term in Equation (2). V0 is a fictive zero-pressure B2 value fixed from the 2-6 GPa observations. The additive alpha*K_T term comes from ab initio molecular dynamics. The paper tabulates neither individual coefficient errors nor covariance, so they remain unavailable rather than being set to zero.",
+      "reference": {
+        "authors": ["Dewaele", "Belonoshko", "Garbarino", "Occelli", "Bouvier", "Hanfland", "Mezouar"],
+        "year": 2012,
+        "title": "High-pressure–high-temperature equation of state of KCl and KBr",
+        "source": "Phys. Rev. B",
+        "volume": "85",
+        "locator": "214105",
+        "doi": "10.1103/PhysRevB.85.214105"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -373,6 +373,7 @@
         "K0_prime": {"value": 5.6, "error": 0.03}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 235.0, "error": null, "fixed": true},
@@ -380,18 +381,7 @@
           "q": {"value": 0.8, "error": 0.2},
           "n": {"value": 2, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
-      },
-      "determination_method": "experimental",
-      "reference": {
-        "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],
-        "year": 2019,
-        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
-        "source": "American Mineralogist",
-        "volume": "104",
-        "locator": "718-723",
-        "doi": "10.2138/am-2019-6779"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "experimental_pressure_range_gpa": [4.2, 228.6],
       "experimental_temperature_range_k": [300.0, 2560.0],
@@ -404,7 +394,17 @@
           "The B2 phase has a fictive zero-pressure reference state."
         ]
       },
+      "determination_method": "experimental",
       "notes": "Preferred final-publication Tateno fit on the Sokolova Pt scale. The final article reports gamma0=2.3+/-0.2 and q=0.8+/-0.2 and defines theta(V)=theta0*exp[(gamma0-gamma(V))/q], the integrated-Gruneisen Debye law. The accepted manuscript instead printed gamma0=0.58+/-0.05 and q=0.9+/-0.2; those superseded values are not used. Table 1 also gives a Holmes-Pt alternative, which is not represented by this record. All 39 observations come from the official MSA Supplemental Table S1 workbook.",
+      "reference": {
+        "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],
+        "year": 2019,
+        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
+        "source": "American Mineralogist",
+        "volume": "104",
+        "locator": "718-723",
+        "doi": "10.2138/am-2019-6779"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -502,6 +502,7 @@
         "K0_prime": {"value": 4.56, "error": 0.05}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 235.0, "error": null, "fixed": true},
@@ -509,18 +510,7 @@
           "q": {"value": 1.0, "error": 0.1},
           "n": {"value": 2, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
-      },
-      "determination_method": "experimental",
-      "reference": {
-        "authors": ["Chidester", "Thompson", "Fischer", "Heinz", "Prakapenka", "Meng", "Campbell"],
-        "year": 2021,
-        "title": "Experimental thermal equation of state of B2−KCl",
-        "source": "Phys. Rev. B",
-        "volume": "104",
-        "locator": "094107",
-        "doi": "10.1103/PhysRevB.104.094107"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "experimental_pressure_range_gpa": [2.6, 167.52],
       "experimental_temperature_range_k": [300.0, 2377.0],
@@ -534,7 +524,27 @@
           "The high-temperature calibration is experimental in pressure and volume but geometry-conditioned in temperature: it should not be interpreted as a homogeneous-temperature KCl thermodynamic dataset."
         ]
       },
+      "determination_method": "experimental",
+      "experimental_configuration": {
+        "geometry": "laser-heated diamond-anvil cell",
+        "sample_and_laser_absorber": "approximately 5 micrometer Pt foil",
+        "pressure_reference": "simultaneously diffracting Pt foil",
+        "pressure_medium": "KCl",
+        "thermal_insulator": "KCl",
+        "arrangement": "Pt foil secured between two approximately 10 micrometer layers of dried KCl",
+        "temperature_convention": "KCl diffraction samples a thermal gradient between the hot Pt surface and the approximately 295 K diamond anvils; the EOS uses the authors' estimated average KCl temperature"
+      },
       "notes": "The preferred Birch-Murnaghan reference EOS from Table I. Published molar V0=32.0(3) cm^3/mol is converted to one B2 formula unit per conventional cell with the exact Avogadro constant. Chidester et al. fitted the 155 new high-temperature observations simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 observations. Pressures in the author-deposited high-temperature table were calculated from the Dorogokupets-Oganov (2007) Pt EOS. This is an experimental, effective-temperature-calibrated P-V-T pressure scale: KCl volumes and Pt-derived pressures are measured constraints, while the KCl temperature coordinate comes from the authors' gradient model for this laser-heated DAC geometry.",
+      "fit_datasets": ["kcl_dewaele_2012_table1_compression", "kcl_chidester_2021_supplemental_pvt"],
+      "reference": {
+        "authors": ["Chidester", "Thompson", "Fischer", "Heinz", "Prakapenka", "Meng", "Campbell"],
+        "year": 2021,
+        "title": "Experimental thermal equation of state of B2−KCl",
+        "source": "Phys. Rev. B",
+        "volume": "104",
+        "locator": "094107",
+        "doi": "10.1103/PhysRevB.104.094107"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -613,16 +623,6 @@
             "primary_reference": {"doi": "10.1103/PhysRevB.104.094107", "location": "Equations 3-4, Table I, and Figure 3"}
           }
         ]
-      },
-      "fit_datasets": ["kcl_dewaele_2012_table1_compression", "kcl_chidester_2021_supplemental_pvt"],
-      "experimental_configuration": {
-        "geometry": "laser-heated diamond-anvil cell",
-        "sample_and_laser_absorber": "approximately 5 micrometer Pt foil",
-        "pressure_reference": "simultaneously diffracting Pt foil",
-        "pressure_medium": "KCl",
-        "thermal_insulator": "KCl",
-        "arrangement": "Pt foil secured between two approximately 10 micrometer layers of dried KCl",
-        "temperature_convention": "KCl diffraction samples a thermal gradient between the hot Pt surface and the approximately 295 K diamond anvils; the EOS uses the authors' estimated average KCl temperature"
       }
     },
     {
@@ -636,6 +636,7 @@
         "K0_prime": {"value": 5.77, "error": 0.04}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 235.0, "error": null, "fixed": true},
@@ -643,19 +644,7 @@
           "q": {"value": 0.7, "error": 0.3},
           "n": {"value": 2, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
-      },
-      "determination_method": "experimental",
-      "default": false,
-      "reference": {
-        "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],
-        "year": 2019,
-        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
-        "source": "American Mineralogist",
-        "volume": "104",
-        "locator": "718-723",
-        "doi": "10.2138/am-2019-6779"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "experimental_pressure_range_gpa": [4.1561738823899645, 233.49079710343722],
       "experimental_temperature_range_k": [300.0, 2560.0],
@@ -669,7 +658,19 @@
           "Pressure bounds here are diagnostic Holmes-coordinate extrema, not published Sokolova bounds. The marginal range is not a rectangular validated region."
         ]
       },
+      "determination_method": "experimental",
+      "default": false,
       "notes": "Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.",
+      "fit_datasets": ["kcl_tateno_2019_official_table_s1"],
+      "reference": {
+        "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],
+        "year": 2019,
+        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
+        "source": "American Mineralogist",
+        "volume": "104",
+        "locator": "718-723",
+        "doi": "10.2138/am-2019-6779"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-10-08",
@@ -740,8 +741,7 @@
             "n": "Final Table 1 and Equations 2-6: theta0=235 K fixed, n=2 atoms/formula unit, Tr=300 K, integrated-Gruneisen law."
           }
         }
-      },
-      "fit_datasets": ["kcl_tateno_2019_official_table_s1"]
+      }
     },
     {
       "identifier": "kcl_b2_tateno_2019_holmes_vinet_linear_thermal",
@@ -754,22 +754,11 @@
         "K0_prime": {"value": 5.73, "error": 0.04}
       },
       "thermal": {
+        "model": "LinearThermalPressure",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha_KT": {"value": 0.0033, "error": 0.0002}
-        },
-        "model": "LinearThermalPressure"
-      },
-      "determination_method": "experimental",
-      "default": false,
-      "reference": {
-        "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],
-        "year": 2019,
-        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
-        "source": "American Mineralogist",
-        "volume": "104",
-        "locator": "718-723",
-        "doi": "10.2138/am-2019-6779"
+        }
       },
       "experimental_pressure_range_gpa": [4.1561738823899645, 233.49079710343722],
       "experimental_temperature_range_k": [300.0, 2560.0],
@@ -783,7 +772,19 @@
           "Pressure bounds here are diagnostic Holmes-coordinate extrema, not published Sokolova bounds. The marginal range is not a rectangular validated region."
         ]
       },
+      "determination_method": "experimental",
+      "default": false,
       "notes": "Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.",
+      "fit_datasets": ["kcl_tateno_2019_official_table_s1"],
+      "reference": {
+        "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],
+        "year": 2019,
+        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
+        "source": "American Mineralogist",
+        "volume": "104",
+        "locator": "718-723",
+        "doi": "10.2138/am-2019-6779"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-10-08",
@@ -851,8 +852,7 @@
             "alpha_KT": "Final Table 1 and Equation 7: additive constant alpha_KT*(T-300), slope and error specific to this row."
           }
         }
-      },
-      "fit_datasets": ["kcl_tateno_2019_official_table_s1"]
+      }
     },
     {
       "identifier": "kcl_b2_tateno_2019_sokolova_vinet_linear_thermal",
@@ -865,22 +865,11 @@
         "K0_prime": {"value": 5.6, "error": 0.03}
       },
       "thermal": {
+        "model": "LinearThermalPressure",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha_KT": {"value": 0.0037, "error": 0.0001}
-        },
-        "model": "LinearThermalPressure"
-      },
-      "determination_method": "experimental",
-      "default": false,
-      "reference": {
-        "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],
-        "year": 2019,
-        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
-        "source": "American Mineralogist",
-        "volume": "104",
-        "locator": "718-723",
-        "doi": "10.2138/am-2019-6779"
+        }
       },
       "experimental_pressure_range_gpa": [4.2, 228.6],
       "experimental_temperature_range_k": [300.0, 2560.0],
@@ -893,7 +882,19 @@
           "The B2 phase has a fictive zero-pressure reference state."
         ]
       },
+      "determination_method": "experimental",
+      "default": false,
       "notes": "Nondefault final-publication Table 1 alternative. The final linear-thermal Sokolova row reports K0 error 0.2 GPa, distinct from the MGD row error 0.3 GPa. All 39 official Sokolova-pressure rows are used in the independent joint diagnostic.",
+      "fit_datasets": ["kcl_tateno_2019_official_table_s1"],
+      "reference": {
+        "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],
+        "year": 2019,
+        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
+        "source": "American Mineralogist",
+        "volume": "104",
+        "locator": "718-723",
+        "doi": "10.2138/am-2019-6779"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -955,8 +956,7 @@
             "alpha_KT": "Final Table 1 and Equation 7: additive constant alpha_KT*(T-300), slope and error specific to this row."
           }
         }
-      },
-      "fit_datasets": ["kcl_tateno_2019_official_table_s1"]
+      }
     },
     {
       "identifier": "kcl_b2_chidester_2021_vinet_mgd",
@@ -969,6 +969,7 @@
         "K0_prime": {"value": 6.2, "error": 0.1}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 235.0, "error": null, "fixed": true},
@@ -976,19 +977,7 @@
           "q": {"value": 1.0, "error": 0.1},
           "n": {"value": 2, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
-      },
-      "determination_method": "experimental",
-      "default": false,
-      "reference": {
-        "authors": ["Chidester", "Thompson", "Fischer", "Heinz", "Prakapenka", "Meng", "Campbell"],
-        "year": 2021,
-        "title": "Experimental thermal equation of state of B2−KCl",
-        "source": "Phys. Rev. B",
-        "volume": "104",
-        "locator": "094107",
-        "doi": "10.1103/PhysRevB.104.094107"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "experimental_pressure_range_gpa": [2.6, 167.52],
       "experimental_temperature_range_k": [300.0, 2377.0],
@@ -1002,7 +991,28 @@
           "The high-temperature calibration is experimental in pressure and volume but geometry-conditioned in temperature: it should not be interpreted as a homogeneous-temperature KCl thermodynamic dataset."
         ]
       },
+      "determination_method": "experimental",
+      "default": false,
+      "experimental_configuration": {
+        "geometry": "laser-heated diamond-anvil cell",
+        "sample_and_laser_absorber": "approximately 5 micrometer Pt foil",
+        "pressure_reference": "simultaneously diffracting Pt foil",
+        "pressure_medium": "KCl",
+        "thermal_insulator": "KCl",
+        "arrangement": "Pt foil secured between two approximately 10 micrometer layers of dried KCl",
+        "temperature_convention": "KCl diffraction samples a thermal gradient between the hot Pt surface and the approximately 295 K diamond anvils; the EOS uses the authors' estimated average KCl temperature"
+      },
       "notes": "Nondefault Rydberg-Vinet alternative from Table I. Published V0=34.3(5) cm^3/mol converts to 56.956490004062935 A^3/B2 conventional cell with Z=1 and exact Avogadro constant. All five listed parameters are fitted; theta0=235 K, Tr=300 K, n=2 are held fixed. Fit includes all 123 Dewaele room-temperature rows and all 155 author-deposited Chidester effective-temperature rows. The integrated-Gruneisen Debye relation reproduces the complete fit. Dewaele and high-temperature Pt-derived pressures retain distinct calibration ancestry. KCl effective temperatures depend on the laser-heating gradient model; they are not directly measured homogeneous temperatures.",
+      "fit_datasets": ["kcl_dewaele_2012_table1_compression", "kcl_chidester_2021_supplemental_pvt"],
+      "reference": {
+        "authors": ["Chidester", "Thompson", "Fischer", "Heinz", "Prakapenka", "Meng", "Campbell"],
+        "year": 2021,
+        "title": "Experimental thermal equation of state of B2−KCl",
+        "source": "Phys. Rev. B",
+        "volume": "104",
+        "locator": "094107",
+        "doi": "10.1103/PhysRevB.104.094107"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -1085,16 +1095,6 @@
             "notes": "Effective KCl temperature from the geometry-dependent heating model. Raw Pt volume and calibration covariance are not deposited; reported Pt-derived pressures are retained."
           }
         ]
-      },
-      "fit_datasets": ["kcl_dewaele_2012_table1_compression", "kcl_chidester_2021_supplemental_pvt"],
-      "experimental_configuration": {
-        "geometry": "laser-heated diamond-anvil cell",
-        "sample_and_laser_absorber": "approximately 5 micrometer Pt foil",
-        "pressure_reference": "simultaneously diffracting Pt foil",
-        "pressure_medium": "KCl",
-        "thermal_insulator": "KCl",
-        "arrangement": "Pt foil secured between two approximately 10 micrometer layers of dried KCl",
-        "temperature_convention": "KCl diffraction samples a thermal gradient between the hot Pt surface and the approximately 295 K diamond anvils; the EOS uses the authors' estimated average KCl temperature"
       }
     },
     {
@@ -1108,6 +1108,7 @@
         "K0_prime": {"value": 4.836, "error": 0.083}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 251.0, "error": 22.0},
@@ -1115,13 +1116,29 @@
           "q": {"value": 1.0, "error": null, "fixed": true},
           "n": {"value": 2, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
         "thermal_pressure_reference": "reference_temperature",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [3.1578608426387715, 85.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "notes": [
+          "Room-temperature acoustic experiment extends to about 85 GPa; the low-pressure anchors are eight Walker states at 296.15/297.15 K recalibrated and corrected to 300 K.",
+          "S3 model grid extends to 144.1826 GPa, and S4 thermal grid to 4000 K. These are pressure extrapolation and modeled thermal extension, not experimental coverage.",
+          "Fictive zero-pressure B2 V0 is extrapolated; B2 KCl is stable only above about 2-3 GPa. No rectangular P-T phase-stability guarantee is supplied."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "default": false,
+      "notes": "Nondefault final published Table 1 BM3+MGD pressure scale. Uses 300 K thermal-energy subtraction and integrated-Gruneisen Debye law with q=1 and n=2. Source observations, reduced KT and Walker inputs, and modeled grids are separately identified. Marginal coefficient errors are preserved without assuming their confidence or reconstructing the missing source covariance. Published rounded coefficients remain unchanged despite diagnostic refit or grid-precision reconstruction.",
+      "fit_datasets": ["kcl_ma_2024_acoustic", "kcl_ma_2024_walker"],
+      "diagnostic_datasets": ["kcl_ma_2024_cold_grid", "kcl_ma_2024_thermal_grid", "kcl_walker_2002_table2_pvt"],
+      "uncertainty_provenance": {
+        "status": "not_deposited",
+        "notes": "Paper Figures 3-4 and S3 errors propagate the fitted variance-covariance matrix, but numerical covariance is not supplied. Table 1 errors are uncertainties in last digits with unspecified confidence; do not construct source covariance from marginal errors or from the modeled grids. Diagnostic covariance is separately retained in docs/data/ma-2024-kcl-reproduction.json."
+      },
       "reference": {
         "authors": ["Ma", "Sumita", "Murakami"],
         "year": 2024,
@@ -1131,17 +1148,6 @@
         "locator": "e2024JB028819",
         "doi": "10.1029/2024JB028819"
       },
-      "experimental_pressure_range_gpa": [3.1578608426387715, 85.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "notes": [
-          "Room-temperature acoustic experiment extends to about 85 GPa; the low-pressure anchors are eight Walker states at 296.15/297.15 K recalibrated and corrected to 300 K.",
-          "S3 model grid extends to 144.1826 GPa, and S4 thermal grid to 4000 K. These are pressure extrapolation and modeled thermal extension, not experimental coverage.",
-          "Fictive zero-pressure B2 V0 is extrapolated; B2 KCl is stable only above about 2-3 GPa. No rectangular P-T phase-stability guarantee is supplied."
-        ]
-      },
-      "notes": "Nondefault final published Table 1 BM3+MGD pressure scale. Uses 300 K thermal-energy subtraction and integrated-Gruneisen Debye law with q=1 and n=2. Source observations, reduced KT and Walker inputs, and modeled grids are separately identified. Marginal coefficient errors are preserved without assuming their confidence or reconstructing the missing source covariance. Published rounded coefficients remain unchanged despite diagnostic refit or grid-precision reconstruction.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-10-08",
@@ -1270,12 +1276,6 @@
             "citation": "10.2138/am.2012.4136"
           }
         ]
-      },
-      "fit_datasets": ["kcl_ma_2024_acoustic", "kcl_ma_2024_walker"],
-      "diagnostic_datasets": ["kcl_ma_2024_cold_grid", "kcl_ma_2024_thermal_grid", "kcl_walker_2002_table2_pvt"],
-      "uncertainty_provenance": {
-        "status": "not_deposited",
-        "notes": "Paper Figures 3-4 and S3 errors propagate the fitted variance-covariance matrix, but numerical covariance is not supplied. Table 1 errors are uncertainties in last digits with unspecified confidence; do not construct source covariance from marginal errors or from the modeled grids. Diagnostic covariance is separately retained in docs/data/ma-2024-kcl-reproduction.json."
       }
     }
   ],

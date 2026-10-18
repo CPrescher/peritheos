@@ -18,8 +18,7 @@
         "K0_prime": {"value": 4.95, "error": 0.01}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "reference_temperature",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 118, "error": null, "fixed": true},
@@ -27,26 +26,13 @@
           "q": {"value": 1.42, "error": 0.1},
           "n": {"value": 2.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "published",
-      "determination_method": "hybrid",
-      "equation_kind": "thermal",
-      "default": true,
-      "reference": {
-        "authors": ["Farla", "Néri", "Pöppelbaum", "Glazyrin"],
-        "year": 2025,
-        "title": "Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI",
-        "source": "Journal of Applied Physics",
-        "volume": "137",
-        "locator": "115901",
-        "doi": "10.1063/5.0248905"
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.54, 26.05],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 1800.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.54, 26.05],
         "temperature_k": [300.0, 1800.0],
@@ -56,7 +42,49 @@
           "The zero-pressure reference is hypothetical and is not stable ambient B2 material."
         ]
       },
+      "determination_method": "hybrid",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": true,
       "notes": "Published preferred case 1; no coefficients are replaced by an independent fit. Parameter errors retain printed estimated standard deviations; covariance and confidence level are unavailable. Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved.",
+      "range_provenance": {
+        "source": "Supplement S1-S4; main text Experimental Runs and Conclusion",
+        "dac": {
+          "temperature_k": 300.0,
+          "pressure_gpa": [0.54, 26.05]
+        },
+        "lvp": {
+          "temperature_k": [300.0, 1800.0],
+          "cscl_pressure_gpa": [2.43, 20.52]
+        },
+        "note": "Marginal data bounds, not a rectangle of measured states or phase-stability guarantee. Hot data end near 21 GPa; 26 GPa data are DAC at 300 K."
+      },
+      "source_parameters": {
+        "V0_molar_cm3_mol": 51.11,
+        "V0_molar_error_cm3_mol": 0.02,
+        "V0_cell_angstrom3": 84.87,
+        "V0_cell_error_angstrom3": 0.02,
+        "uncertainty_convention": "EoSFit7 estimated standard deviations; confidence level and covariance not supplied. Fixed does not mean error-free."
+      },
+      "fit_datasets": ["rbi_farla_2025_observations"],
+      "fit_data_sources": [
+        {
+          "source": "Farla et al. (2025), combined DAC+LVP",
+          "dataset_identifier": "rbi_farla_2025_observations",
+          "availability": "bundled_transcribed",
+          "selection": "Complete printed scope retained; independent diagnostic fits disclose cold-LVP exclusions and sensitivity. Exact author row flags unavailable."
+        }
+      ],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Farla", "Néri", "Pöppelbaum", "Glazyrin"],
+        "year": 2025,
+        "title": "Thermal equations of state of B2-structured rubidium halides RbCl, RbBr, and RbI",
+        "source": "Journal of Applied Physics",
+        "volume": "137",
+        "locator": "115901",
+        "doi": "10.1063/5.0248905"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-10-15",
@@ -201,35 +229,7 @@
           "n": "Eq. (7): two atoms per formula unit. Z=1, so two atoms per conventional Pm-3m cell.",
           "Tr": "Main text section 3 and Eqs. (2),(6): 300 K."
         }
-      },
-      "source_parameters": {
-        "V0_molar_cm3_mol": 51.11,
-        "V0_molar_error_cm3_mol": 0.02,
-        "V0_cell_angstrom3": 84.87,
-        "V0_cell_error_angstrom3": 0.02,
-        "uncertainty_convention": "EoSFit7 estimated standard deviations; confidence level and covariance not supplied. Fixed does not mean error-free."
-      },
-      "range_provenance": {
-        "source": "Supplement S1-S4; main text Experimental Runs and Conclusion",
-        "dac": {
-          "temperature_k": 300.0,
-          "pressure_gpa": [0.54, 26.05]
-        },
-        "lvp": {
-          "temperature_k": [300.0, 1800.0],
-          "cscl_pressure_gpa": [2.43, 20.52]
-        },
-        "note": "Marginal data bounds, not a rectangle of measured states or phase-stability guarantee. Hot data end near 21 GPa; 26 GPa data are DAC at 300 K."
-      },
-      "fit_datasets": ["rbi_farla_2025_observations"],
-      "fit_data_sources": [
-        {
-          "source": "Farla et al. (2025), combined DAC+LVP",
-          "dataset_identifier": "rbi_farla_2025_observations",
-          "availability": "bundled_transcribed",
-          "selection": "Complete printed scope retained; independent diagnostic fits disclose cold-LVP exclusions and sensitivity. Exact author row flags unavailable."
-        }
-      ]
+      }
     }
   ],
   "cell_contents": "One RbI formula unit, two atoms, in the conventional cubic cell.",

@@ -17,7 +17,20 @@
         "K0": {"value": 229.0, "error": 4.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [21.5, 199.2],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [30.0, 150.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Intended Peritheos application range is 30-150 GPa at 300 K, within the direct 21.5-199.2 GPa P-V coverage.",
+          "This is the quenched tetragonal I4/mcm phase; it is not a thermal EOS or a cubic-phase parameterization."
+        ]
+      },
       "determination_method": "experimental",
+      "notes": "Selected fixed-K0'=4 BM3 fit: the published Z=1 V0=45.6(2) A^3 is stored as 182.4(8) A^3 for the conventional Z=4 I4/mcm cell, while K0=229(4) GPa is unchanged. The direct 300 K P-V data span 21.5-199.2 GPa; routine use is intentionally limited to 30-150 GPa. Table 1 combines 14 Sun et al. (2016) quenched observations reanalyzed on the common Pt scale with nine new 2022 observations. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces both the free- and fixed-K0' Table 2 alternatives after rounding.",
+      "fit_datasets": ["ca_perovskite_tetragonal_sun_2022_table1_pv"],
       "reference": {
         "authors": ["Sun", "Bian", "Zhang", "Lin", "Prakapenka", "Mao"],
         "year": 2022,
@@ -27,18 +40,6 @@
         "locator": "110-115",
         "doi": "10.2138/am-2021-7913"
       },
-      "experimental_pressure_range_gpa": [21.5, 199.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [30.0, 150.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Intended Peritheos application range is 30-150 GPa at 300 K, within the direct 21.5-199.2 GPa P-V coverage.",
-          "This is the quenched tetragonal I4/mcm phase; it is not a thermal EOS or a cubic-phase parameterization."
-        ]
-      },
-      "notes": "Selected fixed-K0'=4 BM3 fit: the published Z=1 V0=45.6(2) A^3 is stored as 182.4(8) A^3 for the conventional Z=4 I4/mcm cell, while K0=229(4) GPa is unchanged. The direct 300 K P-V data span 21.5-199.2 GPa; routine use is intentionally limited to 30-150 GPa. Table 1 combines 14 Sun et al. (2016) quenched observations reanalyzed on the common Pt scale with nine new 2022 observations. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces both the free- and fixed-K0' Table 2 alternatives after rounding.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -136,8 +137,7 @@
           },
           "protocol_status": "all-row selection and BM3 forms are explicit; residual direction and covariance scaling are inferred by discriminating numerical fits"
         }
-      },
-      "fit_datasets": ["ca_perovskite_tetragonal_sun_2022_table1_pv"]
+      }
     },
     {
       "identifier": "ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet",
@@ -149,9 +149,22 @@
         "K0": {"value": 244.0, "error": null},
         "K0_prime": {"value": 4.2, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 100.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [13.0, 100.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 116.162},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Sagatova", "Shatskiy", "Sagatov", "Litasov"],
         "year": 2021,
@@ -160,19 +173,6 @@
         "volume": "59",
         "locator": "791-800",
         "doi": "10.1134/S0016702921080073"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 100.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [13.0, 100.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -218,9 +218,22 @@
         "K0": {"value": 212.0, "error": null},
         "K0_prime": {"value": 4.2, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 100.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [13.0, 100.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 116.162},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Sagatova", "Shatskiy", "Sagatov", "Litasov"],
         "year": 2021,
@@ -229,19 +242,6 @@
         "volume": "59",
         "locator": "791-800",
         "doi": "10.1134/S0016702921080073"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 100.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [13.0, 100.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "The source identifies I4/mcm as the stable 300 K Ca-perovskite modification above 13 GPa; Table 2 reports V0 on a Z=1 basis, multiplied here by four for the conventional I4/mcm cell."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -287,9 +287,21 @@
         "K0": {"value": 249, "error": null},
         "K0_prime": {"value": 4.09, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 160],
+      "experimental_temperature_range_k": [0, 0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0, 160],
+        "temperature_k": [0, 0],
+        "notes": ["Static-lattice DFT branch; not an ambient-stability claim."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 116.161},
+      "notes": "Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Caracas", "Wentzcovitch", "Price", "Brodholt"],
         "year": 2005,
@@ -299,18 +311,6 @@
         "locator": "L06306",
         "doi": "10.1029/2004GL022144"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 116.161},
-      "experimental_pressure_range_gpa": [0, 160],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0, 0],
-      "validity": {
-        "pressure_gpa": [0, 160],
-        "temperature_k": [0, 0],
-        "notes": ["Static-lattice DFT branch; not an ambient-stability claim."]
-      },
-      "notes": "Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -375,9 +375,21 @@
         "K0_prime": {"value": 4.213, "error": null},
         "K0_double_prime": {"value": -0.002, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 160],
+      "experimental_temperature_range_k": [0, 0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0, 160],
+        "temperature_k": [0, 0],
+        "notes": ["Static-lattice DFT branch; not an ambient-stability claim."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 116.161},
+      "notes": "Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Caracas", "Wentzcovitch", "Price", "Brodholt"],
         "year": 2005,
@@ -387,18 +399,6 @@
         "locator": "L06306",
         "doi": "10.1029/2004GL022144"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 116.161},
-      "experimental_pressure_range_gpa": [0, 160],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0, 0],
-      "validity": {
-        "pressure_gpa": [0, 160],
-        "temperature_k": [0, 0],
-        "notes": ["Static-lattice DFT branch; not an ambient-stability claim."]
-      },
-      "notes": "Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -462,9 +462,25 @@
         "K0": {"value": 223.0, "error": 6.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.9544997361036416,
+      "experimental_pressure_range_gpa": [28.824, 62.477],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [28.824, 62.477],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Thermally stress-annealed tetragonal I4/mcm CaSiO3 in a neon pressure medium.",
+          "The fitted zero-pressure volume is an extrapolated EOS parameter because CaSiO3 perovskite is unstable at one bar."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 116.161},
+      "notes": "Accepted LitCurate source record litcurate_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published.",
+      "fit_datasets": ["ca_perovskite_tetragonal_chen_2018_table1_compression"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Chen", "Shim", "Leinenweber", "Prakapenka", "Meng", "Prescher"],
         "year": 2018,
@@ -474,21 +490,6 @@
         "locator": "462-468",
         "doi": "10.2138/am-2018-6087"
       },
-      "parameter_error_confidence": 0.9544997361036416,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 116.161},
-      "experimental_pressure_range_gpa": [28.824, 62.477],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [28.824, 62.477],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Thermally stress-annealed tetragonal I4/mcm CaSiO3 in a neon pressure medium.",
-          "The fitted zero-pressure volume is an extrapolated EOS parameter because CaSiO3 perovskite is unstable at one bar."
-        ]
-      },
-      "notes": "Accepted LitCurate source record litcurate_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -565,8 +566,7 @@
           "phase": "Rietveld refinement identifies tetragonal I4/mcm with octahedral rotation about c.",
           "weights": "The source does not identify the fitted residual variable, numerical weights, fit software, or covariance convention. Table 1 gives no pressure uncertainties; its lattice-parameter parentheses are 2-sigma. The reproducibility audit therefore reports unweighted-pressure and propagated-volume-uncertainty sensitivity fits without asserting either as the source objective."
         }
-      },
-      "fit_datasets": ["ca_perovskite_tetragonal_chen_2018_table1_compression"]
+      }
     }
   ],
   "aliases": ["Davemaoite", "Tetragonal Ca-perovskite"],

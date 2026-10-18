@@ -17,22 +17,7 @@
         "K0": {"value": 189.0, "error": null},
         "K0_prime": {"value": 4.73, "error": null}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Cohen", "Lin"],
-        "year": 2014,
-        "title": "Prediction of a potential high-pressure structure of FeSiO3",
-        "source": "Physical Review B",
-        "volume": "90",
-        "locator": "140102(R)",
-        "doi": "10.1103/PhysRevB.90.140102"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
       "experimental_pressure_range_gpa": [-10.0, 150.0],
       "pressure_range_status": "theoretical",
       "validity": {
@@ -44,7 +29,23 @@
           "The source energy grid corresponds to -10 through 150 GPa at eight specified pressures."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
+      "sample_composition": "Stoichiometric FeSiO3 post-perovskite; static high-spin antiferromagnetic GGA+U model crystal.",
       "notes": "Retain as a directly published Vinet parameterization. Keep not_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Cohen", "Lin"],
+        "year": 2014,
+        "title": "Prediction of a potential high-pressure structure of FeSiO3",
+        "source": "Physical Review B",
+        "volume": "90",
+        "locator": "140102(R)",
+        "doi": "10.1103/PhysRevB.90.140102"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -122,8 +123,7 @@
           "uncertainties": "No coefficient uncertainties or covariance are published.",
           "method": "Quantum ESPRESSO PAW-PBE GGA+U, U=6.0 eV, 20-atom cell, 4x4x4 k mesh, 80 Ry cutoff; high-spin antiferromagnetic state."
         }
-      },
-      "sample_composition": "Stoichiometric FeSiO3 post-perovskite; static high-spin antiferromagnetic GGA+U model crystal."
+      }
     }
   ],
   "aliases": ["FeSiO3 PPv", "FeSiO3 post-perovskite"],

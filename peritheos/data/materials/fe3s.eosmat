@@ -15,7 +15,9 @@
         "K0": {"value": 150.0, "error": 2.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [0.0, 40.0],
       "determination_method": "experimental",
+      "notes": "Fei et al. report V0 = 377.0(2) A^3 and K0 = 150 +/- 2 GPa with K0' fixed at 4.0.",
       "reference": {
         "authors": ["Fei", "Li", "Bertka", "Prewitt"],
         "year": 2000,
@@ -25,8 +27,6 @@
         "locator": "1830-1833",
         "doi": "10.2138/am-2000-11-1229"
       },
-      "experimental_pressure_range_gpa": [0.0, 40.0],
-      "notes": "Fei et al. report V0 = 377.0(2) A^3 and K0 = 150 +/- 2 GPa with K0' fixed at 4.0.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

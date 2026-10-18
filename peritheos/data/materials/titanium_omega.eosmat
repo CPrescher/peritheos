@@ -16,7 +16,11 @@
         "K0": {"value": 106.9, "error": 6.0},
         "K0_prime": {"value": 3.68, "error": 0.2}
       },
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [0.0, 121.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Metastably extrapolated omega-phase reference volume; the measurements extend to 121 GPa.",
       "reference": {
         "authors": ["Dewaele", "Stutzmann", "Bouchet", "Bottin", "Occelli", "Mezouar"],
         "year": 2015,
@@ -26,10 +30,6 @@
         "locator": "134108",
         "doi": "10.1103/PhysRevB.91.134108"
       },
-      "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 121.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Metastably extrapolated omega-phase reference volume; the measurements extend to 121 GPa.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

@@ -17,25 +17,10 @@
         "K0": {"value": 213.2, "error": null},
         "K0_prime": {"value": 4.12, "error": null}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "reference": {
-        "authors": ["Kawai", "Tsuchiya"],
-        "year": 2012,
-        "title": "Phase stability and elastic properties of the NAL and CF phases in the NaMg2Al5SiO12 system from first principles",
-        "source": "American Mineralogist",
-        "volume": "97",
-        "locator": "305-314",
-        "doi": "10.2138/am.2012.3915"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
       "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "validity": {
         "pressure_gpa": [0.0, 150.0],
         "temperature_k": [0.0, 0.0],
@@ -45,7 +30,32 @@
           "Static LDA record; no thermal correction is included."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "default": true,
+      "sample_composition": "Exactly NaMg2Al5SiO12 (33Na-67Mg), represented by twelve 84-atom 1x1x3 ordered CF supercells",
+      "computational_configuration": {
+        "method": "density-functional theory in the local-density approximation",
+        "code": "PWSCF / Quantum ESPRESSO",
+        "plane_wave_cutoff_ry": 50.0,
+        "k_point_grid": [2, 2, 2],
+        "relaxation": "damped variable-cell-shape constant-pressure molecular dynamics; all structural parameters relaxed to residual forces below 5.0e-5 Ry/a.u.",
+        "configuration_sampling": "twelve 1x1x3 supercells made from two NaMg3Al7SiO16 layers and one Na2Mg2Al6Si2O16 layer with distinct cation arrangements"
+      },
       "notes": "Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration. The LitCurate description 'orthorhombic perovskite' is corrected to calcium-ferrite type Pbnm.",
+      "fit_datasets": ["namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Kawai", "Tsuchiya"],
+        "year": 2012,
+        "title": "Phase stability and elastic properties of the NAL and CF phases in the NaMg2Al5SiO12 system from first principles",
+        "source": "American Mineralogist",
+        "volume": "97",
+        "locator": "305-314",
+        "doi": "10.2138/am.2012.3915"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -143,17 +153,7 @@
             "doi": "10.2138/am-2022-8432"
           }
         ]
-      },
-      "sample_composition": "Exactly NaMg2Al5SiO12 (33Na-67Mg), represented by twelve 84-atom 1x1x3 ordered CF supercells",
-      "computational_configuration": {
-        "method": "density-functional theory in the local-density approximation",
-        "code": "PWSCF / Quantum ESPRESSO",
-        "plane_wave_cutoff_ry": 50.0,
-        "k_point_grid": [2, 2, 2],
-        "relaxation": "damped variable-cell-shape constant-pressure molecular dynamics; all structural parameters relaxed to residual forces below 5.0e-5 Ry/a.u.",
-        "configuration_sampling": "twelve 1x1x3 supercells made from two NaMg3Al7SiO16 layers and one Na2Mg2Al6Si2O16 layer with distinct cation arrangements"
-      },
-      "fit_datasets": ["namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized"]
+      }
     }
   ],
   "aliases": ["NaMg2Al5SiO12 CF", "33Na-67Mg calcium-ferrite phase"],

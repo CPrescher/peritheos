@@ -16,7 +16,10 @@
         "K0": {"value": 204.0, "error": 3.0},
         "K0_prime": {"value": 3.7, "error": 0.4}
       },
+      "experimental_pressure_range_gpa": [14.0, 220.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "The high-pressure fit fixed V0 to the independent ambient structure value.",
       "reference": {
         "authors": ["Magad-Weiss", "Adeleke", "Greenberg", "Prakapenka", "Yao", "Stavrou"],
         "year": 2021,
@@ -26,9 +29,6 @@
         "locator": "014101",
         "doi": "10.1103/PhysRevB.103.014101"
       },
-      "experimental_pressure_range_gpa": [14.0, 220.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "The high-pressure fit fixed V0 to the independent ambient structure value.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

@@ -17,22 +17,7 @@
         "K0": {"value": 259.3412, "error": null},
         "K0_prime": {"value": 3.94, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Metsue", "Tsuchiya"],
-        "year": 2012,
-        "title": "Thermodynamic properties of (Mg,Fe2+)SiO3 perovskite at the lower-mantle pressures and temperatures: an internally consistent LSDA+U study",
-        "source": "Geophysical Journal International",
-        "volume": "190",
-        "locator": "310-322",
-        "doi": "10.1111/j.1365-246X.2012.05511.x"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
       "experimental_pressure_range_gpa": [0.0, 150.0],
       "pressure_range_status": "theoretical",
       "validity": {
@@ -43,7 +28,23 @@
           "Model 1 is the source-selected representative configuration for subsequent thermodynamic work."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
+      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-1 supercell with high-spin Fe2+ on Mg sites.",
       "notes": "Preferred static configuration among the six Table 1 Fe-bearing fits.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Metsue", "Tsuchiya"],
+        "year": 2012,
+        "title": "Thermodynamic properties of (Mg,Fe2+)SiO3 perovskite at the lower-mantle pressures and temperatures: an internally consistent LSDA+U study",
+        "source": "Geophysical Journal International",
+        "volume": "190",
+        "locator": "310-322",
+        "doi": "10.1111/j.1365-246X.2012.05511.x"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -91,8 +92,7 @@
           "K0_prime": "Table 1 note and Section 3.2: fixed at 3.94.",
           "uncertainties": "No coefficient errors or covariance are reported."
         }
-      },
-      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-1 supercell with high-spin Fe2+ on Mg sites."
+      }
     },
     {
       "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3",
@@ -104,9 +104,21 @@
         "K0": {"value": 259.2916, "error": null},
         "K0_prime": {"value": 3.94, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": ["Static 0 K model-configuration sensitivity fit; no default role."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
+      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-2 supercell with high-spin Fe2+.",
+      "notes": "Configuration sensitivity, not an independent composition.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Metsue", "Tsuchiya"],
         "year": 2012,
@@ -116,17 +128,6 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Static 0 K model-configuration sensitivity fit; no default role."]
-      },
-      "notes": "Configuration sensitivity, not an independent composition.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -170,8 +171,7 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
-      },
-      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-2 supercell with high-spin Fe2+."
+      }
     },
     {
       "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3",
@@ -183,9 +183,21 @@
         "K0": {"value": 259.4608, "error": null},
         "K0_prime": {"value": 3.94, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": ["Static 0 K model-configuration sensitivity fit; no default role."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
+      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-3 supercell with high-spin Fe2+.",
+      "notes": "Configuration sensitivity, not an independent composition.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Metsue", "Tsuchiya"],
         "year": 2012,
@@ -195,17 +207,6 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Static 0 K model-configuration sensitivity fit; no default role."]
-      },
-      "notes": "Configuration sensitivity, not an independent composition.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -249,8 +250,7 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
-      },
-      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-3 supercell with high-spin Fe2+."
+      }
     },
     {
       "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3",
@@ -262,21 +262,7 @@
         "K0": {"value": 260.7987, "error": null},
         "K0_prime": {"value": 3.94, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Metsue", "Tsuchiya"],
-        "year": 2012,
-        "title": "Thermodynamic properties of (Mg,Fe2+)SiO3 perovskite at the lower-mantle pressures and temperatures: an internally consistent LSDA+U study",
-        "source": "Geophysical Journal International",
-        "volume": "190",
-        "locator": "310-322",
-        "doi": "10.1111/j.1365-246X.2012.05511.x"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
       "experimental_pressure_range_gpa": [0.0, 150.0],
       "pressure_range_status": "theoretical",
       "validity": {
@@ -286,7 +272,22 @@
           "Metastable low-spin comparison: the source finds LS Fe thermodynamically unstable through lower-mantle pressures and dynamically unstable at 0 GPa."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
+      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-1 supercell with low-spin Fe2+.",
       "notes": "Do not use as the equilibrium spin branch.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Metsue", "Tsuchiya"],
+        "year": 2012,
+        "title": "Thermodynamic properties of (Mg,Fe2+)SiO3 perovskite at the lower-mantle pressures and temperatures: an internally consistent LSDA+U study",
+        "source": "Geophysical Journal International",
+        "volume": "190",
+        "locator": "310-322",
+        "doi": "10.1111/j.1365-246X.2012.05511.x"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -331,8 +332,7 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
-      },
-      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-1 supercell with low-spin Fe2+."
+      }
     },
     {
       "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3",
@@ -344,9 +344,21 @@
         "K0": {"value": 260.798, "error": null},
         "K0_prime": {"value": 3.94, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": ["Metastable low-spin model-configuration sensitivity fit; no default role."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
+      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-2 supercell with low-spin Fe2+.",
+      "notes": "Do not use as the equilibrium spin branch.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Metsue", "Tsuchiya"],
         "year": 2012,
@@ -356,17 +368,6 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Metastable low-spin model-configuration sensitivity fit; no default role."]
-      },
-      "notes": "Do not use as the equilibrium spin branch.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -411,8 +412,7 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
-      },
-      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-2 supercell with low-spin Fe2+."
+      }
     },
     {
       "identifier": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3",
@@ -424,9 +424,21 @@
         "K0": {"value": 260.7441, "error": null},
         "K0_prime": {"value": 3.94, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": ["Metastable low-spin model-configuration sensitivity fit; no default role."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
+      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-3 supercell with low-spin Fe2+.",
+      "notes": "Do not use as the equilibrium spin branch.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Metsue", "Tsuchiya"],
         "year": 2012,
@@ -436,17 +448,6 @@
         "locator": "310-322",
         "doi": "10.1111/j.1365-246X.2012.05511.x"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.8586},
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Metastable low-spin model-configuration sensitivity fit; no default role."]
-      },
-      "notes": "Do not use as the equilibrium spin branch.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -491,8 +492,7 @@
           "K0_prime": "Fixed at 3.94.",
           "uncertainties": "Not reported."
         }
-      },
-      "sample_composition": "Static LSDA+U (Mg0.9375Fe0.0625)SiO3 Pbnm 80-atom model-3 supercell with low-spin Fe2+."
+      }
     }
   ],
   "aliases": ["(Mg0.9375Fe0.0625)SiO3 perovskite", "Fe6.25 bridgmanite"],

@@ -16,7 +16,9 @@
         "K0": {"value": 194.7, "error": 4.8},
         "K0_prime": {"value": 3.4, "error": 0.1}
       },
+      "experimental_pressure_range_gpa": [0.0, 174.23],
       "determination_method": "experimental",
+      "notes": "Ambient-temperature BM3 fit to bcc tantalum through 174.23 GPa: K0=194.7+/-4.8 GPa and K0'=3.4+/-0.1. The paper fixes V0=10.865 cm^3/mol, converted here to the conventional two-atom cell.",
       "reference": {
         "authors": ["Cynn", "Yoo"],
         "year": 1999,
@@ -26,8 +28,6 @@
         "locator": "8526-8529",
         "doi": "10.1103/PhysRevB.59.8526"
       },
-      "experimental_pressure_range_gpa": [0.0, 174.23],
-      "notes": "Ambient-temperature BM3 fit to bcc tantalum through 174.23 GPa: K0=194.7+/-4.8 GPa and K0'=3.4+/-0.1. The paper fixes V0=10.865 cm^3/mol, converted here to the conventional two-atom cell.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -126,7 +126,9 @@
         "K0": {"value": 195.2, "error": 0.4},
         "K0_prime": {"value": 3.62, "error": 0.02}
       },
+      "experimental_pressure_range_gpa": [0.0, 140.0],
       "determination_method": "experimental",
+      "notes": "Table II Cu-referenced fit using DAC-1 data; DAC-2 was excluded and V0 was fixed. Reported uncertainties: K0 +/- 0.4 GPa and K0' +/- 0.02.",
       "reference": {
         "authors": ["Shen", "Smith"],
         "year": 2026,
@@ -136,8 +138,6 @@
         "locator": "144113",
         "doi": "10.1103/fxgq-96sg"
       },
-      "experimental_pressure_range_gpa": [0.0, 140.0],
-      "notes": "Table II Cu-referenced fit using DAC-1 data; DAC-2 was excluded and V0 was fixed. Reported uncertainties: K0 +/- 0.4 GPa and K0' +/- 0.02.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -211,7 +211,12 @@
         "n": 1.0,
         "Z": 73.0
       },
+      "equation_options": {
+        "parameter_errors": {"n": null, "Z": null},
+        "fixed_parameters": ["n", "Z"]
+      },
       "thermal": {
+        "model": "Sokolova2016",
         "parameters": {
           "Tr": {"value": 298.15, "error": null},
           "QE1o": {"value": 254.0, "error": null},
@@ -225,14 +230,11 @@
           "g": {"value": 0.12, "error": null},
           "e_0": {"value": 82.3, "error": null},
           "n": {"value": 1.0, "error": null, "fixed": true}
-        },
-        "model": "Sokolova2016"
+        }
       },
-      "equation_options": {
-        "parameter_errors": {"n": null, "Z": null},
-        "fixed_parameters": ["n", "Z"]
-      },
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
+      "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
       "reference": {
         "authors": ["Sokolova", "Dorogokupets", "Litasov"],
         "year": 2013,
@@ -243,8 +245,6 @@
         "details": "Tables 1 and 4",
         "doi": "10.1016/j.rgg.2013.01.005"
       },
-      "pressure_range_status": "reference_parameterization",
-      "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -368,18 +368,7 @@
         "K0": {"value": 197.9, "error": 3.7},
         "K0_prime": {"value": 3.17, "error": 0.1}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 90.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -387,7 +376,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["tantalum_dewaele_2004_table1_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -445,8 +446,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["tantalum_dewaele_2004_table1_compression"]
+      }
     },
     {
       "identifier": "tantalum_dewaele_2019_dor_vinet",
@@ -458,18 +458,7 @@
         "K0": {"value": 196.1, "error": 3.7},
         "K0_prime": {"value": 3.64, "error": 0.1}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 90.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -477,7 +466,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["tantalum_dewaele_2004_table1_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -535,8 +536,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["tantalum_dewaele_2004_table1_compression"]
+      }
     },
     {
       "identifier": "tantalum_dewaele_2004_mao_ruby_vinet",
@@ -548,18 +548,7 @@
         "K0": {"value": 198.2, "error": 3.1},
         "K0_prime": {"value": 3.07, "error": 0.14}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele", "Loubeyre", "Mezouar"],
-        "year": 2004,
-        "title": "Equations of state of six metals above 94 GPa",
-        "source": "Physical Review B",
-        "doi": "10.1103/PhysRevB.70.094112"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 90.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -567,7 +556,18 @@
         "temperature_k": [298.0, 298.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+        "year": 2004,
+        "title": "Equations of state of six metals above 94 GPa",
+        "source": "Physical Review B",
+        "doi": "10.1103/PhysRevB.70.094112"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -629,18 +629,7 @@
         "K0": {"value": 194.0, "error": null, "fixed": true},
         "K0_prime": {"value": 3.52, "error": 0.03}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele", "Loubeyre", "Mezouar"],
-        "year": 2004,
-        "title": "Equations of state of six metals above 94 GPa",
-        "source": "Physical Review B",
-        "doi": "10.1103/PhysRevB.70.094112"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 93.6],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -648,7 +637,18 @@
         "temperature_k": [298.0, 298.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+        "year": 2004,
+        "title": "Equations of state of six metals above 94 GPa",
+        "source": "Physical Review B",
+        "doi": "10.1103/PhysRevB.70.094112"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

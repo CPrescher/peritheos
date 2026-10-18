@@ -16,7 +16,10 @@
         "K0": {"value": 113.7, "error": 0.7},
         "K0_prime": {"value": 1.0, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [0.0, 11.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "The authors constrained V0 to 23.315 A^3/atom and K0' to 1; the conventional two-atom volume is stored here.",
       "reference": {
         "authors": ["McHardy", "Storm", "Lonsdale", "Roy", "McMahon"],
         "year": 2026,
@@ -26,9 +29,6 @@
         "locator": "174115",
         "doi": "10.1103/zp3m-kjpc"
       },
-      "experimental_pressure_range_gpa": [0.0, 11.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "The authors constrained V0 to 23.315 A^3/atom and K0' to 1; the conventional two-atom volume is stored here.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

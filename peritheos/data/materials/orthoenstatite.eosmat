@@ -16,7 +16,10 @@
         "K0": {"value": 105.8, "error": 0.5},
         "K0_prime": {"value": 8.5, "error": 0.3}
       },
+      "experimental_pressure_range_gpa": [0.0, 8.5],
+      "experimental_temperature_range_k": [298.0, 298.0],
       "determination_method": "experimental",
+      "notes": "Combined room-pressure/high-pressure fit reported after reanalysis of the static compression data.",
       "reference": {
         "authors": ["Angel", "Jackson"],
         "year": 2002,
@@ -26,9 +29,6 @@
         "locator": "558-561",
         "doi": "10.2138/am-2002-0419"
       },
-      "experimental_pressure_range_gpa": [0.0, 8.5],
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "notes": "Combined room-pressure/high-pressure fit reported after reanalysis of the static compression data.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

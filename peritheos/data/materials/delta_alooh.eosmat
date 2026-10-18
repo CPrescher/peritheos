@@ -17,9 +17,16 @@
         "K0": {"value": 252.0, "error": 3.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 22.51],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 59.987539},
+      "fit_datasets": ["delta_alooh_vanpeteghem_2002_table1_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Vanpeteghem", "Ohtani", "Kondo"],
         "year": 2002,
@@ -29,12 +36,6 @@
         "locator": "23-1-23-3",
         "doi": "10.1029/2001GL014224"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 59.987539},
-      "experimental_pressure_range_gpa": [0.0, 22.51],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -78,8 +79,7 @@
           "equation": "Abstract explicitly identifies a third-order Birch-Murnaghan equation.",
           "parameters": "Abstract and Table 2: K0=252(3) GPa with K0'=4 fixed; Table 1 ambient V0=56.54(9) A3."
         }
-      },
-      "fit_datasets": ["delta_alooh_vanpeteghem_2002_table1_pv"]
+      }
     },
     {
       "identifier": "delta_alooh_vanpeteghem_2002_bm3_2",
@@ -91,9 +91,16 @@
         "K0": {"value": 228.0, "error": 7.0},
         "K0_prime": {"value": 7.0, "error": 1.0}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 22.51],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 59.987539},
+      "fit_datasets": ["delta_alooh_vanpeteghem_2002_table1_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Vanpeteghem", "Ohtani", "Kondo"],
         "year": 2002,
@@ -103,12 +110,6 @@
         "locator": "23-1-23-3",
         "doi": "10.1029/2001GL014224"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 59.987539},
-      "experimental_pressure_range_gpa": [0.0, 22.51],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -152,8 +153,7 @@
           "equation": "Same third-order Birch-Murnaghan convention stated in the paper.",
           "parameters": "Table 2 present-work alternative: K0=228(7) GPa and K0'=7(1), with Table 1 V0=56.54(9) A3."
         }
-      },
-      "fit_datasets": ["delta_alooh_vanpeteghem_2002_table1_pv"]
+      }
     }
   ],
   "aliases": ["δ-AlOOH", "delta aluminum oxyhydroxide"],

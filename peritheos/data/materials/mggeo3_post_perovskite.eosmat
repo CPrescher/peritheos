@@ -17,11 +17,33 @@
         "K0": {"value": 207.0, "error": 5.0},
         "K0_prime": {"value": 4.4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [47.3, 196.3],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [47.3, 196.3],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The pressure interval is the marginal range of the 22 included room-temperature observations, not a phase-stability claim.",
+          "The three Table S1 rows below 47 GPa are preserved in the dataset but excluded as in the source because their weak, broad peaks gave anomalously large volumes.",
+          "V0 is an extrapolation far below the experimental pressure range."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default_for": "equilibrium",
       "default": true,
+      "experimental_configuration": {
+        "sample": "MgGeO3 orthoenstatite synthesized from MgO and GeO2, containing minor excess GeO2, then mixed with Pt in an 8:2 weight ratio; post-perovskite was synthesized by laser heating in a diamond-anvil cell",
+        "pressure_media": ["argon insulation in run 1", "NaCl insulation in run 2", "unmixed MgGeO3 insulation in run 3"],
+        "pressure_gauge": "Pt, Holmes et al. (1989), using only the Pt 111 reflection",
+        "diffraction": "angle-dispersive synchrotron X-ray diffraction at GSECARS 13-ID-D, Advanced Photon Source",
+        "temperature": "300 K measurements after laser heating; Figure 3 identifies the experimental P-V observations as 300 K"
+      },
+      "notes": "Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit conventional Cmcm-cell volume. K0' was fixed, while V0 and K0 were fitted with an external elasticity-systematics constraint.",
+      "fit_datasets": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Kubo", "Kiefer", "Shen", "Prakapenka", "Cava", "Duffy"],
         "year": 2006,
@@ -39,20 +61,6 @@
           "Supporting Information Table S1 and readme"
         ]
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [47.3, 196.3],
-      "pressure_range_status": "reported_exactly",
-      "validity": {
-        "pressure_gpa": [47.3, 196.3],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "The pressure interval is the marginal range of the 22 included room-temperature observations, not a phase-stability claim.",
-          "The three Table S1 rows below 47 GPa are preserved in the dataset but excluded as in the source because their weak, broad peaks gave anomalously large volumes.",
-          "V0 is an extrapolation far below the experimental pressure range."
-        ]
-      },
-      "notes": "Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit conventional Cmcm-cell volume. K0' was fixed, while V0 and K0 were fitted with an external elasticity-systematics constraint.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -130,15 +138,7 @@
             "doi": "10.1029/2006GL025686"
           }
         ]
-      },
-      "experimental_configuration": {
-        "sample": "MgGeO3 orthoenstatite synthesized from MgO and GeO2, containing minor excess GeO2, then mixed with Pt in an 8:2 weight ratio; post-perovskite was synthesized by laser heating in a diamond-anvil cell",
-        "pressure_media": ["argon insulation in run 1", "NaCl insulation in run 2", "unmixed MgGeO3 insulation in run 3"],
-        "pressure_gauge": "Pt, Holmes et al. (1989), using only the Pt 111 reflection",
-        "diffraction": "angle-dispersive synchrotron X-ray diffraction at GSECARS 13-ID-D, Advanced Photon Source",
-        "temperature": "300 K measurements after laser heating; Figure 3 identifies the experimental P-V observations as 300 K"
-      },
-      "fit_datasets": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"]
+      }
     },
     {
       "identifier": "mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2",
@@ -149,22 +149,7 @@
         "V0": {"value": 175.9, "error": 0.6},
         "K0": {"value": 245.0, "error": 5.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default": false,
-      "reference": {
-        "authors": ["Kubo", "Kiefer", "Shen", "Prakapenka", "Cava", "Duffy"],
-        "year": 2006,
-        "title": "Stability and equation of state of the post-perovskite phase in MgGeO3 to 2 Mbar",
-        "source": "Geophysical Research Letters",
-        "volume": "33",
-        "locator": "L12S12",
-        "doi": "10.1029/2006GL025686",
-        "locations": ["Results and discussion, paragraph 17", "Figure 3", "Supporting Information Table S1"]
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [47.3, 196.3],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -175,7 +160,23 @@
           "The source describes it as K0'=4 in its third-order Birch-Murnaghan convention; setting K0'=4 removes the third-order correction and is represented canonically as BM2."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default": false,
       "notes": "Executable but deliberately non-default. It is the article's fixed-K0'=4 sensitivity result for the same data, not an independent experimental EOS.",
+      "fit_datasets": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Kubo", "Kiefer", "Shen", "Prakapenka", "Cava", "Duffy"],
+        "year": 2006,
+        "title": "Stability and equation of state of the post-perovskite phase in MgGeO3 to 2 Mbar",
+        "source": "Geophysical Research Letters",
+        "volume": "33",
+        "locator": "L12S12",
+        "doi": "10.1029/2006GL025686",
+        "locations": ["Results and discussion, paragraph 17", "Figure 3", "Supporting Information Table S1"]
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -231,8 +232,7 @@
           "fit_selection": "The same 22 Table S1 rows at or above 47.3 GPa as the selected fit.",
           "fit_role": "Sensitivity analysis demonstrating V0-K0-K0' trade-off, not the source-selected curve."
         }
-      },
-      "fit_datasets": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"]
+      }
     },
     {
       "identifier": "mggeo3_post_perovskite_hirose_2005_bm3_fixed_1",
@@ -244,10 +244,25 @@
         "K0": {"value": 192, "error": 5},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [6.25, 78.55],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [6.25, 78.55],
+        "temperature_k": [300, 300],
+        "notes": [
+          "Room-temperature decompression after repeated laser annealing; the source reports partial back-transformation by 6 GPa."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default": false,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 145.916},
+      "notes": "Abstract-selected fixed-K0'=4 fit to all nine Table 3 decompression observations. The abstract reports this better-constrained result; The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
+      "fit_datasets": ["mggeo3_post_perovskite_hirose_2005_table3_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Hirose", "Kawamura", "Ohishi", "Tateno", "Sata"],
         "year": 2005,
@@ -257,20 +272,6 @@
         "locator": "262-265",
         "doi": "10.2138/am.2005.1702"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 145.916},
-      "experimental_pressure_range_gpa": [6.25, 78.55],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [6.25, 78.55],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Room-temperature decompression after repeated laser annealing; the source reports partial back-transformation by 6 GPa."
-        ]
-      },
-      "notes": "Abstract-selected fixed-K0'=4 fit to all nine Table 3 decompression observations. The abstract reports this better-constrained result; The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -329,8 +330,7 @@
             "doi": "10.2138/am.2005.1702"
           }
         ]
-      },
-      "fit_datasets": ["mggeo3_post_perovskite_hirose_2005_table3_pv"]
+      }
     },
     {
       "identifier": "mggeo3_post_perovskite_hirose_2005_bm3_free_2",
@@ -342,10 +342,25 @@
         "K0": {"value": 210, "error": 20},
         "K0_prime": {"value": 3.5, "error": 0.5}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [6.25, 78.55],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [6.25, 78.55],
+        "temperature_k": [300, 300],
+        "notes": [
+          "Room-temperature decompression after repeated laser annealing; the source reports partial back-transformation by 6 GPa."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default": false,
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 145.916},
+      "notes": "Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
+      "fit_datasets": ["mggeo3_post_perovskite_hirose_2005_table3_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Hirose", "Kawamura", "Ohishi", "Tateno", "Sata"],
         "year": 2005,
@@ -355,20 +370,6 @@
         "locator": "262-265",
         "doi": "10.2138/am.2005.1702"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 145.916},
-      "experimental_pressure_range_gpa": [6.25, 78.55],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [6.25, 78.55],
-        "temperature_k": [300, 300],
-        "notes": [
-          "Room-temperature decompression after repeated laser annealing; the source reports partial back-transformation by 6 GPa."
-        ]
-      },
-      "notes": "Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -427,8 +428,7 @@
             "doi": "10.2138/am.2005.1702"
           }
         ]
-      },
-      "fit_datasets": ["mggeo3_post_perovskite_hirose_2005_table3_pv"]
+      }
     }
   ],
   "aliases": ["MgGeO3 pPv", "magnesium germanate post-perovskite"],

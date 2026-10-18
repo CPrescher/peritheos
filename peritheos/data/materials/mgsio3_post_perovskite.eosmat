@@ -18,6 +18,7 @@
         "K0_prime": {"value": 4.21, "error": 0.07}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 990.0, "error": 146.0},
@@ -26,11 +27,14 @@
           "n": {"value": 5, "error": null, "fixed": true},
           "Cvmax": {"value": 103.9010625, "error": 5.019375}
         },
-        "debye_temperature_law": "integrated_gruneisen",
         "thermal_pressure_reference": "reference_isentrope",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
+      "experimental_pressure_range_gpa": [111.0, 245.0],
+      "experimental_temperature_range_k": [300.0, 2535.0],
       "determination_method": "experimental",
+      "notes": "Global errors-in-variables inversion of 48 Guignot et al. static P-V-T observations and six PPv shock P-density states. V0=162.2 A^3 was fixed. Table 4 reports K0S=225(2) GPa, K0S'=4.21(7), theta0=990(146) K, gamma0=2.61(67), q=2.1(8), and Cvm=1.035(50) J g^-1 K^-1; Cvmax is the exact molar conversion using 100.3875 g mol^-1. The BM3 term is a 300 K reference isentrope, so thermal pressure subtracts energy at T_S(V)=Tr*theta(V)/theta0. The three source-reported shock temperatures are retained as measured diagnostics but are not constraints in the solid PPv inversion; section 3 explicitly identifies shock-temperature fitting only for MgSiO3 liquid.",
+      "fit_datasets": ["mgsio3_post_perovskite_guignot_2007_table1_pvt", "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"],
       "reference": {
         "authors": ["Mosenfelder", "Asimow", "Frost", "Rubie", "Ahrens"],
         "year": 2009,
@@ -40,9 +44,6 @@
         "locator": "B01203",
         "doi": "10.1029/2008JB005900"
       },
-      "experimental_pressure_range_gpa": [111.0, 245.0],
-      "experimental_temperature_range_k": [300.0, 2535.0],
-      "notes": "Global errors-in-variables inversion of 48 Guignot et al. static P-V-T observations and six PPv shock P-density states. V0=162.2 A^3 was fixed. Table 4 reports K0S=225(2) GPa, K0S'=4.21(7), theta0=990(146) K, gamma0=2.61(67), q=2.1(8), and Cvm=1.035(50) J g^-1 K^-1; Cvmax is the exact molar conversion using 100.3875 g mol^-1. The BM3 term is a 300 K reference isentrope, so thermal pressure subtracts energy at T_S(V)=Tr*theta(V)/theta0. The three source-reported shock temperatures are retained as measured diagnostics but are not constraints in the solid PPv inversion; section 3 explicitly identifies shock-temperature fitting only for MgSiO3 liquid.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -92,8 +93,7 @@
         "parameter_provenance": {
           "determination_method": "Mosenfelder (2009), Table 4 and Section 3: joint inversion of static P-V-T observations and six PPv shock states. The isentropic reference and caloric model are reductions of experimental constraints."
         }
-      },
-      "fit_datasets": ["mgsio3_post_perovskite_guignot_2007_table1_pvt", "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"]
+      }
     },
     {
       "identifier": "mgsio3_post_perovskite_sakai_2016_bm3_2",
@@ -105,7 +105,9 @@
         "K0": {"value": 292.0, "error": 22.0},
         "K0_prime": {"value": 3.74, "error": 0.13}
       },
+      "experimental_pressure_range_gpa": [100.0, 265.0],
       "determination_method": "experimental",
+      "notes": "Experimental BM3 fit 1 to laser-heated DAC data from this study plus Guignot et al., reaching 265 GPa. Stored as a room-temperature cold curve only because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. Sakai et al. prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range rather than extrapolated.",
       "reference": {
         "authors": ["Sakai", "Dekura", "Hirao"],
         "year": 2016,
@@ -115,8 +117,6 @@
         "locator": "22652",
         "doi": "10.1038/srep22652"
       },
-      "experimental_pressure_range_gpa": [100.0, 265.0],
-      "notes": "Experimental BM3 fit 1 to laser-heated DAC data from this study plus Guignot et al., reaching 265 GPa. Stored as a room-temperature cold curve only because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. Sakai et al. prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range rather than extrapolated.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -177,9 +177,32 @@
         "V0": {"value": 162.86, "error": null, "fixed": true},
         "K0": {"value": 237.0, "error": 1.0}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [116.1, 144.4],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [116.1, 144.4],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The pressure interval is the marginal range of the six Anderson-et-al.-gold-scale observations, not an extrapolation range for the zero-pressure reference parameters.",
+          "The source reports that the CaIrO3-type phase remained stable over its 116-144 GPa experimental range and was difficult to measure below 110 GPa because it is metastable there."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "starting_material": "synthetic MgSiO3 enstatite ground to less than a few micrometers",
+        "sample_phase": "CaIrO3-type MgSiO3 synthesized above 120 GPa by laser heating to about 1500-2500 K, then slowly returned to 300 K",
+        "pressure_medium": "NaCl",
+        "pressure_gauge": "gold powder mixed with the sample",
+        "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at Photon Factory BL13A and SPring-8 BL10XU",
+        "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
+      },
+      "notes": "Pure MgSiO3 CaIrO3-type post-perovskite, not CaIrO3 composition or bridgmanite. The conventional Cmcm volume contains four MgSiO3 formula units. This pressure-scale-specific record is distinct from the later Mosenfelder and Sakai parameterizations.",
+      "fit_datasets": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Ono", "Kikegawa", "Ohishi"],
         "year": 2006,
@@ -189,20 +212,6 @@
         "locator": "475-478",
         "doi": "10.2138/am.2006.2118"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [116.1, 144.4],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [116.1, 144.4],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "The pressure interval is the marginal range of the six Anderson-et-al.-gold-scale observations, not an extrapolation range for the zero-pressure reference parameters.",
-          "The source reports that the CaIrO3-type phase remained stable over its 116-144 GPa experimental range and was difficult to measure below 110 GPa because it is metastable there."
-        ]
-      },
-      "notes": "Pure MgSiO3 CaIrO3-type post-perovskite, not CaIrO3 composition or bridgmanite. The conventional Cmcm volume contains four MgSiO3 formula units. This pressure-scale-specific record is distinct from the later Mosenfelder and Sakai parameterizations.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -315,15 +324,6 @@
             "doi": "10.1038/nature02701"
           }
         ]
-      },
-      "fit_datasets": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
-      "experimental_configuration": {
-        "starting_material": "synthetic MgSiO3 enstatite ground to less than a few micrometers",
-        "sample_phase": "CaIrO3-type MgSiO3 synthesized above 120 GPa by laser heating to about 1500-2500 K, then slowly returned to 300 K",
-        "pressure_medium": "NaCl",
-        "pressure_gauge": "gold powder mixed with the sample",
-        "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at Photon Factory BL13A and SPring-8 BL10XU",
-        "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
       }
     },
     {
@@ -335,9 +335,31 @@
         "V0": {"value": 162.86, "error": null, "fixed": true},
         "K0": {"value": 226.0, "error": 1.0}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [111.5, 137.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [111.5, 137.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The pressure interval is the marginal range of the same six observations reduced with the Jamieson et al. gold scale; it is not a separate experiment or phase-stability boundary."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "starting_material": "synthetic MgSiO3 enstatite ground to less than a few micrometers",
+        "sample_phase": "CaIrO3-type MgSiO3 synthesized above 120 GPa by laser heating to about 1500-2500 K, then slowly returned to 300 K",
+        "pressure_medium": "NaCl",
+        "pressure_gauge": "gold powder mixed with the sample",
+        "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at Photon Factory BL13A and SPring-8 BL10XU",
+        "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
+      },
+      "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.",
+      "fit_datasets": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Ono", "Kikegawa", "Ohishi"],
         "year": 2006,
@@ -347,19 +369,6 @@
         "locator": "475-478",
         "doi": "10.2138/am.2006.2118"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [111.5, 137.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [111.5, 137.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "The pressure interval is the marginal range of the same six observations reduced with the Jamieson et al. gold scale; it is not a separate experiment or phase-stability boundary."
-        ]
-      },
-      "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -469,15 +478,6 @@
             "doi": "10.1038/nature02701"
           }
         ]
-      },
-      "fit_datasets": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
-      "experimental_configuration": {
-        "starting_material": "synthetic MgSiO3 enstatite ground to less than a few micrometers",
-        "sample_phase": "CaIrO3-type MgSiO3 synthesized above 120 GPa by laser heating to about 1500-2500 K, then slowly returned to 300 K",
-        "pressure_medium": "NaCl",
-        "pressure_gauge": "gold powder mixed with the sample",
-        "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at Photon Factory BL13A and SPring-8 BL10XU",
-        "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
       }
     },
     {
@@ -489,9 +489,31 @@
         "V0": {"value": 162.86, "error": null, "fixed": true},
         "K0": {"value": 248.0, "error": 1.0}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [121.4, 151.1],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [121.4, 151.1],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The paper title's 144 GPa upper bound uses the Anderson scale; the same highest-pressure observation is 151.1 GPa on the Dewaele scale."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "starting_material": "synthetic MgSiO3 enstatite ground to less than a few micrometers",
+        "sample_phase": "CaIrO3-type MgSiO3 synthesized above 120 GPa by laser heating to about 1500-2500 K, then slowly returned to 300 K",
+        "pressure_medium": "NaCl",
+        "pressure_gauge": "gold powder mixed with the sample",
+        "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at Photon Factory BL13A and SPring-8 BL10XU",
+        "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
+      },
+      "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.",
+      "fit_datasets": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Ono", "Kikegawa", "Ohishi"],
         "year": 2006,
@@ -501,19 +523,6 @@
         "locator": "475-478",
         "doi": "10.2138/am.2006.2118"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [121.4, 151.1],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [121.4, 151.1],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "The paper title's 144 GPa upper bound uses the Anderson scale; the same highest-pressure observation is 151.1 GPa on the Dewaele scale."
-        ]
-      },
-      "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -626,15 +635,6 @@
             "doi": "10.1038/nature02701"
           }
         ]
-      },
-      "fit_datasets": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
-      "experimental_configuration": {
-        "starting_material": "synthetic MgSiO3 enstatite ground to less than a few micrometers",
-        "sample_phase": "CaIrO3-type MgSiO3 synthesized above 120 GPa by laser heating to about 1500-2500 K, then slowly returned to 300 K",
-        "pressure_medium": "NaCl",
-        "pressure_gauge": "gold powder mixed with the sample",
-        "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at Photon Factory BL13A and SPring-8 BL10XU",
-        "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
       }
     },
     {
@@ -647,9 +647,22 @@
         "K0": {"value": 204, "error": null},
         "K0_prime": {"value": 4.18, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [-8.98923166, 218.08849812],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [-8.98923166, 218.08849812],
+        "temperature_k": [0, 0],
+        "volume_ratio": [0.65, 1.05],
+        "notes": ["Static 0 K GGA calculation envelope; not an experimental stability field."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 100.387},
+      "sample_composition": "Pure MgSiO3 CaIrO3-type post-perovskite static GGA control.",
+      "notes": "Source-specific theoretical comparison; it does not replace experimental records.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
         "year": 2005,
@@ -659,18 +672,6 @@
         "locator": "L14303",
         "doi": "10.1029/2005GL023192"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [-8.98923166, 218.08849812],
-      "pressure_range_status": "theoretical",
-      "validity": {
-        "pressure_gpa": [-8.98923166, 218.08849812],
-        "temperature_k": [0, 0],
-        "volume_ratio": [0.65, 1.05],
-        "notes": ["Static 0 K GGA calculation envelope; not an experimental stability field."]
-      },
-      "notes": "Source-specific theoretical comparison; it does not replace experimental records.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -722,8 +723,7 @@
           "uncertainties": "Not reported.",
           "method": "Static VASP GGA, 1000 eV cutoff, fully relaxed at fixed volume."
         }
-      },
-      "sample_composition": "Pure MgSiO3 CaIrO3-type post-perovskite static GGA control."
+      }
     },
     {
       "identifier": "mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3",
@@ -735,9 +735,18 @@
         "K0": {"value": 227.43, "error": null},
         "K0_prime": {"value": 4.24, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 160.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 160.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Anharmonic phonon-quasiparticle LDA reference isotherm; not an experimental ambient stability field."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
       "reference": {
         "authors": ["Zhang", "Wentzcovitch"],
         "year": 2022,
@@ -746,15 +755,6 @@
         "volume": "106",
         "locator": "054103",
         "doi": "10.1103/PhysRevB.106.054103"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [0.0, 160.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 160.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Anharmonic phonon-quasiparticle LDA reference isotherm; not an experimental ambient stability field."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -809,9 +809,18 @@
         "K0": {"value": 194.91, "error": null},
         "K0_prime": {"value": 4.24, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 160.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 160.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Anharmonic phonon-quasiparticle PBE reference isotherm; not an experimental ambient stability field."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
       "reference": {
         "authors": ["Zhang", "Wentzcovitch"],
         "year": 2022,
@@ -820,15 +829,6 @@
         "volume": "106",
         "locator": "054103",
         "doi": "10.1103/PhysRevB.106.054103"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [0.0, 160.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 160.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Anharmonic phonon-quasiparticle PBE reference isotherm; not an experimental ambient stability field."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -883,9 +883,11 @@
         "K0": {"value": 223.73, "error": null},
         "K0_prime": {"value": 4.152, "error": null}
       },
-      "record_kind": "published",
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
       "reference": {
         "authors": ["Li", "Zeng"],
         "year": 2009,
@@ -895,8 +897,6 @@
         "locator": "1093-1101",
         "doi": "10.1142/S0129183109014242"
       },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
-      "pressure_range_status": "theoretical",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -941,9 +941,11 @@
         "K0": {"value": 224.2, "error": null},
         "K0_prime": {"value": 4.406, "error": null}
       },
-      "record_kind": "published",
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
       "reference": {
         "authors": ["Li", "Zeng"],
         "year": 2009,
@@ -953,8 +955,6 @@
         "locator": "1093-1101",
         "doi": "10.1142/S0129183109014242"
       },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
-      "pressure_range_status": "theoretical",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -999,9 +999,11 @@
         "K0": {"value": 226.7, "error": null},
         "K0_prime": {"value": 4.684, "error": null}
       },
-      "record_kind": "published",
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
       "reference": {
         "authors": ["Li", "Zeng"],
         "year": 2009,
@@ -1011,8 +1013,6 @@
         "locator": "1093-1101",
         "doi": "10.1142/S0129183109014242"
       },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
-      "pressure_range_status": "theoretical",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -1057,9 +1057,23 @@
         "K0": {"value": 219.3, "error": null},
         "K0_prime": {"value": 4.4, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": [
+          "Static LDA reference branch. The article's separate quasi-harmonic Debye outputs extend to 2000 K but are not represented by this isothermal BM3 record."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
+      "notes": "Accepted LitCurate source record litcurate_cf1303ecf47a5001. The six remaining same-DOI rows are literature comparisons and are not duplicated.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Liu", "Sun", "Zhang", "Tian", "Guo"],
         "year": 2010,
@@ -1069,20 +1083,6 @@
         "locator": "315-324",
         "doi": "10.1142/S0217984910022391"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": [
-          "Static LDA reference branch. The article's separate quasi-harmonic Debye outputs extend to 2000 K but are not represented by this isothermal BM3 record."
-        ]
-      },
-      "notes": "Accepted LitCurate source record litcurate_cf1303ecf47a5001. The six remaining same-DOI rows are literature comparisons and are not duplicated.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -1129,9 +1129,25 @@
         "K0_prime": {"value": 4.03, "error": null},
         "K_infinity_prime": {"value": 1.6666666666666667, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 130.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reference_parameterization",
+      "validity": {
+        "pressure_gpa": [0.0, 130.0],
+        "temperature_k": [298.15, 298.15],
+        "notes": [
+          "Reference isotherm of the source's larger Helmholtz model; the zero-pressure state is an extrapolated thermodynamic reference, not a stable ambient phase."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
+      "sample_composition": "Stoichiometric CaIrO3-type MgSiO3 post-perovskite thermodynamic reference phase; joint optimization of literature thermochemical and P-V-T data.",
+      "notes": "Accepted corrected mapping for LitCurate source row 868 (litcurate_ef9e7ca080ec8309). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
+      "diagnostic_datasets": ["dorogokupets_2015_post_perovskite_298k_reconstruction"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Dorogokupets", "Dymshits", "Sokolova", "Danilov", "Litasov"],
         "year": 2015,
@@ -1141,20 +1157,6 @@
         "locator": "172-189",
         "doi": "10.1016/j.rgg.2015.01.011"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [0.0, 130.0],
-      "pressure_range_status": "reference_parameterization",
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "validity": {
-        "pressure_gpa": [0.0, 130.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": [
-          "Reference isotherm of the source's larger Helmholtz model; the zero-pressure state is an extrapolated thermodynamic reference, not a stable ambient phase."
-        ]
-      },
-      "notes": "Accepted corrected mapping for LitCurate source row 868 (litcurate_ef9e7ca080ec8309). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1212,9 +1214,7 @@
           "K0_prime": "Table 1: 4.03.",
           "K_infinity_prime": "Table 1 fixes k=5; therefore K_infinity_prime=5/3."
         }
-      },
-      "sample_composition": "Stoichiometric CaIrO3-type MgSiO3 post-perovskite thermodynamic reference phase; joint optimization of literature thermochemical and P-V-T data.",
-      "diagnostic_datasets": ["dorogokupets_2015_post_perovskite_298k_reconstruction"]
+      }
     },
     {
       "identifier": "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3",
@@ -1227,20 +1227,33 @@
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
       "thermal": {
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300, "error": null, "fixed": true},
           "alpha0": {"value": 1.667e-05, "error": null},
           "alpha1": {"value": 1.13e-09, "error": 1.14e-08},
           "dK_dT": {"value": -0.0085, "error": 0.0011}
         },
-        "parameter_constraints": {"alpha0": "1.7e-5 - 300*alpha1 (fit constraint; printed values independently rounded)"},
-        "model": "AlphaKT"
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity",
+        "parameter_constraints": {"alpha0": "1.7e-5 - 300*alpha1 (fit constraint; printed values independently rounded)"}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [114.5, 129.7],
+      "experimental_temperature_range_k": [300, 2330],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [114.5, 129.7],
+        "temperature_k": [300, 2330],
+        "notes": ["Bounds describe fitted observations, not a phase-stability field."]
+      },
       "determination_method": "hybrid",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 100.387},
+      "notes": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+      "fit_datasets": ["mgsio3_post_perovskite_komabayashi_2008_table1_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Komabayashi", "Hirose", "Sugimura", "Sata", "Ohishi", "Dubrovinsky"],
         "year": 2008,
@@ -1250,18 +1263,6 @@
         "locator": "515-524",
         "doi": "10.1016/j.epsl.2007.10.036"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [114.5, 129.7],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 2330],
-      "validity": {
-        "pressure_gpa": [114.5, 129.7],
-        "temperature_k": [300, 2330],
-        "notes": ["Bounds describe fitted observations, not a phase-stability field."]
-      },
-      "notes": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -1321,8 +1322,7 @@
           "fixed_parameters": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced.",
           "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
-      },
-      "fit_datasets": ["mgsio3_post_perovskite_komabayashi_2008_table1_pvt"]
+      }
     }
   ],
   "family_id": "post_perovskite",

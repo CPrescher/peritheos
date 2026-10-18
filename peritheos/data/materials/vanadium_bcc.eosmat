@@ -18,20 +18,38 @@
         "K0_prime": {"value": 5.5, "error": 1.0}
       },
       "thermal": {
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
-        "bulk_modulus_law": "linear_temperature",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "fixed": true},
           "alpha0": {"value": 4.8e-05, "error": 6e-06},
           "alpha1": {"value": -2.4e-08, "error": 9e-09},
           "dK_dT": {"value": -0.0446, "error": 0.0007}
         },
-        "model": "AlphaKT"
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity",
+        "bulk_modulus_law": "linear_temperature"
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 11.5],
+      "experimental_temperature_range_k": [300.0, 1000.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "equation_kind": "thermal",
       "default": true,
+      "notes": "Source-owned unconstrained 62-point unweighted fit, measured to 11.5 GPa and 1000 K. Initial first-cycle stressed-foil observations were anomalous; recovered ambient point is explicitly excluded. No statistical confidence/covariance is specified. Nominal-temperature digitized symbols only support a qualified proxy refit, not the original regression. The source Conclusion quotes 2.7% ambient and 1.2% at 10 GPa expansion from 300 to 1000 K; stored coefficients give 2.294% and 1.026%. Figure 2 supports the stored expansion convention; no coefficient is changed to force the prose values. Two fixed-K0-prime alternatives are withheld for missing V0 and thermal parameters.",
+      "range_provenance": {
+        "source_location": "Abstract; Experimental; Figure 2",
+        "notes": "Marginal experimental coverage, not a fully sampled rectangle or phase boundary. The bcc-to-rhombohedral transitions discussed near 60-69 GPa are outside this experiment and do not extend its validity. Excludes oxidized/reacted material and initially stressed foil."
+      },
+      "source_volume_normalization": {
+        "fitted_relative_volume": 1.005,
+        "reported_uncertainty": 0.001,
+        "uncertainty_confidence": null,
+        "recovered_cell_volume_a3": 27.995,
+        "plot_denominator_a3": 27.85572139303483,
+        "notes": "The plot uses a different reference denominator from the relaxed EOS V0. Do not divide the stored EOS V0 by 1.005 or replace it with the separately sourced structural cell."
+      },
+      "validation_datasets": ["vanadium_crichton_2016_figure2_points", "vanadium_crichton_2016_figure2_curves"],
       "reference": {
         "authors": ["Crichton", "Guignard", "Bailey", "Dobson", "Hunt", "Thomson"],
         "year": 2016,
@@ -41,11 +59,6 @@
         "locator": "16-22",
         "doi": "10.1080/08957959.2015.1123256"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 11.5],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [300.0, 1000.0],
-      "notes": "Source-owned unconstrained 62-point unweighted fit, measured to 11.5 GPa and 1000 K. Initial first-cycle stressed-foil observations were anomalous; recovered ambient point is explicitly excluded. No statistical confidence/covariance is specified. Nominal-temperature digitized symbols only support a qualified proxy refit, not the original regression. The source Conclusion quotes 2.7% ambient and 1.2% at 10 GPa expansion from 300 to 1000 K; stored coefficients give 2.294% and 1.026%. Figure 2 supports the stored expansion convention; no coefficient is changed to force the prose values. Two fixed-K0-prime alternatives are withheld for missing V0 and thermal parameters.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -126,20 +139,7 @@
           "Tr": "Experimental p.4 and K0,300 label: 300 K.",
           "equation": "BM3; EOS-FIT5.2 (Angel 2002) with linear alpha(T); Angel et al. 2014 doi:10.1515/zkri-2013-1711 p.410 explicitly documents earlier EosFit exponential integral of alpha0+alpha1*T, p.412 linear K0(T)."
         }
-      },
-      "range_provenance": {
-        "source_location": "Abstract; Experimental; Figure 2",
-        "notes": "Marginal experimental coverage, not a fully sampled rectangle or phase boundary. The bcc-to-rhombohedral transitions discussed near 60-69 GPa are outside this experiment and do not extend its validity. Excludes oxidized/reacted material and initially stressed foil."
-      },
-      "source_volume_normalization": {
-        "fitted_relative_volume": 1.005,
-        "reported_uncertainty": 0.001,
-        "uncertainty_confidence": null,
-        "recovered_cell_volume_a3": 27.995,
-        "plot_denominator_a3": 27.85572139303483,
-        "notes": "The plot uses a different reference denominator from the relaxed EOS V0. Do not divide the stored EOS V0 by 1.005 or replace it with the separately sourced structural cell."
-      },
-      "validation_datasets": ["vanadium_crichton_2016_figure2_points", "vanadium_crichton_2016_figure2_curves"]
+      }
     }
   ],
   "aliases": ["Vanadium"],

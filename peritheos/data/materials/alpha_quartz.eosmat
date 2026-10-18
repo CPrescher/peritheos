@@ -16,7 +16,10 @@
         "K0": {"value": 37.12, "error": 0.09},
         "K0_prime": {"value": 5.99, "error": 0.04}
       },
+      "experimental_pressure_range_gpa": [0.0, 8.9],
+      "experimental_temperature_range_k": [298.0, 298.0],
       "determination_method": "experimental",
+      "notes": "Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.",
       "reference": {
         "authors": ["Angel", "Allan", "Miletich", "Finger"],
         "year": 1997,
@@ -26,9 +29,6 @@
         "locator": "461-466",
         "doi": "10.1107/S0021889897000861"
       },
-      "experimental_pressure_range_gpa": [0.0, 8.9],
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "notes": "Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -79,9 +79,18 @@
         "K0": {"value": 32.0, "error": 6.0},
         "K0_prime": {"value": 7.0, "error": 1.0}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 40.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 40.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["QMC plus quasiharmonic phonons; quartz is metastable above its transition."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 60.083},
       "reference": {
         "authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"],
         "year": 2010,
@@ -90,15 +99,6 @@
         "volume": "107",
         "locator": "9519-9524",
         "doi": "10.1073/pnas.0912130107"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 60.083},
-      "experimental_pressure_range_gpa": [0.0, 40.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 40.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["QMC plus quasiharmonic phonons; quartz is metastable above its transition."]
       },
       "pressure_calibration": {
         "status": "not_applicable",

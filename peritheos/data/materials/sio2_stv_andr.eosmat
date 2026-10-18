@@ -15,7 +15,9 @@
         "K0": {"value": 309.9, "error": 1.1},
         "K0_prime": {"value": 4.59, "error": 0.23}
       },
+      "experimental_pressure_range_gpa": [0.0, 53.0],
       "determination_method": "experimental",
+      "notes": "Andrault et al. report V0 = 46.51(61) A^3, K0 = 309.9(1.1) GPa, and K0' = 4.59(23). The stored V0 retains the more precise ambient lattice product.",
       "reference": {
         "authors": ["Andrault", "Angel", "Mosenfelder", "Le Bihan"],
         "year": 2003,
@@ -25,8 +27,6 @@
         "locator": "301-307",
         "doi": "10.2138/am-2003-2-307"
       },
-      "experimental_pressure_range_gpa": [0.0, 53.0],
-      "notes": "Andrault et al. report V0 = 46.51(61) A^3, K0 = 309.9(1.1) GPa, and K0' = 4.59(23). The stored V0 retains the more precise ambient lattice product.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -115,6 +115,7 @@
         "K0_prime": {"value": 5.01, "error": 0.12}
       },
       "thermal": {
+        "model": "AsymptoticPowerLawMieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "fixed": true},
           "theta0": {"value": 1130.0, "error": 110.0},
@@ -122,12 +123,16 @@
           "a": {"value": 1.0, "fixed": true},
           "b": {"value": 3.0, "error": 0.4},
           "n": {"value": 3.0, "fixed": true}
-        },
-        "model": "AsymptoticPowerLawMieGruneisenDebye"
+        }
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [16.85, 54.5],
+      "experimental_temperature_range_k": [300.0, 1700.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "notes": "This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0*(V/V0)^b and theta(V)=theta0*exp[-gamma0*((V/V0)^b-1)/b]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.",
+      "fit_datasets": ["stishovite_wang_2012_table1_pvt"],
       "reference": {
         "authors": ["Wang", "Tange", "Irifune", "Funakoshi"],
         "year": 2012,
@@ -137,10 +142,6 @@
         "locator": "B06209",
         "doi": "10.1029/2011JB009100"
       },
-      "experimental_pressure_range_gpa": [16.85, 54.5],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 1700.0],
-      "notes": "This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0*(V/V0)^b and theta(V)=theta0*exp[-gamma0*((V/V0)^b-1)/b]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -213,8 +214,7 @@
           "b": "Table 2, Morse-Rydberg (Vinet) column",
           "n": "Equation 5 atom count applied to SiO2 stoichiometry"
         }
-      },
-      "fit_datasets": ["stishovite_wang_2012_table1_pvt"]
+      }
     },
     {
       "identifier": "sio2_stv_andr_driver_2010_qmc_300k_vinet",
@@ -226,9 +226,18 @@
         "K0": {"value": 305.0, "error": 20.0},
         "K0_prime": {"value": 3.7, "error": 0.6}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 45.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 45.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Restricted to the rutile stishovite side of the source's continuous stishovite-CaCl2 sequence."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
       "reference": {
         "authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"],
         "year": 2010,
@@ -237,15 +246,6 @@
         "volume": "107",
         "locator": "9519-9524",
         "doi": "10.1073/pnas.0912130107"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
-      "experimental_pressure_range_gpa": [0.0, 45.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 45.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Restricted to the rutile stishovite side of the source's continuous stishovite-CaCl2 sequence."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -302,9 +302,18 @@
         "K0_prime": {"value": 4.6, "error": null},
         "K0_double_prime": {"value": -0.015, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0001, 30.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reference_parameterization",
+      "validity": {
+        "pressure_gpa": [0.0001, 30.0],
+        "temperature_k": [298.15, 298.15],
+        "notes": ["Stishovite thermodynamic endmember reference isotherm."]
+      },
       "determination_method": "unknown",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
       "reference": {
         "authors": ["Holland", "Hudson", "Powell", "Harte"],
         "year": 2013,
@@ -313,15 +322,6 @@
         "volume": "54",
         "locator": "1901-1920",
         "doi": "10.1093/petrology/egt035"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
-      "experimental_pressure_range_gpa": [0.0001, 30.0],
-      "pressure_range_status": "reference_parameterization",
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "validity": {
-        "pressure_gpa": [0.0001, 30.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": ["Stishovite thermodynamic endmember reference isotherm."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -385,9 +385,20 @@
         "K0": {"value": 313.2, "error": 1.9},
         "K0_prime": {"value": 4.4, "error": 0.1}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Rutile-type stishovite benchmark calculated with the same VIBC potential used for the CaSiO3 analysis."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Akber-Knutson", "Bukowinski", "Matas"],
         "year": 2002,
@@ -396,17 +407,6 @@
         "volume": "29",
         "locator": "4-1-4-4",
         "doi": "10.1029/2001GL013523"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Rutile-type stishovite benchmark calculated with the same VIBC potential used for the CaSiO3 analysis."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -456,9 +456,13 @@
         "K0": {"value": 378.0, "error": null},
         "K0_prime": {"value": 6.4, "error": 3.5}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 120.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
       "reference": {
         "authors": ["Zhang", "Bukowinski"],
         "year": 1991,
@@ -468,10 +472,6 @@
         "locator": "2495-2503",
         "doi": "10.1103/PhysRevB.44.2495"
       },
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
-      "experimental_pressure_range_gpa": [0.0, 120.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -520,9 +520,24 @@
         "K0": {"value": 312.0, "error": 2.0},
         "K0_prime": {"value": 4.59, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 62.934],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "default": false,
+      "notes": "Source-owned new dry reference specimen (10 GPa, 1473 K, 1 h synthesis), co-compressed with hydrous sample in He. Distinct dataset and pressure scale from Andrault (2003); only K0_prime is adopted. Table 3 EOS V0=46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612; preserve both. All S1 volumes are source-refined tetragonal values; article describes onset of dry post-stishovite distortion near 60 GPa. Full 0-62.934 GPa fit is the authors' reference curve, not a claim of rutile stability throughout. No dry CaCl2 EOS is fitted in this paper; Table 4 dry row cites Andrault (2003). Existing ambient crystallography is retained separately from this EOS reference cell.",
+      "range_provenance": {
+        "pressure": {
+          "source_location": "Section 3.3; official Table S1",
+          "basis": "reported_exactly",
+          "notes": "Marginal fit-data range, not a phase stability boundary. Ambient 1 bar treated as zero pressure by the published BM convention."
+        },
+        "temperature": {"source_location": "Section 2; Figure 5", "basis": "reported_exactly"}
+      },
+      "fit_datasets": ["nisr_2017_silica_tables_s1_s4"],
+      "parameter_uncertainty_convention": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Nisr", "Leinenweber", "Prakapenka", "Prescher", "Tkachev", "Shim"],
         "year": 2017,
@@ -532,11 +547,6 @@
         "locator": "6972-6983",
         "doi": "10.1002/2017JB014055"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 62.934],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Source-owned new dry reference specimen (10 GPa, 1473 K, 1 h synthesis), co-compressed with hydrous sample in He. Distinct dataset and pressure scale from Andrault (2003); only K0_prime is adopted. Table 3 EOS V0=46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612; preserve both. All S1 volumes are source-refined tetragonal values; article describes onset of dry post-stishovite distortion near 60 GPa. Full 0-62.934 GPa fit is the authors' reference curve, not a claim of rutile stability throughout. No dry CaCl2 EOS is fitted in this paper; Table 4 dry row cites Andrault (2003). Existing ambient crystallography is retained separately from this EOS reference cell.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -620,17 +630,7 @@
             "citation": "Nisr et al. (2017), JGR: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055."
           }
         ]
-      },
-      "range_provenance": {
-        "pressure": {
-          "source_location": "Section 3.3; official Table S1",
-          "basis": "reported_exactly",
-          "notes": "Marginal fit-data range, not a phase stability boundary. Ambient 1 bar treated as zero pressure by the published BM convention."
-        },
-        "temperature": {"source_location": "Section 2; Figure 5", "basis": "reported_exactly"}
-      },
-      "fit_datasets": ["nisr_2017_silica_tables_s1_s4"],
-      "parameter_uncertainty_convention": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified."
+      }
     }
   ],
   "symmetry": "TETRAGONAL",

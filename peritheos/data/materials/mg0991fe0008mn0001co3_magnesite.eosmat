@@ -17,9 +17,16 @@
         "K0": {"value": 142.0, "error": 9.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 19.7],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 84.595953},
+      "fit_datasets": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Redfern", "Wood", "Henderson"],
         "year": 1993,
@@ -29,12 +36,6 @@
         "locator": "2099-2102",
         "doi": "10.1029/93GL02507"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 84.595953},
-      "experimental_pressure_range_gpa": [0.0, 19.7],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -121,8 +122,7 @@
           "statistics": {"observations": 18, "free_parameters": 1, "pressure_rmse_gpa": 0.522269741084158},
           "reproduction": {"script": "scripts/reproduce_redfern_1993_magnesite.py", "status": "parity"}
         }
-      },
-      "fit_datasets": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"]
+      }
     },
     {
       "identifier": "mg0991fe0008mn0001co3_redfern_1993_bm3_2",
@@ -134,9 +134,16 @@
         "K0": {"value": 151.0, "error": 7.0},
         "K0_prime": {"value": 2.5, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 19.7],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 84.595953},
+      "fit_datasets": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Redfern", "Wood", "Henderson"],
         "year": 1993,
@@ -146,12 +153,6 @@
         "locator": "2099-2102",
         "doi": "10.1029/93GL02507"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 84.595953},
-      "experimental_pressure_range_gpa": [0.0, 19.7],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -257,8 +258,7 @@
           },
           "reproduction": {"script": "scripts/reproduce_redfern_1993_magnesite.py", "status": "similar"}
         }
-      },
-      "fit_datasets": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"]
+      }
     }
   ],
   "aliases": ["Harwood collection specimen 2212", "Redfern magnesite"],

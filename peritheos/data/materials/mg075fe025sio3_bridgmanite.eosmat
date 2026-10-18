@@ -17,9 +17,21 @@
         "K0": {"value": 270.0, "error": null},
         "K0_prime": {"value": 3.96, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 136.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 136.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": ["Static ordered-composition GGA branch over the lower-mantle pressure range discussed by the source."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
+      "sample_composition": "Static ordered (Mg0.75Fe0.25)SiO3 Pbnm perovskite calculation (x=0.25).",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Kiefer", "Stixrude", "Wentzcovitch"],
         "year": 2002,
@@ -28,17 +40,6 @@
         "volume": "29",
         "locator": "1539",
         "doi": "10.1029/2002GL014683"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
-      "experimental_pressure_range_gpa": [0.0, 136.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 136.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Static ordered-composition GGA branch over the lower-mantle pressure range discussed by the source."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -72,8 +73,7 @@
           "parameters": "Text following Table 1: V0=160.5 A^3, K0=270.0 GPa, K0'=3.96 for x=0.25.",
           "method": "Variable-cell plane-wave pseudopotential GGA calculation with one Fe substituted for Mg in the 20-atom cell."
         }
-      },
-      "sample_composition": "Static ordered (Mg0.75Fe0.25)SiO3 Pbnm perovskite calculation (x=0.25)."
+      }
     },
     {
       "identifier": "mg075fe025sio3_bridgmanite_wu_2013_gga_bm3",
@@ -85,9 +85,23 @@
         "K0": {"value": 248.0, "error": null},
         "K0_prime": {"value": 4.03, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 140.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 140.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": [
+          "The source finds the Fe2+ high-spin state stable over the studied mantle pressure range; this is the static branch, not the separate quasiharmonic temperature correction."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
+      "sample_composition": "Static ordered high-spin (Mg0.75Fe0.25)SiO3 Pbnm model cell.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Wu", "Zhao", "Tian"],
         "year": 2013,
@@ -96,19 +110,6 @@
         "volume": "62",
         "locator": "049101",
         "doi": "10.7498/aps.62.049101"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
-      "experimental_pressure_range_gpa": [0.0, 140.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 140.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": [
-          "The source finds the Fe2+ high-spin state stable over the studied mantle pressure range; this is the static branch, not the separate quasiharmonic temperature correction."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -143,8 +144,7 @@
           "parameters": "Table 1 Fe25 calculation column: V0=164.977 A^3, B0=248 GPa, B0'=4.03.",
           "method": "CASTEP ultrasoft-pseudopotential PBE-GGA static calculation with one high-spin Fe2+ replacing Mg in the 20-atom cell."
         }
-      },
-      "sample_composition": "Static ordered high-spin (Mg0.75Fe0.25)SiO3 Pbnm model cell."
+      }
     }
   ],
   "aliases": ["(Mg0.75Fe0.25)SiO3 perovskite", "Fe25 bridgmanite"],

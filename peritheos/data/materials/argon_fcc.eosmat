@@ -18,7 +18,7 @@
         "K0_prime": 7.423
       },
       "thermal": {
-        "thermal_pressure_reference": "absolute_zero",
+        "model": "Dewaele2006",
         "parameters": {
           "Tr": {"value": 296.0, "fixed": true},
           "theta0": {"value": 93.3, "fixed": true},
@@ -31,10 +31,14 @@
           "electronic_g": {"value": 1.0, "fixed": true},
           "n": {"value": 1.0, "fixed": true}
         },
-        "model": "Dewaele2006"
+        "thermal_pressure_reference": "absolute_zero"
       },
+      "experimental_pressure_range_gpa": [1.3463738, 64.599632],
+      "experimental_temperature_range_k": [10.0, 296.0],
       "determination_method": "hybrid",
       "default": true,
+      "notes": "Cold curve is at 0 K; Tr=296 K anchors thermal-pressure increments only. Absolute Debye thermal pressure excludes zero-point pressure. Gamma=0.5+2.2*(V/V0). Fit coverage is quasi-hydrostatic runs 2-3 plus pure argon below 5 GPa; pure-Ar compression to 114 GPa is a separate comparison. Low-temperature validation is below about 20 GPa, not the full P-T rectangle. Paper says 300 K in fitting prose although Methods report 296 K; both are audited. No fitted parameter errors or covariance reported. Supplement contains 5.5 K and 300 K rows beyond the headline 10-296 K range.",
+      "fit_datasets": ["argon_fcc_dewaele_2021_supplement"],
       "reference": {
         "authors": ["Dewaele", "Rosa", "Guignot", "Andrault", "Rodrigues", "Garbarino"],
         "year": 2021,
@@ -44,9 +48,6 @@
         "locator": "15192",
         "doi": "10.1038/s41598-021-93995-y"
       },
-      "experimental_pressure_range_gpa": [1.3463738, 64.599632],
-      "experimental_temperature_range_k": [10.0, 296.0],
-      "notes": "Cold curve is at 0 K; Tr=296 K anchors thermal-pressure increments only. Absolute Debye thermal pressure excludes zero-point pressure. Gamma=0.5+2.2*(V/V0). Fit coverage is quasi-hydrostatic runs 2-3 plus pure argon below 5 GPa; pure-Ar compression to 114 GPa is a separate comparison. Low-temperature validation is below about 20 GPa, not the full P-T rectangle. Paper says 300 K in fitting prose although Methods report 296 K; both are audited. No fitted parameter errors or covariance reported. Supplement contains 5.5 K and 300 K rows beyond the headline 10-296 K range.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -121,8 +122,7 @@
           "anharmonic_m": "One: arbitrary inactive exponent of the zero anharmonic coefficient.",
           "electronic_g": "One: arbitrary inactive exponent of the zero electronic coefficient."
         }
-      },
-      "fit_datasets": ["argon_fcc_dewaele_2021_supplement"]
+      }
     },
     {
       "identifier": "argon_fcc_ono_2020_vinet",
@@ -134,7 +134,11 @@
         "K0": {"value": 1.07, "error": 1.33},
         "K0_prime": {"value": 8.02, "error": 0.95}
       },
+      "experimental_pressure_range_gpa": [4.44, 136.7],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Conventional fcc cell, Z=4. V0 is an extrapolated fit parameter, not a measured ambient solid volume. Source one-sigma errors retained; covariance and exact fit weights are unavailable. Only the experimental 300 K Vinet curve is represented. The separate AIMD thermal extension is not included.",
+      "fit_datasets": ["argon_fcc_ono_2020_table1"],
       "reference": {
         "authors": ["Ono"],
         "year": 2020,
@@ -144,9 +148,6 @@
         "locator": "1393",
         "doi": "10.1038/s41598-020-58252-8"
       },
-      "experimental_pressure_range_gpa": [4.44, 136.7],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Conventional fcc cell, Z=4. V0 is an extrapolated fit parameter, not a measured ambient solid volume. Source one-sigma errors retained; covariance and exact fit weights are unavailable. Only the experimental 300 K Vinet curve is represented. The separate AIMD thermal extension is not included.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -202,8 +203,7 @@
           "K0": "Supplementary Table 2: 1.07(1.33) GPa.",
           "K0_prime": "Supplementary Table 2: 8.02(0.95)."
         }
-      },
-      "fit_datasets": ["argon_fcc_ono_2020_table1"]
+      }
     },
     {
       "identifier": "argon_fcc_xiao_2025_helmholtz",
@@ -217,6 +217,7 @@
         "K0_double_prime": -13.800419987449228
       },
       "thermal": {
+        "model": "DebyeAnharmonicHelmholtz",
         "parameters": {
           "Tr": {"value": 70.0, "fixed": true},
           "theta0": 86.44,
@@ -225,10 +226,13 @@
           "b1": 0.0128,
           "b2": 0.388,
           "b3": 7.85
-        },
-        "model": "DebyeAnharmonicHelmholtz"
+        }
       },
+      "experimental_pressure_range_gpa": [0.0, 6.3],
+      "experimental_temperature_range_k": [0.0, 760.0],
       "determination_method": "experimental",
+      "notes": "0 K cold curve includes zero-point energy; Debye thermal term excludes it. Marginal model/fit envelope 0-760 K and up to 6.3 GPa is not a rectangular solid-stability region; use solid branch below melting. New data cover 7.96-50.02 K only. Volume uncertainties estimated k=1: 0.1% sublimation, 0.5% melting/compressed; coefficient covariance/errors not published. Gas reference entropy 130.37 J/mol/K belongs to coupled fluid equilibrium model and does not enter solid pressure. No fluid fugacity/phase-equilibrium solver supplied. The complete global refit has not been reproduced from available files; workbook reference calculations are theory, not observations. The author workbook gas constant R=8.31451 J/mol/K is retained explicitly for published numerical parity. Record temperature_ref=70 K selects the evaluation/reporting temperature; it is not the cold-curve reference temperature, which is 0 K.",
+      "fit_datasets": ["argon_fcc_xiao_2025_table5"],
       "reference": {
         "authors": ["Xiao", "Sriskandaruban", "Maynard-Casely", "Thol", "Falloon", "Span", "May"],
         "year": 2025,
@@ -238,9 +242,6 @@
         "locator": "14",
         "doi": "10.1007/s10765-024-03469-2"
       },
-      "experimental_pressure_range_gpa": [0.0, 6.3],
-      "experimental_temperature_range_k": [0.0, 760.0],
-      "notes": "0 K cold curve includes zero-point energy; Debye thermal term excludes it. Marginal model/fit envelope 0-760 K and up to 6.3 GPa is not a rectangular solid-stability region; use solid branch below melting. New data cover 7.96-50.02 K only. Volume uncertainties estimated k=1: 0.1% sublimation, 0.5% melting/compressed; coefficient covariance/errors not published. Gas reference entropy 130.37 J/mol/K belongs to coupled fluid equilibrium model and does not enter solid pressure. No fluid fugacity/phase-equilibrium solver supplied. The complete global refit has not been reproduced from available files; workbook reference calculations are theory, not observations. The author workbook gas constant R=8.31451 J/mol/K is retained explicitly for published numerical parity. Record temperature_ref=70 K selects the evaluation/reporting temperature; it is not the cold-curve reference temperature, which is 0 K.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -315,8 +316,7 @@
           "display_label": "Published equation verified; equal-weight subset refit checked",
           "equal_weight_diagnostic_report": "docs/data/argon-xiao-2025-equal-weight-refit.json"
         }
-      },
-      "fit_datasets": ["argon_fcc_xiao_2025_table5"]
+      }
     },
     {
       "identifier": "argon_fcc_errandonea_2006_bm3",
@@ -328,7 +328,11 @@
         "K0": {"value": 6.5, "error": 0.5},
         "K0_prime": {"value": 5.1, "error": 0.3}
       },
+      "experimental_pressure_range_gpa": [34.9, 114.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Fcc-specific BM3 fit, including fcc reflections in fcc+hcp coexistence from 49.6 to 114 GPa; not a combined-phase fit. Hcp atomic volumes are stated equal within accuracy, but no independent hcp EOS or hcp volume table is supplied. Uncertainty confidence and covariance are unspecified. Annealing above 2000 K is sample preparation, not the EOS temperature. Figure 5 inset caption says fcc(220), while main text says non-overlapping fcc(200); retain this inconsistency. Exact fit selection and weights unavailable. Supporting phase asset: datasets/argon-errandonea-2006-phase-observations.csv.",
+      "fit_datasets": ["argon_fcc_errandonea_2006_figure5"],
       "reference": {
         "authors": ["Errandonea", "Boehler", "Japel", "Mezouar", "Benedetti"],
         "year": 2006,
@@ -338,9 +342,6 @@
         "locator": "092106",
         "doi": "10.1103/PhysRevB.73.092106"
       },
-      "experimental_pressure_range_gpa": [34.9, 114.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Fcc-specific BM3 fit, including fcc reflections in fcc+hcp coexistence from 49.6 to 114 GPa; not a combined-phase fit. Hcp atomic volumes are stated equal within accuracy, but no independent hcp EOS or hcp volume table is supplied. Uncertainty confidence and covariance are unspecified. Annealing above 2000 K is sample preparation, not the EOS temperature. Figure 5 inset caption says fcc(220), while main text says non-overlapping fcc(200); retain this inconsistency. Exact fit selection and weights unavailable. Supporting phase asset: datasets/argon-errandonea-2006-phase-observations.csv.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -390,8 +391,7 @@
           "pressure_range": "34.9 GPa is the lowest explicitly identified new-study diffraction pattern; maximum 114 GPa. Full raw fit selection is not supplied.",
           "determination_method": "BM3 parameters fitted to experimental fcc X-ray diffraction volumes and ruby pressures; fcc data include phase coexistence."
         }
-      },
-      "fit_datasets": ["argon_fcc_errandonea_2006_figure5"]
+      }
     },
     {
       "identifier": "argon_fcc_grimsditch_1986_density_polynomial",
@@ -406,9 +406,24 @@
         "c2": 1.5,
         "c3": 0.68
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [1.31, 33.58],
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "notes": "Published cubic fit to earlier X-ray densities, not an independent Brillouin EOS. No zero-pressure reference is implied. Figure 9 triangles are Eq.(6) values, with open triangles extrapolated, not measured observations. The source uses B_T=rho*dP/drho and approximates B_S=B_T except near melting. Tables II-III are elastic bounds dependent on Eq.(6). Do not convert longitudinal modulus C=rho*v^2 into solid bulk modulus. Coefficient error/covariance, precise room temperature and low-pressure diffraction fit cutoff are unspecified. Ref.17 Hazen et al.(1980), Carnegie Yearb.79,348; ref.18 Zou et al.(1982), Yearb.81,392; ref.19 Xu et al.(1984), High Temp.High Pressures16,495. Theory pair-potential curves are separate and are not this fit.",
+      "temperature_ref_provenance": {
+        "kind": "assumed_room_temperature",
+        "reported_condition": "room temperature",
+        "note": "The article reports room temperature without a numeric value. 298 K is the library display convention, not a measured temperature or thermal correction."
+      },
+      "source_fit_pressure_range_gpa": [null, 77.0],
+      "reference_state": {
+        "pressure_gpa": 1.23,
+        "density_g_cm3": 2.0,
+        "volume_a3": 132.67042931092166,
+        "role": "computational_density_normalization",
+        "note": "Not a measured reference state or zero-pressure EOS volume."
+      },
       "reference": {
         "authors": ["Grimsditch", "Loubeyre", "Polian"],
         "year": 1986,
@@ -418,13 +433,6 @@
         "locator": "7192-7200",
         "doi": "10.1103/PhysRevB.33.7192"
       },
-      "temperature_ref_provenance": {
-        "kind": "assumed_room_temperature",
-        "reported_condition": "room temperature",
-        "note": "The article reports room temperature without a numeric value. 298 K is the library display convention, not a measured temperature or thermal correction."
-      },
-      "experimental_pressure_range_gpa": [1.31, 33.58],
-      "notes": "Published cubic fit to earlier X-ray densities, not an independent Brillouin EOS. No zero-pressure reference is implied. Figure 9 triangles are Eq.(6) values, with open triangles extrapolated, not measured observations. The source uses B_T=rho*dP/drho and approximates B_S=B_T except near melting. Tables II-III are elastic bounds dependent on Eq.(6). Do not convert longitudinal modulus C=rho*v^2 into solid bulk modulus. Coefficient error/covariance, precise room temperature and low-pressure diffraction fit cutoff are unspecified. Ref.17 Hazen et al.(1980), Carnegie Yearb.79,348; ref.18 Zou et al.(1982), Yearb.81,392; ref.19 Xu et al.(1984), High Temp.High Pressures16,495. Theory pair-potential curves are separate and are not this fit.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -497,14 +505,6 @@
             "published_coefficients_retained": true
           }
         }
-      },
-      "source_fit_pressure_range_gpa": [null, 77.0],
-      "reference_state": {
-        "pressure_gpa": 1.23,
-        "density_g_cm3": 2.0,
-        "volume_a3": 132.67042931092166,
-        "role": "computational_density_normalization",
-        "note": "Not a measured reference state or zero-pressure EOS volume."
       }
     },
     {
@@ -520,8 +520,7 @@
         "P0": {"value": -0.10289, "fixed": true}
       },
       "thermal": {
-        "thermal_pressure_reference": "absolute_zero",
-        "zero_point_pressure": "included",
+        "model": "Dewaele2006",
         "parameters": {
           "Tr": {"value": 293.0, "fixed": true},
           "theta0": {"value": 93.3, "fixed": true},
@@ -534,9 +533,14 @@
           "electronic_g": {"value": 1.0, "fixed": true},
           "n": {"value": 1.0, "fixed": true}
         },
-        "model": "Dewaele2006"
+        "thermal_pressure_reference": "absolute_zero",
+        "zero_point_pressure": "included"
       },
+      "experimental_pressure_range_gpa": [1.28, 8.17],
+      "experimental_temperature_range_k": [292.0, 294.0],
       "determination_method": "experimental",
+      "notes": "Second-order Murnaghan means quadratic K(P), not BM2. Static P0 offset plus zero-point and absolute Debye terms. V0/K0 are adopted low-temperature constraints, not room-temperature zero-pressure solid values. Eq. (1) has an apparent extra equals sign before PT; additive form follows the described decomposition and Eqs. (2)-(6). Printed P_z0 does not exactly cancel Eq. (2) at V0 with printed gamma1/theta0; retain all source values. Other-temperature isotherms in Fig.2 are predictions, not measured points. No solid-solid transition observed through 8.17 GPa. Uncertainty confidence level and covariance unspecified.",
+      "fit_datasets": ["argon_fcc_finger_1981_table1"],
       "reference": {
         "authors": ["Finger", "Hazen", "Zou", "Mao", "Bell"],
         "year": 1981,
@@ -546,9 +550,6 @@
         "locator": "892-894",
         "doi": "10.1063/1.92597"
       },
-      "experimental_pressure_range_gpa": [1.28, 8.17],
-      "experimental_temperature_range_k": [292.0, 294.0],
-      "notes": "Second-order Murnaghan means quadratic K(P), not BM2. Static P0 offset plus zero-point and absolute Debye terms. V0/K0 are adopted low-temperature constraints, not room-temperature zero-pressure solid values. Eq. (1) has an apparent extra equals sign before PT; additive form follows the described decomposition and Eqs. (2)-(6). Printed P_z0 does not exactly cancel Eq. (2) at V0 with printed gamma1/theta0; retain all source values. Other-temperature isotherms in Fig.2 are predictions, not measured points. No solid-solid transition observed through 8.17 GPa. Uncertainty confidence level and covariance unspecified.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -618,14 +619,14 @@
           "n": "One atom per Ar formula unit.",
           "determination_method": "Cold-curve derivative parameters fitted to experimental 293 K diffraction and ruby-pressure observations with source-adopted Debye thermal terms."
         }
-      },
-      "fit_datasets": ["argon_fcc_finger_1981_table1"]
+      }
     },
     {
       "identifier": "argon_fcc_anderson_swenson_1975_4p2k",
       "label": "Anderson and Swenson (1975), 4.2 K inverse-volume series",
       "model": "OddInversePower",
       "temperature_ref": 4.2,
+      "reference_pressure_gpa": 0.0,
       "parameters": {
         "V0": {"value": 149.82761293818365, "fixed": true},
         "C3": -1.5847490812853133,
@@ -633,7 +634,11 @@
         "C7": -0.15291811035962288,
         "C9": 0.0
       },
+      "experimental_pressure_range_gpa": [0.075, 2.0],
+      "experimental_temperature_range_k": [4.2, 4.2],
       "determination_method": "experimental",
+      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+      "comparison_datasets": ["argon_anderson_1972_appendix_a"],
       "reference": {
         "authors": ["Anderson", "Swenson"],
         "year": 1975,
@@ -644,9 +649,6 @@
         "locator": "145-162",
         "doi": "10.1016/0022-3697(75)90004-9"
       },
-      "experimental_pressure_range_gpa": [0.075, 2.0],
-      "experimental_temperature_range_k": [4.2, 4.2],
-      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -696,15 +698,14 @@
           "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
           "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
         }
-      },
-      "reference_pressure_gpa": 0.0,
-      "comparison_datasets": ["argon_anderson_1972_appendix_a"]
+      }
     },
     {
       "identifier": "argon_fcc_anderson_swenson_1975_20p0k",
       "label": "Anderson and Swenson (1975), 20 K inverse-volume series",
       "model": "OddInversePower",
       "temperature_ref": 20.0,
+      "reference_pressure_gpa": 0.0,
       "parameters": {
         "V0": {"value": 150.39019201630825, "fixed": true},
         "C3": -1.5049147837580361,
@@ -712,7 +713,11 @@
         "C7": -0.12732281941299328,
         "C9": 0.0
       },
+      "experimental_pressure_range_gpa": [0.05, 2.0],
+      "experimental_temperature_range_k": [20.0, 20.0],
       "determination_method": "experimental",
+      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+      "comparison_datasets": ["argon_anderson_1972_appendix_a"],
       "reference": {
         "authors": ["Anderson", "Swenson"],
         "year": 1975,
@@ -723,9 +728,6 @@
         "locator": "145-162",
         "doi": "10.1016/0022-3697(75)90004-9"
       },
-      "experimental_pressure_range_gpa": [0.05, 2.0],
-      "experimental_temperature_range_k": [20.0, 20.0],
-      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -775,15 +777,14 @@
           "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
           "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
         }
-      },
-      "reference_pressure_gpa": 0.0,
-      "comparison_datasets": ["argon_anderson_1972_appendix_a"]
+      }
     },
     {
       "identifier": "argon_fcc_anderson_swenson_1975_40p0k",
       "label": "Anderson and Swenson (1975), 40 K inverse-volume series",
       "model": "OddInversePower",
       "temperature_ref": 40.0,
+      "reference_pressure_gpa": 0.0,
       "parameters": {
         "V0": {"value": 153.00153863191386, "fixed": true},
         "C3": -1.235589867036941,
@@ -791,7 +792,11 @@
         "C7": -0.05852649297832283,
         "C9": 0.0
       },
+      "experimental_pressure_range_gpa": [0.025, 2.0],
+      "experimental_temperature_range_k": [40.0, 40.0],
       "determination_method": "experimental",
+      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+      "comparison_datasets": ["argon_anderson_1972_appendix_a"],
       "reference": {
         "authors": ["Anderson", "Swenson"],
         "year": 1975,
@@ -802,9 +807,6 @@
         "locator": "145-162",
         "doi": "10.1016/0022-3697(75)90004-9"
       },
-      "experimental_pressure_range_gpa": [0.025, 2.0],
-      "experimental_temperature_range_k": [40.0, 40.0],
-      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -854,15 +856,14 @@
           "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
           "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
         }
-      },
-      "reference_pressure_gpa": 0.0,
-      "comparison_datasets": ["argon_anderson_1972_appendix_a"]
+      }
     },
     {
       "identifier": "argon_fcc_anderson_swenson_1975_60p0k",
       "label": "Anderson and Swenson (1975), 60 K inverse-volume series",
       "model": "OddInversePower",
       "temperature_ref": 60.0,
+      "reference_pressure_gpa": 0.0,
       "parameters": {
         "V0": {"value": 156.93622047853083, "fixed": true},
         "C3": -0.8915138398785595,
@@ -870,7 +871,11 @@
         "C7": 0.0377079564028061,
         "C9": 0.0
       },
+      "experimental_pressure_range_gpa": [0.025, 2.0],
+      "experimental_temperature_range_k": [60.0, 60.0],
       "determination_method": "experimental",
+      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+      "comparison_datasets": ["argon_anderson_1972_appendix_a"],
       "reference": {
         "authors": ["Anderson", "Swenson"],
         "year": 1975,
@@ -881,9 +886,6 @@
         "locator": "145-162",
         "doi": "10.1016/0022-3697(75)90004-9"
       },
-      "experimental_pressure_range_gpa": [0.025, 2.0],
-      "experimental_temperature_range_k": [60.0, 60.0],
-      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -933,15 +935,14 @@
           "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
           "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
         }
-      },
-      "reference_pressure_gpa": 0.0,
-      "comparison_datasets": ["argon_anderson_1972_appendix_a"]
+      }
     },
     {
       "identifier": "argon_fcc_anderson_swenson_1975_77p0k",
       "label": "Anderson and Swenson (1975), 77 K inverse-volume series",
       "model": "OddInversePower",
       "temperature_ref": 77.0,
+      "reference_pressure_gpa": 0.0,
       "parameters": {
         "V0": {"value": 161.29649642869728, "fixed": true},
         "C3": -0.3981802158270529,
@@ -949,7 +950,11 @@
         "C7": 0.5191184111762208,
         "C9": -0.10676346111660394
       },
+      "experimental_pressure_range_gpa": [0.025, 2.0],
+      "experimental_temperature_range_k": [77.0, 77.0],
       "determination_method": "experimental",
+      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
+      "comparison_datasets": ["argon_anderson_1972_appendix_a"],
       "reference": {
         "authors": ["Anderson", "Swenson"],
         "year": 1975,
@@ -960,9 +965,6 @@
         "locator": "145-162",
         "doi": "10.1016/0022-3697(75)90004-9"
       },
-      "experimental_pressure_range_gpa": [0.025, 2.0],
-      "experimental_temperature_range_k": [77.0, 77.0],
-      "notes": "Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -1012,35 +1014,20 @@
           "C9": "Table 1 A9 divided by 10*V0_molar^9, where V0_molar is the numerical P=0 root; exact algebraic reparameterization into GPa.",
           "determination_method": "Empirical inverse-volume polynomial fitted to experimental piston-displacement compression measurements after source thermal and sample-holder reductions."
         }
-      },
-      "reference_pressure_gpa": 0.0,
-      "comparison_datasets": ["argon_anderson_1972_appendix_a"]
+      }
     },
     {
       "identifier": "argon_fcc_chen_2010_bm3_reported_constants",
       "label": "Chen (2010) — original-constant BM3 reconstruction — DO NOT USE",
       "model": "BM3",
       "temperature_ref": 290.0,
+      "reference_pressure_gpa": 0.0,
       "parameters": {
         "V0": {"value": 158.4458086182256, "error": null, "fixed": true},
         "K0": {"value": 2.579673179843727, "error": null, "fixed": true},
         "K0_prime": {"value": 9.081604622279848, "error": null, "fixed": true}
       },
-      "record_kind": "diagnostic",
-      "determination_method": "experimental",
-      "default": false,
-      "catalog_access": "explicit_selection",
-      "reference": {
-        "authors": ["Chen", "Gleason", "Yan", "Koski", "Clark", "Jeanloz"],
-        "year": 2010,
-        "title": "Elasticity, strength, and refractive index of argon at high pressures",
-        "source": "Physical Review B",
-        "volume": "81",
-        "locator": "144110",
-        "doi": "10.1103/PhysRevB.81.144110"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [1.23188372, 26.06236454],
       "experimental_temperature_range_k": [290, 290],
       "validity": {
@@ -1051,7 +1038,27 @@
           "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "diagnostic",
+      "default": false,
+      "catalog_access": "explicit_selection",
       "notes": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established. See docs/literature-reproductions/chen-2010-argon.md for the curve comparison, reference-state conventions and independent refit.",
+      "fit_datasets": [],
+      "diagnostic_datasets": [
+        "argon_fcc_chen_2010_figure5_brillouin",
+        "argon_fcc_chen_2010_figure5_curve",
+        "argon_fcc_chen_2010_reported_values"
+      ],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Chen", "Gleason", "Yan", "Koski", "Clark", "Jeanloz"],
+        "year": 2010,
+        "title": "Elasticity, strength, and refractive index of argon at high pressures",
+        "source": "Physical Review B",
+        "volume": "81",
+        "locator": "144110",
+        "doi": "10.1103/PhysRevB.81.144110"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -1109,39 +1116,20 @@
           "reason": "DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.",
           "do_not_use": true
         }
-      },
-      "reference_pressure_gpa": 0.0,
-      "fit_datasets": [],
-      "diagnostic_datasets": [
-        "argon_fcc_chen_2010_figure5_brillouin",
-        "argon_fcc_chen_2010_figure5_curve",
-        "argon_fcc_chen_2010_reported_values"
-      ]
+      }
     },
     {
       "identifier": "argon_fcc_chen_2010_bm3_digitized_refit",
       "label": "Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities",
       "model": "BM3",
       "temperature_ref": 290.0,
+      "reference_pressure_gpa": 0.0,
       "parameters": {
         "V0": {"value": 157.05439912614554, "error": null},
         "K0": {"value": 4.398863938924779, "error": null},
         "K0_prime": {"value": 4.621762004158216, "error": null}
       },
-      "record_kind": "refit",
-      "determination_method": "experimental",
-      "default": false,
-      "reference": {
-        "authors": ["Chen", "Gleason", "Yan", "Koski", "Clark", "Jeanloz"],
-        "year": 2010,
-        "title": "Elasticity, strength, and refractive index of argon at high pressures",
-        "source": "Physical Review B",
-        "volume": "81",
-        "locator": "144110",
-        "doi": "10.1103/PhysRevB.81.144110"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [1.23188372, 26.06236454],
       "experimental_temperature_range_k": [290, 290],
       "validity": {
@@ -1152,7 +1140,21 @@
           "Curve stability assessed only in the fitted pressure interval; zero-pressure coefficients are extrapolations."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "default": false,
       "notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent. Comparison and source discrepancy: docs/literature-reproductions/chen-2010-argon.md.",
+      "fit_datasets": ["argon_fcc_chen_2010_figure5_brillouin"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Chen", "Gleason", "Yan", "Koski", "Clark", "Jeanloz"],
+        "year": 2010,
+        "title": "Elasticity, strength, and refractive index of argon at high pressures",
+        "source": "Physical Review B",
+        "volume": "81",
+        "locator": "144110",
+        "doi": "10.1103/PhysRevB.81.144110"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -1266,9 +1268,7 @@
           "display_label": "Independent Peritheos refit — provisional",
           "reason": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
         }
-      },
-      "reference_pressure_gpa": 0.0,
-      "fit_datasets": ["argon_fcc_chen_2010_figure5_brillouin"]
+      }
     },
     {
       "identifier": "argon_fcc_maltby_2024_published",
@@ -1278,11 +1278,30 @@
       "parameters": {
         "shell_cutoff_squared": {"value": 64, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 16],
+      "experimental_temperature_range_k": [0, 300],
+      "validity": {
+        "pressure_gpa": [0, 16],
+        "temperature_k": [0, 300],
+        "notes": [
+          "Source model envelope, not a validated prediction range or a solid-phase stability boundary.",
+          "Numerical inverse search: 8–26 cm³/mol."
+        ]
+      },
       "determination_method": "hybrid",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default": false,
       "catalog_access": "explicit_selection",
+      "volume": {
+        "reference_value": 149.84704542176792,
+        "model_unit": "J bar^-1 mol^-1",
+        "public_to_model_scale": 0.0150553519,
+        "reference_meaning": "Characteristic volume 22.56 cm³/mol in source laws, not a zero-pressure volume."
+      },
+      "notes": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. Published coefficients are fixed. No parameter uncertainty, DAC confinement or fluid-reference free-energy offsets are provided. The diagnostic refit is not used.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Tage W. Maltby", "Morten Hammer", "Øivind Wilhelmsen"],
         "year": 2024,
@@ -1294,25 +1313,6 @@
         "doi": "10.1063/5.0237497",
         "published_online": "2024-12-19"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume": {
-        "reference_value": 149.84704542176792,
-        "model_unit": "J bar^-1 mol^-1",
-        "public_to_model_scale": 0.0150553519,
-        "reference_meaning": "Characteristic volume 22.56 cm³/mol in source laws, not a zero-pressure volume."
-      },
-      "experimental_pressure_range_gpa": [0, 16],
-      "experimental_temperature_range_k": [0, 300],
-      "validity": {
-        "pressure_gpa": [0, 16],
-        "temperature_k": [0, 300],
-        "notes": [
-          "Source model envelope, not a validated prediction range or a solid-phase stability boundary.",
-          "Numerical inverse search: 8–26 cm³/mol."
-        ]
-      },
-      "notes": "Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. Published coefficients are fixed. No parameter uncertainty, DAC confinement or fluid-reference free-energy offsets are provided. The diagnostic refit is not used.",
       "pressure_calibration": {
         "status": "unresolved",
         "notes": "Model fitted to heterogeneous literature measurements; underlying pressure calibrations are not harmonized.",
@@ -1359,9 +1359,13 @@
       "model": "BM3",
       "temperature_ref": 300.0,
       "parameters": {"V0": 138.83326594378107, "K0": 7.3276753422964385, "K0_prime": 5.018612278319878},
-      "record_kind": "refit",
+      "experimental_pressure_range_gpa": [1.6, 114.1347],
+      "experimental_temperature_range_k": [298.0, 300.0],
       "determination_method": "experimental",
+      "record_kind": "refit",
       "default": false,
+      "notes": "Provisional combined-data refit; not a default EOS or a reproduction of published coefficients. 41 Ross Table I observations at 298 K and 8 resolved Errandonea Fig.5 fcc markers at 300 K. Ross row17 (24.7 GPa) excluded as a suspected source error, retained in source archive. Cryogenic diamond excluded. Equal pressure weights; volume errors and covariance omitted. Strong objective sensitivity; parameter uncertainties not established. Fcc reflections retained through fcc/hcp coexistence. No independent hcp fit and no thermal EOS. Reference DOI identifies an input study, not authorship of these refitted coefficients.",
+      "fit_datasets": ["argon_fcc_ross_errandonea_selected49"],
       "reference": {
         "authors": ["Errandonea", "Boehler", "Japel", "Mezouar", "Benedetti"],
         "year": 2006,
@@ -1371,9 +1375,6 @@
         "locator": "092106",
         "doi": "10.1103/PhysRevB.73.092106"
       },
-      "experimental_pressure_range_gpa": [1.6, 114.1347],
-      "experimental_temperature_range_k": [298.0, 300.0],
-      "notes": "Provisional combined-data refit; not a default EOS or a reproduction of published coefficients. 41 Ross Table I observations at 298 K and 8 resolved Errandonea Fig.5 fcc markers at 300 K. Ross row17 (24.7 GPa) excluded as a suspected source error, retained in source archive. Cryogenic diamond excluded. Equal pressure weights; volume errors and covariance omitted. Strong objective sensitivity; parameter uncertainties not established. Fcc reflections retained through fcc/hcp coexistence. No independent hcp fit and no thermal EOS. Reference DOI identifies an input study, not authorship of these refitted coefficients.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1482,8 +1483,7 @@
           },
           "uncertainty_note": "No calibrated parameter uncertainties or covariance assigned; equal weights are an analyst choice, and fits depend strongly on the residual objective."
         }
-      },
-      "fit_datasets": ["argon_fcc_ross_errandonea_selected49"]
+      }
     }
   ],
   "symmetry": "CUBIC",

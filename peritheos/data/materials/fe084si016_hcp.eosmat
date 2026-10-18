@@ -18,6 +18,7 @@
         "K0_prime": {"value": 5.29, "error": 0.08}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 417.0, "error": null, "fixed": true},
@@ -25,14 +26,26 @@
           "q": {"value": 1.0, "error": null, "fixed": true},
           "n": {"value": 1.0, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
+      "experimental_temperature_range_k": [1128.7150000000001, 2566.255],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default_for": "equilibrium",
       "default": true,
+      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
+      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
+      "range_provenance": {
+        "source_location": "2014 official Table S1, source worksheet row numbers retained",
+        "selection": "phase=hcp",
+        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
+      },
+      "fit_datasets": ["fischer_2014_table_s1_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
@@ -42,12 +55,6 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [1128.7150000000001, 2566.255],
-      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -120,14 +127,7 @@
           "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
           "Tr": "300 K thermal-energy subtraction."
         }
-      },
-      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
-      "range_provenance": {
-        "source_location": "2014 official Table S1, source worksheet row numbers retained",
-        "selection": "phase=hcp",
-        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
-      },
-      "fit_datasets": ["fischer_2014_table_s1_pvt"]
+      }
     },
     {
       "identifier": "fe084si016_hcp_fischer_2014_vinet_2",
@@ -140,6 +140,7 @@
         "K0_prime": {"value": 6.08, "error": 0.08}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 417.0, "error": null, "fixed": true},
@@ -147,13 +148,25 @@
           "q": {"value": 1.0, "error": null, "fixed": true},
           "n": {"value": 1.0, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
+      "experimental_temperature_range_k": [1128.7150000000001, 2566.255],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default": false,
+      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
+      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
+      "range_provenance": {
+        "source_location": "2014 official Table S1, source worksheet row numbers retained",
+        "selection": "phase=hcp",
+        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
+      },
+      "fit_datasets": ["fischer_2014_table_s1_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
@@ -163,12 +176,6 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [1128.7150000000001, 2566.255],
-      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -241,14 +248,7 @@
           "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
           "Tr": "300 K thermal-energy subtraction."
         }
-      },
-      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
-      "range_provenance": {
-        "source_location": "2014 official Table S1, source worksheet row numbers retained",
-        "selection": "phase=hcp",
-        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
-      },
-      "fit_datasets": ["fischer_2014_table_s1_pvt"]
+      }
     }
   ],
   "aliases": ["Fe9Si hcp", "Fe–8.75 wt% Si hcp"],

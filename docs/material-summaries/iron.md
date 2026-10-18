@@ -3456,8 +3456,8 @@ establish statistical independence.
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
-- **Reported error confidence level:** Not specified
 - **Bulk modulus law:** reciprocal\_cubic
+- **Reported error confidence level:** Not specified
 
 </details>
 

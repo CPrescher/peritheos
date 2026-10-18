@@ -17,26 +17,7 @@
         "K0": {"value": 92.9, "error": 0.7},
         "K0_prime": {"value": 7.3, "error": 0.2}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Crichton, W. A.", "Ross, N. L."],
-        "year": 2000,
-        "title": "Equation of state of phase E",
-        "source": "Mineralogical Magazine",
-        "volume": "64",
-        "locator": "561–567",
-        "doi": "10.1180/002646100549427"
-      },
-      "temperature_ref_provenance": {
-        "kind": "assumed_room_temperature",
-        "reported_condition": "room temperature",
-        "note": "298 K is a nominal exchange reference only; the article does not report a numerical experimental temperature."
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0001, 6.671],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -46,7 +27,27 @@
           "Zero pressure is the model reference; lowest observed pressure is 0.0001 GPa. No numerical experimental temperature range is asserted."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
       "notes": "Only the physical volume BM3 is executable. Axial BM3-on-edge-cubes fits are supporting data, not volume EOS records. Published parameters remain unchanged. Independent refits are diagnostic outputs in the material-specific reproduction report, not replacement published coefficients. Room temperature is represented nominally as 298 K.",
+      "temperature_ref_provenance": {
+        "kind": "assumed_room_temperature",
+        "reported_condition": "room temperature",
+        "note": "298 K is a nominal exchange reference only; the article does not report a numerical experimental temperature."
+      },
+      "fit_datasets": ["phase_e_crichton_ross_2000_table1"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Crichton, W. A.", "Ross, N. L."],
+        "year": 2000,
+        "title": "Equation of state of phase E",
+        "source": "Mineralogical Magazine",
+        "volume": "64",
+        "locator": "561–567",
+        "doi": "10.1180/002646100549427"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-10-16",
@@ -139,8 +140,7 @@
           "range": "Table 1 exact extrema; room temperature reported qualitatively.",
           "fit_objective": "Author thesis (2000), Section 2.11, Eq. 2.31, p. 45: pressure-residual weighted least squares, chi_w_squared divided by n-m; pressure and propagated volume esds combined. Exact numerical implementation unresolved."
         }
-      },
-      "fit_datasets": ["phase_e_crichton_ross_2000_table1"]
+      }
     }
   ],
   "symmetry": "HEXAGONAL",

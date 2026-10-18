@@ -16,7 +16,9 @@
         "K0": {"value": 323.4, "error": 1.1},
         "K0_prime": {"value": 4.15, "error": 0.019}
       },
+      "experimental_pressure_range_gpa": [0.0, 151.0],
       "determination_method": "experimental",
+      "notes": "Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).",
       "reference": {
         "authors": [
           "Anzellini",
@@ -37,8 +39,6 @@
         "locator": "14459",
         "doi": "10.1038/s41598-019-51037-8"
       },
-      "experimental_pressure_range_gpa": [0.0, 151.0],
-      "notes": "Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [

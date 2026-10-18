@@ -18,7 +18,7 @@
         "K0_prime": {"value": 5.0, "error": null, "fixed": true}
       },
       "thermal": {
-        "debye_temperature_law": "variable_exponent",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 295.0, "error": null, "fixed": true},
           "theta0": {"value": 470.0, "error": null, "fixed": true},
@@ -26,9 +26,18 @@
           "q": {"value": 1.6, "error": 0.6},
           "n": {"value": 1.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "variable_exponent"
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [3.9954833425198, 27.0],
+      "experimental_temperature_range_k": [873.0, 2160.0],
       "determination_method": "experimental",
+      "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. The published fit also includes Seagle et al. (2008). Its 81 V-T rows are linked, but exact row-wise pressures and Campbell recalibration are not published. Independent refits therefore report a current-study subset and a nominal-isobar sensitivity reconstruction. Only stable fcc-Fe rows enter this branch; hcp Fe is explicitly adopted from Dewaele (2006), not a new Campbell fit. ",
+      "range_provenance": {
+        "source_location": "Tables S2-S3; Seagle (2008) Table 1 and subsolidus supplement for Fe/FeO",
+        "notes": "Marginal experimental coverage, not a rectangular phase-stability field. Fe/FeO upper bounds include earlier Seagle approximate isobars; new-study-only bounds and selected-row extrema are in the reproduction JSON. fcc Fe and stoichiometric B1 FeO must remain within their source phase/composition fields. The 295 K reference is an extrapolation. NiO is a source cubic-average B1 model across unresolved magnetic distortion."
+      },
+      "fit_datasets": ["feo_campbell_2009_table_s2_pvt", "feo_seagle_2008_supplement_volume_temperature"],
       "reference": {
         "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
         "year": 2009,
@@ -38,10 +47,6 @@
         "locator": "556-564",
         "doi": "10.1016/j.epsl.2009.07.022"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [3.9954833425198, 27.0],
-      "experimental_temperature_range_k": [873.0, 2160.0],
-      "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. The published fit also includes Seagle et al. (2008). Its 81 V-T rows are linked, but exact row-wise pressures and Campbell recalibration are not published. Independent refits therefore report a current-study subset and a nominal-isobar sensitivity reconstruction. Only stable fcc-Fe rows enter this branch; hcp Fe is explicitly adopted from Dewaele (2006), not a new Campbell fit. ",
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-09-19",
@@ -144,12 +149,7 @@
             "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
           }
         }
-      },
-      "range_provenance": {
-        "source_location": "Tables S2-S3; Seagle (2008) Table 1 and subsolidus supplement for Fe/FeO",
-        "notes": "Marginal experimental coverage, not a rectangular phase-stability field. Fe/FeO upper bounds include earlier Seagle approximate isobars; new-study-only bounds and selected-row extrema are in the reproduction JSON. fcc Fe and stoichiometric B1 FeO must remain within their source phase/composition fields. The 295 K reference is an extrapolation. NiO is a source cubic-average B1 model across unresolved magnetic distortion."
-      },
-      "fit_datasets": ["feo_campbell_2009_table_s2_pvt", "feo_seagle_2008_supplement_volume_temperature"]
+      }
     }
   ],
   "aliases": ["gamma iron", "austenite"],

@@ -17,21 +17,7 @@
         "K0": {"value": 148.0, "error": 3.0},
         "K0_prime": {"value": 4.09, "error": 0.12}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],
-        "year": 2017,
-        "title": "Single-crystal equations of state of magnesiowustite at high pressures",
-        "source": "American Mineralogist",
-        "volume": "102",
-        "locator": "1709-1717",
-        "doi": "10.2138/am-2017-5966"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [1.823, 55.542],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -44,7 +30,31 @@
           "Helium is the more hydrostatic baseline, although the article cites gradual nonhydrostaticity in helium above about 23 GPa."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "experimental_configuration": {
+        "sample": "single-crystal fragments from defect-normalized Mw78, Mg0.215Fe0.762□0.023O",
+        "pressure_medium": "helium gas-loaded at approximately 25000 PSI",
+        "pressure_cell": "BX90 diamond-anvil cell with 250 micrometer beveled culets",
+        "diffraction": "single-crystal X-ray diffraction at APS GSECARS PX2 13-BM-C, wavelength 0.4340 A",
+        "fit_software": "MINUTI version 2.0",
+        "fit_selection": "all 17 helium-medium cubic-indexed Table 2 rows",
+        "fit_constraints": "V0 prior 78.94 +/- 0.1 A^3; K0 and K0_prime free"
+      },
       "notes": "Canonical equilibrium-oriented record. V0 is fitted under a 78.94 +/- 0.1 A^3 ambient prior rather than fixed; K0 and K0_prime are freely varied. Parenthetical values are the source's 1-sigma fit uncertainties, stored with null confidence because they are standard errors rather than interval half-widths. The 300 K reference is nominal room temperature and no row-wise temperature observations are reported.",
+      "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],
+        "year": 2017,
+        "title": "Single-crystal equations of state of magnesiowustite at high pressures",
+        "source": "American Mineralogist",
+        "volume": "102",
+        "locator": "1709-1717",
+        "doi": "10.2138/am-2017-5966"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -189,17 +199,7 @@
             "sha256": "80f895e66372fe27ba8104a7b65960fea67846b3aea10225c644df77ffc845d2"
           }
         ]
-      },
-      "experimental_configuration": {
-        "sample": "single-crystal fragments from defect-normalized Mw78, Mg0.215Fe0.762□0.023O",
-        "pressure_medium": "helium gas-loaded at approximately 25000 PSI",
-        "pressure_cell": "BX90 diamond-anvil cell with 250 micrometer beveled culets",
-        "diffraction": "single-crystal X-ray diffraction at APS GSECARS PX2 13-BM-C, wavelength 0.4340 A",
-        "fit_software": "MINUTI version 2.0",
-        "fit_selection": "all 17 helium-medium cubic-indexed Table 2 rows",
-        "fit_constraints": "V0 prior 78.94 +/- 0.1 A^3; K0 and K0_prime free"
-      },
-      "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"]
+      }
     },
     {
       "identifier": "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2",
@@ -211,20 +211,7 @@
         "K0": {"value": 163.0, "error": 1.0},
         "K0_prime": {"value": 4.02, "error": 0.1}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],
-        "year": 2017,
-        "title": "Single-crystal equations of state of magnesiowustite at high pressures",
-        "source": "American Mineralogist",
-        "volume": "102",
-        "locator": "1709-1717",
-        "doi": "10.2138/am-2017-5966"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [1.314, 19.244],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -237,7 +224,30 @@
           "Do not extrapolate this stress-sensitive fit into the high-pressure distorted branch."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "experimental_configuration": {
+        "sample": "single-crystal fragments from defect-normalized Mw78, Mg0.215Fe0.762□0.023O",
+        "pressure_medium": "neon gas-loaded at approximately 25000 PSI",
+        "pressure_cell": "Princeton-design symmetric diamond-anvil cell with 300 micrometer culets",
+        "diffraction": "single-crystal X-ray diffraction at APS GSECARS 13-ID-D, wavelength 0.3100 A",
+        "fit_software": "MINUTI version 2.0",
+        "fit_selection": "first five neon-medium cubic-indexed Table 2 rows, 1.314-19.244 GPa",
+        "fit_constraints": "V0 prior 78.94 +/- 0.1 A^3 and K0_prime prior 4.0 +/- 0.1; neither parameter fixed"
+      },
       "notes": "Published stress-sensitive low-pressure neon alternative. V0 and K0_prime were constrained by priors, not fixed, so fixed_parameters is empty. The authors attribute the stiffer curve relative to helium to neon crystallization and nonhydrostaticity; this record is intentionally not the default. Parenthetical values are 1-sigma fit uncertainties.",
+      "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Finkelstein", "Jackson", "Sturhahn", "Zhang", "Alp", "Toellner"],
+        "year": 2017,
+        "title": "Single-crystal equations of state of magnesiowustite at high pressures",
+        "source": "American Mineralogist",
+        "volume": "102",
+        "locator": "1709-1717",
+        "doi": "10.2138/am-2017-5966"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -367,17 +377,7 @@
             "sha256": "80f895e66372fe27ba8104a7b65960fea67846b3aea10225c644df77ffc845d2"
           }
         ]
-      },
-      "experimental_configuration": {
-        "sample": "single-crystal fragments from defect-normalized Mw78, Mg0.215Fe0.762□0.023O",
-        "pressure_medium": "neon gas-loaded at approximately 25000 PSI",
-        "pressure_cell": "Princeton-design symmetric diamond-anvil cell with 300 micrometer culets",
-        "diffraction": "single-crystal X-ray diffraction at APS GSECARS 13-ID-D, wavelength 0.3100 A",
-        "fit_software": "MINUTI version 2.0",
-        "fit_selection": "first five neon-medium cubic-indexed Table 2 rows, 1.314-19.244 GPa",
-        "fit_constraints": "V0 prior 78.94 +/- 0.1 A^3 and K0_prime prior 4.0 +/- 0.1; neither parameter fixed"
-      },
-      "fit_datasets": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"]
+      }
     }
   ],
   "aliases": ["Mw78", "(Mg0.215Fe0.762□0.023)O", "(Mg0.22Fe0.78)O", "iron-rich ferropericlase"],

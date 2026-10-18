@@ -16,7 +16,9 @@
         "K0": {"value": 199.0, "error": 6.0},
         "K0_prime": {"value": 3.6, "error": 0.2}
       },
+      "experimental_pressure_range_gpa": [0.0, 79.0],
       "determination_method": "experimental",
+      "notes": "Room-temperature hcp-cobalt Vinet fit to 79 GPa: K0=199+/-6 GPa and K0'=3.6+/-0.2. Volumes were normalized to the ambient hcp volume, retained here as the fixed conventional-cell V0.",
       "reference": {
         "authors": ["Fujihisa", "Takemura"],
         "year": 1996,
@@ -26,8 +28,6 @@
         "locator": "5-7",
         "doi": "10.1103/PhysRevB.54.5"
       },
-      "experimental_pressure_range_gpa": [0.0, 79.0],
-      "notes": "Room-temperature hcp-cobalt Vinet fit to 79 GPa: K0=199+/-6 GPa and K0'=3.6+/-0.2. Volumes were normalized to the ambient hcp volume, retained here as the fixed conventional-cell V0.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -90,18 +90,7 @@
         "K0": {"value": 197.0, "error": 3.2},
         "K0_prime": {"value": 3.85, "error": 0.2}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 66.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -109,7 +98,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["cobalt_dewaele_2008_table2_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -167,8 +168,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["cobalt_dewaele_2008_table2_compression"]
+      }
     },
     {
       "identifier": "cobalt_hcp_dewaele_2019_dor_vinet",
@@ -180,18 +180,7 @@
         "K0": {"value": 194.85, "error": 3.2},
         "K0_prime": {"value": 4.36, "error": 0.2}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 66.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -199,7 +188,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["cobalt_dewaele_2008_table2_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -257,8 +258,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["cobalt_dewaele_2008_table2_compression"]
+      }
     }
   ],
   "symmetry": "HEXAGONAL",

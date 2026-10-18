@@ -17,9 +17,23 @@
         "K0": {"value": 147.5, "error": 6.8},
         "K0_prime": {"value": 4.9, "error": 0.2}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 100.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 100.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": [
+          "Ordered P2/m model-1 branch. The source separately plots a metastable symmetric-hydrogen-bond extension; it is not an independent fitted EOS."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 118.399},
+      "fit_datasets": ["phase_h_tsuchiya_mookherjee_2015_table1_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Tsuchiya", "Mookherjee"],
         "year": 2015,
@@ -28,19 +42,6 @@
         "volume": "5",
         "locator": "15534",
         "doi": "10.1038/srep15534"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 118.399},
-      "experimental_pressure_range_gpa": [0.0, 100.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 100.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": [
-          "Ordered P2/m model-1 branch. The source separately plots a metastable symmetric-hydrogen-bond extension; it is not an independent fitted EOS."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -78,8 +79,7 @@
           "parameters": "Results paragraph preceding Figure 2.",
           "method": "Static 0 K GGA variable-cell first-principles calculations over 0-100 GPa."
         }
-      },
-      "fit_datasets": ["phase_h_tsuchiya_mookherjee_2015_table1_pv"]
+      }
     }
   ],
   "aliases": ["MgSiO4H2 phase H"],

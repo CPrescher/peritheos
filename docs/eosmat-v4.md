@@ -36,6 +36,27 @@ units. An explicit `units` object can repeat the same conventions. Source-table
 columns retain their original units independently. Molar/atomic volume cannot
 be entered as conventional-cell volume without a documented conversion.
 
+## Reading order in saved files
+
+The formatter keeps each record's model, reference temperature and coefficients
+together. Thermal components consistently start with `model` and `parameters`,
+followed by their explicit reference convention and model-law choices.
+
+The record then shows the reported error confidence, experimental pressure and
+temperature coverage, model validity, origin and selection restrictions. Sample,
+branch and volume conventions and source-specific qualifications appear before
+the longer covariance, citation, pressure-calibration and `evidence` sections.
+Unrecognized record extensions also stay ahead of those detailed sections.
+Material-level recommendation holds appear before `eos_records`.
+
+This is a presentation convention, not a required JSON key order. Readers accept
+any key order. Formatting moves whole fields within their existing objects;
+it does not rename fields, change their nesting, omit values or infer scientific
+information. Parameter
+order, covariance parameter names/matrix rows, source arrays, record order and
+unknown nested metadata remain intact. Historical v2/v3 formatting is retained.
+Use `python -m peritheos format FILE` to apply this layout to an existing file.
+
 ## Parameters and uncertainties together
 
 A parameter without reported error or fixed status is a number. Annotate it

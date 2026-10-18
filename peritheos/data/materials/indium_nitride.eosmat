@@ -15,7 +15,9 @@
         "K0": {"value": 166.0, "error": null},
         "K0_prime": {"value": 3.8, "error": null}
       },
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "notes": "Ab initio 0 K static Murnaghan energy-volume fit for wurtzite InN. The theoretical conventional-cell V0=59.92519880888224 A^3 is calculated from Table 1 a0=3.483 A and c0=5.7039 A; K0=166 GPa and K0'=3.8 are from the same pseudopotential row. These are not experimental EOS parameters. The paper estimates finite-cutoff sensitivity from 40/70-Ryd calculations, but does not publish statistical coefficient errors or covariance, so none are inferred.",
       "reference": {
         "authors": ["Muñoz", "Kunc"],
         "year": 1993,
@@ -25,8 +27,6 @@
         "locator": "6015-6022",
         "doi": "10.1088/0953-8984/5/33/010"
       },
-      "pressure_range_status": "theoretical",
-      "notes": "Ab initio 0 K static Murnaghan energy-volume fit for wurtzite InN. The theoretical conventional-cell V0=59.92519880888224 A^3 is calculated from Table 1 a0=3.483 A and c0=5.7039 A; K0=166 GPa and K0'=3.8 are from the same pseudopotential row. These are not experimental EOS parameters. The paper estimates finite-cutoff sensitivity from 40/70-Ryd calculations, but does not publish statistical coefficient errors or covariance, so none are inferred.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [

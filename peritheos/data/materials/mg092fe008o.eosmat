@@ -17,21 +17,7 @@
         "K0": {"value": 152.5, "error": 2.4},
         "K0_prime": {"value": 4.1, "error": 0.2}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Yang", "Tong", "Lin", "Okuchi", "Tomioka"],
-        "year": 2015,
-        "title": "Elasticity of Ferropericlase across the Spin Crossover in the Earth's Lower Mantle",
-        "source": "Scientific Reports",
-        "volume": "5",
-        "locator": "17188",
-        "doi": "10.1038/srep17188"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.8272},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 40],
@@ -40,6 +26,27 @@
           "Pure high-spin reference branch; it is not the measured mixed-spin curve between 40 and 60 GPa.",
           "The source reports the spin transition as a 40-60 GPa interval rather than a fitted midpoint uncertainty."
         ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.8272},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 50,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 20,
+        "mixer_implemented": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Yang", "Tong", "Lin", "Okuchi", "Tomioka"],
+        "year": 2015,
+        "title": "Elasticity of Ferropericlase across the Spin Crossover in the Earth's Lower Mantle",
+        "source": "Scientific Reports",
+        "volume": "5",
+        "locator": "17188",
+        "doi": "10.1038/srep17188"
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -84,13 +91,6 @@
           "K0_prime": "Results: KT0'=4.1(0.2) for the high-spin state.",
           "fit_relationship": "The source also reports a low-spin K0 and fixed K0', but not a separate low-spin V0; that incomplete branch is not stored."
         }
-      },
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 50,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 20,
-        "mixer_implemented": false
       }
     }
   ],

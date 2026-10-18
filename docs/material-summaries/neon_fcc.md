@@ -99,8 +99,8 @@ establish statistical independence.
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
-- **Debye temperature law:** variable\_exponent
 - **Thermal pressure reference:** reference\_temperature
+- **Debye temperature law:** variable\_exponent
 
 </details>
 
@@ -250,8 +250,8 @@ establish statistical independence.
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
-- **Debye temperature law:** variable\_exponent
 - **Thermal pressure reference:** reference\_temperature
+- **Debye temperature law:** variable\_exponent
 
 </details>
 

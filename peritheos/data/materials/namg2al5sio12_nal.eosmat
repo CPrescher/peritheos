@@ -17,25 +17,10 @@
         "K0": {"value": 217.7, "error": null},
         "K0_prime": {"value": 4.08, "error": null}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "reference": {
-        "authors": ["Kawai", "Tsuchiya"],
-        "year": 2012,
-        "title": "Phase stability and elastic properties of the NAL and CF phases in the NaMg2Al5SiO12 system from first principles",
-        "source": "American Mineralogist",
-        "volume": "97",
-        "locator": "305-314",
-        "doi": "10.2138/am.2012.3915"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 50.0],
-      "pressure_range_status": "theoretical",
       "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "validity": {
         "pressure_gpa": [0.0, 50.0],
         "temperature_k": [0.0, 0.0],
@@ -45,7 +30,32 @@
           "Static LDA record; no thermal correction is included."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "default": true,
+      "sample_composition": "Exactly NaMg2Al5SiO12 (33Na-67Mg), represented by eight 63-atom 1x1x3 ordered NAL supercells",
+      "computational_configuration": {
+        "method": "density-functional theory in the local-density approximation",
+        "code": "PWSCF / Quantum ESPRESSO",
+        "plane_wave_cutoff_ry": 50.0,
+        "k_point_grid": [2, 2, 2],
+        "relaxation": "damped variable-cell-shape constant-pressure molecular dynamics; all structural parameters relaxed to residual forces below 5.0e-5 Ry/a.u.",
+        "configuration_sampling": "eight 1x1x3 supercells with distinct Na/vacancy and Al/Si orderings"
+      },
       "notes": "Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration.",
+      "fit_datasets": ["namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Kawai", "Tsuchiya"],
+        "year": 2012,
+        "title": "Phase stability and elastic properties of the NAL and CF phases in the NaMg2Al5SiO12 system from first principles",
+        "source": "American Mineralogist",
+        "volume": "97",
+        "locator": "305-314",
+        "doi": "10.2138/am.2012.3915"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -131,17 +141,7 @@
             "doi": "10.2138/am-2000-11-1223"
           }
         ]
-      },
-      "sample_composition": "Exactly NaMg2Al5SiO12 (33Na-67Mg), represented by eight 63-atom 1x1x3 ordered NAL supercells",
-      "computational_configuration": {
-        "method": "density-functional theory in the local-density approximation",
-        "code": "PWSCF / Quantum ESPRESSO",
-        "plane_wave_cutoff_ry": 50.0,
-        "k_point_grid": [2, 2, 2],
-        "relaxation": "damped variable-cell-shape constant-pressure molecular dynamics; all structural parameters relaxed to residual forces below 5.0e-5 Ry/a.u.",
-        "configuration_sampling": "eight 1x1x3 supercells with distinct Na/vacancy and Al/Si orderings"
-      },
-      "fit_datasets": ["namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized"]
+      }
     }
   ],
   "aliases": ["NaMg2Al5SiO12 new aluminous phase", "33Na-67Mg NAL"],

@@ -17,18 +17,7 @@
         "K0": {"value": 139.23431084, "error": null},
         "K0_prime": {"value": 5.00112704, "error": null}
       },
-      "record_kind": "refit",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Kennedy", "Keeler"],
-        "year": 1972,
-        "title": "High-pressure equations of state",
-        "source": "American Institute of Physics Handbook, 3rd ed.",
-        "locator": "section 4d-2, Table 4d-12, p. 4-100"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [1.5, 34.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -39,7 +28,18 @@
           "This phase-unresolved derived isotherm is not a phase-stability or extrapolation guarantee."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "equation_kind": "isothermal",
       "notes": "Independent Peritheos refit of the manually verified Cu column in AIP Handbook Table 4d-12. It is intentionally separate from the Sun et al. source-author Vinet record. The handbook values are rounded derived-isotherm points rather than experiment-level raw observations.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Kennedy", "Keeler"],
+        "year": 1972,
+        "title": "High-pressure equations of state",
+        "source": "American Institute of Physics Handbook, 3rd ed.",
+        "locator": "section 4d-2, Table 4d-12, p. 4-100"
+      },
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [

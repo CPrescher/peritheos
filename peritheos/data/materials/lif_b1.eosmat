@@ -16,7 +16,11 @@
         "K0": {"value": 64.6, "error": 1.4},
         "K0_prime": {"value": 4.62, "error": 0.6}
       },
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [0.0, 109.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Table 1 Mao-ruby-scale fit, selected because that column reports parameter uncertainties. Published V0=16.371(30) A^3 per formula unit is multiplied by Z=4 for the conventional B1 cell. The paper states that parenthesized values are 95% confidence intervals.",
       "reference": {
         "authors": ["Dewaele"],
         "year": 2019,
@@ -26,10 +30,6 @@
         "locator": "684",
         "doi": "10.3390/min9110684"
       },
-      "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 109.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Table 1 Mao-ruby-scale fit, selected because that column reports parameter uncertainties. Published V0=16.371(30) A^3 per formula unit is multiplied by Z=4 for the conventional B1 cell. The paper states that parenthesized values are 95% confidence intervals.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

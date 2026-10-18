@@ -16,7 +16,11 @@
         "K0": {"value": 175.4, "error": 3.5},
         "K0_prime": {"value": 5.1, "error": 0.3}
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 73.2],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Scott et al. report a weighted third-order Birch-Murnaghan fit to 300 K compression data: V0=155.26+/-0.14 A^3 is the separately measured ambient unit-cell volume, K0T=175.4+/-3.5 GPa, and K0T'=5.1+/-0.3. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum. The paper reports no parameter covariance or confidence convention for the printed +/- values. The 73 GPa envelope is not a thermal validity claim and should not be extrapolated to core pressures.",
       "reference": {
         "authors": ["Scott", "Williams", "Knittle"],
         "year": 2001,
@@ -26,10 +30,6 @@
         "locator": "1875-1878",
         "doi": "10.1029/2000GL012606"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 73.2],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Scott et al. report a weighted third-order Birch-Murnaghan fit to 300 K compression data: V0=155.26+/-0.14 A^3 is the separately measured ambient unit-cell volume, K0T=175.4+/-3.5 GPa, and K0T'=5.1+/-0.3. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum. The paper reports no parameter covariance or confidence convention for the printed +/- values. The 73 GPa envelope is not a thermal validity claim and should not be extrapolated to core pressures.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

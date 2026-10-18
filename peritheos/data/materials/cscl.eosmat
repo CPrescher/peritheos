@@ -17,7 +17,26 @@
         "K0": {"value": 17.01, "error": 0.29},
         "K0_prime": {"value": 5.49, "error": 0.15}
       },
+      "experimental_pressure_range_gpa": [0.0, 28.7],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' 13 Table 1 observations and nine corrected Yagi (1978) Table 1 compression ratios. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). Campbell and Heinz do not state the numerical weights used for their normalized-stress regression, so exact central-value reproduction remains fit-protocol limited.",
+      "fit_datasets": ["cscl_campbell_1994_table1_compression", "cscl_yagi_1978_table1_compression"],
+      "fit_data_sources": [
+        {
+          "source": "Campbell and Heinz (1994), this study",
+          "data": "13 room-temperature lattice-parameter observations",
+          "dataset_identifier": "cscl_campbell_1994_table1_compression",
+          "availability": "bundled_transcribed"
+        },
+        {
+          "source": "Yagi (1978)",
+          "data": "nine 25 degC V/V0 values from Table 1",
+          "dataset_identifier": "cscl_yagi_1978_table1_compression",
+          "volume_treatment": "Ratios multiplied by (4.118/4.123)^3 as specified by Campbell and Heinz",
+          "availability": "bundled_transcribed_and_corrected"
+        }
+      ],
       "reference": {
         "authors": ["Campbell", "Heinz"],
         "year": 1994,
@@ -27,9 +46,6 @@
         "locator": "11765-11774",
         "doi": "10.1029/94JB00127"
       },
-      "experimental_pressure_range_gpa": [0.0, 28.7],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' 13 Table 1 observations and nine corrected Yagi (1978) Table 1 compression ratios. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). Campbell and Heinz do not state the numerical weights used for their normalized-stress regression, so exact central-value reproduction remains fit-protocol limited.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -89,23 +105,7 @@
           "K0_prime": "Campbell and Heinz (1994), page 11767 and Figure 2",
           "equation": "Campbell and Heinz (1994), page 11767: Eulerian finite-strain analysis with linear normalized stress"
         }
-      },
-      "fit_datasets": ["cscl_campbell_1994_table1_compression", "cscl_yagi_1978_table1_compression"],
-      "fit_data_sources": [
-        {
-          "source": "Campbell and Heinz (1994), this study",
-          "data": "13 room-temperature lattice-parameter observations",
-          "dataset_identifier": "cscl_campbell_1994_table1_compression",
-          "availability": "bundled_transcribed"
-        },
-        {
-          "source": "Yagi (1978)",
-          "data": "nine 25 degC V/V0 values from Table 1",
-          "dataset_identifier": "cscl_yagi_1978_table1_compression",
-          "volume_treatment": "Ratios multiplied by (4.118/4.123)^3 as specified by Campbell and Heinz",
-          "availability": "bundled_transcribed_and_corrected"
-        }
-      ]
+      }
     }
   ],
   "symmetry": "CUBIC",

@@ -16,6 +16,8 @@
         "K0": {"value": 395.0, "error": 15.0},
         "K0_prime": {"value": 4.5, "error": 0.5}
       },
+      "experimental_pressure_range_gpa": [0.0, 58.2],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
       "reference": {
         "authors": ["Takemura"],
@@ -26,8 +28,6 @@
         "locator": "012101",
         "doi": "10.1103/PhysRevB.70.012101"
       },
-      "experimental_pressure_range_gpa": [0.0, 58.2],
-      "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

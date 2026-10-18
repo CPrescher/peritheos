@@ -16,7 +16,10 @@
         "K0": {"value": 98.0, "error": 2.0},
         "K0_prime": {"value": 3.6, "error": 0.2}
       },
+      "experimental_pressure_range_gpa": [0.0, 33.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "The fit constrained V0 to the independently measured decompression value 23.05(3) A^3/atom; volume and uncertainty are tripled for the conventional Z=3 cell.",
       "reference": {
         "authors": ["McHardy", "Storm", "Lonsdale", "Roy", "McMahon"],
         "year": 2026,
@@ -26,9 +29,6 @@
         "locator": "174115",
         "doi": "10.1103/zp3m-kjpc"
       },
-      "experimental_pressure_range_gpa": [0.0, 33.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "The fit constrained V0 to the independently measured decompression value 23.05(3) A^3/atom; volume and uncertainty are tripled for the conventional Z=3 cell.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

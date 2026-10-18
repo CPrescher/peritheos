@@ -16,24 +16,10 @@
         "V0": {"value": 172.1, "error": 0.4},
         "K0": {"value": 229.0, "error": 4.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
-        "year": 2020,
-        "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "125",
-        "locator": "e2020JB019964",
-        "doi": "10.1029/2020JB019964"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [26.8, 102.2],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [26.8, 102.2],
         "temperature_k": [300.0, 300.0],
@@ -44,7 +30,32 @@
           "The curve averages before- and after-current-step-anneal states and must not be interpreted as a pure low-spin branch."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "sample_composition": "Nominal (Mg0.5Fe3+0.5)(Al0.5Si0.5)O3 (FA50); the two synthesis runs analyzed as (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3, without a published mapping to XRD sample 1 versus sample 2.",
+      "experimental_configuration": {
+        "sample": "Approximately 30 micrometre diameter and 15 micrometre thick grain of synthesized FA50 bridgmanite in a rhenium-gasket diamond-anvil cell.",
+        "pressure_medium": "neon",
+        "pressure_gauge": "gold powder using Fei et al. (2007)",
+        "diffraction": "Angle-dispersive synchrotron XRD at APS 13-ID-D, 3 micrometre beam, wavelength 0.3344 angstrom, with +/-10 degree wide scans; Dioptas integration and Le Bail refinement in GSAS.",
+        "thermal_history": "After initial transformation/annealing near 27 GPa, sample 1 was compressed stepwise and laser annealed at 1600-2200 K for 10-25 minutes after selected measurements. The fit uses all 23 room-temperature volumes measured both before and after the current pressure-step anneal.",
+        "excluded_reflections": "Overlapping sample, Au, and Ne peaks were excluded during lattice refinement."
+      },
       "notes": "Authors' preferred room-temperature BM2, chosen for denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. This mixed-spin curve is the equilibrium default, but not a pure low-spin branch.",
+      "iron_speciation": "Initially high-spin Fe3+ occupies the A site. Stepwise laser annealing permits gradual Fe-Al exchange, placing a pressure-increasing minority of Fe3+ on the B site where it becomes low spin. Spectroscopy reports approximately 6% low-spin Fe3+ at 59 GPa and method-dependent 17-31% at 80 GPa. This preferred curve spans a pressure-dependent mixed-spin population and is not a fully low-spin branch.",
+      "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
+        "year": 2020,
+        "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "125",
+        "locator": "e2020JB019964",
+        "doi": "10.1029/2020JB019964"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -135,18 +146,7 @@
           "fit_selection": "All 23 rows on the official Zenodo latticeparameters.xlsx 'sample 1' worksheet. Black-font rows are before current-step heating and red-font rows are after current-step heating.",
           "uncertainties": "Parenthetical published parameter uncertainties are retained, but the article does not state their confidence convention or covariance."
         }
-      },
-      "sample_composition": "Nominal (Mg0.5Fe3+0.5)(Al0.5Si0.5)O3 (FA50); the two synthesis runs analyzed as (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3, without a published mapping to XRD sample 1 versus sample 2.",
-      "iron_speciation": "Initially high-spin Fe3+ occupies the A site. Stepwise laser annealing permits gradual Fe-Al exchange, placing a pressure-increasing minority of Fe3+ on the B site where it becomes low spin. Spectroscopy reports approximately 6% low-spin Fe3+ at 59 GPa and method-dependent 17-31% at 80 GPa. This preferred curve spans a pressure-dependent mixed-spin population and is not a fully low-spin branch.",
-      "experimental_configuration": {
-        "sample": "Approximately 30 micrometre diameter and 15 micrometre thick grain of synthesized FA50 bridgmanite in a rhenium-gasket diamond-anvil cell.",
-        "pressure_medium": "neon",
-        "pressure_gauge": "gold powder using Fei et al. (2007)",
-        "diffraction": "Angle-dispersive synchrotron XRD at APS 13-ID-D, 3 micrometre beam, wavelength 0.3344 angstrom, with +/-10 degree wide scans; Dioptas integration and Le Bail refinement in GSAS.",
-        "thermal_history": "After initial transformation/annealing near 27 GPa, sample 1 was compressed stepwise and laser annealed at 1600-2200 K for 10-25 minutes after selected measurements. The fit uses all 23 room-temperature volumes measured both before and after the current pressure-step anneal.",
-        "excluded_reflections": "Overlapping sample, Au, and Ne peaks were excluded during lattice refinement."
-      },
-      "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"]
+      }
     },
     {
       "identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2",
@@ -157,23 +157,10 @@
         "V0": {"value": 172.0, "error": 0.7},
         "K0": {"value": 230.0, "error": 6.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
-        "year": 2020,
-        "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "125",
-        "locator": "e2020JB019964",
-        "doi": "10.1029/2020JB019964"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [29.0, 102.2],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [29.0, 102.2],
         "temperature_k": [300.0, 300.0],
@@ -184,7 +171,29 @@
           "This comparison subset is not an independent spin-state branch."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "sample_composition": "Nominal (Mg0.5Fe3+0.5)(Al0.5Si0.5)O3 (FA50); the two synthesis runs analyzed as (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3, without a published mapping to XRD sample 1 versus sample 2.",
+      "experimental_configuration": {
+        "sample": "Sample 1 FA50 grain in the same Au-Ne-rhenium DAC configuration as the preferred record.",
+        "thermal_history": "Eleven room-temperature observations marked red in the official workbook and Figure 3, each collected after the current-step laser anneal at 1600-2200 K for 10-25 minutes.",
+        "fit_selection": "Only the 11 red-font sample-1 observations; black-font before-current-step-anneal rows are excluded.",
+        "excluded_reflections": "Overlapping sample, Au, and Ne peaks were excluded during lattice refinement."
+      },
       "notes": "Non-default fit retained because the authors explicitly report it. It tests the effect of selecting observations collected after each current pressure-step anneal; it is not a separate thermodynamic or fully low-spin branch.",
+      "iron_speciation": "Same pressure-dependent mixed-spin sample-1 series as the preferred record. Each selected row was measured after the current pressure-step laser anneal, but increasing low-spin B-site Fe3+ remains a minority and the source does not define this subset as a separate low-spin branch.",
+      "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
+        "year": 2020,
+        "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "125",
+        "locator": "e2020JB019964",
+        "doi": "10.1029/2020JB019964"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -267,16 +276,7 @@
           "fit_selection": "The 11 red-font rows in official latticeparameters.xlsx sample 1: 29.0, 35.2, 43.8, 53.2, 62.2, 68.0, 74.8, 82.2, 91.8, 95.8, and 102.2 GPa.",
           "uncertainties": "Parenthetical published parameter uncertainties retained; confidence convention and covariance unreported."
         }
-      },
-      "sample_composition": "Nominal (Mg0.5Fe3+0.5)(Al0.5Si0.5)O3 (FA50); the two synthesis runs analyzed as (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3, without a published mapping to XRD sample 1 versus sample 2.",
-      "iron_speciation": "Same pressure-dependent mixed-spin sample-1 series as the preferred record. Each selected row was measured after the current pressure-step laser anneal, but increasing low-spin B-site Fe3+ remains a minority and the source does not define this subset as a separate low-spin branch.",
-      "experimental_configuration": {
-        "sample": "Sample 1 FA50 grain in the same Au-Ne-rhenium DAC configuration as the preferred record.",
-        "thermal_history": "Eleven room-temperature observations marked red in the official workbook and Figure 3, each collected after the current-step laser anneal at 1600-2200 K for 10-25 minutes.",
-        "fit_selection": "Only the 11 red-font sample-1 observations; black-font before-current-step-anneal rows are excluded.",
-        "excluded_reflections": "Overlapping sample, Au, and Ne peaks were excluded during lattice refinement."
-      },
-      "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"]
+      }
     },
     {
       "identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3",
@@ -287,23 +287,10 @@
         "V0": {"value": 170.7, "error": 0.3},
         "K0": {"value": 240.0, "error": 3.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
-        "year": 2020,
-        "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "125",
-        "locator": "e2020JB019964",
-        "doi": "10.1029/2020JB019964"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [27.5, 103.6],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [27.5, 103.6],
         "temperature_k": [300.0, 300.0],
@@ -314,7 +301,29 @@
           "The record preserves a kinetically retained cation-ordering history and is not the equilibrium default."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "sample_composition": "Nominal (Mg0.5Fe3+0.5)(Al0.5Si0.5)O3 (FA50); the two synthesis runs analyzed as (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3, without a published mapping to XRD sample 1 versus sample 2.",
+      "experimental_configuration": {
+        "sample": "Sample 2 FA50 grain in an Au-Ne-rhenium DAC.",
+        "thermal_history": "Initially transformed/annealed near 27 GPa, then cold compressed without stepwise laser annealing; 21 room-temperature observations.",
+        "fit_selection": "All 21 rows on official latticeparameters.xlsx sample 2.",
+        "excluded_reflections": "Overlapping sample, Au, and Ne peaks were excluded during lattice refinement."
+      },
       "notes": "Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope.",
+      "iron_speciation": "After initial high-pressure synthesis/annealing, sample 2 was cold compressed. The authors expect no subsequent cation exchange or spin transition and use it as a reference for the original ordering, with Fe3+ high spin on the A site. This is a metastable thermal-history comparison rather than the equilibrium default.",
+      "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
+        "year": 2020,
+        "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "125",
+        "locator": "e2020JB019964",
+        "doi": "10.1029/2020JB019964"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -397,16 +406,7 @@
           "fit_selection": "All 21 rows in official latticeparameters.xlsx sample 2.",
           "uncertainties": "Parenthetical published parameter uncertainties retained; confidence convention and covariance unreported."
         }
-      },
-      "sample_composition": "Nominal (Mg0.5Fe3+0.5)(Al0.5Si0.5)O3 (FA50); the two synthesis runs analyzed as (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3, without a published mapping to XRD sample 1 versus sample 2.",
-      "iron_speciation": "After initial high-pressure synthesis/annealing, sample 2 was cold compressed. The authors expect no subsequent cation exchange or spin transition and use it as a reference for the original ordering, with Fe3+ high spin on the A site. This is a metastable thermal-history comparison rather than the equilibrium default.",
-      "experimental_configuration": {
-        "sample": "Sample 2 FA50 grain in an Au-Ne-rhenium DAC.",
-        "thermal_history": "Initially transformed/annealed near 27 GPa, then cold compressed without stepwise laser annealing; 21 room-temperature observations.",
-        "fit_selection": "All 21 rows on official latticeparameters.xlsx sample 2.",
-        "excluded_reflections": "Overlapping sample, Au, and Ne peaks were excluded during lattice refinement."
-      },
-      "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"]
+      }
     },
     {
       "identifier": "mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4",
@@ -417,9 +417,35 @@
         "V0": {"value": 171.2, "error": 0.2},
         "K0": {"value": 221.0, "error": 3.0}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [10.8, 60.0],
+      "experimental_temperature_range_k": [293.0, 293.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [10.8, 60.0],
+        "temperature_k": [293.0, 293.0],
+        "volume_ratio": [0.8306074766, 0.9571845794],
+        "notes": [
+          "Bounds are the selected Pnma observation envelope, not a broader phase-stability field.",
+          "V0 is extrapolated because the Pnma perovskite is not retained at ambient pressure.",
+          "The 7.5 and 8.6 GPa measurements fall in the reported structural-transition interval and are outside this fit."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "sample_composition": "Nominal Fe0.5Mg0.5Al0.5Si0.5O3 single crystals synthesized in a Kawai-type multi-anvil press. EPMA checked the recovered composition; synchrotron Mossbauer spectroscopy found approximately 16(4)% of total iron as Fe2+.",
+      "experimental_configuration": {
+        "sample": "Pre-selected multi-anvil-synthesized Fe0.5Mg0.5Al0.5Si0.5O3 single crystals in BX90 diamond-anvil cells with rhenium gaskets.",
+        "pressure_medium": "neon",
+        "pressure_gauge": "Ne equation of state of Fei et al. (2007) above 6 GPa; the article used ruby fluorescence of Mao et al. (1986) only below 6 GPa.",
+        "diffraction": "Single-crystal synchrotron XRD at ESRF ID15B, 30 keV (0.4133 angstrom), MAR555 detector, omega scans, CrysAlisPro integration, and Jana2006/Superflip/SHELXT structure work.",
+        "fit_selection": "Sixteen Pnma observations from 10.8 to 60.0 GPa. The two Pnma refinements at 7.5 and 8.6 GPa lie within the reported 8+/-2 GPa transformation interval and are retained in the dataset but excluded from the phase-specific EOS fit."
+      },
+      "notes": "Accepted LitCurate record litcurate_1a8c16a1075ca2d2. Pnma is an alternative setting of the material card's Pbnm space group 62. The low-pressure R3c and FeMg0.5Si0.5O3 P21/n candidates require distinct phase cards and were not added in this batch.",
+      "iron_speciation": "Approximately 16(4)% of total iron is Fe2+; the Fe3+ component occupies the large bicapped-prism A site in the Pnma perovskite. The authors observed no pressure-induced iron spin transition in this composition over the measured range.",
+      "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_koemets_2023_table_s3_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Koemets",
@@ -441,22 +467,6 @@
         "locator": "1258389",
         "doi": "10.3389/fchem.2023.1258389"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [10.8, 60.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [293.0, 293.0],
-      "validity": {
-        "pressure_gpa": [10.8, 60.0],
-        "temperature_k": [293.0, 293.0],
-        "volume_ratio": [0.8306074766, 0.9571845794],
-        "notes": [
-          "Bounds are the selected Pnma observation envelope, not a broader phase-stability field.",
-          "V0 is extrapolated because the Pnma perovskite is not retained at ambient pressure.",
-          "The 7.5 and 8.6 GPa measurements fall in the reported structural-transition interval and are outside this fit."
-        ]
-      },
-      "notes": "Accepted LitCurate record litcurate_1a8c16a1075ca2d2. Pnma is an alternative setting of the material card's Pbnm space group 62. The low-pressure R3c and FeMg0.5Si0.5O3 P21/n candidates require distinct phase cards and were not added in this batch.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -544,17 +554,7 @@
           "fit_selection": "Supplementary Table S3 Pnma observations at 10.8-60.0 GPa; two refinements within the 8+/-2 GPa transition interval are excluded.",
           "uncertainties": "Published parameter uncertainties are retained; confidence convention and covariance are not reported."
         }
-      },
-      "sample_composition": "Nominal Fe0.5Mg0.5Al0.5Si0.5O3 single crystals synthesized in a Kawai-type multi-anvil press. EPMA checked the recovered composition; synchrotron Mossbauer spectroscopy found approximately 16(4)% of total iron as Fe2+.",
-      "iron_speciation": "Approximately 16(4)% of total iron is Fe2+; the Fe3+ component occupies the large bicapped-prism A site in the Pnma perovskite. The authors observed no pressure-induced iron spin transition in this composition over the measured range.",
-      "experimental_configuration": {
-        "sample": "Pre-selected multi-anvil-synthesized Fe0.5Mg0.5Al0.5Si0.5O3 single crystals in BX90 diamond-anvil cells with rhenium gaskets.",
-        "pressure_medium": "neon",
-        "pressure_gauge": "Ne equation of state of Fei et al. (2007) above 6 GPa; the article used ruby fluorescence of Mao et al. (1986) only below 6 GPa.",
-        "diffraction": "Single-crystal synchrotron XRD at ESRF ID15B, 30 keV (0.4133 angstrom), MAR555 detector, omega scans, CrysAlisPro integration, and Jana2006/Superflip/SHELXT structure work.",
-        "fit_selection": "Sixteen Pnma observations from 10.8 to 60.0 GPa. The two Pnma refinements at 7.5 and 8.6 GPa lie within the reported 8+/-2 GPa transformation interval and are retained in the dataset but excluded from the phase-specific EOS fit."
-      },
-      "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_koemets_2023_table_s3_pv"]
+      }
     }
   ],
   "aliases": ["FA50", "MgSiO3-FeAlO3 50:50 bridgmanite", "(Mg0.5Fe0.5)(Al0.5Si0.5)O3 bridgmanite"],

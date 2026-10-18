@@ -17,10 +17,33 @@
         "K0": {"value": 94.1, "error": 0.4},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 17.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [0.0, 17.0],
+        "temperature_k": [300.0, 300.0],
+        "volume_ratio": [0.876329, 1.0],
+        "notes": ["Bounded at the observed room-temperature transition to Fe-dolomite-II near 17 GPa."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 187.159972},
+      "sample_composition": "Natural Fe-dolomite from Windham, Vermont; electron-microprobe composition Ca0.988Mg0.918Fe0.078Mn0.016(CO3)2; a minor PbS impurity remained unreacted.",
+      "experimental_configuration": {
+        "sample": "Fine powder mixed with 5 wt.% Pt; natural composition measured by electron microprobe",
+        "pressure_medium": "Ne",
+        "pressure_cell": "symmetric diamond-anvil cell with 200 micrometre diamonds and Re gasket",
+        "pressure_gauge": "Pt pressure calibrant using Fei et al. (2007)",
+        "diffraction": "angle-dispersive synchrotron XRD at GSECARS, Advanced Photon Source",
+        "path": "room-temperature compression; patterns collected every 2-3 GPa before the approximately 17 GPa transition"
+      },
+      "notes": "Parenthetical parameter errors are preserved as printed; the confidence convention, covariance, row-wise uncertainties, and source fitting weights are not reported.",
+      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
         "year": 2011,
@@ -30,19 +53,6 @@
         "locator": "L22303",
         "doi": "10.1029/2011GL049519"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 187.159972},
-      "experimental_pressure_range_gpa": [0.0, 17.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 17.0],
-        "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.876329, 1.0],
-        "notes": ["Bounded at the observed room-temperature transition to Fe-dolomite-II near 17 GPa."]
-      },
-      "notes": "Parenthetical parameter errors are preserved as printed; the confidence convention, covariance, row-wise uncertainties, and source fitting weights are not reported.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -118,16 +128,6 @@
           "temperature_ref": "Figure 3 and Discussion identify the cell volumes as 300 K.",
           "fit_selection": "Low-pressure trigonal Fe-dolomite observations before the approximately 17 GPa transition."
         }
-      },
-      "sample_composition": "Natural Fe-dolomite from Windham, Vermont; electron-microprobe composition Ca0.988Mg0.918Fe0.078Mn0.016(CO3)2; a minor PbS impurity remained unreacted.",
-      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized"],
-      "experimental_configuration": {
-        "sample": "Fine powder mixed with 5 wt.% Pt; natural composition measured by electron microprobe",
-        "pressure_medium": "Ne",
-        "pressure_cell": "symmetric diamond-anvil cell with 200 micrometre diamonds and Re gasket",
-        "pressure_gauge": "Pt pressure calibrant using Fei et al. (2007)",
-        "diffraction": "angle-dispersive synchrotron XRD at GSECARS, Advanced Photon Source",
-        "path": "room-temperature compression; patterns collected every 2-3 GPa before the approximately 17 GPa transition"
       }
     }
   ],

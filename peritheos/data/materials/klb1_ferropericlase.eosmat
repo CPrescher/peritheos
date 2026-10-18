@@ -17,19 +17,34 @@
         "K0": {"value": 158.0, "error": null, "fixed": true}
       },
       "thermal": {
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha0": {"value": 2.2e-05, "error": 2e-06},
           "alpha1": {"value": 3.61e-08, "error": 2.7e-09},
           "dK_dT": {"value": -0.034, "error": 0.001}
         },
-        "model": "AlphaKT"
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [30.0, 112.0],
+      "experimental_temperature_range_k": [300.0, 2569.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [30.0, 112.0],
+        "temperature_k": [300.0, 2569.0],
+        "notes": [
+          "High-spin reference branch used for the smooth high-temperature pyrolitic ferropericlase EOS.",
+          "No record-level molar mass is encoded because the coexisting phase composition evolves and the source gives only an approximate Mg0.80Fe0.20O description."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "sample_composition": "Pyrolitic ferropericlase; high-temperature behavior is stated to be reproduced by approximately (Mg0.80Fe0.20)O.",
+      "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Ricolleau",
@@ -50,19 +65,6 @@
         "volume": "36",
         "locator": "L06302",
         "doi": "10.1029/2008GL036759"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [30.0, 112.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 2569.0],
-      "validity": {
-        "pressure_gpa": [30.0, 112.0],
-        "temperature_k": [300.0, 2569.0],
-        "notes": [
-          "High-spin reference branch used for the smooth high-temperature pyrolitic ferropericlase EOS.",
-          "No record-level molar mass is encoded because the coexisting phase composition evolves and the source gives only an approximate Mg0.80Fe0.20O description."
-        ]
       },
       "pressure_calibration": {
         "status": "resolved",
@@ -141,9 +143,7 @@
             "qualification": "The exact author row flags, weights, temperature-error treatment, and covariance scaling are unreported."
           }
         }
-      },
-      "sample_composition": "Pyrolitic ferropericlase; high-temperature behavior is stated to be reproduced by approximately (Mg0.80Fe0.20)O.",
-      "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"]
+      }
     },
     {
       "identifier": "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2",
@@ -154,9 +154,24 @@
         "V0": {"value": 74.04, "error": 0.02},
         "K0": {"value": 170.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [50.0, 112.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [50.0, 112.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Room-temperature low-spin branch above the observed volume contraction near 50 GPa.",
+          "No record-level molar mass is encoded because the exact coexisting phase composition is not fixed by the source."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "sample_composition": "Low-spin branch of pyrolitic ferropericlase at room temperature.",
+      "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Ricolleau",
@@ -177,19 +192,6 @@
         "volume": "36",
         "locator": "L06302",
         "doi": "10.1029/2008GL036759"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [50.0, 112.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [50.0, 112.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Room-temperature low-spin branch above the observed volume contraction near 50 GPa.",
-          "No record-level molar mass is encoded because the exact coexisting phase composition is not fixed by the source."
-        ]
       },
       "pressure_calibration": {
         "status": "resolved",
@@ -264,9 +266,7 @@
             "qualification": "The exact author regression flags are unreported."
           }
         }
-      },
-      "sample_composition": "Low-spin branch of pyrolitic ferropericlase at room temperature.",
-      "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"]
+      }
     }
   ],
   "aliases": ["KLB-1 Fp", "pyrolitic ferropericlase"],

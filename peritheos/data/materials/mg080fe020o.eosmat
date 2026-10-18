@@ -17,10 +17,32 @@
         "K0": {"value": 158.0, "error": 3.0},
         "K0_prime": {"value": 4.4, "error": 0.2}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 40.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 40.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Valid only for the high-spin cubic B1 branch below the source's 40 GPa spin-transition onset.",
+          "It is not a continuous-spin-crossover EOS and must not be extrapolated through the 40-80 GPa mixed-spin interval."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 46.612},
+      "experimental_configuration": {
+        "sample": "Polycrystalline (Mg0.80Fe0.20)O measured in a 3:1 volume mixture with (Mg0.10Fe0.90)O",
+        "pressure_cell": "Gasketed diamond-anvil cells; methanol-ethanol-water 16:3:1 or argon pressure medium",
+        "temperature_control": "Room-temperature diffraction; samples annealed to 450 K for about 30 minutes after each pressure increase",
+        "diffraction": "Synchrotron powder X-ray diffraction at ALS 12.2.2, GSECARS 13ID-D, and HPCAT 16ID-B"
+      },
+      "notes": "All three EOS coefficients were fitted. Parenthetical errors are preserved exactly; their confidence convention and covariance are not reported.",
+      "fit_datasets": ["mg080fe020o_speziale_2007_table1_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Speziale", "Lee", "Clark", "Lin", "Pasternak", "Jeanloz"],
         "year": 2007,
@@ -30,21 +52,6 @@
         "locator": "B10212",
         "doi": "10.1029/2006JB004730"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 46.612},
-      "experimental_pressure_range_gpa": [0.0, 40.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 40.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Valid only for the high-spin cubic B1 branch below the source's 40 GPa spin-transition onset.",
-          "It is not a continuous-spin-crossover EOS and must not be extrapolated through the 40-80 GPa mixed-spin interval."
-        ]
-      },
-      "notes": "All three EOS coefficients were fitted. Parenthetical errors are preserved exactly; their confidence convention and covariance are not reported.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -108,13 +115,6 @@
           "fit_selection": "The paper assigns the onset of the spin transition to 40 GPa and explicitly fits only its own (Mg0.80Fe0.20)O observations below that pressure.",
           "weighting": "The paper does not report the residual coordinate, weights, covariance, or fitting software."
         }
-      },
-      "fit_datasets": ["mg080fe020o_speziale_2007_table1_pv"],
-      "experimental_configuration": {
-        "sample": "Polycrystalline (Mg0.80Fe0.20)O measured in a 3:1 volume mixture with (Mg0.10Fe0.90)O",
-        "pressure_cell": "Gasketed diamond-anvil cells; methanol-ethanol-water 16:3:1 or argon pressure medium",
-        "temperature_control": "Room-temperature diffraction; samples annealed to 450 K for about 30 minutes after each pressure increase",
-        "diffraction": "Synchrotron powder X-ray diffraction at ALS 12.2.2, GSECARS 13ID-D, and HPCAT 16ID-B"
       }
     },
     {
@@ -127,21 +127,7 @@
         "K0": {"value": 158, "error": 3},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
-        "year": 2007,
-        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
-        "source": "Geophysical Research Letters",
-        "volume": "34",
-        "locator": "L17307",
-        "doi": "10.1029/2007GL030712"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 35],
@@ -151,7 +137,28 @@
           "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
       "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
+      "validation_selection": {
+        "pressure_gpa": [-0.1, 35],
+        "compression_path": "compression",
+        "notes": "Validation only: compression rows with -0.1 <= P <= 35 GPa, using the published approximate 0-35 GPa branch interval. Exact source row masks and least-squares weights are not published."
+      },
+      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
+        "year": 2007,
+        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+        "source": "Geophysical Research Letters",
+        "volume": "34",
+        "locator": "L17307",
+        "doi": "10.1029/2007GL030712"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -249,14 +256,7 @@
           "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
           "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
         }
-      },
-      "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
-      "validation_selection": {
-        "pressure_gpa": [-0.1, 35],
-        "compression_path": "compression",
-        "notes": "Validation only: compression rows with -0.1 <= P <= 35 GPa, using the published approximate 0-35 GPa branch interval. Exact source row masks and least-squares weights are not published."
-      },
-      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
+      }
     },
     {
       "identifier": "mg080fe020o_fei_2007_ls_b1_bm3",
@@ -268,21 +268,7 @@
         "K0": {"value": 170, "error": 3},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
-        "year": 2007,
-        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
-        "source": "Geophysical Research Letters",
-        "volume": "34",
-        "locator": "L17307",
-        "doi": "10.1029/2007GL030712"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [40, 95],
@@ -292,7 +278,28 @@
           "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
       "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
+      "validation_selection": {
+        "pressure_gpa": [40, 95.48],
+        "compression_path": "compression",
+        "notes": "Validation only: compression rows with 40 <= P <= 95.48 GPa, using the published approximate 40-95 GPa branch interval. Exact source row masks and least-squares weights are not published. Include the 95.48 GPa terminal row corresponding to the rounded 95 GPa endpoint in the article."
+      },
+      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
+        "year": 2007,
+        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+        "source": "Geophysical Research Letters",
+        "volume": "34",
+        "locator": "L17307",
+        "doi": "10.1029/2007GL030712"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -390,14 +397,7 @@
           "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
           "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
         }
-      },
-      "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
-      "validation_selection": {
-        "pressure_gpa": [40, 95.48],
-        "compression_path": "compression",
-        "notes": "Validation only: compression rows with 40 <= P <= 95.48 GPa, using the published approximate 40-95 GPa branch interval. Exact source row masks and least-squares weights are not published. Include the 95.48 GPa terminal row corresponding to the rounded 95 GPa endpoint in the article."
-      },
-      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
+      }
     },
     {
       "identifier": "mg080fe020o_fei_2007_ls_b1_bm3_refit",
@@ -409,28 +409,7 @@
         "K0": {"value": 144.1864728093444, "error": 4.178200207965152},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "refit",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
-        "year": 2007,
-        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
-        "source": "Geophysical Research Letters",
-        "volume": "34",
-        "locator": "L17307",
-        "doi": "10.1029/2007GL030712",
-        "details": "Reference identifies the observation source only. Parameters and covariance in this record were independently fitted by Peritheos on 2026-09-08; they are not published by Fei et al."
-      },
       "parameter_error_confidence": 0.682689492137,
-      "parameter_covariance": {
-        "parameter_order": ["V0", "K0"],
-        "matrix": [
-          [0.139906558894319, -1.5514188767709631],
-          [-1.5514188767709631, 17.457356977840043]
-        ]
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
       "experimental_pressure_range_gpa": [40.95, 95.48],
       "experimental_temperature_range_k": [300, 300],
       "validity": {
@@ -442,7 +421,36 @@
           "Unweighted residual improvement does not establish general physical superiority over the published EOS."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 46.612},
       "notes": "Independent Peritheos refit of Fei's original Table S1 observations, not published Fei EOS coefficients. Uses the full reported approximate 40-95 GPa LS interval, including its 95.48 GPa endpoint, without selecting a higher cutoff for coefficient agreement. The lower pressure residual is an in-sample fit improvement, not proof of a more accurate pure-LS EOS or a recalibrated pressure scale. Near-transition points may retain mixed-spin character; V0 and K0 are strongly correlated and extrapolation outside the observed interval is not recommended. Formal errors exclude calibration systematics and uncertainty in row selection. The original source-owned record remains unchanged.",
+      "derived_from_record": "mg080fe020o_fei_2007_ls_b1_bm3",
+      "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
+      "validation_selection": {
+        "pressure_gpa": [40, 95.48],
+        "compression_path": "compression",
+        "notes": "Peritheos refit and reproduction: all 19 compression rows with 40 <= pressure_gpa <= 95.48. The paper states approximately 40-95 GPa. This explicit Peritheos row mask is not asserted to be the original authors' exact mask."
+      },
+      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
+      "parameter_covariance": {
+        "parameter_order": ["V0", "K0"],
+        "matrix": [
+          [0.139906558894319, -1.5514188767709631],
+          [-1.5514188767709631, 17.457356977840043]
+        ]
+      },
+      "reference": {
+        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
+        "year": 2007,
+        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+        "source": "Geophysical Research Letters",
+        "volume": "34",
+        "locator": "L17307",
+        "doi": "10.1029/2007GL030712",
+        "details": "Reference identifies the observation source only. Parameters and covariance in this record were independently fitted by Peritheos on 2026-09-08; they are not published by Fei et al."
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -484,7 +492,6 @@
         "audit_date": "2026-09-08",
         "notes": "The row nacl_phase is inferred from its lattice branch: a>4 A is B1, a<4 A is B2. Table S1 has B1 at 29.30 GPa, so a universal 26 GPa cutoff would mislabel observations."
       },
-      "derived_from_record": "mg080fe020o_fei_2007_ls_b1_bm3",
       "evidence": {
         "scientific_validation": {
           "status": "primary_source_validated",
@@ -595,14 +602,7 @@
           },
           "fit_date": "2026-09-08"
         }
-      },
-      "fit_datasets": ["mg080fe020o_fei_2007_table_s1_pv"],
-      "validation_selection": {
-        "pressure_gpa": [40, 95.48],
-        "compression_path": "compression",
-        "notes": "Peritheos refit and reproduction: all 19 compression rows with 40 <= pressure_gpa <= 95.48. The paper states approximately 40-95 GPa. This explicit Peritheos row mask is not asserted to be the original authors' exact mask."
-      },
-      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
+      }
     }
   ],
   "aliases": ["(Mg0.80,Fe0.20)O", "Fe20 ferropericlase", "Fe20 magnesiowustite"],

@@ -123,8 +123,8 @@ establish statistical independence.
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
-- **Debye temperature law:** integrated\_gruneisen
 - **Thermal pressure reference:** reference\_isentrope
+- **Debye temperature law:** integrated\_gruneisen
 
 </details>
 

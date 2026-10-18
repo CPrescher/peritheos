@@ -17,21 +17,7 @@
         "K0": {"value": 205, "error": null},
         "K0_prime": {"value": 4.03, "error": null}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
-        "year": 2005,
-        "title": "Effect of Al on the sharpness of the MgSiO3 perovskite to post-perovskite phase transition",
-        "source": "Geophysical Research Letters",
-        "volume": "32",
-        "locator": "L14303",
-        "doi": "10.1029/2005GL023192"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 101.9601},
       "experimental_pressure_range_gpa": [-9.06596104, 211.30790612],
       "pressure_range_status": "theoretical",
       "validity": {
@@ -43,7 +29,22 @@
           "The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 101.9601},
+      "sample_composition": "Static 0 K CCM model with 100 mol.% Al2O3 substitution; Table 1 values are normalized to an approximately five-atom formula basis.",
       "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
+        "year": 2005,
+        "title": "Effect of Al on the sharpness of the MgSiO3 perovskite to post-perovskite phase transition",
+        "source": "Geophysical Research Letters",
+        "volume": "32",
+        "locator": "L14303",
+        "doi": "10.1029/2005GL023192"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -101,8 +102,7 @@
           "uncertainties": "The source reports no coefficient uncertainties or covariance.",
           "method": "Static VASP GGA calculations; fixed-volume cell-shape, atomic-position, and electronic-wavefunction optimization; 1000 eV cutoff."
         }
-      },
-      "sample_composition": "Static 0 K CCM model with 100 mol.% Al2O3 substitution; Table 1 values are normalized to an approximately five-atom formula basis."
+      }
     },
     {
       "identifier": "al2o3_perovskite_holland_2013_apv_modified_tait",
@@ -115,9 +115,18 @@
         "K0_prime": {"value": 4.0, "error": null},
         "K0_double_prime": {"value": -0.02, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0001, 30.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reference_parameterization",
+      "validity": {
+        "pressure_gpa": [0.0001, 30.0],
+        "temperature_k": [298.15, 298.15],
+        "notes": ["AlAlO3 perovskite thermodynamic endmember."]
+      },
       "determination_method": "unknown",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 101.9601},
       "reference": {
         "authors": ["Holland", "Hudson", "Powell", "Harte"],
         "year": 2013,
@@ -126,15 +135,6 @@
         "volume": "54",
         "locator": "1901-1920",
         "doi": "10.1093/petrology/egt035"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 101.9601},
-      "experimental_pressure_range_gpa": [0.0001, 30.0],
-      "pressure_range_status": "reference_parameterization",
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "validity": {
-        "pressure_gpa": [0.0001, 30.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": ["AlAlO3 perovskite thermodynamic endmember."]
       },
       "pressure_calibration": {
         "status": "not_applicable",

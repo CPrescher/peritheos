@@ -17,9 +17,31 @@
         "K0": {"value": 160, "error": 2},
         "K0_prime": {"value": 4.12, "error": 0.14}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 82.9],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": [
+          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
+          "Transition midpoint 68.8 GPa; reported 20-80% crossover width 18.4 GPa."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 56.173994},
+      "fit_datasets": ["mg0490fe0483ti0027o_solomatova_2016_table1_pv"],
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 68.8,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 18.4,
+        "mixer_implemented": false
+      },
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -28,20 +50,6 @@
         "volume": "101",
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 56.173994},
-      "experimental_pressure_range_gpa": [0, 82.9],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 68.8 GPa; reported 20-80% crossover width 18.4 GPa."
-        ]
       },
       "pressure_calibration": {
         "status": "partially_resolved",
@@ -95,14 +103,6 @@
           "original_dataset": "Fp48 data measured in this study.",
           "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
         }
-      },
-      "fit_datasets": ["mg0490fe0483ti0027o_solomatova_2016_table1_pv"],
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 68.8,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 18.4,
-        "mixer_implemented": false
       }
     },
     {
@@ -115,9 +115,31 @@
         "K0": {"value": 173, "error": 13},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 82.9],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": [
+          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
+          "Transition midpoint 68.8 GPa; reported 20-80% crossover width 18.4 GPa."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 56.173994},
+      "fit_datasets": ["mg0490fe0483ti0027o_solomatova_2016_table1_pv"],
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 68.8,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 18.4,
+        "mixer_implemented": false
+      },
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -126,20 +148,6 @@
         "volume": "101",
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 56.173994},
-      "experimental_pressure_range_gpa": [0, 82.9],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": [
-          "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
-          "Transition midpoint 68.8 GPa; reported 20-80% crossover width 18.4 GPa."
-        ]
       },
       "pressure_calibration": {
         "status": "partially_resolved",
@@ -193,14 +201,6 @@
           "original_dataset": "Fp48 data measured in this study.",
           "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
         }
-      },
-      "fit_datasets": ["mg0490fe0483ti0027o_solomatova_2016_table1_pv"],
-      "spin_crossover_context": {
-        "branch": "low_spin_reference",
-        "transition_pressure_gpa": 68.8,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 18.4,
-        "mixer_implemented": false
       }
     }
   ],

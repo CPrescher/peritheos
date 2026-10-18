@@ -16,16 +16,19 @@
         "K0": {"value": 245.0, "error": 7.0}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null},
           "theta0": {"value": 1100.0, "error": 400.0},
           "gamma0": {"value": 1.3, "error": 0.3},
           "q": {"value": 1.0, "error": null, "fixed": true},
           "n": {"value": 3.0, "error": null, "fixed": true}
-        },
-        "model": "MieGruneisenDebye"
+        }
       },
+      "experimental_pressure_range_gpa": [55.0, 147.0],
+      "experimental_temperature_range_k": [300.0, 3500.0],
       "determination_method": "experimental",
+      "notes": "Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.",
       "reference": {
         "authors": ["Sun", "Shi", "Mao", "Zhou", "Prakapenka"],
         "year": 2019,
@@ -35,9 +38,6 @@
         "locator": "12620-12630",
         "doi": "10.1029/2019JB017853"
       },
-      "experimental_pressure_range_gpa": [55.0, 147.0],
-      "experimental_temperature_range_k": [300.0, 3500.0],
-      "notes": "Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

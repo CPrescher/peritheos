@@ -17,9 +17,26 @@
         "K0": {"value": 260.1, "error": 0.9},
         "K0_prime": {"value": 4.18, "error": 0.04}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [47.75, 140.64],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [47.75, 140.64],
+        "temperature_k": [298.15, 298.15],
+        "notes": [
+          "The coefficients define a zero-pressure reference isentrope reduced from high-temperature shock observations; 298.15 K is only the conventional numeric anchor for the reference state.",
+          "The first 47.75 GPa point is below the source's conservative >57.13 GPa perovskite assignment, and the source cautions that observations below 80 GPa may retain a small low-pressure-phase contribution."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 102.9102},
+      "sample_composition": "Natural Damaping enstatite, referred by the authors to (Mg0.92Fe0.08)SiO3; the reported oxide analysis includes minor Al, Ca, and other elements.",
+      "notes": "Accepted LitCurate source row 447. This equilibrium BM3 is the source's shock-reduced reference isentrope, not the directly measured principal Hugoniot and not an independently fitted 298 K isotherm. The AIP proceedings DOI 10.1063/1.1780510 repeats this same data set and is not represented as a second record.",
+      "fit_datasets": ["mg092fe008sio3_gong_2004_table1_shock"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Gong", "Fei", "Dai", "Zhang", "Jing"],
         "year": 2004,
@@ -29,21 +46,6 @@
         "locator": "L04614",
         "doi": "10.1029/2003GL019132"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 102.9102},
-      "experimental_pressure_range_gpa": [47.75, 140.64],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "validity": {
-        "pressure_gpa": [47.75, 140.64],
-        "temperature_k": [298.15, 298.15],
-        "notes": [
-          "The coefficients define a zero-pressure reference isentrope reduced from high-temperature shock observations; 298.15 K is only the conventional numeric anchor for the reference state.",
-          "The first 47.75 GPa point is below the source's conservative >57.13 GPa perovskite assignment, and the source cautions that observations below 80 GPa may retain a small low-pressure-phase contribution."
-        ]
-      },
-      "notes": "Accepted LitCurate source row 447. This equilibrium BM3 is the source's shock-reduced reference isentrope, not the directly measured principal Hugoniot and not an independently fitted 298 K isotherm. The AIP proceedings DOI 10.1063/1.1780510 repeats this same data set and is not represented as a second record.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -86,9 +88,7 @@
           "volume_basis": "V0 is calculated as Z M/(rho0 N_A), with Z=4 and nominal molar mass 102.9102 g mol-1, giving 163.13738187176514 A3.",
           "thermodynamic_basis": "K0 and K0_prime are the source's adiabatic/isentrope coefficients K0S and K0S', not room-temperature isothermal K0T values. The schema's isothermal token denotes the executable equilibrium BM3 family because it has no separate adiabatic enum."
         }
-      },
-      "sample_composition": "Natural Damaping enstatite, referred by the authors to (Mg0.92Fe0.08)SiO3; the reported oxide analysis includes minor Al, Ca, and other elements.",
-      "fit_datasets": ["mg092fe008sio3_gong_2004_table1_shock"]
+      }
     }
   ],
   "aliases": ["(Mg0.92Fe0.08)SiO3 perovskite", "Mg#92 bridgmanite"],

@@ -17,25 +17,10 @@
         "K0": {"value": 83.0, "error": 1.0},
         "K0_prime": {"value": 4.9, "error": 0.2}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
-        "year": 2015,
-        "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity",
-        "source": "American Mineralogist",
-        "volume": "100",
-        "locator": "2199-2208",
-        "doi": "10.2138/am-2015-5312"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
       "experimental_pressure_range_gpa": [0.0, 41.0],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0, 41.0],
         "temperature_k": [300.0, 300.0],
@@ -45,7 +30,32 @@
           "The 3.65 A phase is expected to form from the 10 A phase near 9-10 GPa but was retained metastably below that pressure."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
+      "sample_composition": "Nominal MgSi(OH)6 3.65 A phase synthesized at 10 GPa and 425 degrees C for 77 h; Mg/Si=1.02+/-0.06 (43 crystals) and water=34+/-3 wt.%.",
+      "experimental_configuration": {
+        "sample": "Polycrystalline synthesized MgSi(OH)6 with minor 10 A phase in some illuminated regions",
+        "pressure_medium": "Ne",
+        "pressure_cell": "symmetric diamond-anvil cells, 300 micrometre culets, Re gaskets",
+        "pressure_gauge": "ruby R1 fluorescence (all runs), with Au cross-check in experiment I",
+        "diffraction": "angle-dispersive synchrotron XRD at PETRA III P02.2",
+        "path": "ambient-temperature compression and decompression in three runs"
+      },
       "notes": "Preferred source fit. Table 2's K0' uncertainty (0.2) is stored instead of the abstract's inconsistent 0.1.",
+      "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
+        "year": 2015,
+        "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity",
+        "source": "American Mineralogist",
+        "volume": "100",
+        "locator": "2199-2208",
+        "doi": "10.2138/am-2015-5312"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -126,16 +136,6 @@
           "uncertainties": "Parenthetical/plus-minus errors are published without an explicit confidence convention; V0 was fixed rather than freely refined.",
           "fit_selection": "The source describes third- and fourth-order fits to the experimental data and deposits all 95 P-V observations, but does not publish a machine-readable row mask, weights, covariance, or regression objective."
         }
-      },
-      "sample_composition": "Nominal MgSi(OH)6 3.65 A phase synthesized at 10 GPa and 425 degrees C for 77 h; Mg/Si=1.02+/-0.06 (43 crystals) and water=34+/-3 wt.%.",
-      "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
-      "experimental_configuration": {
-        "sample": "Polycrystalline synthesized MgSi(OH)6 with minor 10 A phase in some illuminated regions",
-        "pressure_medium": "Ne",
-        "pressure_cell": "symmetric diamond-anvil cells, 300 micrometre culets, Re gaskets",
-        "pressure_gauge": "ruby R1 fluorescence (all runs), with Au cross-check in experiment I",
-        "diffraction": "angle-dispersive synchrotron XRD at PETRA III P02.2",
-        "path": "ambient-temperature compression and decompression in three runs"
       }
     },
     {
@@ -149,24 +149,10 @@
         "K0_prime": {"value": 7.9, "error": 0.8},
         "K0_double_prime": {"value": -0.7, "error": 0.2}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
-        "year": 2015,
-        "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity",
-        "source": "American Mineralogist",
-        "volume": "100",
-        "locator": "2199-2208",
-        "doi": "10.2138/am-2015-5312"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
       "experimental_pressure_range_gpa": [0.0, 41.0],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0, 41.0],
         "temperature_k": [300.0, 300.0],
@@ -176,7 +162,23 @@
           "Do not extrapolate K0'' outside the measured compression envelope."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
+      "sample_composition": "Same nominal MgSi(OH)6 experimental dataset as the preferred BM3 record.",
       "notes": "Sensitivity record only; intentionally has no default_for. Its K0, K0', and K0'' are strongly covariant and the source does not publish covariance.",
+      "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
+        "year": 2015,
+        "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity",
+        "source": "American Mineralogist",
+        "volume": "100",
+        "locator": "2199-2208",
+        "doi": "10.2138/am-2015-5312"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -236,9 +238,7 @@
           "K0_double_prime": "Table 2: -0.7(2) GPa^-1.",
           "fit_selection": "Same deposited 95-point experimental P-V series as the BM3; retained separately because the source explicitly reports the full higher-order coefficient set."
         }
-      },
-      "sample_composition": "Same nominal MgSi(OH)6 experimental dataset as the preferred BM3 record.",
-      "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"]
+      }
     },
     {
       "identifier": "mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3",
@@ -251,21 +251,7 @@
         "K0_prime": {"value": 3.4, "error": null},
         "K0_double_prime": {"value": -0.05, "error": null}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
-        "year": 2015,
-        "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity",
-        "source": "American Mineralogist",
-        "volume": "100",
-        "locator": "2199-2208",
-        "doi": "10.2138/am-2015-5312"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
       "experimental_pressure_range_gpa": [-8.0, 115.0],
       "pressure_range_status": "theoretical",
       "validity": {
@@ -277,7 +263,22 @@
           "The numerical energy-volume grid is not tabulated; the bounds conservatively follow the green Figure 3a calculation markers."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
+      "sample_composition": "Stoichiometric MgSi(OH)6 primitive P21 model crystal; static 0 K PAW-GGA calculation.",
       "notes": "Clearly distinct theoretical record. No default_for is assigned; the preferred catalog equilibrium record is the experimental BM3.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
+        "year": 2015,
+        "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity",
+        "source": "American Mineralogist",
+        "volume": "100",
+        "locator": "2199-2208",
+        "doi": "10.2138/am-2015-5312"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -330,8 +331,7 @@
           "K0_double_prime": "Table 2: -0.05 GPa^-1.",
           "model": "Methods: PAW-GGA in VASP, 1000 eV cutoff, 2x2x2 Monkhorst-Pack grid, P21 primitive cell; total energies converged within 5 meV/atom."
         }
-      },
-      "sample_composition": "Stoichiometric MgSi(OH)6 primitive P21 model crystal; static 0 K PAW-GGA calculation."
+      }
     }
   ],
   "aliases": ["3.65 A phase", "3.65 angstrom phase", "MgSi(OH)6", "hydroxide perovskite"],

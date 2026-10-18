@@ -16,7 +16,9 @@
         "K0": {"value": 258.0, "error": 5.0},
         "K0_prime": {"value": 7.0, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [0.0, 3.7],
       "determination_method": "experimental",
+      "notes": "20 degC BM3 representation with K0' fixed at 7: K0=258+/-5 GPa. V0=55.3318 A^3 is calculated from the Table 3 ambient a0 and c0; the paper does not publish an EOS-fit V0 error or parameter covariance.",
       "reference": {
         "authors": ["Hazen", "Finger"],
         "year": 1981,
@@ -26,8 +28,6 @@
         "locator": "143-151",
         "doi": "10.1016/0022-3697(81)90074-3"
       },
-      "experimental_pressure_range_gpa": [0.0, 3.7],
-      "notes": "20 degC BM3 representation with K0' fixed at 7: K0=258+/-5 GPa. V0=55.3318 A^3 is calculated from the Table 3 ambient a0 and c0; the paper does not publish an EOS-fit V0 error or parameter covariance.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

@@ -17,17 +17,40 @@
         "K0_prime": {"value": 5.0, "error": null, "fixed": true}
       },
       "thermal": {
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha0": {"value": 2.56e-05, "error": 2.2e-06},
           "alpha1": {"value": 2.6e-09, "error": 1.8e-09},
           "dK_dT": {"value": -0.0165, "error": 0.0049}
         },
-        "model": "AlphaKT"
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 8.16],
+      "experimental_temperature_range_k": [300.0, 1280.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 8.16],
+        "temperature_k": [300.0, 1280.0],
+        "notes": [
+          "Experimental P-T bounds are an observed envelope, not a rectangular extrapolation guarantee.",
+          "The source states that the pressure range is too small to resolve K0' confidently; K0'=5 is the preferred constrained alternative."
+        ]
       },
       "determination_method": "experimental",
+      "experimental_configuration": {
+        "apparatus": "DIA-6 multi-anvil press (SAM-85)",
+        "diffraction": "energy-dispersive synchrotron X-ray diffraction at NSLS X-17B; Ge solid-state detector at fixed 2theta=5.847 degrees; modified GSAS Rietveld whole-pattern refinement",
+        "pressure_medium_and_container": "cylindrical hexagonal-BN sample chamber",
+        "pressure_standard": "NaCl using Decker (1971)",
+        "temperature_measurement": "Pt-Pt/10%Rh thermocouple",
+        "path": "compress cold to the highest pressure, heat to the highest temperature to remove deviatoric stress, then collect successive cooling/decompression states"
+      },
+      "notes": "Complete preferred high-temperature BM3 parameterization from Zhao et al. (1997), fitted to the 31 hydrostatic Table 1 P-V-T states. The authors fixed V0=403 A^3 and K0'=5, and varied K0, dK/dT, a, and b. Their alternate K0'=4, K0'=6, and unconstrained-K0' tradeoff solutions remain documented in the source audit rather than being silently combined. The source does not report the regression objective, row weights, parameter covariance, or confidence convention.",
+      "fit_datasets": ["jadeite_zhao_1997_table1_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Zhao", "Von Dreele", "Shankland", "Weidner", "Zhang", "Wang", "Gasparik"],
         "year": 1997,
@@ -37,20 +60,6 @@
         "locator": "5-8",
         "doi": "10.1029/96GL03769"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 8.16],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 1280.0],
-      "validity": {
-        "pressure_gpa": [0.0, 8.16],
-        "temperature_k": [300.0, 1280.0],
-        "notes": [
-          "Experimental P-T bounds are an observed envelope, not a rectangular extrapolation guarantee.",
-          "The source states that the pressure range is too small to resolve K0' confidently; K0'=5 is the preferred constrained alternative."
-        ]
-      },
-      "notes": "Complete preferred high-temperature BM3 parameterization from Zhao et al. (1997), fitted to the 31 hydrostatic Table 1 P-V-T states. The authors fixed V0=403 A^3 and K0'=5, and varied K0, dK/dT, a, and b. Their alternate K0'=4, K0'=6, and unconstrained-K0' tradeoff solutions remain documented in the source audit rather than being silently combined. The source does not report the regression objective, row weights, parameter covariance, or confidence convention.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -201,15 +210,6 @@
             }
           }
         ]
-      },
-      "fit_datasets": ["jadeite_zhao_1997_table1_pvt"],
-      "experimental_configuration": {
-        "apparatus": "DIA-6 multi-anvil press (SAM-85)",
-        "diffraction": "energy-dispersive synchrotron X-ray diffraction at NSLS X-17B; Ge solid-state detector at fixed 2theta=5.847 degrees; modified GSAS Rietveld whole-pattern refinement",
-        "pressure_medium_and_container": "cylindrical hexagonal-BN sample chamber",
-        "pressure_standard": "NaCl using Decker (1971)",
-        "temperature_measurement": "Pt-Pt/10%Rh thermocouple",
-        "path": "compress cold to the highest pressure, heat to the highest temperature to remove deviatoric stress, then collect successive cooling/decompression states"
       }
     }
   ],

@@ -17,25 +17,10 @@
         "K0": {"value": 170.9, "error": 1.4},
         "K0_prime": {"value": 6.6, "error": 0.3}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Ross", "Angel"],
-        "year": 1999,
-        "title": "Compression of CaTiO3 and CaGeO3 perovskites",
-        "source": "American Mineralogist",
-        "volume": "84",
-        "locator": "277-281",
-        "doi": "10.2138/am-1999-0309"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 135.942},
       "experimental_pressure_range_gpa": [0.001, 9.7],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.001, 9.7],
         "temperature_k": [298.0, 298.0],
@@ -46,7 +31,29 @@
           "The 4:1 methanol-ethanol medium and single-crystal measurements define the experimental stress environment; extrapolation beyond the measured range is unvalidated."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 135.942},
+      "experimental_configuration": {
+        "sample": "single crystal provided by E. Takayama-Muromachi, NIRIM, Tsukuba, Japan",
+        "pressure_medium": "4:1 methanol-ethanol",
+        "pressure_gauge": "single-crystal alpha-quartz internal diffraction standard using Angel et al. (1997)",
+        "diffraction": "single-crystal X-ray diffraction on a Huber four-circle diffractometer"
+      },
       "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention. V0, K0, and K0_prime were all fitted; none was fixed. V0 is one conventional orthorhombic Pbnm cell containing four CaTiO3 formula units. The paper reports no parameter covariance and does not state a confidence convention for the printed coefficient errors. The ambient pressure row has no printed pressure uncertainty; no zero uncertainty is invented in the dataset.",
+      "fit_datasets": ["calcium_titanate_perovskite_ross_1999_table1_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Ross", "Angel"],
+        "year": 1999,
+        "title": "Compression of CaTiO3 and CaGeO3 perovskites",
+        "source": "American Mineralogist",
+        "volume": "84",
+        "locator": "277-281",
+        "doi": "10.2138/am-1999-0309"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -139,13 +146,6 @@
           "temperature_ref": "The article states room temperature without a numeric thermometer reading; 298 K is the operational room-temperature reference used by this record",
           "fit_selection": "All 11 CaTiO3 rows in Table 1, from 0.001 to 9.700 GPa"
         }
-      },
-      "fit_datasets": ["calcium_titanate_perovskite_ross_1999_table1_compression"],
-      "experimental_configuration": {
-        "sample": "single crystal provided by E. Takayama-Muromachi, NIRIM, Tsukuba, Japan",
-        "pressure_medium": "4:1 methanol-ethanol",
-        "pressure_gauge": "single-crystal alpha-quartz internal diffraction standard using Angel et al. (1997)",
-        "diffraction": "single-crystal X-ray diffraction on a Huber four-circle diffractometer"
       }
     }
   ],

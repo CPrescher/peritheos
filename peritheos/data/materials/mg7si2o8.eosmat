@@ -15,7 +15,9 @@
         "K0": {"value": 97.5, "error": 0.4},
         "K0_prime": {"value": 5.97, "error": 0.14}
       },
+      "experimental_pressure_range_gpa": [0.0, 7.6],
       "determination_method": "experimental",
+      "notes": "Hydrous phase A, Mg7Si2O8(OH)6. Crichton and Ross report V0 = 512.56(3) A^3, K0 = 97.5(4) GPa, and K0' = 5.97(14). The formula is stored in parser-compatible expanded form.",
       "reference": {
         "authors": ["Crichton", "Ross"],
         "year": 2002,
@@ -25,8 +27,6 @@
         "locator": "333-338",
         "doi": "10.2138/am-2002-2-316"
       },
-      "experimental_pressure_range_gpa": [0.0, 7.6],
-      "notes": "Hydrous phase A, Mg7Si2O8(OH)6. Crichton and Ross report V0 = 512.56(3) A^3, K0 = 97.5(4) GPa, and K0' = 5.97(14). The formula is stored in parser-compatible expanded form.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

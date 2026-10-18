@@ -17,24 +17,10 @@
         "K0": {"value": 284.0, "error": 4.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Mao", "Lin", "Yang", "Inoue", "Prakapenka"],
-        "year": 2015,
-        "title": "Effects of the Fe3+ spin transition on the equation of state of bridgmanite",
-        "source": "Geophysical Research Letters",
-        "volume": "42",
-        "locator": "4335-4342",
-        "doi": "10.1002/2015GL064400"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [25.4, 125.6],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [25.4, 125.6],
         "temperature_k": [300.0, 300.0],
@@ -45,7 +31,32 @@
           "V0 is an ambient-pressure extrapolation of the low-spin branch, not the measured ambient high-spin cell volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "sample_composition": "(Mg0.9Fe0.1)SiO3 (Pv10), Al-free polycrystalline bridgmanite with a small stishovite impurity",
+      "experimental_configuration": {
+        "sample": "Same presynthesized Pv10 batch characterized by electron microscopy, XRD, conventional Mossbauer spectroscopy, and synchrotron Mossbauer spectroscopy; approximately 10% stishovite impurity is reported by Lin et al. (2012).",
+        "pressure_medium": "neon",
+        "pressure_cell": "symmetric diamond-anvil cells with rhenium gaskets",
+        "pressure_gauge": "platinum powder using Fei et al. (2007)",
+        "diffraction": "angle-dispersive synchrotron X-ray diffraction at GSECARS, Advanced Photon Source, with a 5 x 7 micrometre beam",
+        "runs": "Three room-temperature runs from near ambient pressure to 120.1-125.6 GPa; from approximately 30 GPa the sample and Pt were laser annealed near 1500 K at selected 8-15 GPa steps before room-temperature diffraction."
+      },
       "notes": "Published 300 K post-transition low-spin branch. Peritheos stores it as BM3 because the source explicitly calls the fit third-order Birch-Murnaghan; K0_prime=4 is retained as fixed, making this parameterization algebraically reduce to the second-order special case without changing the source's family label. The article's conventional-cell wording, Pbnm structure, Z=4 topology, complete Table S1 curve, and coefficient-parity refit establish the volume basis. Do not apply this EOS to the high-spin or 18-25 GPa mixed-spin observations.",
+      "iron_speciation": "Approximately 20% of total Fe is Fe3+ assigned to the octahedral B site and approximately 80% is Fe2+ assigned to the pseudododecahedral A site; this EOS is the pressure-above-25-GPa branch where the B-site Fe3+ is low spin. The A-site Fe2+ remains high spin in the same-batch spectroscopy to 120 GPa.",
+      "fit_datasets": ["mg09fe01sio3_bridgmanite_mao_2015_table_s1_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Mao", "Lin", "Yang", "Inoue", "Prakapenka"],
+        "year": 2015,
+        "title": "Effects of the Fe3+ spin transition on the equation of state of bridgmanite",
+        "source": "Geophysical Research Letters",
+        "volume": "42",
+        "locator": "4335-4342",
+        "doi": "10.1002/2015GL064400"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -178,18 +189,7 @@
             "doi": "10.1007/BF00308114"
           }
         ]
-      },
-      "sample_composition": "(Mg0.9Fe0.1)SiO3 (Pv10), Al-free polycrystalline bridgmanite with a small stishovite impurity",
-      "iron_speciation": "Approximately 20% of total Fe is Fe3+ assigned to the octahedral B site and approximately 80% is Fe2+ assigned to the pseudododecahedral A site; this EOS is the pressure-above-25-GPa branch where the B-site Fe3+ is low spin. The A-site Fe2+ remains high spin in the same-batch spectroscopy to 120 GPa.",
-      "experimental_configuration": {
-        "sample": "Same presynthesized Pv10 batch characterized by electron microscopy, XRD, conventional Mossbauer spectroscopy, and synchrotron Mossbauer spectroscopy; approximately 10% stishovite impurity is reported by Lin et al. (2012).",
-        "pressure_medium": "neon",
-        "pressure_cell": "symmetric diamond-anvil cells with rhenium gaskets",
-        "pressure_gauge": "platinum powder using Fei et al. (2007)",
-        "diffraction": "angle-dispersive synchrotron X-ray diffraction at GSECARS, Advanced Photon Source, with a 5 x 7 micrometre beam",
-        "runs": "Three room-temperature runs from near ambient pressure to 120.1-125.6 GPa; from approximately 30 GPa the sample and Pt were laser annealed near 1500 K at selected 8-15 GPa steps before room-temperature diffraction."
-      },
-      "fit_datasets": ["mg09fe01sio3_bridgmanite_mao_2015_table_s1_pv"]
+      }
     },
     {
       "identifier": "mg09fe01sio3_bridgmanite_mao_1991_bm2_2",
@@ -201,9 +201,17 @@
         "K0": {"value": 261.0, "error": 4.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 30.0],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.541},
+      "notes": "BM2 is represented as BM3 with V0 and K0_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.",
+      "fit_datasets": ["mao_1991_tables2_3_bridgmanite_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Mao", "Hemley", "Fei", "Shu", "Chen", "Jephcoat", "Wu", "Bassett"],
         "year": 1991,
@@ -213,13 +221,6 @@
         "locator": "8069-8079",
         "doi": "10.1029/91JB00176"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.541},
-      "experimental_pressure_range_gpa": [0.0, 30.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "notes": "BM2 is represented as BM3 with V0 and K0_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -313,8 +314,7 @@
           "parameters": "Final-publication Table 1 gives V0=162.79(8) A3 for Fe10; the room-temperature fit paragraph gives K0=261(4) GPa with K0'=4.",
           "fit_scope": "The shared elastic coefficient was fitted only to the nine 300 K Fe10 rows in Table 2. The MgSiO3 and Fe20 rows demonstrate indistinguishable compression, while their Table 1 V0 values remain composition specific."
         }
-      },
-      "fit_datasets": ["mao_1991_tables2_3_bridgmanite_pv"]
+      }
     }
   ],
   "aliases": ["Pv10", "10 mol.% Fe bridgmanite", "(Mg0.9Fe0.1)SiO3 perovskite"],

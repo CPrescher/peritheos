@@ -17,24 +17,10 @@
         "K0": {"value": 164.0, "error": 8.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
-        "year": 2011,
-        "title": "Dolomite III: A new candidate lower mantle carbonate",
-        "source": "Geophysical Research Letters",
-        "volume": "38",
-        "locator": "L22303",
-        "doi": "10.1029/2011GL049519"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 187.159972},
       "experimental_pressure_range_gpa": [26.0, 50.2],
-      "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [26.0, 50.2],
         "temperature_k": [300.0, 300.0],
@@ -44,7 +30,31 @@
           "V0 is a long metastable extrapolation because dolomite-III was observed only at high pressure."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 187.159972},
+      "sample_composition": "Natural Windham Fe-dolomite transformed by compression and laser annealing; electron-microprobe composition Ca0.988Mg0.918Fe0.078Mn0.016(CO3)2.",
+      "experimental_configuration": {
+        "sample": "Natural Fe-dolomite powder mixed with 5 wt.% Pt",
+        "pressure_medium": "Ne",
+        "pressure_cell": "symmetric diamond-anvil cell with 200 micrometre diamonds and Re gasket",
+        "pressure_gauge": "Pt pressure calibrant using Fei et al. (2007)",
+        "diffraction": "angle-dispersive synchrotron XRD at GSECARS, Advanced Photon Source",
+        "path": "room-temperature measurements after approximately 1500 K laser annealing during compression/decompression"
+      },
       "notes": "No default_for is assigned because this is a bounded, metastable high-spin reference branch of a high-pressure phase.",
+      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
+        "year": 2011,
+        "title": "Dolomite III: A new candidate lower mantle carbonate",
+        "source": "Geophysical Research Letters",
+        "volume": "38",
+        "locator": "L22303",
+        "doi": "10.1029/2011GL049519"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -121,16 +131,6 @@
           "K0_prime": "Discussion paragraph 11: fixed at 4.",
           "fit_selection": "Figure 3b larger-volume branch. The text says both compression and decompression results were used for high spin, while the plotted larger-volume markers are open decompression symbols; the exact original row mask is therefore not recoverable and is not silently invented."
         }
-      },
-      "sample_composition": "Natural Windham Fe-dolomite transformed by compression and laser annealing; electron-microprobe composition Ca0.988Mg0.918Fe0.078Mn0.016(CO3)2.",
-      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
-      "experimental_configuration": {
-        "sample": "Natural Fe-dolomite powder mixed with 5 wt.% Pt",
-        "pressure_medium": "Ne",
-        "pressure_cell": "symmetric diamond-anvil cell with 200 micrometre diamonds and Re gasket",
-        "pressure_gauge": "Pt pressure calibrant using Fei et al. (2007)",
-        "diffraction": "angle-dispersive synchrotron XRD at GSECARS, Advanced Photon Source",
-        "path": "room-temperature measurements after approximately 1500 K laser annealing during compression/decompression"
       }
     },
     {
@@ -143,24 +143,10 @@
         "K0": {"value": 184.0, "error": 4.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
-        "year": 2011,
-        "title": "Dolomite III: A new candidate lower mantle carbonate",
-        "source": "Geophysical Research Letters",
-        "volume": "38",
-        "locator": "L22303",
-        "doi": "10.1029/2011GL049519"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 187.159972},
       "experimental_pressure_range_gpa": [46.2, 84.2],
-      "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [46.2, 84.2],
         "temperature_k": [300.0, 300.0],
@@ -170,7 +156,31 @@
           "V0 is a long extrapolation outside the observed stability range and is strongly correlated with K0."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 187.159972},
+      "sample_composition": "Same natural-composition monoclinic indexing phase as the high-spin record.",
+      "experimental_configuration": {
+        "sample": "Natural Fe-dolomite powder mixed with 5 wt.% Pt",
+        "pressure_medium": "Ne",
+        "pressure_cell": "symmetric diamond-anvil cell with 200 micrometre diamonds and Re gasket",
+        "pressure_gauge": "Pt pressure calibrant using Fei et al. (2007)",
+        "diffraction": "angle-dispersive synchrotron XRD at GSECARS, Advanced Photon Source",
+        "path": "room-temperature measurements after approximately 1500 K laser annealing during compression/decompression"
+      },
       "notes": "No default_for is assigned because this is a bounded, metastable low-spin reference branch of a high-pressure phase.",
+      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
+        "year": 2011,
+        "title": "Dolomite III: A new candidate lower mantle carbonate",
+        "source": "Geophysical Research Letters",
+        "volume": "38",
+        "locator": "L22303",
+        "doi": "10.1029/2011GL049519"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -247,16 +257,6 @@
           "K0_prime": "Discussion paragraph 11: fixed at 4.",
           "fit_selection": "Figure 3b lower-volume branch on compression and decompression. The source does not publish row identifiers or regression weights, so the bundled marker mask records the visible branch rather than claiming exact recovery of the private input table."
         }
-      },
-      "sample_composition": "Same natural-composition monoclinic indexing phase as the high-spin record.",
-      "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized"],
-      "experimental_configuration": {
-        "sample": "Natural Fe-dolomite powder mixed with 5 wt.% Pt",
-        "pressure_medium": "Ne",
-        "pressure_cell": "symmetric diamond-anvil cell with 200 micrometre diamonds and Re gasket",
-        "pressure_gauge": "Pt pressure calibrant using Fei et al. (2007)",
-        "diffraction": "angle-dispersive synchrotron XRD at GSECARS, Advanced Photon Source",
-        "path": "room-temperature measurements after approximately 1500 K laser annealing during compression/decompression"
       }
     }
   ],

@@ -17,9 +17,13 @@
         "K0": {"value": 175.0, "error": null},
         "K0_prime": {"value": 4.2, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 100.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 40.304},
       "reference": {
         "authors": ["Zhang", "Bukowinski"],
         "year": 1991,
@@ -29,10 +33,6 @@
         "locator": "2495-2503",
         "doi": "10.1103/PhysRevB.44.2495"
       },
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 40.304},
-      "experimental_pressure_range_gpa": [0.0, 100.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [

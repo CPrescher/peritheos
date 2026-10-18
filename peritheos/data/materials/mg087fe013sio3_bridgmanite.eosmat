@@ -18,7 +18,7 @@
         "K0_prime": {"value": 4.16, "error": 0.11}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 1000.0, "error": null, "fixed": true},
@@ -26,22 +26,34 @@
           "q": {"value": 0.56, "error": 0.37},
           "n": {"value": 5.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Wolf", "Jackson", "Dera", "Prakapenka"],
-        "year": 2015,
-        "title": "The thermal equation of state of (Mg,Fe)SiO3 bridgmanite (perovskite) and implications for lower mantle structures",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "120",
-        "locator": "7460-7489",
-        "doi": "10.1002/2015JB012108"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": 0.68,
+      "experimental_pressure_range_gpa": [33.15, 132.7],
+      "experimental_temperature_range_k": [300.0, 2455.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [33.15, 132.7],
+        "temperature_k": [300.0, 2455.0],
+        "volume_ratio": [0.75030645, 0.89844325],
+        "notes": [
+          "Marginal envelope of the 153 observations; the sampled P-T paths are not a rectangular phase-stability guarantee.",
+          "The authors report that every experimental state followed a thermodynamic path within the bridgmanite stability field and found no H-phase exsolution."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default_for": "equilibrium",
+      "experimental_configuration": {
+        "sample": "polycrystalline synthetic (Mg0.87Fe0.13)SiO3 bridgmanite; microprobe verified; ferric iron below the approximately 3% detection constraint",
+        "pressure_medium": "quasi-hydrostatic neon",
+        "pressure_cell": "symmetric laser-heated diamond-anvil cell with beveled 250 micrometre culets",
+        "diffraction": "angle-dispersive powder X-ray diffraction at GSECARS 13-ID-D, wavelength 0.3344 angstrom",
+        "temperature_measurement": "double-sided laser heating and gray-body spectroradiometry over 600-800 nm"
+      },
+      "notes": "The 300 K Vinet parameters and thermal parameters are one coupled published thermal EOS. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2387 K the implementation reproduces density 5.40 g/cm3, KS=604.5 GPa, gamma=1.23, and Cv/(3Nk)=0.9838 at the source's printed precision.",
+      "fit_datasets": ["mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
         "matrix": [
@@ -52,19 +64,15 @@
           [3.17517371571e-05, -0.50912, 0.02035, 0.039479, 0.1369]
         ]
       },
-      "experimental_pressure_range_gpa": [33.15, 132.7],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 2455.0],
-      "validity": {
-        "pressure_gpa": [33.15, 132.7],
-        "temperature_k": [300.0, 2455.0],
-        "volume_ratio": [0.75030645, 0.89844325],
-        "notes": [
-          "Marginal envelope of the 153 observations; the sampled P-T paths are not a rectangular phase-stability guarantee.",
-          "The authors report that every experimental state followed a thermodynamic path within the bridgmanite stability field and found no H-phase exsolution."
-        ]
+      "reference": {
+        "authors": ["Wolf", "Jackson", "Dera", "Prakapenka"],
+        "year": 2015,
+        "title": "The thermal equation of state of (Mg,Fe)SiO3 bridgmanite (perovskite) and implications for lower mantle structures",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "120",
+        "locator": "7460-7489",
+        "doi": "10.1002/2015JB012108"
       },
-      "notes": "The 300 K Vinet parameters and thermal parameters are one coupled published thermal EOS. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2387 K the implementation reproduces density 5.40 g/cm3, KS=604.5 GPa, gamma=1.23, and Cv/(3Nk)=0.9838 at the source's printed precision.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -180,15 +188,7 @@
             "commit": "1a7243a39a21afa90a2951a0cdcd2a668602720f"
           }
         ]
-      },
-      "experimental_configuration": {
-        "sample": "polycrystalline synthetic (Mg0.87Fe0.13)SiO3 bridgmanite; microprobe verified; ferric iron below the approximately 3% detection constraint",
-        "pressure_medium": "quasi-hydrostatic neon",
-        "pressure_cell": "symmetric laser-heated diamond-anvil cell with beveled 250 micrometre culets",
-        "diffraction": "angle-dispersive powder X-ray diffraction at GSECARS 13-ID-D, wavelength 0.3344 angstrom",
-        "temperature_measurement": "double-sided laser heating and gray-body spectroradiometry over 600-800 nm"
-      },
-      "fit_datasets": ["mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"]
+      }
     }
   ],
   "aliases": ["(Mg0.87Fe0.13)SiO3 bridgmanite", "13% Fe bridgmanite", "13% Fe magnesium silicate perovskite"],

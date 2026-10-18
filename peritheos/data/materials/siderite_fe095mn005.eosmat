@@ -17,9 +17,15 @@
         "K0": {"value": 120.0, "error": 1.0},
         "K0_prime": {"value": 3.57, "error": 0.09}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 33.01],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "default": true,
+      "notes": "Source-reported 300 K isotherm, preserved without substituting refit coefficients. Natural high-spin R-3c Fe0.95Mn0.05CO3, not pure FeCO3. Pressure is retained on the printed Au scale; its exact realization is unresolved. The high-temperature candidate is withheld because Table 1 and the abstract disagree on a0. All printed cold rows give pressure RMSE 0.230 GPa with published coefficients; the manuscript 0.11-0.17 GPa RMS range is not recovered. Source objective, weights, parameter covariance and confidence convention are not specified. No extension across the cited spin transition near 45 GPa or a numerical decomposition boundary is claimed.",
+      "range_provenance": "Extrema of all 27 Table 2 rows at 300 K. The full P-V-T experiment reaches 1673 K, but this record represents only the 300 K isotherm.",
+      "fit_datasets": ["siderite_fe095mn005_litasov_2013_table2_pvt"],
       "reference": {
         "authors": ["Litasov", "Shatskiy", "Gavryushkin", "Sharygin", "Dorogokupets", "Dymshits", "Ohtani", "Higo", "Funakoshi"],
         "year": 2013,
@@ -29,10 +35,6 @@
         "locator": "83-87",
         "doi": "10.1016/j.pepi.2013.07.011"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 33.01],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Source-reported 300 K isotherm, preserved without substituting refit coefficients. Natural high-spin R-3c Fe0.95Mn0.05CO3, not pure FeCO3. Pressure is retained on the printed Au scale; its exact realization is unresolved. The high-temperature candidate is withheld because Table 1 and the abstract disagree on a0. All printed cold rows give pressure RMSE 0.230 GPa with published coefficients; the manuscript 0.11-0.17 GPa RMS range is not recovered. Source objective, weights, parameter covariance and confidence convention are not specified. No extension across the cited spin transition near 45 GPa or a numerical decomposition boundary is claimed.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -102,9 +104,7 @@
           "K0_prime": "Abstract and Table 1: 3.57(9).",
           "temperature_ref": "Section 3 and 300 K rows in Table 2."
         }
-      },
-      "range_provenance": "Extrema of all 27 Table 2 rows at 300 K. The full P-V-T experiment reaches 1673 K, but this record represents only the 300 K isotherm.",
-      "fit_datasets": ["siderite_fe095mn005_litasov_2013_table2_pvt"]
+      }
     },
     {
       "identifier": "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
@@ -117,30 +117,26 @@
         "K0_prime": {"value": 3.427642322450656, "error": 0.08617420289324854}
       },
       "thermal": {
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha0": {"value": 3.587839262956832e-05, "error": 1.442174904027276e-06},
           "alpha1": {"value": 1.0132344225608927e-09, "error": 1.9588122131294773e-09},
           "dK_dT": {"value": -0.014597911024728977, "error": 0.0011884239133985548}
         },
-        "model": "AlphaKT"
-      },
-      "record_kind": "refit",
-      "determination_method": "experimental",
-      "default": false,
-      "reference": {
-        "authors": ["Litasov", "Shatskiy", "Gavryushkin", "Sharygin", "Dorogokupets", "Dymshits", "Ohtani", "Higo", "Funakoshi"],
-        "year": 2013,
-        "title": "P–V–T equation of state of siderite to 33 GPa and 1673 K",
-        "source": "Physics of the Earth and Planetary Interiors",
-        "volume": "224",
-        "locator": "83-87",
-        "doi": "10.1016/j.pepi.2013.07.011",
-        "details": "Source of observations and model; coefficients in this record are a Peritheos refit on 2026-09-19, not source-reported values."
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity"
       },
       "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 33.01],
+      "experimental_temperature_range_k": [300.0, 1673.0],
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "default": false,
+      "notes": "Explicit opt-in Peritheos joint thermal refit, not either parameter set published by Litasov et al. All five coefficients were fitted together; V0=293.4 A^3 and Tr=300 K remain fixed. alpha0 is the absolute-temperature intercept. The observed pressure RMSE is 0.22121 GPa. The full conditional covariance is supplied; standard errors omit fixed-reference-volume uncertainty and pressure-scale systematics. The original 300 K EOS remains the default. Use within the measured paths; extrema do not guarantee phase stability throughout a rectangle. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa outside these measurements. Both conflicting published thermal sets are non-executable under source.thermal_parameterizations.",
+      "range_provenance": "Marginal extrema of the 111 fitted Table 2 observations, not a rectangular phase-stability or independent predictive-validation domain.",
+      "derived_from_record": "siderite_fe095mn005_litasov_2013_bm3",
+      "fit_datasets": ["siderite_fe095mn005_litasov_2013_table2_pvt"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.K0", "rt_eos.K0_prime", "alpha0", "alpha1", "dK_dT"],
         "matrix": [
@@ -181,9 +177,16 @@
           ]
         ]
       },
-      "experimental_pressure_range_gpa": [0.0, 33.01],
-      "experimental_temperature_range_k": [300.0, 1673.0],
-      "notes": "Explicit opt-in Peritheos joint thermal refit, not either parameter set published by Litasov et al. All five coefficients were fitted together; V0=293.4 A^3 and Tr=300 K remain fixed. alpha0 is the absolute-temperature intercept. The observed pressure RMSE is 0.22121 GPa. The full conditional covariance is supplied; standard errors omit fixed-reference-volume uncertainty and pressure-scale systematics. The original 300 K EOS remains the default. Use within the measured paths; extrema do not guarantee phase stability throughout a rectangle. The source discusses redox-sensitive decomposition and a spin transition near 45 GPa outside these measurements. Both conflicting published thermal sets are non-executable under source.thermal_parameterizations.",
+      "reference": {
+        "authors": ["Litasov", "Shatskiy", "Gavryushkin", "Sharygin", "Dorogokupets", "Dymshits", "Ohtani", "Higo", "Funakoshi"],
+        "year": 2013,
+        "title": "P–V–T equation of state of siderite to 33 GPa and 1673 K",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "224",
+        "locator": "83-87",
+        "doi": "10.1016/j.pepi.2013.07.011",
+        "details": "Source of observations and model; coefficients in this record are a Peritheos refit on 2026-09-19, not source-reported values."
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -208,7 +211,6 @@
         },
         "audit_date": "2026-09-19"
       },
-      "derived_from_record": "siderite_fe095mn005_litasov_2013_bm3",
       "evidence": {
         "scientific_validation": {
           "status": "primary_source_validated",
@@ -402,9 +404,7 @@
           "source_parameter_conflict": "Both published thermal coefficient sets remain non-executable source metadata; these optimized coefficients are a new Peritheos result, not a correction or recovery of the authors original fit.",
           "weighting_description": "equal; reported pressure bound is not treated as a row sigma; volume errors are retained but not used as weights"
         }
-      },
-      "fit_datasets": ["siderite_fe095mn005_litasov_2013_table2_pvt"],
-      "range_provenance": "Marginal extrema of the 111 fitted Table 2 observations, not a rectangular phase-stability or independent predictive-validation domain."
+      }
     }
   ],
   "cell_contents": "Fe5.7Mn0.3C6O18 in the conventional hexagonal cell",

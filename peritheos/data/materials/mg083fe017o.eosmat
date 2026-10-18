@@ -18,8 +18,7 @@
         "K0_prime": {"value": 4.08, "error": 0.02}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "reference_temperature",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "fixed": true},
           "theta0": {"value": 500.0, "fixed": true},
@@ -27,12 +26,36 @@
           "q": {"value": 0.7, "error": 0.2},
           "n": {"value": 2.0, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 47.0],
+      "experimental_temperature_range_k": [300.0, 1100.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 47.0],
+        "temperature_k": [300.0, 1100.0],
+        "notes": [
+          "Valid only for the high-spin B1 branch; the paper deliberately excludes observations at and above the approximately 47 GPa cutoff from fitting.",
+          "The dataset retains all measurements through 55.47 GPa to expose the onset and growth of the spin-crossover volume anomaly."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 45.6658},
+      "experimental_configuration": {
+        "sample": "Stoichiometric (Mg0.83Fe0.17)O B1 powder mixed with Au at approximately 10:1 Fp:Au by weight",
+        "pressure_cell": "Kawai-type multi-anvil SPEED-Mk.II with 14 mm sintered-diamond anvils and 0.75 mm truncations",
+        "pressure_gauge": "Au T-P-V EOS of Matsui (2010)",
+        "temperature_measurement": "W97Re3-W75Re25 thermocouple",
+        "diffraction": "Energy-dispersive synchrotron powder X-ray diffraction at SPring-8 BL04B1"
+      },
+      "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
+      "fit_datasets": ["mg083fe017o_matsui_2012_table1_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Matsui", "Ito", "Yamazaki", "Yoshino", "Guo", "Shan", "Higo", "Funakoshi"],
         "year": 2012,
@@ -42,21 +65,6 @@
         "locator": "176-183",
         "doi": "10.2138/am.2012.3937"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 45.6658},
-      "experimental_pressure_range_gpa": [0.0, 47.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 1100.0],
-      "validity": {
-        "pressure_gpa": [0.0, 47.0],
-        "temperature_k": [300.0, 1100.0],
-        "notes": [
-          "Valid only for the high-spin B1 branch; the paper deliberately excludes observations at and above the approximately 47 GPa cutoff from fitting.",
-          "The dataset retains all measurements through 55.47 GPa to expose the onset and growth of the spin-crossover volume anomaly."
-        ]
-      },
-      "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -119,14 +127,6 @@
           "fit_selection": "The 300 K BM3 fit and subsequent 700/1100 K thermal fit use measured rows below 47 GPa; all higher-pressure rows are retained but excluded because the source limits the EOS to high-spin Fe2+.",
           "weighting": "Least-squares fitting is stated for gamma0 and q, but the source does not publish weights, covariance, or the numerical fitting program."
         }
-      },
-      "fit_datasets": ["mg083fe017o_matsui_2012_table1_pvt"],
-      "experimental_configuration": {
-        "sample": "Stoichiometric (Mg0.83Fe0.17)O B1 powder mixed with Au at approximately 10:1 Fp:Au by weight",
-        "pressure_cell": "Kawai-type multi-anvil SPEED-Mk.II with 14 mm sintered-diamond anvils and 0.75 mm truncations",
-        "pressure_gauge": "Au T-P-V EOS of Matsui (2010)",
-        "temperature_measurement": "W97Re3-W75Re25 thermocouple",
-        "diffraction": "Energy-dispersive synchrotron powder X-ray diffraction at SPring-8 BL04B1"
       }
     },
     {
@@ -139,9 +139,21 @@
         "K0": {"value": 160, "error": 2},
         "K0_prime": {"value": 4.04, "error": 0.16}
       },
-      "record_kind": "published",
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": ["HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 49.2,
+        "transition_width_20_80_gpa": 8.2,
+        "mixer_implemented": false
+      },
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -150,12 +162,6 @@
         "volume": "101",
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
-      "validity": {
-        "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -191,12 +197,6 @@
           "K0_prime": "Table 7 HS value.",
           "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
         }
-      },
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 49.2,
-        "transition_width_20_80_gpa": 8.2,
-        "mixer_implemented": false
       }
     },
     {
@@ -209,9 +209,21 @@
         "K0": {"value": 190, "error": 6},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": ["LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 49.2,
+        "transition_width_20_80_gpa": 8.2,
+        "mixer_implemented": false
+      },
       "reference": {
         "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
         "year": 2016,
@@ -220,12 +232,6 @@
         "volume": "101",
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
-      "validity": {
-        "pressure_gpa": [0, 140],
-        "temperature_k": [300, 300],
-        "notes": ["LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -261,12 +267,6 @@
           "K0_prime": "Fixed to 4.",
           "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
         }
-      },
-      "spin_crossover_context": {
-        "branch": "low_spin_reference",
-        "transition_pressure_gpa": 49.2,
-        "transition_width_20_80_gpa": 8.2,
-        "mixer_implemented": false
       }
     }
   ],

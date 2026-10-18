@@ -16,16 +16,19 @@
         "K0": {"value": 290.0, "error": 10.0}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null},
           "theta0": {"value": 1600.0, "error": 200.0},
           "gamma0": {"value": 1.6, "error": 0.2},
           "q": {"value": 1.0, "error": null, "fixed": true},
           "n": {"value": 3.0, "error": null, "fixed": true}
-        },
-        "model": "MieGruneisenDebye"
+        }
       },
+      "experimental_pressure_range_gpa": [55.0, 147.0],
+      "experimental_temperature_range_k": [300.0, 3500.0],
       "determination_method": "experimental",
+      "notes": "Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.",
       "reference": {
         "authors": ["Sun", "Shi", "Mao", "Zhou", "Prakapenka"],
         "year": 2019,
@@ -35,9 +38,6 @@
         "locator": "12620-12630",
         "doi": "10.1029/2019JB017853"
       },
-      "experimental_pressure_range_gpa": [55.0, 147.0],
-      "experimental_temperature_range_k": [300.0, 3500.0],
-      "notes": "Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -98,9 +98,18 @@
         "K0": {"value": 329.0, "error": 4.0},
         "K0_prime": {"value": 4.1, "error": 0.1}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 220.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 220.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["QMC plus quasiharmonic phonons; the low-pressure part is a metastable extrapolation of alpha-PbO2-type SiO2."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 60.083},
       "reference": {
         "authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"],
         "year": 2010,
@@ -109,15 +118,6 @@
         "volume": "107",
         "locator": "9519-9524",
         "doi": "10.1073/pnas.0912130107"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 60.083},
-      "experimental_pressure_range_gpa": [0.0, 220.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 220.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["QMC plus quasiharmonic phonons; the low-pressure part is a metastable extrapolation of alpha-PbO2-type SiO2."]
       },
       "pressure_calibration": {
         "status": "not_applicable",

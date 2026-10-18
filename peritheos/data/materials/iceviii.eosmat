@@ -16,7 +16,9 @@
         "K0": {"value": 20.4, "error": null},
         "K0_prime": {"value": 4.7, "error": null}
       },
+      "experimental_pressure_range_gpa": [0.0, 10.0],
       "determination_method": "experimental",
+      "notes": "Besson et al. give the 300 K D2O ice-VIII molar V0=12.45 cm^3/mol, converted here to the Z=8 tetragonal cell. Their BM3 fit gives K0=20.4 GPa and K0'=4.7 for 0-10 GPa. They state that no pressure/volume error can be quoted because the result depends on the adopted 300 K EOS, and that it must not be used above 10 GPa.",
       "reference": {
         "authors": ["Besson", "Pruzan", "Klotz", "Hamel", "Silvi", "Nelmes", "Loveday", "Wilson", "Hull"],
         "year": 1994,
@@ -26,8 +28,6 @@
         "locator": "12540-12550",
         "doi": "10.1103/PhysRevB.49.12540"
       },
-      "experimental_pressure_range_gpa": [0.0, 10.0],
-      "notes": "Besson et al. give the 300 K D2O ice-VIII molar V0=12.45 cm^3/mol, converted here to the Z=8 tetragonal cell. Their BM3 fit gives K0=20.4 GPa and K0'=4.7 for 0-10 GPa. They state that no pressure/volume error can be quoted because the result depends on the adopted 300 K EOS, and that it must not be used above 10 GPa.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

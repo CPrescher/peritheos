@@ -17,21 +17,7 @@
         "K0": {"value": 255.0, "error": 5.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Shim", "Jeanloz", "Duffy"],
-        "year": 2002,
-        "title": "Tetragonal structure of CaSiO3 perovskite above 20 GPa",
-        "source": "Geophysical Research Letters",
-        "volume": "29",
-        "locator": "2166",
-        "doi": "10.1029/2002GL016148"
-      },
       "parameter_error_confidence": 0.6826894921370859,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
       "experimental_pressure_range_gpa": [19.7, 45.8],
       "experimental_temperature_range_k": [300.0, 300.0],
       "validity": {
@@ -42,7 +28,22 @@
           "V0 is an adopted zero-pressure extrapolation because CaSiO3 perovskite is not recovered as this phase at ambient conditions."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
       "notes": "The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. Figure 2a supporting observations are now bundled as an explicitly digitized dataset; the 19.7 GPa cubic refinement is flagged separately.",
+      "supporting_datasets": ["casio3_perovskite_tetragonal_shim_2002_figure2a_digitized"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Shim", "Jeanloz", "Duffy"],
+        "year": 2002,
+        "title": "Tetragonal structure of CaSiO3 perovskite above 20 GPa",
+        "source": "Geophysical Research Letters",
+        "volume": "29",
+        "locator": "2166",
+        "doi": "10.1029/2002GL016148"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -127,8 +128,7 @@
             "doi": "10.1029/95JB03254"
           }
         ]
-      },
-      "supporting_datasets": ["casio3_perovskite_tetragonal_shim_2002_figure2a_digitized"]
+      }
     }
   ],
   "aliases": ["tetragonal davemaoite", "tetragonal Ca-perovskite"],

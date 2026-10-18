@@ -17,21 +17,7 @@
         "K0": {"value": 118.0, "error": 1.0},
         "K0_prime": {"value": 3.8, "error": 0.3}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default": true,
-      "reference": {
-        "authors": ["Thompson", "Downs"],
-        "year": 2008,
-        "title": "The crystal structure of diopside at pressure to 10 GPa",
-        "source": "American Mineralogist",
-        "volume": "93",
-        "locator": "177-186",
-        "doi": "10.2138/am.2008.2684"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0001, 10.16],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -42,7 +28,28 @@
           "Static source room temperature is nominally 300 K."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default": true,
+      "experimental_configuration": {
+        "apparatus": "4-pin Merrill-Bassett diamond-anvil cell; Picker single-crystal diffractometer",
+        "pressure_medium": "15:4:1 methanol:ethanol:water",
+        "pressure_standard": "Ruby R1/R2 Lorentzian peak fits, Mao et al. (1978)",
+        "sample": "Natural DeKalb diopside, Smithsonian R18685; cell reloaded with same crystal after gasket began to fail at 5 GPa."
+      },
       "notes": "Independent static diffraction EOS, not combined with Zhao thermal coefficients. The source also reports a fixed-Kprime=4 alternative (K0=117.1(2) GPa, V0=438.66(2) A^3), retained in the audit rather than conflated with this free-Kprime record. Source P is Mao (1978) ruby scale. Room temperature is represented nominally as 300 K.",
+      "fit_datasets": ["diopside_thompson_2008_table1"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Thompson", "Downs"],
+        "year": 2008,
+        "title": "The crystal structure of diopside at pressure to 10 GPa",
+        "source": "American Mineralogist",
+        "volume": "93",
+        "locator": "177-186",
+        "doi": "10.2138/am.2008.2684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-10-15",
@@ -141,13 +148,6 @@
           "statistics": {"observations": 14},
           "source_covariance": "not_reported"
         }
-      },
-      "fit_datasets": ["diopside_thompson_2008_table1"],
-      "experimental_configuration": {
-        "apparatus": "4-pin Merrill-Bassett diamond-anvil cell; Picker single-crystal diffractometer",
-        "pressure_medium": "15:4:1 methanol:ethanol:water",
-        "pressure_standard": "Ruby R1/R2 Lorentzian peak fits, Mao et al. (1978)",
-        "sample": "Natural DeKalb diopside, Smithsonian R18685; cell reloaded with same crystal after gasket began to fail at 5 GPa."
       }
     },
     {
@@ -161,20 +161,43 @@
         "K0_prime": {"value": 4.84, "error": 0.6}
       },
       "thermal": {
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha0": {"value": 2.32e-05, "error": 5e-07},
           "alpha1": {"value": 1.88e-08, "error": 7e-10},
           "dK_dT": {"value": -0.0205, "error": 0.0004}
         },
-        "model": "AlphaKT"
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 8.18],
+      "experimental_temperature_range_k": [300.0, 1280.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 8.18],
+        "temperature_k": [300.0, 1280.0],
+        "notes": [
+          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
+          "Published-model and parameter parity established with the documented table-error treatment; source inconsistencies remain recorded as provenance. Published coefficients and original observations are preserved."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default": false,
+      "experimental_configuration": {
+        "apparatus": "DIA-6 SAM-85 multi-anvil press; NSLS X-17B energy-dispersive diffraction",
+        "temperature_measurement": "Printed W-26%Rh/W thermocouple; composition retained as printed, not silently changed to Re. No row-wise T uncertainties reported.",
+        "pressure_standard": "Layer-packed NaCl, Decker (1971)",
+        "path": "Cold compression to maximum load, heating to maximum T, subsequent cooling and decompression; hydrostatic states only used for EOS according to source."
+      },
+      "notes": "Published-model and parameter parity established within graphical precision and reported parameter errors using the independently digitized Figure 2 pressure for source row 15 in the audit calculation. The original 32-row table, duplicate ambient entries, printed errors and published EOS coefficients are preserved. Source-table pressure and lattice inconsistencies are documented provenance, not an EOS acceptance blocker. V0 is the source ambient-volume anchor. Exact original fit inputs and regression workflow are not recovered. The independent Thompson static record remains the room-temperature default; use this thermal record for elevated-temperature evaluation. The separately bundled corrected P-V-T dataset is recommended for refitting; its row-15 pressure is 4.58 GPa with a separate graphical reading bound.",
+      "fit_datasets": ["diopside_zhao_1998_table1"],
+      "recommended_refit_dataset": "diopside_zhao_1998_table1_corrected_pvt",
+      "analysis_datasets": ["diopside_zhao_1998_table1_corrected_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Zhao", "Von Dreele", "Zhang", "Weidner"],
         "year": 1998,
@@ -184,20 +207,6 @@
         "locator": "25-27",
         "doi": "10.4131/jshpreview.7.25"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 8.18],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 1280.0],
-      "validity": {
-        "pressure_gpa": [0.0, 8.18],
-        "temperature_k": [300.0, 1280.0],
-        "notes": [
-          "Observed P-T envelope is not a rectangular phase-stability guarantee. No caloric free-energy model or axial strain law is supplied.",
-          "Published-model and parameter parity established with the documented table-error treatment; source inconsistencies remain recorded as provenance. Published coefficients and original observations are preserved."
-        ]
-      },
-      "notes": "Published-model and parameter parity established within graphical precision and reported parameter errors using the independently digitized Figure 2 pressure for source row 15 in the audit calculation. The original 32-row table, duplicate ambient entries, printed errors and published EOS coefficients are preserved. Source-table pressure and lattice inconsistencies are documented provenance, not an EOS acceptance blocker. V0 is the source ambient-volume anchor. Exact original fit inputs and regression workflow are not recovered. The independent Thompson static record remains the room-temperature default; use this thermal record for elevated-temperature evaluation. The separately bundled corrected P-V-T dataset is recommended for refitting; its row-15 pressure is 4.58 GPa with a separate graphical reading bound.",
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-10-15",
@@ -393,16 +402,7 @@
             "original_author_input": false
           }
         }
-      },
-      "fit_datasets": ["diopside_zhao_1998_table1"],
-      "experimental_configuration": {
-        "apparatus": "DIA-6 SAM-85 multi-anvil press; NSLS X-17B energy-dispersive diffraction",
-        "temperature_measurement": "Printed W-26%Rh/W thermocouple; composition retained as printed, not silently changed to Re. No row-wise T uncertainties reported.",
-        "pressure_standard": "Layer-packed NaCl, Decker (1971)",
-        "path": "Cold compression to maximum load, heating to maximum T, subsequent cooling and decompression; hydrostatic states only used for EOS according to source."
-      },
-      "recommended_refit_dataset": "diopside_zhao_1998_table1_corrected_pvt",
-      "analysis_datasets": ["diopside_zhao_1998_table1_corrected_pvt"]
+      }
     }
   ],
   "aliases": ["CaMgSi2O6", "calcium magnesium silicate diopside"],

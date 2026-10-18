@@ -17,7 +17,10 @@
         "K0": {"value": 191.0, "error": null},
         "K0_prime": {"value": 3.9, "error": null}
       },
+      "experimental_pressure_range_gpa": [0.0, 147.6],
       "determination_method": "experimental",
+      "notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.",
+      "fit_datasets": ["nickel_oxide_noguchi_1999_table1_shock"],
       "reference": {
         "authors": ["Noguchi", "Uchino", "Hikosaka", "Atou", "Kusaba", "Fukuoka", "Mashimo", "Syono"],
         "year": 1999,
@@ -27,8 +30,6 @@
         "locator": "509-514",
         "doi": "10.1016/S0022-3697(98)00296-0"
       },
-      "experimental_pressure_range_gpa": [0.0, 147.6],
-      "notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -130,8 +131,7 @@
           "K0": "Noguchi et al. (1999), abstract and shock-reduced 300 K BM3 curve; independently checked by the executable Debye Mie-Gruneisen reduction documented in scientific_validation.independent_refit.",
           "K0_prime": "Noguchi et al. (1999), abstract and shock-reduced 300 K BM3 curve; independently checked by the executable Debye Mie-Gruneisen reduction documented in scientific_validation.independent_refit."
         }
-      },
-      "fit_datasets": ["nickel_oxide_noguchi_1999_table1_shock"]
+      }
     },
     {
       "identifier": "nickel_oxide_noguchi_1999_linear_hugoniot_2",
@@ -144,32 +144,10 @@
         "s": {"value": 1.2137281492, "error": 0.02956091343},
         "P0": {"value": 0.0, "error": null, "fixed": true}
       },
-      "record_kind": "derived",
-      "determination_method": "experimental",
-      "equation_kind": "hugoniot",
-      "default_for": "hugoniot",
-      "reference": {
-        "authors": ["Noguchi", "Uchino", "Hikosaka", "Atou", "Kusaba", "Fukuoka", "Mashimo", "Syono"],
-        "year": 1999,
-        "title": "Equation of state of NiO studied by shock compression",
-        "source": "J. Phys. Chem. Solids",
-        "volume": "60",
-        "locator": "509-514",
-        "details": "Table 1, journal page 510",
-        "doi": "10.1016/S0022-3697(98)00296-0"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": {
-        "parameter_order": ["c0", "s"],
-        "matrix": [
-          [0.0028212816024, -0.0014193469559],
-          [-0.0014193469559, 0.00087384760293]
-        ]
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 74.6928},
       "experimental_pressure_range_gpa": [17.7, 147.6],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [17.1, 147.7],
         "temperature_k": [298.15, 298.15],
@@ -179,6 +157,10 @@
           "The temperature bounds describe the normalized precursor state, not a constant-temperature shock path."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "derived",
+      "equation_kind": "hugoniot",
+      "default_for": "hugoniot",
       "loading_path": "principal",
       "branch_kind": "untransformed",
       "initial_state": {
@@ -192,6 +174,7 @@
         "xray_density_g_cm3": 6.808,
         "xray_density_standard_deviation_g_cm3": 0.004
       },
+      "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 74.6928},
       "branch_domain": {
         "particle_velocity_km_s": [0.431, 2.547],
         "kind": "experimental_coverage",
@@ -202,6 +185,34 @@
         ]
       },
       "notes": "Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error.",
+      "derivation": {
+        "source_kind": "published_table",
+        "source_identifier": "nickel_oxide_noguchi_1999_table1_shock",
+        "method": "Ordinary least squares of final shock velocity on final particle velocity for all eight experiments; resolved HEL columns were excluded.",
+        "sampling_domain": {
+          "particle_velocity_km_s": [0.431, 2.547],
+          "pressure_gpa": [17.7, 147.6]
+        },
+        "software": {"name": "Peritheos fit_linear_us_up", "version": "0.6.0", "version_date": "2026-09-04"},
+        "access_and_licensing": "The fit uses the primary Table 1 transcription already bundled with this material. Coefficients and fit diagnostics are derived facts; the source table's redistribution status remains separately documented."
+      },
+      "parameter_covariance": {
+        "parameter_order": ["c0", "s"],
+        "matrix": [
+          [0.0028212816024, -0.0014193469559],
+          [-0.0014193469559, 0.00087384760293]
+        ]
+      },
+      "reference": {
+        "authors": ["Noguchi", "Uchino", "Hikosaka", "Atou", "Kusaba", "Fukuoka", "Mashimo", "Syono"],
+        "year": 1999,
+        "title": "Equation of state of NiO studied by shock compression",
+        "source": "J. Phys. Chem. Solids",
+        "volume": "60",
+        "locator": "509-514",
+        "details": "Table 1, journal page 510",
+        "doi": "10.1016/S0022-3697(98)00296-0"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -219,17 +230,6 @@
         ],
         "recalculation": {"status": "not_applicable", "notes": "No external static pressure calibration is used."},
         "audit_date": "2026-09-04"
-      },
-      "derivation": {
-        "source_kind": "published_table",
-        "source_identifier": "nickel_oxide_noguchi_1999_table1_shock",
-        "method": "Ordinary least squares of final shock velocity on final particle velocity for all eight experiments; resolved HEL columns were excluded.",
-        "sampling_domain": {
-          "particle_velocity_km_s": [0.431, 2.547],
-          "pressure_gpa": [17.7, 147.6]
-        },
-        "software": {"name": "Peritheos fit_linear_us_up", "version": "0.6.0", "version_date": "2026-09-04"},
-        "access_and_licensing": "The fit uses the primary Table 1 transcription already bundled with this material. Coefficients and fit diagnostics are derived facts; the source table's redistribution status remains separately documented."
       },
       "evidence": {
         "scientific_validation": {

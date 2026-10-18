@@ -2831,8 +2831,8 @@ establish statistical independence.
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
-- **Debye temperature law:** integrated\_gruneisen
 - **Thermal pressure reference:** reference\_temperature
+- **Debye temperature law:** integrated\_gruneisen
 
 </details>
 
@@ -3170,8 +3170,8 @@ establish statistical independence.
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
-- **Debye temperature law:** integrated\_gruneisen
 - **Thermal pressure reference:** reference\_temperature
+- **Debye temperature law:** integrated\_gruneisen
 
 </details>
 

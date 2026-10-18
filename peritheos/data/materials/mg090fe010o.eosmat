@@ -17,21 +17,7 @@
         "K0": {"value": 159, "error": 2},
         "K0_prime": {"value": 3.96, "error": 0.14}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
-        "year": 2016,
-        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-        "source": "American Mineralogist",
-        "volume": "101",
-        "locator": "1084-1093",
-        "doi": "10.2138/am-2016-5510"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 140],
@@ -40,6 +26,27 @@
           "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 52.1 GPa; reported 20-80% crossover width 2.3 GPa."
         ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 52.1,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 2.3,
+        "mixer_implemented": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -79,13 +86,6 @@
           "original_dataset": "Solomatova et al. refit the P-V data of Marquardt et al. (2009b), DOI 10.1016/j.epsl.2009.08.017.",
           "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
         }
-      },
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 52.1,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 2.3,
-        "mixer_implemented": false
       }
     },
     {
@@ -98,21 +98,7 @@
         "K0": {"value": 159, "error": 12},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
-        "year": 2016,
-        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-        "source": "American Mineralogist",
-        "volume": "101",
-        "locator": "1084-1093",
-        "doi": "10.2138/am-2016-5510"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 140],
@@ -121,6 +107,27 @@
           "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 52.1 GPa; reported 20-80% crossover width 2.3 GPa."
         ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 52.1,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 2.3,
+        "mixer_implemented": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -160,13 +167,6 @@
           "original_dataset": "Solomatova et al. refit the P-V data of Marquardt et al. (2009b), DOI 10.1016/j.epsl.2009.08.017.",
           "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
         }
-      },
-      "spin_crossover_context": {
-        "branch": "low_spin_reference",
-        "transition_pressure_gpa": 52.1,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 2.3,
-        "mixer_implemented": false
       }
     },
     {
@@ -179,9 +179,33 @@
         "K0": {"value": 158.2, "error": 2.0},
         "K0_prime": {"value": 3.98, "error": 0.14}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0001, 43.8],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0, 43.8],
+        "temperature_k": [300, 300],
+        "notes": [
+          "HS interpretation is P < 45 GPa; last measured HS row is 43.8 GPa.",
+          "Room temperature represented as 300 K. No thermal extrapolation or mixed-spin population model."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
+      "notes": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "spin_crossover_context": {
+        "branch": "high_spin",
+        "high_spin_pressure_upper_exclusive_gpa": 45,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixer_implemented": false
+      },
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s2_elasticity"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
         "year": 2009,
@@ -191,21 +215,6 @@
         "locator": "345-352",
         "doi": "10.1016/j.epsl.2009.08.017"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
-      "experimental_pressure_range_gpa": [0.0001, 43.8],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [0, 43.8],
-        "temperature_k": [300, 300],
-        "notes": [
-          "HS interpretation is P < 45 GPa; last measured HS row is 43.8 GPa.",
-          "Room temperature represented as 300 K. No thermal extrapolation or mixed-spin population model."
-        ]
-      },
-      "notes": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -273,16 +282,7 @@
           "fit_selection": "Table 2 source_order 1-14 (P < 45 GPa); ambient row anchors V0. The complete 29-row resource also preserves 9 mixed-spin and 6 LS observations.",
           "Brillouin_constraint": "Section 3.2 separately reports Brillouin-only adiabatic KS0 = 161.4 +/- 1.1 GPa and KS0 prime = 3.98 +/- 0.14. These are not KT0 or additional P-V rows. The precise weighting of the ambient constraint is unavailable. EPSL Table S2 separately reports ambient KS = 165 +/- 3 GPa; the 161.4 GPa fitted intercept is not this ambient observation. The supplement still does not specify the exact constraint implementation."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "spin_crossover_context": {
-        "branch": "high_spin",
-        "high_spin_pressure_upper_exclusive_gpa": 45,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixer_implemented": false
-      },
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s2_elasticity"]
+      }
     },
     {
       "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
@@ -294,24 +294,10 @@
         "K0": {"value": 144.0, "error": null},
         "K0_prime": {"value": 4.5, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -321,7 +307,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 1,
+        "members": 12,
+        "v0_ls_over_hs": 0.99,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -383,22 +399,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 1,
-        "members": 12,
-        "v0_ls_over_hs": 0.99,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -411,24 +411,10 @@
         "K0": {"value": 153.0, "error": null},
         "K0_prime": {"value": 4.5, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -438,7 +424,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 2,
+        "members": 12,
+        "v0_ls_over_hs": 0.98,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -500,22 +516,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 2,
-        "members": 12,
-        "v0_ls_over_hs": 0.98,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -528,24 +528,10 @@
         "K0": {"value": 163.0, "error": null},
         "K0_prime": {"value": 4.5, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -555,7 +541,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 3,
+        "members": 12,
+        "v0_ls_over_hs": 0.97,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -617,22 +633,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 3,
-        "members": 12,
-        "v0_ls_over_hs": 0.97,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -645,24 +645,10 @@
         "K0": {"value": 175.0, "error": null},
         "K0_prime": {"value": 4.5, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -672,7 +658,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 4,
+        "members": 12,
+        "v0_ls_over_hs": 0.96,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -734,22 +750,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 4,
-        "members": 12,
-        "v0_ls_over_hs": 0.96,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -762,24 +762,10 @@
         "K0": {"value": 156.0, "error": null},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -789,7 +775,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 5,
+        "members": 12,
+        "v0_ls_over_hs": 0.99,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -851,22 +867,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 5,
-        "members": 12,
-        "v0_ls_over_hs": 0.99,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -879,24 +879,10 @@
         "K0": {"value": 164.0, "error": null},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -906,7 +892,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 6,
+        "members": 12,
+        "v0_ls_over_hs": 0.98,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -968,22 +984,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 6,
-        "members": 12,
-        "v0_ls_over_hs": 0.98,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -996,24 +996,10 @@
         "K0": {"value": 175.0, "error": null},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -1023,7 +1009,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 7,
+        "members": 12,
+        "v0_ls_over_hs": 0.97,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1085,22 +1101,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 7,
-        "members": 12,
-        "v0_ls_over_hs": 0.97,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -1113,24 +1113,10 @@
         "K0": {"value": 186.0, "error": null},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -1140,7 +1126,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 8,
+        "members": 12,
+        "v0_ls_over_hs": 0.96,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1202,22 +1218,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 8,
-        "members": 12,
-        "v0_ls_over_hs": 0.96,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -1230,24 +1230,10 @@
         "K0": {"value": 167.0, "error": null},
         "K0_prime": {"value": 3.5, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -1257,7 +1243,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 9,
+        "members": 12,
+        "v0_ls_over_hs": 0.99,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1319,22 +1335,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 9,
-        "members": 12,
-        "v0_ls_over_hs": 0.99,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -1347,24 +1347,10 @@
         "K0": {"value": 177.0, "error": null},
         "K0_prime": {"value": 3.5, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -1374,7 +1360,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 10,
+        "members": 12,
+        "v0_ls_over_hs": 0.98,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1436,22 +1452,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 10,
-        "members": 12,
-        "v0_ls_over_hs": 0.98,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -1464,24 +1464,10 @@
         "K0": {"value": 187.0, "error": null},
         "K0_prime": {"value": 3.5, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -1491,7 +1477,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 11,
+        "members": 12,
+        "v0_ls_over_hs": 0.97,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1553,22 +1569,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 11,
-        "members": 12,
-        "v0_ls_over_hs": 0.97,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     },
     {
@@ -1581,24 +1581,10 @@
         "K0": {"value": 199.0, "error": null},
         "K0_prime": {"value": 3.5, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
-        "year": 2009,
-        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
-        "source": "Earth and Planetary Science Letters",
-        "volume": "287",
-        "locator": "345-352",
-        "doi": "10.1016/j.epsl.2009.08.017"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "experimental_pressure_range_gpa": [63.9, 77.4],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [63.9, 77.4],
         "temperature_k": [300, 300],
@@ -1608,7 +1594,37 @@
           "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 43.458},
       "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
+      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
+      "spin_crossover_context": {
+        "branch": "low_spin",
+        "low_spin_pressure_lower_exclusive_gpa": 63,
+        "mixed_spin_pressure_gpa": [45, 63],
+        "mixer_implemented": false
+      },
+      "constrained_fit_family": {
+        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+        "source_row": 12,
+        "members": 12,
+        "v0_ls_over_hs": 0.96,
+        "preferred_member": false,
+        "summary_rows_are_independent_fits": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Marquardt", "Speziale", "Reichmann", "Frost", "Schilling"],
+        "year": 2009,
+        "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "287",
+        "locator": "345-352",
+        "doi": "10.1016/j.epsl.2009.08.017"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1670,22 +1686,6 @@
           "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
           "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
         }
-      },
-      "fit_datasets": ["mg090fe010o_marquardt_2009_table2_pv"],
-      "supporting_datasets": ["mg090fe010o_marquardt_2009_table_s1_ls_models"],
-      "spin_crossover_context": {
-        "branch": "low_spin",
-        "low_spin_pressure_lower_exclusive_gpa": 63,
-        "mixed_spin_pressure_gpa": [45, 63],
-        "mixer_implemented": false
-      },
-      "constrained_fit_family": {
-        "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
-        "source_row": 12,
-        "members": 12,
-        "v0_ls_over_hs": 0.96,
-        "preferred_member": false,
-        "summary_rows_are_independent_fits": false
       }
     }
   ],

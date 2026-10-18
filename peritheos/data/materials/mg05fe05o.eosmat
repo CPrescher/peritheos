@@ -17,10 +17,21 @@
         "K0": {"value": 139, "error": null},
         "K0_prime": {"value": 4.1, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [0, 49],
+        "temperature_k": [1160, 1160],
+        "notes": [
+          "High-spin paramagnetic B1 branch; the upper bound is the source's calculated HS-LS transition midpoint, not an experimental stability limit.",
+          "Static-ion DFT+DMFT EOS at an electronic temperature of 1160 K."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 56.074},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Leonov", "Ponomareva", "Nazarov", "Abrikosov"],
         "year": 2017,
@@ -29,17 +40,6 @@
         "volume": "96",
         "locator": "075136",
         "doi": "10.1103/PhysRevB.96.075136"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 56.074},
-      "validity": {
-        "pressure_gpa": [0, 49],
-        "temperature_k": [1160, 1160],
-        "notes": [
-          "High-spin paramagnetic B1 branch; the upper bound is the source's calculated HS-LS transition midpoint, not an experimental stability limit.",
-          "Static-ion DFT+DMFT EOS at an electronic temperature of 1160 K."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",

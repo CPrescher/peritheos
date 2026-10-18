@@ -15,22 +15,7 @@
         "V0": {"value": 240.3, "error": 0.2, "fixed": true},
         "K0": {"value": 211.0, "error": 6.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "reference": {
-        "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
-        "year": 1998,
-        "title": "High-pressure transformations in MgAl2O4",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "103",
-        "locator": "20813-20818",
-        "doi": "10.1029/98JB01575"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 33.4],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -42,7 +27,32 @@
           "This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "default": true,
+      "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-2 transformation product assigned to CaFe2O4-type MgAl2O4",
+      "experimental_configuration": {
+        "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
+        "laser_heating": "2000-3000 K for about 60 minutes",
+        "measurement_temperature": "room temperature after heating; no numerical value reported",
+        "diffraction": "synchrotron X-ray diffraction at SSRL beamline 10-2",
+        "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
+        "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 33.4 GPa state is their post-heating average"
+      },
       "notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.",
+      "fit_datasets": ["mgal2o4_cafe2o4_funamori_1998_text_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
+        "year": 1998,
+        "title": "High-pressure transformations in MgAl2O4",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "103",
+        "locator": "20813-20818",
+        "doi": "10.1029/98JB01575"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -132,16 +142,6 @@
           "construction_states": "Recovered zero-pressure cell fixes V0; the in-situ run-2 cell at the mean post-heating pressure of 33.4 GPa then determines K0 algebraically. This is not a regression fit.",
           "uncertainties": "The source says bulk-modulus uncertainty is calculated from the difference between ruby- and Pt-derived post-heating pressures; no covariance or confidence convention is published."
         }
-      },
-      "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-2 transformation product assigned to CaFe2O4-type MgAl2O4",
-      "fit_datasets": ["mgal2o4_cafe2o4_funamori_1998_text_pv"],
-      "experimental_configuration": {
-        "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
-        "laser_heating": "2000-3000 K for about 60 minutes",
-        "measurement_temperature": "room temperature after heating; no numerical value reported",
-        "diffraction": "synchrotron X-ray diffraction at SSRL beamline 10-2",
-        "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
-        "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 33.4 GPa state is their post-heating average"
       }
     },
     {
@@ -153,21 +153,7 @@
         "V0": {"value": 240.6, "error": 0.3, "fixed": true},
         "K0": {"value": 213.0, "error": 3.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default": false,
-      "reference": {
-        "authors": ["Irifune", "Naka", "Sanehira", "Inoue", "Funakoshi"],
-        "year": 2002,
-        "title": "In situ X-ray observations of phase transitions in MgAl2O4 spinel to 40 GPa using multianvil apparatus with sintered diamond anvils",
-        "source": "Physics and Chemistry of Minerals",
-        "volume": "29",
-        "locator": "645-654",
-        "doi": "10.1007/s00269-002-0275-1"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 34.7],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -177,7 +163,27 @@
           "No thermal EOS is represented."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default": false,
+      "sample_composition": "MgAl2O4 calcium-ferrite phase; spinel and Au mixed 5:1 by weight in S312, S369 and S402",
+      "experimental_configuration": {
+        "apparatus": "SPEED-1500 multianvil with sintered diamond anvils, BL04B1, SPring-8",
+        "measurement_temperature": "27 degC (300.15 K), Figure 6"
+      },
       "notes": "Only three compressed points: do not infer a free K0-prime, covariance, thermal coefficients or a new default. The existing Funamori structural cell and default are retained independently of this EOS reference volume.",
+      "fit_datasets": ["mgal2o4_cafe2o4_irifune_2002_text_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Irifune", "Naka", "Sanehira", "Inoue", "Funakoshi"],
+        "year": 2002,
+        "title": "In situ X-ray observations of phase transitions in MgAl2O4 spinel to 40 GPa using multianvil apparatus with sintered diamond anvils",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "29",
+        "locator": "645-654",
+        "doi": "10.1007/s00269-002-0275-1"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -262,12 +268,6 @@
           "uncertainties": "Parenthetical errors retained; confidence convention and covariance unavailable.",
           "temperature_ref": "Figure 6 labels T=27 degC; converted to 300.15 K."
         }
-      },
-      "fit_datasets": ["mgal2o4_cafe2o4_irifune_2002_text_pv"],
-      "sample_composition": "MgAl2O4 calcium-ferrite phase; spinel and Au mixed 5:1 by weight in S312, S369 and S402",
-      "experimental_configuration": {
-        "apparatus": "SPEED-1500 multianvil with sintered diamond anvils, BL04B1, SPring-8",
-        "measurement_temperature": "27 degC (300.15 K), Figure 6"
       }
     },
     {
@@ -281,34 +281,20 @@
         "K0_prime": {"value": 4.1, "error": 0.3, "fixed": true}
       },
       "thermal": {
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha0": {"value": 1.96e-05, "error": 1.3e-06},
           "alpha1": {"value": 1.64e-08, "error": 2.4e-09},
           "dK_dT": {"value": -0.03, "error": 0.002}
         },
-        "model": "AlphaKT"
-      },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "default": false,
-      "reference": {
-        "authors": ["Sueda", "Irifune", "Sanehira", "Yagi", "Nishiyama", "Kikegawa", "Funakoshi"],
-        "year": 2009,
-        "title": "Thermal equation of state of CaFe2O4-type MgAl2O4",
-        "source": "Physics of the Earth and Planetary Interiors",
-        "volume": "174",
-        "locator": "78-85",
-        "doi": "10.1016/j.pepi.2008.07.046"
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity"
       },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0001, 41.5],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [298.0, 2400.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0001, 41.5],
         "temperature_k": [298.0, 2400.0],
@@ -319,7 +305,23 @@
           "The structural reference lattice remains the independently sourced Funamori cell; Sueda Table 1 has its own rounded reference cells and Table 2 has the fitted V0."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": false,
+      "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen.",
       "notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations.",
+      "fit_datasets": ["mgal2o4_cafe2o4_sueda_2009_table1_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Sueda", "Irifune", "Sanehira", "Yagi", "Nishiyama", "Kikegawa", "Funakoshi"],
+        "year": 2009,
+        "title": "Thermal equation of state of CaFe2O4-type MgAl2O4",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "174",
+        "locator": "78-85",
+        "doi": "10.1016/j.pepi.2008.07.046"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-09-08",
@@ -427,9 +429,7 @@
           "covariance": null,
           "fit_statistic": null
         }
-      },
-      "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen.",
-      "fit_datasets": ["mgal2o4_cafe2o4_sueda_2009_table1_pvt"]
+      }
     },
     {
       "identifier": "mgal2o4_cafe2o4_sueda_2009_mgd_3",
@@ -442,7 +442,7 @@
         "K0_prime": {"value": 4.1, "error": 0.3, "fixed": true}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 1546.0, "error": 104.0},
@@ -450,26 +450,12 @@
           "q": {"value": 2.03, "error": 0.37},
           "n": {"value": 7.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "default": false,
-      "reference": {
-        "authors": ["Sueda", "Irifune", "Sanehira", "Yagi", "Nishiyama", "Kikegawa", "Funakoshi"],
-        "year": 2009,
-        "title": "Thermal equation of state of CaFe2O4-type MgAl2O4",
-        "source": "Physics of the Earth and Planetary Interiors",
-        "volume": "174",
-        "locator": "78-85",
-        "doi": "10.1016/j.pepi.2008.07.046"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0001, 41.5],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [298.0, 2400.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0001, 41.5],
         "temperature_k": [298.0, 2400.0],
@@ -480,7 +466,23 @@
           "The structural reference lattice remains the independently sourced Funamori cell; Sueda Table 1 has its own rounded reference cells and Table 2 has the fitted V0."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": false,
+      "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen.",
       "notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations.",
+      "fit_datasets": ["mgal2o4_cafe2o4_sueda_2009_table1_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Sueda", "Irifune", "Sanehira", "Yagi", "Nishiyama", "Kikegawa", "Funakoshi"],
+        "year": 2009,
+        "title": "Thermal equation of state of CaFe2O4-type MgAl2O4",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "174",
+        "locator": "78-85",
+        "doi": "10.1016/j.pepi.2008.07.046"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-09-08",
@@ -590,9 +592,7 @@
           "covariance": null,
           "fit_statistic": null
         }
-      },
-      "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen.",
-      "fit_datasets": ["mgal2o4_cafe2o4_sueda_2009_table1_pvt"]
+      }
     }
   ],
   "aliases": ["CaFe2O4-type MgAl2O4", "MgAl2O4 CF phase"],

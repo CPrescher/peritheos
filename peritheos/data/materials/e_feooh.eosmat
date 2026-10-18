@@ -16,21 +16,9 @@
         "V0": {"value": 66.3, "error": 0.5, "fixed": true},
         "K0": {"value": 158.0, "error": 5.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Gleason", "Jeanloz", "Kunz"],
-        "year": 2008,
-        "title": "Pressure-temperature stability studies of FeOOH using X-ray diffraction",
-        "source": "American Mineralogist",
-        "volume": "93",
-        "locator": "1882-1885",
-        "doi": "10.2138/am.2008.2942"
-      },
       "experimental_pressure_range_gpa": [3.81, 21.01],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [473.15, 673.15],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [3.81, 21.01],
         "temperature_k": [473.15, 673.15],
@@ -41,7 +29,20 @@
           "The represented source phase is the hydrogen-off-center InOOH-type structure in the source's P21mn axis setting, equivalent by axis permutation to this material's P21nm setting."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Published 300 K BM2 reference curve recovered from 49 elevated-temperature observations. The source explicitly reports the pooled fit, fixed K0-prime, G-versus-g V0 extrapolation, and absence of a resolvable epsilon thermal-expansion trend, but it does not print an epsilon temperature-correction equation or fit weights. A forensic reconstruction using the paper's alpha0 reproduces K0 to rounding; that correction is retained as fit provenance, not promoted to a general temperature-dependent epsilon-FeOOH model.",
+      "fit_datasets": ["epsilon_feooh_gleason_2008_deposit_table2_pvt"],
+      "reference": {
+        "authors": ["Gleason", "Jeanloz", "Kunz"],
+        "year": 2008,
+        "title": "Pressure-temperature stability studies of FeOOH using X-ray diffraction",
+        "source": "American Mineralogist",
+        "volume": "93",
+        "locator": "1882-1885",
+        "doi": "10.2138/am.2008.2942"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -169,8 +170,7 @@
           "covariance": null,
           "fit_statistic": null
         }
-      },
-      "fit_datasets": ["epsilon_feooh_gleason_2008_deposit_table2_pvt"]
+      }
     },
     {
       "identifier": "e_feooh_suzuki_2016_bm3_thermal_2",
@@ -183,32 +183,20 @@
         "K0_prime": {"value": 6.1, "error": 0.9}
       },
       "thermal": {
-        "thermal_expansion_law": "linear_reference_temperature",
-        "reference_volume_law": "integrated_expansivity",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha0": {"value": 2.6e-05, "error": 7e-06},
           "alpha1": {"value": 1e-07, "error": 3e-08},
           "dK_dT": {"value": -0.05, "error": 0.02}
         },
-        "model": "AlphaKT"
-      },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "reference": {
-        "authors": ["Suzuki"],
-        "year": 2016,
-        "title": "Pressure-volume-temperature equation of state of epsilon-FeOOH to 11 GPa and 700 K",
-        "source": "Journal of Mineralogical and Petrological Sciences",
-        "volume": "111",
-        "locator": "420-424",
-        "doi": "10.2465/jmps.160719c"
+        "thermal_expansion_law": "linear_reference_temperature",
+        "reference_volume_law": "integrated_expansivity"
       },
       "parameter_error_confidence": null,
       "experimental_pressure_range_gpa": [0.0001, 11.07],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 700.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0001, 11.07],
         "temperature_k": [300.0, 700.0],
@@ -219,7 +207,20 @@
           "The article notes a possible change in compression slope between 3 and 7 GPa that may reflect deviatoric stress or hydrogen-bond symmetrization; the single smooth fit is retained exactly as published."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
       "notes": "Published high-temperature BM3 parameterization. The source reports no EosFit7c version, numerical weights, full covariance, or scalar fit statistic. The Table 1 transcription is retained at printed precision; its source page states copyright 2016 Japan Association of Mineralogical Sciences and exposes no open data license.",
+      "fit_datasets": ["epsilon_feooh_suzuki_2016_table1_pvt"],
+      "reference": {
+        "authors": ["Suzuki"],
+        "year": 2016,
+        "title": "Pressure-volume-temperature equation of state of epsilon-FeOOH to 11 GPa and 700 K",
+        "source": "Journal of Mineralogical and Petrological Sciences",
+        "volume": "111",
+        "locator": "420-424",
+        "doi": "10.2465/jmps.160719c"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -334,8 +335,7 @@
           "covariance": null,
           "fit_statistic": null
         }
-      },
-      "fit_datasets": ["epsilon_feooh_suzuki_2016_table1_pvt"]
+      }
     }
   ],
   "aliases": ["epsilon-FeOOH", "InOOH-type FeOOH"],

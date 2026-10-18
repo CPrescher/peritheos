@@ -17,24 +17,10 @@
         "K0": {"value": 155.3, "error": 2.2},
         "K0_prime": {"value": 3.79, "error": 0.11}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Dobrosavljevic", "Sturhahn", "Jackson"],
-        "year": 2019,
-        "title": "Evaluating the Role of Iron-Rich (Mg,Fe)O in Ultralow Velocity Zones",
-        "source": "Minerals",
-        "volume": "9",
-        "locator": "762",
-        "doi": "10.3390/min9120762"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [1.5, 23.3],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0, 23.3],
         "temperature_k": [300.0, 300.0],
@@ -45,7 +31,22 @@
           "This is a structural branch, not a pure-spin phase-stability field."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
       "notes": "Published B1 parameterization on the Dewaele-2008 ruby scale. V0 is stored on the conventional eight-atom cell basis. K0-prime was constrained by a finite prior and is therefore listed as free, not fixed. No numerical covariance matrix is available.",
+      "fit_datasets": ["mgfe94o_dobrosavljevic_2019_table_s1_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dobrosavljevic", "Sturhahn", "Jackson"],
+        "year": 2019,
+        "title": "Evaluating the Role of Iron-Rich (Mg,Fe)O in Ultralow Velocity Zones",
+        "source": "Minerals",
+        "volume": "9",
+        "locator": "762",
+        "doi": "10.3390/min9120762"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -178,8 +179,7 @@
             "published_reduced_chi_square_uncertainty_without_prior": 0.25
           }
         }
-      },
-      "fit_datasets": ["mgfe94o_dobrosavljevic_2019_table_s1_compression"]
+      }
     }
   ],
   "aliases": ["Mw94", "B1-(Mg0.058Fe0.942)O", "iron-rich magnesiowustite"],

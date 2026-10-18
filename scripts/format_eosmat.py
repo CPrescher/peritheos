@@ -1,7 +1,7 @@
 """Format existing EOSMAT documents without altering their scientific contents.
 
 Run ``python -m scripts.format_eosmat [paths ...]``. With no paths, format the
-bundled materials and authoring template. ``--check`` is read-only.
+bundled materials and complete authoring examples. ``--check`` is read-only.
 """
 
 from __future__ import annotations
@@ -40,7 +40,7 @@ def main() -> int:
     args = parser.parse_args()
     paths = args.paths or [
         ROOT / "peritheos/data/materials",
-        ROOT / "docs/examples/simple-material.eosmat",
+        ROOT / "docs/examples",
     ]
     files: set[Path] = set()
     for path in paths:

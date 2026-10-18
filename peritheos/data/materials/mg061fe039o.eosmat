@@ -17,21 +17,7 @@
         "K0": {"value": 161, "error": 3},
         "K0_prime": {"value": 4.25, "error": 0.24}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
-        "year": 2016,
-        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-        "source": "American Mineralogist",
-        "volume": "101",
-        "locator": "1084-1093",
-        "doi": "10.2138/am-2016-5510"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 140],
@@ -40,6 +26,27 @@
           "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
         ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 56.6,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 17.2,
+        "mixer_implemented": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -79,13 +86,6 @@
           "original_dataset": "Solomatova et al. refit the P-V data of Fei et al. (2007), DOI 10.1029/2007GL030712.",
           "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
         }
-      },
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 56.6,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 17.2,
-        "mixer_implemented": false
       }
     },
     {
@@ -98,21 +98,7 @@
         "K0": {"value": 162, "error": 4},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
-        "year": 2016,
-        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-        "source": "American Mineralogist",
-        "volume": "101",
-        "locator": "1084-1093",
-        "doi": "10.2138/am-2016-5510"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 140],
@@ -121,6 +107,27 @@
           "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 56.6 GPa; reported 20-80% crossover width 17.2 GPa."
         ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 56.6,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 17.2,
+        "mixer_implemented": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -160,13 +167,6 @@
           "original_dataset": "Solomatova et al. refit the P-V data of Fei et al. (2007), DOI 10.1029/2007GL030712.",
           "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
         }
-      },
-      "spin_crossover_context": {
-        "branch": "low_spin_reference",
-        "transition_pressure_gpa": 56.6,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 17.2,
-        "mixer_implemented": false
       }
     },
     {
@@ -179,21 +179,7 @@
         "K0": {"value": 160, "error": 1},
         "K0_prime": {"value": 4.07, "error": 0.05}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
-        "year": 2016,
-        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-        "source": "American Mineralogist",
-        "volume": "101",
-        "locator": "1084-1093",
-        "doi": "10.2138/am-2016-5510"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 140],
@@ -202,6 +188,27 @@
           "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
         ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 73.5,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 10.3,
+        "mixer_implemented": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -241,13 +248,6 @@
           "original_dataset": "Solomatova et al. refit the P-V data of Zhuravlev et al. (2010), DOI 10.1007/s00269-009-0347-6.",
           "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
         }
-      },
-      "spin_crossover_context": {
-        "branch": "high_spin_reference",
-        "transition_pressure_gpa": 73.5,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 10.3,
-        "mixer_implemented": false
       }
     },
     {
@@ -260,21 +260,7 @@
         "K0": {"value": 170, "error": 2},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
-        "year": 2016,
-        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-        "source": "American Mineralogist",
-        "volume": "101",
-        "locator": "1084-1093",
-        "doi": "10.2138/am-2016-5510"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 140],
@@ -283,6 +269,27 @@
           "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
           "Transition midpoint 73.5 GPa; reported 20-80% crossover width 10.3 GPa."
         ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 73.5,
+        "transition_pressure_sigma_gpa": null,
+        "transition_width_20_80_gpa": 10.3,
+        "mixer_implemented": false
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -322,13 +329,6 @@
           "original_dataset": "Solomatova et al. refit the P-V data of Zhuravlev et al. (2010), DOI 10.1007/s00269-009-0347-6.",
           "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
         }
-      },
-      "spin_crossover_context": {
-        "branch": "low_spin_reference",
-        "transition_pressure_gpa": 73.5,
-        "transition_pressure_sigma_gpa": null,
-        "transition_width_20_80_gpa": 10.3,
-        "mixer_implemented": false
       }
     },
     {
@@ -340,9 +340,25 @@
         "V0": {"value": 77.4, "error": 0.2},
         "K0": {"value": 161, "error": 3}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [15.5, 70.9],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [15.5, 70.9],
+        "temperature_k": [300, 300],
+        "notes": [
+          "High-spin compression branch only; the first volume collapse occurs at 72.2 GPa.",
+          "BM2 makes K0_prime=4 part of the equation definition."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
+      "notes": "This is Zhuravlev et al.'s source-owned high-spin EOS, distinct from the later Solomatova et al. coupled crossover branches fitted to the full compression trajectory. The paper states that the printed pressure uncertainties describe drift during acquisition and that the true pressure uncertainty is likely closer to 3%; exact EOS-FIT weights and covariance are not published.",
+      "fit_datasets": ["mg061fe039o_zhuravlev_2010_table5_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Zhuravlev", "Jackson", "Wolf", "Wicks", "Yan", "Clark", "Prakapenka"],
         "year": 2010,
@@ -352,21 +368,6 @@
         "locator": "465-474",
         "doi": "10.1007/s00269-009-0347-6"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
-      "experimental_pressure_range_gpa": [15.5, 70.9],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [15.5, 70.9],
-        "temperature_k": [300, 300],
-        "notes": [
-          "High-spin compression branch only; the first volume collapse occurs at 72.2 GPa.",
-          "BM2 makes K0_prime=4 part of the equation definition."
-        ]
-      },
-      "notes": "This is Zhuravlev et al.'s source-owned high-spin EOS, distinct from the later Solomatova et al. coupled crossover branches fitted to the full compression trajectory. The paper states that the printed pressure uncertainties describe drift during acquisition and that the true pressure uncertainty is likely closer to 3%; exact EOS-FIT weights and covariance are not published.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [
@@ -443,8 +444,7 @@
           "fixed_parameters": ["K0_prime"],
           "statistics": {"weighted_chi_square": 2.5}
         }
-      },
-      "fit_datasets": ["mg061fe039o_zhuravlev_2010_table5_pv"]
+      }
     },
     {
       "identifier": "mg061fe039o_fei_2007_hs_b1_bm3",
@@ -456,21 +456,7 @@
         "K0": {"value": 156, "error": 2},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
-        "year": 2007,
-        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
-        "source": "Geophysical Research Letters",
-        "volume": "34",
-        "locator": "L17307",
-        "doi": "10.1029/2007GL030712"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 55],
@@ -480,7 +466,28 @@
           "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
+      "validation_selection": {
+        "pressure_gpa": [-0.1, 55],
+        "compression_path": "compression",
+        "notes": "Validation only: compression rows with -0.1 <= P <= 55 GPa, using the published approximate 0-55 GPa branch interval. Exact source row masks and least-squares weights are not published."
+      },
+      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
+        "year": 2007,
+        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+        "source": "Geophysical Research Letters",
+        "volume": "34",
+        "locator": "L17307",
+        "doi": "10.1029/2007GL030712"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -578,14 +585,7 @@
           "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
           "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
         }
-      },
-      "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
-      "validation_selection": {
-        "pressure_gpa": [-0.1, 55],
-        "compression_path": "compression",
-        "notes": "Validation only: compression rows with -0.1 <= P <= 55 GPa, using the published approximate 0-55 GPa branch interval. Exact source row masks and least-squares weights are not published."
-      },
-      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
+      }
     },
     {
       "identifier": "mg061fe039o_fei_2007_ls_b1_bm3",
@@ -597,21 +597,7 @@
         "K0": {"value": 170, "error": 3},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
-        "year": 2007,
-        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
-        "source": "Geophysical Research Letters",
-        "volume": "34",
-        "locator": "L17307",
-        "doi": "10.1029/2007GL030712"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [60, 148],
@@ -621,7 +607,28 @@
           "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 52.6046},
       "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
+      "validation_selection": {
+        "pressure_gpa": [60, 148],
+        "compression_path": "compression",
+        "notes": "Validation only: compression rows with 60 <= P <= 148 GPa, using the published approximate 60-148 GPa branch interval. Exact source row masks and least-squares weights are not published."
+      },
+      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
+        "year": 2007,
+        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+        "source": "Geophysical Research Letters",
+        "volume": "34",
+        "locator": "L17307",
+        "doi": "10.1029/2007GL030712"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -719,14 +726,7 @@
           "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
           "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature."
         }
-      },
-      "fit_datasets": ["mg061fe039o_fei_2007_table_s2_pv"],
-      "validation_selection": {
-        "pressure_gpa": [60, 148],
-        "compression_path": "compression",
-        "notes": "Validation only: compression rows with 60 <= P <= 148 GPa, using the published approximate 60-148 GPa branch interval. Exact source row masks and least-squares weights are not published."
-      },
-      "spin_path_context": {"spin": "low-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
+      }
     }
   ],
   "aliases": ["B1 (Mg,Fe)O", "magnesiowüstite"],

@@ -17,9 +17,34 @@
         "K0": {"value": 168.52, "error": null, "fixed": true},
         "K0_prime": {"value": 3.34, "error": null, "fixed": true}
       },
-      "record_kind": "derived",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [27.0, 48.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [27.0, 48.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": [
+          "Metastable static AM05 branch; the source reports spontaneous coesite-IV to coesite-V relaxation at the smaller 352.35 A3 cell volume."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "derived",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
+      "sample_composition": "Ideal SiO2, fully relaxed metastable coesite-IV structure.",
+      "derivation": {
+        "source_kind": "published_table",
+        "source_identifier": "coesite_iv_bykova_2018_table10_calc_pv",
+        "method": "One-parameter BM3 reconstruction: refine V0 against exact Table 10 P-V states while holding Supplementary Table 11 K0 and K0_prime fixed.",
+        "sampling_domain": {
+          "pressure_gpa": [39.0, 48.0]
+        },
+        "software": {"name": "Peritheos", "version": "0.6.0"},
+        "access_and_licensing": "Primary article and supplementary information are CC BY 4.0."
+      },
+      "fit_datasets": ["coesite_iv_bykova_2018_table10_calc_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Bykova",
@@ -44,19 +69,6 @@
         "locator": "4789",
         "doi": "10.1038/s41467-018-07265-z"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
-      "experimental_pressure_range_gpa": [27.0, 48.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [27.0, 48.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": [
-          "Metastable static AM05 branch; the source reports spontaneous coesite-IV to coesite-V relaxation at the smaller 352.35 A3 cell volume."
-        ]
-      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -64,16 +76,6 @@
         ],
         "recalculation": {"status": "not_applicable", "notes": "The EOS is based on calculated E-P-V states."},
         "audit_date": "2026-09-05"
-      },
-      "derivation": {
-        "source_kind": "published_table",
-        "source_identifier": "coesite_iv_bykova_2018_table10_calc_pv",
-        "method": "One-parameter BM3 reconstruction: refine V0 against exact Table 10 P-V states while holding Supplementary Table 11 K0 and K0_prime fixed.",
-        "sampling_domain": {
-          "pressure_gpa": [39.0, 48.0]
-        },
-        "software": {"name": "Peritheos", "version": "0.6.0"},
-        "access_and_licensing": "Primary article and supplementary information are CC BY 4.0."
       },
       "evidence": {
         "scientific_validation": {
@@ -119,9 +121,7 @@
           },
           "reproduction": {"script": "scripts/reproduce_tranche_b_mineral_eos.py", "solver": "scipy.optimize.least_squares"}
         }
-      },
-      "sample_composition": "Ideal SiO2, fully relaxed metastable coesite-IV structure.",
-      "fit_datasets": ["coesite_iv_bykova_2018_table10_calc_pv"]
+      }
     }
   ],
   "aliases": ["coesite IV"],

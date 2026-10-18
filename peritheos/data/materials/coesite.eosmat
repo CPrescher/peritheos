@@ -15,7 +15,9 @@
         "K0": {"value": 96.0, "error": 3.0},
         "K0_prime": {"value": 8.4, "error": 1.9}
       },
+      "experimental_pressure_range_gpa": [0.0, 5.2],
       "determination_method": "experimental",
+      "notes": "Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.",
       "reference": {
         "authors": ["Levien", "Prewitt"],
         "year": 1981,
@@ -24,8 +26,6 @@
         "volume": "66",
         "locator": "324-333"
       },
-      "experimental_pressure_range_gpa": [0.0, 5.2],
-      "notes": "Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -77,9 +77,24 @@
         "K0": {"value": 103.0, "error": 2.0},
         "K0_prime": {"value": 3.02, "error": 0.15}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 36.9],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [0.0, 36.9],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Effective compression branch across the minor coesite-I to II to III transitions, explicitly represented by one EOS in the source."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
+      "sample_composition": "High-purity SiO2 coesite single crystals; combined coesite-I, coesite-II, and coesite-III compression branch.",
+      "fit_datasets": ["coesite_i_ii_cernok_2014_table1_pv", "coesite_ii_iii_bykova_2018_table2_pv"],
+      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Bykova",
@@ -103,19 +118,6 @@
         "volume": "9",
         "locator": "4789",
         "doi": "10.1038/s41467-018-07265-z"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
-      "experimental_pressure_range_gpa": [0.0, 36.9],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 36.9],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Effective compression branch across the minor coesite-I to II to III transitions, explicitly represented by one EOS in the source."
-        ]
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -158,9 +160,7 @@
           "parameters": "Results paragraph and Figure 1 caption; V0/Z is multiplied by Z=16 for this conventional-cell material card.",
           "method": "Combined single-crystal XRD pressure-volume data for coesite-I, II, and III. The exact recoverable subset comprises nine observations from the cited Cernok et al. diffraction work and 15 observations from Supplementary Table 2; current-study coesite-I points remain graphical only."
         }
-      },
-      "sample_composition": "High-purity SiO2 coesite single crystals; combined coesite-I, coesite-II, and coesite-III compression branch.",
-      "fit_datasets": ["coesite_i_ii_cernok_2014_table1_pv", "coesite_ii_iii_bykova_2018_table2_pv"]
+      }
     }
   ],
   "symmetry": "MONOCLINIC",

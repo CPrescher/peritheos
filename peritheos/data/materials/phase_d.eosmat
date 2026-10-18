@@ -16,7 +16,10 @@
         "V0": {"value": 88.12, "error": 0.32, "fixed": true},
         "K0": {"value": 134.0, "error": 5.0}
       },
+      "experimental_pressure_range_gpa": [0.0, 24.6],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "notes": "Reference-volume variant for the AntA antigorite-derived phase-D run. Table 2 reports V0=88.12+/-0.32 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
       "reference": {
         "authors": ["Shieh", "Mao", "Hemley", "Ming"],
         "year": 2000,
@@ -26,9 +29,6 @@
         "locator": "69-80",
         "doi": "10.1016/S0012-821X(00)00033-9"
       },
-      "experimental_pressure_range_gpa": [0.0, 24.6],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Reference-volume variant for the AntA antigorite-derived phase-D run. Table 2 reports V0=88.12+/-0.32 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -84,7 +84,10 @@
         "V0": {"value": 87.191, "error": 0.097, "fixed": true},
         "K0": {"value": 134.0, "error": 5.0}
       },
+      "experimental_pressure_range_gpa": [0.0, 22.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "notes": "Reference-volume variant for the AntB antigorite-derived phase-D run. Table 2 reports V0=87.191+/-0.097 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
       "reference": {
         "authors": ["Shieh", "Mao", "Hemley", "Ming"],
         "year": 2000,
@@ -94,9 +97,6 @@
         "locator": "69-80",
         "doi": "10.1016/S0012-821X(00)00033-9"
       },
-      "experimental_pressure_range_gpa": [0.0, 22.0],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Reference-volume variant for the AntB antigorite-derived phase-D run. Table 2 reports V0=87.191+/-0.097 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

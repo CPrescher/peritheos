@@ -16,24 +16,10 @@
         "V0": {"value": 164.9, "error": 0.6},
         "K0": {"value": 219.0, "error": 5.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"],
-        "year": 2006,
-        "title": "Equation of state of the postperovskite phase synthesized from a natural (Mg,Fe)SiO3 orthopyroxene",
-        "source": "Proceedings of the National Academy of Sciences",
-        "volume": "103",
-        "locator": "3039-3043",
-        "doi": "10.1073/pnas.0506811103"
-      },
       "parameter_error_confidence": 0.6826894921370859,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [12.0, 106.0],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [12.0, 106.0],
         "temperature_k": [300.0, 300.0],
@@ -42,6 +28,31 @@
           "The range is the measured metastable decompression envelope, not a thermodynamic phase-stability field.",
           "The long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated; the authors therefore fixed K0'=4."
         ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "sample_composition": "Natural orthopyroxene starting material (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6; normalized Mg0.90Fe0.09Al0.005Ca0.005SiO3; pv and ppv coexisted after synthesis.",
+      "experimental_configuration": {
+        "sample": "Natural orthopyroxene transformed by laser heating; coexisting Pbnm pv and Cmcm ppv were followed on room-temperature decompression.",
+        "pressure_medium": "argon or NaCl depending on run; Pt mixtures and NaCl also served as laser absorber/insulation",
+        "pressure_cell": "symmetric diamond-anvil cells with 150 micrometre beveled culets and rhenium gaskets",
+        "pressure_gauge": "internal Pt, Au, or NaCl standards using Holmes et al. (1989), Shim et al. (2002), and Sata et al. (2002), respectively",
+        "diffraction": "angle-dispersive synchrotron XRD at GSECARS 13-ID-D and SPring-8 BL10XU",
+        "path": "300 K decompression without additional heating after synthesis"
+      },
+      "implicit_parameters": {"K0_prime": 4.0},
+      "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"],
+        "year": 2006,
+        "title": "Equation of state of the postperovskite phase synthesized from a natural (Mg,Fe)SiO3 orthopyroxene",
+        "source": "Proceedings of the National Academy of Sciences",
+        "volume": "103",
+        "locator": "3039-3043",
+        "doi": "10.1073/pnas.0506811103"
       },
       "pressure_calibration": {
         "status": "partially_resolved",
@@ -149,18 +160,7 @@
           "uncertainties": "Results states that parenthetical values are one-sigma uncertainties.",
           "temperature_ref": "Abstract and experimental description: pressure-volume observations at 300 K."
         }
-      },
-      "sample_composition": "Natural orthopyroxene starting material (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6; normalized Mg0.90Fe0.09Al0.005Ca0.005SiO3; pv and ppv coexisted after synthesis.",
-      "implicit_parameters": {"K0_prime": 4.0},
-      "experimental_configuration": {
-        "sample": "Natural orthopyroxene transformed by laser heating; coexisting Pbnm pv and Cmcm ppv were followed on room-temperature decompression.",
-        "pressure_medium": "argon or NaCl depending on run; Pt mixtures and NaCl also served as laser absorber/insulation",
-        "pressure_cell": "symmetric diamond-anvil cells with 150 micrometre beveled culets and rhenium gaskets",
-        "pressure_gauge": "internal Pt, Au, or NaCl standards using Holmes et al. (1989), Shim et al. (2002), and Sata et al. (2002), respectively",
-        "diffraction": "angle-dispersive synchrotron XRD at GSECARS 13-ID-D and SPring-8 BL10XU",
-        "path": "300 K decompression without additional heating after synthesis"
-      },
-      "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"]
+      }
     },
     {
       "identifier": "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2",
@@ -172,9 +172,23 @@
         "K0": {"value": 198.0, "error": 5.0},
         "K0_prime": {"value": 4.4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.6826894921370859,
+      "experimental_pressure_range_gpa": [12.0, 106.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [12.0, 106.0],
+        "temperature_k": [300.0, 300.0],
+        "volume_ratio": [0.749133, 0.943057],
+        "notes": ["Nonpreferred parameter-tradeoff sensitivity fit; use the BM2 record by default."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "sample_composition": "Same natural-composition coexisting-phase ppv dataset as the preferred record.",
+      "notes": "This record corrects LitCurate's suggested BM2 mapping: a fixed K0'=4.4 requires BM3. It is retained only as an author-reported sensitivity fit.",
+      "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"],
         "year": 2006,
@@ -184,18 +198,6 @@
         "locator": "3039-3043",
         "doi": "10.1073/pnas.0506811103"
       },
-      "parameter_error_confidence": 0.6826894921370859,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [12.0, 106.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [12.0, 106.0],
-        "temperature_k": [300.0, 300.0],
-        "volume_ratio": [0.749133, 0.943057],
-        "notes": ["Nonpreferred parameter-tradeoff sensitivity fit; use the BM2 record by default."]
-      },
-      "notes": "This record corrects LitCurate's suggested BM2 mapping: a fixed K0'=4.4 requires BM3. It is retained only as an author-reported sensitivity fit.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -292,9 +294,7 @@
           "K0_prime": "Results: fixed at 4.4.",
           "uncertainties": "Results states that parenthetical values are one-sigma uncertainties."
         }
-      },
-      "sample_composition": "Same natural-composition coexisting-phase ppv dataset as the preferred record.",
-      "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"]
+      }
     }
   ],
   "aliases": ["Shieh natural pyroxene post-perovskite", "9 mol.% FeSiO3 post-perovskite"],

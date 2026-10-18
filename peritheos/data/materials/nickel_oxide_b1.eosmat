@@ -18,7 +18,7 @@
         "K0_prime": {"value": 5.4, "error": 0.2}
       },
       "thermal": {
-        "debye_temperature_law": "variable_exponent",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 295.0, "error": null, "fixed": true},
           "theta0": {"value": 480.0, "error": null, "fixed": true},
@@ -26,9 +26,18 @@
           "n": {"value": 2.0, "error": null, "fixed": true},
           "q": {"value": 1.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "variable_exponent"
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [2.336174779961698, 65.9],
+      "experimental_temperature_range_k": [298.0, 2457.07],
       "determination_method": "experimental",
+      "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. All 101 source rows are bundled. Nine quenched DAC states are retained but excluded from the main 92-row refit because Section 2.2 warns of residual stresses; an all-row sensitivity fit is reported. Ideal rocksalt structural model following Roth (1958), Introduction and Fig. 1; conventional Fm-3m cell with four Ni and four O. The reference edge is normalized to Campbell Table 1 V0, not claimed as a separate ambient cubic refinement. Roth establishes cubic paramagnetic NiO and a rhombohedral distortion below the Neel temperature (523 K at ambient pressure). Campbell reports B1 and fits one cubic-average volume model, including low-temperature MAP points; this record cannot predict magnetic ordering, rhombohedral splitting, or the pressure-dependent Neel boundary. Use the separate nickel_oxide rhombohedral card for resolved low-temperature diffraction. ",
+      "range_provenance": {
+        "source_location": "Tables S2-S3; Seagle (2008) Table 1 and subsolidus supplement for Fe/FeO",
+        "notes": "Marginal experimental coverage, not a rectangular phase-stability field. Fe/FeO upper bounds include earlier Seagle approximate isobars; new-study-only bounds and selected-row extrema are in the reproduction JSON. fcc Fe and stoichiometric B1 FeO must remain within their source phase/composition fields. The 295 K reference is an extrapolation. NiO is a source cubic-average B1 model across unresolved magnetic distortion."
+      },
+      "fit_datasets": ["ni_nio_campbell_2009_table_s3_pvt"],
       "reference": {
         "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
         "year": 2009,
@@ -38,10 +47,6 @@
         "locator": "556-564",
         "doi": "10.1016/j.epsl.2009.07.022"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [2.336174779961698, 65.9],
-      "experimental_temperature_range_k": [298.0, 2457.07],
-      "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. All 101 source rows are bundled. Nine quenched DAC states are retained but excluded from the main 92-row refit because Section 2.2 warns of residual stresses; an all-row sensitivity fit is reported. Ideal rocksalt structural model following Roth (1958), Introduction and Fig. 1; conventional Fm-3m cell with four Ni and four O. The reference edge is normalized to Campbell Table 1 V0, not claimed as a separate ambient cubic refinement. Roth establishes cubic paramagnetic NiO and a rhombohedral distortion below the Neel temperature (523 K at ambient pressure). Campbell reports B1 and fits one cubic-average volume model, including low-temperature MAP points; this record cannot predict magnetic ordering, rhombohedral splitting, or the pressure-dependent Neel boundary. Use the separate nickel_oxide rhombohedral card for resolved low-temperature diffraction. ",
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-09-19",
@@ -139,12 +144,7 @@
             "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
           }
         }
-      },
-      "range_provenance": {
-        "source_location": "Tables S2-S3; Seagle (2008) Table 1 and subsolidus supplement for Fe/FeO",
-        "notes": "Marginal experimental coverage, not a rectangular phase-stability field. Fe/FeO upper bounds include earlier Seagle approximate isobars; new-study-only bounds and selected-row extrema are in the reproduction JSON. fcc Fe and stoichiometric B1 FeO must remain within their source phase/composition fields. The 295 K reference is an extrapolation. NiO is a source cubic-average B1 model across unresolved magnetic distortion."
-      },
-      "fit_datasets": ["ni_nio_campbell_2009_table_s3_pvt"]
+      }
     }
   ],
   "aliases": ["cubic bunsenite"],

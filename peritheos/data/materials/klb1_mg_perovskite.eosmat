@@ -17,19 +17,34 @@
         "K0": {"value": 245.0, "error": 1.0}
       },
       "thermal": {
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha0": {"value": 3.19e-05, "error": 1.7e-06},
           "alpha1": {"value": 8.8e-09, "error": 1.6e-09},
           "dK_dT": {"value": -0.036, "error": 0.001}
         },
-        "model": "AlphaKT"
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [30.0, 112.0],
+      "experimental_temperature_range_k": [300.0, 2569.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [30.0, 112.0],
+        "temperature_k": [300.0, 2569.0],
+        "notes": [
+          "Effective EOS includes the small phase-composition changes of the coexisting pyrolite assemblage.",
+          "No record-level molar mass is encoded because the source does not define one fixed Mg-Fe-Al-Si composition."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "sample_composition": "Mg-, Fe-, and Al-bearing orthorhombic Mg-perovskite coexisting in natural KLB-1 pyrolite.",
+      "fit_datasets": ["klb1_ricolleau_2009_table_s1_mg_perovskite_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Ricolleau",
@@ -50,19 +65,6 @@
         "volume": "36",
         "locator": "L06302",
         "doi": "10.1029/2008GL036759"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [30.0, 112.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 2569.0],
-      "validity": {
-        "pressure_gpa": [30.0, 112.0],
-        "temperature_k": [300.0, 2569.0],
-        "notes": [
-          "Effective EOS includes the small phase-composition changes of the coexisting pyrolite assemblage.",
-          "No record-level molar mass is encoded because the source does not define one fixed Mg-Fe-Al-Si composition."
-        ]
       },
       "pressure_calibration": {
         "status": "resolved",
@@ -139,9 +141,7 @@
             "qualification": "The paper does not state its weighting, temperature-error treatment, or covariance scaling."
           }
         }
-      },
-      "sample_composition": "Mg-, Fe-, and Al-bearing orthorhombic Mg-perovskite coexisting in natural KLB-1 pyrolite.",
-      "fit_datasets": ["klb1_ricolleau_2009_table_s1_mg_perovskite_pvt"]
+      }
     }
   ],
   "aliases": ["KLB-1 Mg-pv", "pyrolitic bridgmanite"],

@@ -17,21 +17,7 @@
         "K0": {"value": 153, "error": null},
         "K0_prime": {"value": 4, "error": null, "fixed": true}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
-        "year": 2007,
-        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
-        "source": "Geophysical Research Letters",
-        "volume": "34",
-        "locator": "L17307",
-        "doi": "10.1029/2007GL030712"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 58.5972},
       "experimental_temperature_range_k": [300, 300],
       "validity": {
         "pressure_gpa": [0, 42.75],
@@ -42,7 +28,28 @@
           "The printed upper limit is approximately 42 GPa; the catalog assumes it includes the Table S3 B1 point at 42.75 GPa. This endpoint interpretation is explicit and does not extend the EOS into the rhombohedral phase."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 58.5972},
       "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "fit_datasets": ["mg042fe058o_fei_2007_table_s3_pv"],
+      "validation_selection": {
+        "pressure_gpa": [0, 42.75],
+        "compression_path": "compression",
+        "notes": "Validation uses all seven compression rows through 42.75 GPa. As agreed with the user, assume the Figure 3 caption's approximate 42 GPa upper limit includes the tabulated 42.75 GPa B1 point. This is an explicit rounded-endpoint interpretation, not confirmation of the authors' exact row mask or weights. Rows at and above 44 GPa remain excluded because of the cubic-rhombohedral transition."
+      },
+      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false},
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Fei", "Zhang", "Corgne", "Watson", "Ricolleau", "Meng", "Prakapenka"],
+        "year": 2007,
+        "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+        "source": "Geophysical Research Letters",
+        "volume": "34",
+        "locator": "L17307",
+        "doi": "10.1029/2007GL030712"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -141,14 +148,7 @@
           "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature.",
           "pressure_range": "Figure 3 caption: up to 42 GPa. Interpreted, by explicit user-approved assumption, to include the 42.75 GPa Table S3 B1 observation; the structural transition is reported near 44 GPa."
         }
-      },
-      "fit_datasets": ["mg042fe058o_fei_2007_table_s3_pv"],
-      "validation_selection": {
-        "pressure_gpa": [0, 42.75],
-        "compression_path": "compression",
-        "notes": "Validation uses all seven compression rows through 42.75 GPa. As agreed with the user, assume the Figure 3 caption's approximate 42 GPa upper limit includes the tabulated 42.75 GPa B1 point. This is an explicit rounded-endpoint interpretation, not confirmation of the authors' exact row mask or weights. Rows at and above 44 GPa remain excluded because of the cubic-rhombohedral transition."
-      },
-      "spin_path_context": {"spin": "high-spin", "phase": "B1", "path": "compression", "separate_decompression_fit_published": false}
+      }
     }
   ],
   "aliases": ["mw58", "fp58", "(Mg0.42,Fe0.58)O"],

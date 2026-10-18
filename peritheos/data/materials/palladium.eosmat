@@ -16,7 +16,9 @@
         "K0": {"value": 195.0, "error": 2.5},
         "K0_prime": {"value": 5.1, "error": 0.1}
       },
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "notes": "Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values and reported as V0=14.6167 A^3/atom, K0=195.0(2.5) GPa, and K0'=5.1(1). The stored conventional-cell volume is four times the atomic value. This is the green curve in Figure 3 and the 'This work' column in supplementary Table S3; it is distinct from the authors' experimental 300 K BM3 fit.",
       "reference": {
         "authors": ["Baty", "Burakovsky", "Luscher", "Anzellini", "Errandonea"],
         "year": 2024,
@@ -26,8 +28,6 @@
         "locator": "075103",
         "doi": "10.1063/5.0179469"
       },
-      "pressure_range_status": "theoretical",
-      "notes": "Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values and reported as V0=14.6167 A^3/atom, K0=195.0(2.5) GPa, and K0'=5.1(1). The stored conventional-cell volume is four times the atomic value. This is the green curve in Figure 3 and the 'This work' column in supplementary Table S3; it is distinct from the authors' experimental 300 K BM3 fit.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -79,7 +79,10 @@
         "K0": {"value": 162.0, "error": 2.0},
         "K0_prime": {"value": 6.2, "error": 0.9}
       },
+      "experimental_pressure_range_gpa": [5.0, 65.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
+      "notes": "Room-temperature Vinet fit to pure Pd compressed in neon during the Pd-hydride study. The paper reports V0=14.75(4) A^3/atom, K0=162(2) GPa, and K0'=6.2(9); the stored conventional-cell V0 is multiplied by four. Frost et al. identify 65 GPa as the maximum pressure of the Guigue pure-Pd study; the article title's 100 GPa refers to the broader hydride study, not the pure-Pd EOS range.",
       "reference": {
         "authors": ["Guigue", "Geneste", "Leridon", "Loubeyre"],
         "year": 2020,
@@ -89,9 +92,6 @@
         "locator": "075901",
         "doi": "10.1063/1.5138697"
       },
-      "experimental_pressure_range_gpa": [5.0, 65.0],
-      "pressure_range_status": "reported_qualitatively",
-      "notes": "Room-temperature Vinet fit to pure Pd compressed in neon during the Pd-hydride study. The paper reports V0=14.75(4) A^3/atom, K0=162(2) GPa, and K0'=6.2(9); the stored conventional-cell V0 is multiplied by four. Frost et al. identify 65 GPa as the maximum pressure of the Guigue pure-Pd study; the article title's 100 GPa refers to the broader hydride study, not the pure-Pd EOS range.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -157,7 +157,10 @@
         "K0": {"value": 157.0, "error": 3.0},
         "K0_prime": {"value": 9.9, "error": 0.4}
       },
+      "experimental_pressure_range_gpa": [0.0, 31.2],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "notes": "Room-temperature BM3 fit to the 15 pure-Pd Table 1 observations measured with neon as pressure medium and marker. All three BM3 parameters remain free because the source does not state that V0 was fixed. Table 2 prints 58.863(2) A^3, but Table 1, the fit paragraph, and the Figure 1 caption independently agree on 58.868(2) A^3; the repeated value is used here and the source inconsistency is documented.",
       "reference": {
         "authors": ["Fedotenko", "Dubrovinsky", "Khandarkhaeva", "Chariton", "Koemets", "Koemets", "Hanfland", "Dubrovinskaia"],
         "year": 2020,
@@ -167,9 +170,6 @@
         "locator": "156179",
         "doi": "10.1016/j.jallcom.2020.156179"
       },
-      "experimental_pressure_range_gpa": [0.0, 31.2],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Room-temperature BM3 fit to the 15 pure-Pd Table 1 observations measured with neon as pressure medium and marker. All three BM3 parameters remain free because the source does not state that V0 was fixed. Table 2 prints 58.863(2) A^3, but Table 1, the fit paragraph, and the Figure 1 caption independently agree on 58.868(2) A^3; the repeated value is used here and the source inconsistency is documented.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -224,7 +224,10 @@
         "V0": {"value": 58.868, "error": 0.002, "fixed": true},
         "K0": {"value": 203.0, "error": 3.0}
       },
+      "experimental_pressure_range_gpa": [0.0, 31.2],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "notes": "Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency.",
       "reference": {
         "authors": ["Fedotenko", "Dubrovinsky", "Khandarkhaeva", "Chariton", "Koemets", "Koemets", "Hanfland", "Dubrovinskaia"],
         "year": 2020,
@@ -234,9 +237,6 @@
         "locator": "156179",
         "doi": "10.1016/j.jallcom.2020.156179"
       },
-      "experimental_pressure_range_gpa": [0.0, 31.2],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -292,7 +292,10 @@
         "K0": {"value": 189.3, "error": 3.0},
         "K0_prime": {"value": 5.473, "error": 0.063}
       },
+      "experimental_pressure_range_gpa": [0.0, 182.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3.",
       "reference": {
         "authors": ["Frost", "Smith", "McBride", "Smith", "Glenzer"],
         "year": 2023,
@@ -302,9 +305,6 @@
         "locator": "035901",
         "doi": "10.1063/5.0161038"
       },
-      "experimental_pressure_range_gpa": [0.0, 182.0],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -379,7 +379,10 @@
         "K0": {"value": 197.5, "error": 3.3},
         "K0_prime": {"value": 4.996, "error": 0.066}
       },
+      "experimental_pressure_range_gpa": [0.0, 182.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3).",
       "reference": {
         "authors": ["Frost", "Smith", "McBride", "Smith", "Glenzer"],
         "year": 2023,
@@ -389,9 +392,6 @@
         "locator": "035901",
         "doi": "10.1063/5.0161038"
       },
-      "experimental_pressure_range_gpa": [0.0, 182.0],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3).",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -465,9 +465,11 @@
         "K0": {"value": 190.0, "error": 3.0},
         "K0_prime": {"value": 5.3, "error": 0.2}
       },
+      "experimental_pressure_range_gpa": [0.0, 80.0],
       "determination_method": "experimental",
       "default": false,
       "catalog_access": "explicit_selection",
+      "notes": "Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.",
       "reference": {
         "authors": ["Baty", "Burakovsky", "Luscher", "Anzellini", "Errandonea"],
         "year": 2024,
@@ -477,8 +479,6 @@
         "locator": "075103",
         "doi": "10.1063/5.0179469"
       },
-      "experimental_pressure_range_gpa": [0.0, 80.0],
-      "notes": "Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

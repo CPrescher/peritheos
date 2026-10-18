@@ -15,7 +15,10 @@
         "V0": {"value": 47.7, "error": 0.12},
         "K0": {"value": 139.0, "error": 8.0}
       },
+      "experimental_pressure_range_gpa": [0.0, 8.3],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Hanna et al. report V0 = 23.85(6) A^3 per ZnO and K0 = 139(8) GPa with K0' fixed at 4; V0 and its uncertainty are doubled here for the conventional Z=2 cell. The B4-to-B1 transition begins near 8.3 GPa.",
       "reference": {
         "authors": ["Hanna", "Teklemichael", "McCluskey", "Bergman", "Huso"],
         "year": 2011,
@@ -25,9 +28,6 @@
         "locator": "073511",
         "doi": "10.1063/1.3644969"
       },
-      "experimental_pressure_range_gpa": [0.0, 8.3],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Hanna et al. report V0 = 23.85(6) A^3 per ZnO and K0 = 139(8) GPa with K0' fixed at 4; V0 and its uncertainty are doubled here for the conventional Z=2 cell. The B4-to-B1 transition begins near 8.3 GPa.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

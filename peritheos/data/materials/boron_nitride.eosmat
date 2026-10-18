@@ -16,7 +16,9 @@
         "K0": {"value": 395.0, "error": 2.0},
         "K0_prime": {"value": 3.62, "error": 0.05}
       },
+      "experimental_pressure_range_gpa": [0.0, 162.5],
       "determination_method": "experimental",
+      "notes": "V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell. The fitted range is described as 160 GPa in prose; Table IV's highest row is 162.5 GPa. The unsupported migrated K0=500 record was removed.",
       "reference": {
         "authors": ["Datchi", "Dewaele", "Le Godec", "Loubeyre"],
         "year": 2007,
@@ -26,8 +28,6 @@
         "locator": "214104",
         "doi": "10.1103/PhysRevB.75.214104"
       },
-      "experimental_pressure_range_gpa": [0.0, 162.5],
-      "notes": "V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell. The fitted range is described as 160 GPa in prose; Table IV's highest row is 162.5 GPa. The unsupported migrated K0=500 record was removed.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -102,8 +102,7 @@
         "K0_prime": {"value": 3.62, "error": 0.05, "fixed": true}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "absolute_zero",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 295.0, "error": null, "fixed": true},
           "theta0": {"value": 1700.0, "error": null, "fixed": true},
@@ -111,20 +110,10 @@
           "q": {"value": 4.0, "error": 1.5},
           "n": {"value": 2.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
-      },
-      "determination_method": "experimental",
-      "reference": {
-        "authors": ["Datchi", "Dewaele", "Le Godec", "Loubeyre"],
-        "year": 2007,
-        "title": "Equation of state of cubic boron nitride at high pressures and temperatures",
-        "source": "Phys. Rev. B",
-        "volume": "75",
-        "locator": "214104",
-        "doi": "10.1103/PhysRevB.75.214104"
+        "thermal_pressure_reference": "absolute_zero",
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "volume": {"reference_value": 47.2208, "public_to_model_scale": 0.0150553519, "model_unit": "J bar^-1 mol^-1"},
       "experimental_pressure_range_gpa": [0.0, 162.5],
       "experimental_temperature_range_k": [295.0, 948.0],
       "validity": {
@@ -136,7 +125,31 @@
           "The record represents zinc-blende c-BN only; no transition was observed in the 295 K compression range."
         ]
       },
+      "determination_method": "experimental",
+      "phase_scope": "cubic zinc-blende BN, space group F-43m, conventional cubic cell with Z=4 BN (8 atoms)",
+      "volume": {"reference_value": 47.2208, "public_to_model_scale": 0.0150553519, "model_unit": "J bar^-1 mol^-1"},
+      "sample_composition": {
+        "nominal_formula": "BN",
+        "material": "single crystals selected from a c-BN powder batch by sharp first-order TO and LO Raman bands",
+        "qualification": "The paper reports c-BN without a chemical analysis; no substitution or mixed phase is inferred."
+      },
       "notes": "This is not the existing 295 K Vinet record with a reference-subtracted thermal increment. Datchi et al. explicitly define Pth(V,T)=0 at 0 K and Table V supplies a distinct 0 K cold Vinet curve. Peritheos therefore uses thermal_pressure_reference=absolute_zero while keeping Tr=295 K only as the public default temperature and for reference-relative diagnostics. At the printed Table IV lattice parameters, the published coefficients give a 0.584 GPa pressure RMSE, reproducing the paper's stated 0.6 GPa. A q-only unweighted pressure-residual refit gives q=7.35(1.89); the discrepancy from 4(1.5) is less than two combined standard deviations and is plausibly affected by rounded P/a rows and the unpublished regression weights. Section IV's gamma_th0=1.04(1) conflicts with final Table V's 1.04(2); this record follows the final parameter table. The source states that parenthetical errors are fit standard deviations, not absolute uncertainties; pressure-scale uncertainty dominates and coefficient covariance is not published.",
+      "uncertainties": {
+        "reported_as": "Parenthetical last-digit parameter errors are standard deviations of the fits, not absolute uncertainties.",
+        "source_conflict": "Section IV gives gamma_th0=1.04(1), whereas the final P-V-T parameter set in Table V gives 1.04(2); the production record follows final Table V.",
+        "covariance": "not reported",
+        "absolute_scale": "The authors state that pressure-scale uncertainty dominates and estimate a 3% spread among plausible ruby scales at 160 GPa."
+      },
+      "fit_datasets": ["cubic_boron_nitride_datchi_2007_table4_pvt"],
+      "reference": {
+        "authors": ["Datchi", "Dewaele", "Le Godec", "Loubeyre"],
+        "year": 2007,
+        "title": "Equation of state of cubic boron nitride at high pressures and temperatures",
+        "source": "Phys. Rev. B",
+        "volume": "75",
+        "locator": "214104",
+        "doi": "10.1103/PhysRevB.75.214104"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -225,19 +238,6 @@
           "thermal.n": "Equation 3 is the three-mode Debye energy per mole of atoms; n=2 on Peritheos's per-mole-BN volume basis",
           "equation": "Equations 2-4 and Section V: 0 K Vinet cold pressure plus absolute Debye vibrational pressure, with gamma=gamma0(V/V0)^q and theta obtained by integrating gamma=-d ln(theta)/d ln(V)"
         }
-      },
-      "uncertainties": {
-        "reported_as": "Parenthetical last-digit parameter errors are standard deviations of the fits, not absolute uncertainties.",
-        "source_conflict": "Section IV gives gamma_th0=1.04(1), whereas the final P-V-T parameter set in Table V gives 1.04(2); the production record follows final Table V.",
-        "covariance": "not reported",
-        "absolute_scale": "The authors state that pressure-scale uncertainty dominates and estimate a 3% spread among plausible ruby scales at 160 GPa."
-      },
-      "fit_datasets": ["cubic_boron_nitride_datchi_2007_table4_pvt"],
-      "phase_scope": "cubic zinc-blende BN, space group F-43m, conventional cubic cell with Z=4 BN (8 atoms)",
-      "sample_composition": {
-        "nominal_formula": "BN",
-        "material": "single crystals selected from a c-BN powder batch by sharp first-order TO and LO Raman bands",
-        "qualification": "The paper reports c-BN without a chemical analysis; no substitution or mixed phase is inferred."
       }
     }
   ],

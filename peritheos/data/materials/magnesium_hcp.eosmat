@@ -16,7 +16,10 @@
         "K0": {"value": 30.9, "error": 0.4},
         "K0_prime": {"value": 4.56, "error": 0.06}
       },
+      "experimental_pressure_range_gpa": [0.0, 61.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Room-temperature hcp fit; V0 is the two-atom hexagonal cell volume.",
       "reference": {
         "authors": ["Stinton", "MacLeod", "Cynn", "Errandonea", "Evans", "Proctor", "Meng", "McMahon"],
         "year": 2014,
@@ -26,9 +29,6 @@
         "locator": "134105",
         "doi": "10.1103/PhysRevB.90.134105"
       },
-      "experimental_pressure_range_gpa": [0.0, 61.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Room-temperature hcp fit; V0 is the two-atom hexagonal cell volume.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

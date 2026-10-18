@@ -17,25 +17,10 @@
         "K0": {"value": 155.8, "error": 0.9},
         "K0_prime": {"value": 5.53, "error": 0.23}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "reference": {
-        "authors": ["Jacobsen", "Reichmann", "Spetzler", "Mackwell", "Smyth", "Angel", "McCammon"],
-        "year": 2002,
-        "title": "Structure and elasticity of single-crystal (Mg,Fe)O and a new method of generating shear waves for gigahertz ultrasonic interferometry",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "107",
-        "locator": "2037; ECV 4-1-ECV 4-14",
-        "doi": "10.1029/2001JB000490"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 56.49216},
       "experimental_pressure_range_gpa": [0.0001, 8.923],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0001, 8.923],
         "temperature_k": [298.0, 298.0],
@@ -46,7 +31,31 @@
           "The numeric temperature is operational because the source states only room/ambient temperature."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 56.49216},
+      "experimental_configuration": {
+        "sample": "Fe56 single crystal, (Mg0.423Fe0.541 vacancy0.036)O, SigmaFe/(SigmaFe+Mg)=0.561(2), Fe3+/SigmaFe=0.13(2)",
+        "pressure_medium": "4:1 methanol-ethanol",
+        "pressure_cell": "four-pin beryllium-backed diamond-anvil cell with 0.6 mm culets",
+        "pressure_gauge": "single-crystal alpha-quartz internal diffraction standard of Angel et al. (1997); ruby fluorescence used only for quick between-measurement estimates",
+        "diffraction": "single-crystal X-ray diffraction on a Huber four-circle diffractometer in fixed-phi mode",
+        "temperature": "room/ambient temperature; no numeric thermometer reading reported"
+      },
       "notes": "The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.",
+      "fit_datasets": ["magnesiowustite_fe56_jacobsen_2002_table4_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Jacobsen", "Reichmann", "Spetzler", "Mackwell", "Smyth", "Angel", "McCammon"],
+        "year": 2002,
+        "title": "Structure and elasticity of single-crystal (Mg,Fe)O and a new method of generating shear waves for gigahertz ultrasonic interferometry",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "107",
+        "locator": "2037; ECV 4-1-ECV 4-14",
+        "doi": "10.1029/2001JB000490"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -132,15 +141,6 @@
           "fit_selection": "Paragraphs 24-25 and Table 4: all 11 Fe56 rows, including the zero-pressure in-cell observation.",
           "weighting": "Paragraph 25: error-weighted three-parameter fit with EoSFIT; the table supplies row-wise sample-lattice and pressure standard deviations."
         }
-      },
-      "fit_datasets": ["magnesiowustite_fe56_jacobsen_2002_table4_compression"],
-      "experimental_configuration": {
-        "sample": "Fe56 single crystal, (Mg0.423Fe0.541 vacancy0.036)O, SigmaFe/(SigmaFe+Mg)=0.561(2), Fe3+/SigmaFe=0.13(2)",
-        "pressure_medium": "4:1 methanol-ethanol",
-        "pressure_cell": "four-pin beryllium-backed diamond-anvil cell with 0.6 mm culets",
-        "pressure_gauge": "single-crystal alpha-quartz internal diffraction standard of Angel et al. (1997); ruby fluorescence used only for quick between-measurement estimates",
-        "diffraction": "single-crystal X-ray diffraction on a Huber four-circle diffractometer in fixed-phi mode",
-        "temperature": "room/ambient temperature; no numeric thermometer reading reported"
       }
     }
   ],

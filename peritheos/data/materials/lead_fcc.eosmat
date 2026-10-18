@@ -18,8 +18,33 @@
         "K0_prime": {"value": 5.39, "error": 0.25},
         "K0_double_prime": {"value": -0.33, "error": 0.02}
       },
+      "experimental_pressure_range_gpa": [0.0, 13.0],
+      "experimental_temperature_range_k": [295.0, 788.0],
       "determination_method": "experimental",
       "default": true,
+      "notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. The report first constrained V0(T) from thermal expansion and K0(T) from elastic, heat-capacity, and expansivity data. It then varied K0_prime(300 K), dK0_prime/dT, and temperature-invariant K0_double_prime against a compiled 295-788 K compression dataset. The full polynomial surface is independently executable in scripts/audit_fortes_2019_fcc_pb.py, but is not stored as this isothermal record because the current thermal schema cannot represent it.",
+      "published_fit_provenance": {
+        "software": {"name": "not reported", "version": "not reported"},
+        "dataset": "compiled literature P-V-T data; exact table not deposited",
+        "selection": {
+          "temperature_range_k": [295.0, 788.0],
+          "predicate": "not reported beyond the temperature range",
+          "included_rows": null,
+          "excluded_rows": null
+        },
+        "objective": "least-squares minimization; dependent variable not reported",
+        "weights": "not reported",
+        "refined_parameters": ["K0_prime_300", "e", "K0_double_prime"],
+        "fixed_parameters": ["V0_300", "a", "b", "K0_300", "c", "d"],
+        "statistics": {"observations": null, "covariance": "not published", "error_scaling": "not reported"},
+        "reproduction": {
+          "script": "scripts/audit_fortes_2019_fcc_pb.py",
+          "scope_status": "published_surface_parity_fit_not_independently_reproducible",
+          "partial_dataset": "lead_fcc_kuznetsov_2002_table1_transition_pvt",
+          "partial_fit_is_reported_fit": false,
+          "reason": "The high-temperature Kuznetsov table was supplied privately to Fortes; the report also omits the exhaustive row mask, pressure-scale reduction, dependent variable, weights, and covariance procedure."
+        }
+      },
       "reference": {
         "authors": ["A. Dominic Fortes"],
         "year": 2019,
@@ -28,9 +53,6 @@
         "locator": "RAL-TR-2019-002",
         "doi": "10.5286/raltr.2019002"
       },
-      "experimental_pressure_range_gpa": [0.0, 13.0],
-      "experimental_temperature_range_k": [295.0, 788.0],
-      "notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. The report first constrained V0(T) from thermal expansion and K0(T) from elastic, heat-capacity, and expansivity data. It then varied K0_prime(300 K), dK0_prime/dT, and temperature-invariant K0_double_prime against a compiled 295-788 K compression dataset. The full polynomial surface is independently executable in scripts/audit_fortes_2019_fcc_pb.py, but is not stored as this isothermal record because the current thermal schema cannot represent it.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -127,28 +149,6 @@
           "covariance": "not published",
           "uncertainty_method": "not reported"
         }
-      },
-      "published_fit_provenance": {
-        "software": {"name": "not reported", "version": "not reported"},
-        "dataset": "compiled literature P-V-T data; exact table not deposited",
-        "selection": {
-          "temperature_range_k": [295.0, 788.0],
-          "predicate": "not reported beyond the temperature range",
-          "included_rows": null,
-          "excluded_rows": null
-        },
-        "objective": "least-squares minimization; dependent variable not reported",
-        "weights": "not reported",
-        "refined_parameters": ["K0_prime_300", "e", "K0_double_prime"],
-        "fixed_parameters": ["V0_300", "a", "b", "K0_300", "c", "d"],
-        "statistics": {"observations": null, "covariance": "not published", "error_scaling": "not reported"},
-        "reproduction": {
-          "script": "scripts/audit_fortes_2019_fcc_pb.py",
-          "scope_status": "published_surface_parity_fit_not_independently_reproducible",
-          "partial_dataset": "lead_fcc_kuznetsov_2002_table1_transition_pvt",
-          "partial_fit_is_reported_fit": false,
-          "reason": "The high-temperature Kuznetsov table was supplied privately to Fortes; the report also omits the exhaustive row mask, pressure-scale reduction, dependent variable, weights, and covariance procedure."
-        }
       }
     },
     {
@@ -161,9 +161,44 @@
         "K0": {"value": 40.5, "error": null},
         "K0_prime": {"value": 5.74, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 13.1],
+      "experimental_temperature_range_k": [296.0, 296.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [0.0, 13.1],
+        "temperature_k": [296.0, 296.0],
+        "notes": [
+          "296 K slice of the source's fitted P-V-T surface; the numerical range ends at the Table 1 fcc transition anchor.",
+          "The paper reports transition onset at about 12 GPa at room temperature and sluggish fcc-hcp coexistence up to about 20 GPa; this validity envelope is not an assertion of a sharp equilibrium phase boundary."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "notes": "Published 296 K isotherm of the source's temperature-dependent BM3 model. The complete P-V-T surface includes polynomial V0(T), K0(T), and K0_prime(T) terms and is independently executable in scripts/audit_fortes_2019_fcc_pb.py; only its 296 K slice is stored because the current thermal schema cannot represent those polynomials. This is a source-published parameterization, not a Peritheos refit.",
+      "published_fit_provenance": {
+        "software": {"name": "not reported", "version": "not reported"},
+        "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
+        "selection": {
+          "temperature_range_k": [296.0, 800.0],
+          "predicate": "phase-specific fcc observations; exhaustive row selection not reported",
+          "included_rows": null,
+          "excluded_rows": null
+        },
+        "objective": "fit to experimental data; residual coordinate not reported",
+        "weights": "not reported",
+        "refined_parameters": ["V0_296", "alpha_0", "alpha_1", "alpha_2", "K0_296", "b_1", "b_2", "K0_prime_296", "b_prime"],
+        "fixed_parameters": [],
+        "statistics": {"observations": null, "covariance": "not published", "error_scaling": "not reported"},
+        "reproduction": {
+          "script": "scripts/audit_fortes_2019_fcc_pb.py",
+          "scope_status": "published_surface_executable_fit_not_independently_reproducible",
+          "partial_dataset": "lead_fcc_kuznetsov_2002_table1_transition_pvt",
+          "partial_fit_is_reported_fit": false,
+          "reason": "Table 1 prints only three rounded fcc transition states; the complete P-V-T observations and regression protocol are not published."
+        }
+      },
+      "parameter_covariance": null,
       "reference": {
         "authors": ["A. Kuznetsov", "V. Dmitriev", "L. Dubrovinsky", "V. Prakapenka", "H.-P. Weber"],
         "year": 2002,
@@ -173,19 +208,6 @@
         "locator": "125-127",
         "doi": "10.1016/S0038-1098(02)00112-6"
       },
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 13.1],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [296.0, 296.0],
-      "validity": {
-        "pressure_gpa": [0.0, 13.1],
-        "temperature_k": [296.0, 296.0],
-        "notes": [
-          "296 K slice of the source's fitted P-V-T surface; the numerical range ends at the Table 1 fcc transition anchor.",
-          "The paper reports transition onset at about 12 GPa at room temperature and sluggish fcc-hcp coexistence up to about 20 GPa; this validity envelope is not an assertion of a sharp equilibrium phase boundary."
-        ]
-      },
-      "notes": "Published 296 K isotherm of the source's temperature-dependent BM3 model. The complete P-V-T surface includes polynomial V0(T), K0(T), and K0_prime(T) terms and is independently executable in scripts/audit_fortes_2019_fcc_pb.py; only its 296 K slice is stored because the current thermal schema cannot represent those polynomials. This is a source-published parameterization, not a Peritheos refit.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -260,28 +282,6 @@
             "doi": "10.1016/S0038-1098(02)00112-6"
           }
         ]
-      },
-      "published_fit_provenance": {
-        "software": {"name": "not reported", "version": "not reported"},
-        "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
-        "selection": {
-          "temperature_range_k": [296.0, 800.0],
-          "predicate": "phase-specific fcc observations; exhaustive row selection not reported",
-          "included_rows": null,
-          "excluded_rows": null
-        },
-        "objective": "fit to experimental data; residual coordinate not reported",
-        "weights": "not reported",
-        "refined_parameters": ["V0_296", "alpha_0", "alpha_1", "alpha_2", "K0_296", "b_1", "b_2", "K0_prime_296", "b_prime"],
-        "fixed_parameters": [],
-        "statistics": {"observations": null, "covariance": "not published", "error_scaling": "not reported"},
-        "reproduction": {
-          "script": "scripts/audit_fortes_2019_fcc_pb.py",
-          "scope_status": "published_surface_executable_fit_not_independently_reproducible",
-          "partial_dataset": "lead_fcc_kuznetsov_2002_table1_transition_pvt",
-          "partial_fit_is_reported_fit": false,
-          "reason": "Table 1 prints only three rounded fcc transition states; the complete P-V-T observations and regression protocol are not published."
-        }
       }
     }
   ],

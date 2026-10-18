@@ -17,21 +17,7 @@
         "K0": {"value": 228, "error": null},
         "K0_prime": {"value": 3.86, "error": null}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
-        "year": 2005,
-        "title": "Effect of Al on the sharpness of the MgSiO3 perovskite to post-perovskite phase transition",
-        "source": "Geophysical Research Letters",
-        "volume": "32",
-        "locator": "L14303",
-        "doi": "10.1029/2005GL023192"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 100.381},
       "experimental_pressure_range_gpa": [-10.12429088, 225.12123021],
       "pressure_range_status": "theoretical",
       "validity": {
@@ -43,7 +29,22 @@
           "The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 100.381},
+      "sample_composition": "Static 0 K AlHM model with 3.125 mol.% Al2O3 substitution; Table 1 values are normalized to an approximately five-atom formula basis.",
       "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Akber-Knutson", "Steinle-Neumann", "Asimow"],
+        "year": 2005,
+        "title": "Effect of Al on the sharpness of the MgSiO3 perovskite to post-perovskite phase transition",
+        "source": "Geophysical Research Letters",
+        "volume": "32",
+        "locator": "L14303",
+        "doi": "10.1029/2005GL023192"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -101,8 +102,7 @@
           "uncertainties": "The source reports no coefficient uncertainties or covariance.",
           "method": "Static VASP GGA calculations; fixed-volume cell-shape, atomic-position, and electronic-wavefunction optimization; 1000 eV cutoff."
         }
-      },
-      "sample_composition": "Static 0 K AlHM model with 3.125 mol.% Al2O3 substitution; Table 1 values are normalized to an approximately five-atom formula basis."
+      }
     }
   ],
   "aliases": ["AlHM 3.125 mol.% Al2O3 post-perovskite"],

@@ -17,9 +17,22 @@
         "K0": {"value": 74.3, "error": null},
         "K0_prime": {"value": 4.7, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 100.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 4.0],
+        "temperature_k": [1250.0, 2500.0],
+        "notes": [
+          "The 300 K coefficients define a reference isotherm; pseudowollastonite is the source's high-temperature low-pressure polymorph."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 12.0, "molar_mass_g_mol": 116.162},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Sagatova", "Shatskiy", "Sagatov", "Litasov"],
         "year": 2021,
@@ -28,19 +41,6 @@
         "volume": "59",
         "locator": "791-800",
         "doi": "10.1134/S0016702921080073"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 12.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 100.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 4.0],
-        "temperature_k": [1250.0, 2500.0],
-        "notes": [
-          "The 300 K coefficients define a reference isotherm; pseudowollastonite is the source's high-temperature low-pressure polymorph."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",

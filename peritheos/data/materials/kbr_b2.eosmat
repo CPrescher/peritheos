@@ -16,7 +16,10 @@
         "K0": {"value": 14.9, "error": null},
         "K0_prime": {"value": 5.81, "error": null}
       },
+      "experimental_pressure_range_gpa": [2.3, 165.0],
+      "experimental_temperature_range_k": [298.0, 298.0],
       "determination_method": "experimental",
+      "notes": "Table III experimental B2 fit in helium. V0 is a fictive zero-pressure value fixed from the lowest-pressure 2-6 GPa measurements; no coefficient standard errors are tabulated.",
       "reference": {
         "authors": ["Dewaele", "Belonoshko", "Garbarino", "Occelli", "Bouvier", "Hanfland", "Mezouar"],
         "year": 2012,
@@ -26,9 +29,6 @@
         "locator": "214105",
         "doi": "10.1103/PhysRevB.85.214105"
       },
-      "experimental_pressure_range_gpa": [2.3, 165.0],
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "notes": "Table III experimental B2 fit in helium. V0 is a fictive zero-pressure value fixed from the lowest-pressure 2-6 GPa measurements; no coefficient standard errors are tabulated.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

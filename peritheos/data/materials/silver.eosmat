@@ -16,7 +16,10 @@
         "K0": {"value": 100.2, "error": 1.6},
         "K0_prime": {"value": 5.7, "error": 0.09}
       },
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [0.0, 124.0],
       "determination_method": "experimental",
+      "notes": "Quasi-hydrostatic helium-medium fit; published atomic V0=17.070 A^3 is multiplied by four atoms in the conventional fcc cell. Measurements extend to 124 GPa.",
       "reference": {
         "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
         "year": 2008,
@@ -26,9 +29,6 @@
         "locator": "104102",
         "doi": "10.1103/PhysRevB.78.104102"
       },
-      "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 124.0],
-      "notes": "Quasi-hydrostatic helium-medium fit; published atomic V0=17.070 A^3 is multiplied by four atoms in the conventional fcc cell. Measurements extend to 124 GPa.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -92,7 +92,12 @@
         "n": 1.0,
         "Z": 47.0
       },
+      "equation_options": {
+        "parameter_errors": {"n": null, "Z": null},
+        "fixed_parameters": ["n", "Z"]
+      },
       "thermal": {
+        "model": "Sokolova2016",
         "parameters": {
           "Tr": {"value": 298.15, "error": null},
           "QE1o": {"value": 115.0, "error": null},
@@ -106,14 +111,11 @@
           "g": {"value": 0.19, "error": null},
           "e_0": {"value": 22.1, "error": null},
           "n": {"value": 1.0, "error": null, "fixed": true}
-        },
-        "model": "Sokolova2016"
+        }
       },
-      "equation_options": {
-        "parameter_errors": {"n": null, "Z": null},
-        "fixed_parameters": ["n", "Z"]
-      },
+      "pressure_range_status": "reference_parameterization",
       "determination_method": "experimental",
+      "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
       "reference": {
         "authors": ["Sokolova", "Dorogokupets", "Litasov"],
         "year": 2013,
@@ -124,8 +126,6 @@
         "details": "Tables 1 and 4",
         "doi": "10.1016/j.rgg.2013.01.005"
       },
-      "pressure_range_status": "reference_parameterization",
-      "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -249,18 +249,7 @@
         "K0": {"value": 100.2, "error": 1.6},
         "K0_prime": {"value": 5.7, "error": 0.09}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 124.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -268,7 +257,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["silver_dewaele_2008_table2_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -326,8 +327,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["silver_dewaele_2008_table2_compression"]
+      }
     },
     {
       "identifier": "silver_dewaele_2019_dor_vinet",
@@ -339,18 +339,7 @@
         "K0": {"value": 96.6, "error": 1.6},
         "K0_prime": {"value": 6.22, "error": 0.09}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 124.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -358,7 +347,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["silver_dewaele_2008_table2_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -416,8 +417,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["silver_dewaele_2008_table2_compression"]
+      }
     }
   ],
   "symmetry": "CUBIC",

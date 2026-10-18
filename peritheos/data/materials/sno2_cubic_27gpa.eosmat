@@ -17,7 +17,19 @@
         "K0": {"value": 252.0, "error": 28.0},
         "K0_prime": {"value": 3.5, "error": 2.2}
       },
+      "experimental_pressure_range_gpa": [16.09, 28.85],
+      "experimental_temperature_range_k": [300.0, 1400.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [16.09, 28.85],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "This executable record is only the published 300 K reference isotherm.",
+          "The paper also reports a separate 25 GPa thermal-expansion coefficient, which is not a complete thermal EOS and is not composed here."
+        ]
+      },
       "determination_method": "experimental",
+      "notes": "The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a fitted extrapolation because the cubic phase transforms on decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, but this record intentionally implements only the 300 K curve. No fitted-parameter covariance is published.",
       "reference": {
         "authors": ["Ono", "Ito", "Katsura", "Yoneda", "Walter", "Urakawa", "Utsumi", "Funakoshi"],
         "year": 2000,
@@ -27,18 +39,6 @@
         "locator": "618-622",
         "doi": "10.1007/S002690000108"
       },
-      "experimental_pressure_range_gpa": [16.09, 28.85],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 1400.0],
-      "validity": {
-        "pressure_gpa": [16.09, 28.85],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "This executable record is only the published 300 K reference isotherm.",
-          "The paper also reports a separate 25 GPa thermal-expansion coefficient, which is not a complete thermal EOS and is not composed here."
-        ]
-      },
-      "notes": "The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a fitted extrapolation because the cubic phase transforms on decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, but this record intentionally implements only the 300 K curve. No fitted-parameter covariance is published.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

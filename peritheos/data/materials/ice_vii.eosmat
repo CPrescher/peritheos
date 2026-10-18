@@ -16,15 +16,18 @@
         "K0": {"value": 20.15, "error": 0.17}
       },
       "thermal": {
+        "model": "AlphaKT",
         "parameters": {
           "alpha0": {"value": 0.0001158, "error": 5.4e-06},
           "dK_dT": {"value": 0.0, "error": null, "fixed": true},
           "Tr": {"value": 300.0, "error": null, "fixed": true}
-        },
-        "model": "AlphaKT"
+        }
       },
+      "experimental_pressure_range_gpa": [2.55, 10.11],
+      "experimental_temperature_range_k": [300.5, 451.2],
       "determination_method": "experimental",
       "default": true,
+      "notes": "Joint PVT fit for pure H2O ice VII. Published molar V0=12.49(1) cm^3/mol is converted to the Z=2 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VII measurements tabulated in the paper.",
       "reference": {
         "authors": ["Bezacier", "Journaux", "Perrillat", "Cardon", "Hanfland", "Daniel"],
         "year": 2014,
@@ -34,9 +37,6 @@
         "locator": "104505",
         "doi": "10.1063/1.4894421"
       },
-      "experimental_pressure_range_gpa": [2.55, 10.11],
-      "experimental_temperature_range_k": [300.5, 451.2],
-      "notes": "Joint PVT fit for pure H2O ice VII. Published molar V0=12.49(1) cm^3/mol is converted to the Z=2 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VII measurements tabulated in the paper.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -97,7 +97,10 @@
         "K0": {"value": 21.1, "error": 1.3},
         "K0_prime": {"value": 4.4, "error": 0.1}
       },
+      "experimental_pressure_range_gpa": [6.57, 60.52],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Independent 300 K compression fit. Published molar V0=12.4(1) cm^3/mol is converted to the Z=2 cubic cell. The fit used all three BM3 variables simultaneously; the numeric pressure domain is the range of the authors' 300 K compression data.",
       "reference": {
         "authors": ["Frank", "Fei", "Hu"],
         "year": 2004,
@@ -107,9 +110,6 @@
         "locator": "2781-2790",
         "doi": "10.1016/j.gca.2003.12.007"
       },
-      "experimental_pressure_range_gpa": [6.57, 60.52],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Independent 300 K compression fit. Published molar V0=12.4(1) cm^3/mol is converted to the Z=2 cubic cell. The fit used all three BM3 variables simultaneously; the numeric pressure domain is the range of the authors' 300 K compression data.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

@@ -18,7 +18,7 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 600.0, "error": 200.0},
@@ -26,10 +26,16 @@
           "q": {"value": 1.0, "error": null, "fixed": true},
           "n": {"value": 5.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
+      "experimental_pressure_range_gpa": [96.5, 153.0],
+      "experimental_temperature_range_k": [300.0, 3400.0],
+      "pressure_range_status": "reported_qualitatively",
       "determination_method": "experimental",
       "default": true,
+      "notes": "Published model 2 selected in main Table 1 and reused in Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V [E_D(V,T)-E_D(V,300 K)], gamma=gamma0(V/V0)^q, and theta=theta0 exp[-(gamma-gamma0)/q], with n=5 atoms per formula unit. V0=165.2(7) A^3 is the conventional four-formula-unit Pbcn cell, fitted by extrapolation from high-pressure data rather than measured at ambient conditions. K0, V0, theta0, and gamma0 were fitted; K0'=4 and q=1 were fixed. Parenthetical errors are retained as generic published uncertainties because no confidence convention or covariance matrix is given. Table 3 also reports four q-sensitivity fits (q=0.6, 1.4, 1.8, and 2.2); they are documented alternatives, not separate preferred EOS records. The article states a 153 GPa, 3400 K EOS scope. Table S2 nevertheless prints two identical 156.7(4.0) GPa, 3670(370) K Rh2O3(II) volumes at the reported onset of CaIrO3-type Al2O3; they remain in the source dataset with an explicit phase-context flag but do not extend this record's declared validity. At the Table S2 state V=129.8 A^3 and T=300 K, the stored model gives 100.1123 GPa versus 100.0(1.0) GPa. Across all 75 printed rows it gives a 1.1434 GPa pressure RMSE. The independent errors-in-variables refit is reported in docs/literature-reproductions.md and the primary-EOS refit ledger.",
+      "fit_datasets": ["alumina_rh2o3_ii_shi_2022_table_s2_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Shi", "Wei", "Sun", "Mao", "Prakapenka"],
         "year": 2022,
@@ -39,11 +45,6 @@
         "locator": "e2021JB023805",
         "doi": "10.1029/2021JB023805"
       },
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [96.5, 153.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [300.0, 3400.0],
-      "notes": "Published model 2 selected in main Table 1 and reused in Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V [E_D(V,T)-E_D(V,300 K)], gamma=gamma0(V/V0)^q, and theta=theta0 exp[-(gamma-gamma0)/q], with n=5 atoms per formula unit. V0=165.2(7) A^3 is the conventional four-formula-unit Pbcn cell, fitted by extrapolation from high-pressure data rather than measured at ambient conditions. K0, V0, theta0, and gamma0 were fitted; K0'=4 and q=1 were fixed. Parenthetical errors are retained as generic published uncertainties because no confidence convention or covariance matrix is given. Table 3 also reports four q-sensitivity fits (q=0.6, 1.4, 1.8, and 2.2); they are documented alternatives, not separate preferred EOS records. The article states a 153 GPa, 3400 K EOS scope. Table S2 nevertheless prints two identical 156.7(4.0) GPa, 3670(370) K Rh2O3(II) volumes at the reported onset of CaIrO3-type Al2O3; they remain in the source dataset with an explicit phase-context flag but do not extend this record's declared validity. At the Table S2 state V=129.8 A^3 and T=300 K, the stored model gives 100.1123 GPa versus 100.0(1.0) GPa. Across all 75 printed rows it gives a 1.1434 GPa pressure RMSE. The independent errors-in-variables refit is reported in docs/literature-reproductions.md and the primary-EOS refit ledger.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -118,8 +119,7 @@
             "doi": "10.1038/nmat1121"
           }
         ]
-      },
-      "fit_datasets": ["alumina_rh2o3_ii_shi_2022_table_s2_pvt"]
+      }
     }
   ],
   "aliases": ["Rh2O3(II)-Al2O3", "orthorhombic alumina"],

@@ -16,7 +16,10 @@
         "K0": {"value": 177.5, "error": 2.4},
         "K0_prime": {"value": 4.83, "error": 0.09}
       },
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [0.0, 157.0],
       "determination_method": "experimental",
+      "notes": "Quasi-hydrostatic helium-medium fit; published atomic V0=10.954 A^3 is multiplied by four atoms in the conventional fcc cell. Measurements extend to 157 GPa.",
       "reference": {
         "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
         "year": 2008,
@@ -26,9 +29,6 @@
         "locator": "104102",
         "doi": "10.1103/PhysRevB.78.104102"
       },
-      "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 157.0],
-      "notes": "Quasi-hydrostatic helium-medium fit; published atomic V0=10.954 A^3 is multiplied by four atoms in the conventional fcc cell. Measurements extend to 157 GPa.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -90,18 +90,7 @@
         "K0": {"value": 177.5, "error": 2.4},
         "K0_prime": {"value": 4.83, "error": 0.09}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 157.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -109,7 +98,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["nickel_dewaele_2008_table2_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -167,8 +168,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["nickel_dewaele_2008_table2_compression"]
+      }
     },
     {
       "identifier": "nickel_dewaele_2019_dor_vinet",
@@ -180,18 +180,7 @@
         "K0": {"value": 176.0, "error": 2.4},
         "K0_prime": {"value": 5.322, "error": 0.09}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 157.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -199,7 +188,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["nickel_dewaele_2008_table2_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -257,8 +258,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["nickel_dewaele_2008_table2_compression"]
+      }
     },
     {
       "identifier": "nickel_campbell_2009_bm3_mgd",
@@ -271,7 +271,7 @@
         "K0_prime": {"value": 4.3, "error": 0.2}
       },
       "thermal": {
-        "debye_temperature_law": "variable_exponent",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 295.0, "error": null, "fixed": true},
           "theta0": {"value": 415.0, "error": null, "fixed": true},
@@ -279,9 +279,18 @@
           "n": {"value": 1.0, "error": null, "fixed": true},
           "q": {"value": 1.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "variable_exponent"
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [2.336174779961698, 65.9],
+      "experimental_temperature_range_k": [298.0, 2457.07],
       "determination_method": "experimental",
+      "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. All 101 source rows are bundled. Nine quenched DAC states are retained but excluded from the main 92-row refit because Section 2.2 warns of residual stresses; an all-row sensitivity fit is reported. ",
+      "range_provenance": {
+        "source_location": "Tables S2-S3; Seagle (2008) Table 1 and subsolidus supplement for Fe/FeO",
+        "notes": "Marginal experimental coverage, not a rectangular phase-stability field. Fe/FeO upper bounds include earlier Seagle approximate isobars; new-study-only bounds and selected-row extrema are in the reproduction JSON. fcc Fe and stoichiometric B1 FeO must remain within their source phase/composition fields. The 295 K reference is an extrapolation. NiO is a source cubic-average B1 model across unresolved magnetic distortion."
+      },
+      "fit_datasets": ["ni_nio_campbell_2009_table_s3_pvt"],
       "reference": {
         "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
         "year": 2009,
@@ -291,10 +300,6 @@
         "locator": "556-564",
         "doi": "10.1016/j.epsl.2009.07.022"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [2.336174779961698, 65.9],
-      "experimental_temperature_range_k": [298.0, 2457.07],
-      "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. All 101 source rows are bundled. Nine quenched DAC states are retained but excluded from the main 92-row refit because Section 2.2 warns of residual stresses; an all-row sensitivity fit is reported. ",
       "pressure_calibration": {
         "status": "resolved",
         "audit_date": "2026-09-19",
@@ -392,12 +397,7 @@
             "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
           }
         }
-      },
-      "range_provenance": {
-        "source_location": "Tables S2-S3; Seagle (2008) Table 1 and subsolidus supplement for Fe/FeO",
-        "notes": "Marginal experimental coverage, not a rectangular phase-stability field. Fe/FeO upper bounds include earlier Seagle approximate isobars; new-study-only bounds and selected-row extrema are in the reproduction JSON. fcc Fe and stoichiometric B1 FeO must remain within their source phase/composition fields. The 295 K reference is an extrapolation. NiO is a source cubic-average B1 model across unresolved magnetic distortion."
-      },
-      "fit_datasets": ["ni_nio_campbell_2009_table_s3_pvt"]
+      }
     }
   ],
   "symmetry": "CUBIC",

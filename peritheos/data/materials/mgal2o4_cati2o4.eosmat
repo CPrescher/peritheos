@@ -15,22 +15,7 @@
         "V0": {"value": 240.3, "error": 0.4, "fixed": true},
         "K0": {"value": 206.0, "error": 3.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "reference": {
-        "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
-        "year": 1998,
-        "title": "High-pressure transformations in MgAl2O4",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "103",
-        "locator": "20813-20818",
-        "doi": "10.1029/98JB01575"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 64.3],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -42,7 +27,32 @@
           "This is a historical one-point endpoint construction, not a regression EOS; later multi-point studies should be preferred for quantitative compression work."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "default": true,
+      "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-3 TEM confirms MgAl2O4 composition and runs 3-4 establish the CaTi2O4-type product",
+      "experimental_configuration": {
+        "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
+        "laser_heating": "2000-3000 K for about 60 minutes",
+        "measurement_temperature": "room temperature after heating; no numerical value reported",
+        "diffraction": "laboratory XRD and TEM for recovered run 3; synchrotron XRD at SSRL beamline 10-2 for run 4",
+        "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
+        "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 64.3 GPa state is their post-heating average"
+      },
       "notes": "This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.",
+      "fit_datasets": ["mgal2o4_cati2o4_funamori_1998_text_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Funamori", "Jeanloz", "Nguyen", "Kavner", "Caldwell", "Fujino", "Miyajima", "Shinmei", "Tomioka"],
+        "year": 1998,
+        "title": "High-pressure transformations in MgAl2O4",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "103",
+        "locator": "20813-20818",
+        "doi": "10.1029/98JB01575"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -132,16 +142,6 @@
           "construction_states": "Recovered run-4 zero-pressure cell fixes V0; the in-situ run-4 cell at the mean post-heating pressure of 64.3 GPa then determines K0 algebraically. Run 3 establishes phase identity but has no usable in-situ volume. This is not a regression fit.",
           "uncertainties": "The source says bulk-modulus uncertainty is calculated from the difference between ruby- and Pt-derived post-heating pressures; no covariance or confidence convention is published."
         }
-      },
-      "sample_composition": "99% pure polycrystalline MgAl2O4 spinel starting material mixed with 5 wt% Pt; run-3 TEM confirms MgAl2O4 composition and runs 3-4 establish the CaTi2O4-type product",
-      "fit_datasets": ["mgal2o4_cati2o4_funamori_1998_text_pv"],
-      "experimental_configuration": {
-        "apparatus": "laser-heated Mao-Bell diamond-anvil cell",
-        "laser_heating": "2000-3000 K for about 60 minutes",
-        "measurement_temperature": "room temperature after heating; no numerical value reported",
-        "diffraction": "laboratory XRD and TEM for recovered run 3; synchrotron XRD at SSRL beamline 10-2 for run 4",
-        "pressure_medium": "No pressure-transmitting medium is reported; the sample was mixed with 5 wt% Pt.",
-        "pressure_gauges": "Mao et al. (1978) ruby fluorescence and Holmes et al. (1989) Pt EOS; the reported 64.3 GPa state is their post-heating average"
       }
     },
     {
@@ -153,24 +153,10 @@
         "V0": {"value": 238.9, "error": 0.9},
         "K0": {"value": 219.0, "error": 6.0}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "default": false,
-      "reference": {
-        "authors": ["Ono", "Kikegawa", "Ohishi"],
-        "year": 2006,
-        "title": "The stability and compressibility of MgAl2O4 high-pressure polymorphs",
-        "source": "Physics and Chemistry of Minerals",
-        "volume": "33",
-        "locator": "200-206",
-        "doi": "10.1007/s00269-006-0068-z"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 91.2],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0, 91.2],
         "temperature_k": [300.0, 300.0],
@@ -180,7 +166,29 @@
           "K0-prime=4 is implicit in BM2, not a fitted parameter."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default": false,
+      "sample_composition": "Synthetic powdered MgAl2O4 spinel mixed with Pt; CaTi2O4-type Cmcm product, not the natural MORB aluminous phase.",
+      "experimental_configuration": {
+        "apparatus": "laser-heated diamond-anvil cell",
+        "pressure_medium": "Ar for CaTi2O4-type runs #1-5 (Table 1); MgO and NaCl runs investigate epsilon phase",
+        "diffraction": "angle-dispersive synchrotron XRD, BL13A Photon Factory and BL10XU SPring-8",
+        "measurement_temperature": "300 K (Table 3 and Figure 4)"
+      },
       "notes": "The structural lattice remains independently sourced to Funamori (1998); it is not the fitted Ono reference volume. No epsilon-phase EOS or cited theoretical/comparison fit is reassigned to this paper. See docs/literature-reproductions/ono-2006-mgal2o4-cati2o4.md.",
+      "fit_datasets": ["mgal2o4_cati2o4_ono_2006_table3"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Ono", "Kikegawa", "Ohishi"],
+        "year": 2006,
+        "title": "The stability and compressibility of MgAl2O4 high-pressure polymorphs",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "33",
+        "locator": "200-206",
+        "doi": "10.1007/s00269-006-0068-z"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -254,14 +262,6 @@
           "uncertainties": "Printed parenthetical errors retained; confidence level, covariance, and fit weights are not given.",
           "fit_selection": "All 14 Table 3 rows are retained, including both recovered ambient cells. No row-resolved pressure errors or Pt volumes are printed. Parentheses are described only as errors, with no confidence convention. Printed (0) errors are preserved as rounding to zero, not exact observations. Weighting and any exclusion of recovered cells from the original regression are unspecified. The independent diagnostic uses unweighted pressure residuals, with an explicitly labeled high-pressure-only sensitivity fit."
         }
-      },
-      "sample_composition": "Synthetic powdered MgAl2O4 spinel mixed with Pt; CaTi2O4-type Cmcm product, not the natural MORB aluminous phase.",
-      "fit_datasets": ["mgal2o4_cati2o4_ono_2006_table3"],
-      "experimental_configuration": {
-        "apparatus": "laser-heated diamond-anvil cell",
-        "pressure_medium": "Ar for CaTi2O4-type runs #1-5 (Table 1); MgO and NaCl runs investigate epsilon phase",
-        "diffraction": "angle-dispersive synchrotron XRD, BL13A Photon Factory and BL10XU SPring-8",
-        "measurement_temperature": "300 K (Table 3 and Figure 4)"
       }
     }
   ],

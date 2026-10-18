@@ -18,21 +18,7 @@
         "K0_prime": {"value": 4.57, "error": null},
         "K0_double_prime": {"value": -0.041, "error": null}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Karki", "Wentzcovitch"],
-        "year": 2002,
-        "title": "First-principles lattice dynamics and thermoelasticity of MgSiO3 ilmenite at high pressure",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "107",
-        "locator": "2267",
-        "doi": "10.1029/2001JB000702"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
       "experimental_pressure_range_gpa": [-11.0, 33.0],
       "pressure_range_status": "theoretical",
       "validity": {
@@ -43,7 +29,22 @@
           "The source reports volume per MgSiO3 formula unit; values are multiplied by Z=6 for this conventional hexagonal-cell document."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
+      "sample_composition": "Stoichiometric MgSiO3 ilmenite; static 0 K LDA calculation.",
       "notes": "Non-default theoretical record; the catalog's experimental Siersch et al. record remains the equilibrium default.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Karki", "Wentzcovitch"],
+        "year": 2002,
+        "title": "First-principles lattice dynamics and thermoelasticity of MgSiO3 ilmenite at high pressure",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "107",
+        "locator": "2267",
+        "doi": "10.1029/2001JB000702"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -96,8 +97,7 @@
           "K0_prime": "Table 3: dKT/dP=4.57 at zero pressure.",
           "K0_double_prime": "Table 3: d2KT/dP2=-0.041 GPa^-1 at zero pressure."
         }
-      },
-      "sample_composition": "Stoichiometric MgSiO3 ilmenite; static 0 K LDA calculation."
+      }
     },
     {
       "identifier": "akimotoite_karki_2002_300k_bm4_2",
@@ -110,9 +110,25 @@
         "K0_prime": {"value": 4.64, "error": null},
         "K0_double_prime": {"value": -0.042, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [-11.0, 33.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [-11.0, 33.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Quasiharmonic isotherm within the paper's stated calculation pressure regime; this is not an experimental fit or a phase-stability field.",
+          "The source reports volume per formula unit; the stored V0 is converted to the Z=6 conventional-cell basis."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
+      "sample_composition": "Stoichiometric MgSiO3 ilmenite; 300 K quasiharmonic LDA isotherm.",
+      "notes": "Non-default theoretical 300 K isotherm; do not substitute it for the catalog's experimental equilibrium default.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Karki", "Wentzcovitch"],
         "year": 2002,
@@ -122,21 +138,6 @@
         "locator": "2267",
         "doi": "10.1029/2001JB000702"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [-11.0, 33.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [-11.0, 33.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Quasiharmonic isotherm within the paper's stated calculation pressure regime; this is not an experimental fit or a phase-stability field.",
-          "The source reports volume per formula unit; the stored V0 is converted to the Z=6 conventional-cell basis."
-        ]
-      },
-      "notes": "Non-default theoretical 300 K isotherm; do not substitute it for the catalog's experimental equilibrium default.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -176,8 +177,7 @@
           "K0_prime": "Table 3: dKT/dP=4.64.",
           "K0_double_prime": "Table 3: d2KT/dP2=-0.042 GPa^-1."
         }
-      },
-      "sample_composition": "Stoichiometric MgSiO3 ilmenite; 300 K quasiharmonic LDA isotherm."
+      }
     },
     {
       "identifier": "akimotoite_karki_2002_1000k_bm4_3",
@@ -190,9 +190,25 @@
         "K0_prime": {"value": 4.86, "error": null},
         "K0_double_prime": {"value": -0.051, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [-11.0, 33.0],
+      "experimental_temperature_range_k": [1000.0, 1000.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [-11.0, 33.0],
+        "temperature_k": [1000.0, 1000.0],
+        "notes": [
+          "Quasiharmonic isotherm within the stated calculation regime; it is not an experimental fit or a stability-field claim.",
+          "The source's per-formula volume is multiplied by six for this material document."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
+      "sample_composition": "Stoichiometric MgSiO3 ilmenite; 1000 K quasiharmonic LDA isotherm.",
+      "notes": "Non-default temperature-specific theoretical isotherm.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Karki", "Wentzcovitch"],
         "year": 2002,
@@ -202,21 +218,6 @@
         "locator": "2267",
         "doi": "10.1029/2001JB000702"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [-11.0, 33.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [1000.0, 1000.0],
-      "validity": {
-        "pressure_gpa": [-11.0, 33.0],
-        "temperature_k": [1000.0, 1000.0],
-        "notes": [
-          "Quasiharmonic isotherm within the stated calculation regime; it is not an experimental fit or a stability-field claim.",
-          "The source's per-formula volume is multiplied by six for this material document."
-        ]
-      },
-      "notes": "Non-default temperature-specific theoretical isotherm.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -256,8 +257,7 @@
           "K0_prime": "Table 3: dKT/dP=4.86.",
           "K0_double_prime": "Table 3: d2KT/dP2=-0.051 GPa^-1."
         }
-      },
-      "sample_composition": "Stoichiometric MgSiO3 ilmenite; 1000 K quasiharmonic LDA isotherm."
+      }
     },
     {
       "identifier": "akimotoite_karki_2002_2000k_bm4_4",
@@ -270,9 +270,25 @@
         "K0_prime": {"value": 5.2, "error": null},
         "K0_double_prime": {"value": -0.067, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [-11.0, 33.0],
+      "experimental_temperature_range_k": [2000.0, 2000.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [-11.0, 33.0],
+        "temperature_k": [2000.0, 2000.0],
+        "notes": [
+          "High-temperature QHA isotherm; the authors explicitly warn that quasiharmonic accuracy generally degrades at high temperature and zero pressure.",
+          "The pressure bounds report the calculation regime and are not a phase-stability field."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
+      "sample_composition": "Stoichiometric MgSiO3 ilmenite; 2000 K quasiharmonic LDA isotherm.",
+      "notes": "Non-default high-temperature theoretical isotherm; extrapolation toward zero pressure should respect the paper's QHA warning.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Karki", "Wentzcovitch"],
         "year": 2002,
@@ -282,21 +298,6 @@
         "locator": "2267",
         "doi": "10.1029/2001JB000702"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [-11.0, 33.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [2000.0, 2000.0],
-      "validity": {
-        "pressure_gpa": [-11.0, 33.0],
-        "temperature_k": [2000.0, 2000.0],
-        "notes": [
-          "High-temperature QHA isotherm; the authors explicitly warn that quasiharmonic accuracy generally degrades at high temperature and zero pressure.",
-          "The pressure bounds report the calculation regime and are not a phase-stability field."
-        ]
-      },
-      "notes": "Non-default high-temperature theoretical isotherm; extrapolation toward zero pressure should respect the paper's QHA warning.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -336,8 +337,7 @@
           "K0_prime": "Table 3: dKT/dP=5.20.",
           "K0_double_prime": "Table 3: d2KT/dP2=-0.067 GPa^-1."
         }
-      },
-      "sample_composition": "Stoichiometric MgSiO3 ilmenite; 2000 K quasiharmonic LDA isotherm."
+      }
     },
     {
       "identifier": "akimotoite_reynard_1996_bm3_ruby_2",
@@ -349,8 +349,14 @@
         "K0": {"value": 212.0, "error": null, "fixed": true},
         "K0_prime": {"value": 7.5, "error": 1.0}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 27.8],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "This is the ruby-pressure assignment of the same 16-row compression/decompression experiment represented by the companion ice-VII-scale record. It is a distinct fit, not a duplicate parameter transcription. The paper reports that V0 was varied and stayed within 0.01% of the measured in-cell value, while K0 was fixed at the adopted 212 GPa Brillouin value. Ruby-line broadening above 15 GPa showed increasing nonhydrostatic stress; the authors therefore regarded K0'=7.5 as less realistic than the ice-VII-scale result. The source gives neither parameter covariance nor a confidence convention for parenthesized fit errors, and it does not specify an exact ruby calibration equation. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
+      "fit_datasets": ["akimotoite_reynard_1996_table1_compression"],
       "reference": {
         "authors": ["Reynard", "Fiquet", "Itié", "Rubie"],
         "year": 1996,
@@ -360,11 +366,6 @@
         "locator": "45-50",
         "doi": "10.2138/am-1996-1-206"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 27.8],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "notes": "This is the ruby-pressure assignment of the same 16-row compression/decompression experiment represented by the companion ice-VII-scale record. It is a distinct fit, not a duplicate parameter transcription. The paper reports that V0 was varied and stayed within 0.01% of the measured in-cell value, while K0 was fixed at the adopted 212 GPa Brillouin value. Ruby-line broadening above 15 GPa showed increasing nonhydrostatic stress; the authors therefore regarded K0'=7.5 as less realistic than the ice-VII-scale result. The source gives neither parameter covariance nor a confidence convention for parenthesized fit errors, and it does not specify an exact ruby calibration equation. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -435,8 +436,7 @@
           "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
           "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
         }
-      },
-      "fit_datasets": ["akimotoite_reynard_1996_table1_compression"]
+      }
     },
     {
       "identifier": "akimotoite_reynard_1996_bm3_ice_vii_3",
@@ -448,8 +448,14 @@
         "K0": {"value": 212.0, "error": null, "fixed": true},
         "K0_prime": {"value": 5.6, "error": 1.0}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 25.2],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "This is the authors' preferred pressure assignment of the same experiment represented by the companion ruby-scale record. It is a distinct fit, not a duplicate parameter transcription. Ice-VII (110) diffraction and MgSiO3 ilmenite were measured on the same 50 micrometer X-ray spot; Table 1 prints 12 finite-pressure Pi values, and Figure 3f additionally plots the two ambient measurements as zero-pressure anchors, giving 14 usable rows. The paper reports that V0 was varied and K0 was fixed at the adopted 212 GPa Brillouin value. Above 15 GPa the pressure medium developed nonhydrostatic stress and pressure gradients; the bracketed ice-pressure quantities are maximum gradient estimates, not stated one-sigma errors. The source gives neither parameter covariance nor a confidence convention for fitted-parameter errors. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
+      "fit_datasets": ["akimotoite_reynard_1996_table1_compression"],
       "reference": {
         "authors": ["Reynard", "Fiquet", "Itié", "Rubie"],
         "year": 1996,
@@ -459,11 +465,6 @@
         "locator": "45-50",
         "doi": "10.2138/am-1996-1-206"
       },
-      "parameter_error_confidence": null,
-      "experimental_pressure_range_gpa": [0.0, 25.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "notes": "This is the authors' preferred pressure assignment of the same experiment represented by the companion ruby-scale record. It is a distinct fit, not a duplicate parameter transcription. Ice-VII (110) diffraction and MgSiO3 ilmenite were measured on the same 50 micrometer X-ray spot; Table 1 prints 12 finite-pressure Pi values, and Figure 3f additionally plots the two ambient measurements as zero-pressure anchors, giving 14 usable rows. The paper reports that V0 was varied and K0 was fixed at the adopted 212 GPa Brillouin value. Above 15 GPa the pressure medium developed nonhydrostatic stress and pressure gradients; the bracketed ice-pressure quantities are maximum gradient estimates, not stated one-sigma errors. The source gives neither parameter covariance nor a confidence convention for fitted-parameter errors. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -543,8 +544,7 @@
           "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
           "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
         }
-      },
-      "fit_datasets": ["akimotoite_reynard_1996_table1_compression"]
+      }
     },
     {
       "identifier": "akimotoite_siersch_2021_bm3_1",
@@ -556,6 +556,8 @@
         "K0": {"value": 205.0, "error": 1.0},
         "K0_prime": {"value": 4.9, "error": 0.2}
       },
+      "experimental_pressure_range_gpa": [0.0, 24.86],
+      "experimental_temperature_range_k": [298.0, 298.0],
       "determination_method": "experimental",
       "default_for": "equilibrium",
       "reference": {
@@ -567,8 +569,6 @@
         "locator": "106786",
         "doi": "10.1016/j.pepi.2021.106786"
       },
-      "experimental_pressure_range_gpa": [0.0, 24.86],
-      "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -620,9 +620,25 @@
         "K0_prime": {"value": 4.91, "error": null},
         "K_infinity_prime": {"value": 1.6666666666666667, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 130.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reference_parameterization",
+      "validity": {
+        "pressure_gpa": [0.0, 130.0],
+        "temperature_k": [298.15, 298.15],
+        "notes": [
+          "Reference isotherm of the source's larger Helmholtz model; this range is the study's calculation envelope, not an akimotoite stability field."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
+      "sample_composition": "Stoichiometric MgSiO3 akimotoite thermodynamic reference phase; joint optimization of literature thermochemical, elastic, and P-V-T data.",
+      "notes": "Accepted corrected mapping for LitCurate source row 869 (litcurate_8acd9ecf5854a501). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
+      "diagnostic_datasets": ["dorogokupets_2015_akimotoite_298k_reconstruction"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Dorogokupets", "Dymshits", "Sokolova", "Danilov", "Litasov"],
         "year": 2015,
@@ -632,20 +648,6 @@
         "locator": "172-189",
         "doi": "10.1016/j.rgg.2015.01.011"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [0.0, 130.0],
-      "pressure_range_status": "reference_parameterization",
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "validity": {
-        "pressure_gpa": [0.0, 130.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": [
-          "Reference isotherm of the source's larger Helmholtz model; this range is the study's calculation envelope, not an akimotoite stability field."
-        ]
-      },
-      "notes": "Accepted corrected mapping for LitCurate source row 869 (litcurate_8acd9ecf5854a501). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -709,9 +711,7 @@
           "K0_prime": "Table 1: 4.91.",
           "K_infinity_prime": "Table 1 fixes k=5; therefore K_infinity_prime=5/3."
         }
-      },
-      "sample_composition": "Stoichiometric MgSiO3 akimotoite thermodynamic reference phase; joint optimization of literature thermochemical, elastic, and P-V-T data.",
-      "diagnostic_datasets": ["dorogokupets_2015_akimotoite_298k_reconstruction"]
+      }
     },
     {
       "identifier": "akimotoite_wang_2004_t0133_bm3",
@@ -723,9 +723,22 @@
         "K0": {"value": 210, "error": null, "fixed": true},
         "K0_prime": {"value": 4.8, "error": 0.5}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 16.2],
+      "experimental_temperature_range_k": [298, 298],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0, 16.2],
+        "temperature_k": [298, 298],
+        "notes": ["Bounds describe fitted observations, not a phase-stability field."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6, "molar_mass_g_mol": 100.387},
+      "notes": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+      "fit_datasets": ["akimotoite_wang_2004_tables1_2_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Wang", "Uchida", "Zhang", "Rivers", "Sutton"],
         "year": 2004,
@@ -735,18 +748,6 @@
         "locator": "57-80",
         "doi": "10.1016/j.pepi.2003.08.007"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [0, 16.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298, 298],
-      "validity": {
-        "pressure_gpa": [0, 16.2],
-        "temperature_k": [298, 298],
-        "notes": ["Bounds describe fitted observations, not a phase-stability field."]
-      },
-      "notes": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -807,8 +808,7 @@
           "fixed_parameters": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset.",
           "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
-      },
-      "fit_datasets": ["akimotoite_wang_2004_tables1_2_pvt"]
+      }
     },
     {
       "identifier": "akimotoite_wang_2004_t0150_bm3",
@@ -820,9 +820,22 @@
         "K0": {"value": 210, "error": null, "fixed": true},
         "K0_prime": {"value": 5.6, "error": 0.8}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [-0.05, 17.044],
+      "experimental_temperature_range_k": [298, 298],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [-0.05, 17.044],
+        "temperature_k": [298, 298],
+        "notes": ["Bounds describe fitted observations, not a phase-stability field."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6, "molar_mass_g_mol": 100.387},
+      "notes": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+      "fit_datasets": ["akimotoite_wang_2004_tables1_2_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Wang", "Uchida", "Zhang", "Rivers", "Sutton"],
         "year": 2004,
@@ -832,18 +845,6 @@
         "locator": "57-80",
         "doi": "10.1016/j.pepi.2003.08.007"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [-0.05, 17.044],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298, 298],
-      "validity": {
-        "pressure_gpa": [-0.05, 17.044],
-        "temperature_k": [298, 298],
-        "notes": ["Bounds describe fitted observations, not a phase-stability field."]
-      },
-      "notes": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -903,8 +904,7 @@
           "fixed_parameters": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here.",
           "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
-      },
-      "fit_datasets": ["akimotoite_wang_2004_tables1_2_pvt"]
+      }
     },
     {
       "identifier": "akimotoite_zhou_2014_300k_bm3",
@@ -916,9 +916,22 @@
         "K0": {"value": 207, "error": 3},
         "K0_prime": {"value": 4.6, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 25.02],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0, 25.02],
+        "temperature_k": [300, 300],
+        "notes": ["Bounds describe fitted observations, not a phase-stability field."]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 6, "molar_mass_g_mol": 100.387},
+      "notes": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+      "fit_datasets": ["akimotoite_zhou_2014_table1_elasticity"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Zhou", "Gréaux", "Nishiyama", "Irifune", "Higo"],
         "year": 2014,
@@ -928,18 +941,6 @@
         "locator": "97-105",
         "doi": "10.1016/j.pepi.2013.06.005"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6, "molar_mass_g_mol": 100.387},
-      "experimental_pressure_range_gpa": [0, 25.02],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300, 300],
-      "validity": {
-        "pressure_gpa": [0, 25.02],
-        "temperature_k": [300, 300],
-        "notes": ["Bounds describe fitted observations, not a phase-stability field."]
-      },
-      "notes": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -999,8 +1000,7 @@
           "fixed_parameters": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations.",
           "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
-      },
-      "fit_datasets": ["akimotoite_zhou_2014_table1_elasticity"]
+      }
     }
   ],
   "aliases": ["MgSiO3 ilmenite", "ilmenite-type MgSiO3"],

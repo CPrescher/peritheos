@@ -15,7 +15,9 @@
         "K0": {"value": 227.0, "error": 2.0},
         "K0_prime": {"value": 6.5, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [0.0, 4.81],
       "determination_method": "experimental",
+      "notes": "Hazen and Finger report V0=260.79(4) A^3 and K0=227(2) GPa for Murnaghan and Birch-Murnaghan fits with K0'=6.5 assumed. The paper's fitted range is 0-48.1 kbar.",
       "reference": {
         "authors": ["Hazen", "Finger"],
         "year": 1979,
@@ -24,8 +26,6 @@
         "volume": "64",
         "locator": "196-201"
       },
-      "experimental_pressure_range_gpa": [0.0, 4.81],
-      "notes": "Hazen and Finger report V0=260.79(4) A^3 and K0=227(2) GPa for Murnaghan and Birch-Murnaghan fits with K0'=6.5 assumed. The paper's fitted range is 0-48.1 kbar.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

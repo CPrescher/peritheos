@@ -16,7 +16,9 @@
         "K0": {"value": 111.0, "error": 1.0},
         "K0_prime": {"value": 4.2, "error": 0.2}
       },
+      "experimental_pressure_range_gpa": [0.0, 60.0],
       "determination_method": "experimental",
+      "notes": "Room-temperature B1-CaO BM3 fit: molar V0=16.76 cm^3/mol (converted to the four-formula-unit cell), K0=1.112 Mbar, and K0'=4.2+/-0.2. The abstract gives K0=1.11+/-0.01 Mbar; the stored 1 GPa error reflects that precision. V0 is fixed and no independent V0 error is reported.",
       "reference": {
         "authors": ["Richet", "Mao", "Bell"],
         "year": 1988,
@@ -26,8 +28,6 @@
         "locator": "15279-15288",
         "doi": "10.1029/JB093iB12p15279"
       },
-      "experimental_pressure_range_gpa": [0.0, 60.0],
-      "notes": "Room-temperature B1-CaO BM3 fit: molar V0=16.76 cm^3/mol (converted to the four-formula-unit cell), K0=1.112 Mbar, and K0'=4.2+/-0.2. The abstract gives K0=1.11+/-0.01 Mbar; the stored 1 GPa error reflects that precision. V0 is fixed and no independent V0 error is reported.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

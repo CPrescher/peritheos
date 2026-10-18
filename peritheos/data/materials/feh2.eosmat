@@ -15,7 +15,9 @@
         "K0": {"value": 127.2, "error": 8.1},
         "K0_prime": {"value": 5.0, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [23.0, 87.0],
       "determination_method": "experimental",
+      "notes": "Experimental Vinet fit: molar V0 = 10.221(108) cm^3/mol and K0 = 127.2(81) GPa, with K0' fixed at 5. V0 and its uncertainty were converted to the Z=4 tetragonal cell.",
       "reference": {
         "authors": ["Pépin", "Dewaele", "Geneste", "Loubeyre", "Mezouar"],
         "year": 2014,
@@ -25,8 +27,6 @@
         "locator": "265504",
         "doi": "10.1103/PhysRevLett.113.265504"
       },
-      "experimental_pressure_range_gpa": [23.0, 87.0],
-      "notes": "Experimental Vinet fit: molar V0 = 10.221(108) cm^3/mol and K0 = 127.2(81) GPa, with K0' fixed at 5. V0 and its uncertainty were converted to the Z=4 tetragonal cell.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

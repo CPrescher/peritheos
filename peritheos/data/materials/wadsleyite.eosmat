@@ -5,6 +5,13 @@
   "formula": "Mg2SiO4",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 8,
+  "recommendation_hold": {
+    "record": "wadsleyite_katsura_2009_bm3_1",
+    "date": "2026-10-17",
+    "status": "on_hold",
+    "reason": "Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected.",
+    "audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md"
+  },
   "eos_records": [
     {
       "identifier": "wadsleyite_katsura_2009_bm3_1",
@@ -17,16 +24,19 @@
         "K0_prime": {"value": 4.1, "error": 0.1}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 814.0, "error": null, "fixed": true},
           "gamma0": {"value": 1.64, "error": 0.02},
           "q": {"value": 1.5, "error": 0.1},
           "n": {"value": 7, "error": null, "fixed": true}
-        },
-        "model": "MieGruneisenDebye"
+        }
       },
+      "experimental_pressure_range_gpa": [11.0, 20.0],
+      "experimental_temperature_range_k": [300.0, 2100.0],
       "determination_method": "experimental",
+      "notes": "Katsura et al. fit 11-20 GPa and 300-2100 K data with a BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure. Their measured V0=538.49(2) A^3 and K0=169.2(9) GPa are fixed during the fit; K0'=4.1(1), gamma0=1.64(2), and q=1.5(1) are fitted, while theta0=814 K is fixed. Fixed source parameters retain their published uncertainties.",
       "reference": {
         "authors": [
           "Katsura",
@@ -50,9 +60,6 @@
         "locator": "L11307",
         "doi": "10.1029/2009GL038107"
       },
-      "experimental_pressure_range_gpa": [11.0, 20.0],
-      "experimental_temperature_range_k": [300.0, 2100.0],
-      "notes": "Katsura et al. fit 11-20 GPa and 300-2100 K data with a BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure. Their measured V0=538.49(2) A^3 and K0=169.2(9) GPa are fixed during the fit; K0'=4.1(1), gamma0=1.64(2), and q=1.5(1) are fitted, while theta0=814 K is fixed. Fixed source parameters retain their published uncertainties.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -149,13 +156,6 @@
   ],
   "peaks": [],
   "notes": "Ambient lattice and fractional coordinates: Trots et al., American Mineralogist 97, 1582-1590 (2012), doi:10.2138/am.2012.3992, COD 9015858 (297 K). Phase-line intensities were calculated from this structure using independent-atom X-ray form factors.",
-  "recommendation_hold": {
-    "record": "wadsleyite_katsura_2009_bm3_1",
-    "date": "2026-10-17",
-    "status": "on_hold",
-    "reason": "Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected.",
-    "audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md"
-  },
   "datasets": [
     {
       "identifier": "wadsleyite_katsura_2009_table1_pvt",

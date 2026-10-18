@@ -16,7 +16,9 @@
         "K0": {"value": 281.0, "error": 4.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [0.0, 134.0],
       "determination_method": "experimental",
+      "notes": "Room-temperature third-order Birch-Murnaghan fit to 47 P-V measurements through 134 GPa: V0=45.37+/-0.08 A^3, K0=281+/-4 GPa, and K0'=4 assumed.",
       "reference": {
         "authors": ["Mao", "Chen", "Hemley", "Jephcoat", "Wu", "Bassett"],
         "year": 1989,
@@ -26,8 +28,6 @@
         "locator": "17889-17894",
         "doi": "10.1029/JB094iB12p17889"
       },
-      "experimental_pressure_range_gpa": [0.0, 134.0],
-      "notes": "Room-temperature third-order Birch-Murnaghan fit to 47 P-V measurements through 134 GPa: V0=45.37+/-0.08 A^3, K0=281+/-4 GPa, and K0'=4 assumed.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -79,7 +79,11 @@
         "K0": {"value": 250.0, "error": null},
         "K0_prime": {"value": 4.098, "error": null}
       },
+      "experimental_pressure_range_gpa": [0.0, 160.0],
+      "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "notes": "Static-lattice 0 K DFT parameterization of the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 perovskite branch. The paper finds this branch dynamically unstable at all investigated pressures, so this is a theoretical reference curve and not a stable ambient phase. Table 2 reports V0/Z; Pm-3m has Z=1, so 44.579 A^3 is also the conventional cubic-cell volume (a0=3.54577 A). All three BM3 coefficients were fitted; no parameter uncertainties, covariance, fit weights, or underlying E(V) rows are published. The Table 2 footnote estimates calculation uncertainty as about 20 meV per molecule, an energy-scale estimate rather than an EOS-coefficient error. The distinct Pm-3m BM4 fit and all eight phase-specific low-symmetry BM3/BM4 pairs are now represented as executable sibling records on the appropriate material cards.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Caracas", "Wentzcovitch", "Price", "Brodholt"],
         "year": 2005,
@@ -89,10 +93,6 @@
         "locator": "L06306",
         "doi": "10.1029/2004GL022144"
       },
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 160.0],
-      "pressure_range_status": "theoretical",
-      "notes": "Static-lattice 0 K DFT parameterization of the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 perovskite branch. The paper finds this branch dynamically unstable at all investigated pressures, so this is a theoretical reference curve and not a stable ambient phase. Table 2 reports V0/Z; Pm-3m has Z=1, so 44.579 A^3 is also the conventional cubic-cell volume (a0=3.54577 A). All three BM3 coefficients were fitted; no parameter uncertainties, covariance, fit weights, or underlying E(V) rows are published. The Table 2 footnote estimates calculation uncertainty as about 20 meV per molecule, an energy-scale estimate rather than an EOS-coefficient error. The distinct Pm-3m BM4 fit and all eight phase-specific low-symmetry BM3/BM4 pairs are now represented as executable sibling records on the appropriate material cards.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -317,6 +317,7 @@
         "K0_prime": {"value": 4.76, "error": null}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 1000.0, "error": null, "fixed": true},
           "theta0": {"value": 1100.0, "error": null, "fixed": true},
@@ -324,22 +325,11 @@
           "q": {"value": 0.96, "error": null},
           "n": {"value": 5.0, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
-        "model": "MieGruneisenDebye"
-      },
-      "determination_method": "theoretical",
-      "reference": {
-        "authors": ["Kawai", "Tsuchiya"],
-        "year": 2014,
-        "title": "P-V-T equation of state of cubic CaSiO3 perovskite from first-principles computation",
-        "source": "J. Geophys. Res. Solid Earth",
-        "volume": "119",
-        "locator": "2801-2809",
-        "doi": "10.1002/2013JB010905"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
       "experimental_temperature_range_k": [1000.0, 4000.0],
+      "pressure_range_status": "theoretical",
       "validity": {
         "pressure_gpa": [0.0, 150.0],
         "temperature_k": [1000.0, 4000.0],
@@ -350,7 +340,18 @@
           "The paper warns that the very-low-pressure, high-temperature corner lies outside cubic CaSiO3 stability or near melting, so this rectangular numerical envelope is not a phase-stability guarantee."
         ]
       },
+      "determination_method": "theoretical",
       "notes": "Preferred Vinet reference isotherm plus a constant-q Mie-Gruneisen-Debye thermal pressure relative to 1000 K. The integrated Debye-temperature law follows equations 4-10 of Tange et al. (2009), which Kawai and Tsuchiya explicitly adopt; n=5 for one CaSiO3 formula unit. V0 is already one cubic Pm-3m conventional cell because Z=1. The input stresses came from LDA-PWSCF NVT FPMD on an 80-atom 2x2x1 tetragonal-supercell representation constrained to cubic metrics, with 50 Ry cutoff, a 2x2x2 k-point grid, 1 fs steps, 1 ps equilibration, and 5 ps production averages. Figure 1 reports a convergence benchmark near 15 GPa and 2000 K: the 2x2x2 sampling gives diagonal stresses 15.3, 15.5, and 15.2 GPa, compared with 16.0, 16.1, and 14.6 GPa at Gamma only; no volume is printed, so this is not an EOS-fit row. No parameter uncertainties or covariance are reported, so missing errors are null rather than zero. The alternate BM3 column is intentionally not added because this contribution is limited to one literature EOS record and the article plots and abstracts the Vinet result. The abstract's K0=203.95 GPa reproduces Table 1 (for example 184.42 GPa rounds to 184.5 GPa at V/V0=0.70 and 4000 K), whereas the PDF-extracted Table 2 value 203.5 GPa predicts 184.06 GPa; the benchmark-consistent abstract value is retained. Section 2's printed 300-1500 K simulation range conflicts with calculated 1000-4000 K points in Figure 2 and cannot be resolved without the raw state table.",
+      "fit_datasets": [],
+      "reference": {
+        "authors": ["Kawai", "Tsuchiya"],
+        "year": 2014,
+        "title": "P-V-T equation of state of cubic CaSiO3 perovskite from first-principles computation",
+        "source": "J. Geophys. Res. Solid Earth",
+        "volume": "119",
+        "locator": "2801-2809",
+        "doi": "10.1002/2013JB010905"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -420,8 +421,7 @@
           "thermal.q": "Abstract and Table 2; 0.96.",
           "thermal.n": "Tange et al. (2009), equation 5, defines n as atoms per formula unit; CaSiO3 has five atoms."
         }
-      },
-      "fit_datasets": []
+      }
     },
     {
       "identifier": "ca_perovskite_shim_2000_dac_only_bm3_mgd_4",
@@ -434,7 +434,7 @@
         "K0_prime": {"value": 3.9, "error": 0.2, "fixed": true}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 1000.0, "error": null, "fixed": true},
@@ -442,26 +442,12 @@
           "q": {"value": 0.9, "error": 0.4},
           "n": {"value": 5.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "default": false,
-      "reference": {
-        "authors": ["Shim", "Duffy", "Shen"],
-        "year": 2000,
-        "title": "The stability and P-V-T equation of state of CaSiO3 perovskite in the Earth's lower mantle",
-        "source": "J. Geophys. Res. Solid Earth",
-        "volume": "105",
-        "locator": "25955-25968",
-        "doi": "10.1029/2000JB900183"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": 0.68,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [20.6, 68.5],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [1272.0, 2380.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [20.6, 68.5],
         "temperature_k": [1272.0, 2380.0],
@@ -472,7 +458,35 @@
           "This non-default record is not the authors' preferred combined DAC+LVP model."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": false,
+      "phase_selection": {
+        "phase": "CaSiO3 perovskite treated as cubic in the source EOS analysis",
+        "cell_basis": "one-formula-unit pseudo-cubic cell (Z=1)",
+        "structure_model": "Pm-3m aristotype used by this material record",
+        "source_caveat": "No peak splitting or new peaks were observed, but the authors state that a small predicted tetragonal distortion could remain below the energy-dispersive XRD resolution."
+      },
+      "experimental_configuration": {
+        "sample": "Natural wollastonite with less than 0.1 mol % Fe and Mn impurities, mixed with 10 wt % Pt",
+        "pressure_cell": "Diamond-anvil cell with double-sided Nd:YLF laser heating",
+        "pressure_media": ["NaCl for experiment 1", "argon for experiments 2-4"],
+        "diffraction": "Energy-dispersive synchrotron X-ray diffraction at GSECARS, Advanced Photon Source, using a 10 micrometer by 10 micrometer beam",
+        "temperature_measurement": "Two-sided spectroradiometry with radial profiles integrated over the X-rayed area; only rows with total estimated 1-sigma temperature error below 150 K were selected"
+      },
       "notes": "Published non-default DAC-only alternative. The authors' selected result is the separate combined DAC+Wang et al. LVP fit (gamma0=1.92(5), q=0.6(3)); it is explicitly excluded because this article does not publish the numerical Wang observations. This record instead preserves the article's independently reported fit to the complete 34-row Table 1 DAC subset: gamma0=2.00(8) and q=0.9(4). The BM3 reference parameters and theta0 were fixed, while gamma0 and q were free. Parenthetical errors are 1 sigma. V0=27.45(2) cm3/mol is converted to 45.5817973939 A3 for the Z=1 cubic Pm-3m cell.",
+      "fit_datasets": ["ca_perovskite_shim_2000_jgr_table1_dac_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Shim", "Duffy", "Shen"],
+        "year": 2000,
+        "title": "The stability and P-V-T equation of state of CaSiO3 perovskite in the Earth's lower mantle",
+        "source": "J. Geophys. Res. Solid Earth",
+        "volume": "105",
+        "locator": "25955-25968",
+        "doi": "10.1029/2000JB900183"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -587,20 +601,6 @@
             "doi": "10.1016/S0031-9201(00)00154-0"
           }
         ]
-      },
-      "phase_selection": {
-        "phase": "CaSiO3 perovskite treated as cubic in the source EOS analysis",
-        "cell_basis": "one-formula-unit pseudo-cubic cell (Z=1)",
-        "structure_model": "Pm-3m aristotype used by this material record",
-        "source_caveat": "No peak splitting or new peaks were observed, but the authors state that a small predicted tetragonal distortion could remain below the energy-dispersive XRD resolution."
-      },
-      "fit_datasets": ["ca_perovskite_shim_2000_jgr_table1_dac_pvt"],
-      "experimental_configuration": {
-        "sample": "Natural wollastonite with less than 0.1 mol % Fe and Mn impurities, mixed with 10 wt % Pt",
-        "pressure_cell": "Diamond-anvil cell with double-sided Nd:YLF laser heating",
-        "pressure_media": ["NaCl for experiment 1", "argon for experiments 2-4"],
-        "diffraction": "Energy-dispersive synchrotron X-ray diffraction at GSECARS, Advanced Photon Source, using a 10 micrometer by 10 micrometer beam",
-        "temperature_measurement": "Two-sided spectroradiometry with radial profiles integrated over the X-rayed area; only rows with total estimated 1-sigma temperature error below 150 K were selected"
       }
     },
     {
@@ -613,8 +613,10 @@
         "K0": {"value": 236.0, "error": 4.0},
         "K0_prime": {"value": 3.9, "error": 0.2}
       },
+      "experimental_pressure_range_gpa": [0.0, 108.0],
       "determination_method": "experimental",
       "default": true,
+      "notes": "Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite: V0=45.58+/-0.05 A^3 (fixed in the Table 2 fit), K0=236+/-4 GPa, and K0'=3.9+/-0.2. Uncertainties are one standard deviation; the published V0 uncertainty is retained despite its fixed fit status. Data extend to 108 GPa.",
       "reference": {
         "authors": ["Shim", "Duffy", "Shen"],
         "year": 2000,
@@ -624,8 +626,6 @@
         "locator": "327-338",
         "doi": "10.1016/S0031-9201(00)00154-0"
       },
-      "experimental_pressure_range_gpa": [0.0, 108.0],
-      "notes": "Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite: V0=45.58+/-0.05 A^3 (fixed in the Table 2 fit), K0=236+/-4 GPa, and K0'=3.9+/-0.2. Uncertainties are one standard deviation; the published V0 uncertainty is retained despite its fixed fit status. Data extend to 108 GPa.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -697,7 +697,7 @@
         "K0": {"value": 207.0, "error": 4.0}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 700.0, "error": null, "fixed": true},
           "theta0": {"value": 1300.0, "error": 500.0},
@@ -705,12 +705,41 @@
           "q": {"value": 1.2, "error": 0.8},
           "n": {"value": 5.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [51.3, 127.2],
+      "experimental_temperature_range_k": [700.0, 2300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [51.3, 127.2],
+        "temperature_k": [700.0, 2300.0],
+        "notes": [
+          "The bounds follow the reported experimental scope and Table 1 pressure extrema; they are an observed marginal envelope, not a claim that every pressure-temperature combination was measured.",
+          "The source assigns all fitted observations to cubic Ca-perovskite. The 700 K isotherm is intentionally retained as the model reference and is not converted to or combined with a 300 K tetragonal or metastable-cubic record."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default": false,
+      "phase_selection": {
+        "composition": "pure CaSiO3 glass starting material mixed with Pt at 9:1 sample-to-Pt by weight",
+        "assigned_phase": "cubic CaSiO3 perovskite",
+        "evidence": "No peak splitting was observed; the 200-peak FWHM and matching 700 K and 1600 K patterns support the source's cubic assignment. Three broadened 700 K rows were excluded from fitting.",
+        "cell_basis": "one-formula-unit pseudo-cubic cell (Z=1)",
+        "crystallography_scope": "The article assigns the cubic phase from diffraction peak shapes but does not refine atomic positions. This record reuses the material's established ideal Pm-3m crystallographic model without attributing that structural refinement to Noguchi et al."
+      },
+      "experimental_configuration": {
+        "pressure_cell": "diamond-anvil cell with 150 micrometre beveled culets and NaCl insulation/pressure medium",
+        "pressure_gauge": "Pt 111 and 200 lattice spacings reduced with Fei et al. (2004)",
+        "diffraction": "angle-dispersive synchrotron X-ray diffraction at SPring-8 BL10XU; approximately 0.41 A wavelength and 15 micrometre beam",
+        "temperature_measurement": "spectroradiometry with 10 percent uncertainty for laser heating; R-type thermocouple with less than 15 K uncertainty for external heating"
+      },
+      "notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). The source data license is unspecified; scoped CC0 covers only contributors’ transcription rights. No fit covariance, weighting rule, or parameter-error confidence convention is published.",
+      "implicit_parameters": {"K0_prime": 4.0},
+      "fit_datasets": ["ca_perovskite_noguchi_2013_table1_pvt"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Noguchi", "Komabayashi", "Hirose", "Ohishi"],
         "year": 2013,
@@ -720,20 +749,6 @@
         "locator": "81-91",
         "doi": "10.1007/s00269-012-0549-1"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [51.3, 127.2],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [700.0, 2300.0],
-      "validity": {
-        "pressure_gpa": [51.3, 127.2],
-        "temperature_k": [700.0, 2300.0],
-        "notes": [
-          "The bounds follow the reported experimental scope and Table 1 pressure extrema; they are an observed marginal envelope, not a claim that every pressure-temperature combination was measured.",
-          "The source assigns all fitted observations to cubic Ca-perovskite. The 700 K isotherm is intentionally retained as the model reference and is not converted to or combined with a 300 K tetragonal or metastable-cubic record."
-        ]
-      },
-      "notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). The source data license is unspecified; scoped CC0 covers only contributors’ transcription rights. No fit covariance, weighting rule, or parameter-error confidence convention is published.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -851,22 +866,7 @@
             "uncertainty_semantics": "The article prints parenthetical/plus-minus parameter errors but does not identify their confidence level or publish covariance; confidence and covariance therefore remain null."
           }
         }
-      },
-      "implicit_parameters": {"K0_prime": 4.0},
-      "phase_selection": {
-        "composition": "pure CaSiO3 glass starting material mixed with Pt at 9:1 sample-to-Pt by weight",
-        "assigned_phase": "cubic CaSiO3 perovskite",
-        "evidence": "No peak splitting was observed; the 200-peak FWHM and matching 700 K and 1600 K patterns support the source's cubic assignment. Three broadened 700 K rows were excluded from fitting.",
-        "cell_basis": "one-formula-unit pseudo-cubic cell (Z=1)",
-        "crystallography_scope": "The article assigns the cubic phase from diffraction peak shapes but does not refine atomic positions. This record reuses the material's established ideal Pm-3m crystallographic model without attributing that structural refinement to Noguchi et al."
-      },
-      "experimental_configuration": {
-        "pressure_cell": "diamond-anvil cell with 150 micrometre beveled culets and NaCl insulation/pressure medium",
-        "pressure_gauge": "Pt 111 and 200 lattice spacings reduced with Fei et al. (2004)",
-        "diffraction": "angle-dispersive synchrotron X-ray diffraction at SPring-8 BL10XU; approximately 0.41 A wavelength and 15 micrometre beam",
-        "temperature_measurement": "spectroradiometry with 10 percent uncertainty for laser heating; R-type thermocouple with less than 15 K uncertainty for external heating"
-      },
-      "fit_datasets": ["ca_perovskite_noguchi_2013_table1_pvt"]
+      }
     },
     {
       "identifier": "ca_perovskite_sun_2016_bm3_3",
@@ -879,16 +879,29 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 1000.0, "error": null, "fixed": true},
           "gamma0": {"value": 1.8, "error": 0.2},
           "q": {"value": 1.1, "error": 0.4},
           "n": {"value": 5.0, "error": null, "fixed": true}
-        },
-        "model": "MieGruneisenDebye"
+        }
+      },
+      "experimental_pressure_range_gpa": [21.2, 156.0],
+      "experimental_temperature_range_k": [1200.0, 2600.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [21.2, 156.0],
+        "temperature_k": [1200.0, 2600.0],
+        "notes": [
+          "The marginal experimental envelope is not a claim that every pressure-temperature combination was measured.",
+          "Cubic Pm-3m CaSiO3 was observed at high temperature; the 300 K reference isotherm is an extrapolated, metastable model reference and is outside this executable validity envelope."
+        ]
       },
       "determination_method": "experimental",
+      "notes": "Joint BM3-Mie-Gruneisen-Debye fit for pure cubic Pm-3m CaSiO3 using model 1 in Table 2. The 144 printed fit rows span 21.2-151.8 GPa and 1200-2600 K; 156 GPa is the paper's overall experimental diffraction envelope, not a printed Table 1 pressure. The 300 K V0, K0, and K0' define an extrapolated reference isotherm: cubic CaSiO3 is not quenchable and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces the published parameters and uncertainties after rounding.",
+      "fit_datasets": ["ca_perovskite_sun_2016_table1_pvt"],
       "reference": {
         "authors": ["Sun", "Mao", "Yan", "Wu", "Prakapenka", "Lin"],
         "year": 2016,
@@ -898,18 +911,6 @@
         "locator": "4876-4894",
         "doi": "10.1002/2016JB013062"
       },
-      "experimental_pressure_range_gpa": [21.2, 156.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [1200.0, 2600.0],
-      "validity": {
-        "pressure_gpa": [21.2, 156.0],
-        "temperature_k": [1200.0, 2600.0],
-        "notes": [
-          "The marginal experimental envelope is not a claim that every pressure-temperature combination was measured.",
-          "Cubic Pm-3m CaSiO3 was observed at high temperature; the 300 K reference isotherm is an extrapolated, metastable model reference and is outside this executable validity envelope."
-        ]
-      },
-      "notes": "Joint BM3-Mie-Gruneisen-Debye fit for pure cubic Pm-3m CaSiO3 using model 1 in Table 2. The 144 printed fit rows span 21.2-151.8 GPa and 1200-2600 K; 156 GPa is the paper's overall experimental diffraction envelope, not a printed Table 1 pressure. The 300 K V0, K0, and K0' define an extrapolated reference isotherm: cubic CaSiO3 is not quenchable and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces the published parameters and uncertainties after rounding.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -1036,8 +1037,7 @@
           },
           "protocol_status": "objective and covariance scaling inferred by discriminating numerical fits; source equations, selected model, fixed parameters, and all-row selection are explicit"
         }
-      },
-      "fit_datasets": ["ca_perovskite_sun_2016_table1_pvt"]
+      }
     },
     {
       "identifier": "ca_perovskite_wang_1996_preferred_bm3",
@@ -1049,9 +1049,25 @@
         "K0": {"value": 232.0, "error": 8.0},
         "K0_prime": {"value": 4.8, "error": 0.3, "fixed": true}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.68,
+      "experimental_pressure_range_gpa": [2.66, 10.07],
+      "experimental_temperature_range_k": [300.0, 306.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [2.66, 10.07],
+        "temperature_k": [300.0, 306.0],
+        "volume_ratio": [0.961606, 0.987934],
+        "notes": [
+          "The cubic phase is metastable at room temperature; observations below 2 GPa were excluded because amorphization and differential stress invalidate a state-function EOS."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "sample_composition": "CaSiO3 perovskite synthesized in situ from synthetic high-purity wollastonite.",
+      "fit_datasets": ["ca_perovskite_wang_1996_table1_room_temperature"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Wang", "Weidner", "Guyot"],
         "year": 1996,
@@ -1060,20 +1076,6 @@
         "volume": "101",
         "locator": "661-672",
         "doi": "10.1029/95JB03254"
-      },
-      "parameter_error_confidence": 0.68,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [2.66, 10.07],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 306.0],
-      "validity": {
-        "pressure_gpa": [2.66, 10.07],
-        "temperature_k": [300.0, 306.0],
-        "volume_ratio": [0.961606, 0.987934],
-        "notes": [
-          "The cubic phase is metastable at room temperature; observations below 2 GPa were excluded because amorphization and differential stress invalidate a state-function EOS."
-        ]
       },
       "pressure_calibration": {
         "status": "resolved",
@@ -1163,9 +1165,7 @@
           "K0": "Same locations: 232(8) GPa.",
           "K0_prime": "Adopted/fixed at 4.8 from the authors' equal-weight reanalysis of Mao et al. (1989); its 0.3 uncertainty is retained as provenance."
         }
-      },
-      "sample_composition": "CaSiO3 perovskite synthesized in situ from synthetic high-purity wollastonite.",
-      "fit_datasets": ["ca_perovskite_wang_1996_table1_room_temperature"]
+      }
     },
     {
       "identifier": "ca_perovskite_wang_1996_mao_equal_weight_bm3",
@@ -1177,9 +1177,24 @@
         "K0": {"value": 244.0, "error": 12.0},
         "K0_prime": {"value": 4.8, "error": 0.3}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.68,
+      "experimental_pressure_range_gpa": [1.2, 134.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [1.2, 134.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "A source-reported sensitivity reanalysis of a cited primary dataset, not Wang et al.'s preferred new-data fit."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "sample_composition": "CaSiO3 perovskite observations of Mao et al. (1989), reanalyzed in this source with remaining data equally weighted after excluding the sub-1-GPa anomalous-volume points.",
+      "fit_datasets": ["ca_perovskite_mao_1989_table1_compression"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Wang", "Weidner", "Guyot"],
         "year": 1996,
@@ -1188,19 +1203,6 @@
         "volume": "101",
         "locator": "661-672",
         "doi": "10.1029/95JB03254"
-      },
-      "parameter_error_confidence": 0.68,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [1.2, 134.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [1.2, 134.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "A source-reported sensitivity reanalysis of a cited primary dataset, not Wang et al.'s preferred new-data fit."
-        ]
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -1272,9 +1274,7 @@
           "parameters": "Room Temperature Compression discussion and Figure 4 dotted curve.",
           "fit_selection": "Mao et al. data above the anomalous sub-1-GPa region, with equal weights."
         }
-      },
-      "sample_composition": "CaSiO3 perovskite observations of Mao et al. (1989), reanalyzed in this source with remaining data equally weighted after excluding the sub-1-GPa anomalous-volume points.",
-      "fit_datasets": ["ca_perovskite_mao_1989_table1_compression"]
+      }
     },
     {
       "identifier": "ca_perovskite_wang_1996_mao_pressure_weighted_all_bm3",
@@ -1286,9 +1286,24 @@
         "K0": {"value": 282.0, "error": 8.0},
         "K0_prime": {"value": 4.0, "error": 0.2}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.68,
+      "experimental_pressure_range_gpa": [0.0, 134.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 134.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Diagnostic sensitivity fit intentionally includes points the authors argue are contaminated by amorphization; it is not preferred for physical use."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "sample_composition": "All Mao et al. (1989) CaSiO3-perovskite data with reported pressure-uncertainty weighting, including likely amorphized low-pressure points.",
+      "fit_datasets": ["ca_perovskite_mao_1989_table1_compression"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Wang", "Weidner", "Guyot"],
         "year": 1996,
@@ -1297,19 +1312,6 @@
         "volume": "101",
         "locator": "661-672",
         "doi": "10.1029/95JB03254"
-      },
-      "parameter_error_confidence": 0.68,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 134.0],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 134.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Diagnostic sensitivity fit intentionally includes points the authors argue are contaminated by amorphization; it is not preferred for physical use."
-        ]
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -1365,9 +1367,7 @@
           "parameters": "Room Temperature Compression discussion.",
           "fit_selection": "All Mao et al. data weighted by their printed pressure uncertainties."
         }
-      },
-      "sample_composition": "All Mao et al. (1989) CaSiO3-perovskite data with reported pressure-uncertainty weighting, including likely amorphized low-pressure points.",
-      "fit_datasets": ["ca_perovskite_mao_1989_table1_compression"]
+      }
     },
     {
       "identifier": "ca_perovskite_wang_1996_mao_pressure_weighted_no_sub1gpa_bm3",
@@ -1379,9 +1379,24 @@
         "K0": {"value": 268.0, "error": 8.0},
         "K0_prime": {"value": 4.3, "error": 0.2}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": 0.68,
+      "experimental_pressure_range_gpa": [1.2, 134.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [1.2, 134.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Sensitivity fit demonstrating the bias from amorphized sub-1-GPa data; not the paper's preferred combined interpretation."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "sample_composition": "Mao et al. (1989) CaSiO3-perovskite data weighted by pressure uncertainties after excluding anomalous lower-volume points below 1 GPa.",
+      "fit_datasets": ["ca_perovskite_mao_1989_table1_compression"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Wang", "Weidner", "Guyot"],
         "year": 1996,
@@ -1390,19 +1405,6 @@
         "volume": "101",
         "locator": "661-672",
         "doi": "10.1029/95JB03254"
-      },
-      "parameter_error_confidence": 0.68,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [1.2, 134.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [1.2, 134.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Sensitivity fit demonstrating the bias from amorphized sub-1-GPa data; not the paper's preferred combined interpretation."
-        ]
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -1471,9 +1473,7 @@
           "parameters": "Room Temperature Compression discussion.",
           "fit_selection": "Mao et al. data with the lower-volume sub-1-GPa points excluded and the remaining pressures uncertainty-weighted."
         }
-      },
-      "sample_composition": "Mao et al. (1989) CaSiO3-perovskite data weighted by pressure uncertainties after excluding anomalous lower-volume points below 1 GPa.",
-      "fit_datasets": ["ca_perovskite_mao_1989_table1_compression"]
+      }
     },
     {
       "identifier": "ca_perovskite_chizmeshya_1996_lapw7_static_bm3",
@@ -1485,9 +1485,20 @@
         "K0": {"value": 241.8, "error": null},
         "K0_prime": {"value": 4.15, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 140.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 140.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": ["Ideal cubic static-lattice branch; the source also finds rotational instability of the cubic structure."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Chizmeshya", "Wolf", "McMillan"],
         "year": 1996,
@@ -1496,17 +1507,6 @@
         "volume": "23",
         "locator": "2725-2728",
         "doi": "10.1029/96GL02624"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 140.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 140.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Ideal cubic static-lattice branch; the source also finds rotational instability of the cubic structure."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -1557,9 +1557,18 @@
         "K0": {"value": 241.0, "error": null},
         "K0_prime": {"value": 4.16, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 140.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 140.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": ["Ideal cubic static-lattice convergence branch."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
       "reference": {
         "authors": ["Chizmeshya", "Wolf", "McMillan"],
         "year": 1996,
@@ -1568,15 +1577,6 @@
         "volume": "23",
         "locator": "2725-2728",
         "doi": "10.1029/96GL02624"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 140.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 140.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Ideal cubic static-lattice convergence branch."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -1623,9 +1623,18 @@
         "K0": {"value": 238.2, "error": null},
         "K0_prime": {"value": 4.18, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 140.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 140.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": ["Final nine-point ideal-cubic static-lattice branch before thermal correction."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
       "reference": {
         "authors": ["Chizmeshya", "Wolf", "McMillan"],
         "year": 1996,
@@ -1634,15 +1643,6 @@
         "volume": "23",
         "locator": "2725-2728",
         "doi": "10.1029/96GL02624"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 140.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 140.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Final nine-point ideal-cubic static-lattice branch before thermal correction."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -1689,9 +1689,18 @@
         "K0": {"value": 237.9, "error": null},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 140.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 140.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Thermally corrected ideal-cubic model; constrained K0'=4 sensitivity fit."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
       "reference": {
         "authors": ["Chizmeshya", "Wolf", "McMillan"],
         "year": 1996,
@@ -1700,15 +1709,6 @@
         "volume": "23",
         "locator": "2725-2728",
         "doi": "10.1029/96GL02624"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 140.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 140.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Thermally corrected ideal-cubic model; constrained K0'=4 sensitivity fit."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -1755,9 +1755,20 @@
         "K0": {"value": 227.0, "error": null},
         "K0_prime": {"value": 4.29, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0, 140.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 140.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Preferred thermally corrected ideal-cubic model; cubic CaSiO3 is dynamically unstable to octahedral rotations in the source calculation."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
       "reference": {
         "authors": ["Chizmeshya", "Wolf", "McMillan"],
         "year": 1996,
@@ -1766,17 +1777,6 @@
         "volume": "23",
         "locator": "2725-2728",
         "doi": "10.1029/96GL02624"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 140.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 140.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Preferred thermally corrected ideal-cubic model; cubic CaSiO3 is dynamically unstable to octahedral rotations in the source calculation."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -1836,9 +1836,18 @@
         "K0_prime": {"value": 3.9, "error": null},
         "K0_double_prime": {"value": -0.016, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [0.0001, 30.0],
+      "experimental_temperature_range_k": [298.15, 298.15],
+      "pressure_range_status": "reference_parameterization",
+      "validity": {
+        "pressure_gpa": [0.0001, 30.0],
+        "temperature_k": [298.15, 298.15],
+        "notes": ["Cubic CaSiO3-perovskite thermodynamic endmember; the low-pressure reference is extrapolated."]
+      },
       "determination_method": "unknown",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
       "reference": {
         "authors": ["Holland", "Hudson", "Powell", "Harte"],
         "year": 2013,
@@ -1847,15 +1856,6 @@
         "volume": "54",
         "locator": "1901-1920",
         "doi": "10.1093/petrology/egt035"
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
-      "experimental_pressure_range_gpa": [0.0001, 30.0],
-      "pressure_range_status": "reference_parameterization",
-      "experimental_temperature_range_k": [298.15, 298.15],
-      "validity": {
-        "pressure_gpa": [0.0001, 30.0],
-        "temperature_k": [298.15, 298.15],
-        "notes": ["Cubic CaSiO3-perovskite thermodynamic endmember; the low-pressure reference is extrapolated."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -1919,9 +1919,20 @@
         "K0": {"value": 228.0, "error": 2.0},
         "K0_prime": {"value": 4.3, "error": 0.1}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Orthorhombic Pnma VIBC branch including zero-point and 300 K vibrational contributions."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Akber-Knutson", "Bukowinski", "Matas"],
         "year": 2002,
@@ -1930,17 +1941,6 @@
         "volume": "29",
         "locator": "4-1-4-4",
         "doi": "10.1029/2001GL013523"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Orthorhombic Pnma VIBC branch including zero-point and 300 K vibrational contributions."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -1990,9 +1990,20 @@
         "K0": {"value": 229.0, "error": 2.0},
         "K0_prime": {"value": 4.3, "error": 0.1}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Cubic Pm3m VIBC branch including zero-point and 300 K vibrational contributions."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Akber-Knutson", "Bukowinski", "Matas"],
         "year": 2002,
@@ -2001,17 +2012,6 @@
         "volume": "29",
         "locator": "4-1-4-4",
         "doi": "10.1029/2001GL013523"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Cubic Pm3m VIBC branch including zero-point and 300 K vibrational contributions."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -2061,9 +2061,20 @@
         "K0": {"value": 305.0, "error": 2.0},
         "K0_prime": {"value": 3.5, "error": 0.1}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Cubic Pm3m VIB branch without the empirical Si-O covalent correction."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Akber-Knutson", "Bukowinski", "Matas"],
         "year": 2002,
@@ -2072,17 +2083,6 @@
         "volume": "29",
         "locator": "4-1-4-4",
         "doi": "10.1029/2001GL013523"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": ["Cubic Pm3m VIB branch without the empirical Si-O covalent correction."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -2132,9 +2132,22 @@
         "K0": {"value": 301.0, "error": null},
         "K0_prime": {"value": 4.0, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 106.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 106.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": [
+          "Cubic perovskite result from the moderately extended basis set B; the 106 GPa bound is the explicitly tested structural-stability range."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Sherman"],
         "year": 1993,
@@ -2143,19 +2156,6 @@
         "volume": "98",
         "locator": "19795-19805",
         "doi": "10.1029/93JB02175"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 106.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 106.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": [
-          "Cubic perovskite result from the moderately extended basis set B; the 106 GPa bound is the explicitly tested structural-stability range."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -2200,9 +2200,29 @@
         "V0": {"value": 45.83, "error": 0.07},
         "K0": {"value": 280.0, "error": 23.0}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [2.0, 9.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [2.0, 9.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "The source describes the fitted room-temperature interval as above 2.0 GPa and approximately 2-9 GPa; the 11.7 GPa value elsewhere in the paper is a thermal-expansion isobar and is not part of this four-point fit.",
+          "Lower-pressure decompression points were excluded because amorphization changes the volume; the solid 1-bar Kanzaki et al. comparison point in Figure 3 was not measured or fitted by Wang and Weidner."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "experimental_configuration": {
+        "sample": "Synthetic high-purity wollastonite with 1 wt% Cr2O3 and 1 wt% NiO; the chamber was half wollastonite and half NaCl-BN pressure-standard mixture.",
+        "pressure_cell": "DIA-6 SAM-85 large-volume apparatus with 4 x 4 mm sintered-diamond anvil truncations at NSLS beamline X17.",
+        "path": "Pressure was first raised at room temperature, the sample was heated at constant load to synthesize perovskite, and the room-temperature volumes were measured during decompression after heating had reduced deviatoric stress.",
+        "diffraction": "Energy-dispersive synchrotron X-ray diffraction; as many as nine CaSiO3-perovskite reflections were used and the stated unit-cell-volume precision is 0.02 A3."
+      },
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Wang", "Weidner"],
         "year": 1994,
@@ -2211,20 +2231,6 @@
         "volume": "21",
         "locator": "895-898",
         "doi": "10.1029/94GL00976"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [2.0, 9.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "validity": {
-        "pressure_gpa": [2.0, 9.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "The source describes the fitted room-temperature interval as above 2.0 GPa and approximately 2-9 GPa; the 11.7 GPa value elsewhere in the paper is a thermal-expansion isobar and is not part of this four-point fit.",
-          "Lower-pressure decompression points were excluded because amorphization changes the volume; the solid 1-bar Kanzaki et al. comparison point in Figure 3 was not measured or fitted by Wang and Weidner."
-        ]
       },
       "pressure_calibration": {
         "status": "resolved",
@@ -2294,12 +2300,6 @@
           "fit_selection": "Exactly four room-temperature decompression observations above 2.0 GPa. Sub-2-GPa points were excluded because of amorphization, and the solid 1-bar Kanzaki et al. literature point was excluded as external comparison data.",
           "weighting": "The paper does not state the residual coordinate, numerical weights, optimizer, covariance, or confidence convention for the printed parameter uncertainties."
         }
-      },
-      "experimental_configuration": {
-        "sample": "Synthetic high-purity wollastonite with 1 wt% Cr2O3 and 1 wt% NiO; the chamber was half wollastonite and half NaCl-BN pressure-standard mixture.",
-        "pressure_cell": "DIA-6 SAM-85 large-volume apparatus with 4 x 4 mm sintered-diamond anvil truncations at NSLS beamline X17.",
-        "path": "Pressure was first raised at room temperature, the sample was heated at constant load to synthesize perovskite, and the room-temperature volumes were measured during decompression after heating had reduced deviatoric stress.",
-        "diffraction": "Energy-dispersive synchrotron X-ray diffraction; as many as nine CaSiO3-perovskite reflections were used and the stated unit-cell-volume precision is 0.02 A3."
       }
     },
     {
@@ -2313,9 +2313,21 @@
         "K0_prime": {"value": 4.206, "error": null},
         "K0_double_prime": {"value": -0.002, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 160],
+      "experimental_temperature_range_k": [0, 0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0, 160],
+        "temperature_k": [0, 0],
+        "notes": ["Static-lattice DFT branch; not an ambient-stability claim."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1, "molar_mass_g_mol": 116.161},
+      "notes": "Static 0 K Pm-3m (a0a0a0) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Caracas", "Wentzcovitch", "Price", "Brodholt"],
         "year": 2005,
@@ -2325,18 +2337,6 @@
         "locator": "L06306",
         "doi": "10.1029/2004GL022144"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1, "molar_mass_g_mol": 116.161},
-      "experimental_pressure_range_gpa": [0, 160],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0, 0],
-      "validity": {
-        "pressure_gpa": [0, 160],
-        "temperature_k": [0, 0],
-        "notes": ["Static-lattice DFT branch; not an ambient-stability claim."]
-      },
-      "notes": "Static 0 K Pm-3m (a0a0a0) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -2400,9 +2400,20 @@
         "K0": {"value": 240.0, "error": null},
         "K0_prime": {"value": 4.15, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 200.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 200.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": ["Static cubic CaSiO3 perovskite LDA branch."]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Liu", "Sun", "Chen", "Cai", "Wu", "Ge"],
         "year": 2007,
@@ -2411,17 +2422,6 @@
         "volume": "19",
         "locator": "246103",
         "doi": "10.1088/0953-8984/19/24/246103"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [0.0, 200.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 200.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": ["Static cubic CaSiO3 perovskite LDA branch."]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -2479,8 +2479,7 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "reference_temperature",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 1000.0, "error": null},
@@ -2488,28 +2487,13 @@
           "q": {"value": 2.65, "error": null},
           "n": {"value": 5.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "default": false,
-      "catalog_access": "explicit_selection",
-      "reference": {
-        "authors": ["Fu", "Zhang", "Okuchi", "Lin"],
-        "year": 2023,
-        "title": "Single-crystal elasticity of (Al,Fe)-bearing bridgmanite up to 82 GPa",
-        "source": "American Mineralogist",
-        "volume": "108",
-        "locator": "719-730",
-        "doi": "10.2138/am-2022-8435"
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
       "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300.0, 2200.0],
+      "pressure_range_status": "reported_qualitatively",
       "validity": {
         "pressure_gpa": [0.0, 150.0],
         "temperature_k": [300.0, 2200.0],
@@ -2518,6 +2502,23 @@
           "An independent audit recovered 34 cubic Gréaux rows and 144 Sun Table 1 rows; the 140 Sun rows at 1200-2200 K match the Figure S3 legend. The inferred 174-row selection is not source-declared, and Fu et al. do not publish the regression objective, weights, covariance, or code.",
           "Cubic CaSiO3 is not quenchable at ambient conditions; the 300 K zero-pressure state is a model reference rather than an ambient-stability claim."
         ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": false,
+      "catalog_access": "explicit_selection",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "supporting_datasets": ["ca_perovskite_fu_2023_candidate_composite_external"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Fu", "Zhang", "Okuchi", "Lin"],
+        "year": 2023,
+        "title": "Single-crystal elasticity of (Al,Fe)-bearing bridgmanite up to 82 GPa",
+        "source": "American Mineralogist",
+        "volume": "108",
+        "locator": "719-730",
+        "doi": "10.2138/am-2022-8435"
       },
       "pressure_calibration": {
         "status": "unresolved",
@@ -2589,8 +2590,7 @@
             "unsupported_shear_terms": "Table S3 mu0, mu0_prime, and etaS0 describe the separate shear model and are not encoded in this pressure-volume EOS record."
           }
         }
-      },
-      "supporting_datasets": ["ca_perovskite_fu_2023_candidate_composite_external"]
+      }
     },
     {
       "identifier": "ca_perovskite_karki_crain_1998_static_bm3",
@@ -2602,9 +2602,24 @@
         "K0": {"value": 241.0, "error": null},
         "K0_prime": {"value": 4.14, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 140.0],
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 140.0],
+        "temperature_k": [0.0, 0.0],
+        "notes": [
+          "Static-lattice LDA plane-wave pseudopotential result for the ideal cubic Pm-3m branch.",
+          "The 0-140 GPa range is the calculation range, not an experimental stability field."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
+      "notes": "LitCurate row 186 is retained as the source-owned fit. Rows 187-191 are literature comparisons and are represented, where independently audited, under their own primary publications rather than under this DOI.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Karki", "Crain"],
         "year": 1998,
@@ -2614,21 +2629,6 @@
         "locator": "2741-2744",
         "doi": "10.1029/98GL51952"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
-      "experimental_pressure_range_gpa": [0.0, 140.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 140.0],
-        "temperature_k": [0.0, 0.0],
-        "notes": [
-          "Static-lattice LDA plane-wave pseudopotential result for the ideal cubic Pm-3m branch.",
-          "The 0-140 GPa range is the calculation range, not an experimental stability field."
-        ]
-      },
-      "notes": "LitCurate row 186 is retained as the source-owned fit. Rows 187-191 are literature comparisons and are represented, where independently audited, under their own primary publications rather than under this DOI.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -2679,16 +2679,31 @@
         "K0_prime": {"value": 3.9, "error": null, "fixed": true}
       },
       "thermal": {
+        "model": "LogVolumeThermalPressure",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha_KT_ref": {"value": 0.0083, "error": 0.0003},
           "dK_dT_V": {"value": -0.0031, "error": 0.0031}
-        },
-        "model": "LogVolumeThermalPressure"
+        }
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [15.0, 175.0],
+      "experimental_temperature_range_k": [2000.0, 4000.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [15.0, 175.0],
+        "temperature_k": [2000.0, 4000.0],
+        "notes": [
+          "The rectangular envelope covers the stated 27 AIMD pressure-temperature conditions; it is not a phase-boundary model.",
+          "The static 300 K BM3 coefficients are adopted from Shim et al. (2000); the source-owned contribution is the fitted thermal-pressure term."
+        ]
+      },
       "determination_method": "hybrid",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
+      "notes": "This is not a duplicate of the existing Shim 2000 room-temperature BM3: it is Ono's executable high-temperature extension. The source's velocity equations are outside the pressure-volume EOS and are not encoded here.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Ono"],
         "year": 2013,
@@ -2698,21 +2713,6 @@
         "locator": "4300-4309",
         "doi": "10.3390/e15104300"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
-      "experimental_pressure_range_gpa": [15.0, 175.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [2000.0, 4000.0],
-      "validity": {
-        "pressure_gpa": [15.0, 175.0],
-        "temperature_k": [2000.0, 4000.0],
-        "notes": [
-          "The rectangular envelope covers the stated 27 AIMD pressure-temperature conditions; it is not a phase-boundary model.",
-          "The static 300 K BM3 coefficients are adopted from Shim et al. (2000); the source-owned contribution is the fitted thermal-pressure term."
-        ]
-      },
-      "notes": "This is not a duplicate of the existing Shim 2000 room-temperature BM3: it is Ono's executable high-temperature extension. The source's velocity equations are outside the pressure-volume EOS and are not encoded here.",
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -2797,8 +2797,7 @@
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
       "thermal": {
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "reference_temperature",
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 1000.0, "error": null, "fixed": true},
@@ -2806,21 +2805,28 @@
           "q": {"value": 1.8394636082638287, "error": 0.06743328955583029},
           "n": {"value": 5.0, "error": null, "fixed": true}
         },
-        "model": "MieGruneisenDebye"
-      },
-      "record_kind": "refit",
-      "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "reference": {
-        "authors": ["Fu", "Zhang", "Okuchi", "Lin"],
-        "year": 2023,
-        "title": "Single-crystal elasticity of (Al,Fe)-bearing bridgmanite up to 82 GPa",
-        "source": "American Mineralogist",
-        "volume": "108",
-        "locator": "719-730",
-        "doi": "10.2138/am-2022-8435"
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [12.05, 151.8],
+      "experimental_temperature_range_k": [700.0, 2200.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [12.05, 151.8],
+        "temperature_k": [700.0, 2200.0],
+        "notes": [
+          "Opt-in Peritheos refit over the inferred observation envelope; it is not Fu et al.'s published regression.",
+          "The joint objective also refines mu0, mu0_prime, and eta_s0 against Gréaux elastic data, but the pressure-volume API stores only the BM3-MGD pressure parameters."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "equation_kind": "thermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+      "notes": "Opt-in unweighted Peritheos refit. Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three. Errors are residual-scaled standard errors from the full seven-parameter joint fit; the pressure-volume covariance retains its marginal block. Fixed parameters have no estimated errors. The published Fu record remains the authoritative literature parameterization.",
+      "derived_from_record": "ca_perovskite_fu_2023_bm3_mgd_refit",
+      "fit_datasets": ["ca_perovskite_fu_2023_candidate_composite_external"],
       "parameter_covariance": {
         "parameter_order": ["rt_eos.V0", "rt_eos.K0", "gamma0", "q"],
         "matrix": [
@@ -2830,19 +2836,15 @@
           [0.0011000640065802127, -0.00203844792262391, -0.0008253513612912812, 0.004547248540320451]
         ]
       },
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
-      "experimental_pressure_range_gpa": [12.05, 151.8],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [700.0, 2200.0],
-      "validity": {
-        "pressure_gpa": [12.05, 151.8],
-        "temperature_k": [700.0, 2200.0],
-        "notes": [
-          "Opt-in Peritheos refit over the inferred observation envelope; it is not Fu et al.'s published regression.",
-          "The joint objective also refines mu0, mu0_prime, and eta_s0 against Gréaux elastic data, but the pressure-volume API stores only the BM3-MGD pressure parameters."
-        ]
+      "reference": {
+        "authors": ["Fu", "Zhang", "Okuchi", "Lin"],
+        "year": 2023,
+        "title": "Single-crystal elasticity of (Al,Fe)-bearing bridgmanite up to 82 GPa",
+        "source": "American Mineralogist",
+        "volume": "108",
+        "locator": "719-730",
+        "doi": "10.2138/am-2022-8435"
       },
-      "notes": "Opt-in unweighted Peritheos refit. Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three. Errors are residual-scaled standard errors from the full seven-parameter joint fit; the pressure-volume covariance retains its marginal block. Fixed parameters have no estimated errors. The published Fu record remains the authoritative literature parameterization.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],
@@ -2852,7 +2854,6 @@
         },
         "audit_date": "2026-09-08"
       },
-      "derived_from_record": "ca_perovskite_fu_2023_bm3_mgd_refit",
       "evidence": {
         "scientific_validation": {
           "status": "primary_source_validated",
@@ -2925,8 +2926,7 @@
           },
           "weighting_description": "Every scalar pressure, bulk-modulus, and shear-modulus residual in GPa has unit weight; measurement uncertainties are not used as weights. Each Sun row contributes one residual and each Greaux row contributes three."
         }
-      },
-      "fit_datasets": ["ca_perovskite_fu_2023_candidate_composite_external"]
+      }
     },
     {
       "identifier": "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit",
@@ -2939,35 +2939,13 @@
         "K0_prime": {"value": 4.8, "error": null, "fixed": true}
       },
       "thermal": {
+        "model": "LinearThermalPressure",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha_KT": {"value": 0.007557237418777561, "error": 0.0001502197868388134}
-        },
-        "model": "LinearThermalPressure"
-      },
-      "record_kind": "refit",
-      "determination_method": "experimental",
-      "equation_kind": "thermal",
-      "default": false,
-      "reference": {
-        "authors": ["Wang", "Weidner", "Guyot"],
-        "year": 1996,
-        "title": "Thermal equation of state of CaSiO3 perovskite",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "101",
-        "locator": "661-672",
-        "doi": "10.1029/95JB03254"
+        }
       },
       "parameter_error_confidence": null,
-      "parameter_covariance": {
-        "parameter_order": ["rt_eos.V0", "rt_eos.K0", "alpha_KT"],
-        "matrix": [
-          [0.0018598436016569906, -0.3010762621915365, -5.084396797684938e-06],
-          [-0.30107626219153644, 54.95791754780352, 0.0006615749323144231],
-          [-5.084396797684937e-06, 0.0006615749323144231, 2.2565984357898532e-08]
-        ]
-      },
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
       "experimental_pressure_range_gpa": [2.66, 12.25],
       "experimental_temperature_range_k": [301.0, 1594.0],
       "validity": {
@@ -2977,7 +2955,31 @@
           "Observed range envelope only; uneven P–T coverage. P=0 at fitted V0 and 300 K is an extrapolated reference, not an ambient stable-phase observation."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "refit",
+      "equation_kind": "thermal",
+      "default": false,
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
       "notes": "Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard.",
+      "derived_from_record": "ca_perovskite_wang_1996_preferred_bm3",
+      "fit_datasets": ["ca_perovskite_wang_1996_selected64_thermal_refit"],
+      "parameter_covariance": {
+        "parameter_order": ["rt_eos.V0", "rt_eos.K0", "alpha_KT"],
+        "matrix": [
+          [0.0018598436016569906, -0.3010762621915365, -5.084396797684938e-06],
+          [-0.30107626219153644, 54.95791754780352, 0.0006615749323144231],
+          [-5.084396797684937e-06, 0.0006615749323144231, 2.2565984357898532e-08]
+        ]
+      },
+      "reference": {
+        "authors": ["Wang", "Weidner", "Guyot"],
+        "year": 1996,
+        "title": "Thermal equation of state of CaSiO3 perovskite",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "101",
+        "locator": "661-672",
+        "doi": "10.1029/95JB03254"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -3003,7 +3005,6 @@
         },
         "audit_date": "2026-09-05"
       },
-      "derived_from_record": "ca_perovskite_wang_1996_preferred_bm3",
       "evidence": {
         "scientific_validation": {
           "status": "primary_source_validated",
@@ -3142,8 +3143,7 @@
             "gtol": 1e-11
           }
         }
-      },
-      "fit_datasets": ["ca_perovskite_wang_1996_selected64_thermal_refit"]
+      }
     }
   ],
   "symmetry": "CUBIC",

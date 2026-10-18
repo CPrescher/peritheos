@@ -17,8 +17,13 @@
         "K0_prime": {"value": 4.411, "error": 0.008},
         "K_infinity_prime": {"value": 1.6666666666666667, "error": null, "fixed": true}
       },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 431],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 186.207},
+      "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "reference": {
         "authors": [
           "Sakai",
@@ -39,11 +44,6 @@
         "locator": "68",
         "doi": "10.1038/s43246-025-00792-5"
       },
-      "parameter_error_confidence": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 186.207},
-      "experimental_pressure_range_gpa": [0, 431],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -126,7 +126,10 @@
         "K0": {"value": 352.6, "error": 8.0},
         "K0_prime": {"value": 4.56, "error": 0.17}
       },
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [0.0, 144.0],
       "determination_method": "experimental",
+      "notes": "Quasi-hydrostatic powder-XRD fit in helium to 144 GPa. The published molar V0=8.8726 cm^3/mol is converted to 14.7333 A^3/atom and multiplied by two atoms in the conventional hcp cell.",
       "reference": {
         "authors": ["Anzellini", "Dewaele", "Occelli", "Loubeyre", "Mezouar"],
         "year": 2014,
@@ -136,9 +139,6 @@
         "locator": "043511",
         "doi": "10.1063/1.4863300"
       },
-      "parameter_error_confidence": 0.95,
-      "experimental_pressure_range_gpa": [0.0, 144.0],
-      "notes": "Quasi-hydrostatic powder-XRD fit in helium to 144 GPa. The published molar V0=8.8726 cm^3/mol is converted to 14.7333 A^3/atom and multiplied by two atoms in the conventional hcp cell.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -229,18 +229,7 @@
         "K0": {"value": 350.5, "error": 8.0},
         "K0_prime": {"value": 3.98, "error": 0.17}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 144.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -248,7 +237,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["rhenium_anzellini_2014_table3_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -302,8 +303,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["rhenium_anzellini_2014_table3_compression"]
+      }
     },
     {
       "identifier": "rhenium_dewaele_2019_dor_vinet",
@@ -315,18 +315,7 @@
         "K0": {"value": 350.5, "error": 8.0},
         "K0_prime": {"value": 4.62, "error": 0.17}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 144.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -334,7 +323,19 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["rhenium_anzellini_2014_table3_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -388,8 +389,7 @@
             "doi": "10.3390/min9110684"
           }
         ]
-      },
-      "fit_datasets": ["rhenium_anzellini_2014_table3_compression"]
+      }
     },
     {
       "identifier": "rhenium_sakai_2018_yokoo_pt_vinet",
@@ -401,9 +401,24 @@
         "K0": {"value": 358.0, "error": 10.0},
         "K0_prime": {"value": 4.8, "error": 0.2}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [130.0, 310.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [130.0, 310.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Approximate Yokoo-Pt pressure coverage read from Figure 10, not exact tabulated endpoints. The text reports RP01 to 280 GPa on the lower pressure scale; the Yokoo-Pt reduction reaches about 310 GPa.",
+          "Room temperature represented as 300 K; no exact temperature or thermal coefficients are reported.",
+          "The approximately 464 GPa Micro16 result is an extrapolation beyond the Re-Pt co-compression fit."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "notes": "Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure scale. Figure 10 distinguishes conventional-DAC RP01 and ds-DAC Micro17 points; exact fit-row membership and weights are not specified. RP01 used silica glass and a tungsten gasket; Micro17 used glycerin and direct anvil loading. Parenthetical errors are preserved without assuming their confidence level or covariance. V0 is fixed, with no fabricated zero uncertainty. At the rounded reported V=18.65 A^3, the printed parameters give 461.56 GPa versus the reported 464 GPa; the difference is compatible with coefficient rounding. This does not independently refit the original observations. A subsequent Figure 10 vector refit of the 26 RP01 Yokoo-Pt points gives K0=357.19 GPa and K0_prime=4.83483, both within the printed errors. Selecting RP01 and unweighted pressure residuals is a documented reconstruction: adding Micro17 or changing residual coordinates changes the optimum; see the dedicated audit.",
+      "fit_datasets": ["rhenium_sakai_2018_figure10"],
+      "parameter_covariance": null,
       "reference": {
         "authors": [
           "Sakai",
@@ -426,20 +441,6 @@
         "details": "Issue 2; published online 7 March 2018",
         "doi": "10.1080/08957959.2018.1448082"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [130.0, 310.0],
-      "pressure_range_status": "reported_qualitatively",
-      "validity": {
-        "pressure_gpa": [130.0, 310.0],
-        "temperature_k": [300.0, 300.0],
-        "notes": [
-          "Approximate Yokoo-Pt pressure coverage read from Figure 10, not exact tabulated endpoints. The text reports RP01 to 280 GPa on the lower pressure scale; the Yokoo-Pt reduction reaches about 310 GPa.",
-          "Room temperature represented as 300 K; no exact temperature or thermal coefficients are reported.",
-          "The approximately 464 GPa Micro16 result is an extrapolation beyond the Re-Pt co-compression fit."
-        ]
-      },
-      "notes": "Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure scale. Figure 10 distinguishes conventional-DAC RP01 and ds-DAC Micro17 points; exact fit-row membership and weights are not specified. RP01 used silica glass and a tungsten gasket; Micro17 used glycerin and direct anvil loading. Parenthetical errors are preserved without assuming their confidence level or covariance. V0 is fixed, with no fabricated zero uncertainty. At the rounded reported V=18.65 A^3, the printed parameters give 461.56 GPa versus the reported 464 GPa; the difference is compatible with coefficient rounding. This does not independently refit the original observations. A subsequent Figure 10 vector refit of the 26 RP01 Yokoo-Pt points gives K0=357.19 GPa and K0_prime=4.83483, both within the printed errors. Selecting RP01 and unweighted pressure residuals is a documented reconstruction: adding Micro17 or changing residual coordinates changes the optimum; see the dedicated audit.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -500,8 +501,7 @@
           "K0_prime": "Same paragraph: 4.8(2), fitted.",
           "temperature_ref": "Ambient-temperature DAC experiment; 300 K is the catalog room-temperature convention, not a measured value."
         }
-      },
-      "fit_datasets": ["rhenium_sakai_2018_figure10"]
+      }
     },
     {
       "identifier": "rhenium_zha_2004_bm3_log_thermal",
@@ -514,16 +514,21 @@
         "K0_prime": {"value": 4.5, "error": null, "fixed": true}
       },
       "thermal": {
+        "model": "LogVolumeThermalPressure",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha_KT_ref": {"value": 0.00776, "error": null},
           "dK_dT_V": {"value": -0.00815, "error": null}
-        },
-        "model": "LogVolumeThermalPressure"
+        }
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [6.41, 8.47],
+      "experimental_temperature_range_k": [1380.3, 1914.5],
+      "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
+      "notes": "Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V>Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.",
+      "fit_datasets": ["rhenium_zha_2004_table2_paired_pvt"],
       "reference": {
         "authors": ["Zha", "Bassett", "Shim"],
         "year": 2004,
@@ -533,10 +538,6 @@
         "locator": "2409-2418",
         "doi": "10.1063/1.1765752"
       },
-      "experimental_pressure_range_gpa": [6.41, 8.47],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [1380.3, 1914.5],
-      "notes": "Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V>Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -597,8 +598,7 @@
           "Tr": "Equations (3)-(6): 300 K.",
           "equation": "Equation (6): BM3 plus [alpha*KT+(dKT/dT)_V ln(Va/V)](T-300)."
         }
-      },
-      "fit_datasets": ["rhenium_zha_2004_table2_paired_pvt"]
+      }
     }
   ],
   "symmetry": "HEXAGONAL",

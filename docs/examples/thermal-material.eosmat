@@ -12,10 +12,10 @@
       "temperature_ref": 300,
       "parameters": {"V0": 74.7, "K0": 160, "K0_prime": 4},
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {"Tr": 300, "theta0": 760, "gamma0": 1.5, "q": 1, "n": 2},
-        "debye_temperature_law": "integrated_gruneisen",
         "thermal_pressure_reference": "reference_temperature",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
       "record_kind": "diagnostic",
       "reference": "Fictional teaching coefficients; no experimental validation."

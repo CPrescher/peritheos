@@ -16,10 +16,16 @@
         "K0": {"value": 138.7, "error": 3},
         "K0_prime": {"value": 4.9, "error": 0.3}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 24.3],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
@@ -29,11 +35,6 @@
         "locator": "142–160",
         "doi": "10.1016/j.pepi.2007.06.003"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 24.3],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -90,8 +91,7 @@
             "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
           }
         ]
-      },
-      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+      }
     },
     {
       "identifier": "superhydrous_phase_b_lt_litasov_2007_bm3_t03",
@@ -103,10 +103,16 @@
         "K0": {"value": 134.7, "error": 1.8},
         "K0_prime": {"value": 6, "error": 0.3}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 25.1],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Table 4 RT values 134.7(1.8),6.0(0.3) supersede prose 132.7(1.5),6.2(0.6), which conflates RT and HTBM fits.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
@@ -116,11 +122,6 @@
         "locator": "142–160",
         "doi": "10.1016/j.pepi.2007.06.003"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 25.1],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Table 4 RT values 134.7(1.8),6.0(0.3) supersede prose 132.7(1.5),6.2(0.6), which conflates RT and HTBM fits.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -176,8 +177,7 @@
             "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
           }
         ]
-      },
-      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+      }
     },
     {
       "identifier": "superhydrous_phase_b_lt_litasov_2007_htbm_a89",
@@ -190,6 +190,7 @@
         "K0_prime": {"value": 5.3, "error": 0.2}
       },
       "thermal": {
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha0": {"value": 3.21e-05, "error": 1.4e-06},
@@ -198,13 +199,18 @@
         },
         "thermal_expansion_law": "linear_temperature",
         "reference_volume_law": "integrated_expansivity",
-        "bulk_modulus_law": "linear_temperature",
-        "model": "AlphaKT"
+        "bulk_modulus_law": "linear_temperature"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 26.6],
+      "experimental_temperature_range_k": [300.0, 1373.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default": true,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
@@ -214,11 +220,6 @@
         "locator": "142–160",
         "doi": "10.1016/j.pepi.2007.06.003"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 26.6],
-      "experimental_temperature_range_k": [300.0, 1373.0],
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -275,8 +276,7 @@
             "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
           }
         ]
-      },
-      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+      }
     },
     {
       "identifier": "superhydrous_phase_b_lt_litasov_2007_htbm_t03",
@@ -289,6 +289,7 @@
         "K0_prime": {"value": 6.2, "error": 0.2}
       },
       "thermal": {
+        "model": "AlphaKT",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha0": {"value": 3.38e-05, "error": 1.5e-06},
@@ -297,13 +298,18 @@
         },
         "thermal_expansion_law": "linear_temperature",
         "reference_volume_law": "integrated_expansivity",
-        "bulk_modulus_law": "linear_temperature",
-        "model": "AlphaKT"
+        "bulk_modulus_law": "linear_temperature"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 28.1],
+      "experimental_temperature_range_k": [300.0, 1373.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
@@ -313,11 +319,6 @@
         "locator": "142–160",
         "doi": "10.1016/j.pepi.2007.06.003"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 28.1],
-      "experimental_temperature_range_k": [300.0, 1373.0],
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -373,8 +374,7 @@
             "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
           }
         ]
-      },
-      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+      }
     },
     {
       "identifier": "superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89",
@@ -387,17 +387,23 @@
         "K0_prime": {"value": 5.3, "error": 0.2}
       },
       "thermal": {
+        "model": "LogVolumeThermalPressure",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "alpha_KT_ref": {"value": 0.00511434, "error": null},
           "dK_dT_V": {"value": -0.002, "error": 0.002}
-        },
-        "model": "LogVolumeThermalPressure"
+        }
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 26.6],
+      "experimental_temperature_range_k": [300.0, 1373.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Equation (6) final five-parameter model omits the unresolved quadratic term.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
@@ -407,11 +413,6 @@
         "locator": "142–160",
         "doi": "10.1016/j.pepi.2007.06.003"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 26.6],
-      "experimental_temperature_range_k": [300.0, 1373.0],
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Equation (6) final five-parameter model omits the unresolved quadratic term.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -473,8 +474,7 @@
             "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
           }
         ]
-      },
-      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+      }
     },
     {
       "identifier": "superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
@@ -487,6 +487,7 @@
         "K0_prime": {"value": 5.3, "error": 0.2}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "theta0": {"value": 552.0, "error": 130.0},
@@ -494,14 +495,19 @@
           "q": {"value": 1.74, "error": 0.45},
           "n": {"value": 35.0, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
         "thermal_pressure_reference": "reference_temperature",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 26.6],
+      "experimental_temperature_range_k": [300.0, 1373.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp[(gamma0-gamma)/q], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
@@ -511,11 +517,6 @@
         "locator": "142–160",
         "doi": "10.1016/j.pepi.2007.06.003"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 26.6],
-      "experimental_temperature_range_k": [300.0, 1373.0],
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp[(gamma0-gamma)/q], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -579,8 +580,7 @@
             "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eqs. (7)–(10) and Table 6, p. 150"}
           }
         ]
-      },
-      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+      }
     },
     {
       "identifier": "superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89",
@@ -593,6 +593,7 @@
         "K0_prime": {"value": 5.3, "error": 0.2}
       },
       "thermal": {
+        "model": "MieGruneisenDebye",
         "parameters": {
           "Tr": {"value": 300.0, "error": null, "fixed": true},
           "n": {"value": 35.0, "error": null, "fixed": true},
@@ -600,14 +601,19 @@
           "q": {"value": 2.03, "error": 0.35},
           "theta0": {"value": 860.0, "error": null, "fixed": true}
         },
-        "debye_temperature_law": "integrated_gruneisen",
         "thermal_pressure_reference": "reference_temperature",
-        "model": "MieGruneisenDebye"
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 26.6],
+      "experimental_temperature_range_k": [300.0, 1373.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "thermal",
       "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp[(gamma0-gamma)/q], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
@@ -617,11 +623,6 @@
         "locator": "142–160",
         "doi": "10.1016/j.pepi.2007.06.003"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 26.6],
-      "experimental_temperature_range_k": [300.0, 1373.0],
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp[(gamma0-gamma)/q], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -685,8 +686,7 @@
             "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eqs. (7)–(10) and Table 6, p. 150"}
           }
         ]
-      },
-      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+      }
     }
   ],
   "symmetry": "ORTHORHOMBIC",

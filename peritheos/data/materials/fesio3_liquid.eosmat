@@ -18,24 +18,10 @@
         "K0_prime": {"value": 22.913, "error": null},
         "K0_double_prime": {"value": -175.628, "error": null}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Sun", "Zhou", "Yin", "Lu"],
-        "year": 2019,
-        "title": "First-Principles Study of Thermodynamics and Spin Transition in FeSiO3 Liquid at High Pressure",
-        "source": "Geophysical Research Letters",
-        "volume": "46",
-        "locator": "3706-3716",
-        "doi": "10.1029/2018GL081421"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 131.928},
       "experimental_pressure_range_gpa": [0.0, 296.11],
-      "pressure_range_status": "theoretical",
       "experimental_temperature_range_k": [2500.0, 2500.0],
+      "pressure_range_status": "theoretical",
       "validity": {
         "pressure_gpa": [0.0, 296.11],
         "temperature_k": [2500.0, 2500.0],
@@ -45,7 +31,58 @@
           "The numerical pressure envelope summarizes the reported FPMD grid and is not a phase-stability guarantee."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 131.928},
       "notes": "The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm. The exact 40-state liquid selection is bundled. The paper derives Cv from energy-temperature slopes and gamma from pressure-energy slopes before fitting their volume functions; the supporting information supplies those observations only as raster plots, whose regression-line slopes are now digitized in a separate dataset. The digitization closely recovers the published Cv function but cannot recover the authors' unknown relative weighting for the gamma function. Consequently, subtracting either rounded published or digitized thermal coefficients from Table 1 and freely fitting four BM4 coefficients remains an ill-conditioned sensitivity experiment, not a reproduction of the source regression.",
+      "fit_datasets": ["fesio3_liquid_sun_2019_table1_pvt"],
+      "numerical_reproduction": {
+        "published_state": {"temperature_k": 2500.0, "volume_cm3_mol": 40.72, "pressure_gpa": 1.07, "pressure_standard_error_gpa": 0.12},
+        "calculated_pressure_gpa": 1.0848501649,
+        "absolute_difference_gpa": 0.0148501649,
+        "tolerance_gpa": 0.12,
+        "tolerance_basis": "The printed one-standard-error uncertainty of the Table 1 pressure checkpoint.",
+        "state_classification": {
+          "source_location": "Figure 1 and caption",
+          "method": "Match each exact Table 1 pressure-volume-temperature coordinate to the plotted marker shape; no coordinate is digitized or inferred from a subjective phase-boundary trace.",
+          "liquid_circle_states": 40,
+          "nonliquid_square_states": 6,
+          "nonliquid_volume_ratio_temperature_k": [
+            [0.4, 2500],
+            [0.4, 3000],
+            [0.4, 4000],
+            [0.5, 2500],
+            [0.5, 3000],
+            [0.6, 2500]
+          ]
+        },
+        "source_thermal_pressure_model": {
+          "equation": "Equations (4), (10)-(13): P(V,T)=P_T0(V)+gamma(V)*Cv(V)*(T-T0)/V.",
+          "units": "Cv in J/(mol K), V in cm^3/mol, and thermal pressure divided by 1000 to obtain GPa.",
+          "parameters": {
+            "T0_k": 2500.0,
+            "Vx_cm3_mol": 40.72,
+            "Cv_prime_j_mol_k": 204.347,
+            "A_cm3_j_mol2_k": -830.0,
+            "w_cm3_mol": 20.291,
+            "Vc_cm3_mol": 29.11,
+            "gamma_Vx": 0.311,
+            "gamma_prime": -0.933,
+            "gamma_double_prime": 1.144
+          }
+        }
+      },
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Sun", "Zhou", "Yin", "Lu"],
+        "year": 2019,
+        "title": "First-Principles Study of Thermodynamics and Spin Transition in FeSiO3 Liquid at High Pressure",
+        "source": "Geophysical Research Letters",
+        "volume": "46",
+        "locator": "3706-3716",
+        "doi": "10.1029/2018GL081421"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -95,43 +132,6 @@
           "K0_prime": "Section 3.1: K'_T0=22.913.",
           "K0_double_prime": "Section 3.1: K''_T0=-175.628 GPa^-1.",
           "uncertainties": "The paper gives pressure standard errors for Table 1 states but no uncertainties or covariance for the fitted EOS coefficients."
-        }
-      },
-      "fit_datasets": ["fesio3_liquid_sun_2019_table1_pvt"],
-      "numerical_reproduction": {
-        "published_state": {"temperature_k": 2500.0, "volume_cm3_mol": 40.72, "pressure_gpa": 1.07, "pressure_standard_error_gpa": 0.12},
-        "calculated_pressure_gpa": 1.0848501649,
-        "absolute_difference_gpa": 0.0148501649,
-        "tolerance_gpa": 0.12,
-        "tolerance_basis": "The printed one-standard-error uncertainty of the Table 1 pressure checkpoint.",
-        "state_classification": {
-          "source_location": "Figure 1 and caption",
-          "method": "Match each exact Table 1 pressure-volume-temperature coordinate to the plotted marker shape; no coordinate is digitized or inferred from a subjective phase-boundary trace.",
-          "liquid_circle_states": 40,
-          "nonliquid_square_states": 6,
-          "nonliquid_volume_ratio_temperature_k": [
-            [0.4, 2500],
-            [0.4, 3000],
-            [0.4, 4000],
-            [0.5, 2500],
-            [0.5, 3000],
-            [0.6, 2500]
-          ]
-        },
-        "source_thermal_pressure_model": {
-          "equation": "Equations (4), (10)-(13): P(V,T)=P_T0(V)+gamma(V)*Cv(V)*(T-T0)/V.",
-          "units": "Cv in J/(mol K), V in cm^3/mol, and thermal pressure divided by 1000 to obtain GPa.",
-          "parameters": {
-            "T0_k": 2500.0,
-            "Vx_cm3_mol": 40.72,
-            "Cv_prime_j_mol_k": 204.347,
-            "A_cm3_j_mol2_k": -830.0,
-            "w_cm3_mol": 20.291,
-            "Vc_cm3_mol": 29.11,
-            "gamma_Vx": 0.311,
-            "gamma_prime": -0.933,
-            "gamma_double_prime": 1.144
-          }
         }
       }
     }

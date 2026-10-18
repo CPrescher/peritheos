@@ -17,22 +17,10 @@
         "K0": {"value": 223.0, "error": 2.0},
         "K0_prime": {"value": 4.07, "error": 0.03}
       },
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Thompson", "Campbell", "Tsuchiya"],
-        "year": 2017,
-        "title": "Elasticity of epsilon-FeOOH: Seismic implications for Earth's lower mantle",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "122",
-        "locator": "5038-5047",
-        "doi": "10.1002/2017JB014168"
-      },
       "parameter_error_confidence": null,
       "experimental_pressure_range_gpa": [30.0, 140.0],
-      "pressure_range_status": "theoretical",
       "experimental_temperature_range_k": [0.0, 0.0],
+      "pressure_range_status": "theoretical",
       "validity": {
         "pressure_gpa": [30.0, 140.0],
         "temperature_k": [0.0, 0.0],
@@ -43,7 +31,20 @@
           "The pressure and volume bounds follow the authors' stated fit interval and the rounded Table S1 endpoints; they are not a finite-temperature phase-stability field."
         ]
       },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "This record represents only the volumetric BM3 fit for the hydrogen-centered low-spin ferromagnetic Pnnm branch. The paper's self-consistent Hubbard U changes with pressure; it is part of the computational protocol, not an EOS coefficient. Table 3 elastic moduli and velocities come from stress-strain elastic tensors and Voigt-Reuss-Hill averaging and are not substituted for the volumetric K0 or K0'. All three BM3 parameters were fitted. Published parameter errors are retained, but their confidence level and covariance are unavailable.",
+      "fit_datasets": ["epsilon_feooh_thompson_2017_supplement_table_s1"],
+      "reference": {
+        "authors": ["Thompson", "Campbell", "Tsuchiya"],
+        "year": 2017,
+        "title": "Elasticity of epsilon-FeOOH: Seismic implications for Earth's lower mantle",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "122",
+        "locator": "5038-5047",
+        "doi": "10.1002/2017JB014168"
+      },
       "pressure_calibration": {
         "status": "not_applicable",
         "methods": [
@@ -186,8 +187,7 @@
           "covariance": null,
           "fit_statistic": null
         }
-      },
-      "fit_datasets": ["epsilon_feooh_thompson_2017_supplement_table_s1"]
+      }
     }
   ],
   "aliases": ["epsilon-FeOOH HC", "hydrogen-bond-symmetric epsilon-FeOOH", "Pnnm low-spin epsilon-FeOOH"],

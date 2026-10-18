@@ -16,6 +16,8 @@
         "K0": {"value": 172.6, "error": 1.5},
         "K0_prime": {"value": 5.8, "error": 0.5}
       },
+      "experimental_pressure_range_gpa": [0.0, 8.0],
+      "experimental_temperature_range_k": [298.0, 298.0],
       "determination_method": "experimental",
       "reference": {
         "authors": ["Milani", "Nestola", "Alvaro", "Pasqual", "Mazzucchelli", "Domeneghetti", "Geiger"],
@@ -26,8 +28,6 @@
         "locator": "140-147",
         "doi": "10.1016/j.lithos.2015.03.017"
       },
-      "experimental_pressure_range_gpa": [0.0, 8.0],
-      "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

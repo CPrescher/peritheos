@@ -16,7 +16,10 @@
         "K0": {"value": 14.2, "error": null},
         "K0_prime": {"value": 5.5, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [0.0, 2.3],
+      "experimental_temperature_range_k": [298.0, 298.0],
       "determination_method": "experimental",
+      "notes": "Table III experimental B1 fit in helium. Published V0=71.89 A^3 per formula unit is multiplied by Z=4. K0_prime was fixed to the ultrasonic value; no coefficient standard errors are tabulated.",
       "reference": {
         "authors": ["Dewaele", "Belonoshko", "Garbarino", "Occelli", "Bouvier", "Hanfland", "Mezouar"],
         "year": 2012,
@@ -26,9 +29,6 @@
         "locator": "214105",
         "doi": "10.1103/PhysRevB.85.214105"
       },
-      "experimental_pressure_range_gpa": [0.0, 2.3],
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "notes": "Table III experimental B1 fit in helium. Published V0=71.89 A^3 per formula unit is multiplied by Z=4. K0_prime was fixed to the ultrasonic value; no coefficient standard errors are tabulated.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

@@ -16,7 +16,9 @@
         "K0": {"value": 23.5, "error": 0.3},
         "K0_prime": {"value": 5.23, "error": 0.06}
       },
+      "experimental_pressure_range_gpa": [0.0, 31.0],
       "determination_method": "experimental",
+      "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed to the JCPDS 5-0628 value. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.06. The B1 phase data extend to 31 GPa; coexistence-region data near 30-35 GPa were excluded.",
       "reference": {
         "authors": ["Shen", "Smith"],
         "year": 2026,
@@ -26,8 +28,6 @@
         "locator": "144113",
         "doi": "10.1103/fxgq-96sg"
       },
-      "experimental_pressure_range_gpa": [0.0, 31.0],
-      "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed to the JCPDS 5-0628 value. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.06. The B1 phase data extend to 31 GPa; coexistence-region data near 30-35 GPa were excluded.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

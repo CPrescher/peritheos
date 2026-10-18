@@ -16,7 +16,10 @@
         "K0": {"value": 26.3, "error": 0.6},
         "K0_prime": {"value": 5.1, "error": 0.06}
       },
+      "experimental_pressure_range_gpa": [46.0, 211.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "Room-temperature bcc fit. The published 23.1394 A^3/atom reference volume is multiplied by two for the conventional bcc cell.",
       "reference": {
         "authors": ["Stinton", "MacLeod", "Cynn", "Errandonea", "Evans", "Proctor", "Meng", "McMahon"],
         "year": 2014,
@@ -26,9 +29,6 @@
         "locator": "134105",
         "doi": "10.1103/PhysRevB.90.134105"
       },
-      "experimental_pressure_range_gpa": [46.0, 211.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Room-temperature bcc fit. The published 23.1394 A^3/atom reference volume is multiplied by two for the conventional bcc cell.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

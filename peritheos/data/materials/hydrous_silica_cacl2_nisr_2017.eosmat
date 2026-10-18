@@ -16,9 +16,24 @@
         "V0": {"value": 47.23, "error": 0.36},
         "K0": {"value": 286.0, "error": 18.0}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [42.225, 62.934],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "record_kind": "published",
       "default": true,
+      "notes": "Al-free sample; water inferred from volume calibration, not directly measured by SIMS/IR/TGA on this specimen. Raman confirms structural OH qualitatively. Preserve Table 1 Si0.954O2H0.184: its mass-equivalent H2O is about 2.81 wt%, within the reported 3.2(5) wt% range but not exactly its central value. H retention at high pressure is inferred, not measured. No atomic coordinates were refined (Section 2). The 28-42 GPa interval is two-phase coexistence, excluded from both hydrous EOS fits. CaCl2-type Pnnm denotes the Si-O framework refinement model; hydrogen ordering and a possible delta-AlOOH-related subgroup are unresolved (Section 3.2). BM2 means fixed K0_prime=4; V0 is an extrapolation to zero pressure. Structural reference cell is measured at 47.57 GPa, not the EOS V0.",
+      "range_provenance": {
+        "pressure": {
+          "source_location": "Section 3.3; official Table S4",
+          "basis": "reported_exactly",
+          "notes": "Marginal fit-data range, not a phase stability boundary. Ambient 1 bar treated as zero pressure by the published BM convention."
+        },
+        "temperature": {"source_location": "Section 2; Figure 5", "basis": "reported_exactly"}
+      },
+      "fit_datasets": ["nisr_2017_silica_tables_s1_s4"],
+      "parameter_uncertainty_convention": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified.",
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Nisr", "Leinenweber", "Prakapenka", "Prescher", "Tkachev", "Shim"],
         "year": 2017,
@@ -28,11 +43,6 @@
         "locator": "6972-6983",
         "doi": "10.1002/2017JB014055"
       },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [42.225, 62.934],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "Al-free sample; water inferred from volume calibration, not directly measured by SIMS/IR/TGA on this specimen. Raman confirms structural OH qualitatively. Preserve Table 1 Si0.954O2H0.184: its mass-equivalent H2O is about 2.81 wt%, within the reported 3.2(5) wt% range but not exactly its central value. H retention at high pressure is inferred, not measured. No atomic coordinates were refined (Section 2). The 28-42 GPa interval is two-phase coexistence, excluded from both hydrous EOS fits. CaCl2-type Pnnm denotes the Si-O framework refinement model; hydrogen ordering and a possible delta-AlOOH-related subgroup are unresolved (Section 3.2). BM2 means fixed K0_prime=4; V0 is an extrapolation to zero pressure. Structural reference cell is measured at 47.57 GPa, not the EOS V0.",
       "pressure_calibration": {
         "status": "partially_resolved",
         "audit_date": "2026-09-19",
@@ -116,17 +126,7 @@
             "citation": "Nisr et al. (2017), JGR: Solid Earth 122, 6972-6983, doi:10.1002/2017JB014055."
           }
         ]
-      },
-      "range_provenance": {
-        "pressure": {
-          "source_location": "Section 3.3; official Table S4",
-          "basis": "reported_exactly",
-          "notes": "Marginal fit-data range, not a phase stability boundary. Ambient 1 bar treated as zero pressure by the published BM convention."
-        },
-        "temperature": {"source_location": "Section 2; Figure 5", "basis": "reported_exactly"}
-      },
-      "fit_datasets": ["nisr_2017_silica_tables_s1_s4"],
-      "parameter_uncertainty_convention": "Estimated 1 sigma (Tables 3-4); probability distribution and confidence fraction not specified."
+      }
     }
   ],
   "symmetry": "ORTHORHOMBIC",

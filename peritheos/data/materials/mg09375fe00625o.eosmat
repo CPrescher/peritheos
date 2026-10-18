@@ -17,10 +17,21 @@
         "K0": {"value": 171, "error": null},
         "K0_prime": {"value": 4.16, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [0, 135],
+        "temperature_k": [0, 0],
+        "notes": [
+          "Static LSDA+Usc HS branch for two Fe ions at 11th-neighbor separation.",
+          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
       "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -29,17 +40,6 @@
         "volume": "102",
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "validity": {
-        "pressure_gpa": [0, 135],
-        "temperature_k": [0, 0],
-        "notes": [
-          "Static LSDA+Usc HS branch for two Fe ions at 11th-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -103,9 +103,20 @@
         "K0": {"value": 174.8, "error": null},
         "K0_prime": {"value": 4.17, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [0, 135],
+        "temperature_k": [0, 0],
+        "notes": [
+          "Static LSDA+Usc LS branch for two Fe ions at 11th-neighbor separation.",
+          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -114,17 +125,6 @@
         "volume": "102",
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "validity": {
-        "pressure_gpa": [0, 135],
-        "temperature_k": [0, 0],
-        "notes": [
-          "Static LSDA+Usc LS branch for two Fe ions at 11th-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -188,9 +188,20 @@
         "K0": {"value": 171.3, "error": null},
         "K0_prime": {"value": 4.23, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [0, 135],
+        "temperature_k": [0, 0],
+        "notes": [
+          "Static LSDA+Usc MS branch for one HS and one LS Fe at 11th-neighbor separation.",
+          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -199,17 +210,6 @@
         "volume": "102",
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "validity": {
-        "pressure_gpa": [0, 135],
-        "temperature_k": [0, 0],
-        "notes": [
-          "Static LSDA+Usc MS branch for one HS and one LS Fe at 11th-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -273,9 +273,20 @@
         "K0": {"value": 172.6, "error": null},
         "K0_prime": {"value": 4.05, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [0, 135],
+        "temperature_k": [0, 0],
+        "notes": [
+          "Static LSDA+Usc HS branch for two Fe ions at 2nd-neighbor separation.",
+          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -284,17 +295,6 @@
         "volume": "102",
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "validity": {
-        "pressure_gpa": [0, 135],
-        "temperature_k": [0, 0],
-        "notes": [
-          "Static LSDA+Usc HS branch for two Fe ions at 2nd-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -358,9 +358,20 @@
         "K0": {"value": 174.6, "error": null},
         "K0_prime": {"value": 4.17, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [0, 135],
+        "temperature_k": [0, 0],
+        "notes": [
+          "Static LSDA+Usc LS branch for two Fe ions at 2nd-neighbor separation.",
+          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -369,17 +380,6 @@
         "volume": "102",
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "validity": {
-        "pressure_gpa": [0, 135],
-        "temperature_k": [0, 0],
-        "notes": [
-          "Static LSDA+Usc LS branch for two Fe ions at 2nd-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",
@@ -443,9 +443,20 @@
         "K0": {"value": 173, "error": null},
         "K0_prime": {"value": 4.16, "error": null}
       },
-      "record_kind": "published",
+      "parameter_error_confidence": null,
+      "validity": {
+        "pressure_gpa": [0, 135],
+        "temperature_k": [0, 0],
+        "notes": [
+          "Static LSDA+Usc MS branch for one HS and one LS Fe at 2nd-neighbor separation.",
+          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+        ]
+      },
       "determination_method": "theoretical",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
+      "parameter_covariance": null,
       "reference": {
         "authors": ["Marcondes", "Zheng", "Wentzcovitch"],
         "year": 2020,
@@ -454,17 +465,6 @@
         "volume": "102",
         "locator": "104112",
         "doi": "10.1103/PhysRevB.102.104112"
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 42.27525},
-      "validity": {
-        "pressure_gpa": [0, 135],
-        "temperature_k": [0, 0],
-        "notes": [
-          "Static LSDA+Usc MS branch for one HS and one LS Fe at 2nd-neighbor separation.",
-          "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
-        ]
       },
       "pressure_calibration": {
         "status": "not_applicable",

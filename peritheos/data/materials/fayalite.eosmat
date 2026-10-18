@@ -16,7 +16,10 @@
         "K0": {"value": 130.4, "error": 1.4},
         "K0_prime": {"value": 5.3, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [0.0, 5.0],
+      "experimental_temperature_range_k": [302.0, 302.0],
       "determination_method": "experimental",
+      "notes": "The room-temperature fit fixed K0'=5.3.",
       "reference": {
         "authors": ["Béjina", "Bystricky", "Tercé", "Whitaker", "Chen"],
         "year": 2021,
@@ -26,9 +29,6 @@
         "locator": "519-535",
         "doi": "10.5194/ejm-33-519-2021"
       },
-      "experimental_pressure_range_gpa": [0.0, 5.0],
-      "experimental_temperature_range_k": [302.0, 302.0],
-      "notes": "The room-temperature fit fixed K0'=5.3.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [

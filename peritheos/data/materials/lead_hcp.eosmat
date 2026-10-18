@@ -17,18 +17,7 @@
         "K0": {"value": 71.8, "error": 2.1},
         "K0_prime": {"value": 4.4, "error": 0.08}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [13.0, 131.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -36,7 +25,18 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -97,18 +97,7 @@
         "K0": {"value": 70.0, "error": 2.1},
         "K0_prime": {"value": 4.77, "error": 0.08}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Dewaele"],
-        "year": 2019,
-        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-        "source": "Minerals",
-        "doi": "10.3390/min9110684"
-      },
       "parameter_error_confidence": 0.95,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [13.0, 131.0],
       "pressure_range_status": "reported_exactly",
       "validity": {
@@ -116,7 +105,18 @@
         "temperature_k": [300.0, 300.0],
         "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -177,9 +177,45 @@
         "K0": {"value": 54.2, "error": null},
         "K0_prime": {"value": 3.61, "error": null}
       },
-      "record_kind": "published",
+      "experimental_pressure_range_gpa": [12.0, 40.0],
+      "experimental_temperature_range_k": [296.0, 296.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [12.0, 40.0],
+        "temperature_k": [296.0, 296.0],
+        "notes": [
+          "296 K slice of a P-V-T model fitted to experiments extending to 40 GPa and 800 K.",
+          "At room temperature transformation begins near 12 GPa and fcc-hcp coexistence persists to about 20 GPa; this is not a sharp equilibrium stability boundary."
+        ]
+      },
       "determination_method": "experimental",
+      "record_kind": "published",
       "equation_kind": "isothermal",
+      "notes": "Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit_fortes_2019_fcc_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.",
+      "published_fit_provenance": {
+        "software": {"name": "not reported", "version": "not reported"},
+        "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
+        "selection": {
+          "pressure_range_gpa": [0.0, 40.0],
+          "temperature_range_k": [296.0, 800.0],
+          "predicate": "phase-specific hcp observations; exhaustive row selection not reported",
+          "included_rows": null,
+          "excluded_rows": null
+        },
+        "objective": "fit to experimental data; residual coordinate not reported",
+        "weights": "not reported",
+        "refined_parameters": ["V0_296", "alpha_0", "alpha_1", "alpha_2", "K0_296", "b_1", "b_2", "K0_prime_296", "b_prime"],
+        "fixed_parameters": [],
+        "statistics": {"observations": null, "covariance": "not published", "error_scaling": "not reported"},
+        "reproduction": {
+          "script": "scripts/audit_fortes_2019_fcc_pb.py",
+          "scope_status": "published_surface_executable_fit_not_independently_reproducible",
+          "partial_dataset": "lead_hcp_kuznetsov_2002_figure3_digitized",
+          "partial_fit_is_reported_fit": false,
+          "reason": "Figure 3 is a plot of direct and source-reduced markers, not the complete original P-V-T table or regression protocol."
+        }
+      },
+      "parameter_covariance": null,
       "reference": {
         "authors": ["A. Kuznetsov", "V. Dmitriev", "L. Dubrovinsky", "V. Prakapenka", "H.-P. Weber"],
         "year": 2002,
@@ -189,19 +225,6 @@
         "locator": "125-127",
         "doi": "10.1016/S0038-1098(02)00112-6"
       },
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [12.0, 40.0],
-      "pressure_range_status": "reported_qualitatively",
-      "experimental_temperature_range_k": [296.0, 296.0],
-      "validity": {
-        "pressure_gpa": [12.0, 40.0],
-        "temperature_k": [296.0, 296.0],
-        "notes": [
-          "296 K slice of a P-V-T model fitted to experiments extending to 40 GPa and 800 K.",
-          "At room temperature transformation begins near 12 GPa and fcc-hcp coexistence persists to about 20 GPa; this is not a sharp equilibrium stability boundary."
-        ]
-      },
-      "notes": "Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit_fortes_2019_fcc_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
@@ -277,29 +300,6 @@
             "doi": "10.1016/S0038-1098(02)00112-6"
           }
         ]
-      },
-      "published_fit_provenance": {
-        "software": {"name": "not reported", "version": "not reported"},
-        "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
-        "selection": {
-          "pressure_range_gpa": [0.0, 40.0],
-          "temperature_range_k": [296.0, 800.0],
-          "predicate": "phase-specific hcp observations; exhaustive row selection not reported",
-          "included_rows": null,
-          "excluded_rows": null
-        },
-        "objective": "fit to experimental data; residual coordinate not reported",
-        "weights": "not reported",
-        "refined_parameters": ["V0_296", "alpha_0", "alpha_1", "alpha_2", "K0_296", "b_1", "b_2", "K0_prime_296", "b_prime"],
-        "fixed_parameters": [],
-        "statistics": {"observations": null, "covariance": "not published", "error_scaling": "not reported"},
-        "reproduction": {
-          "script": "scripts/audit_fortes_2019_fcc_pb.py",
-          "scope_status": "published_surface_executable_fit_not_independently_reproducible",
-          "partial_dataset": "lead_hcp_kuznetsov_2002_figure3_digitized",
-          "partial_fit_is_reported_fit": false,
-          "reason": "Figure 3 is a plot of direct and source-reduced markers, not the complete original P-V-T table or regression protocol."
-        }
       }
     }
   ],

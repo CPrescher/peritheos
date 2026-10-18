@@ -16,7 +16,10 @@
         "K0": {"value": 83.0, "error": 0.5},
         "K0_prime": {"value": 3.91, "error": 0.02}
       },
+      "experimental_pressure_range_gpa": [35.0, 240.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
+      "notes": "The beta-phase fit used the selected constrained value V0 = 22.6 A^3/atom. The paper cautions that this far-extrapolated reference volume has no direct physical significance; it is doubled here for the conventional bcc cell.",
       "reference": {
         "authors": ["McHardy", "Storm", "Lonsdale", "Roy", "McMahon"],
         "year": 2026,
@@ -26,9 +29,6 @@
         "locator": "174115",
         "doi": "10.1103/zp3m-kjpc"
       },
-      "experimental_pressure_range_gpa": [35.0, 240.0],
-      "experimental_temperature_range_k": [300.0, 300.0],
-      "notes": "The beta-phase fit used the selected constrained value V0 = 22.6 A^3/atom. The paper cautions that this far-extrapolated reference volume has no direct physical significance; it is doubled here for the conventional bcc cell.",
       "pressure_calibration": {
         "status": "unresolved",
         "methods": [],

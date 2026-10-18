@@ -17,23 +17,10 @@
         "K0": {"value": 220.0, "error": 4.0},
         "K0_prime": {"value": 2.6, "error": 0.3}
       },
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Qin", "Wu", "Xue", "Zhang", "Wu", "Jacobsen"],
-        "year": 2023,
-        "title": "Crystal structure of calcium-ferrite type NaAlSiO4 up to 45 GPa",
-        "source": "American Mineralogist",
-        "volume": "108",
-        "locator": "2331-2337",
-        "doi": "10.2138/am-2022-8432"
-      },
       "parameter_error_confidence": null,
-      "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0001, 41.0],
-      "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [293.0, 293.0],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0001, 41.0],
         "temperature_k": [293.0, 293.0],
@@ -43,7 +30,28 @@
           "All measurements are described as room temperature; 293 K is the explicit temperature of the official 1.7 GPa CIF block, and no row-wise temperatures are published."
         ]
       },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "sample_composition": "Na0.93Al1.02Si1.00O4",
+      "experimental_configuration": {
+        "sample": "single crystal from synthesis run 5K2124",
+        "pressure_medium": "neon",
+        "pressure_gauge": "platinum foil using Fei et al. (2007)",
+        "diffraction": "single-crystal synchrotron X-ray diffraction at APS beamline 13-BM-C"
+      },
       "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted with EosFit7c; none was fixed. Parenthesized coefficient errors are retained as generic published uncertainties because the source gives neither confidence level nor covariance. The observed range is not a phase-stability guarantee. See docs/qin-2023-naalsio4-eos.md.",
+      "fit_datasets": ["na093al102si100o4_qin_2023_table_s3_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Qin", "Wu", "Xue", "Zhang", "Wu", "Jacobsen"],
+        "year": 2023,
+        "title": "Crystal structure of calcium-ferrite type NaAlSiO4 up to 45 GPa",
+        "source": "American Mineralogist",
+        "volume": "108",
+        "locator": "2331-2337",
+        "doi": "10.2138/am-2022-8432"
+      },
       "pressure_calibration": {
         "status": "partially_resolved",
         "methods": [
@@ -160,15 +168,7 @@
             "locations": ["article pages 2332-2333", "Online Materials Tables S3 and S5", "8432qin.cif"]
           }
         ]
-      },
-      "sample_composition": "Na0.93Al1.02Si1.00O4",
-      "experimental_configuration": {
-        "sample": "single crystal from synthesis run 5K2124",
-        "pressure_medium": "neon",
-        "pressure_gauge": "platinum foil using Fei et al. (2007)",
-        "diffraction": "single-crystal synchrotron X-ray diffraction at APS beamline 13-BM-C"
-      },
-      "fit_datasets": ["na093al102si100o4_qin_2023_table_s3_pv"]
+      }
     }
   ],
   "aliases": ["Fe-free CF-NaAlSiO4", "CF-NaAlSiO4 5K2124"],

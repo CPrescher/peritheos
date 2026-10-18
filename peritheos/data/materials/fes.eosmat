@@ -15,7 +15,9 @@
         "K0": {"value": 156.0, "error": 6.0},
         "K0_prime": {"value": 4.0, "error": null, "fixed": true}
       },
+      "experimental_pressure_range_gpa": [43.2, 120.1],
       "determination_method": "experimental",
+      "notes": "Ono and Kikegawa report V0 = 99.5(7) A^3 and K0 = 156(6) GPa with K0' fixed at 4.0.",
       "reference": {
         "authors": ["Ono", "Kikegawa"],
         "year": 2006,
@@ -25,8 +27,6 @@
         "locator": "1941-1944",
         "doi": "10.2138/am.2006.2347"
       },
-      "experimental_pressure_range_gpa": [43.2, 120.1],
-      "notes": "Ono and Kikegawa report V0 = 99.5(7) A^3 and K0 = 156(6) GPa with K0' fixed at 4.0.",
       "pressure_calibration": {
         "status": "resolved",
         "methods": [
