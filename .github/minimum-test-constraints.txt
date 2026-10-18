@@ -1,3 +1,8 @@
+# Keep these runtime pins aligned with the declared pyproject.toml floors.
+# Plotting dependencies must not silently select a newer NumPy for this job.
+numpy==1.22.0
+scipy==1.9.3
+
 # Matplotlib 3.7 uses parser APIs deprecated by newer pyparsing versions.
 # Keep its plotting test warning-free without constraining library users or
 # the current, locked development/documentation environment.

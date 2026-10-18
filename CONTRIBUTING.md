@@ -36,14 +36,19 @@ uv pip install --python /tmp/peritheos-minimum/bin/python \
   --resolution lowest-direct --constraint .github/minimum-test-constraints.txt \
   --editable . 'pytest>=7.4.4' 'Pillow>=9.2,<13' \
   'jsonschema>=4.18,<5' 'matplotlib>=3.7,<4'
-/tmp/peritheos-minimum/bin/python -m pytest -q -W error
+OPENBLAS_NUM_THREADS=1 /tmp/peritheos-minimum/bin/python -m pytest -q -W error
 ```
 
-The constraint file applies only to the old plotting-test stack, whose parser
-otherwise emits third-party deprecation warnings. The development and docs
+The minimum job uses one OpenBLAS thread to avoid oversubscribing the old
+NumPy/SciPy thread pools during reconstruction audits. This test resource
+setting does not change the equations or fitting methods.
+
+The constraint file pins the declared runtime floors so plotting dependencies
+cannot silently select a newer NumPy. It also bounds the old plotting parser,
+which otherwise emits third-party deprecation warnings. The development and docs
 groups carry the same bound for Python 3.9, whose last compatible Matplotlib
-still uses those parser APIs. These bounds do not change the scientific
-dependency floors or suppress warnings from Peritheos. See
+still uses those parser APIs. The parser bound does not constrain library users
+or suppress warnings from Peritheos. See
 [dependency support](docs/api-stability.md#dependency-support) for the NumPy floor.
 
 ## Scientific changes

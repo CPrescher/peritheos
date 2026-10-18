@@ -282,6 +282,8 @@ jobs:
   minimum-dependencies:
     name: Minimum direct dependencies / ${{ matrix.os }} / Python 3.9
     runs-on: ${{ matrix.os }}
+    env:
+      OPENBLAS_NUM_THREADS: "1"
     strategy:
       fail-fast: false
       matrix:
@@ -317,7 +319,13 @@ jobs:
       - name: Record minimum-dependency versions and numerical backend
         run: |
           uv pip freeze --python "${RUNNER_TEMP}/peritheos-minimum/bin/python"
-          "${RUNNER_TEMP}/peritheos-minimum/bin/python" -c 'import numpy; numpy.show_config()'
+          "${RUNNER_TEMP}/peritheos-minimum/bin/python" - <<'PY'
+          import numpy
+          import scipy
+          assert numpy.__version__ == "1.22.0", numpy.__version__
+          assert scipy.__version__ == "1.9.3", scipy.__version__
+          numpy.show_config()
+          PY
 
       - name: Run tests against declared dependency floors
         run: |
