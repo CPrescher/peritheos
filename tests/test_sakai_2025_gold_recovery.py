@@ -13,7 +13,11 @@ from peritheos import (
     get_pressure_calibration,
     validate_eosmat_document,
 )
-from scripts.recover_sakai_2025_gold import paired_rows, write_csv
+from scripts.recover_sakai_2025_gold import (
+    paired_rows,
+    write_csv,
+    write_workbook_archive,
+)
 from scripts.reproduce_sakai_2025_gold import (
     DATA,
     read_rows,
@@ -76,6 +80,12 @@ def test_source_hashes_and_every_normalized_workbook_row_round_trip(tmp_path):
         assert hashlib.sha256(path.read_bytes()).hexdigest() == item["sha256"]
     raw = json.loads(
         (DATA / "sakai-2025-au-workbook-cells.json").read_text(encoding="utf-8")
+    )
+    archive = tmp_path / "workbook-cells.json"
+    write_workbook_archive(archive, raw)
+    assert (
+        archive.read_bytes()
+        == (DATA / "sakai-2025-au-workbook-cells.json").read_bytes()
     )
     assert raw["workbook_sha256"] == (
         "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9"
