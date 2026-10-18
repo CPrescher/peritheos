@@ -286,10 +286,11 @@ def main():
     report = reproduce()
     payload = json.dumps(report, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if REPORT.read_text() != payload:
-            raise SystemExit("Brucite staged comparison is stale")
+        from scripts.brucite_replay_checks import check_report
+
+        check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
     else:
-        REPORT.write_text(payload)
+        REPORT.write_text(payload, encoding="utf-8")
     if args.plot:
         write_plot(report)
     print("Brucite staged comparison is current.")
