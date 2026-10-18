@@ -95,6 +95,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron_carbide_fe7c3.md#record-iron_carbide_fe7c3_prescher_2015_bm3_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -142,7 +144,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Single-crystal X-ray compression fit for orthorhombic Fe7C3 from 4 to 158 GPa. The structure was additionally observed after high-pressure, high-temperature synthesis to 205 GPa, outside the fitted EoS interval.
 

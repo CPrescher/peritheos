@@ -95,6 +95,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/sro_b2.md#record-sro_b2_sato_1981_bm2_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -141,7 +143,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature second-order finite-strain EOS for B2 SrO. The published rho0=6.14+/-0.20 Mg/m^3 converts to V0=28.0224+/-0.9128 A^3 for one SrO per Pm-3m cell; K0=160+/-19 GPa and K0'=4 fixed. B2 reflections were measured from 32 to 59 GPa, with B1-B2 coexistence at 32 and 37 GPa and a transition pressure of 36+/-4 GPa. No covariance is published.
 

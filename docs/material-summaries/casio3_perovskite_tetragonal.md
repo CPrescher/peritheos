@@ -106,6 +106,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/casio3_perovskite_tetragonal.md#record-casio3_perovskite_tetragonal_shim_2002_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -151,7 +153,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. Figure 2a supporting observations are now bundled as an explicitly digitized dataset; the 19.7 GPa cubic refinement is flagged separately.
 

@@ -93,6 +93,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/silicon_carbide_b1.md#record-silicon_carbide_b1_miozzi_2018_bm3_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 1 room-temperature Birch-Murnaghan fit. The B1 phase was measured between 65 and 205 GPa; V0 is extrapolated to zero pressure.
 

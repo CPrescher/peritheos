@@ -143,6 +143,8 @@ establish statistical independence.
 
 **Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_sakai_2025_rydberg_stacey_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -159,7 +161,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
 
@@ -265,6 +267,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dewaele_2004_vinet_5)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -310,7 +314,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'\_R scale. Source-fixed parameters: V0, K0. Published atomic V0 is converted to the material card's conventional-cell basis.
 
@@ -408,6 +412,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_takemura_2008_vinet_6)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -455,7 +461,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit for the Dorogokupets-Oganov ruby calibration. The published atomic V0=16.962 A^3 is multiplied by four atoms in the conventional fcc cell.
 
@@ -567,6 +573,8 @@ establish statistical independence.
 
 **Comparison basis:** Tables I-IV contain heterogeneous literature properties, separately regressed coefficients, and derived thermodynamic diagnostics, while Table V is output from Equation (29). The source performs staged smoothing, one-dimensional regressions, numerical integrations, and qualitative K0' trials; it does not define a global observation matrix, objective, weights, integration protocol, or covariance that could be reproduced as a direct EOS coefficient refit.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_anderson_1989_bm3_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -583,7 +591,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Anderson et al. Equation (29): the adopted 300 K BM3 curve KT0=166.65 GPa and K0'=5.4823 is combined with \[0.00714-0.0115\*ln(V0/V)\]\*(T-300) GPa. This is a staged literature synthesis, not a global P-V-T regression: Tables I-IV combine heat-capacity, expansivity, and ultrasonic data from distinct sources; low-temperature expansivities were graphically smoothed; several derived curves were fit separately; K0'=5.2-5.5 was selected by a thermodynamic-consistency diagnostic; and the final static K0 and K0' were adopted from Heinz and Jeanloz. V0=67.79 A^3 is converted from the paper's ambient density 19.30 g/cm^3 and atomic mass 196.967 g/mol for the four-atom fcc cell. Table I prints Cp=1.1288 in units of 0.1 J g^-1 K^-1 at 300 K, but Equation (4) and Table IV gamma=2.974 independently imply about 1.288; both the printed and reconstructed values are preserved in the supporting dataset. Table V covers V/V0=0.66-1 and 300-3000 K. The stored 0.001 GPa/K dK\_dT\_V error is the explicit propagated contribution reported for the near-identical K0'=5.5 calculation; the paper notes an additional unquantified contribution from K0' uncertainty. No global objective, complete covariance matrix, row weights, digitized low-temperature smoothing curve, or exact numerical-integration protocol is published.
 
@@ -718,6 +726,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_fei_2007_vinet_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -753,7 +763,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -888,6 +898,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_shen_2026_vinet_3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -948,7 +960,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II Cu-referenced fit using DAC-1 data; V0 fixed. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.01. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.
 
@@ -1066,6 +1078,8 @@ establish statistical independence.
 
 **Comparison basis:** All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_sokolova_2013_holzapfel_4)
+
 Original audit code: `source_reconstruction`.
 
 **Limitations and qualifications:**
@@ -1094,7 +1108,7 @@ Original audit code: `source_reconstruction`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
 
@@ -1207,6 +1221,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_fratanduono_2021_vinet_7)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1253,7 +1269,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Quasi-absolute 298 K reference isotherm reduced from shockless ramp compression. Table 1 reports atomic V0=16.929 A^3, converted here to the four-atom fcc conventional cell. This is the Au pressure basis used by the Eremets et al. (2023) diamond-edge scale.
 
@@ -1359,6 +1375,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dewaele_2019_mao_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -1397,7 +1415,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -1506,6 +1524,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dewaele_2019_dor_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -1544,7 +1564,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -1653,6 +1673,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dewaele_2004_mao_ruby_vinet)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1699,7 +1721,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.
 
@@ -1801,6 +1823,8 @@ establish statistical independence.
 
 **Comparison basis:** Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dorfman_2012_tange_mgo_k0_fixed_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -1836,7 +1860,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
 
@@ -1961,6 +1985,8 @@ establish statistical independence.
 
 **Comparison basis:** Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dorfman_2012_tange_mgo_k0_free_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -1997,7 +2023,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
 
@@ -2134,6 +2160,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_ye_2017_vinet_300k)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2171,7 +2199,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2293,6 +2321,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_zhu_2025_pvt)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2330,7 +2360,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm.
 
@@ -2468,6 +2498,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_bm3_fit2)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -2503,7 +2535,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -2639,6 +2671,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_bm3_fit1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -2674,7 +2708,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -2802,6 +2836,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_bm3_300k)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -2835,7 +2871,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Hirose et al. primary Table 2 parameters; fcc conventional cell contains four Au atoms. The 140 GPa row is retained despite reported peak-overlap problems.
 
@@ -2956,6 +2992,8 @@ establish statistical independence.
 
 **Comparison basis:** Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_fei_2004_bm3_mgd)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2987,7 +3025,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -3113,6 +3151,8 @@ establish statistical independence.
 
 **Comparison basis:** Table II publishes separate 300 K BM3/Vinet fits. Table III is derived full thermal model output, not independent observations. Corrected upstream electronic pressure nodes are recovered. Complete Au shock/ambient selections, numerical electronic energy/DOS, original objective/weights and exact cold/phonon normalization remain unavailable. See \[Au audit\](literature-reproductions/yokoo-2009-gold.md).
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_yokoo_2009_bm3_300k)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3131,7 +3171,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published Table II fitted 300 K BM3 branch: K0=167.5 GPa, K0\_prime=5.79. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. Full thermal model remains withheld pending exact cold Vc/unrounded phonon normalization and verification of the adopted electronic implementation; electronic energy/heat capacity for the original shock fit remain unavailable. Original joint fit is not independently refittable.
 
@@ -3256,6 +3296,8 @@ establish statistical independence.
 
 **Comparison basis:** Table II publishes separate 300 K BM3/Vinet fits. Table III is derived full thermal model output, not independent observations. Corrected upstream electronic pressure nodes are recovered. Complete Au shock/ambient selections, numerical electronic energy/DOS, original objective/weights and exact cold/phonon normalization remain unavailable. See \[Au audit\](literature-reproductions/yokoo-2009-gold.md).
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_yokoo_2009_vinet_300k)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3274,7 +3316,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published Table II fitted 300 K Vinet branch: K0=167.5 GPa, K0\_prime=5.94. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. Full thermal model remains withheld pending exact cold Vc/unrounded phonon normalization and verification of the adopted electronic implementation; electronic energy/heat capacity for the original shock fit remain unavailable. Original joint fit is not independently refittable.
 
@@ -3400,6 +3442,8 @@ establish statistical independence.
 
 **Comparison basis:** Numerically checked diagnostic reconstruction of published table outputs. The published analytical PVT parameterization remains unreproduced: Au uses altered phonon coefficients and Pt adds an empirical pressure correction. This source-output status does not validate the published Yokoo pressure standard. The separate pressure-convention audit rules out cold-reference offsets and tests last-digit rounding; no caloric or original-fit inputs are required for PVT evaluation.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_yokoo_2009_pvt_reconstruction)
+
 Original audit code: `source_reconstruction`.
 
 **Limitations and qualifications:**
@@ -3419,7 +3463,7 @@ Original audit code: `source_reconstruction`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -3563,6 +3607,8 @@ establish statistical independence.
 
 **Comparison basis:** Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.
 
+[Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_fei_2004_speziale_2001_bm3_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -3600,7 +3646,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

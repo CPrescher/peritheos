@@ -98,6 +98,12 @@ failed. The main EOS coefficients remain unchanged. Fixed constraints and the
 available protocol are in `fit`; they do not become independently recovered
 coefficients. See [reconstructed coefficients in EOSMAT](eosmat-v4.md#actual-reconstructed-coefficients).
 
+Use the [EOS reconstruction reports](reconstruction-reports/index.md) to open each
+record's explanation and available coefficient graph. A report's existence, or a
+coefficient graph, does not establish source-author or physical validation. The
+stored `report_url` opens Read the Docs latest; `report_path` also supports local
+and version-specific builds.
+
 ## Source-validation status
 
 Source review is a separate axis from reconstruction:

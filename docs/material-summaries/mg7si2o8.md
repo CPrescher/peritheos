@@ -92,6 +92,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mg7si2o8.md#record-mg7si2o8_crichton_2002_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -139,7 +141,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Hydrous phase A, Mg7Si2O8(OH)6. Crichton and Ross report V0 = 512.56(3) A^3, K0 = 97.5(4) GPa, and K0' = 5.97(14). The formula is stored in parser-compatible expanded form.
 

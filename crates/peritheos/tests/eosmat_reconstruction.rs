@@ -8,6 +8,8 @@ fn sample() -> Value {
         "evidence":{"reproduction":{"assessment":{
             "status":"not_reproduced","scope":"parameter_agreement",
             "basis":"Synthetic comparison for parser tests",
+                "report_url":"https://example.org/report/#record-example_bm3",
+                "report_path":"docs/report.md#record-example_bm3",
             "parameters":[{"parameter":"K0","published":160,"published_error":null,
                 "refit":180.12345678901235,"refit_error":2.5,"similar":false}],
             "fit":{"fixed_parameters":["V0","K0_prime"]}
@@ -59,5 +61,16 @@ fn invalid_reconstructed_parameter_tables_are_rejected() {
         source["eos_records"][0]["evidence"]["reproduction"]["assessment"]["parameters"] =
             parameters;
         assert!(material_from_value(source).is_err());
+    }
+}
+
+#[test]
+fn optional_report_links_require_nonempty_strings() {
+    for key in ["report_url", "report_path"] {
+        for value in [json!(null), json!(""), json!(123), json!([])] {
+            let mut source = sample();
+            source["eos_records"][0]["evidence"]["reproduction"]["assessment"][key] = value;
+            assert!(material_from_value(source).is_err());
+        }
     }
 }

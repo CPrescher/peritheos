@@ -106,6 +106,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
+[Open reconstruction report](../reconstruction-reports/diopside.md#record-diopside_thompson_2008_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -141,7 +143,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Independent static diffraction EOS, not combined with Zhao thermal coefficients. The source also reports a fixed-Kprime=4 alternative (K0=117.1(2) GPa, V0=438.66(2) A^3), retained in the audit rather than conflated with this free-Kprime record. Source P is Mao (1978) ruby scale. Room temperature is represented nominally as 300 K.
 
@@ -272,6 +274,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
+[Open reconstruction report](../reconstruction-reports/diopside.md#record-diopside_zhao_1998_thermal_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -309,7 +313,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

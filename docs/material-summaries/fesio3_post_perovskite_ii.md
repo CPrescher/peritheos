@@ -109,6 +109,8 @@ establish statistical independence.
 
 **Comparison basis:** The energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=34.49 A3/FeSiO3, K100=580 GPa, and K100'=3.44; the Table I lattice product gives 34.4492 A3/FeSiO3.
 
+[Open reconstruction report](../reconstruction-reports/fesio3_post_perovskite_ii.md#record-fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -125,7 +127,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Retain as a directly published Vinet parameterization, without implying Cmmm stability across the whole mathematical interval. Keep not\_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.
 

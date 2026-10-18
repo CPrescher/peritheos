@@ -107,6 +107,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -145,7 +147,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.
 
@@ -249,6 +251,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -287,7 +291,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Table 4 RT values 134.7(1.8),6.0(0.3) supersede prose 132.7(1.5),6.2(0.6), which conflates RT and HTBM fits.
 
@@ -396,6 +400,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -437,7 +443,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -555,6 +561,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -596,7 +604,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -712,6 +720,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -752,7 +762,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Equation (6) final five-parameter model omits the unresolved quadratic term.
 
@@ -865,6 +875,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -906,7 +918,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1024,6 +1036,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -1064,7 +1078,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

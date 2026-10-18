@@ -108,6 +108,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/fesi_b2.md#record-fesi_b2_fischer_2014_bm3_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -156,7 +158,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -284,6 +286,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/fesi_b2.md#record-fesi_b2_fischer_2014_vinet_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -332,7 +336,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

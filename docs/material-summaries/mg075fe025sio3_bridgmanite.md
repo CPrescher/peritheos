@@ -110,6 +110,8 @@ establish statistical independence.
 
 **Comparison basis:** Complete coefficients are printed, but the underlying energy-volume grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mg075fe025sio3_bridgmanite.md#record-mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -126,7 +128,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -229,6 +231,8 @@ establish statistical independence.
 
 **Comparison basis:** Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mg075fe025sio3_bridgmanite.md#record-mg075fe025sio3_bridgmanite_wu_2013_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -245,7 +249,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

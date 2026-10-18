@@ -105,6 +105,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
+[Open reconstruction report](../reconstruction-reports/phase_e_fe0072.md#record-phase_e_fe0072_crichton_ross_2000_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Only the physical volume BM3 is executable. Axial BM3-on-edge-cubes fits are supporting data, not volume EOS records. Published parameters remain unchanged. Independent refits are diagnostic outputs in the material-specific reproduction report, not replacement published coefficients. Room temperature is represented nominally as 298 K.
 

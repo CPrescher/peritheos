@@ -95,6 +95,8 @@ establish statistical independence.
 
 **Comparison basis:** NOT REPRODUCED: the available digitization does not establish a source-faithful reproduction of the published fit. Original observations, regression settings and covariance are unavailable; the shared fitted V0 normalization limits independent coefficient recovery. The numerical fits below are diagnostics only. Broad error-bar overlap is not successful reproduction. Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit.
 
+[Open reconstruction report](../reconstruction-reports/argon_hcp.md#record-argon_hcp_wittlinger_1997_bm2_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -132,7 +134,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. The publication reports V0=78(3) A^3 and K0=6.5(1.3) GPa; K0\_prime is fixed at 4 by BM2. V0 is a fitted reference volume because ambient hcp argon could not be measured directly. Historical hcp-only fit over 1.2-8.5 GPa; not recommended as a general argon pressure standard or for high-pressure extrapolation. The published curve has 0.772 GPa RMS residual on the nine digitized observations. An errors-in-variables diagnostic has about 0.451 GPa RMS at the original observations, versus 0.012 GPa at adjusted coordinates; these metrics must not be compared as equivalent improvements.
 

@@ -107,6 +107,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/klb1_mg_perovskite.md#record-klb1_mg_perovskite_ricolleau_2009_bm2_alphakt)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -147,7 +149,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

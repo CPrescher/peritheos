@@ -104,6 +104,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/phase_egg.md#record-phase_egg_schulze_2018_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -151,7 +153,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0\_prime were all fitted in EosFit7c; none was fixed or adopted. Parenthesized coefficient errors are stored as printed, but the article gives no confidence level or covariance matrix. Table 2 also prints a BM3 re-fit to Vanpeteghem et al. (2003): V0=211.41(11) A^3, K0=155(5) GPa, K0\_prime=6.7(5). That comparison reduction belongs to the older powder dataset and is not a second parameterization of the 2018 single-crystal observations. The fitted V0 is a zero-pressure extrapolation because the only ambient observation was intentionally omitted. The experimental pressure envelope is not a phase-stability guarantee.
 
@@ -277,6 +279,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/phase_egg.md#record-phase_egg_mookherjee_2019_bm3_lp_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -325,7 +329,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published LP parameterization. All V0, K0, and K0' values were fitted; none was fixed or adopted. The source's separate HP proton-configuration parameters are scientifically distinct and are represented by a companion record rather than merged into this LP branch. The official supplement continues the LP calculation grid beyond the approximately 15 GPa proton-transfer boundary to 43.7 GPa; those rows document the source fit/curve but do not expand the recommended LP branch. The source reports no E0 value needed by pressure evaluation and no parameter covariance, confidence convention, row uncertainties, fit objective, weights, software-fit details, or fit statistic.
 
@@ -446,6 +450,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/phase_egg.md#record-phase_egg_mookherjee_2019_bm3_hp_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -493,7 +499,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The five supplementary HP pressure points closely reproduce the printed rounded BM3 curve, but the authors fitted total energy versus volume. The unpublished energies, weights, objective, covariance, and confidence convention prevent an exact regression reconstruction.
 

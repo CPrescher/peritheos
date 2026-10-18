@@ -95,6 +95,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/nis.md#record-nis_campbell_1993_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -141,7 +143,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature third-order Birch-Murnaghan fit for metastable NiAs-type (B8) NiS. V0 and its independent propagated error use the primary paper's ambient a and c values. K0=156(10) GPa and K0'=4.4(1.2). The last tabulated readable P-V point is 44.9 GPa; above 45 GPa the diffraction lines become unreadable. No fitted-parameter covariance is published.
 

@@ -111,6 +111,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
+[Open reconstruction report](../reconstruction-reports/brucite.md#record-brucite_fukui_2003_300k_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -146,7 +148,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
 
@@ -274,6 +276,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
+[Open reconstruction report](../reconstruction-reports/brucite.md#record-brucite_fukui_2003_473k_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -309,7 +313,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
 
@@ -437,6 +441,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
+[Open reconstruction report](../reconstruction-reports/brucite.md#record-brucite_fukui_2003_673k_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -472,7 +478,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
 

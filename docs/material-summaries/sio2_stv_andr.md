@@ -104,6 +104,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-sio2_stv_andr_andrault_2003_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -151,7 +153,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Andrault et al. report V0 = 46.51(61) A^3, K0 = 309.9(1.1) GPa, and K0' = 4.59(23). The stored V0 retains the more precise ambient lattice product.
 
@@ -282,6 +284,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-sio2_stv_andr_wang_2012_vinet_mgd_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -331,7 +335,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0\*(V/V0)^b and theta(V)=theta0\*exp\[-gamma0\*((V/V0)^b-1)/b\]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter\_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.
 
@@ -450,6 +454,8 @@ establish statistical independence.
 
 **Comparison basis:** The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures.
 
+[Open reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-sio2_stv_andr_driver_2010_qmc_300k_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -466,7 +472,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -569,6 +575,8 @@ establish statistical independence.
 
 **Comparison basis:** The official tc-ds62 stv block provides all four coefficients.
 
+[Open reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-sio2_stv_andr_holland_2013_stv_modified_tait)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -585,7 +593,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -691,6 +699,8 @@ establish statistical independence.
 
 **Comparison basis:** The paper tabulates coefficients but not the calculated energy-volume grid.
 
+[Open reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-stishovite_akber_knutson_2002_vibc_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -707,7 +717,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -806,6 +816,8 @@ establish statistical independence.
 
 **Comparison basis:** Calculated states are plotted but not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-stishovite_zhang_bukowinski_1991_mpib_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -822,7 +834,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -916,6 +928,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/sio2_stv_andr.md#record-stishovite_nisr_2017_dry_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -956,7 +970,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Source-owned new dry reference specimen (10 GPa, 1473 K, 1 h synthesis), co-compressed with hydrous sample in He. Distinct dataset and pressure scale from Andrault (2003); only K0\_prime is adopted. Table 3 EOS V0=46.569 agrees with corrected Table 2, whereas official Table S1 retains 46.612; preserve both. All S1 volumes are source-refined tetragonal values; article describes onset of dry post-stishovite distortion near 60 GPa. Full 0-62.934 GPa fit is the authors' reference curve, not a claim of rutile stability throughout. No dry CaCl2 EOS is fitted in this paper; Table 4 dry row cites Andrault (2003). Existing ambient crystallography is retained separately from this EOS reference cell.
 

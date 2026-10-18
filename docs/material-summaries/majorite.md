@@ -96,6 +96,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/majorite.md#record-majorite_yagi_1992_bm3_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -141,7 +143,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature MgSiO3 tetragonal-garnet BM3 with the measured one-bar V0=1513.1 A^3 and K0'=4 assumed. The fit gives K0=161.2 GPa. The paper prints no fit error or covariance for V0 or K0, so the migrated +/-4 GPa value is removed rather than inferred from the separate composition-regression uncertainties. The diffraction structure in this file is an independent 1518.5 A^3 cell.
 

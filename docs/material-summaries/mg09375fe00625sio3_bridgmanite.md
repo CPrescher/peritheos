@@ -117,6 +117,8 @@ establish statistical independence.
 
 **Comparison basis:** The six calculation pressures and full coefficients are stated; row-wise calculated P-V values are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -133,7 +135,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Preferred static configuration among the six Table 1 Fe-bearing fits.
 
@@ -241,6 +243,8 @@ establish statistical independence.
 
 **Comparison basis:** Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -257,7 +261,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Configuration sensitivity, not an independent composition.
 
@@ -363,6 +367,8 @@ establish statistical independence.
 
 **Comparison basis:** Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -379,7 +385,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Configuration sensitivity, not an independent composition.
 
@@ -485,6 +491,8 @@ establish statistical independence.
 
 **Comparison basis:** Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -501,7 +509,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Do not use as the equilibrium spin branch.
 
@@ -607,6 +615,8 @@ establish statistical independence.
 
 **Comparison basis:** Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -623,7 +633,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Do not use as the equilibrium spin branch.
 
@@ -729,6 +739,8 @@ establish statistical independence.
 
 **Comparison basis:** Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mg09375fe00625sio3_bridgmanite.md#record-mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -745,7 +757,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Do not use as the equilibrium spin branch.
 

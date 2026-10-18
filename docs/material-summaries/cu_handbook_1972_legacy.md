@@ -99,6 +99,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/cu_handbook_1972_legacy.md#record-cu_sun_2010_low_vn_refit)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -145,7 +147,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Independent Peritheos refit of the manually verified Cu column in AIP Handbook Table 4d-12. It is intentionally separate from the Sun et al. source-author Vinet record. The handbook values are rounded derived-isotherm points rather than experiment-level raw observations.
 

@@ -219,3 +219,18 @@ coefficients and datasets. The archived hashes and audit code remain unchanged;
 ordinary library lookups and compatibility exports retain the full assessment.
 This compatibility step is only for these historical repository scripts;
 normal file reading, authoring and calculation use v4 directly.
+
+## Reading reconstruction reports
+
+Bundled records link directly to their [human-readable reconstruction report](reconstruction-reports/index.md)
+through `evidence.reproduction.assessment.report_url`. The link opens the specific
+EOS on Read the Docs **latest** once the documentation is published. The companion
+`report_path` identifies the same Markdown page and anchor relative to the repository;
+local and version-specific documentation builds use relative links.
+
+The reports show the recorded outcome, basis, limitations, method and coefficient
+comparisons, including unsuccessful reconstructions. Available comparison pairs
+have a graph of stored central values; detailed source reports supply observation
+and residual plots where available. A missing reconstruction is explained rather
+than illustrated with invented observations. Source coefficients remain unchanged.
+Standalone files can omit these fields or link to their own reports.

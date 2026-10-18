@@ -100,6 +100,11 @@ def reconstruction(record: Mapping[str, Any]) -> list[str]:
         f"**Comparison basis:** {text(assessment.get('basis', 'Not assessed'))}",
         "",
     ]
+    if assessment.get("report_path", "").startswith("docs/reconstruction-reports/"):
+        destination = "../" + assessment["report_path"].removeprefix("docs/")
+        lines.extend([f"[Open reconstruction report]({destination})", ""])
+    elif assessment.get("report_url", "").startswith(("https://", "http://")):
+        lines.extend([f"[Open reconstruction report]({assessment['report_url']})", ""])
     if assessment.get("source_status"):
         lines.extend([f"Original audit code: `{assessment['source_status']}`.", ""])
     if assessment.get("qualifications"):
@@ -170,7 +175,7 @@ def reconstruction(record: Mapping[str, Any]) -> list[str]:
     if assessment.get("report"):
         lines.extend(
             [
-                f"Full comparison report: `{assessment['report']}` (this record's identifier).",
+                f"Machine-readable comparison: `{assessment['report']}` (this record's identifier).",
                 "",
             ]
         )

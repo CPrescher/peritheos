@@ -104,6 +104,8 @@ establish statistical independence.
 
 **Comparison basis:** Calculated states are plotted but not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mgo_b2.md#record-mgo_b2_zhang_bukowinski_1991_mpib_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -120,7 +122,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

@@ -94,6 +94,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/silicon_x.md#record-silicon_x_anzellini_2019_vinet_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -141,7 +143,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 8 room-temperature fit. Published V0=13.3 A^3/atom is multiplied by four atoms in the conventional fcc cell; V0 is extrapolated because Si-X appears above about 91 GPa.
 

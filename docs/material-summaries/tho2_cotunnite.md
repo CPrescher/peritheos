@@ -99,6 +99,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/tho2_cotunnite.md#record-tho2_cotunnite_chidester_2018_bm3_linear_thermal)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -136,7 +138,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 All 59 high-temperature observations. No reliable room-temperature lattice parameters or volumes: the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.
 

@@ -107,6 +107,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mg095al010si095o3_bridgmanite.md#record-mg095al010si095o3_bridgmanite_daniel_2004_bm2_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -153,7 +155,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Preferred second-order Birch-Murnaghan fit. K0\_prime=4 is intrinsic to BM2, so V0 and K0 are the only free EOS parameters and fixed\_parameters is empty. The one-sigma covariance is reconstructed transparently from the published marginal errors and correlation.
 
@@ -304,6 +306,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mg095al010si095o3_bridgmanite.md#record-mg095al010si095o3_bridgmanite_daniel_2004_bm3_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -351,7 +355,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Third-order Birch-Murnaghan alternative with V0, K0, and K0\_prime all fitted. Its derivative is statistically indistinguishable from 4 and the paper therefore favors the BM2 representation.
 

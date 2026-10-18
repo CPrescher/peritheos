@@ -97,6 +97,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/nickel_oxide.md#record-nickel_oxide_noguchi_1999_bm3_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -136,7 +138,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.
 
@@ -310,6 +312,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/nickel_oxide.md#record-nickel_oxide_noguchi_1999_linear_hugoniot_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -351,7 +355,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error.
 

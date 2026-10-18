@@ -111,6 +111,8 @@ establish statistical independence.
 
 **Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 
+[Open reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_sakai_2025_rydberg_stacey_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -127,7 +129,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
 
@@ -228,6 +230,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_anzellini_2014_vinet_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -275,7 +279,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Quasi-hydrostatic powder-XRD fit in helium to 144 GPa. The published molar V0=8.8726 cm^3/mol is converted to 14.7333 A^3/atom and multiplied by two atoms in the conventional hcp cell.
 
@@ -400,6 +404,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_dewaele_2019_mao_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -438,7 +444,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -546,6 +552,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_dewaele_2019_dor_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -584,7 +592,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -695,6 +703,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
+[Open reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_sakai_2018_yokoo_pt_vinet)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -731,7 +741,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure scale. Figure 10 distinguishes conventional-DAC RP01 and ds-DAC Micro17 points; exact fit-row membership and weights are not specified. RP01 used silica glass and a tungsten gasket; Micro17 used glycerin and direct anvil loading. Parenthetical errors are preserved without assuming their confidence level or covariance. V0 is fixed, with no fabricated zero uncertainty. At the rounded reported V=18.65 A^3, the printed parameters give 461.56 GPa versus the reported 464 GPa; the difference is compatible with coefficient rounding. This does not independently refit the original observations. A subsequent Figure 10 vector refit of the 26 RP01 Yokoo-Pt points gives K0=357.19 GPa and K0\_prime=4.83483, both within the printed errors. Selecting RP01 and unweighted pressure residuals is a documented reconstruction: adding Micro17 or changing residual coordinates changes the optimum; see the dedicated audit.
 
@@ -847,6 +857,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/rhenium.md#record-rhenium_zha_2004_bm3_log_thermal)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -884,7 +896,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V&gt;Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.
 

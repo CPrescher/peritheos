@@ -103,6 +103,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional equal-pressure-weight joint PVT agreement within published parameter widths; source confidence and covariance are unspecified.
 
+[Open reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_fei_2007_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -143,7 +145,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -304,6 +306,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional equal-pressure-weight joint PVT agreement within published parameter widths; source confidence and covariance are unspecified.
 
+[Open reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_fei_2007_vinet_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -344,7 +348,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -496,6 +500,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/neon_fcc.md#record-neon_fcc_hemley_1989_bm3_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -542,7 +548,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Hemley et al. Table I, using the tabulated Mao-ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm^3/mol value converted to the four-atom fcc cell. This direct table-only reference is intentionally distinct from Hemley et al.'s published thermally reduced 0 K fit, which also included the earlier Finger et al. low-pressure data and reported K0=1.097 GPa and K0'=9.23(3).
 

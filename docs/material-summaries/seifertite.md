@@ -100,6 +100,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/seifertite.md#record-seifertite_sun_2019_bm2_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -148,7 +150,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.
 
@@ -255,6 +257,8 @@ establish statistical independence.
 
 **Comparison basis:** The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures.
 
+[Open reconstruction report](../reconstruction-reports/seifertite.md#record-seifertite_driver_2010_qmc_300k_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -271,7 +275,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

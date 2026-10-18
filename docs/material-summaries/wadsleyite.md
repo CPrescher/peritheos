@@ -107,6 +107,8 @@ establish statistical independence.
 
 **Comparison basis:** Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected.
 
+[Open reconstruction report](../reconstruction-reports/wadsleyite.md#record-wadsleyite_katsura_2009_bm3_1)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -158,7 +160,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Katsura et al. fit 11-20 GPa and 300-2100 K data with a BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure. Their measured V0=538.49(2) A^3 and K0=169.2(9) GPa are fixed during the fit; K0'=4.1(1), gamma0=1.64(2), and q=1.5(1) are fitted, while theta0=814 K is fixed. Fixed source parameters retain their published uncertainties.
 

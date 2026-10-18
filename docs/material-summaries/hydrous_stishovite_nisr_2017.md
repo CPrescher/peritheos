@@ -97,6 +97,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/hydrous_stishovite_nisr_2017.md#record-hydrous_stishovite_nisr_2017_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -137,7 +139,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Al-free sample; water inferred from volume calibration, not directly measured by SIMS/IR/TGA on this specimen. Raman confirms structural OH qualitatively. Preserve Table 1 Si0.954O2H0.184: its mass-equivalent H2O is about 2.81 wt%, within the reported 3.2(5) wt% range but not exactly its central value. H retention at high pressure is inferred, not measured. No atomic coordinates were refined (Section 2). The 28-42 GPa interval is two-phase coexistence, excluded from both hydrous EOS fits. CaCl2-type Pnnm denotes the Si-O framework refinement model; hydrogen ordering and a possible delta-AlOOH-related subgroup are unresolved (Section 3.2). Table 3 fixed V0=47.191 is retained, not replaced by Table 2 47.198. The cell axes imply 47.198696 A^3.
 

@@ -97,6 +97,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_ross_1997_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -144,7 +146,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature unconstrained BM3 fit to single-crystal data from 0 to 7 GPa: V0=279.41+/-0.08 A^3, K0=117+/-3 GPa, and K0'=2.3+/-0.7. The paper also reports an alternative BM2 fit with K0=111+/-1 GPa; this record represents the BM3 result.
 
@@ -248,6 +250,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_vocadlo_1999_bm3_2)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -295,7 +299,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static-lattice GGA pseudopotential calculation for the named magnesite phase using a fully relaxed 30-atom MgCO3 cell (Z=6), with atomic positions and cell shape relaxed at nine volumes. The source reports the zero-pressure reference volume and an isothermal BM3 fit, but no finite-temperature or vibrational contribution; temperature\_ref=0 K records that static electronic reference. The nine calculated states span -2.41596 to 207.419 GPa. Table 1 incorrectly labels both its energy and volume columns as per formula unit: its 160-295 A^3 volumes, stated V0=287.49 A^3, Figure 1 volume axis, and exact BM3 pressure reproduction establish the 30-atom conventional-cell basis; the energy rows likewise recover K0=98.921 GPa only when interpreted per 30-atom cell and give a factor-of-six error under the printed label. The parenthetical K0 and K0\_prime errors are preserved, but the source states no confidence convention or covariance and gives no V0 uncertainty. The alternative K0\_prime=4 fit, K0=111(1) GPa is not stored because the article calls it a poor second-order fit and does not use it in the subsequent analysis. The calculation finds no discontinuity within the sampled pressure range but explicitly cannot rule out reconstructive transitions with an energy barrier.
 
@@ -411,6 +415,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_yu_2024_bm3_mgd_3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -460,7 +466,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

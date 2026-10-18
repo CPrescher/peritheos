@@ -108,6 +108,8 @@ establish statistical independence.
 
 **Comparison basis:** Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/larnite.md#record-larnite_sagatova_2021_gga_300k_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -124,7 +126,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

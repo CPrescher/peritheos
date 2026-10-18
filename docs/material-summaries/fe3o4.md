@@ -95,6 +95,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/fe3o4.md#record-fe3o4_mao_1974_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature (23+/-3 degC) magnetite BM3. V0 and its propagated error come from the paper's a0=8.394(3) A sample, not the independent structural lattice in this file. K0'=4+/-0.4 was assumed, and the authors formed the +/-10 GPa K0 uncertainty by adding fit, NaCl pressure-scale, and assumed-K0' contributions; it is not a covariance-derived one-sigma error. The low-pressure spinel reflections persist to 32 GPa, but a high-pressure phase begins to coexist above about 25 GPa.
 

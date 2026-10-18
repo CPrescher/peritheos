@@ -111,6 +111,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_sun_2022_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -157,7 +159,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Selected fixed-K0'=4 BM3 fit: the published Z=1 V0=45.6(2) A^3 is stored as 182.4(8) A^3 for the conventional Z=4 I4/mcm cell, while K0=229(4) GPa is unchanged. The direct 300 K P-V data span 21.5-199.2 GPa; routine use is intentionally limited to 30-150 GPa. Table 1 combines 14 Sun et al. (2016) quenched observations reanalyzed on the common Pt scale with nine new 2022 observations. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces both the free- and fixed-K0' Table 2 alternatives after rounding.
 
@@ -273,6 +275,8 @@ establish statistical independence.
 
 **Comparison basis:** The 300 and 2000 K P-V curves are plotted in Figure 7, but calculated P-V points are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -289,7 +293,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -392,6 +396,8 @@ establish statistical independence.
 
 **Comparison basis:** The 300 and 2000 K P-V curves are plotted in Figure 7, but calculated P-V points are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -408,7 +414,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -511,6 +517,8 @@ establish statistical independence.
 
 **Comparison basis:** Complete coefficients and density checkpoints are published; the underlying E(V) grid is not.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_caracas_2005_bm3_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -527,7 +535,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.
 
@@ -641,6 +649,8 @@ establish statistical independence.
 
 **Comparison basis:** Complete coefficients and density checkpoints are published; the underlying E(V) grid is not.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_caracas_2005_bm4_2)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -657,7 +667,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static 0 K I4/mcm (a0a0c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.
 
@@ -773,6 +783,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_chen_2018_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -821,7 +833,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted LitCurate source record litcurate\_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published.
 

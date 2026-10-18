@@ -78,6 +78,8 @@
               "Recovered combined thermal reproduction: all 21 numerical B8 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. One-peak detections have no volume and are excluded; the three two-peak volumes whose errors are unconstrained use Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. The unweighted 29-row fit recovers every free coefficient within its published uncertainty. Fischer does not state its regression weights, residual variable, covariance, or optimizer, so this establishes numerical parameter parity rather than exact procedural identity. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/feo_b8_2/#record-feo_b8_2_fischer_2011_bm3_1",
+            "report_path": "docs/reconstruction-reports/feo_b8_2.md#record-feo_b8_2_fischer_2011_bm3_1",
             "parameters": [
               {
                 "parameter": "rt_eos.V0",

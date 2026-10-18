@@ -93,6 +93,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/chromium.md#record-chromium_anzellini_2022_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 experimental helium-medium BM3 fit. The bcc phase remains observed to 131 GPa at room temperature.
 

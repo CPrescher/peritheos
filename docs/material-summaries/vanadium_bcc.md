@@ -103,6 +103,8 @@ establish statistical independence.
 
 **Comparison basis:** Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.
 
+[Open reconstruction report](../reconstruction-reports/vanadium_bcc.md#record-vanadium_bcc_crichton_2016_bm3_thermal)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -124,7 +126,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

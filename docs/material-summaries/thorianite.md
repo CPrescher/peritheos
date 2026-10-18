@@ -99,6 +99,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/thorianite.md#record-thorianite_chidester_2018_bm3_linear_thermal)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -135,7 +137,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Only T=300 K rows with P&lt;15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.
 

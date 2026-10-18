@@ -100,6 +100,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgfe60o.md#record-mgfe60o_richet_1989_bm2_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -145,7 +147,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. It is distinct from the paper's later global linear-composition model. V0 and its error are propagated from the primary a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. Table 2 spans 0-49.4 GPa. No covariance or confidence convention for the K0 error is reported.
 
@@ -252,6 +254,8 @@ establish statistical independence.
 
 **Comparison basis:** Lin et al. report the 84-102 GPa spectroscopic interval and an approximately 1.6% volume drop at 95 GPa, but no P-V series for this composition; those constraints are not observations.
 
+[Open reconstruction report](../reconstruction-reports/mgfe60o.md#record-mgfe60o_solomatova_2016_hs_bm3_reference_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -268,7 +272,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -368,6 +372,8 @@ establish statistical independence.
 
 **Comparison basis:** Lin et al. report the 84-102 GPa spectroscopic interval and an approximately 1.6% volume drop at 95 GPa, but no P-V series for this composition; those constraints are not observations.
 
+[Open reconstruction report](../reconstruction-reports/mgfe60o.md#record-mgfe60o_solomatova_2016_ls_bm3_reference_2)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -384,7 +390,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

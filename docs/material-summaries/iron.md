@@ -175,6 +175,8 @@ establish statistical independence.
 
 **Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2025_rydberg_stacey_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -191,7 +193,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
 
@@ -290,6 +292,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_mao_1990_bm3_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -337,7 +341,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Mao et al. report V0 = 22.35(3) A^3, K0 = 165(4) GPa, and K0' = 5.33(9) for the two-atom hcp cell. The legacy volume was also corrected for the hexagonal sin(120 degree) factor.
 
@@ -440,6 +444,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_shen_2026_vinet_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -500,7 +506,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.6 GPa and K0' +/- 0.03. The hcp phase data are above 16 GPa.
 
@@ -609,6 +615,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2019_mao_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -647,7 +655,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -750,6 +758,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2019_dor_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -788,7 +798,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -902,6 +912,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_zhang_2025_fit1_birch_murnaghan_3_mgd)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -953,7 +965,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1103,6 +1115,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_zhang_2025_fit2_birch_murnaghan_3_mgd)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1153,7 +1167,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1303,6 +1317,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_zhang_2025_fit5_vinet_mgd)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1353,7 +1369,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1509,6 +1525,8 @@ establish statistical independence.
 
 **Comparison basis:** The bundled EPAPS rows constrain the near-room-temperature Vinet reference isotherm. The high-temperature Gruneisen coefficients were determined with separate shock-wave data and the anharmonic/electronic terms with ab-initio pressures, so the complete thermal fit input is not available for an independent joint refit.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2006_vinet_thermal)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1525,7 +1543,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1669,6 +1687,8 @@ establish statistical independence.
 
 **Comparison basis:** Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: \[Fei 2016 audit\](literature-reproductions/fei-2016-iron.md).
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_fei_2016_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1685,7 +1705,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.
 
@@ -1806,6 +1826,8 @@ establish statistical independence.
 
 **Comparison basis:** Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: \[Fei 2016 audit\](literature-reproductions/fei-2016-iron.md).
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_fei_2016_free_density_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1822,7 +1844,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved.
 
@@ -1950,6 +1972,8 @@ establish statistical independence.
 
 **Comparison basis:** Partial supplementary-data diagnostics, not the published combined fits. Prior-study 300 K rows and shock P-V-T reductions/weights are not supplied by these supplements. No diagnostic coefficients replace published records. Independent equation and partial-data checks: \[Fei 2016 audit\](literature-reproductions/fei-2016-iron.md).
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_fei_2016_bm3_debye_quadratic)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1966,7 +1990,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published combined fit; S1 contains only this study’s 74 rows. Prior literature data were intercalibrated; Mao (1990) was excluded from the global fit. Weights, covariance, and confidence of parameter errors are not specified. Existing catalog defaults are preserved. Thermal pressure adds MGD with integrated gamma(V) plus A\*(V/V0)^m\*(T^2-300^2). No thermal fit errors are reported. Independent gamma\_e=2 and k=1.34 define an empirical pressure surface, not a thermodynamically consistent caloric potential. Do not infer caloric observables. Table S2 is only the static subset of the thermal fit.
 
@@ -2092,6 +2116,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2131,7 +2157,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2243,6 +2269,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -2283,7 +2311,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2395,6 +2423,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_mao_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2434,7 +2464,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2546,6 +2576,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_mao_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2585,7 +2617,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2697,6 +2729,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_dewaele_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2736,7 +2770,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2848,6 +2882,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p1_v0_dewaele_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2887,7 +2923,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2999,6 +3035,8 @@ establish statistical independence.
 
 **Comparison basis:** Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p2_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3023,7 +3061,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -3135,6 +3173,8 @@ establish statistical independence.
 
 **Comparison basis:** Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p2_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3159,7 +3199,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -3271,6 +3311,8 @@ establish statistical independence.
 
 **Comparison basis:** Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p3_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3295,7 +3337,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -3407,6 +3449,8 @@ establish statistical independence.
 
 **Comparison basis:** Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p3_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3431,7 +3475,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -3543,6 +3587,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p4_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -3582,7 +3628,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -3694,6 +3740,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p4_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -3734,7 +3782,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -3846,6 +3894,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p5_bm3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -3886,7 +3936,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -3998,6 +4048,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p5_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -4038,7 +4090,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -4150,6 +4202,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p6_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -4189,7 +4243,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -4301,6 +4355,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2014_p6_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -4341,7 +4397,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -4463,6 +4519,8 @@ establish statistical independence.
 
 **Comparison basis:** All 207 primary rows on original Tsuchiya Au scale. Unweighted P residuals do not assert the unavailable original weighting.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_yamazaki_2012_bm3_thermal)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -4506,7 +4564,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -4648,6 +4706,8 @@ establish statistical independence.
 
 **Comparison basis:** All 207 primary rows on original Tsuchiya Au scale. Unweighted P residuals do not assert the unavailable original weighting.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_yamazaki_2012_vinet_thermal)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -4691,7 +4751,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -4829,6 +4889,8 @@ establish statistical independence.
 
 **Comparison basis:** The 188 input P-V-T points are not tabulated in the attached publication.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_dubrovinsky_2000_bm3_thermal)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4845,7 +4907,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -4974,6 +5036,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_dewaele_2006_bm3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -5014,7 +5078,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Distinct Table I Birch–Murnaghan alternative to the existing Vinet thermal record. K0=165 GPa fixed. Source table errors are at 95% confidence. Atomic-volume error is doubled, not copied from later secondary tables.
 
@@ -5144,6 +5208,8 @@ establish statistical independence.
 
 **Comparison basis:** Agreement at the source's printed decimal precision.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_brown_2000_linear_hugoniot)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -5181,7 +5247,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published full-range linear Us-up fit, operationally restricted to the solid-iron subset used by Fei (2016), below 200 GPa. Samples are ~99% low-carbon steel (up to 0.7% Mn), not pure iron; density 7.850 g/cm³ must not be replaced by pure-Fe density. No shock temperatures reported. The full 442.1 GPa data, quadratic fit and fit range are retained in the source audit; high-pressure mixed-phase path is not represented as an hcp EOS.
 
@@ -5291,6 +5357,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. The thermal source replay now uses n=2 with volume per mole Fe, as confirmed in user-relayed personal communication with Miozzi, recorded 2026-10-03. This diagnostic fixes V0 even though the author clarified that V0 was free in the final stage. See literature-reproductions/miozzi-2020-iron.md.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -5325,7 +5393,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
 
@@ -5451,6 +5519,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. The thermal source replay now uses n=2 with volume per mole Fe, as confirmed in user-relayed personal communication with Miozzi, recorded 2026-10-03. This diagnostic fixes V0 even though the author clarified that V0 was free in the final stage. See literature-reproductions/miozzi-2020-iron.md.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -5485,7 +5555,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published coefficients are preserved, but the supplied primary observations are not reproduced under the standard equation mapping. This is an unresolved source/reduction discrepancy, not proof of an error in the authors’ experiments. Do not use for pressure calibration or core-condition prediction until resolved. See docs/literature-reproductions/miozzi-2020-iron.md.
 
@@ -5616,6 +5686,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional diagnostic, not the original EosFit-7c objective: the source does not specify its numerical weights, covariance, iteration settings, or handling of blank/zero coordinate errors. Missing errors contribute no term to diagnostic variance; one cold row with no positive effective error is excluded only from that diagnostic. Printed errors are provisionally treated as standard deviations solely for this diagnostic. Published coefficients remain unchanged. Thermal V0=22.81 A^3 follows Section 3.3; Table 1 instead gives 22.80(2) A^3 and the printed molar value converts to 22.81581 A^3. The thermal source replay now uses n=2 with volume per mole Fe, as confirmed in user-relayed personal communication with Miozzi, recorded 2026-10-03. This diagnostic fixes V0 even though the author clarified that V0 was free in the final stage. See literature-reproductions/miozzi-2020-iron.md.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_bm3_mgd)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -5651,7 +5723,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -5816,6 +5888,8 @@ establish statistical independence.
 
 **Comparison basis:** Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_tange_2009_bm3_mgd_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -5857,7 +5931,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -6005,6 +6079,8 @@ establish statistical independence.
 
 **Comparison basis:** Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.
 
+[Open reconstruction report](../reconstruction-reports/iron.md#record-iron_miozzi_2020_speziale_2001_bm3_mgd_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -6046,7 +6122,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

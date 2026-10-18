@@ -93,6 +93,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/praseodymium_dioxide.md#record-praseodymium_dioxide_gerward_2005_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -139,7 +141,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature powder XRD fit of the cubic fluorite phase. The equation fits K0 and K0\_prime using measured a0=5.394(2) A; V0=a0^3 and its error is propagated as 3\*a0^2\*sigma\_a.
 

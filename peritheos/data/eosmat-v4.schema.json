@@ -2802,6 +2802,16 @@
             "basis_code": {
               "type": "string",
               "pattern": "\\S"
+            },
+            "report_url": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Direct hosted human-readable reconstruction report; bundled reports use Read the Docs latest."
+            },
+            "report_path": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Repository-relative Markdown report and record anchor, for local documentation and version-specific builds."
             }
           },
           "allOf": [

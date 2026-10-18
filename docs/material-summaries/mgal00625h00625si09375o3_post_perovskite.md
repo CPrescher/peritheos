@@ -108,6 +108,8 @@ establish statistical independence.
 
 **Comparison basis:** The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
 
+[Open reconstruction report](../reconstruction-reports/mgal00625h00625si09375o3_post_perovskite.md#record-mgal00625h00625si09375o3_post_perovskite_akber_knutson_2005_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -124,7 +126,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.
 

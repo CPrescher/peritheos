@@ -91,6 +91,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_sakai_2025_rydberg_stacey_1",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_sakai_2025_rydberg_stacey_1",
             "fit": {
               "fixed_parameters": ["V0", "K0", "K_infinity_prime"],
               "dataset_identifiers": []
@@ -188,6 +190,8 @@
               "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_shen_2026_vinet_1",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_shen_2026_vinet_1",
             "parameters": [
               {
                 "parameter": "K0",
@@ -364,6 +368,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_sokolova_2013_holzapfel_2",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_sokolova_2013_holzapfel_2",
             "fit": {
               "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
               "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
@@ -528,6 +534,8 @@
               "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dewaele_2019_mao_vinet",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2019_mao_vinet",
             "parameters": [
               {
                 "parameter": "V0",
@@ -682,6 +690,8 @@
               "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dewaele_2019_dor_vinet",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2019_dor_vinet",
             "parameters": [
               {
                 "parameter": "V0",
@@ -847,6 +857,8 @@
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet",
             "parameters": [
               {
                 "parameter": "K0_prime",
@@ -1025,6 +1037,8 @@
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet",
             "parameters": [
               {
                 "parameter": "K0",

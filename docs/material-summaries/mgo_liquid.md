@@ -105,6 +105,8 @@ establish statistical independence.
 
 **Comparison basis:** The source plots but does not tabulate the pure-liquid P-V simulation states; no graphical pseudo-precision was introduced.
 
+[Open reconstruction report](../reconstruction-reports/mgo_liquid.md#record-mgo_liquid_ghosh_karki_2016_3000k_bm3_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -121,7 +123,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

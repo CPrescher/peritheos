@@ -107,6 +107,8 @@ establish statistical independence.
 
 **Comparison basis:** Supplementary Table S2 bundles only four selected crystallographic states, while Figure 3A plots substantially more compression and decompression markers for the published BM2 fit. The source gives no complete row list, inclusion/exclusion flags, regression objective, numerical weights, or row-wise Ne calibrant volumes. The four exact rows are checkpoint data, not a defensible reconstruction of the source fit input.
 
+[Open reconstruction report](../reconstruction-reports/fe088sio3_bridgmanite.md#record-fe088sio3_bridgmanite_ismailova_2016_300k_bm2)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -123,7 +125,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published 300 K BM2 for vacancy-rich Fe0.88SiO3 bridgmanite. Figure 3A contains about fifteen compression/decompression markers, whereas supplementary Table S2 explicitly lists only four selected crystallographic states. The four rows are bundled as exact checkpoints, not asserted as the complete fit input. No source exclusion rule, residual objective, numerical weighting convention, covariance, or parameter-error confidence convention is reported.
 

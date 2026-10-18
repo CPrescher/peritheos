@@ -110,6 +110,8 @@ establish statistical independence.
 
 **Comparison basis:** The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
 
+[Open reconstruction report](../reconstruction-reports/al2o3_perovskite.md#record-al2o3_perovskite_akber_knutson_2005_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -126,7 +128,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.
 
@@ -243,6 +245,8 @@ establish statistical independence.
 
 **Comparison basis:** The official tc-ds62 apv block provides all four coefficients.
 
+[Open reconstruction report](../reconstruction-reports/al2o3_perovskite.md#record-al2o3_perovskite_holland_2013_apv_modified_tait)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -259,7 +263,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

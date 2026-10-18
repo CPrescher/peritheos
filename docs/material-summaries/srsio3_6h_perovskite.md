@@ -104,6 +104,8 @@ establish statistical independence.
 
 **Comparison basis:** Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced.
 
+[Open reconstruction report](../reconstruction-reports/srsio3_6h_perovskite.md#record-srsio3_6h_xiao_2013_gga_bm2_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -120,7 +122,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

@@ -107,6 +107,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/srsio3_cubic_perovskite.md#record-srsio3_cubic_xiao_2013_experimental_bm2_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -153,7 +155,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -254,6 +256,8 @@ establish statistical independence.
 
 **Comparison basis:** Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced.
 
+[Open reconstruction report](../reconstruction-reports/srsio3_cubic_perovskite.md#record-srsio3_cubic_xiao_2013_gga_bm2_2)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -270,7 +274,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

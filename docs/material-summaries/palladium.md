@@ -105,6 +105,8 @@ establish statistical independence.
 
 **Comparison basis:** The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes.
 
+[Open reconstruction report](../reconstruction-reports/palladium.md#record-palladium_baty_2024_bm3_dft_2)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -121,7 +123,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values and reported as V0=14.6167 A^3/atom, K0=195.0(2.5) GPa, and K0'=5.1(1). The stored conventional-cell volume is four times the atomic value. This is the green curve in Figure 3 and the 'This work' column in supplementary Table S3; it is distinct from the authors' experimental 300 K BM3 fit.
 
@@ -217,6 +219,8 @@ establish statistical independence.
 
 **Comparison basis:** The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed.
 
+[Open reconstruction report](../reconstruction-reports/palladium.md#record-palladium_guigue_2020_vinet_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -233,7 +237,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature Vinet fit to pure Pd compressed in neon during the Pd-hydride study. The paper reports V0=14.75(4) A^3/atom, K0=162(2) GPa, and K0'=6.2(9); the stored conventional-cell V0 is multiplied by four. Frost et al. identify 65 GPa as the maximum pressure of the Guigue pure-Pd study; the article title's 100 GPa refers to the broader hydride study, not the pure-Pd EOS range.
 
@@ -337,6 +341,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/palladium.md#record-palladium_fedotenko_2020_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -384,7 +390,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature BM3 fit to the 15 pure-Pd Table 1 observations measured with neon as pressure medium and marker. All three BM3 parameters remain free because the source does not state that V0 was fixed. Table 2 prints 58.863(2) A^3, but Table 1, the fit paragraph, and the Figure 1 caption independently agree on 58.868(2) A^3; the repeated value is used here and the source inconsistency is documented.
 
@@ -480,6 +486,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/palladium.md#record-palladium_fedotenko_2020_bm2_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -525,7 +533,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency.
 
@@ -622,6 +630,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/palladium.md#record-palladium_frost_2023_vinet_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -670,7 +680,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3.
 
@@ -775,6 +785,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/palladium.md#record-palladium_frost_2023_bm3_2)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -823,7 +835,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3).
 
@@ -930,6 +942,8 @@ establish statistical independence.
 
 **Comparison basis:** Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the \[dedicated palladium reproduction\](literature-reproductions.md#palladium-baty-2024). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The verified experimental Table S1 observations and source equation do not recover the published experimental BM3 fit under the completed audit checks.
 
+[Open reconstruction report](../reconstruction-reports/palladium.md#record-palladium_baty_2024_bm3_1)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -979,7 +993,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.
 

@@ -96,6 +96,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ice_vi.md#record-ice_vi_bezacier_2014_bm2_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -144,7 +146,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 PVT fit for pure H2O ice VI. The best-supported refit reconstruction uses the 300 K and 340 K isotherms displayed in Figure 2 (30 rows: 23 at 298.7-300.7 K and seven at 340.0-340.7 K). The 15 intermediate-temperature Table I observations are retained in the linked primary dataset but form a correlated pressure-temperature ramp and are not plotted in Figure 2. Published molar V0=14.17(2) cm^3/mol is converted to the Z=10 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of all ice-VI measurements tabulated in the paper.
 

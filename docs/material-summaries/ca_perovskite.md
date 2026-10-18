@@ -147,6 +147,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_mao_1989_bm3_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -193,7 +195,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature third-order Birch-Murnaghan fit to 47 P-V measurements through 134 GPa: V0=45.37+/-0.08 A^3, K0=281+/-4 GPa, and K0'=4 assumed.
 
@@ -289,6 +291,8 @@ establish statistical independence.
 
 **Comparison basis:** The article publishes fitted EOS coefficients and relative energies but not the first-principles E(V) observations, fit weights, residuals, or covariance. No supporting-information or official data attachment is listed on the publisher article page or the UCL deposit, so an independent coefficient refit is not possible.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_caracas_2005_bm3_3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -305,7 +309,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static-lattice 0 K DFT parameterization of the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 perovskite branch. The paper finds this branch dynamically unstable at all investigated pressures, so this is a theoretical reference curve and not a stable ambient phase. Table 2 reports V0/Z; Pm-3m has Z=1, so 44.579 A^3 is also the conventional cubic-cell volume (a0=3.54577 A). All three BM3 coefficients were fitted; no parameter uncertainties, covariance, fit weights, or underlying E(V) rows are published. The Table 2 footnote estimates calculation uncertainty as about 20 meV per molecule, an energy-scale estimate rather than an EOS-coefficient error. The distinct Pm-3m BM4 fit and all eight phase-specific low-symmetry BM3/BM4 pairs are now represented as executable sibling records on the appropriate material cards.
 
@@ -530,6 +534,8 @@ establish statistical independence.
 
 **Comparison basis:** The publisher page exposes no supporting-information or data file, and the article plots but does not tabulate the underlying FPMD P-V-T stress averages. A direct refit is therefore impossible. All 60 printed Table 1 fitted-isotherm benchmark states are bundled separately for numerical reproduction; they are model values, not primary observations.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_kawai_2014_vinet_mgd_3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -546,7 +552,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -673,6 +679,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_shim_2000_dac_only_bm3_mgd_4)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -719,7 +727,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -866,6 +874,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_shim_2000_bm3_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -912,7 +922,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite: V0=45.58+/-0.05 A^3 (fixed in the Table 2 fit), K0=236+/-4 GPa, and K0'=3.9+/-0.2. Uncertainties are one standard deviation; the published V0 uncertainty is retained despite its fixed fit status. Data extend to 108 GPa.
 
@@ -1027,6 +1037,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_noguchi_2013_bm2_mgd_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1077,7 +1089,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1240,6 +1252,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_sun_2016_bm3_3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1289,7 +1303,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Joint BM3-Mie-Gruneisen-Debye fit for pure cubic Pm-3m CaSiO3 using model 1 in Table 2. The 144 printed fit rows span 21.2-151.8 GPa and 1200-2600 K; 156 GPa is the paper's overall experimental diffraction envelope, not a printed Table 1 pressure. The 300 K V0, K0, and K0' define an extrapolated reference isotherm: cubic CaSiO3 is not quenchable and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors. An unweighted pressure-residual refit reproduces the published parameters and uncertainties after rounding.
 
@@ -1432,6 +1446,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_preferred_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1478,7 +1494,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -1620,6 +1636,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_mao_equal_weight_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1667,7 +1685,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -1797,6 +1815,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_mao_pressure_weighted_all_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1844,7 +1864,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -1959,6 +1979,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_mao_pressure_weighted_no_sub1gpa_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2006,7 +2028,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2135,6 +2157,8 @@ establish statistical independence.
 
 **Comparison basis:** Coefficients are tabulated; energy-volume points and weights are unavailable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw7_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2151,7 +2175,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2257,6 +2281,8 @@ establish statistical independence.
 
 **Comparison basis:** No E-V grid is published.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw8_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2273,7 +2299,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2378,6 +2404,8 @@ establish statistical independence.
 
 **Comparison basis:** No E-V grid is published.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw9_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2394,7 +2422,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2499,6 +2527,8 @@ establish statistical independence.
 
 **Comparison basis:** Thermally corrected E-V points are not published.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw9_300k_kp4_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2515,7 +2545,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2620,6 +2650,8 @@ establish statistical independence.
 
 **Comparison basis:** The coefficients are complete but the corrected E-V grid is not published.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_chizmeshya_1996_lapw9_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2636,7 +2668,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2743,6 +2775,8 @@ establish statistical independence.
 
 **Comparison basis:** The official tc-ds62 cpv block provides all four coefficients.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_holland_2013_cpv_modified_tait)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2759,7 +2793,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2865,6 +2899,8 @@ establish statistical independence.
 
 **Comparison basis:** The paper does not tabulate the calculated energy-volume grid.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_akber_knutson_2002_vibc_pnma_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2881,7 +2917,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2985,6 +3021,8 @@ establish statistical independence.
 
 **Comparison basis:** The paper does not tabulate the calculated energy-volume grid.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_akber_knutson_2002_vibc_pm3m_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3001,7 +3039,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3105,6 +3143,8 @@ establish statistical independence.
 
 **Comparison basis:** The paper does not tabulate the calculated energy-volume grid.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_akber_knutson_2002_vib_pm3m_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3121,7 +3161,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3225,6 +3265,8 @@ establish statistical independence.
 
 **Comparison basis:** The complete calculated E-V grid and weighting are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_sherman_1993_basis_b_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3241,7 +3283,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3343,6 +3385,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_weidner_1994_bm2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -3390,7 +3434,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3507,6 +3551,8 @@ establish statistical independence.
 
 **Comparison basis:** Complete coefficients and density checkpoints are published; the underlying E(V) grid is not.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_caracas_2005_bm4_4)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3523,7 +3569,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static 0 K Pm-3m (a0a0a0) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same calculation series. No coefficient uncertainties, covariance, weights, or E(V) rows are published; approximately 20 meV/molecule is an energy accuracy estimate only.
 
@@ -3636,6 +3682,8 @@ establish statistical independence.
 
 **Comparison basis:** The source plots its calculated EOS but does not tabulate the energy-volume grid.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_liu_2007_lda_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3652,7 +3700,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3770,6 +3818,8 @@ establish statistical independence.
 
 **Comparison basis:** The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gréaux XLSX and are now bundled as attributed numerical transcriptions. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published thermal parameterization retains an unresolved high-temperature discrepancy against the reconstructed source observations; source normalization checks do not reconcile it.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_fu_2023_bm3_mgd_refit)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -3815,7 +3865,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -3950,6 +4000,8 @@ establish statistical independence.
 
 **Comparison basis:** The source reports the complete EOS coefficients and plotted calculated curves but no reusable energy-volume table or fit covariance.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_karki_crain_1998_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3966,7 +4018,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 LitCurate row 186 is retained as the source-owned fit. Rows 187-191 are literature comparisons and are represented, where independently audited, under their own primary publications rather than under this DOI.
 
@@ -4076,6 +4128,8 @@ establish statistical independence.
 
 **Comparison basis:** The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_ono_2013_bm3_log_thermal)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4092,7 +4146,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This is not a duplicate of the existing Shim 2000 room-temperature BM3: it is Ono's executable high-temperature extension. The source's velocity equations are outside the pressure-volume EOS and are not encoded here.
 
@@ -4216,6 +4270,8 @@ establish statistical independence.
 
 **Comparison basis:** This opt-in EOS record stores the pressure-producing subset of the audited unweighted seven-parameter joint fit. Parity here verifies the stored coefficients against the audit artifact; it does not imply parity with Fu Table S3 or knowledge of Fu's unpublished weights.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -4257,7 +4313,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -4387,6 +4443,8 @@ establish statistical independence.
 
 **Comparison basis:** Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.
 
+[Open reconstruction report](../reconstruction-reports/ca_perovskite.md#record-ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -4424,7 +4482,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Independent Peritheos BM3 + linear thermal-pressure refit to 64 experimental Table 1 states. The two source-flagged sub-2-GPa amorphizing states are excluded. Equal pressure weights are an analyst choice, not recovered Wang weights. Conditional residual-scaled standard errors omit coordinate uncertainties, correlations, pressure-scale systematics and fixed-parameter uncertainty. This is not a reproduction of the published thermal fit or validation as a pressure standard.
 

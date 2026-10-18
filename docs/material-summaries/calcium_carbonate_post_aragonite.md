@@ -97,6 +97,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/calcium_carbonate_post_aragonite.md#record-calcium_carbonate_post_aragonite_lv_2020_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -143,7 +145,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature BM3 fit with V0 fixed at 97.76 A^3.
 
@@ -251,6 +253,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/calcium_carbonate_post_aragonite.md#record-calcium_carbonate_post_aragonite_lv_2020_bm3_2)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -299,7 +303,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Joint high-pressure/high-temperature BM3-MGD fit. V0 and the Debye temperature were fixed; n is the five-atom formula-unit count used by the thermal model.
 

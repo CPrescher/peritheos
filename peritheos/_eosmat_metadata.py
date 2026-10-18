@@ -49,7 +49,14 @@ def validate_assessment(evidence: Any) -> None:
         raise EosmatError(f"{where}.status must be one of {', '.join(STATUSES)}")
     if assessment.get("scope") not in SCOPES:
         raise EosmatError(f"{where}.scope must be one of {', '.join(SCOPES)}")
-    for key in ("basis", "report", "source_status", "basis_code"):
+    for key in (
+        "basis",
+        "report",
+        "report_url",
+        "report_path",
+        "source_status",
+        "basis_code",
+    ):
         if key in assessment and (
             not isinstance(assessment[key], str) or not assessment[key].strip()
         ):

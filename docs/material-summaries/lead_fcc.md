@@ -97,6 +97,8 @@ establish statistical independence.
 
 **Comparison basis:** The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published. See the \[dedicated Fortes audit\](literature-reproductions/fortes-2019-fcc-pb.md).
 
+[Open reconstruction report](../reconstruction-reports/lead_fcc.md#record-lead_fcc_fortes_2019_bm4_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -113,7 +115,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. The report first constrained V0(T) from thermal expansion and K0(T) from elastic, heat-capacity, and expansivity data. It then varied K0\_prime(300 K), dK0\_prime/dT, and temperature-invariant K0\_double\_prime against a compiled 295-788 K compression dataset. The full polynomial surface is independently executable in scripts/audit\_fortes\_2019\_fcc\_pb.py, but is not stored as this isothermal record because the current thermal schema cannot represent it.
 
@@ -251,6 +253,8 @@ establish statistical independence.
 
 **Comparison basis:** The three bundled Table 1 rows are rounded fcc states at the phase transition, not the complete P-V-T observations used to fit the source's nine-coefficient thermal BM3 surface. The full numerical dataset, row selection, residual coordinate, weights, and covariance procedure are not published. See the \[dedicated Fortes/Kuznetsov audit\](literature-reproductions/fortes-2019-fcc-pb.md).
 
+[Open reconstruction report](../reconstruction-reports/lead_fcc.md#record-lead_fcc_kuznetsov_2002_bm3_2)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -267,7 +271,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published 296 K isotherm of the source's temperature-dependent BM3 model. The complete P-V-T surface includes polynomial V0(T), K0(T), and K0\_prime(T) terms and is independently executable in scripts/audit\_fortes\_2019\_fcc\_pb.py; only its 296 K slice is stored because the current thermal schema cannot represent those polynomials. This is a source-published parameterization, not a Peritheos refit.
 

@@ -91,6 +91,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_sakai_2025_rydberg_stacey_1",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_sakai_2025_rydberg_stacey_1",
             "fit": {
               "fixed_parameters": ["V0", "K0", "K_infinity_prime"],
               "dataset_identifiers": []
@@ -212,6 +214,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_holmes_1989_vinet_1",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_holmes_1989_vinet_1",
             "fit": {
               "fixed_parameters": ["V0"],
               "dataset_identifiers": ["platinum_holmes_1989_table3_shock"]
@@ -360,6 +364,8 @@
               "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_shen_2026_vinet_2",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_shen_2026_vinet_2",
             "parameters": [
               {
                 "parameter": "K0",
@@ -559,6 +565,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_dorogokupets_oganov_2007_vinet_4",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_dorogokupets_oganov_2007_vinet_4",
             "fit": {
               "fixed_parameters": [],
               "dataset_identifiers": ["platinum_dewaele_2004_table1_compression", "platinum_holmes_1989_table3_shock"]
@@ -739,6 +747,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_sokolova_2013_holzapfel_3",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_sokolova_2013_holzapfel_3",
             "fit": {
               "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
               "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
@@ -903,6 +913,8 @@
               "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_dewaele_2019_mao_vinet",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_dewaele_2019_mao_vinet",
             "parameters": [
               {
                 "parameter": "V0",
@@ -1057,6 +1069,8 @@
               "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_dewaele_2019_dor_vinet",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_dewaele_2019_dor_vinet",
             "parameters": [
               {
                 "parameter": "V0",
@@ -1210,6 +1224,8 @@
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_dewaele_2004_mao_ruby_vinet",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_dewaele_2004_mao_ruby_vinet",
             "parameters": [
               {
                 "parameter": "K0",
@@ -1347,6 +1363,8 @@
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_dewaele_2004_revised_ruby_vinet",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_dewaele_2004_revised_ruby_vinet",
             "parameters": [
               {
                 "parameter": "K0_prime",
@@ -1485,6 +1503,8 @@
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_dorfman_2012_tange_mgo_k0_fixed_vinet",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_dorfman_2012_tange_mgo_k0_fixed_vinet",
             "parameters": [
               {
                 "parameter": "K0_prime",
@@ -1663,6 +1683,8 @@
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_dorfman_2012_tange_mgo_k0_free_vinet",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_dorfman_2012_tange_mgo_k0_free_vinet",
             "parameters": [
               {
                 "parameter": "K0",
@@ -1862,6 +1884,8 @@
               "The corrected Ye et al. (2017) co-compression inputs for the selected pathway are bundled. The source-described V0/K0-fixed co-compression pathway reproduces the K0-prime point estimate and its 1 GPa-scatter standard error at the precision printed by Ye et al. (2017).",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_ye_2017_vinet_300k",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_ye_2017_vinet_300k",
             "parameters": [
               {
                 "parameter": "K0_prime",
@@ -2015,6 +2039,8 @@
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_zhu_2025_pvt",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_zhu_2025_pvt",
             "parameters": [
               {
                 "parameter": "gamma0",
@@ -2219,6 +2245,8 @@
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_fei_2004_bm3_mgd",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_fei_2004_bm3_mgd",
             "parameters": [
               {
                 "parameter": "K0",
@@ -2376,6 +2404,8 @@
               "Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_fei_2004_bm3_300k",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_fei_2004_bm3_300k",
             "parameters": [
               {
                 "parameter": "K0",
@@ -2507,6 +2537,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_matsui_2009_vinet_300k",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_matsui_2009_vinet_300k",
             "fit": {
               "fixed_parameters": ["V0"],
               "observations": 0,
@@ -2755,6 +2787,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_matsui_2009_vinet_mgd_electronic",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_matsui_2009_vinet_mgd_electronic",
             "fit": {
               "fixed_parameters": ["V0", "Tr", "theta0", "n"],
               "observations": 35,
@@ -2903,6 +2937,8 @@
               "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The separate platinum_fei_2007_vinet_mgd audit reconstructs the paired Au pressure reduction and a qualified joint thermal fit; the author's complete objective and confidence convention remain unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_fei_2007_vinet_300k",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_fei_2007_vinet_300k",
             "parameters": [
               {
                 "parameter": "K0_prime",
@@ -3056,6 +3092,8 @@
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_fei_2007_vinet_mgd",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_fei_2007_vinet_mgd",
             "parameters": [
               {
                 "parameter": "K0_prime",
@@ -3229,6 +3267,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_yokoo_2009_vinet_300k",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_yokoo_2009_vinet_300k",
             "fit": {
               "fit_kind": "published_reference_isotherm_from_joint_shock_thermodynamic_model",
               "fixed_parameters": ["V0"],
@@ -3555,6 +3595,8 @@
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_yokoo_2009_pvt_reconstruction",
+            "report_path": "docs/reconstruction-reports/platinum.md#record-platinum_yokoo_2009_pvt_reconstruction",
             "fit": {
               "fixed_parameters": ["K0", "K0_prime", "Tr", "theta0", "gamma0", "n"],
               "observations": 0,

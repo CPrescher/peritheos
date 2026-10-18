@@ -107,6 +107,8 @@ establish statistical independence.
 
 **Comparison basis:** Figure 1 resolves state membership exactly: the 40 circles are the liquid states used in the source fit and the six squares are excluded. Supporting Figures S3-S4 contain only high-resolution raster plots, but their regression-line slopes are digitized at nine volumes and reproduce the paper's stated Cv and gamma ranges. The digitized Cv function is close to the published Gaussian; the gamma polynomial remains sensitive to the unavailable source weighting. Subtracting either published or digitized thermal coefficients and freely fitting four BM4 parameters is nearly singular and hits the K0-double-prime audit bound. A stabilized check with V0 and K0-double-prime fixed recovers K0=2.24587 GPa and K0'=23.0422, but the unstable four-parameter sensitivity result must not be reported as a refitted EOS. Exact reproduction still requires the unrounded source values, constraints, weighting, and covariance treatment.
 
+[Open reconstruction report](../reconstruction-reports/fesio3_liquid.md#record-fesio3_liquid_sun_2019_2500k_bm4_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -137,7 +139,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm. The exact 40-state liquid selection is bundled. The paper derives Cv from energy-temperature slopes and gamma from pressure-energy slopes before fitting their volume functions; the supporting information supplies those observations only as raster plots, whose regression-line slopes are now digitized in a separate dataset. The digitization closely recovers the published Cv function but cannot recover the authors' unknown relative weighting for the gamma function. Consequently, subtracting either rounded published or digitized thermal coefficients from Table 1 and freely fitting four BM4 coefficients remains an ill-conditioned sensitivity experiment, not a reproduction of the source regression.
 

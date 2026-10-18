@@ -109,6 +109,8 @@ establish statistical independence.
 
 **Comparison basis:** The eight energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=34.27 A3/FeSiO3, K100=597 GPa, and K100'=3.34; the stored curve is within 0.0108 A3/FeSiO3, 0.110 GPa, and 0.00114, respectively.
 
+[Open reconstruction report](../reconstruction-reports/fesio3_bridgmanite.md#record-fesio3_bridgmanite_cohen_lin_2014_vinet_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -125,7 +127,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Retain as a directly published Vinet parameterization. Keep not\_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.
 
@@ -267,6 +269,8 @@ establish statistical independence.
 
 **Comparison basis:** The official tc-ds62 fpv block provides all four coefficients.
 
+[Open reconstruction report](../reconstruction-reports/fesio3_bridgmanite.md#record-fesio3_bridgmanite_holland_2013_fpv_modified_tait)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -283,7 +287,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

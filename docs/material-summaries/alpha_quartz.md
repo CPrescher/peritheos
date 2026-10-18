@@ -96,6 +96,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/alpha_quartz.md#record-alpha_quartz_angel_1997_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -143,7 +145,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.
 
@@ -249,6 +251,8 @@ establish statistical independence.
 
 **Comparison basis:** The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures.
 
+[Open reconstruction report](../reconstruction-reports/alpha_quartz.md#record-alpha_quartz_driver_2010_qmc_300k_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -265,7 +269,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

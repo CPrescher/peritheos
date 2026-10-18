@@ -98,6 +98,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/ice_vii.md#record-ice_vii_bezacier_2014_bm2_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -145,7 +147,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Joint PVT fit for pure H2O ice VII. Published molar V0=12.49(1) cm^3/mol is converted to the Z=2 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VII measurements tabulated in the paper.
 
@@ -241,6 +243,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/ice_vii.md#record-ice_vii_frank_2004_bm3_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -288,7 +292,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Independent 300 K compression fit. Published molar V0=12.4(1) cm^3/mol is converted to the Z=2 cubic cell. The fit used all three BM3 variables simultaneously; the numeric pressure domain is the range of the authors' 300 K compression data.
 

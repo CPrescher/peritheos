@@ -100,6 +100,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_bm3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -138,7 +140,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Source-reported 300 K isotherm, preserved without substituting refit coefficients. Natural high-spin R-3c Fe0.95Mn0.05CO3, not pure FeCO3. Pressure is retained on the printed Au scale; its exact realization is unresolved. The high-temperature candidate is withheld because Table 1 and the abstract disagree on a0. All printed cold rows give pressure RMSE 0.230 GPa with published coefficients; the manuscript 0.11-0.17 GPa RMS range is not recovered. Source objective, weights, parameter covariance and confidence convention are not specified. No extension across the cited spin transition near 45 GPa or a numerical decomposition boundary is claimed.
 
@@ -259,6 +261,8 @@ establish statistical independence.
 
 **Comparison basis:** Reproduction of the stored independent Peritheos refit under its declared protocol.
 
+[Open reconstruction report](../reconstruction-reports/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -300,7 +304,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

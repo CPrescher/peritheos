@@ -91,6 +91,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/zircon.md#record-zircon_hazen_1979_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -137,7 +139,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Hazen and Finger report V0=260.79(4) A^3 and K0=227(2) GPa for Murnaghan and Birch-Murnaghan fits with K0'=6.5 assumed. The paper's fitted range is 0-48.1 kbar.
 

@@ -93,6 +93,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/pbs_b1.md#record-pbs_b1_knorr_2003_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature B1-PbS Birch-Murnaghan fit: K0=51.0+/-1.2 GPa and K0'=4.3+/-0.9. V0=207.8955+/-0.0421 A^3 is calculated from the reported cubic a=5.9240(4) A. The B1/B16 coexistence interval ends near 6 GPa.
 

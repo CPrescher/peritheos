@@ -127,6 +127,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_mosenfelder_2009_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -168,7 +170,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -278,6 +280,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_sakai_2016_bm3_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -325,7 +329,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Experimental BM3 fit 1 to laser-heated DAC data from this study plus Guignot et al., reaching 265 GPa. Stored as a room-temperature cold curve only because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. Sakai et al. prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range rather than extrapolated.
 
@@ -434,6 +438,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -479,7 +485,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Pure MgSiO3 CaIrO3-type post-perovskite, not CaIrO3 composition or bridgmanite. The conventional Cmcm volume contains four MgSiO3 formula units. This pressure-scale-specific record is distinct from the later Mosenfelder and Sakai parameterizations.
 
@@ -617,6 +623,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -662,7 +670,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.
 
@@ -797,6 +805,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -842,7 +852,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.
 
@@ -987,6 +997,8 @@ establish statistical independence.
 
 **Comparison basis:** The E(V) rows, weights, residuals, and covariance are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1003,7 +1015,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Source-specific theoretical comparison; it does not replace experimental records.
 
@@ -1116,6 +1128,8 @@ establish statistical independence.
 
 **Comparison basis:** Five F(V) states per temperature are described and plotted but not numerically deposited.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1132,7 +1146,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -1234,6 +1248,8 @@ establish statistical independence.
 
 **Comparison basis:** Five F(V) states per temperature are described and plotted but not numerically deposited.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1250,7 +1266,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -1346,6 +1362,8 @@ establish statistical independence.
 
 **Comparison basis:** Figure 1 plots E(V), but the individual energy grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_li_zeng_2009_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1362,7 +1380,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -1458,6 +1476,8 @@ establish statistical independence.
 
 **Comparison basis:** Figure 1 plots E(V), but the individual energy grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_li_zeng_2009_gga_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1474,7 +1494,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -1570,6 +1590,8 @@ establish statistical independence.
 
 **Comparison basis:** Figure 1 plots E(V), but the individual energy grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_li_zeng_2009_gga_natural_strain3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1586,7 +1608,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -1689,6 +1711,8 @@ establish statistical independence.
 
 **Comparison basis:** Figure 1 plots the EOS, but the underlying calculated E-V points and regression covariance are not tabulated; validation uses the exact printed equation and coefficients.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_liu_2010_lda_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1705,7 +1729,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted LitCurate source record litcurate\_cf1303ecf47a5001. The six remaining same-DOI rows are literature comparisons and are not duplicated.
 
@@ -1812,6 +1836,8 @@ establish statistical independence.
 
 **Comparison basis:** Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -1850,7 +1876,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted corrected mapping for LitCurate source row 868 (litcurate\_ef9e7ca080ec8309). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.
 
@@ -1964,6 +1990,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_komabayashi_2008_thermal_bm3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -2020,7 +2048,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

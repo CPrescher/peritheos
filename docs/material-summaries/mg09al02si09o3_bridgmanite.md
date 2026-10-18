@@ -108,6 +108,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mg09al02si09o3_bridgmanite.md#record-mg09al02si09o3_bridgmanite_kubo_2000_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -154,7 +156,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Preferred source result. K0\_prime was fixed rather than fitted. The source calls this a third-order Birch-Murnaghan fit; preserving BM3 plus an explicit fixed parameter avoids changing the published model label.
 
@@ -285,6 +287,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mg09al02si09o3_bridgmanite.md#record-mg09al02si09o3_bridgmanite_kubo_2000_bm3_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -332,7 +336,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Valid source-reported but nonpreferred unconstrained fit. The derivative is not treated as a robust physical determination because the source says its less than 4% compression range cannot determine K0\_prime accurately.
 

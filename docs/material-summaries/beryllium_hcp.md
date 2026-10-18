@@ -102,6 +102,8 @@ establish statistical independence.
 
 **Comparison basis:** Published coefficients are executable; this import does not claim a new refit of row-level observations.
 
+[Open reconstruction report](../reconstruction-reports/beryllium_hcp.md#record-beryllium_hcp_dewaele_2019_mao_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -118,7 +120,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -218,6 +220,8 @@ establish statistical independence.
 
 **Comparison basis:** Published coefficients are executable; this import does not claim a new refit of row-level observations.
 
+[Open reconstruction report](../reconstruction-reports/beryllium_hcp.md#record-beryllium_hcp_dewaele_2019_dor_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -234,7 +238,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 

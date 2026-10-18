@@ -106,6 +106,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/e_feooh.md#record-e_feooh_gleason_2008_bm2_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -152,7 +154,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published 300 K BM2 reference curve recovered from 49 elevated-temperature observations. The source explicitly reports the pooled fit, fixed K0-prime, G-versus-g V0 extrapolation, and absence of a resolvable epsilon thermal-expansion trend, but it does not print an epsilon temperature-correction equation or fit weights. A forensic reconstruction using the paper's alpha0 reproduces K0 to rounding; that correction is retained as fit provenance, not promoted to a general temperature-dependent epsilon-FeOOH model.
 
@@ -302,6 +304,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/e_feooh.md#record-e_feooh_suzuki_2016_bm3_thermal_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -351,7 +355,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

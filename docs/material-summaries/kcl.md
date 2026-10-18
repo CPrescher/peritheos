@@ -108,6 +108,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_campbell_1991_bm2_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -153,7 +155,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Explicit composite B2-KCl reference isotherm. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 constrained over 2-56 GPa. The absolute B2 V0 is 0.8483\*62.36=52.899988 A^3/formula unit, using the independently published experimental B1-KCl V0 of Dewaele et al. (2012). Its 0.355452 A^3 uncertainty propagates the Campbell ratio error only; Dewaele et al. report no B1 V0 error or covariance. This composite is not presented as a single-paper Campbell parameter set.
 
@@ -266,6 +268,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_walker_2002_bm3_2)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -335,7 +339,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Walker et al.'s preferred bold Table 3 B2-KCl BE1 result is staged: the fictive V0=53.53 A^3 reference is held fixed while K0=23.7 GPa and K0'=4.4 are fitted to the room-temperature data, then Equation BE1 fits the directly reported alpha0\*K0=0.0275+/-0.0009 kbar/K thermal-pressure coefficient to the P-V-T data. The separate italic Table 3 row is a simultaneous four-parameter solution (V0=55.25 A^3, K0=14.8 GPa, K0'=6.9, alpha0=0.00018 K^-1) and is not this record. The paper states that individual parameter errors are not meaningful because of correlation, so only the published error of the identifiable alpha0\*K0 product is retained. The represented data span 3.18-8.14 GPa and 23-600 degC.
 
@@ -452,6 +456,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_dewaele_2012_vinet_3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -498,7 +504,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Preferred broadly useful B2-KCl pressure calibration. The reference isotherm is the Rydberg-Vinet fit to helium-medium 298 K measurements; the paper writes it as a 300 K term in Equation (2). V0 is a fictive zero-pressure B2 value fixed from the 2-6 GPa observations. The additive alpha\*K\_T term comes from ab initio molecular dynamics. The paper tabulates neither individual coefficient errors nor covariance, so they remain unavailable rather than being set to zero.
 
@@ -613,6 +619,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_vinet_4)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -662,7 +670,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -778,6 +786,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_chidester_2021_bm3_5)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -828,7 +838,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -945,6 +955,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_holmes_vinet_mgd)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -983,7 +995,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1108,6 +1120,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_holmes_vinet_linear_thermal)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -1145,7 +1159,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.
 
@@ -1259,6 +1273,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -1296,7 +1312,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Nondefault final-publication Table 1 alternative. The final linear-thermal Sokolova row reports K0 error 0.2 GPa, distinct from the MGD row error 0.3 GPa. All 39 official Sokolova-pressure rows are used in the independent joint diagnostic.
 
@@ -1411,6 +1427,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_chidester_2021_vinet_mgd)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -1450,7 +1468,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1573,6 +1591,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/kcl.md#record-kcl_b2_ma_2024_bm3_mgd)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -1611,7 +1631,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

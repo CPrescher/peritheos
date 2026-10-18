@@ -101,6 +101,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/fe093o_rhombohedral.md#record-fe093o_rhombohedral_jacobsen_2005_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -147,7 +149,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published preferred cross-check fit to all nine rhombohedral Table 1 observations from 27.7 to 51.1 GPa, using a 1 atm reference without an artificial P0 data point. V0 and K0 are free and K0'=4 is fixed. The executable V0 is a metastable zero-pressure extrapolation for a phase observed only above 23 GPa. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.
 

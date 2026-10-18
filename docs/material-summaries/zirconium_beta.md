@@ -95,6 +95,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/zirconium_beta.md#record-zirconium_beta_mchardy_2026_vinet_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -141,7 +143,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The beta-phase fit used the selected constrained value V0 = 22.6 A^3/atom. The paper cautions that this far-extrapolated reference volume has no direct physical significance; it is doubled here for the conventional bcc cell.
 

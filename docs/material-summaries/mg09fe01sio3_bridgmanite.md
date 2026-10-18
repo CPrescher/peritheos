@@ -108,6 +108,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/mg09fe01sio3_bridgmanite.md#record-mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -154,7 +156,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published 300 K post-transition low-spin branch. Peritheos stores it as BM3 because the source explicitly calls the fit third-order Birch-Murnaghan; K0\_prime=4 is retained as fixed, making this parameterization algebraically reduce to the second-order special case without changing the source's family label. The article's conventional-cell wording, Pbnm structure, Z=4 topology, complete Table S1 curve, and coefficient-parity refit establish the volume basis. Do not apply this EOS to the high-spin or 18-25 GPa mixed-spin observations.
 
@@ -300,6 +302,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mg09fe01sio3_bridgmanite.md#record-mg09fe01sio3_bridgmanite_mao_1991_bm2_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -341,7 +345,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 BM2 is represented as BM3 with V0 and K0\_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.
 

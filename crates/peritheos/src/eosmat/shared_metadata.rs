@@ -97,7 +97,14 @@ fn assessment(evidence: &Value) -> Result<(), EosmatError> {
             "evidence.reproduction.assessment.basis is required",
         ));
     }
-    for key in ["basis", "report", "source_status", "basis_code"] {
+    for key in [
+        "basis",
+        "report",
+        "report_url",
+        "report_path",
+        "source_status",
+        "basis_code",
+    ] {
         if let Some(value) = fields.get(key) {
             if value.as_str().is_none_or(|s| s.trim().is_empty()) {
                 return Err(invalid_document(format!(

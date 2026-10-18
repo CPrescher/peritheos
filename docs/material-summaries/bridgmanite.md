@@ -146,6 +146,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_tange_2012_bm3_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -195,7 +197,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Preferred default for mantle work. The fit combines multi-anvil data at 28-63 GPa and 300-1500 K with laser-heated DAC data at 52-108 GPa and 300 or 1500-2430 K; the study reports measurements up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=950(150) K, gamma0=1.54(9), and q=1.5(3). The paper calls the exponent b; with its fixed a=1, the published Gruneisen expression reduces exactly to gamma=gamma0(V/V0)^b used here.
 
@@ -302,6 +304,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_tange_2012_vinet_2)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -351,7 +355,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Alternative Vinet fit to the same multi-anvil and laser-heated DAC dataset, measured up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=940(140) K, gamma0=1.55(9), and q=1.1(3). The paper calls the exponent b; with a fixed to 1, it is the q parameter of the conventional MGD volume dependence stored here.
 
@@ -452,6 +456,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_vanpeteghem_2006_bm2_3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -498,7 +504,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Single-crystal P-V data to 10 GPa. Retained as a low-pressure structural reference, not as the default mantle-range EoS. The normalized-stress plot supported a second-order Birch-Murnaghan fit, so K0\_prime=4 is implicit in BM2 rather than stored as a fitted parameter.
 
@@ -599,6 +605,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_saxena_1999_bm3_4)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -645,7 +653,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published 300 K isotherm of the two high-temperature Birch-Murnaghan models, which coincide at 300 K. The full Model 1 and Model 2 parameterizations are intentionally not represented: they require the article's quadratic temperature laws for thermal expansivity and compressibility together with its temperature-dependent K'\_T convention, which the current Peritheos thermal reference-state model cannot encode exactly. The executable record is therefore restricted to 300 K and is not the default bridgmanite EOS. The natural-enstatite starting material contained less than 1% Al and Fe; the authors identify the transformed phase and reported volumes as MgSiO3 perovskite. No EOS-parameter errors, confidence convention, covariance, residual statistic, or fit weights are published.
 
@@ -796,6 +804,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_katsura_2009_bm3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -842,7 +852,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Preferred source-reported room-temperature BM3 for pure MgSiO3 bridgmanite. The formal corrigendum corrects Table 1 but states that no EOS parameters change. The static record is separate from the article's MGD and high-temperature-BM formulations and is not made the material default.
 
@@ -1001,6 +1011,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_katsura_2009_bm3_k0_fixed)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1046,7 +1058,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Source-generated K0-fixed sensitivity fit to the same corrected data as the preferred companion record. It is retained because LitCurate independently proposed this exact parameterization and the primary paper explicitly reports it.
 
@@ -1164,6 +1176,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_wolf_2015_vinet_mgd_4)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1213,7 +1227,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1356,6 +1370,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_criniti_2021_absolute_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1402,7 +1418,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The source calls K\_TR0 and K'\_TR0 a primary pressure scale. The reference cell volume is recovered transparently from the source's ambient density rather than copied from LitCurate. No covariance is published.
 
@@ -1519,6 +1535,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_fiquet_2000_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1566,7 +1584,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 All three coefficients were fitted by the authors; none is marked fixed. Parenthetical uncertainties are preserved, while the confidence convention and covariance are not reported for this room-temperature fit.
 
@@ -1692,6 +1710,8 @@ establish statistical independence.
 
 **Comparison basis:** The coefficients and six calculation pressures are stated; row-wise calculated P-V values are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_metsue_2012_static_bm3_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1708,7 +1728,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 A source-generated static comparison record. It is distinct by method and reference state from previously cataloged experimental MgSiO3 EOS records.
 
@@ -1821,6 +1841,8 @@ establish statistical independence.
 
 **Comparison basis:** The E(V) rows, weights, residuals, and covariance are not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_akber_knutson_2005_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1837,7 +1859,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Source-specific theoretical comparison; it does not replace the experimental catalog default.
 
@@ -1950,6 +1972,8 @@ establish statistical independence.
 
 **Comparison basis:** Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1966,7 +1990,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2068,6 +2092,8 @@ establish statistical independence.
 
 **Comparison basis:** Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2084,7 +2110,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2183,6 +2209,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_mao_1991_bm2_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2224,7 +2252,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 BM2 is represented as BM3 with V0 and K0\_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.
 
@@ -2364,6 +2392,8 @@ establish statistical independence.
 
 **Comparison basis:** The official tc-ds62 mpv block provides V0, K0, K0', and K0'' without model-family conversion.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_holland_2013_mpv_modified_tait)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2380,7 +2410,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2479,6 +2509,8 @@ establish statistical independence.
 
 **Comparison basis:** Figure 1 plots E(V), but the individual energy grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_li_zeng_2009_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2495,7 +2527,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2591,6 +2623,8 @@ establish statistical independence.
 
 **Comparison basis:** Figure 1 plots E(V), but the individual energy grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_li_zeng_2009_gga_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2607,7 +2641,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2703,6 +2737,8 @@ establish statistical independence.
 
 **Comparison basis:** Figure 1 plots E(V), but the individual energy grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_li_zeng_2009_gga_natural_strain3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2719,7 +2755,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2822,6 +2858,8 @@ establish statistical independence.
 
 **Comparison basis:** Complete coefficients are printed, but the underlying energy-volume grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_kiefer_2002_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2838,7 +2876,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2941,6 +2979,8 @@ establish statistical independence.
 
 **Comparison basis:** Calculations were performed every 10 GPa through 120 GPa, but their numerical volume grid is plotted rather than tabulated.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_deng_2006_lda_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2957,7 +2997,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3061,6 +3101,8 @@ establish statistical independence.
 
 **Comparison basis:** Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_wu_2013_gga_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3077,7 +3119,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3181,6 +3223,8 @@ establish statistical independence.
 
 **Comparison basis:** The calculated 0-150 GPa volume series is plotted in Figure 1 but not tabulated; Table I provides the complete fitted coefficients.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_liu_2011_gga_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3197,7 +3241,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3308,6 +3352,8 @@ establish statistical independence.
 
 **Comparison basis:** Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_dorogokupets_2015_298k_rydberg_stacey)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -3346,7 +3392,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted corrected mapping for LitCurate source row 867 (litcurate\_7828334f1795f436). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.
 
@@ -3456,6 +3502,8 @@ establish statistical independence.
 
 **Comparison basis:** The complete fit coefficients are printed; the simulated 300 K volumes are plotted but not tabulated, so no pseudo-observations were digitized.
 
+[Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_hamahata_2000_md_300k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3472,7 +3520,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted LitCurate source row 314 (litcurate\_d6b5cf68e4b9f829) after recovering V0 transparently from the primary source's rho0. Row 315 is a Funamori et al. citation and is not duplicated.
 

@@ -99,6 +99,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/iridium.md#record-iridium_anzellini_2025_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -145,7 +147,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Combined BM3 plus Holland-Powell thermal-pressure fit. The 300 K reference data are from Monteseguro et al. (2019), while the thermal contribution is constrained by the present resistive- and laser-heating experiments. Equation 2 uses a fixed 298 K Einstein temperature and the arithmetic mean of upstream/downstream pyrometry. The 122-row supplement contains the exact laser-heating observations but not numerical tables for the Monteseguro 300 K or present 830 K resistive-heating series. Figure 4 does expose 91 and 16 corresponding marker centers as vector paths; these are bundled as explicitly plot-derived coordinates with graphical uncertainty. A source-conditioned fit holds the published BM3 coefficients fixed and tests alpha0 on all exact hot rows. A separate four-parameter reconstruction combines the digitized series with exact hot rows in the stated plus-or-minus 100 K isotherm bands; it is not exact source parity because the original rows, averaging algorithm, weights, and covariance remain unpublished. fcc Ir remained stable to 101 GPa and 5600 K in the present experiments.
 

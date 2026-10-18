@@ -93,6 +93,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/perovskite_orthorhombic.md#record-perovskite_orthorhombic_knittle_1987_bm3_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature unconstrained Eulerian finite-strain BM3 fit for orthorhombic (Mg0.88Fe0.12)SiO3 perovskite from 25 to 127 GPa: V0=162.77+/-0.39 A^3 (from the reported ambient lattice parameters), K0=266+/-6 GPa, and K0'=3.9+/-0.4.
 

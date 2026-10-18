@@ -106,6 +106,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/e_feooh_hc_low_spin.md#record-e_feooh_hc_low_spin_thompson_2017_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -153,7 +155,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This record represents only the volumetric BM3 fit for the hydrogen-centered low-spin ferromagnetic Pnnm branch. The paper's self-consistent Hubbard U changes with pressure; it is part of the computational protocol, not an EOS coefficient. Table 3 elastic moduli and velocities come from stress-strain elastic tensors and Voigt-Reuss-Hill averaging and are not substituted for the volumetric K0 or K0'. All three BM3 parameters were fitted. Published parameter errors are retained, but their confidence level and covariance are unavailable.
 

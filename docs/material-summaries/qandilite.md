@@ -100,6 +100,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/qandilite.md#record-qandilite_lv_2016_bm2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -147,7 +149,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.
 
@@ -258,6 +260,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/qandilite.md#record-qandilite_lv_2016_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -306,7 +310,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The independent audit uses all 18 printed Table 1 rows and unweighted pressure residuals; the paper states least squares with EoS fit 5.2 but does not publish exact residual direction, numerical weights, covariance, or an input file. Weighted and 17-DAC-row sensitivities are documented separately. No source coefficients are replaced. The observed cubic phase persists kinetically; the pressure envelope is not an equilibrium-stability claim.
 

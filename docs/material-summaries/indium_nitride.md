@@ -92,6 +92,8 @@ establish statistical independence.
 
 **Comparison basis:** This is a first-principles study. The calculated E(V) points are plotted but not tabulated; Table 1 contains only the fitted theoretical parameters.
 
+[Open reconstruction report](../reconstruction-reports/indium_nitride.md#record-indium_nitride_munoz_1993_murnaghan_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -108,7 +110,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Ab initio 0 K static Murnaghan energy-volume fit for wurtzite InN. The theoretical conventional-cell V0=59.92519880888224 A^3 is calculated from Table 1 a0=3.483 A and c0=5.7039 A; K0=166 GPa and K0'=3.8 are from the same pseudopotential row. These are not experimental EOS parameters. The paper estimates finite-cutoff sensitivity from 40/70-Ryd calculations, but does not publish statistical coefficient errors or covariance, so none are inferred.
 

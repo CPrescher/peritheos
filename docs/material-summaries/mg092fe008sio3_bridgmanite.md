@@ -109,6 +109,8 @@ establish statistical independence.
 
 **Comparison basis:** The tabulated P-density observations are Hugoniot states, whereas this BM3 is a shock-reduced reference isentrope. Directly fitting the Hugoniot states to this isentrope is not a source-EOS reproduction. The thermal reduction inputs are not recoverable from this table; retain the shock observations without an invalid isentropic regression.
 
+[Open reconstruction report](../reconstruction-reports/mg092fe008sio3_bridgmanite.md#record-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -125,7 +127,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted LitCurate source row 447. This equilibrium BM3 is the source's shock-reduced reference isentrope, not the directly measured principal Hugoniot and not an independently fitted 298 K isotherm. The AIP proceedings DOI 10.1063/1.1780510 repeats this same data set and is not represented as a second record.
 

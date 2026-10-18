@@ -109,6 +109,8 @@ establish statistical independence.
 
 **Comparison basis:** The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom.
 
+[Open reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_funamori_1998_bm2_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -126,7 +128,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.
 
@@ -258,6 +260,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_irifune_2002_bm2_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -304,7 +308,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Only three compressed points: do not infer a free K0-prime, covariance, thermal coefficients or a new default. The existing Funamori structural cell and default are retained independently of this EOS reference volume.
 
@@ -439,6 +443,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_sueda_2009_htbm_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -487,7 +493,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -658,6 +664,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgal2o4_cafe2o4.md#record-mgal2o4_cafe2o4_sueda_2009_mgd_3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -706,7 +714,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

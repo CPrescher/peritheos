@@ -94,6 +94,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/boron_phosphide.md#record-boron_phosphide_le_godec_2014_vinet_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Single-crystal XRD in neon. The Vinet fit fixed the conventional zinc-blende V0 to 93.2061 A^3; no uncertainty was reported for that fixed value. No phase transition or amorphization was observed to 55 GPa.
 

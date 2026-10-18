@@ -126,6 +126,8 @@ establish statistical independence.
 
 **Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2025_rydberg_stacey_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -142,7 +144,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
 
@@ -240,6 +242,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_heinz_1984_bm2_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -286,7 +290,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Heinz and Jeanloz report V0(B2)/V0(B1) = 0.929 +/- 0.071 and K0 = 36.2 +/- 4.2 GPa from a second-order finite-strain fit, which fixes K0' at 4. The V0 uncertainty is propagated using the ambient B1 volume. The uncitable Sata/Shen fit was removed.
 
@@ -381,6 +385,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_shen_2026_vinet_2)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -441,7 +447,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.11 GPa and K0' +/- 0.02. The B2 phase data are above 33 GPa.
 
@@ -554,6 +560,8 @@ establish statistical independence.
 
 **Comparison basis:** Original Sakai (2011a) paired NaCl/Pt calibration observations are not attached to this 2014 paper. Table 2 NaCl values are downstream measurements, not independent P5 calibration constraints.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2014_yokoo_pt_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -570,7 +578,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A³ from g-G analysis, then fixed. The unusually large printed V0 uncertainty is retained verbatim. Exact new calibration pressure extrema and original paired NaCl/Pt rows are not given in this article; the validity envelope is approximate.
 
@@ -684,6 +692,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_matsui_pt_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -719,7 +729,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
 
@@ -835,6 +845,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_matsui_pt_vinet)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -870,7 +882,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
 
@@ -986,6 +998,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_fei_pt_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1021,7 +1035,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
 
@@ -1137,6 +1151,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_fei_pt_vinet)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1172,7 +1188,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
 
@@ -1288,6 +1304,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_do_pt_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1323,7 +1341,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
 
@@ -1439,6 +1457,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_do_pt_vinet)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1474,7 +1494,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
 
@@ -1590,6 +1610,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_holmes_pt_bm3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1625,7 +1647,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
 
@@ -1740,6 +1762,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2011_holmes_pt_vinet)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1775,7 +1799,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II source-owned experimental fit to this study plus Sata et al. (2002), excluding Sata rows 8 and 11. Z=1 conventional CsCl cell. V0 uncertainty includes extrapolation and the B1 reference-volume error; confidence level and covariance are unspecified. V0 is fixed in the final fit despite its quoted upstream uncertainty. Not the 2014 Yokoo-Pt recalibration. Pt stress \|t\|=2.4 GPa at 304 GPa assumes alpha=1 and is a lower-bound estimate, not proof of hydrostaticity or an uncertainty to add to every pressure. See dedicated audit for the printed g–G sign ambiguity and refit sensitivity.
 
@@ -1890,6 +1914,8 @@ establish statistical independence.
 
 **Comparison basis:** Twelve Figure 3 cold markers set K0/K0-prime, then twelve Figure 4 hot markers set q with the cold fit frozen. The duplicated Figure 4 cold markers and calculated curves are excluded. The staged hot fit does not recover published q; source errors, measured Pt volumes, original weights and covariance are unavailable. Conditional fit errors do not propagate cold-stage uncertainty. Cold and hot residual summaries remain separate.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_fei_2007)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -1922,7 +1948,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -2068,6 +2094,8 @@ establish statistical independence.
 
 **Comparison basis:** Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.
 
+[Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_fei_2007_staged_thermal_refit)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2103,7 +2131,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

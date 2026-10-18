@@ -95,6 +95,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/lif_b1.md#record-lif_b1_dewaele_2019_vinet_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -142,7 +144,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 1 Mao-ruby-scale fit, selected because that column reports parameter uncertainties. Published V0=16.371(30) A^3 per formula unit is multiplied by Z=4 for the conventional B1 cell. The paper states that parenthesized values are 95% confidence intervals.
 

@@ -93,6 +93,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/cao_b2.md#record-cao_b2_richet_1988_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Room-temperature B2-CaO BM3 fit: molar V0=14.8+/-0.2 cm^3/mol (converted to the one-formula-unit cell), K0=1.3+/-0.2 Mbar, and K0'=3.5+/-0.5. B2 observations span 52.7-135 GPa.
 

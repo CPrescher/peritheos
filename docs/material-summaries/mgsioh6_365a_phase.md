@@ -114,6 +114,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgsioh6_365a_phase.md#record-mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -160,7 +162,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Preferred source fit. Table 2's K0' uncertainty (0.2) is stored instead of the abstract's inconsistent 0.1.
 
@@ -289,6 +291,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/mgsioh6_365a_phase.md#record-mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -336,7 +340,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Sensitivity record only; intentionally has no default\_for. Its K0, K0', and K0'' are strongly covariant and the source does not publish covariance.
 
@@ -453,6 +457,8 @@ establish statistical independence.
 
 **Comparison basis:** The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled.
 
+[Open reconstruction report](../reconstruction-reports/mgsioh6_365a_phase.md#record-mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -469,7 +475,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Clearly distinct theoretical record. No default\_for is assigned; the preferred catalog equilibrium record is the experimental BM3.
 

@@ -97,6 +97,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/sro.md#record-sro_liu_1973_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -143,7 +145,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Volumetric BM3 fit to all 23+/-3 degC SrO data through 34.05 GPa. K0=91.3+/-2.7 GPa and K0'=4.3+/-0.3 are one-standard-deviation fit errors. The fixed V0 error represents the paper's stated 0.3% volume accuracy. Between about 7 and 30.7 GPa the nominal B1 cell shows a small tetragonal distortion, but the paper reports no volume discontinuity and deliberately fits all data together. No parameter covariance is published.
 

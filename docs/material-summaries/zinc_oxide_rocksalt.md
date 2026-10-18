@@ -94,6 +94,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/zinc_oxide_rocksalt.md#record-zinc_oxide_rocksalt_hanna_2011_bm2_1)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Hanna et al. report V0 = 19.61(10) A^3 per ZnO and K0 = 172(21) GPa with K0' fixed at 4; values are converted to the conventional Z=4 cell. B1 data were collected above the 8.3-10 GPa coexistence interval, but the exact fitted pressure interval is not tabulated.
 

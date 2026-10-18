@@ -106,6 +106,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/al_bearing_phase_d.md#record-al_bearing_phase_d_xu_2020_bm3_300k)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -152,7 +154,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published room-temperature BM3. V0 was fixed to the in situ 300 K zero-pressure observation; K0 and K0' were fitted. Parenthetical parameter errors have no stated confidence convention, and no covariance matrix or scalar fit statistic is published. The broader experiment used Au and NaCl pressure standards, while the article's Table 1 explicitly labels this represented BM3 as the Tsuchiya (2003) gold-scale fit. The article also publishes high-temperature BM3 and pressure-scale-free elastic parameterizations, but the narrative and Table 1 disagree on their fit interval, fixed/free choices, alpha(T) form, and coefficients; none is silently approximated as a Peritheos thermal EOS.
 

@@ -173,6 +173,8 @@ establish statistical independence.
 
 **Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_sakai_2025_rydberg_stacey_1)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -189,7 +191,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
 
@@ -296,6 +298,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_b1_tange_2009_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -332,7 +336,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Fit3-Vinet is one of the two retained pressure-scale-free MgO models. K0 and theta0 are dependent quantities recalculated from the fixed 300 K KS0, alpha0, and CP0 anchors at every trial gamma0; only K0\_prime, gamma0, a, and b are independent Fit3 variables. The redistributable 102-row subset validates the coupled thermal, elastic, and shock implementation but is not the complete eight-source global fit. The 2010 correction changes Figure 11 only and does not change these parameters.
 
@@ -427,6 +431,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_duffy_1995_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -473,7 +479,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static nonhydrostatic BM3 fit to 227 GPa: K0 = 177 +/- 4 GPa and K0' = 4.0 +/- 0.1. The fixed molar V0 = 11.253 cm^3/mol was converted to the conventional Z=4 B1 cell.
 
@@ -585,6 +591,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_speziale_2001_bm3_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -632,7 +640,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -797,6 +805,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_li_2006_bm3_absolute_acoustic)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -840,7 +850,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. It is directly reproducible through the source's actual measurement-to-coefficient chain: measured acoustic velocities and density are fitted with third-order finite-strain equations to obtain adiabatic moduli, Equation 4 converts the preferred decompression fit to isothermal K0T and K0T', and BM3 Equation 3 then calculates pressure from volume. Table 1 pressures are therefore downstream EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.
 
@@ -1002,6 +1012,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_jacobsen_2008_bm3_kcl_mao1978)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1049,7 +1061,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published three-parameter BM3 fit to the non-hydrostatic KCl-medium series using the Mao et al. (1978) non-hydrostatic ruby scale. The fitted V0 was not fixed. Table 2 contains 26 high-pressure observations; the ambient V0 anchor is printed in Table 1 and attributed to Jacobsen et al. (2002). The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective. The 300 K reference is nominal room temperature. This pressure-scale-specific fit is retained separately from the companion helium/Mao-1986 fit.
 
@@ -1189,6 +1201,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_jacobsen_2008_bm3_helium_mao1986)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1236,7 +1250,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published three-parameter BM3 fit to all three helium-medium runs using Mao et al. (1986) quasi-hydrostatic ruby pressures through 85 GPa and six Sun et al. (2005) diamond-Raman pressures calibrated against that ruby scale at higher compression. The 111.0 GPa upper bound is the maximum pressure actually used by this BM3; the paper's 118.1 GPa headline value is the same final volume recalculated from the Zha et al. (2000) MgO scale. The Zha-derived pressure column is preserved as provenance but is not a separate Jacobsen MgO EOS because it is calculated from the already-defined Zha pressure scale. The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective.
 
@@ -1389,6 +1403,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_shen_2026_vinet_3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -1449,7 +1465,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.
 
@@ -1569,6 +1585,8 @@ establish statistical independence.
 
 **Comparison basis:** A 12-residual primary-row sensitivity fit is executable, but it is not the source global refit: Kono's exact velocity-density regressions, the selected upstream shock/PVT rows, temperature/density error propagation, cross-observable normalization, and covariance are still unavailable. Tables II-III are excluded because they are derived EOS output.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_b1_luo_2023_vinet_thermal_5)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1613,7 +1631,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; four temperatures span 3088-5676 K and three Eulerian sound velocities are reported. The full quasi-Debye equations and inverse-variance objective are reconstructable from Luo et al. (2023) and Xian et al. (2022), and Peritheos implements that mechanism as SoundVelocityDebyeHelmholtz. The source-author numerical rerun is not reconstructable because the Kono velocity-density coefficients, complete upstream row mask, uncertainty propagation across P-V-T observables, and covariance are not published. A bounded 12-residual fit using only Luo Table I primary rows and a declared Li-2006 velocity-ratio proxy is recorded in the refit ledger; it does not replace this published Appendix-B record. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.
 
@@ -1755,6 +1773,8 @@ establish statistical independence.
 
 **Comparison basis:** All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_sokolova_2013_holzapfel_4)
+
 Original audit code: `source_reconstruction`.
 
 **Limitations and qualifications:**
@@ -1783,7 +1803,7 @@ Original audit code: `source_reconstruction`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The implemented MgO a0 coefficient follows the explicit 2016 correction, so that term has dual 2013/2016 provenance. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
 
@@ -1901,6 +1921,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_bm3_mgd_5)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -1947,7 +1969,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -2074,6 +2096,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_bm2_sensitivity_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2119,7 +2143,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Explicit Table 3 sensitivity fit to the same combined 300 K data used for the preferred BM3 reference isotherm. It is retained for model comparison and is not a separate experiment or thermal EOS.
 
@@ -2225,6 +2249,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_murnaghan_sensitivity_2)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2270,7 +2296,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Explicit Table 3 Murnaghan fit to the combined 300 K data. It is retained for model comparison and is not a separate experiment or thermal EOS.
 
@@ -2377,6 +2403,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_vinet_sensitivity_3)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2422,7 +2450,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Explicit Table 3 Vinet fit to the combined 300 K data. It is retained for model comparison and is not a separate experiment or thermal EOS.
 
@@ -2529,6 +2557,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_dewaele_2000_natural_strain3_sensitivity_4)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2574,7 +2604,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The paper calls this the logarithmic EOS and cites Poirier-Tarantola; it is encoded as the equivalent third-order natural-strain model. It is an explicit Table 3 fit to the combined 300 K data, retained only as a nonpreferred sensitivity.
 
@@ -2702,6 +2732,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_b1_duffy_ahrens_1995_hugoniot_5)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -2745,7 +2777,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Constrained principal Hugoniot for the untransformed B1 phase only. This is not the separately plotted equilibrium 300 K isotherm/hydrostat or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty.
 
@@ -2860,6 +2892,8 @@ establish statistical independence.
 
 **Comparison basis:** The complete coefficients are tabulated but the fitted energy-volume grid is not published.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_ecp_large_core_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2876,7 +2910,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -2979,6 +3013,8 @@ establish statistical independence.
 
 **Comparison basis:** No numerical energy-volume grid is published.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_ecp_small_core_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -2995,7 +3031,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3097,6 +3133,8 @@ establish statistical independence.
 
 **Comparison basis:** No numerical energy-volume grid is published.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_paw_large_core_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3113,7 +3151,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3215,6 +3253,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_paw_small_core_static_bm3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -3262,7 +3302,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3365,6 +3405,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_static_bm3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -3412,7 +3454,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3515,6 +3557,8 @@ establish statistical independence.
 
 **Comparison basis:** The coefficients and plotted curve are published; no row-level thermal grid is deposited.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_0k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3531,7 +3575,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3633,6 +3677,8 @@ establish statistical independence.
 
 **Comparison basis:** Coefficients and curve are published; underlying thermal grid is not.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_298k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3649,7 +3695,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3750,6 +3796,8 @@ establish statistical independence.
 
 **Comparison basis:** No row-level thermal grid is published.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_1000k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3766,7 +3814,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3867,6 +3915,8 @@ establish statistical independence.
 
 **Comparison basis:** No row-level thermal grid is published.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_2000k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -3883,7 +3933,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -3984,6 +4034,8 @@ establish statistical independence.
 
 **Comparison basis:** No row-level thermal grid is published.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_3000k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4000,7 +4052,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -4101,6 +4153,8 @@ establish statistical independence.
 
 **Comparison basis:** No row-level thermal grid is published.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_oganov_2003_pressure_corrected_4000k_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4117,7 +4171,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -4219,6 +4273,8 @@ establish statistical independence.
 
 **Comparison basis:** The exact BM3 coefficients and plotted curves are published, but the underlying pressure-volume calculation table and fitting weights are not.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_lee_wan_2008_lda_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4235,7 +4291,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -4339,6 +4395,8 @@ establish statistical independence.
 
 **Comparison basis:** The exact BM3 coefficients and plotted curves are published, but the underlying pressure-volume calculation table and fitting weights are not.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_lee_wan_2008_gga_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4355,7 +4413,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -4459,6 +4517,8 @@ establish statistical independence.
 
 **Comparison basis:** The official tc-ds62 per block provides all four coefficients.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_holland_2013_per_modified_tait)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4475,7 +4535,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -4576,6 +4636,8 @@ establish statistical independence.
 
 **Comparison basis:** Calculated states are plotted but not tabulated.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_b1_zhang_bukowinski_1991_mpib_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4592,7 +4654,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -4696,6 +4758,8 @@ establish statistical independence.
 
 **Comparison basis:** The calculated states are plotted in Figure 1 but not tabulated; validation therefore checks the published equation, coefficients, derivative identities, and inverse curve rather than inventing row-level data.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_karki_1997_lda_static_bm4)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4712,7 +4776,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted LitCurate source record litcurate\_c2d9fd33177eb390 after resolving its omitted V0 and K0\_double\_prime directly from the primary paper. This BM4 fit is retained separately from the paper's BM3 sensitivity fit.
 
@@ -4818,6 +4882,8 @@ establish statistical independence.
 
 **Comparison basis:** The calculated states are plotted but not tabulated; no pseudo-observations were constructed.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_karki_1997_lda_static_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -4834,7 +4900,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted LitCurate source record litcurate\_df447e7b3becd6df. This is a source-reported model-order sensitivity fit, not a duplicate experimental run.
 
@@ -4940,6 +5006,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_belmonte_2017_b3lyp_static_bm3)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -4987,7 +5055,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -5093,6 +5161,8 @@ establish statistical independence.
 
 **Comparison basis:** The theoretical comparison curves are plotted but no pressure-volume calculation table is published; validation uses the exact printed equation and coefficients without inventing pseudo-observations.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_hama_suito_1996_qsm_static_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -5109,7 +5179,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted LitCurate source record litcurate\_c6a0c7a005a7ff43 after resolving the printed atomic-unit volume basis directly from Table 1.
 
@@ -5216,6 +5286,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_ye_2017_vinet_300k)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -5253,7 +5325,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 
@@ -5375,6 +5447,8 @@ establish statistical independence.
 
 **Comparison basis:** Every released v3 fit-input row is included in an independent translation of Zhu's iterative energy-balance and robust-bisquare optimization. The fitted gamma0 and b reproduce the rounded optimizer/property parameter set at its stated numerical precision. The inconsistent standalone v3 calculators are not used as the fit target.
 
+[Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_zhu_2025_pvt)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -5411,7 +5485,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm.
 

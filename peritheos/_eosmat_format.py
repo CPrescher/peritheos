@@ -138,6 +138,8 @@ _ASSESSMENT_KEYS = (
     "basis",
     "basis_code",
     "qualifications",
+    "report_url",
+    "report_path",
     "parameters",
     "fit",
     "report",

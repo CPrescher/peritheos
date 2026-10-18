@@ -96,6 +96,8 @@
               "Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, numerical weights, row-wise pressure/temperature uncertainties, covariance, or confidence convention, so Peritheos uses ordinary pressure residuals. Every varied coefficient is recovered within its published uncertainty; the result is classified similar because the small alpha1 coefficient has a 46% relative shift. See the dedicated [Zhao jadeite audit](literature-reproductions/zhao-1997-jadeite.md).",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/naalsi2o6/#record-naalsi2o6_zhao_1997_bm3_1",
+            "report_path": "docs/reconstruction-reports/naalsi2o6.md#record-naalsi2o6_zhao_1997_bm3_1",
             "parameters": [
               {
                 "parameter": "rt_eos.K0",

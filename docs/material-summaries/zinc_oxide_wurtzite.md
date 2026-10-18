@@ -94,6 +94,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/zinc_oxide_wurtzite.md#record-zinc_oxide_wurtzite_hanna_2011_bm2_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -140,7 +142,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Hanna et al. report V0 = 23.85(6) A^3 per ZnO and K0 = 139(8) GPa with K0' fixed at 4; V0 and its uncertainty are doubled here for the conventional Z=2 cell. The B4-to-B1 transition begins near 8.3 GPa.
 

@@ -240,6 +240,44 @@ Missing tables or fit details remain missing. `report` identifies the full ledge
 look up its `record_identifier` using the EOS record's identifier. Dedicated audit
 links and detailed historical evidence remain available in the same record.
 
+### Open the human-readable reconstruction report
+
+Bundled assessments also contain two direct destinations:
+
+```json
+"report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/akimotoite/#record-akimotoite_dorogokupets_2015_298k_rydberg_stacey",
+"report_path": "docs/reconstruction-reports/akimotoite.md#record-akimotoite_dorogokupets_2015_298k_rydberg_stacey"
+```
+
+`report_url` opens the specific EOS section on **Read the Docs latest**.
+`report_path` is relative to the repository and identifies the same section in
+offline or version-specific documentation builds. Material summaries use relative
+links, so they remain inside the documentation version being read. The hosted
+URL becomes available only after the corresponding docs are published. `latest`
+can change after subsequent audits; use the repository path at the relevant
+commit or documentation version when an exact historical assessment is needed.
+These optional fields do not require standalone user files to have online reports.
+The existing `report` field still identifies the full machine-readable ledger.
+
+The [reconstruction reports](reconstruction-reports/index.md) cover every bundled
+EOS. They explain scope, comparison basis, recorded data/method, fixed constraints
+and limitations. Where numeric comparison pairs exist, a graph shows source/target
+and reconstructed **coefficient central values**, with full values and reported
+errors in a table. These graphs are not observation/residual plots, uncertainty
+bands or new fits. Missing values are never inferred. Supporting source reports
+and their existing observation/residual plots remain linked where explicitly
+identified by the evidence. Illustrated discussions that explicitly name an EOS
+are also linked as related reports; mentioning an EOS does not establish that
+the discussion reproduces its fit.
+
+Repository maintainers generate these pages and graphs with
+`python -m scripts.generate_reconstruction_reports`; `--check` detects drift.
+It reads stored assessments without rerunning scientific fits. Plot checks use
+input and SVG-content fingerprints, avoiding byte differences caused solely by
+different Matplotlib versions. Plot generation needs the documentation dependencies.
+After a reviewed audit change, update the assessment and regenerate reports and
+material summaries together.
+
 Repository maintainers can run
 `python -m scripts.standardize_reconstruction_metadata --check` to detect drift.
 Without `--check`, the tool adds missing assessments from the existing ledger.

@@ -145,6 +145,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -184,7 +186,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -296,6 +298,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -335,7 +339,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -447,6 +451,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -486,7 +492,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -598,6 +604,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -637,7 +645,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -749,6 +757,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -788,7 +798,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -900,6 +910,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -939,7 +951,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1051,6 +1063,8 @@ establish statistical independence.
 
 **Comparison basis:** Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p2_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1075,7 +1089,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1187,6 +1201,8 @@ establish statistical independence.
 
 **Comparison basis:** Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p2_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1211,7 +1227,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1323,6 +1339,8 @@ establish statistical independence.
 
 **Comparison basis:** Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p3_bm3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1347,7 +1365,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1459,6 +1477,8 @@ establish statistical independence.
 
 **Comparison basis:** Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p3_vinet)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -1483,7 +1503,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1595,6 +1615,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p4_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -1634,7 +1656,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1746,6 +1768,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p4_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -1785,7 +1809,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1897,6 +1921,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p5_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -1936,7 +1962,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2048,6 +2074,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p5_vinet)
+
 Original audit code: `similar`.
 
 **Limitations and qualifications:**
@@ -2088,7 +2116,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2200,6 +2228,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p6_bm3)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2239,7 +2269,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2351,6 +2381,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p6_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2390,7 +2422,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -2515,6 +2547,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type1_thermal)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2558,7 +2592,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -2708,6 +2742,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type2_thermal)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2751,7 +2787,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -2901,6 +2937,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_1_thermal)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -2944,7 +2982,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -3094,6 +3132,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_2_thermal)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -3136,7 +3176,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -3286,6 +3326,8 @@ establish statistical independence.
 
 **Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
 
+[Open reconstruction report](../reconstruction-reports/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_type4_3_thermal)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -3327,7 +3369,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

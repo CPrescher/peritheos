@@ -104,6 +104,8 @@ establish statistical independence.
 
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
 
+[Open reconstruction report](../reconstruction-reports/mgfe94o_rhombohedral.md#record-mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1)
+
 Original audit code: `parity`.
 
 **Limitations and qualifications:**
@@ -152,7 +154,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is stored on a two-atom, one-formula-unit primitive EOS basis because the source does not publish a complete conventional-cell metric. All three coefficients were free; no numerical covariance matrix is available.
 

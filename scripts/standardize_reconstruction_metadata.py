@@ -16,6 +16,7 @@ from typing import Any
 
 from peritheos import validate_eosmat_document
 from peritheos._eosmat_format import format_eosmat
+from scripts.reconstruction_links import report_links
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "docs/data/primary-eos-refits.json"
@@ -188,6 +189,8 @@ def assessment_for_record(
         )
     result["fit"] = {key: copy.deepcopy(row[key]) for key in FIT_FIELDS if key in row}
     result["report"] = REPORT
+    if row.get("material_identifier"):
+        result.update(report_links(row["material_identifier"], record["identifier"]))
     result["source_status"] = row["status"]
     if row.get("parity_basis"):
         result["basis_code"] = copy.deepcopy(row["parity_basis"])
@@ -207,13 +210,28 @@ def standardize_document(
             raise ValueError(
                 f"No existing reconstruction ledger entry for {identifier}"
             )
+        if (
+            rows[identifier].get("material_identifier", result["identifier"])
+            != result["identifier"]
+        ):
+            raise ValueError(
+                f"Reconstruction ledger material does not match {identifier}"
+            )
         assessment = assessment_for_record(record, rows[identifier])
         reproduction = record.setdefault("evidence", {}).setdefault("reproduction", {})
         if not isinstance(reproduction, dict):
             raise ValueError(
                 f"Historical reproduction metadata is not an object: {identifier}"
             )
-        if "assessment" in reproduction and reproduction["assessment"] != assessment:
+        existing = reproduction.get("assessment")
+        # Add navigation to an otherwise identical existing assessment. Never
+        # overwrite scientific findings or an explicitly different report link.
+        previous = {
+            k: v
+            for k, v in assessment.items()
+            if k not in {"report_url", "report_path"}
+        }
+        if existing is not None and existing not in (assessment, previous):
             raise ValueError(
                 f"Existing assessment differs for {identifier}; review it explicitly before replacing"
             )

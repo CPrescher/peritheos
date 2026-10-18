@@ -104,6 +104,8 @@ establish statistical independence.
 
 **Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
 
+[Open reconstruction report](../reconstruction-reports/lead_hcp.md#record-lead_hcp_dewaele_2019_mao_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -151,7 +153,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -252,6 +254,8 @@ establish statistical independence.
 
 **Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
 
+[Open reconstruction report](../reconstruction-reports/lead_hcp.md#record-lead_hcp_dewaele_2019_dor_vinet)
+
 Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
@@ -299,7 +303,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -402,6 +406,8 @@ establish statistical independence.
 
 **Comparison basis:** The bundled Figure 3 coordinates are plot-digitized room-temperature and source-reduced markers, not the complete original P-V-T observations used to fit the nine-coefficient hcp thermal BM3 surface. The original rows, residual coordinate, weights, and covariance procedure are not published. See the \[dedicated Fortes/Kuznetsov audit\](literature-reproductions/fortes-2019-fcc-pb.md).
 
+[Open reconstruction report](../reconstruction-reports/lead_hcp.md#record-lead_hcp_kuznetsov_2002_bm3_3)
+
 Original audit code: `not_refittable`.
 
 **Limitations and qualifications:**
@@ -418,7 +424,7 @@ Original audit code: `not_refittable`.
 
 </details>
 
-Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit\_fortes\_2019\_fcc\_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.
 
