@@ -21,7 +21,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 23 |
-| Observation datasets | 21 |
+| Observation datasets | 24 |
 
 Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) is the default.
 
@@ -3058,3 +3058,60 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-fei-2004-speziale-2001-recalculated-pvt.csv)
 — SHA-256 `0cbe94de992f1563bf638c621a5516a3e283144a74920f4834fa0d9062ba4cd7`.
+
+### gold\_sakai\_2025\_dewaele\_2004\_au\_input
+
+- **Description:** Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold\_dewaele\_2004\_table1\_compression in its original reported coordinates.
+- **Kind:** pressure\_volume
+- **Reference:**
+    - **Authors:** Dewaele; Loubeyre; Mezouar
+    - **Year:** 2004
+    - **Source:** Phys. Rev. B
+    - **Volume:** 70
+    - **Locator:** 094112
+    - **DOI:** 10.1103/PhysRevB.70.094112
+- **Source location:** Table I, journal page 094112-4
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Notes:** Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale. Original source-table notes: Table I groups Cu/W/Al in the first two runs and Au/Pt/Ta in the last three runs. Blank metal cells are omitted rather than imputed. P\_R is the classical Mao et al. (1986) reduction (A=1904 GPa, B=7.665); P'\_R is the Dewaele et al. revision (A=1904 GPa, B=9.5). The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but prints neither row-wise pressure errors nor raw R1 wavelengths.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-dewaele-2004-table1-compression.csv)
+— SHA-256 `c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438`.
+
+### gold\_sakai\_2025\_takemura\_2008\_au\_input
+
+- **Description:** Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold\_takemura\_2008\_table3\_compression in its original reported coordinates.
+- **Kind:** pressure\_lattice\_parameter
+- **Reference:**
+    - **Authors:** Takemura; Dewaele
+    - **Year:** 2008
+    - **Source:** Phys. Rev. B
+    - **Volume:** 78
+    - **Locator:** 104119
+    - **DOI:** 10.1103/PhysRevB.78.104119
+- **Source location:** Table III, all runs; P, P-prime, and am(111) columns
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Notes:** Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale. Original source-table notes: The record's EOS was fitted to P-prime versus volume derived from am(111); fcc atomic volume is am(111)^3/4. Other reflection-specific lattice parameters and estimated uniaxial stresses remain available in the printed source table but are not required to reproduce this hydrostatic fit. Pointwise uncertainties are not tabulated.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-takemura-2008-table3-compression.csv)
+— SHA-256 `04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858`.
+
+### gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input
+
+- **Description:** Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold\_hirose\_2008\_table1 in its original reported coordinates.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Hirose; Sata; Komabayashi; Ohishi
+    - **Year:** 2008
+    - **Title:** Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale
+    - **Source:** Physics of the Earth and Planetary Interiors
+    - **Volume:** 167
+    - **Locator:** 149-154
+    - **DOI:** 10.1016/j.pepi.2008.03.002
+- **Source location:** Table 1, page 150
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Parenthetical errors are retained; their confidence convention is unspecified. Run 3 lattice errors are absent. Run 3 pressure errors include temperature only; the authors estimate an additional MgO volume contribution up to 0.5 GPa. Temperature spatial variation was below ±10%; this is not a row-wise standard deviation.
+- **Notes:** Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-table1.csv)
+— SHA-256 `f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9`.

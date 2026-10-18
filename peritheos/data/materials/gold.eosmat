@@ -4214,6 +4214,224 @@
         }
       },
       "notes": "Third-party source rights remain with their owners; no source-rights transfer or source CC0 claim. Fei EOS work remains paused; source measurements are used for the separate combined refit."
+    },
+    {
+      "identifier": "gold_sakai_2025_dewaele_2004_au_input",
+      "kind": "pressure_volume",
+      "description": "Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold_dewaele_2004_table1_compression in its original reported coordinates.",
+      "reference": {
+        "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+        "year": 2004,
+        "source": "Phys. Rev. B",
+        "volume": "70",
+        "locator": "094112",
+        "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Table I, journal page 094112-4",
+      "columns": [
+        {
+          "name": "ruby_pressure_classical_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value",
+          "pressure_scale": {
+            "calibration_record": "ruby_mao_1986",
+            "reference": {
+              "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+              "year": 2004,
+              "source": "Phys. Rev. B",
+              "volume": "70",
+              "locator": "094112",
+              "doi": "10.1103/PhysRevB.70.094112"
+            },
+            "source_location": "Table I classical P_R; Equation (1), A=1904 GPa, B=7.665"
+          }
+        },
+        {
+          "name": "ruby_pressure_revised_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value",
+          "pressure_scale": {
+            "calibration_record": "ruby_dewaele_2004",
+            "reference": {
+              "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+              "year": 2004,
+              "source": "Phys. Rev. B",
+              "volume": "70",
+              "locator": "094112",
+              "doi": "10.1103/PhysRevB.70.094112"
+            },
+            "source_location": "Table I revised P'_R; Equation (1), A=1904 GPa, B=9.5"
+          }
+        },
+        {"name": "atomic_volume_a3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "value"},
+        {
+          "name": "atomic_volume_uncertainty_a3",
+          "quantity": "atomic_volume",
+          "unit": "angstrom^3/atom",
+          "role": "bound",
+          "of": "atomic_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/gold-dewaele-2004-table1-compression.csv",
+        "sha256": "c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["gold_sakai_2025_rydberg_stacey_1"],
+      "transcription": {
+        "type": "direct_table_transcription",
+        "method": "Manual transcription from the publisher PDF with source row order and printed decimal precision retained.",
+        "source_artifact": {
+          "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+          "media_type": "application/pdf",
+          "sha256": "1f9e02e4a77f49a868b1a6261290465bdb00597b1660691b1790c7502ec9aeeb"
+        }
+      },
+      "license": "No explicit open data-reuse license is stated. APS copyright applies to the article; this factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
+      "notes": "Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale. Original source-table notes: Table I groups Cu/W/Al in the first two runs and Au/Pt/Ta in the last three runs. Blank metal cells are omitted rather than imputed. P_R is the classical Mao et al. (1986) reduction (A=1904 GPa, B=7.665); P'_R is the Dewaele et al. revision (A=1904 GPa, B=9.5). The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but prints neither row-wise pressure errors nor raw R1 wavelengths.",
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+      "provenance": {"reused_dataset_identifier": "gold_dewaele_2004_table1_compression"}
+    },
+    {
+      "identifier": "gold_sakai_2025_takemura_2008_au_input",
+      "kind": "pressure_lattice_parameter",
+      "description": "Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold_takemura_2008_table3_compression in its original reported coordinates.",
+      "source_location": "Table III, all runs; P, P-prime, and am(111) columns",
+      "source_url": "https://doi.org/10.1103/PhysRevB.78.104119",
+      "columns": [
+        {"name": "run", "quantity": "run_identifier", "unit": "1", "role": "flag"},
+        {"name": "ruby_pressure_zha_gpa", "quantity": "pressure_from_zha_ruby_scale", "unit": "GPa", "role": "value"},
+        {
+          "name": "ruby_pressure_dorogokupets_gpa",
+          "quantity": "pressure_from_dorogokupets_oganov_ruby_scale",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "lattice_111_angstrom",
+          "quantity": "lattice_parameter_from_111_reflection",
+          "unit": "angstrom",
+          "role": "value"
+        }
+      ],
+      "resource": {
+        "path": "datasets/gold-takemura-2008-table3-compression.csv",
+        "sha256": "04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858",
+        "media_type": "text/csv"
+      },
+      "notes": "Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale. Original source-table notes: The record's EOS was fitted to P-prime versus volume derived from am(111); fcc atomic volume is am(111)^3/4. Other reflection-specific lattice parameters and estimated uniaxial stresses remain available in the printed source table but are not required to reproduce this hydrostatic fit. Pointwise uncertainties are not tabulated.",
+      "reference": {
+        "authors": ["Takemura", "Dewaele"],
+        "year": 2008,
+        "source": "Phys. Rev. B",
+        "volume": "78",
+        "locator": "104119",
+        "doi": "10.1103/PhysRevB.78.104119"
+      },
+      "used_by_eos_records": ["gold_sakai_2025_rydberg_stacey_1"],
+      "provenance": {"reused_dataset_identifier": "gold_takemura_2008_table3_compression"}
+    },
+    {
+      "identifier": "gold_sakai_2025_hirose_2008_au_mgo_input",
+      "kind": "simultaneous_xrd_compression",
+      "description": "Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold_hirose_2008_table1 in its original reported coordinates.",
+      "reference": {
+        "authors": ["Hirose", "Sata", "Komabayashi", "Ohishi"],
+        "year": 2008,
+        "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "167",
+        "locator": "149-154",
+        "doi": "10.1016/j.pepi.2008.03.002"
+      },
+      "source_location": "Table 1, page 150",
+      "source_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+      "columns": [
+        {"name": "run", "quantity": "run", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "mgo_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "mgo_a_angstrom_uncertainty",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "mgo_a_angstrom"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_gpa_uncertainty",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "mgo_matsui_pressure_gpa", "quantity": "comparison_pressure", "unit": "GPa", "role": "value"},
+        {"name": "gold_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "gold_a_angstrom_uncertainty",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "gold_a_angstrom"
+        },
+        {"name": "gold_fit2_pressure_gpa", "quantity": "comparison_pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "gold_fit2_pressure_gpa_uncertainty",
+          "quantity": "comparison_pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "gold_fit2_pressure_gpa"
+        },
+        {"name": "gold_jamieson_pressure_gpa", "quantity": "comparison_pressure", "unit": "GPa", "role": "value"},
+        {"name": "gold_heinz_pressure_gpa", "quantity": "comparison_pressure", "unit": "GPa", "role": "value"},
+        {"name": "gold_anderson_pressure_gpa", "quantity": "comparison_pressure", "unit": "GPa", "role": "value"},
+        {"name": "gold_shim_pressure_gpa", "quantity": "comparison_pressure", "unit": "GPa", "role": "value"},
+        {"name": "gold_tsuchiya_pressure_gpa", "quantity": "comparison_pressure", "unit": "GPa", "role": "value"},
+        {"name": "gold_fei_pressure_gpa", "quantity": "comparison_pressure", "unit": "GPa", "role": "value"},
+        {"name": "nacl_b1_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "nacl_b1_a_angstrom_uncertainty",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "nacl_b1_a_angstrom"
+        },
+        {"name": "nacl_b2_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "nacl_b2_a_angstrom_uncertainty",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "nacl_b2_a_angstrom"
+        },
+        {"name": "volume_a3", "quantity": "volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_uncertainty_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        },
+        {"name": "mgo_volume_a3", "quantity": "calibrant_volume", "unit": "angstrom^3", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/gold-hirose-2008-table1.csv",
+        "sha256": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["gold_sakai_2025_rydberg_stacey_1"],
+      "uncertainty": {
+        "notes": "Parenthetical errors are retained; their confidence convention is unspecified. Run 3 lattice errors are absent. Run 3 pressure errors include temperature only; the authors estimate an additional MgO volume contribution up to 0.5 GPa. Temperature spatial variation was below ±10%; this is not a row-wise standard deviation."
+      },
+      "provenance": {
+        "type": "transcribed_from_primary_source_table",
+        "zotero_item_key": "RCISM6W3",
+        "source_artifact_sha256": "83c61450294d40e0ae6fed9a3dbbd4fdb5ef52c54a642f9c13ab540c32ba8d91",
+        "reused_dataset_identifier": "gold_hirose_2008_table1"
+      },
+      "notes": "Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale."
     }
   ]
 }

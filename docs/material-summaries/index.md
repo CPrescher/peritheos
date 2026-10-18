@@ -119,7 +119,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Forsterite](forsterite.md) | Mg2SiO4 | 3 | 3 |
 | [GeO2](geo2_rutile.md) | GeO2 | 1 | 1 |
 | [Goethite](goethite.md) | FeOOH | 1 | 1 |
-| [Gold](gold.md) | Au | 23 | 21 |
+| [Gold](gold.md) | Au | 23 | 24 |
 | [Graphite](graphite.md) | C | 1 | 1 |
 | [Hydrous silica CaCl2 type (Nisr 2017)](hydrous_silica_cacl2_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |
 | [Hydrous stishovite (Nisr 2017)](hydrous_stishovite_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |

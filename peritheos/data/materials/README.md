@@ -204,13 +204,16 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 375 distinct datasets with 26,790 retained rows, represented by 415 material-document links to 521 EOS records.
+The current bundle contains 378 distinct datasets with 26,934 retained rows, represented by 418 material-document links to 521 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate
 Peritheos BM3 refit uses the digitized density observations with documented
 weighting and measured-range limits; curve vertices and constants are not
 independent measured observations.
+The three Sakai gold source-table aliases reuse the existing Dewaele (2004),
+Takemura (2008), and Hirose (2008) CSVs. Their declarations and rows are counted
+here, but they add no independent measurements or recalibrated pressures.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,

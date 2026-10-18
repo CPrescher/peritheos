@@ -172,7 +172,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `forsterite` | Mg2SiO4 | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 3 |
 | `geo2_rutile` | GeO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `goethite` | FeOOH | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
-| `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 21 |
+| `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 24 |
 | `graphite` | C | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `hydrous_silica_cacl2_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `hydrous_stishovite_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
