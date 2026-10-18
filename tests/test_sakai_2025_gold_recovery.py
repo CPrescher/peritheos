@@ -185,11 +185,28 @@ def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
     assert volume_fit["conditional_numerical_parity_achieved"] is False
     assert result["conditional_numerical_parity_achieved"] is True
     assessment = result["reconstruction_assessment"]
-    assert assessment == saved["reconstruction_assessment"]
+    archived_assessment = saved["reconstruction_assessment"]
+    # Only the independently recalculated fit and its subtraction can vary
+    # across supported numerical builds. Source values, criteria and scientific
+    # qualifications must still match the archive exactly.
+    calculated = {"reconstructed_value", "difference"}
+    assert assessment.keys() == archived_assessment.keys()
+    assert {k: v for k, v in assessment.items() if k not in calculated} == {
+        k: v for k, v in archived_assessment.items() if k not in calculated
+    }
+    for key in calculated:
+        assert assessment[key] == pytest.approx(
+            archived_assessment[key], rel=0, abs=1e-8
+        )
+    assert assessment["difference"] == pytest.approx(
+        assessment["reconstructed_value"] - assessment["published_value"],
+        rel=0,
+        abs=1e-12,
+    )
     document = get_material_document("gold")
     record = next(r for r in document["eos_records"] if r["identifier"] == RECORD)
     assert (
-        assessment
+        archived_assessment
         == record["scientific_validation"]["primary_data_check"][
             "reconstruction_assessment"
         ]
@@ -197,7 +214,7 @@ def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
     manifest = json.loads(
         (DATA / "sakai-2025-au-source.json").read_text(encoding="utf-8")
     )
-    assert manifest["reconstruction_assessment"] == assessment
+    assert manifest["reconstruction_assessment"] == archived_assessment
     assert (
         manifest["reconstruction_report_sha256"]
         == hashlib.sha256(
@@ -220,7 +237,7 @@ def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
     for live, archived in zip(
         result["conditional_au_fits"], saved["conditional_au_fits"]
     ):
-        assert live["k0_prime"] == pytest.approx(archived["k0_prime"], abs=1e-10)
+        assert live["k0_prime"] == pytest.approx(archived["k0_prime"], rel=0, abs=1e-8)
     # The first branch truly recalibrates W before reducing the Au states.
     branch = result["measurement_only_sequential_branch"][0]
     assert branch["w_fit"]["rows"] == 54
